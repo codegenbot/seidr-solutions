@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -10,6 +9,8 @@ struct pair_int {
     int val;
     int i;
     int j;
+
+    pair_int() : val(0), i(-1), j(-1) {}
 };
 
 bool operator>(const pair_int &a, const pair_int &b) {
@@ -17,11 +18,7 @@ bool operator>(const pair_int &a, const pair_int &b) {
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 bool operator>(const pair_int &a, const pair_int &b) {
@@ -30,20 +27,20 @@ bool operator>(const pair_int &a, const pair_int &b) {
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
-    std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> pq; 
+    std::priority_queue<pair_int, std::vector<pair_int>, greater<pair_int>> pq; 
     std::vector<int> res;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             pair_int p = {grid[i][j], i, j};
-            pq.push(std::make_pair(p.val, std::make_pair(i, j)));
+            pq.push(p);
         }
     }
 
     while (!pq.empty()) {
-        int val = pq.top().first;
-        int pos_i = pq.top().second.first;
-        int pos_j = pq.top().second.second;
+        int val = pq.top().val;
+        int pos_i = pq.top().i;
+        int pos_j = pq.top().j;
         pq.pop();
 
         res.push_back(grid[pos_i][pos_j]);
@@ -59,7 +56,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
 
                     if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
                         pair_int p = {grid[ni][nj], ni, nj};
-                        pq.push(std::make_pair(p.val, std::make_pair(ni, nj)));
+                        pq.push(p);
                     }
                 }
             }

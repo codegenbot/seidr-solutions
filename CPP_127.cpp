@@ -8,7 +8,9 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
         return "no";
     else
     {
-        return std::to_string(interval1.first) + " " + std::to_string(std::min({interval1.second, interval2.second}));
+        std::ostringstream oss;
+        oss << interval1.first << " " << std::min({interval1.second, interval2.second});
+        return oss.str();
     }
 }
 

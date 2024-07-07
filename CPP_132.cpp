@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -24,10 +23,10 @@ bool is_nested(const std::string& str) {
 }
 
 int main() {
-    std::string input;
+    std::string str;
     std::cout << "Enter a string: ";
-    input = std::getline(std::cin, input);
-    if (is_nested(input)) {
+    std::getline(std::cin, str); 
+    if (is_nested(str)) {
         std::cout << "The string is nested." << std::endl;
     } else {
         std::cout << "The string is not nested." << std::endl;
