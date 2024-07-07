@@ -1,8 +1,4 @@
 ```cpp
-#include <iostream>
-#include <cmath>
-#include <cassert>
-
 int closest_integer(double num) {
     return static_cast<int>(num);
 }
