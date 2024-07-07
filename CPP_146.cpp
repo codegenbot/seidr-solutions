@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -18,9 +17,10 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << (i+1) << ": ";
+        std::cout << "Enter element " << i+1 << ": ";
         std::cin >> nums.push_back(i);
     }
-    std::cout << "The count is: " << specialFilter(nums);
+    int result = specialFilter(nums);
+    std::cout << "Number of elements that satisfy the condition: " << result;
     return 0;
 }
