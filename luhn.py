@@ -1,3 +1,2 @@
 def luhn(card):
-    card = list(map(int, card.replace(" ", "")))
-    return str(sum(((card[i] * 2) if i % 2 != 0 else card[i]) - 9 if (card[i] * 2) > 9 else (card[i] * 2) for i in range(len(card))) % 10)
+    return str(sum((int(d) * 2 if i % 2 != 0 else int(d)) if (int(d) * 2) > 9 else (int(d) * 2 - 9) for i, d in enumerate(str(card)) if d.isdigit()) % 10)
