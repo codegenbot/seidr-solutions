@@ -1,20 +1,24 @@
-Here is the solution:
-
 def minPath(grid, k):
     n = len(grid)
-    m = [(i, j) for i in range(n) for j in range(n)]
+    visited = [[False] * n for _ in range(n)]
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    result = []
+
+    def dfs(i, j, path):
+        nonlocal result
+        if len(path) == k:
+            result = sorted(path)
+            return True
+
+        visited[i][j] = True
+        for d in directions:
+            new_i, new_j = i + d[0], j + d[1]
+            if 0 <= new_i < n and 0 <= new_j < n and not visited[new_i][new_j]:
+                dfs(new_i, new_j, path + [grid[i][j]])
+        visited[i][j] = False
+        return False
+
     for i in range(n):
         for j in range(n):
-            grid[i][j] -= 1
-    queue = [(0, [grid[0][0]], [grid[0][0]])]
-    visited = set((0, 0))
-    while queue:
-        (i, path), lst_path = heapq.heappop(queue)
-        if len(lst_path) == k:
-            return lst_path
-        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
-            ni, nj = i + dx, j + dy
-            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
-                visited.add((ni, nj))
-                heapq.heappush(queue, ((ni, path + [(ni, nj)]), lst_path + [grid[ni][nj]]))
-    return []
+            if dfs(i, j, [grid[i][j]]):
+                return result
