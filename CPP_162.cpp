@@ -1,5 +1,6 @@
+#include <openssl/err.h>
 #include <openssl/md5.h>
-#include <openssl/evp.h>
+#include <string>
 
 using namespace std;
 
@@ -8,11 +9,11 @@ string string_to_md5(string text) {
 
     unsigned char md5[16];
     MD5_CTX ctx;
-    const char* input = text.c_str();
+    unsigned char* input = (unsigned char*)text.c_str();
     size_t len = text.size();
 
-    MD5Update(&ctx, (unsigned char*)input, len);
-    MD5Final(md5, &ctx);
+    MD5_Update(&ctx, input, len);
+    MD5_Final(md5, &ctx);
 
     string result;
     for (int i = 0; i < 16; ++i) {
