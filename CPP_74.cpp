@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <string>
 
@@ -18,9 +17,13 @@ int total_match(const std::vector<std::vector<std::string>>& v) {
 }
 
 int main() {
-    assert(issame({{{"this"}}}, {{}}));
-    std::vector<std::vector<std::string>> v1({{{"this"}}});
-    int sum = total_match(v1);
-    std::cout << "Total match: " << sum << std::endl;
+    std::vector<std::vector<std::string>> vec1({{{"this"}}});
+    std::vector<std::vector<std::string>> vec2({{{}}});
+
+    int sum1 = total_match(vec1);  
+    int sum2 = total_match(vec2);
+
+    assert(issame({{{"this"}}}, {{}} ));
+
     return 0;
 }
