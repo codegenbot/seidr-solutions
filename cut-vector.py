@@ -1,4 +1,3 @@
-```
 def cut_vector(vector):
     sorted_vector = sorted(vector)
     total_sum = sum(sorted_vector)
@@ -13,7 +12,10 @@ def cut_vector(vector):
             else:
                 right_sum += num
 
-        return sorted_vector[:len(sorted_vector)//2], sorted_vector[len(sorted_vector)//2:]
+        return (
+            sorted_vector[: len(sorted_vector) // 2],
+            sorted_vector[len(sorted_vector) // 2 :],
+        )
     else:
         half_sum = (total_sum + 1) // 2
         left_sum = right_sum = 0
@@ -24,4 +26,4 @@ def cut_vector(vector):
             else:
                 right_sum += num
 
-        return [], sorted_vector[len(sorted_vector)//2:]
+        return [], sorted_vector[len(sorted_vector) // 2 :]
