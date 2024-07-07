@@ -1,3 +1,7 @@
+#include <algorithm>
+#include <numeric>
+#include <cmath>
+#include <limits>
 #include <initializer_list>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
@@ -13,9 +17,9 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    sort(numbers.begin(), numbers.end());
-    float minDiff = numeric_limits<float>::max();
-    pair<float, float> closestPair;
+    std::sort(numbers.begin(), numbers.end());
+    float minDiff = std::numeric_limits<float>::max();
+    std::pair<float, float> closestPair;
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
@@ -25,5 +29,5 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
         }
     }
 
-    return vector<float>(closestPair.begin(), closestPair.end());
+    return std::vector<float>{closestPair.first, closestPair.second};
 }
