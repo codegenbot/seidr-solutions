@@ -6,4 +6,6 @@ def mastermind(code, guess):
             black_pegs += 1
         elif code[i] in guess:
             white_pegs += 1
-    return white_pegs + black_pegs
+        else:
+            white_pegs += 1
+    return (white_pegs, black_pegs)
