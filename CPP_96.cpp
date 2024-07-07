@@ -28,7 +28,7 @@ std::vector<int> count_up_to(int n) {
 
 int main() {
     std::vector<int> primes = count_up_to(101);
-    for (int prime : primes) {
+    for (const auto& prime : primes) {
         std::cout << "Prime number: " << prime << std::endl;
     }
 }
