@@ -1,3 +1,3 @@
-int str_length(string str){ 
-    return str.length(); 
+int str_length(string str){
+    return str.length();
 }
