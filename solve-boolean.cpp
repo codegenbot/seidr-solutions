@@ -1,4 +1,6 @@
+#include <stack>
 #include <string>
+
 string solveBoolean(string input) {
     stack<char> s;
     for (int i = 0; i < input.length(); i++) {
@@ -23,5 +25,4 @@ string solveBoolean(string input) {
         s.pop();
     }
 
-    return result == "tt" ? "True" : (result == "tf" || result == "ft" || result == "ff") ? "False" : "Invalid input";
-}
+    return result == "t" ? "True" : "False";
