@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <numeric> // For std::accumulate
+#include <numeric>
 
 int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int total_water = 0;
@@ -12,6 +12,7 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
         buckets_needed++;
     }
     return buckets_needed;
+
 }
 
 int main() {
