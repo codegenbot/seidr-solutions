@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 #include <vector>
 #include <algorithm> 
@@ -31,22 +30,19 @@ void calculateAndPrint() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<double> lst;
+    std::vector<double>(n);
     for(int i = 0; i < n; i++) {
         double num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
 
         if (num > 0.0 && std::fmod(num,2.0) != 0.0) { 
-            lst.push_back(num); 
-        } else {
-            std::cout << "Invalid input. Please enter a positive odd number." << std::endl;
+            std::vector<double>(n).push_back(num); 
         }
     }
 
-    double odd_sum = double_the_difference(lst);
-
-    calculateOddSums(lst);
+    double odd_sum = double_the_difference(std::vector<double>(n));
+    calculateOddSums(std::vector<double>(n));
 }
 
 int main() {
