@@ -7,5 +7,6 @@ def basement(vector):
             return i + 1
     return -1
 
+
 vector = [int(x) for x in input().split()]
 print(basement(vector))
