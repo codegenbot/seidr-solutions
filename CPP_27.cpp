@@ -1,12 +1,9 @@
-string filp_case(string str){
-    string result = "";
-    for(char c: str){
-        if(c >= 'a' && c <= 'z')
-            result += toupper(c);
-        else if(c >= 'A' && c <= 'Z')
-            result += tolower(c);
-        else 
-            result += c;
-    }
-    return result;
+char temp;
+for(int i = 0; i < str.length(); i++) {
+    temp = str[i];
+    if(temp >= 'a' && temp <= 'z')
+        str[i] = temp - ('a' - 'A');
+    else if(temp >= 'A' && temp <= 'Z')
+        str[i] = temp - ('A' - 'a');
 }
+return str;
