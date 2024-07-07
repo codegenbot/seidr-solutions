@@ -34,3 +34,4 @@ int getVal(std::string s) {
     else if (s == "I")
         val = 1;
     return val;
+}
