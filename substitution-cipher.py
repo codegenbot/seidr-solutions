@@ -1,4 +1,3 @@
-```
 def substitution_cipher(cipher_text1, cipher_text2, message):
     cipher_dict = {char: text_char for char, text_char in zip(cipher_text1, cipher_text2)}
     deciphered_message = ""
