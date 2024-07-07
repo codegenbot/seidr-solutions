@@ -1,3 +1,4 @@
+```
 def middle_character(s):
     mid = len(s) // 2
     if len(s) % 2 == 1:
