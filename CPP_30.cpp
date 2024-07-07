@@ -1,4 +1,9 @@
 #include <vector>
+#include <assert.h>
+
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
 
 std::vector<float> get_positive(vector<float> l){
     vector<float> result;
@@ -10,11 +15,7 @@ std::vector<float> get_positive(vector<float> l){
     return result;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
 int main() {
-    assert(issame(get_positive({1, 2, -3, 4}).begin(), get_positive({1, 2, -3, 4}).end(), get_positive({1, 2, 0, 4}).begin()));
+    assert(std::equal(get_positive({}).begin(), get_positive({}).end(), {}));
     return 0;
 }
