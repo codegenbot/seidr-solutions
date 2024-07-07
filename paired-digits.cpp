@@ -14,5 +14,5 @@ int main(){
         }
     }
     
-    cout<<"Sum of digit is: "<<sum;
+     cout<<"Sum of digit is: "<<sum;
 }
