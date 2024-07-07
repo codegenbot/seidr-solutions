@@ -1,12 +1,15 @@
 double find_zero(vector<double> xs){
-    double sum = 0;
-    int i;
-    for (i=0;i<xs.size();i++)
-    {
-        if(i%2==1) // odd power of x, so add to sum
-            sum+=xs[i];
-        else // even power of x, subtract from sum
-            sum-=xs[i];
+    double a = xs[0];
+    double b = xs[1];
+    double c = 0;
+    if (xs.size() >= 3) {
+        c = xs[2];
     }
-    return -sum/xs[0]; // find the root by solving poly(x) = 0
+    double d = 0;
+    if (xs.size() >= 4) {
+        d = xs[3];
+    }
+
+    double x = (-b + sqrt(pow(b, 2) - 4*a*c)) / (2*a);
+    return round(x, 2);
 }
