@@ -12,4 +12,3 @@ string int_to_mini_romank(int number) {
     }
     
     return roman;
-}
