@@ -12,7 +12,7 @@ std::vector<int> get_odd_collatz(int n) {
     return sequence;
 }
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool same_sequence(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -32,7 +32,7 @@ int main() {
     for (int i : output) {
         std::cout << i << " ";
     }
-    if (!same({1}, {1})) {
+    if (!same_sequence({1}, {1})) {
         std::cout << "Assertion failed." << std::endl;
     }
     return 0;
