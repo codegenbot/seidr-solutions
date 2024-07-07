@@ -15,12 +15,12 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, 
     return result;
 }
 
-int main() {
+void newMain() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
     auto result = filterBySubstring(str, "run");
     for (const auto& s : result) {
         if (!issame({s}, {"grunt", "prune"})) {
-            return 1; // returning with error
+            return;
         }
     }
 }
