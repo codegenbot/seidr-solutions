@@ -1,18 +1,13 @@
-#include <iostream>
+```cpp
 #include <string>
-using namespace std;
+#include <cctype>
 
-int digitSum(string s) {
+int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
-        if (isupper(c)) {
-            sum += c - 'A' + 1; 
+        if (std::isupper(c)) {
+            sum += std::tolower(c) - 'a' + 1;
         }
     }
     return sum;
-}
-
-int main() {
-    cout << digitSum("You arE Very Smart") << endl;
-    return 0;
 }
