@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+#include <cstdlib>
+
 int gcd(int a, int b) {
     if (b == 0)
         return a;
@@ -6,11 +10,8 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a;
-    cin >> a;
-    int b;
-    cin >> b;
-    int result = gcd(a, b);
-    cout << "GCD: " << result << endl;
+    int a = 12;
+    int b = 15; 
+    std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
     return 0;
 }
