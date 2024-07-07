@@ -1,23 +1,23 @@
-int main 
-{
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
+#include <vector>
+#include <cmath>
 
-    vector<float> v1(n);
-    vector<float> v2(n);
-
-    cout << "Enter elements for vector 1: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> v1[i];
+std::vector<float> derivative(std::vector<float> a) {
+    std::vector<float> result;
+    for (int i = 1; i < a.size() - 1; ++i) {
+        result.push_back((a[i+1] - a[i-1]) / 2.0);
     }
+    return result;
+}
 
-    cout << "Enter elements for vector 2: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> v2[i];
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (std::abs(a[i] - b[i]) > 1e-9) return false;
     }
+    return true;
+}
 
-    double result = similarity(v1, v2);
-    cout << "Similarity between the two vectors is: " << result << endl;
-    return 0;
+int main() {
+    assert(issame(derivative({1}), {}));
+    // more code here
 }
