@@ -1,30 +1,41 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
-std::string int_toMiniRoman(int num) {
-    if (num <= 0) {
-        return "Invalid input";
-    }
+std::string toMiniRoman(int num) {
+    if (num == 0)
+        return "0";
     std::string roman = "";
-    int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    const char *syms[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-    int i = 0;
-    while (num > 0) {
-        if (num >= values[i]) {
-            num -= values[i];
-            roman += syms[i];
-        } else {
-            i++;
-        }
+    int thousands = num / 1000;
+    for (int i = 0; i < thousands; i++)
+        roman += "M";
+    num %= 1000;
+    int hundreds = num / 100;
+    if (hundreds > 3)
+        roman += "CM" + toMiniRoman(hundreds - 300);
+    else {
+        for (int i = 0; i < hundreds; i++)
+            roman += "C";
+    }
+    num %= 100;
+    int tens = num / 10;
+    if (tens == 9)
+        roman += "IX";
+    else if (tens >= 5) {
+        roman += "D" + toMiniRoman(tens - 5);
+    } else {
+        for (int i = 0; i < tens; i++)
+            roman += "X";
+    }
+    num %= 10;
+    int ones = num;
+    if (ones == 9)
+        roman += "IX";
+    else if (ones >= 5) {
+        roman += "V" + toMiniRoman(ones - 5);
+    } else {
+        for (int i = 0; i < ones; i++)
+            roman += "I";
     }
     return roman;
-}
-
-int main() {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << "The mini Roman numeral is: " << int_toMiniRoman(num) << "\n";
-    return 0;
 }

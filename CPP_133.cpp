@@ -17,9 +17,7 @@ int main() {
         std::cerr << "Invalid input. Please enter two numbers." << std::endl;
         return 1;
     }
-    std::vector<double> input;
-    input.push_back(static_cast<double>(num1));
-    input.push_back(static_cast<double>(num2));
+    std::vector<double> input = {num1, num2};
     std::cout << "Sum of squares is: " << sum_squares(input) << std::endl;
     return 0;
 }
