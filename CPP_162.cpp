@@ -1,12 +1,11 @@
-#include <openssl/md5.h>
+```cpp
 #include <string>
+#include <sstream>
 
 using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) {
-        return "";
-    }
+    if (text.empty()) return "";
 
     unsigned char md5[16];
     MD5_CTX ctx;
@@ -16,12 +15,10 @@ string string_to_md5(string text) {
     MD5_Update(&ctx, ptr, len);
     MD5_Final(md5, &ctx);
 
-    string result;
+    stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        char buffer[3];
-        sprintf(buffer, "%02x", md5[i]);
-        result += string(buffer);
+        ss << setfill('0') << setw(2) << hex << (int)md5[i];
     }
 
-    return result;
+    return ss.str();
 }
