@@ -1,5 +1,19 @@
+#include <vector>
+#include <string>
+
+using namespace std;
+
 vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    vector<std::string> planets;
+    planets.push_back("Mercury");
+    planets.push_back("Venus");
+    planets.push_back("Earth");
+    planets.push_back("Mars");
+    planets.push_back("Jupiter");
+    planets.push_back("Saturn");
+    planets.push_back("Uranus");
+    planets.push_back("Neptune");
+    
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
@@ -13,12 +27,7 @@ vector<string> bf(string planet1, string planet2) {
     if (index1 == -1 || index2 == -1)
         return {};
     
-    vector<string> result;
-    for (int i = 0; i < planets.size(); i++) {
-        if (i > index1 && i < index2) {
-            result.push_back(planets[i]);
-        }
-    }
+    vector<std::string> result(planets.begin() + min(index1, index2), planets.begin() + max(index1, index2));
     
     return result;
 }
