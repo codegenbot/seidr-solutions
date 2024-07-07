@@ -12,7 +12,7 @@ vector<int> strange_sort_list(vector<int> lst) {
         int min_val = *min_element(lst.begin(), lst.end());
         result.push_back(min_val);
         lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
-        
+
         if (!lst.empty()) {
             int max_val = *max_element(lst.begin(), lst.end());
             result.push_back(max_val);
@@ -24,10 +24,8 @@ vector<int> strange_sort_list(vector<int> lst) {
 
 int main() {
     vector<int> input = {1, 2, 3};
-    vector<int> expected = {1, 3, 2};
-    
+    vector<int> expected_output = {1, 3, 2};
     vector<int> output = strange_sort_list(input);
-    assert(issame(output, expected));
-    
+    assert(issame(output, expected_output));
     return 0;
 }
