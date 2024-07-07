@@ -1,26 +1,30 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
-int main() {
-    vector<string> strings;
-    string outputString;
-
-    while (true) {
-        cin.ignore(); 
-        cout << "Enter a string (or stop to finish): ";
-        getline(cin, outputString);
-
-        if (outputString == "stop") break;
-
-        strings.push_back(outputString);
-    }
-
-    string result = "";
+std::vector<std::string> concatenate(const std::vector<std::string>& strings) {
+    std::string result = "";
     for (const auto& str : strings) {
         result += str + " ";
     }
-    cout << "Concatenated string: " << result << endl;
+    return result;
+}
+
+int main() {
+    std::vector<std::string> strings;
+    std::string userInput;
+
+    while (true) {
+        cin.ignore();
+        std::cout << "Enter a string (or stop to finish): ";
+        getline(cin, userInput);
+
+        if (userInput == "stop") break;
+
+        strings.push_back(userInput);
+    }
+
+    std::string result = concatenate(strings);
+    std::cout << "Concatenated string: " << result << endl;
     return 0;
 }
