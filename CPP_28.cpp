@@ -4,18 +4,18 @@
 
 std::vector<std::string> concatenate(const std::vector<std::string>& strings) {
     if (strings.empty()) {
-        return {""); // Return a vector with an empty string
+        return {};
     }
 
     std::string prefix = strings[0];
     for (auto it = strings.begin() + 1; it != strings.end(); ++it) {
         if (*it == prefix) {
-            std::cout << *it << " ";
+            // process same strings
         } else {
-            std::cout << prefix + *it << " ";
+            // concatenate different strings
         }
     }
-    return {""); // Return a vector with an empty string
+    return {};
 }
 
 int main() {
@@ -26,7 +26,11 @@ int main() {
         strings.push_back(input);
     }
 
-    concatenate(strings);
+    if (!strings.empty()) {
+        concatenate(strings);
+    } else {
+        std::cout << "No strings to concatenate." << std::endl;
+    }
 
     return 0;
 }
