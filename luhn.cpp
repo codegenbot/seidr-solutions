@@ -7,12 +7,12 @@ using namespace std;
 
 int luhn(const vector<string>& digits) {
     int sum = 0;
-    for (int i = digits.size() - 2; i >= 0; i -= 2) {
-        int digit = stoi(digits[i]) * 2;
-        if (digit > 9) {
-            digit %= 10;
+    for (auto& digit : digits) {
+        int doubledDigit = stoi(digit) * 2;
+        if (doubledDigit > 9) {
+            doubledDigit %= 10;
         }
-        sum += digit;
+        sum += doubledDigit;
     }
     return sum;
 }
@@ -27,8 +27,5 @@ int main() {
         }
     }
     int sum = luhn(digits);
-    if (sum > 9) {
-        sum %= 10;
-    }
     cout << "Sum of doubled digits: " << sum << endl;
 }
