@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -24,8 +23,10 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
 
-    string str = to_string(n);
-    int num = stoi(str);
-    cout << "The count of the numbers of " << str << "-digit positive integers that start or end with 1 is: " << starts_one_ends(num) << endl;
+    if (n > 10 && n <= 1000000) {
+        cout << "The count of numbers that start or end with 1 is: " << starts_one_ends(n) << endl;
+    } else {
+        cout << "Input value is out of range." << endl;
+    }
     return 0;
 }
