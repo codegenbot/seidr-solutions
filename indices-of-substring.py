@@ -8,6 +8,3 @@ def indices_of_substring(text, target):
         result.append(pos)
         i = pos + 1
     return result
-
-text = input()
-print(indices_of_substring(text, target=input()))
