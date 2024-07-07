@@ -1,3 +1,4 @@
+```
 #include <cassert>
 #include <string>
 #include <initializer_list>
@@ -12,7 +13,4 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
         return "NO";
 }
 
-int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "NO");
-    return 0;
-}
+assert(intersection({-2, -2}, {-3, -2}) == "NO");
