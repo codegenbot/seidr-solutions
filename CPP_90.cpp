@@ -1,9 +1,16 @@
+Here is the solution:
+
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // None in Python
-    vector<int> sortedLst(lst);
-    sort(sortedLst.begin(), sortedLst.end());
-    for (int i = 0; i < sortedLst.size() - 1; i++) {
-        if (sortedLst[i] != sortedLst[i+1]) return sortedLst[i+1];
+    vector<int> vec(lst);
+    sort(vec.begin(), vec.end());
+    
+    if (vec.size() < 2)
+        return -1; // or None in Python
+    
+    for (int i = 0; i < vec.size() - 1; i++) {
+        if (vec[i] != vec[i + 1])
+            return vec[i + 1];
     }
-    return -1; // None in Python
+    
+    return -1; // or None in Python
 }
