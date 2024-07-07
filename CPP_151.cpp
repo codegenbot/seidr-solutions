@@ -30,25 +30,35 @@ void calculateAndPrint() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<double> lst({}); // Initialize with an empty vector.
+    std::vector<double> lst;
     for(int i = 0; i < n; i++) {
         double num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
+        while(true) {
+            std::cout << "Enter element " << i+1 << ": ";
+            std::cin >> num;
 
-        if (num > 0.0 && std::fmod(num,2.0) != 0.0) { 
-            lst.push_back(num); 
-        } else {
-            std::cout << "Invalid input. Please enter a positive odd number." << std::endl;
+            if (num > 0.0 && std::fmod(num,2.0) != 0.0) { 
+                lst.push_back(num); 
+                break; // Exit the loop once a valid number is entered.
+            } else {
+                std::cout << "Invalid input. Please enter a positive odd number." << std::endl;
+            }
         }
     }
 
-    double odd_sum = double_the_difference(lst);
+    double total_sum = 0;
+    for(double y : lst) {
+        if (y > 0.0 && std::fmod(y, 2.0) != 0.0) { 
+            total_sum += y;
+        }
+    }
+    double average = total_sum / static_cast<double>(std::count_if(lst.begin(), lst.end(), [](double x){ return x > 0.0 && std::fmod(x, 2.0) != 0.0; }));
+    std::cout << "Average of odd numbers: " << average << std::endl;
 
-    calculateOddSums(lst);
+    double the_difference = double_the_difference(lst);
+    std::cout << "Total sum: " << the_difference << std::endl;
 }
 
-int main() {
+void main() {
     calculateAndPrint();
-    return 0;
 }
