@@ -10,5 +10,8 @@ int closest_integer(string value) {
 }
 
 int main() {
-    assert(closest_integer("0") == 0);
+    string userInput;
+    cout << "Enter a number: ";
+    getline(cin, userInput);
+    cout << "The closest integer is: " << closest_integer(userInput) << endl;
 }
