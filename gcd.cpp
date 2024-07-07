@@ -1,13 +1,14 @@
+```cpp
 #include <vector>
 #include <string>
 
 using std::string;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> result;
     int n = text.length();
     int m = target.length();
-
+    
     for(int i=0; i<=n-m; i++){
         bool found = true;
         for(int j=0; j<m; j++){
@@ -18,8 +19,9 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if(found) result.push_back(i);
     }
-
+    
     return result;
+
 }
 
 int gcd(int a, int b) {
