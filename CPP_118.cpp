@@ -6,11 +6,13 @@ string get_closest_vowel(string word) {
             break;
         }
     }
+    
     for (int i = left; i < word.size(); i++) {
         if (isvowel(word[i])) {
             return string(1, word[i]);
         }
     }
+    
     return "";
 }
 
