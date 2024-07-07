@@ -3,7 +3,6 @@
 #include <algorithm>
 
 std::string spinWords(std::string str) {
-    std::string result = "";
     std::stringstream ss(str);
     std::string word;
 
