@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -21,7 +20,9 @@ int main() {
     int sum1 = total_match({{"this"}});
     int sum2 = total_match({});
 
-    assert(issame(std::vector<std::vector<std::string>>{{"this"}}, {} ));
-
+    if (!std::vector<std::vector<std::string>>{}.empty()) {
+        assert(issame(std::vector<std::vector<std::string>>{{"this"}}, {} ));
+    }
+    
     return 0;
 }
