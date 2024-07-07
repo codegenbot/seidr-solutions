@@ -1,20 +1,39 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int min_diff = INT_MAX;
-    int idx = 0;
+vector<vector<int>> cutVector(vector<int> vec) {
+    int n = vec.size();
+    vector<vector<int>> result;
     
-    for(int i = 1; i < vec.size(); i++) {
-        int diff = abs(vec[i] - vec[0]);
-        if(diff <= min_diff) {
-            min_diff = diff;
-            idx = i;
+    for (int i = 1; i < n; i++) {
+        if (vec[i] - vec[0] == vec[i-1] - vec[0]) {
+            result.push_back({vec.begin(), vec.begin() + i});
+            vec.erase(vec.begin());
+            break;
         }
     }
     
-    vector<int> left(vec.begin(), vec.begin() + idx);
-    vector<int> right(vec.begin() + idx, vec.end());
+    result.push_back({vec.begin(), vec.end()});
     
-    return make_pair(left, right);
+    return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
+    }
+    
+    vector<vector<int>> res = cutVector(vec);
+    
+    for (auto &v : res) {
+        for (int x : v) {
+            cout << x << " ";
+        }
+        cout << endl;
+    }
+    
+    return 0;
 }
