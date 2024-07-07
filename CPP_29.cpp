@@ -1,4 +1,6 @@
-```cpp
+#include <vector>
+#include <string>
+
 bool equalVectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a.size() == b.size();
 }
