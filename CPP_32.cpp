@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -25,7 +26,7 @@ double find_zero(vector<double> coeffs){
     return -sum / coeffs[0];
 }
 
-void find_and_print_zero() {
+int main() {
     vector<double> poly_coeffs;
     double temp;
 
@@ -43,11 +44,7 @@ void find_and_print_zero() {
     } else {
         double solution = find_zero(poly_coeffs);
         assert(abs(poly(poly_coeffs, solution)) < 1e-3);
-        cout << "The zero of the polynomial is: " << solution << endl;
     }
-}
-
-int main() {
-    find_and_print_zero();
+    
     return 0;
 }
