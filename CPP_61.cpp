@@ -1,22 +1,11 @@
 #include <string>
-#include <iostream>
 
-int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << (correct_bracketing(input) ? "true" : "false") << std::endl;
-}
-
-bool correct_bracketing(const std::string& brackets){
+int correct_bracketing(string brackets){
     int count = 0;
-    for(int i=0; i<brackets.size(); i++){
-        if(brackets[i] == '(')
-            count++;
-        else
-            if(count <= 0)
-                return false;
-            else
-                count--;
+    for(int i=0; i<brackets.length(); i++){
+        if(brackets[i] == '(') count++;
+        else if(brackets[i] == ')') count--;
+        if(count < 0) return false;
     }
-    return count==0;
+    return (count == 0);
 }
