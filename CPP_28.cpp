@@ -1,14 +1,13 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-#include <sstream>
 
 int main() {
     std::vector<std::string> strings;
     std::string input;
 
-    std::stringstream ss(std::cin.rdbuf());
-    while (std::getline(ss, input)) {
+    while (std::cin >> std::ws >> input) {
         strings.push_back(input);
     }
 
