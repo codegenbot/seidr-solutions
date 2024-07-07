@@ -4,12 +4,11 @@ def coin_sums(cents):
     result = [0, 0, 0, 0]
 
     for i in range(len(coins)):
-        while cents >= coins[i]:
-            cents -= coins[i]
-            result[i] += 1
+        result[i] = cents // coins[i]
+        cents %= coins[i]
 
-    return ' '.join(map(str, result))
+    return result
 
 
 cents = int(input())
-print(coin_sums(cents))
+print(*coin_sums(cents))
