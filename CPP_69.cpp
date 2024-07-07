@@ -9,12 +9,12 @@ int search(int n) {
 }
 
 void runUserInput() {
-    string str;
-    cout << "Enter a word: ";
-    getline(cin, str); 
-    int num = stoi(str);
+    int num;
+    cout << "Enter a positive integer (for example, 1, 2 or 3): ";
+    cin >> num; 
+    string strNum = to_string(num); // Convert integer to string
     if (num >= 0) {
-        cout << "The search function returns " << search(num) << " for the number " << num << "." << endl;
+        cout << "The search function returns " << search(stoi(strNum)) << " for the number " << num << "." << endl;
     } else {
         cout << "The search function returns -1 for negative numbers." << endl;
     }
