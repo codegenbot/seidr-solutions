@@ -15,19 +15,14 @@ int count_nums(vector<int> nums) {
             int sum = 0;
             bool is_negative = true;
             while (num > 0) {
-                if (is_negative) {
-                    if (num % 10 < 0) {
-                        sum += num % 10 + 10;
-                        num /= 10;
-                    } else {
-                        sum += num % 10;
-                        num /= 10;
-                    }
-                    is_negative = false;
-                } else {
+                if (!is_negative) {
                     sum += num % 10;
-                    num /= 10;
                 }
+                num /= 10;
+                if (num == 0 && !is_negative) {
+                    break;
+                }
+                is_negative = false;
             }
             if (sum > 0) {
                 count++;
