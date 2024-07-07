@@ -1,6 +1,4 @@
-```cpp
-#include <vector>
-#include <algorithm>
+#include <initializer_list>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
@@ -14,9 +12,8 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-float get_positive(std::initializer_list<float> input) {
-    std::vector<float> v(input.begin(), input.end());
-    return *std::max_element(v.begin(), v.end());
+float get_positive(std::vector<float> input) {
+    return *std::max_element(input.begin(), input.end());
 }
 
 int main() {
