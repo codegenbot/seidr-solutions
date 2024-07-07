@@ -18,7 +18,7 @@ int main() {
     string str, substring;
     cout << "Enter the string: ";
     cin >> str;
-    cout << "Enter substring: ";
+    cin.ignore(); // Ignore the newline character
     getline(cin, substring);
     if (str.empty()) {
         cout << "Error: The input string is empty." << endl;
