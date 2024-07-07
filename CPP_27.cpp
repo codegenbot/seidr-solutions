@@ -4,9 +4,9 @@ string flip_case(string str){
         char c = str[i];
         if(c >= 'a' && c <= 'z'){
             result += toupper(c);
-        }else if(c >= 'A' && c <= 'Z'){
+        } else if(c >= 'A' && c <= 'Z'){
             result += tolower(c);
-        }else{
+        } else {
             result += c;
         }
     }
