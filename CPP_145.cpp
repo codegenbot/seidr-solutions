@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -59,5 +60,5 @@ int main() {
     } else {
         cout << "Test passed" << endl;
     }
-    return 0;
+    // int main() { ... }
 }
