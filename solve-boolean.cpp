@@ -11,41 +11,35 @@ bool solveBoolean(string s) {
         char c = s[i];
         if (c == '|') {
             bool subRes = evaluateTerm(term);
-            res = res || subRes;
+            if (!subRes) return false;
             term = "";
         } 
+        else if (c == '&') {
+            if (term != "t") res = false;
+            term = "";
+        }
         else if (c == 't' || c == 'f') {
             if (c == 't') term += 't';
             else if (c == 'f') term += 'f';
         }
     }
-    if (!term.empty()) {
-        bool subRes = evaluateTerm(term);
-        res = res || subRes;
-    }
-
-    return res;
+    bool subRes = evaluateTerm(term);
+    if (!subRes) return false;
+    return true;
 }
 
 bool evaluateTerm(string term) {
-    bool res = true;
-    string subTerm;
+    if (term == "t") return true;
+    if (term == "f") return false;
+
     for (int i = 0; i < term.length(); i++) {
         char c = term[i];
         if (c == '&') {
-            if (subTerm == "tt") res = true;
-            else if (subTerm == "tf" || subTerm == "ft" || subTerm == "ff") res = false;
-            subTerm = "";
-        } 
-        else if (c == 't' || c == 'f') {
-            if (c == 't') subTerm += 't';
-            else if (c == 'f') subTerm += 'f';
+            if (i % 2 == 0) return (term.substr(0, i) == "tt");
+            else return (term.substr(i + 1) == "ff");
         }
     }
-    if (subTerm == "tt") res = true;
-    else if (subTerm == "tf" || subTerm == "ft" || subTerm == "ff") res = false;
-
-    return res;
+    return true;
 }
 
 int main() {
