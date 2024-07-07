@@ -1,4 +1,3 @@
-    #include <vector>
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     int prev_idx = -1;
     std::vector<int> result;
