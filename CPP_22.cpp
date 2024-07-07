@@ -12,12 +12,15 @@ std::vector<int> filter_integers(std::list<boost::any> values){
         if (boost::any_cast<int>(value).good()) {
             result.push_back(boost::any_cast<int>(value).get());
         }
+        else if (boost::any_cast<std::string>(value).good()) {
+            int num = std::stoi(boost::any_cast<std::string>(value).get().c_str());
+            result.push_back(num);
+        }
     }
     return result;
 }
 
 int main() {
-    // Use the function
     assert(std::issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
