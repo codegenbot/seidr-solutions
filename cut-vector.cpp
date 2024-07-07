@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> vec) {
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     int minDiff = INT_MAX;
     int cutIndex = 0;
     
@@ -14,8 +14,8 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> vec) {
         }
     }
     
-    std::vector<int> leftVec = std::vector<int>(vec.begin(), vec.begin() + cutIndex);
-    std::vector<int> rightVec = std::vector<int>(vec.begin() + cutIndex, vec.end());
+    vector<int> leftVec = vector<int>(vec.begin(), vec.begin() + cutIndex);
+    vector<int> rightVec = vector<int>(vec.begin() + cutIndex, vec.end());
     
     return {leftVec, rightVec};
 }
@@ -28,7 +28,7 @@ int main() {
         std::cin >> vec[i];
     }
     
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(vec);
+    auto result = cutVector(vec);
     
     std::cout << "[";
     for (int num : result.first) {
