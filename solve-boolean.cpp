@@ -1,4 +1,3 @@
-
 bool evaluate(const string &expression) {
     stack<char> operators;
     bool result = true;
@@ -14,13 +13,13 @@ bool evaluate(const string &expression) {
         } else {
             char operator = operators.top();
             if (operator == '|') {
-                result ||= expression[i];
+                result = result || expression[i];
             } else if (operator == '&') {
-                result &&= expression[i];
+                result = result && expression[i];
             } else if (operator == '^') {
-                result != expression[i];
+                result = result ^ expression[i];
             }
         }
     }
-    return result;
+    return result && expression != "false";
 }
