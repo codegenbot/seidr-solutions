@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <new>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -44,7 +45,6 @@ std::string letterGrade(float grade) {
 
 std::vector<std::string> numericalLetterGrade(std::vector<float> grades) {
     std::vector<std::string> result;
-    std::vector<std::string>().reserve(grades.size());
     for (float grade : grades) {
         std::string letter = letterGrade(grade);
         result.push_back(letter);
