@@ -1,13 +1,9 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
-#include <limits>
-
-using namespace std;
 
 std::vector<int> get_odd_collatz(int n);
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -31,13 +27,13 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1), vector<int>({1})));  
+    assert(issame(get_odd_collatz(6), std::vector<int>({1, 5})));  
     int input;
-    cout << "Enter a number: ";
-    cin >> input;
-    vector<int> output = get_odd_collatz(input);
+    std::cout << "Enter a number: ";
+    std::cin >> input;
+    std::vector<int> output = get_odd_collatz(input);
     for (int num : output) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
     return 0;
 }

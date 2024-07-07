@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
@@ -37,7 +38,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
 int main() {
     std::vector<std::string> expected = {"mamma", (issame(reverse_delete("mamma", "mia"), reverse_delete("mamma", "mia")) ? "True" : "False")};
-    if (!issame({reverse_delete("mamma", "mia")[0], reverse_delete("mamma", "mia")[1]}, expected))
-        return 1;
+    assert(issame({reverse_delete("mamma", "mia")[0], reverse_delete("mamma", "mia")[1]}, expected));
     return 0;
 }
