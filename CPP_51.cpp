@@ -1,7 +1,7 @@
 string remove_vowels(string text){
     string result = "";
-    for(int i=0; i < text.length(); i++){
-        if(toupper(text[i]) != 'A' && toupper(text[i]) != 'E' && toupper(text[i]) != 'I' && toupper(text[i]) != 'O' && toupper(text[i]) != 'U'){
+    for(int i=0; i<text.length(); i++){
+        if(text[i] != 'a' && text[i] != 'e' && text[i] != 'i' && text[i] != 'o' && text[i] != 'u' && text[i] != 'A' && text[i] != 'E' && text[i] != 'I' && text[i] != 'O' && text[i] != 'U'){
             result += text[i];
         }
     }
