@@ -5,17 +5,17 @@ using namespace std;
 int can_arrange(vector<int> arr);
 
 int main() {
-    vector<int> v = {1, 2, 3, 4};
-    cout << "Array: ";
-    for (int i : v) {
-        cout << i << " ";
+    vector<int> arr;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> x;
+        arr.push_back(x);
     }
-    cout << endl;
-    int result = can_arrange(v);
-    if(result == -1)
-        cout << "The array is already sorted." << endl;
-    else
-        cout << "First out of order element: " << result << endl;
+    cout << "The array can be arranged in strictly increasing order up to index: " << can_arrange(arr) << endl;
     return 0;
 }
 
