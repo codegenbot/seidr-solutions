@@ -7,35 +7,15 @@ using namespace std;
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string s = (string)b.convert_to<string>();
-        size_t pos = s.find(',');
-        if (pos != string::npos) {
-            s.erase(pos, 1);
-        }
-        return max((float)a.convert_to<float>(), stof(s));
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if ((string)a.convert_to<string>() > (string)b.convert_to<string>()) {
-            return a;
-        } else if ((string)a.convert_to<string()] < (string)b.convert_to<string>()) {
-            return b;
-        } else {
-            return boost::any("None");
-        }
     } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string s = (string)b.convert_to<string>();
-        size_t pos = s.find(',');
-        if (pos != string::npos) {
-            s.erase(pos, 1);
-        }
-        return max((int)a.convert_to<int>(), stof(s));
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        int i = (int)b.convert_to<int>();
-        size_t pos = (string)a.find(',');
-        if (pos != string::npos) {
-            (string)a.erase(pos, 1);
-        }
-        return max(stof((string)a), i);
+        return (string)b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string strA = to_string(a.convert_to<float>());
+        return (b.convert_to<string>() > strA ? b : a);
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return (a.convert_to<string>() > b.convert_to<string>() ? a : b);
+    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return (a.convert_to<int>() > b.convert_to<int>() ? a : b);
     } else {
         return boost::any("None");
     }
