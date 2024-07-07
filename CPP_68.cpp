@@ -31,7 +31,7 @@ std::vector<int> pluck(std::vector<int> arr) {
 
 int main() {
     std::vector<int> input;
-    size_t n;
+    unsigned long n;
 
     // Read input
     std::cout << "Enter the number of elements: ";
