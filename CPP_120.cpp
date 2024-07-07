@@ -1,16 +1,18 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <algorithm> 
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+using namespace std;
+
+bool isSame(vector<int> a,vector<int>b){
+    return a==b; 
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> arrCopy = arr;
-    std::sort(arrCopy.begin(), arrCopy.end());
+    arrCopy.sort(); 
     if (k > arrCopy.size()) {
         k = arrCopy.size();
     }
-    return arrCopy;
+    return {arrCopy.begin(), arrCopy.begin() + k};
 }
