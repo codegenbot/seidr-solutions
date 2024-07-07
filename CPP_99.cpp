@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -14,6 +15,6 @@ int main() {
     double num;
     cout << "Enter a number: ";
     cin >> num;
-    cout << "The closest integer is: " << closest_integer(num) << endl;
+    cout << "The closest integer is: " << closest_integer(0) << endl;
     return 0;
 }
