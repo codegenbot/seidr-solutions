@@ -1,9 +1,10 @@
 #include <vector>
-#include <string>
+#include <algorithm>
 
 bool issame(vector<string> a,vector<string>b){
-    for(string s : a){
-        if(find(b.begin(),b.end(),s) == b.end())
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i<a.size();i++){
+        if(find(b.begin(),b.end(),a[i]) == b.end())
             return false;
     }
     return true;
@@ -12,20 +13,19 @@ bool issame(vector<string> a,vector<string>b){
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings){
-        if(s.find(substring) != string::npos && issame(split(s,substring),split(substring,substring)))
+        if(issame(split(s,substring),split(substring,substring)))
             result.push_back(s);
     }
     return result;
 }
 
-vector<string> split(string str,string substr){
-    vector<string> res;
+vector<string> split(string str,string token){
+    vector<string> result;
     size_t pos = 0;
-    while((pos=str.find(substr)) != string::npos){
-        res.push_back(str.substr(0,pos));
-        str= str.substr(pos+substr.length());
-        pos = 0;
+    while((pos=str.find(token)) != string::npos) {
+        result.push_back(str.substr(0,pos));
+        str.erase(0, pos + token.size());
     }
-    res.push_back(str);
-    return res;
+    result.push_back(str);
+    return result;
 }
