@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -12,15 +11,10 @@ int solution(std::vector<int> arr) {
 }
 
 int main() { 
-    int n; 
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n; 
-    std::vector<int> arr(n); 
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> arr[i]; 
-    }
-    int result = solution(arr); 
+    int arr[] = {3, 13, 2, 9}; 
+    int n = sizeof(arr) / sizeof(arr[0]); 
+    std::vector<int> arrVector(arr, arr + n); 
+    int result = solution(arrVector); 
     std::cout << "Result: " << result << std::endl;
     return 0;
 }
