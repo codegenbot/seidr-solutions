@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -16,16 +15,6 @@ vector<int> unique(vector<int> l) {
 }
 
 vector<int> mainFunction() {
-    int n;
-    vector<int> l;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int temp;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> temp;
-        l.push_back(temp);
-    }
-    vector<int> result = unique(l);
-    return result;
+    vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    return unique(l);
 }
