@@ -8,7 +8,7 @@
 double double_the_difference(std::vector<double> lst) {
     double odd_sum = 0;
     for(double y : lst) {
-        if (y > 0.0 && std::floor(y) == y && !std::isnan(std::fmod(y, 2.0)) && std::fmod(y, 2.0) != 0.0) { 
+        if (y > 0.0 && std::floor(y) == y && std::fmod(y, 2.0) != 0.0) { 
             odd_sum += std::pow(y, 2);
         }
     }
@@ -18,11 +18,11 @@ double double_the_difference(std::vector<double> lst) {
 void calculateOddSums(std::vector<double> lst) {
     double total_sum = 0;
     for(double y : lst) {
-        if (y > 0.0 && std::floor(y) == y && !std::isnan(std::fmod(y, 2.0)) && std::fmod(y, 2.0) != 0.0) { 
+        if (y > 0.0 && std::floor(y) == y && std::fmod(y, 2.0) != 0.0) { 
             total_sum += y;
         }
     }
-    double average = total_sum / std::count_if(lst.begin(), lst.end(), [](double x){ return x > 0.0 && std::floor(x) == x && !std::isnan(std::fmod(x, 2.0)) && std::fmod(x, 2.0) != 0.0; });
+    double average = total_sum / std::count_if(lst.begin(), lst.end(), [](double x){ return x > 0.0 && std::floor(x) == x && std::fmod(x, 2.0) != 0.0; });
     std::cout << "Average of odd numbers: " << average << std::endl;
 }
 
@@ -37,7 +37,7 @@ int main() {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
 
-        if (!std::isnan(std::fmod(num,2.0)) && std::fmod(num,2.0) != 0.0) { 
+        if (num > 0.0 && std::fmod(num,2.0) != 0.0) { 
             lst.push_back(num);
         }
     }
