@@ -1,13 +1,21 @@
+#include <vector>
 #include <algorithm>
 
-vector<float> rescale_to_unit(vector<float> numbers) {
-    auto min_val = *min_element(numbers.begin(), numbers.end());
-    auto max_val = *max_element(numbers.begin(), numbers.end());
+using namespace std;
 
+vector<float> rescale_to_unit(vector<float> numbers) {
     vector<float> result;
-    for (float num : numbers) {
-        float scaled_num = (num - min_val) / (max_val - min_val);
-        result.push_back(scaled_num);
+    
+    if (numbers.size() < 2) {
+        return result; // or throw an exception, depending on your needs
     }
+    
+    float minVal = *min_element(numbers.begin(), numbers.end());
+    float maxVal = *max_element(numbers.begin(), numbers.end());
+    
+    for (float num : numbers) {
+        result.push_back((num - minVal) / (maxVal - minVal));
+    }
+    
     return result;
 }
