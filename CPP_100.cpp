@@ -9,7 +9,7 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool isSameVector(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -27,8 +27,6 @@ int main() {
     for (auto it = pile.begin(); it != pile.end(); ++it) {
         *it -= 1;
     }
-    if (!same(make_a_pile(8), pile)) {
-        return 1;
-    }
+    assert(isSameVector({8, 10, 12, 14, 16, 18, 20, 22}, make_a_pile(8)));
     return 0;
 }
