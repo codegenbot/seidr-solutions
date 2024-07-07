@@ -1,25 +1,34 @@
 #include <string>
+#include <vector>
 
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
+    vector<int> code_count(6, 0);
+    vector<int> guess_count(6, 0);
+
+    for (char c : code) {
+        code_count[c - 'A']++;
+    }
+
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
             black++;
-        }
-    }
-
-    for(int i = 0; i < 6; i++) {
-        int count = 0;
-        for(int j = 0; j < 4; j++) {
-            if(guess[j] == (char)(i + 'A')) {
-                count++;
+            code_count[guess[i] - 'A']--;
+            guess_count[guess[i] - 'A']--;
+        } else {
+            int j;
+            for (j = 0; j < 6; j++) {
+                if (code_count[j] > 0 && guess[j] == guess[i]) {
+                    break;
+                }
             }
-        }
-        if(count > 0 && code.find((char)(i + 'A')) != string::npos) {
-            white += count - 1;
+            code_count[j]--;
+            guess_count[guess[i] - 'A']--;
         }
     }
 
-    return black + white;
+    white = 4 - black;
+
+    return black;
