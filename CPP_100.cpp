@@ -1,8 +1,6 @@
 #include <algorithm>
 #include <vector>
 
-using namespace std;
-
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
     for (int i = 1; i <= n; ++i) {
@@ -11,7 +9,7 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool check(std::vector<int> a, std::vector<int> b) {
     if(a.size()!=b.size())return false;
     for(int i=0;i<a.size();i++){
         if(a[i]!=b[b.size()-1-i])return false;
@@ -19,7 +17,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-int testMain() {
+int main() {
     int n = 8;
     std::vector<int> pile = make_a_pile(n);
     std::sort(pile.begin(), pile.end());
@@ -27,7 +25,7 @@ int testMain() {
         *it -= 1;
     }
     
-    assert(issame(make_a_pile(n), {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(check(make_a_pile(n), {8, 10, 12, 14, 16, 18, 20, 22}));
     
     return 0;
 }
