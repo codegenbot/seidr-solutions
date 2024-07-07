@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main() {
@@ -26,14 +25,14 @@ int main() {
 
     int pennies = 0;
     while (cents > 0) {
-        pennies = cents;
-        cents = 0;
+        pennies++;
+        cents--;
     }
 
-    cout << to_string(quarters) << endl;
-    cout << to_string(dimes) << endl;
-    cout << to_string(nickles) << endl;
-    cout << to_string(pennies) << endl;
+    cout << quarters << endl;
+    cout << dimes << endl;
+    cout << nickles << endl;
+    cout << pennies << endl;
 
     return 0;
 }
