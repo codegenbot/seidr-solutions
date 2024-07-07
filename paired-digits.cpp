@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
 int main() {
     int sum = 0;
     
@@ -9,9 +8,9 @@ int main() {
     cout << "Enter a string: ";
     cin >> str;
     
-    for (int i = 1; i < str.size(); i++) {
-        if (str[i] == str[i - 1]) {
-            sum += str[i];
+    for (int i = str.size() - 1, j = 0; i >= 0; i--, j++) {
+        if (str[i] == str[j]) {
+            sum += str[i] - '0';
         }
     }
     
