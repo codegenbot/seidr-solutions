@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -32,19 +31,4 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (stof(as) > stof(bs)) ? a : ((stof(bs) > stof(as)) ? b : boost::any(typeid(string), "None"));
     }
     return a;
-}
-
-int main() {
-    boost::any a, b;
-    cout << "Enter the first value: ";
-    cin >> a;
-    cout << "Enter the second value: ";
-    cin >> b;
-    boost::any result = compare_one(a, b);
-    if (result.type() == typeid(string)) {
-        cout << "The values are equal." << endl;
-    } else {
-        cout << "The result is: " << boost::any_cast<string>(result) << endl;
-    }
-    return 0;
 }
