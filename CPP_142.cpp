@@ -1,6 +1,7 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
 int sum_squares(std::vector<int> lst) {
     int total = 0;
@@ -22,6 +23,10 @@ int main() {
     std::cin >> n;
 
     for(int i = 0; i < n; ++i) {
+        if(i >= std::numeric_limits<std::size_t>::max()) {
+            std::cerr << "Error: Input size exceeded maximum allowed value." << std::endl;
+            return 1;
+        }
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
         std::cin >> num;
