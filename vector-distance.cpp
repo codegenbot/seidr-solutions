@@ -21,4 +21,3 @@ int main() {
     double distance = vectorDistance(n);
     cout << "Euclidean distance is: " << distance << endl;
     return 0;
-}
