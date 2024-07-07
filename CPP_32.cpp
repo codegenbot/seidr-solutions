@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -22,8 +23,6 @@ int main() {
     std::cout << "Enter the number of coefficients: ";
     std::cin >> ncoeff;
     
-    coeffs = std::vector<double>();
-
     for(int i = 0; i < ncoeff; i++) {
         double coeff;
         std::cout << "Enter coefficient " << i+1 << ": ";
