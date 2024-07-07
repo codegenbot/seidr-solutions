@@ -1,11 +1,17 @@
-int count_open = 0;
-for (char c : str) {
-    if (c == '[') {
-        count_open++;
-    } else if (c == ']') {
-        if (count_open > 0) {
-            count_open--;
+Here is the completed code:
+
+bool is_nested(string str) {
+    int count = 0;
+    for (char c : str) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']') {
+            if (count > 0) {
+                count--;
+            } else {
+                return true;
+            }
         }
     }
+    return false;
 }
-return count_open > 0;
