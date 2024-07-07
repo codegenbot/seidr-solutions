@@ -12,14 +12,14 @@ int count_nums(vector<int> nums) {
                 count++;
             }
         } else {
-            int sum = 0, sign = 1;
+            int sum = 0;
             int temp = abs(num);
+            bool isNegative = true;
             while (temp > 0) {
-                sum += temp % 10 * sign;
+                sum += temp % 10;
                 temp /= 10;
-                sign = -sign;
             }
-            if (sum > 0) {
+            if (isNegative && sum > 0 || !isNegative && sum >= 1) {
                 count++;
             }
         }
