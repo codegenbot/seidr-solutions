@@ -1,5 +1,5 @@
 #include <vector>
-#include <string> // Include this for std::string
+#include <string>
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -16,19 +16,21 @@ vector<int> findIndices(string text, string target) {
         if(found) {
             indices.push_back(i);
             // check for overlapping targets
-            for(int k = i + targetLength; k <= text.length() - targetLength; k += j++) {
+            int start = i + targetLength;
+            while(start <= text.length() - targetLength) {
                 found = true;
                 for(int j = 0; j < targetLength; j++) {
-                    if(text[k+j] != target[j]) {
+                    if(text[start+j] != target[j]) {
                         found = false;
                         break;
                     }
                 }
                 if(found) {
-                    indices.push_back(k);
+                    indices.push_back(start);
                 } else {
                     break;
                 }
+                start++;
             }
         }
     }

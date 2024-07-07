@@ -5,20 +5,20 @@ int main() {
     int cents;
     cin >> cents;
 
-    float quarters = cents / 25.0; // Update this line
+    int quarters = cents / 25;
     cents %= 25;
 
-    int dimes = static_cast<int>(cents / 10);
+    int dimes = cents / 10;
     cents %= 10;
 
-    int nickles = static_cast<int>(cents / 5);
+    int nickles = cents / 5;
     cents %= 5;
 
-    int pennies = static_cast<int>(cents);
+    int pennies = cents;
 
-    cout << ceil(quarters) << endl;
-    cout << ceil(dimes) << endl;
-    cout << ceil(nickles) << endl;
+    cout << quarters << endl;
+    cout << dimes << endl;
+    cout << nickles << endl;
     cout << pennies << endl;
 
     return 0;

@@ -1,9 +1,6 @@
-#include <vector>
-#include <climits>
-
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
+vector<int> cutVector(vector<int>& v) {
     int n = v.size();
     int minDiff = INT_MAX;
     int pos = 0;
@@ -20,4 +17,3 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     vector<int> right(v.begin() + pos, v.end());
     
     return make_pair(left, right);
-}
