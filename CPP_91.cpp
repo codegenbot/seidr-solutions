@@ -13,6 +13,6 @@ int findPattern(const std::string& str) {
 }
 
 int main() {
-    assert(findPattern("I am bored I am bored I am bored") == 3);
-    return 0;
+    int count = findPattern("I am bored I am bored I am bored");
+    return (count == 3) ? 0 : 1;
 }
