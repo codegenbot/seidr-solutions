@@ -15,20 +15,15 @@ bool is_nested(std::string str) {
             if (count > 0) {
                 count--;
             } else {
-                std::cout << "Error: Unmatched closing bracket." << std::endl;
                 return false;
             }
             isOpeningBracket = false;
         }
     }
-    if (count > 0) {
-        std::cout << "Warning: Unclosed brackets." << std::endl;
-    }
-    return count == 0;
+    return count > 0;
 }
 
-int main
-{
+int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
@@ -37,5 +32,4 @@ int main
     } else {
         std::cout << "The string is not nested." << std::endl;
     }
-    return 0;
 }
