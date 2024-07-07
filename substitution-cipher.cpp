@@ -1,23 +1,23 @@
-#include <string>
 #include <iostream>
+#include <string>
 
 int main() {
-    std::string cipher = "abc";
-    std::string mapping = "xyz";
-    std::cout << decode(cipher, mapping) << std::endl;
-    return 0;
-}
-
-std::string decode(std::string cipher, std::string mapping) {
-    std::string result = "";
+    std::string cipher, mapping, decoded = "";
+    std::cout << "Enter the cipher: ";
+    std::getline(std::cin, cipher);
+    std::cout << "Enter the mapping: ";
+    std::getline(std::cin, mapping);
+    
     for (char c : cipher) {
         int idx = mapping.find(c);
         if (idx != std::string::npos) {
             char m = mapping[idx];
-            result += m;
+            decoded += m;
         } else {
-            result += c; 
+            decoded += c; 
         }
     }
-    return result;
+    
+    std::cout << "Decoded message: " << decoded << std::endl;
+    return 0;
 }
