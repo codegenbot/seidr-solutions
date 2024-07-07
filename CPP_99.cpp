@@ -1,16 +1,17 @@
-#include <string>
-#include <cmath>
+#include <sstream>
+using namespace std;
 
-int closest_integer(double num) {
+string closest_integer(double num) {
     int integer = static_cast<int>(num);
     if (abs(num - integer) > abs(num - (integer + 1))) {
-        return integer + 1;
+        return to_string(integer + 1);
     } else {
-        return integer;
+        return to_string(integer);
     }
 }
 
 int main() {
-    assert(closest_integer(0.5) == 0);
+    assert(closest_integer(0.0) == "0");
+    closest_integer(5.7); // Pass an integer
     return 0;
 }
