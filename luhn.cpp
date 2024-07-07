@@ -10,23 +10,14 @@ int luhn(const vector<string>& digits) {
         return -1;
     }
     int sum = 0;
-    for (int i = 0; i < digits.size(); i++) {
-        int digit = stoi(digits[i]);
-        if (digit > 9) {
+    for (int i = digits.size() - 2; i >= 0; i -= 2) {
+        int digit = stoi(digits[i]) * 2;
+        if (digit > 9 && digit < 20) {
             digit -= 9;
         }
         sum += digit;
     }
     return sum;
-}
-
-vector<string> get_digits() {
-    vector<string> digits;
-    string input;
-    while (cin >> input && digits.size() < 16) {
-        digits.push_back(input);
-    }
-    return digits;
 }
 
 int main() {
