@@ -1,4 +1,4 @@
-```cpp
+#include <initializer_list>
 #include <vector>
 #include <string>
 
@@ -20,4 +20,3 @@ int main() {
     auto str = {"grunt", "trumpet", "prune", "gruesome"};
     assert(issame(filterBySubstring(str, "run"), {"grunt", "prune"}));
     return 0;
-}
