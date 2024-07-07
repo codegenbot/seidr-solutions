@@ -1,31 +1,31 @@
-Here is the Python solution for the problem:
-
 def minPath(grid, k):
-    n = len(grid)
+    N = len(grid)
     res = []
+    visited = [[False] * N for _ in range(N)]
+
     def dfs(i, j, path):
+        nonlocal res
         if len(path) == k:
-            return [path]
-        if (i, j) in visited:
-            return []
-        visited.add((i, j))
+            res = sorted(path)
+            return True
+
+        visited[i][j] = True
+        path.append(grid[i][j])
+
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-        paths = []
-        for dx, dy in directions:
-            ni, nj = i + dx, j + dy
-            if 0 <= ni < n and 0 <= nj < n:
-                for cell in grid[ni][nj:]:
-                    if len(path) + 1 == k:
-                        paths.append(path + [cell])
-                    else:
-                        temp_paths = dfs(ni, nj, path + [cell])
-                        paths.extend(temp_paths)
-        return paths
-    visited = set()
-    min_path = []
-    for i in range(n):
-        for j in range(n):
-            paths = dfs(i, j, [])
-            if not min_path or paths < min_path:
-                min_path = paths[0]
-    return min_path
+        for d in directions:
+            ni, nj = i + d[0], j + d[1]
+            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]:
+                if dfs(ni, nj, path[:]):
+                    return True
+        visited[i][j] = False
+        path.pop()
+        return False
+
+    for i in range(N):
+        for j in range(N):
+            if not visited[i][j]:
+                if dfs(i, j, []):
+                    return res
+
+    return []
