@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cassert>
+using namespace std;
 
 int search(int n) {
     if(n < 0)
@@ -10,13 +10,12 @@ int search(int n) {
 
 int main() {
     int num;
-    std::cout << "Enter a positive number: ";
-    std::cin >> num; 
+    cout << "Enter a positive number: ";
+    cin >> num; 
     if (num >= 0) {
-        int testValue = 10; 
-        assert(search(testValue) == testValue);
+        cout << "The search function returns " << search(num) << " for the number " << num << "." << endl;
     } else {
-        std::cout << "The search function returns -1 for negative numbers." << std::endl;
+        cout << "The search function returns -1 for negative numbers." << endl;
     }
     
     return 0;
