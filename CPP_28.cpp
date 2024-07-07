@@ -1,25 +1,25 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 
-int main() {
-    std::vector<std::string> strings;
-    std::string input;
-
-    while (std::cin >> input) {
-        strings.push_back(input);
-    }
-
-    if (!strings.empty()) {
-        for (const auto& str : strings) {
-            if (str == strings[0]) {
-                std::cout << str << " ";
-            } else {
-                std::cout << strings[0] + str << " ";
-            }
+std::vector<std::string> concatenate(const std::vector<std::string>& strings) {
+    std::vector<std::string> result;
+    for (const auto& str : strings) {
+        if (result.empty()) {
+            result.push_back(str);
+        } else {
+            result.push_back(str + strings[0]);
         }
     }
+    return result;
+}
 
-    return 0;
+int main 
+{
+    std::vector<std::string> input = {"Hello", "World"};
+    std::vector<std::string> output = concatenate(input);
+
+    for (const auto& str : output) {
+        std::cout << str << std::endl;
+    }
 }
