@@ -1,3 +1,8 @@
 double probability(int n, int m) {
-    return (m < n ? (double)(m) / n : 0);
+    double sum = 0;
+    for (int i = 1; i <= m; i++) {
+        double prob = (n - i + 1.0) / n; // Probability Peter rolls higher than Colin's roll `i`
+        sum += prob;
+    }
+    return sum;
 }
