@@ -14,13 +14,14 @@ int fuelCost(vector<int> nums) {
 
 int main() {
     vector<int> nums;
-    int n;
-    cout << "Enter the number of integers: ";
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cout << "Enter integer " << i + 1 << ": ";
-        cin >> nums.push_back(i);
+    cout << "Enter numbers (enter 'q' to finish): ";
+    string input;
+    while (true) {
+        cin >> input;
+        if (input == "q") break;
+        int num = stoi(input);
+        nums.push_back(num);
     }
-    cout << "The fuel cost is: " << fuelCost(nums) << endl;
+    cout << "Fuel cost: " << fuelCost(nums) << endl;
     return 0;
 }
