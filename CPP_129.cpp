@@ -1,7 +1,7 @@
 using namespace std;
 
-bool operator>(const pair_int &a, const pair_int &b) {
-    return a.val > b.val;
+bool operator>(const pair<int> &a, const pair<int> &b) {
+    return a.first > b.first;
 }
 
 struct pair_int {
@@ -11,6 +11,7 @@ struct pair_int {
 };
 
 vector<int> minPath(vector<vector<int>> grid, int k);
+
 bool issame(vector<int>, vector<int>);
 
 bool issame(vector<int> a, vector<int> b) {

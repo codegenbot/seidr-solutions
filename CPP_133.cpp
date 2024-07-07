@@ -1,4 +1,4 @@
-int main() {
+int main{
     double num1, num2;
     std::cout << "Enter two numbers: ";
     if (!(std::cin >> num1 >> num2)) {
