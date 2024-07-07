@@ -1,13 +1,15 @@
-vector<string> roman_numerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+vector<pair<int, string>> romans = {{1000, "M"}, {900, "CM"}, {500, "D"}, 
+                                    {400, "CD"}, {100, "C"}, {90, "XC"}, 
+                                    {50, "L"}, {40, "XL"}, {10, "X"}, {9, "IX"}, 
+                                    {5, "V"}, {4, "IV"}, {1, "I"}};
 
-string int_to_mini_roman(int number) {
-    string result;
-    for (int i = 0; i < sizeof(values) / sizeof(int); ++i) {
-        while (number >= values[i]) {
-            number -= values[i];
-            result += roman_numerals[i];
+string int_to_mini_roman(int number){
+    string roman = "";
+    for (auto &p : romans) {
+        while (number >= p.first) {
+            roman += p.second;
+            number -= p.first;
         }
     }
-    return to_string(result).convert_to_lower();
+    return roman;
 }
