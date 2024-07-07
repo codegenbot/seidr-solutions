@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -14,9 +13,6 @@ int mastermind(string code, string guess) {
             blackPegs++;
         }
     }
-    
-    vector<char> codeVector(code.begin(), code.end());
-    vector<char> guessVector(guess.begin(), guess.end());
     
     for (char c : code) {
         int count = 0;
@@ -44,4 +40,3 @@ int main() {
     int result = mastermind(code, guess);
     cout << "Black pegs: " << result << endl;
     return 0;
-}
