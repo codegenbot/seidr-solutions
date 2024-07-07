@@ -14,6 +14,18 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
+vector<int> leaders(vector<int>& arr) {
+    vector<int> leaders;
+    int leader = arr.back();
+    for (int i = arr.size() - 2; i >= 0; i--) {
+        if (arr[i] >= leader) {
+            leader = arr[i];
+            leaders.push_back(leader);
+        }
+    }
+    return leaders;
+}
+
 int main() {
     vector<int> arr = {1, 3, 4, 1, 5};
     vector<int> leadersVector = leaders(arr);
