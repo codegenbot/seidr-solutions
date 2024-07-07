@@ -1,8 +1,11 @@
-Here is the completed code:
-
 int next_smallest(vector<int> lst) {
+    if (lst.empty()) return -1; // or any value that represents None
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    if (sorted.size() < 2) return -1; // None in Python
-    else return *next(cbegin(sorted), cend(sorted)-1);
+    for (int i = 0; i < sorted.size() - 1; ++i) {
+        if (sorted[i] != sorted[i + 1]) {
+            return sorted[i + 1];
+        }
+    }
+    return -1; // or any value that represents None
 }
