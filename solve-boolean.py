@@ -1,13 +1,10 @@
+import ast
+
+
 def solve_boolean(expression):
     if isinstance(expression, str):
-        result = re.match(r"^(t|f)(\||\&)(t|f)$", expression)
-        if result:
-            left, right = result.groups()
-            return (
-                any(solve_boolean(left), solve_boolean(right))
-                or left == "t"
-                and right == "f"
-            )
+        tree = ast.parse(expression)
+        return eval(tree.body[0].value)
     elif isinstance(expression, list):
         for exp in expression:
             if solve_boolean(exp):
