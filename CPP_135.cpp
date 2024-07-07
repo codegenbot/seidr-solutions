@@ -1,17 +1,12 @@
-```cpp
 #include <vector>
 using namespace std;
 
 int can_arrange(vector<int> arr);
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-    cout << can_arrange(arr) << endl;
+    vector<int> arr = {2, 3, 1};
+    assert(can_arrange(arr) == 0);
+    return 0;
 }
 
 int can_arrange(vector<int> arr) {
