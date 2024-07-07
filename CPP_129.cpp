@@ -1,3 +1,4 @@
+```cpp
 using namespace std;
 
 struct pair_int {
@@ -33,6 +34,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         if (k > 0) {
             --k;
 
+            // Check all neighbors
             for (int i = -1; i <= 1; ++i) {
                 for (int j = -1; j <= 1; ++j) {
                     int ni = pos_i + i;
@@ -60,13 +62,19 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-int k = 3;
+int main() 
+{
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
 
-vector<int> result = minPath(grid, k);
+    vector<int> result = minPath(grid, k);
 
-for (int i : result) {
-    cout << i << " ";
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    
+    return 0;
 }
-cout << endl;
-assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
