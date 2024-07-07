@@ -1,21 +1,19 @@
-#include <algorithm>
-using namespace std;
-
-string anti_shuffle(string s) {
+string anti_shuffle(string s){
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' '){
             result += ' ';
-        } else {
-            string word = "";
-            while (i < s.length() && s[i] != ' ') {
-                word += s[i];
-                i++;
+        }else{
+            string word;
+            for(int j=i; j<s.length() && s[j] != ' '; j++){
+                word += s[j];
             }
-            for (char c : word) {
-                result += min_element(word.begin(), word.end()) -> first;
+            string new_word = "";
+            for(char c : word){
+                new_word += (char)(c);
             }
-            i--;
+            i += word.length() - 1;
+            result += new_word;
         }
     }
     return result;
