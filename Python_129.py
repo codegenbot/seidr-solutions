@@ -1,23 +1,20 @@
-```
+Here is the solution:
+
 def minPath(grid, k):
     n = len(grid)
+    m = [(i, j) for i in range(n) for j in range(n)]
     for i in range(n):
-        grid[i] = list(map(str, grid[i]))
-    
-    queue = [(0, [str(i) for i in grid[0]]),]
-    visited = set([tuple(grid[0])])
-    result = None
-    
+        for j in range(n):
+            grid[i][j] -= 1
+    queue = [(0, [grid[0][0]], [grid[0][0]])]
+    visited = set((0, 0))
     while queue:
-        path, values = queue.pop(0)
-        if len(values) == k:
-            if result is None or values < result:
-                result = values
-        else:
-            for i in range(n):
-                new_values = values + [grid[i][path % n]]
-                if tuple(new_values) not in visited:
-                    visited.add(tuple(new_values))
-                    queue.append((path+1, new_values))
-    
-    return list(map(int, result))
+        (i, path), lst_path = heapq.heappop(queue)
+        if len(lst_path) == k:
+            return lst_path
+        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+            ni, nj = i + dx, j + dy
+            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
+                visited.add((ni, nj))
+                heapq.heappush(queue, ((ni, path + [(ni, nj)]), lst_path + [grid[ni][nj]]))
+    return []
