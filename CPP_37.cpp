@@ -1,4 +1,7 @@
-```cpp
+Here is the modified code:
+
+```c++
+#include <iostream>
 #include <vector>
 #include <cmath>
 #include <algorithm>
@@ -9,7 +12,7 @@ bool issame(float a, float b) {
 
 std::vector<float> sort_even(std::vector<float> input) {
     std::vector<float> result(input.size());
-    for (size_t i = 0; i < input.size(); i++) {
+    for (int i = 0; i < input.size(); i++) {
         if (i % 2 == 0) {
             float minVal = input[0];
             for (float val : input) {
@@ -19,7 +22,7 @@ std::vector<float> sort_even(std::vector<float> input) {
             }
             result[i] = minVal;
         } else {
-            size_t j = i - 1;
+            int j = i - 1;
             while (j >= 0 && !issame(input[j], result[j])) {
                 --j;
             }
@@ -48,8 +51,10 @@ int main() {
         input.push_back(num);
     }
     std::cin.ignore();
-    std::vector<float> result = sort_even(input);
-    for (float val : result) {
-        std::cout << val << " ";
+    { 
+        std::vector<float> result = sort_even(input);
+        for (float val : result) {
+            std::cout << val << " ";
+        }
     }
 }
