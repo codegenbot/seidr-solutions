@@ -1,24 +1,21 @@
+```cpp
 #include <vector>
-#include <initializer_list>
 #include <algorithm>
 
-bool issame(std::initializer_list<float>a, std::initializer_list<float>b) {
-    auto va = std::vector<float>(a);
-    auto vb = std::vector<float>(b);
-    if (va.size() != vb.size()) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < va.size(); i++) {
-        if (std::abs(va[i] - vb[i]) > 1e-9) {
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i] - b[i]) > 1e-9) {
             return false;
         }
     }
     return true;
 }
 
-float get_positive(std::initializer_list<float> input) {
-    std::vector<float> v(input.begin(), input.end());
-    return *std::max_element(v.begin(), v.end());
+float get_positive(std::vector<float> input) {
+    return *std::max_element(input.begin(), input.end());
 }
 
 int main() {
@@ -35,8 +32,8 @@ int main() {
         }
     }
     
-    float maxV1 = get_positive({v1.begin(), v1.end()});
-    float maxV2 = get_positive({v2.begin(), v2.end()});
+    float maxV1 = get_positive(v1);
+    float maxV2 = get_positive(v2);
 
     if (!issame({maxV1}, {0.0})) { 
         std::cout << "The two sets of numbers are not the same.\n";
