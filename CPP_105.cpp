@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <map>
@@ -6,8 +7,7 @@
 using namespace std;
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> output;
-    map<int, int> lengthCount;
+    vector<int> nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             string str = to_string(num);
@@ -19,11 +19,13 @@ vector<string> by_length(vector<int> arr) {
             else if (str == "6") str = "Six";
             else if (str == "7") str = "Seven";
             else if (str == "8") str = "Eight";
-            else output.push_back("Nine");
+            else if (str == "9") str = "Nine";
+            nums.push_back(stoi(str));
         }
     }
 
-    for (int num : arr) {
+    map<int, int> lengthCount;
+    for (int num : nums) {
         int len = to_string(num).length();
         if (lengthCount.find(len) != lengthCount.end()) {
             lengthCount[len]++;
@@ -32,15 +34,19 @@ vector<string> by_length(vector<int> arr) {
         }
     }
 
+    vector<string> output;
     for (auto it = lengthCount.rbegin(); it != lengthCount.rend(); ++it) {
         while (it->second > 0) {
-            for(int i=1; i<=9; i++) {
-                if(to_string(i).length() == it->first) {
-                    output.push_back((i==1?"One":(i==2?"Two":(i==3?"Three):(i==4?"Four":"Five"))));
-                    it->second--;
-                    if(it->second == 0) break;
-                }
-            }
+            if(it->first == 1) output.push_back("One");
+            else if(it->first == 2) output.push_back("Two");
+            else if(it->first == 3) output.push_back("Three");
+            else if(it->first == 4) output.push_back("Four");
+            else if(it->first == 5) output.push_back("Five");
+            else if(it->first == 6) output.push_back("Six");
+            else if(it->first == 7) output.push_back("Seven");
+            else if(it->first == 8) output.push_back("Eight");
+            else output.push_back("Nine");
+            it->second--;
         }
     }
 
