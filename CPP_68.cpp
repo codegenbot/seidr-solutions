@@ -30,7 +30,7 @@ std::vector<int> pluck(const std::vector<int>& arr) {
 }
 
 int mainFunction() {
-    int n = 0;
+    size_t n = 0;
 
     // Read input
     std::cout << "Enter the number of elements: ";
