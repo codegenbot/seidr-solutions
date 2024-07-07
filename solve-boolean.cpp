@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 
@@ -12,11 +13,9 @@ bool solveBoolean(string s) {
         if (c == '|') {
             bool subRes = evaluateTerm(term);
             res = res || subRes;
-            term = "";
-        } 
-        else if (c == 't' || c == 'f') {
-            if (c == 't') term += 't';
-            else if (c == 'f') term += 'f';
+            term.clear();
+        } else if (c == 't' || c == 'f') {
+            term += c;
         }
     }
     bool subRes = evaluateTerm(term);
@@ -33,11 +32,9 @@ bool evaluateTerm(string term) {
         if (c == '&') {
             if (subTerm == "tt") res = true;
             else if (subTerm == "tf" || subTerm == "ft" || subTerm == "ff") res = false;
-            subTerm = "";
-        } 
-        else if (c == 't' || c == 'f') {
-            if (c == 't') subTerm += 't';
-            else if (c == 'f') subTerm += 'f';
+            subTerm.clear();
+        } else if (c == 't' || c == 'f') {
+            subTerm += c;
         }
     }
     if (subTerm == "tt") res = true;
