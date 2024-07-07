@@ -13,15 +13,15 @@ int main() {
     cout << "[";
     for (int i = 0; i < res.size(); i++) {
         cout << "[";
-        for(int j = 0; j < res[i].size();j++){
+        for(int j = 0; j < res[i].size(); j++){
             for(auto num:res[i][j]){
-                cout<<std::to_string(num)<<" ";
-                if(j+1<res[i].size()-1)cout<<",";
+                if(i==0)cout<<std::to_string(num); // print the first element separately
+                else cout<<", "<<std::to_string(num);
             }
-            cout<<"] ";
+            if(j+1<res[i].size()-1)cout<<",";
         }
-        if(i < res.size() - 1) cout << "], [";
-        else cout << "]";
+        if(res.size()>1 && j==res[i].size()-1)cout<<"] ], ";
+        else cout << "], ["; // add comma and space between subvectors
     }
     cout << "]";
     return 0;
