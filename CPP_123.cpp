@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <iostream>
 #include <limits>
-#include <cassert>
 
 using namespace std;
 
@@ -41,3 +40,4 @@ int main() {
         cout << num << " ";
     }
     return 0;
+}
