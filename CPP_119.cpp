@@ -1,3 +1,4 @@
+#include <vector>
 #include <string>
 
 string match_parens(vector<string> lst) {
@@ -8,5 +9,5 @@ string match_parens(vector<string> lst) {
             else close++;
         }
     }
-    return open == close ? "Yes" : "No";
+    return to_string(open == close) ? "Yes" : "No";
 }
