@@ -1,26 +1,23 @@
-Here is the completed code:
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
 
-```cpp
-vector<string> words;
-
-size_t max_unique_chars = 0;
-string result;
-
-for (const auto& word : words) {
-    size_t unique_chars = word.size();
-    for (char c : word) {
-        if (word.find(c) != string::npos && std::count(word.begin(), word.end(), c) > 1) {
-            unique_chars--;
+string find_max(vector<string> words){
+    string max_word = "";
+    int max_unique_chars = 0;
+    
+    for(string word : words) {
+        set<char> unique_chars(word.begin(), word.end());
+        if(unique_chars.size() > max_unique_chars) {
+            max_word = word;
+            max_unique_chars = unique_chars.size();
+        } else if(unique_chars.size() == max_unique_chars) {
+            if(word < max_word) {
+                max_word = word;
+            }
         }
     }
-    if (unique_chars > max_unique_chars) {
-        max_unique_chars = unique_chars;
-        result = word;
-    } else if (unique_chars == max_unique_chars) {
-        if (word < result) {
-            result = word;
-        }
-    }
+    
+    return max_word;
 }
-
-return result;
