@@ -1,24 +1,27 @@
 ```cpp
 #include <algorithm>
 #include <vector>
-#include <limits>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a.size() == b.size() && a == b;
-}
-
-std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    sort(numbers.begin(), numbers.end());
+std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
+    std::sort(numbers.begin(), numbers.end());
     float min_diff = std::numeric_limits<float>::max();
-    pair<float, float> closest_pair;
+    float closest_pair = std::make_pair(0.0f, 0.0f);
 
-    for (int i = 0; i < numbers.size() - 1; i++) {
-        float diff = numbers[i + 1] - numbers[i];
+    for (int i = 1; i < numbers.size(); ++i) {
+        float diff = numbers[i] - numbers[i-1];
         if (diff < min_diff) {
             min_diff = diff;
-            closest_pair = {numbers[i], numbers[i + 1]};
+            closest_pair = std::make_pair(numbers[i-1], numbers[i]);
         }
     }
 
-    return std::vector<float>(closest_pair.begin(), closest_pair.end());
+    return closest_pair;
+}
+
+bool isSame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
+}
+
+int main() {
+    assert(isSame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
 }
