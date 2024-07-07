@@ -1,35 +1,23 @@
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     int total_water = 0;
-    for (int i = 0; i < n; i++) {
-        total_water += accumulate(grid[i].begin(), grid[i].end(), 0);
+    for (const auto& row : grid) {
+        total_water += accumulate(row.begin(), row.end(), 0);
     }
-    
-    int max_fill_times = -1;
-    for (int i = capacity; i <= total_water; i++) {
-        int fill_times = 0;
-        int current_water = 0;
-        bool can_fill = true;
-        for (int j = 0; j < n; j++) {
-            for (int k = 0; k < grid[j].size(); k++) {
-                if (grid[j][k] > 0) {
-                    current_water += min(grid[j][k], i);
-                    if (current_water > i) {
-                        can_fill = false;
-                        break;
-                    }
-                }
-            }
-            if (!can_fill) {
-                break;
-            }
+    int max_fill_count = -1;
+    for (int i = 0; i <= total_water / capacity; ++i) {
+        int water_left = total_water;
+        int fill_count = 0;
+        for (int j = 0; j < n; ++j) {
+            int water_in_bucket = min(capacity, water_left);
+            int remaining_water = water_left - water_in_bucket;
+            int bucket_fill_count = accumulate(grid[j].begin(), grid[j].end(), 0, [&](int acc, int val) {
+                return acc + (val > 0 ? 1 : 0);
+            });
+            fill_count += bucket_fill_count;
+            water_left = remaining_water - capacity * bucket_fill_count;
         }
-        
-        if (can_fill) {
-            fill_times = (total_water + capacity - 1) / capacity;
-            max_fill_times = max(max_fill_times, fill_times);
-        }
+        max_fill_count = max(max_fill_count, fill_count);
     }
-    
-    return max_fill_times;
+    return max_fill_count;
 }
