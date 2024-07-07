@@ -10,4 +10,5 @@ def indices_of_substring(text, target):
     return result
 
 text = input()
-print(indices_of_substring(text, target=input()))
+target = input()
+print(indices_of_substring(text, target))
