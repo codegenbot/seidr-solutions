@@ -1,8 +1,11 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <memory>
 
-using namespace std;
+using std::vector;
+using std::string;
 
 bool issame(vector<string> a, vector<string> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
@@ -49,4 +52,5 @@ vector<string> by_length(vector<int> arr) {
         cout << str << " ";
     }
     cout << "\n";
+    return 0;
 }
