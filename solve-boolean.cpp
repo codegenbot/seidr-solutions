@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -13,9 +12,11 @@ bool solveBoolean(string s) {
         if (c == '|') {
             bool subRes = evaluateTerm(term);
             res = res || subRes;
-            term.clear();
+            term.assign("");
         } else if (c == 't' || c == 'f') {
-            term += c;
+            if (c == 't') term += 't';
+            else term += 'f';
+            if (i < s.length() - 1 && s[i + 1] == '&') i++; 
         }
     }
     bool subRes = evaluateTerm(term);
@@ -30,15 +31,17 @@ bool evaluateTerm(string term) {
     for (int i = 0; i < term.length(); i++) {
         char c = term[i];
         if (c == '&') {
-            if (subTerm == "tt") res = true;
-            else if (subTerm == "tf" || subTerm == "ft" || subTerm == "ff") res = false;
-            subTerm.clear();
+            bool subRes = (subTerm == "t") ? true : false;
+            res = res && subRes;
+            subTerm.assign("");
         } else if (c == 't' || c == 'f') {
-            subTerm += c;
+            if (c == 't') subTerm += 't';
+            else subTerm += 'f';
+            if (i < term.length() - 1 && term[i + 1] == '&') i++; 
         }
     }
-    if (subTerm == "tt") res = true;
-    else if (subTerm == "tf" || subTerm == "ft" || subTerm == "ff") res = false;
+    bool subRes = (subTerm == "t") ? true : false;
+    res = res && subRes;
 
     return res;
 }
