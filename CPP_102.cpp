@@ -16,13 +16,11 @@ int choose_num(int x, int y) {
 int main() {
     int num1, num2;
     std::cout << "Enter two numbers (separated by a space): ";
-    std::stringstream ss;
-    ss >> std::ws;  // consume leading whitespace
-    num1 = stol(ss);  // convert string to integer
-    ss.str("");     // clear stream contents for next iteration
-    ss >> std::ws;
-    num2 = stol(ss);
-    if (!(ss)) {
+    std::string input;
+    std::getline(std::cin, input);
+    std::istringstream ss(input);
+
+    if (!(ss >> num1 >> num2)) {
         std::cout << "Invalid input. Please enter two integers separated by a space." << std::endl;
         return 1;
     }
