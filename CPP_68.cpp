@@ -35,12 +35,11 @@ int mainFunction() {
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
-    int arr[n]; 
+    std::vector<int> input(n); 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> arr[i];
+        std::cin >> input[i];
     }
-    std::vector<int> input(arr, arr+n);
 
     // Process the array
     size_t minEven = std::numeric_limits<size_t>::max(), minIndex = -1;
