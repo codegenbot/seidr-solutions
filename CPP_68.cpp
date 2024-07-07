@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -7,19 +6,19 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> pluck(std::vector<int> arr) {
-    vector<int> result;
+    std::vector<pair<int, int>> nodes;
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0) {
-            result.push_back(arr[i]);
+            nodes.emplace_back(arr[i], i);
         }
     }
-    if (result.empty()) {
+    if (nodes.empty()) {
         return {};
     }
-    sort(result.begin(), result.end());
-    return {*(result.begin()), 0};
+    sort(nodes.begin(), nodes.end());
+    return {nodes[0].first, nodes[0].second};
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), std::vector<int>{}));
+    assert(issame(pluck({7, 9, 7, 1}), {}));  
 }
