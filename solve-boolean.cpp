@@ -1,7 +1,3 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
 bool evaluate(const string &expression) {
     stack<char> operators;
     bool result = true;
@@ -15,19 +11,15 @@ bool evaluate(const string &expression) {
         } else if (operators.empty()) {
             result = true;
         } else {
-            char op = operators.top();
-            switch (op) {
-                case '|':
-                    result |= expression[i];
-                    break;
-                case '&':
-                    result &= expression[i];
-                    break;
-                case '^':
-                    result ^= expression[i];
-                    break;
+            char operator = operators.top();
+            if (operator == '|') {
+                result |= expression[i];
+            } else if (operator == '&') {
+                result &= expression[i];
+            } else if (operator == '^') {
+                result ^= expression[i];
             }
         }
     }
-    return result;
+    return result && expression != "false";
 }
