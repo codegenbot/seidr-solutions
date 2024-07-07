@@ -12,9 +12,11 @@ bool evaluateTerm(string term) {
 bool solveBoolean(string s) {
     bool res = true;
     string term;
-    for (int i = 0; i < s.length(); i++) {
+    
+    for(int i = 0; i < s.length(); i++) {
         char c = s[i];
-        if (c == '|') {
+        
+        if(c == '|') {
             bool subRes = evaluateTerm(term);
             res = res || subRes;
             term = "";
@@ -23,6 +25,7 @@ bool solveBoolean(string s) {
             term += (c == 't') ? "t" : "f";
         }
     }
+    
     bool subRes = evaluateTerm(term);
     res = res || subRes;
 
