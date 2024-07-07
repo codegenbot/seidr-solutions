@@ -1,18 +1,10 @@
-#include <iostream>
-#include <vector>
-
-int run() {
-    std::vector<int> input;
+int main() {
     int num1, num2;
-    
-    std::cout << "Enter the first number: ";
-    std::cin >> num1;
+    std::cout << "Enter two numbers: ";
+    std::cin >> num1 >> num2;
 
-    std::cout << "Enter the second number: ";
-    std::cin >> num2;
-
-    input.push_back(num1);
-    input.push_back(num2);
+    int sum = num1 * num1 + num2 * num2;
+    std::cout << "Sum of squares is: " << sum << std::endl;
 
     return 0;
 }
