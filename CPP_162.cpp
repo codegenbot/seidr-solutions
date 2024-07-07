@@ -1,21 +1,17 @@
-#include <openssl/evp.h>
+MD5_CTX md5context;
+unsigned char result[16];
 
-string string_to_md5(string text) {
-    if (text.empty()) return "";
-
-    unsigned char md5[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char* str = text.c_str();
-    size_t len = text.size();
-    MD5_Update(&ctx, str, len);
-    MD5_Final(md5, &ctx);
-
-    string result;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        char buf[3];
-        sprintf(buf, "%02x", md5[i]);
-        result.append(buf);
-    }
-    return result;
+if(text.empty()){
+    return "None";
 }
+
+MD5Init(&md5context);
+MD5Update(&md5context, text.c_str(), text.length());
+MD5Final(result,&md5context);
+
+char hashString[33];
+for(int i=0; i<16; i++){
+    sprintf(hashString + 2*i, "%02x", result[i]);
+}
+
+return string(hashString);
