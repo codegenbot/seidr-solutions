@@ -1,4 +1,4 @@
-#include <iostream>
+#include <stdio.h>
 #include <vector>
 #include <string>
 using namespace std;
@@ -20,15 +20,4 @@ vector<string> words_string(string s) {
         result.push_back(word);
     }
     return result;
-}
-
-int main() {
-    string s;
-    cout << "Enter a string: ";
-    getline(cin, s);
-    vector<string> words = words_string(s);
-    for (string word : words) {
-        cout << word << endl;
-    }
-    return 0;
 }
