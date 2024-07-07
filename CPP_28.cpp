@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> getStrings() {
+int main() {
     std::vector<std::string> strings;
     while (true) {
         std::cout << "Enter a string (or 'stop' to finish): ";
@@ -12,12 +12,6 @@ std::vector<std::string> getStrings() {
 
         strings.push_back(input); 
     }
-
-    return strings;
-}
-
-int main() {
-    std::vector<std::string> strings = getStrings();
 
     std::string result = "";
     for (const auto& str : strings) {
