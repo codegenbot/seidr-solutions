@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
