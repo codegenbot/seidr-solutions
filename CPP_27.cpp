@@ -1,12 +1,16 @@
-char temp;
+#include<string>
+using namespace std;
 
-for(int i = 0; i < str.length(); i++) {
-    temp = tolower(str[i]);
-    if(temp == 'a' || temp == 'e' || temp == 'i' || temp == 'o' || temp == 'u') {
-        temp = toupper(str[i]);
-    } else if(isupper(str[i])) {
-        temp = tolower(str[i]);
+string flip_case(string str){
+    string result = "";
+    for(int i=0; i<str.length(); i++){
+        char ch = str[i];
+        if(ch >= 'a' && ch <= 'z')
+            result += toupper(ch);
+        else if(ch >= 'A' && ch <= 'Z')
+            result += tolower(ch);
+        else
+            result += ch;
     }
-    str[i] = temp;
+    return result;
 }
-return str;
