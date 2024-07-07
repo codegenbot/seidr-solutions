@@ -4,13 +4,12 @@ string words_in_sentence(string sentence){
     for(int i=0; i<sentence.size(); i++){
         if(sentence[i] == ' '){
             count++;
-        }else{
-            if(count > 0 && isPrime(sentence.substr(0, i).size())){
-                result += sentence.substr(0, i) + " ";
+        }
+        else{
+            if(count > 0 && isPrime(sentence.substr(0, i-count+1).size())){
+                result += sentence.substr(0, i-count+1) + " ";
                 count = 0;
             }
-            sentence.erase(0, i);
-            i--;
         }
     }
     return result;
