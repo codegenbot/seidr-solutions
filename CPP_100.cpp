@@ -1,4 +1,3 @@
-```c++
 #include <algorithm>
 #include <vector>
 
@@ -10,7 +9,7 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-bool isSameVector(std::vector<int> a, std::vector<int> b) {
+bool compareVectors(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -20,4 +19,14 @@ bool isSameVector(std::vector<int> a, std::vector<int> b) {
         }
     }
     return true;
+}
+
+int main() {
+    std::vector<int> pile = make_a_pile(8);
+    std::sort(pile.begin(), pile.end());
+    for (auto it = pile.begin(); it != pile.end(); ++it) {
+        *it -= 1;
+    }
+    assert(compareVectors({8, 10, 12, 14, 16, 18, 20, 22}, make_a_pile(8)));
+    return 0;
 }
