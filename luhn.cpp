@@ -1,8 +1,9 @@
+```c++
 #include <iostream>
 #include <vector>
 using namespace std;
 
-bool luhnCheck(vector<int> digits) {
+int luhnCheck(vector<int> digits) {
     int sum = 0;
     bool doubleNext = true; 
     for(int i = 0; i < digits.size(); i++) {
