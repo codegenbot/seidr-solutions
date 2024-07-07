@@ -6,26 +6,19 @@ bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<st
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-auto total_match = [](const std::vector<std::vector<std::string>>& v1, const std::vector<std::vector<std::string>>& v2) {
-    int sum1 = 0;
-    for (const auto& s : v1) {
-        for (const auto& str : s) {
-            sum1 += str.size();
+auto total_match = [](const std::vector<std::vector<std::string>>& v) {
+    int sum = 0;
+    for (const auto& vec : v) {
+        for (const auto& s : vec) {
+            sum += s.size();
         }
     }
-    int sum2 = 0;
-    for (const auto& s : v2) {
-        for (const auto& str : s) {
-            sum2 += str.size();
-        }
-    }
-    return sum1 + sum2;
+    return sum;
 };
 
 int main() {
-    std::vector<std::vector<std::string>> lst1 = {{"this"}, {"is"}};
-    std::vector<std::vector<std::string>> lst2 = {};
+    int sum1 = total_match({{"this"}, {"is"}});
+    int sum2 = total_match({});
 
-    int sum1 = total_match(lst1, {});
     return 0;
 }
