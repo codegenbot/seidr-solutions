@@ -9,7 +9,7 @@ int Strongest_Extension(string class_name,vector<string> extensions){
     for (const auto& extension : extensions) {
         int cap = count(extension.begin(), extension.end(), toupper);
         int sm = extension.size() - cap;
-        double strength = static_cast<double>(cap) - sm;
+        double strength = static_cast<double>(cap) / (sm + 1);
 
         if (strength > strongest_strength) {
             strongest_strength = strength;
