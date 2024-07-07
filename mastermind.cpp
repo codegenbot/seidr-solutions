@@ -15,11 +15,16 @@ int mastermind(string code, string guess) {
         }
     }
     
+    vector<char> codeCopy(code.begin(), code.end());
+    vector<char> guessCopy(guess.begin(), guess.end());
+    
     for (char c : code) {
         int count = 0;
         for (char d : guess) {
             if (c == d) {
                 count++;
+                auto it = std::find(codeCopy.begin(), codeCopy.end(), d);
+                codeCopy.erase(it);
             }
         }
         if (count > 1) {
