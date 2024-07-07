@@ -1,7 +1,7 @@
 using namespace std;
 
 std::string concatenate(vector<string> strings){
-    string result = "";
+    std::string result = "";
     for (const auto& str : strings) {
         result += str;
     }
