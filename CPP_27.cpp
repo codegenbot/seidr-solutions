@@ -5,13 +5,7 @@
 std::string flipCase(const std::string& str) -> const std::string {
     std::string result;
     for (char c : str) {
-        if (c >= 'a' && c <= 'z') {
-            result += static_cast<char>(c - 32); // Convert lowercase to uppercase
-        } else if (c >= 'A' && c <= 'Z') {
-            result += static_cast<char>(c + 32); // Convert uppercase to lowercase
-        } else {
-            result += c; // Non-alphabetic characters should be appended as is
-        }
+        result += (c >= 'a' && c <= 'z') ? (char)(c - 32) : ((c >= 'A' && c <= 'Z') ? (char)(c + 32) : c);
     }
     return result;
 }
