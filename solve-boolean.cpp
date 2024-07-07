@@ -1,44 +1,19 @@
-```cpp
-#include <stack>
-#include <string>
-
 bool solveBoolean(std::string s) {
     bool result = true;
-    std::stack<char> operationStack;
-
     for (char c : s) {
-        if (c == 'T' || c == 'F') {
-            if (result != (c == 'T')) return false;
+        if (c == 'F') {
+            result = false;
         } else if (c == '&') {
-            operationStack.push('&');
-            result = true;
+            while (!result && s.size() > 1 && s.back() == '&') {
+                s.pop_back();
+            }
         } else if (c == '|') {
-            while (!operationStack.empty() && operationStack.top() == '|') {
-                operationStack.pop();
+            while (!result && s.size() > 1 && s.back() == '|') {
+                s.pop_back();
             }
-            if (!operationStack.empty()) {
-                operationStack.pop();
-                if (result != false) return false;
-                result = true;
-            } else {
-                result = !result;
-            }
+        } else if (c == 'T' || c == 'F') {
+            return c == 'T';
         }
     }
-
-    while (!operationStack.empty()) {
-        if (operationStack.top() == '|') {
-            operationStack.pop();
-            if (!operationStack.empty()) {
-                operationStack.pop();
-                result = !result;
-            } else {
-                return false;
-            }
-        } else {
-            return !result;
-        }
-    }
-
-    return true;
+    return result;
 }
