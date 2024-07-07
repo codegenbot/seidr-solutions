@@ -1,5 +1,3 @@
-Here is the completed code:
-
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
