@@ -1,11 +1,17 @@
 bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
+    if(txt.empty()) return false; 
     char lastChar = txt.back();
-    if (!isalpha(lastChar)) return false;
-    for (int i = 0; i < txt.size() - 1; i++) {
-        if (isspace(txt[i])) {
-            return isalpha(lastChar);
+    string word;
+    bool inWord = false;
+    
+    for(char c : txt) {
+        if(c == ' ') {
+            inWord = false;
+        } else {
+            word += c;
+            inWord = true;
         }
     }
-    return false;
+    
+    return (isalpha(lastChar) && !inWord);
 }
