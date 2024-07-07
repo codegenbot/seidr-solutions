@@ -1,4 +1,3 @@
-```cpp
 #include <cstdlib>
 
 int gcd(int a, int b) {
