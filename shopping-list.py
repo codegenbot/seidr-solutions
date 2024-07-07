@@ -1,8 +1,4 @@
 def shopping_list(prices, discounts):
-    # Validate input
-    if len(discounts) < len(prices):
-        discounts += [0] * (len(prices) - len(discounts))
-
     total_price = 0
     for i in range(len(prices)):
         try:
