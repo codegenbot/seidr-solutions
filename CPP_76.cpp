@@ -2,14 +2,17 @@
 #include <cmath>
 
 bool is_simple_power(int x, int n) {
-    double y = pow(n, 1.0);
-    return (int)y == x;
+    double y = pow(n, 1.0 / (double)n);
+    return std::abs(y - (int)y) < 1e-9 && (int)y == x;
 }
 
 int main() {
-    int num, power;
+    int num;
+    int power;
+    
     std::cout << "Enter a number: ";
     std::cin >> num;
+    
     std::cout << "Enter the power to check: ";
     std::cin >> power;
     
