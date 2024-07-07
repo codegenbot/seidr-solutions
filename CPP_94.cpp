@@ -3,9 +3,8 @@ Here is the completed code:
 int skjkasdkd(vector<int> lst){
     int max_prime = 0;
     for(int num : lst){
-        if(isPrime(num) && num > max_prime){
+        if(isPrime(num) && num > max_prime)
             max_prime = num;
-        }
     }
     int sum_of_digits = 0;
     while(max_prime > 0){
