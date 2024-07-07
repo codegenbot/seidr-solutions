@@ -16,9 +16,15 @@ vector<string> vector_sort(vector<string> lst) {
 }
 
 int sorted_list_sum(vector<string> b) {
-    vector_sort(b);
+    auto comp = [](const string& a, const string& b) {
+        if (a.length() == b.length()) {
+            return a < b;
+        }
+        return a.length() < b.length();
+    };
+    vector<string> lst = vector_sort(b);
     int sum = 0;
-    for (const auto& str : b) {
+    for (const auto& str : lst) {
         sum += str.length();
     }
     return sum;
