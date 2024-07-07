@@ -1,7 +1,6 @@
-```cpp
 #include <string>
 
-bool solveBoolean(string s) {
+bool solveBoolean(std::string s) {
     bool result = true;
     for (char c : s) {
         if (c == 'F') {
@@ -17,4 +16,3 @@ bool solveBoolean(string s) {
         }
     }
     return result;
-}
