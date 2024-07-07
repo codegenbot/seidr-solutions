@@ -1,5 +1,5 @@
+```
 #include <vector>
-#include <iostream>
 using namespace std;
 
 int fuelCost(vector<int> nums) {
@@ -13,13 +13,23 @@ int fuelCost(vector<int> nums) {
 
 int main() {
     vector<int> nums;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    for(int i=0; i<n; i++) {
-        cout << "Enter element " << (i+1) << ": ";
-        cin >> nums.push_back(i);
+    cout << "Enter numbers separated by space: ";
+    string str;
+    getline(cin, str);
+    for (const auto& s : split(str, ' ')) {
+        nums.push_back(stoi(s));
     }
-    cout << "The total fuel cost is: " << fuelCost(nums) << endl;
+    cout << "Fuel cost is: " << fuelCost(nums) << endl;
     return 0;
+}
+
+vector<string> split(const string& str, char c) {
+    vector<string> tokens;
+    size_t pos = 0;
+    while ((pos = str.find(c)) != string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
+    }
+    tokens.push_back(str);
+    return tokens;
 }
