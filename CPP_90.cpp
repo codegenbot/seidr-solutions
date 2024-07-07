@@ -1,10 +1,9 @@
-vector<int>::iterator it = unique(lst.begin(), lst.end());
-if (it != lst.end()) {
-    vector<int>::iterator minIt = it + 1;
-    while(minIt != lst.end() && *minIt == *(it)) {
-        minIt++;
-    }
-    if(minIt != lst.end())
-        return *minIt;
+Here is the solution:
+
+int next_smallest(vector<int> lst){
+    vector<int> sorted_lst = lst;
+    sort(sorted_lst.begin(), sorted_lst.end());
+    
+    if(sorted_lst.size() < 2) return -1; // No second smallest number.
+    else return *next(iterate(sorted_lst).drop(1));
 }
-return -1; // or any other value that represents None in your problem statement
