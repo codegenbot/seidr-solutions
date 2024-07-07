@@ -1,6 +1,3 @@
-#include <stack>
-#include <string>
-
 bool evaluate(const string &expression) {
     stack<char> operators;
     bool result = true;
