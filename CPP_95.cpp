@@ -5,9 +5,8 @@ bool check_dict_case(map<string, string> dict) {
     bool allUpper = true;
 
     for (auto& pair : dict) {
-        if (!allLower && !allUpper) break;
-        if (!allLower) allUpper = tolower(pair.first).find(' ') == string::npos;
-        if (!allUpper) allLower = toupper(pair.first).find(' ') == string::npos;
+        if (!islower(pair.first[0])) allLower = false;
+        if (!isupper(pair.first[0])) allUpper = false;
     }
 
     return allLower || allUpper;
