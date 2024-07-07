@@ -1,6 +1,6 @@
+```
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -8,6 +8,7 @@ bool isPrime(int n) {
         if (n % i == 0) return false;
     }
     return true;
+
 }
 
 int skjkasdkd(std::vector<int> lst){
@@ -22,10 +23,5 @@ int skjkasdkd(std::vector<int> lst){
         maxPrime /= 10;
     }
     return sum;
-}
 
-int main() {
-    std::vector<int> lst = {127, 97, 8192};
-    assert(sjkasdkd(lst) == 10);
-    return 0;
 }
