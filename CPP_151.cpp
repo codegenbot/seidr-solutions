@@ -1,4 +1,4 @@
-vector<float> lst = {1.2f, 3.5f, -4.7f, 6.8f};
+vector<float> lst = {1.5f, -2.3f, 3.7f, -4.8f, 5.9f};
 int odd_sum = 0;
 
 long long double_the_difference(vector<float> lst) {
