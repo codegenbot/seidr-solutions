@@ -1,31 +1,34 @@
-string file_name_check(string file_name){
-    int dot_count = 0;
-    int digit_count = 0;
-    char prev_char = ' ';
+int count_digits(const string& str) {
+    int count = 0;
+    for (char c : str) {
+        if (isdigit(c)) {
+            count++;
+        }
+    }
+    return count;
+}
 
-    for(int i=0; i<file_name.size(); i++){
-        if(file_name[i] == '.'){
+string file_name_check(string file_name) {
+    int dot_count = 0, digit_count = 0;
+    bool starts_with_letter = false;
+
+    for (char c : file_name) {
+        if (c == '.') {
             dot_count++;
-            prev_char = '.';
-        }else if(isdigit(file_name[i])){
+            if (dot_count > 1) return "No";
+        } else if (isdigit(c)) {
             digit_count++;
-            prev_char = file_name[i];
-        }else{
-            if(prev_char != '.' && !isalpha(prev_char) && prev_char != ' '){
-                return "No";
-            }
-            prev_char = file_name[i];
+            if (digit_count > 3) return "No";
+        } else if (!starts_with_letter && isalpha(c)) {
+            starts_with_letter = true;
         }
     }
 
-    if(digit_count > 3 || dot_count != 1)
-        return "No";
-
     size_t pos = file_name.find('.');
-    string ext = file_name.substr(pos+1);
-    
-    if(ext != "txt" && ext != "exe" && ext != "dll")
-        return "No";
-    
-    return "Yes";
+    if (pos == string::npos || pos + 4 >= file_name.size()) return "No";
+
+    string ext = file_name.substr(pos + 1);
+    if (ext != "txt" && ext != "exe" && ext != "dll") return "No";
+
+    return starts_with_letter ? "Yes" : "No";
 }
