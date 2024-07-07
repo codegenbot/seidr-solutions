@@ -1,5 +1,3 @@
-Here's the modified code:
-
 ```cpp
 #include <algorithm>
 #include <vector>
@@ -49,7 +47,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-int main() {
+int main() { 
     vector<int> nums = {0,6,6,-76,-21,23,4};
     cout << "Sorted array: ";
     for(int num : order_by_points(nums)) {
@@ -62,3 +60,4 @@ int main() {
         cout << "Test passed" << endl;
     }
     return 0;
+}
