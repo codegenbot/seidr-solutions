@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
@@ -48,10 +47,28 @@ vector<string> letterGrade(vector<float> grades) {
     return result;
 }
 
+bool areGradesSame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
+}
+
+vector<string> numericalLetterGrade(vector<float> grades) {
+    vector<string> result;
+    for (float grade : grades) {
+        result.push_back(letterGrade(grade));
+    }
+    return result;
+}
+
 int main() {
     vector<float> fgrades = {0, 0.7};
-    vector<string> grades = letterGrade(fgrades);
-    if (!compareVectors({grades[0], grades[1]}, {"E", "D-" }))
+    vector<string> grades = numericalLetterGrade(fgrades);
+    if (!areGradesSame({grades[0], grades[1]}, {"E", "D-" }))
         cout << "Test failed" << endl;
     else
         cout << "Test passed" << endl;
