@@ -16,7 +16,9 @@ string decode_shift(string s){
     string out;
     int i;
     for (i=0;i<s.length();i++) {
-        int w(((int)s[i])-(int)'a'+5)%26+(int)'a';
+        int w(((int)s[i])-5+(int)'a');
+        if(w<97)
+            w+=26;
         out=out+(char)w;
     }
     return out;
