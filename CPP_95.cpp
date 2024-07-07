@@ -7,10 +7,10 @@ bool check_dict_case(map<string, string> dict) {
     for (auto it = dict.begin(); it != dict.end(); ++it) {
         if (!allLower && !allUpper) break;
         if (allLower) {
-            allLower = allLower && tolower(it->first).find_first_not_of('a'-'z') == string::npos;
+            allLower &= it->first[0] >= 'a' && it->first[0] <= 'z';
         }
         if (allUpper) {
-            allUpper = allUpper && toupper(it->first).find_first_not_of('A'-'Z') == string::npos;
+            allUpper &= it->first[0] >= 'A' && it->first[0] <= 'Z';
         }
     }
 
