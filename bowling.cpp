@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -8,9 +7,8 @@ int bowlingScore(string s) {
     int currentRoll = 0;
     int rollCount = 0;
 
-    for (char c : s) {
-        int cur = c - '0';
-        if (c == '/') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '/') {
             if (currentRoll >= 10) {
                 score += currentRoll + 10;
             } else {
@@ -18,8 +16,9 @@ int bowlingScore(string s) {
             }
             currentRoll = 0;
             rollCount++;
-        } else {
-            currentRoll = 10 * currentRoll + cur;
+        } else if (isdigit(s[i])) {
+            currentRoll *= 10;
+            currentRoll += s[i] - '0';
         }
     }
 
