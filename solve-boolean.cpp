@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -33,10 +32,10 @@ bool evaluateTerm(string term) {
         if (c == '&') {
             bool subRes = (subTerm == "t") ? true : false;
             res = res && subRes;
-            subTerm.clear();
+            // subTerm.clear();
         } else if (c == 't' || c == 'f') {
             subTerm += c;
-            if (i < term.length() - 1 && term[i + 1] == '&') i++; // skip '&' for now
+            if (i < term.length() - 1 && term[i + 1] == '&') i++; 
         }
     }
     bool subRes = (subTerm == "t") ? true : false;
