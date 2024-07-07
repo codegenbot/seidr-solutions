@@ -1,16 +1,18 @@
-```
-#include <string>
+#include <iostream>
 
-bool isPrime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; i++)
-        if (n % i == 0)
+bool prime_length(int len) {
+    for (int i = 2; i <= len / 2; i++) {
+        if (len % i == 0)
             return false;
+    }
     return true;
+
 }
 
-bool prime_length(string str) {
-    int len = str.length();
-    return isPrime(len);
+int main() {
+    int input;
+    std::cout << "Enter a number: ";
+    std::cin >> input;
+    assert(prime_length(input) == true);
+    return 0;
 }
