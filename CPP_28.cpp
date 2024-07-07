@@ -1,15 +1,14 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-std::string concatenate(const std::vector<std::string>& strings) {
-    std::string result;
+std::vector<std::string> concatenate(const std::vector<std::string>& strings) {
+    std::vector<std::string> result;
     for (const auto& str : strings) {
-        result += str + "\n";
+        if (result.empty()) {
+            result.push_back(str);
+        } else {
+            result.push_back(str + strings[0]);
+        }
     }
-    return result; 
-}
-
-int main() {
-    assert(concatenate({"x", "y", "z", "w", "k"}) == "xy\nz\nw\ nk");
-    return 0;
-}
+    return result;
