@@ -1,5 +1,4 @@
 #include <string>
-#include <cctype>
 
 string flip_case(string str){
     string result = "";
