@@ -1,18 +1,4 @@
-#include <iostream>
-#include <vector>
-
-int sum_squares(std::vector<int> lst) {
-    int total = 0;
-    for (int i = 0; i < lst.size(); i++) {
-        if (i % 3 == 0 && i % 4 != 0 || i % 4 == 0 && i % 3 != 0) {
-            total += lst[i] * lst[i];
-        } else if (i % 4 == 0 && i % 3 == 0) {
-            total += lst[i] * lst[i] * lst[i];
-        }
-    }
-    return total;
-}
-
+```cpp
 int main() {
     std::vector<int> inputVector; 
     int n; 
@@ -34,7 +20,7 @@ int main() {
                     std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
                 }else{
                     std::cerr << "You've reached the maximum capacity of your vector!" << std::endl;
-                    break;
+                    return 0; 
                 }
             }
         }
