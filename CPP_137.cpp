@@ -41,6 +41,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (std::stod(as) > std::stod(bs)) ? a : ((std::stod(bs) > std::stod(as)) ? b : boost::any("None"));
     }
     else {
-        return boost::any("None");
+        return "None";
     }
 }
