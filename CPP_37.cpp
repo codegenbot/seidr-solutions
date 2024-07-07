@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -39,16 +38,19 @@ std::vector<float> sort_even(std::vector<float> input) {
     return result;
 }
 
-int main() { 
+int main() {
     int n;
     std::vector<float> input;
     float num;
+
     std::cout << "Enter numbers separated by spaces: ";
-    while ((std::cin >> num) && std::cin.peek() != '\n') {
+    while (std::cin >> num) {
         input.push_back(num);
     }
     std::cin.ignore();
+    
     std::vector<float> result = sort_even(input);
+
     for (float val : result) {
         std::cout << val << " ";
     }
