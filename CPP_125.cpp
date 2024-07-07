@@ -1,23 +1,30 @@
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-    if (txt.empty()) {
-        return result;
-    }
-    result.push_back(txt);
-    return result.size() == 1 ? vector<string>{to_string(count_lowercase_odd_order(txt))} : result;
-}
+    size_t pos = 0, prev_pos = 0;
 
-int count_lowercase_odd_order(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (islower(c) && (c - 'a') % 2 != 0) {
-            count++;
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+        if (pos == 0 || txt[pos - 1] != ' ') {
+            if (prev_pos == 0) {
+                result.push_back(txt.substr(0, pos));
+                prev_pos = pos;
+            } else {
+                result.push_back(txt.substr(prev_pos, pos - prev_pos));
+                prev_pos = pos;
+            }
         }
     }
-    return count;
+
+    if (prev_pos < txt.size()) {
+        result.push_back(txt.substr(prev_pos));
+    } else if (txt.empty()) {
+        int count = 0;
+        for (char c : txt) {
+            if ((int)c >= 97 && (int)c <= 122 && (count++ % 2 == 1)) {
+                result.push_back(to_string(count));
+                break;
+            }
+        }
+    }
+
+    return result;
 }
