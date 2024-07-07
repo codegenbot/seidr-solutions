@@ -1,17 +1,22 @@
-string anti_shuffle(string s){
+#include <algorithm>
+using namespace std;
+
+string anti_shuffle(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' '){
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') {
             result += ' ';
-            continue;
+        } else {
+            string word = "";
+            while (i < s.length() && s[i] != ' ') {
+                word += s[i];
+                i++;
+            }
+            for (char c : word) {
+                result += min_element(word.begin(), word.end()) -> first;
+            }
+            i--;
         }
-        string word = "";
-        for(int j=i; j<=s.find(' ',i); j++){
-            word += s[j];
-        }
-        sort(word.begin(),word.end());
-        result += word;
-        i = s.find(' ',i);
     }
     return result;
 }
