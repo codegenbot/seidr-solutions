@@ -6,7 +6,7 @@ using Pair = struct {
     int second;
 };
 
-bool sameVector(const std::vector<int>& v1, const std::vector<int>& v2) {
+bool areVectorsEqual(const std::vector<int>& v1, const std::vector<int>& v2) {
     if(v1.size() != v2.size()) return false;
     for(int i = 0; i < v1.size(); i++) {
         if(std::find(v2.begin(), v2.end(), v1[i]) == v2.end()) return false;
@@ -36,7 +36,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool areEqual(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(std::find(b.begin(), b.end(), a[i]) == b.end()) return false;
@@ -51,7 +51,7 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-    if (!issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6})) {
+    if (!areEqual(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6})) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
