@@ -26,8 +26,7 @@ void calculateOddSums(std::vector<double> lst) {
             }
         }
     }
-    double average = total_sum / std::count_if(lst.begin(), lst.end(), [](double x){ return x > 0 && std::floor(x) == x && std::fmod(x, 2.0) != 0.0; });
-    std::cout << "Average of odd numbers: " << average << std::endl;
+    std::cout << "The sum of odd numbers is: " << total_sum << std::endl;
 }
 
 int main() {
