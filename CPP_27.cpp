@@ -2,7 +2,7 @@
 #include <cassert>
 #include <string>
 
-std::string filp_case(const std::string& str) -> const std::string {
+std::string filp_case(const std::string& str) {
     std::string result = "";
     for (char c : str) {
         if ((c >= 'a' && c <= 'z')) {
@@ -18,5 +18,4 @@ std::string filp_case(const std::string& str) -> const std::string {
 
 int main() {
     assert(filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    return 0;
 }
