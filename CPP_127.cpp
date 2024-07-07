@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -14,6 +13,7 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
 
 int main() {
     assert(intersection({-2, -2}, {-3, -2}) == "no");
+
     
     std::pair<int, int> interval1;
     std::cout << "Enter the first interval's start: ";
