@@ -1,11 +1,9 @@
-```cpp
+```
 #include <string>
 #include <sstream>
 #include <iomanip>
 
-using namespace std;
-
-string string_to_md5(string text) {
+std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
 
     MD5_CTX ctx;
@@ -24,11 +22,10 @@ string string_to_md5(string text) {
     unsigned char result[16];
     MD5_Final(result, &ctx);
 
-    stringstream ss;
+    std::stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        ss << setfill('0') << setw(2) << hex << (int)result[i];
+        ss << std::setfill('0') << std::setw(2) << std::hex << (int)result[i];
     }
 
-    string md5Hash = ss.str();
-    return md5Hash;
+    return ss.str();
 }
