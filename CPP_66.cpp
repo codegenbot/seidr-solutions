@@ -1,18 +1,11 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
 int digitSum(string s) {
     int sum = 0;
+    std::string result = "";
     for (char c : s) {
         if (isupper(c)) {
-            sum += c - 'A' + 1; 
+            sum += tolower(c) - 'a' + 1;
+            result.push_back((sum % 26) + 'a' - 1); 
         }
     }
-    return sum;
-}
-
-int main() {
-    cout << digitSum("You arE Very Smart") << endl;
-    return 0;
+    return result;
 }
