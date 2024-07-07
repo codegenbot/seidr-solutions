@@ -8,8 +8,8 @@ int main() {
     cout << "Enter a string: ";
     cin >> str;
     
-    for (int i = str.size() - 1, j = 0; i >= 0; i--, j++) {
-        if (str[i] == str[j]) {
+    for (int i = 0; i < str.size(); i++) {
+        if (str[i] == str[i + 1]) {
             sum += str[i] - '0';
         }
     }
