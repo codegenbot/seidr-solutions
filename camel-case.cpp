@@ -4,23 +4,36 @@
 std::string camelCase(std::string s) {
     std::string result = "";
     bool firstWord = true;
-    size_t start = 0;
-
-    for (size_t i = 0; i <= s.size(); ++i) {
-        if (i == s.size() || (s[i] == '-' && s[i + 1] != '-')) {
-            std::string word = s.substr(start, i - start);
-            
+    
+    for (char c : s) {
+        if (c == '-') {
             if (!firstWord) {
-                result += toupper(word[0]);
-                for (size_t j = 1; j < word.size(); ++j) {
-                    result += tolower(word[j]);
-                }
-            } else {
-                result += tolower(word);
+                result += toupper(s.substr(i + 1, s.find(' ') - i - 1));
+                i = s.find(' ');
             }
-            
             firstWord = false;
-            start = i + 1;
+        } else if (c == ' ') {
+            if (!firstWord) {
+                result += tolower(s.substr(i + 1, s.find(' ') - i - 1));
+                i = s.find(' ');
+            }
+            firstWord = true;
+        } else {
+            if (!firstWord) {
+                result += c;
+            } else {
+                result += tolower(c);
+            }
+            firstWord = false;
+        }
+    }
+    
+    // Add the last word
+    if (result.size() > 0) {
+        if (isupper(result[0])) {
+            result[0] = tolower(result[0]);
+        } else {
+            result += tolower(result[0]);
         }
     }
     
@@ -29,6 +42,7 @@ std::string camelCase(std::string s) {
 
 int main() {
     std::string s;
+    int i = 0;
     while (std::cin >> s) {
         std::cout << camelCase(s) << std::endl;
     }
