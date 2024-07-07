@@ -1,8 +1,9 @@
-```cpp
 #include <iostream>
 #include <string>
 
-int choose_num(int num1, int num2) {
+int choose_num(std::string s1, std::string s2) {
+    int num1 = std::stoi(s1);
+    int num2 = std::stoi(s2);
     return (num1 > num2) ? num1 : num2;
 }
 
@@ -27,9 +28,9 @@ int main() {
     int num2 = std::stoi(s2);
 
     if(num1 > num2)
-        std::cout << "Greater number is " << std::to_string(choose_num(num1, num2)) << std::endl;
+        std::cout << "Greater number is " << choose_num(s1, s2) << std::endl;
     else
-        std::cout << "Greater number is " << std::to_string(choose_num(num1, num2)) << std::endl;
+        std::cout << "Greater number is " << choose_num(s1, s2) << std::endl;
 
     return 0;
 }
