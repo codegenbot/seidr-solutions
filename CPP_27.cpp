@@ -1,12 +1,12 @@
-string flip_case(string str){
-    string result = "";
-    for(int i=0; i<str.length();i++){
-        char c = str[i];
-        if(c>=97&&c<=122) // lowercase letters in ASCII table
-            c -= 32;      // convert to uppercase
-        else if(c>=65&&c<=90) // uppercase letters in ASCII table
-            c += 32;      // convert to lowercase
-        result+=c;
+char temp;
+
+for(int i = 0; i < str.length(); i++) {
+    temp = tolower(str[i]);
+    if(temp == 'a' || temp == 'e' || temp == 'i' || temp == 'o' || temp == 'u') {
+        temp = toupper(str[i]);
+    } else if(isupper(str[i])) {
+        temp = tolower(str[i]);
     }
-    return result;
+    str[i] = temp;
 }
+return str;
