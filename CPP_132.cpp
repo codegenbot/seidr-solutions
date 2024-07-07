@@ -1,5 +1,5 @@
+```
 #include <string>
-using namespace std;
 
 bool is_nested(string str) {
     int open = 0, close = 0;
@@ -8,16 +8,4 @@ bool is_nested(string str) {
         else if (c == ']') close++;
     }
     return open > 0 && close > open;
-}
-
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    if (is_nested(input)) {
-        cout << "The string is nested." << endl;
-    } else {
-        cout << "The string is not nested." << endl;
-    }
-    return 0;
 }
