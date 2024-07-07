@@ -1,5 +1,4 @@
-```cpp
-vector<string> vector_sort(vector<string> lst, vector<string> b) {
+vector<string> vector_sort(vector<string> lst) {
     auto comp = [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
@@ -16,7 +15,7 @@ vector<string> vector_sort(vector<string> lst, vector<string> b) {
     return result;
 }
 
-int sorted_list_sum(vector<string> lst, vector<string> b) {
+int sorted_list_sum(vector<string> lst) {
     auto comp = [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
@@ -35,8 +34,10 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
+    vector<string> sorted_a = vector_sort(a);
+    vector<string> sorted_b = vector_sort(b);
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (sorted_a[i] != sorted_b[i]) {
             return false;
         }
     }
