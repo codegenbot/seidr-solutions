@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 bool issame(vector<int> a,vector<int>b){
@@ -19,5 +18,5 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
-    //your code here
+   //your code here
 }
