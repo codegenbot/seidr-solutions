@@ -1,14 +1,12 @@
-```cpp
+#include <vector>
 #include <cassert>
-int sum_squares(int* numbers, int n) {
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += numbers[i] * numbers[i];
-    }
-    return sum;
-}
 
 int main() {
-    assert(sum_squares({-1, -3, 17, -1, -15, 13, -1, 14, -14, -12, -5,
-                            14, -14, 6, 13, 11, 16, 16, 4, 10}, 20) == -1448);
+    std::vector<int> numbers({1, 2, 3});
+    int sum = sum_squares(numbers);
+    assert(sum == 14);
+}
+
+int sum_squares(const std::vector<int>& v) {
+    return std::accumulate(v.begin(), v.end(), 0, [](int acc, int x){return acc + x * x;});
 }
