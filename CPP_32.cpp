@@ -1,18 +1,18 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
 int main() {
     int ncoeff; 
-    vector<double> coeffs;
-    
+    std::vector<double> coeffs;
+
     std::cout << "Enter the number of coefficients: ";
     std::cin >> ncoeff;
     
     for(int i = 0; i < ncoeff; i++) {
-        std::cout << "Enter coefficient " << i+1 << ": ";
         double coeff;
+        std::cout << "Enter coefficient " << i+1 << ": ";
         std::cin >> coeff;
         coeffs.push_back(coeff);
     }
@@ -20,26 +20,16 @@ int main() {
     double x, y;
     std::cout << "Enter the value of x: ";
     std::cin >> x;
-    
-    find_zero(coeffs, ncoeff, x, y);
-    
+
+    for(int i = 0; i < ncoeff; i++) {
+        double poly = 0.0;
+        for(int j = 0; j <= i; j++) {
+            poly += coeffs[j] * pow(x, j);
+        }
+        y = poly;
+    }
+
     std::cout << "The value of y is: " << y << std::endl;
-    
+
     return 0;
-}
-
-void find_zero(vector<double> coeffs, int ncoeff, double x, double& y) {
-    double poly = 0.0;
-    for(int i = 0; i < ncoeff; i++) {
-        poly += coeffs[i] * pow(x, i);
-    }
-    y = poly;
-}
-
-double poly(vector<double> coeffs, int ncoeff, double x) {
-    double poly = 0.0;
-    for(int i = 0; i < ncoeff; i++) {
-        poly += coeffs[i] * pow(x, i);
-    }
-    return poly;
 }
