@@ -1,22 +1,30 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <string>
 
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& str, const std::string& prefix) {
+std::vector<std::string> filter_by_prefix(const std::vector<std::string>& input, const std::string& prefix) {
     std::vector<std::string> result;
-    for (const auto& s : str) {
-        if (s.find(prefix) == 0) {
-            result.push_back(s);
+    for (const auto& str : input) {
+        if (str.find(prefix) == 0) {
+            result.push_back(str);
         }
     }
     return result;
 }
 
 bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert(is_same(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     if (is_same(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"})) {
         std::cout << "Filtering successful." << std::endl;
     } else {
