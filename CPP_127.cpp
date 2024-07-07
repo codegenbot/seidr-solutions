@@ -6,15 +6,11 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
     int start = std::max(interval1.first, interval2.first);
     int end = std::min(interval1.second, interval2.second);
 
-    std::string result = "";
-    result += std::to_string(start) + " ";
-    result += std::to_string(end) + " ";
-    result += (start <= end ? "yes" : "no");
-    return result;
+    return std::to_string(start) + " " + std::to_string(end) + " " + (start <= end ? "yes" : "no") + "\0";
 }
 
 int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "no";
+    assert(intersection({-2, -2}, {-3, -2}) == "no");
     
     std::pair<int, int> interval1;
     std::cout << "Enter the first interval's start: ";
