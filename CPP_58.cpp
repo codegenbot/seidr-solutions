@@ -22,8 +22,11 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
 }
 
 int main() {
-    std::vector<int> l1 = {1, 2, 3, 4};
-    std::vector<int> l2 = {3, 4, 5, 6};
+    std::vector<int> l1;
+    l1.push_back(1); l1.push_back(2); l1.push_back(3); l1.push_back(4);
+
+    std::vector<int> l2;
+    l2.push_back(3); l2.push_back(4); l2.push_back(5); l2.push_back(6);
 
     std::set<int> set1(l1.begin(), l1.end());
     std::set<int> set2(l2.begin(), l2.end());
@@ -35,8 +38,8 @@ int main() {
         std::cout << "All elements of one list are present in another." << std::endl;
     }
 
-    if(common({4, 3, 2, 8}, {4, 3, 2, 8}).size() != 0) {
-        for(int i : common({4, 3, 2, 8}, {4, 3, 2, 8})) {
+    if(common({1, 2, 3, 8}, {4, 3, 2, 8}).size() != 0) {
+        for(int i : common({1, 2, 3, 8}, {4, 3, 2, 8})) {
             std::cout << i << " ";
         }
         std::cout << std::endl;
