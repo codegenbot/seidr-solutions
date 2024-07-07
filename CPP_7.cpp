@@ -1,38 +1,34 @@
 ```cpp
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(string s : strings){
-        if(s.find(substring) != string::npos)
-            result.push_back(s);
-    }
-    return result;
-}
+#include <vector>
+#include <algorithm>
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++){
-        if(issame_helper(a[i],b[i]))
-            return true;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (find(b.begin(), b.end(), a[i]) == b.end())
+            return false;
     }
-    return false;
-}
-
-bool issame_helper(string s1, string s2){
-    vector<string> strings1 = filter_by_substring(split(s1," "), substring);
-    vector<string> strings2 = filter_by_substring(split(s2," "), substring);
-    if(!issame(strings1,strings2))
-        return false;
     return true;
 }
 
-vector<string> split(string str, string delimiter){
-    size_t pos = 0;
-    vector<string> result;
-    while((pos=str.find(delimiter)) != 0) {
-        result.push_back(str.substr(0,pos));
-        str.erase(0,pos + delimiter.size());
+vector<vector<string>> filter_by_substring(vector<vector<string>> strings) {
+    vector<vector<string>> result;
+    for (vector<string> s : strings) {
+        bool found = false;
+        for (vector<string> sub_s : result) {
+            if (issame(s, sub_s)) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            vector<string> temp;
+            for (string str : s) {
+                if (str.find("substring") != string::npos)
+                    temp.push_back(str);
+            }
+            result.push_back(temp);
+        }
     }
-    result.push_back(str);
     return result;
 }
