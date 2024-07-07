@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
@@ -45,8 +44,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> fgrades = {std::stof("0"), std::stof("0.7")};
-    vector<string> grades = numerical_letter_grade(fgrades);
-    assert(issame(grades, {"E", "D-"}));
+    vector<float> fgrades = {0, 0.7}; 
+    assert(issame(numerical_letter_grade(fgrades), {"E", "D-"}));
     return 0;
 }
