@@ -6,13 +6,14 @@ struct vector<_Ty>::size_type { };
 
 using namespace std;
 
-void reverse_delete(vector<string>& v) {
+vector<string> reverse_delete(vector<string>& v) {
     for (int i = v.size() - 1; i >= 0; --i) {
         if (!v[i].empty()) {
-            v.erase(v.begin() + i);
             break;
         }
+        v.erase(v.begin() + i);
     }
+    return v;
 }
 
 bool issame(vector<string> b, vector<string> a) {
@@ -27,9 +28,10 @@ bool issame(vector<string> b, vector<string> a) {
     return true;
 }
 
-int main(void) {
-    vector<string> input = {"mamma", "mia"};
-    vector<string> result = reverse_delete(input);
-    assert(issame(result, { "", "True" }));
+int main() {
+    vector<string> v = {"mamma", "mia"};
+    v = reverse_delete(v);
+    vector<string> result = {{"", "True"}};
+    assert(issame(result, v));
     return 0;
 }
