@@ -13,7 +13,7 @@ int add(vector<int> lst){
 }
 
 int main() {
-    vector<int> numbers({});
+    vector<int> numbers;
     int num;
     cout << "Enter the numbers: ";
     while(cin >> num) {
