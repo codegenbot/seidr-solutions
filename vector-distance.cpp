@@ -1,12 +1,11 @@
-#include <vector>
 #include <iostream>
 #include <iomanip>
-
+#include <vector>
 using namespace std;
 
 double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
     if (v1.size() != v2.size()) {
-        return -1.0; 
+        return -1.0; // error: vectors have different sizes
     }
     double sum = 0;
     for (int i = 0; i < v1.size(); i++) {
