@@ -1,5 +1,8 @@
+```cpp
+#include <iostream>
 #include <string>
 #include <vector>
+#include <cctype>
 
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest_strength = 0;
@@ -20,8 +23,10 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
 }
 
 int main() {
-    std::string class_name = "MyClass";
-    std::vector<std::string> extensions = {".cpp", ".java", ".py"};
+    std::vector<std::string> extensions = {"com", "org", "net"};
+    std::string class_name = "test";
+
     std::cout << Strongest_Extension(class_name, extensions) << std::endl;
+
     return 0;
 }
