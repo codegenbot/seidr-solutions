@@ -1,18 +1,32 @@
+#include <iostream>
 #include <vector>
+using namespace std;
 
-int luhn(vector<int>& numbers) {
+int luhnCheck(vector<int> digits) {
     int sum = 0;
-    for (int i = 0; i < numbers.size(); i++) {
-        if ((i % 2) == 1) {
-            int doubled = numbers[i] * 2;
-            if (doubled > 9) {
-                sum += doubled - 9;
-            } else {
-                sum += doubled;
+    for(int i = 0; i < digits.size(); i++) {
+        if(i % 2 == 1) { // current digit is odd
+            sum += digits[i];
+        } else { // current digit is even
+            int doubleDigit = digits[i] * 2;
+            if(doubleDigit > 9) {
+                doubleDigit -= 9;
             }
-        } else {
-            sum += numbers[i];
+            sum += doubleDigit;
         }
     }
     return sum;
+}
+
+int main() {
+    vector<int> input;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        int digit;
+        cin >> digit;
+        input.push_back(digit);
+    }
+    cout << luhnCheck(input) << endl;
+    return 0;
 }

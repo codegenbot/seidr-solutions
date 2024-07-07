@@ -1,28 +1,37 @@
 #include <vector>
 using namespace std;
 
-int main() {
-    vector<int> arr = {18,17,16,15,14,13};
-    vector<int> leaders = leaders(arr);
-    for(int i=0; i<leaders.size(); i++)
-        cout << leaders[i] << " ";
-    return 0;
+#include <initializer_list>
+
+vector<int> leaders(vector<int>& arr) {
+    vector<int> result;
+    int rightmost = arr.back();
+    for (int i = arr.size() - 2; i >= 0; i--) {
+        if (arr[i] >= rightmost) {
+            rightmost = arr[i];
+            result.push_back(rightmost);
+        }
+    }
+    return result;
 }
 
 vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> leaders;
-    
-    if(n == 1)
-        return arr;
-    
-    for(int i=n-2; i>=0; i--) {
-        while(i > 0 && arr[i] <= arr[i+1])
-            i--;
-        leaders.push_back(arr[i]);
+    vector<int> result;
+    int rightmost = arr.back();
+    for (int i = arr.size() - 2; i >= 0; i--) {
+        if (arr[i] >= rightmost) {
+            rightmost = arr[i];
+            result.push_back(rightmost);
+        }
     }
-    
-    leaders.push_back(arr[n-1]);
-    
-    return leaders;
+    return result;
+}
+
+int main() {
+    vector<int> arr = {1, 3, 4, 1, 5};
+    vector<int> leadersVector = leaders(arr);
+    for (auto leader : leadersVector) {
+        cout << leader << endl;
+    }
+    return 0;
 }

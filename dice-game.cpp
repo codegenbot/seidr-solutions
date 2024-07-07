@@ -1,8 +1,8 @@
-```cpp
 double probability(int n, int m) {
-    double total = 0;
+    double sum = 0;
     for (int i = 1; i <= m; i++) {
-        total += (n - (m - i)) / (double)n;
+        double prob = (n - i + 1.0) / n; 
+        sum += prob;
     }
-    return total;
+    return sum;
 }
