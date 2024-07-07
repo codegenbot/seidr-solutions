@@ -1,31 +1,18 @@
-#include <string>
-#include <algorithm>
-using namespace std;
+Here is the solution:
 
 string get_closest_vowel(string word) {
-    int n = word.length();
-    string result;
-    
-    // Check from right to left for a vowel between two consonants.
-    for (int i = n - 1; i > 0; --i) {
-        if (!isvowel(word[i])) {
-            while (i > 0 && !isconsonant(word[i]))
-                --i;
-            if (i < n - 1 && isvowel(word[i + 1]))
-                return string(1, word[i + 1]);
+    for (int i = word.size() - 1; i > 0; --i) {
+        if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u') {
+            for (int j = i - 1; j >= 0; --j) {
+                if (!isVowel(word[j])) {
+                    return string(1, tolower(word[i]));
+                }
+            }
         }
     }
-    
-    // If no vowel between two consonants found, return an empty string.
-    return result;
+    return "";
 }
 
-bool isconsonant(char c) {
-    c = tolower(c);
-    return (c >= 'b' && c <= 'z') && (!isvowel(c));
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+bool isVowel(char c) {
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
