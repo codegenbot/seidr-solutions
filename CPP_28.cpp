@@ -1,11 +1,12 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::string concatenate(const std::vector<std::string>& strVec) {
+std::string concatenate(const std::vector<std::string>& strings) {
     std::string result = "";
-    for (const auto& str : strVec) {
-        result += str + " ";
+    for (const auto& str : strings) {
+        result += str;
     }
     return result;
 }
@@ -15,9 +16,9 @@ int main() {
     std::string outputString;
 
     while (true) {
-        std::cin.ignore();
-        std::cout << "Enter a string (or stop to finish): ";
-        std::getline(std::cin, outputString);
+        cin.ignore(); 
+        cout << "Enter a string (or stop to finish): ";
+        getline(cin, outputString);
 
         if (outputString == "stop") break;
 
@@ -25,6 +26,6 @@ int main() {
     }
 
     std::string result = concatenate(strings);
-    std::cout << "Concatenated string: " << result << std::endl;
+    cout << "Concatenated string: " << result << "\n";
     return 0;
 }
