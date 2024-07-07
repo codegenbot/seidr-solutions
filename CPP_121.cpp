@@ -15,6 +15,6 @@ int solution(vector<int> lst) {
 int main() {
     vector<int> lst = {3, 13, 2, 9};
     int result = solution(lst);
-    cout << "Result: " << result << endl;
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
