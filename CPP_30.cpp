@@ -2,7 +2,7 @@
 #include <initializer_list>
 #include <algorithm>
 
-bool compareSame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -32,10 +32,11 @@ int main() {
             v2.push_back(num);
         }
     }
-    if (!compareSame(v1, v2)) {
+    if (!issame(v1, v2)) {
         std::cout << "The two sets of numbers are not the same.\n";
     } else {
-        std::cout << "The two sets of numbers are the same.\n";
+        float max = get_positive({v1.begin(), v1.end()});
+        std::cout << "The maximum positive number is: " << max << "\n";
     }
     return 0;
 }
