@@ -31,4 +31,3 @@ std::string concatenate(vector<string> strVec){
         result += str + " ";
     }
     return result;
-}
