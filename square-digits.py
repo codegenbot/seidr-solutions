@@ -1,1 +1,1 @@
-map(lambda x: str(int(x) ** 2), str(n))
+map(str, map(int, str(n))).join()
