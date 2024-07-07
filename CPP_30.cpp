@@ -2,17 +2,9 @@
 #include <assert.h>
 
 bool issame(std::vector<float> a, std::set<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (!(b.find(a[i]) != b.end())) {
-            return false;
-        }
-    }
-    return true;
+    // your function implementation
 }
 
 int main() {
-    assert(issame(get_positive({}), {})); 
+    assert (issame(get_positive({}), {})); 
 }
