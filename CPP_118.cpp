@@ -1,18 +1,21 @@
-string get_closest_vowel(string word) {
-    int n = word.length();
-    for(int i = n-1; i > 0; --i){
-        if(isvowel(word[i])){
-            string::iterator it = upper_bound(word.begin(), word.end(), word[i]);
-            int pos = distance(word.begin(), it);
-            return word.substr(pos, 1);
-        }
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+using namespace std;
+
+string get_closest_vowel(string word){
+    int i = word.size() - 1;
+    while(i > 0 && !isvowel(word[i])){
+        i--;
+    }
+    if(i == 0) return "";
+    for(int j = i-1; j >= 0; j--){
+        if(isvowel(word[j])) return string(1,word[j]);
     }
     return "";
 }
 
-bool isvowel(char c) {
+bool isvowel(char c){
     c = tolower(c);
-    if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
-        return true;
-    return false;
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
