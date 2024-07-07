@@ -1,13 +1,13 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
-#include <string>
+using namespace std;
 
-int smallest_change(std::vector<int> arr){
+int smallest_change(vector<int> arr){
     int n = arr.size();
-    std::string s = "";
+    string s = "";
     for(int i=0; i<n; i++){
-        s += std::to_string(arr[i]);
+        s += to_string(arr[i]);
     }
     int left = 0, right = s.length() - 1;
     int count = 0;
@@ -27,9 +27,8 @@ int smallest_change(std::vector<int> arr){
     return count;
 }
 
-int main(){
-    std::vector<int> arr = {1, 2, 3};
-    int result = smallest_change(arr);
-    std::cout << "Smallest change: " << result << std::endl;
+int main() {
+    vector<int> arr = {2, 3, 4, 5};
+    cout << smallest_change(arr);
     return 0;
 }
