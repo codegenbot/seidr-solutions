@@ -1,6 +1,5 @@
 #include <limits>
 #include <iostream>
-#include <boost/any.hpp>
 
 bool isGreaterThanOrEqualTo(double d1) {
     return d1 >= 0.0;
