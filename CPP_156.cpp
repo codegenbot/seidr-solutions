@@ -1,30 +1,50 @@
-```cpp
-#include <string>
+#include <cassert>
 
-std::string toMiniRomanHelper(int num, std::string s1, std::string s2) {
-    if (num == 4) {
-        return s2;
-    } else if (num == 9) {
-        return s1 + "I";
-    } else {
-        std::string temp = "";
-        for (int i = 0; i < num / 5; i++) {
-            temp += s1[0];
-        }
-        if (!temp.empty()) {
-            temp += toMiniRomanHelper(num % 5, "", s2);
-        } else {
-            temp += toMiniRomanHelper(num, s1, s2);
-        }
-        return temp;
+std::string toMiniRomanHelper(int num, std::string str, std::string roman) {
+    if (num == 0)
+        return str;
+    if (num >= 4000)
+        return "IV";
+    if (num >= 1000) {
+        str += roman;
+        return toMiniRomanHelper(num - 1000, str, "M");
     }
+    if (num >= 900)
+        return "CM";
+    if (num >= 500) {
+        str += roman;
+        return toMiniRomanHelper(num - 500, str, "D");
+    }
+    if (num >= 400)
+        return "CD";
+    if (num >= 100) {
+        str += roman[0];
+        return toMiniRomanHelper(num - 100, str, &roman[1]);
+    }
+    if (num >= 90)
+        return "XC";
+    if (num >= 50) {
+        str += roman[0];
+        return toMiniRomanHelper(num - 50, str, &roman[1]);
+    }
+    if (num >= 40)
+        return "XL";
+    if (num >= 10) {
+        str += roman[0];
+        return toMiniRomanHelper(num - 10, str, &roman[1]);
+    }
+    if (num >= 9)
+        return "IX";
+    if (num >= 5) {
+        str += roman[0];
+        return toMiniRomanHelper(num - 5, str, &roman[1]);
+    }
+    if (num >= 4)
+        return "IV";
+    str += roman[0];
+    return str + roman[1];
 }
 
-std::string int_to_mini_romank(int n) {
-    return toMiniRomanHelper(n, "M", "IV");
-}
-
-int main() {
-    assert(int_to_mini_romank(1000) == "M");  
-    return 0;
+std::string int_to_mini_roman(int num) {
+    return toMiniRomanHelper(num, "", "");
 }
