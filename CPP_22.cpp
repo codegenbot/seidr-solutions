@@ -1,8 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <list>
-
-bool compareVectors(std::vector<int> a, std::vector<int> b) {
+```cpp
+bool isSame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -17,6 +14,6 @@ std::vector<int> filter_integers(std::list<int> values) {
 }
 
 int mainCPP22() {
-    assert(compareVectors(filter_integers({3, 3, 3}), {3, 3, 3}));
+    assert(isSame(filter_integers({3, 3, 3}), {3, 3, 3}));
     return 0;
 }
