@@ -1,9 +1,9 @@
+```cpp
 #include <cmath>
 #include <vector>
 #include <algorithm> 
 #include <numeric>
 #include <iostream>
-#include <limits>
 
 double double_the_difference(std::vector<double> lst) {
     double odd_sum = 0;
@@ -37,8 +37,8 @@ void calculateAndPrint() {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
 
-        if (num >= 0.0 && std::fmod(num,2.0) == 0.0) { 
-            lst.push_back(num);
+        if (num >= 0.0 && std::fmod(num,2.0) != 0.0) { 
+            lst.push_back(num); // Don't cast to int
         }
     }
 
