@@ -33,6 +33,10 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         result.push_back(str);
     }
 
+    return result;
+}
+
+int main() {
     std::vector<int> arr;
     int n;
     std::cout << "Enter the number of integers: ";
