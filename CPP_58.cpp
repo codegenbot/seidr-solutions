@@ -1,16 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <set>
 using namespace std;
-
-int main() {
-    vector<int> l1 = {1,2,3,4};
-    vector<int> l2 = {3,4,5,6};
-    vector<int> result = common(l1, l2);
-    for(int i : result) {
-        cout << i << " ";
-    }
-    return 0;
-}
 
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> set1(l1.begin(), l1.end());
@@ -20,4 +12,25 @@ vector<int> common(vector<int> l1, vector<int> l2) {
         inserter(intersection, intersection.begin()));
     vector<int> result(intersection.begin(), intersection.end());
     return result;
+}
+
+int main() {
+    int n1, m1, n2, m2;
+    cin >> n1 >> m1 >> n2 >> m2;
+    vector<int> l1(m1);
+    for(int i=0; i<m1; i++){
+        cin >> l1[i];
+    }
+    vector<int> l2(m2);
+    for(int i=0; i<m2; i++){
+        cin >> l2[i];
+    }
+    vector<int> result = common(l1, l2);
+    cout << "[";
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+        if(i+1==result.size()) cout<<"]";
+        else cout<<"], [";
+    }
+    return 0;
 }
