@@ -1,16 +1,14 @@
 ```cpp
-#include <cassert>
-#include <string>
-#include <cctype>
 #include <iostream>
+#include <string>
 
-std::string flipCase(std::string str) {
-    std::string result = "";
+std::string flipCase(const std::string& str) {
+    std::string result;
     for (char c : str) {
-        if (isupper(c)) {
-            result += tolower(c);
-        } else if (islower(c)) {
-            result += toupper(c);
+        if (c >= 'a' && c <= 'z') {
+            result += c - 32; // Convert lowercase to uppercase
+        } else if (c >= 'A' && c <= 'Z') {
+            result += c + 32; // Convert uppercase to lowercase
         } else {
             result += c;
         }
@@ -18,12 +16,12 @@ std::string flipCase(std::string str) {
     return result;
 }
 
-int main() { 
+int main() {
     try {
         std::cout << flipCase("These violent delights have violent ends") << std::endl;
-    } catch(...) {
+    } catch (...) {
         std::cerr << "An error occurred." << std::endl;
     }
     assert(flipCase("These violent delights have violent ends") == "these violent delights have violent ends");
-    return 0; 
+    return 0;
 }
