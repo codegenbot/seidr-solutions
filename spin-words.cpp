@@ -1,9 +1,7 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
-#include <cctype>
 #include <bits/stdc++.h>
-#include <string>
+#include <algorithm>
 
 int main() {
     std::string input;

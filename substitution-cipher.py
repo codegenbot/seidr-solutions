@@ -8,13 +8,12 @@ import itertools
 import queue
 import re
 
+
 def substitution_cipher(message, cipher1):
-    # Create a dictionary to store the mapping of characters in cipher1 and cipher2
     char_map = {}
     for i in range(len(cipher1)):
         char_map[cipher1[i]] = cipher1[i]
 
-    # Decipher the message by replacing each character with its corresponding character in cipher1
     deciphered_message = ""
     for char in message:
         if char in char_map:
@@ -23,6 +22,7 @@ def substitution_cipher(message, cipher1):
             deciphered_message += char
 
     return deciphered_message
+
 
 # Read input from the user
 message = input("Enter message to decipher: ")
