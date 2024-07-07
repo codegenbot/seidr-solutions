@@ -5,13 +5,11 @@
 
 std::vector<std::vector<int>> grid;
 
-grid.resize(3);
+grid.resize(3, std::vector<int>(3)); 
+
+grid[0].resize(3);
 for (int i = 0; i < 3; i++) {
-    std::vector<int> row;
-    for (int j = 0; j < 3; j++) {
-        row.push_back(1 + i + 2 * j);
-    }
-    grid[i] = row;
+    grid[i].push_back(1 + i + 2 * i);
 }
 
 int max_fill(std::vector<std::vector<int>> grid, int capacity) {
