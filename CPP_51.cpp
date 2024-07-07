@@ -1,9 +1,10 @@
-string remove_vowels(string text) {
-    string result = "";
-    for (char c : text) {
-        if (!ispunct(c) && !isalpha(c) || (isalpha(c) && tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u')) {
-            result += c;
+string remove_vowels(string text){
+    string noVowels = "";
+    for(int i = 0; i < text.length(); i++){
+        char c = tolower(text[i]);
+        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
+            noVowels += text[i];
         }
     }
-    return result;
+    return noVowels;
 }
