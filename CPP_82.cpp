@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-#include <string>
 
 bool prime_length(int len) {
     for (int i = 2; i <= len / 2; i++) {
@@ -8,6 +6,7 @@ bool prime_length(int len) {
             return false;
     }
     return true;
+
 }
 
 int main() {
