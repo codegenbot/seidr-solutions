@@ -4,17 +4,18 @@
 
 std::vector<std::string> concatenate(const std::vector<std::string>& strings) {
     if (strings.empty()) {
-        return {};
+        return {""); // Return a vector with an empty string
     }
 
     std::string prefix = strings[0];
-    for (int i = 1; i < strings.size(); ++i) {
-        if (strings[i] == prefix) {
-            std::cout << strings[i] << " ";
+    for (auto it = strings.begin() + 1; it != strings.end(); ++it) {
+        if (*it == prefix) {
+            std::cout << *it << " ";
         } else {
-            std::cout << prefix + strings[i] << " ";
+            std::cout << prefix + *it << " ";
         }
     }
+    return {""); // Return a vector with an empty string
 }
 
 int main() {
