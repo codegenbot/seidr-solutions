@@ -1,3 +1,7 @@
+```cpp
+#include <vector>
+#include <cmath>
+
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
@@ -18,4 +22,10 @@ bool isPrime(int n) {
         if (n % i == 0) return false;
     }
     return true;
+
+}
+int main() {
+    std::vector<int> lst = {127, 97, 8192};
+    assert (skjkasdkd(lst) == 10);
+    return 0;
 }
