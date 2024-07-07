@@ -13,7 +13,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-std::string letterGrade(float grade) {
+char* letterGrade(float grade) {
     if (grade < 1.0)
         return "F";
     else if (grade >= 4.0)
@@ -42,18 +42,17 @@ std::string letterGrade(float grade) {
         return "F";
 }
 
-std::vector<std::string> numericalLetterGrade(std::vector<float> grades) {
-    std::vector<std::string> result;
+vector<string> numericalLetterGrade(vector<float> grades) {
+    vector<string> result;
     for (float grade : grades) {
-        std::string letter = letterGrade(grade);
-        result.push_back(letter);  // Pushing a string directly into vector
+        result.push_back(letterGrade(grade));
     }
     return result;
 }
 
 int main() {
-    std::vector<float> fgrades = {0.0, 0.7};
-    std::vector<std::string> grades = numericalLetterGrade(fgrades);
+    vector<float> fgrades = {0.0, 0.7};
+    vector<string> grades = numericalLetterGrade(fgrades);
     if (!issame({grades[0], grades[1]}, {"F", "D"}))
         std::cout << "Test failed" << std::endl;
     else
