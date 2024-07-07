@@ -1,8 +1,11 @@
-string str = "";
-for (int i = 0; i < text.length(); i++) {
-    if (!(text[i] == 'a' || text[i] == 'e' || text[i] == 'i' || text[i] == 'o' || text[i] == 'u' ||
-          tolower(text[i]) == 'a' || tolower(text[i]) == 'e' || tolower(text[i]) == 'i' || tolower(text[i]) == 'o' || tolower(text[i]) == 'u')) {
-        str += text[i];
+string::iterator it = text.begin();
+string result;
+
+while (it != text.end()) {
+    if (!isvowel(*it)) {
+        result += *it;
     }
+    ++it;
 }
-return str;
+
+return result;
