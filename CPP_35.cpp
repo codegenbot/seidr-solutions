@@ -1,10 +1,10 @@
 #include <algorithm>
 #include <cmath>
 
-double largestMagnitude(vector<complex<double>> l) {
+int maxElement(vector<int> l) {
     if(l.empty()) {
-        throw runtime_error("Input list is empty");
+        cout << "Error: The list is empty." << endl;
+        return -1;
     }
-    
     return abs(*max_element(l.begin(), l.end()));
 }
