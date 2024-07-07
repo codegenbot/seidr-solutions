@@ -1,30 +1,29 @@
 #include <algorithm>
 
 string sort_numbers(string numbers) {
-    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                {"eight", 8}, {"nine", 9}};
-    vector<string> numVec;
-    
-    string temp = "";
-    for (char c : numbers) {
-        if (isdigit(c)) {
-            temp += c;
-        } else {
-            numVec.push_back(temp);
-            temp = "";
-        }
+    map<string, int> numberMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                   {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                   {"eight", 8}, {"nine", 9}};
+    vector<string> numberVector;
+    string num;
+
+    for (char &c : numbers) {
+        if (isdigit(c)) continue; // skip digits
+        num = c == ' ' ? "" : c + "";
+        while ((c = numbers[numbers.find(num) + 1]) != ' ') num += c;
+        numberVector.push_back(num);
     }
-    numVec.push_back(temp);
 
-    sort(numVec.begin(), numVec.end(), [&numMap](string a, string b) {
-        return numMap[a] < numMap[b];
-    });
+    sort(numberVector.begin(), numberVector.end());
+    return string(numberVector.size(), ' ') + join(numberVector, " ");
+}
 
+string join(vector<string> v, string sep) {
     string result = "";
-    for (auto str : numVec) {
-        result += str + " ";
+    for (int i = 0; i < v.size(); i++) {
+        result += v[i];
+        if (i < v.size() - 1)
+            result += sep;
     }
-    
     return result;
 }
