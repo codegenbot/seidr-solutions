@@ -3,7 +3,6 @@
 #include <vector>
 #include <queue>
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
 struct pair_int {
     int val;
     int i;
@@ -15,7 +14,9 @@ struct pair_int {
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
     std::priority_queue<pair_int, std::vector<pair_int>, greater<pair_int>> pq; 
-    std::vector<int> res(k + 1);
+    // Remove this line
+    // std::vector<int> res;
+    int size = 0;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -24,14 +25,17 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
         }
     }
 
+    std::vector<int> res;
     while (!pq.empty()) {
         int val = pq.top().val;
         int pos_i = pq.top().i;
         int pos_j = pq.top().j;
         pq.pop();
 
-        res[k-1] = grid[pos_i][pos_j];
-        k--;
+        if (size < k) {
+            res.push_back(grid[pos_i][pos_j]);
+            size++;
+        }
 
         if (k > 0) {
             // Check all neighbors
