@@ -5,7 +5,14 @@
 
 std::vector<std::vector<int>> grid;
 
-grid = {{1,2,3},{4,5,6},{7,8,9}};
+grid.resize(3);
+for (int i = 0; i < 3; i++) {
+    std::vector<int> row;
+    for (int j = 0; j < 3; j++) {
+        row.push_back(1 + i + 2 * j);
+    }
+    grid[i] = row;
+}
 
 int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int n = grid.size();
@@ -33,6 +40,6 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 }
 
 int main() {
-    cout << "Maximum number of times the tank can be filled: " << max_fill(grid, 10) << endl;
+    std::cout << "Maximum number of times the tank can be filled: " << max_fill(grid, 10) << std::endl;
     return 0;
 }

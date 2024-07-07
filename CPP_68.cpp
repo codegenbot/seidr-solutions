@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <limits>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool sameVector(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -28,7 +29,7 @@ std::vector<int> pluck(const std::vector<int>& arr) {
     return result;
 }
 
-int main() {
+int mainFunction() {
     int n;
 
     // Read input
@@ -41,11 +42,23 @@ int main() {
     }
 
     // Process the array
-    std::vector<int> output = pluck(input);
+    std::vector<int> output;
+    size_t minEven = std::numeric_limits<size_t>::max(), minIndex = -1;
+
+    for (int i = 0; i < n; i++) {
+        if (input[i] % 2 == 0 && input[i] < minEven) {
+            minEven = input[i];
+            minIndex = i;
+        }
+    }
+
+    output.push_back(minEven);
+    output.push_back(minIndex);
 
     if (output.empty()) {
         std::cout << "No even numbers found." << std::endl;
     } else {
+        assert(sameVector(pluck({7, 9, 7, 1}), {}));
         std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
                   << std::endl;
     }

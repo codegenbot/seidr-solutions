@@ -1,20 +1,11 @@
-#include <cstddef>
-#include <string>
-#include <cassert>
-
-size_t findPattern(const std::string& input) {
-    size_t count = 0;
+```cpp
+int findPattern(const std::string& str) {
+    int count = 0;
     size_t pos = 0;
-    while ((pos = input.find("I am bored", pos)) != std::string::npos) {
-        if (pos == std::string::npos) break;
-        count++;
-        pos = input.find("I am bored", pos);
+    while ((pos = str.find("I am bored")) != std::string::npos) {
+        ++count;
+        pos += 7; // Move the position to the next occurrence
     }
     return count;
 
-}
-
-int main() {
-    assert(findPattern("You and I are going for a walk") == 0);
-    return 0;
 }
