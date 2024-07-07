@@ -24,11 +24,10 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    vector<int> result = get_odd_collatz(n);
-    cout << "The sorted vector of odd numbers in Collatz sequence is: ";
-    for (int num : result) {
-        cout << num << " ";
+    vector<int> res = get_odd_collatz(n);
+    cout << "The sorted odd numbers in Collatz sequence are: ";
+    for (int i : res) {
+        cout << i << " ";
     }
-    cout << endl;
     return 0;
 }
