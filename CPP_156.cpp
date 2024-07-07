@@ -1,23 +1,13 @@
-#include <unordered_map>
-
-using namespace std;
+vector<string> romanNumerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 
 string int_to_mini_roman(int number) {
-    unordered_map<int, string> roman = {{1, "i"}, {4, "iv"}, {5, "v"},
-                                          {9, "ix"}, {10, "x"}, {40, "xl"},
-                                          {50, "l"}, {90, "xc"}, {100, "c"},
-                                          {400, "cd"}, {500, "d"}, {900, "cm"}, {1000, "m"}};
-
-    string roman_num = "";
-    while (number > 0) {
-        for (auto it = roman.rbegin(); it != roman.rend(); ++it) {
-            if (number >= it->first) {
-                number -= it->first;
-                roman_num += it->second;
-                break;
-            }
+    string roman = "";
+    for (int i = 0; i < values.length; i++) {
+        while (number >= values[i]) {
+            number -= values[i];
+            roman += romanNumerals[i];
         }
     }
-
-    return roman_num;
+    return roman.toLowerCase();
 }
