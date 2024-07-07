@@ -1,12 +1,11 @@
-```cpp
 #include <vector>
 using namespace std;
 
 int main() {
-    vector<int> vec = {1, 3, 4, 3, 2, 3, 5, 4}; // example input
+    vector<int> vec = {1, 3, 4, 3, 2, 3, 5, 4}; 
     vector<int> leaders = leaders(vec);
     for (int leader : leaders) {
-        cout << leader << " "; // print the leaders
+        cout << leader << " "; 
     }
     return 0;
 }
