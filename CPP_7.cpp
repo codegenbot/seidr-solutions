@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <algorithm>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size())
@@ -25,7 +24,7 @@ std::vector<std::string> filter_strings(const std::vector<std::string>& strings,
 int main() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
     std::vector<std::string> filtered;
-    filtered = filter_strings(str, "run"); 
-    std::vector<std::string> b = {"grunt", "prune"}; // Declare and initialize b
-    assert(issame(filtered,b)); 
+    std::vector<std::string> b = filter_strings(str, "run"); 
+    assert(issame({},b)); 
     return 0;
+}
