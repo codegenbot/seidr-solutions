@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 #include <set>
@@ -25,37 +25,17 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
 }
 
 int main() {
-    std::vector<int> l1;
-    int n1;
-    std::cout << "Enter the number of elements in list 1: ";
-    std::cin >> n1;
-    for(int i = 0; i < n1; i++) {
-        int x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        l1.push_back(x);
-    }
-
-    std::vector<int> l2;
-    int n2;
-    std::cout << "Enter the number of elements in list 2: ";
-    std::cin >> n2;
-    for(int i = 0; i < n2; i++) {
-        int x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        l2.push_back(x);
-    }
+    std::vector<int> l1 = {1, 2, 3, 4};
+    std::vector<int> l2 = {3, 4, 5, 6};
 
     if(same(l1, l2)) {
-        std::cout << "The two lists are the same." << std::endl;
+        std::cout << "The lists are the same." << std::endl;
     } else {
-        std::cout << "The two lists are different." << std::endl;
+        std::cout << "The lists are not the same." << std::endl;
     }
 
-    std::vector<int> intersection = common(l1, l2);
-    if(intersection.size() != 0) {
-        for(int i : intersection) {
+    if(common({4, 3, 2, 8}, {4, 3, 2, 8}).size() != 0) {
+        for(int i : common({4, 3, 2, 8}, {4, 3, 2, 8})) {
             std::cout << i << " ";
         }
         std::cout << std::endl;
