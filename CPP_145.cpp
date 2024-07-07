@@ -31,17 +31,12 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     return result;
 }
 
-int testMain() {
+int main() {
     std::vector<int> nums = {0,6,6,-76,-21,23,4};
     std::cout << "Sorted array: ";
     for(int num : order_by_points(nums)) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-    return 0;
-}
-
-int main() {
-    testMain();
     return 0;
 }
