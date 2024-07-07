@@ -1,5 +1,3 @@
-Here is the completed code:
-
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
 
@@ -7,12 +5,12 @@ bool check_dict_case(map<string, string> dict) {
     bool allUpper = true;
 
     for (auto it = dict.begin(); it != dict.end(); ++it) {
-        string key = it->first;
-        if (!islower(it->first[0])) {
-            allLower = false;
+        if (!allLower && !allUpper) break;
+        if (allLower) {
+            allLower = allLower && tolower(it->first).find_first_not_of('a'-'z') == string::npos;
         }
-        if (!isupper(it->first[0])) {
-            allUpper = false;
+        if (allUpper) {
+            allUpper = allUpper && toupper(it->first).find_first_not_of('A'-'Z') == string::npos;
         }
     }
 
