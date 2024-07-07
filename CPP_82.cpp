@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-
-bool prime_length(string str);
-
 bool prime_length(string str){
     int len = str.length();
     bool isPrime = true;
