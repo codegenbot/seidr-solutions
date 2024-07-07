@@ -11,5 +11,7 @@ def cut_vector(vector):
         if diff < min_diff:
             min_diff = diff
             cut_index = i
+        elif diff == 0 and (left_sum > right_sum or right_sum > left_sum):
+            return vector[:i], vector[i:]
 
     return vector[:cut_index], vector[cut_index:]
