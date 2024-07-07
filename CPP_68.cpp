@@ -22,9 +22,10 @@ vector<int> pluck(vector<int> arr) {
     }
     sort(nodes.begin(), nodes.end());
     vector<int> result;
-    for (int i = 1; i < nodes.size(); i++) {
-        if (nodes[i].first != nodes[i-1].first) {
-            result.push_back(nodes[i].second);
+    for(int i = 1; i < nodes.size(); i++) {
+        if(nodes[i-1].first != nodes[i].first) {
+            result.push_back(nodes[i-1].first);
+            break;
         }
     }
     return result;
