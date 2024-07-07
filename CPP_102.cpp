@@ -12,12 +12,7 @@ int main() {
         return 1; 
     }
     int result = choose_num(num1, num2);
-    std::cout << "Result: ";    
-    if (num1 > num2)
-        std::cout << num1;
-    else
-        std::cout << num2;
-
+    std::cout << "Result: " << (num1 > num2 ? std::to_string(num1) : std::to_string(num2));
     std::cout << std::endl;
     return 0;
 }
