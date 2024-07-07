@@ -13,11 +13,11 @@ bool is_nested(string str) {
 int main() {
     string input;
     cout << "Enter a string: ";
-    getline(cin, input);
-    if(is_nested(input)) {
+    cin >> input;
+    bool result = is_nested(input);
+    if(result)
         cout << "The string is nested." << endl;
-    } else {
+    else
         cout << "The string is not nested." << endl;
-    }
     return 0;
 }
