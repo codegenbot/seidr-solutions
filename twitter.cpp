@@ -7,9 +7,7 @@ using namespace std;
 string validateTweet(string tweet) {
     int charCount = 0;
     for (char c : tweet) {
-        if (!isspace(c)) { 
-            charCount++;
-        }
+        charCount++;
     }
     
     if (tweet.empty()) {
