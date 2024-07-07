@@ -7,7 +7,7 @@ int main(int argc, char** argv) {
     string result = "";
     while (number > 0) {
         int digit = number % 10;
-        result = to_string((int)(digit * digit)) + result;
+        result = result + to_string(digit * digit);
         number /= 10;
     }
     cout << "The squared digits of the given integer are: ";
