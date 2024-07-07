@@ -3,7 +3,7 @@
 #include <initializer_list>
 #include <cassert>
 
-int solution(std::initializer_list<int> vec) {
+int solutions(std::initializer_list<int> vec) {
     int sum = 0;
     for (int i : vec) {
         sum += i * i;
@@ -13,6 +13,6 @@ int solution(std::initializer_list<int> vec) {
 
 int main() {
     std::vector<int> vec = {3, 13, 2, 9};
-    assert(solution({3, 13, 2, 9}) == 3);
+    assert(solutions({3, 13, 2, 9}) == 16);
     return 0;
 }
