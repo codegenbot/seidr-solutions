@@ -1,3 +1,4 @@
+```cpp
 int next_smallest(vector<int> lst) {
     if (lst.empty()) {
         cout << "Error: The list is empty." << endl;
