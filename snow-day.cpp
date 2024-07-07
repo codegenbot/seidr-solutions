@@ -1,6 +1,6 @@
 #include <iostream>
-#include <iomanip>
 using namespace std;
+#include <iomanip>
 
 double snowDay(int hours, float groundSnow, float rate, float melt) {
     double totalSnow = 0;
