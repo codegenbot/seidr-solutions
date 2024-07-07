@@ -1,25 +1,39 @@
 ```c++
-#include <unordered_map>
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 int mastermind(string code, string guess) { 
     int whitePegs = 0;
     int blackPegs = 0;
-
+    
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
         }
     }
-
+    
+    vector<char> codeCopy(code.begin(), code.end());
+    vector<char> guessCopy(guess.begin(), guess.end());
+    
     for (char c : code) {
-        int count = std::count(guess.begin(), guess.end(), c);
+        int count = 0;
+        for (char d : guess) {
+            if (c == d) {
+                count++;
+                auto it = std::find(codeCopy.begin(), codeCopy.end(), d);
+                codeCopy.erase(it);
+            }
+        }
         if (count > 1) {
             whitePegs += count - 1;
         } else if (count == 1) {
-            blackPegs++;
+            blackPegs--;
         }
     }
-
+    
     return blackPegs;
 }
 
@@ -32,4 +46,5 @@ int main() {
     int result = mastermind(code, guess);
     cout << "Number of white pegs: 0\nNumber of black pegs: " << result << endl;
     return 0;
+
 }

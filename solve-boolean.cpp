@@ -1,5 +1,4 @@
 #include <string>
-
 bool solveBoolean(string s) {
     bool result = true;
     for (char c : s) {
