@@ -2,16 +2,10 @@
 #include <iostream>
 #include <string>
 
-std::string flipCase(const std::string& str) {
+std::string flipCase(const std::string& str) -> const std::string {
     std::string result;
     for (char c : str) {
-        if (c >= 'a' && c <= 'z') {
-            result += c - 32; // Convert lowercase to uppercase
-        } else if (c >= 'A' && c <= 'Z') {
-            result += c + 32; // Convert uppercase to lowercase
-        } else {
-            result += c;
-        }
+        (c >= 'a' && c <= 'z') ? (result += (char)(c - 32)) : ((c >= 'A' && c <= 'Z') ? (result += (char)(c + 32)) : (result += c));
     }
     return result;
 }

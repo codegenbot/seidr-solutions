@@ -2,12 +2,12 @@
 
 int digitSum(string s) {
     int sum = 0;
-    string result = "";
     for (char c : s) {
         if (isupper(c)) {
             sum += tolower(c) - 'a' + 1;
-            result += (sum % 26) + 'a' - 1; 
+        } else if (isdigit(c)) {
+            sum += c - '0';
         }
     }
-    return 0;
+    return sum;
 }

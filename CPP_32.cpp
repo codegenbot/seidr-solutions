@@ -4,7 +4,7 @@
 
 int main() {
     int ncoeff; 
-    std::vector<double> coeffs;
+    std::vector<double> coeffs = {};
 
     std::cout << "Enter the number of coefficients: ";
     std::cin >> ncoeff;
@@ -22,7 +22,7 @@ int main() {
 
     for(int i = 0; i < ncoeff; i++) {
         double poly = 0.0;
-        for(int j = 0; j < i+1; j++) { // Fix: replaced j <= i with j < i+1
+        for(int j = 0; j <= i; j++) {
             poly += coeffs[j] * pow(x, j);
         }
         y = poly;
