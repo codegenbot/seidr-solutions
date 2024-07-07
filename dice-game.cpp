@@ -1,12 +1,8 @@
 double diceGame(int n, int m) {
-    double p = 0;
-    for (int i = 1; i < m || i > n; ) {
-        if(i>m){
-            p += (1.0 / n) * (1.0 / m);
-        }else if(i<n){
-            p += (1.0 / n) * (1.0 / m);
-        }
-        i++;
+    if (n < m) return 0.0;
+    double p = 1.0;
+    for (int i = 1; i <= m - 1; i++) {
+        p *= 1.0 * (n - i) / n;
     }
-    return 1 - p;
+    return p;
 }
