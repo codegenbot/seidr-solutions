@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -9,7 +8,7 @@ bool is_sorted(std::vector<int> lst) {
             for(int j = 0; j < i; j++) {
                 v.push_back(lst[j]);
             }
-            if(count(v.begin(), v.end(), lst[i]) > 1) {
+            if(std::count(v.begin(), v.end(), lst[i]) > 1) {
                 return false;
             }
         } else {
