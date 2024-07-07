@@ -17,7 +17,7 @@ int main() {
     string input;
     cout << "Enter a string: ";
     getline(cin, input);
-    int result = findPattern(input);
+    size_t result = findPattern(input);
     if(result == 0)
         cout << "No pattern found." << endl;
     else
