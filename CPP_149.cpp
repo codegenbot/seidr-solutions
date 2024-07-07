@@ -1,9 +1,24 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-// Function prototype for issame
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        bool found = false;
+        for (const auto& str : b) {
+            if (str == a[i]) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            return false;
+        }
+    }
+    return true;
+}
 
 std::vector<string> sorted_list_sum(vector<string> lst) {
     auto it = lst.begin();
@@ -30,17 +45,4 @@ std::vector<string> sorted_list_sum(vector<string> lst) {
 int main() {
     assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
     return 0;
-}
-
-// Definition of issame
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
