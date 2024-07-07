@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 using namespace std;
 
@@ -6,7 +7,7 @@ int how_many_times(string str, string substring) {
     size_t pos = 0;
     while ((pos = str.find(substring)) != string::npos) {
         count++;
-        pos = str.find(substring, pos);
+        pos = str.find(substring, pos + 1);
     }
     return count;
 
@@ -28,7 +29,7 @@ int main_function() {
             cout << "Error: The input substring is empty." << endl;
         } else {
             int result = how_many_times(str, substring);
-            cout << "The substring appears " << result << " times." << endl;
+            cout << "The substring appears " << how_many_times(str, substring) << " times." << endl;
         }
     }
 
