@@ -20,9 +20,4 @@ int main() {
 
         return changes;
     }
-    
-    vector<int> arr = {1, 2, 3, 4, 5};
-    cout << smallest_change(arr) << endl;
-
-    return 0;
 }
