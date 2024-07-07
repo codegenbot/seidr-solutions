@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -19,34 +17,45 @@ int total_match(const std::vector<std::vector<std::string>>& v) {
 }
 
 int main() {
+    int n;
+    std::cin >> n;
+
     std::vector<std::vector<std::string>> vec1;
     std::vector<std::vector<std::string>> vec2;
 
-    int n, m, p, q;
-    std::cin >> n >> m >> p >> q;
-
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
+        int m;
+        std::cin >> m;
         vec1.push_back({});
-        for (int j = 0; j < m; j++) {
+        for (int j = 0; j < m; ++j) {
             std::string s;
             std::cin >> s;
             vec1.back().push_back(s);
         }
     }
 
-    for (int i = 0; i < p; i++) {
+    std::cin.ignore();
+    int n2;
+    std::cin >> n2;
+    for (int i = 0; i < n2; ++i) {
+        int m;
+        std::cin >> m;
         vec2.push_back({});
-        for (int j = 0; j < q; j++) {
+        for (int j = 0; j < m; ++j) {
             std::string s;
             std::cin >> s;
             vec2.back().push_back(s);
         }
     }
 
+    if (!issame(vec1, vec2)) {
+        return 1;
+    }
+
     int sum1 = total_match(vec1);  
     int sum2 = total_match(vec2);
 
-    if (!issame(vec1, vec2)) {
+    if (sum1 != sum2) {
         return 1;
     }
 
