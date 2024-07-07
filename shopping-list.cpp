@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <iomanip>
 using namespace std;
 
 double shoppingList(vector<double> prices, vector<double> discounts) {
@@ -13,11 +13,14 @@ double shoppingList(vector<double> prices, vector<double> discounts) {
 }
 
 int main() {
+    vector<double> prices, discounts;
     int n;
     cin >> n;
-    vector<double> prices(n), discounts(n);
+    prices.resize(n);
+    discounts.resize(n);
     for(int i = 0; i < n; i++) {
         cin >> prices[i] >> discounts[i];
     }
     cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
+}
