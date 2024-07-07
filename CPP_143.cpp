@@ -1,25 +1,22 @@
-string words_in_sentence(string sentence) {
+string words_in_sentence(string sentence){
     string result = "";
-    int count = 0;
-    for (int i = 0; i < sentence.size(); i++) {
-        if (sentence[i] == ' ') {
-            count++;
-        } else {
-            if (isPrime(sentence.substr(i, sentence.find(' ', i) - i).size())) {
-                result += sentence.substr(i, sentence.find(' ', i) - i) + " ";
+    for(int i=0; i<sentence.size(); i++){
+        if(i > 0) result += " ";
+        int len = 0;
+        while(i < sentence.size() && isalpha(sentence[i])){
+            i++;
+            len++;
+        }
+        if(len > 1){
+            bool isPrime = true;
+            for(int j=2; j*j <= len; j++){
+                if(len % j == 0){
+                    isPrime = false;
+                    break;
+                }
             }
-            i = sentence.find(' ', i);
+            if(isPrime) result += sentence.substr(i-len, len);
         }
     }
     return result;
-}
-
-bool isPrime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
-            return false;
-    }
-    return true;
 }
