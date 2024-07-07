@@ -6,7 +6,7 @@ int prod_signs(vector<int> arr) {
         if (num == 0) {
             return 0;
         }
-        sign_product *= ((num > 0) ? 1 : -1);
+        sign_product *= (num > 0 ? 1 : -1);
         sum_of_magnitudes += abs(num);
     }
 
