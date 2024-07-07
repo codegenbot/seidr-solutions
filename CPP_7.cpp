@@ -1,6 +1,3 @@
-#include <vector>
-#include <string>
-
 bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
