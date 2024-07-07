@@ -1,10 +1,15 @@
-```cpp
-#include <cassert>
-#include <string>
-#include <cctype>
-#include <iostream>
+int main() {
+    try {
+        std::cout << flipCase("These violent delights have violent ends") << std::endl;
+    }
+    catch (...) {
+        std::cerr << "An error occurred." << std::endl;
+    }
+    assert(flipCase("These violent delights have violent ends") == "these violent delights have violent ends");
+    return 0;
+}
 
-std::string flipCase(std::string str) {
+std::string flipCase(const std::string& str) {
     std::string result = "";
     for (char c : str) {
         if (isupper(c)) {
@@ -16,14 +21,4 @@ std::string flipCase(std::string str) {
         }
     }
     return result;
-}
-
-int main() { 
-    try {
-        std::cout << flipCase("These violent delights have violent ends") << std::endl;
-    } catch(...) {
-        std::cerr << "An error occurred." << std::endl;
-    }
-    assert(flipCase("These violent delights have violent ends") == "these violent delights have violent ends");
-    return 0; 
 }

@@ -1,49 +1,35 @@
+```cpp
 #include <iostream>
-using namespace std;
-
-double find_zero(double coeffs[], int ncoeff) {
-    double zero = -coeffs[1] / coeffs[0];
-    return zero;
-}
-
-int abs(int x) {
-    if (x >= 0)
-        return x;
-    else
-        return -x;
-}
-
-double poly(double x, double coeffs[], int ncoeff) {
-    double result = 0.0;
-    for (int i = 0; i < ncoeff; i++) {
-        result += coeffs[i] * pow(x, i);
-    }
-    return result;
-}
+#include <vector>
+#include <cmath>
 
 int main() {
-    int ncoeff;
-    cout << "Enter the number of coefficients: ";
-    cin >> ncoeff;
+    int ncoeff; 
+    std::vector<double> coeffs;
 
-    double coeffs[ncoeff];
-    for (int i = 0; i < ncoeff; i++) {
-        cout << "Enter coefficient " << i + 1 << ": ";
-        cin >> coeffs[i];
+    std::cout << "Enter the number of coefficients: ";
+    std::cin >> ncoeff;
+    
+    for(int i = 0; i < ncoeff; i++) {
+        double coeff;
+        std::cout << "Enter coefficient " << i+1 << ": ";
+        std::cin >> coeff;
+        coeffs.push_back(coeff);
+    }
+    
+    double x, y;
+    std::cout << "Enter the value of x: ";
+    std::cin >> x;
+
+    for(int i = 0; i < ncoeff; i++) {
+        double poly = 0.0;
+        for(int j = 0; j <= i; j++) {
+            poly += coeffs[j] * pow(x, j);
+        }
+        y = poly;
     }
 
-    double x;
-    cout << "Enter the value of x: ";
-    cin >> x;
-
-    double zero = find_zero(coeffs, ncoeff);
-    double p = poly(x, coeffs, ncoeff);
-
-    if (x == zero) {
-        cout << "The polynomial is 0 at x = " << x << endl;
-    } else {
-        cout << "The value of the polynomial at x = " << x << " is: " << p << endl;
-    }
+    std::cout << "The value of y is: " << y << std::endl;
 
     return 0;
 }
