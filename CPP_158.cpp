@@ -1,26 +1,19 @@
-#include <vector>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
-string find_max(vector<string> words) {
-    string max = words[0];
-    int maxUniqueChars = 0;
-    
-    for (const auto& word : words) {
-        int uniqueChars = 0;
-        set<char> charSet(word.begin(), word.end());
-        
-        if (charSet.size() > maxUniqueChars) {
-            maxUniqueChars = charSet.size();
-            max = word;
-        } else if (charSet.size() == maxUniqueChars) {
-            if (word < max) {
-                max = word;
+string find_max(vector<string> words){
+    string max_word = "";
+    for(auto& word : words){
+        int unique_chars = 0;
+        unordered_set<char> chars;
+        for(char c : word){
+            if(chars.find(c) == chars.end()){
+                unique_chars++;
+                chars.insert(c);
             }
         }
+        if(unique_chars > 0 && (max_word.empty() || unique_chars > count(max_word.begin(), max_word.end(), isalpha))){
+            max_word = word;
+        } else if(unique_chars == count(max_word.begin(), max_word.end(), isalpha) && word < max_word){
+            max_word = word;
+        }
     }
-    
-    return max;
+    return max_word;
 }
