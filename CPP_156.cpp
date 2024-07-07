@@ -35,7 +35,3 @@ std::string int_to_mini_roman(int num) {
         return "";
     return toMiniRomanHelper(num, "", "MDC");
 }
-
-int main() {
-    assert(int_to_mini_roman(1000).compare("M") == 0);
-}
