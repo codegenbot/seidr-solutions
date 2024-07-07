@@ -1,4 +1,4 @@
-```
+```cpp
 #include <cmath>
 #include <vector>
 #include <algorithm> 
@@ -30,13 +30,7 @@ int main() {
         lst.push_back(num);
     }
     
-    double odd_sum = double_the_difference(lst);
-
-    calculateOddSums();
+    double result = double_the_difference(lst);
 
     return 0;
-}
-
-void calculateOddSums() {
-    // Add your code here
 }
