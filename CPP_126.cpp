@@ -1,12 +1,11 @@
 Here's the completed code:
 
 bool is_sorted(vector<int> lst){
-    bool sorted = true;
-    for(int i=1; i<lst.size(); i++){
-        if(lst[i-1] >= lst[i]){
-            sorted = false;
-            break;
+    for(int i = 0; i < lst.size() - 1; i++){
+        if(lst[i] >= lst[i + 1]){
+            if(count(lst.begin(), lst.end(), lst[i]) > 1)
+                return false;
         }
     }
-    return (sorted && unique(lst.begin(), lst.end()) - lst.begin() == 0);
+    return true;
 }
