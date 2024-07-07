@@ -1,50 +1,42 @@
-#include <string>
-
 vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            numbers.push_back(num);
-        }
+    vector<int> nums;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9)
+            nums.push_back(i);
     }
-
-    sort(numbers.begin(), numbers.end());
-    reverse(numbers.begin(), numbers.end());
-
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
     vector<string> result;
-    for (int num : numbers) {
-        string name = "";
-        switch (num) {
+    for (int i : nums) {
+        switch (i) {
             case 1:
-                name = "One";
+                result.push_back("One");
                 break;
             case 2:
-                name = "Two";
+                result.push_back("Two");
                 break;
             case 3:
-                name = "Three";
+                result.push_back("Three");
                 break;
             case 4:
-                name = "Four";
+                result.push_back("Four");
                 break;
             case 5:
-                name = "Five";
+                result.push_back("Five");
                 break;
             case 6:
-                name = "Six";
+                result.push_back("Six");
                 break;
             case 7:
-                name = "Seven";
+                result.push_back("Seven");
                 break;
             case 8:
-                name = "Eight";
+                result.push_back("Eight");
                 break;
             case 9:
-                name = "Nine";
+                result.push_back("Nine");
                 break;
         }
-        result.push_back(name);
     }
-
     return result;
 }
