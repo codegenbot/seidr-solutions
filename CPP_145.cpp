@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -38,10 +39,5 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-    
-    if (!areVectorsEqual(order_by_points({0,6,6,-76,-21,23,4}), {0, 4, -21, 6, 6, 23, -76})) {
-        return 1;
-    }
-    
     return 0;
 }

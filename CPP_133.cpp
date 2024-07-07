@@ -1,5 +1,16 @@
-int main 
-{
+```cpp
+#include <iostream>
+#include <vector>
+
+double sum_squares(const std::vector<double>& input) {
+    double sum = 0;
+    for (const auto& num : input) {
+        sum += num * num;
+    }
+    return sum;
+}
+
+int main() {
     double num1, num2;
     std::cout << "Enter two numbers: ";
     if (!(std::cin >> num1 >> num2)) {

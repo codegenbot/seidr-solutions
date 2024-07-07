@@ -8,11 +8,14 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
         return "no";
     else
     {
-        std::string str = (interval1.first > interval2.first) ? std::to_string(interval2.first)
-                                              : std::to_string(interval1.first);
+        std::string str;
+        if (interval1.first > interval2.first)
+            str += std::to_string(interval2.first);
+        else
+            str += std::to_string(interval1.first);
+
         str += " " + std::to_string((interval1.first > interval2.first) ? interval2.first : interval1.first);
-        std::string end = ((interval1.second <= interval2.second) ? std::to_string(interval1.second) : std::to_string(interval2.second));
-        str += " " + end;
+        str += " " + (interval1.second <= interval2.second) ? std::to_string(interval1.second) : std::to_string(interval2.second);
         return str;
     }
 }
