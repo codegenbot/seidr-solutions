@@ -15,8 +15,7 @@ struct pair_int {
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
     std::priority_queue<pair_int, std::vector<pair_int>, greater<pair_int>> pq; 
-    std::vector<int> res;
-    int size = 0;
+    std::vector<int> res(k + 1);
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -31,10 +30,8 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
         int pos_j = pq.top().j;
         pq.pop();
 
-        if (size < k) {
-            res.push_back(grid[pos_i][pos_j]);
-            size++;
-        }
+        res[k-1] = grid[pos_i][pos_j];
+        k--;
 
         if (k > 0) {
             // Check all neighbors
