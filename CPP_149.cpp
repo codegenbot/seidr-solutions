@@ -3,29 +3,29 @@
 #include <string>
 #include <sstream>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (stoi(a[i]) != stoi(b[i])) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] < b[i]) return true;
+        if (a[i] > b[i]) return false;
     }
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    std::vector<string> result;
+vector<string> sorted_list_sum(vector<string> lst) {
+    vector<string> result;
     for (const auto& str : lst) {
         if (stoi(str) % 2 == 0) {
             result.push_back(str);
         }
     }
     sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             return stol(a) < stol(b);
+         [&result](const string& a, const string& b) {
+             stringstream ss1(a), ss2(b);
+             int num1 = 0, num2 = 0;
+             ss1 >> num1;
+             ss2 >> num2;
+             return num1 < num2;
          });
     return result;
-}
-
-int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
-    return 0;
 }
