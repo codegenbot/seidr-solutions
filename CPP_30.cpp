@@ -1,8 +1,10 @@
-vector<float> get_positive(vector<float> l){
+#include <algorithm>
+
+vector<float> get_positive(vector<float> l) {
     vector<float> result;
-    for(float i : l) {
-        if(i > 0) {
-            result.push_back(i);
+    for (float f : l) {
+        if (f > 0) {
+            result.push_back(f);
         }
     }
     return result;
