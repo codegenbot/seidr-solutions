@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <cmath>
@@ -12,16 +11,10 @@ std::vector<float> derivative(std::vector<float> a) {
     return result;
 }
 
-bool sameVectorFloat(std::vector<float> a, std::vector<float> b) {
+bool isEqual(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (std::abs(a[i] - b[i]) > 1e-9) return false;
     }
     return true;
-}
-
-int main() {
-    std::vector<float> input = {1, 2, 3};
-    assert(sameVectorFloat(input, derivative(input)));
-    return 0;
 }
