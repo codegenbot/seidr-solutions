@@ -1,11 +1,10 @@
-```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 
-int solution(vector<int> lst) {
+int solution(std::vector<int> lst) {
     int sum = 0;
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] % 2 != 0) {
+    for (int i = 0; i < lst.size(); i++) {
+        if ((i % 2 == 0 && lst[i] % 2 != 0)) {
             sum += lst[i];
         }
     }
@@ -13,8 +12,12 @@ int solution(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {3, 13, 2, 9};
-    int result = solution(lst);
-    cout << "Result: " << result << endl;
+    assert(solution({3, 13, 2, 9}) == 3);
+    std::vector<int> input;
+    int num;
+    while (std::cin >> num) {
+        input.push_back(num);
+    }
+    std::cout << solution(input) << std::endl;
     return 0;
 }
