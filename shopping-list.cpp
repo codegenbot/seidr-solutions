@@ -1,6 +1,5 @@
-````
 #include <iostream>
-#include <vector>
+#include <iomanip>
 using namespace std;
 
 double shoppingList(vector<double> prices, vector<double> discounts) {
@@ -23,4 +22,3 @@ int main() {
     cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
 }
-```
