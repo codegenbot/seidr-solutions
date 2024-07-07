@@ -1,11 +1,11 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
 
 double shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
-    return std::accumulate(prices.begin(), prices.end(), 0.0, [&](double sum, float price) {
-        return sum + price * (1 - discounts[static_cast<size_t>(std::distance(std::next(&price, prices.data()), prices.end()))]);
-    });
+    double total = 0;
+    for (int i = 0; i < prices.size(); i++) {
+        total += prices[i] * (1 - discounts[i]);
+    }
+    return total;
 }
 
 int main() {
