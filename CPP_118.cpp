@@ -5,20 +5,24 @@ using namespace std;
 
 string get_closest_vowel(string word) {
     int n = word.size();
-    string result;
-    for (int i = 2; i < n; ++i) {
-        if (!isalpha(word[i])) continue;
-        if (word[i] == 'Y' || word[i] == 'y') continue;
+    for (int i = n - 1; i >= 0; --i) {
         if (isvowel(word[i])) {
-            if (result.empty()) result = tolower(word[i]);
-            else if (abs((int)(word[i] - 'a') - abs((int)(result[0] - 'a'))) > 1) return "";
-            break;
+            int left = i + 1;
+            while (left < n && !isconsonant(word[left]))
+                ++left;
+            if (left < n)
+                return string(1, word[i]);
         }
     }
-    return result;
+    return "";
 }
 
 bool isvowel(char c) {
     c = tolower(c);
     return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
+bool isconsonant(char c) {
+    c = tolower(c);
+    return !isvowel(c) && (c >= 'b' && c <= 'z');
 }
