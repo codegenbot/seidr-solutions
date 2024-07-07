@@ -1,4 +1,4 @@
-```c
+```
 #include <string>
 #include <iostream>
 
@@ -21,9 +21,9 @@ int main() {
     cout << "Enter the substring: ";
     getline(cin, substring);
     if (str.empty()) {
-        cout << "Error: The input string is empty." << endl;
+        cerr << "Error: The input string is empty." << endl;
     } else if (substring.empty()) {
-        cout << "Error: The input substring is empty." << endl;
+        cerr << "Error: The input substring is empty." << endl;
     } else {
         int result = how_many_times(str, substring);
         cout << "The substring appears " << result << " times." << endl;
