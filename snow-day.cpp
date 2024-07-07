@@ -1,3 +1,4 @@
+```
 int main() {
     int hours;
     cin >> hours;
