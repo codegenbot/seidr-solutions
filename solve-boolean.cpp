@@ -1,9 +1,14 @@
+```cpp
 #include <string>
 #include <iostream>
 
 using namespace std;
 
-bool evaluateTerm(string term);
+bool evaluateTerm(string term) {
+    bool res = (term == "tt") ? true : false;
+    return res;
+}
+
 bool solveBoolean(string s) {
     bool res = true;
     string term;
@@ -15,33 +20,12 @@ bool solveBoolean(string s) {
             term = "";
         } 
         else if (c == 't' || c == 'f') {
-            if (c == 't') term += 't';
-            else if (c == 'f') term += 'f';
+            term += (c == 't') ? "t" : "f";
         }
     }
     bool subRes = evaluateTerm(term);
     res = res || subRes;
 
-    return res;
-}
-
-bool evaluateTerm(string term) {
-    if (term.length() == 0 || term[0] != '&') 
-        return term == "tt" || term == "t";
-
-    string subTerm = "";
-    for (int i = 0; i < term.length(); i++) {
-        char c = term[i];
-        if (c == '&') {
-            bool res = evaluateTerm(subTerm) && evaluateTerm(term.substr(i+1));
-            return res;
-        } 
-        else if (c == 't' || c == 'f') {
-            subTerm += c;
-        }
-    }
-
-    bool res = evaluateTerm(subTerm) && true; // Replace true with the correct result
     return res;
 }
 
