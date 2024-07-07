@@ -1,35 +1,31 @@
 #include <string>
-#include <vector>
+#include <iostream>
 
 using namespace std;
 
 bool simplify(string x, string n) {
     int a = 0, b = 0, c = 0, d = 0;
     
-    for (int i = 0; i < x.length(); i++) {
-        if (x[i] == '/') {
-            a = stoi(x.substr(0, i));
-            b = stoi(x.substr(i + 1));
-            break;
-        }
-    }
-    
-    for (int i = 0; i < n.length(); i++) {
-        if (n[i] == '/') {
-            c = stoi(n.substr(0, i));
-            d = stoi(n.substr(i + 1));
-            break;
-        }
-    }
-    
-    int g = __gcd(a * d, b * c);
-    
-    return a * d / g == c * b / g;
-}
+    // Convert strings to integers
+    size_t pos = x.find('/');
+    a = stoi(x.substr(0, pos));
+    b = stoi(x.substr(pos + 1));
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+    pos = n.find('/');
+    c = stoi(n.substr(0, pos));
+    d = stoi(n.substr(pos + 1));
+
+    // Calculate the greatest common divisor
+    int gcd = abs(a * d - b * c);
+    
+    for (int i = gcd; i > 0; --i) {
+        if (a % i == 0 && b % i == 0 && c % i == 0 && d % i == 0)
+            gcd = i;
+    }
+
+    // Check if the result is a whole number
+    int numerator = a / gcd;
+    int denominator = d / gcd;
+
+    return (numerator * denominator) == abs(a * d);
 }
