@@ -1,8 +1,8 @@
 bool pairs_sum_to_zero(vector<int> l) {
-    unordered_set<int> s(l.begin(), l.end());
-    for (int num : s) {
-        int complement = -num;
-        if (s.find(complement) != s.end() && num != complement) {
+    set<int> s(l.begin(), l.end());
+    for (int i = 0; i < l.size(); i++) {
+        int target = -l[i];
+        if (s.find(target) != s.end() && target != l[i]) {
             return true;
         }
     }
