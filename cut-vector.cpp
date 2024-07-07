@@ -18,11 +18,23 @@ vector<vector<int>> cutVector(vector<int> vec) {
     return {{vec.begin(), vec.begin() + cut_index}, {vec.begin() + cut_index, vec.end()}};
 }
 
-vector<vector<int>> result = cutVector(vec);
+int main() {
+    int n;
+    cin >> n;
 
-for(auto v : result) {
-    for(auto num : v) {
-        std::cout << num << " ";
+    vector<int> vec(n);
+    for(int i = 0; i < n; i++) {
+        cin >> vec[i];
     }
-    std::cout << std::endl;
+
+    vector<vector<int>> result = cutVector(vec);
+
+    for(auto v : result) {
+        for(auto num : v) {
+            std::cout << num << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
 }
