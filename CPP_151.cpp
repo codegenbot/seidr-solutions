@@ -35,13 +35,13 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     
-    std::vector<double> lst(n);  // Initialize the vector with n elements
+    std::vector<double> lst;
     for(int i = 0; i < n; i++) {
         double num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        if (num > 0) {
-            lst[i] = num;  // Assign the value to the corresponding index
+        if (std::abs(num) > 0.000001) { 
+            lst.push_back(num);
         }
     }
     
