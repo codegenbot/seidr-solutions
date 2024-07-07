@@ -11,7 +11,7 @@ int bowlingScore(string s) {
             roll = 0;
         } else if (isdigit(c)) {
             roll++;
-        } else { 
+        } else { // X
             if (roll == 1) {
                 score += 10;
             } else {
