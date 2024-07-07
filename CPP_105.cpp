@@ -9,16 +9,6 @@ using namespace std;
 vector<string> by_length(vector<string> arr) {
     map<int, int> lengthCount;
     for (string str : arr) {
-        if (str == "One") str = "1";
-        else if (str == "Two") str = "2";
-        else if (str == "Three") str = "3";
-        else if (str == "Four") str = "4";
-        else if (str == "Five") str = "5";
-        else if (str == "Six") str = "6";
-        else if (str == "Seven") str = "7";
-        else if (str == "Eight") str = "8";
-        else if (str == "Nine") str = "9";
-
         int len = str.length();
         if (lengthCount.find(len) != lengthCount.end()) {
             lengthCount[len]++;
@@ -52,7 +42,7 @@ int main() {
         string num;
         cout << "Enter integer " << i+1 << ": ";
         cin >> num;
-        arr.push_back(num);
+        arr[i] = num;
     }
     vector<string> output = by_length(arr);
     cout << "The numbers in the order of their lengths are: ";
