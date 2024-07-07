@@ -1,32 +1,23 @@
 Here is the completed code:
 
 vector<string> reverse_delete(string s, string c) {
-    string result = "";
+    vector<string> result;
+    string temp = "";
     for (char ch : s) {
-        bool found = false;
+        bool flag = false;
         for (char cc : c) {
             if (ch == cc) {
-                found = true;
+                flag = true;
                 break;
             }
         }
-        if (!found) {
-            result += ch;
+        if (!flag) {
+            temp += ch;
         }
     }
-    
-    string reverseResult = "";
-    for(int i = result.size() - 1; i >= 0; i--) {
-        reverseResult += result[i];
-    }
-
-    vector<string> output;
-    output.push_back(result);
-    if (result == reverseResult) {
-        output.push_back("True");
-    } else {
-        output.push_back("False");
-    }
-    
-    return output;
+    result.push_back(temp);
+    string revTemp = temp;
+    reverse(revTemp.begin(), revTemp.end());
+    result.push_back((revTemp == temp) ? "True" : "False");
+    return result;
 }
