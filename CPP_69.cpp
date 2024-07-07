@@ -20,6 +20,6 @@ int main() {
     }
     
     int myTest = 3, myArray[] = {myTest, 10, 10, 9, 2};
-    assert(search(myTest) == -1); 
+    assert(search(myTest) == -1);
     return 0;
 }
