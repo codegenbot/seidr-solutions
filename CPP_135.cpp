@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <cassert>
@@ -13,7 +12,7 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {2, 3, 4};
+    std::vector<int> arr({2, 3, 4});
     assert(can_arrange(arr) == -1);
     return 0;
 }
