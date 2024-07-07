@@ -1,6 +1,4 @@
+'''
 def paired_digits(s):
-    total = 0
-    for i in range(1, len(s)):
-        if s[i] == s[i-1]:
-            total += int(s[i])
-    return total
+    return sum(int(d) for i, d in enumerate(s) if i > 0 and d == s[i-1])
+'''
