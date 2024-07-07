@@ -1,17 +1,14 @@
-int is_bored(string S) {
+int is_bored(string S){
     int count = 0;
-    string word;
-    for (char c : S + ".") {
-        if (c == '.') {
-            word.clear();
-        } else if (c == ' ') {
-            if (!word.empty() && word[0] == 'I') {
-                count++;
-            }
-            word += c;
-        } else {
-            word += c;
+    string boredom = "I";
+    size_t pos = 0;
+
+    while ((pos = S.find(" ", pos)) != string::npos) {
+        if (S.substr(0, pos).compare(boredom) == 0) {
+            count++;
         }
+        pos++;
     }
+
     return count;
 }
