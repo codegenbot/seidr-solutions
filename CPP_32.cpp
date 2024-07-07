@@ -1,10 +1,11 @@
+```
 #include <iostream>
 #include <vector>
 #include <cmath>
 
 int main() {
     int ncoeff; 
-    std::vector<double> coeffs;
+    vector<double> coeffs;
     
     std::cout << "Enter the number of coefficients: ";
     std::cin >> ncoeff;
@@ -27,7 +28,7 @@ int main() {
     return 0;
 }
 
-void find_zero(std::vector<double> coeffs, int ncoeff, double x, double& y) {
+void find_zero(vector<double> coeffs, int ncoeff, double x, double& y) {
     double poly = 0.0;
     for(int i = 0; i < ncoeff; i++) {
         poly += coeffs[i] * pow(x, i);
@@ -35,7 +36,7 @@ void find_zero(std::vector<double> coeffs, int ncoeff, double x, double& y) {
     y = poly;
 }
 
-double poly(std::vector<double> coeffs, int ncoeff, double x) {
+double poly(vector<double> coeffs, int ncoeff, double x) {
     double poly = 0.0;
     for(int i = 0; i < ncoeff; i++) {
         poly += coeffs[i] * pow(x, i);
