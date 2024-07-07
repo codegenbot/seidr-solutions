@@ -1,33 +1,15 @@
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == 0 && j == 0) {
-                dp[i][j] = grid[i][j];
-            } else if (i > 0) {
-                dp[i][j] = min({dp[i-1][j], dp[i][j-1]});
-            } else {
-                dp[i][j] = min({dp[i][j-1]});
-            }
-        }
-    }
     vector<int> res;
-    int i = n - 1, j = n - 1;
-    while (k > 0) {
-        res.push_back(grid[i][j]);
-        if (i > 0 && j > 0) {
-            if (dp[i-1][j] < dp[i][j-1]) {
-                i--;
-            } else {
-                j--;
+    for (int i = 0; i < k; ++i) {
+        int max_val = 1;
+        for (int j = 0; j < grid.size(); ++j) {
+            for (int col = 0; col < grid[j].size(); ++col) {
+                if (grid[j][col] > max_val && res.empty() || res.back() != grid[j][col]) {
+                    max_val = grid[j][col];
+                    res.push_back(max_val);
+                }
             }
-        } else if (i > 0) {
-            i--;
-        } else {
-            j--;
         }
-        k--;
     }
     return res;
 }
