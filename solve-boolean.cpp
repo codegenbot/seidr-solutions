@@ -1,17 +1,18 @@
+```
 #include <string>
-using namespace std;
+#include <stack>
 
-bool solveBoolean(string s) {
+bool solveBoolean(std::string s) {
     bool result = true;
     for (char c : s) {
         if (c == 'F') {
             result = false;
         } else if (c == '&') {
-            while (!result && s.size() > 1 && s.back() == '&') {
+            while (!result && !s.empty() && s.back() == '&') {
                 s.pop_back();
             }
         } else if (c == '|') {
-            while (!result && s.size() > 1 && s.back() == '|') {
+            while (!result && !s.empty() && s.back() == '|') {
                 s.pop_back();
             }
         }
