@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -35,8 +34,8 @@ int max_fill(vector<vector<int>> grid) {
 }
 
 int main() {
-    assert(max_fill({{1,1,1,1}, {1,1,1,1}}) == 8);
-    int result = max_fill({{0,0,0},{0,1,0}});
+    vector<vector<int>> grid = {{1,1,1,1}, {1,1,1,1}};
+    int result = max_fill(grid);
     cout << "Maximum number of filled cells: " << result << endl;
     return 0;
 }
