@@ -4,12 +4,11 @@
 using namespace std;
 
 double snowDay(int hours, float groundSnow, float rate, float melt) {
-    double totalSnow = 0;
+    float totalSnow = 0;
     
     for (int i = 0; i < hours; i++) {
-        float newSnow = rate - melt * groundSnow;
-        groundSnow += newSnow;
-        totalSnow += newSnow;
+        totalSnow += rate - melt * groundSnow;
+        groundSnow = max(0.0f, groundSnow + (rate - (melt * groundSnow)));
     }
     
     return totalSnow;
