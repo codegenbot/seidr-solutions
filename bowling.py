@@ -14,13 +14,8 @@ def bowling_score(frames):
                 score += int(frames[i])
         else:
             if frames[i] == 'X':
-                if frame < 9:
-                    a = int(frames[i-1].split(' ')[0])
-                    b, c = map(int, frames[i+1].split('/'))
-                    score += a + b + c
-                    frame += 1
-                else:
-                    score += 10
+                score += 10 + (10 - int(frames[i-2:i])) if frame < 9 else 10
+                frame += 1
             elif frames[i] == '-':
                 continue
             else:
