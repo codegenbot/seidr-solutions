@@ -1,6 +1,10 @@
 ```cpp
 #include <vector>
 #include <cmath>
+#include <initializer_list>
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wignored-messages"
 
 bool issame(float a, float b) {
     return std::abs(a - b) < 0.0001;
