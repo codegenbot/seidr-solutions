@@ -1,8 +1,5 @@
-#include <stack>
-#include <string>
-
-string solveBoolean(string input) {
-    stack<char> s;
+std::string solveBoolean(std::string input) {
+    std::stack<char> s;
     for (int i = 0; i < input.length(); i++) {
         if (input[i] == '&') {
             while (!s.empty() && s.top() == '&') {
@@ -19,10 +16,11 @@ string solveBoolean(string input) {
         }
     }
 
-    string result = "";
+    std::string result = "";
     while (!s.empty()) {
         result += s.top();
         s.pop();
     }
 
-    return result == "t" ? "True" : "False";
+    return result == "tt" ? "True" : (result == "tf" || result == "ft" || result == "ff") ? "False" : "Error";
+}
