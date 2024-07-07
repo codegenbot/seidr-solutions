@@ -15,11 +15,11 @@ bool same(std::vector<int> a, std::vector<int> b) {
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::set<int> set1(l1.begin(), l1.end());
     std::set<int> set2(l2.begin(), l2.end());
+    int size = set1.size();
     std::vector<int> intersection;
-    for (int i = 0; i < set1.size(); i++) {
-        int element = set1.begin()[i];
-        if(set2.find(element) != set2.end()){
-            intersection.push_back(element);
+    for (int i = 0; i < size; i++) {
+        if (set2.find(set1.begin()[i]) != set2.end()) {
+            intersection.push_back(set1.begin()[i]);
         }
     }
     return intersection;
@@ -56,8 +56,8 @@ int main() {
 
     std::vector<int> intersection = common(l1, l2);
     if(intersection.size() != 0) {
-        for(int i = 0; i < intersection.size(); i++) {
-            std::cout << intersection[i] << " ";
+        for(int i : intersection) {
+            std::cout << i << " ";
         }
         std::cout << std::endl;
     } else {
