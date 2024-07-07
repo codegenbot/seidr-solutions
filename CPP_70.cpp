@@ -1,4 +1,7 @@
-vector<int> strange_sort_vector(vector<int> lst) {
+#include <algorithm>
+using namespace std;
+
+vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
