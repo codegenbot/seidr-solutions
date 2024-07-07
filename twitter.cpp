@@ -2,8 +2,6 @@
 #include <sstream>
 #include <iostream>
 #include <limits>
-#include <string>
-
 using namespace std;
 
 string validateTweet(string tweet) {
@@ -20,8 +18,7 @@ string validateTweet(string tweet) {
     if (charCount > 140) {
         return "Too many characters";
     }
-    string result = (tweet.empty()) ? "You didn't type anything" : ("Your tweet has " + to_string(charCount) + " characters");
-    return result;
+    return (tweet.empty()) ? "You didn't type anything" : ("Your tweet has " + to_string(charCount) + " characters");
 }
 
 int main() {
