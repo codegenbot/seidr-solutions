@@ -14,7 +14,7 @@ bool same(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
-    int minEven = std::numeric_limits<int>::max(), minIndex = -1;
+    long minEven = std::numeric_limits<long>::max(), minIndex = -1;
 
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0 && arr[i] < minEven) {
@@ -31,16 +31,15 @@ std::vector<int> pluck(std::vector<int> arr) {
 
 int main() {
     std::vector<int> input;
-    size_t n;
+    long n;
 
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
+    input.resize(n); 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
-        int value;
-        std::cin >> value;
-        input.push_back(value);
+        std::cin >> (input[i]);
     }
 
     // Process the array
