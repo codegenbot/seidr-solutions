@@ -2,12 +2,14 @@
 #include <vector>
 #include <list>
 
-bool equalVectors(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> filter_integers(std::list<int> values) {
-    std::vector<int> result;
+vector<int> filter_integers(list<int> values) {
+    vector<int> result;
     for (const auto& value : values) {
         if(value >= 0 && value <= 255) {
             result.push_back(value);
@@ -16,7 +18,7 @@ std::vector<int> filter_integers(std::list<int> values) {
     return result;
 }
 
-int programMain() {
-    assert(equalVectors(filter_integers({3, 3, 3}), {3, 3, 3}));
+int main() {
+    assert(issame(filter_integers({3, 3, 3}), vector<int>({3, 3, 3})));
     return 0;
 }
