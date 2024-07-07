@@ -1,17 +1,18 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 double probability(int n, int m) {
     double sum = 0;
-    for (int i = 1; i <= m && i < n; i++) {
-        sum += (n - i) / ((n * m) - (i * (i + 1)));
+    for (int i = 1; i <= n; i++) {
+        sum += pow((n - i + 1.0) / n, m);
     }
-    return sum;
+    return sum * (m < n ? 1 : 0);
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(6) << probability(n, m) << endl;
+    cout << fixed << setprecision(5) << probability(n, m) << endl;
     return 0;
 }
