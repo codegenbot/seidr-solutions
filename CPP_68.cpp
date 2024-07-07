@@ -36,7 +36,7 @@ int main() {
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
-    input.resize(n);  
+    input = std::vector<int>(n);  
 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
