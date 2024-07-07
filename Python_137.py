@@ -6,7 +6,7 @@ def compare_one(a, b):
         b = str(b).replace('.', '').replace(',', '.')
     if a > b:
         return a
-    elif a < b:
+    elif b > a:
         return b
     else:
         return None
