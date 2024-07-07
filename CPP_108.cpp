@@ -1,15 +1,19 @@
-int count_nums(vector<int> nums) {
+int count_nums(vector<int> v) {
     int count = 0;
-    for (int num : nums) {
+    for (auto num : v) {
+        bool hasPositiveSum = false;
         if (num < 0) {
             num = -num;
         }
-        int sum = 0;
         while (num > 0) {
-            sum += num % 10;
+            int digit = num % 10;
+            if (digit != 0 || num / 10 == 0) {
+                hasPositiveSum = true;
+                break;
+            }
             num /= 10;
         }
-        if (sum > 0) {
+        if (hasPositiveSum) {
             count++;
         }
     }
