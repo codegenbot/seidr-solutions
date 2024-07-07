@@ -1,4 +1,4 @@
-````
+```
 #include <string>
 using namespace std;
 
@@ -28,4 +28,3 @@ int main() {
     cout << "Result: " << output << endl;
     return 0;
 }
-```
