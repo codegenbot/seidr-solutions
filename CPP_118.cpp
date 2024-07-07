@@ -1,15 +1,15 @@
+#include <algorithm>
+using namespace std;
+
 string get_closest_vowel(string word) {
-    int left = 0;
-    for (int i = word.size() - 1; i >= 0; i--) {
-        if (!isalnum(word[i])) continue;
-        if (ispunct(word[i]) || isdigit(word[i])) left = i + 1;
-        else if (word[i] == 'Y' && i > 0) continue;
-        else if (vowel(word[i])) return string(1, word[i]);
+    int n = word.size();
+    for (int i = n - 1; i > 0; --i) {
+        if (!isalpha(word[i])) continue;
+        if (ispunct(word[i]) || isdigit(word[i])) continue;
+        if (word[i] == 'Y' && isupper(word[i])) word[i] = 'y';
+        if (ispunct(word[i-1]) || isdigit(word[i-1])) {
+            return string(1, tolower(word[i]));
+        }
     }
     return "";
-}
-
-bool vowel(char c) {
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
-           || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
 }
