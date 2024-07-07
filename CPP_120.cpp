@@ -31,7 +31,8 @@ int main() {
     if (arr.size() == 0) {
         return 0; // Exit successfully
     }
-    if (!compareVectors(maximum(arr, k), std::vector<int>({0, 243, -23, 3}))) {
+    bool same = compareVectors(maximum(arr, k), std::vector<int>({0, 243, -23, 3}));
+    if (!same) {
         return 1; // Return error code
     }
     return 0;

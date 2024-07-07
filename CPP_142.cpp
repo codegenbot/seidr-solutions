@@ -15,25 +15,22 @@ int sum_squares(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> inputVector; 
-    int n; 
-
+    int n;
     std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
-
-    for(int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        int num;
-        std::cin >> num;
-        if (inputVector.size() <= i) {
+    if (n > 0) {
+        std::vector<int> inputVector(n); 
+        for(int i = 0; i < n; ++i) {
+            std::cout << "Enter element " << i + 1 << ": ";
+            int num;
+            std::cin >> num;
             inputVector.push_back(num); 
-        } else {
-            inputVector[i] = num; 
         }
+        int result = sum_squares(inputVector);
+        std::cout << "Sum of squares is: " << result << std::endl;
+    } else {
+        std::cerr << "Invalid input. Please enter a positive integer." << std::endl;
+        return 1; // or some other exit status
     }
-
-    int result = sum_squares(inputVector);
-    std::cout << "Sum of squares is: " << result << std::endl;
-
     return 0;
 }

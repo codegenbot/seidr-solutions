@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <boost/any.hpp>
 
 using namespace std;
 
@@ -15,7 +14,8 @@ string compare_one(string s1, string s2) {
 
 int main() {
     cout << compare_one("123.45", "6789") << endl; 
-    if(compare_one("1", "2") == "1") cout << "1 is greater than or equal to 2" << endl;
-    else cout << "2 is greater than 1" << endl;
+    string s1 = to_string(1), s2 = to_string(2);  
+    if(compare_one(s1, s2) == s1) cout << s1 << " is greater than or equal to " << s2 << endl;
+    else cout << s2 << " is greater than " << s1 << endl;
     return 0;
 }

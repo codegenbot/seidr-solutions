@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
-int sum_squares(const std::vector<float>& input) {
+int sum_squares(const std::vector<double>& input) {
     int output = 0;
     for (const auto& num : input) {
         output += static_cast<int>(num * num);
@@ -13,12 +12,10 @@ int sum_squares(const std::vector<float>& input) {
 }
 
 int main() {
-    float num1, num2;
+    double num1, num2;
     std::cout << "Enter two numbers: ";
     std::cin >> num1 >> num2;
-    std::vector<float> input(std::allocator<float>());
-    input.push_back(num1);
-    input.push_back(num2);
+    std::vector<double> input = {num1, num2};
     std::cout << "Sum of squares is: " << sum_squares(input) << std::endl;
     return 0;
 }
