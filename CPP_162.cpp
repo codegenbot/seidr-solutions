@@ -1,9 +1,4 @@
-#include <string>
-#include <sstream>
-#include <iomanip>
-
-using namespace std;
-
+```cpp
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
