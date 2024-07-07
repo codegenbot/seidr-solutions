@@ -1,48 +1,49 @@
-Here is the updated code:
-
-```cpp
-#include <cassert>
 #include <iostream>
-#include <vector>
-#include <cmath>
-
 using namespace std;
 
-double poly(vector<double> coeffs, double x) {
-    double result = 0;
-    for (int i = 0; i < coeffs.size(); i++) {
+double find_zero(double coeffs[], int ncoeff) {
+    double zero = -coeffs[1] / coeffs[0];
+    return zero;
+}
+
+int abs(int x) {
+    if (x >= 0)
+        return x;
+    else
+        return -x;
+}
+
+double poly(double x, double coeffs[], int ncoeff) {
+    double result = 0.0;
+    for (int i = 0; i < ncoeff; i++) {
         result += coeffs[i] * pow(x, i);
     }
     return result;
 }
 
-double find_zero(vector<double> coeffs){
-    double sum = 0;
-    for (int i = 1; i < coeffs.size(); i++) {
-        if (i % 2 == 0) {
-            sum += coeffs[i];
-        } else {
-            sum -= coeffs[i];
-        }
-    }
-    return -sum / coeffs[0];
-}
-
 int main() {
-    vector<double> poly_coeffs;
-    int val;
+    int ncoeff;
+    cout << "Enter the number of coefficients: ";
+    cin >> ncoeff;
 
-    cin >> val;
-    while (val != 0) {
-        poly_coeffs.push_back(val);
-        cin >> val;
+    double coeffs[ncoeff];
+    for (int i = 0; i < ncoeff; i++) {
+        cout << "Enter coefficient " << i + 1 << ": ";
+        cin >> coeffs[i];
     }
 
-    if(poly_coeffs.size() == 0){
-        cout << "No coefficients entered. Cannot find zero." << endl;
+    double x;
+    cout << "Enter the value of x: ";
+    cin >> x;
+
+    double zero = find_zero(coeffs, ncoeff);
+    double p = poly(x, coeffs, ncoeff);
+
+    if (x == zero) {
+        cout << "The polynomial is 0 at x = " << x << endl;
     } else {
-        double solution = find_zero(poly_coeffs);
-        assert(abs(poly(poly_coeffs, solution)) < 1e-3);
+        cout << "The value of the polynomial at x = " << x << " is: " << p << endl;
     }
-    
-};
+
+    return 0;
+}
