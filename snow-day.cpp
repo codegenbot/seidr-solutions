@@ -6,9 +6,8 @@ double snowDay(int hours, double groundSnow, double rate, double melt) {
     double totalSnow = 0;
     
     for (int i = 0; i < hours; i++) {
-        groundSnow += rate;
-        totalSnow += rate - melt * groundSnow;
-        groundSnow = max(0.0, groundSnow - melt);
+        totalSnow = max(0.0, totalSnow + rate - melt * groundSnow);
+        groundSnow = max(0.0, groundSnow + rate - melt * groundSnow);
     }
     
     return totalSnow;
