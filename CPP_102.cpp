@@ -16,7 +16,9 @@ int choose_num(int x, int y) {
 int main() {
     int num1, num2;
     std::cout << "Enter two numbers (separated by a space): ";
-    if (!(std::cin >> num1 >> num2)) {
+    std::stringstream ss;
+    ss >> num1 >> num2;
+    if (!(ss)) {
         std::cout << "Invalid input. Please enter two integers separated by a space." << std::endl;
         return 1;
     }
