@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -8,7 +7,7 @@ using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>>(n, vector<bool>(n), std::allocator<std::vector<bool>>()) visited;
+    vector<vector<char>> visited(n, vector<char>(n));
     priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
     vector<int> res;
 
@@ -16,7 +15,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
                 pq.push({grid[i][j], i, j});
-                visited[i][j] = true;
+                visited[i][j] = false;
             }
         }
     }
@@ -38,7 +37,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
                     int nj = pos.second + j;
 
                     if (ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]) {
-                        visited[ni][nj] = true;
+                        visited[ni][nj] = false;
                         pq.push({grid[ni][nj], ni, nj});
                     }
                 }
