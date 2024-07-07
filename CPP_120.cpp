@@ -3,7 +3,8 @@ using namespace std;
 
 vector<int> maximum(vector<int> arr,int k){
     if(k > arr.size()) {
-        return vector<int>();
+        cout << "Error: k cannot be greater than the size of the array." << endl;
+        return arr;
     }
     vector<int> result(arr.begin(),arr.begin()+k);
     sort(result.begin(),result.end());
