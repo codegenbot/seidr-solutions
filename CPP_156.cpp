@@ -28,7 +28,7 @@ std::string toMiniRoman(int num) {
     if (ones == 9) {
         roman += "IX";
     } else if (ones >= 5) {
-        roman += toMiniRomanHelper(ones, "V", "IV");
+        roman = toMiniRomanHelper(ones, "V", "IV");
     } else {
         for (int i = 0; i < ones; i++) {
             roman += "I";
@@ -43,10 +43,11 @@ std::string toMiniRomanHelper(int num, std::string s1, std::string s2) {
     } else if (num == 9) {
         return s1 + "I";
     } else {
+        result = s1; // initialize a variable to store the result
         for (int i = 0; i < num / 5; i++) {
-            roman += std::string(1, s1);
+            result += s1;
         }
-        return toMiniRomanHelper(num % 5, s1, s2);
+        return result + toMiniRomanHelper(num % 5, s1, s2);
     }
 }
 
