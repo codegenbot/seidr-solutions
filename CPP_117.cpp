@@ -13,7 +13,6 @@ vector<string> select_words(string s, int n) {
             if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
                 result.push_back(word);
             }
-            if (result.size() >= n) return result; 
             word = "";
         } else {
             word += c;
@@ -22,7 +21,6 @@ vector<string> select_words(string s, int n) {
     if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
         result.push_back(word);
     }
-    if (result.size() >= n) return result; 
     return result;
 }
 
