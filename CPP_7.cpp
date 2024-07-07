@@ -25,7 +25,7 @@ std::vector<std::string> filter_strings(const std::vector<std::string>& strings,
 int main() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
     std::vector<std::string> filtered;
-    std::vector<std::string> b = filter_strings(str, "run"); 
+    filtered = filter_strings(str, "run"); 
+    std::vector<std::string> b = {"grunt", "prune"}; // Declare and initialize b
     assert(issame(filtered,b)); 
     return 0;
-}
