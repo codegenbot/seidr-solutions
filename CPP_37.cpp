@@ -31,6 +31,30 @@ std::vector<float> sort_even(std::vector<float> input) {
     return result;
 }
 
+std::vector<float> sort_even(std::vector<float>& input) {
+    std::vector<float> result;
+    for (int i = 0; i < input.size(); i++) {
+        if (i % 2 == 0) {
+            float minVal = input[0];
+            for (float val : input) {
+                if (!issame(val, minVal)) {
+                    minVal = val;
+                }
+            }
+            result.push_back(minVal);
+        } else {
+            auto it = std::stable_partition(input.begin(), input.end(),
+                                             [back = &result.back()](const float& val) {
+                                                 return !issame(val, *back);
+                                             });
+            if (it != input.end()) {
+                result.push_back(*it);
+            }
+        }
+    }
+    return result;
+}
+
 int main() { 
     int n;
     std::vector<float> input;
