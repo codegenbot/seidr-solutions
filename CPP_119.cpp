@@ -1,23 +1,12 @@
-bool balanceParens(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (c == '(') {
-            count++;
-        } else {
-            if (count <= 0) return false;
-            count--;
+Here is the completed code:
+
+string match_parens(vector<string> lst){
+    int open = 0, close = 0;
+    for(auto s: lst){
+        for(auto c : s){
+            if(c == '(') open++;
+            else close++;
         }
     }
-    return count == 0;
-}
-
-string match_parens(vector<string> lst) {
-    string first = lst[0];
-    string second = lst[1];
-    
-    if (balanceParens(first + second)) {
-        return "Yes";
-    } else {
-        return "No";
-    }
+    return (open==close)? "Yes" : "No";
 }
