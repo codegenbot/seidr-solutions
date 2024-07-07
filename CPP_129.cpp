@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -8,8 +7,11 @@ using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<bool> row(n);
-    vector<vector<bool>> visited(n, row);
+    vector<bool> row(n, false);
+    visited.resize(n);
+    for (int i = 0; i < n; ++i) {
+        visited[i].resize(n, false); // Initialize each row with all elements as false.
+    }
     priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
     vector<int> res;
 
