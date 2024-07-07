@@ -1,9 +1,26 @@
 #include <vector>
 #include <algorithm>
+#include <string>
+#include <sstream>
 
-string words_in_sentence(string sentence) {
-    vector<int> wordLengths;
-    string result = "";
+std::vector<std::string> split(const std::string& str, char ch) {
+    std::vector<std::string> tokens;
+    std::string token;
+    for (char c : str) {
+        if (c == ch) {
+            tokens.push_back(token);
+            token = "";
+        } else {
+            token += c;
+        }
+    }
+    tokens.push_back(token);
+    return tokens;
+}
+
+std::string words_in_sentence(std::string sentence) {
+    std::vector<int> wordLengths;
+    std::string result = "";
     
     for (const auto& word : split(sentence, ' ')) {
         int length = word.length();
@@ -18,25 +35,16 @@ string words_in_sentence(string sentence) {
             }
             
             if (isPrime) {
-                result += word + " ";
                 wordLengths.push_back(length);
             }
         }
     }
     
-    return result.substr(0, result.size() - 1);
-}
-
-vector<string> split(const string& str, char delimiter) {
-    vector<string> tokens;
-    size_t pos = 0;
-    size_t prev = 0;
+    std::string primeWordLengths = "";
     
-    while ((pos = str.find(delimiter, prev)) != string::npos) {
-        tokens.push_back(str.substr(prev, pos - prev));
-        prev = pos + 1;
+    for (int length : wordLengths) {
+        primeWordLengths += std::to_string(length) + " ";
     }
     
-    tokens.push_back(str.substr(prev));
-    return tokens;
+    return primeWordLengths.empty() ? "" : "Prime words: " + primeWordLengths;
 }
