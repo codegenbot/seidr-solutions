@@ -11,5 +11,6 @@ int sum_squares(std::vector<float> lst){
 }
 
 int main() {
-    std::cout << sum_squares({-1,1,0})<<std::endl;
+    assert(sum_squares({-1,1,0})==2);
+    // add more test cases as needed
 }
