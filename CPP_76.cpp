@@ -1,5 +1,6 @@
-#include <bits/stdc++.h>
-using namespace std;
+```cpp
+#include <cmath>
+#include <iostream>
 
 bool is_simple_power(int x, int n) {
     double y = pow(n, 1.0);
@@ -7,14 +8,15 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    int x, n;
-    cout << "Enter a number: ";
-    cin >> x;
-    cout << "Enter a power: ";
-    cin >> n;
-    if(is_simple_power(x,n))
-        cout << x << " is a simple power of " << n << endl;
-    else
-        cout << x << " is not a simple power of " << n << endl;
+    int num, power;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::cout << "Enter the power: ";
+    std::cin >> power;
+    if(is_simple_power(num, power)) {
+        std::cout << "The number is a simple power.\n";
+    } else {
+        std::cout << "The number is not a simple power.\n";
+    }
     return 0;
 }
