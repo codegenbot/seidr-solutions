@@ -1,4 +1,3 @@
-```c++
 std::string decode(std::string cipher, std::string mapping) {
     int freq[256] = {0}; // assuming ASCII characters
     for (char m : mapping) {
@@ -18,11 +17,4 @@ std::string decode(std::string cipher, std::string mapping) {
         result.push_back(idx);
     }
     return result;
-}
-
-int main() {
-    std::string cipher = "cehubtgxnspvqohlwrzady";
-    std::string mapping = "vmrbxneukctiflzswjpqdyyvogsnul";
-    std::cout << decode(cipher, mapping) << std::endl;
-    return 0;
 }
