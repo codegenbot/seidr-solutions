@@ -1,4 +1,4 @@
-```cpp
+```
 std::string squareDigits(std::string n) {
     std::string result = "";
     for (char c : n) {
