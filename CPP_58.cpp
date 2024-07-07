@@ -1,7 +1,8 @@
 ```cpp
+#pragma message "This program requires at least C++14 for initializer_list support."
 #include <vector>
 #include <algorithm>
-#include <set> 
+#include <set>
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
@@ -15,9 +16,9 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    vector<int> l1 = {1, 2, 3, 4};
-    vector<int> l2 = {3, 4, 5, 6};
-    vector<int> result = common(l1, l2); 
+    vector<int> l1 = {1,2,3,4};
+    vector<int> l2 = {3,4,5,6};
+    vector<int> result = common(l1, l2);
     for(int i : result) {
         cout << i << " ";
     }
