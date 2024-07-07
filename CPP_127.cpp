@@ -11,31 +11,32 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
 
 int main() {
     assert(intersection({-2, -2}, {-3, -2}) == "NO");
+    
     std::pair<int, int> interval1;
     std::cout << "Enter the first interval: ";
     std::string temp;
     std::cin >> temp; 
+    temp += " "; // add a space at the end for proper parsing
     interval1.first = std::stoi(temp);
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
     std::cout << "Enter the end of the first interval: ";
-    std::cin >> temp;
-    std::string str;
-    str = temp; // Convert the integer input into a string
-    interval1.second = std::stoi(str);
+    std::cin >> temp; 
+    temp += " "; // add a space at the end for proper parsing
+    interval1.second = std::stoi(temp);
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
     std::pair<int, int> interval2;
     std::cout << "Enter the second interval: ";
-    std::cin >> temp;
-    str = temp; // Convert the integer input into a string
-    interval2.first = std::stoi(str); 
+    std::cin >> temp; 
+    temp += " "; // add a space at the end for proper parsing
+    interval2.first = std::stoi(temp); 
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << "Enter the end of the second interval: ";
-    std::cin >> temp;
-    str = temp; // Convert the integer input into a string
-    interval2.second = std::stoi(str);
+    std::cin >> temp; 
+    temp += " "; // add a space at the end for proper parsing
+    interval2.second = std::stoi(temp);
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     if (intersection(interval1, interval2) == "YES")
