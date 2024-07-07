@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -31,40 +30,36 @@ bool operator>(const pair_int &a, const pair_int &b) {
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
     std::priority_queue<pair_int, std::vector<pair_int>, greater<pair_int>> pq; 
-    std::vector<int> res;
+    std::vector<int> res(k);
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             pair_int p = {grid[i][j], i, j};
-            pq.push(p);
+            //pq.push(p); 
         }
     }
 
+    int count = 0;
     while (!pq.empty()) {
+        if(count >= k) break;
+
         int val = pq.top().val;
         int pos_i = pq.top().i;
         int pos_j = pq.top().j;
         pq.pop();
+        res[count++] = val;
+        
+        // Check all neighbors
+        for (int i = -1; i <= 1; ++i) {
+            for (int j = -1; j <= 1; ++j) {
+                int ni = pos_i + i;
+                int nj = pos_j + j;
 
-        res.push_back(grid[pos_i][pos_j]);
-
-        if (k > 0) {
-            --k;
-
-            // Check all neighbors
-            for (int i = -1; i <= 1; ++i) {
-                for (int j = -1; j <= 1; ++j) {
-                    int ni = pos_i + i;
-                    int nj = pos_j + j;
-
-                    if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
-                        pair_int p = {grid[ni][nj], ni, nj};
-                        pq.push(p);
-                    }
+                if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
+                    pair_int p = {grid[ni][nj], ni, nj};
+                    pq.push(p);
                 }
             }
-        } else {
-            break;
         }
     }
 
