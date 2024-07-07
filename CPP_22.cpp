@@ -16,3 +16,21 @@ std::vector<int> filter_integers(std::list<int> values) {
     }
     return result;
 }
+
+int main() {
+    assert(equalVectors(filter_integers({3, 3, 3}), {3, 3, 3}));
+    std::list<int> values = {'c', 'a', 'b', 3, 'c', 3};
+    for (auto it = values.begin(); it != values.end();) {
+        if (*it < 0 || *it > 255) {
+            it = values.erase(it);
+        } else {
+            ++it;
+        }
+    }
+
+    std::list<int> filtered_values = filter_integers(values);
+
+    assert(equalVectors(filtered_values, {3, 3, 3}));
+
+    return 0;
+}
