@@ -12,7 +12,7 @@ int main() {
 
     double bouncinessIndex = pow((firstBounceHeight / startHeight), 0.5);
 
-    double totalDistance = 0.0;
+    double totalDistance = 0.0; 
     double currentHeight = firstBounceHeight; 
 
     for (int i = 1; i <= numBounces; i++) {
