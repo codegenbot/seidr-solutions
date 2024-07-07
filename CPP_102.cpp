@@ -11,16 +11,16 @@ int main() {
         std::cerr << "Invalid input. Please enter two integers." << std::endl;
         return 1; 
     }
-    int result = choose_num(std::to_string(num1), std::to_string(num2));
+    int result = choose_num(num1, num2);
     std::cout << "Result: " << (num1 > num2 ? num1 : num2) << std::endl;
-    if(result == std::stoi(std::to_string(num1)))
+    if(result == num1)
         std::cout << "Greater number is " << num1 << std::endl;
     else
         std::cout << "Greater number is " << num2 << std::endl;
     return 0;
 }
 
-int choose_num(int, int) {
+int choose_num(int num1, int num2) {
     if (num1 > num2)
         return num1;
     else
