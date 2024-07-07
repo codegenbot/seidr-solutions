@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <cassert>
 
 std::string anti_shuffle(const std::string& str) {
@@ -17,7 +17,7 @@ std::string anti_shuffle(const std::string& str) {
     return std::string(temp);
 }
 
-int main() {
+int main_function() {
     assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
