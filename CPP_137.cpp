@@ -6,23 +6,33 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return max(a, b);
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (max(a, b)).cast<string>();
-    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int a_int = boost::any_cast<int>(a);
-        int b_int = boost::any_cast<int>(b);
-        if (a_int > b_int)
-            return a;
-        else if (a_int < b_int)
-            return b;
-        else
-            return boost::any("None");
-    } else {
-        return boost::any("None");
+        return max((int)a.convertible_to<int>(), (float)b.convertible_to<float>());
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return (b.convertible_to<string>()) > to_string(a.convertible_to<int>()) ? b : "None";
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = (string)b;
+        size_t pos = str.find(',');
+        if (pos != string::npos) {
+            float a1 = stof(str.substr(0, pos));
+            float a2 = stof(str.substr(pos + 1));
+            return max(a1, a2);
+        }
+        else {
+            return (stof(str)) > a.convertible_to<float>() ? b : "None";
+        }
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return (string)b > a ? b : "None";
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return max(a.convertible_to<int>(), b.convertible_to<int>()) == a.convertible_to<int>() ? "None" : boost::any(b);
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return max(a.convertible_to<float>(), b.convertible_to<float>()) == a.convertible_to<float>() ? "None" : b;
+    }
+    else {
+        return "None";
     }
 }
