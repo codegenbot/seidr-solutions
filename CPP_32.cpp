@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -26,15 +27,21 @@ double find_zero(vector<double> coeffs){
 }
 
 int main() {
-    vector<double> poly_coeffs{}; // Default constructor initialization
+    vector<double> poly_coeffs;
+
+    string temp;
+    double val;
+
+    poly_coeffs; // Initialize the vector
 
     while (true) {
         cin >> temp;
-        if (cin.fail()) {
+        if (!cin) {
             cout << "Invalid input. Please enter a valid number." << endl;
             break;
         }
-        poly_coeffs.push_back(temp);
+        val = stod(temp);
+        poly_coeffs.push_back(val);
     }
 
     if(poly_coeffs.size() == 0){

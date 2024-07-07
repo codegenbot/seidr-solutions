@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <initializer_list>
 #include <algorithm>
@@ -33,10 +33,11 @@ int main() {
             v2.push_back(num);
         }
     }
-    float maxV1 = get_positive({v1.begin(), v1.end()});
-    float maxV2 = get_positive({v2.begin(), v2.end()});
+    
+    float maxV1 = get_positive(v1);
+    float maxV2 = get_positive(v2);
 
-    if (!issame({maxV1}, {0})) {
+    if (!issame({maxV1}, {0.0})) { 
         std::cout << "The two sets of numbers are not the same.\n";
     } else {
         std::cout << "The two sets of numbers are the same.\n";
