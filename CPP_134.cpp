@@ -1,13 +1,12 @@
 bool check_if_last_char_is_a_letter(string txt){
-    if(txt.length() == 0) return false; // Check for empty string
-    char lastChar = txt.back(); // Get the last character of the string
-    bool isLetter = isalpha(lastChar); // Check if the last character is a letter
-    bool isPartOfWord = false;
-    for(int i=0; i<txt.length()-1; i++){
-        if(txt[i] == ' ' && txt[i+1] == lastChar){
-            isPartOfWord = true;
-            break;
+    if(txt.empty()) return false;
+    string lastChar = txt.substr(txt.length()-1, 1);
+    for(int i=0; i<txt.length(); i++){
+        if(txt[i] == ' ' && (i+1==txt.length() || !isalpha(txt[i+1]))){
+            if(lastChar.length()>0 && isalpha(lastChar[0])){
+                return true;
+            }
         }
     }
-    return isLetter && !isPartOfWord;
+    return false;
 }
