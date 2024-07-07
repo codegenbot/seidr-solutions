@@ -1,41 +1,23 @@
 #include <vector>
+#include <climits>
+#include <cmath>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int idx = 0;
+vector<int> cutVector(vector<int>& v) {
+    int n = v.size();
+    int minDiff = INT_MAX;
+    int pos = 0;
     
-    for (int i = 1; i < v.size(); i++) {
+    for (int i = 1; i < n; i++) {
         int diff = abs(v[i] - v[0]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            idx = i;
+        if (diff <= minDiff) {
+            minDiff = diff;
+            pos = i;
         }
     }
     
-    return {vector<int>(v.begin(), v.begin() + idx), vector<int>(v.begin() + idx, v.end())};
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
+    vector<int> left(v.begin(), v.begin() + pos);
+    vector<int> right(v.begin() + pos, v.end());
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    
-    cout << "[";
-    for (int i = 0; i < result.first.size() - 1; i++) {
-        cout << result.first[i] << " ";
-    }
-    cout << result.first.back() << "]\n";
-    cout << "[";
-    for (int i = 0; i < result.second.size() - 1; i++) {
-        cout << result.second[i] << " ";
-    }
-    cout << result.second.back() << "]\n";
-    
-    return 0;
+    return vector<int>(left.begin(), left.end()) + vector<int>(right.begin(), right.end());
 }
