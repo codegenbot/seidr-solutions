@@ -1,26 +1,29 @@
-std::string solveBoolean(std::string input) {
-    std::stack<char> s;
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            s.push('&');
-        } else if (input[i] == '|') {
-            while (!s.empty()) {
-                s.pop();
-            }
-            s.push('|');
-        } else if (input[i] == 't' || input[i] == 'f') {
-            s.push(input[i]);
+#include <vector>
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool solveBoolean(string s) {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (i + 1 < s.length() && s[i+1] == '&') i++;
+            s.erase(i, 1);
+            i--;
+        } else if (s[i] == '|') {
+            while (i + 1 < s.length() && s[i+1] == '|') i++;
+            s.erase(i, 1);
+            i--;
         }
     }
 
-    std::string result = "";
-    while (!s.empty()) {
-        result += s.top();
-        s.pop();
-    }
+    string truthTable[2][2] = {{"F", "F"}, {"T", "T"}};
+    int value = (s == "TT" || s == "FF") ? 0 : (s == "TF" || s == "FT") ? 1 : -1;
+    return value != -1 && truthTable[!!stoi(s)][value][0] == 'T';
+}
 
-    return result == "t" ? "True" : "False";
+int main() {
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False");
+    return 0;
 }
