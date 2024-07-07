@@ -1,7 +1,6 @@
-#include <string>
-
 bool solveBoolean(string s) {
     bool result = true;
+    #include <string>
     for (char c : s) {
         if (c == 'F') {
             result = false;
