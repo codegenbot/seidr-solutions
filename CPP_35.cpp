@@ -1,11 +1,12 @@
 #include <algorithm>
 #include <cmath>
 
-int findMax(int arr[], int n) {
-    if (n <= 0) {
-        std::cout << "Error: Input array is empty." << std::endl;
-        return -1;
+int findMaximumValue(vector<int> numbers) {
+    if (numbers.empty()) {
+        throw runtime_error("Error: The input vector is empty.");
     }
     
-    return *max_element(arr, arr+n);
+    int maximum = *max_element(numbers.begin(), numbers.end());
+    
+    return maximum;
 }
