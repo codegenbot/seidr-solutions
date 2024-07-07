@@ -1,4 +1,8 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+int do_algebra(std::vector<std::string> operator_, std::vector<int> operand) {
     int result = 0;
     for (int i = 0; i < operator_.size(); i++) {
         if (operator_[i] == "+") {
@@ -6,7 +10,7 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
         } else if (operator_[i] == "-") {
             result -= operand[i];
         } else if (operator_[i] == "*") {
-            int temp = 0;
+            int temp = 1;
             for (int j = i; j < operator_.size(); j++) {
                 if (operator_[j] == "*") {
                     temp *= operand[j + 1];
@@ -38,4 +42,9 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    return 0;
 }
