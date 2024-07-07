@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 int search(int n) {
@@ -18,5 +19,7 @@ int main() {
         cout << "The search function returns -1 for negative numbers." << endl;
     }
     
+    int myTest = 3, myArray[] = {myTest, 10, 10, 9, 2};
+    assert(search(myTest) == -1); 
     return 0;
 }
