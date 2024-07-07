@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 
@@ -10,7 +9,7 @@ int closest_integer(double num) {
     }
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     int num = 0;
     std::cout << "Enter a number: ";
     std::cin >> num; 
