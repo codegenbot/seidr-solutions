@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -6,12 +7,11 @@ int main() {
     cin >> cents;
 
     int quarters = cents / 25;
-    int remainingCents = cents % 25;
-    int dimes = remainingCents / 10;
-    remainingCents %= 10;
-    int nickles = remainingCents / 5;
-    remainingCents %= 5;
-    int pennies = remainingCents;
+    int remaining_cents = cents % 25;
+    int dimes = remaining_cents / 10;
+    int remaining_cents_again = remaining_cents % 10;
+    int nickles = remaining_cents_again / 5;
+    int pennies = remaining_cents_again % 5;
 
     cout << quarters << endl;
     cout << nickles << endl;
