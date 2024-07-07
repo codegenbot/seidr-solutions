@@ -11,7 +11,7 @@ string compare_one(string s1, int s2) {
     else return to_string(s2);
 }
 
-int main() {
+int main_function() {
     cout << compare_one("123.45", 6789) << endl; 
     string s1 = "1";  
     int s2 = 2;  
