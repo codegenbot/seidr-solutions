@@ -1,8 +1,14 @@
-Here is the completed code:
+#include <cassert>
+#include <cmath>
 
 bool any_int(float a, float b, float c) {
-    int ai = a;
-    int bi = b;
-    int ci = c;
-    return (ai == bi + ci || ai == ci + bi || bi == ai + ci || bi == ci + ai || ci == ai + bi || ci == bi + ai);
+    if (a == int(a) && b == int(b) && c == int(c)) {
+        return (a == b + c || a == c + b || b == a + c || c == a + b);
+    }
+    return false;
+}
+
+int main() {
+    assert(any_int(3.01, 4, 7) == false);
+    return 0;
 }
