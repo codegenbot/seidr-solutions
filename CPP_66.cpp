@@ -4,7 +4,7 @@
 int digitSum(const std::string& str) {
     int sum = 0;
     for (char c : str) {
-        if (isdigit(c)) {
+        if (c >= '0' && c <= '9') {
             sum += (c - '0');
         }
     }
