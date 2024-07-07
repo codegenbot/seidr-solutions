@@ -9,11 +9,9 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
-
 }
 
 int main() {
     assert(specialFilter({}) == 0);
-    // Add your code here
     return 0;
 }
