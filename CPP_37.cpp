@@ -1,8 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-bool issame(float a, float b) {
-    return std::abs(a - b) < 0.0001;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
@@ -11,14 +12,14 @@ std::vector<float> sort_even(std::vector<float> l) {
         if (i % 2 == 0) {
             float minVal = l[0];
             for (float val : l) {
-                if (!issame(val, minVal)) {
+                if (val < minVal) {
                     minVal = val;
                 }
             }
             result[i] = minVal;
         } else {
             int j = i - 1;
-            while (j >= 0 && !issame(l[j], result[j])) {
+            while (j >= 0 && !issame(std::vector<float>({l[j], l}), std::vector<float>({result[j]}))) {
                 --j;
             }
             if (j >= 0) {
@@ -26,7 +27,7 @@ std::vector<float> sort_even(std::vector<float> l) {
             } else {
                 float minVal = l[0];
                 for (float val : l) {
-                    if (!issame(val, minVal)) {
+                    if (val < minVal) {
                         minVal = val;
                     }
                 }
