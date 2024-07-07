@@ -1,8 +1,5 @@
-Here is the solution:
-
-if (lst.size() < 2) return -1;
-
-vector<int>::iterator it = lst.begin();
-advance(it, 1);
-
-return *prev(it);
+vector<int>::iterator it = next(cbegin(lst), 1);
+if (it == cend(lst)) {
+    return -1; // or any value that represents None in your language
+}
+return *it;
