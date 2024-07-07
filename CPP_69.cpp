@@ -1,7 +1,4 @@
-#include <iostream>
-#include <cassert>
-#include <vector>
-
+```cpp
 int search(int n) {
     if(n < 0)
         return -1;
@@ -19,9 +16,6 @@ int main() {
         std::cout << "The search function returns -1 for negative numbers." << std::endl;
     }
     
-    // If you want to test the function with multiple values
-    std::vector<int> nums = {3, 10, 10, 9, 2};
-    int max_value = *std::max_element(nums.begin(), nums.end());
-    assert(search(max_value) == -1);
+    assert(search(0) == -1);
     return 0;
 }

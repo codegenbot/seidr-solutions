@@ -1,7 +1,6 @@
-```cpp
+#include <initializer_list>
 #include <vector>
 #include <iostream>
-#include <cassert>
 
 int can_arrange(std::vector<int> arr) {
     for (int i = 1; i < arr.size(); i++) {
