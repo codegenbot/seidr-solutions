@@ -36,11 +36,9 @@ int main() {
         double num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        
-        if (num > 0.0 && std::fmod(num,2.0) != 0.0) {  
-            if(std::floor(num) == num) {  
-                lst.push_back(num);  
-            }
+
+        if (num > 0.0 && std::fmod(num,2.0) != 0.0) { 
+            lst.push_back(std::max(num, 1.0)); // check if num is greater than 0 and push max of num and 1.0 to vector
         }
     }
 
