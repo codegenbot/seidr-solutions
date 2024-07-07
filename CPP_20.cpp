@@ -1,8 +1,8 @@
+```
 #include <algorithm>
 #include <numeric>
 #include <cmath>
 #include <limits>
-#include <initializer_list>
 #include <vector>
 
 bool issame(std::vector< float > a, std::vector< float > b) {
