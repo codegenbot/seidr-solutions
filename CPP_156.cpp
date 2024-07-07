@@ -1,51 +1,43 @@
-```
 #include <string>
 
-std::string toMiniRomanHelper(int num, std::string str, std::string roman) {
-    if (num == 0)
-        return str;
-    if (num >= 4000)
-        return "IV";
-    if (num >= 1000) {
-        str += roman[0];
-        return toMiniRomanHelper(num - 1000, str, roman);
-    }
-    if (num >= 900)
-        return "CM";
-    if (num >= 500) {
-        str += roman[0];
-        return toMiniRomanHelper(num - 500, str, roman.substr(1));
-    }
-    if (num >= 400)
-        return "CD";
-    if (num >= 100) {
-        str += roman[0];
-        return toMiniRomanHelper(num - 100, str, roman.substr(1));
-    }
-    if (num >= 90)
-        return "XC";
-    if (num >= 50) {
-        str += roman[0];
-        return toMiniRomanHelper(num - 50, str, roman.substr(1));
-    }
-    if (num >= 40)
-        return "XL";
-    if (num >= 10) {
-        str += roman[0];
-        return toMiniRomanHelper(num - 10, str, roman.substr(1));
-    }
-    if (num >= 9)
-        return "IX";
-    if (num >= 5) {
-        str += roman[0];
-        return toMiniRomanHelper(num - 5, str, roman.substr(1));
-    }
-    if (num >= 4)
-        return "IV";
-    str += roman[0];
-    return str + roman[1];
+std::string int_to_mini_roman(int num) {
+    if (num <= 0)
+        return "";
+    std::string roman = toMiniRomanHelper(num, "", "MDC");
+    return roman;
 }
 
-std::string int_to_mini_roman(int num) {
-    return toMiniRomanHelper(num, "", "MDCLXVI");
+std::string toMiniRomanHelper(int num, std::string roman, std::string symbols) {
+    if (num == 0)
+        return roman;
+
+    int i = symbols.find_first_of("IVXL");
+    if (i != std::string::npos) {
+        int count = 1;
+        while ((i + 1 < symbols.size()) && (symbols[i+1] == symbols[i])) {
+            ++i; ++count;
+        }
+        if (count == 3)
+            roman += symbols[i];
+        else
+            for (int j = 0; j < count; ++j) 
+                roman += symbols[i];
+
+        num -= count * (symbols[i] - 'I');
+    } else {
+        int value = std::stoi(symbols.substr(0,1));
+        if (value <= num) {
+            roman += symbols[0];
+            num -= value;
+            return toMiniRomanHelper(num, roman, symbols.substr(1));
+        }
+    }
+
+    return toMiniRomanHelper(num, roman, "");
+}
+
+int main() {
+    assert(int_to_mini_roman(1000).compare("M") == 0);
+    // Add your test cases here
+    return 0;
 }
