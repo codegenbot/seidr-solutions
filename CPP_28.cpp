@@ -4,6 +4,14 @@
 
 using namespace std;
 
+string concatenate(vector<string> strings) {
+    string result = "";
+    for (const auto& str : strings) {
+        result += str + " ";
+    }
+    return result;
+}
+
 int main() {
     vector<string> strings;
     string userInput;
@@ -18,9 +26,7 @@ int main() {
         strings.push_back(userInput);
     }
 
-    string result = "";
-    for (const auto& str : strings) {
-        result += str + " ";
-    }
+    string result = concatenate(strings);
     cout << "Concatenated string: " << result << endl;
     return 0;
+}
