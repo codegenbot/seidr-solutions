@@ -1,17 +1,11 @@
-int main(){
-    string txt;
-    cin >> txt;
-    cout << (check_if_last_char_is_a_letter(txt) ? "true" : "false");
-}
+Here is the completed code:
+
+```cpp
 bool check_if_last_char_is_a_letter(string txt){
-    if(txt.length() == 0)
-        return false;
-    for(int i = 0; i < txt.length() - 1; i++){
-        if(isspace(txt[i]))
-            return false;
-    }
-    char lastChar = txt.back();
-    if(isalpha(lastChar))
-        return true;
-    return false;
+    if(txt.empty()) return false; // If the string is empty, return false
+    
+    char last_char = txt.back(); // Get the last character of the string
+    
+    // Check if the last character is not a space and it's an alphabetical character
+    return !std::isalnum(last_char) && std::isalpha(last_char);
 }
