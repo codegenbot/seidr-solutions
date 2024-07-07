@@ -6,9 +6,10 @@ bool is_sorted(vector<int> lst){
             return false;
         }
     }
-    vector<int>::iterator it;
-    for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
-        if(std::distance(it, lst.end()) > 1) {
+    vector<int> temp(lst.begin(), lst.end());
+    sort(temp.begin(), temp.end());
+    for(int i = 0; i < lst.size(); i++){
+        if(lst[i] != temp[i]){
             return false;
         }
     }
