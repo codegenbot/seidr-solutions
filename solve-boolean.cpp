@@ -1,26 +1,43 @@
-std::string solveBoolean(std::string input) {
-    std::stack<char> s;
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
+```cpp
+#include <vector>
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool solveBoolean(string s) {
+    bool result = true;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'T') {
+            result = true;
+        } else if (s[i] == 'F') {
+            result = false;
+        } else if (s[i] == '|') {
+            bool temp = result;
+            result = !result;
+            result = result && temp;
+        } else if (s[i] == '&') {
+            bool temp = true;
+            while (i < s.length() && s[i] != ')') {
+                if (s[i] == 'T') {
+                    temp = true;
+                } else if (s[i] == 'F') {
+                    temp = false;
+                    break;
+                }
+                i++;
             }
-            s.push('&');
-        } else if (input[i] == '|') {
-            while (!s.empty()) {
-                s.pop();
+            if (!temp) {
+                i--;
             }
-            s.push('|');
-        } else if (input[i] == 't' || input[i] == 'f') {
-            s.push(input[i]);
+            result &= temp;
         }
     }
+    return result;
+}
 
-    std::string result = "";
-    while (!s.empty()) {
-        result += s.top();
-        s.pop();
-    }
-
-    return result == "t" ? "True" : "False";
+int main() {
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False");
+    return 0;
 }
