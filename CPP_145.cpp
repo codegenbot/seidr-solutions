@@ -9,14 +9,6 @@ bool areVectorsEqual(const std::vector<int>& v1, const std::vector<int>& v2) {
     return true;
 }
 
-bool assertEqual(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); i++) {
-        if(std::find(v2.begin(), v2.end(), v1[i]) == v2.end()) return false;
-    }
-    return true;
-}
-
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
@@ -46,5 +38,10 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
+    
+    if (!areVectorsEqual(order_by_points({0,6,6,-76,-21,23,4}), {0, 4, -21, 6, 6, 23, -76})) {
+        return 1;
+    }
+    
     return 0;
 }
