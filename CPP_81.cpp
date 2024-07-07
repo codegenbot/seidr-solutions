@@ -1,8 +1,9 @@
-#include <initializer_list>
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool compareVectors(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -39,24 +40,6 @@ string letterGrade(float grade) {
         return "F";
 }
 
-vector<string> letterGrade(vector<float> grades) {
-    vector<string> result;
-    for (float grade : grades) {
-        result.push_back(letterGrade(grade));
-    }
-    return result;
-}
-
-bool areGradesSame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
-}
-
 vector<string> numericalLetterGrade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
@@ -68,9 +51,9 @@ vector<string> numericalLetterGrade(vector<float> grades) {
 int main() {
     vector<float> fgrades = {0, 0.7};
     vector<string> grades = numericalLetterGrade(fgrades);
-    if (!areGradesSame({grades[0], grades[1]}, {"E", "D-" }))
-        cout << "Test failed" << endl;
+    if (!issame({grades[0], grades[1]}, {"E", "D-" }))
+        std::cout << "Test failed" << std::endl;
     else
-        cout << "Test passed" << endl;
+        std::cout << "Test passed" << std::endl;
     return 0;
 }
