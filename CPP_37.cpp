@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -47,8 +48,8 @@ int main() {
         input.push_back(num);
     }
     std::cin.ignore();
-    #define _SCL_SECURE_NO_WARNINGS
     std::vector<float> result = sort_even(input);
     for (float val : result) {
         std::cout << val << " ";
     }
+}

@@ -1,7 +1,8 @@
+```
 #include <iostream>
 #include <vector>
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool checkIfSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
