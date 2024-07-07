@@ -1,13 +1,21 @@
 Here is the completed code:
 
-vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> nodes;
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return result;
+
+    int minEvenValue = INT_MAX;
+    int minIndex = -1;
+
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0) {
-            nodes.push_back({arr[i], i});
+        if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
+            minEvenValue = arr[i];
+            minIndex = i;
         }
     }
-    if (nodes.empty()) return {};
-    sort(nodes.begin(), nodes.end());
-    return {nodes[0].first, nodes[0].second};
-}
+
+    if (minIndex != -1) {
+        result.push_back({minEvenValue, minIndex});
+    }
+
+    return result;
