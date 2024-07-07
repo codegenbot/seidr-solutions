@@ -1,6 +1,9 @@
-```cpp
 #include <string>
-using namespace std;
+#include <cctype>
+
+using std::islower;
+using std::toupper;
+using std::tolower;
 
 string flip_case(string str) {
     string result = "";
@@ -14,4 +17,3 @@ string flip_case(string str) {
         }
     }
     return result;
-}
