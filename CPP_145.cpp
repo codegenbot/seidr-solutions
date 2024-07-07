@@ -1,7 +1,7 @@
 ```cpp
+#include <initializer_list>
 #include <algorithm>
 #include <vector>
-#include <initializer_list>
 #include <ostream>
 #include <iostream>
 #include <limits>
