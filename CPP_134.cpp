@@ -1,16 +1,8 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    int length = txt.length();
-    if (length == 0) {
-        return false;
-    }
-    char lastChar = txt[length - 1];
-    if (!isalpha(lastChar)) {
-        return true;
-    }
-    for (int i = 0; i < length - 1; ++i) {
-        if (isspace(txt[i]) && isalpha(txt[i + 1])) {
-            return false;
-        }
-    }
-    return true;
+Here is the solution:
+
+```cpp
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.length() == 0) return false; // Check for empty string
+    char last_char = txt.back();
+    return (isalpha(last_char)) && (!std::count(txt.begin(), txt.end(), last_char)); 
 }
