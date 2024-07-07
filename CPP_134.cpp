@@ -1,2 +1,10 @@
-size_t last_space = txt.find_last_of(' ');
-return (last_space == string::npos || txt[last_space + 1] >= 'a' && txt[last_space + 1] <= 'z') || (txt.length() > 0 && txt.back() >= 'a' && txt.back() <= 'z');
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()) return false; // Check if string is empty
+    for(int i = 0; i < txt.size() - 1; i++) {
+        if(!isspace(txt[i])) { // Check if character is not a space
+            return false;
+        }
+    }
+    char last_char = txt.back();
+    return (isalpha(last_char)); // Check if last character is alphabetical
+}
