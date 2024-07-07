@@ -16,6 +16,7 @@ std::string anti_shuffle(std::string s) {
             }
             sort(word.begin(), word.end());
             result += word;
+            i = j - 1;
         }
     }
     return result;
