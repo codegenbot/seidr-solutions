@@ -21,7 +21,7 @@ bool issame(vector<string> b, vector<string> a) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (a.at(i) != b.at(i)) {
             return false;
         }
     }
@@ -29,10 +29,10 @@ bool issame(vector<string> b, vector<string> a) {
 }
 
 int main() {
-    vector<string> v1 = {"mamma"};
-    vector<string> v2 = {"mia"};
-    v1 = reverse_delete({v1.begin(), v1.end()});
+    vector<string> v = {"mamma", "mia"};
+    vector<string> temp = {"mamma", "mia"};
+    v = reverse_delete(temp);
     vector<string> result = {{"", "True"}};
-    assert(issame(result, v1));
+    assert(issame(result, v));
     return 0;
 }
