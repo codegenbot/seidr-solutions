@@ -1,25 +1,44 @@
+Here is the completed code:
+
 map<char, int> histogram(string test) {
     map<char, int> result;
-    string letters = test;
-    for (char c : letters) {
-        if (c != ' ') {
-            if (result.find(c) == result.end()) {
-                result[c] = 1;
+    int max_count = 0;
+
+    for (string word : split(test)) {
+        char c = word[0];
+        int count = 1;
+        for (char ch : word) {
+            if (ch == c) {
+                count++;
             } else {
-                result[c]++;
+                break;
             }
         }
+        if (count > max_count) {
+            max_count = count;
+        }
+        result[c] = count;
     }
-    map<char, int> maxMap;
-    int maxCount = 0;
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second > maxCount) {
-            maxCount = it->second;
-            maxMap.clear();
-            maxMap[it->first] = it->second;
-        } else if (it->second == maxCount) {
-            maxMap[it->first] = it->second;
+
+    return result;
+}
+
+vector<string> split(string test) {
+    vector<string> words;
+    string word;
+
+    for (char c : test) {
+        if (c == ' ') {
+            words.push_back(word);
+            word.clear();
+        } else {
+            word += c;
         }
     }
-    return maxMap;
+
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+
+    return words;
 }
