@@ -1,41 +1,48 @@
 Here is the completed code:
 
-int smallest_change(vector<int> arr) {
-    int n = arr.size();
-    int left = 0, right = n - 1;
-    int changes = 0;
+```cpp
+#include <vector>
+#include <algorithm>
 
+int smallest_change(const vector<int>& arr) {
+    int n = arr.size();
+    string str;
+    for (int i : arr) {
+        str += to_string(i);
+    }
+    
+    int changes = 0;
+    int left = 0, right = n - 1;
     while (left < right) {
-        if (arr[left] != arr[right]) {
+        if (str[left] != str[right]) {
             changes++;
-            for (int i = 0; i < n; i++) {
-                if (i == left || i == right) continue;
-                bool flag = true;
-                for (int j = 0; j < n; j++) {
-                    if (j == left || j == right) continue;
-                    if (arr[i] != arr[j]) {
-                        flag = false;
-                        break;
-                    }
-                }
-                if (flag) return changes + 1;
-            }
-            for (int i = 0; i < n; i++) {
-                if (i == left || i == right) continue;
-                bool flag = true;
-                for (int j = 0; j < n; j++) {
-                    if (j == left || j == right) continue;
-                    if (arr[i] != arr[j]) {
-                        flag = false;
-                        break;
-                    }
-                }
-                if (!flag) continue;
-                return changes + 1;
-            }
+            break;
         }
         left++;
         right--;
     }
-    return changes;
+
+    if (left == right) {
+        return 0;
+    } else if (str[left] != str[right]) {
+        int mid = n / 2;
+        for (int i = 0; i < mid; i++) {
+            if (arr[i] != arr[n - i - 1]) {
+                changes++;
+            }
+        }
+        return changes;
+    } else {
+        int mid = n / 2;
+        int leftChanges = 0, rightChanges = 0;
+        for (int i = 0; i < mid; i++) {
+            if (arr[i] != arr[n - i - 1]) {
+                leftChanges++;
+                rightChanges++;
+            } else if (i == n / 2) {
+                break;
+            }
+        }
+        return std::min(leftChanges, rightChanges);
+    }
 }
