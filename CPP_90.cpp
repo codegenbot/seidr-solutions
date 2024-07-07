@@ -8,7 +8,7 @@ int next_smallest(std::vector<int> lst){
     if (sorted.size() < 2) return -1; 
     for (int i = 0; i < sorted.size() - 1; i++) {
         if (sorted[i] != sorted[i + 1]) {
-            return sorted[i + 1];
+            return sorted[i];
         }
     }
     return -1; 
