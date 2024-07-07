@@ -1,6 +1,6 @@
-```
+#include <sstream>
 #include <iostream>
-#include <string>
+#include <limits>
 
 using namespace std;
 
@@ -18,12 +18,15 @@ string validateTweet(string tweet) {
     if (charCount > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + to_string(charCount) + " characters";
+    ostringstream ostr;
+    ostr << "Your tweet has " << charCount << " characters";
+    return ostr.str();
 }
 
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     getline(cin, tweet);
     cout << validateTweet(tweet) << endl;
     return 0;
