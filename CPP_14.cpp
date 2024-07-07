@@ -1,4 +1,3 @@
-#include <initializer_list>
 #include <vector>
 #include <string>
 
@@ -19,7 +18,7 @@ std::vector<std::string> all_prefixes(const std::string& str) {
     return result;
 }
 
-bool main() {
+int main() {
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    return true;
+    return 0;
 }
