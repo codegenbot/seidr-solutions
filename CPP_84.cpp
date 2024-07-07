@@ -1,16 +1,16 @@
-string solve(int N){
+string solve(int N) {
     int sum = 0;
-    while(N > 0) {
-        if((N & 1) == 1) {
-            sum++;
-        }
-        N >>= 1;
+    while (N > 0) {
+        sum += N % 2;
+        N /= 2;
     }
     string result = "";
-    while(sum > 0) {
-        result += (sum % 2 == 1 ? "1" : "0");
-        sum /= 2;
+    while (sum > 0) {
+        if (sum & 1)
+            result.push_back('1');
+        else
+            result.push_back('0');
+        sum >>= 1;
     }
-    reverse(result.begin(), result.end());
     return result;
 }
