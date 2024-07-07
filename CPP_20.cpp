@@ -1,21 +1,25 @@
-```cpp
-bool issame(std::vector<float> a, std::vector<float> b) {
+#include <algorithm>
+#include <limits>
+#include <numeric>
+#include <cmath>
+
+bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); ++i) {
-        if (std::abs(a[i] - b[i]) > 1e-9) {
+        if (abs(a[i] - b[i]) > 1e-9) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
+vector<float> find_closest_elements(vector<float> numbers) {
+    sort(numbers.begin(), numbers.end());
     float minDiff = std::numeric_limits<float>::max();
-    std::pair<float, float> closestPair;
-
+    pair<float, float> closestPair;
+    
     for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < minDiff) {
@@ -23,6 +27,6 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
             closestPair = {numbers[i], numbers[i + 1]};
         }
     }
-
-    return std::vector<float>(closestPair.begin(), closestPair.end());
+    
+    return vector<float>(closestPair.begin(), closestPair.end());
 }
