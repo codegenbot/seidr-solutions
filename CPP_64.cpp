@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -16,4 +15,3 @@ int vowels_count(const std::string& s) {
 int main() {
     std::cout << vowels_count(std::string("ACEDY")) << std::endl;
     return 0;
-}
