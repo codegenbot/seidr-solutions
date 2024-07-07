@@ -28,7 +28,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
         else {
             double da = any_cast<double>(a);
-            if (da == 0.0) return boost::any(any_cast<std::string>(b));
+            boost::any b1 = boost::any(db);
+            if (da == 0.0) return b1;
             if (db == 0.0) return a;
             if (da > 0 && db < 0) return a;
             if (da < 0 && db > 0) return b;
