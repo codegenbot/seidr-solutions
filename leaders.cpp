@@ -1,5 +1,6 @@
 #include <vector>
-#include <initializer_list>
+#include <iostream>
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -12,18 +13,6 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     return result;
-}
-
-vector<int> leaders(vector<int>& arr) {
-    vector<int> leaders;
-    int leader = arr.back();
-    for (int i = arr.size() - 2; i >= 0; i--) {
-        if (arr[i] >= leader) {
-            leader = arr[i];
-            leaders.push_back(leader);
-        }
-    }
-    return leaders;
 }
 
 int main() {
