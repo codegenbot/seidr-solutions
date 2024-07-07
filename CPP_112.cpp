@@ -1,3 +1,5 @@
+Here is the completed code:
+
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
@@ -6,13 +8,24 @@ vector<string> reverse_delete(string s, string c) {
             temp += s[i];
         }
     }
-    result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
-    if (temp == rev) {
+    if (isPalindrome(temp)) {
+        result.push_back(temp);
         result.push_back("True");
     } else {
+        result.push_back(temp);
         result.push_back("False");
     }
     return result;
+}
+
+bool isPalindrome(string str) {
+    int start = 0;
+    int end = str.length() - 1;
+    while (start < end) {
+        if (str[start] != str[end])
+            return false;
+        start++;
+        end--;
+    }
+    return true;
 }
