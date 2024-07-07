@@ -1,17 +1,14 @@
 using namespace std;
 
-bool operator>(const pair_int &a, const pair_int &b) {
-    return a.val > b.val;
-}
-
-vector<int> minPath(vector<vector<int>> grid, int k);
-bool issame(vector<int>, vector<int>);
-
 struct pair_int {
     int val;
     int i;
     int j;
 };
+
+bool operator>(const pair_int &a, const pair_int &b) {
+    return a.val > b.val;
+}
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
@@ -76,7 +73,7 @@ int main()
     }
     cout << endl;
     
-    assert(issame({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, minPath({{1, 3}, {3, 2}}, 10)));
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     
     return 0;
 }
