@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -6,15 +7,55 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::vector<int> arrCopy(arr);
+    std::vector<int> arrCopy = arr;
     std::sort(arrCopy.begin(), arrCopy.end());
     if (k > arrCopy.size()) {
-        return {}; 
+        k = arrCopy.size();
     }
     return std::vector<int>(arrCopy.begin() + arrCopy.size() - k, arrCopy.end());
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
+    int n, k;
+    std::cout << "Enter the size of array: ";
+    if (!(std::cin >> n)) {
+        std::cout << "Invalid input. Please enter a valid integer.\n";
+        return 1;
+    }
+    std::cout << "Enter the value of k: ";
+    if (!(std::cin >> k)) {
+        std::cout << "Invalid input. Please enter a valid integer.\n";
+        return 1;
+    }
+
+    if (k < 1) {
+        std::cout << "Value of k should be greater than or equal to 1.\n";
+        return 1;
+    }
+
+    if (k > n) {
+        std::cout << "Array is empty or k is greater than array size.\n";
+        return 1;
+    }
+
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        if (!(std::cin >> arr[i])) {
+            std::cout << "Invalid input. Please enter a valid integer.\n";
+            return 1;
+        }
+    }
+
+    if (!issame(maximum(arr, k), {})) {
+        std::cout << "Maximum top-k elements: ";
+        for (int i = 0; i < k; i++) {
+            std::cout << maximum(arr, k)[i] << " ";
+        }
+        std::cout << "\n";
+    } else {
+        std::cout << "Array is empty or k is greater than array size.\n";
+    }
+
     return 0;
 }
