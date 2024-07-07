@@ -15,8 +15,8 @@ int findPattern(const std::string& input) {
 
 int main() {
     assert(findPattern("I am bored I am bored I am bored") == 3);
-    const std::string& input = "You and I are going for a walk";
-    int result = findPattern(input); 
+    const char* input = "You and I are going for a walk";
+    int result = findPattern(std::string(input)); 
     std::cout << "Result: " << result << std::endl;
     return 0;
 }
