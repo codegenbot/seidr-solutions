@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
 
-bool isSameVectors(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -26,7 +27,7 @@ std::vector<int> countUpTo(int n) {
     return primes;
 }
 
-void calculatePrimes() {
+int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
@@ -34,8 +35,4 @@ void calculatePrimes() {
     for (int prime : primes) {
         std::cout << "Prime number: " << prime << std::endl;
     }
-}
-
-int main() {
-    calculatePrimes();
 }
