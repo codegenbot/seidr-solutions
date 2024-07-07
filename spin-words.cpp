@@ -2,13 +2,14 @@
 #include <string>
 #include <bits/stdc++.h>
 #include <algorithm>
+#include <boost/algorithm/string.hpp>
 
 int main() {
     std::string input;
     getline(std::cin, input);
 
     // Split the input string into words.
-    std::vector<std::string> words = split(input, ' ');
+    std::vector<std::string> words = boost::split(input, ' ');
 
     // Reverse each word that is 5 or more letters long.
     for (int i = 0; i < words.size(); i++) {
@@ -20,7 +21,7 @@ int main() {
     }
 
     // Join the words back together into a single string.
-    std::string output = join(words, ' ');
+    std::string output = boost::join(words, ' ');
 
     std::cout << output << '\n';
 
