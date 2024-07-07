@@ -1,10 +1,11 @@
+
 #include <iostream>
 #include <string>
 using namespace std;
 
 int main() {
-    string tweet;
-    cin >> tweet;
+   string tweet;
+    getline(cin, tweet);
 
     if (tweet.length() > 140) {
         cout << "Too many characters" << endl;
