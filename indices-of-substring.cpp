@@ -4,11 +4,14 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int pos = 0;
-    while ((pos = text.find(target, pos)) != string::npos) {
-        result.push_back(pos);
-        pos += 1; // increment the start position to find overlapping matches
+    int n = text.length();
+    int m = target.length();
+
+    for (int i = 0; i <= n - m; i++) {
+        if (text.find(target, i) != string::npos)
+            result.push_back(i);
     }
+
     return result;
 }
 
