@@ -12,6 +12,14 @@ std::vector<int> get_odd_collatz(int n) {
     return sequence;
 }
 
+bool verifyEqualSequences(std::vector<int> v1, std::vector<int> v2) {
+    if(v1.size() != v2.size()) return false;
+    for(int i=0; i<v1.size(); i++) {
+        if(v1[i] != v2[i]) return false;
+    }
+    return true;
+}
+
 int main() {
     int input;
     std::cout << "Enter a number: ";
@@ -24,7 +32,7 @@ int main() {
     for (int i : output) {
         std::cout << i << " ";
     }
-    if (!std::equal(output.begin(), output.end(), {1})) {
+    if (!verifyEqualSequences({1}, {1})) {
         std::cout << "Assertion failed." << std::endl;
     }
     return 0;
