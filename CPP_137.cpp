@@ -28,12 +28,17 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
         else {
             double da = any_cast<double>(a);
-            boost::any b1 = boost::any(db);
-            if (da == 0.0) return b1;
-            if (db == 0.0) return a;
-            if (da > 0 && db < 0) return a;
-            if (da < 0 && db > 0) return b;
-            return boost::any("None");
+            boost::any ab = b;
+            if (da == 0.0) return ab;
+            if (is_any_of<ab>(double())) {
+                double db = any_cast<double>(b);
+                if (da > 0 && db < 0) return a;
+                if (da < 0 && db > 0) return b;
+                return boost::any("None");
+            }
+            else {
+                return boost::any("Invalid input");
+            }
         }
     }
     else {
