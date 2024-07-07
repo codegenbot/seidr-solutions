@@ -1,4 +1,3 @@
-```cpp
 #include <sstream>
 using namespace std;
 
@@ -11,4 +10,8 @@ string closest_integer(double num) {
     }
 }
 
-assert(closest_integer(0.0) == "0");
+int main() {
+    assert(closest_integer(0.0) == "0");
+    closest_integer(5.7); 
+    return 0;
+}
