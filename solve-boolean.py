@@ -1,11 +1,12 @@
-    def solve_boolean(expression):
-        if isinstance(expression, str):
-            result = re.match(r"^(t|f)(\||\&)(t|f)$", expression)
-            if result:
-                left, right = result.groups()
-                return any(solve_boolean(left), solve_boolean(right))
-        elif isinstance(expression, list):
-            for exp in expression:
-                if solve_boolean(exp):
-                    return True
-        return False
+import re
+
+
+def solve_boolean(expression):
+    if isinstance(expression, str):
+        result = re.match(r"(^[tf]\|[tf]$)|(^[tf]&[tf]$)", expression)
+        if bool(result):
+            left, right = result.groups()
+            return left or right
+    elif isinstance(expression, list):
+        for exp in expression:
+            solve_boolean(exp)
