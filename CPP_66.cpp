@@ -1,13 +1,13 @@
-```cpp
 #include <string>
-#include <cctype>
 
-int digitSum(std::string s) {
+int digitSum(string s) {
     int sum = 0;
+    string result = "";
     for (char c : s) {
-        if (std::isupper(c)) {
-            sum += std::tolower(c) - 'a' + 1;
+        if (isupper(c)) {
+            sum += tolower(c) - 'a' + 1;
+            result += (sum % 26) + 'a' - 1; 
         }
     }
-    return sum;
+    return 0;
 }
