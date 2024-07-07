@@ -8,7 +8,7 @@ double probability(int n, int m) {
     for (int i = 1; i <= min(n, m); i++) {
         totalOutcomes *= (n - i + 1) * m; 
         if(i > 1) { 
-            sum += 1.0 * ((long long)(n-1)!/(i-1)!(n-i)) * ((m-1)!/((m-i)!*(m-(i+1)))) / totalOutcomes;
+            sum += 1.0 * ((long long)(n-1)!/(i-1)!*(n-i)) * ((m-1)!/((m-i)!*(m-(i+1)))) / totalOutcomes;
         }
     }
     return sum;
