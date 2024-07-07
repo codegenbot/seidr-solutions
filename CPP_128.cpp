@@ -1,14 +1,21 @@
+#include <vector>
+
+using namespace std;
+
 int prod_signs(vector<int> arr) {
     int product = 1;
-    long long sum = 0;
+    long long sum = 0; // Use long long to avoid overflow
+    
+    if(arr.empty()) return -32768; // Return -32768 for empty array
 
-    for (int num : arr) {
-        if (num == 0) {
-            return 0;
+    for(auto num : arr) {
+        if(num == 0) {
+            product *= 0; // If the number is zero, reset the product
+        } else {
+            product *= (num > 0 ? 1 : -1); // Update the product with the sign of the number
         }
-        product *= (num > 0 ? 1 : -1);
-        sum += abs(num);
+        sum += abs(num); // Calculate the sum of absolute values
     }
 
-    return product * sum < 0 ? -32768 : product * sum;
+    return product * sum;
 }
