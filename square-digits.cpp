@@ -7,3 +7,4 @@ std::string squareDigits(int n) {
         result += std::to_string((c - '0') * (c - '0'));
     }
     return result;
+}
