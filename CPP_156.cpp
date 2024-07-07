@@ -1,29 +1,13 @@
-Here is the completed code:
-
-```cpp
-#include <string>
+vector<string> roman_numerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 
 string int_to_mini_roman(int number) {
-    const string ones[] = {"", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"};
-    const string tens[] = {"", "x", "xx", "xxx", "xl", "l", "lx", "lxx", "lxxx", "xc"};
-    const string hundreds[] = {"", "c", "cc", "ccc", "cd", "d", "dc", "dcc", "dccc", "cm"};
-
-    if (number < 1 || number > 1000) {
-        return "";
+    string result;
+    for (int i = 0; i < sizeof(values) / sizeof(int); ++i) {
+        while (number >= values[i]) {
+            number -= values[i];
+            result += roman_numerals[i];
+        }
     }
-
-    int hundred = number / 100;
-    int remainder = number % 100;
-
-    string roman = hundreds[hundred];
-    if (remainder >= 10 && remainder <= 99) {
-        int ten = remainder / 10;
-        roman += tens[ten];
-        remainder %= 10;
-    }
-    if (remainder > 0) {
-        roman += ones[remainder];
-    }
-
-    return roman;
+    return to_string(result).convert_to_lower();
 }
