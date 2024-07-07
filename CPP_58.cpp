@@ -1,7 +1,14 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <set>
 #include <iostream>
+
+bool issame(std::vector<int> a, std::vector<int>b) {
+    std::set<int> set1(a.begin(), a.end());
+    std::set<int> set2(b.begin(), b.end());
+    return set1 == set2;
+}
 
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::set<int> set1(l1.begin(), l1.end());
@@ -26,4 +33,17 @@ int main() {
         std::cout << "All elements of one list are present in another." << std::endl;
     }
 
+    if(issame(l1, l2)) {
+        std::cout << "The two lists are the same." << std::endl;
+    } else {
+        std::cout << "The two lists are different." << std::endl;
+    }
+
+    std::vector<int> result = common(l1, l2);
+    for(int i : result) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
+}
