@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -8,13 +9,14 @@ struct pair_int {
     int i;
     int j;
 
-    pair_int() : val(0), i(-1), j(-1) {}
+    pair_int(int v = 0, int ii = -1, int jj = -1) : val(v), i(ii), j(jj) {}
 };
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
     std::priority_queue<pair_int, std::vector<pair_int>, greater<pair_int>> pq; 
-    std::vector<int> res(k);
+    std::vector<int> res;
+    int size = 0;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -29,8 +31,10 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
         int pos_j = pq.top().j;
         pq.pop();
 
-        res[k-1] = grid[pos_i][pos_j];
-        k--;
+        if (size < k) {
+            res.push_back(grid[pos_i][pos_j]);
+            size++;
+        }
 
         if (k > 0) {
             // Check all neighbors
