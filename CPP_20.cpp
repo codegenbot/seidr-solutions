@@ -3,24 +3,24 @@
 #include <cmath>
 #include <limits>
 #include <initializer_list>
-using namespace std;
+#include <vector>
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(std::vector< float > a, std::vector< float > b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); ++i) {
-        if (abs(a[i] - b[i]) > 1e-9) {
+        if (std::abs(a[i] - b[i]) > 1e-9) {
             return false;
         }
     }
     return true;
 }
 
-vector<float> find_closest_elements(vector<float> numbers) {
-    sort(numbers.begin(), numbers.end());
-    float minDiff = numeric_limits<float>::max();
-    pair<float, float> closestPair;
+std::vector< float > find_closest_elements(std::vector< float > numbers) {
+    std::sort(numbers.begin(), numbers.end());
+    float minDiff = std::numeric_limits< float >::max();
+    std::pair< float, float > closestPair;
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
@@ -30,5 +30,5 @@ vector<float> find_closest_elements(vector<float> numbers) {
         }
     }
 
-    return vector<float>{closestPair.first, closestPair.second};
+    return std::vector< float >{closestPair.first, closestPair.second};
 }
