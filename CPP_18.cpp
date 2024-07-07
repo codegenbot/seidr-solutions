@@ -1,14 +1,11 @@
-Here is the completed code:
-
-```cpp
 int how_many_times(string str, string substring) {
     int count = 0;
-    int n = str.length();
-    int m = substring.length();
+    size_t pos = 0;
 
-    for (int i = 0; i <= n - m; i++) {
-        if (str.substr(i, m) == substring)
-            count++;
+    while ((pos = str.find(substring, pos)) != string::npos) {
+        count++;
+        pos += 1; // Start searching from next character
     }
+
     return count;
 }
