@@ -1,29 +1,22 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 bool issame(vector<int> a,vector<int>b){
-    return a==b;
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size(); i++)
+        if(a[i] != b[i])
+            return false;
+    return true;
 }
 
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
-    for (int i = 0; i < k; i++) {
-        auto it = max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
-    }
+    vector<int> result(arr.begin(), arr.begin() + k);
+    sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 5) , {243}));
-    cout << "Maximum elements: ";
-    for (int i : maximum({1, 2, 3, -23, 243, -400, 0}, 5)) {
-        cout << i << " ";
-    }
-    cout << endl;
-    return 0;
+   //your code here
 }
