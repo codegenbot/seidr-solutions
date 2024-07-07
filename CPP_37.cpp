@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -20,20 +19,12 @@ std::vector<float> sort_even(std::vector<float> input) {
             }
             result.push_back(minVal);
         } else {
-            int j = i - 1;
-            while (j >= 0 && !issame(input[j], result.back())) {
-                --j;
-            }
-            if (j >= 0) {
-                result.push_back(input[j + 1]);
-            } else {
-                float minVal = input[0];
-                for (float val : input) {
-                    if (!issame(val, minVal)) {
-                        minVal = val;
-                    }
-                }
-                result.push_back(minVal);
+            auto it = std::stable_partition(input.begin(), input.end(),
+                                             [back = &result.back()](const float& val) {
+                                                 return !issame(val, *back);
+                                             });
+            if (it != input.end()) {
+                result.push_back(*it);
             }
         }
     }
@@ -49,8 +40,7 @@ int main() {
         input.push_back(num);
     }
     std::cin.ignore();
-    std::vector<float> result = sort_even(input);
-    for (float val : result) {
+    for (float val : sort_even(input)) {
         std::cout << val << " ";
     }
 }
