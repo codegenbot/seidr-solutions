@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
+bool same(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
     if (b.size() == 0) return true;
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
@@ -34,8 +34,10 @@ int main() {
         }
     }
 
-    n = std::cin.ignore().ignore("\n").stof();
-    for (int i = 0; i < n; ++i) {
+    std::cin.ignore();
+    int n2;
+    std::cin >> n2;
+    for (int i = 0; i < n2; ++i) {
         int m;
         std::cin >> m;
         vec2.push_back({});
@@ -46,7 +48,7 @@ int main() {
         }
     }
 
-    if (!issame(vec1, vec2)) {
+    if (!same(vec1, vec2)) {
         return 1;
     }
 
@@ -57,5 +59,7 @@ int main() {
         return 1;
     }
 
+    std::vector<std::string> v = {"this"};
+    assert(same(std::vector{{"this"}}, {}, {});
     return 0;
 }
