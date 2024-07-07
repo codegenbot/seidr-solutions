@@ -1,6 +1,9 @@
 #include <string>
-std::string getMiddle(const std::string& str) {
-  if (str.empty()) return "";
-  auto mid = str.length() / 2;
-  return str.mid(mid, str.length() - mid);
+std::string getMiddle(std::string str) {
+    int len = str.length();
+    if (len % 2 == 0) { // If length is even, return middle two characters
+        return str.substr((len / 2) - 1, 2);
+    } else { // If length is odd, return middle character
+        return str.substr(len / 2, 1);
+    }
 }
