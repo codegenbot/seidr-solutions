@@ -19,16 +19,16 @@ def bowling_score(frames):
             roll += 1
         elif len(frame) > 2:
             first_roll = int(frame[:1])
-            second_roll = int(frame[1:2])
+            middle_roll = int(frame[1:2])
             third_roll = int(frame[2:])
-            if first_roll + second_roll == 10:
-                score += first_roll + second_roll + third_roll
-                roll += 1
+            if first_roll + middle_roll == 10:
+                if third_roll != 0:
+                    score += first_roll + middle_roll + third_roll
+                else:
+                    score += first_roll + middle_roll
+            elif first_roll + middle_roll + third_roll == 10:
+                score += first_roll + middle_roll + third_roll
             else:
-                score += first_roll + second_roll
-                bonus = int(frame[2:])
-                while roll < 10 and bonus > 0:
-                    score += bonus
-                    bonus -= 1
-                    roll += 1
+                score += 10
+            roll += 1
     return score
