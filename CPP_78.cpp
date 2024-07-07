@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -17,5 +18,6 @@ int main() {
     std::cout << "Enter a string: ";
     getline(std::cin, str);
     int result = hex_key(str);
+    std::cout << "Number of hexadecimal digits: " << result << std::endl;
     return 0;
 }
