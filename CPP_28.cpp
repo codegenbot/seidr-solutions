@@ -8,11 +8,11 @@ std::vector<std::string> concatenate(const std::vector<std::string>& strings) {
     }
 
     std::string prefix = strings[0];
-    for (const auto& str : strings.substr(1)) {
-        if (str == prefix) {
-            std::cout << str << " ";
+    for (auto it = strings.begin() + 1; it != strings.end(); ++it) {
+        if (*it == prefix) {
+            std::cout << *it << " ";
         } else {
-            std::cout << prefix + str << " ";
+            std::cout << prefix + *it << " ";
         }
     }
 }

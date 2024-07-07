@@ -24,7 +24,7 @@ int main() {
         if (num == -1) break;
         if (num > 0) v1.push_back(num);
         else v2.push_back(-num); 
-    }
+   }
     
     float maxV1 = get_positive(v1);
     float maxV2 = get_positive(v2);
