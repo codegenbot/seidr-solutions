@@ -1,8 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 int max_fill(vector<vector<int>> grid, int capacity) {
