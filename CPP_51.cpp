@@ -1,13 +1,10 @@
-```
-string str = "";
-for (char c : text) {
-    if (!isalpha(c)) {
-        str += c;
-    } else {
-        char ch = tolower(c);
-        if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u') {
-            str += c;
+string remove_vowels(string text){
+    string result = "";
+    for(int i=0; i<text.length(); i++){
+        char c = tolower(text[i]);
+        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
+            result += text[i];
         }
     }
+    return result;
 }
-return str;
