@@ -1,5 +1,5 @@
 #include <string>
-#include <openssl/md5.h>
+#include <openssl/evp.h>
 
 using namespace std;
 
@@ -8,7 +8,7 @@ string string_to_md5(string text) {
 
     unsigned char md5[16];
     EVP_MD_CTX mdctx;
-    const EVP_MD *md = EVP_md5();
+    const EVP_MD *md = EVP_sha1();
     unsigned char* input = (unsigned char*)text.c_str();
     size_t len = text.size();
 
