@@ -1,12 +1,5 @@
-Here is the completed code:
-
-```cpp
 bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    string lastChar = txt.substr(txt.length() - 1);
-    if (!isalpha(lastChar[0])) return false;
-    for (int i = 0; i < txt.length() - 1; i++) {
-        if (isspace(txt[i]) && txt[i + 1] == lastChar[0]) return false;
-    }
-    return true;
+    if (txt.empty()) return false; // If string is empty, return false
+    char lastChar = txt.back(); // Get the last character of the string
+    return isalpha(lastChar) && !isalnum(lastChar); // Check if it's an alphabetical character and not part of a word
 }
