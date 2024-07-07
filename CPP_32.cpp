@@ -10,18 +10,21 @@ int main() {
     std::cout << "Enter the number of coefficients: ";
     std::cin >> ncoeff;
     
-    std::vector<double> coeffs;
-    for (int i = 0; i < std::max(1, ncoeff); i++) {
-        coeffs.push_back(0.0);
+    std::vector<double>(ncoeff, 0); // Corrected line
+
+    for(int i = 0; i < ncoeff; i++) {
+        double coeff;
+        std::cout << "Enter coefficient " << i+1 << ": ";
+        std::cin >> coeff;
+        ((std::vector<double>&)coeffs)[i] = coeff;
    }
     
     double x, y;
     std::cout << "Enter the value of x: ";
     std::cin >> x;
 
-    double result = 0.0;
     for(int i = 0; i < ncoeff; i++) {
-        result = 0.0;
+        double result = 0.0;
         for(int j = 0; j <= i; j++) {
             result += coeffs[j] * pow(x, j);
         }
