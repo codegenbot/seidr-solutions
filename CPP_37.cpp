@@ -3,16 +3,10 @@
 #include <cmath>
 #include <algorithm>
 
-bool compareVectors(const std::vector<float>& a, const std::vector<float>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (!compareFloats(a[i], b[i])) return false;
-    }
-    return true;
-}
-
-bool compareFloats(float a, float b) {
-    return std::abs(a - b) > 1e-5;
+bool isSame(float a, float b) {
+    if (std::isnan(a) && std::isnan(b)) return true;
+    if (std::isinf(a) && std::isinf(b)) return a == b;
+    return std::abs(a - b) < 1e-9;
 }
 
 std::vector<float> sortEven(std::vector<float> input) {
@@ -21,7 +15,7 @@ std::vector<float> sortEven(std::vector<float> input) {
         if (i % 2 == 0) {
             float minVal = input[0];
             for (float val : input) {
-                if (!compareFloats(val, minVal)) {
+                if (isSame(val, minVal)) {
                     minVal = val;
                 }
             }
@@ -29,7 +23,7 @@ std::vector<float> sortEven(std::vector<float> input) {
         } else {
             auto it = std::stable_partition(input.begin(), input.end(),
                                              [back = &result.back()](const float& val) {
-                                                 return !compareFloats(val, *back);
+                                                 return !isSame(val, *back);
                                              });
             if (it != input.end()) {
                 result.push_back(*it);
