@@ -1,6 +1,11 @@
+Here is the completed code:
+
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> res(k);
-    copy_n(std::make_heap(arr.begin(), arr.end()),
-           res.begin(), res.end());
-    return res;
+    vector<int> result;
+    for(int i = 0; i < k; i++){
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
+    }
+    return result;
 }
