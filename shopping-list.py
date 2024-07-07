@@ -1,5 +1,6 @@
 def shopping_list(prices, discounts):
     total_price = 0.0
+    # Validate input
     for i in range(min(len(prices), len(discounts))):
         try:
             price = float(prices[i])
@@ -8,9 +9,18 @@ def shopping_list(prices, discounts):
         except ValueError:
             print("Invalid price or discount! Please enter a valid number.")
             return None
-    for i in range(len(prices) - len(discounts)):
-        price = float(prices[i + len(discounts)])
-        discount = 0.0
-        total_price += price * (1 - discount)
-    total_price = total_price.round(2)
+    # Add the prices of items with no discount to the total price
+    for i in range(len(discounts), len(prices)):
+        try:
+            price = float(prices[i])
+            discount = 0.0
+            total_price += price * (1 - discount)
+        except ValueError:
+            print("Invalid price! Please enter a valid number.")
+            return None
+    # Round result to two decimal places
+    total_price = round(total_price, 2)
+    # Handle cases where the rounded value is equal to zero
+    if total_price == 0.0:
+        total_price = 0.01
     return total_price
