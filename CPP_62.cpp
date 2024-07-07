@@ -20,6 +20,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     std::vector<float> input = {1};
-    assert(issame(derivative(input), {}));
+    std::vector<float> expected_output = {};
+    assert(issame(derivative(input), expected_output));
     return 0;
 }
