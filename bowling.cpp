@@ -8,22 +8,22 @@ int bowlingScore(string s) {
     int currentRoll = 0;
     int rollCount = 0;
 
-    for(int i = 0; i < s.length(); i++) {
+    for(int i=0; i<s.size(); i++) {
         if(s[i] == '/') {
-            if(currentRoll >= 10) {
+            if (currentRoll >= 10) {
                 score += currentRoll + 10;
             } else {
                 score += currentRoll + max(1, currentRoll);
             }
             currentRoll = 0;
             rollCount++;
-        } else if (s[i] - '0' <= 9 && s[i] - '0' >= 0) {
+        } else if (isdigit(s[i])) {
             currentRoll *= 10;
             currentRoll += s[i] - '0';
         }
     }
 
-    if(currentRoll >= 10) {
+    if (currentRoll >= 10) {
         score += currentRoll + 10;
     } else {
         score += currentRoll + max(1, currentRoll);
