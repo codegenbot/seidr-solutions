@@ -1,44 +1,41 @@
-Here is the completed code:
+#include <string>
+#include <map>
+using namespace std;
 
 map<char, int> histogram(string test) {
     map<char, int> result;
-    int max_count = 0;
+    if (test.empty()) return result;
 
-    for (string word : split(test)) {
-        char c = word[0];
-        int count = 1;
-        for (char ch : word) {
-            if (ch == c) {
-                count++;
-            } else {
-                break;
-            }
-        }
-        if (count > max_count) {
-            max_count = count;
-        }
-        result[c] = count;
-    }
-
-    return result;
-}
-
-vector<string> split(string test) {
-    vector<string> words;
     string word;
-
     for (char c : test) {
         if (c == ' ') {
-            words.push_back(word);
             word.clear();
-        } else {
-            word += c;
+            continue;
+        }
+        word += c;
+    }
+
+    for (char c : word) {
+        if (result.find(c) != result.end())
+            result[c]++;
+        else
+            result[c] = 1;
+    }
+
+    int maxCount = 0;
+    map<char, int>::iterator it = result.begin();
+    while (it != result.end()) {
+        if (it->second > maxCount)
+            maxCount = it->second;
+        ++it;
+    }
+
+    map<char, int> maxMap;
+    for (it = result.begin(); it != result.end(); ++it) {
+        if (it->second == maxCount) {
+            maxMap[it->first] = it->second;
         }
     }
 
-    if (!word.empty()) {
-        words.push_back(word);
-    }
-
-    return words;
+    return maxMap;
 }
