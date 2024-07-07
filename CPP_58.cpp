@@ -1,5 +1,8 @@
 ```cpp
 #include <vector>
+#include <set>
+#include <algorithm>
+#include <initializer_list>
 using namespace std;
 
 bool same(vector<int> a, vector<int> b) {
@@ -14,7 +17,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> set1(l1.begin(), l1.end());
     set<int> set2(l2.begin(), l2.end());
     vector<int> intersection;
-    for (size_t i = 0; i < set1.size(); i++) {
+    for (int i = 0; i < set1.size(); i++) {
         int element = *set1.begin() + i;
         if(set2.find(element) != set2.end()){
             intersection.push_back(element);
@@ -54,7 +57,7 @@ int main() {
 
     vector<int> intersection = common(l1, l2);
     if(intersection.size() != 0) {
-        for(size_t i = 0; i < intersection.size(); i++) {
+        for(int i = 0; i < intersection.size(); i++) {
             cout << intersection[i] << " ";
         }
         cout << endl;
