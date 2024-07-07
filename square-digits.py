@@ -1,2 +1,1 @@
-def square_digits(n):
-    return "".join(str(int(i) ** 2) for i in str(n))
+map(function, iterable) applies a given function to each item of an iterable (such as a list or tuple).
