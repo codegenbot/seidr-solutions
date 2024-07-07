@@ -6,7 +6,10 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
     int start = std::max(interval1.first, interval2.first);
     int end = std::min(interval1.second, interval2.second);
 
-    return start <= end ? "YES" : "NO";
+    if (start <= end)
+        return "YES";
+    else
+        return "NO";
 }
 
 int main() {
@@ -15,18 +18,18 @@ int main() {
     std::cout << "Enter the first interval: ";
     std::string temp;
     std::cin >> temp; 
-    interval1.first = std::stoi(temp); 
+    interval1.first = std::stoi(std::to_string(std::stoi(temp))); 
     std::cout << "Enter the end of the first interval: ";
     std::cin >> temp; 
-    interval1.second = std::stoi(temp);
+    interval1.second = std::stoi(std::to_string(std::stoi(temp)));
 
     std::pair<int, int> interval2;
     std::cout << "Enter the second interval: ";
     std::cin >> temp; 
-    interval2.first = std::stoi(temp); 
+    interval2.first = std::stoi(std::to_string(std::stoi(temp))); 
     std::cout << "Enter the end of the second interval: ";
     std::cin >> temp; 
-    interval2.second = std::stoi(temp);
+    interval2.second = std::stoi(std::to_string(std::stoi(temp)));
 
     if (intersection(interval1, interval2) == "YES")
         std::cout << "The intervals intersect.\n";

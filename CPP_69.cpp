@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include <vector>
+#include <string>
 
 int search(int n) {
     if(n < 0)
@@ -14,13 +14,10 @@ int main() {
     std::cout << "Enter a positive number: ";
     std::cin >> num; 
     if (num >= 0) {
-        std::cout << "Result of searching " << num << ": " << search(num) << std::endl;
+        std::string str = std::to_string(search(num)); // Convert integer to string
+        std::cout << "Result of searching " << num << ": " << str << std::endl;
     } else {
         std::cout << "The search function returns -1 for negative numbers." << std::endl;
     }
-    
-    // If you want to test the function with multiple values
-    //std::vector<int> nums = {3, 10, 10, 9, 2};
-    //assert(search(0) == -1);
     return 0;
 }
