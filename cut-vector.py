@@ -1,23 +1,27 @@
 ```
-import math
-
 def cut_vector(vector):
-    min_diff = float("inf")
-    cut_index = -1
+    sorted_vector = sorted(vector)
+    total_sum = sum(sorted_vector)
 
-    for i in range(1, len(vector)):
-        left_sum = sum(vector[:i])
-        right_sum = sum(vector[i:])
+    if total_sum % 2 == 0:
+        half_sum = total_sum // 2
+        left_sum = right_sum = 0
 
-        if math.isclose(left_sum, right_sum):
-            return vector[:i], vector[i:]
+        for num in sorted_vector:
+            if left_sum <= half_sum:
+                left_sum += num
+            else:
+                right_sum += num
 
-        diff = abs(left_sum - right_sum)
-        if diff < min_diff:
-            min_diff = diff
-            cut_index = i
-
-    if cut_index != -1:
-        return vector[:cut_index], vector[cut_index:]
+        return sorted_vector[:len(sorted_vector)//2], sorted_vector[len(sorted_vector)//2:]
     else:
-        return [], []
+        half_sum = (total_sum + 1) // 2
+        left_sum = right_sum = 0
+
+        for num in reversed(sorted_vector):
+            if left_sum < half_sum:
+                left_sum += num
+            else:
+                right_sum += num
+
+        return [], sorted_vector[len(sorted_vector)//2:]

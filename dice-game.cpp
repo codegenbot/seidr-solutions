@@ -1,5 +1,6 @@
 Here is the solution:
 
 double probability(int n, int m) {
-    return (double)(n - 1) / (n * m);
+    double total = pow(n + m - 1, 2);
+    return (n * m) / (total);
 }
