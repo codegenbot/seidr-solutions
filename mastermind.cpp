@@ -1,4 +1,7 @@
+```c++
 #include <unordered_map>
+
+using namespace std;
 
 int mastermind(string code, string guess) { 
     int whitePegs = 0;
@@ -10,22 +13,13 @@ int mastermind(string code, string guess) {
         }
     }
     
-    unordered_map<char, int> codeCount;
     for (char c : code) {
-        codeCount[c]++;
-    }
-    
-    for (char c : code) {
-        int count = codeCount[c];
+        int count = std::count(guess.begin(), guess.end(), c);
         if (count > 1) {
             whitePegs += count - 1;
         } else if (count == 1) {
             blackPegs++;
         }
-    }
-    
-    for (int i = 0; i < 4; ++i) {
-        codeCount[guess[i]]--;
     }
     
     return blackPegs;
