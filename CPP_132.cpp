@@ -11,11 +11,11 @@ bool is_nested(std::string str) {
             if (count > 0) {
                 count--;
             } else {
-                return false;
+                return false; // Not balanced
             }
         }
     }
-    return count > 0;
+    return count > 0; // Still has an open bracket, so it's not nested
 }
 
 int main() {
