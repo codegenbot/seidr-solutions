@@ -2,9 +2,7 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-bool is_nested(string str) {
+bool is_nested(std::string str) {
     int count = 0;
     bool isOpeningBracket = false;
     for (char c : str) {
@@ -26,12 +24,12 @@ bool is_nested(string str) {
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
     if (is_nested(str)) {
-        cout << "The string is nested." << endl;
+        std::cout << "The string is nested." << std::endl;
     } else {
-        cout << "The string is not nested." << endl;
+        std::cout << "The string is not nested." << std::endl;
     }
 }
