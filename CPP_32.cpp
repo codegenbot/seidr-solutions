@@ -9,14 +9,14 @@ int main() {
     int ncoeff;
     std::cout << "Enter the number of coefficients: ";
     std::cin >> ncoeff;
-    
-    std::vector<double>(ncoeff); // Corrected line
+
+    std::vector<double> coeffs(ncoeff, 0.0); 
 
     for(int i = 0; i < ncoeff; i++) {
         double coeff;
         std::cout << "Enter coefficient " << i+1 << ": ";
         std::cin >> coeff;
-        ((std::vector<double>&)coeffs)[i] = coeff;
+        coeffs[i] = coeff;
    }
     
     double x, y;

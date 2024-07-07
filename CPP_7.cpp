@@ -15,7 +15,7 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, 
     return result;
 }
 
-int main() {
+int originalMain() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
     auto result = filterBySubstring(str, "run");
     
@@ -24,4 +24,8 @@ int main() {
             return 1; // returning with error
         }
     }
+}
+
+int main() {
+    originalMain();
 }
