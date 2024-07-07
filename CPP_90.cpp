@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -16,6 +17,7 @@ int main() {
     std::cin >> n;
     
     std::vector<int> lst;
+    
     for(int i = 0; i < n; ++i) {
         int x;
         std::cout << "Enter element " << (i+1) << ": ";
