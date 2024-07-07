@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -21,7 +22,7 @@ int main() {
 
         if (outputString == "stop") break;
 
-        strings.push_back(outputString);
+        strings.push_back(outputString + " "); // add a space after each input string
     }
 
     std::cout << concatenate(strings) << std::endl; 

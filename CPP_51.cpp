@@ -1,15 +1,20 @@
+```cpp
 #include <string>
 #include <cassert>
 
 std::string remove_vowels(std::string text){
     std::string result = "";
-    for(char c : text){
-        if(tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && 
-           tolower(c) != 'o' && tolower(c) != 'u'){
-            result += c;
+    for(char c : text){  
+        if(std::tolower(c) != 'a' && std::tolower(c) != 'e' && 
+           std::tolower(c) != 'i' && std::tolower(c) != 'o' && 
+           std::tolower(c) != 'u'){  
+            result += c;  
         }
     }
-    return std::move(result);
+    return result;
 }
 
-assert(remove_vowels("ybcd") == "ybcd");
+int main() {  
+   assert(remove_vowels("ybcd") == "ybcd");
+   return 0;
+}

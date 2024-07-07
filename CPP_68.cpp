@@ -1,5 +1,15 @@
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
+#include <vector>
+#include <algorithm>
+
+bool issame(int x, int y) {
+    if (x % 2 == 0 && y % 2 == 0)
+        return true;
+    else
+        return false;
+}
+
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
     if (arr.empty()) return result;
 
     int minEven = INT_MAX;
