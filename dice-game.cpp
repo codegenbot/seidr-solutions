@@ -1,7 +1,6 @@
 #include <iostream>
-using namespace std;
-
 #include <iomanip>
+using namespace std;
 
 double probability(int n, int m) {
     double sum = 0;
@@ -16,4 +15,3 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(5) << probability(n, m) << endl;
     return 0;
-}
