@@ -4,10 +4,10 @@
 
 std::string spinWords(std::string str) {
     std::string result = "";
-    std::stringstream ss;
-    ss << str;
+    std::stringstream ss("");
     std::string word;
 
+    ss << str;
     while (ss >> word) {
         if (word.length() >= 5)
             word = std::string(word.rbegin(), word.rend());
