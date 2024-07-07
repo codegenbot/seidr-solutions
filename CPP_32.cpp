@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -8,11 +9,12 @@ int main() {
     int ncoeff;
     std::cout << "Enter the number of coefficients: ";
     std::cin >> ncoeff;
-    
-    std::vector<double> coeffs;
-    coeffs.resize(ncoeff); 
 
-    for(int i = 0; i < ncoeff; i++) {
+    size_t sz = ncoeff; 
+
+    std::vector<double> coeffs(sz); 
+
+    for(int i = 0; i < sz; i++) {
         double coeff;
         std::cout << "Enter coefficient " << i+1 << ": ";
         std::cin >> coeff;
@@ -23,7 +25,7 @@ int main() {
     std::cout << "Enter the value of x: ";
     std::cin >> x;
 
-    for(int i = 0; i < ncoeff; i++) {
+    for(int i = 0; i < sz; i++) {
         double result = 0.0;
         for(int j = 0; j <= i; j++) {
             result += coeffs[j] * pow(x, j);
