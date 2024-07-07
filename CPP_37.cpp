@@ -3,17 +3,19 @@
 #include <cmath>
 #include <algorithm>
 
-bool issame(float a, float b) {
-    return std::abs(a - b) < 0.0001;
+bool isSame(float a, float b) {
+    if (std::isnan(a) && std::isnan(b)) return true;
+    if (std::isinf(a) && std::isinf(b)) return a == b;
+    return std::abs(a - b) < 1e-9;
 }
 
-std::vector<float> sort_even(std::vector<float> input) {
+std::vector<float> sortEven(std::vector<float> input) {
     std::vector<float> result;
     for (int i = 0; i < input.size(); i++) {
         if (i % 2 == 0) {
             float minVal = input[0];
             for (float val : input) {
-                if (!issame(val, minVal)) {
+                if (isSame(val, minVal)) {
                     minVal = val;
                 }
             }
@@ -21,31 +23,7 @@ std::vector<float> sort_even(std::vector<float> input) {
         } else {
             auto it = std::stable_partition(input.begin(), input.end(),
                                              [back = &result.back()](const float& val) {
-                                                 return !issame(val, *back);
-                                             });
-            if (it != input.end()) {
-                result.push_back(*it);
-            }
-        }
-    }
-    return result;
-}
-
-std::vector<float> sort_even(std::vector<float>& input) {
-    std::vector<float> result;
-    for (int i = 0; i < input.size(); i++) {
-        if (i % 2 == 0) {
-            float minVal = input[0];
-            for (float val : input) {
-                if (!issame(val, minVal)) {
-                    minVal = val;
-                }
-            }
-            result.push_back(minVal);
-        } else {
-            auto it = std::stable_partition(input.begin(), input.end(),
-                                             [back = &result.back()](const float& val) {
-                                                 return !issame(val, *back);
+                                                 return !isSame(val, *back);
                                              });
             if (it != input.end()) {
                 result.push_back(*it);
@@ -64,7 +42,7 @@ int main() {
         input.push_back(num);
     }
     std::cin.ignore();
-    for (float val : sort_even(input)) {
+    for (float val : sortEven(input)) {
         std::cout << val << " ";
     }
 }
