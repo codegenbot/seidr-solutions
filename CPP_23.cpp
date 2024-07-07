@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cstring>
 
 int str_length(std::string str){
     return str.length();
