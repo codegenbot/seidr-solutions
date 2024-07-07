@@ -12,23 +12,27 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
 int main() {
     assert(intersection({-2, -2}, {-3, -2}) == "NO");
     std::pair<int, int> interval1;
-    std::cout << "Enter the first interval: ";
-    std::string temp;
-    std::getline(std::cin, temp); 
-    interval1.first = std::stoi(temp);
-
+    std::cout << "Enter the start of the first interval: ";
+    int temp;
+    std::cin >> temp; 
+    std::cin.ignore();
     std::cout << "Enter the end of the first interval: ";
-    std::getline(std::cin, temp); 
-    interval1.second = std::stoi(temp);
+    std::cin >> temp; 
+    std::cin.ignore();
+
+    interval1.first = temp;
+    interval1.second = temp;
 
     std::pair<int, int> interval2;
-    std::cout << "Enter the second interval: ";
-    std::getline(std::cin, temp); 
-    interval2.first = std::stoi(temp); 
-
+    std::cout << "Enter the start of the second interval: ";
+    std::cin >> temp; 
+    std::cin.ignore();
     std::cout << "Enter the end of the second interval: ";
-    std::getline(std::cin, temp); 
-    interval2.second = std::stoi(temp);
+    std::cin >> temp; 
+    std::cin.ignore();
+
+    interval2.first = temp;
+    interval2.second = temp;
 
     if (intersection(interval1, interval2) == "YES")
         std::cout << "The intervals intersect.\n";
