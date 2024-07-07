@@ -1,9 +1,5 @@
-#include <algorithm>
-#include <vector>
-#include <utility>
-
 bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && (std::equal(a.begin(), a.end(), b.begin()));
+    return a == b;
 }
 
 std::vector<std::pair<int, int>> order_by_points(std::vector<int> nums) {
