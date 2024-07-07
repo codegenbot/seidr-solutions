@@ -1,8 +1,11 @@
+Here is the completed code:
+
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> res(k);
-    copy(std::make_move_iterator(arr.begin() + (arr.size()-k)), 
-         std::make_move_iterator(arr.end()), 
-         res.begin());
-    sort(res.begin(), res.end());
-    return res;
+    vector<int> result;
+    for (int i = 0; i < k; i++) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
+    }
+    return result;
 }
