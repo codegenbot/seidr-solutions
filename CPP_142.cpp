@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -15,19 +14,17 @@ int sum_squares(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> inputVector; 
+    std::vector<int> inputVector(n); 
     int n; 
 
     std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
 
-    std::vector<int> inputVector(n); // Initialize the vector with n elements
-
     for(int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
-        int num;
+        int num; // Declared here, not inside the loop
         std::cin >> num;
-        inputVector[i] = num; // Assign values to the initialized vector
+        inputVector.push_back(num);
     }
 
     int result = sum_squares(inputVector);
