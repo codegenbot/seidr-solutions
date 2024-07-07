@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
