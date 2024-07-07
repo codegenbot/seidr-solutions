@@ -1,6 +1,6 @@
 int main(){
     int n,m;
-    cin >> n >> m;
+    cin>>n>>m;
     if(n > m) cout << "-1";
     else {
         int sum = 0;
@@ -16,5 +16,4 @@ int main(){
         reverse(res.begin(), res.end());
         cout << res;
     }
-    return 0;
 }
