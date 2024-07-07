@@ -1,4 +1,6 @@
 #include <algorithm>
+#include <string>
+
 using namespace std;
 
 string anti_shuffle(string s) {
@@ -7,13 +9,13 @@ string anti_shuffle(string s) {
         if (s[i] == ' ') {
             result += " ";
         } else {
-            string word;
+            string word = "";
             while (i < s.length() && s[i] != ' ') {
                 word += s[i];
                 i++;
             }
-            for (int j = 0; j < word.length(); j++) {
-                result += word[j];
+            for (char c : word) {
+                result += min_element(word.begin(), word.end()) -> first;
             }
         }
     }
