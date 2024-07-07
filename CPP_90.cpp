@@ -1,16 +1,11 @@
 Here is the solution:
 
-int next_smallest(vector<int> lst) {
-    vector<int> vec(lst);
-    sort(vec.begin(), vec.end());
-    
-    if (vec.size() < 2)
-        return -1; // or None in Python
-    
-    for (int i = 0; i < vec.size() - 1; i++) {
-        if (vec[i] != vec[i + 1])
-            return vec[i + 1];
+int next_smallest(vector<int> lst){
+    if(lst.size() < 2) return -1; // None
+    vector<int> v = lst;
+    sort(v.begin(), v.end());
+    for(int i=0; i<v.size()-1; i++){
+        if(v[i] != v[i+1]) return v[i+1];
     }
-    
-    return -1; // or None in Python
+    return -1; // None
 }
