@@ -1,19 +1,28 @@
-Here's the completed code:
+Here is the completed code:
 
-```cpp
-bool is_sorted(vector<int> lst) {
-    for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] <= lst[i - 1]) {
+bool is_sorted(vector<int> lst){
+    if (lst.size() < 2) return true;
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] <= lst[i-1]){
+            vector<int> temp;
+            for(int j = 0; j < i; j++){
+                temp.push_back(lst[j]);
+            }
+            bool has_duplicates = false;
+            for(int k = 0; k < temp.size(); k++){
+                int count = 0;
+                for(int m = 0; m < lst.size(); m++){
+                    if(temp[k] == lst[m]) count++;
+                }
+                if(count > 1){
+                    has_duplicates = true;
+                    break;
+                }
+            }
+            return !has_duplicates;
+        } else {
             return false;
         }
     }
-    vector<int>::iterator it;
-    bool has_duplicates = false;
-    for (it = lst.begin() + 1; it != lst.end(); ++it) {
-        if (std::find(it, lst.end(), *it) != lst.end()) {
-            has_duplicates = true;
-            break;
-        }
-    }
-    return !has_duplicates && (lst.size() == 1 || lst[0] < lst[1]);
+    return false;
 }
