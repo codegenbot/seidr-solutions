@@ -15,6 +15,5 @@ std::string match_parens(std::vector<std::string> lst) {
 
 int main() {
     assert(match_parens({{"("}, {"})"}) == "Yes");
-    std::cout << match_parens({{"(abc)", "(def)"}) << std::endl;
     return 0;
 }
