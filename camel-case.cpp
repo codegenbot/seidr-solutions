@@ -5,18 +5,31 @@ std::string camelCase(std::string s) {
     std::string result = "";
     bool firstWord = true;
     
-    for (int i = 0; i <= s.length(); i++) {
-        if (i == s.length() || (s[i] == '-' && i != s.find(' '))) {
+    for (int i = 0; i <= s.size(); ++i) {
+        if (i == s.size() || (s[i] == '-' && s[i + 1] == ' ')) {
             if (!firstWord) {
-                if (s[i-1] >= 'A' && s[i-1] <= 'Z') {
-                    result += s.substr(i - 1, 1);
-                } else {
-                    result += char(toupper(s[i]));
+                if (i < s.size()) {
+                    result += toupper(s.substr(i));
                 }
+                i = s.find(' ', i);
+                firstWord = true;
             } else {
-                if (i > 0) {
+                if (i < s.size()) {
                     result += tolower(s.substr(0, i));
                 }
+                i++;
+            }
+        } else if (s[i] == ' ') {
+            if (!firstWord) {
+                result += tolower(s.substr(i));
+            }
+            firstWord = true;
+            i = s.find(' ', i);
+        } else {
+            if (!firstWord) {
+                result += cctype::isupper(s[i]) ? tolower(s[i]) : s[i];
+            } else {
+                result += toupper(s[i]);
             }
             firstWord = false;
         }
