@@ -13,16 +13,13 @@ std::string concatenate(const std::vector<std::string>& strings) {
 
 int main() {
     std::vector<std::string> strings;
-    std::string outputString;
-
     while (true) {
-        std::cin.ignore();
-        std::cout << "Enter a string (or stop to finish): ";
-        std::getline(std::cin, outputString);
+        std::cout << "Enter a string (or 'stop' to finish): ";
+        std::string input;
+        std::getline(std::cin, input);
+        if (input == "stop") break;
 
-        if (outputString == "stop") break;
-
-        strings.push_back(outputString); 
+        strings.push_back(input); 
     }
 
     std::cout << concatenate(strings) << std::endl;
