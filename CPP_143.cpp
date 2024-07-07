@@ -24,7 +24,7 @@ std::string words_in_sentence(std::string sentence){
             if (is_prime(count + 1)) {
                 result += sentence.substr(0, count) + " ";
             }
-            count++;
+            count = i + 1;
         }
     }
     return result.substr(0, result.size() - 1);
