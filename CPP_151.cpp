@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 #include <vector>
 #include <algorithm> 
@@ -29,16 +28,20 @@ void calculateOddSums(std::vector<double> lst) {
 void calculateAndPrint() {
     int n;
     std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    if (!(std::cin >> n)) {
+        return;
+    }
 
     std::vector<double> lst;
     for(int i = 0; i < n; i++) {
         double num;
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
+        if (!(std::cin >> num)) {
+            return;
+        }
 
         if (num >= 0.0 && std::fmod(num,2.0) != 0.0) { 
-            lst.push_back(num);
+            lst.push_back(std::sqrt(num));
         }
     }
 
