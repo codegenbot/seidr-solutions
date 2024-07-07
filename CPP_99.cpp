@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <cassert>
@@ -11,7 +12,8 @@ int closest_integer(double num) {
 }
 
 int test_closest_integer() {
-    assert(closest_integer(0.0) == 0);
-    std::cout << "The closest integer is: " << static_cast<int>(closest_integer((double)5)) << std::endl;
-    return 0;
+    double num = std::stod("0"); 
+    assert(closest_integer(num) == 0);
+    std::cout << "The closest integer is: " << closest_integer(5.0) << std::endl;
+    return 0; 
 }
