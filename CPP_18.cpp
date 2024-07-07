@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -13,7 +12,8 @@ int how_many_times(string str, string substring) {
 }
 
 int main() { 
-    string str, substring;
+    string str = "";
+    string substring;
 
     cout << "Enter the string: ";
     getline(cin, str);
