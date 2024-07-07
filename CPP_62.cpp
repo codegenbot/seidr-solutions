@@ -20,7 +20,10 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     std::vector<float> input;
-    input.push_back(1);
+    float x;
+    while(std::cin >> x) {
+        input.push_back(x);
+    }
     assert(issame(derivative(input), {}));
     return 0;
 }
