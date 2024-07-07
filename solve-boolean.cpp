@@ -19,4 +19,3 @@ bool solveBoolean(string s) {
         }
     }
     return result;
-}
