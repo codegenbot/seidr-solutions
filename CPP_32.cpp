@@ -1,12 +1,10 @@
 double find_zero(vector<double> xs){
-    double sum=0,x=1;
-    int i;
-    for (i=0;i<xs.size();i++)
-    {
-        if(i%2==0)
-            sum+=xs[i]*x;
-        else
-            x=x*x;
+    double sum = 0;
+    for(int i=0; i<xs.size();i++){
+        if(i % 2 == 1) continue;
+        double x = -xs[i] / xs[0];
+        sum = poly(vector<double>(xs.begin(), xs.end()),x);
+        if(abs(sum) < 0.00001) return x;
     }
-    return -sum/xs[0];
+    return -1; //no solution
 }
