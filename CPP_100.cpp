@@ -10,7 +10,7 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+bool compareVectors(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -28,6 +28,6 @@ int main() {
     for (auto it = pile.begin(); it != pile.end(); ++it) {
         *it -= 1;
     }
-    assert(pile == {7, 9, 11, 13, 15, 17, 19, 21});
+    assert(compareVectors({8, 10, 12, 14, 16, 18, 20, 22}, make_a_pile(8)));
     return 0;
 }

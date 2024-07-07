@@ -17,8 +17,12 @@ int main() {
     int num1, num2;
     std::cout << "Enter two numbers (separated by a space): ";
     std::stringstream ss;
-    ss << num1 << " " << num2;
-    if (!(ss >> num1 >> num2)) {
+    ss >> std::ws;  // consume leading whitespace
+    num1 = stol(ss);  // convert string to integer
+    ss.str("");     // clear stream contents for next iteration
+    ss >> std::ws;
+    num2 = stol(ss);
+    if (!(ss)) {
         std::cout << "Invalid input. Please enter two integers separated by a space." << std::endl;
         return 1;
     }
