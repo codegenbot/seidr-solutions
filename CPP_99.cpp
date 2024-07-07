@@ -1,19 +1,7 @@
-#include <iostream>
-using namespace std;
-
 int closest_integer(double num) {
-    int integer = static_cast<int>(num);
-    if (abs(num - integer) > abs(num - (integer + 1))) {
-        return integer + 1;
+    if (num >= 0) {
+        return static_cast<int>(num);
     } else {
-        return integer;
+        return -static_cast<int>(-num);
     }
-}
-
-int main() {
-    double num;
-    cout << "Enter a number: ";
-    cin >> num;
-    cout << "The closest integer is: " << closest_integer(num) << endl;
-    return 0;
 }
