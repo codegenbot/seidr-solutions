@@ -13,3 +13,4 @@ int main(){
     int length = str_length(input);
     std::cout << "Length of the string is: " << length << std::endl;
     return 0;
+}
