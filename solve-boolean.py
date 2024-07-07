@@ -6,4 +6,4 @@ def solve_boolean(expression):
     while '&' in expression or '|' in expression:
         left, right = expression.split('(' + expression[0] + ')')
         expression = str((solve_boolean(left) and solve_boolean(right)) if expression[0] == '&' else (solve_boolean(left) or solve_boolean(right)))
-    return True
+    return expression == 'T'
