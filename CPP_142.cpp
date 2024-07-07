@@ -1,14 +1,13 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <limits>
 
 int sum_squares(std::vector<int> lst) {
     int total = 0;
     for (int i = 0; i < lst.size(); i++) {
-        if (i % 3 == 0 && i % 4 != 0) {
+        if (i % 3 == 0 && i % 4 != 0 || i % 4 == 0 && i % 3 != 0) {
             total += lst[i] * lst[i];
-        } else if (i % 4 == 0 && i % 3 != 0) {
+        } else if (i % 4 == 0 && i % 3 == 0) {
             total += lst[i] * lst[i] * lst[i];
         }
     }
@@ -23,14 +22,19 @@ int main() {
     std::cin >> n;
 
     for(int i = 0; i < n; ++i) {
-        if(i >= std::numeric_limits<std::size_t>::max()) {
-            std::cerr << "Error: Input size exceeded maximum allowed value." << std::endl;
-            return 1;
-        }
-        std::cout << "Enter element " << i + 1 << ": ";
         int num;
-        std::cin >> num;
-        inputVector.push_back(num); 
+        while(true) {
+            std::cout << "Enter element " << i + 1 << ": ";
+            std::cin >> num;
+            
+            if (num >= 0 && num <= 100) {
+                inputVector.push_back(num);
+                break;
+            }
+            else {
+                std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
+            }
+        }
     }
 
     int result = sum_squares(inputVector);
