@@ -39,3 +39,4 @@ int main() {
     int result = mastermind(code, guess);
     cout << "Black pegs: " << result << endl;
     return 0;
+}
