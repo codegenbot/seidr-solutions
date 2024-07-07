@@ -1,23 +1,21 @@
+```
 def mastermind(code, guess):
-    black_peg = 0
     white_peg = 0
-    correct_colors = {}
+    black_peg = 0
+
+    code_counts = [0] * 6
+    for c in code:
+        code_counts[ord(c) - ord('B')] += 1
+
+    guess_counts = [0] * 6
+    for g in guess:
+        guess_counts[ord(g) - ord('B')] += 1
 
     for i in range(4):
         if code[i] == guess[i]:
             black_peg += 1
-        else:
-            if guess[i] not in correct_colors:
-                correct_colors[guess[i]] = True
-
-    wrong_place_matches = sum(
-        [
-            c in code[:i] or c in code[i + 1 :]
-            for i, c in enumerate(guess)
-            if c != code[i]
-        ]
-    )
-
-    white_peg = 4 - black_peg - len(correct_colors)
+        elif code_counts[ord(guess[i]) - ord('B')] > 0:
+            white_peg += 1
+            code_counts[ord(guess[i]) - ord('B')] -= 1
 
     return str(white_peg) + "\n" + str(black_peg)
