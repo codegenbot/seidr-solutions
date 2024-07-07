@@ -1,4 +1,8 @@
 #include <string>
+#include <vector>
+#include <cassert>
+
+using namespace std;
 
 string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
@@ -7,5 +11,5 @@ string exchange(vector<int> lst1, vector<int> lst2) {
             oddCount++;
         }
     }
-    return to_string(oddCount == 0 ? "The lists are even" : "The lists have at least one odd number");
+    return to_string(oddCount == 0);
 }
