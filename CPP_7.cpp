@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
@@ -17,7 +17,6 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, 
 }
 
 int main() {
-    std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
+    auto str = std::vector<std::string>{"grunt", "trumpet", "prune", "gruesome"};
     assert(issame(filterBySubstring(str, "run"), {"grunt", "prune"}));
     return 0;
-}
