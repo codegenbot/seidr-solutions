@@ -1,9 +1,22 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    assert(issame(get_odd_collatz(1), {1}));  
+    return 0;
+}
 
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
@@ -13,27 +26,9 @@ vector<int> get_odd_collatz(int n) {
         } else {
             n = 3 * n + 1;
         }
-        if (n % 2 != 0) {
+        if (n % 2 != 0) { 
             result.push_back(n);
         }
     }
-    if (!result.empty()) {
-        sort(result.begin(), result.end());
-    } else {
-        result.push_back(0); 
-    }
     return result;
-}
-
-int main() {
-    int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
-    vector<int> res = get_odd_collatz(n);
-    cout << "The sorted vector of odd numbers in Collatz sequence is: ";
-    for (int i : res) {
-        cout << i << " ";
-    }
-    cout << endl;
-    return 0;
 }
