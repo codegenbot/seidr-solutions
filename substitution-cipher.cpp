@@ -16,7 +16,8 @@ std::string decode(std::string cipher, std::string mapping) {
 }
 
 int main() {
-    std::string cipher = "cehubtgxnspvqohlwrzady";
-    std::string mapping = "vmrbxneukctiflzswjpqdyyvogsnul";
+    std::string cipher, mapping;
+    std::cin >> cipher >> mapping;
     std::cout << decode(cipher, mapping) << std::endl;
+    return 0;
 }
