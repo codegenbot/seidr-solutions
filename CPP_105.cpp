@@ -1,13 +1,10 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
 #include <iostream>
 
 using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
-}
 
 vector<string> by_length(vector<int> arr) {
     vector<string> nums;
