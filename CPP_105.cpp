@@ -1,13 +1,11 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
-}
 
 vector<string> by_length(vector<int> arr) {
     vector<string> nums;
@@ -24,7 +22,7 @@ vector<string> by_length(vector<int> arr) {
     for (string str : nums) {
         if (str == "1") str = "One";
         else if (str == "2") str = "Two";
-        else if (str == "3") str = "Three";
+        else if (str == "3") str = str = "Three";
         else if (str == "4") str = "Four";
         else if (str == "5") str = "Five";
         else if (str == "6") str = "Six";
