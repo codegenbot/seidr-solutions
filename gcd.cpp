@@ -1,22 +1,6 @@
 ```cpp
 #include <iostream>
-#include <vector>
-#include <algorithm>
-
-std::vector<int> indices(std::string text, std::string target) {
-    std::vector<int> res;
-    for(int i=0; i<=(text.length()-target.length()); i++) {
-        bool flag=true;
-        for(int j=0; j<target.length(); j++) {
-            if(text[i+j]!=target[j]) {
-                flag=false;
-                break;
-            }
-        }
-        if(flag) res.push_back(i);
-    }
-    return res;
-}
+#include <string>
 
 int gcd(int a, int b) {
     if (b == 0)
@@ -26,16 +10,22 @@ int gcd(int a, int b) {
 }
 
 int main() {
+    std::string str1 = "Indices of Substring (CW)";
+    std::string str2 = "CW";
+    
+    size_t pos = 0;
+    vector<int> indices;
+    while ((pos = str1.find(str2)) != string::npos) {
+        indices.push_back(pos);
+        pos += str2.size();
+    }
+    
     int a = 12;
     int b = 15; 
     std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
-
-    std::string text = "hello world hello";
-    std::string target = "ello";
-    std::vector<int> result = indices(text, target);
-    for(int i : result) {
-        std::cout << "Target found at index " << i << std::endl;
+    for (int index : indices) {
+        std::cout << "Indices of Substring 'CW' are: " << index << std::endl;
     }
-
+    
     return 0;
 }
