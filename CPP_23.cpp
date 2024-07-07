@@ -1,3 +1,4 @@
-int str_length(string str){
+```
+int strLength(string str){
     return str.length();
 }
