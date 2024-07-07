@@ -1,2 +1,3 @@
+```
 def fuel_cost(arr):
-    return sum((i // (i//3 + 1)) - 2 for i in arr)
+    return sum(((i-1) // 3) - 2 for i in arr)
