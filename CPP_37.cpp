@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -20,20 +19,36 @@ std::vector<float> sort_even(std::vector<float> input) {
             }
             result.push_back(minVal);
         } else {
-            int j = i - 1;
-            while (j >= 0 && !issame(input[j], result.back())) {
-                --j;
+            auto it = std::stable_partition(input.begin(), input.end(),
+                                             [back = &result.back()](const float& val) {
+                                                 return !issame(val, *back);
+                                             });
+            if (it != input.end()) {
+                result.push_back(*it);
             }
-            if (j >= 0) {
-                result.push_back(input[j + 1]);
-            } else {
-                float minVal = input[0];
-                for (float val : input) {
-                    if (!issame(val, minVal)) {
-                        minVal = val;
-                    }
+        }
+    }
+    return result;
+}
+
+std::vector<float> sort_even(std::vector<float>& input) {
+    std::vector<float> result;
+    for (int i = 0; i < input.size(); i++) {
+        if (i % 2 == 0) {
+            float minVal = input[0];
+            for (float val : input) {
+                if (!issame(val, minVal)) {
+                    minVal = val;
                 }
-                result.push_back(minVal);
+            }
+            result.push_back(minVal);
+        } else {
+            auto it = std::stable_partition(input.begin(), input.end(),
+                                             [back = &result.back()](const float& val) {
+                                                 return !issame(val, *back);
+                                             });
+            if (it != input.end()) {
+                result.push_back(*it);
             }
         }
     }
@@ -42,8 +57,8 @@ std::vector<float> sort_even(std::vector<float> input) {
 
 int main() { 
     int n;
+    std::vector<float> input;
     float num;
-    std::vector<float>() input;  // Initialize the vector with default allocator
     std::cout << "Enter numbers separated by spaces: ";
     while ((std::cin >> num) && std::cin.peek() != '\n') {
         input.push_back(num);
