@@ -1,7 +1,5 @@
 #include <iostream>
 #include <iomanip>
-using namespace std;
-
 #include <vector>
 using namespace std;
 
