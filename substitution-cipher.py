@@ -1,5 +1,8 @@
-[PYTHON]
 def substitution_cipher(cipher1, cipher2, message):
+    # Check if any input is empty
+    if not (cipher1 and cipher2 and message):
+        return "Please enter all inputs."
+
     # Create a dictionary to store the mapping of characters in cipher1 and cipher2
     char_map = {}
     for i in range(len(cipher1)):
@@ -14,12 +17,3 @@ def substitution_cipher(cipher1, cipher2, message):
             deciphered_message += char
 
     return deciphered_message
-
-# Read input from the user
-cipher1 = input("Enter cipher 1: ")
-cipher2 = input("Enter cipher 2: ")
-message = input("Enter message to decipher: ")
-
-# Apply substitution cipher to the message
-deciphered_message = substitution_cipher(cipher1, cipher2, message)
-print(f"Deciphered message: {deciphered_message}")
