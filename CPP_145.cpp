@@ -1,4 +1,4 @@
-```cpp
+```
 #include <algorithm>
 #include <vector>
 #include <initializer_list>
@@ -49,4 +49,19 @@ bool isSame(vector<int> a, vector<int> b) {
         if(find(b.begin(), b.end(), a[i]) == b.end()) return false;
     }
     return true;
+}
+
+int main() { 
+    vector<int> nums = {0,6,6,-76,-21,23,4};
+    cout << "Sorted array: ";
+    for(int num : order_by_points(nums)) {
+        cout << num << " ";
+    }
+    cout << endl;
+    if (!isSame(order_by_points({0,6,6,-76,-21,23,4}), {0, -76, -21, 4, 6, 6, 23})) {
+        cout << "Test failed" << endl;
+    } else {
+        cout << "Test passed" << endl;
+    }
+    return 0;
 }
