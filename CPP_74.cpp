@@ -1,8 +1,9 @@
-```cpp
+```
 #include <vector>
 #include <string>
+#include <limits>
 
-bool same(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
+bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
     if (b.size() == 0) return true;
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
@@ -22,7 +23,7 @@ int main() {
     std::cin >> n;
 
     std::vector<std::vector<std::string>> vec1;
-    std::vector<std::vector<std::string>> vec2(std::vector<std::vector<std::string>>());
+    std::vector<std::vector<std::string>> vec2(std::vector<std::vector<std::string>>({}));
 
     for (int i = 0; i < n; ++i) {
         int m;
@@ -49,7 +50,7 @@ int main() {
         }
     }
 
-    if (!same(vec1, vec2)) {
+    if (!issame(vec1, vec2)) {
         return 1;
     }
 
@@ -61,6 +62,6 @@ int main() {
     }
 
     std::vector<std::string> v = {"this"};
-    assert(same({{"this"}}, {}, {}));
+    assert(issame({{"this"}}, {}, {}));
     return 0;
 }
