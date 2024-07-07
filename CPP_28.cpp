@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -31,3 +32,4 @@ std::string concatenate(vector<string> strVec){
         result += str + " ";
     }
     return result;
+}
