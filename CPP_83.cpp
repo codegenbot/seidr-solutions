@@ -1,4 +1,6 @@
-```cpp
+#include <iostream>
+using namespace std;
+
 int starts_one_ends(int n) {
     int count = 0;
     for (int i = 1; i <= 9; i++) {
@@ -12,4 +14,9 @@ int starts_one_ends(int n) {
         }
     }
     return count;
+}
+
+int main() {
+    assert(starts_one_ends(5) == 18000);
+    return 0;
 }
