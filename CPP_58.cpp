@@ -1,8 +1,11 @@
+Here is the modified code:
+
 ```cpp
 #include <vector>
 #include <algorithm>
 #include <set>
 #include <iostream>
+#include <initializer_list>
 
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::set<int> set1(l1.begin(), l1.end());
@@ -14,10 +17,8 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
 }
 
 int main() {
-    std::vector<int> l1;
-    for(int i : {1, 2, 3, 4}) l1.push_back(i);
-    std::vector<int> l2;
-    for(int i : {3, 4, 5, 6}) l2.push_back(i);
+    std::vector<int> l1 = {1, 2, 3, 4};
+    std::vector<int> l2 = {3, 4, 5, 6};
     std::vector<int> result = common(l1, l2);
     for(int i : result) {
         std::cout << i << " ";
