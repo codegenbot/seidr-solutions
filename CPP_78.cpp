@@ -5,9 +5,9 @@
 int hex_key(std::string num) {
     int count = 0;
     for (char c : num) {
-        if (c >= '2' && c <= '7') {
+        if (std::isdigit(c) && (c >= '2' && c <= '7')) {
             count++;
-        } else if (c == 'B' || c == 'D' || c == 'F') {
+        } else if ((c >= 'A' && c <= 'F') || (c >= 'a' && c <= 'f')) {
             count++;
         }
     }
@@ -17,7 +17,7 @@ int hex_key(std::string num) {
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    getline(std::cin, str);
+    std::cin >> str;
     int result = hex_key(str);
     return 0;
 }

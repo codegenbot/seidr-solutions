@@ -3,14 +3,6 @@
 #include <set>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::set<int> set1(l1.begin(), l1.end());
     std::set<int> set2(l2.begin(), l2.end());
@@ -34,14 +26,11 @@ int main() {
         std::cout << "All elements of one list are present in another." << std::endl;
     }
 
-    if(common({4, 3, 2, 8}, {}).size() != 0) {
-        for(int i : common({4, 3, 2, 8}, {})) {
-            std::cout << i << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "No common elements." << std::endl;
+    std::vector<int> result = common(l1, l2);
+    for(int i : result) {
+        std::cout << i << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
