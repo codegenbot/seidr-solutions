@@ -1,8 +1,11 @@
-```
 #include <string>
+#include <cassert>
+#include <iostream>
 
-std::string remove_vowels(std::string text){
-    std::string result = "";
+using namespace std;
+
+string remove_vowels(string text){
+    string result = "";
     for(char c : text){
         if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && 
            tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && 
@@ -15,5 +18,5 @@ std::string remove_vowels(std::string text){
 
 int main() {
     assert (remove_vowels("ybcd") == "ybcd");
-    return 0;
+    cout << remove_vowels("Hello World!") << endl;  
 }
