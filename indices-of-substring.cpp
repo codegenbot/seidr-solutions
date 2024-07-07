@@ -1,7 +1,9 @@
-#include <iostream>
-#include <string>
+```cpp
 #include <vector>
 using namespace std;
+
+#include <iostream>
+#include <sstream>
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
@@ -23,11 +25,12 @@ int main() {
     string target;
     cin >> target;
 
-    vector<int> indices = indicesOfSubstring(text, target);
+    vector<int> result = indicesOfSubstring(text, target);
 
-    for (int i : indices) {
-        cout << i << endl;
+    for (int i : result) {
+        cout << i << " ";
     }
+    cout << endl;
 
     return 0;
 }
