@@ -20,5 +20,4 @@ int main() {
         numbers.push_back(num);
     }
     cout << "Sum of even numbers: " << add(numbers) << endl;
-    return 0;
 }
