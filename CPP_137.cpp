@@ -4,8 +4,11 @@
 using namespace std;
 
 string compare_one(string s1, string s2) {
-    if (stod(s1) > stod(s2)) return s1;
-    else if (stod(s1) == stod(s2)) return "None";
+    double d1 = stod(s1);
+    double d2 = stod(s2);
+
+    if (d1 > d2) return s1;
+    else if (d1 == d2) return "None";
     else return s2;
 }
 

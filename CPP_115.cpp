@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <iostream>
 #include <initializer_list>
@@ -34,11 +34,11 @@ int max_fill(vector<vector<int>> grid) {
     return max;
 }
 
-int main() { 
+int main() {
     vector<vector<int>> grid;
     grid.push_back(vector<int>(4,1));
     grid.push_back(vector<int>(4,1));
     int result = max_fill(grid);
     cout << "Maximum number of filled cells: " << result << endl;
-    return 0; 
+    return 0;
 }
