@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#pragma GCC diagnostic ignored "-Wsuggest=implicit"
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
