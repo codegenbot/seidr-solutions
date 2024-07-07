@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -12,7 +13,8 @@ int add(vector<int> lst){
     return sum;
 }
 
-int main() {
+int main 
+{
     assert (add({4, 4, 6, 8}) == 12);
     vector<int> numbers;
     int num;
