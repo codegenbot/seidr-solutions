@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 
@@ -13,5 +14,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         std::string str2 = boost::any_cast<std::string>(b);
         return str1 > str2 ? a : b;
     }
-    return boost::any(typeid(std::string)("None"));
+    return boost::any(typeid("None"));
 }
