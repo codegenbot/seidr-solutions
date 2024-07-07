@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -12,7 +11,7 @@ std::string decode(std::string cipher, std::string mapping) {
             result += c; 
         }
     }
-    std::cout << result << std::endl;
+    return result;
 }
 
 int main() {
