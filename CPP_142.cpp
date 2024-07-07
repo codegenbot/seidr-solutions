@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -15,13 +14,13 @@ int sum_squares(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> inputVector; 
+    std::vector<int> inputVector(n); 
     int n; 
 
     std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
 
-    for(int i = 0; i < n && i <= 100; ++i) {
+    for(int i = 0; i < n; ++i) {
         int num;
         while(true) {
             std::cout << "Enter element " << i + 1 << ": ";
@@ -31,14 +30,7 @@ int main() {
                 inputVector.push_back(num);
                 break;
             } else {
-                if(i < n-1){
-                    std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
-                    i--; 
-                    continue; 
-                }else{
-                    std::cerr << "You've reached the maximum capacity of your vector!" << std::endl;
-                    break;
-                }
+                std::cerr << "Invalid input. Please enter a number between 0 and 100." << std::endl;
             }
         }
     }

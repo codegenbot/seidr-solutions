@@ -4,8 +4,8 @@
 
 double sum_squares(const std::vector<double>& input) {
     double sum = 0;
-    for (const auto& num : input) {
-        sum += num * num;
+    for (const auto& x : input) {
+        sum += x * x;
     }
     return sum;
 }
@@ -17,7 +17,7 @@ int main() {
         std::cerr << "Invalid input. Please enter two numbers." << std::endl;
         return 1;
     }
-    std::vector<double> input({static_cast<double>(num1), static_cast<double>(num2)});
+    std::vector<double> input({num1, num2});
     std::cout << "Sum of squares is: " << sum_squares(input) << std::endl;
     return 0;
 }
