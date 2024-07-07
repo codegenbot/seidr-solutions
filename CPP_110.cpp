@@ -7,11 +7,5 @@ string exchange(vector<int> lst1, vector<int> lst2) {
             oddCount++;
         }
     }
-    for (int num : lst2) {
-        if (num % 2 != 0) {
-            oddCount--;
-            break;
-        }
-    }
     return oddCount == 0 ? "YES" : "NO";
 }
