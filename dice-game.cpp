@@ -10,6 +10,6 @@ double diceGame(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(2) << diceGame(n, m) << endl;
+    cout << fixed << setprecision(2) << (n > m ? (double)(n-m)/((n)*(m)) : 0.0) << endl;
     return 0;
 }
