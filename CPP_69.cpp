@@ -15,7 +15,8 @@ int main() {
     std::cout << "Enter a positive number: ";
     std::cin >> num; 
     if (num >= 0) {
-        std::cout << "Result of searching " << num << ": " << search(num) << std::endl;
+        std::string str = std::to_string(num); // Create a string from the int
+        std::cout << "Result of searching " << str << ": " << str << std::endl;
     } else {
         std::cout << "The search function returns -1 for negative numbers." << std::endl;
     }
