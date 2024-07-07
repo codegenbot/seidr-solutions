@@ -2,7 +2,7 @@
 #include <vector>
 #include <list>
 
-bool std::vector<int> a == std::vector<int> b) {
+bool equalVectors(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -16,7 +16,7 @@ std::vector<int> filter_integers(std::list<int> values) {
     return result;
 }
 
-int mainCPP22() {
-    assert(issame(filter_integers({3, 3, 3}), {3, 3, 3}));
+int programMain() {
+    assert(equalVectors(filter_integers({3, 3, 3}), {3, 3, 3}));
     return 0;
 }
