@@ -21,23 +21,24 @@ double find_zero(std::vector<double> xs){
 }
 
 int main() {
-    std::vector<double> coeffs;
+    std::vector<double> poly_coeffs;
     double temp;
 
+    poly_coeffs = {};
     while (true) {
         std::cin >> temp;
         if (std::cin.fail()) {
             std::cout << "Invalid input. Please enter a valid number." << std::endl;
             break;
         }
-        coeffs.push_back(temp);
+        poly_coeffs.push_back(temp);
     }
 
-    if(coeffs.size() == 0){
+    if(poly_coeffs.size() == 0){
         std::cout << "No coefficients entered. Cannot find zero." << std::endl;
     } else {
-        double solution = find_zero(coeffs);
-        assert(abs(poly(coeffs, solution)) < 1e-3);
+        double solution = find_zero(poly_coeffs);
+        assert(abs(poly(poly_coeffs, solution)) < 1e-3);
     }
     return 0;
 }
