@@ -1,14 +1,12 @@
-```c++
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
     if (b.size() == 0) return true;
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-auto total_match = [](const std::vector<std::vector<std::string>>& v) {
+int total_match(const std::vector<std::vector<std::string>>& v) {
     int sum = 0;
     for (const auto& vec : v) {
         for (const auto& s : vec) {
@@ -16,7 +14,7 @@ auto total_match = [](const std::vector<std::vector<std::string>>& v) {
         }
     }
     return sum;
-};
+}
 
 int main() {
     int sum1 = total_match({"this"});
