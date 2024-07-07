@@ -23,6 +23,6 @@ int main() {
     cout << "Enter a number: ";
     int num;
     cin >> num;
-    cout << "The mini Roman representation is: " << int_to_mini_roman(num);
+    cout << "The Roman numeral is: " << int_to_mini_roman(num);
     return 0;
 }
