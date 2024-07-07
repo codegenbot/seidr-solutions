@@ -13,23 +13,5 @@ int solution(std::vector<int> lst) {
 
 int main() {
     assert(solution({3, 13, 2, 9}) == 3);
-    std::vector<int> input;
-    int num;
-    
-    // Read input from user
-    while (true) {
-        std::cout << "Enter a number (-1 to stop): ";
-        std::cin >> num;
-        
-        if (num == -1)
-            break;
-        
-        input.push_back(num);
-    }
-    
-    // Print the output
-    int result = solution(input);
-    std::cout << "Sum of odd numbers at even positions: " << result << std::endl;
-    
     return 0;
 }
