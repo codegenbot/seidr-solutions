@@ -1,3 +1,6 @@
+```cpp
+using namespace std;
+
 bool solveBoolean(string s) {
     bool result = true;
     for (char c : s) {
