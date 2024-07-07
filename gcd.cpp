@@ -1,5 +1,7 @@
 #include <vector>
-#include <string>  
+#include <string>
+#include <iostream>
+
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -43,9 +45,8 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int num1, num2;
-    cout << "Enter two integers: ";
-    cin >> num1 >> num2;
-    cout << "GCD is: " << gcd(num1, num2) << endl;
+    int a = 10;
+    int b = 20;
+    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
     return 0;
 }
