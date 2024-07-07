@@ -6,7 +6,10 @@ int choose_num(int, int);
 int main() {
     int num1, num2;
     std::cout << "Enter two numbers (separated by a space): ";
-    std::cin >> num1 >> num2;  
+    if (!(std::cin >> num1 >> num2)) {
+        std::cerr << "Invalid input. Please enter two integers." << std::endl;
+        return 1; // Return with error code
+    }
     int result = choose_num(num1, num2);
     std::cout << "Result: " << result << std::endl;
     return 0;
