@@ -1,3 +1,4 @@
 def max_fill(grid, capacity):
-    water = sum(row.count(1) for row in grid)
-    return math.ceil(water / capacity)
+    max_water = sum([cell for row in grid for cell in row])
+    total_buckets = math.ceil(max_water / float(capacity))
+    return total_buckets
