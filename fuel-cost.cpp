@@ -1,11 +1,11 @@
+```cpp
 #include <vector>
-
-int fuelCost(vector<int>& v) {
+int calculateFuelCost(std::vector<int> numbers) {
     int sum = 0;
-    for (int i : v) {
-        int x = (i / 3);
-        x = std::floor(x); 
-        sum += x - 2; 
+    for (int num : numbers) {
+        if (num % 3 == 0) {
+            int result = (num / 3) - 2;
+            sum += result;
+        }
     }
     return sum;
-}
