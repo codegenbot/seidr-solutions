@@ -1,13 +1,12 @@
-```cpp
 #include <iostream>
-#include <cctype>
+using namespace std;
 
 int choose_num(int x, int y) {
-    if (x % 2 == 0 && y % 2 == 0) {
+    if(x % 2 == 0 && y % 2 == 0) {
         return (x > y) ? x : y;
-    } else if (x % 2 == 0) {
+    } else if(x % 2 == 0) {
         return x;
-    } else if (y % 2 == 0) {
+    } else if(y % 2 == 0) {
         return y;
     }
     return -1;
@@ -15,12 +14,9 @@ int choose_num(int x, int y) {
 
 int main() {
     int x, y;
-    std::cout << "Enter two numbers (separated by a space): ";
-    std::cin >> x;
-    char input[3];
-    std::cin.getline(input, 3);
-    y = atoi(input);
+    cout << "Enter two numbers: ";
+    cin >> x >> y;
     int result = choose_num(x, y);
-    std::cout << "Result: " << result << std::endl;
+    cout << "Result: " << result << endl;
     return 0;
 }
