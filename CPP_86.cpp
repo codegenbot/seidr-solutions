@@ -22,3 +22,10 @@ std::string anti_shuffle(std::string s) {
         }
     }
     return result;
+}
+
+int main(){
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    std::cout << "Antisuffled string: " << anti_shuffle(input) << std::endl;
