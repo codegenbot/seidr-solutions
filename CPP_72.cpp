@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <numeric>
 
@@ -15,14 +13,6 @@ bool will_it_fly(std::vector<int> q, int w) {
 }
 
 int main() {
-    int n, w;
-    std::cout << "Enter the number of quails: ";
-    std::cin >> n;
-    std::vector<int> q(n);
-    std::cout << "Enter weights of quails: ";
-    for (auto &i : q) {
-        std::cin >> i;
-    }
-    std::cout << "Will it fly? " << (will_it_fly(q, w) ? "Yes" : "No") << std::endl;
+    assert(will_it_fly({5}, 5) == true);
     return 0;
 }
