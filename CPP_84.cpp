@@ -4,13 +4,14 @@ string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
-    string result = "";
-    while (sum > 0) {
-        if (sum & 1)
-            result.push_back('1');
-        else
-            result.push_back('0');
-        sum >>= 1;
-    }
-    return result;
+    return toBinary(sum);
+}
+
+string toBinary(int n) {
+    string res = "";
+    do {
+        res = (n & 1) ? "1" + res : "0" + res;
+        n >>= 1;
+    } while (n);
+    return res;
 }
