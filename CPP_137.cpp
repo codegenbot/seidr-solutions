@@ -1,51 +1,44 @@
+Here is the completed code:
+
+```cpp
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return max(a.convert_to<int>(), b.convert_to<float>());
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return b;
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return (int)a > boost::any_cast<string>(b) ? a : b;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string s = boost::any_cast<string>(b);
+        istringstream iss(s);
+        float f;
+        iss >> f;
+        return a > f ? a : b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        return (string)a > to_string(boost::any_cast<int>(b)) ? a : b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string s = boost::any_cast<string>(b);
+        istringstream iss(s);
+        float f;
+        iss >> f;
+        return (string)a > to_string(f) ? a : b;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return "None";
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return max(a.convert_to<float>(), b.convert_to<float>());
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-
-        bool hasDecimalA = false, hasDecimalB = false;
-
-        for (char c : strA) {
-            if (c == '.' || c == ',') {
-                hasDecimalA = true;
-                break;
-            }
-        }
-
-        for (char c : strB) {
-            if (c == '.' || c == ',') {
-                hasDecimalB = true;
-                break;
-            }
-        }
-
-        if (hasDecimalA && !hasDecimalB)
-            return a;
-        else if (!hasDecimalA && hasDecimalB)
-            return b;
-
-        if (stod(strA) > stod(strB))
-            return a;
-        else if (stod(strA) < stod(strB))
-            return b;
-
-        return boost::any("None");
+        return boost::any_cast<string>(a) > boost::any_cast<string>(b) ? a : b;
     }
-    else {
-        double numA = boost::any_cast<double>(a);
-        double numB = boost::any_cast<double>(b);
-
-        if (numA > numB)
-            return a;
-        else if (numA < numB)
-            return b;
-
-        return boost::any("None");
-    }
+    return "None";
 }
