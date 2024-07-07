@@ -35,7 +35,8 @@ int mainFunction() {
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
-    std::vector<int> input(std::vector<int>(n)); 
+    std::vector<int> input;
+    input.resize(n); 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> input[i];
@@ -59,8 +60,8 @@ int mainFunction() {
         std::cout << "No even numbers found." << std::endl;
     } else {
         std::vector<int> test = {1,2,3};
-        std::vector<int> expected = {7, 9, 7, 1};
-        std::vector<int> actual = pluck(test);
+        std::vector<int> expected = {2, 0};
+        std::vector<int> actual = pluck(const_cast<const std::vector<int>&>(test));
         assert(sameVector(actual, expected));
         std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1]
                   << std::endl;
