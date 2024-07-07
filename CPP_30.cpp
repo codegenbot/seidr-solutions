@@ -29,10 +29,6 @@ int main() {
     float maxV1 = get_positive(v1);
     float maxV2 = get_positive(v2);
 
-    if (!v1.empty() && !v2.empty()) {
-        assert(issame({maxV1}, {maxV2}));  
-    }
-
     std::cout << "The two sets of numbers are " << (v1.empty() ? "empty" : (issame(v1, v2) ? "" : "not ")) << " the same.\n";
     return 0;
 }

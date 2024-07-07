@@ -1,19 +1,19 @@
+```c++
 #include <iostream>
 using namespace std;
 
 int how_many_times(string str, string substring) {
     int count = 0;
-    auto start = str.begin();
-    while ((start += distance(str.begin(), str.find(substring, distance(start, str.end())))) 
-           != str.end()) {
+    size_t pos = 0;
+    while ((pos = str.find(substring)) != string::npos) {
         count++;
-        start += distance(str.begin(), str.find(substring, distance(start, str.end())));
+        pos = str.find(substring, pos + 1);
     }
     return count;
 
 }
 
-int main() { 
+int main_function() { 
     string str, substring;
 
     cout << "Enter the string: ";
