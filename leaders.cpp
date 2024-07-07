@@ -1,6 +1,5 @@
-```cpp
-#include <initializer_list>
 #include <vector>
+#include <initializer_list>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -15,11 +14,14 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
-int main() {
-    vector<int> arr = {1, 3, 4, 1, 5};
-    vector<int> leadersVector = leaders(arr);
-    for (auto leader : leadersVector) {
-        cout << leader << endl;
+vector<int> leaders(vector<int>& arr) {
+    vector<int> result;
+    int rightmost = arr[arr.size() - 1];
+    for (int i = arr.size() - 2; i >= 0; i--) {
+        if (arr[i] >= rightmost) {
+            result.push_back(arr[i]);
+            rightmost = arr[i];
+        }
     }
-    return 0;
+    return result;
 }
