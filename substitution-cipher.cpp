@@ -1,18 +1,19 @@
 #include <string>
 #include <iostream>
+#include <unordered_map>
 
 std::string decode(std::string cipher, std::string mapping) {
+    std::unordered_map<char, char> map;
+    for (int i = 0; i < mapping.size(); i++) {
+        map[mapping[i]] = cipher[i];
+    }
+    
     std::string result = "";
-    int index = 0;
     for (char c : cipher) {
-        while (index < mapping.size() && mapping[index] != c) {
-            ++index;
-        }
-        if (index >= mapping.size()) {
-            result += c; 
+        if (map.find(c) != map.end()) {
+            result += map[c]; 
         } else {
-            result += mapping[index]; 
-            index++;
+            result += c; 
         }
     }
     return result;
