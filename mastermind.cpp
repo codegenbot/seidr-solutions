@@ -1,11 +1,6 @@
-#include <vector>
-#include <iostream>
-#include <string>
-#include <initializer_list>
+#include <unordered_map>
 
-using namespace std;
-
-int mastermind(string code, string guess) {
+int mastermind(string code, string guess) { 
     int whitePegs = 0;
     int blackPegs = 0;
     
@@ -15,18 +10,22 @@ int mastermind(string code, string guess) {
         }
     }
     
+    unordered_map<char, int> codeCount;
     for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d) {
-                count++;
-            }
-        }
+        codeCount[c]++;
+    }
+    
+    for (char c : code) {
+        int count = codeCount[c];
         if (count > 1) {
             whitePegs += count - 1;
         } else if (count == 1) {
-            blackPegs--;
+            blackPegs++;
         }
+    }
+    
+    for (int i = 0; i < 4; ++i) {
+        codeCount[guess[i]]--;
     }
     
     return blackPegs;
@@ -41,3 +40,5 @@ int main() {
     int result = mastermind(code, guess);
     cout << "Number of white pegs: 0\nNumber of black pegs: " << result << endl;
     return 0;
+
+}
