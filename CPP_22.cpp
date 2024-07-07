@@ -1,7 +1,6 @@
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
-#include <boost/config.hpp>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
