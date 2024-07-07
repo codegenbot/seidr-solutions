@@ -20,3 +20,11 @@ vector<int> count_upto(int n) {
     }
     return primes;
 }
+
+int main() {
+    vector<int> result = count_upto(101);
+    for(int i : result) {
+        cout << i << " ";
+    }
+    return 0;
+}
