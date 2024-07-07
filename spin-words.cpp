@@ -7,8 +7,7 @@ std::string spinWords(std::string str) {
     std::stringstream ss("");
     std::string word;
 
-    ss << str;
-    while (ss >> word) {
+    while (ss << str >> word) {
         if (word.length() >= 5)
             word = std::string(word.rbegin(), word.rend());
         result += word + " ";
