@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <limits>
 
-bool std::issame(std::vector<float> const& a, std::vector<float> const& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
