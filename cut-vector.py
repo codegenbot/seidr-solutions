@@ -1,3 +1,4 @@
+```
 def cut_vector(vector):
     if not vector:
         return [], []
