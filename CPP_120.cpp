@@ -1,12 +1,7 @@
+Here is the completed code:
+
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
-    if (k >= arr.size()) {
-        sort(arr.begin(), arr.end());
-        return vector<int>(arr.begin(), arr.begin() + k);
-    }
-    sort(arr.begin(), arr.end());
-    for (int i = 0; i < k; i++) {
-        result.push_back(arr[arr.size() - i - 1]);
-    }
+    vector<int> result(arr.begin(), arr.begin() + k);
+    sort(result.begin(), result.end());
     return result;
 }
