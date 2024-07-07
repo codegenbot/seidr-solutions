@@ -4,15 +4,20 @@
 
 bool is_nested(std::string str) {
     int count = 0;
-    for (auto it = str.begin(); it != str.end(); ++it) {
-        if (*it == '[') {
-            count++;
-        } else if (*it == ']') {
+    bool isOpeningBracket = false;
+    for (char& c : str) {
+        if (c == '[') {
+            if (!isOpeningBracket) {
+                count++;
+                isOpeningBracket = true;
+            }
+        } else if (c == ']') {
             if (count > 0) {
                 count--;
             } else {
                 return false;
             }
+            isOpeningBracket = false;
         }
     }
     return count > 0;
