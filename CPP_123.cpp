@@ -14,7 +14,7 @@ bool isSame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> getOddCollatz(int n) {
+vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
@@ -37,9 +37,10 @@ int main() {
         cout << "Invalid input. Please enter a non-negative integer." << endl;
         return -1;
     }
-    vector<int> output = getOddCollatz(input);
+    vector<int> output = get_odd_collatz(input);
     for (int num : output) {
         cout << num << " ";
     }
-    assert(isSame(getOddCollatz(1), {1}));
+    assert(isSame(get_odd_collatz(1), {1}));
     return 0;
+}
