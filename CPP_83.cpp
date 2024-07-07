@@ -1,20 +1,25 @@
-```cpp
 #include <iostream>
-#include <string>
 
 using namespace std;
 
 int starts_one_ends(int n) {
     int count = 0;
-    for (int i = 1; i <= 9; i++) {
-        if (i == 1 || i % 10 == 1) {
+    for (int i = 1; i <= pow(10, n-1); i++) {
+        if (i == 1 || to_string(i).back() == '1') {
             count++;
         }
-        for (int j = 1; j < i; j++) {
-            if (j % 10 != 1 && j / 10 != 1) {
+        string str = to_string(i);
+        bool flag = true;
+        for (char c : str) {
+            if (c != '1' && c != '0') {
+                flag = false;
                 break;
             }
         }
+        if (!flag) {
+            continue;
+        }
+        count++;
     }
     return count;
 }
@@ -23,8 +28,5 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-
-    string str = to_string(n);
-    cout << "The count of the numbers of " << str << "-digit positive integers that start or end with 1 is: " << starts_one_ends(stoi(str)) << endl;
-    return 0;
+    cout << "The count of the numbers of " << n << "-digit positive integers that start or end with 1 is: " << starts_one_ends(n) << endl;
 }
