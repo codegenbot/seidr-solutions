@@ -9,8 +9,11 @@ vector<int> sort_third(vector<int> l) {
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
             vector<int> temp;
-            for (int j = i; j < l.size() && j % 3 == 0; j++) {
+            int j = i;
+            while(j < l.size() && j % 3 == 0) {
                 temp.push_back(l[j]);
+                j++;
+                if (j+2 >= l.size()) break; 
             }
             sort(temp.begin(), temp.end());
             for (int k = 0; k < temp.size(); k++) {
@@ -23,7 +26,7 @@ vector<int> sort_third(vector<int> l) {
     return result;
 }
 
-int main() {
+int test() {
     vector<int> l1 = {1, 2, 3};
     vector<int> l2 = {5, 6, 3, 4, 8, 9, 2};
 
