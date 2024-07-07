@@ -1,28 +1,26 @@
-#include <boost/any.hpp>
 #include <string>
+#include <algorithm>
 
 using namespace boost;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        return b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (stod(b.convert_to<string>().c_str()) >= stod(a.convert_to<string>().c_str())) {
-            return b;
-        } else {
-            return a;
-        }
-    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        if (get<double>(a) > get<double>(b)) {
-            return a;
-        } else if (get<double>(a) < get<double>(b)) {
-            return b;
-        } else {
-            return boost::any("None");
-        }
-    } else {
-        return boost::any("None");
+any compare_one(any a, any b) {
+    float fa = a.type() == type_code<float>();
+    float fb = b.type() == type_code<float>();
+
+    if (fa && fb) {
+        return (float)a > (float)b ? a : fb ? b : any("None");
     }
+
+    string sa = a.type() == type_code<string>();
+    string sb = b.type() == type_code<string>();
+
+    if (sa && sb) {
+        return sa > sb ? a : sb ? b : any("None");
+    }
+
+    if (fa || fb) {
+        return fa ? a : b;
+    }
+
+    return any("None");
 }
