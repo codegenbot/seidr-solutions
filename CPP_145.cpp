@@ -1,11 +1,11 @@
 ```cpp
 #include <algorithm>
 #include <vector>
-#include <initializer_list>
+namespace std { using Pair = struct { int first; int second; }; }
 
 using namespace std;
 
-struct Pair {
+Pair = struct {
     int first;
     int second;
 };
