@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -15,7 +16,7 @@ bool compareFloats(float a, float b) {
     return std::abs(a - b) > 1e-5;
 }
 
-std::vector<float> sortEven(std::vector<float> input) {
+std::vector<float> sort_even(std::vector<float> input) {
     std::vector<float> result;
     for (int i = 0; i < input.size(); i++) {
         if (i % 2 == 0) {
@@ -48,7 +49,7 @@ int main() {
         input.push_back(num);
     }
     std::cin.ignore();
-    for (float val : sortEven(input)) {
+    for (float val : sort_even(input)) {
         std::cout << val << " ";
     }
 }

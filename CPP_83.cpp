@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
@@ -25,8 +24,8 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
 
-    ostringstream oss;
-    oss << "The count of the numbers of " << n << "-digit positive integers that start or end with 1 is: " << starts_one_ends(n) << endl;
-    cout << oss.str();
+    string str = to_string(n);
+    int num = stoi(str);
+    cout << "The count of the numbers of " << str << "-digit positive integers that start or end with 1 is: " << starts_one_ends(num) << endl;
     return 0;
 }
