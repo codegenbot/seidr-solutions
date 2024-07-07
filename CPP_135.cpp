@@ -4,18 +4,13 @@ using namespace std;
 int can_arrange(vector<int> arr);
 
 int main() {
-    vector<int> arr;
     int n;
-    cout << "Enter the number of elements: ";
     cin >> n;
-    for(int i = 0; i<n; i++) {
-        int x;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> x;
-        arr.push_back(x);
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
-    cout << "The maximum index that can be arranged is: " << can_arrange(arr) << endl;
-    return 0;
+    cout << can_arrange(arr) << endl;
 }
 
 int can_arrange(vector<int> arr) {
