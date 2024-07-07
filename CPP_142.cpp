@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -38,7 +38,7 @@ int main() {
                     break;
                 }
             }
-       
+        }
         
         if(inputVector.size() == n) {
             break; // Exit loop once maximum capacity is reached
