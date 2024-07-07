@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -10,7 +11,10 @@ def solve_boolean(expression):
         part = part.strip()
         if part:  
             result = result and bool(eval(part.replace('|', 'or').replace('and', '&')))
-            if not result:  # If the result becomes False, break the loop
+            if not result:  
                 break
 
     return str(result)
+
+def solve(input):
+    return str(solve_boolean(input))
