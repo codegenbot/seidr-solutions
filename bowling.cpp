@@ -2,29 +2,26 @@
 
 int bowlingScore(string s) {
     int score = 0;
-    string previousFrame = "";
+    int roll = 0;
     for (char c : s) {
         if (c == '/') {
-            string frame = s.substr(0, s.find('/'));
-            if (frame[0] == 'X') {
-                score += 10 + stoi(previousFrame);
-            } else if (stoi(frame) < 10) {
-                score += 10;
-            } else {
-                score += stoi(frame);
+            if (roll < 2) {
+                score += 10 - (10 - stoi(s.substr(0, s.find('/'))));
             }
-            previousFrame = "";
+            roll = 0;
         } else if (isdigit(c)) {
-            previousFrame += c;
-        } else { // X
-            string frame = s.substr(0, s.find('X'));
-            if (frame[0] == 'X') {
-                score += 10 + stoi(previousFrame);
-            } else {
-                score += 10 + stoi(frame) + stoi(previousFrame);
+            int pins = stoi(string(1, c));
+            if (roll > 0) {
+                pins += stoi(string(1, c));
             }
-            previousFrame = "";
+            score += pins;
+            roll++;
+            if (roll == 2) {
+                roll = 0;
+            }
+        } else { // X
+            score += 10;
+            roll = 0;
         }
     }
     return score;
-}
