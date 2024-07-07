@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <limits>
 
@@ -15,22 +14,6 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    std::vector<float> v1, v2;
-    float num;
-    while (true) {
-        std::cout << "Enter a number (-1 to stop): ";
-        std::cin >> num;
-        if (num == -1) break;
-        if (num > 0) {
-            v1.push_back(num);
-        } else {
-            v2.push_back(num);
-        }
-    }
-    if (!issame(v1, v2)) {
-        std::cout << "The two sets of numbers are not the same.\n";
-    } else {
-        std::cout << "The two sets of numbers are the same.\n";
-    }
+    assert(issame({}, {})); 
     return 0;
 }
