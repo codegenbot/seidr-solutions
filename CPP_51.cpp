@@ -1,7 +1,9 @@
-string str;
-for(char c: text){
-    if(!isalpha(c) || tolower(c)<'a' || tolower(c)> 'e'){
-        str += c;
+string remove_vowels(string text) {
+    string result = "";
+    for (char c : text) {
+        if (!strchr("aeiouAEIOU", c)) {
+            result += c;
+        }
     }
+    return result;
 }
-return str;
