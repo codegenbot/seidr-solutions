@@ -16,7 +16,6 @@ vector<int> get_odd_collatz(int n) {
             result.push_back(n);
         }
     }
-    sort(result.begin(), result.end());
     return result;
 }
 
@@ -24,10 +23,10 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    vector<int> res = get_odd_collatz(n);
-    for (int i : res) {
-        cout << i << " ";
+    vector<int> result = get_odd_collatz(n);
+    sort(result.begin(), result.end());
+    for (int num : result) {
+        cout << num << " ";
     }
-    cout << endl;
     return 0;
 }
