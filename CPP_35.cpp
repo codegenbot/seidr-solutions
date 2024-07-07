@@ -1,10 +1,13 @@
 #include <algorithm>
 #include <cmath>
 
-int maxElement(vector<int> l) {
-    if (l.empty()) {
-        throw runtime_error("Error: The list is empty.");
+int findMax(int n) {
+    if (n <= 0) {
+        std::cout << "Error: Please enter a positive integer." << std::endl;
+        return -1;
     }
-    
-    return abs(*max_element(l.begin(), l.end()));
+    else {
+        int max = *std::max_element(std::vector<int>(1, n).begin(), std::vector<int>(1, n).end());
+        return abs(max);
+    }
 }
