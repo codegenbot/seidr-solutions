@@ -1,3 +1,2 @@
-string txt;
-cin >> txt;
-return (!txt.empty() && !isalnum(txt.back()));
+string::iterator it = txt.end() - 1;
+return (it->isalpha());
