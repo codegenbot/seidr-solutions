@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -7,7 +6,7 @@ bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<st
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-int total_match(const std::vector<std::vector<std::string>>& v) {
+auto total_match = [](const std::vector<std::vector<std::string>>& v) {
     int sum = 0;
     for (const auto& vec : v) {
         for (const auto& s : vec) {
@@ -21,7 +20,8 @@ int main() {
     int sum1 = total_match({{"this"}});
     int sum2 = total_match({});
 
-    assert(issame(std::vector<std::vector<std::string>>{{"this"}}, {} ));
+    assert(total_match({{"this"}}) == 4);
+    assert(total_match({}) == 0);
 
     return 0;
 }

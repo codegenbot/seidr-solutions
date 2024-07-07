@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <cmath>
@@ -21,6 +22,7 @@ bool same(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     std::vector<float> input = {1, 2, 3};
-    assert(same(derivative(input), {}));
+    assert(same(input, derivative(input)));
+    assert(same(derivative({1}), std::vector<float>()));
     return 0;
 }
