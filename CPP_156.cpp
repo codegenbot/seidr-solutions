@@ -1,3 +1,4 @@
+#include <cassert>
 #include <string>
 
 std::string toMiniRomanHelper(int num, std::string str, std::string roman) {
@@ -7,7 +8,7 @@ std::string toMiniRomanHelper(int num, std::string str, std::string roman) {
         return "IV";
     if (num >= 1000) {
         str += roman[0];
-        return toMiniRomanHelper(num - 1000, str, roman);
+        return toMiniRomanHelper(num - 1000, str, roman.substr(1));
     }
     if (num >= 900)
         return "CM";
@@ -46,5 +47,5 @@ std::string toMiniRomanHelper(int num, std::string str, std::string roman) {
 }
 
 std::string int_to_mini_roman(int num) {
-    return toMiniRomanHelper(num, "", "MDCLXVI");
+    return toMiniRomanHelper(num, "", "MDCCLXV");
 }
