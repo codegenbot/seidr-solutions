@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <assert.h>
 
 int max_fill(std::vector<std::vector<int>> grid) {
     int max = 0;
@@ -18,4 +18,9 @@ int max_fill(std::vector<std::vector<int>> grid) {
         }
     }
     return max;
+}
+
+int main() {
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}) == 8);
+    return 0;
 }
