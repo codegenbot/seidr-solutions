@@ -4,9 +4,9 @@
 
 using namespace std;
 
-std::any compare_one(std::any a, std::any b) {
+any compare_one(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return any_cast<float>(b) > any_cast<int>(a) ? b : "None";
+        return (int)b > a ? b : nullptr;
     }
     if (a.type() == typeid(int) && b.type() == typeid(string)) {
         string str = any_cast<string>(b);
@@ -15,11 +15,11 @@ std::any compare_one(std::any a, std::any b) {
             str[0] = '.';
             return str;
         } else {
-            return any_cast<int>(str) > a ? b : "None";
+            return (int)stoi(str) > a ? b : nullptr;
         }
     }
     if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return any_cast<float>(a) > any_cast<int>(b) ? a : "None";
+        return (float)a > b ? a : nullptr;
     }
     if (a.type() == typeid(string) && b.type() == typeid(int)) {
         string str = any_cast<string>(a);
@@ -28,7 +28,7 @@ std::any compare_one(std::any a, std::any b) {
             str[0] = '.';
             return str;
         } else {
-            return str > to_string(any_cast<int>(b)) ? a : "None";
+            return str > to_string(b) ? a : nullptr;
         }
     }
     if (a.type() == typeid(string) && b.type() == typeid(float)) {
@@ -36,9 +36,9 @@ std::any compare_one(std::any a, std::any b) {
         size_t pos = str.find(',');
         if (pos != string::npos) {
             str[0] = '.';
-            return str > a ? b : "None";
+            return str > a ? b : nullptr;
         } else {
-            return str > to_string(any_cast<float>(a)) ? b : "None";
+            return str > to_string(a) ? b : nullptr;
         }
     }
     if (a.type() == typeid(string) && b.type() == typeid(string)) {
@@ -47,14 +47,14 @@ std::any compare_one(std::any a, std::any b) {
         string str2 = any_cast<string>(b);
         size_t pos2 = str2.find(',');
         if (pos1 != string::npos && pos2 != string::npos) {
-            return str2 > str1 ? b : "None";
+            return str2 > str1 ? b : nullptr;
         } else if (pos1 == string::npos && pos2 != string::npos) {
-            return str2 > str1 ? b : "None";
+            return str2 > str1 ? b : nullptr;
         } else if (pos1 != string::npos && pos2 == string::npos) {
-            return str1 > str2 ? a : "None";
+            return str1 > str2 ? a : nullptr;
         } else {
-            return str1.compare(str2) > 0 ? a : "None";
+            return str1.compare(str2) > 0 ? a : nullptr;
         }
     }
-    return "None";
+    return nullptr;
 }
