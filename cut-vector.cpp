@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <iostream>
+using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     int minDiff = INT_MAX;
@@ -40,7 +40,7 @@ int main() {
     for (int num : result.second) {
         cout << num << " ";
     }
-    cout << "]" << endl;
+    cout << "0]" << endl;
     
     return 0;
 }
