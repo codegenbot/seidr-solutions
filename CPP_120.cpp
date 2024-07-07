@@ -12,12 +12,17 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::vector<int> arrCopy = arr; // Create a copy of the input vector
+    std::vector<int> arrCopy = arr; 
     std::sort(arrCopy.begin(), arrCopy.end());
     std::vector<int> result;
-    for (int i = arrCopy.size() - 1; i >= arrCopy.size() - k; i--) {
-        result.push_back(arrCopy[i]);
-        arrCopy.erase(arrCopy.begin() + i);
+    for (int i = 0; i < k && i < arrCopy.size(); i++) {
+        if (arrCopy.size() > 1) {
+            result.push_back(arrCopy[arrCopy.size() - 1 - i]);
+            arrCopy.pop_back();
+        } else {
+            result.push_back(arrCopy[0]);
+            break;
+        }
     }
     return result;
 }
