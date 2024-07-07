@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 
@@ -18,5 +19,4 @@ int main() {
     std::string cipher = "cehubtgxnspvqohlwrzady";
     std::string mapping = "vmrbxneukctiflzswjpqdyyvogsnul";
     std::cout << decode(cipher, mapping) << std::endl;
-    return 0;
 }
