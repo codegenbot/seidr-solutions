@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -12,7 +12,7 @@ int sum_squares(std::vector<float> lst){
     return total;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     std::vector<float> input;
     float num;
     while(std::cin >> num) {
