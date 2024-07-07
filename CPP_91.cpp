@@ -1,4 +1,6 @@
-```cpp
+#include <cassert>
+#include <string>
+
 int findPattern(const std::string& str) {
     int count = 0;
     size_t pos = 0;
@@ -8,4 +10,9 @@ int findPattern(const std::string& str) {
     }
     return count;
 
+}
+
+int testMain() {
+    assert(findPattern("I am bored I am bored I am bored") == 3);
+    return 0;
 }
