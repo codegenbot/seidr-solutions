@@ -1,37 +1,44 @@
-``` 
-#include <iostream>
+```cpp
 #include <stack>
 #include <string>
 
-using namespace std;
-
-bool solveBoolean(string s) {
-    stack<char> operators;
+bool solveBoolean(std::string s) {
     bool result = true;
+    std::stack<char> operationStack;
+
     for (char c : s) {
         if (c == 'T' || c == 'F') {
-            continue;
+            if (result != (c == 'T')) return false;
         } else if (c == '&') {
-            while (!result && !operators.empty() && operators.top() == '|') {
-                operators.pop();
-                result = false;
-            }
-            operators.push('&');
+            operationStack.push('&');
+            result = true;
         } else if (c == '|') {
-            while (!result && !operators.empty() && operators.top() == '&') {
-                operators.pop();
-                result = false;
+            while (!operationStack.empty() && operationStack.top() == '|') {
+                operationStack.pop();
             }
-            operators.push('|');
+            if (!operationStack.empty()) {
+                operationStack.pop();
+                if (result != false) return false;
+                result = true;
+            } else {
+                result = !result;
+            }
         }
     }
-    return result ? "True" : "False";
-}
 
-int main() {
-    string s;
-    cout << "Enter a Boolean expression: ";
-    getline(cin, s);
-    cout << solveBoolean(s) << endl;
-    return 0;
+    while (!operationStack.empty()) {
+        if (operationStack.top() == '|') {
+            operationStack.pop();
+            if (!operationStack.empty()) {
+                operationStack.pop();
+                result = !result;
+            } else {
+                return false;
+            }
+        } else {
+            return !result;
+        }
+    }
+
+    return true;
 }
