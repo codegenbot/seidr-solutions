@@ -1,11 +1,12 @@
 def fix_spaces(text):
-    result = ""
+    text += " "
+    new_text = ""
     for char in text:
-        if char.isspace():
-            if len(result) > 0 and (result[-1] == " " or result[-1].isalnum()):
-                result += "_"
+        if char == " ":
+            if len(new_text) > 0 and new_text[-1] != " ":
+                new_text += "-"
             else:
-                result += "-"
+                new_text += "_"
         else:
-            result += char
-    return result
+            new_text += char
+    return new_text.strip()
