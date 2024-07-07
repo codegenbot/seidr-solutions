@@ -1,17 +1,20 @@
-```
+import re
+
 def solve_boolean(expression):
-    if expression == "T":
+    if expression == 'T':
         return True
-    elif expression == "F":
+    elif expression == 'F':
         return False
-    elif "&" in expression:
-        left, right = expression.split("&")
-        return solve_boolean(left) and solve_boolean(right)
-    elif "|" in expression:
-        left, right = expression.split("|")
-        return solve_boolean(left) or solve_boolean(right)
-    elif "&" not in expression and "|" not in expression:
-        if "T" in expression and "F" in expression:
-            return False
-        else:
-            return True
+    if '&' in expression or '|' in expression:
+        parts = re.split('(&+|\\||\\(|\\))', expression)
+        for i, part in enumerate(parts[1:-1]):
+            if part.startswith('&'):
+                result = solve_boolean(parts[i-1]) and solve_boolean(parts[i])
+            elif part == 'T':
+                result = True
+            elif part == 'F':
+                result = False
+            else:
+                raise ValueError("Invalid boolean expression")
+        return result
+    return expression.lower() == 't'
