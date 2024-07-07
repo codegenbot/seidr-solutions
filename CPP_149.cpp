@@ -34,12 +34,9 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    vector<string> sorted_a = vector_sort(a);
-    vector<string> sorted_b = vector_sort(b);
     for (int i = 0; i < a.size(); i++) {
-        if (sorted_a[i] != sorted_b[i]) {
+        if (a[i] != b[i]) {
             return false;
-        }
     }
     return true;
 }
