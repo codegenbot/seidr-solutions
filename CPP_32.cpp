@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -5,11 +6,11 @@
 double poly(std::vector<double> coeffs, double x);
 
 int main() {
-    unsigned int ncoeff;
+    int ncoeff;
     std::cout << "Enter the number of coefficients: ";
     std::cin >> ncoeff;
     
-    std::vector<double> coeffs(ncoeff, 0);
+    std::vector<double> coeffs(ncoeff); // Corrected line
 
     for(int i = 0; i < ncoeff; i++) {
         double coeff;
