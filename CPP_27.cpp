@@ -2,15 +2,13 @@
 #include <cassert>
 #include <string>
 
-const std::string filp_case(const std::string& str); // Declare filp_case before usage
-
 std::string filp_case(const std::string& str) -> const std::string {
-    std::string result = str;
+    std::string result = "";
     for (char c : str) {
         if ((c >= 'a' && c <= 'z')) {
-            result += toupper(c); // Convert to uppercase
+            result += (char)(c - ('a' - 'A')); // Convert to uppercase
         } else if ((c >= 'A' && c <= 'Z')) {
-            result += tolower(c); // Convert to lowercase
+            result += (char)(c - ('A' - 'a')); // Convert to lowercase
         } else {
             result += c;
         }
@@ -20,5 +18,4 @@ std::string filp_case(const std::string& str) -> const std::string {
 
 int main() {
     assert(filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    return 0;
 }
