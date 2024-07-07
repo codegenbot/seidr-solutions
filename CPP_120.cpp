@@ -1,9 +1,12 @@
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.size());
-    copy_if(arr.begin(), arr.end(), result.begin(),
-             [k](int x) { return --k > 0; });
-    sort(result.begin(), result.end(), greater<int>());
-    while (result.size() > k)
-        result.pop_back();
+    vector<int> result;
+    if (k >= arr.size()) {
+        sort(arr.begin(), arr.end());
+        return vector<int>(arr.begin(), arr.begin() + k);
+    }
+    sort(arr.begin(), arr.end());
+    for (int i = 0; i < k; i++) {
+        result.push_back(arr[arr.size() - i - 1]);
+    }
     return result;
 }
