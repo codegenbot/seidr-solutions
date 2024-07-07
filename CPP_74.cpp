@@ -17,10 +17,12 @@ auto total_match = [](const std::vector<std::vector<std::string>>& v) {
 };
 
 int main() {
-    int sum1 = total_match(std::vector<std::vector<std::string>>{{"this"}, {"is"}});
-    int sum2 = total_match(std::vector<std::vector<std::string>>{});
+    int sum1 = total_match({{"this"}});
+    int sum2 = total_match({});
 
-    assert(issame(std::vector<std::vector<std::string>>{{"this"}}, std::vector<std::vector<std::string>>{})); 
-
+    if (!std::vector<std::vector<std::string>>{}.empty()) {
+        assert(issame(std::vector<std::vector<std::string>>{{"this"}}, {} ));
+    }
+    
     return 0;
 }

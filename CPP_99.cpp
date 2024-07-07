@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -11,6 +10,6 @@ int closest_integer(std::string value) {
 int main() {
     std::string userInput;
     std::cout << "Enter a number: ";
-    std::getline(std::cin, userInput); 
+    std::cin >> userInput; 
     std::cout << "The closest integer is: " << closest_integer(userInput) << std::endl;
     return 0;
