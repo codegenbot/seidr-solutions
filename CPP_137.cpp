@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <limits>
@@ -6,7 +7,7 @@ using namespace std;
 
 string compare_one(string s1, int s2) {
     double d1 = stod(s1);
-    if (d1 >= s2) return s1;
+    if (d1 > s2) return s1;
     else if (d1 == s2) return "None";
     else return to_string(s2);
 }
