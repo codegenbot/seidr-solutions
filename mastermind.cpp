@@ -12,7 +12,7 @@ int main() {
         for (int i = 0; i < code.length(); i++) {
             if (code[i] == guess[i]) {
                 blackPegs++;
-            } else if (code.find(guess[i]) != -1 && !whitePegs) {
+            } else if (code.find(guess[i]) != -1 && !whitePegs) { // corrected line of code
                 whitePegs++;
             }
         }
