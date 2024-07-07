@@ -27,8 +27,13 @@ bool issame(vector<string> b, vector<string> a) {
     return true;
 }
 
-int main(void) {
-    vector<string> result = reverse_delete(vector<string>({"mamma", "mia"}));
+int main() {
+    vector<string> input;
+    string s;
+    while(getline(cin,s)){
+        input.push_back(s);
+    }
+    vector<string> result = reverse_delete(input);
     assert(issame(result, {"", "True"}));
     return 0;
 }
