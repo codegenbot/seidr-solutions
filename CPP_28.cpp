@@ -16,13 +16,18 @@ std::vector<std::string> getStrings() {
     return strings;
 }
 
-int main() {
-    std::vector<std::string> strings = getStrings();
-
+std::vector<std::string> concatenate(const std::vector<std::string>& strings) {
     std::string result = "";
     for (const auto& str : strings) {
         result += str + "\n";
     }
-    std::cout << "Concatenated string: " << result;
-    return 0;
+    return {result};
 }
+
+int main() {
+    std::vector<std::string> strings = getStrings();
+    std::vector<std::string> concatenated = concatenate(strings);
+    
+    for (const auto& str : concatenated) {
+        std::cout << str;
+    }

@@ -1,21 +1,21 @@
-```cpp
-#include <iostream>
+#include <cassert>
 #include <string>
 
 std::string flipCase(const std::string& str) -> const std::string {
     std::string result;
     for (char c : str) {
-        result += (c >= 'a' && c <= 'z') ? (char)(c - 32) : ((c >= 'A' && c <= 'Z') ? (char)(c + 32) : c);
+        if ((c >= 'a' && c <= 'z')) {
+            result += static_cast<char>(c - 32); // Convert to uppercase
+        } else if ((c >= 'A' && c <= 'Z')) {
+            result += static_cast<char>(c + 32); // Convert to lowercase
+        } else {
+            result += c; // Add the character as is
+        }
     }
     return result;
 }
 
 int main() {
-    try {
-        std::cout << flipCase("These violent delights have violent ends") << std::endl;
-    } catch (...) {
-        std::cerr << "An error occurred." << std::endl;
-    }
-    assert(flipCase("These violent delights have violent ends") == "these violent delights have violent ends");
+    assert(flipCase("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
 }
