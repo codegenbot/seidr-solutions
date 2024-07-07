@@ -4,9 +4,9 @@ using namespace std;
 string middleCharacter(string s) {
     int length = s.length();
     if (length % 2 == 1)
-        return string(1, s[length / 2]);
+        return string(1, s.substr(length / 2, 1));
     else
-        return string(2, s[(length - 1) / 2]) + s[length / 2];
+        return s.substr((length - 1) / 2, 1) + s.substr(length / 2, 1);
 }
 
 int main() {
