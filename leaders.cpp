@@ -1,15 +1,6 @@
 #include <vector>
 using namespace std;
 
-int main() {
-    vector<int> vec = {1, 3, 4, 3, 2, 3, 5, 4}; 
-    vector<int> leaders = leaders(vec);
-    for (int leader : leaders) {
-        cout << leader << " "; 
-    }
-    return 0;
-}
-
 vector<int> leaders(vector<int>& vec) {
     int n = vec.size();
     vector<int> res;
@@ -26,4 +17,13 @@ vector<int> leaders(vector<int>& vec) {
     }
     
     return res;
+}
+
+int main() {
+    vector<int> vec = {1, 3, 4, 3, 2, 3, 10, 12};
+    vector<int> result = leaders(vec);
+    for (int x : result) {
+        cout << x << " ";
+    }
+    return 0;
 }
