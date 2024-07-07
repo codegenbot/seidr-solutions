@@ -1,20 +1,19 @@
 #include <algorithm>
+using namespace std;
 
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
-    if (lst.empty()) {
-        return result;
-    }
+    if (lst.empty()) return result;
     
-    sort(lst.begin(), lst.end());
+    vector<int> minMax(lst);
+    sort(minMax.begin(), minMax.end());
     
-    while (!lst.empty()) {
-        result.push_back(*lst.begin());
-        lst.erase(lst.begin());
+    while (!minMax.empty()) {
+        result.push_back(minMax.back());
+        minMax.pop_back();
         
-        if (!lst.empty()) {
-            sort(lst.begin(), lst.end());
-        }
+        if (!minMax.empty())
+            sort(minMax.begin(), minMax.end());
     }
     
     return result;
