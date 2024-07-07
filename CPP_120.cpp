@@ -2,15 +2,15 @@
 #include <queue>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+bool issame(vector<int> a,vector<int>b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
+std::vector<int> maximum(vector<int> arr, int k) {
     std::priority_queue<int> pq;
     for (int i : arr) {
         pq.push(i);
