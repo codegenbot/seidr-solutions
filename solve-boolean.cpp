@@ -1,19 +1,57 @@
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 bool solveBoolean(string s) {
     bool res = true;
-    stack<bool> st;
-
+    string term;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'T' || s[i] == 't') {
-            st.push(s[i] == 'T');
-        } else if (s[i] == '|') {
-            res = !st.top();
-            st.pop();
-        } else if (s[i] == '&') {
-            bool b1 = st.top(); st.pop();
-            bool b2 = st.top(); st.pop();
-            st.push(b1 && b2);
+        char c = s[i];
+        if (c == '|') {
+            bool subRes = evaluateTerm(term);
+            res = res || subRes;
+            term.clear();
+        } else if (c == 't' || c == 'f') {
+            term += c;
+            if (i < s.length() - 1 && s[i + 1] == '&') i++; // skip '&' for now
         }
     }
+    bool subRes = evaluateTerm(term);
+    res = res || subRes;
 
     return res;
+}
+
+bool evaluateTerm(string term) {
+    bool res = true;
+    string subTerm;
+    for (int i = 0; i < term.length(); i++) {
+        char c = term[i];
+        if (c == '&') {
+            bool subRes = (subTerm == "t") ? true : false;
+            res = res && subRes;
+            subTerm.clear();
+        } else if (c == 't' || c == 'f') {
+            subTerm += c;
+            if (i < term.length() - 1 && term[i + 1] == '&') i++; // skip '&' for now
+        }
+    }
+    bool subRes = (subTerm == "t") ? true : false;
+    res = res && subRes;
+
+    return res;
+}
+
+int main() {
+    string s;
+    cout << "Enter a Boolean expression: ";
+    getline(cin, s);
+    bool result = solveBoolean(s);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
 }
