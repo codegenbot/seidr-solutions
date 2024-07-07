@@ -1,7 +1,7 @@
-int sorted_list_sum(vector<string> lst) {
-    int sum = 0;
-    for (const auto& str : lst) {
-        sum += stol(str);
+long sorted_list_sum(vector<string> lst) {
+    long sum = 0;
+    for (const string& s : lst) {
+        sum += stoll(s);
     }
     return sum;
 }
