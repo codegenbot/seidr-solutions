@@ -1,12 +1,30 @@
 #include <vector>
-#include <cmath>
+#include <iostream>
+using namespace std;
 
-int fuelCost(vector<int> v) {
+int fuelCost(vector<int> nums) {
     int sum = 0;
-    for (int i : v) {
-        double newNumber = static_cast<double>(i / 3);
-        newNumber = floor(newNumber) - 2;
-        sum += newNumber;
+    for (int num : nums) {
+        int newNum = floor((double)num / 3) - 2;
+        sum += newNum;
     }
     return sum;
+}
+
+int main() {
+    vector<int> nums;
+    cout << "Enter the numbers separated by space: ";
+    string str;
+    getline(cin, str);
+    for (auto x : str) {
+        if (x == ' ') continue;
+        int num = 0;
+        while (x != ' ') {
+            num = num * 10 + (x - '0');
+            x = getchar();
+        }
+        nums.push_back(num);
+    }
+    cout << "The fuel cost is: " << fuelCost(nums) << endl;
+    return 0;
 }
