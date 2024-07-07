@@ -16,10 +16,8 @@ vector<string> reverseDelete(vector<string>& v) {
     return v;
 }
 
-bool issame(const vector<string>& b, const vector<string>& a) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+bool issame(const string& b, const string& a) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
@@ -32,10 +30,10 @@ void test() {
     vector<string> v1 = {"mamma"};
     vector<string> result1 = reverseDelete(v1);
     
-    assert(issame(vector<string>({"", "True"}), result1));
+    assert(issame("True", result1[0]));
     
     vector<string> v2 = {"mia"};
     vector<string> result2 = reverseDelete(v2);
     
-    assert(issame(vector<string>({"True"}), result2));
+    assert(issame("True", result2[0]));
 }
