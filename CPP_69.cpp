@@ -11,15 +11,12 @@ int search(int n) {
 
 int main() {
     int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    
-    // Convert the integer to string and store it in a variable
-    std::string str = std::to_string(num);
-    
+    std::cout << "Enter a positive number: ";
+    std::cin >> num; 
     if (num < 0) {
         std::cout << "The search function returns -1 for negative numbers." << std::endl;
+    } else {
+        std::cout << "Result of searching " << std::to_string(num) << ": " << search(num) << std::endl;
     }
-    
     return 0;
 }
