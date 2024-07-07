@@ -13,15 +13,8 @@ int solution(std::vector<int> lst) {
 
 int main() {
     assert(solution({3, 13, 2, 9}) == 3);
-    std::vector<int> input;
-    int num;
-    std::cout << "Enter the numbers (enter -1 to finish):" << std::endl;
-    while (true) {
-        std::cin >> num;
-        if (num == -1)
-            break;
-        input.push_back(num);
-    }
-    std::cout << "The sum is: " << solution(input) << std::endl;
+    std::vector<int> lst = {1, 2, 3, 4, 5};
+    int result = solution(lst);
+    std::cout << "The sum is: " << result << std::endl;
     return 0;
 }
