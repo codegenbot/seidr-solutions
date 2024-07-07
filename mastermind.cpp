@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -31,8 +31,8 @@ int mastermind(string code, string guess) {
     }
     
     return blackPegs;
-}
 
+}
 int main() {
     string code, guess;
     cout << "Enter the Mastermind code (4 characters): ";
