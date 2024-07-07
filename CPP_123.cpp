@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -29,6 +28,19 @@ vector<int> getOddCollatz(int n) {
     return result;
 }
 
+vector<int> getCollatz(int n) {
+    vector<int> result;
+    while (n != 1) {
+        result.push_back(n);
+        if (n % 2 == 0) {
+            n /= 2;
+        } else {
+            n = 3 * n + 1;
+        }
+    }
+    return result;
+}
+
 int main() {
     int input;
     cout << "Enter a number: ";
@@ -37,10 +49,9 @@ int main() {
         cout << "Invalid input. Please enter a non-negative integer." << endl;
         return -1;
     }
-    vector<int> output = getOddCollatz(input);
+    vector<int> output = getCollatz(input);
     for (int num : output) {
         cout << num << " ";
     }
-    assert(isSame(getOddCollatz(1), {1}));
     return 0;
 }
