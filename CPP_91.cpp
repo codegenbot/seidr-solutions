@@ -1,25 +1,13 @@
-int is_bored(string S) {
-    int count = 0;
-    string word;
-    for (string sentence : split(S, ".!?")) {
-        if (sentence.length() > 2 && sentence.substr(0, 2) == "I ") {
-            count++;
-        }
+int is_bored(string S){
+    int boredom_count = 0;
+    size_t start = 0;
+    while (start < S.size()) {
+        start = S.find('.', start) + 1;
+        if (start >= S.size()) break;
+        if (S.substr(start-1,2) == "I ") boredom_count++;
+        else start = S.find('?', start);
+        if (start >= S.size()) break;
+        start = S.find('.', start) + 1;
     }
-    return count;
-}
-
-vector<string> split(string str, char ch) {
-    vector<string> tokens = {};
-    string token = "";
-    for (char c : str) {
-        if (c == ch) {
-            tokens.push_back(token);
-            token = "";
-        } else {
-            token += c;
-        }
-    }
-    tokens.push_back(token);
-    return tokens;
+    return boredom_count;
 }
