@@ -1,3 +1,5 @@
+Here is the Python solution for the given problem:
+
 ```
 def sum_squares(lst):
     total = 0
