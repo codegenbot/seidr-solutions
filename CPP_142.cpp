@@ -14,7 +14,7 @@ int sum_squares(std::vector<int> lst) {
     return total;
 }
 
-{
+int main() {
     std::vector<int> inputVector; 
     int n; 
 
