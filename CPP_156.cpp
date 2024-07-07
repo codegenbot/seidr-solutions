@@ -1,43 +1,36 @@
 #include <string>
 
 std::string int_to_mini_roman(int num) {
-    if (num <= 0)
-        return "";
-    std::string roman = toMiniRomanHelper(num, "", "MDC");
-    return roman;
-}
-
-std::string toMiniRomanHelper(int num, std::string roman, std::string symbols) {
-    if (num == 0)
+    if (num >= 4000) return "M" + toMiniRomanHelper(num - 1000);
+    else if (num >= 900) return "CM" + toMiniRomanHelper(num - 800);
+    else if (num == 500) return "D";
+    else if (num >= 400) return "CD" + toMiniRomanHelper(num - 300);
+    else if (num >= 100) {
+        std::string roman = "";
+        while (num >= 90) {
+            roman += "XC";
+            num -= 90;
+        }
+        if (num >= 50) roman += "L" + toMiniRomanHelper(num - 50);
+        else roman = "L" + toMiniRomanHelper(num);
         return roman;
-
-    int i = symbols.find_first_of("IVXL");
-    if (i != std::string::npos) {
-        int count = 1;
-        while ((i + 1 < symbols.size()) && (symbols[i+1] == symbols[i])) {
-            ++i; ++count;
-        }
-        if (count == 3)
-            roman += symbols[i];
-        else
-            for (int j = 0; j < count; ++j) 
-                roman += symbols[i];
-
-        num -= count * (symbols[i] - 'I');
-    } else {
-        int value = std::stoi(symbols.substr(0,1));
-        if (value <= num) {
-            roman += symbols[0];
-            num -= value;
-            return toMiniRomanHelper(num, roman, symbols.substr(1));
-        }
     }
-
-    return toMiniRomanHelper(num, roman, "");
+    else if (num == 40) return "XL";
+    else if (num >= 10) {
+        std::string roman = "";
+        while (num >= 9) {
+            roman += "IX";
+            num -= 9;
+        }
+        if (num >= 5) roman += "V" + toMiniRomanHelper(num - 5);
+        else roman = "V" + toMiniRomanHelper(num);
+        return roman;
+    }
+    else if (num == 4) return "IV";
+    else return "I" + toMiniRomanHelper(num - 1);
 }
 
 int main() {
-    assert(int_to_mini_roman(1000).compare("M") == 0);
-    // Add your test cases here
-    return 0;
+    assert(int_to_mini_roman(1000) == "M");
+    // rest of your code...
 }
