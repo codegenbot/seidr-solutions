@@ -1,10 +1,6 @@
 ```cpp
 #include <string>
-
-int main() {
-    std::cout << squareDigits(614) << std::endl;
-    return 0;
-}
+#include <iostream>
 
 std::string squareDigits(int n) {
     std::string str = std::to_string(n);
@@ -13,4 +9,9 @@ std::string squareDigits(int n) {
         result += std::to_string((c - '0') * (c - '0'));
     }
     return result;
+}
+
+int main() {
+    std::cout << squareDigits(614) << std::endl;
+    return 0;
 }
