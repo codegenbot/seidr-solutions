@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -25,6 +24,11 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+int main() {
+    std::vector<std::string> output = reverse_delete("mamma", "mia");
+    if (output[0] != "" || output[1] != "True") {
+        return 1;
+    } else {
+        return 0;
+    }
 }
