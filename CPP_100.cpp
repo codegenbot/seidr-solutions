@@ -1,23 +1,25 @@
 #include <algorithm>
 #include <vector>
 
+using namespace std;
+
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
-    for (int i = 2; i <= n; ++i) {
+    for (int i = 1; i <= n; ++i) {
         pile.push_back(i * 2);
     }
     return pile;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if(a.size()!=b.size())return false;
     for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i])return false;
+        if(a[i]!=b[b.size()-1-i])return false;
     }
     return true;
 }
 
-int main() {
+int testMain() {
     int n = 8;
     std::vector<int> pile = make_a_pile(n);
     std::sort(pile.begin(), pile.end());
@@ -25,11 +27,7 @@ int main() {
         *it -= 1;
     }
     
-    if (!issame(make_a_pile(n), {8, 10, 12, 14, 16, 18, 20, 22})) {
-        std::cout << "Test failed" << std::endl;
-    } else {
-        std::cout << "Test passed" << std::endl;
-    }
+    assert(issame(make_a_pile(n), {8, 10, 12, 14, 16, 18, 20, 22}));
     
     return 0;
 }
