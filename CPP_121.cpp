@@ -13,11 +13,8 @@ int solution(std::vector<int> lst) {
 
 int main() {
     assert(solution({3, 13, 2, 9}) == 3);
-    std::vector<int> input;
-    int num;
-    while (std::cin >> num) {
-        input.push_back(num);
-    }
-    std::cout << solution(input) << std::endl;
+    std::vector<int> lst = {1, 2, 3};
+    int result = solution(lst);
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
