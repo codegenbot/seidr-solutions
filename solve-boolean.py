@@ -9,7 +9,7 @@ def solve_boolean(expression):
                 left, middle, right = expression.split('&')
                 expression = middle.replace('|', ' & |') + '&' + right
             else:
-                if '&' in expression:
+                if '&':
                     left, right = expression.split('&')
                     expression = str(solve_boolean(left)) + ' & ' + str(solve_boolean(right))
                 else:
