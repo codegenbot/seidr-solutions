@@ -18,11 +18,3 @@ string int_to_mini_roman(int number) {
     }
     return roman;
 }
-
-int main() {
-    cout << "Enter a number: ";
-    int num;
-    cin >> num;
-    cout << "The Roman numeral is: " << int_to_mini_roman(num);
-    return 0;
-}
