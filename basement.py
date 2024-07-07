@@ -3,7 +3,7 @@ def basement(vector):
     for i in range(len(vector)):
         total += vector[i]
         if total < 0:
-            return i + 1 
+            return i + 1
     return -1
 
 vector = [int(x) for x in input().split()]
