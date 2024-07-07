@@ -1,4 +1,3 @@
-#include <string>
 bool solveBoolean(string s) {
     bool result = true;
     for (char c : s) {
@@ -12,9 +11,7 @@ bool solveBoolean(string s) {
             while (!result && s.size() > 1 && s.back() == '|') {
                 s.pop_back();
             }
-        } else if (c == 'T') {
-            return result;
         }
     }
-    return std::to_string(result);
+    return result;
 }
