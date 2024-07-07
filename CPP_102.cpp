@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <cctype>
 #include <string>
 
 int choose_num(int x, int y) {
@@ -14,11 +15,10 @@ int choose_num(int x, int y) {
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter two numbers (separated by a space): ";
-    std::getline(std::cin, str);
-    int x = stoi(str.substr(0, str.find(' ')));
-    int y = stoi(str.substr(str.find(' ') + 1));
+    std::string input;
+    std::cin >> input;
+    int x = std::stoi(input.substr(0, input.find(' ')));
+    int y = std::stoi(input.substr(input.find(' ') + 1));
     int result = choose_num(x, y);
     std::cout << "Result: " << result << std::endl;
     return 0;

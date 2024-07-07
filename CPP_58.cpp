@@ -2,8 +2,8 @@
 #include <set>
 #include <algorithm>
 #include <initializer_list>
-#include <iostream> 
 using namespace std;
+using std::initializer_list;
 
 bool same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -26,40 +26,44 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     return intersection;
 }
 
-vector<int> l1;
-int n1;
-cout << "Enter the number of elements in list 1: ";
-cin >> n1;
-for(int i = 0; i < n1; i++) {
-    int x;
-    cout << "Enter element " << i + 1 << ": ";
-    cin >> x;
-    l1.push_back(x);
-}
-
-vector<int> l2;
-int n2;
-cout << "Enter the number of elements in list 2: ";
-cin >> n2;
-for(int i = 0; i < n2; i++) {
-    int x;
-    cout << "Enter element " << i + 1 << ": ";
-    cin >> x;
-    l2.push_back(x);
-}
-
-if(same(l1, l2)) {
-    cout << "The two lists are the same." << endl;
-} else {
-    cout << "The two lists are different." << endl;
-}
-
-vector<int> intersection = common(l1, l2);
-if(intersection.size() != 0) {
-    for(int i = 0; i < intersection.size(); i++) {
-        cout << intersection[i] << " ";
+int main() {
+    vector<int> l1;
+    int n1;
+    cout << "Enter the number of elements in list 1: ";
+    cin >> n1;
+    for(int i = 0; i < n1; i++) {
+        int x;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> x;
+        l1.push_back(x);
     }
-    cout << endl;
-} else {
-    cout << "No common elements." << endl;
+
+    vector<int> l2;
+    int n2;
+    cout << "Enter the number of elements in list 2: ";
+    cin >> n2;
+    for(int i = 0; i < n2; i++) {
+        int x;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> x;
+        l2.push_back(x);
+    }
+
+    if(same(l1, l2)) {
+        cout << "The two lists are the same." << endl;
+    } else {
+        cout << "The two lists are different." << endl;
+    }
+
+    vector<int> intersection = common(l1, l2);
+    if(intersection.size() != 0) {
+        for(int i = 0; i < intersection.size(); i++) {
+            cout << intersection[i] << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "No common elements." << endl;
+    }
+
+    return 0;
 }
