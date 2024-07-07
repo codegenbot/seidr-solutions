@@ -1,11 +1,18 @@
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <string>
 
-string longest(vector<string> strings){
+std::string longest(const std::vector<std::string>& strings) {
     if(strings.empty()) return "";
-    string longest_str = strings[0];
-    for(auto str : strings){
-        if(str.length() > longest_str.length()){
-            longest_str = str;
-        }
+    std::string result = strings[0];
+    for(auto s : strings) {
+        if(s.length() > result.length()) result = s;
     }
-    return longest_str;
+    return result;
+}
+
+int main() {
+    std::vector<std::string> strings = {"apple", "banana", "cherry"};
+    std::cout << longest(strings) << std::endl;
+    return 0;
+}
