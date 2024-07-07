@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 #include <iostream>
 #include <string>
 
@@ -32,4 +34,3 @@ int main() {
         std::cout << "The string is not nested." << std::endl;
     }
     return 0;
-}
