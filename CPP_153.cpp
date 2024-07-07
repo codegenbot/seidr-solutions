@@ -1,23 +1,10 @@
-#include <iostream>
+```cpp
 #include <string>
 #include <vector>
 
-int main() {
-    string class_name;
-    vector<string> extensions;
-
-    // Read input from user
-    cin >> class_name;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        string extension;
-        cin >> extension;
-        extensions.push_back(extension);
-    }
-
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int strongest_strength = 0;
-    string strongest_extension;
+    std::string strongest_extension;
 
     for (const auto& extension : extensions) {
         int cap = count(extension.begin(), extension.end(), toupper);
@@ -30,7 +17,12 @@ int main() {
         }
     }
 
-    cout << class_name + "." + strongest_extension << endl;
+    return class_name + "." + strongest_extension;
+}
 
+int main(){
+    std::string class_name = "MyClass";
+    std::vector<std::string> extensions = {"cpp", "java", "python"};
+    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
     return 0;
 }
