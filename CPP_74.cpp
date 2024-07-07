@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <limits>
 
 bool same(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
     if (b.size() == 0) return true;
@@ -22,7 +22,7 @@ int main() {
     std::cin >> n;
 
     std::vector<std::vector<std::string>> vec1;
-    std::vector<std::vector<std::string>> vec2(std::vector<std::vector<std::string>>({}));
+    std::vector<std::vector<std::string>> vec2(std::vector<std::vector<std::string>>());
 
     for (int i = 0; i < n; ++i) {
         int m;
