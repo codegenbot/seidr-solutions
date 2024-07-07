@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -12,11 +11,9 @@ int closest_integer(double num) {
 }
 
 int main() {
-    std::string str;
+    int num;
     std::cout << "Enter a number: ";
-    getline(std::cin, str);
-    str = std::to_string(stoi(str)); 
-    int num = stoi(str); 
+    std::cin >> num; 
     std::cout << "The closest integer is: " << closest_integer((double)num) << std::endl;
     assert(closest_integer(0.5) == 0);
 }
