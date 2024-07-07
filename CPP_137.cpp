@@ -1,5 +1,7 @@
 #include <limits>
 #include <iostream>
+#include <string>
+#include <algorithm>
 
 bool isGreaterThanOrEqualTo(double d1) {
     return d1 >= 0.0;
