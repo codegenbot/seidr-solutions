@@ -1,7 +1,5 @@
-```cpp
 #include <algorithm>
 #include <string>
-#include <cassert>
 
 std::string anti_shuffle(std::string s) {
     std::string result = "";
@@ -10,8 +8,10 @@ std::string anti_shuffle(std::string s) {
             result += " ";
         } else {
             std::string word;
-            for (int j = i; j < s.length() && s[j] != ' '; j++) {
+            int j = i;
+            while (j < s.length() && s[j] != ' ') {
                 word += s[j];
+                j++;
             }
             sort(word.begin(), word.end());
             result += word;
