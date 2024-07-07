@@ -1,44 +1,23 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prevPos = 0;
-    
+    size_t pos = 0;
     while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(prevPos, pos - prevPos));
-        prevPos = pos + 1;
+        result.push_back(txt.substr(0, pos));
+        txt.erase(0, pos + 1);
     }
-    
-    if (prevPos < txt.length()) {
-        result.push_back(txt.substr(prevPos));
-    } else {
-        int count = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                count++;
-                if ((count - 1) % 2 == 0) {
-                    break;
-                }
-            }
-        }
-        result.push_back(to_string(count));
+    if (txt.empty()) {
+        return result;
     }
-    
-    return result;
+    result.push_back(txt);
+    return result.size() == 1 ? vector<string>{to_string(count_lowercase_odd_order(txt))} : result;
 }
 
-int main() {
-    string txt;
-    cout << "Enter a string: ";
-    getline(cin, txt);
-    vector<string> result = split_words(txt);
-    for (string s : result) {
-        cout << s << endl;
+int count_lowercase_odd_order(string s) {
+    int count = 0;
+    for (char c : s) {
+        if (islower(c) && (c - 'a') % 2 != 0) {
+            count++;
+        }
     }
-    return 0;
+    return count;
 }
