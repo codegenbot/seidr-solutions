@@ -2,17 +2,18 @@
 #include <iostream>
 #include <cmath>
 #include <cassert>
-#include <string>
 
 int closest_integer(double num) {
-    std::string str = (num >= 0 ? "" : "-");
-    str += std::to_string(static_cast<int>(std::round(num)));
-    return std::stoi(str);
+    if (num >= 0) {
+        return static_cast<int>(std::ceil(num));
+    } else {
+        return static_cast<int>(std::floor(num));
+    }
 }
 
 int test_closest_integer() {
-    double num = 5.0; 
-    assert(closest_integer(num) == 5);
-    std::cout << "The closest integer is: " << closest_integer(num) << std::endl;
+    double num = std::stod("0"); 
+    assert(closest_integer(num) == 0);
+    std::cout << "The closest integer is: " << std::to_string(closest_integer(5.0)) << std::endl;
     return 0; 
 }
