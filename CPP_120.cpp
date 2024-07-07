@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool compareVectors(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -29,10 +29,10 @@ int main() {
     std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
     int k = 4;
     if (arr.size() == 0) {
-        return 0; // Exit successfully
+        return 1;
     }
-    if (!compareVectors(maximum(arr, k), std::vector<int>({0, 243, -23, 3}))) {
-        return 1; // Return error code
+    if (!issame(maximum(arr, k), std::vector<int>({0, 243, -23, 3}))) {
+        return 1;
     }
     return 0;
 }
