@@ -1,7 +1,7 @@
-```
 #include <vector>
 #include <cmath>
 
+namespace {
 std::vector<float> calculate_derivative(std::vector<float> a) {
     std::vector<float> result;
     for (int i = 1; i < a.size() - 1; ++i) {
@@ -18,7 +18,9 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-bool main() {
+} // namespace
+
+int main() {
     std::vector<float> derivative_input = {1};
     std::vector<float> expected_output = {};
     assert(issame(calculate_derivative(derivative_input), expected_output));
