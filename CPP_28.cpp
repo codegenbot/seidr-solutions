@@ -1,4 +1,4 @@
-int main
+int main()
 {
     vector<string> strings;
     string userInput;
