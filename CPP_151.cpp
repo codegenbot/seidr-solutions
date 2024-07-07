@@ -25,7 +25,7 @@ void calculateOddSums(std::vector<double> lst) {
     std::cout << "Average of odd numbers: " << average << std::endl;
 }
 
-int main() {
+void calculateAndPrint() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -36,15 +36,17 @@ int main() {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
 
-        if (num > 0.0 && std::fmod(num,2.0) != 0.0 && num >= 0.0) { 
-            if(std::sqrt(num) > 0.0)
-                lst.push_back(std::sqrt(num));
+        if (num >= 0.0 && std::fmod(num,2.0) != 0.0) { 
+            lst.push_back(std::sqrt(num));
         }
     }
 
     double odd_sum = double_the_difference(lst);
 
     calculateOddSums(lst);
+}
 
+int main() {
+    calculateAndPrint();
     return 0;
 }
