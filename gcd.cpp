@@ -1,38 +1,41 @@
 #include <vector>
+#include <string>
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int length = target.length();
-    for (int i = 0; i <= text.length() - length; i++) {
-        if (text.substr(i, length) == target) {
-            result.push_back(i);
-            while ((i + length) < text.length() && text.substr(i, length) == target) {
-                i += length;
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int targetLength = target.length();
+    for(int i = 0; i <= text.length() - targetLength; i++) {
+        bool found = true;
+        for(int j = 0; j < targetLength; j++) {
+            if(text[i+j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if(found) {
+            indices.push_back(i);
+            for(int k = i + targetLength; k <= text.length() - targetLength; k += targetLength) {
+                found = true;
+                for(int j = 0; j < targetLength; j++) {
+                    if(text[k+j] != target[j]) {
+                        found = false;
+                        break;
+                    }
+                }
+                if(found) {
+                    indices.push_back(k);
+                } else {
+                    break;
+                }
             }
         }
     }
-    return result;
+    return indices;
 }
 
 int gcd(int a, int b) {
-    if (b == 0)
+    if(b == 0)
         return a;
-    else
-        return gcd(b, a % b);
-}
-
-int main() {
-    int num1, num2;
-    cin >> num1 >> num2;
-
-    // for the problem "Indices of Substring"
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = indicesOfSubstring(text, target);
-
-    // for the problem "GCD"
-    cout << gcd(num1, num2) << endl;
-
-    return 0;
+    return gcd(b, a % b);
 }
