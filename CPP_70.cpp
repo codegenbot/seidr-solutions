@@ -1,4 +1,3 @@
-```cpp
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     if (lst.empty()) return result;
