@@ -2,22 +2,10 @@
 #include <iostream>
 #include <vector>
 
-double vector_distance(const std::vector<float>& v1, const std::vector<float>& v2) {
+double vectorDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
     double distance = 0;
     for (int i = 0; i < v1.size(); ++i) {
         distance += pow(v1[i] - v2[i], 2);
     }
     return sqrt(distance);
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<float> v1(n), v2(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> v1[i] >> v2[i];
-    }
-    double distance = vector_distance(v1, v2);
-    std::cout << "The Euclidean distance between the two vectors is: " << distance << std::endl;
-    return 0;
 }
