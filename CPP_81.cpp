@@ -47,7 +47,8 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 int main() {
     vector<float> fgrades = {0, 0.7};
     vector<string> grades = numerical_letter_grade(fgrades);
-    if (!issame(grades, {"E", "D-" }))
+    vector<string> b = {"E", "D-" };  
+    if (!issame(grades, b))
         cout << "Test failed" << endl;
     else
         cout << "Test passed" << endl;
