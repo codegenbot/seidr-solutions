@@ -1,4 +1,3 @@
-```
 def luhn(card_number):
     card_number = list(map(int, str(card_number)[1:]))
     result = 0
