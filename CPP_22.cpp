@@ -1,7 +1,15 @@
-vector<int> filter_integers(list_any values) {
+#include<vector>
+#include<string>
+#include<boost/any.hpp>
+#include<list>
+typedef std::list<boost::any> list_any;
+using namespace std;
+
+vector<int> filter_integers(list_any values){
     vector<int> result;
-    for (const auto& value : values) {
-        if (boost::any_cast<boost::optional<int>>(value)) {
+    for(auto value : values) {
+        if(is_convertible<decltype(value), int>()) {
+            boost::any_cast<int>(value);
             result.push_back(boost::any_cast<int>(value));
         }
     }
