@@ -1,5 +1,8 @@
+Here is the completed code:
+
 vector<string> reverse_delete(string s, string c) {
-    string result = "";
+    vector<string> result;
+    string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -9,13 +12,17 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            result += ch;
+            temp += ch;
         }
     }
-    string rev = result;
-    reverse(rev.begin(), rev.end());
-    vector<string> res;
-    res.push_back(result);
-    res.push_back(to_string(result == rev));
-    return res;
+    result.push_back(temp);
+    string rev = "";
+    for (int i = temp.length() - 1; i >= 0; i--) {
+        rev += temp[i];
+    }
+    if (temp == rev)
+        result.push_back("True");
+    else
+        result.push_back("False");
+    return result;
 }
