@@ -1,5 +1,5 @@
+```cpp
 #include <string>
-#include <iostream>
 
 std::string decode(std::string cipher, std::string mapping) {
     std::string result = "";
@@ -16,8 +16,12 @@ std::string decode(std::string cipher, std::string mapping) {
 }
 
 int main() {
-    std::string cipher = "Hello";  // sample input
-    std::string mapping = "abcdefghijklmnopqrstuvwxyz";  // sample input
-    std::cout << decode(cipher, mapping) << std::endl;  // execute the function
+    // input
+    std::string cipher, mapping, msg;
+    cin >> cipher >> mapping >> msg;
+
+    // call decode function
+    std::cout << decode(cipher, mapping) << endl;
+
     return 0;
 }
