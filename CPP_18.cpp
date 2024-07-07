@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -15,13 +16,10 @@ int how_many_times(string str, string substring) {
 
 int main() {
     string str, substring;
-    cout << "Enter the substring: ";
-    string temp;
-    getline(cin, temp);
-    substring = temp;
-
     cout << "Enter the string: ";
     getline(cin, str);
+    cout << "Enter the substring: ";
+    getline(cin, substring);
     int result = how_many_times(str, substring);
     cout << "The substring appears " << result << " times." << endl;
     return 0;
