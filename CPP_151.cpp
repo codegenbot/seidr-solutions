@@ -1,5 +1,5 @@
 int main() {
-    vector<float> lst = {1.0f, 2.5f, -3.0f, 4.25f};
+    vector<float> lst = {1.0f, 2.5f, 3.0f, 4.0f, -1.0f};
     float odd_sum = 0;
     assert(double_the_difference(lst) == odd_sum);
 }
