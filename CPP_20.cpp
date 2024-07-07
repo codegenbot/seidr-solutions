@@ -1,9 +1,7 @@
-```cpp
 #include <algorithm>
 #include <numeric>
 #include <cmath>
 #include <limits>
-#include <vector>
 #include <initializer_list>
 using namespace std;
 
