@@ -1,5 +1,4 @@
-#include <string>
-#include <vector>
+using namespace std;
 
 int mastermind(string code, string guess) {
     int white = 0;
@@ -32,3 +31,4 @@ int mastermind(string code, string guess) {
     white = 4 - black;
 
     return black;
+}
