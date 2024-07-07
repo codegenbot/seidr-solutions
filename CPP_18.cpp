@@ -13,7 +13,7 @@ int how_many_times(string str, string substring) {
     return count;
 }
 
-int main() { 
+int original_main() { 
     string str;
     cout << "Enter the string: ";
     getline(cin, str);
@@ -30,5 +30,10 @@ int main() {
         int result = how_many_times(str, substring);
         cout << "The substring appears " << result << " times." << endl;
     }
+    return 0;
+}
+
+int main() { 
+    original_main();
     return 0;
 }
