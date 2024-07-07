@@ -1,23 +1,66 @@
-```
-if (a.type() == boost::any::typeless_type) {
-    if (b.type() == boost::any::typeless_type) {
+if (a.type() == typeid(int) && b.type() == typeid(int)) {
+    int x = boost::any_cast<int>(a);
+    int y = boost::any_cast<int>(b);
+    if (x > y)
+        return a;
+    else if (y > x)
+        return b;
+    else
         return "None";
-    }
-    else if (boost::any_cast<double>(b) > boost::any_cast<double>(a)) {
-        return b;
-    }
-    else {
+} else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+    float x = boost::any_cast<float>(a);
+    float y = boost::any_cast<float>(b);
+    if (x > y)
         return a;
-    }
-}
-else if (b.type() == boost::any::typeless_type) {
-    return (boost::any_cast<double>(a) > boost::any_cast<double>(b)) ? a : b;
-}
-else {
-    if (boost::any_cast<string>(a) > boost::any_cast<string>(b)) {
-        return a;
-    }
-    else {
+    else if (y > x)
         return b;
-    }
+    else
+        return "None";
+} else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+    string x = boost::any_cast<string>(a);
+    string y = boost::any_cast<string>(b);
+    if (x > y)
+        return a;
+    else if (y > x)
+        return b;
+    else
+        return "None";
+} else if (a.type() == typeid(int) && b.type() == typeid(float)) {
+    int x = boost::any_cast<int>(a);
+    float y = boost::any_cast<float>(b);
+    if (x > y)
+        return a;
+    else if (y > x)
+        return b;
+    else
+        return "None";
+} else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+    int x = boost::any_cast<int>(a);
+    string y = boost::any_cast<string>(b);
+    if (x > stof(y))
+        return a;
+    else if (stof(y) > x)
+        return b;
+    else
+        return "None";
+} else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+    float x = boost::any_cast<float>(a);
+    string y = boost::any_cast<string>(b);
+    if (x > stof(y))
+        return a;
+    else if (stof(y) > x)
+        return b;
+    else
+        return "None";
+} else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+    string x = boost::any_cast<string>(a);
+    float y = boost::any_cast<float>(b);
+    if (stof(x) > y)
+        return a;
+    else if (y > stof(x))
+        return b;
+    else
+        return "None";
+} else {
+    return "None";
 }
