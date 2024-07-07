@@ -1,7 +1,7 @@
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float grade : grades) {
-        string letter_grade;
+        string letter_grade = "";
         if (grade >= 4.0)
             letter_grade = "A+";
         else if (grade > 3.7)
