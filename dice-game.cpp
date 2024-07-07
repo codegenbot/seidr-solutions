@@ -1,6 +1,9 @@
+```
 double getProbability(int n, int m) {
-    double total = (double)n * m;
-    int sum1 = 0;
-    for (int i = 1; i < n; i++) sum1 += 1;
-    return (double)sum1 / total;
+    double total = (double)(n * m);
+    double probability = 0;
+    for(int i=1; i<n; i++) {
+        probability += (double)(n-i+1)/total;
+    }
+    return probability;
 }
