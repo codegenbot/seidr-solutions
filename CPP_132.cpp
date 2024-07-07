@@ -1,28 +1,22 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+#include <string>
 
-bool is_nested(string str) {
-    int count_open = 0, count_close = 0;
-    
+bool is_nested(std::string str) {
+    int count = 0;
     for (char c : str) {
         if (c == '[') {
-            count_open++;
-            count_close = 0;
+            count++;
         } else if (c == ']') {
-            count_close++;
-            if (count_open > count_close)
-                return true;
-            if (count_close > count_open)
+            if (count > 0) {
+                count--;
+            } else {
                 return false;
+            }
         }
     }
-    
-    return false;
+    return count > 0;
 }
 
 int main() {
-    assert(is_nested("]]]]]]]]") == false);
-    cout << "Success!" << endl;
+    assert(is_nested("]]]]]]]])" == false);
     return 0;
 }
