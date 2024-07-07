@@ -1,9 +1,4 @@
-```cpp
-#include <vector>
-#include <algorithm>
-#include <initializer_list>
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool check_same(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -33,7 +28,7 @@ int main() {
             v2.push_back(num);
         }
     }
-    if (!issame(v1, v2)) {
+    if (!check_same(v1, v2)) {
         std::cout << "The two sets of numbers are not the same.\n";
     } else {
         std::cout << "The two sets of numbers are the same.\n";
