@@ -41,3 +41,4 @@ int main() {
     if (!issame({reverse_delete("mamma", "mia")[0], reverse_delete("mamma", "mia")[1]}, expected))
         return 1;
     return 0;
+}
