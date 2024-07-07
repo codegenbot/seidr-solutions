@@ -5,6 +5,6 @@ def solve_boolean(expression):
     while '|' in expression:
         pos = expression.index('|')
         left, right = expression[:pos], expression[pos+1:]
-        expression = str(bool(eval(left))) + ' & ' + str(bool(eval(right)))
+        expression = str(bool(eval(left.replace('&', 'and').replace('|', 'or')))) + ' & ' + str(bool(eval(right.replace('&', 'and').replace('|', 'or'))))
     
     return eval(expression)
