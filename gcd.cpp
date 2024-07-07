@@ -33,7 +33,6 @@ int main() {
     vector<int> result = indicesOfSubstring(text, target);
 
     cout << std::endl;
-    cout << gcd(num1, num2) << std::endl;
-
+    cout << gcd(num1, num2) << endl;
     return 0;
 }
