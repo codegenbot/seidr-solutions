@@ -22,9 +22,9 @@ int main() {
         std::cin >> q[i];
     }
     if (will_it_fly(q, w)) {
-        std::cout << "YES" << std::endl;
+        std::cout << "Yes" << std::endl;
     } else {
-        std::cout << "NO" << std::endl;
+        std::cout << "No" << std::endl;
     }
     return 0;
 }
