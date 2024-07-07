@@ -10,8 +10,13 @@ int max_fill(vector<vector<int>> grid, int capacity) {
         }
     }
 
-    int max_bucket_fill = total_water / capacity;
+    int buckets_needed = total_water / capacity;
     int remaining_water = total_water % capacity;
 
-    return rows * max_bucket_fill + max(remaining_water, capacity);
+    while (remaining_water > 0) {
+        buckets_needed++;
+        remaining_water -= capacity;
+    }
+
+    return buckets_needed;
 }
