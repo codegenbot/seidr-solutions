@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -6,15 +5,18 @@ using namespace std;
 
 vector<int> unique(vector<int> l) {
     vector<int> result(l.begin(), unique_copy(l.begin(), l.end()));
-    sort(result.begin(), result.end());
     return result;
 }
 
-int main() {
-    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> output = unique(input);
-    for (auto i : output) {
-        cout << i << " ";
+vector<int>::iterator unique_copy(iterator first, iterator last) {
+    if (first == last)
+        return first;
+    
+    sort(first, last);
+    auto it = first;
+    for (++it; it != last; ++it) {
+        if (*it != *(it - 1))
+            *first++ = *it;
     }
-    return 0;
+    return ++first;
 }
