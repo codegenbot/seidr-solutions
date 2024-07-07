@@ -1,13 +1,8 @@
 #include <vector>
 #include <climits>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    // Your comparison logic here
-}
-
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
-    
     if (arr.empty()) {
         result.push_back(INT_MAX);
         result.push_back(-1);
@@ -27,6 +22,10 @@ std::vector<int> pluck(std::vector<int> arr) {
     result.push_back(index);
 
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // Your comparison logic here
 }
 
 int main() {
