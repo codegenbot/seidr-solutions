@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-typedef vector<int>::size_type size_type;
+typedef vector<int>::size_type my_size_type;
 
 bool same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
