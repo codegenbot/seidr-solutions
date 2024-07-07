@@ -5,8 +5,8 @@ bool any_int(float a, float b, float c) {
     int bi = (int)b;
     int ci = (int)c;
 
-    if ((ai == bi + ci) || (bi == ai + ci) || (ci == ai + bi)) {
-        return true;
-    }
-    return false;
+    if(a == ai && b == bi && c == ci)
+        return (a == bi + ci || a == ci + bi);
+    else
+        return false;
 }
