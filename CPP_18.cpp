@@ -1,5 +1,3 @@
-```cpp
-#include <string>
 #include <iostream>
 
 int how_many_times(std::string str, std::string substring) {
@@ -16,11 +14,19 @@ int how_many_times(std::string str, std::string substring) {
 int main() { 
     std::string str;
     std::cout << "Enter the string: ";
-    std::getline(std::cin, str);
+    if (!(std::cin >> str).fail()) {
+        std::getline(std::cin, str);
+    } else {
+        std::cout << "Error: The input is invalid." << std::endl;
+    }
 
     std::string substring;
     std::cout << "Enter substring: ";
-    std::getline(std::cin, substring);
+    if (!(std::cin >> substring).fail()) {
+        std::getline(std::cin, substring);
+    } else {
+        std::cout << "Error: The input is invalid." << std::endl;
+    }
     
     if (str.empty()) {
         std::cout << "Error: The input string is empty." << std::endl;
