@@ -1,5 +1,6 @@
-#include <vector>
 #include <algorithm>
+#include <assert.h>
+#include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
     return a.size() == b.size() && a == b;
@@ -14,7 +15,7 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
-    assert(issame(remove_duplicates(numbers), vector<int>({1, 2, 3, 4, 5})));
+    std::vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
+    assert(issame(remove_duplicates(numbers), std::vector<int>({1, 2, 3, 4, 5})));
     return 0;
 }
