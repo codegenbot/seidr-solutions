@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 
 int choose_num(int x, int y) {
