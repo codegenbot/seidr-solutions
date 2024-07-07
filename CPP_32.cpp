@@ -25,12 +25,11 @@ int main() {
 
     for (int i = 0; ; i++) {
         if (i % 2 == 1) break;
-        double temp;
         std::cin >> temp;
         coeffs.push_back(temp);
     }
 
-    double solution = find_zero(coeffs);
-    assert(abs(poly(coeffs, solution)) < 1e-3);
+    double root = find_zero(coeffs);
+    assert(abs(poly(coeffs, root)) < 1e-3);
     return 0;
 }
