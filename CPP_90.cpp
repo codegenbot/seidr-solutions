@@ -1,10 +1,3 @@
-Here is the completed code:
-
-vector<int> next_smallest(vector<int> lst){
-    if(lst.size() < 2) return vector<int>();
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for(int i=0; i<sorted.size()-1; i++){
-        if(sorted[i] != sorted[i+1]) return vector<int>({sorted[i]});
-    }
-    return vector<int>();
+vector<int>::iterator it = unique(lst.begin(), lst.end());
+if(it == lst.begin() || lst.size() <= 1) return -1;
+return *(it-1);
