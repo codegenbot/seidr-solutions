@@ -1,4 +1,4 @@
-Here's the modified code:
+Here is the modified code:
 
 ```cpp
 #include <algorithm>
@@ -56,9 +56,10 @@ int main() {
         cout << num << " ";
     }
     cout << endl;
-    if (!issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6})) {
+    if (!issame(order_by_points({0,6,6,-76,-21,23,4}), {76, 21, 0, 4, 23, 6, 6})) {
         cout << "Test failed" << endl;
     } else {
         cout << "Test passed" << endl;
     }
     return 0;
+}

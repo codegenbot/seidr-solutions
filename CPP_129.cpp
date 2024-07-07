@@ -1,9 +1,26 @@
+```
 #include <iostream>
 #include <vector>
 #include <queue>
 
-std::vector<std::vector<int>> grid;
-int k;
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
+bool compare(const std::vector<int>& a, const std::vector<int>& b);
+
+struct pair_int {
+    int val;
+    int i;
+    int j;
+
+    pair_int() : val(0), i(-1), j(-1) {}
+};
+
+bool operator>(const pair_int &a, const pair_int &b) {
+    return a.val > b.val;
+}
+
+bool compare(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
+}
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
@@ -50,8 +67,8 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
 
 int main() 
 {
-    grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    k = 3;
+    std::vector<std::vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
 
     std::vector<int> result = minPath(grid, k);
 
@@ -60,7 +77,7 @@ int main()
     }
     std::cout << std::endl;
     
-    assert(issame({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, minPath({{1, 3}, {3, 2}}, 10)));
+    assert(std::equal(result.begin(), result.end(), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     
     return 0;
 }

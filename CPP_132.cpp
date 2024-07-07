@@ -3,15 +3,15 @@
 #include <string>
 
 bool is_nested(const std::string& str) {
-    int count = 0;
+    size_t count = 0;
     bool isOpeningBracket = false;
-    for (size_t i = 0; i < str.size(); i++) {
-        if (str[i] == '[') {
+    for (auto it = str.begin(); it != str.end(); ++it) {
+        if (*it == '[') {
             if (!isOpeningBracket) {
                 count++;
                 isOpeningBracket = true;
             }
-        } else if (str[i] == ']') {
+        } else if (*it == ']') {
             if (count > 0) {
                 count--;
             } else {
@@ -26,7 +26,7 @@ bool is_nested(const std::string& str) {
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin >> std::ws, input);
+    std::getline(std::cin, input);
     if (is_nested(input)) {
         std::cout << "The string is nested." << std::endl;
     } else {

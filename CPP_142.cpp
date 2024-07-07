@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,8 +13,8 @@ int sum_squares(std::vector<int> lst) {
     return total;
 }
 
-{
-    std::vector<int> inputVector; 
+int main() { 
+    std::vector<int> inputVector(0); 
     int n; 
 
     std::cout << "Enter the number of elements in the vector: ";
