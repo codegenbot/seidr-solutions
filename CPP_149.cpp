@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <sstream>
+#include <iostream>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -20,12 +20,8 @@ vector<string> sorted_list_sum(vector<string> lst) {
         }
     }
     sort(result.begin(), result.end(),
-         [&result](const string& a, const string& b) {
-             stringstream ss1(a), ss2(b);
-             int num1 = 0, num2 = 0;
-             ss1 >> num1;
-             ss2 >> num2;
-             return num1 < num2;
+         [](const string& a, const string& b) {
+             return stol(a) < stol(b);
          });
     return result;
 }
