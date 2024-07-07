@@ -1,29 +1,24 @@
+```cpp
 #include <string>
 
 int bowlingScore(string s) {
     int score = 0;
-    string previousFrame = "";
+    int roll = 0;
     for (char c : s) {
         if (c == '/') {
-            string frame = s.substr(0, s.find('/'));
-            if (frame[0] == 'X') {
-                score += 10 + stoi(previousFrame);
-            } else if (stoi(frame) < 10) {
+            if (roll < 2) {
+                score += 10 - (10 - stoi(s.substr(0, s.find('/'))));
+            }
+            roll = 0;
+        } else if (isdigit(c)) {
+            roll++;
+        } else { // X
+            if (roll == 1) {
                 score += 10;
             } else {
-                score += stoi(frame);
+                score += 10 + (stoi(s.substr(s.find('X') - 1, 2)) - 10);
             }
-            previousFrame = "";
-        } else if (isdigit(c)) {
-            previousFrame += c;
-        } else { // X
-            string frame = s.substr(0, s.find('X'));
-            if (frame[0] == 'X') {
-                score += 10 + stoi(previousFrame);
-            } else {
-                score += 10 + stoi(frame) + stoi(previousFrame);
-            }
-            previousFrame = "";
+            roll = 0;
         }
     }
     return score;
