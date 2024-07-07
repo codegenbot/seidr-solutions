@@ -1,6 +1,6 @@
 #include <vector>
 
-class Main {
+class Solution {
 public:
     int skjkasdkd(vector<int> lst) {
         int maxPrime = 0;
