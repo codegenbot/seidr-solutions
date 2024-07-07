@@ -1,13 +1,13 @@
 Here is the completed code:
 
-long long special_factorial(int n){
-    if(n == 0) return 1;
+long long special_factorial(int n) {
     long long result = 1;
-    for(int i = 1; i <= n; i++){
-        result *= i;
-        for(int j = i-1; j >= 1; j--){
-            result *= j;
+    for (int i = 1; i <= n; ++i) {
+        long long fact = 1;
+        for (int j = 1; j <= i; ++j) {
+            fact *= j;
         }
+        result *= fact;
     }
     return result;
 }
