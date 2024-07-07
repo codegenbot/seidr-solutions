@@ -1,7 +1,10 @@
-```cpp
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool myIssame(vector<int> a, vector<int> b) {
     return a.size() == b.size() && a == b;
 }
 
@@ -10,5 +13,5 @@ vector<int> remove_duplicates(vector<int> numbers) {
     sort(result.begin(), result.end());
     auto it = unique(result.begin(), result.end());
     result.erase(it, result.end()); 
-    return result;
+    return vector<int>(result.begin(), it);
 }
