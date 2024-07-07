@@ -1,14 +1,14 @@
-#include <vector>
 #include <boost/any.hpp>
-#include <list>
+#include <boost/type_index.hpp>
 
-typedef std::list<boost::any> list_any;
-using namespace std;
+bool issame(const boost::any& a, const boost::any& b) {
+    return boost::typeindex::type_id<boost::any>() == boost::typeindex::type_id<decltype(a.type() == b.type())>();
+}
 
-vector<int> filter_integers(list_any values) {
+vector<int> filter_integers(list_any values){
     vector<int> result;
     for (const auto& value : values) {
-        if (is_same(boost::any_cast<void*>(value), int()).value) {
+        if (boost::any_cast<int>(value).type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
