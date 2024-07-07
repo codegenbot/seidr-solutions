@@ -2,7 +2,7 @@
 #include <initializer_list>
 #include <algorithm>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (std::abs(a[i] - b[i]) > 1e-9) return false;
@@ -28,10 +28,9 @@ int main() {
     float maxV1 = get_positive(v1);
     float maxV2 = get_positive(v2);
 
-    std::vector<float> vec1({maxV1});
-    std::vector<float> vec2({0.0f});
+    std::vector<float> vec1, vec2;
 
-    if (!issame(vec1, vec2)) {
+    if (!issame({maxV1}, {0.0f})) {
         std::cout << "The two sets of numbers are not the same.\n";
     } else {
         std::cout << "The two sets of numbers are the same.\n";
