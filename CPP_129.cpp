@@ -76,6 +76,8 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     return res;
 }
 
+#include <queue>
+
 int main() 
 {
     vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
@@ -88,7 +90,7 @@ int main()
     }
     cout << endl;
     
-    assert(issame({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, minPath({{1, 3}, {3, 2}}, 10)));
+    assert(issame({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, minPath({{1, 3},{3,2}},10)));
     
     return 0;
 }
