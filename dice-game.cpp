@@ -1,6 +1,6 @@
 #include <iostream>
-#include <iomanip>
 using namespace std;
+#include <iomanip>
 
 double diceGame(int n, int m) {
     return (double)(n - 1) / (n * m);
