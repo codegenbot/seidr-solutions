@@ -1,6 +1,9 @@
-Here is the solution:
-
 vector<int> maximum(vector<int> arr, int k) {
-    sort(arr.begin(), arr.end());
-    return vector<int>(arr.rbegin(), arr.rbegin() + k);
+    vector<int> result;
+    for (int i = 0; i < k; i++) {
+        int maxNum = *max_element(arr.begin(), arr.end());
+        result.push_back(maxNum);
+        arr.erase(remove(arr.begin(), arr.end(), maxNum), arr.end());
+    }
+    return result;
 }
