@@ -1,8 +1,15 @@
+```cpp
+#include <iostream>
+#include <cassert>
+using namespace std;
+
 string closest_integer(double num) {
     int integer = static_cast<int>(num);
     if (abs(num - integer) > abs(num - (integer + 1))) {
-        return to_string(integer + 1);
+        return to_string(integer + 1).c_str();
     } else {
-        return to_string(integer);
+        return to_string(integer).c_str();
     }
 }
+
+assert(closest_integer(0.0) == "0");
