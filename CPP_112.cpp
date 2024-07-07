@@ -1,9 +1,8 @@
-Here's the modified code:
-
 ```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> &a, std::vector<std::string> &b) {
     if(a.size() != b.size())
@@ -40,7 +39,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
 int main() {
     std::vector<std::string> output = reverse_delete("mamma", "mia");
-    std::vector<std::string> expected = {output[0], (output[1] == "True") ? output[1] : "False"};
+    std::vector<std::string> expected = {output[0], (output[1] == "True") ? "True" : "False"};
     bool same = issame({output[0]}, expected);
     assert(same);
     return 0;
