@@ -13,13 +13,13 @@ int smallest_change(vector<int> arr) {
             if (arr[i] == arr[j]) {
                 dp[i][j] = dp[i + 1][j - 1];
             } else {
-                dp[i][j] = 1 + std::min({dp[i + 1][j], dp[i][j - 1]}, std::min(dp[i + 1][j - 1]));
+                dp[i][j] = 1 + std::min({std::min(dp[i + 1][j], dp[i][j - 1]), dp[i + 1][j - 1]});
             }
         }
     }
     
-    if (dp[0][n - 1] > n) {
-        return "Error: No valid coin change found.";
+    if (dp[0][n - 1] > n / 2) {
+        throw runtime_error("No possible change with the given coins.");
     } else {
         return dp[0][n - 1];
     }
