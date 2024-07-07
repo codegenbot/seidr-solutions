@@ -21,11 +21,11 @@ double find_zero(std::vector<double> xs){
 }
 
 int main() {
-    std::vector<double> coeffs = {};
+    vector<double> coeffs;
 
     for (double &temp; ; ) {
-        std::cin >> temp;
-        if (std::cin.fail()) break;
+        cin >> temp;
+        if (cin.fail()) break;
         coeffs.push_back(temp);
     }
 
