@@ -1,5 +1,8 @@
-string txt;
-cout << "Enter a string: ";
-getline(cin, txt);
+Here is the completed code:
 
-return (txt.size() > 0 && !ispunct(txt.back()) && isalpha(txt.back()));
+bool check_if_last_char_is_a_letter(string txt) {
+    int len = txt.length();
+    if (len == 0) return false;
+    char lastChar = txt[len - 1];
+    return isalpha(lastChar) && !isalnum(lastChar);
+}
