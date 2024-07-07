@@ -1,9 +1,10 @@
-Here is the solution:
-
-int next_smallest(vector<int> lst){
-    vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
+int next_smallest(vector<int> lst) {
+    if (lst.empty()) return -1; // None in C++ sense is often represented as -1
     
-    if(sorted_lst.size() < 2) return -1; // No second smallest number.
-    else return *next(iterate(sorted_lst).drop(1));
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    
+    auto it = prev(unique(sorted).begin());
+    if (distance(sorted.begin(), it) < 2) return -1; // No second smallest element
+    return *(prev(it));
 }
