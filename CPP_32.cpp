@@ -1,12 +1,23 @@
-double find_zero(vector<double> xs){
-    double sum = 0;
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
+
+double poly(vector<double> xs, double x){
+    double sum=0;
     int i;
     for (i=0;i<xs.size();i++)
     {
-        if(i%2==1) // odd power of x, so add to sum
-            sum+=xs[i];
-        else // even power of x, subtract from sum
-            sum-=xs[i];
+        sum+=xs[i]*pow(x,i);
     }
-    return -sum/xs[0]; // find the root by solving poly(x) = 0
+    return sum;
+}
+
+double find_zero(vector<double> xs){
+    if(xs.size() % 2 != 0) return -1; // Check if the number of coefficients is even
+    double x = 1.0;
+    while(abs(poly(xs, x)) > 1e-6){ // Find the root with precision 1e-6
+        x -= poly(xs, x)/poly(vector<double>(xs.begin(), xs.end()), x); // Newton's method
+    }
+    return round(x, 2);
 }
