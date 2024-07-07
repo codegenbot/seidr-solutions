@@ -1,10 +1,6 @@
 #include <algorithm>
 #include <numeric>
-#include <vector>
-
-bool issame(vector<float> a,vector<float>b){
-    return a.size() == b.size() && equal(a.begin(),a.end(),b.begin());
-}
+#include <functional>
 
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
