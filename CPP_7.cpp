@@ -1,23 +1,24 @@
-```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
 bool issame(vector<string> a,vector<string> b){
-    bool result = true;
-    for(string s : a){
-        if(find(b.begin(),b.end(),strtol(s.c_str(),0,10)) == b.end())
-            result = false;
-    }
-    return result;
+    return a==b;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+    std::vector<std::string> result;
     for(string s : strings){
-        transform(s.begin(),s.end(),s.begin(),::tolower);
-        transform(substring.begin(),substring.end(),substring.begin(),::tolower);
         if(s.find(substring) != string::npos)
-            result.push_back(s);
+            result.push_back(toLower(s));
     }
     return result;
+
+}
+
+std::string toLower(const std::string& str){
+    std::string lowerStr = str;
+    std::transform(lowerStr.begin(), lowerStr.end(), lowerStr.begin(),
+                   ::tolower);
+    return lowerStr;
 }
