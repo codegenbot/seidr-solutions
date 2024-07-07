@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -47,7 +48,7 @@ int main() {
         }
     }
 
-    if (!issame(maximum(arr, k), {})) {
+    if (!issame(std::vector<int>(), maximum(arr, k))) {
         std::cout << "Maximum top-k elements: ";
         for (int i = 0; i < k; i++) {
             std::cout << maximum(arr, k)[i] << " ";
