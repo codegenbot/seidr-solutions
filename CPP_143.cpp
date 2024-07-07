@@ -2,38 +2,38 @@
 #include <algorithm>
 
 string words_in_sentence(string sentence) {
-    vector<string> words = split(sentence, ' ');
-    string result;
-    
-    for (const auto& word : words) {
-        if (is_prime(word.length())) {
-            result += word + " ";
+    vector<int> lengths;
+    string result = "";
+
+    for (const auto& word : split(sentence, ' ')) {
+        int length = word.length();
+        bool isPrime = true;
+
+        if (length > 1) {
+            for (int i = 2; i * i <= length; i++) {
+                if (length % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime) {
+                result += word + " ";
+                lengths.push_back(length);
+            }
         }
     }
-    
+
     return result.substr(0, result.size() - 1);
 }
 
-bool is_prime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
-            return false;
-    }
-    return true;
-}
-
 vector<string> split(const string& s, char c) {
-    vector<string> result;
+    vector<string> v;
     size_t pos = 0;
-    size_t prevPos = 0;
-    
-    while ((pos = s.find(c, prevPos)) != string::npos) {
-        result.push_back(s.substr(prevPos, pos - prevPos));
-        prevPos = pos + 1;
+    while ((pos = s.find(c)) != string::npos) {
+        v.push_back(s.substr(0, pos));
+        s = s.substr(pos + 1);
     }
-    
-    result.push_back(s.substr(prevPos));
-    return result;
+    v.push_back(s);
+    return v;
 }
