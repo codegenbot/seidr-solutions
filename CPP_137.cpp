@@ -1,65 +1,51 @@
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any(b);
-    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any(b);
-    } else if (a.type() == typeid(float) && b.type() == typeid(double)) {
-        return boost::any(b);
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        if ((int)a < (int)b) {
-            return b;
-        } else if ((int)a > (int)b) {
-            return a;
-        } else {
-            return boost::any("None");
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return b;
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+
+        bool hasDecimalA = false, hasDecimalB = false;
+
+        for (char c : strA) {
+            if (c == '.' || c == ',') {
+                hasDecimalA = true;
+                break;
+            }
         }
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        if ((float)a < (float)b) {
-            return b;
-        } else if ((float)a > (float)b) {
-            return a;
-        } else {
-            return boost::any("None");
+
+        for (char c : strB) {
+            if (c == '.' || c == ',') {
+                hasDecimalB = true;
+                break;
+            }
         }
-    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        if ((double)a < (double)b) {
-            return b;
-        } else if ((double)a > (double)b) {
+
+        if (hasDecimalA && !hasDecimalB)
             return a;
-        } else {
-            return boost::any("None");
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        if ((int)stoi(a.convert_to<string>()) < (int)b) {
+        else if (!hasDecimalA && hasDecimalB)
             return b;
-        } else if ((int)stoi(a.convert_to<string>()) > (int)b) {
+
+        if (stod(strA) > stod(strB))
             return a;
-        } else {
-            return boost::any("None");
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        if ((float)stod(a.convert_to<string>()) < (float)b) {
+        else if (stod(strA) < stod(strB))
             return b;
-        } else if ((float)stod(a.convert_to<string>()) > (float)b) {
+
+        return boost::any("None");
+    }
+    else {
+        double numA = boost::any_cast<double>(a);
+        double numB = boost::any_cast<double>(b);
+
+        if (numA > numB)
             return a;
-        } else {
-            return boost::any("None");
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        if ((double)stod(a.convert_to<string>()) < (double)b) {
+        else if (numA < numB)
             return b;
-        } else if ((double)stod(a.convert_to<string>()) > (double)b) {
-            return a;
-        } else {
-            return boost::any("None");
-        }
-    } else {
-        if (a.convert_to<int>() > b.convert_to<int>()) {
-            return a;
-        } else if (a.convert_to<int>() < b.convert_to<int>()) {
-            return b;
-        } else {
-            return boost::any("None");
-        }
+
+        return boost::any("None");
     }
 }
