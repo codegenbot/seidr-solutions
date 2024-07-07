@@ -37,14 +37,8 @@ std::vector<float> sort_even(std::vector<float> l) {
     return result;
 }
 
-int main() {
-    std::vector<float> input;
-    float num;
-    std::cout << "Enter numbers separated by spaces: ";
-    while ((std::cin >> num) && std::cin.peek() != '\n') {
-        input.push_back(num);
-    }
-    std::sort(input.begin(), input.end());
+std::vector<float> sort_even(std::vector<float> input) {
+    std::vector<float> result(input.size());
     for (int i = 0; i < input.size(); i++) {
         if (i % 2 == 0) {
             float minVal = input[0];
@@ -53,14 +47,14 @@ int main() {
                     minVal = val;
                 }
             }
-            std::cout << minVal << " ";
+            result[i] = minVal;
         } else {
             int j = i - 1;
-            while (j >= 0 && !issame(input[j], input[i])) {
+            while (j >= 0 && !issame(input[j], result[j])) {
                 --j;
             }
             if (j >= 0) {
-                std::cout << input[j + 1] << " ";
+                result[i] = input[j + 1];
             } else {
                 float minVal = input[0];
                 for (float val : input) {
@@ -68,9 +62,25 @@ int main() {
                         minVal = val;
                     }
                 }
-                std::cout << minVal << " ";
+                result[i] = minVal;
             }
         }
+    }
+    return result;
+}
+
+int main() {
+    int n;
+    std::vector<float> input;
+    float num;
+    std::cout << "Enter numbers separated by spaces: ";
+    while ((std::cin >> num) && std::cin.peek() != '\n') {
+        input.push_back(num);
+    }
+    std::cin.ignore();
+    std::vector<float> result = sort_even(input);
+    for (float val : result) {
+        std::cout << val << " ";
     }
     return 0;
 }
