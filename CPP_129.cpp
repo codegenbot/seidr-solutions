@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -9,7 +8,7 @@ struct pair_int {
     int i;
     int j;
 
-    pair_int(int v = 0, int ii = -1, int jj = -1) : val(v), i(ii), j(jj) {}
+    pair_int() : val(0), i(-1), j(-1) {}
 };
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
