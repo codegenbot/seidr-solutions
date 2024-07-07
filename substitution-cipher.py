@@ -1,9 +1,4 @@
 def substitution_cipher(cipher_text1, cipher_text2, text):
-    deciphered_text = ""
-    for char in text.lower():
-        if char in cipher_text1:
-            index = cipher_text1.index(char)
-            deciphered_text += cipher_text2[index]
-        else:
-            deciphered_text += char
+    cipher_dict = {char1: char2 for char1, char2 in zip(cipher_text1, cipher_text2)}
+    deciphered_text = "".join([cipher_dict.get(char, char) for char in text])
     return deciphered_text
