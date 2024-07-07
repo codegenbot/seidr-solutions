@@ -44,7 +44,7 @@ int main() {
 
     double odd_sum = double_the_difference(lst);
 
-    calculateOddSums(lst);
+    calculateOddSums(lst); // call the function after calculating the sum
 
     return 0;
 }
