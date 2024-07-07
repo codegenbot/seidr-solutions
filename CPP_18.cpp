@@ -12,7 +12,7 @@ int how_many_times(string str, string substring) {
 
 }
 
-int main() { 
+void mainFunction() { 
     string str, substring;
 
     cout << "Enter the string: ";
@@ -32,5 +32,9 @@ int main() {
         }
     }
 
+}
+
+int main() { 
+    mainFunction();
     return 0;
 }
