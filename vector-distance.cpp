@@ -1,3 +1,4 @@
-int n; 
-scanf("%d", &n); 
+int n;
+cin >> n; 
+
 double* x1 = new double[n], *x2 = new double[n];
