@@ -12,6 +12,6 @@ int closest_integer(string value) {
 int main() {
     string userInput;
     cout << "Enter a number: ";
-    cin >> userInput;
+    getline(cin, userInput);
     cout << "The closest integer is: " << closest_integer(userInput) << endl;
 }
