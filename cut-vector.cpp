@@ -6,12 +6,15 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
     vector<vector<int>> res(2);
-    for (int i = 0; i < n; i++) {
-        if (i == 0 || vec[i] - vec[i-1] >= 0) {
+    for (int i = 0; i < n - 1; i++) {
+        if (abs(vec[i+1] - vec[i]) <= abs(vec[0] - vec[i])) {
             res[0].assign(vec.begin(), vec.begin() + i + 1);
-            res[1].assign(vec.begin() + i, vec.end());
+            res[1].assign(vec.begin() + i + 1, vec.end());
             break;
         }
+    } else {
+        res[0].assign(vec.begin(), vec.end());
+        res[1].clear();
     }
     return res;
 }
