@@ -1,14 +1,15 @@
 #include <openssl/ssl.h>
+#include <openssl/err.h>
 
 string string_to_md5(string text) {
-    if (text.empty()) return "None";
+    if (text.empty()) return "";
 
-    unsigned char md[16];
-    MD5((unsigned char*)text.c_str(), text.size(), md);
+    unsigned char hash[MD5_DIGEST_LENGTH];
+    MD5((const unsigned char*)text.c_str(), text.size(), hash);
 
     stringstream ss;
-    for(int i = 0; i < 16; i++) {
-        ss << setfill('0') << setw(2) << hex << (int)md[i];
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << setfill('0') << setw(2) << hex << (int)hash[i];
     }
 
     return ss.str();
