@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 int count_nums(vector<int> v) {
     int count = 0;
@@ -26,4 +25,3 @@ int count_nums(vector<int> v) {
         }
     }
     return count;
-}
