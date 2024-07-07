@@ -17,13 +17,13 @@ std::string spinWords(std::string sentence) {
             start = i + 1;
         }
     }
-    return result.size() ? result + " " : result;
+    std::cout << result.size() ? std::string(result + " ") : result << std::endl;
 }
 
 int main() {
     std::string input;
     while (std::cin >> input) {
-        std::cout << spinWords(input);
+        spinWords(input);
     }
     return 0;
 }
