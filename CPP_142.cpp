@@ -21,7 +21,7 @@ int main() {
     std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
 
-    for(int i = 0; i < n && i <= 100; ++i) {
+    for(int i = 0; i < n; ++i) {
         int num;
         while(true) {
             std::cout << "Enter element " << i + 1 << ": ";
