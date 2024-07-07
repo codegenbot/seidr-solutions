@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <climits>
+#include <initializer_list>
 
 using namespace std;
 
@@ -19,5 +18,5 @@ vector<int> cutVector(vector<int>& v) {
     vector<int> left(v.begin(), v.begin() + pos);
     vector<int> right(v.begin() + pos, v.end());
 
-    return {left, right};
+    return {left.begin(), left.end()} | | {right.begin(), right.end()};
 }
