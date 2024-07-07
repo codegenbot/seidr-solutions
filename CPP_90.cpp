@@ -15,5 +15,14 @@ int next_smallest(std::vector<int> lst){
 
 int main(){
     assert(next_smallest({-35, 34, 12, -45}) == -35);
-    // Your code here...
+    std::vector<int> input;
+    int n;
+    while(true) {
+        std::cout << "Enter a number (0 to stop): ";
+        std::cin >> n;
+        if(n == 0) break;
+        input.push_back(n);
+    }
+    std::cout << "Next smallest is: " << next_smallest(input) << std::endl;
+    return 0;
 }
