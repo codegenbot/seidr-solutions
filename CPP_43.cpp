@@ -1,13 +1,12 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-bool pairs_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    for (int i = 0; i < s.size(); i++) {
-        int complement = -s[i];
-        if (find(s.begin() + i + 1, s.end(), complement) != s.end()) {
+bool pairs_sum_to_zero(std::vector<int> l) {
+    std::vector<int> copy = l;
+    for (int i = 0; i < copy.size(); i++) {
+        int complement = -copy[i];
+        auto it = std::find(copy.begin(), copy.end(), complement);
+        if (it != copy.end() && *it != copy[i]) {
             return true;
         }
     }
