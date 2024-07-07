@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -10,6 +9,7 @@ int hex_key(std::string num) {
         }
     }
     return count;
+
 }
 
 int main() {
