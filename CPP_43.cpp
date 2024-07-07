@@ -1,13 +1,13 @@
 #include <vector>
-#include <algorithm>
+#include <set>
 
-using namespace std;
-
-bool pairs_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    for (int i = 0; i < s.size(); i++) {
-        int complement = -s[i];
-        if (find(s.begin() + i + 1, s.end(), complement) != s.end()) {
+bool pairs_sum_to_zero(const std::vector<int>& l) {
+    if (l.empty()) return false; // Check for empty vector
+    
+    std::set<int> s(l.rbegin(), l.rend()); 
+    for (int num : s) {
+        int complement = -num;
+        if (s.find(complement) != s.end()) { // Find the complement in the set
             return true;
         }
     }
