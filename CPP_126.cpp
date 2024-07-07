@@ -1,19 +1,15 @@
-Here's the completed code:
+Here is the completed code:
 
-```cpp
-bool is_sorted(vector<int> lst) {
-    for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] <= lst[i - 1]) {
+bool is_sorted(vector<int> lst){
+    for(int i=1; i<lst.size();i++){
+        if(lst[i-1] >= lst[i]){
             return false;
         }
     }
     vector<int>::iterator it;
-    bool has_duplicates = false;
-    for (it = lst.begin() + 1; it != lst.end(); ++it) {
-        if (std::find(it, lst.end(), *it) != lst.end()) {
-            has_duplicates = true;
-            break;
+    for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
+        if(*it > 0 && count(lst.begin(), it, *it) > 1){
+            return false;
         }
     }
-    return !has_duplicates && (lst.size() == 1 || lst[0] < lst[1]);
-}
+    return true;
