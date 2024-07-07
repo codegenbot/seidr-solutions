@@ -3,7 +3,7 @@ int main() {
     cin >> cents;
 
     int pennies = cents / 100;
-    cents %= 100; 
+    cents %= 100; // ensure we have enough cents left
 
     int nickles = cents / 25;
     cents %= 25; 
