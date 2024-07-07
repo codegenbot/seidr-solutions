@@ -40,6 +40,9 @@ int main() {
         if (num > 0.0 && std::floor(num) == num) {  
             lst.push_back(num);  
         }
+        else {
+            continue; 
+        }
     }
 
     double odd_sum = double_the_difference(lst);
