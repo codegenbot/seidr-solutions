@@ -2,19 +2,21 @@
 #include <iostream>
 #include <cassert>
 
-int search() {
-    int n;
-    std::cout << "Enter a positive number: ";
-    std::cin >> n; 
-    if (n >= 0) {
-        return n;
-    } else {
+int search(int n) {
+    if(n < 0)
         return -1;
-    }
+    else
+        return n;
 }
 
 int main() {
-    int num = search();
-    std::cout << "Result of searching: " << num << std::endl;
+    int num;
+    std::cout << "Enter a positive number: ";
+    std::cin >> num; 
+    if (num >= 0) {
+        std::cout << "Result of searching " << num << ": " << search(num) << std::endl;
+    } else {
+        std::cout << "The search function returns -1 for negative numbers." << std::endl;
+    }
     return 0;
 }

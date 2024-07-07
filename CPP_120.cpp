@@ -24,10 +24,12 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-int main() {
+int main()
+{
     std::vector<int> arr = {1, 2, 3, -23, 243, -400, 0};
     int k = 4;
     if (!compare_vectors(maximum(arr, k), {3, -23, 243, 0})) {
         return 1;
     }
     return 0;
+}
