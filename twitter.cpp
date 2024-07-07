@@ -1,4 +1,9 @@
-```cpp
+```c++
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 string validateTweet(string tweet) {
     int charCount = 0;
     for (char c : tweet) {
@@ -13,16 +18,13 @@ string validateTweet(string tweet) {
     if (charCount > 140) {
         return "Too many characters";
     }
-    if (charCount > 0)
-        return "Your tweet has " + to_string(charCount) + " characters";
-    else
-        return "Your tweet is empty!";
+    return "Your tweet has " + to_string(charCount) + " characters";
 }
 
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max()); 
     getline(cin, tweet);
     cout << validateTweet(tweet) << endl;
     return 0;
