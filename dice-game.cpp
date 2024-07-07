@@ -1,17 +1,15 @@
-```cpp
 #include <iostream>
-#include <cmath>
+#include <iomanip>
 
-double getProbability(int n, int m) {
+using namespace std;
+
+double diceGame(int n, int m) {
     double total = (double)n * m;
     return (n - 1) / total;
 }
 
 int main() {
     int n, m;
-    std::cout << "Enter number of sides for Peter's die: ";
-    std::cin >> n;
-    std::cout << "Enter number of sides for Colin's die: ";
-    std::cin >> m;
-    std::cout << "Probability that Peter rolls strictly higher than Colin is: " << getProbability(n, m) << "\n";
-}
+    cin >> n >> m;
+    cout << fixed << setprecision(2) << diceGame(n, m) << endl;
+    return 0;
