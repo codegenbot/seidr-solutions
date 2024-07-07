@@ -1,7 +1,6 @@
-```cpp
 #include <algorithm>
-#include <numeric>
 #include <vector>
+#include <limits>
 
 bool issame(vector<float> a,vector<float>b){
     return (a==b);
