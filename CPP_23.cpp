@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -6,7 +6,7 @@ int str_length(std::string str){
     return str.length();
 }
 
-int start(){
+int main(){
     std::cout << "Enter a string: ";
     std::string input;
     std::getline(std::cin, input);
