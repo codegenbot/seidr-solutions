@@ -1,5 +1,9 @@
-int search(vector<int> lst) {
-    map<int, int> freq;
+```cpp
+#include <vector>
+#include <map>
+
+int search(std::vector<int> lst) {
+    std::map<int, int> freq;
     for (int num : lst) {
         if (freq.find(num) == freq.end()) {
             freq[num] = 1;
@@ -13,4 +17,15 @@ int search(vector<int> lst) {
         }
     }
     return -1;
+}
+
+int main() {
+    std::vector<int> lst = {1, 2, 3, 4, 5};
+    int result = search(lst);
+    if (result != -1) {
+        std::cout << "The first number that appears at least as many times as its value is: " << result << std::endl;
+    } else {
+        std::cout << "No such number found." << std::endl;
+    }
+    return 0;
 }

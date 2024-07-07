@@ -1,16 +1,17 @@
 #include <vector>
 #include <cmath>
 
-std::vector<float> issame(float a, float b) {
-    std::vector<float> result;
-    if (std::abs(a - b) < 0.0001) {
-        result.push_back(a);
-        return result;
-    } else {
-        result.push_back(a);
-        result.push_back(b);
-        return result;
+bool issame(float a, float b) {
+    return std::abs(a - b) < 0.0001;
+}
+
+bool areVectorsEqual(std::vector<float> a, std::vector<float> b) {
+    for (int i = 0; i < a.size(); i++) {
+        if (!issame(a[i], b[i])) {
+            return false;
+        }
     }
+    return true;
 }
 
 std::vector<float> sort_even(std::vector<float> input) {
@@ -45,7 +46,7 @@ std::vector<float> sort_even(std::vector<float> input) {
     return result;
 }
 
-int main() { 
+int mainEntry() {
     int n;
     std::vector<float> input;
     float num;
@@ -58,4 +59,8 @@ int main() {
     for (float val : result) {
         std::cout << val << " ";
     }
+}
+
+int main() {
+    return mainEntry();
 }

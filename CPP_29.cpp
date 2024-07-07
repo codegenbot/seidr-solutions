@@ -12,11 +12,11 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     return result;
 }
 
-bool areEqual(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool are_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a.size() == b.size();
 }
 
 int main() {
-    assert(areEqual(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}) == true);
+    assert(are_same(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}) == true);
     return 0;
 }
