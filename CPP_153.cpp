@@ -1,15 +1,16 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int strongest_strength = 0;
     std::string strongest_extension;
 
     for (const auto& extension : extensions) {
-        int cap = std::count(extension.begin(), extension.end(), std::toupper((char)extension[0]));
+        int cap = std::count(extension.begin(), extension.end(), toupper((char)extension[0]));
         int sm = extension.size() - cap;
-        double strength = static_cast<double>(cap) - sm;
+        double strength = static_cast<double>(cap) / (sm + 1);
 
         if (strength > strongest_strength) {
             strongest_strength = strength;
