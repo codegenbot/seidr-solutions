@@ -20,6 +20,6 @@ int main() {
     for (const auto& str : strings) {
         result += str;
     }
-    cout << "Concatenated string: " << result << endl;
+    cout << "Concatenated string: " << result << "\n";
     return 0;
 }
