@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <vector>
-#include <string>
-#include <algorithm>
-using namespace std;
+Here is the completed code:
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
@@ -15,18 +11,25 @@ vector<string> reverse_delete(string s, string c) {
     
     // Iterate over each character in string s
     for (char ch : s) {
-        // If the character is not in the set of characters in string c, add it to the temporary string
+        // Check if the character is not in set c
         if (c_set.find(ch) == c_set.end()) {
+            // Add the character to the temporary string
             temp += ch;
         }
     }
     
-    // Check if the temporary string is the same when reversed
-    bool is_palindrome = temp == reverse(temp);
+    // Check if the temporary string is palindrome
+    bool is_palindrome = true;
+    for (int i = 0; i < temp.length() / 2; i++) {
+        if (temp[i] != temp[temp.length() - i - 1]) {
+            is_palindrome = false;
+            break;
+        }
+    }
     
     // Add the result string and palindrome check to the vector
     result.push_back(temp);
-    result.push_back(is_palindrome ? "True" : "False");
+    result.push_back((is_palindrome ? "True" : "False"));
     
     return result;
 }
