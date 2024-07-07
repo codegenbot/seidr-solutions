@@ -1,9 +1,6 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
-#include <memory>
-#include <initializer_list>
 
 using namespace std;
 
@@ -52,5 +49,4 @@ vector<string> by_length(vector<int> arr) {
         cout << str << " ";
     }
     cout << "\n";
-    return output;
 }
