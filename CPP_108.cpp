@@ -1,17 +1,17 @@
-int count_nums(vector<int> n) {
+Here is the completed code:
+
+```
+int count_nums(vector<int> nums) {
     int count = 0;
-    for (int num : n) {
-        if (num < 0) {
-            num = -num; // convert to positive
-        }
-        int sum_digits = 0;
-        while (num > 0) {
-            sum_digits += num % 10;
+    for (int num : nums) {
+        int sign = (num < 0) ? -1 : 1;
+        num *= sign;
+        long sum = 0;
+        while (num != 0) {
+            sum += abs(num % 10);
             num /= 10;
         }
-        if (sum_digits > 0) {
-            count++;
-        }
+        if (sum > 0) count++;
     }
     return count;
 }
