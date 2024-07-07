@@ -18,7 +18,7 @@ int main() {
                 cout<<std::to_string(num)<<" ";
                 if(j+1<res[i].size()-1)cout<<",";
             }
-            cout<<"]"<<" ";
+            cout<<"] ";
         }
         if(i < res.size() - 1) cout << "], [";
         else cout << "]";
