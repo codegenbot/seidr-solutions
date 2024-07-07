@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -10,7 +10,6 @@ size_t findPattern(const std::string& input) {
         pos += 9; // The length of the substring "I am bored"
     }
     return count;
-
 }
 
 int main() {
