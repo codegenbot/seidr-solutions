@@ -1,25 +1,24 @@
+```
 def solve_boolean(expression):
-    if "&" not in expression and "|" not in expression:
-        return "T" if expression == "t" else "F"
-    elif "&" in expression and "|" not in expression:
-        parts = expression.split("&")
-        for part in parts:
-            if "T" not in part.strip():
-                return "F"
-        return "T"
-    elif "&" not in expression and "|" in expression:
-        parts = expression.split("|")
-        for part in parts:
-            if "F" not in part.strip():
-                return "T"
-        return "F"
+    if expression == "T":
+        return True
+    elif expression == "F":
+        return False
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return solve_boolean(left) and solve_boolean(right)
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return solve_boolean(left) or solve_boolean(right)
+
+def and_(a, b):
+    if a is False:
+        return False
     else:
-        parts = expression.split("&")[0].split("|")
-        bool_value = solve_boolean("".join(parts))
-        if all(part.strip() == "T" for part in parts):
-            return bool_value
-        elif any(part.strip() == "T" for part in parts):
-            if bool_value == "F":
-                return "T"
-            else:
-                return "F"
+        return b
+
+def or_(a, b):
+    if a is True:
+        return True
+    else:
+        return b
