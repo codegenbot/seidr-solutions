@@ -1,4 +1,4 @@
-#include <cmath>
+```cpp
 bool iscuber(int a){
     int i = 1;
     while (pow(i, 3) <= a) {
@@ -7,10 +7,4 @@ bool iscuber(int a){
         i++;
     }
     return false;
-}
-
-int main() {
-    // Your test case
-    assert(iscuber(1729) == false);
-    return 0;
 }
