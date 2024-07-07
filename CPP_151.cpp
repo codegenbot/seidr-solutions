@@ -3,21 +3,20 @@
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<double> lst) {
-    long long sum = 0;
-    for (double num : lst) {
-        if (num > 0 && std::floor(num) == num) { 
-            if (std::fmod(num, 2.0) != 0.0) { 
-                sum += std::pow(num, 2);
+double double_the_difference(std::vector<double> lst) {
+    return std::accumulate(lst.begin(), lst.end(), 0.0, [](double x, double y) { 
+        if (y > 0 && std::floor(y) == y) { 
+            if (std::fmod(y, 2.0) != 0.0) { 
+                return x + std::pow(y, 2);
             }
         }
-    }
-    return sum;
+        return x;
+    });
 }
 
 int main() {
     std::vector<double> lst = {1.5, 3.0, 4.25, 6.0};
-    long long odd_sum = double_the_difference(lst);
+    double odd_sum = double_the_difference(lst);
 
     return 0;
 }
