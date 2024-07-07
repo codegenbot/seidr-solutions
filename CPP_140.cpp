@@ -1,20 +1,17 @@
-string fix_spaces(string text) {
+#include <string>
+
+string fix_spaces(string text){
     string result = "";
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == ' ') {
-            if (result.length() > 0 && result[result.length()-1] != ' ') {
+    for(int i=0; i<text.length(); i++){
+        if(text[i] == ' '){
+            if(i < text.length() - 1 && text[i+1] == ' '){
+                if(result.length() > 2 || !result.empty()){
+                    result += "-";
+                }
+            } else {
                 result += '_';
             }
-            else if (i < text.length() - 1 && text[i+1] == ' ' && text[i+2] == ' ') {
-                i++;
-                while (i < text.length() && text[i] == ' ') i++;
-                result += '-';
-            }
-            else {
-                result += '_';
-            }
-        } 
-        else {
+        } else {
             result += text[i];
         }
     }
