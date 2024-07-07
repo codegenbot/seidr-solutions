@@ -1,27 +1,32 @@
-```cpp
-#include <vector>
-#include <algorithm>
+vector<int> strangeSort(vector<int> lst) {
+    vector<int> result;
+    if (lst.empty()) return result;
 
-std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    std::vector<int> result;
+    sort(lst.begin(), lst.end());
+    int min = *min_element(lst.begin(), lst.end());
+    int max = *max_element(lst.begin(), lst.end());
+
     while (!lst.empty()) {
-        int min_val = *std::min_element(lst.begin(), lst.end());
-        result.push_back(min_val);
-        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
-        if (!lst.empty()) {
-            int max_val = *std::max_element(lst.begin(), lst.end());
-            result.push_back(max_val);
-            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
+        if (result.size() % 2 == 0) {
+            for (int i = 0; i < lst.size(); ) {
+                if (*min_element(lst.begin() + i, lst.end()) == min) {
+                    result.push_back(*min_element(lst.begin() + i, lst.end()));
+                    lst.erase(std::remove(lst.begin() + i, lst.end(), *min_element(lst.begin() + i, lst.end())), lst.end());
+                    break;
+                }
+                i++;
+            }
+        } else {
+            for (int i = 0; i < lst.size(); ) {
+                if (*max_element(lst.begin() + i, lst.end()) == max) {
+                    result.push_back(*max_element(lst.begin() + i, lst.end()));
+                    lst.erase(std::remove(lst.begin() + i, lst.end(), *max_element(lst.begin() + i, lst.end())), lst.end());
+                    break;
+                }
+                i++;
+            }
         }
     }
+
     return result;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(strange_sort_vector({111111}) , {111111}));
-    return 0;
 }
