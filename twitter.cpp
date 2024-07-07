@@ -1,4 +1,4 @@
-#include <sstream>
+```#include <sstream>
 #include <iostream>
 #include <limits>
 
@@ -27,19 +27,19 @@ int main() {
     cout << "Enter a tweet: ";
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     getline(cin, tweet);
-    
-    size_t firstNotSpace = tweet.find_first_not_of(' ');
-    if (firstNotSpace != string::npos) {
-        tweet.erase(0, firstNotSpace);
+    size_t firstNonSpace = tweet.find_first_not_of(' ');
+    if (firstNonSpace != string::npos) {
+        tweet.erase(0, firstNonSpace); 
     } else {
-        tweet = "";
+        tweet.clear();
     }
     
-    size_t lastNotSpace = tweet.find_last_not_of(" \t\r\n");
-    if (lastNotSpace != string::npos) {
-        tweet.erase(lastNotSpace + 1);
+    size_t lastNonWhiteSpace = tweet.find_last_not_of(" \t\r\n");
+    if (lastNonWhiteSpace != string::npos) {
+        tweet.erase(lastNonWhiteSpace + 1);
+    } else {
+        tweet.clear();
     }
-    
     cout << validateTweet(tweet) << endl;
     return 0;
-}
+}```
