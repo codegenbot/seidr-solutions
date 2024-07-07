@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -20,7 +21,9 @@ int main() {
     std::cout << "Enter the number of elements in the vector: ";
     std::cin >> n;
 
-    for(int i = 0; i <= n; ++i) {
+    inputVector.reserve(n);  // Initialize the vector's capacity
+
+    for(int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
         std::cin >> num;
