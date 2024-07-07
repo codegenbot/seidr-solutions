@@ -12,4 +12,11 @@ bool is_sorted(std::vector<int> lst) {
 
 int main() {
     assert(is_sorted({1, 2, 3, 4}) == true);
+    std::vector<int> test = {5, 4, 3, 2};
+    if (is_sorted(test)) {
+        std::cout << "The vector is sorted." << std::endl;
+    } else {
+        std::cout << "The vector is not sorted." << std::endl;
+    }
+    return 0;
 }
