@@ -1,25 +1,17 @@
-```cpp
-#include <iostream>
-using namespace std;
-
 int main() {
     int cents;
     cin >> cents;
 
-    // Ensure we use all available quarters (no remainder)
-    int quarters = cents / 25;
+    int quarters = min(cents / 25, 999); 
     cents %= 25;
 
-    // Use as many dimes as possible (up to remaining cents)
-    int dimes = cents / 10;
+    int dimes = min(cents / 10, 99); 
     cents %= 10;
 
-    // Use as many nickles as possible (up to remaining cents)
-    int nickles = cents / 5;
+    int nickles = min(cents / 5, 9);
     cents %= 5;
 
-    // Remaining cents are pennies
-    int pennies = cents;
+    int pennies = min(cents, 4);
 
     cout << quarters << endl;
     cout << dimes << endl;
