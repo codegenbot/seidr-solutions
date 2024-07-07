@@ -1,11 +1,8 @@
-int next_smallest(vector<int> lst){
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    if (sorted.size() < 2) return -1; // Return None
-    for (int i = 0; i < sorted.size() - 1; i++) {
-        if (sorted[i] != sorted[i + 1]) {
-            return sorted[i + 1];
-        }
-    }
-    return -1; // Return None
+```cpp
+int next_smallest(vector<int> lst) {
+    if (lst.empty()) return -1; // or any other value that represents None in your language
+    vector<int> copy = lst;
+    sort(copy.begin(), copy.end());
+    int second_smallest = (copy.size() > 1)? copy[1] : -1; 
+    return second_smallest;
 }
