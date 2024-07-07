@@ -4,12 +4,9 @@ using namespace std;
 double probability(int n, int m) {
     double sum = 0;
     for (int i = 1; i <= min(n, m); i++) {
-        sum += (n - i + 1.0) / n;
+        sum += (n - i + 1.0) / n * (m - i + 1);
     }
-    if (m != n)
-        return sum;
-    else
-        return 0.0;
+    return sum;
 }
 
 int main() {
