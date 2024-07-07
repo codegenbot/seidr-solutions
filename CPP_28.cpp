@@ -1,15 +1,6 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
-
-std::string concatenate(const std::vector<std::string>& strings) {
-    std::string result = "";
-    for (const auto& str : strings) {
-        result += str;
-    }
-    return "Concatenated string: " + result + "\n";
-}
 
 int main() {
     std::vector<std::string> strings;
@@ -22,6 +13,10 @@ int main() {
         strings.push_back(input); 
     }
 
-    std::cout << concatenate(strings) << std::endl;
+    std::string result = "";
+    for (const auto& str : strings) {
+        result += str + "\n";
+    }
+    std::cout << "Concatenated string: " << result;
     return 0;
 }
