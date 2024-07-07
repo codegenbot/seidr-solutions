@@ -1,35 +1,10 @@
-```
-#include <algorithm>
-#include <numeric>
-#include <cmath>
-#include <limits>
-#include <initializer_list>
-#include <vector>
-
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
+if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); ++i) {
-        if (abs(a[i] - b[i]) > 1e-9) {
+        if (!std::is_equal(a[i], b[i])) {
             return false;
         }
     }
     return true;
-}
-
-vector<float> find_closest_elements(vector<float> numbers) {
-    sort(numbers.begin(), numbers.end());
-    float minDiff = numeric_limits<float>::max();
-    pair<float, float> closestPair;
-
-    for (int i = 0; i < numbers.size() - 1; ++i) {
-        float diff = numbers[i + 1] - numbers[i];
-        if (diff < minDiff) {
-            minDiff = diff;
-            closestPair = {numbers[i], numbers[i + 1]};
-        }
-    }
-
-    return vector<float>{closestPair.first, closestPair.second};
 }
