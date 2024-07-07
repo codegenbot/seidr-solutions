@@ -1,5 +1,5 @@
+```c++
 #include <vector>
-#include <iostream>
 
 int basementIndex(const std::vector<int>& nums) {
     int sum = 0;
@@ -11,7 +11,7 @@ int basementIndex(const std::vector<int>& nums) {
 }
 
 int main() {
-    std::vector<int> nums = {-1, -2, 3, 4};
+    std::vector<int> nums = {-5, 1, -3, 4, -2};
     int result = basementIndex(nums);
     if (result == -1) std::cout << "No such index exists." << std::endl;
     else std::cout << "The basement index is: " << result << std::endl;
