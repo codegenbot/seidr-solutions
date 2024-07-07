@@ -1,5 +1,5 @@
 #include <vector>
-#include <string> // Include this line for using string
+#include <string> // Include this for std::string
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
