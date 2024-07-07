@@ -1,23 +1,14 @@
-Here is the completed code:
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return result;
 
-vector<int> pluck(vector<int> arr) {
-    int smallestEvenValue = INT_MAX;
-    int smallestIndex = -1;
+    auto it = min_element(arr.begin(), arr.end(),
+        [](int a, int b) { return a % 2 != 0 || b % 2 != 0 || a > b; });
 
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallestEvenValue) {
-            smallestEvenValue = arr[i];
-            smallestIndex = i;
-        }
-    }
+    int smallest_even_value = *it;
+    int index = distance(arr.begin(), it);
 
-    vector<int> result;
-    if (!arr.empty()) {
-        result.push_back(smallestEvenValue);
-        result.push_back(smallestIndex);
-    } else {
-        result = {};
-    }
+    result.push_back({smallest_even_value, index});
 
     return result;
 }
