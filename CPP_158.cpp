@@ -1,9 +1,11 @@
-string find_max(vector<string> words){
-    string result = *min_element(words.begin(), words.end());
-    for (const auto& word : words) {
-        if (word.size() > result.size() || (word.size() == result.size() && unordered_set<char>(word.begin(), word.end()).size() > unordered_set<char>(result.begin(), result.end()).size())) {
-            result = word;
-        }
-    }
-    return result;
-}
+Here is the solution:
+
+string find_max(vector<string> words) {
+    string maxWord = *max_element(words.begin(), words.end(),
+        [&](const string& a, const string& b) {
+            if (a.size() == b.size()) {
+                return a < b;
+            }
+            return a.size() > count(b.begin(), b.end(), unique_copy(b.begin(), b.end()));
+        });
+    return maxWord;
