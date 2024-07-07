@@ -1,14 +1,11 @@
-Here is the completed code:
-
-```cpp
-bool check_if_last_char_is_a_letter(string txt){
+bool check_if_last_char_is_a_letter(string txt) {
     if(txt.empty()) return false;
-    char lastChar = txt.back();
-    bool isLetter = (lastChar >= 'a' && lastChar <= 'z') || (lastChar >= 'A' && lastChar <= 'Z');
-    int i = 0;
-    while(i < txt.length() - 1) {
-        if(txt[i] == ' ') break;
-        i++;
+    string lastChar = txt.substr(txt.length()-1, 1);
+    for(int i=0; i<txt.length(); i++) {
+        if(txt[i] == ' ') {
+            if(i+1 >= txt.length() || !isalpha(txt[i+1])) 
+                return isalpha(lastChar);
+        }
     }
-    return isLetter && (i == txt.length() - 1);
+    return false;
 }
