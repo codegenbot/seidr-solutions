@@ -15,7 +15,7 @@ float get_positive(const std::vector<float>& input) {
     return *std::max_element(input.begin(), input.end());
 }
 
-int main() {
+void myMain() {
     float num;
     std::vector<float> v1, v2;
     while (true) {
@@ -30,5 +30,4 @@ int main() {
     float maxV2 = get_positive(v2);
 
     std::cout << "The two sets of numbers are " << (v1.empty() ? "empty" : (issame(v1, v2) ? "" : "not ")) << " the same.\n";
-    return 0;
 }
