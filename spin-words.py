@@ -4,6 +4,6 @@ def spin_words(s):
     for word in words:
         if len(word) >= 5:
             result.append(word[::-1])
-        else:
+        elif len(word) < 5:
             result.append(word)
     return " ".join(result).rstrip()
