@@ -1,8 +1,9 @@
+```c++
 int main(){
-    int n,m;
+    int n, m;
     cin >> n >> m;
     if(n > m) cout << "-1";
-    else {
+    else{
         int sum = 0;
         for(int i=n; i<=m; i++) sum += i;
         double avg = (double)sum / (m - n + 1);
