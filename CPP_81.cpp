@@ -45,10 +45,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<string> grades = {"0", "0.7"};
-    float a = static_cast<float>(std::stoi(grades[0]));
-    float b = std::stod(grades[1]);
-    vector<float> fgrades = {a, b};
+    vector<float> fgrades = {stof(grades[0]), stof(grades[1])}; 
     assert(issame(numerical_letter_grade(fgrades), {"E", "D-"}));
     return 0;
 }

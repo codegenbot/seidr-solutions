@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <string>
 
 int hex_key(std::string num) {
     int count = 0;
     for (char c : num) {
-        if (std::isxdigit(c)) {
+        if (std::isxdigit(std::toupper(c))) { 
             count++;
         }
     }
