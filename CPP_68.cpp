@@ -36,11 +36,15 @@ int main() {
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        input.push_back(num);
+    if (n > 0) {
+        for (int i = 0; i < n; i++) {
+            int num;
+            std::cout << "Enter element " << i + 1 << ": ";
+            std::cin >> num;
+            input.push_back(num);
+        }
+    } else {
+        // handle the case where n is not positive
     }
 
     // Process the array
