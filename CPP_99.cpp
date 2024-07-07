@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <cmath>
+#include <string>
 
 int closest_integer(double num) {
     if (num >= 0) {
@@ -10,13 +12,10 @@ int closest_integer(double num) {
 }
 
 int main() {
-    int num = 0;
+    std::string input;
     std::cout << "Enter a number: ";
-    std::cin >> num; 
-    if (num != 0) {
-        std::cout << "The closest integer is: " << closest_integer((double)num) << std::endl;
-    } else {
-        std::cout << "The number is zero, so there is no closest integer." << std::endl;
-    }
+    getline(std::cin, input);
+    int num = std::stoi(input); 
+    std::cout << "The closest integer is: " << closest_integer((double)num) << std::endl;
     assert(closest_integer(0.5) == 0);
 }
