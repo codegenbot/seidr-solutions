@@ -8,7 +8,8 @@ def coin_sums(cents):
             cents -= coin
             result[i] += 1
 
-    return result[:2][::-1] + result[2:]
+    return result
+
 
 cents = int(input())
 print(*coin_sums(cents))
