@@ -1,13 +1,16 @@
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = std::stable_partition(lst.begin(), lst.end(),
-        [](const string& s) { return s.size() % 2; });
-    vector<string> result(it, lst.end());
-    std::sort(result.begin(), result.end(),
+    // Remove strings with odd lengths from the vector
+    lst.erase(std::remove_if(lst.begin(), lst.end(),
+        [](const string& s) { return s.length() % 2; }), lst.end());
+    
+    // Sort the remaining strings by length and then alphabetically
+    std::stable_sort(lst.begin(), lst.end(),
         [](const string& a, const string& b) {
-            if (a.size() == b.size()) {
+            if (a.length() == b.length())
                 return a < b;
-            }
-            return a.size() < b.size();
+            else
+                return a.length() < b.length();
         });
-    return result;
+    
+    return lst;
 }
