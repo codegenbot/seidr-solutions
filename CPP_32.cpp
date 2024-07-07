@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -21,11 +21,11 @@ double find_zero(std::vector<double> xs){
 }
 
 int main() {
-    vector<double> coeffs;
+    std::vector<double> coeffs = {};
 
     for (double &temp; ; ) {
-        cin >> temp;
-        if (cin.fail()) break;
+        std::cin >> temp;
+        if (std::cin.fail()) break;
         coeffs.push_back(temp);
     }
 
