@@ -3,14 +3,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i<a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     
@@ -28,7 +20,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
         lst.erase(remove(lst.begin(), lst.end(), max), lst.end()); // Remove maximum value from list
     }
     
-    assert(issame(strange_sort_vector({111111}) , {111111}));
-    
+    assert(vector<int>(strange_sort_vector({111111})) == vector<int>({111111}));
     return result;
 }
