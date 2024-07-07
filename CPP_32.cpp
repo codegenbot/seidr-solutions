@@ -1,28 +1,29 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
 int main() {
-    std::vector<double> coeffs;
-
     int ncoeff; 
-    cout << "Enter the number of coefficients: ";
-    cin >> ncoeff;
+    std::vector<double> coeffs;
+    
+    std::cout << "Enter the number of coefficients: ";
+    std::cin >> ncoeff;
     
     for(int i = 0; i < ncoeff; i++) {
-        cout << "Enter coefficient " << i+1 << ": ";
+        std::cout << "Enter coefficient " << i+1 << ": ";
         double coeff;
-        cin >> coeff;
+        std::cin >> coeff;
         coeffs.push_back(coeff);
     }
     
     double x, y;
-    cout << "Enter the value of x: ";
-    cin >> x;
-
+    std::cout << "Enter the value of x: ";
+    std::cin >> x;
+    
     find_zero(coeffs, ncoeff, x, y);
-
-    cout << "The value of y is: " << y << endl;
-
+    
+    std::cout << "The value of y is: " << y << std::endl;
+    
     return 0;
 }
 
