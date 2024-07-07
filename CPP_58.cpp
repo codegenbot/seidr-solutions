@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <set>
 #include <iostream>
+#include <initializer_list>
 
 bool same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -22,11 +23,8 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
 }
 
 int main() {
-    std::vector<int> l1(4);
-    for(int i=0; i<4; i++) l1[i] = i+1;
-
-    std::vector<int> l2(4);
-    for(int i=0; i<4; i++) l2[i] = i+3;
+    std::vector<int> l1 = {1, 2, 3, 4};
+    std::vector<int> l2 = {3, 4, 5, 6};
 
     std::set<int> set1(l1.begin(), l1.end());
     std::set<int> set2(l2.begin(), l2.end());
