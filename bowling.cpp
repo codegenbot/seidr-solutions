@@ -1,4 +1,3 @@
-```
 int bowlingScore(std::string str) {
     int score = 0;
     int currentRoll = 0;
