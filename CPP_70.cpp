@@ -1,20 +1,13 @@
-vector<int> strange_sort_vector(vector<int> lst) {
+vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     if (lst.empty()) return result;
 
-    sort(lst.begin(), lst.end()); // sort in ascending order
-
+    sort(lst.begin(), lst.end());
     while (!lst.empty()) {
-        result.push_back(*lst.begin()); // add smallest element to result
-        lst.erase(lst.begin()); // remove smallest element from list
-
+        result.push_back(*lst.begin());
+        lst.erase(lst.begin());
         if (!lst.empty())
-            std::reverse(lst.begin(), lst.end()); // reverse the remaining elements
-
-        if (!lst.empty())
-            result.push_back(*lst.rbegin()); // add largest element to result
-        lst.pop_back(); // remove largest element from list
+            sort(lst.begin(), lst.end());
     }
-
     return result;
 }
