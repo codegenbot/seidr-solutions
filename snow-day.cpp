@@ -1,5 +1,6 @@
-#include <cstdio>
 #include <cmath>
+#include <cstdio>
+
 float snow_day(int hours, float initial_snow, float rate_of_snowfall, float proportion_of_melting) {
     float current_snow = initial_snow;
     for (int i = 0; i < hours; i++) {
@@ -8,6 +9,7 @@ float snow_day(int hours, float initial_snow, float rate_of_snowfall, float prop
     }
     return current_snow;
 }
+
 int main() {
     int hours = 10; // initialize hours with an example value
     float initial_snow = 5.0; // initialize initial_snow with an example value
