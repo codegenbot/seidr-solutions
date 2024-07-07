@@ -25,7 +25,7 @@ double find_zero(vector<double> coeffs){
     return -sum / coeffs[0];
 }
 
-int main() {
+void find_and_print_zero() {
     vector<double> poly_coeffs;
     double temp;
 
@@ -43,5 +43,11 @@ int main() {
     } else {
         double solution = find_zero(poly_coeffs);
         assert(abs(poly(poly_coeffs, solution)) < 1e-3);
+        cout << "The zero of the polynomial is: " << solution << endl;
     }
+}
+
+int main() {
+    find_and_print_zero();
     return 0;
+}
