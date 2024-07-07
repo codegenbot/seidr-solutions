@@ -1,18 +1,21 @@
-```cpp
 #include <iostream>
-#include <string>
+#include <sstream>
 
 int choose_num(int, int);
 
 int main() {
-    std::string num1Str, num2Str;
+    int num1, num2;
     std::cout << "Enter two numbers (separated by a space): ";
-    if (!(std::cin >> num1Str >> num2Str)) {
+    if (!(std::getline(std::cin, std::stringstream tmp))) {
         std::cerr << "Invalid input. Please enter two integers." << std::endl;
         return 1; // Return with error code
     }
-    int num1 = stoi(num1Str);
-    int num2 = stoi(num2Str);
+    num1 = std::stoi(tmp);
+    if (!(std::getline(std::cin, tmp))) {
+        std::cerr << "Invalid input. Please enter two integers." << std::endl;
+        return 1; // Return with error code
+    }
+    num2 = std::stoi(tmp);
     int result = choose_num(num1, num2);
     std::cout << "Result: " << result << std::endl;
     return 0;
