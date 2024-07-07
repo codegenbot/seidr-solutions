@@ -1,6 +1,8 @@
+#include <iostream>
 #include <string>
+#include <cctype>
 
-bool check_if_last_char_is_a_letter(string txt) {
+bool check_if_last_char_is_a_letter(std::string txt) {
     if (txt.empty()) return false;
     char lastChar = txt.back();
     if (!isalpha(lastChar)) return false;
@@ -9,5 +11,5 @@ bool check_if_last_char_is_a_letter(string txt) {
             return isalpha(lastChar);
         }
     }
-    return true;
+    return false;
 }
