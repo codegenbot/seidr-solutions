@@ -1,39 +1,24 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+```cpp
 int gcd(int a, int b) {
     if (b == 0)
         return a;
-    else
-        return gcd(b, __gcd(a, b));
-}
-
-std::vector<int> findIndices(const std::string& text, const std::string& target) {
-    std::vector<int> indices;
-    size_t pos = 0;
-    
-    while ((pos = text.find(target, pos)) != std::string::npos) {
-        indices.push_back(pos);
-        pos += target.size();
+    else {
+        int temp = gcd(b, a % b);
+        while (a % temp != 0 && b % temp != 0) 
+            temp--;
+        return temp;
     }
-    
-    return indices;
 }
 
 int main() {
-    int a = 12;
-    int b = 15; 
-    std::cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << std::endl;
+    int num1; // input values for testing
+    std::cout << "Enter first number: ";
+    std::cin >> num1;
 
-    std::string text = "banana";
-    std::string target = "ana";
-    
-    std::vector<int> indices = findIndices(text, target);
-    
-    for (const auto& index : indices) {
-        std::cout << index << " ";
-    }
-    
+    int num2; // input values for testing
+    std::cout << "Enter second number: ";
+    std::cin >> num2;
+
+    std::cout << "GCD of " << num1 << " and " << num2 << " is: " << gcd(num1, num2) << std::endl;
     return 0;
 }
