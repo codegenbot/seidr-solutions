@@ -1,12 +1,14 @@
 #include <vector>
+#include <string>
+
+using namespace std;
+
 namespace std {
 template <class _Ty>
 struct vector<_Ty>::size_type { };
 }
 
-using namespace std;
-
-vector<string> reverseDelete(vector<string>& v) {
+vector<string> reverse_delete(const vector<string>& v) {
     for (int i = v.size() - 1; i >= 0; --i) {
         if (!v[i].empty()) {
             break;
@@ -16,31 +18,28 @@ vector<string> reverseDelete(vector<string>& v) {
     return v;
 }
 
-bool issame(const vector<string>& b, const vector<string>& a) {
+bool issame(vector<string> b, vector<string> a) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (a.at(i) != b.at(i)) {
             return false;
         }
     }
     return true;
 }
 
-void test() {
+int main() {
     vector<string> v1 = {"mamma"};
-    vector<string> result1 = reverseDelete(v1);
+    vector<string> result1 = reverse_delete(v1);
     
-    assert(issame(vector<string>({ "", "True" }), result1));
+    assert(issame(vector<string>({"" , "True" }), result1));
     
     vector<string> v2 = {"mia"};
-    vector<string> result2 = reverseDelete(v2);
+    vector<string> result2 = reverse_delete(v2);
     
     assert(issame(vector<string>({"True"}), result2));
-}
-
-int main() {
-    test();
+    
     return 0;
 }
