@@ -1,25 +1,35 @@
-string sort_numbers(string numbers) {
-    map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                    {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                    {"eight", 8}, {"nine", 9}};
-    vector<string> num_list;
-    string temp = "";
-    for (char c : numbers) {
-        if (c == ' ') {
-            num_list.push_back(temp);
-            temp = "";
-        } else {
-            temp += c;
-        }
-    }
-    num_list.push_back(temp);
+#include <algorithm>
 
-    sort(num_list.begin(), num_list.end(), 
-         [&number_map](string a, string b) { return number_map[a] < number_map[b]; });
+string sort_numbers(string numbers) {
+    map<string, int> numberMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                  {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                  {"eight", 8}, {"nine", 9}};
+
+    vector<string> numVector;
+    string temp;
+
+    for (int i = 0; i < numbers.length(); i++) {
+        if (numbers[i] == ' ') {
+            continue;
+        }
+
+        for (int j = i + 1; j <= numbers.length(); j++) {
+            temp = numbers.substr(i, j - i);
+            if (numberMap.find(temp) != numberMap.end()) {
+                i = j - 1;
+                break;
+            }
+        }
+
+        numVector.push_back(temp);
+    }
+
+    sort(numVector.begin(), numVector.end());
 
     string result = "";
-    for (const string& s : num_list) {
-        result += s + " ";
+    for (auto &num : numVector) {
+        result += num + " ";
     }
+
     return result.substr(0, result.length() - 1);
 }
