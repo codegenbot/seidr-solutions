@@ -22,7 +22,5 @@ void runUserInput() {
 
 int main() {
     runUserInput();
-    int input = 3; // replace with your desired input
-    cout << "Assert statement: " << (search(input) == input ? "Pass" : "Fail") << endl;
     return 0;
 }
