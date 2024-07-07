@@ -1,8 +1,9 @@
-```
-def basement(arr):
+def basement(nums):
     total = 0
-    for i, num in enumerate(arr):
+    found_negative_sum = False
+    for i, num in enumerate(nums):
         total += num
         if total < 0:
-            return i + 1
-    return -1
+            found_negative_sum = True
+            break
+    return -1 if not found_negative_sum else i
