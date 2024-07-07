@@ -22,3 +22,4 @@ int main() {
     }
     cout << "Sum of even numbers: " << add(numbers) << endl;
     return 0;
+}
