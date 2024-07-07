@@ -1,5 +1,7 @@
-#include <string>
+#include <iostream>
 #include <cctype>
+#include <string>
+#include <cassert>
 
 int digitSum(std::string s) {
     int sum = 0;
@@ -8,10 +10,11 @@ int digitSum(std::string s) {
             sum += tolower(c) - 'a' + 1;
         }
     }
-    return sum % 26;
+    return sum;
 }
 
 int main() {
-    int result = digitSum("You arE Very Smart");
+    assert(digitSum("You arE Very Smart") == 14);
+    std::cout << "digitSum: " << digitSum("You arE Very Smart") << std::endl;
     return 0;
 }
