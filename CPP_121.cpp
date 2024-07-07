@@ -1,5 +1,4 @@
 ```cpp
-#include <cassert>
 #include <vector>
 
 int solution(std::vector<int> vec) {
@@ -11,7 +10,7 @@ int solution(std::vector<int> vec) {
 }
 
 int main() {
-    std::vector<int>(vec({3, 13, 2, 9}));
-    assert(solution(vec({3, 13, 2, 9})) == 16);
+    std::vector<int> vec({3, 13, 2, 9});
+    assert(solution(vec) == 16);
     return 0;
 }
