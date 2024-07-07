@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
@@ -27,4 +33,13 @@ vector<string> numerical_letter_grade(vector<float> grades) {
             result.push_back("E");
     }
     return result;
+}
+
+int main() {
+    vector<float> grades = {4.0, 3.5, 1.7, 2.0, 3.9};
+    vector<string> letter_grades = numerical_letter_grade(grades);
+    for (string grade : letter_grades) {
+        cout << grade << endl;
+    }
+    return 0;
 }
