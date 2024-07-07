@@ -17,8 +17,10 @@ int bowlingScore(string s) {
                 }
                 currentRoll = 0;
                 rollCount++;
-            } else if (c == 'X') { // handle X as 0
+            } else if (c == 'X') { 
+                score += 10; // X in bowling is 10
                 currentRoll = 0;
+                rollCount++;
             }
         } else {
             currentRoll *= 10;
@@ -36,6 +38,6 @@ int bowlingScore(string s) {
 }
 
 int main(int argc, char* argv[]) {
-    std::cout << bowlingScore(argv[1]) << '\n';
+    cout << bowlingScore(argv[1]) << '\n';
     return 0;
 }
