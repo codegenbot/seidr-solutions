@@ -1,8 +1,15 @@
 Here is the completed code:
 
-int next_smallest(vector<int> lst) {
+int next_smallest(vector<int> lst){
+    if (lst.size() < 2) {
+        return -1; // or any other value that represents None
+    }
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    if (sorted.size() < 2) return -1; // None in Python
-    else return *next(cbegin(sorted), cend(sorted)-1);
+    auto it = upper_bound(sorted.begin(), sorted.end(), sorted[0]);
+    if (it != sorted.end()) {
+        return *it;
+    } else {
+        return -1; // or any other value that represents None
+    }
 }
