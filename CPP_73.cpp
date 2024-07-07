@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -34,6 +35,6 @@ int main() {
         std::cin >> x;
         arr.push_back(x);
     }
-    std::cout << "Smallest change: " << smallest_change(arr) << std::endl;
+    std::cout << "The smallest change is: " << smallest_change(arr) << std::endl;
     return 0;
 }
