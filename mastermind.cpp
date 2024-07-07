@@ -15,6 +15,9 @@ int mastermind(string code, string guess) {
         }
     }
     
+    vector<char> codeVector(code.begin(), code.end());
+    vector<char> guessVector(guess.begin(), guess.end());
+    
     for (char c : code) {
         int count = 0;
         for (char d : guess) {
