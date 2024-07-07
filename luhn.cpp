@@ -1,20 +1,18 @@
-#include <vector>
-using namespace std;
-
-int luhnCheck(vector<int>& digits) {
+int luhn(const vector<int>& card) {
     int sum = 0;
-    bool doubleDigit = false;
-    for (int i = 0; i < 16; i++) {
-        if (doubleDigit) {
-            int digit = digits[i] * 2;
+    bool doubleNext = false;
+
+    for (int i = card.size() - 1; i >= 0; --i) {
+        int digit = card[i];
+        if (doubleNext) {
+            digit *= 2;
             if (digit > 9) {
                 digit -= 9;
             }
-            sum += digit;
-        } else {
-            sum += digits[i];
         }
-        doubleDigit = !doubleDigit;
+        sum += digit;
+        doubleNext = !doubleNext;
     }
+
     return sum;
 }
