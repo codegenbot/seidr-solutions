@@ -3,6 +3,12 @@
 #include <cmath>
 
 int main() {
-    int maxVal = *std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
-    return std::abs(maxVal- 124)<1e-4;
+    int n;
+    std::cin >> n;
+    std::vector<int> l(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> l[i];
+    }
+    
+    std::cout << abs(*std::max_element(l.begin(), l.end())) << '\n';
 }
