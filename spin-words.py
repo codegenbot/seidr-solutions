@@ -7,5 +7,3 @@ def spin_words(s):
         else:
             result.append(word)
     return ' '.join(result)
-
-print(spin_words("Hello World"))
