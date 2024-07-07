@@ -1,36 +1,34 @@
-```c++
 #include <bits/stdc++.h>
 
 int mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
-    
+
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
         }
     }
-    
-    map<char, int> codeCount;
-    map<char, int> guessCount;
-    
-    for (char c : code) {
-        codeCount[c]++;
-    }
-    
-    for (char c : guess) {
-        guessCount[c]++;
-    }
-    
-    for (auto p : codeCount) {
-        if (p.second > 0 && guessCount.find(p.first) != guessCount.end() && p.second == guessCount[p.first]) {
-            blackPegs += p.second;
-        } else if (p.second > 0 && guessCount.find(p.first) != guessCount.end()) {
-            whitePegs += min(p.second, guessCount[p.first]);
+
+    vector<char> codeArray(code.begin(), code.end());
+    vector<char> guessArray(guess.begin(), guess.end());
+
+    for (char c : codeArray) {
+        int count = 0;
+        for (char d : guessArray) {
+            if (c == d) {
+                count++;
+            }
+        }
+        if (count > 1) {
+            whitePegs += count - 1;
+        } else if (count == 1) {
+            blackPegs--;
         }
     }
-    
+
     return blackPegs;
+
 }
 
 int main() {
