@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 #include <cmath>
-#include <bits/stdc++.h>
+#include <iostream>
 
 int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
