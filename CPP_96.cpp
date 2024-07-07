@@ -1,20 +1,6 @@
-vector<int> count_upto(int n) {
-    vector<int> primes;
-    for (int i = 2; i <= n; ++i) {
-        bool isPrime = true;
-        for (int j = 2; j * j <= i; ++j) {
-            if (i % j == 0) {
-                isPrime = false;
-                break;
-            }
-        }
-        if (isPrime) {
-            primes.push_back(i);
-        }
-    }
-    return primes;
-}
+#include <vector>
+#include <algorithm>
 
-bool isSame(vector<int> a, vector<int> b) {
+bool equal(vector<int> a, vector<int> b) {
     return a == b;
 }
