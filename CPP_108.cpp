@@ -23,8 +23,3 @@ int count_nums(std::vector<int> nums) {
     }
     return count;
 }
-
-int main() {
-    assert(count_nums({1}) == 1);
-    return 0;
-}
