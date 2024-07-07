@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <cstring>
 #include <cassert>
 
 std::string anti_shuffle(const std::string& str) {
