@@ -1,6 +1,7 @@
+```c++
 #include <vector>
 #include <string>
-#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -17,16 +18,18 @@ vector<int> findIndices(string text, string target) {
         }
         if(found) {
             indices.push_back(i);
-            for(int k = i + targetLength; k <= text.length() - targetLength; k += targetLength) {
+            int pos = i + targetLength;
+            while(pos <= text.length() - targetLength) {
                 found = true;
                 for(int j = 0; j < targetLength; j++) {
-                    if(text[k+j] != target[j]) {
+                    if(text[pos+j] != target[j]) {
                         found = false;
                         break;
                     }
                 }
                 if(found) {
-                    indices.push_back(k);
+                    indices.push_back(pos);
+                    pos += targetLength;
                 } else {
                     break;
                 }
