@@ -2,28 +2,23 @@
 
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
-    for (char c : s) {
-        if (c == '/') {
-            if (roll < 2) {
-                score += 10 - (10 - stoi(s.substr(0, s.find('/'))));
-            }
-            roll = 0;
-        } else if (isdigit(c)) {
-            int num = stoi(string(1, c));
-            while (roll < 2 && isdigit(s[s.find(string(1, c)) + 1])) {
-                num = num * 10 + stoi(string(1, s[s.find(string(1, c)) + 1]));
-                roll++;
-                if (s.find(string(1, c)) == s.size() - 2) break;
-            }
-            score += num;
-        } else { // X
-            if (roll == 1) {
-                score += 10;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '/') {
+            if (i > 1 && s[i-2] == 'X') {
+                score += 10 + stoi(s.substr(i+1, s.find('/', i) - i - 1));
             } else {
-                score += 10 + stoi(s.substr(s.find('X') - 1, 2)) - 10;
+                score += 10 - stoi(s.substr(0, i));
             }
-            roll = 0;
+        } else if (isdigit(s[i])) {
+            int roll = stoi(s.substr(i, s.find('/', i) == string::npos ? string::npos : s.find('/', i) - i));
+            if (i < s.size() - 1 && s[i+1] == '/') {
+                score += roll;
+            } else {
+                score += roll;
+            }
+        } else { // X
+            score += 10;
+            i++; // skip the 'X' and the '/' that follows it
         }
     }
     return score;
