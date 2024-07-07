@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,7 +11,7 @@ bool same(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> pluck(std::vector<int> arr) {
+std::vector<int> pluck(const std::vector<int>& arr) {
     std::vector<int> result;
     size_t minEven = std::numeric_limits<size_t>::max(), minIndex = -1;
 
@@ -30,16 +29,15 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> input;
-    size_t n;
+    int n;
 
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
-    input.resize(static_cast<unsigned long int>(n)); 
+    std::vector<int> input(n); 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> (input[i]);
+        std::cin >> input[i];
     }
 
     // Process the array
