@@ -7,7 +7,6 @@ bool issame(vector<int> a, vector<int> b) {
     }
     return true;
 }
-
 vector<int> minPath(vector<vector<int>>& grid, int k){
     int n = grid.size();
     vector<vector<int>> dp(n, vector<int>(n));
