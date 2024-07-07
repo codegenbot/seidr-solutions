@@ -1,6 +1,14 @@
-```
 from typing import List
-import math
+
+
+def is_prime(num: int) -> bool:
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
 
 def factorize(n: int) -> List[int]:
     factors = []
@@ -10,11 +18,9 @@ def factorize(n: int) -> List[int]:
             i += 1
         else:
             n //= i
-            count = 0
             while n % i == 0:
                 n //= i
-                count += 1
-            factors.extend([i] * count)
+            factors.append(i)
     if n > 1:
         factors.append(n)
-    return factors
+    return [factor ** factor.count(factor) for factor in set(factors)]
