@@ -1,22 +1,26 @@
-#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
 
 using namespace boost;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = any_cast<int>(a);
-        int y = any_cast<int>(b);
-        return any_cast<>::type(y > x ? &y : (x > y ? &x : boost::any("None")));
-    } else if ((a.type() == typeid(double) || a.type() == typeid(float)) &&
-               (b.type() == typeid(double) || b.type() == typeid(float))) {
-        double x = any_cast<double>(a);
-        double y = any_cast<double>(b);
-        return any_cast<>::type(y > x ? &y : (x > y ? &x : boost::any("None")));
-    } else if ((a.type() == typeid(string)) && (b.type() == typeid(string))) {
-        string x = any_cast<string>(a);
-        string y = any_cast<string>(b);
-        return any_cast<>::type(y > x ? &y : (x > y ? &x : boost::any("None")));
-    } else {
-        return boost::any("Invalid input");
+any compare_one(any a, any b) {
+    float fa = a.type() == type_code<float>();
+    float fb = b.type() == type_code<float>();
+
+    if (fa && fb) {
+        return (float)a > (float)b ? a : fb ? b : any("None");
     }
+
+    string sa = a.type() == type_code<string>();
+    string sb = b.type() == type_code<string>();
+
+    if (sa && sb) {
+        return sa > sb ? a : sb ? b : any("None");
+    }
+
+    if (fa || fb) {
+        return fa ? a : b;
+    }
+
+    return any("None");
 }
