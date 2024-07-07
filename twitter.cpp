@@ -1,3 +1,4 @@
+```c++
 #include <sstream>
 #include <iostream>
 #include <limits>
@@ -25,9 +26,8 @@ string validateTweet(string tweet) {
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
+    cin >> ws; 
     getline(cin, tweet);
-    tweet.erase(0, tweet.find_first_not_of(' ')); 
-    tweet.erase(tweet.find_last_not_of(" \t\r\n") + 1 );
     cout << validateTweet(tweet) << endl;
     return 0;
 }
