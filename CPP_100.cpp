@@ -1,15 +1,16 @@
 #include <vector>
 #include <cassert>
+#include <initializer_list>
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
+vector<int> make_a_pile(int n) {
+    vector<int> pile;
     for (int i = 2; i <= n; i += 2) {
         pile.push_back(i);
     }
     return pile;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -20,6 +21,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(make_a_pile(8), std::vector<int>({2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22})));
+    assert(issame(make_a_pile(8), {2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
