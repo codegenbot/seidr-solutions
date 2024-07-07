@@ -16,7 +16,7 @@ vector<int> strange_sort_list(vector<int> lst) {
     return result;
 }
 
-int main() {
+int main_entry() {
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
