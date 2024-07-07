@@ -1,6 +1,6 @@
 #include <string>
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int roll1, roll2;
     bool spare = false;
