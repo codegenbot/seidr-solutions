@@ -6,17 +6,12 @@ using namespace boost;
 boost::any compare_one(boost::any a, boost::any b) {
     if (is_any_of<a>(double())) {
         if (is_any_of<b>(double())) {
-            double da = any_cast<double>(a);
-            double db = any_cast<double>(b);
-            return da > db ? a : b;
+            return a > b ? a : b;
         }
         else {
             double da = any_cast<double>(a);
-            std::string s2 = any_cast<std::string>(b);
-            if (da == 0.0) return boost::any(s2);
-            if (db == 0.0) return a;
-            if (da > 0 && db < 0) return a;
-            if (da < 0 && db > 0) return b;
+            double db = any_cast<double>(b);
+            if (da == db) return boost::any("None");
             return da > db ? a : b;
         }
     }
@@ -28,8 +23,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
         else {
             double da = any_cast<double>(a);
-            if (da == 0.0) return boost::any("None");
-            return a;
+            std::string s2 = any_cast<std::string>(b);
+            if (da == 0.0) return boost::any(s2);
+            if (db == 0.0) return a;
+            if (da > 0 && db < 0) return a;
+            if (da < 0 && db > 0) return b;
+            return boost::any("None");
         }
     }
     else {
