@@ -1,17 +1,16 @@
-Here is the completed code:
+#include <iostream>
+#include <string>
 
-bool is_nested(string str) {
-    int count = 0;
+bool is_nested(std::string str) {
+    int open = 0, close = 0;
     for (char c : str) {
-        if (c == '[') {
-            count++;
-        } else if (c == ']') {
-            if (count > 0) {
-                count--;
-            } else {
-                return true;
-            }
-        }
+        if (c == '[') open++;
+        else if (c == ']') close++;
     }
-    return false;
+    return open > 0 && close > open;
+}
+
+int main() {
+    std::cout << std::boolalpha << is_nested("]]]]]]]]") << std::endl;
+    return 0;
 }
