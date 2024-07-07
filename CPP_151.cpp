@@ -6,15 +6,9 @@ int main() {
     vector<float> input_list; 
     float odd_sum = 0.0f; 
 
-    cout << "Enter the numbers (space separated): ";
-    for(float x; cin >> x;){
-        input_list.push_back(x);
-    }
+    cin >> input_list;
 
-    odd_sum = 0.0f;
-    long long result = double_the_difference(input_list);
-
-    cout << "The sum of squares of odd numbers is: " << result << endl;
+    odd_sum = double_the_difference(input_list); 
 
     return 0;
 }
