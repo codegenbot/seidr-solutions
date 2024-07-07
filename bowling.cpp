@@ -34,4 +34,5 @@ int bowlingScore(string s) {
 
 int main(int argc, char* argv[]) { 
     cout << bowlingScore(argv[1]) << '\n'; 
-    return 0;
+    return 0; 
+}
