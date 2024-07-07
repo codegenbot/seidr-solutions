@@ -1,34 +1,26 @@
 #include <string>
-#include <vector>
 
 int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+    int blackPegs = 0;
+    int whitePegs = 0;
 
-    vector<int> code_count(6, 0);
-    vector<int> guess_count(6, 0);
+    map<char, int> codeMap;
+    vector<bool> codeUsed(6, false);
 
-    for (char c : code) {
-        code_count[c - 'A']++;
+    for (int i = 0; i < 4; i++) {
+        codeMap[code[i]]++;
+        codeUsed[code[i]] = true;
     }
 
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            black++;
-            code_count[guess[i] - 'A']--;
-            guess_count[guess[i] - 'A']--;
-        } else {
-            int j;
-            for (j = 0; j < 6; j++) {
-                if (code_count[j] > 0 && guess[j] == guess[i]) {
-                    break;
-                }
-            }
-            code_count[j]--;
-            guess_count[guess[i] - 'A']--;
+            blackPegs++;
+        } else if (codeMap[guess[i]] > 0 && !codeUsed[guess[i]]) {
+            whitePegs++;
+            codeMap[guess[i]]--;
+            codeUsed[guess[i]] = true;
         }
     }
 
-    white = 4 - black;
-
-    return black;
+    return {blackPegs, whitePegs};
+}
