@@ -1,8 +1,4 @@
-#include <cstdlib>
-#include <iostream>
-#include <string>
-
-bool evaluate(const std::string& expression) {
+int evaluate(const string& expression) {
     bool result = true;
     int i = 0;
     while (i < expression.length()) {
@@ -18,15 +14,15 @@ bool evaluate(const std::string& expression) {
         } else if (operators.empty()) {
             result = true;
         } else {
-            std::string operator = operators.top();
-            if (operator.compare("|") == 0) {
-                result |= std::atoi(expression[i]);
-            } else if (operator.compare("&") == 0) {
-                result &= std::atoi(expression[i]);
-            } else if (operator.compare("^") == 0) {
-                result ^= std::atoi(expression[i]);
+            char operator = operators.top();
+            if (operator == '|') {
+                result |= atoi(&expression[i]);
+            } else if (operator == '&') {
+                result &= atoi(&expression[i]);
+            } else if (operator == '^') {
+                result ^= atoi(&expression[i]);
             }
         }
     }
-    return result;
+    return result && strcmp(expression, "false") != 0;
 }
