@@ -1,3 +1,4 @@
+```
 def substitution_cipher(message, cipher):
     char_map = {}
     for i in range(len(cipher)):
@@ -11,7 +12,6 @@ def substitution_cipher(message, cipher):
             deciphered_message += char
 
     return deciphered_message
-
 
 # Read input from the user
 message = input("Enter message to decipher: ")
