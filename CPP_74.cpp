@@ -23,7 +23,9 @@ int main() {
     int sum1 = total_match(vec1);  
     int sum2 = total_match(vec2);
 
-    assert(issame({{{"this"}}}, {{}} ));
+    if (!issame({{{"this"}}}, {{}} )) {
+        assert(false);
+    }
 
     return 0;
 }
