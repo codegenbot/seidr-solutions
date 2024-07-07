@@ -17,20 +17,17 @@ int main() {
     int n, w;
     std::cout << "Enter the number of queens: ";
     std::cin >> n;
-    std::cout << "Enter the weight limit: ";
-    std::cin >> w;
-
     std::vector<int> q(n);
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter the weight of queen " << i + 1 << ": ";
+        std::cout << "Enter the position of queen " << i + 1 << ": ";
         std::cin >> q[i];
     }
-
+    std::cout << "Enter the weight: ";
+    std::cin >> w;
     if (will_it_fly(q, w)) {
-        std::cout << "The queens will fly." << std::endl;
+        std::cout << "The queens will fly.\n";
     } else {
-        std::cout << "The queens won't fly." << std::endl;
+        std::cout << "The queens won't fly.\n";
     }
-
     return 0;
 }
