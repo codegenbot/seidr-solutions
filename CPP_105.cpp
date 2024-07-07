@@ -10,24 +10,28 @@ vector<string> by_length(vector<int> arr) {
     vector<string> nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            string str = to_string(num);
-            if (str == "1") str = "One";
-            else if (str == "2") str = "Two";
-            else if (str == "3") str = "Three";
-            else if (str == "4") str = "Four";
-            else if (str == "5") str = "Five";
-            else if (str == "6") str = "Six";
-            else if (str == "7") str = "Seven";
-            else if (str == "8") str = "Eight";
-            else if (str == "9") str = "Nine";
-            nums.push_back(str);
+            nums.push_back(to_string(num));
         }
     }
 
     sort(nums.begin(), nums.end());
     reverse(nums.begin(), nums.end());
 
-    return nums;
+    vector<string> result;
+    for (string str : nums) {
+        if (str == "1") str = "One";
+        else if (str == "2") str = "Two";
+        else if (str == "3") str = "Three";
+        else if (str == "4") str = "Four";
+        else if (str == "5") str = "Five";
+        else if (str == "6") str = "Six";
+        else if (str == "7") str = "Seven";
+        else if (str == "8") str = "Eight";
+        else if (str == "9") str = "Nine";
+        result.push_back(str);
+    }
+
+    return result;
 }
 
 int main() {
