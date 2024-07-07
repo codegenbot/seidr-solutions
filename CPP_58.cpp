@@ -1,10 +1,11 @@
 ```cpp
 #include <vector>
-#include <algorithm>
-#include <set>
-#include <iostream>
+using namespace std;
 
-bool same(std::vector<int> a, std::vector<int> b) {
+// Define size_type
+typedef vector<int>::size_type size_type;
+
+bool same(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -12,56 +13,56 @@ bool same(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
-    std::set<int> set1(l1.begin(), l1.end());
-    std::set<int> set2(l2.begin(), l2.end());
-    int size = set1.size();
-    std::vector<int> intersection;
-    for (int i = 0; i < size; i++) {
-        if (set2.find(set1.begin()[i]) != set2.end()) {
-            intersection.push_back(set1.begin()[i]);
+vector<int> common(vector<int> l1, vector<int> l2) {
+    set<int> set1(l1.begin(), l1.end());
+    set<int> set2(l2.begin(), l2.end());
+    vector<int> intersection;
+    for (int i = 0; i < set1.size(); i++) {
+        int element = *set1.begin() + i;
+        if(set2.find(element) != set2.end()){
+            intersection.push_back(element);
         }
     }
     return intersection;
 }
 
 int main() {
-    std::vector<int> l1;
+    vector<int> l1;
     int n1;
-    std::cout << "Enter the number of elements in list 1: ";
-    std::cin >> n1;
+    cout << "Enter the number of elements in list 1: ";
+    cin >> n1;
     for(int i = 0; i < n1; i++) {
         int x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> x;
         l1.push_back(x);
     }
 
-    std::vector<int> l2;
+    vector<int> l2;
     int n2;
-    std::cout << "Enter the number of elements in list 2: ";
-    std::cin >> n2;
+    cout << "Enter the number of elements in list 2: ";
+    cin >> n2;
     for(int i = 0; i < n2; i++) {
         int x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> x;
         l2.push_back(x);
     }
 
     if(same(l1, l2)) {
-        std::cout << "The two lists are the same." << std::endl;
+        cout << "The two lists are the same." << endl;
     } else {
-        std::cout << "The two lists are different." << std::endl;
+        cout << "The two lists are different." << endl;
     }
 
-    std::vector<int> intersection = common(l1, l2);
+    vector<int> intersection = common(l1, l2);
     if(intersection.size() != 0) {
-        for(int i : intersection) {
-            std::cout << i << " ";
+        for(int i = 0; i < intersection.size(); i++) {
+            cout << intersection[i] << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     } else {
-        std::cout << "No common elements." << std::endl;
+        cout << "No common elements." << endl;
     }
 
     return 0;
