@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -30,3 +29,4 @@ int main() {
         cout << "Input value is out of range." << endl;
     }
     return 0;
+}
