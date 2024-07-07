@@ -15,13 +15,13 @@ int main() {
     std::string outputString;
 
     while (true) {
-        std::cout << "Enter a string (or stop to finish): ";
         std::cin.ignore(); 
-        getline(std::cin, outputString);
+        std::cout << "Enter a string (or stop to finish): ";
+        std::getline(std::cin, outputString);
 
         if (outputString == "stop") break;
 
-        strings.push_back(outputString + " "); 
+        strings.push_back(outputString + " "); // add a space after each input string
     }
 
     std::cout << concatenate(strings) << std::endl; 
