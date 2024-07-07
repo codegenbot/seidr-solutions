@@ -3,40 +3,30 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target)
+    vector<int> lps(m, 0); // Longest Prefix Suffix array
+    int j = 0; 
+
+    for (int i = 1; i < m; i++) { 
+        while(j > 0 && target[i] != target[j]) 
+            j = lps[j - 1]; 
+
+        if(target[i] == target[j])
+            j++; 
+
+        lps[i] = j;
+
+        if(i == m-1) 
+            result.push_back(text.find(target));
+    }
+
+    for (int i = 0; i < n; i++) { 
+        j = lps[m - 1]; 
+        while(j > 0 && i + j >= m && text.substr(i, j) != target)
+            j = lps[j-1]; 
+
+        if(i + j == m) {
             result.push_back(i);
-    }
-
-    // KMP code
-    vector<int> lps(m, 0); // prefix suffixes
-
-    int j = 0;
-
-    for (int i = 1; i < m; i++) {
-        if (target[i] == target[j]) {
-            j++;
-            lps[i] = j;
-        } else if (j != 0) {
-            j = lps[j - 1];
-        } else {
-            lps[i] = 0;
-        }
-    }
-
-    j = 0;
-
-    for (int i = 0; i < n; i++) {
-        while (j && text[i] != target[j]) {
-            j = lps[j - 1];
-        }
-
-        if (text[i] == target[j]) {
-            j++;
-        }
-
-        if (j == m) {
-            result.push_back(i - m + 1);
+            i += j;
             j = lps[j - 1];
         }
     }
