@@ -1,14 +1,17 @@
+```cpp
 #include <iostream>
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionMeltingPerHour) {
-    double totalSnow = initialSnow; // Initialize with initial snow
+    double totalSnow = 0.0; // Initialize to zero
 
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowfall; 
-        totalSnow *= (1.0 - proportionMeltingPerHour); 
+        totalSnow -= totalSnow * proportionMeltingPerHour;
     }
     
+    totalSnow += initialSnow; 
+
     return totalSnow;
 }
 
@@ -17,11 +20,11 @@ int main() {
     float initialSnow, rateOfSnowfall, proportionMeltingPerHour;
 
     cout << "Enter number of hours: ";
-    cin >> hours;
+    cin >> hours >> std::endl;
     cout << "Enter initial snow: ";
-    cin >> initialSnow;
+    cin >> initialSnow >> std::endl;
     cout << "Enter rate of snow fall: ";
-    cin >> rateOfSnowfall;
+    cin >> rateOfSnowfall >> std::endl;
     cout << "Enter proportion of snow melting per hour: ";
     cin >> proportionMeltingPerHour;
 
