@@ -1,4 +1,6 @@
-#include <initializer_list>
+#include <iostream>
+#include <vector>
+#include <cmath>
 
 double poly(std::vector<double> coeffs, double x) {
     double result = 0;
@@ -20,7 +22,7 @@ double find_zero(std::vector<double> xs){
 
 int main() {
     std::vector<double> coeffs;
-
+    
     for (double &temp; ; ) {
         std::cin >> temp;
         if (std::cin.fail()) break;
