@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool checkGrades(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -47,7 +47,7 @@ vector<string> numericalLetterGrade(vector<float> grades) {
 int main() {
     vector<float> fgrades = {0, 0.7};
     vector<string> grades = numericalLetterGrade(fgrades);
-    if (!issame(grades, {"E", "D-" }))
+    if (!checkGrades(grades, {"E", "D-" }))
         cout << "Test failed" << endl;
     else
         cout << "Test passed" << endl;
