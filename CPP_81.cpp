@@ -44,7 +44,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> fgrades = {0, 0.7}; 
-    assert(issame(numerical_letter_grade(fgrades), {"E", "D-"}));
+    vector<string> fgrades = {"0", "0.7"}; 
+    assert(issame(numerical_letter_grade({stof(fgrades[0]), stof(fgrades[1])}), {"E", "D-"}));
     return 0;
 }
