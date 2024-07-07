@@ -1,9 +1,10 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <cmath>
 
-vector<float> derivative(vector<float> a) {
-    vector<float> result;
+std::vector<float> derivative(std::vector<float> a) {
+    std::vector<float> result;
     if (a.size() <= 1) return result;
     for (int i = 1; i < a.size() - 1; ++i) {
         result.push_back((a[i+1] - a[i-1]) / 2.0);
@@ -11,15 +12,15 @@ vector<float> derivative(vector<float> a) {
     return result;
 }
 
-bool issame(const vector<float>& A, const vector<float>& B) {
+bool issame(const std::vector<float>& A, const std::vector<float>& B) {
     if (A.size() != B.size()) return false;
     for (int i = 0; i < A.size(); ++i) {
-        if (abs(A[i] - B[i]) > 1e-9) return false;
+        if (std::abs(A[i] - B[i]) > 1e-9) return false;
     }
     return true;
 }
 
-int main() {
-    assert(issame(derivative({1}), vector<float>{}));  
+int main_test() {
+    assert(issame(derivative({1}), {}));  
     return 0;
 }
