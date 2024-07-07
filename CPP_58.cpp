@@ -1,5 +1,7 @@
-```cpp
+```
 #include <vector>
+#include <set>
+#include <algorithm>
 using namespace std;
 
 bool same(vector<int> a, vector<int> b) {
