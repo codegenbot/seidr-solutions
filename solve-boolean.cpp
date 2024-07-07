@@ -4,16 +4,29 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    int result = s.find("T");
-    if (result != string::npos)
-        return true;
-    else
-        return false;
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() != '|') {
+                if (st.top() == 'T') return false;
+                st.pop();
+            }
+            st.push('&');
+        } else if (s[i] == '|') {
+            while (!st.empty()) {
+                st.pop();
+            }
+            st.push('|');
+        } else {
+            st.push(s[i]);
+        }
+    }
+    return st.top() == 'T';
 }
 
 int main() {
     string s;
     cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
+    cout << (solveBoolean(s) ? "True" : "False");
     return 0;
 }
