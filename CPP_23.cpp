@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-size_t str_length(const std::string& str){
+size_t str_length(const std::string& str) const {
     return str.size();
 }
 
