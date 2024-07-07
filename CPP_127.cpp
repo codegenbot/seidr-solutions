@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -6,11 +5,14 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
     int start = std::max(interval1.first, interval2.first);
     int end = std::min(interval1.second, interval2.second);
 
-    return (start <= end ? "yes" : "no");
+    if (start <= end)
+        return std::to_string(start) + " " + std::to_string(end) + " yes";
+    else
+        return "no";
 }
 
 int main() {
-    assert(intersection({-2, -2}, {-3, -2}) == "falseyes");
+    assert(intersection({-2, -2}, {-3, -2}) == "no");
 
     
     std::pair<int, int> interval1;
