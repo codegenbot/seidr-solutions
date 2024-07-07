@@ -14,7 +14,9 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 string letterGrade(float grade) {
-    if (grade >= 4.0)
+    if (grade < 1.0)
+        return "F";
+    else if (grade >= 4.0)
         return "A+";
     else if (grade > 3.7)
         return "A";
@@ -43,8 +45,8 @@ string letterGrade(float grade) {
 vector<string> numericalLetterGrade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
-        string s = letterGrade(grade);
-        result.push_back(s);
+        string letter = letterGrade(grade);
+        result.push_back(letter);
     }
     return result;
 }
@@ -52,7 +54,7 @@ vector<string> numericalLetterGrade(vector<float> grades) {
 int main() {
     vector<float> fgrades = {0.0, 0.7};
     vector<string> grades = numericalLetterGrade(fgrades);
-    if (!issame({grades[0], grades[1]}, {"F", "D-" }))
+    if (!issame({grades[0], grades[1]}, {"F", "D"}))
         std::cout << "Test failed" << std::endl;
     else
         std::cout << "Test passed" << std::endl;

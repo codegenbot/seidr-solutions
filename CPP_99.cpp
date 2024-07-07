@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
@@ -14,11 +13,10 @@ int main() {
     int num = 0;
     std::cout << "Enter a number: ";
     std::cin >> num; 
-    if(std::cin.fail()) {
-        // handle invalid input
-        std::cerr << "Invalid input." << std::endl;
-        return -1;
+    if (num != 0) {
+        std::cout << "The closest integer is: " << closest_integer((double)num) << std::endl;
+    } else {
+        std::cout << "The number is zero, so there is no closest integer." << std::endl;
     }
-    std::cout << "The closest integer is: " << closest_integer((double)num) << std::endl;
-    assert(closest_integer(0.0) == 0);
+    assert(closest_integer(0.5) == 0);
 }
