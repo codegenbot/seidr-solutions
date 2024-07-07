@@ -5,16 +5,14 @@
 bool is_nested(std::string str) {
     int count = 0;
     bool isOpeningBracket = false;
-    for (char c : str) {
-        if (c == '[') {
+    for (size_t i = 0; i < str.size(); i++) {
+        if (str[i] == char(91)) {
             if (!isOpeningBracket) {
                 count++;
                 isOpeningBracket = true;
             }
-        } else if (c == ']') {
+        } else if (str[i] == char(93)) {
             if (count > 0) {
-                std::string strCount = std::to_string(count);
-                str.insert(str.begin() + std::stoi(strCount), ']');
                 count--;
             } else {
                 return false;
