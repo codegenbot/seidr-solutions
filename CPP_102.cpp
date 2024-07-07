@@ -1,27 +1,9 @@
-```cpp
-#include <iostream>
-#include <string>
-
-int choose_num(int x, int y) {
-    if (x % 2 == 0 && y % 2 == 0) {
-        return (x > y) ? x : y;
-    } else if (x % 2 == 0) {
-        return x;
-    } else if (y % 2 == 0) {
-        return y;
-    }
-    return -1;
-}
-
-int main() {
+int main
+{
     int num1, num2;
     std::cout << "Enter two numbers (separated by a space): ";
     std::cin >> num1 >> num2;  
     int result = choose_num(num1, num2);
-    if(result == -1) {
-        std::cout << "Error: Both numbers must be odd." << std::endl;
-    } else {
-        std::cout << "Result: " << result << std::endl;
-    }
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
