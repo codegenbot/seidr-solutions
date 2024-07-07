@@ -2,11 +2,11 @@
 #include <assert.h>
 
 bool issame(std::vector<float> a, std::set<float> b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (!(b.count(a[i]) > 0)) {
+    for(float x : a) {
+        if(!b.count(x)) {
             return false;
         }
     }
@@ -14,5 +14,5 @@ bool issame(std::vector<float> a, std::set<float> b) {
 }
 
 int main() {
-    assert(issame(get_positive({}), {})); 
+    assert (issame(get_positive({}), {})); 
 }
