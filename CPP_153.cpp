@@ -7,9 +7,14 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     std::string strongest_extension;
 
     for (const auto& extension : extensions) {
-        int cap = std::count(extension.begin(), extension.end(), toupper((char)extension[0]));
+        int cap = 0;
+        for (char c : extension) {
+            if (std::toupper(c) == toupper('A')) {
+                cap++;
+            }
+        }
         int sm = extension.size() - cap;
-        double strength = static_cast<double>(cap) / (sm + 1);
+        double strength = static_cast<double>(cap) - sm;
 
         if (strength > strongest_strength) {
             strongest_strength = strength;
