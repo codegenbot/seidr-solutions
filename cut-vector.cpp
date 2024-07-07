@@ -20,4 +20,3 @@ vector<int> cutVector(vector<int>& v) {
     vector<int> right(v.begin() + pos, v.end());
     
     return {vector<int>{left.begin(), left.end()}, vector<int>{right.begin(), right.end()}()};
-}
