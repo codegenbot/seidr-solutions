@@ -24,7 +24,7 @@ int main() {
 
     int result = specialFilter(nums);
 
-    std::cout << "Number of elements that satisfy the condition: " << result << std::endl;
+    std::cout << "Number of special numbers: " << result << std::endl;
 
     return 0;
 }
