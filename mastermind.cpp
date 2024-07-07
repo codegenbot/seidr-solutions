@@ -1,5 +1,8 @@
 #include <string>
-int mastermind(string code, string guess) {
+#include <map>
+#include <vector>
+
+pair<int, int> mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
 
