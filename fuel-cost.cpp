@@ -5,8 +5,7 @@
 int calculateFuelCost(vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
-        int result = (num / 3);
-        result = std::floor(result);
+        int result = std::floor((double)num / 3);
         result -= 2;
         sum += result;
     }
