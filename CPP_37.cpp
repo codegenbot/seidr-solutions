@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 bool issame(float a, float b) {
     return std::abs(a - b) < 0.0001;

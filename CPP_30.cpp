@@ -1,9 +1,9 @@
-```cpp
+```c++
 #include <vector>
 #include <initializer_list>
 #include <algorithm>
 
-bool issame(std::vector a, std::vector b) {
+bool issame(const std::vector& a, const std::vector& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (std::abs(a[i] - b[i]) > 1e-9) return false;
@@ -11,7 +11,7 @@ bool issame(std::vector a, std::vector b) {
     return true;
 }
 
-float get_positive(std::vector input) {
+float get_positive(const std::vector& input) {
     return *std::max_element(input.begin(), input.end());
 }
 
@@ -29,11 +29,6 @@ int main() {
     float maxV1 = get_positive(v1);
     float maxV2 = get_positive(v2);
 
-    std::cout << "The two sets of numbers are ";
-    if (!issame({maxV1}, {maxV1})) {
-        std::cout << "not the same.\n";
-    } else {
-        std::cout << "the same.\n";
-    }
+    std::cout << "The two sets of numbers are " << (issame({maxV1}, {maxV2}) ? "" : "not ") << "the same.\n";
     return 0;
 }
