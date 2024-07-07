@@ -2,7 +2,9 @@
 #include <vector>
 #include <cmath>
 
-double poly(std::vector<double> coeffs, double x) {
+using namespace std;
+
+double poly(vector<double> coeffs, double x) {
     double result = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         result += coeffs[i] * pow(x, i);
@@ -10,7 +12,7 @@ double poly(std::vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(std::vector<double> xs){
+double find_zero(vector<double> xs){
     double sum = 0;
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
@@ -21,11 +23,13 @@ double find_zero(std::vector<double> xs){
 }
 
 int main() {
-    std::vector<double> coeffs;
+    using namespace std;
+
+    vector<double> coeffs;
     
     for (double &temp; ; ) {
-        std::cin >> temp;
-        if (std::cin.fail()) break;
+        cin >> temp;
+        if (cin.fail()) break;
         coeffs.push_back(temp);
     }
 
