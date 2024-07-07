@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 #include <algorithm>
@@ -12,17 +11,17 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-float get_positive(const std::vector<float>& input) {
-    return *std::max_element(input.begin(), input.end());
+float get_positive(const vector<float>& input) {
+    return *max_element(input.begin(), input.end());
 }
 
 void myMain() {
     float num;
-    std::vector<float> v1; 
-    std::vector<float> v2; 
+    vector<float> v1(vector<float>()); 
+    vector<float> v2(vector<float>()); 
     while (true) {
-        std::cout << "Enter a number (-1 to stop): ";
-        std::cin >> num;
+        cout << "Enter a number (-1 to stop): ";
+        cin >> num;
         if (num == -1) break;
         if (num > 0) v1.push_back(num);
         else v2.push_back(-num); 
@@ -31,5 +30,5 @@ void myMain() {
     float maxV1 = get_positive(v1);
     float maxV2 = get_positive(v2);
 
-    std::cout << "The two sets of numbers are " << (v1.empty() ? "empty" : (issame(v1, v2) ? "" : "not ")) << " the same.\n";
+    cout << "The two sets of numbers are " << (v1.empty() ? "empty" : (issame(v1, v2) ? "" : "not ")) << " the same.\n";
 }
