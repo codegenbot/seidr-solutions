@@ -35,8 +35,8 @@ int main() {
         std::cout << "All elements of one list are present in another." << std::endl;
     }
 
-    if(common({4, 3, 2, 8}, {}).size() != 0) {
-        for(int i : common({4, 3, 2, 8}, {})) {
+    if(common({4, 3, 2, 8}, {4, 3, 2, 8}).size() != 0) {
+        for(int i : common({4, 3, 2, 8}, {4, 3, 2, 8})) {
             std::cout << i << " ";
         }
         std::cout << std::endl;

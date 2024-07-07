@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 using namespace std;
 
@@ -25,11 +25,12 @@ vector<string> total_match(vector<vector<string>> lst1, vector<vector<string>> l
             sum2 += s.length();
         }
     }
-    if (sum1 < sum2) return vector<string>(lst1.begin(), lst1.end());
-    else if (sum1 > sum2) return vector<string>(lst2.begin(), lst2.end());
-    else return vector<string>(lst1.begin(), lst1.end());
+    if (sum1 < sum2) return vector<string>(total_match(lst1[0],lst2[0]).begin(), total_match(lst1[0],lst2[0]).end());
+    else if (sum1 > sum2) return vector<string>(total_match(lst1[0],lst2[0]).begin(), total_match(lst1[0],lst2[0]).end());
+    else return vector<string>(total_match(lst1[0],lst2[0]).begin(), total_match(lst1[0],lst2[0]).end());
 }
 
 int main() {
     assert(issame({{"this"}}, {}) == true);
+    return 0;
 }
