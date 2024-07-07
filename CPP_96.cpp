@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <iostream>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -11,7 +11,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> count_up_to(int n) {
+std::vector<int> countUpTo(int n) {
     std::vector<int> primes;
     for (int i = 2; i <= n; ++i) {
         bool isPrime = true;
@@ -31,10 +31,10 @@ int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    std::vector<int> primes = count_up_to(n);
+    #include <initializer_list>
+    std::vector<int> primes = countUpTo(n);
     for (int prime : primes) {
-        if (!issame({prime}, {primes[0]})) {
+        if (!isSame({prime}, {primes[0]})) {
             std::cout << "Prime number: " << prime << std::endl;
         }
     }
-}
