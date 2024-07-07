@@ -1,12 +1,20 @@
+Here is the completed code:
+
 bool is_sorted(vector<int> lst){
-    if(lst.size() <= 1) return true;
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
             vector<int> temp;
-            for(int j = 0; j < i; j++) temp.push_back(lst[j]);
-            if(count(temp.begin(), temp.end(), lst[i]) > 1) return false;
-        } else {
-            return false;
+            bool duplicate = false;
+            for(int j = 0; j < lst.size(); j++){
+                if(j == i) continue;
+                if(temp.empty() || temp.back() != lst[j]){
+                    temp.push_back(lst[j]);
+                } else {
+                    duplicate = true;
+                    break;
+                }
+            }
+            if(duplicate) return false;
         }
     }
     return true;
