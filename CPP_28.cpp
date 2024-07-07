@@ -1,16 +1,20 @@
-int main()
-{
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+int main() {
     vector<string> strings;
-    string userInput;
+    string outputString;
 
     while (true) {
         cin.ignore(); 
         cout << "Enter a string (or stop to finish): ";
-        getline(cin, userInput);
+        getline(cin, outputString);
 
-        if (userInput == "stop") break;
+        if (outputString == "stop") break;
 
-        strings.push_back(userInput);
+        strings.push_back(outputString);
     }
 
     string result = "";
