@@ -1,8 +1,9 @@
-bool substringSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+```cpp
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, const std::string& substring) {
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& str, const std::string& substring) {
     std::vector<std::string> result;
     for (const auto& s : str) {
         if (s.find(substring) != std::string::npos) {
@@ -14,10 +15,10 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& str, 
 
 int main() {
     std::vector<std::string> str = {"grunt", "trumpet", "prune", "gruesome"};
-    auto result = filterBySubstring(str, "run");
+    auto result = filter_by_substring(str, "run");
     
     for (const auto& s : result) {
-        if (!substringSame({s}, std::vector<std::string>({"grunt", "prune"}))) {
+        if (!issame({s}, std::vector<std::string>({"grunt", "prune"}))) {
             return 1; // returning with error
         }
     }
