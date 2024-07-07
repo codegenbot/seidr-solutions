@@ -1,11 +1,10 @@
-```cpp
 #include <cmath>
 #include <vector>
 #include <algorithm> 
 #include <numeric>
 #include <iostream>
 
-double double_the_difference(std::vector<double> lst) {
+double double_the_difference(const std::vector<double>& lst) {
     double odd_sum = 0;
     for(double y : lst) {
         if (y > 0.0 && std::floor(y) == y && std::fmod(y, 2.0) != 0.0) { 
@@ -15,7 +14,7 @@ double double_the_difference(std::vector<double> lst) {
     return odd_sum;
 }
 
-void calculateOddSums(std::vector<double> lst) {
+void calculateOddSums(const std::vector<double>& lst) {
     double total_sum = 0;
     for(double y : lst) {
         if (y > 0.0 && std::floor(y) == y && std::fmod(y, 2.0) != 0.0) { 
