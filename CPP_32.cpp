@@ -2,29 +2,28 @@
 #include <vector>
 #include <cmath>
 
-double poly(std::vector<double> poly_coeffs, double x) {
+double poly(std::vector<double> coeffs, double x) {
     double result = 0;
-    for (int i = 0; i < poly_coeffs.size(); i++) {
-        result += poly_coeffs[i] * pow(x, i);
+    for (int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(x, i);
     }
     return result;
 }
 
-double find_zero(std::vector<double> poly_coeffs){
+double find_zero(std::vector<double> xs){
     double sum = 0;
-    for (int i = 1; i < poly_coeffs.size(); i++) {
+    for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
-            sum += poly_coeffs[i] / poly_coeffs[0];
+            sum += xs[i] / xs[0];
         }
     }
-    return -sum / poly_coeffs[0];
+    return -sum / xs[0];
 }
 
 int main() {
     std::vector<double> poly_coeffs;
     double temp;
 
-    poly_coeffs = {};
     while (true) {
         std::cin >> temp;
         if (std::cin.fail()) {
