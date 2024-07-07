@@ -6,29 +6,29 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return ((int)b > boost::any_cast<int>(a)) ? b : boost::any("None");
+        return (int)b > a ? b : boost::any("None");
     }
     if (a.type() == typeid(int) && b.type() == typeid(string)) {
         string str = boost::any_cast<string>(b);
         size_t pos = str.find(',');
         if (pos != string::npos) {
             str[0] = '.';
-            return str;
+            return boost::any(str);
         } else {
-            return ((int)stoi(str) > boost::any_cast<int>(a)) ? b : boost::any("None");
+            return (int)stoi(str) > a ? b : boost::any("None");
         }
     }
     if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return ((boost::any_cast<float>(a) > b)) ? a : boost::any("None");
+        return (float)a > b ? a : boost::any("None");
     }
     if (a.type() == typeid(string) && b.type() == typeid(int)) {
         string str = boost::any_cast<string>(a);
         size_t pos = str.find(',');
         if (pos != string::npos) {
             str[0] = '.';
-            return str;
+            return boost::any(str);
         } else {
-            return (str > to_string(b)) ? a : boost::any("None");
+            return str > to_string(b) ? a : boost::any("None");
         }
     }
     if (a.type() == typeid(string) && b.type() == typeid(float)) {
@@ -36,9 +36,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         size_t pos = str.find(',');
         if (pos != string::npos) {
             str[0] = '.';
-            return str > boost::any_cast<string>(a) ? b : boost::any("None");
+            return boost::any(str) > a ? b : boost::any("None");
         } else {
-            return (str > to_string(boost::any_cast<float>(a))) ? b : boost::any("None");
+            return str > to_string(a) ? b : boost::any("None");
         }
     }
     if (a.type() == typeid(string) && b.type() == typeid(string)) {
