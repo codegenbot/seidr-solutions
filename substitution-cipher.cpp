@@ -11,7 +11,8 @@ int main() {
         if (index != string::npos) {
             cout << cipher2[index];
         } else {
-            cout << message[i]; // print the original character
+            // print the original character from the message string
+            cout << message[i];
         }
     }
     
