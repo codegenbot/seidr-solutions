@@ -1,14 +1,38 @@
-vector<int> strange_sort_vector(vector<int> lst) {
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
-        result.push_back(min_val);
-        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
-        if (!lst.empty()) {
-            int max_val = *max_element(lst.begin(), lst.end());
-            result.push_back(max_val);
-            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
+        for(int i = 0; i < lst.size(); i++) {
+            if(lst[i] != min_val) result.push_back(lst[i]);
         }
+        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
     }
     return result;
+}
+
+int main_entry() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    
+    vector<int> vec(n);
+    cout << "Enter the numbers: ";
+    for(int i = 0; i < n; i++) {
+        cin >> vec[i];
+    }
+    
+    vector<int> result = strange_sort_list(vec);
+    cout << "Sorted list:" << endl;
+    for(auto& x : result) {
+        cout << x << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
