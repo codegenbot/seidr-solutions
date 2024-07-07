@@ -1,16 +1,25 @@
 int is_bored(string S) {
     int count = 0;
-    string boredom = "I";
-    
-    size_t pos = 0;
-    while ((pos = S.find(".", pos)) != string::npos || 
-           (pos = S.find("?", pos)) != string::npos || 
-           (pos = S.find("!", pos)) != string::npos) {
-        if (S.substr(0, boredom.size()) == boredom && S.substr(0, boredom.size()).compare(boredom) == 0) {
+    string word;
+    for (string sentence : split(S, ".!?")) {
+        if (sentence.length() > 2 && sentence.substr(0, 2) == "I ") {
             count++;
         }
-        pos += (pos < 0) ? 1 : (S[pos] == '.' || S[pos] == '?' || S[pos] == '!');
     }
-    
     return count;
+}
+
+vector<string> split(string str, char ch) {
+    vector<string> tokens = {};
+    string token = "";
+    for (char c : str) {
+        if (c == ch) {
+            tokens.push_back(token);
+            token = "";
+        } else {
+            token += c;
+        }
+    }
+    tokens.push_back(token);
+    return tokens;
 }
