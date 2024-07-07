@@ -1,4 +1,6 @@
+```cpp
 #include <iostream>
+#include <string>
 #include <sstream>
 
 int choose_num(int x, int y) {
@@ -14,10 +16,10 @@ int choose_num(int x, int y) {
 
 int main() {
     int num1, num2;
-    std::stringstream input;
+    std::string input;
     std::cout << "Enter two numbers (separated by a space): ";
-    getline(std::cin, input.str());
-    std::istringstream iss(input.str());
+    getline(std::cin, input);
+    std::istringstream iss(input + " ");
     if (!(iss >> num1 >> num2)) {
         std::cout << "Invalid input. Please enter two integers separated by a space." << std::endl;
         return 1;
