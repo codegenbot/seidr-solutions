@@ -41,7 +41,7 @@ int main() {
         }
         
         if(inputVector.size() >= n) {
-            break; // Exit loop once desired number of elements is reached
+            break; // Exit loop once maximum capacity is reached
         }
     }
 
