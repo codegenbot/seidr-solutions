@@ -1,28 +1,28 @@
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int targetLength = target.length();
-    for (int i = 0; ; i++) {
-        int j = 0;
-        while (j < targetLength && i + j < text.length() && text[i + j] == target[j]) {
-            j++;
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int len = target.length();
+    for (int i = 0; i <= text.length() - len; i++) {
+        bool found = true;
+        for (int j = 0; j < len; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
         }
-        if (j == targetLength) {
-            indices.push_back(i);
-            i += j - 1; // adjust i to skip overlapping substrings
-        } else {
-            break;
+        if (found) {
+            result.push_back(i);
         }
     }
-    return indices;
+    return result;
 }
 
 int gcd(int a, int b) {
-    while (b != 0) {
+    while(b!=0){
         int temp = b;
-        b = a % b;
+        b = a%b;
         a = temp;
     }
     return a;
