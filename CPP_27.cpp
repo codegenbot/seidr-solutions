@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <string>
 
-std::string filp_case(std::string& str) {
+std::string filp_case(std::string str) {
     std::string result;
     if (str.empty()) {
         return result; 
