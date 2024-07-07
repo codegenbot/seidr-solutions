@@ -1,13 +1,17 @@
-vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = std::stable_partition(lst.begin(), lst.end(),
-        [](const string& s) { return s.size() % 2; });
-    vector<string> result(it, lst.end());
-    std::sort(result.begin(), result.end(),
+#include <algorithm>
+
+vector<string> vector_sort(vector<string> lst) {
+    auto it = unique(lst.begin(), lst.end(), 
         [](const string& a, const string& b) {
-            if (a.size() == b.size()) {
+            return (a.length() % 2 && !b.empty()) || (!a.empty() && b.length() % 2);
+    });
+    lst.erase(it, lst.end());
+    sort(lst.begin(), lst.end(),
+        [](const string& a, const string& b) {
+            if (a.length() == b.length())
                 return a < b;
-            }
-            return a.size() < b.size();
-        });
-    return result;
+            else
+                return a.length() < b.length();
+    });
+    return lst;
 }
