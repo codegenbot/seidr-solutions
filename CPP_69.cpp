@@ -1,5 +1,6 @@
+```cpp
 #include <iostream>
-#include <string>
+#include <cassert>
 
 int search(int n) {
     if(n < 0)
@@ -12,9 +13,10 @@ int main() {
     int num;
     std::cout << "Enter a positive number: ";
     std::cin >> num; 
-    if (num < 0) {
-        std::cout << "The search function returns -1 for negative numbers." << std::endl;
+    if (num >= 0) {
+        std::cout << "Result of searching " << num << ": " << search(num) << std::endl;
     } else {
-        std::cout << "Result of searching " << std::to_string(num) << ": " << search(num) << std::endl;
+        std::cout << "The search function returns -1 for negative numbers." << std::endl;
     }
     return 0;
+}
