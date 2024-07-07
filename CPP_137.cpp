@@ -32,6 +32,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     else {
-        return boost::any("Invalid input");
+        return "Invalid input";
     }
 }
