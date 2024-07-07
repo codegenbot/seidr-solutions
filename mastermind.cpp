@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -33,16 +30,4 @@ int mastermind(string code, string guess) {
     }
     
     return blackPegs;
-}
-
-int main() {
-    string code, guess;
-    cout << "Enter the Mastermind code (4 characters): ";
-    cin >> code;
-    cout << "Enter your guess (4 characters): ";
-    cin >> guess;
-    int result = mastermind(code, guess);
-    cout << "Number of white pegs: 0\nNumber of black pegs: " << result << endl;
-    return 0;
-
 }
