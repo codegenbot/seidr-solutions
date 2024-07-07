@@ -14,5 +14,5 @@ vector<int> largest_smallest_integers(vector<int> lst) {
         }
     }
 
-    return {(max_negative > 0 ? 0 : max_negative), (min_positive < 1 ? 0 : min_positive)};
+    return {max_negative, min_positive};
 }
