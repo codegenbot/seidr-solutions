@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
@@ -25,8 +23,10 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
 
-    ostringstream oss;
-    oss << "The count of the numbers of " << n << "-digit positive integers that start or end with 1 is: " << starts_one_ends(n) << endl;
-    cout << oss.str();
+    if (n > 10 && n <= 1000000) {
+        cout << "The count of numbers that start or end with 1 is: " << starts_one_ends(n) << endl;
+    } else {
+        cout << "Input value is out of range." << endl;
+    }
     return 0;
 }
