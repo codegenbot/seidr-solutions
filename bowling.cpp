@@ -1,3 +1,4 @@
+```cpp
 int bowlingScore(string s) {
     int score = 0;
     int currentRoll = 0;
@@ -5,8 +6,8 @@ int bowlingScore(string s) {
 
     for(int i = 0; i < s.length(); i++) {
         char c = s[i];
-        if (c == '/') {
-            if (currentRoll + max(0, min(10 - rollCount, currentRoll)) > 10)
+        if(c == '/') {
+            if(currentRoll + max(0, min(10 - rollCount, currentRoll)) > 10)
                 score += 10 + max(0, currentRoll - 10);
             else
                 score += currentRoll + max(0, min(10 - rollCount, currentRoll));
@@ -18,7 +19,7 @@ int bowlingScore(string s) {
         }
     }
 
-    if (currentRoll > 0) score += currentRoll;
+    if(currentRoll > 0) score += currentRoll;
 
     return score;
 }
