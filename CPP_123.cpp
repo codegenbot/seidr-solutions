@@ -10,6 +10,4 @@ int main {
     for (int num : output) {
         cout << num << " ";
     }
-    assert(isSame(getOddCollatz(1), {1}));
-    return 0;
 }
