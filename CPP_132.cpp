@@ -4,18 +4,18 @@
 
 bool is_nested(std::string str) {
     int count = 0;
-    for (char c : str) {
-        if (c == '[') {
+    for (auto it = str.begin(); it != str.end(); ++it) {
+        if (*it == '[') {
             count++;
-        } else if (c == ']') {
+        } else if (*it == ']') {
             if (count > 0) {
                 count--;
             } else {
-                return false; // Not balanced
+                return false;
             }
         }
     }
-    return count > 0; // Still has an open bracket, so it's not nested
+    return count > 0;
 }
 
 int main() {
