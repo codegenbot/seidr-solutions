@@ -19,8 +19,11 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    std::vector<float> input = {1};
-    std::vector<float> expected_output = {};
-    assert(issame(derivative(input), expected_output));
+    std::vector<float> input;
+    float x;
+    while(std::cin >> x) {
+        input.push_back(x);
+    }
+    assert(issame(derivative(input), {}));
     return 0;
 }
