@@ -1,7 +1,7 @@
 #include <vector>
 #include <initializer_list>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool same(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -30,11 +30,11 @@ int main() {
             v2.push_back(num);
         }
     }
-    
+
     float maxV1 = get_positive(v1);
     float maxV2 = get_positive(v2);
 
-    if (!issame({maxV1},{0.0f})) { 
+    if (!same({maxV1}, {0.0})) { 
         std::cout << "The two sets of numbers are not the same.\n";
     } else {
         std::cout << "The two sets of numbers are the same.\n";
