@@ -1,12 +1,16 @@
-Here is the completed code:
-
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int total_water = 0;
+    int count = 0;
     for (const auto& row : grid) {
-        for (int water : row) {
-            total_water += water;
+        int water_to_collect = 0;
+        for (auto cell : row) {
+            if (cell == 1) {
+                water_to_collect += min(cell, capacity);
+            }
+        }
+        while (water_to_collect > 0) {
+            count++;
+            water_to_collect -= capacity;
         }
     }
-
-    return total_water / capacity + ((total_water % capacity) ? 1 : 0);
+    return count;
 }
