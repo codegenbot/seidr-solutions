@@ -1,5 +1,8 @@
 using namespace std;
 
+#include <vector>
+#include <algorithm>
+
 string words_in_sentence(string sentence) {
     vector<int> wordLengths;
     string result = "";
