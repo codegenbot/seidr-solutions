@@ -1,4 +1,3 @@
-```
 import re
 
 def square_digits(n):
