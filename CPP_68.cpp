@@ -31,12 +31,13 @@ std::vector<int> pluck(std::vector<int> arr) {
 
 int main() {
     std::vector<int> input;
-    long n;
+    size_t n;
 
     // Read input
     std::cout << "Enter the number of elements: ";
     std::cin >> n;  
-    input.resize(n); 
+    input.reserve(n);  // Use reserve instead of resize and provide the default allocator
+
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> (input[i]);
