@@ -1,14 +1,27 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-std::vector<std::string> concatenate(const std::vector<std::string>& strings) {
+std::vector<std::string> concatenate(const std::vector<std::pair<std::string, int>>& strings) {
     std::vector<std::string> result;
     for (const auto& str : strings) {
-        if (result.empty()) {
-            result.push_back(str);
-        } else {
-            result.push_back(str + strings[0]);
-        }
+        // Process the string as per your requirement
+        std::string processedString = "";
+        for(int i=0; i < str.second; i++)
+            processedString += str.first;
+        result.push_back(processedString);
     }
     return result;
+}
+
+std::vector<std::string> concatenate(const std::vector<std::pair<std::string, int>>& strings) {
+    std::vector<std::string> result;
+    for (const auto& str : strings) {
+        // Process the string as per your requirement
+        std::string processedString = "";
+        for(int i=0; i < str.second; i++)
+            processedString += str.first;
+        result.push_back(processedString);
+    }
+    return result;
+}
