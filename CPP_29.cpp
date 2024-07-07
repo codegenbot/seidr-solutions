@@ -20,7 +20,8 @@ bool operator==(const std::vector<std::string>& v1, const std::vector<std::strin
 }
 
 int main() {
-    std::vector<std::string> result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx");
+    std::vector<std::string> strings("xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx");
+    std::vector<std::string> result = filter_by_prefix(strings, "xxx");
     assert(std::operator==(result, std::vector<std::string>{"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
