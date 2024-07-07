@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -7,7 +6,7 @@ size_t findPattern(const std::string& input) {
     size_t pos = 0;
     while ((pos = input.find("I am bored", pos)) != std::string::npos) {
         count++;
-        pos = input.find("I am bored", pos);
+        pos += 9; 
     }
     return count;
 }
