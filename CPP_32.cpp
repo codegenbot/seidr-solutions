@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <cmath>
-#include <initializer_list>
 
 double poly(vector<double> coeffs, double x) {
     double result = 0;
@@ -10,12 +10,11 @@ double poly(vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(vector<double> xs){
-    double sum = 0;
-    for (int i = 1; i < xs.size(); i++) {
-        if (i % 2 == 0) {
-            sum += xs[i] / xs[0];
-        }
+double find_zero(std::vector<double> xs){
+    vector<double> coeffs(xs.begin(), xs.end());
+    double solution = 0;
+    while(abs(poly(coeffs, solution)) > 1e-3) {
+        solution = -poly(coeffs, solution)/coeffs[1];
     }
-    return -sum / xs[0];
+    return solution;
 }

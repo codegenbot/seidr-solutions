@@ -1,8 +1,6 @@
-```c
+```
 #include <iostream>
 #include <string>
-#include <cassert>
-#include <cstring>
 
 int str_length(std::string str){
     return str.length();
