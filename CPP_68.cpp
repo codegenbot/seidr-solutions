@@ -1,5 +1,5 @@
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
     if (arr.empty()) return result;
 
     int minEven = INT_MAX;
@@ -12,10 +12,6 @@ vector<int> pluck(vector<int> arr) {
         }
     }
 
-    if (minIndex != -1) {
-        result.push_back(minEven);
-        result.push_back(minIndex);
-    }
-
+    result.push_back({minEven, minIndex});
     return result;
 }
