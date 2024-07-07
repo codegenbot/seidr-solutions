@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 
 int mastermind(string code, string guess) {
     int whitePegs = 0;
@@ -10,25 +11,28 @@ int mastermind(string code, string guess) {
         }
     }
 
-    vector<char> codeArray(code.begin(), code.end());
-    vector<char> guessArray(guess.begin(), guess.end());
+    vector<pair<char, bool>> codeMap(6), guessMap(6);
 
-    for (char c : codeArray) {
-        int count = 0;
-        for (char d : guessArray) {
-            if (c == d) {
-                count++;
+    for (char c : code) {
+        codeMap[c] = {c, true};
+    }
+
+    for (int i = 0; i < 4; ++i) {
+        for (char c : code) {
+            if (codeMap[c].second && c == guess[i]) {
+                blackPegs++;
+                codeMap[c].second = false;
             }
         }
-        if (count > 1) {
-            whitePegs += count - 1;
-        } else if (count == 1) {
-            blackPegs--;
+    }
+
+    for (pair<char, bool> p : codeMap) {
+        if (p.second) {
+            whitePegs++;
         }
     }
 
     return blackPegs;
-
 }
 
 int main() {
