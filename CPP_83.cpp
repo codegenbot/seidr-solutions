@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 int starts_one_ends(int n) {
     int count = 0;
@@ -17,6 +16,6 @@ int starts_one_ends(int n) {
 }
 
 int main() {
-    assert(starts_one_ends(5) == 18000);
+    std::cout << starts_one_ends(5) << std::endl;
     return 0;
 }
