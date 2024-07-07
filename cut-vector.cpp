@@ -1,5 +1,5 @@
-#include <initializer_list>
-
+#include <algorithm>
+#include <initializer_list> // Include this line
 using namespace std;
 
 vector<int> cutVector(vector<int>& v) {
@@ -18,5 +18,19 @@ vector<int> cutVector(vector<int>& v) {
     vector<int> left(v.begin(), v.begin() + pos);
     vector<int> right(v.begin() + pos, v.end());
 
-    return {left.begin(), left.end()} | {right.begin(), right.end()};
+    // Use a loop to concatenate vectors
+    vector<int> result;
+    for (int i : left) {
+        result.push_back(i);
+    }
+    for (int i : right) {
+        result.push_back(i);
+    }
+
+    if (left.size() > 1 && right.size() > 1) {
+        cout << "Error: Input vector is not suitable." << endl;
+        return {};
+    } else {
+        return result;
+    }
 }
