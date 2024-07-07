@@ -1,26 +1,29 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
-    std::vector<std::string> result;
-    for (const auto& str : strings) {
-        if (str.find(prefix) == 0) {
-            result.push_back(str);
-        }
-    }
-    return result;
-}
-
-bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
-    if (v1.size() != v2.size()) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
+}
+
+std::vector<std::string> filter_by_prefix(std::vector<std::string> str_vector, const std::string& prefix) {
+    std::vector<std::string> result;
+    for (const auto& s : str_vector) {
+        if (s.find(prefix) == 0) {
+            result.push_back(s);
+        } else if (!prefix.empty()) {
+            // Add the modified string to the result
+            result.push_back(prefix + s.substr(prefix.size()));
+        }
+    }
+    return result;
 }
 
 int main() {
