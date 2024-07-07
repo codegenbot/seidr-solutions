@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -23,15 +22,22 @@ double find_zero(std::vector<double> xs){
 
 int main() {
     std::vector<double> coeffs;
+    double temp;
 
     while (true) {
-        double temp;
         std::cin >> temp;
-        if (std::cin.fail()) break;
+        if (std::cin.fail()) {
+            std::cout << "Invalid input. Please enter a valid number." << std::endl;
+            break;
+        }
         coeffs.push_back(temp);
     }
 
-    double solution = find_zero(coeffs);
-    assert(abs(poly(coeffs, solution)) < 1e-3);
+    if(coeffs.size() == 0){
+        std::cout << "No coefficients entered. Cannot find zero." << std::endl;
+    } else {
+        double solution = find_zero(coeffs);
+        assert(abs(poly(coeffs, solution)) < 1e-3);
+    }
     return 0;
 }
