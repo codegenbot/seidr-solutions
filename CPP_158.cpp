@@ -1,10 +1,19 @@
 string find_max(vector<string> words){
-    string result = *max_element(words.begin(), words.end(), 
-        [](const string& a, const string& b) {
-            if (a.size() == b.size()) {
-                return a < b;
+    string max_word = "";
+    for(auto& word : words){
+        int unique_chars = 0;
+        unordered_set<char> chars;
+        for(char c : word){
+            if(chars.find(c) == chars.end()){
+                unique_chars++;
+                chars.insert(c);
             }
-            return a.size() > std::count(b.begin(), b.end, static_cast<char>(0));
-        });
-    return result;
+        }
+        if(unique_chars > 0 && (max_word.empty() || unique_chars > count(max_word.begin(), max_word.end(), isalpha))){
+            max_word = word;
+        } else if(unique_chars == count(max_word.begin(), max_word.end(), isalpha) && word < max_word){
+            max_word = word;
+        }
+    }
+    return max_word;
 }
