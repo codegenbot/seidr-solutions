@@ -1,7 +1,7 @@
-```
 def middle_character(s):
-    s = s.strip('!')
-    if len(s) % 2 == 1:
-        return s[len(s)//2] + '!'
+    length = len(s)
+    middle_index = length // 2
+    if length % 2 == 1:
+        return s[middle_index]
     else:
-        return s[(len(s)-1)//2: (len(s)+1)//2].replace(' ', '')
+        return s[middle_index-1:middle_index+1]
