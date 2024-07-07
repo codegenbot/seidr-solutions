@@ -1,3 +1,6 @@
+```
+#include <iostream>
+
 int choose_num(int x, int y) {
     if (x % 2 == 0 && y % 2 == 0) {
         return (x > y) ? x : y;
@@ -6,5 +9,14 @@ int choose_num(int x, int y) {
     } else if (y % 2 == 0) {
         return y;
     }
-    return "Both numbers must be odd or both numbers must be even.";
+    return -1;
+}
+
+int main() {
+    int x, y;
+    std::cout << "Enter two numbers: ";
+    std::cin >> x >> y;
+    int result = choose_num(x, y);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
 }
