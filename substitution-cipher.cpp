@@ -6,13 +6,13 @@ int main() {
     string cipher1, cipher2, message;
     cin >> cipher1 >> cipher2 >> message;
     
-    for (int i = 0; i < message.size(); i++) {
-        int index = cipher1.find_first_of(message[i], 0);
+    while (message.size() > 0) {
+        int index = cipher1.find_first_of(message[0], 0);
         if (index != string::npos) {
             cout << cipher2[index];
+            message.erase(0, 1);
         } else {
-            // handle the case where the character is not found in the cipher strings
-            cout << message[i];
+            break;
         }
     }
     
