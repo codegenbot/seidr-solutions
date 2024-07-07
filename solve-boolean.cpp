@@ -1,29 +1,29 @@
 bool evaluate(const string &expression) {
-    stack<char> opStack;
+    stack<char> operators;
     bool result = true;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
-            opStack.push('|');
+            operators.push('|');
         } else if (expression[i] == '&') {
-            opStack.push('&');
+            operators.push('&');
         } else if (expression[i] == '^') {
-            opStack.push('^');
-        } else if (opStack.empty()) {
+            operators.push('^');
+        } else if (operators.empty()) {
             result = true;
         } else {
-            char operator = opStack.top();
+            char operator = operators.top();
             switch (operator) {
                 case '|':
-                    result |= expression.at(i);
+                    result |= expression[i];
                     break;
                 case '&':
-                    result &= expression.at(i);
+                    result &= expression[i];
                     break;
                 case '^':
-                    result ^= expression.at(i);
+                    result ^= expression[i];
                     break;
             }
         }
     }
-    return result && expression != "false";
+    return result;
 }
