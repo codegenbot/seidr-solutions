@@ -1,4 +1,3 @@
-```c++
 int main(){
     int n, m;
     cin >> n >> m;
@@ -14,5 +13,5 @@ int main(){
         rounded >>= 1;
     }
     reverse(res.begin(), res.end());
-    cout << res << endl;
+    cout << res;
 }
