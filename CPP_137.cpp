@@ -9,9 +9,9 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(float) && b.type() == typeid(double)) {
         return (float) a > (double) b ? a : b;
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        std::string str1 = boost::any_cast<std::string>(a);
-        std::string str2 = boost::any_cast<std::string>(b);
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
         return str1 > str2 ? a : b;
     }
-    return boost::anytypeid(int)("None");
+    return boost::any("None");
 }
