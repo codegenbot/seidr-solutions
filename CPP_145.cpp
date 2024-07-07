@@ -1,14 +1,27 @@
 #include <algorithm>
 
 vector<int> order_by_points(vector<int> nums) {
-    vector<int> result = nums;
-    sort(result.begin(), result.end(), [&nums](int a, int b) {
-        int sumA = 0, sumB = 0;
-        for (char c : to_string(a)) sumA += c - '0';
-        for (char c : to_string(b)) sumB += c - '0';
-        if (sumA != sumB) return sumA < sumB;
-        return std::distance(nums.begin(), find(nums.begin(), nums.end(), a)) <
-               std::distance(nums.begin(), find(nums.begin(), nums.end(), b));
-    });
+    vector<pair<int, int>> numPairs;
+    
+    for (int i = 0; i < nums.size(); i++) {
+        int sumOfDigits = 0;
+        int num = nums[i];
+        
+        while (num > 0) {
+            sumOfDigits += num % 10;
+            num /= 10;
+        }
+        
+        numPairs.emplace_back(sumOfDigits, i);
+    }
+    
+    sort(numPairs.begin(), numPairs.end());
+    
+    vector<int> result;
+    
+    for (const auto& pair : numPairs) {
+        result.push_back(nums[pair.second]);
+    }
+    
     return result;
 }
