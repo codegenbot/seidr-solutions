@@ -1,23 +1,33 @@
+#include <stack>
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 bool evaluate(const string &expression) {
-    stack<char> operators;
+    stack<char> opStack;
     bool result = true;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
-            operators.push('|');
+            opStack.push('|');
         } else if (expression[i] == '&') {
-            operators.push('&');
+            opStack.push('&');
         } else if (expression[i] == '^') {
-            operators.push('^');
-        } else if (operators.empty()) {
+            opStack.push('^');
+        } else if (opStack.empty()) {
             result = true;
         } else {
-            char operator = operators.top();
-            if (operator == '|') {
-                result |= expression[i];
-            } else if (operator == '&') {
-                result &= expression[i];
-            } else if (operator == '^') {
-                result ^= expression[i];
+            char operator = opStack.top();
+            switch (operator) {
+                case '|':
+                    result |= expression.at(i);
+                    break;
+                case '&':
+                    result &= expression.at(i);
+                    break;
+                case '^':
+                    result ^= expression.at(i);
+                    break;
             }
         }
     }
