@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -38,13 +37,10 @@ vector<int> findIndices(string text, string target) {
 }
 
 int gcd(int a, int b) {
-    if(a == 0)
-        return abs(b);
-    if(b == 0)
-        return abs(a);
+    if (b == 0)
+        return a;
     if (a == 0 && b == 0)
         return 0;
-
     return gcd(b, a % b);
 }
 
