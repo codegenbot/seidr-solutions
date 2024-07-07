@@ -17,7 +17,8 @@ int how_many_times(string str, string substring) {
 int main() { 
     string str, substring;
     cout << "Enter the string: ";
-    cin >> str;
+    getline(cin, str);
+    cout << "Enter the substring: ";
     getline(cin, substring);
     if (str.empty()) {
         cout << "Error: The input string is empty." << endl;
