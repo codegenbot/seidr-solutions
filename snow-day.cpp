@@ -1,7 +1,3 @@
-```cpp
-#include <iostream>
-using namespace std;
-
 double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionMeltingPerHour) {
     double totalSnow = initialSnow; // Initialize to the initial amount of snow
 
