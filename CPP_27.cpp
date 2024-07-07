@@ -1,12 +1,15 @@
-string filp_case(string str){
+#include <string>
+
+using namespace std;
+
+string flip_case(string str){
     string result = "";
-    for(int i=0; i<str.length(); i++){
-        char c = str[i];
-        if(c>=97 && c<=122) // lowercase character
-            c -= 32;
-        else if(c>=65 && c<=90) // uppercase character
-            c += 32;
-        result += c;
+    for(int i=0; i<str.length();i++){
+        if(islower(str[i])){
+            result += toupper(str[i]);
+        } else {
+            result += tolower(str[i]);
+        }
     }
     return result;
 }
