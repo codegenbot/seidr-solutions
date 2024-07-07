@@ -2,6 +2,7 @@
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (b.size() == 0) return true;
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -15,20 +16,21 @@ int main() {
 
     if (sum1 < sum2) {
         for (const auto& v : lst1) {
-            for (const string& s : v) {
-                // Your logic here
+            for (const std::string& s : v) {
+                sum1 += s.size();
             }
         }
     } else if (sum1 > sum2) {
         for (const auto& v : lst2) {
-            for (const string& s : v) {
-                // Your logic here
+            for (const std::string& s : v) {
+                sum2 += s.size();
             }
         }
     } else {
         for (const auto& v : lst1) {
-            for (const string& s : v) {
-                // Your logic here
+            for (const std::string& s : v) {
+                sum1 += s.size();
+                sum2 += s.size();
             }
         }
     }
