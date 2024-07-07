@@ -1,8 +1,7 @@
-Here is the completed code:
-
-bool check_if_last_char_is_a_letter(string txt) {
-    int len = txt.length();
-    if (len == 0) return false;
-    char lastChar = txt[len - 1];
-    return isalpha(lastChar) && !isalnum(lastChar);
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()) return false; 
+    string lastChar = txt.substr(txt.length()-1, 1);
+    if(lastChar.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") != string::npos)
+        return !isalpha(txt.back());
+    return false;
 }
