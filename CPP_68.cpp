@@ -1,4 +1,5 @@
 #include <climits>
+
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
@@ -20,3 +21,4 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     result.push_back({smallestEvenValue, smallestIndex});
     
     return result;
+}
