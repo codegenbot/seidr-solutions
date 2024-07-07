@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
@@ -33,7 +32,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         result.push_back(str);
     }
 
-    std::vector<std::string> output;
+    std::vector<int> arr;
     int n;
     std::cout << "Enter the number of integers: ";
     std::cin >> n;
@@ -41,11 +40,11 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         int num;
         std::cout << "Enter integer " << i+1 << ": ";
         std::cin >> num;
-        output.push_back(std::to_string(num));
+        arr.push_back(num);
     }
-    std::vector<std::string> sortedOutput = by_length(output);
+    std::vector<std::string> output = by_length(arr);
     std::cout << "The numbers in the order of their lengths are: ";
-    for (std::string str : sortedOutput) {
+    for (std::string str : output) {
         std::cout << str << " ";
     }
     std::cout << "\n";
