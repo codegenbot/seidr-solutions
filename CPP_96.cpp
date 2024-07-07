@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <initializer_list> 
 #include <algorithm>
@@ -31,10 +32,11 @@ int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    #include <initializer_list>
     std::vector<int> primes = countUpTo(n);
     for (int prime : primes) {
         if (!isSame({prime}, {primes[0]})) {
             std::cout << "Prime number: " << prime << std::endl;
         }
     }
+    return 0;
+}
