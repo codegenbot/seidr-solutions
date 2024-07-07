@@ -5,25 +5,34 @@
 
 using namespace std;
 
+struct pair_int {
+    int val;
+    int i;
+    int j;
+};
+
+bool operator>(const pair_int &a, const pair_int &b) {
+    return a.val > b.val;
+}
+
+priority_queue<pair_int, vector<pair_int>, greater<pair_int>> pq;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<bool> row(n, false);
-    vector<vector<bool>> visited(n, vector<bool>(n, false)); 
-    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+    priority_queue<pair_int, vector<pair_int>, greater<pair_int>> pq;
     vector<int> res;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) {
-                pq.push({grid[i][j], i, j});
-                visited[i][j] = true;
-            }
+            pair_int p = {grid[i][j], i, j};
+            pq.push(p);
         }
     }
 
     while (!pq.empty()) {
-        int val = pq.top().first;
-        pair<int,int> pos = {pq.top().second, pq.top().second};
+        int val = pq.top().val;
+        int pos_i = pq.top().i;
+        int pos_j = pq.top().j;
         pq.pop();
 
         res.push_back(val);
@@ -34,12 +43,12 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             // Check all neighbors
             for (int i = -1; i <= 1; ++i) {
                 for (int j = -1; j <= 1; ++j) {
-                    int ni = pos.first + i;
-                    int nj = pos.second + j;
+                    int ni = pos_i + i;
+                    int nj = pos_j + j;
 
-                    if (ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]) {
-                        visited[ni][nj] = true;
-                        pq.push({grid[ni][nj], ni, nj});
+                    if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
+                        pair_int p = {grid[ni][nj], ni, nj};
+                        pq.push(p);
                     }
                 }
             }
