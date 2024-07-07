@@ -1,8 +1,9 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::string longest(std::vector<std::string> strings) {
+std::string longest(const std::vector<std::string>& strings) {
     if(strings.empty()) return "";
     std::string result = strings[0];
     for(auto s : strings) {
@@ -12,7 +13,7 @@ std::string longest(std::vector<std::string> strings) {
 }
 
 int main() {
-    std::vector<std::string> strings = {"apple", "banana", "cherry"};
+    std::vector<std::string> strings = {"hello", "world", "abc"};
     std::cout << longest(strings) << std::endl;
     return 0;
 }
