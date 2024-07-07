@@ -1,16 +1,14 @@
+#include <boost/lexical_cast.hpp>
+
 vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        boost::any_cast<int>(value);
-        bool is_integer = false;
-        try {
-            int integer_value = boost::any_cast<int>(value);
-            is_integer = true;
-        } catch (...) {
-            // not an integer
+        if (boost::contains(boost::type_erased_type(value))) {
+            try {
+                int i = boost::get<int>(value);
+                result.push_back(i);
+            } catch (...) {}
         }
-        if (is_integer)
-            result.push_back(boost::any_cast<int>(value));
     }
     return result;
 }
