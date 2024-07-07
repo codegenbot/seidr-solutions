@@ -4,7 +4,7 @@ def file_name_check(file_name):
         return 'No'
     if file_name.count('.') != 1:
         return 'No'
-    before_dot = file_name.rsplit('.', 1)[0]
+    before_dot = file_name.split('.')[0]
     after_dot = file_name.split('.')[1].lower()
     if not before_dot or not before_dot[0].isalpha():
         return 'No'
