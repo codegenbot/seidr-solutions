@@ -17,7 +17,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             if (db == 0.0) return a;
             if (da > 0 && db < 0) return a;
             if (da < 0 && db > 0) return b;
-            return boost::any("None");
+            return da > db ? a : b;
         }
     }
     else if (is_any_of<a>(std::string())) {
@@ -28,7 +28,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
         else {
             double da = any_cast<double>(a);
-            return boost::any(da);
+            if (da == 0.0) return boost::any("None");
+            return a;
         }
     }
     else {
