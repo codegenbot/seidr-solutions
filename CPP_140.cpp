@@ -4,7 +4,7 @@ string fix_spaces(string text){
         if(text[i] == ' '){
             if(i+1 < text.length() && text[i+1] == ' '){
                 if(result.length() > 0 || i > 0) {
-                    result += '-';
+                    result += "-";
                 }
             } else {
                 result += '_';
