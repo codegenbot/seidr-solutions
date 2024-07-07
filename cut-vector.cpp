@@ -24,12 +24,12 @@ int main() {
                 str += to_string(*next) + (next == --res[i].end() ? "" : ", ");
                 next++;
             }
-            cout << str;
+            cout << str + "]";
             if(j+1<res[i].size()-1)cout<<",";
             cout<<"] ";
         }
         if(i < res.size() - 1) cout << "], [";
-        else cout << str + "]";
+        else cout << "] ";
     }
     cout << "]";
     return 0;
