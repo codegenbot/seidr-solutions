@@ -1,3 +1,7 @@
+bool issame(int x1, int y1, int x2, int y2) {
+    return (x1 == x2 && y1 == y2);
+}
+
 vector<int> minPath(vector<vector<int>>& grid, int k){
     int n = grid.size();
     vector<vector<int>> dp(n, vector<int>(n));
