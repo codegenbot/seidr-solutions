@@ -15,4 +15,4 @@ bool solveBoolean(string s) {
             }
         }
     }
-    return result;
+    return result ? true : false;
