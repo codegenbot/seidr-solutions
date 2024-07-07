@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 #include <initializer_list> 
 #include <algorithm>
 #include <iostream>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -28,14 +27,11 @@ std::vector<int> countUpTo(int n) {
     return primes;
 }
 
-int main() {
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
+std::vector<int> findPrimes(int n) {
     std::vector<int> primes = countUpTo(n);
-    for (int prime : primes) {
-        if (!issame({prime}, {primes[0]})) {
-            std::cout << "Prime number: " << prime << std::endl;
+    for (int i = 0; i < primes.size(); ++i) {
+        if (!isSame({primes[i]}, {primes[0]})) {
+            std::cout << "Prime number: " << primes[i] << std::endl;
         }
     }
 }
