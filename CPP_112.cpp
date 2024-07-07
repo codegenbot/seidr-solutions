@@ -3,9 +3,9 @@ Here is the completed code:
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
-    for (char ch : s) {
+    for (char& ch : s) {
         bool found = false;
-        for (char cc : c) {
+        for (char& cc : c) {
             if (ch == cc) {
                 found = true;
                 break;
@@ -16,12 +16,8 @@ vector<string> reverse_delete(string s, string c) {
         }
     }
     result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
-    }
+    string revTemp = temp;
+    reverse(revTemp.begin(), revTemp.end());
+    result.push_back((temp == revTemp) ? "True" : "False");
     return result;
 }
