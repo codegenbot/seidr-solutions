@@ -1,12 +1,20 @@
+```cpp
+#include <iostream>
+
+int choose_num(int, int);
+
 int main() {
     int num1, num2;
     std::cout << "Enter two numbers (separated by a space): ";
     std::cin >> num1 >> num2;  
     int result = choose_num(num1, num2);
-    if(result == -1) {
-        std::cout << "Error: Both numbers must be odd." << std::endl;
-    } else {
-        std::cout << "Result: " << (result % 2 == 0 ? "even" : "odd") << std::endl;
-    }
+    std::cout << "Result: " << result << std::endl;
     return 0;
+}
+
+int choose_num(int num1, int num2) {
+    if (num1 > num2)
+        return num1;
+    else
+        return num2;
 }
