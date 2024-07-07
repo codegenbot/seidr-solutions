@@ -1,16 +1,11 @@
-#include <vector>
-#include <algorithm>
-
-int sum_of_squares(std::vector<int> v) {
-    int res = 0;
-    for (int i : v) {
-        res += i * i;
-    }
-    return res;
-}
-
+```cpp
 int main() {
-    std::vector<int> input(2);
-    // rest of your code
-    assert(sum_of_squares({-1,1,0})==2);
+    int num1, num2;
+    std::cout << "Enter two numbers: ";
+    std::cin >> num1 >> num2;
+
+    int sum = num1 * num1 + num2 * num2;
+    std::cout << "Sum of squares is: " << sum << std::endl;
+
+    return 0;
 }
