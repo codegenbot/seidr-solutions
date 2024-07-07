@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
@@ -11,10 +12,9 @@ int digitSum(std::string s) {
         }
     }
     return sum;
+
 }
 
-int main() {
-    assert(digitSum("You arE Very Smart") == 14);
-    std::cout << "digitSum: " << digitSum("You arE Very Smart") << std::endl;
-    return 0;
-}
+assert(digitSum("You arE Very Smart") == 14);
+std::cout << "digitSum: " << digitSum("You arE Very Smart") << std::endl;
+return 0;

@@ -1,9 +1,9 @@
-```c++
 #include <vector>
 #include <initializer_list>
 #include <algorithm>
+#include <iostream>
 
-bool issame(const std::vector& a, const std::vector& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (std::abs(a[i] - b[i]) > 1e-9) return false;
@@ -11,19 +11,19 @@ bool issame(const std::vector& a, const std::vector& b) {
     return true;
 }
 
-float get_positive(const std::vector& input) {
+float get_positive(const std::vector<float>& input) {
     return *std::max_element(input.begin(), input.end());
 }
 
 int main() {
     float num;
-    std::vector v1, v2;
+    std::vector<float> v1, v2;
     while (true) {
         std::cout << "Enter a number (-1 to stop): ";
         std::cin >> num;
         if (num == -1) break;
-        if (num > 0) v1.push_back(num);
-        else v2.push_back(-num); 
+        if (num > 0) v1.push_back(static_cast<float>(num));
+        else v2.push_back(-static_cast<float>(num)); 
     }
     
     float maxV1 = get_positive(v1);

@@ -2,13 +2,17 @@
 #include <cassert>
 #include <string>
 
+const std::string filp_case(const std::string& str); // Declare filp_case before usage
+
 std::string filp_case(const std::string& str) -> const std::string {
-    std::string result = str; 
-    for (char c : str) { 
+    std::string result = str;
+    for (char c : str) {
         if ((c >= 'a' && c <= 'z')) {
-            result[static_cast<int>(c - 'a')] = static_cast<char>(c - 32); 
+            result += toupper(c); // Convert to uppercase
         } else if ((c >= 'A' && c <= 'Z')) {
-            result[static_cast<int>(c - 'A')] = static_cast<char>(c + 32); 
+            result += tolower(c); // Convert to lowercase
+        } else {
+            result += c;
         }
     }
     return result;
