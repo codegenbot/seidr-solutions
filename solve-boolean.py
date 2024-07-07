@@ -3,14 +3,7 @@ def solve_boolean(expression):
         return True
     elif expression == 'F':
         return False
-    result = True  
-
-    parts = expression.split('&')
-    for part in parts:
-        part = part.strip()
-        if part:  
-            result = result and bool(eval(part.replace('|', 'or').replace('and', '&')))
-            if not result:  
-                break
-
-    return str(result)
+    elif '&' in expression or '|' in expression:
+        left, right = expression.split('(' + expression[0] + ')')
+        return (solve_boolean(left) and solve_boolean(right)) if expression[0] == '&' else (solve_boolean(left) or solve_boolean(right))
+    return True
