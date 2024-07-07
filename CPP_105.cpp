@@ -7,7 +7,6 @@
 using namespace std;
 
 vector<string> by_length(vector<string> arr) {
-    vector<string> output(arr.size(), string()); 
     map<int, int> lengthCount;
     for (string str : arr) {
         if (str == "One") str = "1";
@@ -28,6 +27,7 @@ vector<string> by_length(vector<string> arr) {
         }
     }
 
+    vector<string> output(arr.size());
     for (auto it = lengthCount.rbegin(); it != lengthCount.rend(); ++it) {
         while (it->second > 0) {
             for(int i=1; i<=9; i++) {
