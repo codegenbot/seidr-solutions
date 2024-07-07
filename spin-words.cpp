@@ -2,13 +2,15 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+
 using namespace std;
+
 string spinWords(string input) {
-   vector<string> words = split(input, ' ');
-   for (auto& word : words) {
-       if (word.length() >= 5) {
-           reverse(word.begin(), word.end());
-       }
-   }
-   return join(words, ' ');
+    vector<string> words = split(input, ' ');
+    for (int i = 0; i < words.size(); i++) {
+        if (words[i].length() >= 5) {
+            reverse(words[i], words[i].size());
+        }
+    }
+    return words.join(" ");
 }
