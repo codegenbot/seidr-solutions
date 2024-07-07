@@ -7,18 +7,15 @@
 using namespace std;
 
 vector<string> by_length(vector<string> arr) {
-    map<int, int> lengthCount;
+    unordered_map<int, int> lengthCount;
     for (string str : arr) {
         int len = str.length();
-        if (lengthCount.find(len) != lengthCount.end()) {
-            lengthCount[len]++;
-        } else {
-            lengthCount[len] = 1;
-        }
+        lengthCount[len]++;
+        str = to_string(stoi(str));
     }
 
     vector<string> output;
-    for (auto it = lengthCount.rbegin(); it != lengthCount.rend(); ++it) {
+    for (auto it = lengthCount.begin(); it != lengthCount.end(); ++it) {
         while (it->second > 0) {
             for(int i=1; i<=9; i++) {
                 if(to_string(i).length() == it->first) {
@@ -37,7 +34,7 @@ int main() {
     int n;
     cout << "Enter the number of integers: ";
     cin >> n;
-    vector<string> arr(n);
+    vector<string> arr(std::vector<string>(n));
     for(int i=0; i<n; i++) {
         string num;
         cout << "Enter integer " << i+1 << ": ";
