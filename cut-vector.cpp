@@ -1,32 +1,7 @@
-```cpp
+```
 #include <iostream>
+#include <vector>
 using namespace std;
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (int i = 0; i < n; i++) {
-        cin >> vec[i];
-    }
-    vector<vector<int>> res = cutVector(vec);
-    cout << "[";
-    bool first = true;
-    for (int i = 0; i < res.size(); i++) {
-        if (!first) cout << ", ";
-        else first = false;
-        cout << "[";
-        for(int j = 0; j < res[i].size();j++){
-            cout<<res[i][j];
-            if(j+1<res[i].size()-1)cout<<",";
-        }
-        cout<<"]";
-        if(i < res.size() - 1) cout << "], [";
-        else cout << "]";
-    }
-    cout << "]";
-    return 0;
-}
 
 vector<vector<int>> cutVector(vector<int> vec) {
     int n = vec.size();
@@ -39,4 +14,30 @@ vector<vector<int>> cutVector(vector<int> vec) {
         }
     }
     return res;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
+    }
+    vector<vector<int>> res = cutVector(vec);
+    cout << "[";
+    bool first = true;
+    for (int i = 0; i < res.size(); i++) {
+        cout << "[";
+        string str = "";
+        bool firstElement = true;
+        for(auto num:res[i]){
+            if(firstElement)firstElement=false;else str+=", ";
+            str += to_string(num);
+        }
+        cout<<str<<"] ";
+        if(i < res.size() - 1) cout << "], [";
+        else cout << "]";
+    }
+    cout << "]";
+    return 0;
 }
