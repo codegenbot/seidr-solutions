@@ -1,7 +1,6 @@
-```cpp
-#include <initializer_list>
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
 std::vector<float> derivative(std::vector<float> a) {
     std::vector<float> result;
