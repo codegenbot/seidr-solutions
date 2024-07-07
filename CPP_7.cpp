@@ -1,6 +1,10 @@
-```cpp
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    bool same = (a.size() == b.size());
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
+    }
+    return same;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
