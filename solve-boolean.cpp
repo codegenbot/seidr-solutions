@@ -1,26 +1,26 @@
-int evaluate(const string& expression) {
+#include <stack>
+#include <string>
+
+bool evaluate(const string &expression) {
+    stack<char> operators;
     bool result = true;
-    int i = 0;
-    while (i < expression.length()) {
+    for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
-            i++;
-            continue;
+            operators.push('|');
         } else if (expression[i] == '&') {
-            i++;
-            continue;
+            operators.push('&');
         } else if (expression[i] == '^') {
-            i++;
-            continue;
+            operators.push('^');
         } else if (operators.empty()) {
             result = true;
         } else {
             char operator = operators.top();
             if (operator == '|') {
-                result |= atoi(expression[i]);
+                result |= expression[i];
             } else if (operator == '&') {
-                result &= atoi(expression[i]);
+                result &= expression[i];
             } else if (operator == '^') {
-                result ^= atoi(expression[i]);
+                result ^= expression[i];
             }
         }
     }
