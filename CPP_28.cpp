@@ -1,11 +1,10 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
 
-int main() {
+void mainFunction() {
     vector<string> strings;
     string userInput;
 
@@ -24,5 +23,9 @@ int main() {
         result += str + " ";
     }
     cout << "Concatenated string: " << result << endl;
+}
+
+int main() {
+    mainFunction();
     return 0;
 }
