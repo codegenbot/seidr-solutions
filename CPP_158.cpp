@@ -1,13 +1,8 @@
-Here is the solution:
-
-```cpp
 string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(),
-        [](const string &a, const string &b) {
-            if (a.size() == b.size()) {
-                return a < b;
-            }
-            return a.size() > b.size();
-        });
+    string max_word = *max_element(words.begin(),words.end(),
+            [](const string& a,const string& b){return count(a.begin(),a.end(),unique_copy(a.begin(),a.end())->begin()) <
+            count(b.begin(),b.end(),unique_copy(b.begin(),b.end())->begin());}
+    );
+    
     return max_word;
 }
