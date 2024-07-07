@@ -1,15 +1,14 @@
-#include <string>
+Here is the completed code:
 
-using namespace std;
-
+```cpp
 int how_many_times(string str, string substring) {
     int count = 0;
-    size_t pos = 0;
-    
-    while ((pos = str.find(substring)) != string::npos) {
-        count++;
-        pos += substring.length();
+    int n = str.length();
+    int m = substring.length();
+
+    for (int i = 0; i <= n - m; i++) {
+        if (str.substr(i, m) == substring)
+            count++;
     }
-    
     return count;
 }
