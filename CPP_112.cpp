@@ -1,41 +1,43 @@
-#include <algorithm>
-#include <string>
-#include <vector>
-
-using namespace std;
+Here is the solution:
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
-    // Create a set of characters in c for efficient lookup
-    set<char> cSet(c.begin(), c.end());
-    
-    // Initialize an empty string to store the result
-    string res = "";
-    
-    // Iterate over each character in s
-    for (char ch : s) {
-        // If the character is not in c, add it to the result
-        if (cSet.find(ch) == cSet.end()) {
-            res += ch;
+    for (char& ch : s) {
+        bool found = false;
+        for (char& cc : c) {
+            if (ch == cc) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            result.push_back(string(1, ch));
         }
     }
     
-    // Check if the result string is palindrome
+    string resStr = "";
+    for (int i = 0; i < result.size(); ++i) {
+        resStr += result[i];
+    }
+    
     bool isPalindrome = true;
-    int left = 0, right = res.size() - 1;
-    while (left < right) {
-        if (res[left] != res[right]) {
+    int start = 0, end = resStr.length() - 1;
+    while (start < end) {
+        if (resStr[start] != resStr[end]) {
             isPalindrome = false;
             break;
         }
-        left++;
-        right--;
+        start++;
+        end--;
     }
     
-    // Add the result string and palindrome status to the vector
-    result.push_back(res);
-    result.push_back(isPalindrome ? "True" : "False");
+    vector<string> finalResult;
+    finalResult.push_back(resStr);
+    if (isPalindrome) {
+        finalResult.push_back("True");
+    } else {
+        finalResult.push_back("False");
+    }
     
-    return result;
-}
+    return finalResult;
