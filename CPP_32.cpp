@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -27,7 +26,7 @@ double find_zero(vector<double> coeffs){
 }
 
 int main() {
-    vector<double> poly_coeffs;
+    vector<double> poly_coeffs = {};
 
     string temp;
     double val;
@@ -40,9 +39,6 @@ int main() {
         }
         val = stod(temp);
         poly_coeffs.push_back(val);
-        if(poly_coeffs.size() >= 1000){ 
-            break;  
-        }
     }
 
     if(poly_coeffs.size() == 0){
