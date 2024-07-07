@@ -7,7 +7,7 @@
 using namespace std;
 
 vector<string> by_length(vector<string> arr) {
-    vector<string> output(n);
+    vector<string> output(arr.size(), string()); 
     map<int, int> lengthCount;
     for (string str : arr) {
         if (str == "One") str = "1";
