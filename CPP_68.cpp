@@ -14,7 +14,7 @@ bool same(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
-    unsigned long minEven = std::numeric_limits<unsigned long>::max(), minIndex = -1;
+    size_t minEven = std::numeric_limits<size_t>::max(), minIndex = -1;
 
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0 && arr[i] < minEven) {
@@ -31,13 +31,12 @@ std::vector<int> pluck(std::vector<int> arr) {
 
 int main() {
     std::vector<int> input;
-    unsigned long n;
+    size_t n;
 
-    int temp;
+    // Read input
     std::cout << "Enter the number of elements: ";
-    std::cin >> temp;
-    n = static_cast<unsigned long>(temp);  
-    input.resize(n); 
+    std::cin >> n;  
+    input.resize(static_cast<unsigned long int>(n)); 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> (input[i]);
