@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 
-// Function definition
 std::string match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
     for (const std::string& s : lst) {
