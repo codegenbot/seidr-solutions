@@ -1,4 +1,4 @@
-```cpp
+```
 #include <sstream>
 #include <iostream>
 #include <limits>
@@ -26,19 +26,7 @@ string validateTweet(string tweet) {
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    std::stringstream ss;
-    char c;
-    int charCount = 0;
-
-    while ((c = cin.get()) && (charCount <= 140)) {
-        if (!isspace(c)) {
-            ss.put(c);
-            charCount++;
-        }
-        else if (charCount > 0) {
-            break; // newline character indicates end of tweet
-        }
-    }
-
-    return validateTweet(ss.str());
+    getline(cin, tweet);
+    cout << validateTweet(tweet) << endl;
+    return 0;
 }
