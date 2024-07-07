@@ -2,11 +2,11 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
+vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
@@ -20,4 +20,14 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         }
     }
     return result;
+}
+
+int main() {
+    vector<int> input = {1, 2, 3};
+    vector<int> expected = {1, 3, 2};
+    
+    vector<int> output = strange_sort_list(input);
+    assert(issame(output, expected));
+    
+    return 0;
 }
