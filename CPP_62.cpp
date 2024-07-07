@@ -2,7 +2,6 @@
 #include <cmath>
 #include <algorithm>
 #include <iostream>
-#include <limits>
 
 using namespace std;
 
@@ -15,36 +14,25 @@ double similarity(vector<float> v1, vector<float> v2) {
 }
 
 int main() {
-    int numVectors;
-    cin >> numVectors;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
 
-    vector<vector<float>> vectors(numVectors);
+    vector<float> v1(n);
+    vector<float> v2(n);
 
-    for(int i = 0; i < numVectors; ++i) {
-        int size;
-        cin >> size;
-
-        vectors[i].resize(size);
-        
-        for(int j = 0; j < size; ++j) {
-            float val;
-            cin >> val;
-            vectors[i][j] = val;
-        }
+    cout << "Enter elements for vector 1: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> v1[i];
     }
 
-    double maxSim = 0.0;
-    for (int i = 0; i < numVectors - 1; ++i) {
-        for (int j = i + 1; j < numVectors; ++j) {
-            double sim = similarity(vectors[i], vectors[j]);
-            if (sim > maxSim) {
-                maxSim = sim;
-            }
-        }
+    cout << "Enter elements for vector 2: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> v2[i];
     }
 
-    cout << fixed << setprecision(2);
-    cout << "Maximum Similarity: " << maxSim << endl;
+    double result = similarity(v1, v2);
+    cout << "Similarity between the two vectors is: " << result << endl;
 
     return 0;
 }
