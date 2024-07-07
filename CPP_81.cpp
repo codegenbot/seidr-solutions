@@ -43,15 +43,15 @@ string letterGrade(float grade) {
 vector<string> numericalLetterGrade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
-        result.push_back(letterGrade(grade));
+        result.push_back(to_string(letterGrade(grade)));
     }
     return result;
 }
 
 int main() {
-    vector<float> fgrades = {0.0, 0.7};
+    vector<float> fgrades = {0, 0.7};
     vector<string> grades = numericalLetterGrade(fgrades);
-    if (!issame({grades[0], grades[1]}, {"F", "D-" }))
+    if (!issame({grades[0], grades[1]}, {"E", "D-" }))
         std::cout << "Test failed" << std::endl;
     else
         std::cout << "Test passed" << std::endl;
