@@ -29,7 +29,7 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> input, output;
+    std::vector<int> input(n), output;
     int n;
 
     // Read input
