@@ -6,10 +6,10 @@
 std::string flip_case(const std::string& str) {
     std::string result;
     for (char c : str) {
-        if (islower(c)) {
-            result += toupper(c);
-        } else if (isupper(c)) {
-            result += tolower(c);
+        if (std::islower(c)) {
+            result += std::toupper(c);
+        } else if (std::isupper(c)) {
+            result += std::tolower(c);
         } else {
             result += c;
         }
