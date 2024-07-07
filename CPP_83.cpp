@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 int starts_one_ends(int n) {
