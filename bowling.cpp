@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -8,8 +7,8 @@ int bowlingScore(string s) {
     int currentRoll = 0;
     int rollCount = 0;
 
-    for(int i=0; i<s.size(); i++) {
-        if(s[i] == '/') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '/') {
             if (currentRoll >= 10) {
                 score += currentRoll + 10;
             } else {
