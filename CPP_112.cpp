@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 namespace std {
 template <class _Ty>
@@ -16,7 +17,7 @@ vector<string> reverseDelete(vector<string>& v) {
     return v;
 }
 
-bool issame(const vector<string>& b, const vector<string>& a) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }

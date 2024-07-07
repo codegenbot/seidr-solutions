@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -46,6 +47,8 @@ int do_algebra(std::vector<std::string> operator_, std::vector<int> operand) {
 }
 
 int main() {
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    std::vector<std::string> operator_ = {"//", "*"};
+    std::vector<int> operand = {7, 3, 4};
+    assert(do_algebra(operator_, operand) == 8);
     return 0;
 }
