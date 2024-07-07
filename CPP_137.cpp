@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
-#include <boost/conversion.hpp>
+#include <boost/any.hpp>
 
 using namespace std;
 
 string compare_one(string s1, string s2) {
-    double d1 = boost::lexical_cast<double>(s1);
-    double d2 = boost::lexical_cast<double>(s2);
+    double d1 = stod(s1);
+    double d2 = stod(s2);
 
     if (d1 > d2) return s1;
     else if (d1 == d2) return "None";
