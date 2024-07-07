@@ -1,23 +1,24 @@
-```
-#include <vector>
-#include <cmath>
 #include <iostream>
-#include <initializer_list>
+#include <vector>
 
-int sum_squares(std::vector<float> lst){
-    int total = 0;
-    for(float x : lst){
-        int ceil_x = std::ceil(x);
-        total += std::pow(ceil_x,2);
+int sum_squares(const std::vector<float>& input) {
+    int output = 0;
+    for (float num : input) {
+        output += num * num;
     }
-    return total;
+    return output;
 }
 
-{ 
-    std::vector<float> input;
+int main() {
+    std::vector<float> input{};
     float num;
     while(std::cin >> num) {
+        if(num < 0 || num > 1000.0f) {
+            std::cout << "Error: Input value must be between 0 and 1000." << std::endl;
+            return 1;
+        }
         input.push_back(num);
     }
     int output = sum_squares(input);
     std::cout << output << std::endl;
+}

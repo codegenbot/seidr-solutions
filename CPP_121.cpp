@@ -1,10 +1,14 @@
 ```cpp
+#include <vector>
+using namespace std;
+
 int solution(vector<int> arr) {
-    int result = 0;
+    int sum = 0;
     for (int i : arr) {
-        result += i % 2;
+        if (i % 2 != 0)
+            sum += i;
     }
-    return result;
+    return sum;
 }
 
 int main() {

@@ -12,5 +12,6 @@ string closest_integer(double num) {
 
 int main() {
     assert(closest_integer(0.0) == "0");
+    closest_integer(5.7); // Pass an integer
     return 0;
 }
