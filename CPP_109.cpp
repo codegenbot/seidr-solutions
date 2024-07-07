@@ -1,3 +1,6 @@
+#include <vector>
+using namespace std;
+
 bool move_one_ball(vector<int> arr) {
     int n = arr.size();
     if (n == 0) return true;
