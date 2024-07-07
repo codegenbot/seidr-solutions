@@ -1,22 +1,22 @@
-#include <algorithm>
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
 
 vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
-    if (numbers.size() <= 1) {
-        throw runtime_error("Invalid input size");
-    }
+    vector<pair<float, float>> result;
+    
+    if (numbers.size() < 2)
+        return result;
 
-    pair<float, float> closest;
-    float minDiff = numeric_limits<float>::max();
-
-    for (int i = 0; i < numbers.size(); ++i) {
-        for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = abs(numbers[i] - numbers[j]);
-            if (diff < minDiff) {
-                minDiff = diff;
-                closest = make_pair(min(diff, numbers[i]), max(diff, numbers[i]));
+    pair<float, float> closest = {numbers[0], numbers[1]};
+    for (int i = 0; i < numbers.size(); i++) {
+        for (int j = i + 1; j < numbers.size(); j++) {
+            if (abs(numbers[j] - numbers[i]) < abs(closest.second - closest.first)) {
+                closest = {numbers[i], numbers[j]};
             }
         }
     }
-
+    
     return {closest};
 }
