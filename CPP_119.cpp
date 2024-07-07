@@ -1,7 +1,3 @@
-```cpp
-#include <vector>
-#include <string>
-
 using namespace std;
 
 std::string match_parens(vector<std::string> lst) {
