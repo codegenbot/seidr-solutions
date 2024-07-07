@@ -1,4 +1,11 @@
-int main
+```c
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int main 
 {
     vector<string> strings;
     string userInput;
