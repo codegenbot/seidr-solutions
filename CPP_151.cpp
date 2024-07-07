@@ -48,11 +48,11 @@ void calculateAndPrint() {
 
     double total_sum = 0;
     for(double y : lst) {
-        if (y > 0.0 && std::fmod(y, 2.0) != 0.0) { 
+        if (y > 0.0 && std::fmod(y,2.0) != 0.0) { 
             total_sum += y;
         }
     }
-    double average = total_sum / static_cast<double>(std::count_if(lst.begin(), lst.end(), [](double x){ return x > 0.0 && std::fmod(x, 2.0) != 0.0; }));
+    double average = total_sum / static_cast<double>(std::count_if(lst.begin(), lst.end(), [](double x){ return x > 0.0 && std::fmod(x,2.0) != 0.0; }));
     std::cout << "Average of odd numbers: " << average << std::endl;
 
     double the_difference = double_the_difference(lst);
@@ -61,4 +61,5 @@ void calculateAndPrint() {
 
 int main() {
     calculateAndPrint();
+    return 0;
 }
