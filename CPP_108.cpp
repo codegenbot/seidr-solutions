@@ -1,17 +1,19 @@
-Here is the completed code:
+Here is the solution:
 
-```
-int count_nums(vector<int> nums) {
+int count_nums(vector<int> v) {
     int count = 0;
-    for (int num : nums) {
-        int sign = (num < 0) ? -1 : 1;
-        num *= sign;
-        long sum = 0;
-        while (num != 0) {
-            sum += abs(num % 10);
+    for (int num : v) {
+        if (num < 0) {
+            num = -num; // Make all digits positive
+        }
+        int sum = 0;
+        while (num > 0) {
+            int digit = num % 10;
+            sum += digit;
             num /= 10;
         }
-        if (sum > 0) count++;
+        if (sum > 0)
+            count++;
     }
     return count;
 }
