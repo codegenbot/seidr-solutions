@@ -10,7 +10,7 @@ int closest_integer(double num) {
     }
 }
 
-int main() {
+int mainFunc() {
     double num;
     cout << "Enter a number: ";
     cin >> num;
