@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     code_count = {}
     for i in range(4):
