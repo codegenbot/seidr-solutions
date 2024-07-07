@@ -14,6 +14,7 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     return res;
+
 }
 
 int main() {
@@ -23,4 +24,3 @@ int main() {
         cout << leader << endl;
     }
     return 0;
-}
