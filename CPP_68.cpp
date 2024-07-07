@@ -1,14 +1,23 @@
-vector<pair<int, int>> pluck(vector<int> arr) {
-    if (arr.empty()) return {};
+#include <vector>
+#include <algorithm>
 
+using namespace std;
+
+vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] % 2 == 0 && ((result.empty()) || (arr[i] < result[0].first))) {
-            result = {{arr[i], i}};
-        } else if (arr[i] % 2 == 0 && (arr[i] == result[0].first)) {
-            result = {{arr[i], i}};
-        }
+    
+    if (arr.empty()) {
+        return result;
     }
 
+    auto it = min_element(arr.begin(), arr.end(),
+                           [](int a, int b) { return (a % 2 == 0 && b % 2 != 0) || (a % 2 != 0 && b % 2 == 0); });
+    
+    if (*it % 2 == 0) {
+        result.push_back({*it, distance(arr.begin(), it)});
+    } else {
+        result = {};
+    }
+    
     return result;
 }
