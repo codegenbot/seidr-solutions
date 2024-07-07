@@ -6,22 +6,16 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return b;
+        return (string)b;
     } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return max(a, b);
+        string strA = to_string(a.convert_to<float>());
+        return (b.convert_to<string>() > strA ? b : a);
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (max(a, b)).cast<string>();
+        return (a.convert_to<string>() > b.convert_to<string>() ? a : b);
     } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int a_int = boost::any_cast<int>(a);
-        int b_int = boost::any_cast<int>(b);
-        if (a_int > b_int)
-            return a;
-        else if (a_int < b_int)
-            return b;
-        else
-            return boost::any("None");
+        return (a.convert_to<int>() > b.convert_to<int>() ? a : b);
     } else {
         return boost::any("None");
     }
