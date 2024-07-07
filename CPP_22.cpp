@@ -1,16 +1,18 @@
-#include<vector>
-#include<string>
-#include<boost/any.hpp>
-#include<list>
-typedef std::list<boost::any> list_any;
-using namespace std;
+#include <boost/any_cast.hpp>
 
-vector<int> filter_integers(list_any values) {
+vector<int> filter_integers(list-any values) {
     vector<int> result;
+
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value, boost::system::error_code())) {
-            result.push_back(boost::any_cast<int>(value));
+        if (boost::any_cast<bool>(value)) {
+            try {
+                int x = boost::any_cast<int>(value);
+                result.push_back(x);
+            } catch (...) {
+                // ignore non-integer values
+            }
         }
     }
+
     return result;
 }
