@@ -8,7 +8,7 @@ std::string toMiniRoman(int num) {
     std::string roman = "";
     int thousands = num / 1000;
     for (int i = 0; i < thousands; i++) {
-        roman += "M";
+        roman += std::string("M");
     }
     num %= 1000;
     int hundreds = num / 100;
@@ -28,7 +28,7 @@ std::string toMiniRoman(int num) {
     if (ones == 9) {
         roman += "IX";
     } else if (ones >= 5) {
-        roman += toMiniRomanHelper(ones, "V", "IV");
+        roman += std::string(toMiniRomanHelper(ones, "V", "IV"));
     } else {
         for (int i = 0; i < ones; i++) {
             roman += "I";
@@ -44,7 +44,7 @@ std::string toMiniRomanHelper(int num, std::string s1, std::string s2) {
         return s1 + "I";
     } else {
         for (int i = 0; i < num / 5; i++) {
-            roman += s1[0];
+            roman += std::string(1, s1);
         }
         return toMiniRomanHelper(num % 5, s1, s2);
     }
