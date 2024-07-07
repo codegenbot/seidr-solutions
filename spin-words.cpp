@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -13,7 +12,7 @@ std::string spinWords(std::string str) {
             word = std::string(word.rbegin(), word.rend());
         else
             result += word + " ";
-        result += " ";
+        result += word + " ";
     }
     return result.substr(0, result.size() - 1); 
 }
