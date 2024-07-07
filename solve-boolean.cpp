@@ -1,12 +1,6 @@
-#include <iostream>
-#include <string>
-#include <stack>
-using namespace std;
-
 bool evaluate(const string &expression) {
-    bool result = true;
     stack<char> operators;
-
+    bool result = true;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '|') {
             operators.push('|');
@@ -14,8 +8,6 @@ bool evaluate(const string &expression) {
             operators.push('&');
         } else if (expression[i] == '^') {
             operators.push('^');
-        } else if (expression[i] == '~') {
-            result = !result;
         } else if (operators.empty()) {
             result = true;
         } else {
