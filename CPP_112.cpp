@@ -3,21 +3,26 @@ Here is the solution:
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
+    
     for (int i = 0; i < s.length(); i++) {
-        if (!find(c.begin(), c.end(), s[i]) != c.end()) {
+        bool found = false;
+        for (int j = 0; j < c.length(); j++) {
+            if (s[i] == c[j]) {
+                found = true;
+                break;
+            }
+        }
+        
+        if (!found) {
             temp += s[i];
         }
     }
-    bool check = true;
-    int left = 0, right = temp.length() - 1;
-    while (left < right) {
-        if (temp[left] != temp[right]) {
-            check = false;
-            break;
-        }
-        left++;
-        right--;
-    }
+    
+    string check = temp;
+    reverse(check.begin(), check.end());
+    
     result.push_back(temp);
-    result.push_back((check ? "True" : "False"));
+    result.push_back((check == temp) ? "True" : "False");
+    
     return result;
+}
