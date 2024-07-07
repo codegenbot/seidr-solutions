@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
 
 int choose_num(int, int);
 
@@ -12,11 +11,7 @@ int main() {
         return 1; 
     }
     int result = choose_num(num1, num2);
-    std::cout << "Result: " << (num1 > num2 ? std::to_string(num1) : std::to_string(num2)) << std::endl;
-    if(result == num1)
-        std::cout << "Greater number is " << num1 << std::endl;
-    else
-        std::cout << "Greater number is " << num2 << std::endl;
+    std::cout << "Result: " << (num1 > num2 ? num1 : num2) << std::endl;
     return 0;
 }
 
