@@ -1,7 +1,8 @@
-int main() {
-    string txt;
-    cin >> txt;
-    bool result = (txt.size() > 0) && isalpha(txt.back());
-    cout << result << endl;
-    return 0;
+Here is the completed code:
+
+```cpp
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()) return false;
+    char lastChar = txt.back();
+    return (isalpha(lastChar) && !isspace(lastChar));
 }
