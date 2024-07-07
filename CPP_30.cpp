@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 #include <algorithm>
+#include <iostream>
 
 bool issame(std::vector a, std::vector b) {
     if (a.size() != b.size()) return false;
@@ -29,11 +29,6 @@ int main() {
     float maxV1 = get_positive(v1);
     float maxV2 = get_positive(v2);
 
-    std::cout << "The two sets of numbers are ";
-    if (!issame({maxV1}, {maxV1})) {
-        std::cout << "not the same.\n";
-    } else {
-        std::cout << "the same.\n";
-    }
+    std::cout << "The two sets of numbers are " << (issame({maxV1}, {maxV2}) ? "" : "not ") << "the same.\n";
     return 0;
 }
