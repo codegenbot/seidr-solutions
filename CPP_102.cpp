@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <cctype>
 #include <string>
 
 int choose_num(int x, int y) {
@@ -15,11 +14,13 @@ int choose_num(int x, int y) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    int x = std::stoi(input.substr(0, input.find(' ')));
-    int y = std::stoi(input.substr(input.find(' ') + 1));
-    int result = choose_num(x, y);
+    int num1, num2;
+    std::cout << "Enter two numbers (separated by a space): ";
+    if (!(std::cin >> num1 >> num2)) {
+        std::cout << "Invalid input. Please enter two integers separated by a space." << std::endl;
+        return 1;
+    }
+    int result = choose_num(num1, num2);
     std::cout << "Result: " << result << std::endl;
     return 0;
 }
