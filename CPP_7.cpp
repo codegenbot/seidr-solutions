@@ -5,11 +5,15 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
             result.push_back(s);
     }
     return result;
+}
 
 bool issame(vector<string> a, vector<string> b) {
-    bool b = true;  // Declare 'b' here
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i)
-        if (a[i] != b[i]) return false;
-    return true;
+    bool b = false; // Declare 'b' as separate variable
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            b = true;
+            break;
+        }
+    }
+    return !b;
 }
