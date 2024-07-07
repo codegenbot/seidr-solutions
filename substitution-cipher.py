@@ -11,3 +11,4 @@ def substitution_cipher(message, cipher):
             deciphered_message += char
 
     return deciphered_message
+```
