@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <numeric>
@@ -16,13 +16,22 @@ bool will_it_fly(std::vector<int> q, int w) {
 
 int main() {
     int n, w;
-    std::cout << "Enter the number of quails: ";
+    std::cout << "Enter the number of quarters: ";
     std::cin >> n;
+    std::cout << "Enter the weight limit: ";
+    std::cin >> w;
+    
     std::vector<int> q(n);
-    std::cout << "Enter weights of quails: ";
-    for (auto &i : q) {
-        std::cin >> i;
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter the weight of quarter " << i + 1 << ": ";
+        std::cin >> q[i];
     }
-    std::cout << "Will it fly? " << (will_it_fly(q, w) ? "Yes" : "No") << std::endl;
+    
+    if (will_it_fly(q, w)) {
+        std::cout << "The quarters will fly.\n";
+    } else {
+        std::cout << "The quarters won't fly.\n";
+    }
+    
     return 0;
 }
