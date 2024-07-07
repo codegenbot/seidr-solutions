@@ -2,7 +2,8 @@
 #include <vector>
 #include <queue>
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
+using namespace std;
+
 struct pair_int {
     int val;
     int i;
@@ -10,6 +11,10 @@ struct pair_int {
 
     pair_int() : val(0), i(-1), j(-1) {}
 };
+
+bool operator>(const pair_int &a, const pair_int &b) {
+    return a.val > b.val;
+}
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
@@ -66,7 +71,7 @@ int main()
     }
     std::cout << std::endl;
     
-    assert(std::equal(result.begin(), result.end(), std::vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3})));
+    assert(std::equal(result.begin(), result.end(), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     
     return 0;
 }
