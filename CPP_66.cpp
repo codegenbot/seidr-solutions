@@ -3,9 +3,10 @@
 
 int digitSum(const std::string& s) {
     int sum = 0;
-    for (char c : s) {
+    for (char c : s) { 
         if (isdigit(c)) {
-            sum += (c - '0'); 
+            int temp = c - '0';
+            sum += temp;
         }
     }
     return sum;
