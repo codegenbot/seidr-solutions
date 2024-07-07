@@ -1,5 +1,7 @@
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+#include <vector>
+
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
             n /= 2;
