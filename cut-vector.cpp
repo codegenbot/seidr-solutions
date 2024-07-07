@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
@@ -40,7 +40,7 @@ int main() {
     for (int num : result.second) {
         cout << num << " ";
     }
-    cout << "]0" << endl;
+    cout << "0]" << endl;
     
     return 0;
 }
