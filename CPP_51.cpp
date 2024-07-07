@@ -1,11 +1,10 @@
-string::iterator it = text.begin();
-string result;
-
-while (it != text.end()) {
-    if (!isvowel(*it)) {
-        result += *it;
+string remove_vowels(string text){
+    string result = "";
+    for(int i=0; i < text.length(); i++){
+        char c = tolower(text[i]);
+        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
+            result += text[i];
+        }
     }
-    ++it;
+    return result;
 }
-
-return result;
