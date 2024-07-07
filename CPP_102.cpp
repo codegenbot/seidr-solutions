@@ -5,11 +5,16 @@
 int choose_num(int, int);
 
 int main() {
-    int num1, num2;
+    std::string num1Str, num2Str;
     std::cout << "Enter two numbers (separated by a space): ";
-    std::cin >> num1 >> num2;  
+    if (!(std::cin >> num1Str >> num2Str)) {
+        std::cerr << "Invalid input. Please enter two integers." << std::endl;
+        return 1; // Return with error code
+    }
+    int num1 = stoi(num1Str);
+    int num2 = stoi(num2Str);
     int result = choose_num(num1, num2);
-    std::cout << "Result: " << std::to_string(result) << std::endl;
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
 
