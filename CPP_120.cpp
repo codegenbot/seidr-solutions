@@ -1,9 +1,8 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(typename std::vector<int> a, typename std::vector<int> b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -23,4 +22,9 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         arr.erase(it);
     }
     return result;
+}
+
+int main() {
+    assert(is_same(maximum({1, 2, 3, -23, 243, -400, 0}, 4), {3, -23, 243, 0}));
+    return 0;
 }
