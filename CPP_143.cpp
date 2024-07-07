@@ -13,8 +13,8 @@ string words_in_sentence(string sentence){
     }
     for (int i = 0; i < sentence.size(); i++) {
         if (sentence[i] != ' ') {
-            if (is_prime(sentence.substr(count, i-count).size())) {
-                result += sentence.substr(count, i-count) + " ";
+            if (is_prime(count+1)) {
+                result += sentence.substr(0, i-count) + " ";
             }
             count = i;
         }
