@@ -17,9 +17,8 @@ int bowlingScore(string s) {
                 }
                 currentRoll = 0;
                 rollCount++;
-            } else if (c == 'X') {
+            } else if (c == 'X') { // handle X as 0
                 currentRoll = 0;
-                score += 10 + (rollCount < 2 ? 10 : 10 - 1 * min(10, rollCount));
             }
         } else {
             currentRoll *= 10;
