@@ -10,8 +10,27 @@ vector<string> by_length(vector<int> arr) {
     vector<string> output;
     map<int, int> lengthCount;
     for (int num : arr) {
-        string str = to_string(num);
-        lengthCount[str.length()]++;
+        if (num >= 1 && num <= 9) {
+            string str = to_string(num);
+            if (str == "1") str = "One";
+            else if (str == "2") str = "Two";
+            else if (str == "3") str = "Three";
+            else if (str == "4") str = "Four";
+            else if (str == "5") str = "Five";
+            else if (str == "6") str = "Six";
+            else if (str == "7") str = "Seven";
+            else if (str == "8") str = "Eight";
+            else if (str == "9") str = "Nine";
+        }
+    }
+
+    for (int num : arr) {
+        int len = to_string(num).length();
+        if (lengthCount.find(len) != lengthCount.end()) {
+            lengthCount[len]++;
+        } else {
+            lengthCount[len] = 1;
+        }
     }
 
     for (auto it = lengthCount.rbegin(); it != lengthCount.rend(); ++it) {
