@@ -25,7 +25,7 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-bool operator>(const pair<int, int>& a, const pair<int, int>& b) {
+bool operator>(const pair<int, int> &a, const pair<int, int> &b) {
     return a.first > b.first;
 }
 
@@ -72,21 +72,28 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     return res;
 }
 
+bool operator>(const pair<int, int> &a, const pair<int, int> &b) {
+    return a.first > b.first;
+}
+
+bool issame(vector<int>, vector<int>) {
+    return false;
+}
+
 int main() 
 {
     vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     int k = 3;
 
-    if (minPath != &minPath) {
-        vector<int> result = minPath(grid, k);
+    vector<int> result = minPath(grid, k);
 
-        for (int i : result) {
-            cout << i << " ";
-        }
-        cout << endl;
-    } else {
-        assert(issame({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, minPath({{1, 3}, {3, 2}}, 10)));
+    for (int i : result) {
+        cout << i << " ";
     }
+    cout << endl;
+    
+    if (!issame({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, minPath({{1, 3}, {3, 2}}, 10)))
+        assert(false);
     
     return 0;
 }
