@@ -20,7 +20,9 @@ int main() {
         std::cout << "Invalid input. Please enter two integers separated by a space." << std::endl;
         return 1;
     }
-    int result = choose_num(num1, num2);
+    std::string str_num1 = std::to_string(num1);
+    std::string str_num2 = std::to_string(num2);
+    int result = choose_num(std::stoi(str_num1), std::stoi(str_num2));
     std::cout << "Result: " << result << std::endl;
     return 0;
 }
