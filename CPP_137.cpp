@@ -1,42 +1,22 @@
+#include <boost/any.hpp>
 #include <string>
 #include <algorithm>
-#include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
 
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return (string)b;
     } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return b;
+        string strA = to_string(a.convert_to<float>());
+        return (b.convert_to<string>() > strA ? b : a);
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (boost::lexical_cast<double>(a.convert_to<string>()) <
-            boost::lexical_cast<double>(b.convert_to<string>())) {
-            return b;
-        } else if (boost::lexical_cast<double>(a.convert_to<string>()) ==
-                   boost::lexical_cast<double>(b.convert_to<string>())) {
-            return boost::any("None");
-        } else {
-            return a;
-        }
+        return (a.convert_to<string>() > b.convert_to<string>() ? a : b);
     } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::lexical_cast<int>(a) < boost::lexical_cast<int>(b)) {
-            return b;
-        } else if (boost::lexical_cast<int>(a) == boost::lexical_cast<int>(b)) {
-            return boost::any("None");
-        } else {
-            return a;
-        }
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        if (boost::lexical_cast<float>(a) < boost::lexical_cast<float>(b)) {
-            return b;
-        } else if (boost::lexical_cast<float>(a) == boost::lexical_cast<float>(b)) {
-            return boost::any("None");
-        } else {
-            return a;
-        }
+        return (a.convert_to<int>() > b.convert_to<int>() ? a : b);
     } else {
-        throw invalid_argument("Invalid type");
+        return boost::any("None");
     }
 }

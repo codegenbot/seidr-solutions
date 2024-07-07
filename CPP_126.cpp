@@ -1,17 +1,19 @@
-bool is_sorted(vector<int> lst) {
-    for(int i = 1; i < lst.size(); i++) {
-        if(lst[i] <= lst[i-1]) {
-            vector<int> temp;
-            bool flag = true;
-            for(int j = 0; j < lst.size(); j++) {
-                if(j == i) continue;
-                temp.push_back(lst[j]);
-                if(temp.back() >= temp[temp.size()-2]) {
-                    flag = false;
-                    break;
+Here is the completed code:
+
+bool is_sorted(vector<int> lst){
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] <= lst[i-1]){
+            int count = 0;
+            for(int j = 0; j < lst.size(); j++){
+                if(lst[j] == lst[i-1]){
+                    count++;
                 }
             }
-            if(flag) return false;
+            if(count > 1){
+                return false;
+            }
+        }else{
+            return false;
         }
     }
     return true;
