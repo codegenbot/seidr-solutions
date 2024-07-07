@@ -1,1 +1,1 @@
-map(function, iterable) applies a given function to each item of an iterable (such as a list or tuple).
+map(function, iterable) applies the given function to every item in the iterable.
