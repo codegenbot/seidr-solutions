@@ -1,6 +1,7 @@
 ```cpp
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 bool areVectorsEqual(const std::vector<int>& v1, const std::vector<int>& v2) {
     if(v1.size() != v2.size()) return false;
