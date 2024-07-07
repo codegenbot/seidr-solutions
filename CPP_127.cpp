@@ -6,7 +6,10 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
     int start = std::max(interval1.first, interval2.first);
     int end = std::min(interval1.second, interval2.second);
 
-    return std::to_string(start <= end ? 1 : 0) + (start <= end ? "YES" : "NO");
+    if (start <= end)
+        return "YES";
+    else
+        return "NO";
 }
 
 int main() {
