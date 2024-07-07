@@ -9,7 +9,10 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
     std::string result = "";
     result += std::to_string(start) + " ";
     result += std::to_string(end) + " ";
-    result += (start <= end ? "yes" : "no");
+    if (start <= end)
+        result += "yes";
+    else
+        result += "no";
     return result;
 }
 
