@@ -40,7 +40,9 @@ int main() {
         double num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        lst.push_back(num);
+        if (num > 0) {
+            lst.push_back(num);
+        }
     }
     
     double odd_sum = double_the_difference(lst);
