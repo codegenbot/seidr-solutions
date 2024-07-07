@@ -14,18 +14,20 @@ int main() {
     std::pair<int, int> interval1;
     std::cout << "Enter the first interval: ";
     std::string temp;
-    std::cin >> std::getline(std::cin, temp); 
-    interval1.first = std::stoi(temp);
+    temp = std::cin.get(); 
+    interval1.first = std::stoi(temp); 
+
     std::cout << "Enter the end of the first interval: ";
-    std::cin >> std::getline(std::cin, temp); 
+    temp = std::cin.get(); 
     interval1.second = std::stoi(temp);
 
     std::pair<int, int> interval2;
     std::cout << "Enter the second interval: ";
-    std::cin >> std::getline(std::cin, temp); 
-    interval2.first = std::stoi(temp);
+    temp = std::cin.get(); 
+    interval2.first = std::stoi(temp); 
+
     std::cout << "Enter the end of the second interval: ";
-    std::cin >> std::getline(std::cin, temp); 
+    temp = std::cin.get(); 
     interval2.second = std::stoi(temp);
 
     if (intersection(interval1, interval2) == "YES")
