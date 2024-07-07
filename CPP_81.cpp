@@ -43,17 +43,33 @@ std::string letterGrade(float grade) {
 }
 
 std::vector<std::string> numericalLetterGrade(std::vector<float> grades) {
-    std::vector<std::string> result(1); // Initialize with some capacity (e.g., 1)
+    std::vector<std::string> result;
     for (float grade : grades) {
         std::string letter = letterGrade(grade);
-        result.push_back(letter);  
+        result.push_back(letter);  // Pushing a string directly into vector
     }
     return result;
 }
 
 int main() {
-    std::vector<float> fgrades = {0.0, 0.7};
+    std::vector<float> fgrades;
+    for (int i = 0; i < 2; i++) {
+        float grade;
+        std::cout << "Enter grade: ";
+        std::cin >> grade;
+        fgrades.push_back(grade);
+    }
+    
+    std::string gradeStr;
+    std::vector<std::string> result;
+    
     std::vector<std::string> grades = numericalLetterGrade(fgrades);
+    for (float grade : fgrades) {
+        std::string letter = letterGrade(grade);
+        gradeStr = letter; 
+        result.push_back(gradeStr); 
+    }
+    
     if (!issame({grades[0], grades[1]}, {"F", "D"}))
         std::cout << "Test failed" << std::endl;
     else
