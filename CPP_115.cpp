@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -31,6 +30,10 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 }
 
 int main() {
-    cout << "Maximum number of times the tank can be filled: " << max_fill({{1,2,3},{4,5,6},{7,8,9}}, 10) << endl;
+    vector<vector<int>> grid = {{1,2,3},{4,5,6},{7,8,9}};
+    int capacity = 10;
+    
+    cout << "Maximum number of times the tank can be filled: " << max_fill(grid, capacity) << endl;
+
     return 0;
 }
