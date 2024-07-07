@@ -36,12 +36,14 @@ int main() {
     std::cin >> n;
 
     std::vector<double> lst;
+    lst.reserve(n);  
+
     for(int i = 0; i < n; i++) {
         double num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
         
-        if (num > 0 && num != std::floor(num)) {  
+        if (num > 0) {
             lst.push_back(num);  
         }
     }
