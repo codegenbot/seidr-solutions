@@ -29,13 +29,9 @@ bool issame(vector<string> b, vector<string> a) {
 }
 
 int main() {
-    vector<string> v1 = {"mamma"};
-    vector<string> result1 = {{"", "True"}};
-    assert(issame(result1, reverse_delete(v1)));
-    
-    vector<string> v2 = {"mia"};
-    vector<string> result2 = {{"True"}};
-    assert(issame(result2, reverse_delete(v2)));
-    
+    vector<string> v;
+    vector<string> temp = {"mamma", "mia"};
+    v = reverse_delete(temp);
+    vector<string> result = {{"", "True"}};
+    assert(issame(result, v));
     return 0;
-}
