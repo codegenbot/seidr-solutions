@@ -1,12 +1,18 @@
-int vowels_count(string s){
+int vowels_count(string s) {
     int count = 0;
-    for(int i=0; i<s.length(); i++){
-        char c = tolower(s[i]);
-        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-            count++;
-        }
-        else if(c == 'y' && i == s.length() - 1){
-            count++;
+    for (char c : s) {
+        switch (c) {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                count++;
+                break;
+            case 'y': 
+                if (s.back() == 'y') // check if 'y' is at the end of the string
+                    count++; 
+                break;
         }
     }
     return count;
