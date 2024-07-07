@@ -9,7 +9,6 @@ vector<int> indicesOfSubstring(string text, string target) {
         result.push_back(pos);
         pos += 1; // increment the start position to find overlapping matches
     }
-
     return result;
 }
 
