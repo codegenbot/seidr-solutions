@@ -1,5 +1,16 @@
 ```cpp
-vector<string> vector_sort(vector<string> lst) {
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
     auto comp = [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
@@ -7,7 +18,7 @@ vector<string> vector_sort(vector<string> lst) {
         return a.length() < b.length();
     };
     sort(lst.begin(), lst.end(), comp);
-    vector<string> result;
+    std::vector<std::string> result;
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
             result.push_back(str);
@@ -16,23 +27,7 @@ vector<string> vector_sort(vector<string> lst) {
     return result;
 }
 
-int sorted_list_sum(vector<string> b) {
-    vector_sort(b);
-    int sum = 0;
-    for (const auto& str : b) {
-        sum += str.length();
-    }
-    return sum;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+int main() {
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    return 0;
 }
