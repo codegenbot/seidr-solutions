@@ -26,7 +26,7 @@ std::vector<int> countUpTo(int n) {
     return primes;
 }
 
-int main() {
+void main_func() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
