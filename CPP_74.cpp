@@ -20,9 +20,7 @@ int main() {
     int sum1 = total_match({{"this"}});
     int sum2 = total_match({});
 
-    if (!std::vector<std::vector<std::string>>{}.empty()) {
-        assert(issame(std::vector<std::vector<std::string>>{{"this"}}, {} ));
-    }
-    
+    assert(issame(std::vector<std::vector<std::string>>{{"this"}}, {} ));
+
     return 0;
 }
