@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -15,7 +16,7 @@ int main() {
     double currentHeight = firstBounceHeight; 
 
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += currentHeight * 2;
+        totalDistance += currentHeight * 2; 
         currentHeight *= bouncinessIndex; 
     }
 
