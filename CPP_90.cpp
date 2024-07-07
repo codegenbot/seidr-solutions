@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -15,10 +16,4 @@ int next_smallest(std::vector<int> lst){
 
 int main(){
     assert(next_smallest({-35, 34, 12, -45}) == -35);
-    std::vector<int> input;
-    int num;
-    while(std::cin >> num) {
-        input.push_back(num);
-    }
-    std::cout << "Next smallest: " << next_smallest(input) << std::endl;
 }
