@@ -1,5 +1,4 @@
 #include <sstream>
-#include <cassert>
 using namespace std;
 
 string closest_integer(double num) {
