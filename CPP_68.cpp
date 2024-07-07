@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool checkIfSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -31,4 +31,32 @@ std::vector<int> pluck(std::vector<int> arr) {
     result.push_back(minIndex);
 
     return result;
+}
+
+int mainFunc() {
+    std::vector<int> input;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        int num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        input.push_back(num);
+    }
+
+    std::vector<int> output = pluck(input);
+
+    if (output.empty()) {
+        std::cout << "No even numbers found." << std::endl;
+    } else {
+        std::cout << "Minimum even number: " << output[0] << ", Index: " << output[1] << std::endl;
+    }
+
+    return 0;
+}
+
+int main() {
+    mainFunc();
 }
