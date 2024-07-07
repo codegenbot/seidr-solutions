@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <iostream>
 
@@ -9,7 +8,7 @@ int how_many_times(string str, string substring) {
     size_t pos = 0;
     while ((pos = str.find(substring)) != string::npos) {
         count++;
-        str.erase(pos, substring.length());
+        pos += substring.length();
     }
     return count;
 }
@@ -21,9 +20,9 @@ int main() {
     cout << "Enter the substring: ";
     getline(cin, substring);
     if (str.empty()) {
-        cerr << "Error: The input string is empty." << endl;
+        cout << "Error: The input string is empty." << endl;
     } else if (substring.empty()) {
-        cerr << "Error: The input substring is empty." << endl;
+        cout << "Error: The input substring is empty." << endl;
     } else {
         int result = how_many_times(str, substring);
         cout << "The substring appears " << result << " times." << endl;
