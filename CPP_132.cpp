@@ -1,5 +1,6 @@
-#include <string>
+```cpp
 #include <iostream>
+#include <string>
 
 bool is_nested(std::string str) {
     int count = 0;
@@ -27,3 +28,4 @@ int main() {
         std::cout << "The string is not nested." << std::endl;
     }
     return 0;
+}
