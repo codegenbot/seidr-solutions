@@ -23,8 +23,9 @@ vector<int> strange_sort_list(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {1, 2, 3};
-    vector<int> expected = {1, 3, 2};
-    assert(issame(strange_sort_list(lst), expected));
+    vector<int> input = {1, 2, 3};
+    vector<int> output = strange_sort_list(input);
+    bool same = issame({1, 3, 2}, output);
+    assert(same);
     return 0;
 }
