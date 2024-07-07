@@ -1,10 +1,6 @@
+```cpp
 #include <algorithm>
 #include <vector>
-
-struct pair {
-    int first;
-    int second;
-};
 
 bool areVectorsEqual(const std::vector<int>& v1, const std::vector<int>& v2) {
     if(v1.size() != v2.size()) return false;
@@ -15,7 +11,7 @@ bool areVectorsEqual(const std::vector<int>& v1, const std::vector<int>& v2) {
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    std::vector<pair> pairs;
+    std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
         int num = nums[i];
