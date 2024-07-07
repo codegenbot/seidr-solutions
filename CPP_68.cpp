@@ -1,13 +1,13 @@
-```cpp
 #include <vector>
+#include <climits>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
-    if (arr.empty()) return result;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
+    if (arr.empty()) {
+        result.push_back(INT_MAX);
+        result.push_back(-1);
+        return result;
+    }
 
     int smallestEvenValue = INT_MAX;
     int index = -1;
@@ -22,4 +22,13 @@ vector<int> pluck(vector<int> arr) {
     result.push_back(index);
 
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // Your comparison logic here
+}
+
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}) , {}));
+    return 0;
 }
