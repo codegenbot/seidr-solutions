@@ -1,4 +1,3 @@
-
 def spin_words(string):
     words = string.split()
     result = []
