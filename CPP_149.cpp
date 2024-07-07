@@ -1,7 +1,9 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <iostream>
+#include <sstream>
+
+using string = std::string;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -20,8 +22,16 @@ vector<string> sorted_list_sum(vector<string> lst) {
         }
     }
     sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             return stol(a) < stol(b);
+         [&result](const string& a, const string& b) {
+             stringstream ss1(a), ss2(b);
+             int num1 = 0, num2 = 0;
+             ss1 >> num1;
+             ss2 >> num2;
+             return num1 < num2;
          });
     return result;
+}
+
+int main() {
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), sorted_list_sum({"cc", "dd", "aaaa", "bbbb"})));
 }
