@@ -1,10 +1,9 @@
 ```cpp
 #include <iostream>
-
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionMeltingPerHour) {
-    double totalSnow = initialSnow; // Initialize to initialSnow
+    double totalSnow = initialSnow; // Initialize to initial snow
 
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowfall; 
