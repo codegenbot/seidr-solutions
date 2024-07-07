@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -15,13 +14,12 @@ int main() {
         cout << "[";
         for(int j = 0; j < res[i].size(); j++){
             for(auto num:res[i][j]){
-                if(i==0)cout<<std::to_string(num); // print the first element separately
+                if(i==0)cout<<std::to_string(num); 
                 else cout<<", "<<std::to_string(num);
             }
             if(j+1<res[i].size()-1)cout<<",";
         }
-        if(res.size()>1 && j==res[i].size()-1)cout<<"] ], ";
-        else cout << "], ["; // add comma and space between subvectors
+    cout << "], ["; 
     }
     cout << "]";
     return 0;
