@@ -18,17 +18,13 @@ vector<int> cutVector(vector<int>& v) {
     vector<int> left(v.begin(), v.begin() + pos);
     vector<int> right(v.begin() + pos, v.end());
 
-    vector<int> result(left);
-    result.insert(result.end(), right.begin(), right.end());
-    
-    if (pos > 0 && abs(v[0] - v[pos-1]) <= minDiff) {
-        result = left;
-    } else if (abs(v.back() - v[0]) <= minDiff) {
-        result.clear();
-        result.push_back(v[0]);
+    vector<int> result;
+    for(int i : left) result.push_back(i);
+    for(int i : right) result.push_back(i);
+
+    if (pos == 0 || pos == n - 1) {
+        cout << "Error: The given vector has less than two elements." << endl;
     } else {
-        throw runtime_error("The numbers on both sides are not equal.");
+        return {left, right};
     }
-    
-    return result;
 }
