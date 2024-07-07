@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <limits>
@@ -17,6 +18,8 @@ int total_match(const std::vector<std::vector<std::string>>& v) {
     return sum;
 }
 
+std::vector<std::string> v;
+
 bool check(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
     if (!issame(a, b)) return false;
     int sum1 = total_match(a);  
@@ -29,12 +32,12 @@ int main() {
     std::cin >> n;
 
     std::vector<std::vector<std::string>> vec1;
-    std::vector<std::vector<std::string>> vec2(std::vector<std::vector<std::string>>({}));
+    std::vector<std::vector<std::string>> vec2;
 
     for (int i = 0; i < n; ++i) {
         int m;
         std::cin >> m;
-        vec1.push_back({});
+        vec1.push_back(std::vector<std::string>());
         for (int j = 0; j < m; ++j) {
             std::string s;
             std::cin >> s;
@@ -48,7 +51,7 @@ int main() {
     for (int i = 0; i < n2; ++i) {
         int m;
         std::cin >> m;
-        vec2.push_back({});
+        vec2.push_back(std::vector<std::string>());
         for (int j = 0; j < m; ++j) {
             std::string s;
             std::cin >> s;
