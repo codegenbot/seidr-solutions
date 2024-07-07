@@ -1,11 +1,3 @@
 #include <string>
 
-std::string remove_vowels(std::string s) {
-    std::string result = "";
-    for (char c : s) {
-        if (!strchr("aeiouAEIOU", c)) {
-            result += c;
-        }
-    }
-    return result;
-}
+std::string result = "";
