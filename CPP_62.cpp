@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <cmath>
 #include <algorithm>
@@ -6,7 +6,6 @@
 
 using namespace std;
 
-int n;
 double similarity(vector<float> v1, vector<float> v2) {
     double sum = 0;
     for (int i = 0; i < v1.size(); ++i) {
@@ -17,6 +16,7 @@ double similarity(vector<float> v1, vector<float> v2) {
 
 int main() {
     cout << "Enter the number of elements: ";
+    int n;
     cin >> n;
 
     vector<float> v1(n);

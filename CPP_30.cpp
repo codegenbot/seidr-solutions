@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <iostream>
 
-bool same(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (std::abs(a[i] - b[i]) > 1e-9) return false;
@@ -11,7 +11,7 @@ bool same(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-float get_max(const std::vector<float>& input) {
+float get_positive(const std::vector<float>& input) {
     return *std::max_element(input.begin(), input.end());
 }
 
@@ -26,9 +26,9 @@ int main() {
         else v2.push_back(-num); 
     }
     
-    float maxV1 = get_max(v1);
-    float maxV2 = get_max(v2);
+    float maxV1 = get_positive(v1);
+    float maxV2 = get_positive(v2);
 
-    std::cout << "The two sets of numbers are " << (v1.empty() ? "empty" : (same(v1, v2) ? "" : "not ")) << " the same.\n";
+    std::cout << "The two sets of numbers are " << (v1.empty() ? "empty" : (issame(v1, v2) ? "" : "not ")) << " the same.\n";
     return 0;
 }
