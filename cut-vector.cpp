@@ -1,8 +1,3 @@
-```cpp
-#include <vector>
-
-using namespace std;
-
 vector<int> cutVector(vector<int>& v) {
     int n = v.size();
     int minDiff = INT_MAX;
