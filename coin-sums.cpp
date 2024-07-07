@@ -1,17 +1,18 @@
+```cpp
 int main() {
     int cents;
     cin >> cents;
 
-    int quarters = cents / 25.0;
+    double quarters = cents / 25.0;
     cents %= 25;
 
-    int dimes = cents / 10.0;
+    int dimes = static_cast<int>(cents / 10);
     cents %= 10;
 
-    int nickles = cents / 5.0;
+    int nickles = static_cast<int>(cents / 5);
     cents %= 5;
 
-    int pennies = cents;
+    int pennies = static_cast<int>(cents);
 
     cout << quarters << endl;
     cout << dimes << endl;
