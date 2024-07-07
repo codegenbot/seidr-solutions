@@ -32,8 +32,6 @@ int main() {
     string temp;
     double val;
 
-    poly_coeffs; // Initialize the vector
-
     while (true) {
         cin >> temp;
         if (!cin) {
@@ -42,6 +40,9 @@ int main() {
         }
         val = stod(temp);
         poly_coeffs.push_back(val);
+        if(poly_coeffs.size() >= 1000){ 
+            break;  
+        }
     }
 
     if(poly_coeffs.size() == 0){
