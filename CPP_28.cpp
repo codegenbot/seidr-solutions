@@ -1,24 +1,25 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <ext/rope.h>
 
+using namespace __gnu_cxx;
 using namespace std;
 
 int main() {
-    vector<string> strings;
+    vector<rope> strings;
     string userInput;
 
     while (true) {
-        cin.ignore(); 
         cout << "Enter a string (or stop to finish): ";
         getline(cin, userInput);
 
         if (userInput == "stop") break;
 
-        strings.push_back(userInput);
+        strings.push_back(userinput);
     }
 
-    string result = "";
+    rope result = "";
     for (const auto& str : strings) {
         result += str + " ";
     }
