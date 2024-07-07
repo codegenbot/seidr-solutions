@@ -7,4 +7,4 @@ def bouncing_balls():
     for _ in range(num_bounces):
         distance += 2 * (h2 - h1)
         h1, h2 = h2, h2 * bounciness_index
-    return str(distance)
+    return str(distance + 2 * (h2 - h1))
