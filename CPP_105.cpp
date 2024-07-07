@@ -1,3 +1,5 @@
+#include <string>
+
 vector<string> by_length(vector<int> arr) {
     vector<int> nums;
     for (int num : arr) {
@@ -10,20 +12,11 @@ vector<string> by_length(vector<int> arr) {
     reverse(nums.begin(), nums.end());
 
     vector<string> result;
+    map<int, string> numNames = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
+                                  {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+
     for (int num : nums) {
-        string name = "";
-        switch (num) {
-            case 1: name = "One"; break;
-            case 2: name = "Two"; break;
-            case 3: name = "Three"; break;
-            case 4: name = "Four"; break;
-            case 5: name = "Five"; break;
-            case 6: name = "Six"; break;
-            case 7: name = "Seven"; break;
-            case 8: name = "Eight"; break;
-            case 9: name = "Nine"; break;
-        }
-        result.push_back(name);
+        result.push_back(numNames[num]);
     }
 
     return result;
