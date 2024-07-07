@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
+
 using namespace std;
 
 struct pair_int {
@@ -64,3 +69,4 @@ int main() {
     }
     cout << endl;
     return 0;
+}
