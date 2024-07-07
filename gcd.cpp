@@ -10,15 +10,8 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a;
-    cout << "Enter first number: ";
-    cin >> a;
-
-    int b;
-    cout << "Enter second number: ";
-    cin >> b;
-
-    cout << "The GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
-
+    int a = 12;
+    int b = 15;
+    std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
     return 0;
 }
