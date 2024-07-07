@@ -1,4 +1,5 @@
-#include <string>
+#include <sstream>
+using namespace std;
 
 string closest_integer(double num) {
     int integer = static_cast<int>(num);
@@ -7,4 +8,9 @@ string closest_integer(double num) {
     } else {
         return to_string(integer);
     }
+}
+
+int main() {
+    assert(closest_integer(0.0) == "0");
+    return 0;
 }
