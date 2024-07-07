@@ -17,7 +17,9 @@ int main() {
     }
     int result = choose_num(s1, s2);
     std::cout << "Result: " << result << std::endl;
-    int num = (std::stoi(s1) > std::stoi(s2)) ? std::stoi(s1) : std::stoi(s2);
-    std::cout << "Greater number is " << (num == std::stoi(s1) ? s1 : s2) << std::endl;
+    if(result == std::stoi(s1))
+        std::cout << "Greater number is " << s1 << std::endl;
+    else
+        std::cout << "Greater number is " << s2 << std::endl;
     return 0;
 }
