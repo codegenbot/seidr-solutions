@@ -1,9 +1,3 @@
-#include <stack>
-#include <string>
-#include <iostream>
-
-using namespace std;
-
 bool evaluate(const string &expression) {
     stack<char> opStack;
     bool result = true;
