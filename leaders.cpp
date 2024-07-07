@@ -3,14 +3,16 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> leaders;
+    vector<int> result;
     int n = arr.size();
-    leaders.push_back(arr[n - 1]);
+    int rightmost = arr[n - 1];
+    result.push_back(rightmost);
     for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] >= leaders.back()) {
-            leaders.push_back(arr[i]);
+        if (arr[i] >= rightmost) {
+            rightmost = arr[i];
+            result.push_back(rightmost);
         }
     }
-    reverse(leaders.begin(), leaders.end());
-    return leaders;
+    reverse(result.begin(), result.end());
+    return result;
 }
