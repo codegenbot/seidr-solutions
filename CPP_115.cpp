@@ -1,18 +1,8 @@
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int ans = 0;
-    for (vector<int> well : grid) {
-        int total_water = 0;
-        for (int water : well) {
-            total_water += water;
-        }
-        while (total_water > 0) {
-            if (capacity >= total_water) {
-                total_water = 0;
-            } else {
-                total_water -= capacity;
-                ans++;
-            }
-        }
+    int n = grid.size();
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += accumulate(grid[i].begin(), grid[i].end(), 0);
     }
-    return ans;
+    return sum / capacity + (sum % capacity > 0 ? 1 : 0);
 }
