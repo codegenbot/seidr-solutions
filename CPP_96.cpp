@@ -26,14 +26,12 @@ std::vector<int> countUpTo(int n) {
     return primes;
 }
 
-int main() {
+void main_func() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
     std::vector<int> primes = countUpTo(n);
     for (int prime : primes) {
-        if (isSameVectors({1, 2}, {1, 3})) {
-            std::cout << "Prime number: " << prime << std::endl;
-        }
+        std::cout << "Prime number: " << prime << std::endl;
     }
 }
