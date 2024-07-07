@@ -1,25 +1,21 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <assert.h>
 
-bool has_close_elements(vector<double>, double);
+bool has_close_elements(std::vector<double> vec, double threshold) {
+    for (int i = 0; i < vec.size() - 1; i++) {
+        if (std::abs(vec[i] - vec[i + 1]) <= threshold) {
+            return true;
+        }
+    }
+    return false;
+}
 
-int mainProblem() {
-    vector<double> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    vector<double> b;
+int main_renamed() {
+    double a[] = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    std::vector<double> b;
     for (double num : a) {
         b.push_back(num);
     }
     assert(has_close_elements(b, 0.5) == false);
-}
-
-bool has_close_elements(vector<double> v, double tol) {
-    bool result = true;
-    for(int i=1; i<v.size(); i++) {
-        if(abs(v[i] - v[i-1]) < tol) {
-            result = false;
-            break;
-        }
-    }
-    return result;
 }
