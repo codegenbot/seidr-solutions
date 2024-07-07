@@ -9,3 +9,4 @@ vector<int> filter_integers(list<boost::any> values) {
         }
     }
     return result;
+}
