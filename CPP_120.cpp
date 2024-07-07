@@ -3,8 +3,8 @@
 #include <vector>
 #include <algorithm>
 
-bool operator<(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() < b.size();
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
@@ -13,7 +13,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     if (k > arrCopy.size()) {
         k = arrCopy.size();
     }
-    return std::vector<int>(arrCopy.begin() + arrCopy.size() - k, arrCopy.end());
+    return std::vector<int>(k);
 }
 
 int main() {
@@ -48,7 +48,7 @@ int main() {
         }
     }
 
-    if (!maximum(arr, k).empty()) {
+    if (!issame(std::vector<int>(), maximum(arr, k))) {
         std::cout << "Maximum top-k elements: ";
         for (int i = 0; i < k; i++) {
             std::cout << maximum(arr, k)[i] << " ";
