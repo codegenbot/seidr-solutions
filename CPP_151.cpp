@@ -1,21 +1,22 @@
+```cpp
+#include <ext/new_allocator.h>
 #include <iostream>
 #include <vector>
 #include <cmath>
 
 double double_the_difference(std::vector<double> lst) {
-    double sum = 0;
-    for (double num : lst) {
-        if (num > 0 && std::floor(num) == num) { 
-            if (std::fmod(num, 2.0) != 0.0) { 
-                sum += std::pow(num, 2);
+    return std::accumulate(lst.begin(), lst.end(), 0.0, [](double x, double y) { 
+        if (y > 0 && std::floor(y) == y) { 
+            if (std::fmod(y, 2.0) != 0.0) { 
+                return x + std::pow(y, 2);
             }
         }
-    }
-    return sum;
+        return x;
+    });
 }
 
 int main() {
-    std::vector<double> lst = {1.5, 3.0, 4.25, 6.0};
+    std::vector<double> lst = {1.5};
     double odd_sum = double_the_difference(lst);
 
     return 0;
