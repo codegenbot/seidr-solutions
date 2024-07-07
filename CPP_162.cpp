@@ -1,4 +1,6 @@
+#include <string>
 #include <openssl/evp.h>
+#include <openssl/crypto.h>
 
 using namespace std;
 
