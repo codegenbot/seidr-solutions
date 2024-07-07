@@ -1,4 +1,5 @@
-#include <string>
+```cpp
+#include<string>
 
 bool is_nested(string str) {
     int count = 0;
@@ -14,4 +15,18 @@ bool is_nested(string str) {
         }
     }
     return count > 0;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+    
+    if (is_nested(input)) {
+        cout << "The string is nested." << endl;
+    } else {
+        cout << "The string is not nested." << endl;
+    }
+    
+    return 0;
 }
