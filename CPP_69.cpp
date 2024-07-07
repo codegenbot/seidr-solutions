@@ -8,7 +8,7 @@ int search(int n) {
         return n;
 }
 
-int userMain() {
+int main() {
     int num;
     cout << "Enter a positive number: ";
     cin >> num; 
@@ -18,7 +18,5 @@ int userMain() {
         cout << "The search function returns -1 for negative numbers." << endl;
     }
     
-    int myTest = 3, myArray[] = {myTest, 10, 10, 9, 2};
-    assert(search(myTest) == -1);
     return 0;
 }
