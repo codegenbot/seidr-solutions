@@ -1,3 +1,9 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 int mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
@@ -28,4 +34,17 @@ int mastermind(string code, string guess) {
     }
     
     return make_pair(blackPegs, whitePegs);
+}
+
+int main() {
+    string code, guess;
+    cout << "Enter the Mastermind code (4 characters): ";
+    cin >> code;
+    cout << "Enter your guess (4 characters): ";
+    cin >> guess;
+    int result = mastermind(code, guess);
+    cout << "Number of white pegs: " << result.second << endl;
+    cout << "Number of black pegs: " << result.first << endl;
+    return 0;
+
 }
