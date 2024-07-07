@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <set>
 #include <iostream>
+#include <initializer_list>
 
 bool same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -21,32 +23,21 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
 }
 
 int main() {
-    int n, m;
-    std::cout << "Enter the number of elements in list 1: ";
-    std::cin >> n;
-    std::vector<int> l1(n);
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> l1[i];
-    }
+    std::vector<int> l1 = {1, 2, 3, 4};
+    std::vector<int> l2 = {3, 4, 5, 6};
 
-    std::cout << "Enter the number of elements in list 2: ";
-    std::cin >> m;
-    std::vector<int> l2(m);
-    for(int i = 0; i < m; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> l2[i];
-    }
+    std::set<int> set1(l1.begin(), l1.end());
+    std::set<int> set2(l2.begin(), l2.end());
 
-    if(same(l1, l2)) {
-        std::cout << "The lists are the same." << std::endl;
+    if(std::set_difference(set1.begin(), set1.end(), set2.begin(), set2.end(),
+        std::inserter(set2, set2.end())).size()) {
+        std::cout << "Not all elements of one list are present in another." << std::endl;
     } else {
-        std::cout << "The lists are not the same." << std::endl;
+        std::cout << "All elements of one list are present in another." << std::endl;
     }
 
-    std::vector<int> intersection = common(l1, l2);
-    if(intersection.size() != 0) {
-        for(int i : intersection) {
+    if(common({4, 3, 2, 8}, {4, 3, 2, 8}).size() != 0) {
+        for(int i : common({4, 3, 2, 8}, {4, 3, 2, 8})) {
             std::cout << i << " ";
         }
         std::cout << std::endl;
