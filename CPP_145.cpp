@@ -1,20 +1,25 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(const std::vector<int>&, const std::vector<int>&) {
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a.size() == b.size()) && (std::equal(a.begin(), a.end(), b.begin()));
+}
+
+int sumOfDigits(int num) {
+    int sum = 0;
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
-        int sumOfDigits = 0;
         int num = nums[i];
-        while (num > 0) {
-            sumOfDigits += num % 10;
-            num /= 10;
-        }
-        pairs.push_back({sumOfDigits, i});
+        int sumOfDigitsVal = sumOfDigits(num);
+        pairs.push_back({sumOfDigitsVal, i});
     }
 
     std::sort(pairs.begin(), pairs.end());
