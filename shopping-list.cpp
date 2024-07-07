@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -26,6 +25,5 @@ int main() {
     for (float& discount : discounts) {
         cin >> discount;
     }
-    cout << fixed << setprecision(1) << totalPriceAfterDiscount(prices, discounts) << endl;
+    cout << fixed << setprecision(1) << totalPriceAfterDiscount(prices, discounts) << std::endl;
     return 0;
-}
