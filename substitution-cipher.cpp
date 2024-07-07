@@ -16,13 +16,8 @@ std::string decode(std::string cipher, std::string mapping) {
 }
 
 int main() {
-    std::string cipher, mapping;
-    std::cout << "Enter the cipher: ";
-    std::getline(std::cin, cipher);
-    std::cout << "Enter the mapping: ";
-    std::getline(std::cin, mapping);
-
-    std::cout << "Decrypted message: " << decode(cipher, mapping) << std::endl;
-
+    std::string cipher = "Hello";  // sample input
+    std::string mapping = "abcdefghijklmnopqrstuvwxyz";  // sample input
+    std::cout << decode(cipher, mapping) << std::endl;  // execute the function
     return 0;
 }
