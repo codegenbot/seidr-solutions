@@ -3,8 +3,7 @@ vector<int> strange_sort_list(vector<int> lst) {
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
         result.push_back(min_val);
-        lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
-        
+        lst.erase/remove(lst.begin());
         if (!lst.empty()) {
             int max_val = *max_element(lst.begin(), lst.end());
             result.push_back(max_val);
