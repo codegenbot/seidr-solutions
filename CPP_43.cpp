@@ -1,10 +1,19 @@
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-bool pairs_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    for (int i : s) {
-        if (s.find(-i) != s.end()) return true;
+bool pairs_sum_to_zero(std::vector<int> l) {
+    std::sort(l.begin(), l.end());
+    for (int i = 0; i < l.size() - 1; i++) {
+        int diff = -l[i];
+        int j = i + 1;
+        while (j < l.size()) {
+            if (l[j] == diff) {
+                return true;
+            } else if (l[j] > diff) {
+                break;
+            }
+            j++;
+        }
     }
     return false;
 }
