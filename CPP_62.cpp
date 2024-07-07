@@ -12,7 +12,7 @@ std::vector<float> derivative(std::vector<float> a) {
     return result;
 }
 
-bool areEqual(std::vector<float> a, std::vector<float> b) {
+bool sameVectorFloat(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (std::abs(a[i] - b[i]) > 1e-9) return false;
@@ -21,8 +21,7 @@ bool areEqual(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    std::vector<float> input(3);
-    input[0] = 1.0f; input[1] = 2.0f; input[2] = 3.0f;
-    assert(areEqual(input, derivative(input)));
+    std::vector<float> input = {1, 2, 3};
+    assert(sameVectorFloat(input, derivative(input)));
     return 0;
 }
