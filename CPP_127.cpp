@@ -7,12 +7,9 @@ std::string intersection(std::pair<int, int> interval1, std::pair<int, int> inte
     int end = std::min(interval1.second, interval2.second);
 
     std::string result = "";
-    result += std::to_string(start) + " ";
-    result += std::to_string(end) + " ";
-    if (start <= end)
-        result += "yes";
-    else
-        result += "no";
+    result += (char)(start + '0') + " ";
+    result += (char)(end + '0') + " ";
+    result += (start <= end ? "yes" : "no");
     return result;
 }
 
