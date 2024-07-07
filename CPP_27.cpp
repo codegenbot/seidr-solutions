@@ -1,5 +1,11 @@
 ```cpp
-#include <string>
+extern "C" {
+#include <cctype>
+}
+
+#ifndef MYCODE_H
+#define MYCODE_H
+
 using namespace std;
 
 string flip_case(string str) {
@@ -16,3 +22,4 @@ string flip_case(string str) {
     return result;
 
 }
+#endif  // MYCODE_H
