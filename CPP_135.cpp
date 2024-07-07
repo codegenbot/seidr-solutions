@@ -1,18 +1,5 @@
-```cpp
 #include <vector>
 using namespace std;
-
-int can_arrange(vector<int> arr);
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-    cout << can_arrange(arr) << endl;
-}
 
 int can_arrange(vector<int> arr) {
     for (int i = 1; i < arr.size(); i++) {
@@ -21,4 +8,10 @@ int can_arrange(vector<int> arr) {
         }
     }
     return -1;
+}
+
+int main() {
+    int result = can_arrange({1, 2, 3, 4, 5});
+    cout << "The first out of order element is at index: " << result << endl;
+    return 0;
 }
