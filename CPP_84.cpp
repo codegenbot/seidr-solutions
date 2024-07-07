@@ -1,3 +1,5 @@
+#include <string>
+
 string solve(int N) {
     int sum = 0;
     while (N > 0) {
