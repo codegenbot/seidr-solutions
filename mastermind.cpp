@@ -1,47 +1,47 @@
+```c++
+#include <vector>
 #include <iostream>
 #include <string>
+
+using namespace std;
+
+int mastermind(string code, string guess); // Declare before main
 
 int mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
-
+    
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
         }
     }
-
-    vector<pair<char, bool>> codeMap(6), guessMap(6);
-
+    
     for (char c : code) {
-        codeMap[c] = {c, true};
-    }
-
-    for (int i = 0; i < 4; ++i) {
-        for (char c : code) {
-            if (codeMap[c].second && c == guess[i]) {
-                blackPegs++;
-                codeMap[c].second = false;
+        int count = 0;
+        for (char d : guess) {
+            if (c == d) {
+                count++;
             }
         }
-    }
-
-    for (pair<char, bool> p : codeMap) {
-        if (p.second) {
-            whitePegs++;
+        if (count > 1) {
+            whitePegs += count - 1;
+        } else if (count == 1) {
+            blackPegs--;
         }
     }
-
+    
     return blackPegs;
 }
 
 int main() {
     string code, guess;
-    cout << "Enter Mastermind code: ";
+    cout << "Enter the Mastermind code (4 characters): ";
     cin >> code;
-    cout << "Enter your guess: ";
+    cout << "Enter your guess (4 characters): ";
     cin >> guess;
     int result = mastermind(code, guess);
-    cout << "Black pegs: " << result << endl;
+    cout << "Number of white pegs: 0\nNumber of black pegs: " << result << endl;
     return 0;
+
 }
