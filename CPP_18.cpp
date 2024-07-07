@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -17,19 +16,11 @@ int how_many_times(string str, string substring) {
 int main() { 
     string str;
     cout << "Enter the string: ";
-    if (!(cin >> str).fail()) {
-        getline(cin, str);
-    } else {
-        cout << "Error: The input is invalid." << endl;
-    }
+    getline(cin, str);
 
     string substring;
     cout << "Enter substring: ";
-    if (!(cin >> substring).fail()) {
-        getline(cin, substring);
-    } else {
-        cout << "Error: The input is invalid." << endl;
-    }
+    getline(cin, substring);
     
     if (str.empty()) {
         cout << "Error: The input string is empty." << endl;
