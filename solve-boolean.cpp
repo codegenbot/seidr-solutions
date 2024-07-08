@@ -6,11 +6,11 @@ bool solveBoolean(string expression) {
     if (expression == "F" || expression == "f") return false;
     
     for (int j = 1; j <= expression.size(); j++) {
-        if (expression[j] == '|') {
+        if (expression[j-1] == '|') {
             bool left = solveBoolean(expression.substr(0, j - 1));
             bool right = solveBoolean(expression.substr(j));
             return left || right;
-        } else if (expression[j] == '&') {
+        } else if (expression[j-1] == '&') {
             bool left = solveBoolean(expression.substr(0, j - 1));
             bool right = solveBoolean(expression.substr(j));
             return left && right;
