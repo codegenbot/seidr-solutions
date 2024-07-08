@@ -11,7 +11,7 @@ int bowlingScore(string s) {
             lastRollWasStrike = true;
             lastRollWasSpare = false;
         } else if (c == '/') {
-            int nextTwoRolls = stoi(s.substr(s.find('/') + 1, 2)) * 10 / 2;
+            int nextTwoRolls = stoi(s.substr(find(c) + 1, 2)) * 10 / 2;
             score += (lastRollWasStrike ? 10 : (lastRollWasSpare ? 5 : 0));
             score += nextTwoRolls;
             lastRollWasStrike = false;
