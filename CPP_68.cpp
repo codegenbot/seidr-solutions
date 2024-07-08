@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -19,9 +18,9 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
     int minEvenValue = *min_element(evenNodes.begin(), evenNodes.end())->first;
     
     std::vector<std::pair<int, int>> result;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] == minEvenValue) {
-            result.push_back({minEvenValue, i});
+    for (auto& pair : evenNodes) {
+        if (pair.first == minEvenValue) {
+            result.push_back(pair);
         }
     }
 
