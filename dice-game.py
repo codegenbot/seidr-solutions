@@ -2,8 +2,8 @@
 def dice_game(n, m):
     num_outcomes = n * m
     strictly_higher_count = 0
-    for i in range(1, min(m-1, n-1) + 1):
-        strictly_higher_count += (n - i) * m + i * (m - n)
-    if m > n:
-        strictly_higher_count += n * (m - n)
+    for p in range(1, min(n, m) + 1):
+        for c in range(1, min(n, m)):
+            if p > c:
+                strictly_higher_count += 1
     return strictly_higher_count / num_outcomes
