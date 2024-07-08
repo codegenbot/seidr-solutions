@@ -1,4 +1,4 @@
-#include <iostream>
+    #include <iostream>
 #include <string>
 #include <vector>
 
@@ -9,7 +9,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         if (text.substr(i, target.length()) == target && i >= prev_idx + target.length()) {
             result.push_back(i);
             if (target.length() > 1) {
-                prev_idx = std::max(i - target.length() + 1, prev_idx);
+                prev_idx = std::max(i - target.length() + 1, prev_idx); // Update prev_idx for non-overlapping targets
             }
         }
     }
