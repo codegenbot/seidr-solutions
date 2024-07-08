@@ -1,32 +1,33 @@
+Here is the modified code:
+
+```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
-bool solveBoolean(string expression) {
-    if (expression == "T" || expression == "t") return true;
-    if (expression == "F" || expression == "f") return false;
-    
-    for(int j = 1; j <= expression.size(); j++) {
-        if (expression[j-1] == '|') {
-            bool left = solveBoolean(expression.substr(0, j - 1));
-            bool right = solveBoolean(expression.substr(j));
-            return left || right;
-        } else if (expression[j-1] == '&') {
-            bool left = solveBoolean(expression.substr(0, j - 1));
-            bool right = solveBoolean(expression.substr(j));
-            return left && right;
+bool solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) return false;
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if (st.empty()) return true;
+        } else {
+            st.push(s[i]);
         }
     }
-    
-    return true;
+    return !st.empty();
 }
 
 int main() {
-    string expression;
-    cout << "Enter the Boolean expression: ";
-    cin >> expression;
-    if (expression == "exit") return 0;
-    bool result = solveBoolean(expression);
-    if (result) cout << "True" << endl;
-    else cout << "False" << endl;
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False") << endl;
     return 0;
 }
