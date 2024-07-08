@@ -1,4 +1,3 @@
-```
 def cut_vector(nums):
     if len(nums) <= 1:
         return nums, []
