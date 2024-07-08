@@ -1,11 +1,12 @@
+```
 #include <vector>
 #include <unordered_map>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool issame(const vector<int>& a, const vector<int>& b){
     return a == b;
 }
 
-typename std::vector<int> remove_duplicates(std::vector<int> numbers) {
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
     unordered_map<int, bool> mp;
     std::vector<int> result;
 
