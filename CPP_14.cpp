@@ -1,9 +1,8 @@
-````
 #include <vector>
 #include <string>
 
-bool issame(vector<vector<string>> a, vector<string> b) {
-    return a == vector<vector<string>>({b});
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> all_prefixes(string str) {
@@ -15,6 +14,5 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    assert(issame({all_prefixes("WWW")}, {"W", "WW", "WWW"}));
+    assert(issame(all_prefixs("WWW") , vector<string>({"W", "WW", "WWW"})));
 }
-```
