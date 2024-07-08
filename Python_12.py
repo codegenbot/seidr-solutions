@@ -1,4 +1,3 @@
-Here is the modified code:
 ```
 from typing import List, Optional
 def longest(strings: List[str]) -> Optional[str]:
