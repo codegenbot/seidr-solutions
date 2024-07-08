@@ -2,18 +2,23 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
+    """Solves the problem of separating strings containing parentheses into groups.
+    Each group starts with an open parenthesis and ends with a close parenthesis.
+    If there is no corresponding close parenthesis, it will be included in the last group."""
+    
     result = []
-    group = ''
-    for char in paren_string + ')':  
-        if char == ' ':
+    current_group = ''
+    
+    for char in paren_string + '):':  # Add ')': at the end to ensure proper closing
+        if char.isspace():
             continue
-        if char == '(':
-            group += char
+        elif char == '(':
+            current_group += char
         elif char == ')':
-            if len(group) > 0 and group[-1] == '(':
-                while len(group) > 0 and group[-1] == '(':
-                    result.append('('+group.pop())
-                group += char
+            if len(current_group) > 0 and current_group[-1] == '(':
+                result.append(current_group)
+                current_group = ''
             else:
-                group += char
-    return [group] if group != '' else result
+                current_group += char
+    
+    return result
