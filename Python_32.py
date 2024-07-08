@@ -1,4 +1,3 @@
-```
 def find_zero(xs: list):
     n = len(xs)
     if n < 2:
@@ -26,11 +25,12 @@ def find_zero(xs: list):
 
 
 user_input = input("Enter the list of coefficients (separated by spaces): ")
-while len([float(i) for i in user_input.split()]) < 2:
+coefficients = [float(i) for i in user_input.split()]
+
+while len(coefficients) < 2:
     print("You must enter at least two coefficients")
     user_input = input("Enter the list of coefficients (separated by spaces): ")
-
-coefficients = [float(i) for i in user_input.split()]
+    coefficients = [float(i) for i in user_input.split()]
 
 try:
     result = find_zero(coefficients)
