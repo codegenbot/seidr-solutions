@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool issame(vector<float> a, vector<float> b) {
-    return a == b;
+    return a == b;  // Check if two vectors are the same
 }
 
 void sort_even(vector<float>& a) {
