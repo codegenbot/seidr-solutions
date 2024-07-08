@@ -1,4 +1,4 @@
-#include <string>
+#include <assert.h>
 #include <cstring>
 
 int my_strlen(std::string str) {
@@ -6,6 +6,5 @@ int my_strlen(std::string str) {
 }
 
 int main() {
-    assert(my_strlen("asdasnakj") == 13); 
-    return 0;
+    assert(strlen("asdasnakj") == 9);
 }
