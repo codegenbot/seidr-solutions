@@ -19,7 +19,7 @@ void sort_even(std::vector<float>& a) {
         }
     }
 
-    sort(sorted_even_indices.begin(), sorted_even_indices.end());
+    std::sort(sorted_even_indices.begin(), sorted_even_indices.end());
 
     int sorted_even_index = 0;
     for (int i = 0; i < a.size(); i++) {
