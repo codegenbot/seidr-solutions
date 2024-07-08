@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,24 +15,8 @@ std::vector<std::string> all_prefixes(std::string str) {
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
+    std::string str = "WWW";
     std::vector<std::string> prefixes = all_prefixes(str);
-    std::vector<std::string> duplicates;
-    for (const auto& prefix : prefixes) {
-        int count = 0;
-        for (const auto& p : prefixes) {
-            if (p == prefix) {
-                count++;
-            }
-        }
-        if (count > 1) {
-            duplicates.push_back(prefix);
-        }
-    }
-    std::cout << "Duplicated prefixes: ";
-    for (const auto& duplicate : duplicates) {
-        std::cout << duplicate << " ";
-    }
+    assert(issame(all_prefixes("WWW"), std::vector<std::string>{"W", "WW", "WWW"}));
+    return 0;
 }
