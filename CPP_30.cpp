@@ -1,33 +1,56 @@
-#include <initializer_list>
+```cpp
+#include <iostream>
+#include <vector>
+#include <limits>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> vectors) {
+std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>>& vec) {
     std::vector<std::vector<float>> result;
-    for (const auto& v : vectors) {
-        if (!issame(get_positive(v), std::vector<float>())) {
-            result.push_back(v);
+
+    for (const auto& v : vec) {
+        if (v.size() > 1) {
+            bool first = true;
+            float sum = 0.0f;
+            for (float f : v) {
+                if (first) {
+                    first = false;
+                    sum += f;
+                } else {
+                    if (abs(f - sum / (v.size() - 1)) < 0.0001) {
+                        result.push_back(v);
+                        return result;
+                    }
+                }
+            }
         }
     }
-    return result;
+
+    return vec;
 }
 
-float* get_positive(const std::vector<float>& vec, int& size) {
-    size = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        if (vec[i] > 0.0) {
-            size++;
+int main() {
+    std::vector<std::vector<float>> vectors;
+
+    for (int i = 0; i < 5; ++i) {
+        std::vector<float> v;
+        float num;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
+        while(num != -1.0f) {
+            v.push_back(num);
+            std::cout << "Enter next element (or -1 to finish): ";
+            std::cin >> num;
         }
+        vectors.push_back(v);
     }
 
-    float* result = new float[size];
-    int j = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        if (vec[i] > 0.0) {
-            result[j] = vec[i];
-            j++;
+    std::vector<std::vector<float>> result = filter_vectors(vectors);
+
+    for (const auto& v : result) {
+        for (float f : v) {
+            std::cout << f << " ";
         }
+        std::cout << std::endl;
     }
-    return result;
+
+    return 0;
+}
