@@ -1,23 +1,22 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-std::vector<std::string> all_prefixes(std::string str) {
-    std::vector<std::string> result;
+std::vector<char> all_prefixes(std::string str) {
+    std::vector<char> result;
     for (int i = 1; i <= str.length(); i++) {
-        result.push_back(str.substr(0, i));
+        result.insert(result.end(), str.begin(), str.begin() + i);
     }
     return result;
 }
 
 int main() {
     std::string str = "WWW";
-    std::vector<std::string> prefixes = all_prefixes(str);
-    assert(issame({str}, {str}));
+    std::vector<char> prefixes = all_prefixes(str);
+    assert(issame({str[0]}, {str[0]}));
     return 0;
 }
