@@ -1,3 +1,6 @@
+#include <iostream>
+#include <cctype>
+
 std::string flipCase(const std::string& str){
     std::string result;
     for(int i=0; i<str.length(); i++){
@@ -8,4 +11,9 @@ std::string flipCase(const std::string& str){
         }
     }
     return result;
+}
+
+int main() {
+    std::cout << flipCase("Hello, world!") << std::endl;
+    return 0;
 }
