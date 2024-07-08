@@ -3,6 +3,8 @@
 using namespace std;
 
 string circular_shift(int x, int shift) {
+    if (x < 0) 
+        x = -x;
     string str = to_string(x);
     int n = str.length();
     if (shift >= n)
@@ -13,7 +15,7 @@ string circular_shift(int x, int shift) {
             if (i < shift || i >= n - shift)
                 result += str[i];
             else
-                result += str[i]; // Corrected the code here
+                result = str[i] + result;
         }
         return result;
     }
