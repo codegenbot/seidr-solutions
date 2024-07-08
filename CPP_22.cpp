@@ -1,17 +1,17 @@
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+bool boost::is_same(const boost::any& value) {
+    if (!value.type()) {
+        throw invalid_argument("invalid type");
     }
-    return true;
+    return !boost::any_cast<bool>(value);
 }
 
-vector<int> filter_integers(list_any values){
+vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        boost::any_cast<int>(value, 0);
-        if (!boost::any_cast<bool>(value)) continue;
-        result.push_back(boost::any_cast<int>(value));
+        if (boost::is_same(value)) {
+            int val = boost::any_cast<int>(value);
+            result.push_back(val);
+        }
     }
     return result;
 }
