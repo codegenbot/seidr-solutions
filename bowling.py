@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     score = 0
     frames = [frame.strip().replace("-", "") for frame in frames.split("\n")]
