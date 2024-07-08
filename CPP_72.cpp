@@ -1,4 +1,7 @@
 #include <vector>
+#include <cassert>
+
+using namespace std;
 
 bool will_it_fly(const vector<int>& q, int w) {
     int sum = 0;
