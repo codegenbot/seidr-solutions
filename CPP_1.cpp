@@ -2,8 +2,29 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> separate_paren_groups(const std::string& s) {
-    // Implementation to separate groups of parentheses
+std::vector<std::string> separate_paren_groups(const std::string& input) {
+    std::vector<std::string> groups;
+    int balance = 0;
+    std::string current_group;
+
+    for (char c : input) {
+        if (c == '(') {
+            balance++;
+            if (balance > 1) {
+                current_group += c;
+            }
+        } else if (c == ')') {
+            balance--;
+            if (balance > 0) {
+                current_group += c;
+            } else {
+                groups.push_back(current_group);
+                current_group.clear();
+            }
+        }
+    }
+
+    return groups;
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
