@@ -1,5 +1,6 @@
-```cpp
 #include <string>
+#include <vector>
+#include <iostream>
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -18,12 +19,20 @@ int bowlingScore(std::string s) {
             lastRollWasStrike = false;
             lastRollWasSpare = true;
         } else {
-            int rollValue = c - '0';
-            if (rollValue == 9) lastRollWasSpare = true;
+            int roll = c - '0';
+            score += roll;
+            if (roll == 9) lastRollWasSpare = true;
             else lastRollWasStrike = true;
-            score += rollValue;
         }
     }
 
     return score;
+
+}
+
+int main() {
+    std::string s = "XXXXX/6/5/X-8/X/X-4/X/X/9/-7/-5";
+    int score = bowlingScore(s);
+    std::cout << "The score is: " << score << std::endl;
+    return 0;
 }
