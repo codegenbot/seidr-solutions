@@ -1,6 +1,6 @@
+#include <bits/c++config.h>
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
