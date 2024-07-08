@@ -32,6 +32,6 @@ int main() {
     for (auto it = result.at(1).begin(); it != result.at(1).end(); ++it) {
         cout << *it << " ";
     }
-    std::cout << "] ]" << std::endl;
+    cout << "] ]" << endl;
     return 0;
 }
