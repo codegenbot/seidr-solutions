@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -11,16 +12,16 @@ string anti_shuffle(string s){
             result += ' ';
         } else {
             string temp = "";
-            int j=i;
-            while(j <= s.find(' ', i) && s[j] != ' '){
-                temp += s[j];
-                j++;
+            int k=i;
+            while(k<=s.find(' ',i)){
+                temp+=s[k];
+                k++;
             }
             sort(temp.begin(), temp.end());
-            for(int k=0; k<temp.length(); k++){
-                result += temp[k];
+            for(char c : temp){
+                result += c;
             }
-            i = j-1;
+            i+=temp.length()-1;
         }
     }
     return result;
