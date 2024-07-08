@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <cctype>
 
@@ -9,7 +8,7 @@ std::string get_closest_vowel(std::string word){
             while(left > 0 && !consonant(word[left-1]))
                 left--;
             if(consonant(word[left-1]) && consonant(word[i-1]))
-                return word.substr(left - 1, 1);
+                return std::string(1, word[left - 1]);
         }
     }
     return "";
