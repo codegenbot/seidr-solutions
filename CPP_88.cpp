@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -29,10 +28,10 @@ std::vector<int> sort_array(std::vector<int> array) {
 int main() {
     std::vector<int> array = {21, 14, 23, 11};
     array = sort_array(array);
-    if (array.size() % 2 == 1) {
-        std::cout << "Sum of first and last elements is odd: ";
-    } else {
+    if (array.size() % 2 == 0) {
         std::cout << "Sum of first and last elements is even: ";
+    } else {
+        std::cout << "Sum of first and last elements is odd: ";
     }
     std::cout << array[0] + array.back() << std::endl;
     return 0;
