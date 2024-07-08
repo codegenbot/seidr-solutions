@@ -1,14 +1,16 @@
 ```cpp
-#include <algorithm>
+#include <vector>
+#include <set>
 
-vector<int> std::unique(vector<int> l) {
-    vector<int> result(l.begin(), unique_copy(l.begin(), unique_end(l.end())));
-    return result;
+std::vector<int> unique(std::vector<int> l) {
+    std::set<int> s(l.begin(), l.end());
+    return std::vector<int>(s.begin(), s.end());
 }
 
-auto unique_end(iterator it) -> iterator {
-    for (; it != end(); ++it)
-        if (*it == *(prev(it)))
-            break;
-    return it;
+bool same(std::vector<std::vector<int>> l, std::vector<int> target) {
+    for (auto v : l) {
+        if (v == target)
+            return true;
+    }
+    return false;
 }
