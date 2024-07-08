@@ -1,6 +1,19 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
+bool issame(int a, int b) {
+    return a == b;
+}
+
+std::pair<int, int> pluck(std::vector<std::pair<int, int>> vec, int index) {
+    if(index >= 0 && index < vec.size()) {
+        return vec.at(index);
+    } else {
+        return {{}, -1}; // default pair with zero values
+    }
+}
 
 std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
     std::vector<int> evenNodes;
@@ -27,19 +40,6 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
     return result;
 }
 
-bool isSame(int a, int b) {
-    return a == b;
-}
-
-std::vector<int> pluck(std::vector<std::pair<int, int>> arr, int index) {
-    std::vector<int> result;
-    for (const auto& pair : arr) {
-        if(pair.second == index)
-            result.push_back(pair.first);
-    }
-    return result;
-}
-
 int main() {
     int n;
     std::cout << "Enter the number of elements: ";
@@ -54,16 +54,6 @@ int main() {
     }
 
     auto result = findMinEvenNode(arr);
-
-    if(result.empty()) {
-        std::cout << "No even node found.\n";
-    } else {
-        for (const auto& pair : result) {
-            std::cout << "Index of min even node is: ";
-            int minEvenIndex = pluck(arr, pair.second).size() - 1;
-            std::cout << minEvenIndex << "\n";
-        }
-    }
 
     return 0;
 }
