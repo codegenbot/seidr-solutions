@@ -1,2 +1,2 @@
-def check(increment_list):
-    return increment_list(l)
+def increment_list(l):
+    return [x + 1 for x in l]
