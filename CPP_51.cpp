@@ -1,5 +1,4 @@
 #include <string>
-
 string remove_vowels(string text){
     string result = "";
     for(int i=0; i < text.length(); i++){
