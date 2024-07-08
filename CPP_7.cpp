@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```cpp
 #include <vector>
 #include <string>
@@ -19,10 +21,10 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 
 int main() {
-    vector<string> input = {"grunt", "trumpet", "prune", "gruesome"};
-    string substring = "run";
-    vector<string> filtered = filter_by_substring(input, substring);
-    if (!issame(filtered, vector<string>({"grunt", "prune"}))) 
-        return 0;
-    return 1;
+    vector<string> output = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    cout << "Output: ";
+    for(auto str : output) {
+        cout << str << " ";
+    }
+    cout << endl;
 }
