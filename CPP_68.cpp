@@ -1,20 +1,14 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-std::vector<int> pluck(const std::vector<std::pair<int, int>>& arr) {
-    std::vector<int> result;
-    for (const auto& pair : arr) {
-        result.push_back(pair.first);
-    }
-    return result;
-}
-
-std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
-    std::vector<std::pair<int, int>> evenNodes;
-
+std::vector<int> findMinEvenNode(std::vector<int> arr) {
+    std::vector<int> evenNodes;
+    
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0) {
-            evenNodes.push_back({arr[i], i});
+            evenNodes.push_back(arr[i]);
         }
     }
 
@@ -22,19 +16,30 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
         return {};
     }
 
-    int minEvenValue = evenNodes[0].first;
-    int minIndex = evenNodes[0].second;
-
-    for (int i = 1; i < evenNodes.size(); i++) {
-        if (evenNodes[i].first < minEvenValue) {
-            minEvenValue = evenNodes[i].first;
-            minIndex = evenNodes[i].second;
-        } else if (evenNodes[i].first == minEvenValue) {
-            minIndex = std::min(minIndex, evenNodes[i].second);
+    int minEvenValue = *min_element(evenNodes.begin(), evenNodes.end());
+    
+    std::vector<std::pair<int, int>> result;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] == minEvenValue) {
+            result.push_back({minEvenValue, i});
         }
     }
 
-    std::vector<std::pair<int, int>> result;
-    result.push_back({minEvenValue, minIndex});
     return result;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element at index " << i << ": ";
+        std::cin >> arr[i];
+    }
+
+    auto result = findMinEvenNode(arr);
+
+    return 0;
 }
