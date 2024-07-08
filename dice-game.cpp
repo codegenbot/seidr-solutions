@@ -16,7 +16,7 @@ int main() {
         }
     }
     
-    double probability = favorable_outcomes / total_outcomes;
+    double probability = favorable_outcomes / static_cast<double>(total_outcomes);
     
     std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
     
