@@ -1,15 +1,13 @@
-````
+```python
 from typing import List
 
 
 def rolling_max(numbers: List[int]) -> List[int]:
-    result = [0]
-    max_so_far = 0
-    for num in numbers:
-        if num > max_so_far:
-            max_so_far = num
-        else:
-            max_so_far += num
-        result.append(max_so_far)
+    max_so_far = current_max = numbers[0]
+    result = [current_max]
+
+    for num in numbers[1:]:
+        current_max = max(num, current_max + num)
+        result.append(current_max)
+
     return result
-```
