@@ -1,13 +1,13 @@
-```cpp
+```
 #include <algorithm>
 #include <vector>
 #include <limits>
 
-bool isSame(const std::pair<float, float>& p1, const std::pair<float, float>& p2) {
+bool issame(const std::pair<float, float>& p1, const std::pair<float, float>& p2) {
     return (p1.first == p2.first && p1.second == p2.second);
 }
 
-std::vector<std::pair<float, float>> findClosestElements(std::vector<float> numbers) {
+std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
     if(numbers.size() <= 1)
         return {};
 
@@ -29,10 +29,11 @@ std::vector<std::pair<float, float>> findClosestElements(std::vector<float> numb
 }
 
 int main() {
-    assert(isSame(std::make_pair(2.2f, 3.1f), std::make_pair(2.2f, 3.1f)));
+    assert(issame(std::make_pair(2.2f, 3.1f), std::make_pair(2.2f, 3.1f)));
     std::vector<float> numbers = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
-    std::vector<std::pair<float, float>> result = findClosestElements(numbers);
+    std::vector<std::pair<float, float>> result = find_closest_elements(numbers);
     for(const auto& pair : result) {
         std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
     }
     return 0;
+}
