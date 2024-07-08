@@ -19,6 +19,6 @@ string anti_shuffle(string s) {
 }
 
 int main() {
-    assert(anti_shuffle("res riFm ngiht") == "ress Firn ghit");
+    assert(anti_shuffle("liotCodingtEs") == "Coding is life");
     return 0;
 }
