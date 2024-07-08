@@ -2,14 +2,18 @@
 
 bool solveBoolean(string expression) {
     bool res = true;
-    for (int i = 0; i < expression.size(); i++) {
+    int i = 0;
+    while (i < expression.size()) {
         if (expression[i] == '&') {
             res &= (expression[i+1] == 'T');
-            i++;
+            i += 2;
         } else if (expression[i] == '|') {
             res |= (expression[i+1] == 'T');
-            i++;
+            i += 2;
+        } else if (expression[i] != 'T' && expression[i] != 'F') {
+            return false; 
         }
+        i++;
     }
     return res;
 }
