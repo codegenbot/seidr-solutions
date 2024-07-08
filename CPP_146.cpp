@@ -1,3 +1,7 @@
+```cpp
+#include <vector>
+using namespace std;
+
 int specialFilter(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -6,4 +10,10 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
+}
+
+int main() {
+    vector<int> nums = {-11, -13, 17, -19};
+    cout << "The count of special numbers in the given vector is: " << specialFilter(nums) << endl;
+    return 0;
 }
