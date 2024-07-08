@@ -1,4 +1,5 @@
-```cpp
+using namespace std;
+
 #include <vector>
 #include <bitset>
 #include <initializer_list>
@@ -17,6 +18,5 @@ std::vector<int> sort_array(std::vector<int> arr) {
             return a < b;
         }
     };
-    std::sort(arr.begin(), arr.end(), comp);
+    sort(arr.begin(), arr.end(), comp);
     return arr;
-}
