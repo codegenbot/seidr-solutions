@@ -1,11 +1,11 @@
-```cpp
-#include <vector>
+#include <algorithm>
+namespace std;
 
-bool move_one_ball(vector<int> arr) {
-    if (arr.empty()) return true;
+int move_one_ball(std::vector<int> arr) {
+    if (arr.empty()) return 1; 
 
-    vector<int> temp = arr;
-    sort(temp.begin(), temp.end());
+    std::vector<int> temp = arr;
+    std::sort(temp.begin(), temp.end());
 
     for (int i = 0; i < arr.size(); i++) {
         bool found = false;
@@ -15,8 +15,8 @@ bool move_one_ball(vector<int> arr) {
                 break;
             }
         }
-        if (!found) return false;
+        if (!found) return 0; 
     }
 
-    return true;
+    return 1; 
 }
