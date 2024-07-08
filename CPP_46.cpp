@@ -22,4 +22,4 @@ int main() {
     cout << "Enter the value of n: ";
     cin >> n;
     cout << "The " << n << "-th element of the fib4 number sequence is: " << fib4(n) << endl;
-}
+    return 0;
