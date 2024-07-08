@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -9,7 +9,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> sort_array(std::vector<int> array) {
+std::vector<int> sortArray(std::vector<int> array) {
     if (array.empty()) return array;
 
     auto middle = array.begin() + array.size() / 2;
@@ -35,7 +35,7 @@ std::vector<int> sort_array(std::vector<int> array) {
 
 int main() {
     std::vector<int> array = {21, 14, 23, 11};
-    array = sort_array(array);
+    array = sortArray(array);
     if (array.size() % 2 == 1) {
         std::cout << "Sum of first and last elements is odd: ";
     } else {
@@ -43,10 +43,6 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    if (issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11})) {
-        std::cout << "Arrays are the same" << std::endl;
-    } else {
-        std::cout << "Arrays are not the same" << std::endl;
-    }
+    assert(isSame(sortArray({21, 14, 23, 11}) , {23, 21, 14, 11}));
     return 0;
 }
