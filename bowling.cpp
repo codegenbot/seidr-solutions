@@ -2,24 +2,31 @@
 
 int bowlingScore(string s) {
     int score = 0;
-    bool lastRollWasStrike = false;
-    bool lastRollWasSpare = false;
+    int i = 0;
 
-    for (char c : s) {
-        if (c == 'X') {
-            score += 10 + (lastRollWasStrike ? 10 : (lastRollWasSpare ? 5 : 0));
-            lastRollWasStrike = true;
-            lastRollWasSpare = false;
-        } else if (c == '/') {
-            int nextTwoRolls = std::stoi(s.substr(s.find('/') + 1, 2)) * 10 / 2;
-            score += (lastRollWasStrike ? 10 : (lastRollWasSpare ? 5 : 0));
-            score += nextTwoRolls;
-            lastRollWasStrike = false;
-            lastRollWasSpare = true;
+    while (i < s.length()) {
+        if (s[i] == 'X') {
+            score += 30;
+            i++;
+        } else if (s[i] == '/') {
+            int strikeCount = 1;
+            while (i + 2 <= s.length() && s.substr(i, 3) != "XXX") {
+                strikeCount++;
+                i += 3;
+            }
+            for (int j = 0; j < strikeCount; j++) {
+                score += 10;
+            }
+        } else if (isdigit(s[i])) {
+            int count = 0;
+            while (i + 1 <= s.length() && isdigit(s[i+1])) {
+                count++;
+                i++;
+            }
+            score += count * 10;
+            i++;
         } else {
-            score += c - '0';
-            if (c == '9') lastRollWasSpare = true;
-            else lastRollWasStrike = true;
+            i++;
         }
     }
 
