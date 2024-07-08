@@ -1,16 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-float max_element(std::vector<float> l){
+namespace std {
+template <typename T>
+float max_element(std::vector<T> l) {
     float max = l[0];
-    for(float i:l)
-        if(i > max) 
-            max = i;
+    for (int i = 1; i < l.size(); i++) {
+        if (l[i] > max)
+            max = l[i];
+    }
     return max;
-}
-
-int main() {
-    std::cout << max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) << std::endl;
-    return 0;
 }
