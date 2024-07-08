@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -22,6 +23,6 @@ int main1() {
 
 int main() {
     int length = strlen("asdasnakj");
-    assert(length == 12);
+    assert(length == 11);
     return 0;
 }
