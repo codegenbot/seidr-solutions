@@ -6,9 +6,8 @@
 std::string spinWords(std::string str) {
     std::stringstream ss(str);
     std::string word;
-    
     std::string result = "";
-    
+
     while (ss >> word) {
         if (word.length() >= 5) {
             for (int i = word.length() - 1; i >= 0; i--) {
@@ -19,8 +18,8 @@ std::string spinWords(std::string str) {
         }
         result += " ";
     }
-    
-    return result.substr(0, result.length()-1);
+
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
