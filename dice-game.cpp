@@ -1,12 +1,11 @@
+```c++
 #include <iostream>
 using namespace std;
 
 double diceGame(int n, int m) {
     double prob = 0.0;
-    for (int i = 1; i <= m; i++) {
-        for (int j = i + 1; j <= n; j++) {
-            prob += (1.0 / m) * (1.0 / (n - j + 1));
-        }
+    for (int i = m + 1; i <= n; i++) {
+        prob += 1.0 / m;
     }
     return prob;
 }
@@ -18,6 +17,6 @@ int main() {
     cout << "Enter the number of sides for Colin's die: ";
     cin >> m;
     double result = diceGame(n, m);
-    cout << "Probability: " << std::to_string(double(result)) << endl;
+    cout << "Probability: " << std::to_string(result) << endl;
     return 0;
 }
