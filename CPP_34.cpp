@@ -16,6 +16,6 @@ int main() {
     std::sort(b.begin(), b.end());
 
     assert(issame(std::unique(c.begin(), c.end()), b.end()));
-
+    
     return 0;
 }
