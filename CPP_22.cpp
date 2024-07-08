@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <any>
 #include <initializer_list>
@@ -9,11 +10,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> filterIntegers(const std::vector<std::any>& values) {
     std::vector<int> result;
-    for (size_t i = 0; i < values.size(); ++i) {
-        if (value.type() == typeid(int)) {
-            int x = std::any_cast<int>(value);
-            if(std::any_cast<char>(values[i]) && !std::isprint(x))
-                return {};
+    for (int i = 0; i < values.size(); i++) {
+        if (values[i].type() == typeid(int)) {
+            int x = std::any_cast<int>(values[i]);
             result.push_back(x);
         }
     }
