@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 int next_smallest(vector<int> lst){
     if(lst.size() < 2) return -1; 
     vector<int> sorted = lst;
@@ -9,7 +13,9 @@ int next_smallest(vector<int> lst){
 }
 
 int main() {
-    vector<int> lst = {4,2,6};
-    cout << "The next smallest number is: " << next_smallest(lst) << endl;
+    std::vector<int> lst = {7,4,3};
+    int result = next_smallest(lst);
+    if(result == -1) std::cout << "No smaller number found.\n";
+    else std::cout << "The next smallest number is: " << result << "\n";
     return 0;
 }
