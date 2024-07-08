@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -17,13 +18,11 @@ int bowlingScore(std::string s) {
                 int nextOneRoll = stoi(s.substr(0, pos));
                 score += nextOneRoll;
             } else {
-                int nextTwoRolls =stoi(s);
+                int nextTwoRolls = stoi(s);
                 score += nextTwoRolls / 2;
             }
             lastRollWasStrike = false;
             lastRollWasSpare = true;
-        } else if (c == '-') {
-            continue;
         } else {
             int roll = c - '0';
             if (c == '9') lastRollWasSpare = true;
