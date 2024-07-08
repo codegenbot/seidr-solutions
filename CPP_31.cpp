@@ -3,8 +3,8 @@ using namespace std;
 
 bool is_prime(long long n) {
     if (n <= 1) return false;
-    if (n == 2) return true; 
-    if (n % 2 == 0) return false; 
+    if (n == 2) return true; // Handle 2 as a special case
+    if (n % 2 == 0) return false; // Even numbers are not prime
     for (long long i = 3; i * i <= n; i += 2) {
         if (n % i == 0) return false;
     }
@@ -21,4 +21,3 @@ int main() {
         cout << num << " is not a prime number.\n";
     }
     return 0;
-}
