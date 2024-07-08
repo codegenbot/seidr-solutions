@@ -37,5 +37,6 @@ int main() {
     cout << "Original: " << str << endl;
     cout << "Encoded: " << encoded_str << endl;
     cout << "Decoded: " << decode_cyclic(encoded_str) << endl;
+
     return 0;
 }
