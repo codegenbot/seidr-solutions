@@ -1,10 +1,8 @@
-vector<string> all_prefixes(string str) {
-    vector<string> result;
-    for (int i = 1; i <= str.size(); ++i) {
-        result.push_back(str.substr(0, i));
-    }
-    return result;
-}
+#include <string>
+#include <vector>
+#include <iostream>
+
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -16,4 +14,20 @@ bool issame(vector<string> a, vector<string> b) {
         }
     }
     return true;
+}
+
+vector<string> all_prefixes(string str) {
+    vector<string> result;
+    for (int i = 1; i <= str.size(); ++i) {
+        result.push_back(str.substr(0, i));
+    }
+    return result;
+}
+
+int main() {
+    vector<string> prefixes = all_prefixes("WWW");
+    for (const auto& prefix : prefixes) {
+        cout << prefix << " ";
+    }
+    return 0;
 }
