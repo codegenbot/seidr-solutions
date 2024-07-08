@@ -8,5 +8,5 @@ def parse_music(music_string: str) -> list:
     notes = music_string.split(",")
     for note in notes:
         if note.strip() != "":
-            result.append(check(note.strip()))
+            result.append(check(note.strip().upper()))
     return result
