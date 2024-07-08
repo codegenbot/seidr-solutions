@@ -1,4 +1,20 @@
-```cpp
+#include <iostream>
+#include <vector>
+#include <utility>
+
+bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
+    return (a.first == b.first);
+}
+
+std::pair<int, int> pluck(std::vector<std::pair<int, int>> vec) {
+    if(vec.empty()) {
+        return {0, 0};
+    }
+    else{
+        return vec[0];
+    }
+}
+
 std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
 
@@ -24,7 +40,5 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
         }
     }
 
-    std::vector<std::pair<int, int>> result;
-    result.push_back({minEvenValue, minIndex});
-    return result;
+    return {{minEvenValue, minIndex}};
 }
