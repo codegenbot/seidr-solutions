@@ -1,13 +1,5 @@
-```cpp
-#include <vector>
-#include <algorithm>
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size())
+bool issame(vector<string> a, string b) {
+    if(a.size()!=1 || a[0].compare(b)!=0)
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i].compare(b[i]) != 0)
-            return false;
-    }
     return true;
 }
