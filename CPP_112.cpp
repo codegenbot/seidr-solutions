@@ -1,40 +1,21 @@
-#include <stdio.h>
-#include <vector>
-#include <string>
-#include <algorithm>
-using namespace std;
-
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
-    
-    // Delete all characters in s that are equal to any character in c
     string temp = "";
-    for (char c1 : s) {
+    for (char &ch : s) {
         bool found = false;
-        for (char c2 : c) {
-            if (c1 == c2) {
+        for (char &cc : c) {
+            if (ch == cc) {
                 found = true;
                 break;
             }
         }
         if (!found) {
-            temp += c1;
+            temp += ch;
         }
     }
-    
-    // Check if the result string is palindrome
-    bool is_palindrome = false;
-    for (int i = 0; i < temp.length() / 2; i++) {
-        if (temp[i] != temp[temp.length() - i - 1]) {
-            is_palindrome = false;
-            break;
-        }
-    } else {
-        is_palindrome = true;
-    }
-    
     result.push_back(temp);
-    result.push_back((is_palindrome) ? "True" : "False");
-    
+    string revTemp = temp;
+    reverse(revTemp.begin(), revTemp.end());
+    result.push_back((temp == revTemp) ? "True" : "False");
     return result;
 }
