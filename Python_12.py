@@ -1,4 +1,3 @@
-```
-input_strings = ["hello", "world", "this", "is", "a", "test"]
+input_strings = input("Enter a list of strings separated by comma: ").split(", ")
 result = longest(input_strings)
-print(result)
+print(result)  # prints the longest string
