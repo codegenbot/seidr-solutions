@@ -8,14 +8,17 @@ string circular_shift(int x, int shift) {
     if (shift >= n)
         return str;
     else {
-        string result = "";
-        for (int i = 0; i < n; i++) {
-            if (i < shift || i >= n - shift)
-                result += str[i];
+        char buffer[n];  // Define a character array for output string.
+        int i;
+        for (i = 0; i < n - shift; i++)
+            buffer[i] = str[shift];
+        for (int j = 0; j < shift; j++) {
+            if (i < n)
+                buffer[i++] = str[j];
             else
-                result = str[i] + result;
+                break;
         }
-        return result;
+        return string(buffer);
     }
 }
 
