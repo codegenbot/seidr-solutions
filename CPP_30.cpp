@@ -9,15 +9,16 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> vectors) {
     std::vector<std::vector<float>> result;
     for (const auto& v : vectors) {
-        int size;
-        if (!issame(get_positive(v), std::vector<float>())) {
+        int size = 0;
+        std::vector<float> positiveVec = get_positive(v, size);
+        if (!issame({}, positiveVec)) {
             result.push_back(v);
         }
     }
     return result;
 }
 
-float* get_positive(const std::vector<float>& vec, int& size) {
+std::vector<float> get_positive(const std::vector<float>& vec, int& size) {
     size = 0;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
@@ -32,7 +33,7 @@ float* get_positive(const std::vector<float>& vec, int& size) {
         }
     }
 
-    return &positiveVec[0];
+    return positiveVec;
 }
 
 int main() {
