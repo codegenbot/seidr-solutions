@@ -1,13 +1,11 @@
-```cpp
 #include <vector>
 #include <any>
-#include <boost/variant.hpp>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> filter_integers(std::vector<std::any> values) {
+std::vector<int> filterIntegers(const std::vector<std::any>& values) {
     std::vector<int> result;
     for (const auto& value : values) {
         if (value.type() == typeid(int)) {
@@ -18,6 +16,6 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}), {3, 3, 3}));
+    assert(isSame(filterIntegers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
