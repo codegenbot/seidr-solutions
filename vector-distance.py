@@ -1,5 +1,2 @@
-import numpy as np
-
-
-def vector_distance(v1, v2):
-    return np.linalg.norm(v1 - v2)
+def vector_distance(vec1, vec2):
+    return np.linalg.norm(np.array(vec1) - np.array(vec2))
