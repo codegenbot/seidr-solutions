@@ -7,7 +7,3 @@ def indices_of_substring(text, target):
             break
         result.append(index)
         index += len(target)
-
-text = "Hello, hello, hi!"
-target = "hello"
-print(indices_of_substring(text, target))
