@@ -1,14 +1,14 @@
-#include <iostream>
 #include <vector>
+#include <cassert>
 
-std::vector<float> get_positive(std::vector<float> values) {
-    std::vector<float> result;
-    for (float value : values) {
-        if (value > 0) {
-            result.push_back(value);
+std::vector<float> get_positive(std::vector<float> vec) {
+    std::vector<float> positive_values;
+    for (float num : vec) {
+        if (num >= 0) {
+            positive_values.push_back(num);
         }
     }
-    return result;
+    return positive_values;
 }
 
 bool issame(std::vector<float> a, std::vector<float> b) {
@@ -19,14 +19,8 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    std::vector<float> values_a = {1.2, -3.5, 4.8, -2.0};
-    std::vector<float> values_b = {2.3, -1.5, 0.0, 4.8};
-
-    if (issame(values_a, values_b)) {
-        std::cout << "Both vectors have the same positive values." << std::endl;
-    } else {
-        std::cout << "Positive values in the vectors differ." << std::endl;
-    }
-
+    assert(issame(get_positive({-1.5, 0.0, 3.7, -2.3}), {0.0, 3.7}));
+    assert(issame(get_positive({-1.2, -5.5, 2.8}), {2.8}));
+    
     return 0;
 }
