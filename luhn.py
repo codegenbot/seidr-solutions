@@ -1,4 +1,3 @@
-```
 def luhn(card):
     total = 0
     for i, num in enumerate(map(int, card)):
