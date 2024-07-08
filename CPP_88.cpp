@@ -34,8 +34,6 @@ int main() {
         std::cout << "Sum of first and last elements is even: ";
     }
     std::cout << array[0] + array.back() << std::endl;
-
-    assert(array == {11, 14, 21, 23});
-
-    return (array != {11, 14, 21, 23}) ? 1 : 0;
+    
+    return (array == vector<int>({23, 21, 14, 11})) ? 0 : 1; 
 }
