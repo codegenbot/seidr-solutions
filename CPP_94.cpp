@@ -1,5 +1,5 @@
 int main{
-    int skjkasdkd(vector<int> lst){
+    int skjkasdkd(std::vector<int> lst){
         int maxPrime = 0;
         for(int i=0; i<lst.size(); i++){
             if(isPrime(lst[i])){
