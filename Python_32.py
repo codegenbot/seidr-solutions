@@ -1,6 +1,6 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    a, b = xs[0], max(abs(num) for num in xs)
+    a, b = xs[0], max(map(abs, xs))
     for i in range(n):
         if xs[i] == b:
             a = xs[i + 1]
@@ -8,6 +8,5 @@ def find_zero(xs: list):
     return -a / b
 
 
-user_input = input()
-xs = list(map(int, user_input.split()))
-print(find_zero(xs))
+input_list = list(map(int, input().split()))
+print(find_zero(input_list))
