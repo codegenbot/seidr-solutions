@@ -11,7 +11,7 @@ def coin_sums(cents):
     return result
 
 cents = int(input())
-print(f"Quarters: {coin_sums(cents)[0]}")
-print(f"Dimes: {coin_sums(cents)[1]}")
-print(f"Nickels: {coin_sums(cents)[2]}")
-print(f"Pennies: {coin_sums(cents)[3]}")
+print("Quarters: ", *([cents // 25] if cents >= 25 else [0]), sep='\n')
+print("Nickels: ", *([cents % 25] // 5 if cents >= 5 else [0]), sep='\n')
+print("Dimes: ", *((cents % 25) % 5 // 1 if (cents % 25) >= 5 else [0]), sep='\n')
+print("Pennies: ", cents % 1, sep='\n')
