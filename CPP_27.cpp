@@ -1,15 +1,14 @@
-```
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <cassert>
 
 std::string filp_case(std::string str){
     std::string result = "";
     for(int i=0; i<str.length(); i++){
         if(str[i] >= 'a' && str[i] <= 'z'){
-            result += std::toupper((char)str[i]);
+            result += toupper((char)str[i]);
         } else {
-            result += std::tolower((char)str[i]);
+            result += tolower((char)str[i]);
         }
     }
     return result;
