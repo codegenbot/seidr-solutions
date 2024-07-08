@@ -2,7 +2,7 @@
 #include <vector>
 #include <limits>
 
-bool samePoints(std::pair<float, float> p1, std::pair<float, float> p2) {
+bool identical_pair(std::pair<float, float> p1, std::pair<float, float> p2) {
     return (p1.first == p2.first && p1.second == p2.second);
 }
 
@@ -18,8 +18,8 @@ std::vector<std::pair<float, float>> find_closest_elements(const std::vector<flo
             float diff = std::abs(numbers[j] - numbers[i]);
             if(diff < min_diff) {
                 min_diff = diff;
-                closest_pair.first = (numbers[i] + numbers[j]) / 2.0f;
-                closest_pair.second = closest_pair.first; // Since the problem wants closest pair of points with same value, we set both values to be the average
+                closest_pair.first = numbers[i];
+                closest_pair.second = numbers[j];
             }
         }
     }
@@ -27,7 +27,11 @@ std::vector<std::pair<float, float>> find_closest_elements(const std::vector<flo
     return {{closest_pair.first, closest_pair.second}};
 }
 
-int main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::make_pair(2.6f, 2.6f));
+bool same(std::vector<float> a, std::vector<float> b){
+    return a == b;
+}
+
+int test_function() {
+    assert(same({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, {2.2f, 3.1f}) && find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}) == std::make_pair(2.2f, 3.1f));
     return 0;
 }
