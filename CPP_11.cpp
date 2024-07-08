@@ -1,4 +1,5 @@
-Here is the completed code:
+```cpp
+#include <string>
 
 string string_xor(string a, string b) {
     string result = "";
