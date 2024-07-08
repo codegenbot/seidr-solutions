@@ -1,14 +1,14 @@
 int fizz_buzz(int n) {
     int count = 0;
     for (int i = 1; i < n; i++) {
-        if ((i % 11 == 0 || i % 13 == 0) && seven_times_present(i)) {
+        if ((i % 11 == 0 || i % 13 == 0) && hasSeven(i)) {
             count++;
         }
     }
     return count;
 }
 
-bool seven_times_present(int num) {
+bool hasSeven(int num) {
     int count7 = 0;
     while (num > 0) {
         if (num % 10 == 7) {
