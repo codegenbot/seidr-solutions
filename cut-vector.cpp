@@ -12,7 +12,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
             pos = i;
         }
     }
-    return make_pair(vector<int>(nums.begin(), pos+1), vector<int>(pos, nums.size()));
+    return {vector<int>(nums.begin(), pos+1), vector<int>(std::next(nums.begin(), pos), nums.end())};
 }
 
 int main() {
