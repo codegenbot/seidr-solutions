@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
+#include <limits.h>
 
-long long minSubArraySum(std::vector<long long> nums) {
+long long minSubArraySumFunction(vector<long long> nums) {
     long long sum = 0, min_sum = LLONG_MAX;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
@@ -15,6 +15,6 @@ long long minSubArraySum(std::vector<long long> nums) {
     return min_sum;
 }
 
-long long main() {
-    assert(minSubArraySum({1, -1}) == -1);
+int main() {
+    assert(minSubArraySumFunction({1, -1}) == -1);
 }
