@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <vector>
 #include <limits>
-#include <iostream>
 
 bool issame(pair<float, float> p1, pair<float, float> p2) {
     for (int i = 0; i < 2; ++i) {
@@ -21,7 +20,7 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
             float diff = abs(numbers[j] - numbers[i]);
             if (diff < min_diff && !issame(make_pair(numbers[i], numbers[i]), make_pair(numbers[j], numbers[j]))) {
                 min_diff = diff;
-                closest_pair = make_pair(numbers[i], numbers[j]);
+                closest_pair = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
             }
         }
     }
@@ -33,7 +32,7 @@ int main() {
     vector<float> numbers = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
     vector<pair<float, float>> result = find_closest_elements(numbers);
     for (const auto& pair : result) {
-        std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
+        cout << "(" << pair.first << ", " << pair.second << ")" << endl;
     }
     return 0;
 }
