@@ -1,12 +1,14 @@
+```cpp
 #include <algorithm>
-#include <vector>
 
-std::vector<int> unique(std::vector<int> l) {
-    std::vector<int> result;
-    for (int i : l) {
-        if (std::find_if(result.begin(), result.end(),
-                         [&](int x) { return x == i; }) == result.end())
-            result.push_back(i);
-    }
+vector<int> std::unique(vector<int> l) {
+    vector<int> result(l.begin(), unique_copy(l.begin(), unique_end(l.end())));
     return result;
+}
+
+auto unique_end(iterator it) -> iterator {
+    for (; it != end(); ++it)
+        if (*it == *(prev(it)))
+            break;
+    return it;
 }
