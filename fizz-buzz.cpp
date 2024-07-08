@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 std::string fizzBuzz(int x) {
