@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -19,4 +20,8 @@ vector<string> all_prefixes(string str) {
         result.push_back(str.substr(0, i));
     }
     return result;
+}
+
+int main() {
+    assert(isSame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
 }
