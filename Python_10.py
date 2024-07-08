@@ -6,8 +6,8 @@ def make_palindrome(s):
     i, j = 0, len(s) - 1
 
     while i <= j:
-        palindrome = str(s[0]) + ''.join(reversed(s[i+1:j+1])) + str(s[j])
+        palindrome = str(s[i]) + ''.join(reversed(s[i+1:j+1])) + str(s[j])
         i += 1
         j -= 1
 
-    return ''.join(palindrome)
+    return palindrome
