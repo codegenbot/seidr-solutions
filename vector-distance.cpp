@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 double vectorDistance(vector<float> v1, vector<float> v2) {
@@ -13,18 +15,17 @@ int main() {
     int n;
     cin >> n;
 
-    vector<float> v1(n), v2(n);
+    vector<float> vec1(n), vec2(n);
 
     for (int i = 0; i < n; i++) {
-        cin >> v1[i];
+        cin >> vec1[i];
     }
 
     for (int i = 0; i < n; i++) {
-        cin >> v2[i];
+        cin >> vec2[i];
     }
 
-    double result = vectorDistance(v1, v2);
-    cout << fixed << setprecision(10) << result << endl;
+    cout << fixed << setprecision(10) << vectorDistance(vec1, vec2);
 
     return 0;
 }
