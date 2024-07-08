@@ -2,10 +2,10 @@
 #include <vector>
 #include <initializer_list>
 
-bool issame(std::vector<int> array1, std::vector<int> array2) {
-    if (array1.size() != array2.size()) return false;
-    for (int i = 0; i < array1.size(); i++) {
-        if (array1[i] != array2[i]) return false;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
