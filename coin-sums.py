@@ -4,9 +4,9 @@ def coin_sums(cents):
     result = [0, 0, 0, 0]
 
     for i in range(3,-1,-1): 
-        count = cents // coins[i] 
-        cents %= coins[i] 
-        result[i] = count 
+        while cents >= coins[i]:
+            cents -= coins[i]
+            result[i] += 1
 
     return result
 
