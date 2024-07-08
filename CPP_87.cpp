@@ -1,24 +1,23 @@
-```
 #include <vector>
 
-bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
+std::vector<int> getRow(std::vector<std::vector<int>> a, int row) {
+    return a[row];
+}
+
+bool isSame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
     if(a.size() != b.size()) 
         return false;
     
     for(int i = 0; i < a.size(); i++) {
-        if(get_row(a, i).size() != get_row(b, i).size()) 
+        if(getRow(a, i).size() != getRow(b, i).size()) 
             return false;
         
-        for(int j = 0; j < get_row(a, i).size(); j++) {
-            if(get_row(a, i)[j] != get_row(b, i)[j]) 
+        for(int j = 0; j < getRow(a, i).size(); j++) {
+            if(getRow(a, i)[j] != getRow(b, i)[j]) 
                 return false;
         }
     }
 
     return true;
 
-}
-
-int main() {
-    
 }
