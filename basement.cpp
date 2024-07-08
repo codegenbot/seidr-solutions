@@ -1,18 +1,33 @@
 #include <vector>
-using namespace std;
 
-int basementIndex(const vector<int>& arr) {
+int basementIndex(const std::vector<int>& arr) {
     int sum = 0;
     for (int i = 0; i < arr.size(); ++i) {
         sum += arr[i];
         if (sum < 0) return i;
     }
-    return -1; 
+    return -1;
 }
 
 int main() {
-    vector<int> arr = {-2,1,-3,4,-1,2,1,-5,4};
-    int index = basementIndex(arr);
-    cout << "Basement Index: " << index << endl;
+    std::vector<int> arr;
+    int n;
+    
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    arr.resize(n);
+    
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i];
+    }
+    
+    int result = basementIndex(arr);
+    if (result != -1) {
+        std::cout << "The basement index is: " << result << std::endl;
+    } else {
+        std::cout << "No such index exists" << std::endl;
+    }
     return 0;
 }
