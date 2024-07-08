@@ -1,3 +1,4 @@
+```
 def dice_game(n, m):
     max_peter_roll = n
     max_colin_roll = m
