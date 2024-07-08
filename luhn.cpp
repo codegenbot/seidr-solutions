@@ -1,24 +1,15 @@
-#include <iostream>
-#include <vector>
-
-int luhn(std::vector<int> digits) {
+```cpp
+int luhn(std::vector<std::uint8_t> digits) {
     int sum = 0;
     bool doubleNext = false;
-    for (int i = digits.size() - 1; i >= 0; --i) {
-        int digit = digits[i];
+    for (auto i = digits.rbegin(); i != digits.rend(); ++i) {
+        std::uint8_t digit = *i;
         if (doubleNext) {
             digit *= 2;
             if (digit > 9) digit -= 9;
         }
-        sum += digit;
+        sum += static_cast<int>(digit);
         doubleNext = !doubleNext;
     }
     return sum;
-}
-
-int main() {
-    std::vector<int> digits = {3, 4, 5, 1, 3, 4, 2, 8, 2, 8, 9, 7, 3, 6, 5, 1}; 
-    int result = luhn(digits);
-    std::cout << result << std::endl;
-    return 0;
 }
