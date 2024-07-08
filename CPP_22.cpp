@@ -1,16 +1,15 @@
-bool boost::is_same(const boost::any& value) {
-    if (!value.type()) {
-        throw invalid_argument("invalid type");
-    }
-    return !boost::any_cast<bool>(value);
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-vector<int> filter_integers(list_any values) {
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::is_same(value)) {
-            int val = boost::any_cast<int>(value);
-            result.push_back(val);
+        if (holds_alternative<int>(value)) {
+            int val = get<int>(value);
+            if (val) { 
+                result.push_back(val);
+            }
         }
     }
     return result;
