@@ -6,10 +6,9 @@ bool issame(char a, char b) { return a == b; }
 
 std::vector<int> filter_integers(std::any values) {
     std::vector<int> result;
-    for (auto& value : std::any_cast<std::vector>(values)) {
-        if (std::holds_alternative<int>(value)) {
-            int val = std::get<int>(value);
-            result.push_back(val);
+    for (auto& value : values) {
+        if (std::any_cast<bool>(values.type()) && issame(int(value), 0)) {
+            result.push_back(int(value));
         }
     }
     return result;
