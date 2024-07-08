@@ -11,9 +11,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ')':
             if len(group) > 0 and group[0] == '(':
                 group += char
-                while group and group[0] != '(':
-                    group = group[1:]
-                result.append('({})'.format(group[:-1]))
+                result.append(group)
                 group = ''
             else:
                 group += char
