@@ -10,10 +10,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if char == '(':
             group += char
         elif char == ')':
-            if len(group) > 0 and group[0] == '(':
-                group += char
+            if len(group) > 0 and group[-1] == '(':
                 result.append(group)
                 group = ''
             else:
                 group += char
-    return result
+    return [group] if group else result
