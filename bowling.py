@@ -1,18 +1,32 @@
-def bowling_score(frames):
-    score = 0
-    frames = [frame.strip().replace("-", "") for frame in frames.split("\n")]
-    for i, frame in enumerate(frames):
-        if len(frame) == 2:
-            if frame[0] == "X":
-                score += 10
-                if i < 9:
-                    next_frame = frames[i + 1]
-                    if next_frame[0] == "X" or (len(next_frame) > 1 and next_frame[1] != "/"):
-                        score += 10
-            elif frame[1] == "/":
-                score += 10 - int(frame[0])
-        else:
-            score += int(frame[0]) + int(frame[1])
-    return score
+import re
 
-print(bowling_score("8-324333X518-3463X83"))
+user_input = input()
+frames = [
+    int("".join(filter(str.isdigit, frame)))
+    for frame in user_input.split("\n")
+    if len(
+        frame.replace(
+            "-",
+            "",
+        )
+    )
+    > 0
+]
+total_score = sum(
+    [
+        (
+            min(10, k) + (k - 1) * 1
+            if k < 10
+            else k + 30 if "X" in frame else min(k // 2, k)
+        )
+        for k, frame in zip(
+            frames,
+            [
+                "8-324333X518-3463X83".replace("-", "").index(str(k))
+                + len("".join(filter(str.isdigit, f)))
+                for k, f in zip(map(int, user_input.split("\n")), frames)
+            ],
+        )
+    ]
+)
+print(total_score)
