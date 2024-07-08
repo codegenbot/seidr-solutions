@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -27,12 +28,11 @@ bool isPrime(int n){
 int main() {
     std::vector<int> lst;
     int num;
-    cout << "Enter the numbers (type 'stop' when done): ";
-    while(true){
-        cin >> num;
-        if(num == 12745) break;
+    
+    cout << "Enter the numbers (separated by space): ";
+    while(cin >> num) {
         lst.push_back(num);
     }
-    cout << "Sum of digits: " << skjkasdkd(lst) << endl;
+    cout << "Sum of digits for max prime is: " << skjkasdkd(lst) << endl;
     return 0;
 }
