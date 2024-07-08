@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -24,7 +25,7 @@ const std::vector<std::pair<int, int>>& findMinEvenNode(std::vector<int> arr) {
         }
     }
 
-    return evenNodes;
+    return result;
 }
 
 int main() {
@@ -32,7 +33,6 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    // Initialize the vector directly without specifying its size:
     std::vector<int> arr;
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
@@ -43,13 +43,7 @@ int main() {
 
     auto result = findMinEvenNode(arr);
 
-    if (!result.empty()) {
-        for (auto& pair : result) {
-            std::cout << "Index: " << pair.second << ", Value: " << pair.first << std::endl;
-        }
-    } else {
-        std::cout << "No even numbers found" << std::endl;
+    for (const auto& pair : result) {
+        std::cout << "Node value: " << pair.first << ", Node Index: " << pair.second << std::endl;
     }
-
-    return 0;
 }
