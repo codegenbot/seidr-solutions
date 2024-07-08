@@ -1,19 +1,22 @@
+#include<vector>
+#include<algorithm>
+using namespace std;
+
 vector<int> unique_digits(vector<int> x) {
     vector<int> result;
     for (int num : x) {
-        bool hasEvenDigit = false;
-        int temp = num;
-        while (temp > 0) {
-            int digit = temp % 10;
+        int digit = 0;
+        bool has_even_digit = false;
+        while (num > 0) {
+            digit = num % 10;
             if (digit % 2 == 0) {
-                hasEvenDigit = true;
+                has_even_digit = true;
                 break;
             }
-            temp /= 10;
+            num /= 10;
         }
-        if (!hasEvenDigit) {
+        if (!has_even_digit)
             result.push_back(num);
-        }
     }
     sort(result.begin(), result.end());
     return result;
