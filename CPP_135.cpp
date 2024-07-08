@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 int can_arrange(std::vector<int> arr){
@@ -10,6 +11,6 @@ int can_arrange(std::vector<int> arr){
 }
 
 int main() {
-    assert (can_arrange({})==-1);
+    assert(can_arrange({}) == -1);
     return 0;
 }
