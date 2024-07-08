@@ -23,6 +23,7 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
-    void assert(smallest_change({0, 1}) == 1);
+    assert(smallest_change({0, 1}) == 1);
+    // rest of your code
     return 0;
 }
