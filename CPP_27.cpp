@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -22,4 +21,3 @@ int main() {
     std::getline(std::cin, input);
     std::cout << flip_case(input) << std::endl;
     return 0;
-}
