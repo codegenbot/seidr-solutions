@@ -1,5 +1,4 @@
 #include <vector>
-#include <assert.h>
 
 std::vector<float> get_positive(std::vector<float> v) {
     std::vector<float> result;
@@ -14,6 +13,6 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    assert(issame(get_positive({}), std::vector<float>()) == true); 
+    assert(issame(get_positive({}), {}) == true); 
     return 0;
 }
