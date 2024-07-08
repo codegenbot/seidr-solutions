@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <any>
 
@@ -12,7 +13,7 @@ std::vector<int> filter_integers(const std::vector<std::any>& values) {
             try {
                 result.push_back(std::any_cast<int>(value));
             } catch (...) {
-                return {};
+                throw "Error: Not all elements in the vector are integers.";
             }
         }
     }
@@ -20,6 +21,6 @@ std::vector<int> filter_integers(const std::vector<std::any>& values) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 3i, 3, 3i, 'a', 'b'}), {3, 3, 3}));
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
