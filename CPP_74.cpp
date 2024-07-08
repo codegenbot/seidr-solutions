@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -14,7 +15,7 @@ int main() {
     for (const auto& str : {}) {
         sum2 += str.length();
     }
-    if (sum1 < sum2) return -1;
-    else if (sum1 > sum2) return 1;
+    if (sum1 < sum2) return 1;
+    else if (sum1 > sum2) return -1;
     else return 0;
 }
