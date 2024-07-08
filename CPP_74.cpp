@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 
@@ -5,9 +6,9 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return (a == b);
 }
 
-int main() {
+int main() { 
     { 
-        bool total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+        bool total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) { 
             int sum1 = 0;
             for (const auto& str : lst1) {
                 sum1 += str.length();
@@ -19,9 +20,8 @@ int main() {
             if (sum1 < sum2) return true;
             else if (sum1 > sum2) return false;
             else return true;
-        }
+        } 
 
         assert(issame(total_match({"this"}, {}), {}));
     } 
     return 0;
-}
