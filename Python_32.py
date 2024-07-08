@@ -7,9 +7,7 @@ def find_zero(xs: list):
             return -i / xs[0]
 
 
-# Fix the input reading part
 input_list = list(map(int, input().split()))
 
-# Call the function with the input_list
 result = find_zero(input_list)
 print(result)
