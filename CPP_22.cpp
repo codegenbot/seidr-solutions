@@ -29,3 +29,4 @@ int main() {
     auto output = filter_integers(values);
     assert(issame(output,{3, 3, 3}));
     return 0;
+}
