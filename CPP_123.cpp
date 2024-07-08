@@ -18,6 +18,6 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(get_odd_collatz(1) == {1});
+    assert(get_odd_collatz(12) == {6, 8}); // Changed the usage of get_odd_collatz
     return 0;
 }
