@@ -1,6 +1,6 @@
+```c++
 #include <vector>
 #include <unordered_map>
-#include <initializer_list>
 
 bool issame(vector<int> a,vector<int> b){
     return a == b;
@@ -8,8 +8,8 @@ bool issame(vector<int> a,vector<int> b){
 
 vector<int> remove_duplicates(vector<int> numbers) {
     unordered_map<int, bool> mp;
+    vector<int> result;
 
-    vector<int> result = {};
     for (int i = 0; i < numbers.size(); i++) {
         if (!mp.count(numbers[i]) || !mp[numbers[i]]) {
             mp[numbers[i]] = true;
@@ -23,3 +23,4 @@ vector<int> remove_duplicates(vector<int> numbers) {
 int main() {
     assert(isame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
     return 0;
+}
