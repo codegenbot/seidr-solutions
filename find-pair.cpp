@@ -1,38 +1,16 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <algorithm>
 
-using namespace std;
-
-vector<int> findPair(vector<int>& nums, int target) {
-    vector<int> result;
-    sort(nums.begin(), nums.end());
-    
-    auto it = nums.begin();
-    while (it + 1 != nums.end()) {
-        if (*it + *(it+1) == target) {
-            result.push_back(*it);
-            result.push_back(*(it+1));
-            break;
-        }
-        else if (*it + *(it+1) < target) {
-            it++;
-        } else {
-            it++;
+std::pair<int, int> findPair(std::vector<int>& nums, int target) {
+    std::sort(nums.begin(), nums.end());
+    for (int i = 0; i < nums.size() - 1; i++) {
+        int complement = target - nums[i];
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[j] == complement) {
+                return std::make_pair(nums[i], nums[j]);
+            }
         }
     }
-    
-    return result;
-}
-
-int main() {
-    int nums[] = {1, 2, 3, 4, 5};
-    vector<int> v(nums, nums+5);
-    int target = 9;
-    vector<int> result = findPair(v, target);
-    
-    for (int i: result) {
-        cout << i << " ";
-    }
-    
-    return 0;
+    return std::make_pair(-1, -1);
 }
