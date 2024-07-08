@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -15,8 +16,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 int main() {
     std::vector<std::string> v1, v2;
 
-    int n;
-
+    int n; 
     std::cout << "Enter number of strings: ";
     std::cin >> n;
 
