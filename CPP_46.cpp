@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cstdio>
 
@@ -19,9 +18,9 @@ int fib4(int n) {
 }
 
 int main() {
-    int n = 0;
-    cout << "Enter the value of n (an integer): ";
+    int n;
+    cout << "Enter the value of n: ";
     cin >> n;
-    cout << "The " << n << "-th element of the fib4 number sequence is: " << fib4(n) << endl;
+    cout << ("The " << n << "-th element of the fib4 number sequence is: ") << fib4(n) << endl;
     return 0;
 }
