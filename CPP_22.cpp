@@ -1,14 +1,17 @@
-#include <vector>
 #include <any>
-using namespace std;
+#include <vector>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b) { 
+    return a == b; 
+}
 bool issame(int a, int b) { return a == b; }
+bool issame(char a, char b) { return a == b; }
 
-vector<int> filter_integers(any values) {
-    vector<int> result;
-    for (auto& value : any_cast<vector<any>>(values)) {
-        if (holds_alternative<int>(value)) {
-            int val = get<int>(value);
+std::vector<int> filter_integers(std::any values) {
+    std::vector<int> result;
+    for (auto& value : std::any_cast<std::vector>(values)) {
+        if (std::holds_alternative<int>(value)) {
+            int val = std::get<int>(value);
             result.push_back(val);
         }
     }
@@ -16,10 +19,7 @@ vector<int> filter_integers(any values) {
 }
 
 int main() {
-    any values({3, 3.0, 3, 4});
-    auto output = filter_integers(values);
-    for (auto val : output) {
-        cout << val << " ";
-    }
+    auto values = std::vector({3, 'c', 3, 3, 'a', 'b'}); 
+    assert(issame(filter_integers(std::any(values)), std::vector({3, 3, 3})));
     return 0;
 }
