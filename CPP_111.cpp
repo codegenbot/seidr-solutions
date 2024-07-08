@@ -1,21 +1,34 @@
-#include <bits/stdc++.h>
+```cpp
+#include <map>
+#include <vector>
+#include <string>
+#include <cctype>
+
 using namespace std;
-bool issame(pair<char,int> p1,pair<char,int> p2){
-    return (p1.first==p2.first && p1.second == p2.second);
+
+bool isSame(char ch1, char ch2) {
+    return tolower(ch1) == tolower(ch2);
 }
+
 map<pair<char,int>,int> histogram(string test){
     map<char,int> result;
     int maxCount = 0;
     for(auto& word : split(test, ' ')){
-        int count = count(word.begin(), word.end(), *word.begin());
+        int count = 0;
+        char firstChar = *word.begin();
+        for (auto c : word) {
+            if(isSame(c,firstChar)) {
+                count++;
+            } else {
+                break;
+            }
+        }
         if(count > maxCount){
             maxCount = count;
             result.clear();
-            result[make_pair(*word.begin(),count)] = 1;
+            result[make_pair(firstChar,count)] = 1;
         }else if(count == maxCount){
-            if(!result.count(make_pair(*word.begin(),count)) || issame(result[rbegin()],make_pair(*word.begin(),count))){
-                result[make_pair(*word.begin(),count)] = 1;
-            }
+            result[make_pair(firstChar,count)] = 1;
         }
     }
     return result;
