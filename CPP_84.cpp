@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cassert>    // Add this line
+#include <cassert>
 
 std::string solve(int N) {
     int sum = 0;
