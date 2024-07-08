@@ -1,10 +1,11 @@
+```cpp
 #include <string>
 #include <cctype>
 
 std::string remove_vowels(std::string text) {
     std::string result = "";
     for (char c : text) {
-        if (!std::iscntrl(c) && !std::isalpha(c) || (std::tolower(c) != 'a' && std::tolower(c) != 'e' && std::tolower(c) != 'i' && std::tolower(c) != 'o' && std::tolower(c) != 'u')) {
+        if (!std::isvowel(c)) {
             result += c;
         }
     }
@@ -14,4 +15,9 @@ std::string remove_vowels(std::string text) {
 int main() {
     assert(remove_vowels("ybcd") == "ybcd");
     return 0;
+}
+
+inline bool isvowel(char ch) {
+    ch = std::tolower(ch);
+    return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
 }
