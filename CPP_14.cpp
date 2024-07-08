@@ -22,6 +22,6 @@ std::vector<std::string> all_prefixes(std::string str) {
 int main() {
     std::string str = "WWW";
     std::vector<std::string> prefixes = all_prefixes(str);
-    assert(issame({&str}, {&str}));  
+    assert(issame({&str}, {&str}));  // Use pointers to string objects
     return 0;
 }
