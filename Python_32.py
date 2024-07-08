@@ -1,8 +1,11 @@
 ```
-def find_zero(xs: list):
+def find_zero(xs):
     n = len(xs)
     if n < 2:
-        raise ValueError("xs must have at least two coefficients")
+        if n == 1:
+            return str(-xs[0])
+        else:
+            raise ValueError("xs must have at least two coefficients")
     
     if n == 3:
         a, b, c = xs
@@ -25,8 +28,8 @@ user_input = input("Enter the list of coefficients (separated by spaces): ")
 coefficients = [float(i) for i in user_input.split()]
 
 try:
-    if len(coefficients) not in (2,3):
-        raise ValueError("Please enter exactly 2 or 3 coefficients")
+    if len(coefficients) < 2:
+        raise ValueError("You must enter at least two coefficients")
     result = find_zero(coefficients)
     print(result)
 except ValueError as e:
