@@ -1,6 +1,4 @@
-```cpp
 #include <stdio.h>
-
 using namespace std;
 
 int fib4(int n) {
