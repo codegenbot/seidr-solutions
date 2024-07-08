@@ -2,7 +2,7 @@
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        int sum = 0;
+        int sum = 0; // declare sum here
         bool negativeFound = false;
         while (num > 0 || (negativeFound && num < 0)) {
             int digit = abs(num) % 10;
@@ -20,11 +20,6 @@ int count_nums(vector<int> nums) {
 
 int main() {
     assert(count_nums({1}) == 1);
-    vector<int> input;
-    int number;
-    cout << "Enter numbers (negative to finish): ";
-    while (cin >> number) {
-        input.push_back(number);
-    }
-    cout << "The count is: " << count_nums(input) << endl;
+    vector<int> nums = {5, -2, -4, 3, 11};
+    cout << "Number of integers that are nice: " << count_nums(nums) << endl;
 }
