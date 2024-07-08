@@ -4,9 +4,9 @@ using namespace std;
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
-    for (int i = n - 1; i >= 0; i--) {
+    for (int i = n-1; i >= 0; i--) {
         bool isLeader = true;
-        for (int j = i + 1; j < n; j++) {
+        for (int j = i - 1; j >= 0; j--) {
             if (arr[j] >= arr[i]) {
                 isLeader = false;
                 break;
@@ -16,7 +16,6 @@ vector<int> leaders(vector<int>& arr) {
             result.push_back(arr[i]);
         }
     }
-    reverse(result.begin(), result.end());
     return result;
 }
 
