@@ -1,6 +1,4 @@
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float snowFallRate, float meltingRate) {
@@ -8,7 +6,7 @@ double snowDay(int hours, float initialSnow, float snowFallRate, float meltingRa
     for (int i = 0; i < hours; i++) {
         snow += snowFallRate;
         if (meltingRate > 0.0) {
-            snow -= min(double(snow), double(meltingRate));
+            snow -= std::min((float)snow, (float)meltingRate);
         }
     }
     return snow;
