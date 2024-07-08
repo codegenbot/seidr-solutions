@@ -1,6 +1,4 @@
 #include <vector>
-#include <cassert>
-
 using namespace std;
 
 int maxPrime(std::vector<int> lst){
