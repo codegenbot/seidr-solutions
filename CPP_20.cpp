@@ -1,5 +1,5 @@
 bool issame(vector<float> a, vector<float> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    // Your implementation here
 }
 
 pair<float, float> find_closest_elements(vector<float> numbers) {
