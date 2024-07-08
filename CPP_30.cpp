@@ -18,9 +18,9 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
 
 std::vector<float> get_positive(const std::vector<float>& vec) {
     std::vector<float> result;
-    for (int i = 0; i < vec.size(); i++) {
-        if (vec[i] > 0.0f) {
-            result.push_back(vec[i]);
+    for (float f : vec) {
+        if (f > 0.0f) {
+            result.push_back(f);
         }
     }
     return result;
