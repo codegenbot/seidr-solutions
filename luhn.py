@@ -1,11 +1,9 @@
 def luhn(card):
     total = 0
-    for i, num in enumerate(map(int, card)):
-        if (i % 2 == 1):
-            doubled = num * 2
-            if doubled > 9:
-                doubled -= 9
-        else:
-            doubled = num
-        total += doubled
+    for i in range(len(card)):
+        if i % 2 == 0:
+            card[i] *= 2
+            if card[i] > 9:
+                card[i] -= 9
+        total += card[i]
     return total
