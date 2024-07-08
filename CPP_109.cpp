@@ -1,22 +1,9 @@
-#include <algorithm>
-namespace std;
+#include <vector>
 
-int move_one_ball(std::vector<int> arr) {
-    if (arr.empty()) return 1; 
-
-    std::vector<int> temp = arr;
-    std::sort(temp.begin(), temp.end());
-
-    for (int i = 0; i < arr.size(); i++) {
-        bool found = false;
-        for (int j = 0; j < temp.size(); j++) {
-            if (arr[i] == temp[j]) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) return 0; 
+bool move_one_ball(vector<int> arr) {
+    int n = arr.size();
+    for(int i = 0; i < n - 1; i++) {
+        if(arr[i] > arr[i + 1]) return false;
     }
-
-    return 1; 
+    return true;
 }
