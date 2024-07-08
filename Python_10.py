@@ -1,18 +1,13 @@
-```
 def make_palindrome(s):
     if len(s) == 0:
         return ""
 
     palindrome = s
-    i, j = 0, len(s) - 1
-    while i <= j:
-        if s[i] != s[j]:
-            for k in range(j+1, len(s)):
-                if s[i] == s[k]:
-                    j = k
-                    break
-        palindrome += s[i]
-        i += 1
-        j -= 1
+    while i < len(s) // 2:  # for odd length strings
+        if s[i] != s[-i - 1]:
+            if len(s) % 2 == 0:
+                palindrome += s[i]
+            else:
+                palindrome += s[0]
 
-    return palindrome + s[i-1::-1]
+    return palindrome + "".join(reversed(s))
