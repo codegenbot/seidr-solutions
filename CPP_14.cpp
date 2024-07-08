@@ -1,15 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
-            return false;
-    return true;
+bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
+    return a == b;
 }
 
 std::vector<std::string> all_prefixes(std::string str) {
@@ -21,7 +15,25 @@ std::vector<std::string> all_prefixes(std::string str) {
 }
 
 int main() {
-    std::string str = "WWW";
-    assert(issame(all_prefixes(str), {"WWW", "W." + str, "W.W." + str + "W"}));
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::vector<std::string> prefixes = all_prefixes(str);
+    std::vector<std::string> duplicates;
+    for (const auto& prefix : prefixes) {
+        int count = 0;
+        for (const auto& p : prefixes) {
+            if (p == prefix) {
+                count++;
+            }
+        }
+        if (count > 1) {
+            duplicates.push_back(prefix);
+        }
+    }
+    std::cout << "Duplicated prefixes: ";
+    for (const auto& duplicate : duplicates) {
+        std::cout << duplicate << " ";
+    }
     return 0;
 }
