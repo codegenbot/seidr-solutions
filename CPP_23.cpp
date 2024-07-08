@@ -1,12 +1,15 @@
 ```cpp
 #include <iostream>
 #include <string>
-
-int main() {
-    std::cout << "The length of 'asdasnakj' is: " << my_strlen("asdasnakj") << "\n";
-    return 0;
-}
+#include <cstring>
+#include <cassert>
 
 int my_strlen(std::string str) {
     return str;
+}
+
+int main() {
+    assert(my_strlen("asdasnakj") == 13);
+    std::cout << "The length of 'asdasnakj' is: " << my_strlen("asdasnakj") << "\n";
+    return 0;
 }
