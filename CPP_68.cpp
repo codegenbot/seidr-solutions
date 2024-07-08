@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```c++
 #include <vector>
 #include <utility>
@@ -38,4 +36,5 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
 
 int main() {
     assert(pluck({7, 9, 7, 1}) == {{}});
+    // rest of your code
 }
