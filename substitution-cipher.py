@@ -1,5 +1,3 @@
-Here is the solution:
-
-def substitution_cipher(cipher1, cipher2, text):
-    cipher_dict = {k: v for k, v in zip(cipher1, cipher2)}
-    return ''.join([cipher_dict.get(c, c) for c in text])
+def substitution_cipher(cipher1, cipher2, message):
+    cipher = {cipher1[i]: cipher2[i] for i in range(min(len(cipher1), len(cipher2)))}
+    return "".join([cipher.get(char, char) for char in message])
