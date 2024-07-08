@@ -1,4 +1,3 @@
-```c
 #include <iostream>
 #include <vector>
 
@@ -30,8 +29,4 @@ int skjkasdkd() {
         maxPrime /= 10;
     }
     return sumOfDigits;
-}
-
-int main() {
-    std::cout << skjkasdkd();
 }
