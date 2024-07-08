@@ -1,19 +1,16 @@
-```
 def parse_music(music_string):
-    music_beats = []
-    beat = ""
-    
+    beats = []
+    current_beat = ""
     for char in music_string:
         if char == "o":
-            beat += "o"
-        elif char in ["|", "| ", "|"]:
-            if len(beat) == 0:
-                music_beats.append(".| ")
-            else:
-                music_beats.append("o" * (len(beat)))
-            beat = ""
-    
-    if len(beat) > 0:
-        music_beats.append("o" * len(beat))
-    
-    return music_beats
+            current_beat += "o"
+        elif char in ["|", "."]:
+            if len(current_beat) > 0:
+                if current_beat == "ooo":
+                    beats.append(4)
+                elif current_beat == "o|":
+                    beats.append(2)
+                elif current_beat == ".| ":
+                    beats.append(1)
+                current_beat = ""
+    return beats
