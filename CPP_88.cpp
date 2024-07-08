@@ -4,7 +4,7 @@
 std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) return array;
 
-    auto middle = array.begin() + array.size() / 2;
+    auto middle = std::next(array.begin(), array.size() / 2);
     auto left = array.begin();
     auto right = middle;
 
