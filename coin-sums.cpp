@@ -1,9 +1,9 @@
-```cpp
 int main() {
     int cents;
     std::cin >> cents;
 
     int pennies = 0; 
+
     int quarters = cents / 25;
     cents %= 25;
 
