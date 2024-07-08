@@ -1,4 +1,3 @@
-```
 #include <string>
 using namespace std;
 
@@ -18,6 +17,6 @@ public:
 
 int main() {
     Solution s;
-    s.fizzBuzz(3);
+    s.fizzBuzz(15);
     return 0;
 }
