@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <string>
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -22,12 +22,6 @@ int bowlingScore(std::string s) {
             }
             lastRollWasStrike = false;
             lastRollWasSpare = true;
-        } else if (c == '-') {
-            size_t pos = s.find('-');
-            if (pos != std::string::npos) {
-                int nextOneRoll = stoi(s.substr(0, pos));
-                score += 10 - nextOneRoll;
-            }
         } else {
             int roll = c - '0';
             if (c == '9') lastRollWasSpare = true;
@@ -44,4 +38,3 @@ int main() {
     int score = bowlingScore(s);
     std::cout << "The score is: " << score << std::endl;
     return 0;
-}
