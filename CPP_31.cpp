@@ -1,22 +1,17 @@
-#include <iostream>
-#include <cmath>
-
-bool is_prime(long long n) {
-    if (n <= 1) return false;
-    for (long long i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
+bool is_prime(int n) {
+    if (n <= 1)
+        return false;
+    bool is_divisible = false;
+    long long i = 2;
+    while (i * i <= n && !is_divisible) {
+        if (n % i == 0) {
+            is_divisible = true;
+        }
+        ++i;
     }
-    return true;
+    return !is_divisible;
 }
 
 int main() {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-
-    if(is_prime(num)) {
-        std::cout << num << " is a prime number." << std::endl;
-    } else {
-        std::cout << num << " is not a prime number." << std::endl;
-    }
+    assert(is_prime(13441 * 19) == false);
 }
