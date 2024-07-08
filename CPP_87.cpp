@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& matrix, int row) {
@@ -23,6 +22,33 @@ bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vecto
 }
 
 int main() {
-    std::vector<std::vector<int>> row = {{1}, {2, 3}, {4, 5, 6}};
-    assert(issame(get_row(row, 2), {{2, 3}}));
+    std::vector<std::vector<int>> row;
+    int num_rows, num_cols;
+
+    std::cout << "Enter number of rows: ";
+    std::cin >> num_rows;
+    std::cout << "Enter number of columns: ";
+    std::cin >> num_cols;
+
+    row.resize(num_rows);
+
+    for(int i = 0; i < num_rows; i++) {
+        row[i].resize(num_cols);
+        for(int j = 0; j < num_cols; j++) {
+            int val;
+            std::cout << "Enter value at (" << i + 1 << ", " << j + 1 << "): ";
+            std::cin >> val;
+            row[i][j] = val;
+        }
+    }
+
+    int m_row;
+    std::cout << "Enter the row number: ";
+    std::cin >> m_row;
+
+    for(int i = 0; i < num_cols; i++) {
+        std::cout << row[m_row - 1][i] << " ";
+    }
+
+    return 0;
 }
