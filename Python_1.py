@@ -1,9 +1,10 @@
+```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     group = ''
-    for char in paren_string:
+    for char in paren_string + ')':  
         if char == ' ':
             continue
         if char == '(':
@@ -14,5 +15,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(group)
                 group = ''
             else:
-                group = ''
+                group += char
+    result.append(group)  # Add leftover group to the result
     return result
