@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int luhn(vector<int> digits) {
@@ -13,3 +14,4 @@ int luhn(vector<int> digits) {
         doubleNext = !doubleNext;
     }
     return sum;
+}
