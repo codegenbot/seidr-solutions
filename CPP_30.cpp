@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -9,28 +9,24 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> vectors) {
     std::vector<std::vector<float>> result;
     for (const auto& v : vectors) {
-        if (!issame(get_positive(v), get_positive({}))) {
+        bool flag = false;
+        for (float num : v) {
+            if (num > 0) {
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
             result.push_back(v);
         }
     }
     return result;
 }
 
-float* get_positive(const std::vector<float>& vec, int& size) {
-    size = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        if (vec[i] > 0.0) {
-            size++;
-        }
-    }
+int main() {
+    std::vector<float> a = {1, -2, 3};
+    std::vector<float> b = {-4, 5, -6};
+    assert(issame(get_positive(a), get_positive(b)));
 
-    float* result = new float[size];
-    int j = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        if (vec[i] > 0.0) {
-            result[j] = vec[i];
-            j++;
-        }
-    }
-    return result;
+    return 0;
 }
