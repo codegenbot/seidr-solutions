@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-
-using namespace std;
+using std::cout;
+using std::endl;
 
 string encode_cyclic(string s) {
     int l = s.length();
@@ -33,6 +33,6 @@ string decode_cyclic(string s) {
 string str = "abcde";
 string encoded_str = encode_cyclic(str);
 assert(decode_cyclic(encoded_str) == str);
-std::cout << "Original: " << str << std::endl;
-std::cout << "Encoded: " << encoded_str << std::endl;
-std::cout << "Decoded: " << decode_cyclic(encoded_str) << std::endl;
+cout << "Original: " << str << endl;
+cout << "Encoded: " << encoded_str << endl;
+cout << "Decoded: " << decode_cyclic(encoded_str) << endl;
