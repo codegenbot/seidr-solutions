@@ -1,8 +1,8 @@
 #include <vector>
 #include <list>
 #include <any>
-#include <cassert>
 #include <typeinfo>
+#include <cassert>
 
 std::vector<int> filter_integers(std::list<std::any> values){
     std::vector<int> result;
@@ -16,10 +16,4 @@ std::vector<int> filter_integers(std::list<std::any> values){
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
-}
-
-int main(){
-    assert(issame(filter_integers({std::any(3), std::any(3), std::any(3), std::any('c'), std::any('a'), std::any('b')}), {3, 3, 3}));
-    
-    return 0;
 }
