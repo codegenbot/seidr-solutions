@@ -17,9 +17,10 @@ public:
 
 int main() {
     Solution solution;
-    int x;
-    cout << "Enter a number: ";
+    int x; 
+    cout << "Enter an integer: ";
     cin >> x;
-    cout << solution.fizzBuzz(x) << endl;
+    string result = solution.fizzBuzz(x);
+    cout << result << endl;
     return 0;
 }
