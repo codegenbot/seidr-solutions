@@ -21,4 +21,3 @@ int main() {
     cin >> p;
     cout << "2^" << n << " mod " << p << " = " << modp(n, p) << endl;
     return 0;
-}
