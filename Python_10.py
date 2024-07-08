@@ -1,4 +1,5 @@
-from itertools import *
+```
+import re
 
 def make_palindrome(s):
     if len(s) == 0:
