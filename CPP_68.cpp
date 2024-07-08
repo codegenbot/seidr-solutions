@@ -1,29 +1,5 @@
-```cpp
 #include <vector>
 #include <utility>
-
-int main() {
-    int n;
-    std::cout << "Enter the size of the array: ";
-    std::cin >> n;
-
-    std::vector<int> arr(n);
-    std::cout << "Enter " << n << " elements: ";
-    for (int i = 0; i < n; i++) {
-        std::cin >> arr[i];
-    }
-
-    std::vector<std::pair<int, int>> result = pluck(arr);
-
-    if (!result.empty()) {
-        std::cout << "The first even value at an even index is: ";
-        std::cout << "(" << result[0].first << ", " << result[0].second << ")" << std::endl;
-    } else {
-        std::cout << "No even values found." << std::endl;
-    }
-
-    return 0;
-}
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
