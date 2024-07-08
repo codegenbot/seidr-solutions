@@ -1,15 +1,11 @@
-#include<string>
-using namespace std;
+```
+#include <string>
 
 int main() {
-    string str;
-    cout << "Enter the string: ";
-    cin >> str;
-    string substring;
-    cout << "Enter the substring: ";
-    cin >> substring;
+    string str = "Hello World, Hello Android, Hello C++";
+    string substring = "Hello";
     int count = how_many_times(str, substring);
-    cout << "The substring appears " << count << " times." << endl;
+    cout << "The string \"Hello\" appears " << count << " times in the given sentence." << endl;
     return 0;
 }
 
