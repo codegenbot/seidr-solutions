@@ -15,5 +15,8 @@ def parse_music(music_string: str) -> list:
                 note = str(music_check(note))
                 while len(note) < 3:
                     note = "0" + note
-                result.append(int(note))
+                if "-" in note:  
+                    result.extend([str(note_map.get(i.strip(), -1)) for i in note.split("-")])
+                else:
+                    result.append(int(note))
     return result
