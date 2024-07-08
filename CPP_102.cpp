@@ -1,5 +1,5 @@
+```
 #include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -25,5 +25,5 @@ int main() {
     cin >> x;
     cout << "Enter value of y: ";
     cin >> y;
-    cout << "The biggest even integer is: " << std::to_string(choose_num(x,y)) << endl;
+    cout << "The biggest even integer is: " << choose_num(x,y) << endl;
 }
