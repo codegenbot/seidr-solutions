@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 using namespace std;
-
 int main() {
     string tweet;
     getline(cin, tweet);
-
-    // Check for length and print output
+    //Remove all non-alphanumeric characters from the input string
+    tweet.erase(std::remove_if(tweet.begin(), tweet.end(), [](char c) { return !is_alphanum(c); }), tweet.end());
     if (tweet.length() > 140) {
         cout << "Too many characters" << endl;
         return 1; // Return failure status
