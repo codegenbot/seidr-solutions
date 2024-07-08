@@ -1,10 +1,10 @@
+from collections import Counter
+
 def mastermind(code, guess):
-    black = 0
-    white = 0
-    for i in range(4):
-        if code[i] == guess[i]:
-            black += 1
-        else:
-            code_count = str(code).count(str(guess[i]))
-            white += min(code_count, 1)
-    return black, white
+    code_counts = Counter(code)
+    guess_counts = Counter(guess)
+    
+    black = sum((c1 == c2) for c1, c2 in zip(code, guess))
+    white = len([c for c in code if c in guess]) - black
+    
+    return str(black) + "\n" + str(white)
