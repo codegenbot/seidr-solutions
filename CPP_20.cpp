@@ -1,4 +1,14 @@
 #include <algorithm>
+#include <vector>
+#include <limits>
+
+bool issame(pair<float, float> p1, pair<float, float> p2) {
+    for (int i = 0; i < 2; ++i) {
+        if (p1.first != p2.first || p1.second != p2.second)
+            return false;
+    }
+    return true;
+}
 
 vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     pair<float, float> closest_pair;
@@ -7,7 +17,7 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
             float diff = numbers[j] - numbers[i];
-            if (abs(diff) < min_diff) {
+            if (abs(diff) < min_diff && !issame(closest_pair, make_pair(numbers[i], numbers[j]))) {
                 min_diff = abs(diff);
                 closest_pair = make_pair(numbers[i], numbers[j]);
             }
