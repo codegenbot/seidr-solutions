@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <vector>
 using namespace std;
 
 int choose_num(int x, int y) {
@@ -9,16 +10,20 @@ int choose_num(int x, int y) {
         if (i % 2 == 0)
             ss << i << " ";
     }
-    string temp = ss.str();
+    string str = ss.str();
     size_t pos = 0;
-    while ((pos = temp.find(" ")) != string::npos) {
-        int num = stoi(temp.substr(0, pos));
-        result.push_back(num);
-        temp.erase(0, pos + 1);
+    while ((pos = str.find(" ")) != string::npos) {
+        result.push_back(stoi(str.substr(0, pos)));
+        str.erase(0, pos + 1);
     }
-    if (!temp.empty())
-        result.push_back(stoi(temp));
-    return *max_element(result.begin(), result.end());
+    if (!str.empty())
+        result.push_back(stoi(str));
+    
+    int max = INT_MIN;
+    for (int i : result)
+        if (i > max)
+            max = i;
+    return max;
 }
 
 int main() {
