@@ -4,44 +4,44 @@
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if(a == b) {
-        return true;
-    }
-    else {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) {
         return false;
     }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<std::string> by_length(const std::vector<int>& arr) {
+    std::vector<std::string> numbers;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            numbers.push_back(std::to_string(num));
+        }
+    }
+    std::sort(numbers.begin(), numbers.end());
+    std::reverse(numbers.begin(), numbers.end());
+    return numbers;
 }
 
 int main() {
-    std::vector<int> int_arr;    
+    std::vector<int> arr;    
     for(int i=0; i<5; i++) {
         int n;
         std::cout << "Enter a number: ";
         std::cin >> n;
-        int_arr.push_back(n);
+        arr.push_back(n);
     }
-
-    std::vector<std::string> result = by_length(int_arr);
+    std::vector<std::string> result = by_length(arr);
     for (const auto& str : result) {
         std::cout << str << std::endl;
     }
+    if (!issame(by_length({9, 4, 8}) , {"Eight", "Four", "Nine"})) {
+        std::cout << "Assertion failed" << std::endl;
+    }
     return 0;
 }
-
-std::vector<string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            numbers.push_back(num);
-        }
-    }
-
-    std::sort(numbers.begin(), numbers.end());
-    std::reverse(numbers.begin(), numbers.end());
-
-    std::vector<std::string> result;
-    for(int i : numbers){
-        result.push_back(std::to_string(i));
-    }
-    return result;
