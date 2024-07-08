@@ -1,8 +1,6 @@
-#include <iostream>
+    #include <iostream>
 #include <string>
-#include <bits/stdc++.h>
 #include <algorithm>
-#include <boost/algorithm/string.hpp>
 
 int main() {
     std::string input;

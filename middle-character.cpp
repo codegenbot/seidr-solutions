@@ -1,8 +1,8 @@
 #include <string>
-std::string getMiddleChar(const std::string& str) {
+std::string getMiddleChar(std::string str) {
     int len = str.length();
     if (len % 2 == 0) {
-        return str.substr((len / 2) - 1, 2);
+        return str.substr(len / 2, 2);
     } else {
         return str.substr(len / 2, 1);
     }
