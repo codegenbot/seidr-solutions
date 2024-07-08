@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -26,5 +25,5 @@ int smallest_change(std::vector<int> arr) {
 int main() {
     std::vector<int> arr = {0, 1};
     int result = smallest_change(arr);
-    return 0;
+    return result;
 }
