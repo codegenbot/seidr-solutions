@@ -1,7 +1,7 @@
-#include <algorithm>
+#include <initializer_list>
 #include <vector>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); ++i)
@@ -11,6 +11,15 @@ bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> uniqueNumbers(numbers.begin(), unique(numbers.begin(), numbers.end()));
-    return uniqueNumbers;
+    std::unordered_map<int, bool> mp;
+    std::vector<int> result;
+
+    for (int i = 0; i < numbers.size(); ++i) {
+        if (!mp.count(numbers[i])) {
+            mp[numbers[i]] = true;
+            result.push_back(numbers[i]);
+        }
+    }
+
+    return result;
 }
