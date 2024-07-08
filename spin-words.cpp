@@ -31,14 +31,14 @@ int main() {
     string str = "Hello World";
     cout << spinWords(str) << endl;
     
-    str = "This is a test";
+    str = "Spin words";
     cout << spinWords(str) << endl;
     
-    str = "Short sentence";
+    str = "Short";
     cout << spinWords(str) << endl;
     
-    str = "Longer sentence with words that are five letters or more";
+    str = "";
     cout << spinWords(str) << endl;
-
+    
     return 0;
 }
