@@ -1,12 +1,13 @@
 #include <vector>
+#include <climits>
 
 using namespace std;
 
 vector<int> pluck(vector<int> arr) {
     vector<int> result;
     
-    if(arr.empty()) return result; // Return an empty vector if input is empty
-    
+    if(arr.empty()) return result; 
+
     int smallestEven = INT_MAX;
     int smallestIndex = -1;
     
@@ -22,7 +23,7 @@ vector<int> pluck(vector<int> arr) {
         result.push_back(smallestIndex);
     } else {
         result.push_back(0);
-        result.push_back(-1); // This is the index of a non-existent node
+        result.push_back(-1); 
     }
     
     return result;
