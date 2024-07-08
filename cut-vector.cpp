@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <initializer_list>
@@ -13,7 +14,7 @@ vector<int> cutVector(vector<int>& nums) {
             pos = i;
         }
     }
-    return {vector<int>(nums.begin(), pos+1), vector<int>(std::next(nums.begin(), pos), nums.end())};
+    return {vector<int>(nums.begin(), pos+1), vector<int>(pos, nums.end())};
 }
 
 int main() {
