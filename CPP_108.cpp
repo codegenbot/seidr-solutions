@@ -5,7 +5,7 @@
 using namespace std;
 
 int count_nums(vector<int> nums) {
-    int sign = 1; // Initialize sign here
+    int sign = 1;
     int count = 0;
     for (int num : nums) {
         bool negativeFound = false;
@@ -27,10 +27,4 @@ int count_nums(vector<int> nums) {
             count++;
     }
     return count;
-}
-
-int main() {
-    assert(count_nums({1}) == 1);
-    cout << count_nums({-123, -9, 3, 2, -11, 4, 5, -9, -6, 8, 7});
-    return 0;
 }
