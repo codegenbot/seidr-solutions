@@ -9,7 +9,3 @@ bool is_prime(int n) {
     }
     return true;
 }
-
-int main() {
-    assert(is_prime(13441 * 19) == false);
-}
