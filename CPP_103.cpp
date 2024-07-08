@@ -1,8 +1,7 @@
-```c++
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <cmath> 
+#include <cmath> // for std::nearbyint or std::lround
 
 std::string rounded_avg(int n, int m) {
     if (n > m) return "-1";
