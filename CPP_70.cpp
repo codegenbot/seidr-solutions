@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -21,7 +22,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         result.push_back(*lst.begin());
         lst.erase(lst.begin());
         if (!lst.empty())
-            std::sort(std::next(lst.begin()), lst.end());
+            std::sort(lst.begin(), lst.end());
     }
 
     return result;
