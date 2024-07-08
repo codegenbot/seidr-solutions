@@ -5,41 +5,41 @@
 
 bool will_it_fly(std::vector<int> q, int w) {
     std::string str = "";
-    for(int i : q) {
-        str += std::to_string(i);
-    }
-    if(std::string(str.rbegin(), str.end()) != std::string(str.begin(), str.end()))
-        return false;
     int sum = 0;
     for(int i : q) {
         sum += i;
     }
+    for(int i : q) {
+        str += std::to_string(i);
+    }
+    if(str != std::string(str.rbegin(), str.rend()))
+        return false;
     return sum <= w;
 }
 
 int main() {
     assert(will_it_fly({5}, 5) == true);
-    
+
     std::vector<int> weights;
     int total_weight;
-    
+
     std::cout << "Enter the number of weights: ";
     int n;
     std::cin >> n;
-    
+
     for(int i = 0; i < n; i++) {
         std::cout << "Enter weight " << i + 1 << ": ";
         int weight;
         std::cin >> weight;
         weights.push_back(weight);
     }
-    
+
     std::cout << "Enter the total weight limit: ";
     std::cin >> total_weight;
-    
+
     if(will_it_fly(weights, total_weight)) {
         std::cout << "The package will fly.\n";
     } else {
-        std::cout << "The package won't fly.\n";
+        std::cout << "The package won't fly. The weights are not palindromic or exceed the weight limit.\n";
     }
 }
