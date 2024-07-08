@@ -1,13 +1,15 @@
+```cpp
 #include <cassert>
 #include <string>
 #include <algorithm>
+#include <vector>
 
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for(int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
-    if(str != reverse(str).s)
+    if(str != std::string(str.rbegin(), str.rend()))
         return false;
     int sum = 0;
     for(int i : q) {
@@ -17,5 +19,28 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    assert(will_it_fly({5}, 5) == true); 
+    assert(will_it_fly({5}, 5) == true);
+    
+    std::vector<int> weights;
+    int total_weight;
+    
+    std::cout << "Enter the number of weights: ";
+    int n;
+    std::cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        std::cout << "Enter weight " << i + 1 << ": ";
+        int weight;
+        std::cin >> weight;
+        weights.push_back(weight);
+    }
+    
+    std::cout << "Enter the total weight limit: ";
+    std::cin >> total_weight;
+    
+    if(will_it_fly(weights, total_weight)) {
+        std::cout << "The package will fly.\n";
+    } else {
+        std::cout << "The package won't fly.\n";
+    }
 }
