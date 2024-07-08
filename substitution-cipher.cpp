@@ -2,17 +2,17 @@
 #include <iostream>
 #include <string>
 
-std::string substitutionCipher(std::string cipher1, std::string cipher2, std::string message) {
-    std::string decipheredMessage = "";
-    for (int i = 0; i < message.length(); i++) {
-        if (cipher1[i] == message[i]) {
-            int index = cipher2.find(message[i]);
-            decipheredMessage += cipher2[index];
-        } else {
-            decipheredMessage += message[i];
+std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
+    std::string result;
+    for (char c : message) {
+        for (int i = 0; i < cipher1.size(); ++i) {
+            if (cipher1[i] == c) {
+                result += cipher2[i];
+                break;
+            }
         }
     }
-    return decipheredMessage;
+    return result;
 }
 
 int main() {
