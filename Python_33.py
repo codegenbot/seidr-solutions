@@ -1,6 +1,2 @@
-Here is the corrected code with test cases:
-
-def sort_third(l):
+def sort_third(l: list):
     return sorted(l, key=lambda x: (x % 3, x))
-
-print(sort_third([1, 2, 4, 3]))
