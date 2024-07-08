@@ -1,6 +1,4 @@
-```
 #include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -22,7 +20,5 @@ int main() {
     int n;
     cout << "Enter the value of n: ";
     cin >> n;
-    string s = to_string(n);
-    cout << "The " << s << "-th element of the fib4 number sequence is: " << fib4(stoi(s)) << endl;
+    cout << "The " << n << "-th element of the fib4 number sequence is: " << fib4(n) << endl;
     return 0;
-}
