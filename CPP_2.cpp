@@ -6,9 +6,8 @@ double truncate_number(double number) {
     return number - floor(number);
 }
 
-int32_t main() {
+void main() {
     double number;
     std::cin >> number;
     std::cout << truncate_number(number) << std::endl;
-    return 0;
 }
