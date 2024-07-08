@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
 
-std::string circular_shift(int x, int shift) {
-    std::string str = to_string(x);
+string circular_shift(int x, int shift) {
+    string str = to_string(x);
     int n = str.length();
     if (shift >= n)
         return str;
