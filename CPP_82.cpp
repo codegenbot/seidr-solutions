@@ -1,4 +1,3 @@
-```
 #include <cassert>
 
 bool prime_length(std::string str) {
