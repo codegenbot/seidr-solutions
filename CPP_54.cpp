@@ -1,6 +1,6 @@
-#include <initializer_list>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 
 bool same_chars(std::string s0, std::string s1) {
     sort(s0.begin(), s0.end());
