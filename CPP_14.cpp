@@ -1,4 +1,9 @@
-Here is the solution:
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> all_prefixes(string str) {
     vector<string> result;
@@ -6,4 +11,9 @@ vector<string> all_prefixes(string str) {
         result.push_back(str.substr(0, i));
     }
     return result;
+}
+
+int main() {
+    assert(all_prefixes("WWW") == {"W", "WW", "WWW"});
+    return 0;
 }
