@@ -1,4 +1,10 @@
+```
 def make_palindrome(s):
+    """
+    This function takes a string as input and returns the next smallest possible palindrome.
+    :param s: 
+    :return: 
+    """
     if len(s) == 0:
         return ""
 
