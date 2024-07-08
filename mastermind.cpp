@@ -1,3 +1,4 @@
+```c
 #include <string>
 #include <unordered_map>
 
@@ -5,29 +6,23 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    unordered_map<char, int> codeCount;
-    for (char c : code) {
-        codeCount[c]++;
+    unordered_map<char, int> code_count;
+    for(int i=0; i<4; i++) {
+        code_count[code[i]]++;
     }
 
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
             black++;
-        } else {
-            codeCount[guess[i]]--;
+            code_count[code[i]]--;
         }
     }
 
-    for (int i = 0; i < 6; i++) {
-        char c = 'A' + i;
-        int count = 0;
-        for (int j = 0; j < 4; j++) {
-            if (guess[j] == c) {
-                count++;
-                codeCount[c]--;
-            }
+    for(int i=0; i<4; i++) {
+        if(code_count.find(guess[i]) != code_count.end() && code_count[guess[i]] > 0) {
+            white++;
+            code_count[guess[i]]--;
         }
-        white += min(count, codeCount[c]);
     }
 
     return black;
