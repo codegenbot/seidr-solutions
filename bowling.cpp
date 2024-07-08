@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <vector>
 #include <iostream>
@@ -27,7 +28,6 @@ int bowlingScore(std::string s) {
     }
 
     return score;
-
 }
 
 int main() {
