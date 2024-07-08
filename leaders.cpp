@@ -1,18 +1,17 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
-    int leader = -1; // Initialize the leader
+    int maxRightSoFar = arr[n - 1];
     for (int i = n - 1; i >= 0; i--) {
-        if (arr[i] >= leader) {
-            leader = arr[i];
-            result.push_back(leader);
+        if (arr[i] >= maxRightSoFar) {
+            result.push_back(arr[i]);
+            maxRightSoFar = arr[i];
         }
     }
-    reverse(result.begin(), result.end());
     return result;
 }
 
