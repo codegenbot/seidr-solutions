@@ -1,17 +1,26 @@
-Here is the modified code:
 ```cpp
-#include <algorithm>
-#include <cctype>
-#include <string>
-
-std::string remove_vowels(std::string str) {
-    std::string result;
+int remove_vowels(std::string str) {
+    std::string result = "";
     for (char c : str) {
-        if (!std::unordered_set<char>("aeiouAEIOU").count(c)) {
+        if (!isvowel(c)) {
             result += c;
         }
     }
     return result;
+}
+
+bool isvowel(char c) {
+    c = tolower(c);
+    switch (c) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+            return true;
+        default:
+            return false;
+    }
 }
 
 int main() {
