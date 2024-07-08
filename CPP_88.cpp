@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -43,7 +44,7 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    if (!issame(array, {23, 21, 14, 11})) {
+    if (!issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11})) {
         return 1;
     }
     return 0;
