@@ -1,21 +1,20 @@
-```cpp
 #include <vector>
 #include <map>
 
 int search(std::vector<int> lst) {
-    std::map<int, int> freq;
-    for (int i : lst) {
-        freq[i]++;
-    }
-    for (auto p = freq.begin(); p != freq.end(); ++p) {
-        if (p->second >= p->first) {
-            return p->first;
+    std::map<int, int> freqMap;
+    for (int num : lst) {
+        if (freqMap.find(num) == freqMap.end()) {
+            freqMap[num] = 1;
+        } else {
+            freqMap[num]++;
         }
     }
-    return -1;
-}
-
-int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
-    return 0;
-}
+    int maxFreqNum = -1;
+    for (auto& pair : freqMap) {
+        if (pair.second >= pair.first && pair.first > 0) {
+            maxFreqNum = pair.first;
+            break;
+        }
+    }
+    return maxFreqNum;
