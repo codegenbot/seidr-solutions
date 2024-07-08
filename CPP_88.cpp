@@ -2,20 +2,19 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> sort_array(std::vector<int> array) {
-    int sum = array[0] + array[array.size() - 1];
-    if (sum % 2 == 1) {
-        std::sort(array.begin(), array.end());
-    } else {
-        std::sort(array.rbegin(), array.rend());
-    }
-    return array;
+    std::vector<int> sortedArray(array);
+
+    std::sort(sortedArray.begin(), sortedArray.end());
+
+    return sortedArray;
 }
 
 int main() {
-    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    assert(sort_array({21, 14, 23, 11}) == std::vector<int>({11, 14, 21, 23}));
+    return 0;
 }
