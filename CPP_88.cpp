@@ -1,27 +1,25 @@
 #include <algorithm>
 #include <vector>
-#include <initializer_list>
 
 std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) return array;
 
     auto middle = array.begin() + array.size() / 2;
-    auto left = array.begin();
-    auto right = middle;
+    std::vector<int> left(array.begin(), middle);
+    std::vector<int> right(middle, array.end());
 
-    std::vector<int> sortedArray;
-
-    while (left != right && right != middle) {
-        if (*left <= *right) {
-            sortedArray.push_back(*left);
-            left++;
+    while (!left.empty() && !right.empty()) {
+        if (*left.rbegin() <= *right.begin()) {
+            sortedArray.push_back(*left.rbegin());
+            left.pop_back();
         } else {
-            sortedArray.push_back(*right);
-            right--;
+            sortedArray.push_back(*right.begin());
+            right.erase(right.begin());
         }
     }
 
-    sortedArray.insert(sortedArray.end(), left, middle);
+    sortedArray.insert(sortedArray.end(), left.begin(), left.end());
+    sortedArray.insert(sortedArray.end(), right.begin(), right.end());
 
     return sortedArray;
 }
@@ -36,5 +34,5 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    return (array != std::vector<int>{23, 21, 14, 11}) ? 1 : 0;
+    return (array == vector<int>({23, 21, 14, 11})) ? 0 : 1;
 }
