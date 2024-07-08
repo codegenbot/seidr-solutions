@@ -9,6 +9,8 @@ int hex_key(string num) {
     }
     return count;
 
+}
+
 int main() {
     assert(hex_key("") == 0);
 }
