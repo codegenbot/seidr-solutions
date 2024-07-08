@@ -3,8 +3,8 @@
 #include <limits>
 #include <iostream>
 
-bool issame(const std::pair<float, float>& p1, const std::pair<float, float>& p2) {
-    return p1 == p2;
+bool same(pair<float, float> p1, pair<float, float> p2) {
+    return (p1.first == p2.first && p1.second == p2.second);
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
@@ -14,9 +14,9 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
             float diff = std::abs(numbers[j] - numbers[i]);
-            if (diff < min_diff) {
+            if (diff < min_diff && !same(std::make_pair(numbers[i], numbers[j]), closest_pair)) {
                 min_diff = diff;
-                closest_pair = {numbers[i], numbers[j]};
+                closest_pair = std::make_pair(numbers[i], numbers[j]);
             }
         }
     }
@@ -30,5 +30,4 @@ int main() {
     for (const auto& pair : result) {
         std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
     }
-    return 0;
 }
