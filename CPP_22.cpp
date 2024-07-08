@@ -1,7 +1,15 @@
 #include <any>
 #include <vector>
 
-bool issame(std::any a, std::any b) { return (std::any_cast<int>(a) == std::any_cast<int>(b)); }
+bool issame(int a, int b) { return (a == b); }
+bool issame(char a, char b) { return (a == b); }
+
+template<typename T>
+bool is_same(std::any a, std::any b) {
+    if(a.type() != b.type())
+        return false;
+    return std::any_cast<T>(a) == std::any_cast<T>(b);
+}
 
 std::vector<int> filter_integers(std::any values) {
     std::vector<int> result;
@@ -15,8 +23,8 @@ std::vector<int> filter_integers(std::any values) {
 }
 
 int main() {
-    auto values = std::any({3, 50, 3, 3, 1, 2});
+    auto values = std::any({std::any(3), std::any(static_cast<int>('c')), std::any(3), std::any(3), std::any(static_cast<int>('a')), std::any(static_cast<int>('b'))}); 
     auto output = filter_integers(values);
-    assert(issame(std::any(output), std::any({3, 3, 3})));
+    assert(is_same(int, values, {std::any(3), std::any(3), std::any(3)}));
     return 0;
 }
