@@ -1,37 +1,32 @@
+#include <vector>
 #include <iostream>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string s) {
+bool evaluateBooleanExpression(const std::string& expression) {
     bool result = true;
-    int i = 0;
-    while (i < s.length()) {
-        if (s[i] == 'T') {
+    for (char c : expression) {
+        if (c == '&') {
+            result &= false;
+        } else if (c == '|') {
+            result |= false;
+        } else if (c == 'T' || c == 't') {
             result = true;
-            i++;
-        } else if (s[i] == 'F') {
+        } else if (c == 'F' || c == 'f') {
             result = false;
-            i++;
-        } else if (s[i] == '|') {
-            bool temp = !result;
-            while (i < s.length() && s[i] != '&') {
-                i++;
-            }
-            result = temp;
-        } else if (s[i] == '&') {
-            bool temp = result;
-            while (i < s.length() && s[i] != '|') {
-                i++;
-            }
-            result = result && temp;
         }
     }
     return result;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
+    std::string expression;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> expression;
+    bool result = evaluateBooleanExpression(expression);
+    if (result) {
+        std::cout << "True" << std::endl;
+    } else {
+        std::cout << "False" << std::endl;
+    }
     return 0;
 }
