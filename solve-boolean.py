@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     if '&' not in expression and '|' not in expression:
         return {'T': True, 'F': False}[expression]
