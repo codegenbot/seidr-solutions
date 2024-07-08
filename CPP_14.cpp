@@ -1,7 +1,19 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
+using namespace std;
+
+vector<string> all_prefixes(string str){
+    vector<string> result;
+    for (int i = 1; i <= str.size(); ++i) {
+        result.push_back(str.substr(0, i));
+    }
+    return result;
+}
+
+bool issame(vector<string> a, vector<string> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,10 +25,6 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> all_prefixes(string str){
-    vector<string> result;
-    for (int i = 1; i <= str.size(); ++i) {
-        result.push_back(str.substr(0, i));
-    }
-    return result;
+int main() {
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
 }
