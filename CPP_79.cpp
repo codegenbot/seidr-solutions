@@ -18,6 +18,5 @@ std::string decimal_to_binary(int decimal){
             binary.insert(0,"1");
         decimal /= 2;
     }
-    // Reverse the binary string before returning it
     return "db" + std::string(binary.rbegin(), binary.rend()) + "db";
 }
