@@ -1,4 +1,14 @@
+```
 from typing import List
+
+def rescale_to_unit():
+    while True:
+        try:
+            numbers = input("Enter a list of floating point numbers (separated by space): ")
+            numbers = [float(num) for num in numbers.split()]
+            return rescale_to_unit(numbers)
+        except ValueError:
+            print("Invalid input. Please enter a list of floating point numbers.")
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     if len(set(numbers)) == 1:
