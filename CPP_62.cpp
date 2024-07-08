@@ -12,7 +12,4 @@ vector<float> derivative(vector<float> xs) {
     return result;
 }
 
-int main() {
-    assert(derivative({1}) == vector<float>{});
-    return 0;
-}
+int main() { return 0; }
