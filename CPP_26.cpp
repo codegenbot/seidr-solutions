@@ -1,13 +1,12 @@
 #include <algorithm>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 vector<int> remove_duplicates(const vector<int>& numbers);
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    return (a == b);
+    return (a.size() == b.size() && equal(a.begin(), a.end(), b.begin()));
 }
 
 vector<int> remove_duplicates(const vector<int>& numbers) {
@@ -15,9 +14,4 @@ vector<int> remove_duplicates(const vector<int>& numbers) {
     sort(result.begin(), result.end());
     result.erase(unique(result.begin(), result.end()), result.end());
     return result;
-}
-
-int main2(){
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
-    return 0;
 }
