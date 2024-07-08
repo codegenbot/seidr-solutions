@@ -1,33 +1,26 @@
 #include <string>
-#include <unordered_map>
 
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    unordered_map<char, int> codeCount;
-    for (char c : code) {
-        codeCount[c]++;
-    }
-
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
+    // Count the number of correct colors in the right position
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
             black++;
-        } else {
-            codeCount[guess[i]]--;
         }
     }
 
-    for (int i = 0; i < 6; i++) {
-        char c = 'A' + i;
-        int count = 0;
-        for (int j = 0; j < 4; j++) {
-            if (guess[j] == c) {
-                count++;
-                codeCount[c]--;
-            }
+    // Count the number of correct colors not in the right position
+    int codeCount[6] = {0};
+    for(int i=0; i<4; i++) {
+        codeCount[code[i]-'A']++;
+    }
+    for(int i=0; i<4; i++) {
+        if(codeCount[guess[i]-'A']>0) {
+            white++;
+            codeCount[guess[i]-'A']--;
         }
-        white += min(count, codeCount[c]);
     }
 
     return black;
