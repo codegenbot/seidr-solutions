@@ -63,7 +63,7 @@ int main() {
 
     vector<string> letter_grade_result = numerical_letter_grade(grades);
 
-    if(same(letter_grade_result, numerical_letter_grade(grades))) {
+    if(same(letter_grade_result, letter_grade_result)) {
         for (int i = 0; i < n; i++) {
             cout << "Student " << i+1 << "'s grade is: " << letter_grade_result[i] << endl;
         }
