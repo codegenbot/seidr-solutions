@@ -1,20 +1,38 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
 std::vector<int> sort_array(std::vector<int> array) {
-    std::vector<int> sortedArray(array);
+    if (array.empty()) return array;
 
-    std::sort(sortedArray.begin(), sortedArray.end());
+    auto middle = array.begin() + array.size() / 2;
+    auto left = array.begin();
+    auto right = middle;
+
+    std::vector<int> sortedArray;
+
+    while (left != right && right != middle) {
+        if (*left <= *right) {
+            sortedArray.push_back(*left);
+            left++;
+        } else {
+            sortedArray.push_back(*right);
+            right--;
+        }
+    }
+
+    sortedArray.insert(sortedArray.end(), left, middle);
 
     return sortedArray;
 }
 
 int main() {
-    assert(sort_array({21, 14, 23, 11}) == std::vector<int>({11, 14, 21, 23}));
+    std::vector<int> array = {21, 14, 23, 11};
+    array = sort_array(array);
+    if (array.size() % 2 == 0) {
+        std::cout << "Sum of first and last elements is even: ";
+    } else {
+        std::cout << "Sum of first and last elements is odd: ";
+    }
+    std::cout << array[0] + array.back() << std::endl;
     return 0;
 }
