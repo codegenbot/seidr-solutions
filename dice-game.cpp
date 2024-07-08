@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -22,3 +23,4 @@ int main() {
     double result = diceGame(n, m);
     cout << "Probability: " << std::to_string(result) << endl;
     return 0;
+}
