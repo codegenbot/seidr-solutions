@@ -20,7 +20,6 @@ void factorize(int n) {
 }
 
 int main() {
-    // Call factorize function or use its implementation here
-    
+    // Main function code
     return 0;
 }
