@@ -1,9 +1,8 @@
 #include <vector>
-#include <string>
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    // your logic here to check if two vectors are same
-    return true;  // or false as per your requirement
+    return a == b;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -17,4 +16,9 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     if (sum1 < sum2) return lst1;
     if (sum2 < sum1) return lst2;
     return lst1;
+}
+
+int main() {
+    assert(issame(total_match({"this"}, {}), {}));
+    return 0;
 }
