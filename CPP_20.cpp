@@ -2,7 +2,7 @@
 #include <vector>
 #include <limits>
 
-bool identical_pair(std::pair<float, float> p1, std::pair<float, float> p2) {
+bool compare(std::pair<float, float> p1, std::pair<float, float> p2) {
     return (p1.first == p2.first && p1.second == p2.second);
 }
 
@@ -27,11 +27,7 @@ std::vector<std::pair<float, float>> find_closest_elements(const std::vector<flo
     return {{closest_pair.first, closest_pair.second}};
 }
 
-bool same(std::vector<float> a, std::vector<float> b){
-    return a == b;
-}
-
-int test_function() {
-    assert(same({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, {2.2f, 3.1f}) && find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}) == std::make_pair(2.2f, 3.1f));
+int main() {
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::make_pair(2.2, 3.1));
     return 0;
 }
