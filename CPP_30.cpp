@@ -1,10 +1,15 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
 
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
-    for (float num : l) {
-        if (num > 0) {
-            result.push_back(num);
+bool issame(float x1, float y1, float x2, float y2) {
+    return (x1 == x2 && y1 == y2);
+}
+
+std::vector<float> get_positive(std::vector<float> l) {
+    std::vector<float> result;
+    for (float x : l) {
+        if (x > 0) {
+            result.push_back(x);
         }
     }
     return result;
