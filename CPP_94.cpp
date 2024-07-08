@@ -1,4 +1,6 @@
 #include <vector>
+#include <ostream>
+
 using namespace std;
 
 int maxPrime(vector<int> lst){
@@ -24,10 +26,10 @@ bool isPrime(int n) {
         if (n % i == 0) return false;
     }
     return true;
-
 }
-int main() {
+
+int main(){
     vector<int> lst = {127, 97, 8192};
-    cout << maxPrime(lst);
+    cout << maxPrime(lst) << std::endl;
     return 0;
 }

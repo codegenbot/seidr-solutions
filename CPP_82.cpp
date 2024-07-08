@@ -1,7 +1,8 @@
+```cpp
 #include <assert.h>
 
 bool prime_length(const char* str) {
-    if (*str == '\0') // Check for empty string
+    if (*str == '\0') 
         return false;
 
     int n = 0;
