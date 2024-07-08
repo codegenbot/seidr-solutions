@@ -1,6 +1,23 @@
-int count = 0;
-for(int i=0;i<brackets.length();i++){
-    if(brackets[i] == '(')count++;
-    else if(brackets[i] == ')')if(count > 0)count--;else return false;
+#include <iostream>
+#include <stack>
+#include <string>
+#include <cassert>
+
+bool correct_bracketing(std::string s) {
+    std::stack<char> stack;
+    for(int i=0;i<s.length();i++){
+        if(s[i] == '(')stack.push('(');
+        else if(s[i] == ')'){
+            if(stack.empty())return false;
+            else stack.pop();
+        }
+    }
+    return stack.empty();
 }
-return count == 0;
+
+int test_main() {
+    std::string s = "()()(()())()))";
+    assert(!correct_bracketing(s));  
+    std::cout << "Correct bracketing: " << (correct_bracketing("()")) << std::endl;
+    return 0;
+}
