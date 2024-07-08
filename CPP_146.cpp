@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int specialFilter(std::vector<int> nums){
@@ -12,17 +13,15 @@ int specialFilter(std::vector<int> nums){
 
 int main(){
     assert(specialFilter({}) == 0);
-    std::vector<int> test1 = {11,12,13,14};
+    std::vector<int> test1 = {12, 15, 18};
     assert(specialFilter(test1) == 3);
+
+    std::vector<int> test2 = {14, 19, 21, 23, 25};
+    assert(specialFilter(test2) == 4);
     
-    std::vector<int> test2 = {111,112,113,114,115};
-    assert(specialFilter(test2) == 5);
-    
-    std::vector<int> test3 = {101,102,103,104};
-    assert(specialFilter(test3) == 0);
-    
-    std::vector<int> test4 = {1001,1002,1003,1004};
-    assert(specialFilter(test4) == 4);
-    
-    return 0;
+    std::vector<int> test3 = {11, 16, 22, 27};
+    assert(specialFilter(test3) == 1);
+
+    std::vector<int> test4 = {13, 17, 20, 25, 30};
+    assert(specialFilter(test4) == 2);
 }
