@@ -1,8 +1,3 @@
-def leaders(arr):
-    return [arr[i] for i in range(len(arr)-1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
-
-print(leaders([0]))  
-print(leaders([1, 0]))  
-print(leaders([1, 451]))  
-print(leaders([2, 1000, 0]))  
-print(leaders([2, 0, 1000]))
+```
+def leaders(input):
+    return [i for i in reversed(range(len(input))) if all(input[j] <= input[i] for j in range(i+1, len(input)))]
