@@ -1,5 +1,5 @@
-string circular_shift(int x, int shift) {
-    string str = to_string(x);
+std::string circular_shift(int x, int shift) {
+    std::string str = to_string(x);
     if (shift >= str.length()) {
         reverse(str.begin(), str.end());
         return str;
