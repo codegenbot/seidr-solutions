@@ -4,8 +4,8 @@
 
 using namespace std;
 
-bool issame(const string& str, const string& prefix) {
-    return str.find(prefix) == 0;
+bool issame(const string& a, const string& b) {
+    return a.find(b) == 0;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
