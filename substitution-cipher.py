@@ -1,14 +1,9 @@
-```
-def decipher_cipher(cipher, text):
+def substitution_cipher(cipher1, cipher2, message):
     result = ""
-    for char in text:
-        if char in cipher[0]:
-            index = cipher[0].index(char)
-            result += cipher[1][index]
+    for char in message:
+        if char in cipher1:
+            index = cipher1.index(char)
+            result += cipher2[index]
         else:
             result += char
     return result
-
-cipher = input().split()
-text = input()
-print(decipher_cipher(cipher, text))
