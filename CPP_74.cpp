@@ -1,14 +1,24 @@
-#include <string>
 #include <vector>
+#include <string>
+using namespace std;
 
-bool issame(const vector<std::string>& lst1, const vector<std::string>& lst2) {
-    int total_chars1 = 0, total_chars2 = 0;
-    for (const std::string& s : lst1) {
-        total_chars1 += s.size();
+bool issame(const vector<string>& a, const vector<string>& b) {
+    int total_chars_lst1 = 0;
+    int total_chars_lst2 = 0;
+    
+    for (const string& str : a) {
+        total_chars_lst1 += str.size();
     }
-    for (const std::string& s : lst2) {
-        total_chars2 += s.size();
+    
+    for (const string& str : b) {
+        total_chars_lst2 += str.size();
     }
+    
+    return total_chars_lst1 == total_chars_lst2;
+}
 
-    return total_chars1 == total_chars2;
+int main() {
+    assert(issame({"this"}, {}));
+    
+    return 0;
 }
