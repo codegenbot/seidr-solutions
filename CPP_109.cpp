@@ -1,4 +1,5 @@
 #include <vector>
+using namespace std;
 
 bool move_one_ball(vector<int> arr) {
     int n = arr.size();
@@ -6,4 +7,10 @@ bool move_one_ball(vector<int> arr) {
         if(arr[i] > arr[i + 1]) return false;
     }
     return true;
+
+}
+
+int main() {
+    assert(move_one_ball({})==true);
+    return 0;
 }
