@@ -1,20 +1,18 @@
 ```cpp
 vector<vector<int>> minPath(vector<vector<int>> grid, int k) {
-    vector<vector<int>> dp(grid.size(), vector<int>(grid[0].size()));
+    vector<vector<int>> result;
     for (int i = 0; i < grid.size(); ++i) {
-        for (int j = 0; j < grid[0].size(); ++j) {
-            if (i == 0 && j == 0) {
-                dp[i][j] = grid[i][j];
-            } else if (i == 0) {
-                dp[i][j] = grid[i][j] + dp[i][j-1];
-            } else if (j == 0) {
-                dp[i][j] = grid[i][j] + dp[i-1][j];
+        vector<int> row;
+        for (int j = 0; j < grid[i].size(); ++j) {
+            if (grid[i][j] <= k) {
+                row.push_back(grid[i][j]);
             } else {
-                dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1]);
+                row.push_back(k);
             }
         }
+        result.push_back(row);
     }
-    return dp;
+    return result;
 }
 
 bool issame(vector<int> a, vector<int> b) {
