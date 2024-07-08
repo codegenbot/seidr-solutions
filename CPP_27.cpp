@@ -14,10 +14,4 @@ std::string flip_case(std::string str) {
     return str; // Return the modified string
 }
 
-int main() {
-    assert(flip_case("Hello, WORLD!") == "hELLO, world!");
-    assert(flip_case("") == "");
-    assert(flip_case("12345") == "12345");
-
-    return 0;
-}
+assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
