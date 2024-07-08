@@ -1,4 +1,7 @@
 def filter_strings(strings, substring):
     return [s for s in strings if substring in s]
 
-filtered_list = filter_strings(strings, substring)
+
+strings = input().split()
+substring = input()
+print(filter_strings(strings, substring))
