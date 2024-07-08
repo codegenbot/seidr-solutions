@@ -1,4 +1,3 @@
-```c++
 string CamelCase(string s) {
     string result = "";
     bool capitalizeNext = false;
