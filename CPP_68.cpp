@@ -2,16 +2,14 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
-    std::vector<std::pair<int, int>> evenNodes;
+const std::vector<std::pair<int, int>>& findMinEvenNode(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> evenNodes(1);
     
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0) {
             evenNodes.push_back({arr[i], i});
         }
     }
-
-    evenNodes.empty() ? std::vector<std::pair<int, int>>{} : evenNodes;
 
     if (evenNodes.empty()) {
         return {};
@@ -26,7 +24,7 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
         }
     }
 
-    return result;
+    return evenNodes;
 }
 
 int main() {
@@ -44,6 +42,14 @@ int main() {
     }
 
     auto result = findMinEvenNode(arr);
+
+    if (!result.empty()) {
+        for (auto& pair : result) {
+            std::cout << "Index: " << pair.second << ", Value: " << pair.first << std::endl;
+        }
+    } else {
+        std::cout << "No even numbers found" << std::endl;
+    }
 
     return 0;
 }
