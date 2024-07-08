@@ -16,24 +16,25 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> separate_paren_groups(const std::string& str) {
+std::vector<std::string> separate_paren_groups(const std::string& input) {
     std::vector<std::string> groups;
-    std::string group;
-    int openCount = 0;
+    std::string temp;
+    int count = 0;
 
-    for (const char& c : str) {
-        if (c == '(') {
-            if (openCount > 0) {
-                group += '(';
+    for (char ch : input) {
+        if (ch == '(') {
+            if (count > 0) {
+                temp += ch;
             }
-            openCount++;
-        } else if (c == ')') {
-            openCount--;
-            if (openCount == 0) {
-                groups.push_back(group);
-                group = "";
-            } else {
-                group += ')';
+            count++;
+        } else if (ch == ')') {
+            count--;
+            if (count > 0) {
+                temp += ch;
+            }
+            if (count == 0) {
+                groups.push_back(temp);
+                temp.clear();
             }
         }
     }
