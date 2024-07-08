@@ -1,21 +1,22 @@
 #include <vector>
 #include <cassert>
 
-std::vector<float> get_positive(std::vector<float> a) {
-    std::vector<float> positive_elements;
-    for (const auto& num : a) {
-        if (num > 0) {
-            positive_elements.push_back(num);
-        }
+namespace std {
+    bool issame(std::vector<float> a, std::vector<float> b) {
+        return a == b;
     }
-    return positive_elements;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
+std::vector<float> get_positive(std::vector<float> input) {
+    std::vector<float> result;
+    for (const auto &num : input) {
+        if (num > 0) {
+            result.push_back(num);
+        }
+    }
+    return result;
 }
 
 int main() {
-    is_same(get_positive({}), get_positive({0.5, -1.2, 3.0}));
-    return 0;
+    assert(std::issame(get_positive({}), {}));
 }
