@@ -1,3 +1,4 @@
+
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -8,9 +9,16 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> factorize(int num) {
     std::vector<int> factors;
-    factors.push_back(2);
-    factors.push_back(3);
-    factors.push_back(3);
+    if (num == 1) {
+        factors.push_back(1);
+        return factors;
+    }
+    for (int i = 2; i <= num; i++) {
+        while (num % i == 0) {
+            factors.push_back(i);
+            num /= i;
+        }
+    }
     return factors;
 }
 
