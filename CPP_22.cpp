@@ -1,16 +1,16 @@
+```cpp
 #include <vector>
-#include <boost/variant.hpp>
-using namespace boost;
+#include <any>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> filter_integers(std::vector<variant<int>> values) {
+std::vector<int> filter_integers(const std::vector<std::any>& values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (holds_alternative<int>(value)) {
-            result.push_back(get<int>(value));
+        if (value.type() == typeid(int)) {
+            result.push_back(std::any_cast<int>(value));
         }
     }
     return result;
