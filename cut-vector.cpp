@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -29,8 +28,9 @@ int main() {
         cout << *it << " ";
     }
     cout << "] [";
-    for (int i = 0, j = 0; i < result.size() - 1 && j < result[1].size(); ++i, ++j) {
-        cout << result[1][j] << " ";
+    int i = 0;
+    for (; i < result.size() - 1; ++i) {
+        cout << result[1][i] << " ";
     }
     cout << "] ]" << endl;
     return 0;
