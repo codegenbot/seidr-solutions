@@ -1,18 +1,23 @@
+```cpp
+#include <iostream>
 #include <string>
 
-int is_bored(string S) {
+int is_bored(std::string S){
     int count = 0;
-    string boredom = "I";
-    size_t pos = 0;
-
-    while ((pos = S.find('.')) != string::npos || 
-           (pos = S.find('?')) != string::npos || 
-           (pos = S.find('!')) != string::npos) {
-        if (S.substr(0, boredom.size()).compare(boredom) == 0) {
-            count++;
+    for(int i=0; i<S.size(); i++){
+        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
+            if(S.substr(0, i).find("I") == 0) count++;
+            S.erase(0, i+1);
         }
-        pos++;
     }
-
     return count;
+}
+
+int main() {
+    std::string sentence;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, sentence);
+    int result = is_bored(sentence);
+    std::cout << "I'm bored after reading the sentence " << result << " times." << std::endl;
+    return 0;
 }
