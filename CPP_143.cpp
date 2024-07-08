@@ -39,10 +39,11 @@ int main() {
     string sentence;
     cout << "Enter a sentence: ";
     getline(cin, sentence);
-    string result = words_in_sentence(sentence);
-    if (!result.empty()) {
-        cout << "The words in the sentence with prime length are: " << result << endl;
+    
+    string output = words_in_sentence(sentence);
+    if (!output.empty()) {
+        cout << "The words with prime length are: " << output << endl;
     } else {
-        cout << "No word has a prime length." << endl;
+        cout << "No words have prime length." << endl;
     }
 }
