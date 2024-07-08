@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -18,7 +17,7 @@ int main() {
     std::getline(std::cin, input);
     std::cout << "Enter a substring: ";
     std::getline(std::cin, sub);
-
+    
     int result = how_many_times(input, sub);
     std::cout << "The substring appears " << result << " times in the input.\n";
 
