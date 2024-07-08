@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -17,9 +18,10 @@ std::vector<int> strange_sort_list(std::initializer_list<int> lst) {
     std::vector<int> result;
     if (lst.size() == 0) return result;
 
-    std::vector<int>(lst).sort();
+    std::vector<int> sorted_lst = std::vector<int>(lst);
+    std::sort(sorted_lst.begin(), sorted_lst.end());
 
-    for (int i : lst) {
+    for (int i : sorted_lst) {
         result.push_back(i);
     }
 
