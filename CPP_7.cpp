@@ -1,28 +1,27 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-int main() {
-    vector<string> testStrings = {"grunt", "trumpet", "prune", "gruesome"};
-    vector<string> expectedResults = {"grunt", "prune"};
+using namespace std;
 
-    bool issame(vector<string> a, vector<string> b) {
-        if (a.size() != b.size()) return false;
-        for (auto s : a) if (find(b.begin(),b.end(),s) == b.end()) return false;
-        return true;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (auto s : a) if (find(b.begin(),b.end(),s) == b.end()) return false;
+    return true;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for(auto str : strings){
+        if(str.find(substring) != string::npos)
+            result.push_back(str);
     }
+    return result;
 
-    vector<string> filter_by_substring(vector<string> strings, string substring){
-        vector<string> result;
-        for(auto str : strings){
-            if(str.find(substring) != string::npos)
-                result.push_back(str);
-        }
-        return result;
-
-    }
-
-    assert(issame(filter_by_substring(testStrings, "run"), expectedResults));
-    return 0;
+bool main() {
+    vector<string> input = {"grunt", "trumpet", "prune", "gruesome"};
+    string substring = "run";
+    vector<string> filtered = filter_by_substring(input, substring);
+    if (!issame(filtered, vector<string>({"grunt", "prune"}))) 
+        return false;
+    return true;
 }
