@@ -15,11 +15,17 @@ int luhn(std::vector<int> digits) {
         }
         doubleNext = !doubleNext; // toggle for the next iteration
     }
-    return sum % 10; 
+    return sum % 10; // return the remainder of the sum divided by 10, which should be 0 for a valid card number
 }
 
 int main() {
-    std::vector<int> digits = {4,3,2,8,7,6,5,4,1}; 
+    std::vector<int> digits;
+    int temp;
+    for(int i = 0; i < 16; i++) {
+        std::cout << "Enter digit " << (i+1) << ": ";
+        std::cin >> temp;
+        digits.push_back(temp);
+    }
     if (luhn(digits) == 0) {
         std::cout << "The credit card number is valid." << std::endl;
     } else {
