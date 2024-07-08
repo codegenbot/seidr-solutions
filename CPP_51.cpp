@@ -1,4 +1,4 @@
-```cpp
+```
 #include <string>
 #include <cctype>
 
@@ -13,11 +13,11 @@ std::string remove_vowels(std::string text) {
 }
 
 int main() {
-    assert(remove_vowels("ybcd") == "ybcd");
+    assert(remove_vowels("ybcd") == "bcd");
     return 0;
 }
 
-inline bool isvowel(char ch) {
-    ch = std::tolower(ch);
-    return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+bool std::isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
