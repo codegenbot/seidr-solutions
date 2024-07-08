@@ -1,26 +1,12 @@
 ```cpp
-int remove_vowels(std::string str) {
-    std::string result = "";
-    for (char c : str) {
+int remove_vowels(const std::string& input) {
+    std::string result;
+    for (char c : input) {
         if (!isvowel(c)) {
             result += c;
         }
     }
     return result;
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    switch (c) {
-        case 'a':
-        case 'e':
-        case 'i':
-        case 'o':
-        case 'u':
-            return true;
-        default:
-            return false;
-    }
 }
 
 int main() {
