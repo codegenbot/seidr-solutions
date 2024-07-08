@@ -17,7 +17,8 @@ int main() {
 
     assert(issame(c, b));
 
-    assert(issame(std::vector<int>(std::unique(a.begin(), a.end())), {5, 3, 2, 9, 0, 123}));
+    assert(issame(std::vector<int>(std::unique(a.begin(), a.end()), a.end()), 
+                 std::vector<int>({0, 2, 3, 5, 9, 123}));
 
     return 0;
 }
