@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -17,7 +16,7 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
     return result;
 }
 
-float* get_positive(const std::vector<float>& vec, int& size) {
+std::vector<float> get_positive(const std::vector<float>& vec, int& size) {
     size = 0;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
@@ -32,7 +31,7 @@ float* get_positive(const std::vector<float>& vec, int& size) {
         }
     }
 
-    return &positiveVec[0];
+    return positiveVec;
 }
 
 int main() {
@@ -69,9 +68,8 @@ int main() {
     }
 
     for (auto& v : vectorPtr) {
-        delete[] &v[0];
+        // No need to delete[] &v[0]; since we're returning by value
     }
-    delete &vectorPtr;
 
     return 0;
 }
