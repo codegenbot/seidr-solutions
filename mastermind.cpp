@@ -4,26 +4,23 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    // Count the number of correct color and position pegs
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
             black++;
         }
     }
 
-    // Count the number of correct color but wrong position pegs
-    int code_counts[6] = {0};
-    for(int i=0; i<4; i++) {
-        code_counts[int(code[i]-'A')]++;
-    }
-    for(int i=0; i<4; i++) {
-        if(guess[i] != code[i]) {
-            if(code_counts[int(guess[i]-'A')] > 0) {
-                white++;
-                code_counts[int(guess[i]-'A')]--;
+    for(int i=0; i<6; i++) {
+        int count = 0;
+        for(int j=0; j<4; j++) {
+            if(guess[j] == char(i+'A')) {
+                count++;
             }
+        }
+        if(count == code.count(char(i+'A'))) {
+            white += count;
         }
     }
 
-    return black + white;
+    return black + white - black;
 }
