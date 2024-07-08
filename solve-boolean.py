@@ -1,3 +1,4 @@
+```
 def solve(input_str):
     if input_str == 't':
         return True
