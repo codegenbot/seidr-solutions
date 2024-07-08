@@ -1,5 +1,7 @@
+```
 #include <vector>
-#include <iostream>
+#include <ostream>
+
 using namespace std;
 
 int maxPrime(vector<int> lst){
@@ -29,6 +31,6 @@ bool isPrime(int n) {
 }
 int main(){
     vector<int> lst = {127, 97, 8192};
-    cout << maxPrime(lst) << endl;
+    cout << maxPrime(lst) << std::endl;
     return 0;
 }
