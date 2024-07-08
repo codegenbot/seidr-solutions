@@ -1,32 +1,21 @@
+Here is the modified code:
 ```cpp
-#include <string>
+#include <algorithm>
 #include <cctype>
-#include <cassert>
-#include <iostream>
+#include <string>
 
-std::string remove_vowels(std::string text) {
-    std::string result = "";
-    for (char c : text) {
-        if (std::isalpha(c)) {
-            switch (std::tolower(c)) {
-                case 'a':
-                case 'e':
-                case 'i':
-                case 'o':
-                case 'u':
-                    break;
-                default:
-                    result += std::tolower(c);
-            }
-        } else {
+std::string remove_vowels(std::string str) {
+    std::string result;
+    for (char c : str) {
+        if (!std::unordered_set<char>("aeiouAEIOU").count(c)) {
             result += c;
         }
     }
     return result;
 }
 
-int mainFunc() {
-    assert(remove_vowels("ybcd") == "bcd");
+int main() {
+    assert(remove_vowels("ybcd") == "ybcd");
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
