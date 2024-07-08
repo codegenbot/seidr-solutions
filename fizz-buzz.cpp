@@ -2,7 +2,7 @@
 #include <sstream>
 
 std::string fizzBuzz(int x) {
-    std::stringstream result;
+    std::ostringstream result;
     if (x % 15 == 0) {
         result << "FizzBuzz";
     } else if (x % 3 == 0) {
