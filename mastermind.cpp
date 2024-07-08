@@ -4,22 +4,23 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    // Count the number of correct colors in the right position
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
             black++;
         }
     }
 
-    // Count the number of correct colors not in the right position
-    int codeCount[6] = {0};
+    map<char,int> codeCount;
     for(int i=0; i<4; i++) {
-        codeCount[code[i]-'A']++;
+        codeCount[code[i]]++;
     }
+
     for(int i=0; i<4; i++) {
-        if(codeCount[guess[i]-'A']>0) {
+        if(code[i] == guess[i]) {
+            black--;
+        } else if(codeCount[guess[i]]>0) {
             white++;
-            codeCount[guess[i]-'A']--;
+            codeCount[guess[i]]--;
         }
     }
 
