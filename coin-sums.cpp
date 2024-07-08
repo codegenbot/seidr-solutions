@@ -13,8 +13,8 @@ int main() {
     int pennies = cents;
 
     std::cout << quarters << "\n";
-    std::cout << nickles << "\n";
     std::cout << dimes << "\n";
+    std::cout << nickles << "\n";
     std::cout << pennies << "\n";
 
     return 0;
