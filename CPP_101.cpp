@@ -1,6 +1,6 @@
+#include <cassert>
 #include <string>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -19,12 +19,12 @@ vector<string> splitString(string str) {
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b, vector<string> c) { 
-    if(a.size() != b.size() || b.size() != c.size()) {
+bool isSameVectors(vector<string> a, vector<string> b) { 
+    if(a.size() != b.size()) {
         return false;
     }
     for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i] || b[i] != c[i]) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -32,5 +32,6 @@ bool issame(vector<string> a, vector<string> b, vector<string> c) {
 }
 
 int main() {
-    assert(issame(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert (isSameVectors(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
+}
