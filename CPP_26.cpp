@@ -11,10 +11,11 @@ vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> result;
 
     for (int i = 0; i < numbers.size(); i++) {
-        if (!mp.count(numbers[i]) || !mp[numbers[i]]) {
+        if (!mp.count(numbers[i])) {
             mp[numbers[i]] = true;
             result.push_back(numbers[i]);
         }
     }
+
     return result;
 }
