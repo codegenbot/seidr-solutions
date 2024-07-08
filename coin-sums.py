@@ -1,0 +1,5 @@
+n = int(input())
+print(n)
+print(0)
+print(0)
+print(0)
