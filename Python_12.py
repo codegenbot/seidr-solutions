@@ -1,9 +1,7 @@
-```
 from typing import List, Optional
 
-def longest(strings: List[str]) -> Optional[str]:
-    if not all(isinstance(s, str) for s in strings):
-        return "Expected list of strings"
+def longest() -> Optional[str]:
+    strings = input("Enter space-separated string: ").split()
     if not strings:
         return None
     max_length = 0
@@ -14,4 +12,4 @@ def longest(strings: List[str]) -> Optional[str]:
             longest_str = s
     return longest_str
 
-longest(["apple", "banana", "cherry"])
+print(longest())
