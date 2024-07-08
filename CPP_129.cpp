@@ -1,30 +1,30 @@
-```cpp
+bool issame(vector<int> a, vector<int> b);
+
 vector<vector<int>> minPath(vector<vector<int>> grid, int k) {
-    vector<vector<int>> dp(grid.size(), vector<int>(grid[0].size()));
-    for (int i = 0; i < grid.size(); ++i) {
-        for (int j = 0; j < grid[0].size(); ++j) {
-            if (i == 0 && j == 0) {
-                dp[i][j] = grid[i][j];
-            } else if (i == 0) {
-                dp[i][j] = grid[i][j] + dp[i][j-1];
-            } else if (j == 0) {
-                dp[i][j] = grid[i][j] + dp[i-1][j];
-            } else {
-                dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1]);
+    int n = grid.size();
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
+    vector<int> res;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (!visited[i][j]) {
+                dfs(grid, visited, i, j, k, &res);
             }
         }
     }
-    return dp;
+    return res;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int i, int j, int k, vector<int>* res) {
+    (*res).push_back(grid[i][j]);
+    visited[i][j] = true;
+    if (k > 1) {
+        for (int x = max(0, i - 1); x <= min(i + 1, grid.size() - 1); ++x) {
+            for (int y = max(0, j - 1); y <= min(j + 1, grid[0].size() - 1); ++y) {
+                if (!visited[x][y]) {
+                    dfs(grid, visited, x, y, k - 1, res);
+                    return;
+                }
+            }
         }
     }
-    return true;
 }
