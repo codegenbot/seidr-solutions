@@ -2,12 +2,7 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++)
-        if(a[i] != b[i])
-            return false;
-    return true;
+    return a == b;
 }
 
 vector<string> all_prefixes(string str) {
@@ -19,6 +14,6 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW"), vector<string>{ "W", "WW", "WWW" }));
+    assert(issame(all_prefixes("WWW"), vector<string>{"W", "WW", "WWW"}));
     return 0;
 }
