@@ -33,3 +33,4 @@ int main() {
     getline(cin, input);
     cout << spinWords(input) << endl;
     return 0;
+}
