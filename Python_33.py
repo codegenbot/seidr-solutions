@@ -1,8 +1,6 @@
-```
-def sort_third(l: list):
-    sorted_zeroes = [x for x in l if x % 3 == 0]
-    sorted_zeroes.sort()
+def sort_third(lst):
+    third_max = max([x for x in lst if x % 3 == 0], default=None)
     return [
-        val if i % 3 != 0 else sorted_zeroes.pop(0)
-        for i, val in enumerate(l)
+        val if i % 3 != 0 else (third_max if val > third_max else val)
+        for i, val in enumerate(lst)
     ]
