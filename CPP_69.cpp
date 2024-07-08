@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
+#include <map>
 
-int search(vector<int> lst) {
-    map<int, int> freq;
+int search(std::vector<int> lst) {
+    std::map<int, int> freq;
     for (int i : lst) {
         freq[i]++;
     }
@@ -11,4 +13,9 @@ int search(vector<int> lst) {
         }
     }
     return -1;
+}
+
+int main() {
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
