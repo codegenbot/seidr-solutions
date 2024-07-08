@@ -12,6 +12,7 @@ int fib4(int n) {
         a = d;
     }
     return a;
+
 }
 
 int main() {
