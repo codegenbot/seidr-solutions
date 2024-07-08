@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
-
-std::vector<int> parse_nested_parens(std::string paren_string);
+#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
