@@ -1,4 +1,4 @@
-````
+```
 using namespace std;
 
 string remove_vowels(string text){
