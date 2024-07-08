@@ -11,7 +11,7 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 bool same(vector<string> a, vector<string> b) {
     bool flag = true;
     for(int i = 0; i < min(a.size(), b.size()); i++){
-        if(!same(string_to_tuple(a[i]), string_to_tuple(b[i]))){
+        if(!issubstring(a[i], b[i])){
             flag = false;
             break;
         }
@@ -19,11 +19,15 @@ bool same(vector<string> a, vector<string> b) {
     return flag;
 }
 
-tuple<char, char> string_to_tuple(const string& str) {
-    return make_tuple(str[0], str.back());
+bool issubstring(string a, string b) {
+    if (a.find(b) != string::npos){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 int main() {
-    assert(same({filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run")}, {"grunt", "prune"}));
+    assert(same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
 }
