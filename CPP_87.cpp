@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <iostream>
 
@@ -26,26 +26,24 @@ int main(){
     
     // read in the first matrix
     for(int i = 0; i < m; i++) {
-        std::vector<int> temp;
+        matrix1.push_back(std::vector<int>());
         for(int j = 0; j < n; j++) {
             int x;
             std::cout << "Enter element " << i << "," << j << ": ";
             std::cin >> x;
-            temp.push_back(x);
+            matrix1[i].push_back(x);
         }
-        matrix1.push_back(temp);
     }
     
     // read in the second matrix
     for(int i = 0; i < m; i++) {
-        std::vector<int> temp;
+        matrix2.push_back(std::vector<int>());
         for(int j = 0; j < n; j++) {
             int x;
             std::cout << "Enter element " << i << "," << j << ": ";
             std::cin >> x;
-            temp.push_back(x);
+            matrix2[i].push_back(x);
         }
-        matrix2.push_back(temp);
     }
 
     if(issame(matrix1, matrix2)) 
