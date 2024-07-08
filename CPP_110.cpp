@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm> 
-using namespace std;
-
 int exchange(vector<int> lst1, vector<int> lst2) {
     for (int num : lst1) {
         if (num % 2 != 0) {
