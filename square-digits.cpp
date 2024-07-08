@@ -3,16 +3,6 @@
 #include <sstream>
 using namespace std;
 
-string squareDigits(int number);
-
-int main() {
-    int number = 0;
-    cin >> number;
-    string output = squareDigits(number);
-    cout << output << endl;
-    return 0;
-}
-
 string squareDigits(int number) {
     stringstream ss;
     while (number > 0) {
@@ -21,4 +11,12 @@ string squareDigits(int number) {
         number /= 10;
     }
     return ss.str();
+}
+
+int main() {
+    int number = 0;
+    cin >> number;
+    string output = squareDigits(number);
+    cout << output << endl;
+    return 0;
 }
