@@ -1,11 +1,9 @@
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
-            return false;
-    return true;
-}
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 vector<string> by_length(vector<int> arr) {
     vector<int> temp;
@@ -49,4 +47,21 @@ vector<string> by_length(vector<int> arr) {
         }
     }
     return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    
+    vector<string> output = by_length(arr);
+
+    for (const auto &str : output) {
+        cout << str << " ";
+    }
+
+    return 0;
 }
