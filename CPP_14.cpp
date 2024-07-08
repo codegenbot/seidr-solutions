@@ -1,20 +1,19 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-vector<string> all_prefixes(string str) {
-    vector<string> result;
-    for (int i = 1; i <= str.length(); i++) {
-        result.push_back(str.substr(0, i));
+bool issame(vector<vector<string>> a) {
+    if (a.empty()) {
+        return true;
     }
-    return result;
+    for (const auto& vec : a) {
+        if (!issame({vec}) || vec.size() != a.size()) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW"), vector<string>{ "W", "WW", "WWW" }));
+    assert(issame({{"W"}, {"W", "WW"}, {"W", "WW", "WWW"}}));
     return 0;
 }
