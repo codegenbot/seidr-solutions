@@ -1,4 +1,4 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
