@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <initializer_list>
@@ -51,4 +50,3 @@ int main(){
         std::cout << "The two matrices are not identical." << std::endl;
 
     return 0;
-}
