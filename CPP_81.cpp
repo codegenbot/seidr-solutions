@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -62,7 +63,7 @@ int main() {
 
     vector<string> letter_grade_result = numerical_letter_grade(grades);
 
-    if(same(vector<string>(numerical_letter_grade(grades)), letter_grade_result)) {
+    if(same(letter_grade_result, numerical_letter_grade(grades))) {
         for (int i = 0; i < n; i++) {
             cout << "Student " << i+1 << "'s grade is: " << letter_grade_result[i] << endl;
         }
