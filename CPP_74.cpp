@@ -16,3 +16,9 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     
     return total_chars_lst1 == total_chars_lst2;
 }
+
+int main() {
+    assert(issame({"this"}, {}));
+    
+    return 0;
+}
