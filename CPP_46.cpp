@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <cstdio>
 
 int fib4(int n) {
     if (n <= 1)
@@ -21,3 +21,4 @@ int main() {
     std::cin >> n;
     std::cout << "The " << n << "-th element of the fib4 number sequence is: " << fib4(n) << std::endl;
     return 0;
+}
