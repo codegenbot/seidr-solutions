@@ -12,12 +12,3 @@ string squareDigits(int number) {
     }
     return ss.str();
 }
-
-int main() {
-    int inputNumber;
-    cout << "Enter a positive integer: ";
-    cin >> inputNumber;
-    string result = squareDigits(inputNumber);
-    cout << "The squared digits are: " << result << endl;
-    return 0;
-}
