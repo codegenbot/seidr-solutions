@@ -31,3 +31,4 @@ int main() {
     else
         std::cout << "No such number found";
     return 0;
+}
