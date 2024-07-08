@@ -1,22 +1,20 @@
-```cpp
-#include <assert.h>
+```
+#include <string>
+#include <cassert>
 
-bool prime_length(const char* str) {
-    if (*str == '\0') 
-        return false;
+int main() {
+    std::string str;
+    int n;
+    bool is_prime;
 
-    int n = 0;
-    while (*str != '\0') {
-        str++;
-        n++;
-    }
-
-    bool is_prime = true;
+    std::cout << "Enter a number: ";
+    std::cin >> str;
+    n = std::stoi(str);
 
     if (n <= 1)
-        return false;
+        is_prime = false;
     else if (n == 2)
-        return true;
+        is_prime = true;
 
     for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) {
@@ -25,9 +23,7 @@ bool prime_length(const char* str) {
         }
     }
 
-    return is_prime;
-}
+    std::cout << "The given number " << str << " is prime? " << is_prime << std::endl;
 
-int main() {
-    assert(prime_length("0") == false);
+    return 0;
 }
