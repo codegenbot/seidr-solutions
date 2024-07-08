@@ -1,10 +1,11 @@
 #include <iostream>
+#include <iomanip>
 
 int main() {
     int n, m;
     std::cin >> n >> m;
     
-    double total_outcomes = static_cast<double>(n * m);
+    double total_outcomes = n * m;
     double favorable_outcomes = 0;
     
     for (int i = 1; i <= n; ++i) {
@@ -17,7 +18,7 @@ int main() {
     
     double probability = favorable_outcomes / total_outcomes;
     
-    std::cout << probability << std::endl;
+    std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
     
     return 0;
 }
