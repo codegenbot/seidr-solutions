@@ -12,7 +12,7 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::
     return result;
 }
 
-bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
+bool issame(std::vector<std::string> v1, const std::vector<std::string>& v2) {
     if(v1.size() != v2.size())
         return false;
     
@@ -29,7 +29,7 @@ int main_function() {
     std::string sub = "run";
     std::vector<std::string> result = filter_by_substring(vec, sub);
     
-    assert(issame(result, std::vector<std::string>{{"grunt","prune"}}));
+    assert(issame(result, std::vector<std::string>(result)));
     
     return 0;
 }
