@@ -1,32 +1,30 @@
-#include <vector>
-using namespace std;
+bool issame(vector<int> a, vector<int> b);
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> result;
-    for (int i = 0; i < grid.size(); ++i) {
-        for (int j = 0; j < grid[0].size(); ++j) {
-            if (grid[i][j] == k) {
-                result.push_back(i);
-                result.push_back(j);
+vector<vector<int>> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
+    vector<int> res;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (!visited[i][j]) {
+                dfs(grid, visited, i, j, k, &res);
             }
         }
     }
-    return result;
+    return res;
 }
 
-int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    return 0;
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int i, int j, int k, vector<int>* res) {
+    (*res).push_back(grid[i][j]);
+    visited[i][j] = true;
+    if (k > 1) {
+        for (int x = max(0, i - 1); x <= min(i + 1, grid.size() - 1); ++x) {
+            for (int y = max(0, j - 1); y <= min(j + 1, grid[0].size() - 1); ++y) {
+                if (!visited[x][y]) {
+                    dfs(grid, visited, x, y, k - 1, res);
+                    return;
+                }
+            }
+        }
+    }
 }
