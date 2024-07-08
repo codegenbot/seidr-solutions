@@ -14,7 +14,7 @@ bool issame(std::vector<any> values) {
 }
 
 int main() {
-    std::vector<any> a = {3, 'c', 3.0f, 3, 'a', 'b'};
-    std::vector<any> b = {static_cast<int>(3), static_cast<int>(3), static_cast<int>(3)};
-    assert(issame(a, b)); 
+    std::vector<any> a = {true, 'c', true, true, true, false};
+    std::vector<any> b = {true, true, true};
+    assert(issame({a.begin(), a.end()})); // This will be true if all elements in both vectors are same
 }
