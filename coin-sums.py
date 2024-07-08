@@ -11,4 +11,4 @@ def coin_sums(cents):
     return '\n'.join(result)
 
 cents = int(input())
-print(*coin_sums(cents), sep='\n')
+print(coin_sums(cents))
