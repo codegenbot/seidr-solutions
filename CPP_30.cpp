@@ -11,7 +11,7 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
     for (const auto& v : vectors) {
         int size = 0;
         std::vector<float> positiveVec = get_positive(v, size);
-        if (!issame({}, positiveVec)) {
+        if (!issame({}, std::vector<float>(size))) {
             result.push_back(positiveVec);
         }
     }
