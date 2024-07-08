@@ -1,9 +1,8 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <limits>
 
-bool issame(std::pair<float, float> p1, std::pair<float, float> p2) {
+bool equalPoints(std::pair<float, float> p1, std::pair<float, float> p2) {
     return (p1.first == p2.first && p1.second == p2.second);
 }
 
@@ -19,8 +18,8 @@ std::vector<std::pair<float, float>> find_closest_elements(const std::vector<flo
             float diff = std::abs(numbers[j] - numbers[i]);
             if(diff < min_diff) {
                 min_diff = diff;
-                closest_pair.first = (numbers[i] + numbers[j]) / 2.0;
-                closest_pair.second = min(numbers[i], numbers[j]);
+                closest_pair.first = numbers[i];
+                closest_pair.second = numbers[j];
             }
         }
     }
@@ -29,6 +28,6 @@ std::vector<std::pair<float, float>> find_closest_elements(const std::vector<flo
 }
 
 int main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::vector<std::pair<float, float>>({{(1.1 + 2.2) / 2.0, min(1.1, 2.2)}});
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::make_pair(2.2, 3.1));
     return 0;
 }
