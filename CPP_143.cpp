@@ -1,9 +1,7 @@
-```cpp
+using namespace std;
+
 #include <vector>
 #include <cmath>
-#include <string>
-
-using namespace std;
 
 string words_in_sentence(string sentence) {
     vector<string> words = split(sentence, ' ');
