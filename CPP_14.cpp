@@ -17,7 +17,16 @@ std::vector<std::string> all_prefixes(std::string str) {
 int main() {
     std::string str = "WWW";
     std::vector<std::string> prefixes = all_prefixes(str);
-    bool is_same = issame({str}, prefixes);
-    std::cout << (is_same ? "True" : "False") << std::endl;
+    
+    bool same = true;
+    for (const auto& prefix : prefixes) {
+        if (prefix != str) {
+            same = false;
+            break;
+        }
+    }
+
+    assert(same);
+
     return 0;
 }
