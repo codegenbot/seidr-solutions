@@ -1,25 +1,13 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 #include <cassert>
-#include <iterator>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
-vector<int> common(const vector<int>& l1, const vector<int>& l2){
-    vector<int> result;
-    sort(l1.begin(), l1.end());
-    sort(l2.begin(), l2.end());
-    set_intersection(begin(l1), end(l1), begin(l2), end(l2), back_inserter(result));
-    result.erase(unique(result.begin(), result.end()), result.end());
-    return result;
-}
-
-int main()
-{
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
+int main() {
+    assert(issame(std::vector<int>({4, 3, 2, 8}), std::vector<int>()));
+    
     return 0;
 }
