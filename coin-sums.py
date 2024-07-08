@@ -3,13 +3,12 @@ def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
 
-    for _ in range(4):
-        for coin in coins[::-1]:  
-            if coin <= cents:
-                num_coins = int(cents / coin)
-                cents %= coin
-                result[coins.index(coin)] = num_coins
+    for i, coin in enumerate(coins):
+        count = cents // coin
+        result[i] = count
+        cents %= coin
 
+    result[3] = cents  
     return result
 
 cents = int(input())
