@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -22,16 +21,15 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         result.push_back(*lst.begin());
         lst.erase(lst.begin());
         if (!lst.empty())
-            std::sort(std::next(lst.begin()), lst.end());
+            std::sort(lst.begin(), lst.end());
     }
 
     return result;
 }
 
 int main() {
-    std::vector<int> result = strange_sort_list({111111});
-    // Check the output
-    if (issame(result, {11111})) {
+    std::vector<int> result = strange_sort_list({111, 111, 1});
+    if (issame(result, {1, 11, 111})) {
         std::cout << "Output is correct.\n";
     } else {
         std::cout << "Output is incorrect.\n";
