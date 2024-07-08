@@ -2,28 +2,28 @@
 #include <string>
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
-            result.push_back(i);
-            // check for overlapping targets
-            while (i + m < n && text.substr(i, m) == target) {
-                i++;
-                result.push_back(i);
-            }
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int targetLength = target.length();
+    for (int i = 0; ; i++) {
+        int j = 0;
+        while (j < targetLength && i + j < text.length() && text[i + j] == target[j]) {
+            j++;
+        }
+        if (j == targetLength) {
+            indices.push_back(i);
+            i += j - 1; // adjust i to skip overlapping substrings
+        } else {
+            break;
         }
     }
-
-    return result;
+    return indices;
 }
 
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
