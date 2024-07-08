@@ -13,7 +13,6 @@ vector<float> derivative(vector<float> xs) {
 }
 
 int main() {
-    vector<float> res = derivative({1});
-    assert(res.empty());
+    assert(derivative({1}) == vector<float>{});
     return 0;
 }
