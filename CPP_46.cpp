@@ -1,6 +1,7 @@
 ```
 #include <iostream>
 #include <cstdio>
+#include <sstream>
 
 using namespace std;
 
@@ -18,11 +19,11 @@ int fib4(int n) {
     return d;
 }
 
-int main 
-{
-    int n;
+int main() {
+    string input;
     cout << "Enter the value of n: ";
-    cin >> n;
+    getline(cin, input);
+    int n = stoi(input); // convert input string to integer
     cout << "The " << n << "-th element of the fib4 number sequence is: " << fib4(n) << endl;
     return 0;
 }
