@@ -1,27 +1,32 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
-    stack<char> st;
-    bool prev = false;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return false;
+    bool result = true;
+    int i = 0;
+    while (i < s.length()) {
+        if (s[i] == 'T') {
+            result = true;
+            i++;
+        } else if (s[i] == 'F') {
+            result = false;
+            i++;
         } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+            bool temp = !result;
+            while (i < s.length() && s[i] != '&') {
+                i++;
             }
-            if (st.empty()) return true;
-        } else {
-            st.push(s[i]);
+            result = temp;
+        } else if (s[i] == '&') {
+            bool temp = result;
+            while (i < s.length() && s[i] != '|') {
+                i++;
+            }
+            result = result && temp;
         }
     }
-    return !st.empty();
+    return result;
 }
 
 int main() {
