@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
     if(a.size() != b.size()) 
@@ -17,32 +17,25 @@ bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
 
     return true;
 
-int main() {
-    std::vector<std::vector<int>> matrix;
-    int row;
-
-    // Read input
-    int rows, cols;
-    std::cin >> rows >> cols;
-    for(int i = 0; i < rows; ++i) {
-        std::vector<int> rowVector(cols);
-        for(int j = 0; j < cols; ++j) {
-            std::cin >> rowVector[j];
-        }
-        matrix.push_back(rowVector);
-    }
-
-    // Read input
-    std::cin >> row;
-
-    if(issame(matrix, matrix)) 
-        std::cout << get_row(matrix, row-1) << std::endl;
-    else
-        std::cout << "False" << std::endl;
-
-    return 0;
-}
-
 int get_row(std::vector<std::vector<int>> matrix, int row) {
     return matrix[row][0];
+}
+
+int main() {
+    std::vector<std::vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}};
+    int row;
+    
+    std::cout << "Enter the row number: ";
+    std::cin >> row;
+
+    if(issame(matrix, matrix)) {
+        std::cout << "Matrix is same. \n";
+    } else {
+        std::cout << "Matrix is not same.\n";
+    }
+
+    int result = get_row(matrix, row);
+    std::cout << "The value of the " << row << "th row is: " << result;
+    
+    return 0;
 }
