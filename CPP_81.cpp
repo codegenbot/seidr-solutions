@@ -1,8 +1,10 @@
+```c++
+#pragma GCC required "c++11"
+
 #include <vector>
 #include <string>
-#include <iostream>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,10 +16,10 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> letter_grades;
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> letter_grades;
     for (float grade : grades) {
-        std::string letter_grade;
+        string letter_grade;
         if (grade >= 4.0) {
             letter_grade = "A+";
         } else if (grade > 3.7) {
@@ -49,10 +51,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    std::vector<float> grades = {0, 0.7};
-    if(issame(numerical_letter_grade(grades), {"E", "D-" }))
-        std::cout << "True" << std::endl;
-    else
-        std::cout << "False" << std::endl;
+    vector<float> grades = {3.8, 2.5};
+    assert(same(numerical_letter_grade(grades), {"A", "C-" }));
     return 0;
 }
