@@ -3,10 +3,12 @@
 #include <sstream>
 using namespace std;
 
-int main() {
-    int number;
-    cin >> number;
-    string result = squareDigits(number);
-    cout << result << endl;
-    return 0;
+string squareDigits(int number) {
+    string result;
+    while (number > 0) {
+        int digit = number % 10;
+        result += to_string((digit * digit) % 10);
+        number /= 10;
+    }
+    return result;
 }
