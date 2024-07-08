@@ -1,4 +1,13 @@
-```cpp
+std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
+    std::vector<std::string> result;
+    for(const auto& str : vec) {
+        if(str.find(sub) != std::string::npos)
+            result.push_back(str);
+    }
+    
+    return result;
+}
+
 bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
     if(v1.size() != v2.size())
         return false;
@@ -18,14 +27,4 @@ int main() {
     
     assert(issame(result, {"grunt", "prune"}));
     return 0;
-}
-
-std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
-    std::vector<std::string> result;
-    for(const auto& str : vec) {
-        if(str.find(sub) != std::string::npos)
-            result.push_back(str);
-    }
-    
-    return result;
 }
