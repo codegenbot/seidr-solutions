@@ -1,5 +1,4 @@
-Here is the completed code:
-
+#include <cstddef>
 #include<stdio.h>
 #include<math.h>
 #include<vector>
@@ -13,7 +12,8 @@ vector<float> find_closest_elements(vector<float> numbers){
         for(int j=i+1; j<numbers.size(); j++){
             if(abs(numbers[i]-numbers[j]) < min_diff){
                 min_diff = abs(numbers[i]-numbers[j]);
-                closest_pair = make_pair(min(max(numbers[i], numbers[j]), min_diff);
+                closest_pair.first = min(max(numbers[i], numbers[j]), min_diff);
+                closest_pair.second = closest_pair.first;
             }
         }
     }

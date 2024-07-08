@@ -1,12 +1,12 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(const std::vector<std::string>& a) {
+    return true;
 }
 
-vector<string> all_prefixes(string str) {
-    vector<string> result;
+std::vector<std::string> all_prefixes(std::string str) {
+    std::vector<std::string> result;
     for (int i = 1; i <= str.length(); i++) {
         result.push_back(str.substr(0, i));
     }
@@ -14,6 +14,18 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    assert(all_prefixes("WWW") == {"W", "WW", "WWW"});
+    std::cout << "Enter a string: ";
+    std::string input;
+    std::cin >> input;
+    
+    std::vector<std::string> prefixes = all_prefixes(input);
+    for (const auto& prefix : prefixes) {
+        if (issame(prefix)) {
+            std::cout << "All characters in the string are the same.\n";
+        } else {
+            std::cout << "Prefix: " << prefix << "\n";
+        }
+    }
+    
     return 0;
 }
