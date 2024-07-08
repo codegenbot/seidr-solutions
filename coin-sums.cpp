@@ -2,10 +2,10 @@
 
 int main() {
     int cents;
-    int pennies = 0;
+    int quarters = 0;
     int nickles = 0;
     int dimes = 0;
-    int quarters = 0;
+    int pennies = 0;
 
     std::cin >> cents;
 
