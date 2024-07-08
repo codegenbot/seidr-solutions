@@ -1,13 +1,12 @@
 #include <vector>
 #include <any>
-#include <boost/any.hpp>
 
-bool issame(std::vector<std::any> values) {
+bool issame(std::vector<any> values) {
     bool result = true;
 
     for (const auto& value : values) {
-        if (!boost::any_cast<bool>(value)) continue;
-        bool is_true = boost::any_cast<bool>(value);
+        if (!std::any_cast<bool>(value)) continue;
+        bool is_true = std::any_cast<bool>(value);
         result &= is_true;
     }
 
@@ -15,6 +14,7 @@ bool issame(std::vector<std::any> values) {
 }
 
 int main() {
-    assert(issame({std::any(true), std::any(false)}));
-    return 0;
+    std::vector<any> a = {3, 'c', 3.0f, 3, 'a', 'b'};
+    std::vector<any> b = {static_cast<int>(3), static_cast<int>(3), static_cast<int>(3)};
+    assert(issame(a, b)); 
 }
