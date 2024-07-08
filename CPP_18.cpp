@@ -1,13 +1,6 @@
-```
 #include <string>
 
-int main() {
-    string str = "Hello World, Hello Android, Hello C++";
-    string substring = "Hello";
-    int count = how_many_times(str, substring);
-    cout << "The string \"Hello\" appears " << count << " times in the given sentence." << endl;
-    return 0;
-}
+using namespace std;
 
 int how_many_times(string str, string substring) {
     int count = 0;
@@ -17,4 +10,3 @@ int how_many_times(string str, string substring) {
         pos += substring.size();
     }
     return count;
-}
