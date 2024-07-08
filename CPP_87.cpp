@@ -1,11 +1,8 @@
 #include <vector>
-#include <stdexcept>
+#include <initializer_list>
 
-std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& m, int k) {
-    if(k > m.size()) 
-        throw std::runtime_error("Index out of bounds");
-    
-    return m[k-1];
+std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& matrix, int row) {
+    return matrix[row];
 }
 
 bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
@@ -23,4 +20,12 @@ bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vecto
     }
 
     return true;
+}
+
+int main() {
+    std::vector<std::vector<int>> row = {{}, {1}, {1, 2, 3}};
+    assert(issame(get_row(row, 0), {{1}}));
+    assert(issame(get_row(row, 1), {{1, 2, 3}}));
+    assert(issame(get_row(row, 2), {{1, 2, 3}}));
+    assert(issame(get_row(row, 3), {{1, 2, 3}}));
 }
