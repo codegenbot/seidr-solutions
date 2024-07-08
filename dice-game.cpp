@@ -1,7 +1,7 @@
 double diceGame(int n, int m) {
-    double result = 0.0;
-    for (int i = n; i < m + n; i++) {
-        result += (i - n + 1) / (double)(n * m);
+    double total = 0.0;
+    for (int i = 1; i < n && i <= m; i++) {
+        if(i > m)total += 1.0 / m;
     }
-    return result;
+    return total;
 }
