@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
 bool will_it_fly(const vector<int>& q, int w) {
     int sum = 0;
@@ -8,10 +10,15 @@ bool will_it_fly(const vector<int>& q, int w) {
     if (sum > w) {
         return false;
     }
-    for (int i = 0; i < q.size(); i++) {
+    for (int i = 0; i < q.size() / 2; i++) {
         if (q[i] != q[q.size() - i - 1]) {
             return false;
         }
     }
     return true;
+}
+
+int main() {
+    assert (will_it_fly({5}, 5) == true);
+    return 0;
 }
