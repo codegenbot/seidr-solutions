@@ -1,6 +1,6 @@
+#include <cassert>
 #include <algorithm>
 #include <string>
-#include <cassert>
 
 bool same_chars(string s0, string s1) {
     sort(s0.begin(), s0.end());
@@ -11,4 +11,5 @@ bool same_chars(string s0, string s1) {
 
 int main() {
     assert(same_chars("aabb", "aaccc") == false);
+    return 0;
 }
