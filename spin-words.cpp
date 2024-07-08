@@ -19,7 +19,6 @@ std::string join(const std::vector<std::string>& words, char delimiter) {
     }
     return oss.str();
 }
-
 int main() {
     std::string input;
     getline(std::cin, input);
