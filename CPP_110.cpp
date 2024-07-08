@@ -1,4 +1,5 @@
-```cpp
+#include <string>
+
 int exchange(vector<int> lst1, vector<int> lst2) {
     for (int num : lst1) {
         if (num % 2 != 0) {
@@ -10,8 +11,8 @@ int exchange(vector<int> lst1, vector<int> lst2) {
                     break;
                 }
             }
-            if (!found) return 0;
+            if (!found) return 0; // Return 0 if no even number is found
         }
     }
-    return 1;
+    return 1; // Return 1 otherwise (at least one even number is found)
 }

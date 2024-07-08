@@ -1,32 +1,34 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
 int count_nums(vector<int> nums) {
+    int sign = 1; // Initialize sign here
     int count = 0;
     for (int num : nums) {
-        if (num >= 0) {
-            int sum = 0;
-            bool hasNegative = false;
-            while (num > 0 || hasNegative) {
-                int digit = num % 10;
-                if (digit < 0) {
-                    hasNegative = true;
-                    digit = -digit;
-                }
+        bool negativeFound = false;
+        int sum = 0;
+        if(num >= 0)
+            sign = 1;
+        else
+            sign = -1, negativeFound = true;
+
+        while(abs(num) > 0 || (negativeFound && abs(num) < 0)) {
+            int digit = abs(num) % 10 * sign;
+            if((digit > 0 && !negativeFound) || (digit == 1 && negativeFound))
                 sum += digit;
-                num /= 10;
-            }
-            if (sum > 0) {
-                count++;
-            }
+            else
+                negativeFound = true;
+            num /= 10;
         }
+        if(sum > 0)
+            count++;
     }
     return count;
 }
 
 int main() {
     assert(count_nums({1}) == 1);
-    return 0;
 }
