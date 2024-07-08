@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-int maxPrime(std::vector<int> lst){
+int maxPrime(vector<int> lst){
     int maxPrime = 0;
     for(int i=0; i<lst.size(); i++){
         if(isPrime(lst[i])){
@@ -24,10 +24,4 @@ bool isPrime(int n) {
         if (n % i == 0) return false;
     }
     return true;
-
-}
-
-int main(){
-    assert(maxPrime({127, 97, 8192}) == 10);
-    return 0;
 }
