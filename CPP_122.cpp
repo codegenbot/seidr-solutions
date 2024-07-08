@@ -13,6 +13,11 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
+    // Test the function
+    assert(add_elements({1}, 1) == 1);
+    std::cout << "Test passed." << std::endl;
+
+    // Read input from user and call the function with that input
     int size, num;
     std::cin >> size >> num;
     std::vector<int> arr(size);
