@@ -1,10 +1,5 @@
-```python
+```Python
 def decode_shift(s: str):
-    decoded_s = ""
-    for ch in s:
-        if ch.isalpha():
-            ascii_offset = ord('a') if ch.lower() == ch else ord('A')
-            decoded_s += chr((ord(ch) - ascii_offset - 5) % 26 + ascii_offset)
-        else:
-            decoded_s += ch
-    return decoded_s
+    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() and ch.lower() == ch and 'a' <= ch <= 'z' else 
+                    chr(((ord(ch) - 5 - ord("A")) % 26) + ord("A")) if ch.isalpha() and ch.upper() == ch and 'A' <= ch <= 'Z' else 
+                    ch for ch in s])
