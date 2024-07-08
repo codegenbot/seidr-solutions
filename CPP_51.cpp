@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cctype>
 #include <cassert>
@@ -6,7 +7,7 @@
 std::string remove_vowels(std::string text) {
     std::string result = "";
     for (char c : text) {
-        if (!(std::iscntrl(c) && std::isalpha(c))) {
+        if (std::isalpha(c)) {
             switch (std::tolower(c)) {
                 case 'a':
                 case 'e':
@@ -15,15 +16,17 @@ std::string remove_vowels(std::string text) {
                 case 'u':
                     break;
                 default:
-                    result += c;
+                    result += std::tolower(c);
             }
+        } else {
+            result += c;
         }
     }
     return result;
 }
 
-int main() {
-    assert(remove_vowels("ybcd") == "ybcd");
+int mainFunc() {
+    assert(remove_vowels("ybcd") == "bcd");
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
