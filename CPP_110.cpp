@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+
 using namespace std;
 
 int exchange(vector<int> lst1, vector<int> lst2) {
@@ -19,6 +21,9 @@ int exchange(vector<int> lst1, vector<int> lst2) {
 }
 
 int main() {
-    assert(exchange({100, 200}, {200, 200}) == 1);
+    if (exchange({100, 200}, {200, 200}) == 1)
+        cout << "YES";
+    else
+        cout << "NO";
     return 0;
 }
