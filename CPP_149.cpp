@@ -1,25 +1,56 @@
-vector<string> sorted_list_sum(vector<string> lst) {
-    // Remove strings with odd lengths from the vector
-    lst.erase(std::remove_if(lst.begin(), lst.end(),
-        [](const string& s) { return s.length() % 2; }),
-        lst.end());
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-    // Sort the remaining vector by length and then alphabetically
-    std::sort(lst.begin(), lst.end(),
-        [](const string& a, const string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
-            }
-            return a.length() < b.length();
-        });
-
-    return lst;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-bool issame(vector<string> a,vector<string>b){
-    return a==b;
-
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::string> result = lst;
+    for (auto it = result.begin(); it != result.end();) {
+        if (it->length() % 2 == 1) {
+            it = result.erase(it);
+        } else {
+            ++it;
+        }
+    }
+    sort(result.begin(), result.end(),
+         [](const std::string& a, const std::string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             }
+             return a < b;
+         });
+    return result;
 }
+
 int main() {
-    assert (issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
+    std::vector<std::string> lst;
+    int n;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        std::string str;
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::getline(std::cin, str);
+        lst.push_back(str);
+    }
+    
+    std::vector<std::string> result = sorted_list_sum(lst);
+
+    if (result.size() > 0) {
+        for (auto it = result.begin(); it != result.end(); ++it) {
+            std::cout << *it << " ";
+        }
+        std::cout << "\n";
+    } else {
+        std::cout << "No strings with odd length found.\n";
+    }
+
+    return 0;
 }
