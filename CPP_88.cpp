@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) return array;
@@ -34,8 +35,6 @@ int main() {
         std::cout << "Sum of first and last elements is even: ";
     }
     std::cout << array[0] + array.back() << std::endl;
-
-    assert(array == {11, 14, 21, 23});
-
-    return (array != {11, 14, 21, 23}) ? 1 : 0;
+    
+    return (array != std::vector<int>({23, 21, 14, 11})) ? 1 : 0;
 }

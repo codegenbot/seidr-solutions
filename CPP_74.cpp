@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -7,7 +6,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
-        if (std::strcmp(a[i].c_str(), b[i].c_str()) != 0)
+        if (a[i] != b[i])
             return false;
     }
     return true;
