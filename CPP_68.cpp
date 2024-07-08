@@ -1,3 +1,7 @@
+#include <vector>
+#include <utility>
+#include <initializer_list>
+
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
 
@@ -23,7 +27,5 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
         }
     }
 
-    std::vector<std::pair<int, int>> result;
-    result.push_back({minEvenValue, minIndex});
-    return result;
+    return {{minEvenValue, minIndex}};
 }
