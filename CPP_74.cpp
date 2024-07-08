@@ -1,15 +1,33 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> other) {
-    if (a.size() != other.size()) 
-        return "Error: The vectors are not the same size.\n";
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) 
+        return false;
         
     for (int i = 0; i < a.size(); i++) 
-        if (a[i] != other[i]) 
-            return "Error: The elements at position " + to_string(i) + " do not match.\n";
+        if (a[i] != b[i]) 
+            return false;
 
-    return "The vectors are identical.\n";
+    return true;
+}
+
+std::vector<std::string> total_match(std::vector<std::string> input, std::vector<std::string> pattern) {
+    for(int i = 0; i < input.size(); i++) {
+        if(pattern[i] == "") {
+            continue;
+        } else {
+            if(input[i].find(pattern[i]) == std::string::npos) {
+                return {};
+            }
+        }
+    }
+    return input;
+}
+
+int main() {
+    // Test the function
+    assert(issame(total_match({"this"}, {}), {}));
+    
+    return 0;
 }
