@@ -2,8 +2,13 @@
 #include <string>
 #include <cstring>
 
-int my_strlen(std::string str) {
-    return str.length();
+int my_strlen(const char* str) {
+    int length = 0;
+    while (*str != '\0') {
+        length++;
+        str++;
+    }
+    return length;
 }
 
 int main() {
