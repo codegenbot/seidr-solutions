@@ -1,14 +1,25 @@
-#include <iostream>
 #include <vector>
 
-std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) {
-    std::vector<std::vector<int>> result;
+std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& m, int k) {
+    if(k > m.size()) 
+        throw std::runtime_error("Index out of bounds");
     
-    for (int i = 0; i < lst.size(); i++) {
-        if (i == x) {
-            result.push_back(lst[i]);
+    return m[k-1];
+}
+
+bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
+    if(a.size() != b.size()) 
+        return false;
+    
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i].size() != b[i].size()) 
+            return false;
+        
+        for(int j = 0; j < a[i].size(); j++) {
+            if(a[i][j] != b[i][j]) 
+                return false;
         }
     }
-    
-    return result;
+
+    return true;
 }
