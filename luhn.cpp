@@ -16,3 +16,4 @@ int luhn(const std::vector<int>& digits) {
     }
 
     return sum;
+}
