@@ -1,6 +1,15 @@
-```cpp
 #include <algorithm>
 #include <vector>
+
+namespace std {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+}
 
 std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) return array;
@@ -26,14 +35,6 @@ std::vector<int> sort_array(std::vector<int> array) {
     return sortedArray;
 }
 
-namespace std { 
-bool issame(vector<int> a,vector<int>b){ 
-    if(a.size() != b.size()) return false; 
-    for(int i = 0; i < a.size(); i++) { 
-        if(a[i] != b[i]) return false; 
-    } 
-    return true;
-}
 int main() {
     std::vector<int> array = {21, 14, 23, 11};
     array = sort_array(array);
@@ -45,6 +46,7 @@ int main() {
     std::cout << array[0] + array.back() << std::endl;
     
     if (!issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11})) {
-        return 1; // or return 0 if you want to exit with failure
+        return 1;
     }
-    return 1; // or return 0 if you want to exit with success
+    return 1;
+}
