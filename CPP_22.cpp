@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <any>
 
 bool issame(int a, int b) { return a == b; }
 bool issame(char a, char b) { return a == b; }
@@ -24,8 +24,7 @@ std::vector<int> filter_integers(const std::any& values) {
 }
 
 int main() {
-    auto values = std::any({(int)3, (char)'c', (int)3, (int)3, (char)'a', (char)'b'});
+    auto values = std::any({3, 'c', 3, 3, 'a', 'b'});
     auto output = filter_integers(values);
     assert(issame(output,{3, 3, 3}));
     return 0;
-}
