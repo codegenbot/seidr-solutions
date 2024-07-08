@@ -1,7 +1,12 @@
+import string
+
+
 def validate_tweet(tweet):
-    if len(tweet) > 140:
+    if not all(c in string.printable for c in tweet):
+        return "Your tweet contains non-printable characters"
+    elif len(tweet) > 140:
         return "Too many characters"
-    elif all(c != "" for c in tweet):
+    elif tweet != "":
         return f"Your tweet has {len(tweet)} characters"
     else:
         return "You didn't type anything"
