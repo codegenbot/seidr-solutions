@@ -2,7 +2,6 @@
 #include <vector>
 #include <cmath>
 #include <string>
-#include <initializer_list>
 
 using namespace std;
 
@@ -34,3 +33,4 @@ vector<string> split(const string& str, char c) {
     }
     tokens.push_back(str);
     return tokens;
+}
