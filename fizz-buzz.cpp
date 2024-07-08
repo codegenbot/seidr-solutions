@@ -1,4 +1,4 @@
-#include <sstream>
+#include <ostream>
 
 std::string fizzBuzz(int x) {
     std::string result;
