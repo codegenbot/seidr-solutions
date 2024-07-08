@@ -1,5 +1,4 @@
-#include <string>
-
+```cpp
 bool prime_length(string str) {
     int n = str.length();
     bool is_prime = true;
