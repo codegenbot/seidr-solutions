@@ -1,26 +1,31 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-bool is_permutation(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::is_permutation(a.begin(), a.end(), b.begin());
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    sort(lst.begin(), lst.end());
+std::vector<int> strange_sort_list(std::vector<int> lst){
+    std::sort(lst.begin(), lst.end());
     std::vector<int> result;
-    int i = 0, j = lst.size() - 1;
-    while (i <= j) {
-        result.push_back(lst[i]);
-        if (i != j) {
-            result.push_back(lst[j]);
-        }
-        i++;
-        j--;
+    int left = 0, right = lst.size()-1;
+    while(left <= right){
+        result.push_back(lst[left]);
+        if(left != right)
+            result.push_back(lst[right]);
+        left++;
+        right--;
     }
     return result;
 }
 
 int main() {
-    assert(is_permutation(strange_sort_list({111111}), {111111}));
-    // Additional test cases
+    std::vector<int> input = {4, 2, 7, 1, 3, 5, 1, 6};
+    std::vector<int> expected = {1, 6, 1, 5, 2, 4, 3, 7};
+    std::vector<int> result = strange_sort_list(input);
+    
+    assert(issame(result, expected));
+    
     return 0;
 }
