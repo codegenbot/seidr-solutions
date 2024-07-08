@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <numeric>
 #include <cassert>
 
 int search(const vector<int>& lst) {
