@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 
@@ -18,12 +19,21 @@ int luhn(std::vector<int> digits) {
 
 int main() {
     std::vector<int> cardNumber;
+    int digit;
 
-    for (int i = 0; i < 16; ++i) {
-        std::cout << "Enter a credit card number: ";
-        int digit;
-        std::cin >> digit;
-        cardNumber.push_back(digit);
+    while (true) {
+        std::cout << "Enter a credit card number (16 digits): ";
+        for (int i = 0; i < 16; ++i) {
+            if(i>=10){
+                std::cout<<"Invalid input. Please enter 16 digits only.\n";
+                cardNumber.clear();
+                break;
+            }
+            std::cin >> digit;
+            cardNumber.push_back(digit);
+        }
+        if (cardNumber.size() == 16)
+            break;
     }
 
     int result = luhn(cardNumber);
