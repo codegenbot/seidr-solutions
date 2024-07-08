@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -24,12 +25,12 @@ int main() {
     }
     vector<int> result = cutVector(nums);
     cout << "[";
-    for (int num : vector<int>(result[0])) {
-        cout << num << " ";
+    for (auto it = result[0].begin(); it != result[0].end(); ++it) {
+        cout << *it << " ";
     }
     cout << "] [";
-    for (int i = 0; i < result[1].size(); i++) {
-        cout << result[1].at(i) << " ";
+    for (int i = 0, j = 0; i < result.size() - 1 && j < result[1].size(); ++i, ++j) {
+        cout << result[1][j] << " ";
     }
     cout << "] ]" << endl;
     return 0;
