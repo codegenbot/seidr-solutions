@@ -1,6 +1,3 @@
-#include <algorithm>
-#include <vector>
-#include <limits>
 #include <initializer_list>
 
 bool issame(std::pair<float, float> p1, std::pair<float, float> p2) {
@@ -36,4 +33,3 @@ int main() {
         std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
     }
     return 0;
-}
