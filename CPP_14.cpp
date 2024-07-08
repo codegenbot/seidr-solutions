@@ -4,7 +4,12 @@
 #include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++)
+        if (a[i] != b[i])
+            return false;
+    return true;
 }
 
 std::vector<std::string> all_prefixes(std::string str) {
@@ -18,6 +23,6 @@ std::vector<std::string> all_prefixes(std::string str) {
 int main() {
     std::string str = "WWW";
     std::vector<std::string> prefixes = all_prefixes(str);
-    assert(issame({str}, {str}));
+    assert(issame(std::vector<std::string>(1, str), std::vector<std::string>(1, str)));
     return 0;
 }
