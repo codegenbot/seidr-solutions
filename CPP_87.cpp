@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 
@@ -50,4 +51,4 @@ int main() {
     else 
         std::cout << "The two matrices are not identical." << std::endl;
 
-} {
+} // Add the closing brace
