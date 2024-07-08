@@ -24,6 +24,6 @@ int main() {
     strings.push_back("prune");
     strings.push_back("gruesome");
 
-    assert(issame(filter_by_substring(strings, "run") ,{"grunt", "prune"}));
+    assert(issame(filter_by_substring(strings, "run"), {"grunt", "prune"}));
     return 0;
 }
