@@ -1,4 +1,4 @@
-#include <iostream>
+    #include <iostream>
 #include <string>
 
 int main() {
@@ -22,4 +22,51 @@ int main() {
     std::cout << output << '\n';
 
     return 0;
+}
+
+std::vector<std::string> splitStringIntoWords(const std::string& str) {
+    std::vector<std::string> words;
+
+    // Find the starting position of each word.
+    size_t startPos = 0;
+    while (startPos != std::string::npos) {
+        // Find the ending position of the current word.
+        size_t endPos = str.find(' ', startPos);
+        if (endPos == std::string::npos) {
+            break;
+        }
+
+        // Extract the word and add it to the vector.
+        words.push_back(str.substr(startPos, endPos - startPos));
+
+        // Update the starting position for the next word.
+        startPos = endPos + 1;
+    }
+
+    return words;
+}
+
+std::string reverseString(const std::string& str) {
+    std::string reversedStr;
+
+    // Iterate over the characters of the input string in reverse order.
+    for (int i = str.length() - 1; i >= 0; i--) {
+        reversedStr += str[i];
+    }
+
+    return reversedStr;
+}
+
+std::string joinWords(const std::vector<std::string>& words) {
+    std::string joinedString;
+
+    // Iterate over the vector of words and concatenate them with spaces between them.
+    for (int i = 0; i < words.size(); i++) {
+        joinedString += words[i];
+        if (i != words.size() - 1) {
+            joinedString += " ";
+        }
+    }
+
+    return joinedString;
 }
