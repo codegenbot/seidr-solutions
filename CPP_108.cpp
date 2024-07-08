@@ -16,15 +16,13 @@ int count_nums(vector<int> nums) {
 
         while(abs(num) > 0 || (negativeFound && abs(num) < 0)) {
             int digit = abs(num) % 10 * sign;
-            if(digit != 0 || negativeFound)
-                sum += digit;
+            if((digit > 0 && !negativeFound) || (digit == 1 && negativeFound))
+                count++;
             num /= 10;
         }
-        if(sum > 0)
-            count++;
     }
     return count;
 
 }
 
-cout << count_nums({-123, -9, 3, 2, -11, 4, 5, -9, -6, 8, 7});
+cout << count_nums({-123, -9, 3, 2, -11, 4, 5, -9, -6, 8, 7}) << endl;
