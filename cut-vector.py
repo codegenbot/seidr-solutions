@@ -1,4 +1,3 @@
-```
 def cut_vector(nums):
     nums.sort()
     total_sum = sum(nums)
