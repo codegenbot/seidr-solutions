@@ -23,11 +23,11 @@ std::string decode_cyclic(const std::string& s) {
 }
 
 int main() {
-    std::string original_str = "abcde";
-    std::string encoded_str = encode_cyclic(original_str);
+    std::string input_str = "abcde";
+    std::string encoded_str = encode_cyclic(input_str);
     std::string decoded_str = decode_cyclic(encoded_str);
-    assert(decoded_str == original_str);
-    std::cout << "Original: " << original_str << std::endl;
+    assert(decoded_str == input_str);
+    std::cout << "Original: " << input_str << std::endl;
     std::cout << "Encoded: " << encoded_str << std::endl;
     std::cout << "Decoded: " << decoded_str << std::endl;
 
