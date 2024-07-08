@@ -2,13 +2,11 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-string encode_cyclic(string s) {
+std::string encode_cyclic(std::string s) {
     int l = s.length();
-    string encoded_str;
+    std::string encoded_str;
     for (int i = 0; i * 3 < l; i++) {
-        string x = s.substr(i * 3, 3);
+        std::string x = s.substr(i * 3, 3);
         if (x.length() == 3) {
             x = x[1] + x[2] + x[0];
         }
@@ -17,11 +15,11 @@ string encode_cyclic(string s) {
     return encoded_str;
 }
 
-string decode_cyclic(string s) {
+std::string decode_cyclic(std::string s) {
     int l = s.length();
-    string decoded_str;
+    std::string decoded_str;
     for (int i = 0; i * 3 < l; i++) {
-        string x = s.substr(i * 3, 3);
+        std::string x = s.substr(i * 3, 3);
         if (x.length() == 3) {
             x = x[2] + x[0] + x[1];
         }
@@ -30,8 +28,8 @@ string decode_cyclic(string s) {
     return decoded_str;
 }
 
-string str = "abcde";
-string encoded_str = encode_cyclic(str);
+std::string str = "abcde";
+std::string encoded_str = encode_cyclic(str);
 assert(decode_cyclic(encoded_str) == str);
 std::cout << "Original: " << str << std::endl;
 std::cout << "Encoded: " << encoded_str << std::endl;
