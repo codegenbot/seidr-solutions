@@ -1,8 +1,14 @@
-#include <string>
 #include <algorithm>
+#include <string>
 
-bool same_chars(const std::string& s0, const std::string& s1) {
-    std::sort(s0.begin(), s0.end());
-    std::sort(s1.begin(), s1.end());
-    return s0 == s1;
+using namespace std;
+
+bool same_chars(const char* s0, const char* s1) {
+    string str0(s0);
+    string str1(s1);
+    
+    sort(str0.begin(), str0.end());
+    sort(str1.begin(), str1.end());
+    
+    return str0 == str1;
 }
