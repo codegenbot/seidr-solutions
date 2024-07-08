@@ -11,6 +11,9 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
     for (const auto& v : vectors) {
         int size = 0;
         assert(issame(get_positive(v, size), {}));
+        if (!issame({}, get_positive(v, size))) {
+            result.push_back(get_positive(v, size));
+        }
     }
     return result;
 }
