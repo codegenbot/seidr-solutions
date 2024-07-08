@@ -1,4 +1,3 @@
-```Python
 import statistics
 
 def mean_absolute_deviation(numbers):
@@ -15,5 +14,7 @@ def mean_absolute_deviation(numbers):
 numbers = input("Enter space-separated numbers: ").split()
 try:
     print(mean_absolute_deviation([num for num in numbers if num.replace('.', '', 1).replace('-', 1).isnumeric()]))
+except ZeroDivisionError as e:
+    print(f"Cannot calculate mean absolute deviation from an empty set of numbers.")
 except ValueError as e:
     print(f"Invalid input. {e}.")
