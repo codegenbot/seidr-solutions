@@ -12,7 +12,10 @@ bool below_threshold(std::vector<int> l, int t) {
 }
 
 int main() {
-    std::deque<int> numbers = {1, 8, 4, 10};
+    std::vector<int> numbers(10); // Limit the size of the input array
+    for (int i = 0; i < 10; i++) {
+        numbers[i] = i + 1;
+    }
     assert(not(below_threshold(numbers, 10)));
     return 0;
 }
