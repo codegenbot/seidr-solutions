@@ -6,10 +6,11 @@ bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return (a == b);
 }
 
-bool main() {
+int main() {
     int sum1 = 0;
     std::vector<std::string> lst1;
     std::cout << "Enter strings for list 1: ";
+    bool total_match = false;
     for (std::string str; std::cin >> str;) {
         lst1.push_back(str);
     }
@@ -21,7 +22,6 @@ bool main() {
         lst2.push_back(str);
     }
     
-    bool total_match = false;
     if (sum1 < sum2) return !total_match;
     else if (sum1 > sum2) total_match = true;
     bool result = isSame(lst1, lst2);
