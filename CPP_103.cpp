@@ -8,9 +8,9 @@ string rounded_avg(int n,int m){
     avg = floor(avg);
     string res = "";
     while(avg > 0){
-        if(avg & 1) res.append("1");
-        else res.append("0");
-        avg /= 2.0;
+        if(avg & 1) res.push_back('1');
+        else res.push_back('0');
+        avg >>= 1;
     }
     reverse(res.begin(), res.end());
     return res;
