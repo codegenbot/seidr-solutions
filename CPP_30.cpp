@@ -1,30 +1,26 @@
-```cpp
-#include <iostream>
 #include <vector>
-#include <limits>
+#include <iostream>
 
-std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>>& vec) {
+bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
+    if (v1.size() != v2.size())
+        return false;
+    for (size_t i = 0; i < v1.size(); ++i)
+        if (std::abs(v1[i] - v2[i]) > 0.001f)
+            return false;
+    return true;
+}
+
+std::vector<std::vector<float>> get_positive(const std::vector<std::vector<float>>& vecs) {
     std::vector<std::vector<float>> result;
-
-    for (const auto& v : vec) {
-        if (v.size() > 1) {
-            bool first = true;
-            float sum = 0.0f;
-            for (float f : v) {
-                if (first) {
-                    first = false;
-                    sum += f;
-                } else {
-                    if (abs(f - sum / (v.size() - 1)) < 0.0001) {
-                        result.push_back(v);
-                        return result;
-                    }
-                }
-            }
-        }
+    for (const auto& v : vecs) {
+        std::vector<float> pos_v;
+        for (float f : v)
+            if (f > 0.0f)
+                pos_v.push_back(f);
+        if (!pos_v.empty())
+            result.push_back(pos_v);
     }
-
-    return vec;
+    return result;
 }
 
 int main() {
@@ -43,7 +39,7 @@ int main() {
         vectors.push_back(v);
     }
 
-    std::vector<std::vector<float>> result = filter_vectors(vectors);
+    std::vector<std::vector<float>> result = get_positive(vectors);
 
     for (const auto& v : result) {
         for (float f : v) {
