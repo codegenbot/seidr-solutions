@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
@@ -24,7 +22,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     return res;
 }
 
-vector<int> dfs(vector<vector<int>>& grid, int x, int int y, int k, int val, vector<int>* path) {
+vector<int> dfs(vector<vector<int>>& grid, int x, int y, int k, int val, vector<int>* path) {
     (*path).push_back(val);
     if (k == 0) {
         return *path;
@@ -35,8 +33,7 @@ vector<int> dfs(vector<vector<int>>& grid, int x, int int y, int k, int val, vec
             int nx = x + i;
             int ny = y + j;
             if (nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size()) {
-                vector<int>::iterator it = find((*path).begin(), (*path).end(), grid[nx][ny]);
-                if (it == (*path).end()) {
+                if (find((*path)->begin(), (*path)->end(), grid[nx][ny]) == (*path)->end()) {
                     vector<int> temp = dfs(grid, nx, ny, k - 1, grid[nx][ny], path);
                     if (!temp.empty() && (res.empty() || temp < res)) {
                         res = temp;
