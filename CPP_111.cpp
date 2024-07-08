@@ -1,15 +1,13 @@
-```
-#include <map>
-#include <string>
+int main 
+{
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
 
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
-    if (a.size() != b.size()) return false;
-    for (const auto& p : a) {
-        if (!b.count(p.first) || b.at(p.first) != p.second) return false;
+    auto hist = histogram(s);
+    if (issame(histogram("a"), hist)) {
+        std::cout << "The input string is the same as 'a'\n";
+    } else {
+        std::cout << "The input string is not the same as 'a'\n";
     }
-    return true;
-}
-
-int main {
-    assert(issame(histogram("a"), {{'a', 1}}));
 }
