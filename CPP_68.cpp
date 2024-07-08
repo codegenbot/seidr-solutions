@@ -10,7 +10,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     }
 
     if (evenNodes.empty()) {
-        return {{}};
+        return {};
     }
 
     int minEvenValue = evenNodes[0].first;
@@ -25,5 +25,5 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
 
-    return {{minEvenValue, minIndex}};
+    return {make_pair(minEvenValue, minIndex)};
 }
