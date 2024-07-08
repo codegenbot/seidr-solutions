@@ -1,6 +1,8 @@
+#define BOOST_ERROR_CODE_HEADER_ONLY
+#include <boost/config.hpp>
+
 #include <vector>
 #include <any>
-#include <boost/any.hpp>
 #include <boost/type_id.hpp>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -11,7 +13,7 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
         if (value.type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(value));
+            result.push_back(std::any_cast<int>(value));
         }
     }
     return result;
