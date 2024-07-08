@@ -1,6 +1,6 @@
-Here is the modified code:
+Here is the corrected code:
 
-```
+```python
 import statistics
 
 def mean_absolute_deviation(numbers):
