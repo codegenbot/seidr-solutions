@@ -20,10 +20,10 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     for (int i = 0; i < grid.size(); ++i) {
         for (int j = 0; j < grid[0].size(); ++j) {
             if (grid[i][j] == k) {
-                while (k > 1) {
-                    result.push_back(i);
-                    result.push_back(j);
-                    k--;
+                for (int index = 0; index < grid.size() * grid[0].size(); ++index) {
+                    if ((index % grid.size()) == i && (index / grid[0].size()) == j) {
+                        result.push_back(index);
+                    }
                 }
             }
         }
