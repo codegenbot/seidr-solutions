@@ -7,3 +7,4 @@ int is_bored(std::string S){
         pos++;
     }
     return count;
+}
