@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -12,5 +11,5 @@ float max_element(std::vector<float> l){
 }
 
 int main() {
-    
+    // Your code here...
 }
