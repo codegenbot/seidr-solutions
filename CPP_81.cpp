@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -48,12 +49,3 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {3.9, 2.5, 4.0};
-    vector<string> letterGrades = numerical_letter_grade(grades);
-    
-    for (const auto& grade : letterGrades) {
-        std::cout << grade << std::endl;
-    }
-    
-    return 0;
-}
