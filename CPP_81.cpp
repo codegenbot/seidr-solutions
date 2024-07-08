@@ -1,5 +1,7 @@
+```c++
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
