@@ -1,9 +1,8 @@
 ```c++
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -37,5 +36,6 @@ void dfs(std::vector<std::vector<int>>& grid, std::vector<std::vector<bool>>& vi
 }
 
 int main() {
-    // Your code goes here
+    // your code here
+    return 0;
 }
