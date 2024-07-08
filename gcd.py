@@ -1,7 +1,16 @@
-a = int(input("Enter value for a: "))
-b = int(input("Enter value for b: "))
-print(gcd(a, b))
+```python
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return abs(a)
 
-text = input("Enter text: ")
-target = input("Enter target: ")
-print(find_indices(text, target))
+def find_indices(text, target):
+    indices = []
+    i = 0
+    while i <= len(text) - len(target):
+        if text[i:i+len(target)] == target:
+            indices.append(i)
+            i += 1
+        else:
+            i += 1
+    return indices
