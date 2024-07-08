@@ -69,7 +69,7 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
     std::vector<std::vector<float>> result;
     for (const auto& v : vectors) {
         int size = 0;
-        std::vector<float> positiveVec = get_positive(v, size);
+        std::vector<float> positiveVec = get_positive(v);
         if (!issame({}, positiveVec)) {
             result.push_back(positiveVec);
         }
