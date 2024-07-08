@@ -1,3 +1,2 @@
-```
-def get_positive(l: list):
-    return [x for x in l if x > 0]
+def get_positive(lst: list):
+    return [x for x in lst if x > 0]
