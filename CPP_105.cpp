@@ -1,23 +1,16 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <string>
 
-bool issame(int x) {
-    return x >= 1 && x <= 9;
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+vector<string> by_length(vector<int> arr) {
+    vector<string> result;
     for (int num : arr) {
-        if (issame(num)) {
-            numbers.push_back(num);
-        }
-    }
-    std::sort(numbers.begin(), numbers.end());
-    std::reverse(numbers.begin(), numbers.end());
-    std::vector<std::string> result;
-    for (int num : numbers) {
-        std::string str = "";
+        string str = "";
         switch (num) {
             case 1:
                 str = "One";
@@ -50,4 +43,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         result.push_back(str);
     }
     return result;
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}), vector<string>{"Nine", "Four", "Eight"}));
+    return 0;
 }
