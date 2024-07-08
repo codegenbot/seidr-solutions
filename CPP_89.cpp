@@ -1,7 +1,9 @@
 #include <string>
+#include <cctype>
 
-string encrypt(string s) {
-    string result = "";
+// Caesar Cipher Encryption: Shifts letters by 2 positions in the alphabet.
+std::string encrypt(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
