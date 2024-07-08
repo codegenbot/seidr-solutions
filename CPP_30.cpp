@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
@@ -8,7 +9,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> vectors) {
     std::vector<std::vector<float>> result;
     for (const auto& v : vectors) {
-        if (!issame(get_positive(v), get_positive(std::vector<float>()))) {
+        if (!issame(get_positive(v), std::vector<float>())) {
             result.push_back(v);
         }
     }
@@ -32,4 +33,3 @@ float* get_positive(const std::vector<float>& vec, int& size) {
         }
     }
     return result;
-}
