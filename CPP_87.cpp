@@ -1,17 +1,18 @@
+```cpp
 #include <vector>
 
 std::vector<std::vector<int>> get_row(int n) {
-    std::vector<std::vector<int>> result;
-    
-    for (int i = 1; i <= n; i++) {
-        std::vector<int> row;
-        for (int j = 1; j <= i; j++) {
-            row.push_back(j);
+    std::vector<std::vector<int>> row;
+    for (int i = 0; i < n; i++) {
+        std::vector<int> temp;
+        int j = i + 1;
+        while(j <= i+n) {
+            temp.push_back(j);
+            j++;
         }
-        result.push_back(row);
+        row.push_back(temp);
     }
-    
-    return result;
+    return row;
 }
 
 bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
@@ -26,6 +27,8 @@ bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vecto
 }
 
 int main() {
-    assert(issame(get_row({3}), {{1}, {1, 2}, {1, 2, 3}}));
+    assert(issame(get_row({ }), {{}}));
+    assert(issame(get_row({1}), {{1}}));
+    assert(issame(get_row({1, 2, 3}), {{1}, {2}, {3}}));
     return 0;
 }
