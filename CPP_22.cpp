@@ -1,18 +1,16 @@
-```cpp
-#include <boost/any.hpp>
-#include <vector>
-#include <list>
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool boost::is_same(const boost::any& value) {
+    if (!value.type()) {
+        throw invalid_argument("invalid type");
+    }
+    return !boost::any_cast<bool>(value);
 }
 
 vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<bool>(value)) { 
+        if (boost::is_same(value)) {
             int val = boost::any_cast<int>(value);
-            result.push_back(val); 
+            result.push_back(val);
         }
     }
     return result;
