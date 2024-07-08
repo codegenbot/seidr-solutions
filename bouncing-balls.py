@@ -1,3 +1,4 @@
+```
 import math
 
 def bouncing_balls():
@@ -10,4 +11,4 @@ def bouncing_balls():
 
     return "{:.6f}".format(total_distance)
 
-print(bouncing_balls())
+print("""{:.6f}""".format(bouncing_balls()))
