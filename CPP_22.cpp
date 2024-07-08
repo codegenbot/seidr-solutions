@@ -16,7 +16,7 @@ vector<int> filter_integers(any values) {
 }
 
 int main() {
-    any values({3, 3.0, 3}); // Note: You cannot directly store chars in a vector of ints.
+    any values({3, 3.0, 3, 4});
     auto output = filter_integers(values);
     for (auto val : output) {
         cout << val << " ";
