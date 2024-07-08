@@ -1,4 +1,10 @@
-// Caesar Cipher Encryption: Shifts letters by 2 positions in the alphabet.
+```
+#include<iostream>
+#include<cctype>
+#include<string>
+
+using namespace std;
+
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
@@ -9,4 +15,13 @@ string encrypt(string s) {
         result += c;
     }
     return result;
+
+}
+
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    getline(cin, s);
+    cout << "Encrypted string is: " << encrypt(s) << endl;
+    return 0;
 }
