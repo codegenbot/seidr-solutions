@@ -9,4 +9,7 @@ def cut_vector(nums):
             min_diff = diff
             split_index = i + 1
         left_sum += nums[i]
-    return nums[: split_index - 1], nums[split_index - 1 :]
+    if split_index > 0:
+        return nums[:split_index-1], [nums[split_index-1]]
+    else:
+        return [], nums
