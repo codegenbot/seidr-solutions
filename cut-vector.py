@@ -5,7 +5,7 @@ def cut_vector(nums):
     for i in range(len(nums)):
         right_sum = sum(nums[i:])
         diff = abs(left_sum - right_sum)
-        if diff < min_diff and (left_sum == right_sum or min_diff == diff):
+        if diff < min_diff and (left_sum == right_sum or diff == min_diff):
             min_diff = diff
             split_index = i+1
         left_sum += nums[i]
