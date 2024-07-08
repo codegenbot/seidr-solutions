@@ -1,5 +1,9 @@
 n = int(input())
-print(n)
-print(0)
-print(0)
-print(0)
+quarters = n // 25
+dimes = (n % 25) // 10
+nickels = ((n % 25) % 10) // 5
+pennies = ((n % 25) % 10) % 5
+print(pennies)
+print(nickels)
+print(dimes)
+print(quarters)
