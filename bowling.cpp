@@ -1,4 +1,7 @@
-```
+```cpp
+#include <string>
+#include <vector>
+
 int bowlingScore(std::string s) {
     int score = 0;
     bool lastRollWasStrike = false;
@@ -17,11 +20,18 @@ int bowlingScore(std::string s) {
             lastRollWasSpare = true;
         } else {
             int roll = c - '0';
-            if (roll == 9) lastRollWasSpare = true;
+            if (c == '9') lastRollWasSpare = true;
             else lastRollWasStrike = true;
             score += roll;
         }
     }
 
     return score;
+}
+
+int main() {
+    std::string s = "XXXXX/6/5/X-8/X/X-4/X/X/9/-7/-5";
+    int score = bowlingScore(s);
+    std::cout << "The score is: " << score << std::endl;
+    return 0;
 }
