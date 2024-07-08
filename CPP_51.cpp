@@ -1,4 +1,4 @@
-using namespace std;
+#include <string>
 
 string remove_vowels(string text){
     string result = "";
@@ -8,3 +8,4 @@ string remove_vowels(string text){
             result += text[i];
     }
     return result;
+}
