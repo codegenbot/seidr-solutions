@@ -4,11 +4,11 @@
 
 using namespace std;
 
-bool issame(const vector<float>& a, const vector<float>& b) {
+bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
 
-void sort_even(const vector<float>& a) {
+void sort_even(vector<float>& a) {
     vector<pair<float, int>> even_indices;
 
     for (int i = 0; i < a.size(); i++) {
@@ -25,8 +25,8 @@ void sort_even(const vector<float>& a) {
 }
 
 int main() {
-    vector<float> input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    vector<float> sorted_input = input;
-    sort_even(sorted_input);
-    assert(issame(sorted_input, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    vector<float> input;
+    input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    sort_even(input);
+    assert(issame(input, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
 }
