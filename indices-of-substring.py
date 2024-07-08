@@ -1,5 +1,6 @@
+```
 def indices_of_substring(text, target):
-    """Returns a list of integers of the indices at which the target appears in the text. Targets may overlap."""
+"""Find all the indices at which a target string appears in a text string."""
     result = []
     index = 0
     while True:
