@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 std::string circular_shift(int x, int shift) {
     std::string str = to_string(x);
     if (shift >= str.length()) {
@@ -18,9 +15,4 @@ std::string circular_shift(int x, int shift) {
         result += str[i];
     }
     return result;
-}
-
-int main() {
-    assert(circular_shift(11, 101) == "11");
-    return 0;
 }
