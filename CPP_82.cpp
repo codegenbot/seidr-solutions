@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cassert>
 
@@ -20,6 +21,4 @@ bool prime_length(std::string str) {
     return is_prime;
 }
 
-int main() {
-    assert(prime_length("0") == false);
-}
+assert(prime_length("0") == false);
