@@ -1,33 +1,43 @@
-using namespace std;
+#include <vector>
+#include <string>
+#include <iostream>
 
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size()!=b.size())
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size())
         return false;
-    for(int i=0;i<a.size();i++){
-        if(std::strcmp(a[i].c_str(), b[i].c_str())!=0)
+    for (int i = 0; i < a.size(); i++) {
+        if (std::strcmp(a[i].c_str(), b[i].c_str()) != 0)
             return false;
     }
     return true;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<string> a(n);
-    for (string &s : a) {
-        cin >> s;
+    std::vector<std::string> v1, v2;
+
+    int total_match = 0; // define before usage
+
+    std::cout << "Enter number of strings: ";
+    int n; std::cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        std::string str;
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::cin >> str;
+        v1.push_back(str);
     }
 
-    vector<string> b(n);
-    for (string &s : b) {
-        cin >> s;
+    for (int i = 0; i < n; i++) {
+        std::string str;
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::cin >> str;
+        v2.push_back(str);
     }
 
-    bool total_match = issame(a, b);
+    if (issame(v1, v2))
+        std::cout << "Both vectors have same strings.";
+    else
+        std::cout << "Vectors do not have the same strings.";
 
-    if(total_match){
-        cout << "True";
-    }else{
-        cout << "False";
-    }
+    return 0;
 }
