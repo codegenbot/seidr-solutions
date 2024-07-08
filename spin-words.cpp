@@ -1,6 +1,6 @@
-    #include <iostream>
+#include <iostream>
 #include <string>
-#include <bits/stdc++.h>
+#include <vector>
 #include <algorithm>
 #include <boost/algorithm/string.hpp>
 
