@@ -1,2 +1,5 @@
 def dice_game(n, m):
-    return (m-1) / n + sum((n-i) * (i+1) / (n*m) for i in range(m-2))
+    if n <= m:
+        return 0
+    total = sum((n-i)/(n*m) for i in range(1, m+1))
+    return total + min(1, (m-1)/2/n)
