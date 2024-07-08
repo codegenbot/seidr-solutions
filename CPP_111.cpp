@@ -1,30 +1,23 @@
-map<pair<char,int>,int> histogram(string test){
-    map<char,int> result;
-    int maxCount = 0;
-    for(auto& word : split(test, ' ')){
-        int count = count(word.begin(), word.end(), *word.begin());
-        if(count > maxCount){
-            maxCount = count;
-            result.clear();
-            result[make_pair(*word.begin(),count)] = 1;
-        }else if(count == maxCount){
-            result[make_pair(*word.begin(),count)] = 1;
-        }
+#include <map>
+#include <string>
+
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
+    if (a.size() != b.size()) return false;
+    for (const auto& p : a) {
+        if (!b.count(p.first) || b.at(p.first) != p.second) return false;
     }
-    return result;
+    return true;
 }
 
-vector<string> split(string str, char ch) {
-    vector<string> tokens;
-    string token;
-    for (auto c : str) {
-        if (c == ch) {
-            tokens.push_back(token);
-            token = "";
-        } else {
-            token += c;
-        }
-    }
-    tokens.push_back(token);
-    return tokens;
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
+    return 0;
 }
+
+std::map<char, int> histogram(const std::string& s) {
+    std::map<char, int> hist;
+    for (char c : s) {
+        if (hist.count(c)) hist[c]++;
+        else hist[c] = 1;
+    }
+    return hist;
