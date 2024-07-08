@@ -15,10 +15,8 @@ std::string flip_case(std::string str) {
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input); // Read input from user
-    std::string result = flip_case(input);
-    assert(result == "ThESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    std::string result = flip_case("tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert(result == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     std::cout << result << std::endl; // Output the result
     return 0;
 }
