@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -17,7 +18,7 @@ bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
 
     return true;
 
-int main() {
+int main(){
     std::vector<std::vector<int>> matrix1, matrix2;
     int m, n;
     std::cout << "Enter the number of rows and columns for each matrix: ";
@@ -50,4 +51,5 @@ int main() {
     else 
         std::cout << "The two matrices are not identical." << std::endl;
 
-} {
+    return 0;
+}
