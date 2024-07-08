@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -21,9 +20,13 @@ bool isVowel(char c) {
 }
 
 int main() {
+    assert(remove_vowels("ybcd") == "ybcd");
+    processInput();
+    std::cout << "String after removing vowels: " << remove_vowels(input) << std::endl;
+    return 0;
+
+void processInput() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    std::cout << "String after removing vowels: " << remove_vowels(input) << std::endl;
-    return 0;
 }
