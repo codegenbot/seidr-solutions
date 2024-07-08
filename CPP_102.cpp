@@ -1,13 +1,12 @@
-```c++
+```cpp
 #include <iostream>
 using namespace std;
 
 int choose_num(int x, int y) {
-    string result = "";
+    string result;
     for (int i = x; i <= y; i++) {
-        if (i % 2 == 0) {
+        if (i % 2 == 0)
             result += to_string(i) + " ";
-        }
     }
     return stoi(result);
 }
