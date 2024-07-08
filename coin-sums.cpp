@@ -21,15 +21,12 @@ int main() {
         remaining -= 10;
     }
 
-    while (remaining >= 5) {
-        nickles++;
-        remaining -= 5;
+    while (remaining >= 25) {
+        quarters++;
+        remaining -= 25;
     }
-
-    while (remaining > 0) {
-        pennies++;
-        remaining--;
-    }
+    nickles = remaining / 5; // calculate nickels
+    pennies = remaining % 5; // calculate pennies
 
     std::cout << quarters << "\n";
     std::cout << nickles << "\n";
