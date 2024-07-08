@@ -1,10 +1,10 @@
 #include <vector>
 #include <cassert>
-#include <climits>
+#include <climits> // Include for using INT_MAX
 
-using namespace std;
+using namespace std; // Add this line
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b){ // Change function signature
     return a == b;
 }
 
@@ -29,6 +29,6 @@ vector<int> pluck(vector<int> arr){
 }
 
 int main(){
-    assert (issame(pluck({7, 9, 7, 1}) , {}));
+    assert (issame(pluck({7, 9, 7, 1}) , {})); // Use {} for an empty vector
     return 0;
 }
