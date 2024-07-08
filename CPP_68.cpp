@@ -28,3 +28,14 @@ std::vector<std::pair<int, int>> findMinEven(std::vector<int> arr) {
     result.push_back({minEvenValue, minIndex});
     return result;
 }
+
+int main() {
+    std::vector<int> arr = {7, 9, 7, 1};
+    auto result = findMinEven(arr);
+    if (result.empty()) {
+        std::cout << "{}" << std::endl;
+    } else {
+        std::cout << "{" << result[0].first << ", " << result[0].second << "}" << std::endl;
+    }
+    return 0;
+}
