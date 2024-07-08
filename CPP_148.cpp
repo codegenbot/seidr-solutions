@@ -1,9 +1,9 @@
-```
 #include <vector>
-#include <algorithm>
+#include <string>
+using namespace std;
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); ++i) {
@@ -22,13 +22,22 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
         return {};
     }
     
-    std::vector<std::string> result;
+    vector<string> result;
     for (int i = 0; i < planets.size(); ++i) {
         if (index1 < i && i < index2)
             result.push_back(planets[i]);
     }
     
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     
     return result;
+}
+
+int main() {
+    cout << "Output: ";
+    vector<string> res = bf("Jupiter", "Makemake");
+    for (string s : res) {
+        cout << s << " ";
+    }
+    cout << endl;
 }
