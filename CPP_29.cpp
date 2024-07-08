@@ -12,13 +12,13 @@ std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::s
         if (s.find(prefix) == 0) {
             result.push_back(s);
         }
-    };
+    }
+    return result;
 }
 
 int main() {
-    if (!isSame(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}))
-        std::cout << "Test failed. The actual output was different from the expected output.\n";
-    else
-        std::cout << "Test passed successfully.\n";
+    std::vector<std::string> testVector = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
+    auto filteredVector = filterByPrefix(testVector, "xxx");
+    assert(isSame(filteredVector, {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }

@@ -1,4 +1,14 @@
-```cpp
+#include <vector>
+#include <algorithm>
+
+std::vector<int> pluck(const std::vector<std::pair<int, int>>& arr) {
+    std::vector<int> result;
+    for (const auto& pair : arr) {
+        result.push_back(pair.first);
+    }
+    return result;
+}
+
 std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
 
