@@ -1,14 +1,30 @@
-string solveBoolean(string s) {
-    bool result = true;
-    for (char c : s) {
-        if (c == 'F') {
-            result = false;
-            break;
-        } else if (c == '&') {
-            continue;
-        } else if (c == '|') {
-            return "True";
+bool solveBoolean(string s) {
+    stack<char> st;
+    bool res = false;
+
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == 't') {
+            res = true;
+        } else if(s[i] == 'f') {
+            res = false;
+        } else if(s[i] == '&') {
+            while(!st.empty() && st.top() != '|') {
+                st.pop();
+            }
+            if(st.empty()) {
+                return res;
+            }
+            st.pop();
+            res &= !st.empty();
+        } else if(s[i] == '|') {
+            st.push(res);
+            res = false;
         }
     }
-    return result ? "True" : "False";
+
+    while(!st.empty()) {
+        st.pop();
+    }
+
+    return res;
 }
