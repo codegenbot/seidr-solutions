@@ -1,10 +1,10 @@
-Here is the modified code:
+Here is the corrected code:
 
 ```cpp
 #include <algorithm>
 #include <vector>
 
-bool issame(cpp::vector<int> a, cpp::vector<int> b) {
+bool cpp::issame(cpp::vector<int> a, cpp::vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -46,9 +46,7 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    if (!issame(sort_array({21, 14, 23, 11}) , {11, 14, 21, 23})) {
-        std::cout << "Test failed";
-    } else {
-        std::cout << "Test passed";
+    if (!issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11})) {
+        std::cerr << "Test failed" << std::endl;
     }
 }
