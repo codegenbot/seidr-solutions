@@ -1,51 +1,39 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool same(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
+std::vector<std::string> numerical_letter_grade(std::pair<int, double> pair) {
+    int score = pair.first;
+    double percentage = pair.second;
+
+    std::vector<std::string> result;
+
+    if (score >= 90)
+        result.push_back("A");
+    else if (score >= 80)
+        result.push_back("B");
+    else if (score >= 70)
+        result.push_back("C");
+    else if (score >= 60)
+        result.push_back("D");
+    else
+        result.push_back("F");
+
+    if (percentage < 60) {
+        if (result.back() == "A" || result.back() == "B")
+            result.push_back("-");
+        else if (result.back() != "F")
+            result.push_back("+");
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+
+    return result;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
-    for (float grade : grades) {
-        string letter_grade;
-        if (grade >= 4.0) {
-            letter_grade = "A+";
-        } else if (grade > 3.7) {
-            letter_grade = "A";
-        } else if (grade > 3.3) {
-            letter_grade = "A-";
-        } else if (grade > 3.0) {
-            letter_grade = "B+";
-        } else if (grade > 2.7) {
-            letter_grade = "B";
-        } else if (grade > 2.3) {
-            letter_grade = "B-";
-        } else if (grade > 2.0) {
-            letter_grade = "C+";
-        } else if (grade > 1.7) {
-            letter_grade = "C";
-        } else if (grade > 1.3) {
-            letter_grade = "C-";
-        } else if (grade > 1.0) {
-            letter_grade = "D+";
-        } else if (grade > 0.7) {
-            letter_grade = "D";
-        } else {
-            letter_grade = "F";
-        }
-        letter_grades.push_back(letter_grade);
-    }
-    return letter_grades;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    return 0;
+}
