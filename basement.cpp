@@ -1,14 +1,14 @@
 #include <vector>
 #include <iostream>
 using namespace std;
-int main() {
-    vector<int> vec = {1, -1};
+
+int basement(const vector<int>& vec) {
     int sum = 0;
-    for (int i = 0; i < vec.size(); ++i) {
-        if (sum + vec[i] >= 0) {
+    for (size_t i = 0; i < vec.size(); ++i) {
+        sum += vec[i];
+        if (sum < 0) {
             return i;
         }
-        sum += vec[i];
     }
     return -1;
 }
