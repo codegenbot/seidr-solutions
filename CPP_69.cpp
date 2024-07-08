@@ -20,11 +20,11 @@ int main() {
     int n; 
     std::vector<int> lst;
     
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter the size of the first list: ";
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
         int val;
-        std::cout << "Enter element " << i+1 << ": ";
+        std::cout << "Enter a value: ";
         std::cin >> val;
         lst.push_back(val);
     }
@@ -35,17 +35,17 @@ int main() {
     int m; 
     std::vector<int> lst2;
     
-    std::cout << "\nEnter the number of elements: ";
+    std::cout << "Enter the size of the second list: ";
     std::cin >> m;
     for (int i = 0; i < m; ++i) {
         int val;
-        std::cout << "Enter element " << i+1 << ": ";
+        std::cout << "Enter a value: ";
         std::cin >> val;
         lst2.push_back(val);
     }
     
     int result2 = search(lst2);
-    std::cout << "\nResult: " << result2 << std::endl;
+    std::cout << "Result: " << result2 << std::endl;
 
     return 0;
 }
