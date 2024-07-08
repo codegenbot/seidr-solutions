@@ -38,3 +38,4 @@ int main() {
     else
         cout << "Vectors do not have the same strings.";
     return 0;
+}
