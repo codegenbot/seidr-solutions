@@ -1,9 +1,8 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <memory>
 
-bool below_threshold(std::vector<int> l, int t) {
+bool below_threshold(const std::vector<int>& l, int t) {
     for (int num : l) {
         if (num >= t) {
             return false;
