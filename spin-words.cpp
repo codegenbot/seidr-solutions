@@ -1,27 +1,22 @@
-    #include <iostream>
+#include <iostream>
 #include <string>
 #include <algorithm>
-
+#include <vector>
+#include <iterator>
+using std::vector;
+using std::string;
 int main() {
-    std::string input;
-    getline(std::cin, input);
-
-    // Split the input string into words.
-    std::vector<std::string> words = split(input, ' ');
-
-    // Reverse each word that is 5 or more letters long.
+    string input, output;
+    getline(cin, input);
+    vector<string> words = split(input, ' ');
     for (int i = 0; i < words.size(); i++) {
         if (words[i].length() >= 5) {
-            std::string reversedWord = words[i];
-            std::reverse(reversedWord.begin(), reversedWord.end());
+            string reversedWord = words[i];
+            reverse(reversedWord.begin(), reversedWord.end());
             words[i] = reversedWord;
         }
     }
-
-    // Join the words back together into a single string.
-    std::string output = join(words, ' ');
-
-    std::cout << output << '\n';
-
+    output = join(words, ' ');
+    cout << output << endl;
     return 0;
 }
