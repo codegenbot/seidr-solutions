@@ -2,18 +2,8 @@
 #include <algorithm>
 #include <cassert>
 
-bool is_same(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+bool is_same(const std::vector<float>& a, const std::vector<float>& b) {
+    return a == b;
 }
 
 void rescale_to_unit(std::vector<float>& values) {
