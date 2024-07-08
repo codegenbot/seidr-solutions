@@ -1,5 +1,7 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
+using namespace std;
 
 std::vector<int> sum_product(const std::vector<int>& numbers) {
     int sum = 0;
@@ -10,7 +12,7 @@ std::vector<int> sum_product(const std::vector<int>& numbers) {
         product *= num;
     }
 
-    return {sum, product};
+    return std::vector<int>{sum, product};
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
@@ -18,6 +20,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(std::vector<int>{10, 10}, sum_product({10, 10})));
+    assert(issame(std::vector<int>{20, 100}, sum_product({10, 10})));
     return 0;
 }
