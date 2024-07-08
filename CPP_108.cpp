@@ -1,10 +1,7 @@
-```
-#include <iostream>
-#include <vector>
-using namespace std;
+#include <cassert>
 
+int sign = 1;
 int count_nums(vector<int> nums) {
-    int sign = 1;
     int count = 0;
     for (int num : nums) {
         bool negativeFound = false;
@@ -26,4 +23,8 @@ int count_nums(vector<int> nums) {
             count++;
     }
     return count;
+}
+
+int main() {
+    assert(count_nums({1}) == 1);
 }
