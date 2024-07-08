@@ -1,23 +1,34 @@
+```cpp
 #include <algorithm>
-#include <limits>
+#include <vector>
+#include <cmath>
 
-bool issame(vector<float> a, vector<float> b) {
+using namespace std;
+
+bool areEqual(const vector<float>& a, const vector<float>& b) {
     return a == b;
 }
 
-vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
-    pair<float, float> closest_pair;
+vector<float> find_closest_elements(vector<float> numbers) {
     float min_diff = numeric_limits<float>::max();
+    float closest_pair[2] = {0};
 
-    for (int i = 0; i < numbers.size() - 1; ++i) {
+    for (int i = 0; i < numbers.size(); ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = numbers[j] - numbers[i];
-            if (abs(diff) < min_diff) {
-                min_diff = abs(diff);
-                closest_pair = make_pair(numbers[i], numbers[j]);
+            float diff = abs(numbers[i] - numbers[j]);
+            if (diff < min_diff) {
+                min_diff = diff;
+                closest_pair[0] = numbers[i];
+                closest_pair[1] = numbers[j];
             }
         }
     }
 
-    return vector<pair<float, float>>({closest_pair});
+    return {closest_pair[0], closest_pair[1]};
+}
+
+int main() {
+    vector<float> nums = {1.1, 2.2, 3.1, 4.1, 5.1};
+    assert(areEqual(find_closest_elements(nums), (vector<float>) {2.2, 3.1}));
+    return 0;
 }
