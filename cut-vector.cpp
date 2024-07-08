@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -23,25 +22,22 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
 }
 
 int main() {
-    int n; cin >> n;
-    if(n <= 0) {
-        cout << "Invalid input. Please enter a positive integer." << endl;
-        return 1;
-    }
+    int n; 
+    cin >> n;
     vector<int> v(n+1);
     for (int i = 0; i <= n; ++i) {
         cin >> v[i];
     }
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "Left side: ";
-    for (auto num : result.first) {
-        cout << num << " ";
+    if(result.first.empty()) {
+        cout << "Error: The input vector is a single number. Please provide a vector with at least two distinct elements." << endl;
+    } else {
+        for (auto num : result.first) {
+            cout << num << " ";
+        }
+        cout << endl;
+        for (auto num : result.second) {
+            cout << num << " ";
+        }
     }
-    cout << endl;
-    cout << "Right side: ";
-    for (auto num : result.second) {
-        cout << num << " ";
-    }
-    cout << endl;
     return 0;
-}
