@@ -1,6 +1,6 @@
-#include <cassert>
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 int sum_squares(std::vector<int> lst){
     int result = 0;
