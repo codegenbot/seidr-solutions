@@ -16,6 +16,6 @@ std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::s
 }
 
 int main() {
-    assert(isSame(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), std::vector<std::string>{"xxx","xxxAAA","xxx"}));
+    assert(isSame(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx"), std::vector<std::string>({"xxx", "xxxAAA", "xxx"})));
     return 0;
 }
