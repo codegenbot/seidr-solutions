@@ -1,9 +1,12 @@
+Here is the modified code:
+
 ```cpp
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+vector<int> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int pos = -1;
     for (int i = 0; i < nums.size() - 1; i++) {
@@ -13,7 +16,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
             pos = i;
         }
     }
-    return {{nums.begin(), pos+1}, {pos, nums.end()}};
+    return {vector<int>(nums.begin(), pos+1), vector<int>(pos, nums.end())};
 }
 
 int main() {
@@ -23,14 +26,14 @@ int main() {
     for (auto &num : nums) {
         cin >> num;
     }
-    pair<vector<int>, vector<int>> result = cutVector(nums);
+    vector<int> result = cutVector(nums);
     cout << "[";
-    for (int num : result.first) {
+    for (int num : result[0]) {
         cout << num << " ";
     }
     cout << "] [";
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second.at(i) << " ";
+    for (int i = 0; i < result[1].size(); i++) {
+        cout << result[1].at(i) << " ";
     }
     cout << "] ]" << endl;
     return 0;
