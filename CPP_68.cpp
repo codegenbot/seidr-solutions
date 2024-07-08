@@ -1,5 +1,5 @@
 ```cpp
-std::vector<std::pair<int, int>> findMinEven(std::vector<int> arr) {
+std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
 
     for (int i = 0; i < arr.size(); i++) {
