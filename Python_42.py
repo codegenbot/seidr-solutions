@@ -1,4 +1,11 @@
-def check(increment_list):
-    return increment_list
+def increment_list(l):
+    return [x + 1 for x in l]
 
-result = check(some_list)
+def check(func):
+    l = [1, 2, 3]
+    if func(l) == [2, 3, 4]:
+        print("Test passed")
+    else:
+        print("Test failed")
+
+check(increment_list)
