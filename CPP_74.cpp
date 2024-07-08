@@ -1,5 +1,11 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
+
+#pragma GCC diagnostic push
+#include <initializer_list>
+#pragma GCC diagnostic pop
 
 bool issame(vector<string> a,vector<string>b){
     if(a.size()!=b.size())
@@ -10,10 +16,6 @@ bool issame(vector<string> a,vector<string>b){
     }
     return true;
 }
-
-#include <iostream>
-#include <vector>
-#include <string>
 
 int main() {
     vector<string> v1, v2;
