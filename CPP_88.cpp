@@ -1,14 +1,5 @@
 #include <algorithm>
 #include <vector>
-#include <initializer_list>
-
-bool issame(std::vector<int> array1, std::vector<int> array2) {
-    if (array1.size() != array2.size()) return false;
-    for (int i = 0; i < array1.size(); i++) {
-        if (array1[i] != array2[i]) return false;
-    }
-    return true;
-}
 
 std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) return array;
@@ -32,4 +23,19 @@ std::vector<int> sort_array(std::vector<int> array) {
     sortedArray.insert(sortedArray.end(), left, middle);
 
     return sortedArray;
+}
+
+int main() {
+    std::vector<int> array = {21, 14, 23, 11};
+    array = sort_array(array);
+    if (array.size() % 2 == 1) {
+        std::cout << "Sum of first and last elements is odd: ";
+    } else {
+        std::cout << "Sum of first and last elements is even: ";
+    }
+    std::cout << array[0] + array.back() << std::endl;
+
+    assert(array == {11, 14, 21, 23});
+
+    return (array != {11, 14, 21, 23}) ? 1 : 0;
 }
