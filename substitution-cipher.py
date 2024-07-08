@@ -1,3 +1,6 @@
+
+# Import the sys module to access the standard input and output streams.
+import sys
 def substitution_cipher(message, cipher):
     char_map = {}
     for i in range(len(cipher)):
