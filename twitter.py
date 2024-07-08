@@ -1,5 +1,8 @@
 import string
 
+# Prompt user for input
+tweet = input("Enter your tweet: ")
+
 
 def validate_tweet(tweet):
     if not all(c in string.printable for c in tweet):
@@ -12,9 +15,6 @@ def validate_tweet(tweet):
         return "You didn't type anything"
 
 
-# read input from user
-tweet = input("Enter your tweet: ")
-
-# validate the tweet
+# Call validate_tweet function with user input
 result = validate_tweet(tweet)
 print(result)
