@@ -1,9 +1,8 @@
-Here is the solution for the problem:
-
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
+
 
 def find_indices(text, target):
     indices = []
@@ -16,11 +15,10 @@ def find_indices(text, target):
         i += pos + 1
     return indices
 
-# Test the code
-a = int(input())
-b = int(input())
-print(gcd(a, b))
 
-text = input()
-target = input()
-print(find_indices(text, target))
+# Test cases
+print(gcd(1, 1))
+print(gcd(4, 400000))
+print(gcd(54, 24))
+print(gcd(4200, 3528))
+print(gcd(820000, 63550))
