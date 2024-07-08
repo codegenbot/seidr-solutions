@@ -1,3 +1,4 @@
+```
 def cut_vector(nums):
     total_sum = sum(nums)
     min_diff = float("inf")
