@@ -18,10 +18,10 @@ bool is_sorted(std::vector<int> lst){
     }
 
     return true;
+
 }
 
 int main(){
     std::vector<int> lst = {1, 2, 3, 4};
     assert(is_sorted(lst) == true);
     return 0;
-}
