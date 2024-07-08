@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <array>
 
 bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
@@ -12,13 +12,11 @@ std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::s
         if (s.find(prefix) == 0) {
             result.push_back(s);
         }
-    };
+    }
+    return result;
 }
 
 int main() {
-    if (!isSame(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}))
-        std::cout << "Test failed. The actual output was different from the expected output.\n";
-    else
-        std::cout << "Test passed successfully.\n";
+    assert(isSame(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
