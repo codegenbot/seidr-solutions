@@ -1,26 +1,17 @@
-#include <iostream>
-#include <string>
-using namespace std;
-
 string circular_shift(int x, int shift) {
-    string str = std::move(to_string(x));
+    string str = to_string(x);
     int n = str.length();
     if (shift >= n)
         return str;
     else {
-        string result = "";
+        char buffer[n];
         for (int i = 0; i < n; i++) {
             if (i < shift || i >= n - shift)
-                result += str[i];
+                buffer[i] = str[i];
             else
-                result = str[i] + result;
+                buffer[i] = str[i-shift];
         }
-        return result;
+        buffer[n-1] = '\0';
+        return string(buffer, n-1);
     }
-}
-
-int main() {
-    int x, shift;
-    cin >> x >> shift;
-    cout << circular_shift(x, shift) << endl;
 }
