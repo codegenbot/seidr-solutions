@@ -1,8 +1,9 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool areVectorsSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -10,7 +11,7 @@ bool areVectorsSame(const std::vector<std::string>& a, const std::vector<std::st
     return true;
 }
 
-int mainHelper() {
+int main() {
     int sum1 = 0;
     std::vector<std::string> lst1;
     std::cout << "Enter strings for list 1: ";
@@ -25,11 +26,13 @@ int mainHelper() {
         lst2.push_back(str);
     }
     
-    bool total_match = areVectorsSame(lst1, lst2);
+    bool total_match;
+    total_match = issame(lst1, lst2);
+
+    if (total_match)
+        std::cout << "Lists are the same.\n";
+    else
+        std::cout << "Lists are not the same.\n";
 
     return 0;
-}
-
-int main() {
-    return mainHelper();
 }
