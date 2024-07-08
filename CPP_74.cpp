@@ -1,44 +1,46 @@
-```
+```cpp
 #include <vector>
 #include <string>
-#include <iostream>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size())
+bool issame(vector<string> a,vector<string>b){
+    if(a.size()!=b.size())
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (std::strcmp(a[i].c_str(), b[i].c_str()) != 0)
+    for(int i=0;i<a.size();i++){
+        if(std::strcmp(a[i].c_str(), b[i].c_str())!=0)
             return false;
     }
     return true;
+
 }
 
+#include <iostream>
+#include <vector>
+#include <string>
+
 int main() {
-    std::vector<std::string> v1, v2;
-
-    int total_match = 0; // Defined before usage.
-
-    std::cout << "Enter number of strings: ";
-    int n; std::cin >> n;
-
-    for (int i = 0; i < n; i++) {
-        std::string str;
-        std::cout << "Enter string " << i + 1 << ": ";
-        std::cin >> str;
+    vector<string> v1, v2;
+    int total_match = 0;
+    
+    cout << "Enter number of strings: ";
+    int n; cin >> n;
+    
+    for(int i=0;i<n;i++){
+        string str;
+        cout << "Enter string " << i+1 << ": ";
+        cin >> str;
         v1.push_back(str);
     }
-
-    for (int i = 0; i < n; i++) {
-        std::string str;
-        std::cout << "Enter string " << i + 1 << ": ";
-        std::cin >> str;
+    
+    for(int i=0;i<n;i++){
+        string str;
+        cout << "Enter string " << i+1 << ": ";
+        cin >> str;
         v2.push_back(str);
     }
-
-    if (issame(v1, v2))
-        std::cout << "Both vectors have same strings.";
+    
+    if(issame(v1,v2))
+        cout << "Both vectors have same strings.";
     else
-        std::cout << "Vectors do not have the same strings.";
-
+        cout << "Vectors do not have the same strings.";
     return 0;
 }
