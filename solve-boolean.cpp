@@ -8,16 +8,16 @@ bool solveBoolean(string expression) {
     for (int j = 1; j <= expression.size(); j++) {
         if (expression[j] == '|') {
             bool left = solveBoolean(expression.substr(0, j - 1));
-            bool right = solveBoolean(expression.substr(j));
+            bool right = solveBoolean(expression.substr(j + 1));
             return left || right;
         } else if (expression[j] == '&') {
             bool left = solveBoolean(expression.substr(0, j - 1));
-            bool right = solveBoolean(expression.substr(j));
+            bool right = solveBoolean(expression.substr(j + 1));
             return left && right;
         }
     }
     
-    return true;
+    return true; // Default to True
 }
 
 int main() {
