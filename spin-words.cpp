@@ -4,22 +4,21 @@
 #include <sstream>
 
 std::string spinWords(std::string str) {
-    std::istringstream iss(str);
+    std::stringstream ss(str);
     std::string word;
     std::string result = "";
 
-    while (iss >> word) {
+    while (ss >> word) {
         if (word.length() >= 5) {
-            for (int i = word.length() - 1; i >= 0; --i) {
+            for (int i = word.length() - 1; i >= 0; i--) {
                 result += word[i];
             }
         } else {
-            result += word;
+            result += word + " ";
         }
-        result += " ";
     }
 
-    return result.substr(0, result.length() - 1);
+    return result.substr(0, result.size() - 1);
 }
 
 int main() {
