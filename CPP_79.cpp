@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-std::string decimal_to_binary(int decimal){
+std::string decimal_to_binary(int decimal) {
     std::string binary = "";
     while(decimal > 0) {
         if (decimal % 2 == 0)
@@ -14,7 +14,9 @@ std::string decimal_to_binary(int decimal){
 }
 
 int main() {
-    assert (decimal_to_binary(15) == "db1111db");
-    std::cout << "Test passed." << std::endl;
+    int decimal;
+    std::cout << "Enter a decimal number: ";
+    std::cin >> decimal;
+    std::cout << "The binary representation is: " << decimal_to_binary(decimal) << std::endl;
     return 0;
 }
