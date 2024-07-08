@@ -1,30 +1,18 @@
-```python
-user_input = input()
-frames = [frame.replace("-", "") for frame in user_input.split("\n")]
-
-
+```
 def bowling_score(frames):
-    total_score = 0
-    current_frame_score = 0
-    roll_count = 1
-
+    score = 0
     for frame in frames:
-        if len(frame) == 2:
-            if int(frame[1]) > 0:
-                current_frame_score += 10 + (int(frame[1]) - 1)
-            else:
-                current_frame_score += 10
-        elif len(frame) > 1:
-            current_frame_score += int(frame[0]) + int(frame[1])
+        if "X" * len(frame) == frame: 
+            score += 10 + (10 - len([c for c in frame if c != "X"]) ) * 1
         else:
-            if roll_count == 2:
-                current_frame_score += 10
+            rolls = [int(c) for c in frame.replace("-", "")]
+            if sum(rolls) < 10:
+                score += sum(rolls)
+            elif "X" in str(rolls):
+                score += 10 + (10 - len([c for c in str(rolls) if c != "X"]) ) * 1
             else:
-                current_frame_score += 10
-        total_score += current_frame_score
-        if len(frame) > 1:
-            roll_count = 1
-        elif frame != "10":
-            roll_count = 2
+                score += min(sum(rolls), 10) + (10 - min(sum(rolls), 10)) * 1
+    return score
 
-    return total_score
+frames = [line.strip() for line in input().splitlines()]
+print(bowling_score(frames))
