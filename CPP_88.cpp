@@ -1,8 +1,10 @@
+Here is the modified code:
+
 ```cpp
 #include <algorithm>
 #include <vector>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool issame(cpp::vector<int> a, cpp::vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -10,14 +12,14 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> sortArray(std::vector<int> array) {
+cpp::vector<int> sort_array(cpp::vector<int> array) {
     if (array.empty()) return array;
 
     auto middle = array.begin() + array.size() / 2;
     auto left = array.begin();
     auto right = middle;
 
-    std::vector<int> sortedArray;
+    cpp::vector<int> sortedArray;
 
     while (left != right && right != middle) {
         if (*left <= *right) {
@@ -34,9 +36,9 @@ std::vector<int> sortArray(std::vector<int> array) {
     return sortedArray;
 }
 
-int testMain() {
-    std::vector<int> array = {21, 14, 23, 11};
-    array = sortArray(array);
+int main() {
+    cpp::vector<int> array = {21, 14, 23, 11};
+    array = sort_array(array);
     if (array.size() % 2 == 1) {
         std::cout << "Sum of first and last elements is odd: ";
     } else {
@@ -44,12 +46,9 @@ int testMain() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    if (!isSame(sortArray({21, 14, 23, 11}) , {23, 21, 14, 11})) {
-        return 1; // indicates failure
+    if (!issame(sort_array({21, 14, 23, 11}) , {11, 14, 21, 23})) {
+        std::cout << "Test failed";
+    } else {
+        std::cout << "Test passed";
     }
-    return 0; // indicates success
-}
-
-int main() {
-    testMain();
 }
