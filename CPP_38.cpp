@@ -11,7 +11,7 @@ string encode_cyclic(string s) {
     return output;
 }
 
-string decode_cyclic(string s){ 
+string decode_cyclic(string s) { 
     int l = s.length();
     string x, output;
     for (int i = 0; i * 3 < l; i++) {
