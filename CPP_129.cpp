@@ -1,8 +1,9 @@
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
-bool same(vector<int> a, vector<int> b) {
+bool isSame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -19,10 +20,11 @@ vector<int> findKPositions(vector<vector<int>> grid, int k) {
     for (int i = 0; i < grid.size(); ++i) {
         for (int j = 0; j < grid[0].size(); ++j) {
             if (grid[i][j] == k) {
-                result.push_back(i);
-                result.push_back(j);
-                for (int p = 0; p < 10; ++p) {
-                    result.push_back(k);
+                for(int x=0;x<grid.size();++x){
+                    for(int y=0;y<grid[0].size();++y){
+                        if((i+x)%2==0&&y==j|| (i+x+1)%2!=0&&y!=j)
+                            grid[x][y]=k+1;
+                    }
                 }
             }
         }
@@ -31,6 +33,6 @@ vector<int> findKPositions(vector<vector<int>> grid, int k) {
 }
 
 int main() {
-    assert(same(findKPositions({{1, 3}, {3, 2}}, 10), vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3})));
+    assert(isSame(findKPositions({{1, 3}, {3, 2}}, 10), vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3})));
     return 0;
 }
