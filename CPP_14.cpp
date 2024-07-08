@@ -1,12 +1,11 @@
-```cpp
+#include <vector>
+#include <string>
+
 #ifdef __cplusplus
     #define __STDCPP_DEFAULTED __defaulted
 #else
     #define __STDCPP_DEFAULTED
 #endif
-
-#include <vector>
-#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
