@@ -57,5 +57,6 @@ int main() {
         std::cout << grade << " ";
     }
     std::cout << "\n";
+    
     return 0;
 }
