@@ -19,31 +19,30 @@ bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
     return true;
 
 int main(){
+    std::vector<std::vector<int>> matrix1, matrix2;
     int m, n;
     std::cout << "Enter the number of rows and columns for each matrix: ";
     std::cin >> m >> n;
     
     // read in the first matrix
-    std::vector<std::vector<int>> matrix1(m);
     for(int i = 0; i < m; i++) {
-        matrix1[i].resize(n);
+        matrix1.push_back(std::vector<int>());
         for(int j = 0; j < n; j++) {
             int x;
             std::cout << "Enter element " << i << "," << j << ": ";
             std::cin >> x;
-            matrix1[i][j] = x;
+            matrix1[i].push_back(x);
         }
     }
     
     // read in the second matrix
-    std::vector<std::vector<int>> matrix2(m);
     for(int i = 0; i < m; i++) {
-        matrix2[i].resize(n);
+        matrix2.push_back(std::vector<int>());
         for(int j = 0; j < n; j++) {
             int x;
             std::cout << "Enter element " << i << "," << j << ": ";
             std::cin >> x;
-            matrix2[i][j] = x;
+            matrix2[i].push_back(x);
         }
     }
 
