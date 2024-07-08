@@ -1,9 +1,7 @@
-import string
-
+import re
 def validate_tweet(tweet):
-    if not all(c in string.printable for c in tweet):
-        return "Your tweet contains non-printable characters"
-    elif len(tweet) > 140:
+    tweet = re.sub('[^A-Za-z0-9]', '', tweet) # remove all non-alphanumeric characters
+    if len(tweet) > 140:
         return "Too many characters"
     elif tweet != "":
         return f"Your tweet has {len(tweet)} characters"
