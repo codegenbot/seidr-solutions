@@ -1,5 +1,4 @@
-```cpp
-#pragma GCC target "c++11"
+#include <initializer_list>
 
 #include <vector>
 #include <string>
