@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -14,6 +13,7 @@ int main() {
 
     double totalDistance = 0.0;
     double currentHeight = firstBounceHeight;
+    totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
         totalDistance += abs(currentHeight); // calculate absolute distance
         currentHeight *= bouncinessIndex; // update ball's height after bounce
