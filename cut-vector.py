@@ -1,7 +1,6 @@
-```
 def cut_vector(vector):
     if len(vector) == 1:
-        return [[vector]], []
+        return [vector], []
 
     min_diff = float("inf")
     split_index = -1
