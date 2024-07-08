@@ -24,4 +24,3 @@ int main() {
     vector<string> expected = {"", "W", "WW", "WWW"};
     assert(issame(prefixes, expected));
     return 0;
-}
