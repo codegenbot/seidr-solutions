@@ -11,7 +11,11 @@ vector<int> incr_list(const vector<int>& l) {
     return result;
 }
 
-int main() {
+int solve_problem() {
     assert(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}) == vector<int>{6, 3, 6, 3, 4, 4, 10, 1, 124});
     return 0;
+}
+
+int main() {
+    return solve_problem();
 }
