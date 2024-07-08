@@ -6,7 +6,7 @@ std::vector<std::string> separate_paren_groups(const std::string& s) {
     // Implementation to separate groups of parentheses
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -20,7 +20,5 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), std::vector<std::string>{"()", "(())", "(()())"}));
-    return 0;
-}
+assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), std::vector<std::string>{"()", "(())", "(()())"}));
+return 0;
