@@ -21,6 +21,7 @@ vector<string> all_prefixes(const string& str) {
 int main() {
     const std::string s = "WWW";
     vector<string> prefixes = all_prefixes(s);
-    vector<string> expected({"", "W", "WW", "WWW"});
+    vector<string> expected = {"", "W", "WW", "WWW"};
     assert(issame(prefixes, expected));
     return 0;
+}
