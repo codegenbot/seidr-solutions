@@ -1,30 +1,16 @@
-```cpp
-#include <iostream>
-#include <vector>
-
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
+vector<float> get_positive(vector<float> v) {
+    vector<float> result;
+    for (float x : v) {
+        if (x > 0) result.push_back(x);
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-9f) { 
-            return false;
-        }
-    }
-    return true;
+    return result;
 }
 
-float get_positive(const std::vector<float>& l) {
-    float sum = 0.0f;
-    for (const auto& x : l) {
-        if (std::abs(x) > 1e-9f) { 
-            sum += x;
-        }
-    }
-    return 1; // Vector of size one
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
 }
 
 int main() {
-    assert(issame(std::vector<float>(1), {}));
+    assert(issame(get_positive({}), {}));
     return 0;
 }
