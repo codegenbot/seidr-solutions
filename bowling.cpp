@@ -3,7 +3,7 @@
 int bowlingScore(string s) {
     int score = 0;
     int i = 0;
-    
+
     while (i < s.length()) {
         if (s[i] == 'X') {
             score += 30;
@@ -29,5 +29,5 @@ int bowlingScore(string s) {
             i++;
         }
     }
-    
+
     return score;
