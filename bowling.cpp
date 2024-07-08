@@ -1,30 +1,31 @@
 ```cpp
+#include <string>
+#include <vector>
+
 int bowlingScore(std::string s) {
     int score = 0;
     bool lastRollWasStrike = false;
     bool lastRollWasSpare = false;
 
-    for (char c : s) {
-        if (c == 'X') {
+    for (size_t i = 0; i < s.size(); ) {
+        if (s[i] == 'X') { 
             score += 10 + (lastRollWasStrike ? 10 : (lastRollWasSpare ? 5 : 0));
             lastRollWasStrike = true;
             lastRollWasSpare = false;
-        } else if (c == '/') {
-            size_t pos = s.find('/');
-            if (pos != std::string::npos) {
-                int nextOneRoll = stoi(s.substr(0, pos));
-                score += nextOneRoll;
-            } else {
-                int nextTwoRolls = stoi(s);
-                score += nextTwoRolls / 2;
-            }
+            i++; // skip the rest of the frame
+        } else if (s[i] == '/') { 
+            int nextTwoRolls = std::stoi(s.substr(i + 1, 2)) * 10 / 2;
+            score += (lastRollWasStrike ? 10 : (lastRollWasSpare ? 5 : 0));
+            score += nextTwoRolls;
             lastRollWasStrike = false;
             lastRollWasSpare = true;
-        } else {
-            int roll = c - '0';
-            if (c == '9') lastRollWasSpare = true;
+            i += 3; // skip the rest of the frame
+        } else { 
+            int roll = s[i] - '0';
+            if (roll == 9) lastRollWasSpare = true;
             else lastRollWasStrike = true;
             score += roll;
+            i++; // move to the next character
         }
     }
 
