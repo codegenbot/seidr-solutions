@@ -4,7 +4,7 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int main() {
@@ -15,7 +15,7 @@ int main() {
     std::sort(c.begin(), c.end());
     std::sort(b.begin(), b.end());
 
-    assert(issame(std::unique(c.begin(), c.end()), b.end()));
-    
+    assert(issame(c, b));
+
     return 0;
 }
