@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <bitset>
 
@@ -16,6 +15,6 @@ std::vector<int> sort_array(std::vector<int> arr) {
             return a < b;
         }
     };
-    std::sort(arr.begin(), arr.end(), comp);
+    sort(arr.begin(), arr.end(), comp);
     return arr;
 }
