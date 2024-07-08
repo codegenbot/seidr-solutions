@@ -1,17 +1,13 @@
-#include <iostream>
-#include <cmath>
-
+```
 double diceGame(int n, int m) {
-    double prob = 0.0;
-    for (int i = 1; i < n && i <= m; i++) {
-        prob += (n - i) * (1.0 / n) / (m + 1);
+    double result = 0.0;
+    for (int i = 1; i <= m && i < n; i++) {
+        result += (n - i) / (double)(n * m);
     }
-    return prob;
+    for (int i = m + 1; i <= n + m; i++) {
+        result += 1.0 / (double)(n * m);
+    }
+    return result;
 }
 
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    double result = diceGame(n, m);
-    return 0;
-}
+int main() { return diceGame(0, 0); }
