@@ -1,5 +1,7 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
+#include <algorithm>
 
 int mastermind(string code, string guess) {
     int white = 0;
