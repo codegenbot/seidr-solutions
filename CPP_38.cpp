@@ -1,5 +1,6 @@
+#include <cassert>
 #include <iostream>
-#include <string> // Include the <string> library
+#include <string>
 
 std::string encode_cyclic(std::string s) {
     int l = s.length();
@@ -28,14 +29,12 @@ std::string decode_cyclic(std::string s) {
 }
 
 int main() {
-    std::string s = "abcde"; // Changed 'str' to 's'
-    std::string encoded_str = encode_cyclic(s); // Added 'std::' before string
-
-    assert(std::decode_cyclic(encoded_str) == s); // Added 'std::' before assert
-
+    std::string s = "abcde";
+    std::string encoded_str = encode_cyclic(s);
+    assert(decode_cyclic(encoded_str) == s);
     std::cout << "Original: " << s << std::endl;
     std::cout << "Encoded: " << encoded_str << std::endl;
-    std::cout << "Decoded: " << std::decode_cyclic(encoded_str) << std::endl; // Added 'std::' before decode_cyclic
+    std::cout << "Decoded: " << decode_cyclic(encoded_str) << std::endl;
 
     return 0;
 }
