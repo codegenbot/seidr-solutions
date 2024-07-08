@@ -1,11 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-
-#ifdef __cplusplus
-    #define __STDCPP_DEFAULTED __defaulted
-#else
-    #define __STDCPP_DEFAULTED
-#endif
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
@@ -24,7 +19,5 @@ vector<string> all_prefixes(string str) {
     return result;
 }
 
-int main() {
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    return 0;
-}
+vector<string> b = {"W", "WW", "WWW"};
+assert(issame(all_prefixes("WWW"), b));
