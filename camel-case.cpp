@@ -1,4 +1,3 @@
-```cpp
 string camelCase(string s) {
     string result = "";
     bool capitalizeNext = false;
@@ -21,13 +20,12 @@ string camelCase(string s) {
         }
     }
     
-    // remove trailing space and convert first letter to uppercase
     if (!result.empty()) {
         result[0] = toupper(result[0]);
     }
     size_t lastSpacePos = result.find(' ');
     if (lastSpacePos != string::npos) {
-        result.erase(lastSpacePos);
+        result.erase(lastSpacePos, 1);
     }
     
     return result;
