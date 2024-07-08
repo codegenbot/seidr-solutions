@@ -1,6 +1,7 @@
 #include <string>
 
-bool check_dict_case(std::map<std::string, std::string> dict) {
+namespace std {
+bool check_dict_case(map<string, string> dict) {
     if (dict.empty())
         return false;
 
@@ -19,4 +20,5 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
     }
 
     return allLower || allUpper;
+}
 }
