@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+```cpp
 #include <vector>
 #include <string>
 
@@ -20,6 +23,8 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 int main() {
     vector<string> output = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
     cout << "Output: ";
-    for(auto str : output) cout << str << " ";
+    for(auto str : output) {
+        cout << str << " ";
+    }
     cout << endl;
 }
