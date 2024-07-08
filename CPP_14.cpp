@@ -1,7 +1,8 @@
 #include <string>
 #include <vector>
+#include <cassert>
 
-vector<string> all_prefixes(string str);
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b);
 
@@ -17,10 +18,17 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> all_prefixes(string str){
+vector<string> all_prefixes(string str);
+
+vector<string> all_prefixes(string str) {
     vector<string> result;
     for (int i = 1; i <= str.size(); ++i) {
         result.push_back(str.substr(0, i));
     }
     return result;
+}
+
+int main() {
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    return 0;
 }
