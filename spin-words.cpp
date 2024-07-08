@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 using namespace std;
 
 string spinWords(string str) {
@@ -7,10 +8,10 @@ string spinWords(string str) {
 
     for (char c : str) {
         if (c == ' ') {
-            if (word.length() >= 5)
+            if (word.length() >= 5) {
                 for (int i = word.length() - 1; i >= 0; --i)
                     result += word[i];
-            else
+            } else
                 result += word;
             word = "";
         } else {
@@ -18,27 +19,24 @@ string spinWords(string str) {
         }
     }
 
-    if (word.length() >= 5)
+    if (word.length() >= 5) {
         for (int i = word.length() - 1; i >= 0; --i)
             result += word[i];
-    else
+    } else
         result += word;
 
     return result;
 }
 
 int main() {
-    string str1 = "Hello World";
-    cout << spinWords(str1) << endl;
+    string str = "Hello World";
+    cout << spinWords(str) << endl;
     
-    string str2 = "This is a test";
-    cout << spinWords(str2) << endl;
+    str = "This is a test";
+    cout << spinWords(str) << endl;
     
-    string str3 = "";
-    cout << spinWords(str3) << endl;
-    
-    string str4 = "a";
-    cout << spinWords(str4) << endl;
+    str = "One two three four five six seven eight nine ten";
+    cout << spinWords(str) << endl;
     
     return 0;
 }
