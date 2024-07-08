@@ -5,12 +5,11 @@ def solve(input_str):
         return False
     elif '&' in input_str and '|' in input_str:
         raise ValueError("Invalid expression")
-    result = bool(solve(input_str.split('&')[0]))
-    for expr in input_str.split('&')[1:]:
-        result = result and bool(solve(expr))
-    if '&' not in input_str:
-        return result
-    result = result or bool(solve(input_str.split('|')[0]))
-    for expr in input_str.split('|')[1:]:
-        result = result or bool(solve(expr))
-    return result
+    while '&' in input_str or '|' in input_str:
+        if '|' in input_str:
+            a, b = input_str.split('|')
+            input_str = str(bool(a)) + (not bool(b) and 'f' or 't')
+        elif '&' in input_str:
+            a, b = input_str.split('&')
+            input_str = str(bool(a)) and str(bool(b))
+    return input_str == 'true'
