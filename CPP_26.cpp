@@ -1,21 +1,25 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 
-bool std::operator==(const std::vector<int>& a, const std::vector<int>& b){
-    return a == b;
+bool std::operator==(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i])
+            return false;
+    return true;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
     std::unordered_map<int, bool> mp;
-    std::vector<int> result;
+    std::vector<std::vector<int>> result;
 
-    for (int i = 0; i < numbers.size(); i++) {
+    for (int i = 0; i < numbers.size(); ++i) {
         if (!mp.count(numbers[i])) {
             mp[numbers[i]] = true;
-            result.push_back(numbers[i]);
+            result.push_back({numbers[i]});
         }
     }
 
-    return result;
+    return {0}; // fix the code to correctly return the desired output
 }
