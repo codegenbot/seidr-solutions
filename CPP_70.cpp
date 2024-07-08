@@ -17,7 +17,7 @@ std::vector<int> strange_sort_list(std::initializer_list<int> lst) {
     std::vector<int> result;
     if (lst.size() == 0) return result;
 
-    std::sort(std::vector<int>(lst).begin(), std::vector<int>(lst).end());
+    std::vector<int>(lst).sort();
 
     for (int i : lst) {
         result.push_back(i);
