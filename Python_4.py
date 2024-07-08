@@ -12,7 +12,8 @@ def mean_absolute_deviation(numbers):
         count += 1
     return total / count
 
+numbers_str = input("Enter space-separated numbers: ")
 numbers = [num.strip().replace('.', '', 1).replace('-', '', 1).replace(' ', '') 
-           for num in input("Enter space-separated numbers: ").split() if num.replace('.', '', 1).replace('-', 1).isnumeric()]
+           for num in numbers_str.split() if num.replace('.', '', 1).replace('-', 1).isnumeric()]
 
 print(mean_absolute_deviation(numbers))
