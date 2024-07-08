@@ -1,6 +1,4 @@
-```
 #include <iostream>
-#include <cstdio>
 
 int fib4(int n) {
     if (n <= 1)
