@@ -1,4 +1,3 @@
-```
 import re
 
 total_score = 0
