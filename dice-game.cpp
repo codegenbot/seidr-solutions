@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 double diceGame(int n, int m) {
@@ -18,3 +19,4 @@ int main() {
     double result = diceGame(n, m);
     cout << "Probability: " << result << endl;
     return 0;
+}
