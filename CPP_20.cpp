@@ -1,6 +1,10 @@
+```
 #include <algorithm>
 #include <vector>
 #include <limits>
+#include <iostream>
+
+using namespace std;
 
 bool issame(pair<float, float> p1, pair<float, float> p2) {
     for (int i = 0; i < 2; ++i) {
@@ -16,9 +20,9 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = abs(numbers[j] - numbers[i]);
-            if (diff < min_diff && !issame(closest_pair, make_pair(numbers[i], numbers[j]))) {
-                min_diff = diff;
+            float diff = numbers[j] - numbers[i];
+            if (abs(diff) < min_diff && !issame(closest_pair, make_pair(numbers[i], numbers[j]))) {
+                min_diff = abs(diff);
                 closest_pair = make_pair(numbers[i], numbers[j]);
             }
         }
@@ -28,9 +32,8 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    vector<float> numbers = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
-    vector<pair<float, float>> result = find_closest_elements(numbers);
-    for (const auto& pair : result) {
+    vector<float> numbers = {1.0, 2.5, 3.7, 4.9, 6.1};
+    for (auto& pair : find_closest_elements(numbers)) {
         cout << "(" << pair.first << ", " << pair.second << ")" << endl;
     }
     return 0;
