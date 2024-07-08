@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
 bool has_close_elements(std::vector<double> numbers, double threshold) {
     for (int i = 0; i < numbers.size(); i++) {
@@ -13,21 +13,9 @@ bool has_close_elements(std::vector<double> numbers, double threshold) {
     return false;
 }
 
-int main() {
-    double n, threshold;
-    std::cout << "Enter the size of array: ";
-    std::cin >> n;
-    std::vector<double> a(n);
-    
-    for (double& x : a) {
-        std::cout << "Enter number " << &x << ":";
-        std::cin >> x;
-    }
-    
-    std::cout << "Enter the threshold value: ";
-    std::cin >> threshold;
-
-    if (has_close_elements(a, threshold)) {
+int main(int argc, char** argv) {
+    std::vector<double> a({1.0, 2.0, 3.9, 4.0, 5.0, 2.2});
+    if (has_close_elements(a, 0.1)) {
         std::cout << "The array contains close elements." << std::endl;
     } else {
         std::cout << "The array does not contain close elements." << std::endl;
