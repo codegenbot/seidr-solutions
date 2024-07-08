@@ -14,5 +14,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append('(' + group)
                 group = ''
             else:
-                group += char
+                if group != '':
+                    result.append(')' + group + ')' + ' '
+                    group = ''
     return [g for g in result if g.endswith(')')]
