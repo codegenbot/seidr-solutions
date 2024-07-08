@@ -1,5 +1,8 @@
-string encode(string message) {
-    string result = "";
+#include <string>
+#include <cctype>
+
+std::string encode(std::string message) {
+    std::string result = "";
     for (char c : message) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
