@@ -1,7 +1,8 @@
+```
 #include <vector>
 #include <string>
 
-bool same(vector<string> a, vector<string> b) {
+bool isSame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,42 +14,46 @@ bool same(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
+vector<string> numericalLetterGrade(vector<float> grades) {
+    vector<string> letterGrades;
     for (float grade : grades) {
-        string letter_grade;
+        string letterGrade;
         if (grade >= 4.0) {
-            letter_grade = "A+";
+            letterGrade = "A+";
         } else if (grade > 3.7) {
-            letter_grade = "A";
+            letterGrade = "A";
         } else if (grade > 3.3) {
-            letter_grade = "A-";
+            letterGrade = "A-";
         } else if (grade > 3.0) {
-            letter_grade = "B+";
+            letterGrade = "B+";
         } else if (grade > 2.7) {
-            letter_grade = "B";
+            letterGrade = "B";
         } else if (grade > 2.3) {
-            letter_grade = "B-";
+            letterGrade = "B-";
         } else if (grade > 2.0) {
-            letter_grade = "C+";
+            letterGrade = "C+";
         } else if (grade > 1.7) {
-            letter_grade = "C";
+            letterGrade = "C";
         } else if (grade > 1.3) {
-            letter_grade = "C-";
+            letterGrade = "C-";
         } else if (grade > 1.0) {
-            letter_grade = "D+";
+            letterGrade = "D+";
         } else if (grade > 0.7) {
-            letter_grade = "D";
+            letterGrade = "D";
         } else {
-            letter_grade = "F";
+            letterGrade = "F";
         }
-        letter_grades.push_back(letter_grade);
+        letterGrades.push_back(letterGrade);
     }
-    return letter_grades;
+    return letterGrades;
 }
 
 int main() {
-    vector<float> grades = {3.8, 2.5};
-    assert(same(numerical_letter_grade(grades), {"A", "C-" }));
+    vector<float> grades = {0.0, 0.7};
+    if (isSame(numericalLetterGrade(grades), vector<string> {"E", "D-" })) {
+        cout << "The same" << endl;
+    } else {
+        cout << "Not the same" << endl;
+    }
     return 0;
 }
