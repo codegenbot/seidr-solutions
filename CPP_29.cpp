@@ -16,9 +16,18 @@ std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::s
 }
 
 int main() {
-    std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    std::vector<std::string> expected = {"xxx", "xxxAAA", "xxx"};
+    int n;
+    std::cin >> n;
     
-    assert(isSame(filterByPrefix(strings, "xxx"), expected));
+    std::vector<std::string> strings(n);
+    for (std::string& s : strings) {
+        std::cin >> s;
+    }
+    
+    std::string prefix;
+    std::cin >> prefix;
+    
+    std::vector<std::string> expected = filterByPrefix(strings, prefix);
+    assert(isSame(expected, {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
