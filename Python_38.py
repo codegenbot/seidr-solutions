@@ -5,4 +5,4 @@ def decode_cyclic():
     return "".join(groups)
 
 decoded_string = decode_cyclic()
-print(f"Decoded string: {decoded_string}")
+print(f"{decoded_string}")
