@@ -32,6 +32,6 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert (issame(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert(issame(splitString("ahmed     , gamal"), vector<string>{ "ahmed", "gamal" }));
     return 0;
 }
