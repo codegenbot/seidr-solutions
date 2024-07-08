@@ -1,5 +1,10 @@
-namespace std {
-bool isSame(std::vector<int> a, std::vector<int> b) {
+```
+#include <vector>
+#include <algorithm>
+#include <initializer_list>
+#include <iostream>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -9,27 +14,23 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> strangeSortList(std::initializer_list<int> lst) {
+std::vector<int> strange_sort_list(std::initializer_list<int> lst) {
     std::vector<int> result;
-    if (lst.size() == 0)
-        return result;
+    if (lst.size() == 0) return result;
 
-    std::vector<int> temp(lst);
-    std::sort(temp.begin(), temp.end());
+    std::vector<int> sorted_lst = std::vector<int>(lst);
+    std::sort(sorted_lst.begin(), sorted_lst.end());
 
-    while (!temp.empty()) {
-        result.push_back(*temp.begin());
-        temp.erase(temp.begin());
-        if (!temp.empty())
-            std::sort(temp.begin(), temp.end());
+    for (int i : sorted_lst) {
+        result.push_back(i);
     }
 
     return result;
 }
 
 int main() {
-    std::vector<int> result = strangeSortList({111111});
-    if (isSame(result, {11111})) {
+    std::vector<int> result = strange_sort_list({111111});
+    if (issame(result, {11111})) {
         std::cout << "Output is correct.\n";
     } else {
         std::cout << "Output is incorrect.\n";
