@@ -1,33 +1,16 @@
-#include <iostream>
-
-int luhn(int digits[16]) {
+int luhn(std::vector<int> digits) {
     int sum = 0;
     bool doubleNext = false;
-    for (int i = 15; i >= 0; --i) {
+    for (int i = 0; i < digits.size(); ++i) {
         int digit = digits[i];
-        if (doubleNext) {
+        if (!doubleNext) { 
+            sum += digit;
+        } else { // it's time to double the next digit
             digit *= 2;
             if (digit > 9) digit -= 9;
+            sum += digit;            
         }
-        sum += digit;
-        doubleNext = !doubleNext;
+        doubleNext = !doubleNext; // toggle for the next iteration
     }
-    
-    if(sum % 10 != 0) {
-        std::cout << "Invalid credit card number!" << std::endl;
-        return -1;
-    } else {
-        return sum;
-    }
-}
-
-int main() {
-    int digits[16];
-    for(int i = 0; i < 16; ++i) {
-        std::cin >> digits[i];
-    }
-    
-    luhn(digits);
-    
-    return 0;
+    return sum % 10; // return the remainder of the sum divided by 10, which should be 0 for a valid card number
 }
