@@ -1,33 +1,15 @@
-#include <boost/any.hpp>
-#include <string>
+boost::any a = boost::any(static_cast<int>(10));
+boost::any b = boost::any("Hello");
 
 if (a.type() == boost::any::typeclass<int> && 
-    b.type() == boost::any::typeclass<int>) {
-    if (get<int>(a) > get<int>(b)) {
+    b.type() == boost::any::typeclass<std::string>) {
+    if (get<int>(a) > 0) {
         return a;
-    } else if (get<int>(a) < get<int>(b)) {
+    } else if (get<int>(a) < 0) {
         return b;
     } else {
-        return a;
-    }
-} else if (a.type() == boost::any::typeclass<float> && 
-           b.type() == boost::any::typeclass<float>) {
-    if (get<float>(a) > get<float>(b)) {
-        return a;
-    } else if (get<float>(a) < get<float>(b)) {
-        return b;
-    } else {
-        return a;
-    }
-} else if (a.type() == boost::any::typeclass<std::string> && 
-           b.type() == boost::any::typeclass<std::string>) {
-    if (get<std::string>(a) > get<std::string>(b)) {
-        return a;
-    } else if (get<std::string>(a) < get<std::string>(b)) {
-        return b;
-    } else {
-        return "None";
+        throw invalid_argument("Invalid types");
     }
 } else {
-    throw std::invalid_argument("Invalid types");
+    throw invalid_argument("Invalid types");
 }
