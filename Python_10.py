@@ -1,3 +1,4 @@
+```
 def make_palindrome(s):
     if len(s) == 0:
         return ""
@@ -15,4 +16,4 @@ def make_palindrome(s):
         i += 1
         j -= 1
 
-    return palindrome + "".join(reversed(s))
+    return palindrome + ''.join(reversed(s))
