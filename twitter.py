@@ -1,19 +1,8 @@
-import string
-import sys
-
-
 def validate_tweet(tweet):
-    if not all(c in string.printable for c in tweet):
-        return "Your tweet contains non-printable characters"
-    elif len(tweet) > 140:
-        return "Too many characters"
-    elif tweet != "":
-        return f"Your tweet has {len(tweet)} characters"
-    else:
+    if not tweet:
         return "You didn't type anything"
-
-
-if __name__ == "__main__":
-    tweet = sys.stdin.readline().strip()
-    result = validate_tweet(tweet)
-    print(result)
+    if any(not c.isprintable() for c in tweet):
+        return "Your tweet contains non-printable characters"
+    if len(tweet) > 140:
+        return "Too many characters"
+    return f"Your tweet has {len(tweet)} characters"
