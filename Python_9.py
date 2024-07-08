@@ -3,9 +3,9 @@ from typing import List
 
 
 def rolling_max(numbers: List[int]) -> List[int]:
-    result = [0]
-    max_so_far = 0
+    max_rolling_sum = []
+    current_sum = 0
     for num in numbers:
-        max_so_far = max(num, max_so_far + num)
-        result.append(max_so_far)
-    return result
+        current_sum = max(0, current_sum + num)
+        max_rolling_sum.append(current_sum)
+    return max_rolling_sum
