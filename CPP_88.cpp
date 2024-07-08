@@ -20,7 +20,7 @@ std::vector<int> sort_array(std::vector<int> array) {
         }
     }
 
-    sortedArray.insert(sortedArray.end(), left, right);
+    sortedArray.insert(sortedArray.end(), left, middle);
 
     return sortedArray;
 }
