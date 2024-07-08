@@ -5,7 +5,7 @@
 #include <utility>
 
 bool isclose(float a, float b) {
-    return std::abs(a - b) < 1e-6; // Tolerance for float comparison
+    return std::abs(a - b) < 1e-6; 
 }
 
 bool issame(std::vector<float> a, std::vector<float> b) {
