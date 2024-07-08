@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 using namespace std;
@@ -13,7 +12,7 @@ int main() {
         for (int i = 0; i < code.length(); i++) {
             if (code[i] == guess[i]) {
                 blackPegs++;
-            } else if (!duplicate_check(guess[i], guess)) {
+            } else if (!duplicate_check(guess[i], guess)) { // added check to prevent duplicate characters in the guess string
                 whitePegs++;
             }
         }
@@ -24,9 +23,10 @@ int main() {
     return 0;
 }
 
+// Check for duplicate characters in the guess string
 int duplicate_check(char ch, string str) {
     for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ch && str[i + 1] != ch) return false;
+        if (str[i] == ch && str[i + 1] != ch) return false; // if character is found before and after the current position
     }
     return true;
 }
