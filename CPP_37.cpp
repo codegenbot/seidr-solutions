@@ -8,7 +8,7 @@ bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
 
-void sort_even(const vector<float>& a) {
+void sort_even(vector<float>& a) {
     vector<pair<float, int>> even_indices;
 
     for (int i = 0; i < a.size(); i++) {
@@ -27,5 +27,8 @@ void sort_even(const vector<float>& a) {
 }
 
 int main() {
-    sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
+    vector<float> input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    sort_even(input);
+
+    return 0;
 }
