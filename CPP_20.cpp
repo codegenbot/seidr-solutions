@@ -1,9 +1,10 @@
 #include <algorithm>
 #include <vector>
 #include <limits>
+#include <iostream>
 
-bool issame(std::pair<float, float> p1, std::pair<float, float> p2) {
-    return (p1.first == p2.first && p1.second == p2.second);
+bool issame(const std::pair<float, float>& p1, const std::pair<float, float>& p2) {
+    return p1 == p2;
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
@@ -15,7 +16,7 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
             float diff = std::abs(numbers[j] - numbers[i]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest_pair = std::make_pair(numbers[i], numbers[j]);
+                closest_pair = {numbers[i], numbers[j]};
             }
         }
     }
