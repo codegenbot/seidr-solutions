@@ -13,7 +13,7 @@ int my_strlen(const char* str) {
 }
 
 int main() {
-    std::cout << "The length of 'asdasnakj' is: " << my_strlen("asdasnakj") << "\n";
     assert(my_strlen("asdasnakj") == 13);
+    std::cout << "The length of 'asdasnakj' is: " << my_strlen("asdasnakj") << "\n";
     return 0;
 }
