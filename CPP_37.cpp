@@ -9,16 +9,14 @@ void sort_even(const vector<float>& a) {
 
     sort(even_indices.begin(), even_indices.end());
 
-    vector<float> sorted_values;
-    for (const auto& pair : even_indices) {
-        sorted_values.push_back(pair.first);
+    for (int i = 0; i < even_indices.size(); i++) {
+        a[even_indices[i].second] = even_indices[i].first;
     }
+}
 
-    int j = 0;
-    for (int i = 0; i < a.size(); i++) {
-        if (i % 2 == 0) {
-            a[i] = sorted_values[j];
-            j++;
-        }
-    }
+int main() {
+    vector<float> input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    vector<float> sorted_input = input;
+    sort_even(sorted_input);
+    assert(issame(sorted_input, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
 }
