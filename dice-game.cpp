@@ -17,6 +17,6 @@ int main() {
     cout << "Enter the number of sides for Colin's die: ";
     cin >> m;
     double result = diceGame(n, m);
-    cout << "Probability: " << fixed << setprecision(6) << result << endl;
+    cout << "Probability: " << std::fixed << std::setprecision(6) << result << endl;
     return 0;
 }
