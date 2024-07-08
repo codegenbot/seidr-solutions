@@ -1,5 +1,4 @@
 #include <string>
-#include <iostream>
 using namespace std;
 
 string spinWords(string str) {
@@ -35,8 +34,11 @@ int main() {
     str = "This is a test";
     cout << spinWords(str) << endl;
     
-    str = "One two three four five six seven eight nine ten";
+    str = "Short sentence";
     cout << spinWords(str) << endl;
     
+    str = "Longer sentence with words that are five letters or more";
+    cout << spinWords(str) << endl;
+
     return 0;
 }
