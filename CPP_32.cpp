@@ -18,14 +18,14 @@ double find_zero(const vector<double>& xs) {
     return -b / a;
 }
 
-bool check_solution(const vector<double>& coeffs, double solution) {
-    return abs(poly(coeffs, solution)) < 0.001;
+void check_solution(const vector<double>& coeffs, double solution) {
+    assert(abs(poly(coeffs, solution)) < 0.001);
 }
 
 int main() {
     vector<double> coeffs = {1, -1, 0};
     double solution = find_zero(coeffs);
-    assert(check_solution(coeffs, solution));
+    check_solution(coeffs, solution);
 
     return 0;
 }
