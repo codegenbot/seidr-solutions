@@ -1,4 +1,5 @@
-def solveBoolean(expression):
+```
+def solve.Boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
@@ -7,9 +8,9 @@ def solveBoolean(expression):
         raise ValueError("Invalid expression")
     else:
         result = True
-        for char in expression:
-            if char == '&':
-                result &= (expression[expression.index(char) + 1:] != 'F')
-            elif char == '|':
-                result |= (expression[expression.index(char) + 1:] != 'F')
+        for i in range(len(expression) - 1):
+            if expression[i] == '&':
+                result &= (expression[i+1] == 'T')
+            elif expression[i] == '|':
+                result |= (expression[i+1] == 'T')
         return result
