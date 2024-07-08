@@ -1,10 +1,9 @@
 #include <iostream>
-#include <string>
-using namespace std;
+#include <cctype>
 
 int main() {
-    string input;
-    getline(cin, input);
+    std::string input;
+    std::getline(std::cin, input);
 
     bool capitalize = true;
     for (char &c : input) {
@@ -20,7 +19,7 @@ int main() {
         }
     }
 
-    cout << input << endl;
+    std::cout << input << std::endl;
 
     return 0;
 }

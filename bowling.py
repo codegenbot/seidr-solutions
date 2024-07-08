@@ -33,6 +33,5 @@ def bowling_score(s):
             frame += 1
     return score
 
-
 s = input()
 print(bowling_score(s))
