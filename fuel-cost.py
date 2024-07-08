@@ -1,4 +1,3 @@
-```
 def fuel_cost():
     n = int(input())
     result = 0
