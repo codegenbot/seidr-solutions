@@ -16,22 +16,14 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
     return result;
 }
 
-float* get_positive(const std::vector<float>& vec, int& size) {
-    size = 0;
+std::vector<float> get_positive(const std::vector<float>& vec) {
+    std::vector<float> result;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
-            size++;
+            result.push_back(vec[i]);
         }
     }
-
-    std::vector<float> positiveVec;
-    for (int i = 0; i < vec.size(); i++) {
-        if (vec[i] > 0.0f) {
-            positiveVec.push_back(vec[i]);
-        }
-    }
-
-    return &positiveVec[0];
+    return result;
 }
 
 int main() {
@@ -39,9 +31,9 @@ int main() {
     std::cout << "Enter number of vectors: ";
     std::cin >> n;
 
-    std::vector<std::vector<float>>* vectorPtr = new std::vector<std::vector<float>>(n);
+    std::vector<std::vector<float>> vectors(n);
 
-    for (auto& v : *vectorPtr) {
+    for (auto& v : vectors) {
         int m;
         std::cout << "Enter size of the vector: ";
         std::cin >> m;
@@ -53,7 +45,7 @@ int main() {
         }
     }
 
-    std::vector<std::vector<float>> result = filter_vectors(*vectorPtr);
+    std::vector<std::vector<float>> result = filter_vectors(vectors);
 
     if (!result.empty()) {
         std::cout << "Resultant Vectors: " << std::endl;
@@ -66,11 +58,6 @@ int main() {
     } else {
         std::cout << "No resultant vectors." << std::endl;
     }
-
-    for (auto& v : *vectorPtr) {
-        delete[] &v[0];
-    }
-    delete vectorPtr;
 
     return 0;
 }
