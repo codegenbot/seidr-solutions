@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -20,7 +21,7 @@ vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-void main() {
+int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
@@ -28,4 +29,5 @@ void main() {
     for (int i : res) {
         cout << i << " ";
     }
+    return 0;
 }
