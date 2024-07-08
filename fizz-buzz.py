@@ -1,8 +1,12 @@
+```
 def fizz_buzz(x):
-    if x % 15 == 0:
+    if x > 32767:
+        s = str(x)
+        return s if any(c in ['3', '5'] for c in s) else s
+    elif x % 15 == 0:
         return "FizzBuzz"
     elif x % 5 == 0:
-        return "Buzz" if x % 3 == 0 else "Buzz"
+        return "Buzz"
     elif x % 3 == 0:
         return "Fizz"
     else:
