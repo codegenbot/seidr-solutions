@@ -1,5 +1,21 @@
-#include <vector>
-using namespace std;
+```cpp
+vector<vector<int>> minPath(vector<vector<int>> grid, int k) {
+    vector<vector<int>> dp(grid.size(), vector<int>(grid[0].size()));
+    for (int i = 0; i < grid.size(); ++i) {
+        for (int j = 0; j < grid[0].size(); ++j) {
+            if (i == 0 && j == 0) {
+                dp[i][j] = grid[i][j];
+            } else if (i == 0) {
+                dp[i][j] = grid[i][j] + dp[i][j-1];
+            } else if (j == 0) {
+                dp[i][j] = grid[i][j] + dp[i-1][j];
+            } else {
+                dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1]);
+            }
+        }
+    }
+    return dp;
+}
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -11,22 +27,4 @@ bool issame(vector<int> a, vector<int> b) {
         }
     }
     return true;
-}
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> result;
-    for (int i = 0; i < grid.size(); ++i) {
-        for (int j = 0; j < grid[0].size(); ++j) {
-            if (grid[i][j] == k) {
-                result.push_back(i);
-                result.push_back(j);
-            }
-        }
-    }
-    return result;
-}
-
-int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    return 0;
 }
