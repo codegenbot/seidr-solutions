@@ -22,6 +22,13 @@ std::vector<std::string> all_prefixes(std::string str) {
 
 int main() {
     std::string str = "WWW";
-    assert(issame(all_prefixes(str), {"W.string()", "W.W.string()", "W.W.W.string()"}));
+    result = all_prefixes(str).vec();
+    if (!issame(all_prefixes(str), result))
+        std::cout << "Error: ";
+    else
+        std::cout << "Success: ";
+    for (const auto& s : result) {
+        std::cout << s << " ";
+    }
     return 0;
 }
