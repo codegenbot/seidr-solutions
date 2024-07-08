@@ -1,5 +1,6 @@
+```cpp
 #include <string>
-#include <algorithm>
+#include <vector>
 
 std::string rounded_avg(int n, int m) {
     if (n > m) return "-1";
@@ -10,12 +11,12 @@ std::string rounded_avg(int n, int m) {
     double avg = round((double)sum / (m - n + 1));
     std::string res = "";
     while (avg > 0) {
-        if (avg & 1)
+        if (static_cast<int>(avg) & 1)
             res.push_back('1');
         else
             res.push_back('0');
         avg /= 2;
     }
-    std::reverse(res.begin(), res.end());
+    reverse(res.begin(), res.end());
     return res;
 }
