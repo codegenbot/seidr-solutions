@@ -1,4 +1,15 @@
-std::vector<std::pair<int, int>> findMinEven(std::vector<int> arr) {
+#include <vector>
+#include <utility>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
 
     for (int i = 0; i < arr.size(); i++) {
@@ -29,6 +40,6 @@ std::vector<std::pair<int, int>> findMinEven(std::vector<int> arr) {
 }
 
 int main() {
-    assert(findMinEven({7, 9, 7, 1}) == {{},});
+    assert(issame(pluck({7, 9, 7, 1}), {})); 
     return 0;
 }

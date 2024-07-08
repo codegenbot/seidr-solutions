@@ -9,6 +9,7 @@ bool will_it_fly(std::vector<int> q, int w) {
     for(int i : q) {
         str += std::to_string(i);
     }
+    str.erase(std::remove_if(str.begin(), str.end(), ::isspace), str.end());
     if(str != std::string(str.rbegin(), str.rend()))
         return false;
     int sum = 0;
@@ -20,9 +21,5 @@ bool will_it_fly(std::vector<int> q, int w) {
 
 int main() {
     assert(will_it_fly({5}, 5) == true);
-    
-    std::vector<int> weights = {};
-    int maxWeight;
-
-    // your code here
+    return 0;
 }
