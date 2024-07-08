@@ -1,8 +1,11 @@
+```cpp
+#include <iostream>
 #include <string>
-#include <algorithm>
 
-string remove_vowels(string text) {
-    string result;
+using namespace std;
+
+std::string remove_vowels(std::string text) {
+    std::string result;
     for (char c : text) {
         if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
               || toupper(c) == 'A' || toupper(c) == 'E' || toupper(c) == 'I'
@@ -11,4 +14,9 @@ string remove_vowels(string text) {
         }
     }
     return result;
+}
+
+int main() {
+    assert (remove_vowels("ybcd") == "ybcd");
+    return 0;
 }
