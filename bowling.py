@@ -1,18 +1,18 @@
 ```
-def bowling_score(frames):
-    score = 0
-    for frame in frames:
-        if "X" * len(frame) == frame: 
-            score += 10 + (10 - len([c for c in frame if c != "X"]) ) * 1
-        else:
-            rolls = [int(c) for c in frame.replace("-", "")]
-            if sum(rolls) < 10:
-                score += sum(rolls)
-            elif "X" in str(rolls):
-                score += 10 + (10 - len([c for c in str(rolls) if c != "X"]) ) * 1
-            else:
-                score += min(sum(rolls), 10) + (10 - min(sum(rolls), 10)) * 1
-    return score
+import re
 
-frames = [line.strip() for line in input().splitlines()]
-print(bowling_score(frames))
+total_score = 0
+while True:
+    try:
+        user_input = input().split("\n")
+        frames = [int("".join(filter(str.isdigit, frame))) for frame in user_input if len(frame.replace("-", "",)) > 0]
+        
+        total_score = sum([
+            (min(10, k) + (k - 1) * 1 if k < 10 else k + 30 if "X" in frame else min(k // 2, k))
+            for k, frame in zip(frames, user_input)
+        ])
+        break
+    except ValueError:
+        print("Invalid input. Please enter valid bowling scores (e.g., '10-', '5/', 'X'). Try again!")
+
+print(total_score)
