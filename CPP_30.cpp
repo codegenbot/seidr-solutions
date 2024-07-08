@@ -16,11 +16,20 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
     return result;
 }
 
-std::vector<float> get_positive(const std::vector<float>& vec) {
-    std::vector<float> result;
+float* get_positive(const std::vector<float>& vec, int& size) {
+    size = 0;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
-            result.push_back(vec[i]);
+            size++;
+        }
+    }
+
+    float* result = new float[size];
+    int j = 0;
+    for (int i = 0; i < vec.size(); i++) {
+        if (vec[i] > 0.0f) {
+            result[j] = vec[i];
+            j++;
         }
     }
     return result;
