@@ -1,3 +1,5 @@
+```cpp
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -11,6 +13,10 @@ int is_bored(string S) {
     }
     return count;
 
+}
+
 int main() {
-    return 0;
+    string S;
+    cin >> S;
+    cout << is_bored(S);
 }
