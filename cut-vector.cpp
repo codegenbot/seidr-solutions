@@ -26,12 +26,12 @@ int main() {
     }
     vector<int> result = cutVector(nums);
     cout << "[";
-    for (int num : result[0]) {
+    for (auto num : result[0]) {
         cout << num << " ";
     }
     cout << "] [";
-    for (int j : result[1]) {
-        cout << j << " ";
+    for (auto n : result[1]) {
+        cout << n << " ";
     }
     cout << "] ]" << endl;
     return 0;
