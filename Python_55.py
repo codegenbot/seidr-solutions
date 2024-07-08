@@ -1,4 +1,3 @@
-```
 def fib(n: int):
     if n <= 0:
         return "Input should be a positive integer."
