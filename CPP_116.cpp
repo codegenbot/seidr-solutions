@@ -13,11 +13,10 @@ std::vector<int> sortArray(std::vector<int> arr) {
             return a < b;
         }
     };
-    std::sort(arr.begin(), arr.end(), comp);
+    sort(arr.begin(), arr.end(), comp);
     return arr;
 }
 
 int main() {
     assert(isSame(sortArray({2, 4, 8, 16, 32}), std::vector<int>({2, 4, 8, 16, 32}));
     return 0;
-}
