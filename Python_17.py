@@ -6,12 +6,12 @@ def check(note: str) -> int:
 
 def parse_music(music_string: str) -> list:
     result = []
-    notes = music_string.split(",")
+    notes = music_string.split("|")
     for note in notes:
         if note.strip() != "":
-            result.append(check(note.strip()))
+            note_list = [n.strip().upper() for n in note.split()]
+            result.extend([check(n) for n in note_list])
     return result
 
 
-notes = "A,B,C,D,E,F,G"
-print(parse_music(notes))
+print(parse_music("o| .| o| .| o o| o o|"))
