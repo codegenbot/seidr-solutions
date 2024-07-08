@@ -1,10 +1,6 @@
-Here is the completed code:
+#include <cmath>
 
 bool iscuber(int a){
-    int i = 1;
-    while (true) {
-        if (pow(i, 3) == a) return true;
-        if (pow(i, 3) > a) return false;
-        i++;
-    }
+    int n = round(cbrt(a));
+    return (n*n*n == a);
 }
