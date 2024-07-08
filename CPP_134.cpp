@@ -1,4 +1,8 @@
-bool check_if_last_char_is_a_letter(string txt) {
+```cpp
+#include <string>
+#include <cctype>
+
+bool check_if_last_char_is_a_letter(std::string txt) {
     if (txt.empty()) return false;
     char lastChar = txt.back();
     if (!isalpha(lastChar)) return false;
@@ -8,4 +12,10 @@ bool check_if_last_char_is_a_letter(string txt) {
         }
     }
     return false;
+
+}
+
+int main() {
+    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
+    return 0;
 }
