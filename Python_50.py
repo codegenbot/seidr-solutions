@@ -1,6 +1,6 @@
 ```
 def decode_shift():
-    """Decodes a string that was shifted by some value."""
+    """Decodes a string that has been shifted by a given value."""
     shift = int(input("Enter the shift value (0-25): "))
     s = input("Enter the encoded string: ")
     decoded_s = ""
