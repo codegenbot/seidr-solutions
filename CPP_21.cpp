@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 bool is_same(std::vector<float> a, std::vector<float> b){
     if (a.size() != b.size()) {
@@ -16,8 +17,8 @@ bool is_same(std::vector<float> a, std::vector<float> b){
 }
 
 void rescale_to_unit(std::vector<float>& values) {
-    float min_val = *min_element(values.begin(), values.end());
-    float max_val = *max_element(values.begin(), values.end());
+    float min_val = *std::min_element(values.begin(), values.end());
+    float max_val = *std::max_element(values.begin(), values.end());
     
     for (size_t i = 0; i < values.size(); ++i) {
         values[i] = (values[i] - min_val) / (max_val - min_val);
