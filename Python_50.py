@@ -1,4 +1,4 @@
-```python
+```
 def decode_shift(s: str):
     decoded_s = ""
     for ch in s:
