@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -17,6 +18,25 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     pair<vector<int>, vector<int>> res;
     res.first = vector<int>(v.begin(), v.end() - idx);
     res.second = vector<int>(1, v[idx-1]);
+    return res;
+}
+
+pair<vector<int>, vector<int>> cut(vector<int> v) {
+    int min_diff = INT_MAX;
+    int idx = 0;
+    for (int i = 1; i <= v.size(); ++i) {
+        if (v[i-1] == v[0]) {
+            return {{}, vector<int>(v.begin(), v.end())};
+        }
+        int diff = abs(v[i-1] - v[0]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            idx = i;
+        }
+    }
+    pair<vector<int>, vector<int>> res;
+    res.first = vector<int>(v.begin(), v.end() - idx);
+    res.second = vector<int>{v[idx-1]};
     return res;
 }
 
