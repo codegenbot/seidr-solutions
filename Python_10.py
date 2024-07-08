@@ -12,7 +12,7 @@ def make_palindrome(s):
             left_half = s[: i + 1]
             right_half = s[j:]
             middle = "".join(reversed(left_half[1:]))
-            palindrome = left_half[0] + middle + "".join(right_half)
+            palindrome = left_half[0] + "".join(middle) + "".join(right_half)
             i += 1
             j -= 1
 
