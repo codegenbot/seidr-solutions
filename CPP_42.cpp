@@ -1,4 +1,19 @@
-for (int i = 0; i < l.size(); i++) {
-    l[i]++;
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+vector<int> incr_list(const vector<int>& l) {
+    vector<int> result = l;
+    for (int& elem : result) {
+        elem++;
+    }
+    return result;
 }
-return l;
+
+int solve_problem() {
+    if (incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}) != vector<int>{6, 3, 6, 3, 4, 4, 10, 1, 124}) {
+        return 1;
+    }
+    return 0;
+}
