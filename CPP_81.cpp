@@ -1,35 +1,36 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::vector<std::string> numerical_letter_grade(std::pair<int, double> grade) {
-    std::vector<std::string> letterGrade;
+std::vector<std::string> numerical_letter_grade(std::pair<int, double> pair) {
+    int score = pair.first;
+    double percentage = pair.second;
 
-    if (grade.second >= 0.9)
-        letterGrade = {"A", std::to_string(grade.first)};
-    else if (grade.second >= 0.8)
-        letterGrade = {"B", std::to_string(grade.first)};
-    else if (grade.second >= 0.7)
-        letterGrade = {"C", std::to_string(grade.first)};
-    else if (grade.second >= 0.6)
-        letterGrade = {"D", std::to_string(grade.first)};
+    std::vector<std::string> result;
+
+    if (score >= 90)
+        result.push_back("A");
+    else if (score >= 80)
+        result.push_back("B");
+    else if (score >= 70)
+        result.push_back("C");
+    else if (score >= 60)
+        result.push_back("D");
     else
-        letterGrade = {"F", std::to_string(grade.first)};
+        result.push_back("F");
 
-    return letterGrade;
+    if (percentage < 60) {
+        if (result.back() == "A" || result.back() == "B")
+            result.push_back("-");
+        else if (result.back() != "F")
+            result.push_back("+");
+    }
+
+    return result;
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size())
-        return false;
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-
-    return true;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
