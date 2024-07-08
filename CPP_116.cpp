@@ -1,13 +1,12 @@
 #include <vector>
-#include <bitset>
+#include <algorithm>
 
 bool same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
-        if (std::bitset<32>(a[i]).count() != std::bitset<32>(b[i]).count()) {
+        if (a[i] != b[i])
             return false;
-        }
     }
     return true;
 }
@@ -20,7 +19,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
             return a < b;
         }
     };
-    sort(arr.begin(), arr.end(), comp);
+    std::sort(arr.begin(), arr.end(), comp);
     return arr;
 }
 
