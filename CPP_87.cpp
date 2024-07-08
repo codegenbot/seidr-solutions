@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
     if(a.size() != b.size()) 
@@ -25,8 +24,9 @@ int main(){
     std::cout << "Enter the number of rows and columns for each matrix: ";
     std::cin >> m >> n;
     
+    // read in the first matrix
     for(int i = 0; i < m; i++) {
-        matrix1.push_back({});
+        matrix1.push_back(std::vector<int>());
         for(int j = 0; j < n; j++) {
             int x;
             std::cout << "Enter element " << i << "," << j << ": ";
@@ -35,8 +35,9 @@ int main(){
         }
     }
     
+    // read in the second matrix
     for(int i = 0; i < m; i++) {
-        matrix2.push_back({});
+        matrix2.push_back(std::vector<int>());
         for(int j = 0; j < n; j++) {
             int x;
             std::cout << "Enter element " << i << "," << j << ": ";
