@@ -10,17 +10,19 @@ int mastermind(string code, string guess) {
         }
     }
 
-    map<char,int> codeCount;
-    for(int i=0; i<4; i++) {
-        codeCount[code[i]]++;
-    }
-
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            black--;
-        } else if(codeCount[guess[i]]>0) {
-            white++;
-            codeCount[guess[i]]--;
+    for(int i=0; i<6; i++) {
+        int count = 0;
+        int codeCount = 0;
+        for(int j=0; j<4; j++) {
+            if(guess[j] == (char)(i+'A')) {
+                count++;
+            }
+            if(code[j] == (char)(i+'A')) {
+                codeCount++;
+            }
+        }
+        if(count > 0 && codeCount > 0) {
+            white += min(count, codeCount);
         }
     }
 
