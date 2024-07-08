@@ -1,7 +1,9 @@
+#include <vector>
 using namespace std;
 
-int maxPrime(vector<int> lst){
-    int maxPrime = 0;
+template <typename T>
+T maxPrime(vector<T> lst) {
+    T maxPrime = 0;
     for(int i=0; i<lst.size(); i++){
         if(isPrime(lst[i])){
             if(maxPrime < lst[i]){
@@ -9,7 +11,7 @@ int maxPrime(vector<int> lst){
             }
         }
     }
-    int sumOfDigits = 0;
+    T sumOfDigits = 0;
     while(maxPrime > 0){
         sumOfDigits += maxPrime % 10;
         maxPrime /= 10;
