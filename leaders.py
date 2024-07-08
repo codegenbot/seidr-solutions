@@ -1,7 +1,7 @@
+```
 input = list(map(int, input().split()))
-leaders = []
-max_right = 0
-for i in range(len(input)):
-    max_right = input[i]
-    leaders.append(max_right)
-print(leaders)
+leaders = [input[-1]]
+for i in range(len(input)-1):
+    if input[i] >= max(input[i+1:]):
+        leaders.append(input[i])
+print(list(reversed(leaders)))
