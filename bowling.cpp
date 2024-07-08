@@ -1,3 +1,5 @@
+Here's the modified code:
+
 #include <iostream>
 #include <string>
 
@@ -22,6 +24,8 @@ int bowlingScore(std::string s) {
             }
             lastRollWasStrike = false;
             lastRollWasSpare = true;
+        } else if (c == ' ') {
+            continue;
         } else {
             int roll = c - '0';
             if (c == '9') lastRollWasSpare = true;
