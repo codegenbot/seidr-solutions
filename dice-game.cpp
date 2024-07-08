@@ -3,8 +3,8 @@ using namespace std;
 
 double diceGame(int n, int m) {
     double prob = 0.0;
-    for (int i = 1; i < m; i++) {
-        prob += (1.0 * (m - i) / m);
+    for (int i = 1; i <= m - 1; i++) {
+        prob += (double(i - 1) / m);
     }
     return 1 - prob;
 }
