@@ -10,10 +10,11 @@ int next_smallest(std::vector<int> lst) {
         if (sorted[i] != sorted[0]) return sorted[i];
     }
     return -1;
+
 }
 
 int main() {
-    int test[] = {5,2,8,20,15};
-    std::vector<int> lst(test, test+sizeof(test)/sizeof(test[0]));
-    std::cout << "Next smallest: " << next_smallest(lst) << std::endl;
+    std::vector<int> testList = {};
+    int result = next_smallest(testList);
+    return 0;
 }
