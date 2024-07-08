@@ -3,7 +3,7 @@
 #include <string>
 
 bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
-    return a == b;
+    return false;
 }
 
 std::vector<std::string> all_prefixes(std::string str) {
