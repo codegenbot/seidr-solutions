@@ -1,1 +1,2 @@
-assert(issame(std::vector<float>{get_positive({})}, {}));
+```
+assert(issame(std::vector<float>(1, get_positive({})), {}));
