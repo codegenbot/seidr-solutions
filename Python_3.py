@@ -7,10 +7,9 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-# Input processing
-input_list = input().split()
-operations = [int(op) for op in input_list]
-
-# Call the function
+# Read input as a list of integers
+operations = [int(x) for x in input().split()]
+# Call the function below_zero with the input list
 result = below_zero(operations)
+# Print the result
 print(result)
