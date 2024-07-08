@@ -5,8 +5,5 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
-numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-threshold = int(input("Enter threshold value: "))
-
-result = check_numbers(numbers, threshold)
-print(result)
+has_close_elements = check_numbers([3, 6, 9, 12], 4)
+print(has_close_elements)
