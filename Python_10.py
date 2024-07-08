@@ -1,7 +1,4 @@
-Here is the modified code:
-
-```
-from operator import reversed
+from reversed import *
 
 def make_palindrome(s):
     if len(s) == 0:
