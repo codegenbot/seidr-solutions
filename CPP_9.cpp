@@ -1,3 +1,12 @@
+#include <vector>
+#include <algorithm>
+#include <cassert>
+#include <climits>
+
+using namespace std;
+
+vector<int> rolling_max(vector<int> numbers);
+
 vector<int> rolling_max(vector<int> numbers){
     vector<int> result;
     int max_num = INT_MIN;
