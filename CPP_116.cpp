@@ -1,16 +1,16 @@
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 
-// Function to compare two vectors
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
+    if (a != b)
+        return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[i])
+            return false;
     }
     return true;
 }
 
-vector<int> sort_array(vector<int> arr) {
+vector<int> sort_array(vector<int> arr){
     sort(arr.begin(), arr.end(),
          [](int a, int b) {
              int ones_a = __builtin_popcount(a);
@@ -22,9 +22,4 @@ vector<int> sort_array(vector<int> arr) {
                  return ones_a < ones_b;
          });
     return arr;
-}
-
-int main() {
-    assert(issame(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
-    return 0;
 }
