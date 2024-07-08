@@ -1,7 +1,7 @@
-```
 from typing import List, Optional
 
-def longest(strings: List[str]) -> Optional[List[str]]:
+
+def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
     max_length = 0
@@ -12,4 +12,4 @@ def longest(strings: List[str]) -> Optional[List[str]]:
             longest_strs = [s]
         elif len(s) == max_length:
             longest_strs.append(s)
-    return longest_strs
+    return longest_strs if longest_strs else None
