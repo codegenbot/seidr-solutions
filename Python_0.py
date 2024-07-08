@@ -1,10 +1,11 @@
+```
 from typing import List
 
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     if not isinstance(threshold, (int, float)) or not isinstance(numbers, list):
         return False
-
+    
     if not all(isinstance(num, (int, float)) for num in numbers):
         return False
 
