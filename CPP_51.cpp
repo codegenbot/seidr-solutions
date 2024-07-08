@@ -1,7 +1,7 @@
+#include <iostream>
+#include <cassert>
 #include <string>
 #include <cctype>
-#include <cassert>
-#include <iostream>
 
 std::string remove_vowels(std::string text) {
     std::string result = "";
@@ -17,4 +17,3 @@ int main() {
     assert(remove_vowels("ybcd") == "ybcd");
     std::cout << remove_vowels("Hello World!") << std::endl;
     return 0;
-}
