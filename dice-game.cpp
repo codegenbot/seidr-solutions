@@ -3,10 +3,10 @@ using namespace std;
 
 double diceGame(int n, int m) {
     double prob = 0.0;
-    for (int i = 1; i <= m - 1; i++) {
-        prob += (double(i - 1) / m);
+    for (int i = m+1; i <= n; i++) {
+        prob += (1.0 / (n * m));
     }
-    return 1 - prob;
+    return prob;
 }
 
 int main() {
