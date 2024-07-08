@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 using namespace std;
 
 vector<int> cutVector(vector<int>& nums) {
@@ -25,12 +25,13 @@ int main() {
     }
     vector<int> result = cutVector(nums);
     cout << "[";
-    for (auto it = result[0].begin(); it != result[0].end(); ++it) {
-        cout << *it << " ";
+    for (int num : result[0]) {
+        cout << num << " ";
     }
     cout << "] [";
-    for (auto it = result[1].begin(); it != result[1].end(); ++it) {
-        cout << *it << " ";
+    for (int j : result[1]) {
+        cout << j << " ";
     }
     cout << "] ]" << endl;
     return 0;
+}
