@@ -1,2 +1,3 @@
 def vector_distance(v1, v2):
-    return np.sqrt(((v1 - v2) ** 2).sum())
+    v1, v2 = np.broadcast_arrays(v1, v2)
+    return np.linalg.norm(abs(v1 - v2))
