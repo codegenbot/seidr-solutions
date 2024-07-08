@@ -1,3 +1,4 @@
+```
 #include <vector>
 int next_smallest(vector<int> lst) {
     if (lst.size() < 2) return -1; 
@@ -7,3 +8,4 @@ int next_smallest(vector<int> lst) {
         if (sorted[i] != sorted[0]) return sorted[i];
     }
     return -1;
+}
