@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -22,4 +21,6 @@ int main() {
 
     int result = how_many_times(input, sub);
     std::cout << "The substring appears " << result << " times in the input.\n";
+
+    return 0;
 }
