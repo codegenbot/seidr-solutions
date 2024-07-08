@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 bool is_prime(int n) {
@@ -22,11 +22,4 @@ bool is_multiply_prime(int a) {
         }
     }
     return false;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    cout << (is_multiply_prime(n) ? "true" : "false") << endl;
-    return 0;
 }
