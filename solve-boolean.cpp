@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -8,7 +9,7 @@ bool evaluateBooleanExpression(const std::string& expression) {
         if (c == '&') {
             result &= false;
         } else if (c == '|') {
-            result |= false;
+            result |= true;
         } else if (c == 'T' || c == 't') {
             result = true;
         } else if (c == 'F' || c == 'f') {
