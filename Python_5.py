@@ -1,10 +1,7 @@
-def generate_result(numbers, delimiter):
+def intersperse(numbers, delimeter):
     result = []
-    for num in numbers:
-        result.extend([num, delimiter])
-    result.pop()
+    for num in numbers[:-1]:
+        result.extend([num, delimeter])
+    if numbers:
+        result.append(numbers[-1])
     return result
-
-input_numbers = [1, 2, 3]
-output = generate_result(input_numbers, ',')
-print(output)
