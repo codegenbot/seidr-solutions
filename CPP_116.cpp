@@ -1,12 +1,16 @@
-Here is the completed code:
-
 #include <vector>
 #include <algorithm>
+#include <utility>
 
 using namespace std;
 
+struct Pair {
+    int onesCount;
+    int value;
+};
+
 vector<int> sort_array(vector<int> arr) {
-    vector<int> result;
+    vector<Pair> result;
     
     for (int i = 0; i < arr.size(); i++) {
         int onesCount = __builtin_popcount(arr[i]);
@@ -18,7 +22,7 @@ vector<int> sort_array(vector<int> arr) {
     vector<int> sortedArray;
     
     for (auto &x : result) {
-        sortedArray.push_back(x.second);
+        sortedArray.push_back(x.value);
     }
     
     return sortedArray;
