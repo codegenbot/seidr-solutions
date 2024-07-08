@@ -1,14 +1,12 @@
+```
 from typing import List
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
-    if not all(isinstance(x, float) for x in numbers):
-        return "Error: All elements must be floats"
-    
-    if len(set(numbers)) == 1:
-        return [1 for _ in numbers]
-    
-    if not numbers:
+    if len(numbers) == 0:
         return []
+    
+    if len(set(numbers)) == 1: 
+        return [1 for _ in numbers]
     
     min_val = min(numbers)
     max_val = max(numbers)
