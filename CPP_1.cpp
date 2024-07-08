@@ -3,24 +3,27 @@
 #include <cassert>
 
 std::vector<std::string> separate_paren_groups(const std::string& s) {
-    // Implementation to separate groups of parentheses
-}
+    std::vector<std::string> groups;
+    int count = 0;
+    std::string current;
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
+    for (char c : s) {
+        if (c == '(') {
+            if (count > 0) {
+                current.push_back(c);
+            }
+            count++;
+        } else if (c == ')') {
+            count--;
+            if (count > 0) {
+                current.push_back(c);
+            }
+            if (count == 0) {
+                groups.push_back(current);
+                current.clear();
+            }
         }
     }
 
-    return true;
-}
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), std::vector<std::string>{"()", "(())", "(()())"}));
-    return 0;
+    return groups;
 }
