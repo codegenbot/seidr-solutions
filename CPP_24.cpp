@@ -1,7 +1,4 @@
-Here is the solution:
-
-```cpp
-int largest_divisor(int n){
+int largest_divisor(int n) {
     int divisor = n;
     while(divisor > 1) {
         if(n % divisor == 0) break;
