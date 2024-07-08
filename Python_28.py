@@ -1,4 +1,4 @@
-```
+```Python
 from typing import List
 
 
@@ -6,9 +6,7 @@ def concatenate(strings: List[str]) -> str:
     user_strings = []
 
     while True:
-        user_input = input(
-            "Enter a string or 'q' to quit: "
-        )
+        user_input = input("Enter a string or 'q' to quit: ")
 
         if user_input.lower() == "q":
             break
