@@ -2,6 +2,7 @@
 #include <iostream>
 
 bool issame(std::vector<float> x, std::vector<float> y) {
+    if (x.size() != y.size()) return false;
     for (int i = 0; i < x.size(); i++) {
         if (x[i] != y[i]) return false;
     }
