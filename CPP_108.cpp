@@ -18,8 +18,6 @@ int count_nums(vector<int> nums) {
             int digit = abs(num) % 10 * sign;
             if((digit > 0 && !negativeFound) || (digit == 1 && negativeFound))
                 count++;
-            else
-                negativeFound = true;
             num /= 10;
         }
     }
@@ -30,3 +28,4 @@ int main() {
     assert(count_nums({1}) == 1);
     cout << "Count: " << count_nums({-1234, 5678, -9012}) << endl;
     return 0;
+}
