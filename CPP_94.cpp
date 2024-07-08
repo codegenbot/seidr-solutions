@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -27,8 +26,8 @@ bool isPrime(int n) {
     return true;
 
 }
+
 int main(){
-    vector<int> lst = {127, 97, 8192};
-    cout << maxPrime(lst) << endl;
+    assert(maxPrime({127, 97, 8192}) == 10);
     return 0;
 }
