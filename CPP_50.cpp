@@ -1,8 +1,15 @@
 #include <string>
 #include <cassert>
 
-string encode_shift(string s);
-string decode_shift(string s);
+using namespace std;
+
+string encode_shift(string s) {
+    // Your implementation for encoding shift
+}
+
+string decode_shift(string s) {
+    // Your implementation for decoding shift
+}
 
 void test_code() {
     string str = "input string";
