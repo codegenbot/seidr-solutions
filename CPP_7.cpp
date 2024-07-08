@@ -1,29 +1,25 @@
-```cpp
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
+#include <iostream>
+#include <vector>
+#include <string>
+
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+    std::vector<std::string> result;
     for(auto str : strings){
-        if(str.find(substring) != string::npos){
+        if(str.find(substring) != std::string::npos){
             result.push_back(str);
         }
     }
     return result;
 }
 
-bool issame(vector<vector<string>> a, vector<vector<string>> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
-        throw runtime_error("Vectors are not the same size");
+        throw std::runtime_error("Vectors are not the same size");
     }
 
     for (int i = 0; i < a.size(); i++) {
-        bool flag = true;
-        for (auto str : a[i]) {
-            if (!issame({str}, b[i])) {
-                flag = false;
-                break;
-            }
-        }
-        if (!flag) {
-            throw runtime_error("Vectors are not the same");
+        if (!issame(a[i], b[i])) {
+            throw std::runtime_error("Strings in vectors are not the same");
         }
     }
 
@@ -32,10 +28,10 @@ bool issame(vector<vector<string>> a, vector<vector<string>> b) {
 
 int main() {
     try {
-        auto res = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-        assert(issame({{filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").begin(), (filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run")).end()}}, {{{"grunt"}}, {{"prune"}}}));
-    } catch (const runtime_error& e) {
-        cerr << "Error: " << e.what() << endl;
-        return 1; // Return with a non-zero value
+        assert(issame({filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").begin(), (filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run")).end()}, {{"grunt"}, {"prune"}}));
+    } catch(const std::exception& e) {
+        std::cerr << "Error: " << e.what() << '\n';
     }
+    
+    return 0;
 }
