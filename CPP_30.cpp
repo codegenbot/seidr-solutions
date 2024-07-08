@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -36,7 +37,7 @@ std::vector<float> get_positive(const std::vector<float>& vec, int& size) {
     return positiveVec;
 }
 
-int main() {
+int mainFunc() {
     int n;
     std::cout << "Enter number of vectors: ";
     std::cin >> n;
