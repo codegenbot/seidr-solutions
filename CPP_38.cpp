@@ -1,33 +1,44 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
-string encode_cyclic(string s);
-string decode_cyclic(string s);
+using namespace std;
 
-string encode_cyclic(string s){
-    int l=s.length();
-    s+=string(-l%3,' ');
-    string x,output;
-    int i;
-    for (i=0;i*3<l;i++)
-    {
-        x=s.substr(i*3,3);
-        if (x.length()==3) x=x[1]+x[2]+x[0];
-        output=output+x;
+string encode_cyclic(string s) {
+    int l = s.length();
+    string encoded_str;
+    for (int i = 0; i * 3 < l; i++) {
+        string x = s.substr(i * 3, 3);
+        if (x.length() == 3) {
+            x = x[1] + x[2] + x[0];
+        }
+        encoded_str.append(x);
     }
-    return output;
+    return encoded_str;
 }
 
-string decode_cyclic(string s){
-    int l=s.length();
-    int num=(l+2)/3;
-    string x,output;
-    int i;
-    for (i=0;i*3<l;i++)
-    {
-        x=s.substr(i*3,3);
-        if (x.length()==3) x=x[2]+x.substr(0,2);
-        output=output+x;
+string decode_cyclic(string s) {
+    int l = s.length();
+    string decoded_str;
+    for (int i = 0; i * 3 < l; i++) {
+        string x = s.substr(i * 3, 3);
+        if (x.length() == 3) {
+            x = x[2] + x[0] + x[1];
+        }
+        decoded_str.append(x);
     }
-    return output;
+    return decoded_str;
+}
+
+int main() {
+    string str;
+    getline(cin, str);
+
+    string encoded_str = encode_cyclic(str);
+    assert(decode_cyclic(encoded_str) == str);
+    cout << "Original: " << str << endl;
+    cout << "Encoded: " << encoded_str << endl;
+    cout << "Decoded: " << decode_cyclic(encoded_str) << endl;
+
+    return 0;
 }
