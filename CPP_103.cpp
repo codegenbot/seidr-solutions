@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cmath>
 #include <algorithm>
@@ -10,14 +9,13 @@ std::string rounded_avg(int n,int m){
         sum += i;
     }
     double avg = (double)sum/(m-n+1);
-    avg = floor(avg + 0.5); 
+    avg = std::floor(avg + 0.5); 
     std::string binary = "";
     while(avg > 0){
-        if(avg & 1) binary += "1";
-        else binary += "0";
-        avg >>= 1;
+        binary = (avg & 1) ? "1" + binary : "0" + binary;
+        avg /= 2;
     }
-    std::string rev = binary; 
-    std::reverse(rev.begin(), rev.end()); 
-    return rev;
+    if(binary.empty()) binary = "0";
+    reverse(binary.begin(),binary.end());
+    return binary;
 }
