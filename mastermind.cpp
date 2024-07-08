@@ -16,9 +16,10 @@ int mastermind(string code, string guess) {
     vector<char> guess_chars(guess.begin(), guess.end());
 
     for (char c : guess_chars) {
-        if (count(code_chars.begin(), code_chars.end(), c) > 0) {
+        auto it = find(code_chars.begin(), code_chars.end(), c);
+        if (it != code_chars.end()) {
             white++;
-            code_chars.erase(remove(code_chars.begin(), code_chars.end(), c), code_chars.end());
+            code_chars.erase(it);
         }
     }
 
