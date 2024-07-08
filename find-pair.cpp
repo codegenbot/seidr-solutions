@@ -1,13 +1,16 @@
+#include <vector>
+
 vector<int> findPair(vector<int>& nums, int target) {
     sort(nums.begin(), nums.end());
-    for (int i = 0; i < nums.size(); i++) {
-        if (i > 0 && nums[i] == nums[i-1]) continue;
+    for (int i = 0; i < nums.size() - 1; i++) {
         int complement = target - nums[i];
-        auto it = lower_bound(nums.begin() + i, nums.end(), complement);
-        if (it != nums.end() && *it == complement) {
-            return {nums[i], *it};
+        int j = i + 1;
+        while (j < nums.size() && nums[j] < complement) {
+            if (nums[j] + nums[i] == target) {
+                return {nums[i], nums[j]};
+            }
+            j++;
         }
     }
-    vector<int> result = {-1, -1};
-    return result;
+    return {-1, -1};
 }
