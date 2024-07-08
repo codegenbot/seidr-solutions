@@ -1,3 +1,4 @@
+```cpp
 string middleCharacter(string str) {
     int length = str.length();
     if (length % 2 == 0) {
