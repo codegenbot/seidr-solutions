@@ -10,18 +10,21 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for(int i='A'; i<=('A'+5); i++) {
-        int countCode = 0, countGuess = 0;
+    for(int i=0; i<6; i++) {
+        int count = 0;
+        int codeCount = 0;
         for(int j=0; j<4; j++) {
-            if(code[j] == i) {
-                countCode++;
+            if(guess[j] == (char)(i+'A')) {
+                count++;
             }
-            if(guess[j] == i) {
-                countGuess++;
+            if(code[j] == (char)(i+'A')) {
+                codeCount++;
             }
         }
-        white += min(countCode, countGuess);
+        if(count > 0 && codeCount > 0) {
+            white += min(count, codeCount);
+        }
     }
 
-    return black + white - black;
+    return black;
 }
