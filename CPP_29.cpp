@@ -9,7 +9,7 @@ bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b
 std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::string prefix) {
     std::vector<std::string> result;
     for (const auto& s : strings) {
-        if (s.find(prefix) == 0 || (prefix.size() > 0 && !s.compare(0, prefix.size(), prefix))) {
+        if (s.find(prefix) == 0) {
             result.push_back(s);
         }
     }
@@ -17,6 +17,9 @@ std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::s
 }
 
 int main() {
-    assert(isSame(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
+    std::vector<std::string> expected = {"xxx", "xxxAAA", "xxx"};
+    
+    assert(isSame(filterByPrefix(strings, "xxx"), expected));
     return 0;
 }
