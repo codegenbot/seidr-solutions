@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <cctype>
 #include <string>
-#include <unordered_set>
 
 std::string remove_vowels(std::string str) {
     std::string result;
