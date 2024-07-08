@@ -2,6 +2,14 @@
 #include <string>
 using namespace std;
 
+int duplicate_check(char ch, string str) {
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ch && str[i + 1] != ch) return true; // if character is found before and after the current position
+        if (str[i] == ch) return true; // check for duplicate at current position
+    }
+    return false;
+}
+
 int main() {
     string code, guess;
     int whitePegs = 0, blackPegs = 0;
@@ -21,12 +29,4 @@ int main() {
     }
 
     return 0;
-}
-
-// Check for duplicate characters in the guess string
-int duplicate_check(char ch, string str) {
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ch && str[i + 1] != ch) return false; // if character is found before and after the current position
-    }
-    return true;
 }
