@@ -1,14 +1,14 @@
+```
 def make_palindrome(string: str) -> str:
     if len(string) == 0:
         return ""
-    reversed_string = string[::-1]
-    common_prefix = ''
-    i, j = 0, len(string) - 1
-    while i <= j:
-        if string[i] == reversed_string[j]:
-            common_prefix += string[i]
-            i += 1
-            j -= 1
-        else:
-            break
-    return string + common_prefix[::-1]
+    prefix = ""
+    while not is_palindrome(prefix + string[0] + string[-1]):
+        if len(string) <= 3 or is_palindrome(string):
+            return string
+        prefix += string[0]
+        string = string[1:-1]
+    return prefix + string[0] + string[-1] + prefix[::-1]
+
+def is_palindrome(s):
+    return s == s[::-1]
