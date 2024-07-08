@@ -1,6 +1,6 @@
-```
-#include <iostream>
+```c++
 #include <string>
+#include <algorithm>
 
 std::string rounded_avg(int n,int m){
     if(n > m) return "-1";
@@ -16,14 +16,6 @@ std::string rounded_avg(int n,int m){
         avg /= 2;
     }
     if(binary.empty()) binary = "0";
-    reverse(binary.begin(),binary.end());
+    reverse(binary.begin(),binary.end()); 
     return binary;
-}
-
-int main(){
-    int n, m;
-    std::cout << "Enter two numbers: ";
-    std::cin >> n >> m;
-    std::cout << rounded_avg(n,m);
-    return 0;
 }
