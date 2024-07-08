@@ -1,9 +1,19 @@
-vector<float> get_positive(vector<float> l) {
-    vector<float> result;
-    for (float x : l) {
-        if (x > 0) {
-            result.push_back(x);
+#include <vector>
+#include <assert.h>
+
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    return result;
+    return true;
+}
+
+int main() {
+    assert(std::issame(get_positive({}), {}) == true);
+    return 0;
 }
