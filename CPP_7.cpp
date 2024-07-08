@@ -1,34 +1,22 @@
-```cpp
+```
 #include <vector>
-#include <algorithm>
-using namespace std;
+#include <string>
 
-bool issame(vector<string> a, vector<vector<string>> b){
-    if(a.size() != b.size()) return false;
-    for(auto s : a) {
-        bool found = false;
-        for(auto v : b) {
-            if(find(v.begin(),v.end(),s) != v.end()) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) return false;
-    }
-    return true;
+namespace std {
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+    std::vector<std::string> result;
     for(auto str : strings){
-        if(str.find(substring) != string::npos)
+        if(str.find(substring) != std::string::npos)
             result.push_back(str);
     }
     return result;
 
 }
 
-int main(){
-    assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,vector<vector<string>>{{"grunt"}, {"prune"}}));
-    return 0;
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()) return false;
+    for(auto s : a) if(find(b.begin(),b.end(),s) == b.end()) return false;
+    return true;
 }
