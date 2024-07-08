@@ -1,11 +1,14 @@
-#include <algorithm>
 #include <vector>
+#include <bitset>
+#include <initializer_list>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a != b)
+        return false;
+    return true;
 }
 
-std::vector<int> sortArray(std::vector<int> arr) {
+std::vector<int> sort_array(std::vector<int> arr) {
     auto comp = [&] (int a, int b) {
         if (std::bitset<32>(a).count() != std::bitset<32>(b).count()) {
             return std::bitset<32>(a).count() < std::bitset<32>(b).count();
@@ -18,5 +21,5 @@ std::vector<int> sortArray(std::vector<int> arr) {
 }
 
 int main() {
-    assert(isSame(sortArray({2, 4, 8, 16, 32}), std::vector<int>({2, 4, 8, 16, 32}));
+    assert(issame(sort_array({2,4,8,16,32}) , std::vector<int>{2, 4, 8, 16, 32}));
     return 0;
