@@ -13,4 +13,3 @@ int luhn(vector<int> digits) {
         doubleNext = !doubleNext;
     }
     return sum;
-}
