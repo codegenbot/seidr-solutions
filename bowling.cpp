@@ -1,4 +1,3 @@
-```
 int bowlingScore(std::string s) {
     int score = 0;
     bool lastRollWasStrike = false;
@@ -16,12 +15,10 @@ int bowlingScore(std::string s) {
             lastRollWasStrike = false;
             lastRollWasSpare = true;
         } else {
-            int rollValue = c - '0';
-            if (rollValue == 9) lastRollWasSpare = true;
+            score += c - '0';
+            if (c == '9') lastRollWasSpare = true;
             else lastRollWasStrike = true;
-            score += rollValue;
         }
     }
 
     return score;
-}
