@@ -3,7 +3,6 @@
 #include <any>
 #include <cassert>
 #include <typeinfo>
-using namespace std;
 
 std::vector<int> filter_integers(const std::list<std::any>& values){
     std::vector<int> result;
