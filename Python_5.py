@@ -1,5 +1,5 @@
+```
 from typing import list
-
 
 def intersperse(numbers: list[int], delimiter: int) -> list[int]:
     result = []
