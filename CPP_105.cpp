@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) {
@@ -27,7 +26,7 @@ std::vector<std::my_string> by_length(const std::vector<int>& arr) {
     return numbers;
 }
 
-std::vector<int> input() {
+int main() {
     std::vector<int> arr;    
     for(int i=0; i<5; i++) {
         int n;
@@ -35,18 +34,13 @@ std::vector<int> input() {
         std::cin >> n;
         arr.push_back(n);
     }
-    return arr;
-}
-
-int main() {
-    std::vector<int> arr = input();
     std::vector<std::my_string> result = by_length(arr);
     for (const auto& str : result) {
         std::cout << str << std::endl;
     }
+    
     if(issame(by_length({9, 4, 8}) , {"Eight", "Four", "Nine"}))
-        std::cout << "The two vectors are the same." << std::endl;
+        std::cout << "The lists are the same." << std::endl;
     else
-        std::cout << "The two vectors are not the same." << std::endl;
-    return 0;
+        std::cout << "The lists are different." << std::endl;
 }
