@@ -1,25 +1,14 @@
 #include <initializer_list>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); ++i)
-        if (a[i] != b[i])
-            return false;
+bool issame(vector<int> a,vector<int>b){
+    if(a.size()!=b.size())return false;
+    for(int i=0; i<a.size();i++)if(a[i]!=b[i])return false;
     return true;
+
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::unordered_map<int, bool> mp;
-    std::vector<int> result;
-
-    for (int i = 0; i < numbers.size(); ++i) {
-        if (!mp.count(numbers[i])) {
-            mp[numbers[i]] = true;
-            result.push_back(numbers[i]);
-        }
-    }
-
-    return result;
+int main() {
+    assert(issame(remove_duplicates({{1, 2}, {3, 4},{1, 2},{3, 4}}), {{1, 2}, {3, 4}}));
+    return 0;
 }
