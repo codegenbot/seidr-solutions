@@ -1,4 +1,3 @@
-```Python
 def bowling_score(game):
     score = 0
     frame = 1
@@ -6,11 +5,11 @@ def bowling_score(game):
         if game[i] == "X":
             score += 10
             if frame < 9:
-                next_roll = int(game[i + 2]) if i + 4 < len(game) else 10
-                score += next_roll
+                if game[i + 2].isdigit():
+                    score += int(game[i + 2])
+                else:
+                    score += 10
             frame += 1
-            if frame < 9:
-                frame += 1
         elif game[i : i + 2] == "XX":
             score += 20
             frame += 1
@@ -22,8 +21,8 @@ def bowling_score(game):
                 frame += 1
             else:
                 score += first + second
-                frame += (second > 0)
+                frame += 1
         elif game[i] == "-":
-            score += int(game[i + 1])
+            score += 10 + int(game[i + 1])
             frame += 1
     return score
