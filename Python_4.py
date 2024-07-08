@@ -10,4 +10,4 @@ else:
     except ZeroDivisionError as e:
         print(f"Cannot calculate mean absolute deviation. {e}.")
     except ValueError as e:
-        print(f"Invalid input. {e}.")
+        print(f"Invalid input. {e}."
