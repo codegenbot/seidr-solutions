@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <limits>
-#include <assert.h>
+#include <iostream>
 
 bool issame(pair<float, float> p1, pair<float, float> p2) {
     for (int i = 0; i < 2; ++i) {
@@ -28,11 +28,10 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     return vector<pair<float, float>>({closest_pair});
 }
 
-int mainTest() {
+void mainTest() {
     vector<float> numbers = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
     vector<pair<float, float>> result = find_closest_elements(numbers);
     for (const auto& pair : result) {
         cout << "(" << pair.first << ", " << pair.second << ")" << endl;
     }
-    return 0;
 }
