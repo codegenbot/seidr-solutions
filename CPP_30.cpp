@@ -17,4 +17,3 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 
     return positive_a == positive_b;
 }
-
