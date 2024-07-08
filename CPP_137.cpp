@@ -19,15 +19,15 @@ if (a.type() == boost::any::typeclass<int> &&
     } else {
         return a;
     }
-} else if (a.type() == boost::any::typeclass<std::string> && 
-           b.type() == boost::any::typeclass<std::string>) {
-    if (get<std::string>(a) > get<std::string>(b)) {
+} else if (a.type() == boost::any::typeclass<string> && 
+           b.type() == boost::any::typeclass<string>) {
+    if (get<string>(a) > get<string>(b)) {
         return a;
-    } else if (get<std::string>(a) < get<std::string>(b)) {
+    } else if (get<string>(a) < get<string>(b)) {
         return b;
     } else {
-        return "None";
+        return a;
     }
 } else {
-    throw std::invalid_argument("Invalid types");
+    throw invalid_argument("Invalid types");
 }
