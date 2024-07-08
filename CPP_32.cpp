@@ -19,6 +19,7 @@ double find_zero(const std::vector<double>& xs) {
 int main() {
     std::vector<double> coeffs = {1, -1, 0};
     double solution;
+    // Fix typo in the following loop
     for (const auto& coeff : coeffs) {
         solution = find_zero(coeffs);
     }
