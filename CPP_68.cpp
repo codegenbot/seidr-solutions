@@ -43,7 +43,7 @@ int main() {
     delete[] arr;
     
     for (const auto& pair : result) {
-        std::cout << "Index of the minimum even node: " << pair.second << "\n";
+        std::cout << "Min even node: " << pair.first << " at index: " << pair.second << "\n";
     }
     
     return 0;
