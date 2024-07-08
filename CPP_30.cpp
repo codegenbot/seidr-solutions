@@ -11,32 +11,28 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
     for (const auto& v : vectors) {
         int size = 0;
         std::vector<float> positiveVec = get_positive(v, size);
-        if (!issame({}, positiveVec)) {
+        if (!positiveVec.empty()) {
             result.push_back(positiveVec);
         }
     }
     return result;
 }
 
-int getSize(const std::vector<float>& vec) {
-    int size = 0;
+std::vector<float> get_positive(const std::vector<float>& vec, int& size) {
+    size = 0;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
             size++;
         }
     }
-    return size;
-}
 
-std::vector<float> get_positive(const std::vector<float>& vec) {
-    int size = getSize(vec);
-    std::vector<float> positiveVec(size);
-    int idx = 0;
+    std::vector<float> positiveVec;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
-            positiveVec[idx++] = vec[i];
+            positiveVec.push_back(vec[i]);
         }
     }
+
     return positiveVec;
 }
 
