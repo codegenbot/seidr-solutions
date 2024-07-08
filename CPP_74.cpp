@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,13 +25,9 @@ int main() {
         lst2.push_back(str);
     }
     
-    bool total_match;
-    total_match = issame(lst1, lst2);
-
-    if (total_match)
-        std::cout << "Lists are the same.\n";
-    else
-        std::cout << "Lists are not the same.\n";
+    bool total_match = issame(lst1, lst2);
+    
+    assert(total_match);
 
     return 0;
 }
