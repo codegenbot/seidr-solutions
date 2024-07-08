@@ -9,7 +9,7 @@ bool same_vectors(const std::vector<float>& a, const std::vector<float>& b) {
 std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> vectors) {
     std::vector<std::vector<float>> result;
     for (const auto& v : vectors) {
-        if (!same_vectors(get_positive(v), std::vector<float>())) {
+        if (!same_vectors(get_positive(v), {})) {
             result.push_back(v);
         }
     }
@@ -53,6 +53,7 @@ int main() {
         }
     }
 
+    int size;
     std::vector<std::vector<float>> result = filter_vectors(vectors);
 
     if (!result.empty()) {
