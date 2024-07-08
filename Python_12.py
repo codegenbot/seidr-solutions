@@ -1,5 +1,5 @@
 ```
-def longest_strings(strings: List[str]) -> Optional[str]:
+def longest(strings: List[str]) -> Optional[str]:
     if not all(isinstance(s, str) for s in strings):
         return None
     if not strings:
@@ -12,4 +12,4 @@ def longest_strings(strings: List[str]) -> Optional[str]:
             longest_str = s
     return longest_str
 
-print(longest_strings(["apple", "banana", "cherry"]))
+print(longest(["apple", "banana", "cherry"]))
