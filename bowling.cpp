@@ -39,3 +39,4 @@ int main() {
     int score = bowlingScore(s);
     std::cout << "The score is: " << score << std::endl;
     return 0;
+}
