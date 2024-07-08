@@ -1,3 +1,4 @@
+```c++
 string camelCase(string s) {
     string result = "";
     bool capitalizeNext = false;
@@ -30,3 +31,4 @@ string camelCase(string s) {
     }
     
     return result;
+}
