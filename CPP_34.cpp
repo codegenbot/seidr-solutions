@@ -16,9 +16,7 @@ int main() {
     std::sort(b.begin(), b.end());
 
     assert(issame(c, b));
-
-    assert(issame(std::vector<int>(std::unique(a.begin(), a.end()), a.end()), 
-                 std::vector<int>({0, 2, 3, 5, 9, 123}));
+    assert(issame(std::vector<int>(std::make_move_iterator(a.begin()), std::make_move_iterator(a.end())), std::vector<int>{0, 2, 3, 5, 9, 123}));
 
     return 0;
 }
