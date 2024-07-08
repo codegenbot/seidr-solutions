@@ -6,7 +6,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if ((a[i] != b[i]) && (a[i] > 0 || b[i] > 0)) {
+        if (std::abs(a[i] - b[i]) > 1e-6) { 
             return false;
         }
     }
@@ -18,7 +18,14 @@ float get_positive(const std::vector<float>& l) {
     for (const auto& x : l) {
         if (x > 0) {
             sum += x;
+        } else if (x < -1e-6) { 
+            return 0.0f; 
         }
     }
     return sum;
+}
+
+int main() {
+    assert(issame(std::vector<float>(1), std::vector<float>()));
+    return 0;
 }
