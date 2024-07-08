@@ -9,7 +9,6 @@ bool below_threshold(std::vector<int> l, int t) {
         }
     }
     return true;
-
 }
 
 int main() {
