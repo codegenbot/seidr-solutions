@@ -3,17 +3,11 @@
 bool solveBoolean(string expression) {
     bool res = true;
     for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '|') {
-            if (expression[i+1] == 'T')
-                res = true;
-            else
-                res = false;
+        if (expression[i] == '&') {
+            res &= (expression[i+1] == 'T');
             i++;
-        } else if (expression[i] == '&') {
-            if (expression[i+1] == 'T')
-                res &= true;
-            else
-                res &= false;
+        } else if (expression[i] == '|') {
+            res |= (expression[i+1] == 'T');
             i++;
         }
     }
