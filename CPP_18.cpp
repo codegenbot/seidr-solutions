@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -9,7 +10,6 @@ int how_many_times(const std::string& str, const std::string& substring) {
         pos = str.find(substring, pos); 
     }
     return count;
-
 }
 
 int main() {
@@ -17,9 +17,7 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     std::cout << "Enter a substring: ";
-    std::string temp;
-    std::getline(std::cin, temp);
-    sub = temp; 
+    std::getline(std::cin, sub);
 
     int result = how_many_times(input, sub);
     std::cout << "The substring appears " << result << " times in the input.\n";
