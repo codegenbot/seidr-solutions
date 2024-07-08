@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <limits>
@@ -35,4 +36,3 @@ int main() {
         std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
     }
     return 0;
-}
