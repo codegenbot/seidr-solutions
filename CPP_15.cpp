@@ -1,4 +1,16 @@
-Here is the solution:
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    string str = string_sequence(n);
+    cout << str << endl;
+    return 0;
+}
 
 string string_sequence(int n) {
     ostringstream oss;
