@@ -7,12 +7,12 @@ int luhn(std::vector<int> digits) {
         int digit = digits[i];
         if (!doubleNext) { 
             sum += digit;
-        } else { // it's time to double the next digit
+        } else { 
             digit *= 2;
             if (digit > 9) digit -= 9;
             sum += digit;            
         }
-        doubleNext = !doubleNext; // toggle for the next iteration
+        doubleNext = !doubleNext; 
     }
     return sum;
 }
