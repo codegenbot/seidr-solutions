@@ -1,7 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
@@ -9,8 +8,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     for (int i = 0; i < grid.size(); i++) {
         for (int j = 0; j < grid[i].size(); j++) {
             if (k == 1) {
-                res.push_back(grid[i][j]);
-                return res;
+                return {grid[i][j]};
             }
             vector<int> curPath;
             int val = grid[i][j];
@@ -34,19 +32,11 @@ vector<int> dfs(vector<vector<int>>& grid, int x, int y, int k, int val, vector<
         for (int j = -1; j <= 1; j++) {
             int nx = x + i;
             int ny = y + j;
-            if(nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size()) {
-                vector<int> temp;
-                bool found = true;
-                for (int v : (*path)) {
-                    if (find(grid[nx][ny], grid[nx][ny] + 1, v) != grid[nx][ny] + 1) {
-                        found = false;
-                        break;
-                    }
-                }
-                if (found) {
-                    vector<int> tempPath = dfs(grid, nx, ny, k - 1, val, path);
-                    if (!tempPath.empty() && (res.empty() || tempPath < res)) {
-                        res = tempPath;
+            if (nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size()) {
+                if (find((*path).begin(), (*path).end(), val) == (*path).end()) {
+                    vector<int> temp = dfs(grid, nx, ny, k - 1, grid[nx][ny], path);
+                    if (!temp.empty() && (res.empty() || temp < res)) {
+                        res = temp;
                     }
                 }
             }
@@ -62,5 +52,4 @@ int main() {
     for (int i : result) {
         cout << i << " ";
     }
-    return 0;
 }
