@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
 
-bool is_sorted(std::vector<int> lst) {
+bool is_sorted(std::vector<int> lst){
     if (lst.size() <= 1) return true;
 
     for(int i = 1; i < lst.size(); i++){
@@ -19,10 +18,10 @@ bool is_sorted(std::vector<int> lst) {
     }
 
     return true;
+
 }
 
-int main() {
+int main(){
     std::vector<int> lst = {1, 2, 3, 4};
     assert(is_sorted(lst) == true);
-    return 0;
 }
