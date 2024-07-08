@@ -3,12 +3,7 @@
 #include <string>
 
 int my_strlen(const char* str) {
-    int len = 0;
-    while (*str != '\0') {
-        len++;
-        str++;
-    }
-    return len;
+    return static_cast<std::string>(str).length();
 }
 
 int main() {
