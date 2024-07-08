@@ -1,7 +1,5 @@
 #include <string>
 
-using namespace std;
-
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
@@ -20,5 +18,5 @@ int mastermind(string code, string guess) {
         }
     }
 
-    return black;
+    return black + white;
 }
