@@ -34,3 +34,4 @@ int main() {
         std::cout << "Output is incorrect.\n";
     }
     return 0;
+}
