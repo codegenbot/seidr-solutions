@@ -1,27 +1,36 @@
-std::vector<std::vector<float>> vectors;
+```cpp
+#include <vector>
+#include <algorithm>
+#include <initializer_list>
 
-int main() {
-    for (int i = 0; i < 5; ++i) {
-        std::vector<float> v;
-        float num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
-        while(num != -1.0f) {
-            v.push_back(num);
-            std::cout << "Enter next element (or -1 to finish): ";
-            std::cin >> num;
-        }
-        vectors.push_back(v);
-    }
-
-    std::vector<std::vector<float>> result = filter_vectors(vectors);
-
-    for (const auto& v : result) {
-        for (float f : v) {
-            std::cout << f << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    return 0;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
+
+std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> vectors) {
+    std::vector<std::vector<float>> result;
+    for (const auto& v : vectors) {
+        if (!issame(get_positive(v), {})) {
+            result.push_back(v);
+        }
+    }
+    return result;
+}
+
+float* get_positive(const std::vector<float>& vec, int& size) {
+    size = 0;
+    for (int i = 0; i < vec.size(); i++) {
+        if (vec[i] > 0.0) {
+            size++;
+        }
+    }
+
+    float* result = new float[size];
+    int j = 0;
+    for (int i = 0; i < vec.size(); i++) {
+        if (vec[i] > 0.0) {
+            result[j] = vec[i];
+            j++;
+        }
+    }
+    return result;
