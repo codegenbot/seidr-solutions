@@ -27,8 +27,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     if ((a.type() == typeid(int) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(int))) {
-        string strA = boost::any_cast<string>(boost::any_cast<int>(a)).append(to_string(boost::any_cast<int>(b)));
-        return (strA > to_string(0)) ? a : b;
+        string strA = boost::any_cast<string>(boost::any_cast<int>(a));
+        int intB = boost::any_cast<int>(b);
+        return (strA > to_string(intB)) ? b : a;
     }
     if ((a.type() == typeid(float) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(float))) {
         string strB = boost::any_cast<string>(b);
