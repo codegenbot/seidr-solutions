@@ -1,13 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
-std::vector<int> solve(std::vector<int>& l) {
+std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> indices;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
@@ -25,15 +20,11 @@ std::vector<int> solve(std::vector<int>& l) {
     return l;
 }
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
 int main() {
-    std::vector<int> input = {7, 3, 9, 1, 5, 4, 2, 8, 6};
-    std::vector<int> expected = {2, 3, 6, 1, 5, 4, 7, 8, 9};
-    
-    std::vector<int> result = solve(input);
-    
-    assert(issame(result, expected));
-    
-    std::cout << "Test passed successfully!" << std::endl;
-    
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
     return 0;
 }
