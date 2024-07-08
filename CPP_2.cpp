@@ -1,6 +1,10 @@
-Here is the solution:
+#include <cmath>
 
-float truncate_number(float number){
-    int integer_part = (int)number;
-    float decimal_part = number - integer_part;
-    return decimal_part;
+float truncate_number(float number) {
+    int integer = (int)number;
+    float result = number - (float)integer;
+    if (result >= 0)
+        return result;
+    else
+        return -abs(result);
+}
