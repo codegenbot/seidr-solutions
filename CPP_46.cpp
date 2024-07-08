@@ -1,4 +1,5 @@
-```cpp
+```
+#include <iostream>
 #include <cstdio>
 
 int fib4(int n) {
@@ -17,8 +18,8 @@ int fib4(int n) {
 
 int main() {
     int n;
-    printf("Enter the value of n: ");
-    scanf("%d", &n);
-    printf("The %d-th element of the fib4 number sequence is: %d\n", n, fib4(n));
+    std::cout << "Enter the value of n: ";
+    std::cin >> n;
+    std::cout << "The " << n << "-th element of the fib4 number sequence is: " << fib4(n) << std::endl;
     return 0;
 }
