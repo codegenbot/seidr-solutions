@@ -23,12 +23,11 @@ void sort_even(vector<float>& a) {
         a[even_indices[i].second] = even_indices[i].first;
     }
 
-    assert(issame(a, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
+    assert(issame(a, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
 }
 
 int main() {
     vector<float> input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     sort_even(input);
-
-    return 0;
+    assert(issame(input, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
 }
