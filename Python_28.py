@@ -1,7 +1,7 @@
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
-    output = ""
+    result = ''
     for string in strings:
-        output += string
-    return output
+        result += string
+    return result
