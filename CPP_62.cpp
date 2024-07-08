@@ -1,27 +1,19 @@
 #include <vector>
-#include <cmath>
 #include <cassert>
+#include <cmath>
 
 using namespace std;
 
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size())
-        return false;
+vector<float> derivative(vector<float> coeff) {
+    vector<float> der(coeff.size() - 1);
     
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (fabs(a[i] - b[i]) > 1e-4)
-            return false;
+    for (int i = 0; i < coeff.size() - 1; ++i) {
+        der[i] = (coeff[i + 1] * (i + 1));
     }
     
-    return true;
+    return der;
 }
 
-vector<float> derivative(vector<float> input) {
-    // Implementation of derivative function goes here
-}
-
-int main() {
-    assert(issame(derivative({1}), {}));
-    
-    return 0;
+bool issame(vector<float> a, vector<float> b){
+    return a == b;
 }
