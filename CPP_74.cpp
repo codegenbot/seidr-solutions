@@ -1,8 +1,16 @@
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (!issame(a[i], b[i])) // assuming you want to compare strings too
+```
+#include <vector>
+#include <string>
+
+using namespace std;
+
+bool issame(vector<string> a, vector<string> other) {
+    if (a.size() != other.size()) 
+        return false;
+        
+    for (int i = 0; i < a.size(); i++) 
+        if (a[i] != other[i]) 
             return false;
-    }
+
     return true;
 }
