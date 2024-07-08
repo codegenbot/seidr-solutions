@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,14 +14,14 @@ int main() {
     int sum1 = 0;
     std::vector<std::string> lst1;
     std::cout << "Enter strings for list 1: ";
-    for (std::string str; std::getline(std::cin, str)) {
+    for (std::string str; std::getline(std::cin, str);) {
         lst1.push_back(str);
     }
     
     int sum2 = 0;
     std::vector<std::string> lst2;
     std::cout << "Enter strings for list 2: ";
-    for (std::string str; std::getline(std::cin, str)) {
+    for (std::string str; std::getline(std::cin, str);) {
         lst2.push_back(str);
     }
     
