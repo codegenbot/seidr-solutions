@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-
 using namespace std;
 
 int fib4(int n) {
