@@ -8,6 +8,6 @@ def cut_vector(nums):
         diff = abs(left_sum - right_sum)
         if diff < min_diff and (left_sum == right_sum or diff == min_diff):
             min_diff = diff
-            split_index = i+1
+            split_index = i + 1
         left_sum += nums[i]
     return nums[:split_index-1], nums[split_index-1:]
