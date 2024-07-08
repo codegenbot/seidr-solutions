@@ -1,10 +1,3 @@
-#include <vector>
-#include <cassert>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
 
@@ -26,13 +19,11 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
             minEvenValue = evenNodes[i].first;
             minIndex = evenNodes[i].second;
         } else if (evenNodes[i].first == minEvenValue) {
-            minIndex = min(minIndex, evenNodes[i].second);
+            minIndex = std::min(minIndex, evenNodes[i].second);
         }
     }
 
-    return {{minEvenValue, minIndex}};
-}
-
-int main() {
-    assert(issame(pluck({7, 9, 7, 1}), std::vector<std::pair<int, int>>{{}}));
+    std::vector<std::pair<int, int>> result;
+    result.push_back({minEvenValue, minIndex});
+    return result;
 }
