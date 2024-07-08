@@ -3,7 +3,9 @@ def mastermind(code, guess):
     guess_counts = collections.Counter(guess)
 
     black_pegs = sum(
-        min(count, guess.count(c)) for c, count in zip("ABCDEF", code_counts.values())
+        min(count1, count2)
+        for count1, count2 in zip(code_counts.values(), guess_counts.values())
     )
     white_pegs = 4 - black_pegs
-    return str(white_pegs) + "\n" + str(black_pegs)
+
+    return str(white_pegs), str(black_pegs)
