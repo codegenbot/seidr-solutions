@@ -22,6 +22,6 @@ std::vector<std::string> all_prefixes(const std::string& str) {
 
 int main() {
     std::string str = "WWW";
-    assert(issame(all_prefixes(str), {"W", "WW", "WWW"}));
+    assert(issame(all_prefixes(str), {"W.","WW.","WWW."}));
     return 0;
 }
