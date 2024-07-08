@@ -2,8 +2,8 @@
 #include <iostream>
 #include <string>
 
-std::string filp_case(const std::string& str){
-    std::string result;
+std::string filp_case(std::string str){
+    std::string result = "";
     for(int i=0; i<str.length(); i++){
         if(str[i] >= 'a' && str[i] <= 'z'){
             result += toupper((char)str[i]);
@@ -11,10 +11,17 @@ std::string filp_case(const std::string& str){
             result += tolower((char)str[i]);
         }
     }
-    return std::move(result);
+    return result;
 }
 
 int main() {
-    std::cout << filp_case("Hello, world!") << std::endl;
+    std::cout << "Error: Please enter a string!" << std::endl;
+    if (std::cin >> "") {
+        std::cout << "Error: Invalid input. Only letters are allowed." << std::endl;
+    } else {
+        std::string s;
+        std::cin >> s;
+        std::cout << filp_case(s) << std::endl;
+    }
     return 0;
 }
