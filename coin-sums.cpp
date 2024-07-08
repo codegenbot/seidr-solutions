@@ -1,3 +1,4 @@
+```cpp
 int main() {
     int cents;
     std::cin >> cents;
@@ -19,3 +20,4 @@ int main() {
     std::cout << pennies << "\n";
 
     return 0;
+}
