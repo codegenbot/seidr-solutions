@@ -35,6 +35,6 @@ int main() {
     std::cout << "Original: " << str << std::endl;
     std::cout << "Encoded: " << encoded_str << std::endl;
     std::cout << "Decoded: " << decode_cyclic(encoded_str) << std::endl;
-
-    return 0;
+    
+    return 0;  // Indicate successful completion
 }
