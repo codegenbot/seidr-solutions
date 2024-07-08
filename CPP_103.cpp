@@ -16,7 +16,7 @@ std::string rounded_avg(int n,int m){
         avg /= 2;
     }
     if(binary.empty()) binary = "0";
-    reverse(binary.begin(),binary.end());
+    std::reverse(binary.begin(),binary.end());
     return binary;
 }
 
