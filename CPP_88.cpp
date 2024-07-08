@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) return array;
@@ -25,8 +26,7 @@ std::vector<int> sort_array(std::vector<int> array) {
     return sortedArray;
 }
 
-int main 
-{
+int main() {
     std::vector<int> array = {21, 14, 23, 11};
     array = sort_array(array);
     if (array.size() % 2 == 1) {
@@ -36,5 +36,5 @@ int main
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    return 0;
+    return (array != {23, 21, 14, 11}) ? 1 : 0;
 }
