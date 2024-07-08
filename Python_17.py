@@ -1,15 +1,11 @@
 ```
-def parse_music(music_string: str) -> List[int]:
-    beats = []
-    i = 0
-    while i < len(music_string):
-        if music_string[i] == 'o':
-            beats.append(4)
-            i += 1
-        elif music_string[i:i+2] == 'o|':
-            beats.append(2)
-            i += 2
-        elif music_string[i:i+3] == '.| ':
-            beats.append(1)
-            i += 3
-    return beats
+def check(note: str) -> int:
+    note_map = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6}
+    return note_map.get(note.upper(), -1)
+
+def parse_music(music_string: str) -> list:
+    result = []
+    notes = music_string.split(',')
+    for note in notes:
+        result.append(check(note))
+    return result
