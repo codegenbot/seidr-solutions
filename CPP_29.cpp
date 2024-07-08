@@ -13,7 +13,6 @@ std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::s
             result.push_back(s);
         }
     }
-    return result;
 }
 
 int main() {
