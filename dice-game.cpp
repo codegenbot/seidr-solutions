@@ -4,13 +4,10 @@ int main() {
 }
 
 double diceGame(int n, int m) {
-    if (n > m) {
-        swap(n, m);
+    double result = 0.0;
+    for (int i = 1; i < m; i++) {
+        if(i < n) continue;
+        result += (n - i) / (double)(n * m);
     }
-    double totalPossibilities = (double)n * m;
-    double probability = 0.0;
-    for (int i = 1; i < m - (m % n); i++) {
-        probability += (n - (i % n)) / totalPossibilities;
-    }
-    return probability;
+    return result;
 }
