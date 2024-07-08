@@ -1,6 +1,7 @@
-```
+````
 def indices_of_substring(text, target):
-"""Find all the indices at which a target string appears in a text string."""
+    """"""Given a text string and a target string, return a list of integers of the indices at which the target appears in the text."""""
+    
     result = []
     index = 0
     while True:
