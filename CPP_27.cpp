@@ -13,3 +13,10 @@ std::string flip_case(std::string str) {
     }
     return str; // Return the modified string
 }
+
+int main() {
+    std::string result = flip_case("These violent delights have violent ends");
+    assert(result == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    std::cout << result << std::endl; // Output the result
+    return 0;
+}
