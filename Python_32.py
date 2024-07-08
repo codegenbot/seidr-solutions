@@ -1,5 +1,5 @@
 ```
-def find_zero(xs: list):
+def find_zero(xs):
     n = len(xs)
     if n % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
@@ -16,6 +16,6 @@ if len(user_input.split()) < 2:
 else:
     try:
         result = find_zero(coefficients)
-        print(f"The zero value is {result}")
+        print(result)
     except ValueError as e:
         print(str(e))
