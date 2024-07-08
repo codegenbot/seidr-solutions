@@ -1,14 +1,15 @@
-```cpp
 #include <algorithm>
+#include <vector>
 
-vector<int> std::unique(vector<int> l) {
-    vector<int> result(l.begin(), unique_copy(l.begin(), unique_end(l.end())));
-    return result;
+bool issame(vector<int> a,vector<int>b){
+    if(a.size() != b.size())
+        return false;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
-auto unique_end(iterator it) -> iterator {
-    for (; it != end(); ++it)
-        if (*it == *(prev(it)))
-            break;
-    return it;
+vector<int> unique(vector<int> l){
+    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()).end());
+    return result;
 }

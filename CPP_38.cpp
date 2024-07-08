@@ -1,4 +1,3 @@
-#include<stdio.h>
 #include<string>
 using namespace std;
 
@@ -18,10 +17,11 @@ string encode_cyclic(string s){
 
 string decode_cyclic(string s){ 
     string result;
-    int i=0,j;
+    int i=0;
     while(i<s.length()){
-        if(s[i]!='a' && s[i!='b' && s[i]!='c')i++;
+        if(s[i] == ' ')i++;
         else{
+            int j;
             for(j=i;j<s.length() && (s[j]-'a'+1)%3!=0;j++);
             result+=s.substr(i,j-i+1);
             i=j+1;

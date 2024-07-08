@@ -1,15 +1,16 @@
 #include <vector>
+#include <assert.h>
 
-bool issame(const vector<float>& a, const vector<float>& b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); i++) {
-        if(abs(a[i] - b[i]) > 1e-5) {
-            return false;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+std::vector<float> get_positive(std::vector<float> l){
+    std::vector<float> result;
+    for(float num : l) {
+        if(num > 0) {
+            result.push_back(num);
         }
     }
-    
-    return true;
+    return result;
 }

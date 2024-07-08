@@ -1,9 +1,8 @@
-#include <iostream>
 #include <string>
-#include <cctype>
+using namespace std;
 
-std::string flip_case(std::string str){
-    std::string result = "";
+string flip_case(string str){
+    string result = "";
     for(char c : str){
         if(islower(c)) {
             result += toupper(c);
@@ -14,7 +13,11 @@ std::string flip_case(std::string str){
     return result;
 }
 
-int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+int main(){
+    string s;
+    cout << "Enter a sentence: ";
+    getline(cin, s);
+    string output = flip_case(s);
+    cout << "Flipped case of the input is: " << output << endl;
     return 0;
 }
