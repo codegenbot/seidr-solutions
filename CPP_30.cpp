@@ -67,9 +67,5 @@ int main() {
         std::cout << "No resultant vectors." << std::endl;
     }
 
-    for (auto& v : vectorPtr) {
-        // No need to delete[] &v[0]; since we're returning by value
-    }
-
     return 0;
 }
