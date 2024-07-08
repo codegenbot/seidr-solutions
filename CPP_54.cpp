@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```cpp
 #include <algorithm>
 #include <string>
 #include <initializer_list>
