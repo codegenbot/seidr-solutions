@@ -1,7 +1,16 @@
-#include <vector>
-#include <string>
+namespace std {
+    std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
+        std::vector<std::string> result;
+        for(const auto& str : vec) {
+            if(str.find(sub) != std::string::npos)
+                result.push_back(str);
+        }
+        
+        return result;
+    }
+}
 
-bool isSame(std::vector<std::string> v1, std::vector<std::string> v2) {
+bool compareVectors(std::vector<std::string> v1, std::vector<std::string> v2) {
     if(v1.size() != v2.size())
         return false;
     
@@ -13,17 +22,6 @@ bool isSame(std::vector<std::string> v1, std::vector<std::string> v2) {
     return true;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
-    std::vector<std::string> result;
-    for(const auto& str : vec) {
-        if(str.find(sub) != std::string::npos)
-            result.push_back(str);
-    }
-    
-    return result;
-}
-
 int main() {
-    assert(isSame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    assert(compareVectors(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
-}
