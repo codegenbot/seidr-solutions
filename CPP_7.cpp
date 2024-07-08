@@ -1,7 +1,6 @@
-```
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <string>
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
     std::vector<std::string> result;
@@ -26,11 +25,7 @@ bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
 }
 
 int main_function() {
-    std::vector<std::string> vec = {"grunt", "trumpet", "prune", "gruesome"};
-    std::string sub = "run";
-    std::vector<std::string> result = filter_by_substring(vec, sub);
-    
-    assert(issame(result, std::vector<std::string> {"grunt", "prune"}));
-    
+    std::vector<std::string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    assert(issame(result, {"grunt", "prune"}));
     return 0;
 }
