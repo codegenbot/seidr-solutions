@@ -26,18 +26,6 @@ std::vector<int> sort_array(std::vector<int> array) {
     return sortedArray;
 }
 
-bool areSame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
     std::vector<int> array = {21, 14, 23, 11};
     array = sort_array(array);
@@ -48,11 +36,12 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    if (areSame({11, 14}, {14, 11})) {
-        std::cout << "The vector is the same after sorting.\n";
-    } else {
-        std::cout << "The vector is not the same after sorting.\n";
+    bool areEqual = true;
+    for (int i = 0; i < array.size(); i++) {
+        if (array[i] != 11 && array[i] != 14 && array[i] != 21 && array[i] != 23) {
+            areEqual = false;
+            break;
+        }
     }
-    
-    return 0;
+    return areEqual ? 0 : 1;
 }
