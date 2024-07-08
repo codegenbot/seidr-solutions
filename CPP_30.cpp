@@ -3,11 +3,27 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-int getSize(std::vector<float>& vec) {
+int getSize(std::vector<float>& vec);
+
+std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> vectors) {
+    std::vector<std::vector<float>> result;
+    for (const auto& v : vectors) {
+        int size = 0;
+        std::vector<float> positiveVec = get_positive(v, size);
+        if (!issame({}, positiveVec)) {
+            result.push_back(positiveVec);
+        }
+    }
+    return result;
+}
+
+int getSize(std::vector<float>& vec);
+
+std::vector<float> get_positive(const std::vector<float>& vec) {
     int size = 0;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
@@ -15,20 +31,14 @@ int getSize(std::vector<float>& vec) {
         }
     }
 
-    return size;
-}
-
-std::vector<float> get_positive(const std::vector<float>& vec, int& size) {
-    size = 0;
     std::vector<float> positiveVec;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
             positiveVec.push_back(vec[i]);
-            size++;
         }
     }
 
-    return positiveVec;
+    return size;
 }
 
 void mainFunc() {
@@ -50,14 +60,7 @@ void mainFunc() {
         }
     }
 
-    std::vector<std::vector<float>> result;
-    for (const auto& v : vectors) {
-        int size = 0;
-        std::vector<float> positiveVec = get_positive(v, size);
-        if (!issame({}, positiveVec)) {
-            result.push_back(positiveVec);
-        }
-    }
+    std::vector<std::vector<float>> result = filter_vectors(vectors);
 
     if (!result.empty()) {
         std::cout << "Resultant Vectors: " << std::endl;
