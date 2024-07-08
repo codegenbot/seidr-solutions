@@ -1,5 +1,5 @@
-```cpp
-std::pair<std::pair<float, float>> find_closest_elements(vector<float> v1, vector<float> v2) {
+std::pair<std::pair<float, float>>
+find_closest_elements(vector<float> v1, vector<float> v2) {
     pair<float, float> result;
     int min_diff = INT_MAX;
     for (int i = 0; i < v1.size(); ++i) {
