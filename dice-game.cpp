@@ -1,13 +1,22 @@
-int main() {
-    double result = diceGame(4, 6);
-    return 0;
-}
+```cpp
+#include <iostream>
+using namespace std;
 
 double diceGame(int n, int m) {
-    double result = 0.0;
-    for (int i = 1; i < m; i++) {
-        if(i < n) continue;
-        result += (n - i) / (double)(n * m);
+    double prob = 0.0;
+    for (int i = 1; i < n && i <= m; i++) {
+        prob += (n - i) * (1.0 / n) / (m + 1);
     }
-    return result;
+    return prob;
+}
+
+int main() {
+    int n, m;
+    cout << "Enter the number of sides for Peter's die: ";
+    cin >> n;
+    cout << "Enter the number of sides for Colin's die: ";
+    cin >> m;
+    double result = diceGame(n, m);
+    cout << "Probability: " << result << endl;
+    return 0;
 }
