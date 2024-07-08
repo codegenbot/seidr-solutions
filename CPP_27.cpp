@@ -1,5 +1,4 @@
 #include <string>
-#include <cctype>
 #include <cassert>
 
 std::string flip_case(std::string str) {
