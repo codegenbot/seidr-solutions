@@ -16,7 +16,10 @@ public:
 };
 
 int main() {
-    Solution s;
-    s.fizzBuzz(3);
+    Solution solution;
+    int x;
+    cout << "Enter a number: ";
+    cin >> x;
+    cout << solution.fizzBuzz(x) << endl;
     return 0;
 }
