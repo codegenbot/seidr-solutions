@@ -1,4 +1,8 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <map>
+
 int search(std::vector<int> lst) {
     std::map<int, int> freq;
     for (int i : lst) {
