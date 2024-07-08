@@ -3,9 +3,8 @@ def coin_sums(cents):
     result = [0, 0, 0, 0]
 
     for coin in coins:  
-        num_coins = int(cents / coin)
+        result[coins.index(coin)] = int(cents / coin)
         cents %= coin
-        result[coins.index(coin)] = num_coins
 
     return result
 
