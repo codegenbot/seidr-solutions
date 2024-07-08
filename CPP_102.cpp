@@ -13,7 +13,7 @@ int choose_num(int x, int y) {
         return x;
     else
     {
-        string str;
+        std::string str;
         for (int i = x; i <= y; i++) {
             if (i % 2 == 0) {
                 str += to_string(i);
