@@ -3,19 +3,16 @@
 #include <algorithm>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if(a.size() != b.size()) {
+bool issame(vector<string> a, vector<string> b) {
+    if(a == b) {
+        return true;
+    }
+    else {
         return false;
     }
-    for(size_t i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 
-std::vector<std::string> by_length(const std::vector<int>& arr) {
+std::vector<string> by_length(std::vector<int> arr) {
     std::vector<std::string> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
@@ -35,11 +32,10 @@ int main() {
         std::cin >> n;
         arr.push_back(n);
     }
-    std::vector<std::string> result = by_length(arr);
+    std::vector<string> result = by_length(arr);
     for (const auto& str : result) {
         std::cout << str << std::endl;
     }
-    // Use the issame function
     assert(issame(by_length({9, 4, 8}) , {"Eight", "Four", "Nine"}));
     return 0;
 }
