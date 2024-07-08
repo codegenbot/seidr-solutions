@@ -1,7 +1,8 @@
-def normalize_numbers(numbers):
+def rescale_to_unit(numbers):
     min_num = min(numbers)
     max_num = max(numbers)
     return [(x - min_num) / (max_num - min_num) for x in numbers]
 
-result = normalize_numbers([1, 2, 3, 4, 5])
+
+result = rescale_to_unit([1, 2, 3, 4, 5])
 print(result)
