@@ -1,6 +1,8 @@
 #include <algorithm>
 #include <vector>
 #include <cassert>
+#include <numeric>
+#include <iterator> // Add this line
 
 using namespace std;
 
