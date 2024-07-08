@@ -1,16 +1,6 @@
-```cpp
 #include <cstdio>
-#include <iostream>
 
-int fib4(int n);
-
-int main() {
-    int n;
-    std::printf("Enter the value of n: ");
-    std::scanf("%d", &n);
-    std::printf("The %d-th element of the fib4 number sequence is: %d\n", n, fib4(n));
-    return 0;
-}
+using namespace std;
 
 int fib4(int n) {
     if (n <= 1)
@@ -24,4 +14,12 @@ int fib4(int n) {
         d = temp;
     }
     return d;
+}
+
+int main() {
+    int n;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+    printf("The %d-th element of the fib4 number sequence is: %d\n", n, fib4(n));
+    return 0;
 }
