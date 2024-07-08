@@ -1,12 +1,10 @@
-#include <string>
-
-string words_in_sentence(string sentence){
-    string result = "";
+std::string words_in_sentence(std::string sentence) {
+    std::string result = "";
     for(int i=0; i<sentence.length(); i++){
         int len = 0;
         while(i < sentence.length() && sentence[i] != ' ') i++;
         string word = sentence.substr(0, i);
-        for(int j=2;;j++){
+        for(int j=2; ;j++){
             bool isPrime = true;
             for(int k=2; k*k <= j; k++){
                 if(j % k == 0){
