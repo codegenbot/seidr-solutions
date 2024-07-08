@@ -17,12 +17,8 @@ std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::s
 }
 
 int main() {
-    vector<string> test = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    std::vector<std::string> output = filterByPrefix(test, "xxx");
-    for (const auto& s : output) {
-        if (!s.compare("xxx")) continue;
-        s.replace(0, 3, "");
-        assert(s == "AAA");
-    }
+    std::vector<std::string> testVector = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
+    auto filteredVector = filterByPrefix(testVector, "xxx");
+    assert(isSame(filteredVector, {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
