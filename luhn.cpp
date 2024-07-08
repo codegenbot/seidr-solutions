@@ -1,16 +1,22 @@
+```cpp
 #include <vector>
+#include <string>
 
-int luhn(std::vector<int> digits) {
+std::string luhn(std::vector<std::string> digits) {
     int sum = 0;
     bool doubleNext = false;
     for (int i = digits.size() - 1; i >= 0; --i) {
-        int digit = digits[i];
+        std::string digit = digits[i];
         if (doubleNext) {
-            digit *= 2;
-            if (digit > 9) digit -= 9;
+            int temp = std::stoi(digit);
+            temp *= 2;
+            if (temp > 9) temp -= 9;
+            sum += temp;
         }
-        sum += digit;
+        else {
+            sum += std::stoi(digit);
+        }
         doubleNext = !doubleNext;
     }
-    return sum;
+    return std::to_string(sum);
 }
