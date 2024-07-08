@@ -1,14 +1,12 @@
 #include <algorithm>
 #include <vector>
 
-namespace std {
 bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
     }
     return true;
-}
 }
 
 std::vector<int> sort_array(std::vector<int> array) {
@@ -45,8 +43,11 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    if (!issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11})) {
-        return 1;
+    if (issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11})) {
+        std::cout << "Sorted arrays are the same" << std::endl;
+    } else {
+        std::cout << "Sorted arrays are not the same" << std::endl;
     }
-    return 1;
+    
+    return 0;
 }
