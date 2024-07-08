@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <vector>
 #include <cmath>
 #include <string>
@@ -33,16 +33,4 @@ vector<string> split(const string& str, char c) {
     }
     tokens.push_back(str);
     return tokens;
-}
-
-int main() {
-    string sentence;
-    cout << "Enter a sentence: ";
-    getline(cin, sentence);
-    string result = words_in_sentence(sentence);
-    if (!result.empty()) {
-        cout << "The words in the sentence with prime length are: " << result << endl;
-    } else {
-        cout << "No word has a prime length." << endl;
-    }
 }
