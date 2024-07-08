@@ -1,3 +1,5 @@
+import math
+
 start_height = float(input())
 first_bounce_height = float(input())
 num_bounces = int(input())
