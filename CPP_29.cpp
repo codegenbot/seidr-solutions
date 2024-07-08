@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -12,5 +13,5 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix) {
         if (s.find(prefix) == 0) {
             result.push_back(s);
         }
-    };
-}
+    }
+    return result;
