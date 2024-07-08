@@ -11,5 +11,4 @@ int is_bored(string S) {
     }
     return count;
 
-int main() {
-    return 0;
+}
