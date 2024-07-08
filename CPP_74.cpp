@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -15,10 +14,10 @@ bool compareVectors(const std::vector<std::string>& a, const std::vector<std::st
 
 int main() {
     std::vector<std::string> v1, v2;
-    int n;
+    int total_match;
 
     std::cout << "Enter number of strings: ";
-    std::cin >> n;
+    int n; std::cin >> n;
 
     for (int i = 0; i < n; i++) {
         std::string str;
