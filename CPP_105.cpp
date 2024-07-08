@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -16,32 +17,41 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::string> by_length(const std::vector<int>& arr) {
-    using namespace std;
-    vector<string> numbers;
+    std::vector<std::string> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            numbers.push_back(to_string(num));
+            numbers.push_back(std::to_string(num));
         }
     }
-    sort(numbers.begin(), numbers.end());
-    reverse(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
+    std::reverse(numbers.begin(), numbers.end());
     return numbers;
 }
 
+std::vector<int> readNumbers(int n) {
+    std::vector<int> arr;    
+    for(int i=0; i<n; i++) {
+        int number;
+        std::cout << "Enter a number: ";
+        std::cin >> number;
+        arr.push_back(number);
+    }
+    return arr;
+}
+
 int main() {
-    vector<int> arr;    
-    for(int i=0; i<5; i++) {
-        int n;
-        cout << "Enter a number: ";
-        cin >> n;
-        arr.push_back(n);
-    }
-    vector<string> result = by_length(arr);
+    int n;
+    std::cout << "How many numbers do you want to enter? ";
+    std::cin >> n;
+    std::vector<int> arr = readNumbers(n);
+    std::vector<std::string> result = by_length(arr);
     for (const auto& str : result) {
-        cout << str << endl;
+        std::cout << str << std::endl;
     }
-    if (!issame(by_length({9, 4, 8}) , {"Eight", "Four", "Nine"})) {
-        cerr << "Test failed." << endl;
+    if (issame(by_length({9, 4, 8}) , {"Eight", "Four", "Nine"})) {
+        std::cout << "The results are the same." << std::endl;
+    } else {
+        std::cout << "The results are different." << std::endl;
     }
     return 0;
 }
