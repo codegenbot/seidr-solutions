@@ -1,6 +1,5 @@
 def basement(nums):
-    total = 0
-    i = -1
+    total = sum(0 for _ in range(len(nums)))
     for i in range(len(nums)):
         total += nums[i]
         if total < 0:
