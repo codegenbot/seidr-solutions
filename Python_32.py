@@ -1,6 +1,8 @@
 def find_zero(xs: list):
     if not xs or xs[0] != 0:
         return None
+    if all(x == 0 for x in xs):
+        return 0
     if max(xs, key=abs) == 0:
         return 0
     a = max(xs, key=abs)
