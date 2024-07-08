@@ -1,12 +1,14 @@
 ```
-def find_zero(xs):
+def find_zero(xs: list):
     n = len(xs)
-    if n < 2:
-        if n == 1:
-            return str(-xs[0])
-        else:
-            raise ValueError("xs must have at least two coefficients")
     
+    if n < 2:
+        raise ValueError("xs must have at least two coefficients")
+    elif n == 2:
+        a, b = xs
+        zero_value = -b / (2 * a)
+        return str(zero_value)
+
     if n == 3:
         a, b, c = xs
         d = b**2 - 4*a*c
