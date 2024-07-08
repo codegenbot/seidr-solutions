@@ -2,14 +2,15 @@
 #include <vector>
 #include <algorithm>
 
-bool same_vectors(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> vectors) {
     std::vector<std::vector<float>> result;
     for (const auto& v : vectors) {
-        if (!same_vectors(get_positive(v), {})) {
+        int size = 0;
+        if (!issame(get_positive(v, size), std::vector<float>())) {
             result.push_back(v);
         }
     }
@@ -53,7 +54,6 @@ int main() {
         }
     }
 
-    int size;
     std::vector<std::vector<float>> result = filter_vectors(vectors);
 
     if (!result.empty()) {
