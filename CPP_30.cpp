@@ -1,24 +1,25 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool isSame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> vectors) {
+std::vector<std::vector<float>> filterVectors(std::vector<std::vector<float>> vectors) {
     std::vector<std::vector<float>> result;
     for (const auto& v : vectors) {
         int size = 0;
-        assert(issame(get_positive(v, size), {}));
-        if (!issame({}, get_positive(v, size))) {
-            result.push_back(get_positive(v, size));
+        std::vector<float> positiveVec = getPositive(v, size);
+        if (!isSame({}, std::vector<float>(size))) {
+            result.push_back(positiveVec);
         }
     }
     return result;
 }
 
-std::vector<float> get_positive(const std::vector<float>& vec, int& size) {
+std::vector<float> getPositive(const std::vector<float>& vec, int& size) {
     size = 0;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
@@ -55,7 +56,7 @@ int main() {
         }
     }
 
-    std::vector<std::vector<float>> result = filter_vectors(vectors);
+    std::vector<std::vector<float>> result = filterVectors(vectors);
 
     if (!result.empty()) {
         std::cout << "Resultant Vectors: " << std::endl;
@@ -63,7 +64,7 @@ int main() {
             for (float f : v) {
                 std::cout << f << " ";
             }
-            std::cout << std::endl;
+            std::cout << "> " << std::endl;
         }
     } else {
         std::cout << "No resultant vectors." << std::endl;
