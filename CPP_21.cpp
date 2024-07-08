@@ -18,16 +18,12 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
-bool test_rescale_to_unit() {
+int main() {
     std::vector<float> numbers = {2.0, 4.0, 6.0, 8.0, 10.0};
     std::vector<float> expected_output = {0.0, 0.25, 0.5, 0.75, 1.0};
     std::vector<float> result = rescale_to_unit(numbers);
     
-    return issame(result, expected_output);
-}
-
-int main() {
-    if (test_rescale_to_unit()) {
+    if (issame(result, expected_output)) {
         std::cout << "Output matches the expected result." << std::endl;
     } else {
         std::cout << "Output does not match the expected result." << std::endl;
