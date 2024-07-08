@@ -1,5 +1,6 @@
-import statistics
+Here is the modified code:
 
+import statistics
 
 def mean_absolute_deviation(numbers):
     if len(numbers) == 0:
@@ -12,10 +13,5 @@ def mean_absolute_deviation(numbers):
         count += 1
     return total / count
 
-
 numbers = input("Enter space-separated numbers: ").split()
-print(
-    mean_absolute_deviation(
-        [num for num in numbers if num.replace(".", "", 1).replace("-", 1).isnumeric()]
-    )
-)
+print(mean_absolute_deviation([num for num in numbers if num.replace('.', '', 1).replace('-', 1).isnumeric()]))
