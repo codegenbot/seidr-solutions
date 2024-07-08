@@ -4,7 +4,7 @@
 std::string decimal_to_binary(int decimal);
 
 int main() {
-    assert(decimal_to_binary(15) == "db1111db");
+    assert(std::abs(std::distance((std::string)"db" + decimal_to_binary(15), ((std::string)"db11111")) ) == 0);
 }
 
 std::string decimal_to_binary(int decimal){
