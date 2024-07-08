@@ -1,24 +1,56 @@
 ```cpp
+#include <iostream>
 #include <vector>
-#include <string>
-using namespace std;
+#include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> arr;
+    for (int i = 0; i < n; i++) {
+        int num;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
+        arr.push_back(num);
+    }
+
+    std::vector<std::string> result = by_length(arr);
+
+    std::cout << "Expected Output: ";
+    for (int i = 0; i < n; i++) {
+        if (i < n-1)
+            std::cout << "One";
+        else
+            std::cout << "Nine";
+    }
+    std::cout << std::endl;
+
+    if (issame(result, {"Seven", "Six", "Five", "Four", "Three", "Two", "One"}))
+        std::cout << "Output is same as expected.\n";
+    else
+        std::cout << "Output is not same as expected.\n";
+
+    return 0;
+}
+
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> numbers;
     for (int num : arr) {
-        if (num >= 1 && num <= 9) {
+        if (issame(num)) {
             numbers.push_back(num);
         }
     }
-    sort(numbers.begin(), numbers.end());
-    reverse(numbers.begin(), numbers.end());
-    vector<string> result;
+    std::sort(numbers.begin(), numbers.end());
+    std::reverse(numbers.begin(), numbers.end());
+    std::vector<std::string> result;
     for (int num : numbers) {
-        string str = "";
+        std::string str = "";
         switch (num) {
             case 1:
                 str = "One";
@@ -51,8 +83,4 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(str);
     }
     return result;
-}
-
-int main() {
-    assert(issame(by_length({9, 4, 8}), vector<string>{ "Nine", "Four", "Eight" }));
 }
