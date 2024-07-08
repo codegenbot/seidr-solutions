@@ -1,20 +1,13 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<vector<string>>& a) {
-    if (a.size() != 1)
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
         return false;
-    for (const auto& v : a[0]) {
-        if (v.empty())
-            return true;
-        for (int i = 1; ; ++i) {
-            string s = v.substr(0, i);
-            bool found = false;
-            for (const auto& other_v : a[0])
-                if (other_v == s)
-                    {found = true; break;}
-            if (!found)
-                return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
     return true;
@@ -29,6 +22,19 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    assert(issame({{all_prefixes("WWW")} }));
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    vector<string> prefixes = all_prefixes(str);
+    cout << "Prefixes of the string are: ";
+    for (string prefix : prefixes) {
+        cout << prefix << " ";
+    }
+    bool same = issame(prefixes, all_prefixes("WWW"));
+    if (same) {
+        cout << "\nAll strings have same prefixes.";
+    } else {
+        cout << "\nStrings do not have same prefixes.";
+    }
     return 0;
 }
