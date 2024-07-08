@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
+vector<int> getLeaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
     int maxRightSoFar = arr[n - 1];
@@ -17,7 +17,7 @@ vector<int> leaders(vector<int>& arr) {
 
 int main() {
     vector<int> arr = {1, 3, 4, 2};
-    vector<int> leadersResult = leaders(arr);
+    vector<int> leadersResult = getLeaders(arr);
     for (int leader : leadersResult) {
         cout << leader << endl;
     }
