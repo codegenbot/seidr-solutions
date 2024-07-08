@@ -1,7 +1,10 @@
-```c++
+Here's the corrected code:
+
+```cpp
 #include <vector>
 #include <cmath>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -33,17 +36,4 @@ vector<string> split(const string& str, char c) {
     }
     tokens.push_back(str);
     return tokens;
-}
-
-int main() {
-    string sentence;
-    cout << "Enter a sentence: ";
-    getline(cin, sentence);
-    
-    string output = words_in_sentence(sentence);
-    if (!output.empty()) {
-        cout << "The words with prime length are: " << output << endl;
-    } else {
-        cout << "No words have prime length." << endl;
-    }
 }
