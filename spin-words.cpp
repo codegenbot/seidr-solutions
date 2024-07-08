@@ -3,15 +3,10 @@
 #include <algorithm>
 #include <sstream>
 using namespace std;
-
 int main() {
     string input;
     getline(cin, input);
-
-    // Split the input string into words.
     vector<string> words = split(input, ' ');
-
-    // Reverse each word that is 5 or more letters long.
     for (int i = 0; i < words.size(); i++) {
         if (words[i].length() >= 5) {
             string reversedWord = words[i];
@@ -19,11 +14,7 @@ int main() {
             words[i] = reversedWord;
         }
     }
-
-    // Join the words back together into a single string.
     string output = join(words, ' ');
-
-    cout << output << '\n';
-
+    cout << output << endl;
     return 0;
 }
