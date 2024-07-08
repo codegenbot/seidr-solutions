@@ -11,12 +11,17 @@ int mastermind(string code, string guess) {
     }
 
     for (int i = 0; i < 4; i++) {
-        bool found = false;
+        bool foundInCode = false;
         for (int j = 0; j < 4; j++) {
-            if (guess[i] == code[j] && !found) {
-                white++;
-                found = true;
+            if (guess[i] == code[j]) {
+                foundInCode = true;
+                break;
             }
+        }
+        if (!foundInCode) {
+            white++;
+        } else {
+            black--;
         }
     }
 
