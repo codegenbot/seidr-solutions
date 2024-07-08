@@ -1,55 +1,32 @@
-```cpp
-#include <iostream>
 #include <vector>
 using namespace std;
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> res;
-    for (int i = 0; i < grid.size(); i++) {
-        for (int j = 0; j < grid[i].size(); j++) {
-            if (k == 1) {
-                return {grid[i][j]};
-            }
-            vector<int> curPath;
-            int val = grid[i][j];
-            curPath.push_back(val);
-            vector<int> temp = dfs(grid, i, j, k - 1, val, &curPath);
-            if (res.empty() || temp < res) {
-                res = temp;
-            }
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    return res;
+    return true;
 }
 
-vector<int> dfs(vector<vector<int>>& grid, int x, int y, int k, int val, vector<int>* path) {
-    (*path).push_back(val);
-    if (k == 0) {
-        return *path;
-    }
-    vector<int> res;
-    for (int i = -1; i <= 1; i++) {
-        for (int j = -1; j <= 1; j++) {
-            int nx = x + i;
-            int ny = y + j;
-            if (nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size()) {
-                if (find((*path).begin(), (*path).end(), val) == (*path).end()) {
-                    vector<int> temp = dfs(grid, nx, ny, k - 1, grid[nx][ny], path);
-                    if (!temp.empty() && (res.empty() || temp < res)) {
-                        res = temp;
-                    }
-                }
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    vector<int> result;
+    for (int i = 0; i < grid.size(); ++i) {
+        for (int j = 0; j < grid[0].size(); ++j) {
+            if (grid[i][j] == k) {
+                result.push_back(i);
+                result.push_back(j);
             }
         }
     }
-    return res;
+    return result;
 }
 
 int main() {
-    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (int i : result) {
-        cout << i << " ";
-    }
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
 }
