@@ -1,8 +1,15 @@
-#include <string>
-#include <cassert>
+#include <assert.h>
 
-bool prime_length(std::string str) {
-    int n = str.size();
+bool prime_length(const char* str) {
+    if (*str == '\0') // Check for empty string
+        return false;
+
+    int n = 0;
+    while (*str != '\0') {
+        str++;
+        n++;
+    }
+
     bool is_prime = true;
 
     if (n <= 1)
@@ -21,6 +28,5 @@ bool prime_length(std::string str) {
 }
 
 int main() {
-    std::string str = "0";
-    assert(prime_length(str) == false);
+    assert(prime_length("0") == false);
 }
