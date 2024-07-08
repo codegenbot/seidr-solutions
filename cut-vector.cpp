@@ -1,4 +1,7 @@
-```
+#include <vector>
+#include <iostream>
+using namespace std;
+
 vector<int> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int pos = -1;
