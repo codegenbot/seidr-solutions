@@ -18,6 +18,12 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 
 }
 int main() {
-    assert(issame(filter_by_substring({vector<string>{ "grunt", "trumpet", "prune", "gruesome" }}, "run") ,{ "grunt", "prune"}));
+    vector<string> strings;
+    strings.push_back("grunt");
+    strings.push_back("trumpet");
+    strings.push_back("prune");
+    strings.push_back("gruesome");
+
+    assert(issame(filter_by_substring(strings, "run") ,{"grunt", "prune"}));
     return 0;
 }
