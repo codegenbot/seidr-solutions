@@ -1,86 +1,52 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(size_t i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> arr;
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
-        arr.push_back(num);
-    }
-
-    std::vector<std::string> result = by_length(arr);
-
-    std::cout << "Expected Output: ";
-    for (int i = 0; i < n; i++) {
-        if (i < n-1)
-            std::cout << "One";
-        else
-            std::cout << "Nine";
-    }
-    std::cout << std::endl;
-
-    if (issame(result, {"Seven", "Six", "Five", "Four", "Three", "Two", "One"}))
-        std::cout << "Output is same as expected.\n";
-    else
-        std::cout << "Output is not same as expected.\n";
-
-    return 0;
-}
-
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+std::vector<std::my_string> by_length(const std::vector<int>& arr) {
+    std::vector<std::my_string> numbers;
     for (int num : arr) {
-        if (issame(num)) {
-            numbers.push_back(num);
+        if (num >= 1 && num <= 9) {
+            numbers.push_back(std::to_string(num));
         }
     }
     std::sort(numbers.begin(), numbers.end());
     std::reverse(numbers.begin(), numbers.end());
-    std::vector<std::string> result;
-    for (int num : numbers) {
-        std::string str = "";
-        switch (num) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
-        }
-        result.push_back(str);
+    return numbers;
+}
+
+std::vector<int> input() {
+    std::vector<int> arr;    
+    for(int i=0; i<5; i++) {
+        int n;
+        std::cout << "Enter a number: ";
+        std::cin >> n;
+        arr.push_back(n);
     }
-    return result;
+    return arr;
+}
+
+int main() {
+    std::vector<int> arr = input();
+    std::vector<std::my_string> result = by_length(arr);
+    for (const auto& str : result) {
+        std::cout << str << std::endl;
+    }
+    if(issame(by_length({9, 4, 8}) , {"Eight", "Four", "Nine"}))
+        std::cout << "The two vectors are the same." << std::endl;
+    else
+        std::cout << "The two vectors are not the same." << std::endl;
+    return 0;
 }
