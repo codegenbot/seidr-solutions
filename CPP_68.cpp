@@ -1,5 +1,9 @@
 #include <vector>
-#include <utility>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
@@ -22,13 +26,13 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
             minEvenValue = evenNodes[i].first;
             minIndex = evenNodes[i].second;
         } else if (evenNodes[i].first == minEvenValue) {
-            minIndex = std::min(minIndex, evenNodes[i].second);
+            minIndex = min(minIndex, evenNodes[i].second);
         }
     }
 
     return {{minEvenValue, minIndex}};
 }
 
-bool compareArrays(vector<int> a, vector<int> b) {
-    // Your code for comparing arrays goes here.
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}), std::vector<std::pair<int, int>>{{}}));
 }
