@@ -1,7 +1,5 @@
-```cpp
 #include <algorithm>
 #include <vector>
-#include <initializer_list>
 
 std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) return array;
@@ -37,5 +35,5 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    return 0;
+    return (array != std::vector<int>(std::vector<int>({23, 21, 14, 11}))) ? 1 : 0;
 }
