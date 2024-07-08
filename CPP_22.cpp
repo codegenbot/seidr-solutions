@@ -1,4 +1,4 @@
-#include <vector>
+#include <initializer_list>
 
 bool issame(int a, int b) { return a == b; }
 bool issame(char a, char b) { return a == b; }
@@ -11,7 +11,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> filter_integers(const std::any& values) {
+std::vector<int> filter_integers(std::any values) {
     std::vector<int> result;
     for (auto& value : std::any_cast<std::any>(values)) {
         if (std::holds_alternative<int>(value)) {
@@ -23,8 +23,7 @@ std::vector<int> filter_integers(const std::any& values) {
 }
 
 int main() {
-    auto values = std::any({(int)3, (char)'c', (int)3, (int)3, (char)'a', (char)'b'});
+    auto values = std::any({{3, 3, 3}, (char)'c', (int)3, (int)3, (char)'a', (char)'b'});
     auto output = filter_integers(values);
     assert(issame(output,{3, 3, 3}));
     return 0;
-}
