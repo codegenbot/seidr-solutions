@@ -1,36 +1,37 @@
 #include <algorithm>
 #include <vector>
 #include <limits>
-#include <iostream>
 
-using namespace std;
-
-bool issame(pair<float, float> p1) {
-    return true; // since we're only checking for equality within the same pair
+bool issame(std::pair<float, float> p1, std::pair<float, float> p2) {
+    return (p1.first == p2.first && p1.second == p2.second);
 }
 
-vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
-    pair<float, float> closest_pair;
-    float min_diff = numeric_limits<float>::max();
+std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
+    if(numbers.size() <= 1)
+        return {};
 
-    for (int i = 0; i < numbers.size() - 1; ++i) {
-        for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = abs(numbers[j] - numbers[i]);
-            if (diff < min_diff) {
+    std::pair<float, float> closest_pair;
+    float min_diff = std::numeric_limits<float>::max();
+
+    for(int i = 0; i < numbers.size() - 1; ++i) {
+        for(int j = i + 1; j < numbers.size(); ++j) {
+            float diff = std::abs(numbers[j] - numbers[i]);
+            if(diff < min_diff) {
                 min_diff = diff;
-                closest_pair = make_pair(min(max(numbers[i], numbers[j]), max(numbers[0], numbers.back())), 
-                                           min(max(numbers[i], numbers[j]), min(numbers[0], numbers.back())));
+                closest_pair.first = numbers[i];
+                closest_pair.second = numbers[j];
             }
         }
     }
 
-    return vector<pair<float, float>>({closest_pair});
+    return {{closest_pair.first, closest_pair.second}};
 }
 
 int main() {
-    vector<float> numbers = {1.0, 2.5, 3.7, 4.9, 6.1};
-    for (auto& pair : find_closest_elements(numbers)) {
-        cout << "(" << pair.first << ", " << pair.second << ")" << endl;
+    std::vector<float> numbers = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
+    std::vector<std::pair<float, float>> result = find_closest_elements(numbers);
+    for(const auto& pair : result) {
+        std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
     }
     return 0;
 }
