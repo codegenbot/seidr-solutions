@@ -1,20 +1,17 @@
-```
 #include <iostream>
 #include <vector>
-#include <set>
 #include <algorithm>
 
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
-    set<int> l1_set(l1.begin(), l1.end());
-    set<int> l2_set(l2.begin(), l2.end());
+    set<int> s1(l1.begin(), l1.end());
+    set<int> s2(l2.begin(), l2.end());
+    set<int> intersection;
+    intersection.insert(intersection.begin(), s1.begin(), s1.end());
+    intersection.insert(intersection.end(), s2.begin(), s2.end());
 
-    set<int> result_set;
-    set_intersection(l1_set.begin(), l1_set.end(), l2_set.begin(), l2_set.end(),
-                      inserter(result_set, result_set.begin()));
-
-    vector<int> result(result_set.begin(), result_set.end());
+    vector<int> result(intersection.begin(), intersection.end());
     return result;
 }
 
