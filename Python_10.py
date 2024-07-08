@@ -11,16 +11,12 @@ def make_palindrome(s):
             left_half = s[:i + 1]
             right_half = s[j:]
             middle = "".join(reversed(left_half[1:]))
-            if i == 0:
-                palindrome = str(s[j]) + ''.join(reversed(middle)) + str(left_half[0])
-            else:
-                palindrome = str(left_half[0]) + ''.join(reversed(middle)) + str(right_half)
+            palindrome += str(left_half[0]) + ''.join(reversed(middle)) + str(right_half)
             i += 1
             j -= 1
 
         if i <= j:
             palindrome += s[i]
-        else:
-            break
 
-    return "".join(reversed(palindrome))
+        i, j = 0, len(s) - 1
+    return palindrome
