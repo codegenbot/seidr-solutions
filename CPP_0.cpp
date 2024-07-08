@@ -4,6 +4,7 @@ using namespace std;
 int main() {
     vector<double> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
     
+    // Define the function has_close_elements and its implementation
     bool has_close_elements(vector<double> vec, double threshold) {
         for(int i = 0; i < vec.size() - 1; i++) {
             if(abs(vec[i] - vec[i+1]) <= threshold)
