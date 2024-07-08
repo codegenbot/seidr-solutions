@@ -1,4 +1,4 @@
-```Python
+```
 import statistics
 
 def mean_absolute_deviation(numbers):
