@@ -1,4 +1,3 @@
-```
 input = list(map(int, input().split()))
 max_right = 0
 leaders = [input[-1]]
