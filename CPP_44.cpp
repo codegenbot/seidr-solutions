@@ -6,9 +6,9 @@ string change_base(int x,int base){
     while(x > 0) {
         int remainder = x % base;
         if(remainder >= 10) {
-            res.insert(0,1,"a"+to_string(remainder-10));
+            res.insert(0,1,(remainder < 10) ? (char)(remainder + '0') : ('a' + remainder - 10));
         } else {
-            res.insert(0,1,to_string(remainder));
+            res.insert(0,1,(char)(remainder + '0'));
         }
         x /= base;
     }
