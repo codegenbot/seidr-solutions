@@ -8,5 +8,4 @@ def shopping_list():
     )
     return format(round(total_price, 2), '.2f')
 
-
 print(shopping_list())
