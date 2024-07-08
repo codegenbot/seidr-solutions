@@ -1,9 +1,10 @@
+```c++
 #include <string>
 #include <cassert>
 #include <cstring>
 
 int my_strlen(std::string str) {
-    return std::strlen(str.c_str());
+    return strlen(str.c_str());
 }
 
 int main() {
