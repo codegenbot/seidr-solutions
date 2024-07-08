@@ -1,5 +1,3 @@
-Here's the corrected code:
-
 ```cpp
 #include <vector>
 #include <cmath>
@@ -36,4 +34,3 @@ vector<string> split(const string& str, char c) {
     }
     tokens.push_back(str);
     return tokens;
-}
