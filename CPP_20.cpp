@@ -1,14 +1,14 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <limits>
 
-bool issame(const float& f1, const float& f2) {
-    return (f1 == f2);
+template<typename T1, typename T2>
+bool issame(std::pair<T1, T2> p1, std::pair<T1, T2> p2) {
+    return (p1.first == p2.first && p1.second == p2.second);
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
-    if(numbers.size() < 2)
+    if(numbers.size() <= 1)
         return {};
 
     std::pair<float, float> closest_pair;
@@ -17,17 +17,19 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
     for(int i = 0; i < numbers.size() - 1; ++i) {
         for(int j = i + 1; j < numbers.size(); ++j) {
             float diff = std::abs(numbers[j] - numbers[i]);
-            if(diff < min_diff && !issame(numbers[i], numbers[j])) {
+            if(diff < min_diff) {
                 min_diff = diff;
-                closest_pair = std::make_pair(numbers[i], numbers[j]);
+                closest_pair.first = numbers[i];
+                closest_pair.second = numbers[j];
             }
         }
     }
 
-    return {std::make_pair(closest_pair.first, closest_pair.second)};
+    return {{closest_pair.first, closest_pair.second}};
 }
 
 int main() {
+    assert(issame(std::make_pair(2.0f, 3.0f), std::make_pair(2.0f, 3.0f)));
     std::vector<float> numbers = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
     std::vector<std::pair<float, float>> result = find_closest_elements(numbers);
     for(const auto& pair : result) {
