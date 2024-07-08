@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <string>
 
@@ -12,10 +12,10 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& other) {
+bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     bool flag = true;
-    for(int i = 0; i < std::min(a.size(), other.size()); i++){
-        if(!issame_helper(a[i], other[i])){
+    for(int i = 0; i < min(a.size(), b.size()); i++){
+        if(!is_same_helper(a[i], b[i])){
             flag = false;
             break;
         }
@@ -23,11 +23,11 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& o
     return flag;
 }
 
-bool issame_helper(const std::string& a, const std::string& b) {
+bool is_same_helper(const std::string& a, const std::string& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame({filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run")}, {"grunt", "prune"}));
+    assert(is_same({filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run")}, {{"grunt"}, {"prune"}}));
     return 0;
 }
