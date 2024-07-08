@@ -1,3 +1,8 @@
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
@@ -13,6 +18,16 @@ vector<int> leaders(vector<int>& arr) {
             result.push_back(arr[i]);
         }
     }
+    // Check the rightmost element as well
     result.push_back(arr[n - 1]);
     return result;
+}
+
+int main() {
+    vector<int> arr = {1, 3, 4, 2};
+    vector<int> leadersResult = leaders(arr);
+    for (int leader : leadersResult) {
+        cout << leader << endl;
+    }
+    return 0;
 }
