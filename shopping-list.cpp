@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -16,7 +15,7 @@ double shoppingList(double price[], double discount[], int n) {
 int main() {
     int n;
     cin >> n;
-    
+
     vector<double> prices(n);
     for(auto &price : prices) {
         cin >> price;
