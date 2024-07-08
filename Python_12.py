@@ -9,6 +9,6 @@ def longest(strings: List[str]) -> Optional[str]:
         if len(s) > max_length:
             max_length = len(s)
             longest_str = s
+        elif len(s) == max_length:  
+            longest_str = s
     return longest_str
-
-print(longest(["apple", "banana", "cherry"]))

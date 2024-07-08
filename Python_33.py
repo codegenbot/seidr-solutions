@@ -1,8 +1,3 @@
-```
 def sort_third(l: list):
-    sorted_zeroes = [x for x in l if x % 3 == 0]
-    sorted_zeroes.sort()
-    return [
-        val if i % 3 != 0 else sorted_zeroes.pop(0)
-        for i, val in enumerate(l)
-    ]
+    max_val = next((val for val in l if val % 3 == 0), None)
+    return [max_val if i % 3 == 0 else val for i, val in enumerate(l)]
