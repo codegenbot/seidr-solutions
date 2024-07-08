@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
+#include <iterator>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -17,8 +18,7 @@ int main() {
 
     assert(issame(c, b));
 
-    assert(issame(std::vector<int>(std::unique(a.begin(), a.end()), a.end()), 
-                 std::vector<int>({0, 2, 3, 5, 9, 123}));
+    assert(issame(a, std::vector<int>{0, 2, 3, 5, 9, 123}));
 
     return 0;
 }
