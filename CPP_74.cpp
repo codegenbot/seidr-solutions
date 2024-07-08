@@ -17,7 +17,6 @@ int main() {
     std::vector<std::string> v1, v2;
 
     int n; 
-
     std::cout << "Enter number of strings: ";
     std::cin >> n;
 
