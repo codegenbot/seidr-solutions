@@ -33,3 +33,4 @@ float* get_positive(const std::vector<float>& vec, int& size) {
         }
     }
     return result;
+}
