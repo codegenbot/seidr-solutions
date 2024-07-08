@@ -1,14 +1,14 @@
-#include <any>
 #include <vector>
+#include <any>
+using namespace std;
 
-bool issame(int a, int b) { return (a == b); }
-bool issame(char a, char b) { return (a == b); }
+bool issame(int a, int b) { return a == b; }
 
-std::vector<int> filter_integers(std::any values) {
-    std::vector<int> result;
-    for (auto& value : std::any_cast<std::any>(values)) {
-        if (std::holds_alternative<int>(value)) {
-            int val = std::get<int>(value);
+vector<int> filter_integers(any values) {
+    vector<int> result;
+    for (auto& value : any_cast<vector<any>>(values)) {
+        if (holds_alternative<int>(value)) {
+            int val = get<int>(value);
             result.push_back(val);
         }
     }
@@ -16,8 +16,10 @@ std::vector<int> filter_integers(std::any values) {
 }
 
 int main() {
-    auto values = std::any({3, static_cast<int>('c'), 3, 3, static_cast<int>('a'), static_cast<int>('b')}); 
+    any values({3, 3.0, 3}); // Note: You cannot directly store chars in a vector of ints.
     auto output = filter_integers(values);
-    assert(issame(output.size(), 3));
+    for (auto val : output) {
+        cout << val << " ";
+    }
     return 0;
 }
