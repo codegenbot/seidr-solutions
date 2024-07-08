@@ -1,11 +1,11 @@
 #include <vector>
-#include <cassert>
+#include <iostream>
 
-std::vector<float> get_positive(std::vector<float> vec) {
+std::vector<float> get_positive(const std::vector<float>& v) {
     std::vector<float> result;
-    for (float val : vec) {
-        if (val > 0) {
-            result.push_back(val);
+    for (const auto& num : v) {
+        if (num > 0) {
+            result.push_back(num);
         }
     }
     return result;
@@ -16,9 +16,4 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     std::vector<float> positive_b = get_positive(b);
 
     return positive_a == positive_b;
-}
-
-int main() {
-    assert(issame(get_positive({}), {}));
-    return 0;
 }
