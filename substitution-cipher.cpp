@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -11,7 +12,7 @@ int main() {
         int index = cipher1.find_first_of(message[i], 0);
         if (index != string::npos) {
             // If a character is found in the current cipher, substitute it with the corresponding character from the cipher2 string.
-            return cipher2[index];
+            cout << cipher2[index];
         } else {
             // If a character is not found in the current cipher, then it should be printed as is.
             cout << message[i];
