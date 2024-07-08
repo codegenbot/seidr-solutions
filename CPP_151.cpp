@@ -15,13 +15,6 @@ int main() {
     std::vector<float> lst; 
     float odd_sum; 
 
-    std::vector<float> numbers = {1.5f, 3.0f, -4.2f, 0.7f};
-    for (float number : numbers) {
-        if (number > 0 && floor(number) == number) {
-            lst.push_back(number);
-        }
-    }
-    odd_sum = double_the_difference(lst); 
-    std::cout << "Sum of the squares: " << odd_sum << std::endl;
+    assert(double_the_difference(lst) == odd_sum); 
     return 0;
 }
