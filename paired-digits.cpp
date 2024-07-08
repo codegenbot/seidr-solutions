@@ -2,12 +2,11 @@
 #include <string>
 using namespace std;
 int main() {
-    int sum = 0;
-    
     string str;
     cout << "Enter a string: ";
     cin >> str;
     
+    int sum = 0;
     for (int i = 1; i < str.size(); i += 2) {
         if (str[i] == str[i-1]) {
             sum += str[i] - '0';
