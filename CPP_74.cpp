@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -7,7 +6,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
-        if (std::strcmp(a[i].c_str(), b[i].c_str()) != 0)
+        if (a[i] != b[i])
             return false;
     }
     return true;
@@ -16,7 +15,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 int main() {
     std::vector<std::string> v1, v2;
 
-    int n; 
+    int n;
 
     std::cout << "Enter number of strings: ";
     std::cin >> n;
@@ -24,14 +23,14 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::string str;
         std::cout << "Enter string " << i + 1 << ": ";
-        std::cin >> str;
+        std::getline(std::cin, str);
         v1.push_back(str);
     }
 
     for (int i = 0; i < n; i++) {
         std::string str;
         std::cout << "Enter string " << i + 1 << ": ";
-        std::cin >> str;
+        std::getline(std::cin, str);
         v2.push_back(str);
     }
 
