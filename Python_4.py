@@ -1,5 +1,5 @@
+```
 import statistics
-
 def mean_absolute_deviation(numbers):
     if len(numbers) == 0:
         return None
