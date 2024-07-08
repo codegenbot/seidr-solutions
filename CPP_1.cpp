@@ -21,7 +21,7 @@ std::vector<std::string> separate_paren_groups(const std::string& s) {
             current_group = "";
         }
     }
-    
+
     return groups;
 }
 
