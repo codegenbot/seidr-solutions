@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <limits>
@@ -28,3 +29,4 @@ int main() {
     std::pair<float, float> result = find_closest_elements(numbers);
     std::cout << "(" << result.first << ", " << result.second << ")" << std::endl;
     return 0;
+}
