@@ -1,5 +1,10 @@
+```
 #include <vector>
 #include <iostream>
+
+std::vector<int> get_row(const std::vector<std::vector<int>>& matrix, int row) {
+    return matrix[row];
+}
 
 bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
     if(a.size() != b.size()) 
@@ -16,35 +21,35 @@ bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
     }
 
     return true;
+
 }
 
 int main() {
-    std::vector<std::vector<int>> a(3, std::vector<int>(2));
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 2; ++j) {
-            a[i][j] = get_row(i, j);
+    int rows, cols;
+    std::cin >> rows >> cols;
+
+    std::vector<std::vector<int>> matrix1(rows);
+    std::vector<std::vector<int>> matrix2(rows);
+
+    for(int i = 0; i < rows; i++) {
+        matrix1[i].resize(cols);
+        matrix2[i].resize(cols);
+        
+        for(int j = 0; j < cols; j++) {
+            int val;
+            std::cin >> val;
+
+            matrix1[i][j] = val;
+            matrix2[i][j] = val;
         }
     }
 
-    std::cout << "Result: " << std::endl;
-    // Your code here
+    bool res = issame(matrix1, matrix2);
+
+    if(res) 
+        std::cout << "True";
+    else
+        std::cout << "False";
+
     return 0;
-}
-
-int get_row(int row, int column) {
-    // Add your logic to generate the row based on the inputs
-    if (row == 0) {
-        if(column == 0) return 1;
-        else if (column == 1) return 2;
-    } 
-    else if(row == 1) {
-        if(column == 0) return 3;
-        else if(column == 1) return 4;
-    }
-    else {
-        if(column == 0) return 5;
-        else if (column == 1) return 6;
-    }
-
-    return -1; // Return some error value or handle this situation
 }
