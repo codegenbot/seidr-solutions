@@ -1,8 +1,11 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
 #include <limits>
+#include <algorithm>
 
-bool issame(pair<float, float> p1, pair<float, float> p2) {
+using namespace std;
+
+bool issame(pair<pair<float, float>, pair<float, float>> p1, pair<pair<float, float>, pair<float, float>> p2) {
     return (p1.first == p2.first && p1.second == p2.second);
 }
 
@@ -28,6 +31,6 @@ vector<pair<float, float>> find_closest_elements(const vector<float>& numbers) {
 }
 
 int main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == make_pair(2.2, 3.1));
+    assert(issame({{2.2, 3.1}}, find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1})));
     return 0;
 }
