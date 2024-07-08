@@ -1,8 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
-void sort_even(std::vector<float>& a);
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
