@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -15,6 +16,6 @@ std::string decimal_to_binary(int decimal) {
 
 int main() {
     std::string binary = decimal_to_binary(15);
-    assert(binary == "10101db");
+    assert(binary == "db11111db");
     return 0;
 }
