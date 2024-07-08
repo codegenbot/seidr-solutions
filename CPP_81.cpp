@@ -1,4 +1,6 @@
 ```cpp
+#pragma GCC target "c++11"
+
 #include <vector>
 #include <string>
 
