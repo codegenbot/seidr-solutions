@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -19,4 +18,3 @@ int main() {
     assert(flip_case("These violent delights have violent ends") == "these violent delights have violent ends");
     std::cout << flip_case("Hello, world!") << std::endl;
     return 0;
-}
