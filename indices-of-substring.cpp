@@ -20,7 +20,7 @@ int main() {
     string text;
     cout << "Enter the text: ";
     cin >> text;
-
+    
     string target;
     cout << "Enter the target string: ";
     cin >> target;
