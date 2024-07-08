@@ -1,7 +1,7 @@
+```c++
 #include <iostream>
 #include <stack>
 #include <string>
-#include <cassert>
 
 bool correct_bracketing(std::string s) {
     std::stack<char> stack;
@@ -19,8 +19,5 @@ int main() {
     std::string s = "()()(()())()))";
     assert(!correct_bracketing(s));  
     std::cout << "Correct bracketing: " << (correct_bracketing("()")) << std::endl;
-    if (!correct_bracketing(s)) {  
-        // If the brackets are not correctly matched, handle this error here.
-    }
     return 0;
 }
