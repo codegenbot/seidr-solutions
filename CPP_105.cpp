@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -16,8 +15,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> by_length(const std::vector<int>& arr) {
-    std::vector<std::string> numbers;
+std::vector<std::my_string> by_length(const std::vector<int>& arr) {
+    std::vector<std::my_string> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(std::to_string(num));
@@ -28,30 +27,26 @@ std::vector<std::string> by_length(const std::vector<int>& arr) {
     return numbers;
 }
 
-std::vector<int> readNumbers(int n) {
+std::vector<int> input() {
     std::vector<int> arr;    
-    for(int i=0; i<n; i++) {
-        int number;
+    for(int i=0; i<5; i++) {
+        int n;
         std::cout << "Enter a number: ";
-        std::cin >> number;
-        arr.push_back(number);
+        std::cin >> n;
+        arr.push_back(n);
     }
     return arr;
 }
 
 int main() {
-    int n;
-    std::cout << "How many numbers do you want to enter? ";
-    std::cin >> n;
-    std::vector<int> arr = readNumbers(n);
-    std::vector<std::string> result = by_length(arr);
+    std::vector<int> arr = input();
+    std::vector<std::my_string> result = by_length(arr);
     for (const auto& str : result) {
         std::cout << str << std::endl;
     }
-    if (issame(by_length({9, 4, 8}) , {"Eight", "Four", "Nine"})) {
-        std::cout << "The results are the same." << std::endl;
-    } else {
-        std::cout << "The results are different." << std::endl;
-    }
+    if(issame(by_length({9, 4, 8}) , {"Eight", "Four", "Nine"}))
+        std::cout << "The two vectors are the same." << std::endl;
+    else
+        std::cout << "The two vectors are not the same." << std::endl;
     return 0;
 }
