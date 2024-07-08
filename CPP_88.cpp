@@ -1,10 +1,15 @@
 #include <algorithm>
+#include <vector>
 
-vector<int> sort_array(vector<int> array) {
-    int sum = array[0] + array.back();
-    if (sum % 2 == 1) {
-        return vector<int>(array.begin(), array.end());
-    } else {
-        return vector<int>(array.rbegin(), array.rend());
-    }
+std::vector<int> sort_array(std::vector<int> array) {
+    std::vector<int> sortedArray(array);
+
+    std::sort(sortedArray.begin(), sortedArray.end());
+
+    return sortedArray;
+}
+
+int main() {
+    assert(sort_array({21, 14, 23, 11}) == {11, 14, 21, 23});
+    return 0;
 }
