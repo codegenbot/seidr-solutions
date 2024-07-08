@@ -1,9 +1,9 @@
 #include <iostream>
 #include <cmath>
-#include <vector>
 using namespace std;
+#include <vector>
 
-double vectorDistance(vector<float>& v1, vector<float>& v2) {
+double vectorDistance(std::vector<float>& v1, std::vector<float>& v2) {
     double distance = 0.0;
     for (int i = 0; i < v1.size(); i++) {
         distance += pow(v1[i] - v2[i], 2);
