@@ -1,7 +1,10 @@
-def join_numbers_with_delimeter(numbers, delimiter):
+def generate_result(numbers, delimiter):
     result = []
-    for num in numbers[:-1]:
+    for num in numbers:
         result.extend([num, delimiter])
-    if numbers:
-        result.append(numbers[-1])
+    result.pop()
     return result
+
+input_numbers = [1, 2, 3]
+output = generate_result(input_numbers, ',')
+print(output)
