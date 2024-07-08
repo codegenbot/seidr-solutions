@@ -1,8 +1,5 @@
 ```cpp
 #include <algorithm>
-#include <vector>
-#include <functional>
-
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
