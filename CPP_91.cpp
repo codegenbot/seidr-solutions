@@ -1,10 +1,12 @@
 ```cpp
 #include <string>
 
-int is_bored(std::string S){
+using namespace std;
+
+int is_bored(string S){
     int count = 0;
     size_t pos = 0;
-    while((pos = S.find("I", pos)) != std::string::npos) {
+    while((pos = S.find("I", pos)) != string::npos) {
         if (S[pos] == '.' || S[pos] == '?' || S[pos] == '!') 
             count++;
         pos++;
