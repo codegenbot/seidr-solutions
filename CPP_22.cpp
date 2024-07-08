@@ -1,7 +1,11 @@
+```cpp
 #include <vector>
 #include <any>
 
-bool vectorIsSame(std::vector<int> a, std::vector<int> b) {
+bool issame(int a, int b) { return a == b; }
+bool issame(char a, char b) { return a == b; }
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -9,9 +13,9 @@ bool vectorIsSame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> filter_integers(std::any values) {
+std::vector<int> filter_integers(const std::any& values) {
     std::vector<int> result;
-    for (auto& value : std::any_cast<std::vector<any>>(values)) {
+    for (auto& value : std::any_cast<std::any>(values)) {
         if (std::holds_alternative<int>(value)) {
             int val = std::get<int>(value);
             result.push_back(val);
@@ -21,8 +25,8 @@ std::vector<int> filter_integers(std::any values) {
 }
 
 int main() {
-    auto values = std::any({(int)3, (char)'c', (int)3, (int)3, (char)'a', (char)'b'});
-    auto output = filter_integers(std::any_cast<std::vector<int>>(values));
-    assert(vectorIsSame(output,{3, 3, 3}));
+    auto values = std::any({{3}, {'c'}, {3}, {3}, {'a'}, {'b'}});
+    auto output = filter_integers(values);
+    assert(output == std::vector<int>({3, 3, 3}));
     return 0;
 }
