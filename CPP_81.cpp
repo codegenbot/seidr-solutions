@@ -1,4 +1,7 @@
+```cpp
 #include <initializer_list>
+
+#pragma GCC required "c++11"
 
 #include <vector>
 #include <string>
