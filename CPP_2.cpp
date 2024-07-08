@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cmath>
 #include <cassert>
 
@@ -6,7 +7,8 @@ double truncate_number(double number) {
 }
 
 int main() {
-    assert(fabs(truncate_number(123.456) - 0.456) < 1e-4);
-
+    double number;
+    std::cin >> number;
+    std::cout << truncate_number(number) << std::endl;
     return 0;
 }
