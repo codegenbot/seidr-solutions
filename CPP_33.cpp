@@ -3,37 +3,21 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
-std::vector<int> solve(std::vector<int>& l) {
-    std::vector<int> indices;
+std::vector<int> sort_third(std::vector<int> l) {
     for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            indices.push_back(i);
+        if ((i + 1) % 3 == 0) {
+            std::sort(l.begin() + i - 2, l.begin() + i + 1);
         }
-    }
-    std::vector<int> sorted_values;
-    for (int idx : indices) {
-        sorted_values.push_back(l[idx]);
-    }
-    std::sort(sorted_values.begin(), sorted_values.end());
-    for (int i = 0; i < indices.size(); ++i) {
-        l[indices[i]] = sorted_values[i];
     }
     return l;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    std::vector<int> input = {7, 3, 9, 1, 5, 4, 2, 8, 6};
-    std::vector<int> expected = {2, 3, 6, 1, 5, 4, 7, 8, 9};
-    
-    std::vector<int> result = solve(input);
-    
-    assert(issame(result, expected));
-    
-    std::cout << "Test passed successfully!" << std::endl;
+    assert (issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {5, 6, 2, 3, 8, 4, 1, 9}));
     
     return 0;
 }
