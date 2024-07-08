@@ -19,7 +19,7 @@ int main() {
     std::string temp;
     std::getline(std::cin, temp);
     sub = temp; // Store the input in the substring variable
-
+    
     int result = how_many_times(input, sub);
     std::cout << "The substring appears " << result << " times in the input.\n";
 
