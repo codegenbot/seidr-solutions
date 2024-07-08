@@ -1,8 +1,10 @@
 #include <string>
 #include <cctype>
 
+using namespace std;
+
 std::string remove_vowels(std::string text) {
-    string result = "";
+    std::string result = "";
     for (char c : text) {
         if (!isvowel(c)) {
             result += c;
