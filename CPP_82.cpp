@@ -1,6 +1,13 @@
 #include <string>
 #include <cassert>
 
+int prime_length(std::string s) {
+    int length = 0;
+    for (char c : s)
+        length++;
+    return prime(length);
+}
+
 bool prime(int n) {
     if (n <= 1)
         return false;
@@ -17,17 +24,6 @@ bool prime(int n) {
 
 }
 
-int prime_length(std::string s) {
-    int length = 0;
-    for (char c : s)
-        length++;
-    return prime(length);
-}
-
 int main() {
-    assert(prime(0) == false);
-    std::string str;
-    cin >> str;
-    cout << "Prime length is: " << prime_length(str) << endl;
-    return 0;
+    assert(prime_length("Hello") == prime(5));
 }
