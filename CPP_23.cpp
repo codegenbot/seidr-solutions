@@ -12,17 +12,11 @@ int my_strlen(std::string str) {
     return len;
 }
 
-int main1() {
+int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     assert(my_strlen(input) == my_strlen("asdasnakj"));
     std::cout << "The length of '" << input << "' is: " << my_strlen(input) << "\n";
-    return 0;
-}
-
-int main() {
-    int length = strlen("asdasnakj");
-    assert(length == 11);
     return 0;
 }
