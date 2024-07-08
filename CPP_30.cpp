@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,7 +7,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> vectors) {
+std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>>& vectors) {
     std::vector<std::vector<float>> result;
     for (const auto& v : vectors) {
         int size = 0;
