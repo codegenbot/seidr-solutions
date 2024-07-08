@@ -16,9 +16,5 @@ for i in range(n):
 subvector1 = arr[:cut_index]
 subvector2 = arr[cut_index:]
 
-# Update cut_index based on min_diff
-if abs(sum(subvector1) - sum(subvector2)) < min_diff:
-    cut_index = len(subvector1)
-
-print(*arr[:cut_index])
-print(*arr[cut_index:])
+print(*subvector1)
+print(*subvector2)
