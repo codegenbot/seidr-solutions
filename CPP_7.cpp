@@ -1,9 +1,20 @@
+```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<vector<string>> b) {
     if (a.size() != b.size()) return false;
-    for (auto s : a) if (find(b.begin(),b.end(),s) == b.end()) return false;
+    for (auto s : a) {
+        bool found = false;
+        for (auto v : b) {
+            if (std::find(v.begin(), v.end(), s) != v.end()) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) return false;
+    }
     return true;
 }
 
@@ -17,8 +28,6 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 
 }
 int main() {
-    vector<string> testStrings = {"grunt", "trumpet", "prune", "gruesome"};
-    vector<string> expectedResults = {"grunt", "prune"};
-    assert(issame(filter_by_substring(testStrings, "run"), expectedResults));
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{{"grunt"}, {"prune"}}));
     return 0;
 }

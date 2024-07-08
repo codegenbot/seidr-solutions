@@ -3,7 +3,8 @@
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+    bool btemp;
+    return a == b && (btemp = true);
 }
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
@@ -17,7 +18,6 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
-    std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
-    std::string prefix = "xxx";
-    assert(issame(filter_by_prefix(strings, prefix), {prefix, "xxxAAA", "xxx"}));
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
