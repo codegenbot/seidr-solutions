@@ -1,13 +1,19 @@
 ```
-def parse_music(music_string: str) -> list:
-    notes = []
-    current_note = ''
+def parse_music(music_string):
+    music_beats = []
+    beat = ""
+    
     for char in music_string:
-        if char.isdigit():
-            current_note += char
-        elif current_note:
-            notes.append(int(current_note))
-            current_note = ''
-    if current_note:
-        notes.append(int(current_note))
-    return notes
+        if char == "o":
+            beat += "o"
+        elif char in ["|", "| ", "|"]:
+            if len(beat) == 0:
+                music_beats.append(".| ")
+            else:
+                music_beats.append("o" * (len(beat)))
+            beat = ""
+    
+    if len(beat) > 0:
+        music_beats.append("o" * len(beat))
+    
+    return music_beats
