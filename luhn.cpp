@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 int luhn(int digits[16]) {
@@ -13,10 +12,22 @@ int luhn(int digits[16]) {
         sum += digit;
         doubleNext = !doubleNext;
     }
-    if (sum % 10 == 0) {
-        std::cout << "The credit card number is valid." << std::endl;
+    
+    if(sum % 10 != 0) {
+        std::cout << "Invalid credit card number!" << std::endl;
+        return -1;
     } else {
-        std::cout << "The credit card number is not valid. Sum: " << sum << std::endl;
+        return sum;
     }
-    return sum;
+}
+
+int main() {
+    int digits[16];
+    for(int i = 0; i < 16; ++i) {
+        std::cin >> digits[i];
+    }
+    
+    luhn(digits);
+    
+    return 0;
 }
