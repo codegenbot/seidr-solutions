@@ -1,4 +1,3 @@
-```cpp
 int hex_key(string num) {
     int count = 0;
     for (char c : num) {
@@ -9,20 +8,13 @@ int hex_key(string num) {
         }
     }
     return count;
-
 }
 
 int main() {
     assert(hex_key("") == 0);
+    string input;
     cout << "Enter a hexadecimal number: ";
-    string num;
-    cin >> num;
-    if (num.size() > 0) {
-        int result = hex_key(num);
-        cout << "Number of valid characters in the given hexadecimal number is: " << result << endl;
-    } else {
-        cout << "Invalid input. Please enter a non-empty hexadecimal number." << endl;
-    }
-    
+    cin >> input;
+    cout << "Number of '2'-'7' characters or B, D, F: " << hex_key(input) << endl;
     return 0;
 }
