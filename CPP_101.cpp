@@ -19,12 +19,12 @@ vector<string> splitString(string str) {
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b) { 
-    if(a.size() != b.size()) {
+bool issame(vector<string> a, vector<string> b, vector<string> c) { 
+    if(a.size() != b.size() || b.size() != c.size()) {
         return false;
     }
     for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
+        if(a[i] != b[i] || b[i] != c[i]) {
             return false;
         }
     }
@@ -34,4 +34,3 @@ bool issame(vector<string> a, vector<string> b) {
 int main() {
     assert(issame(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
-}
