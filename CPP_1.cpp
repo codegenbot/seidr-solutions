@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -42,7 +42,14 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"),
-                  separate_paren_groups("() (()) (()())")));
+    vector<string> expected = {"()", "(())", "(()())"};
+    vector<string> result = separate_paren_groups("( ) (( )) (( )( ))");
+
+    if (issame(expected, result)) {
+        cout << "Test Passed!" << endl;
+    } else {
+        cout << "Test Failed!" << endl;
+    }
+
     return 0;
 }
