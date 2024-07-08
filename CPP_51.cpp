@@ -1,14 +1,11 @@
-#include <iostream>
 #include <string>
+#include <cctype>
+#include <cassert>
 
-using namespace std;
-
-string remove_vowels(string text) {
-    string result;
+std::string remove_vowels(std::string text) {
+    std::string result = "";
     for (char c : text) {
-        if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
-              || toupper(c) == 'A' || toupper(c) == 'E' || toupper(c) == 'I'
-              || toupper(c) == 'O' || toupper(c) == 'U')) {
+        if (!std::iscntrl(c) && !std::islower(c) != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
             result += c;
         }
     }
@@ -16,6 +13,6 @@ string remove_vowels(string text) {
 }
 
 int main() {
-    assert (remove_vowels("ybcd") == "ybcd");
+    assert(remove_vowels("ybcd") == "ybcd");
     return 0;
 }
