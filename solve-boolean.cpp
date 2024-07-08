@@ -1,7 +1,8 @@
-```
 #include <string>
 
-bool solveBoolean(std::string expression) {
+using namespace std;
+
+bool solveBoolean(string expression) {
     bool res = true;
     for (int i = 0; i < expression.size(); i++) {
         if (expression[i] == '&') {
