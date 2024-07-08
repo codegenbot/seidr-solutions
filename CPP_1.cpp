@@ -4,10 +4,10 @@
 
 using namespace std;
 
-vector<string> separate_paren_groups(const string& s) {
-    vector<string> groups;
+std::vector<std::string> separate_paren_groups(const std::string& s) {
+    std::vector<std::string> groups;
     int count = 0;
-    string current_group = "";
+    std::string current_group = "";
     
     for(char c : s) {
         if(c == '(') {
@@ -27,7 +27,7 @@ vector<string> separate_paren_groups(const string& s) {
     return groups;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -42,6 +42,6 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 }
 
 int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), vector<string>{"()", "(())", "(()())"}));
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), std::vector<std::string>{"()", "(())", "(()())"}));
     return 0;
 }
