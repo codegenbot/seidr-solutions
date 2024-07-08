@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -18,7 +19,7 @@ vector<int> leaders(vector<int>& arr) {
     for(int i=0;i<result.size();i++){
         for(int j=i+1;j<result.size();j++){
             if(result[j]>result[i]){
-                swap(result[i],result[j]);
+                result.erase(result.begin()+i);
                 break;
             }
         }
