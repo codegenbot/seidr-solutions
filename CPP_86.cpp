@@ -1,3 +1,5 @@
+#include <string>
+
 string anti_shuffle(string s){
     string result = "";
     for(int i=0; i<s.length(); i++){
@@ -5,11 +7,11 @@ string anti_shuffle(string s){
             result += " ";
             continue;
         }
-        char temp[s[i]+1];
+        char temp[s.i+1];
         temp[0] = s[i];
         temp[1]='\0';
         sort(temp, &temp[1]);
-        result += temp;
+        result += string(1, s[i]) + string(temp, temp+2);
     }
     return result;
 }
