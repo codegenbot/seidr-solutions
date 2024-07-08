@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int count_upper(std::string s) {
@@ -17,3 +18,4 @@ int main() {
     int result = count_upper(input);
     std::cout << "Upper case letters count: " << result << std::endl;
     return 0;
+}
