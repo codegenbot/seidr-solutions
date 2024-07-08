@@ -14,5 +14,3 @@ def bowling_score(frames):
         else:
             score += sum(map(int, frame))
     return score
-
-print(bowling_score("8-324333X518-3463X83"))
