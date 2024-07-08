@@ -14,6 +14,10 @@ string flip_case(string str){
 }
 
 int main(){
-    cout << flip_case("Hello World!") << endl;
+    string s;
+    cout << "Enter a sentence: ";
+    getline(cin, s);
+    string output = flip_case(s);
+    cout << "Flipped case of the input is: " << output << endl;
     return 0;
 }
