@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,7 +6,20 @@ bool areListsEqual(const std::vector<std::string>& a, const std::vector<std::str
     return (a == b);
 }
 
-bool main() {
+bool isMatch(int sum1, int sum2, const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
+    bool total_match = true;
+    if (sum1 < sum2) 
+        return 0;
+    else if (sum1 > sum2) 
+        total_match = false;
+
+    bool result = areListsEqual(lst1, lst2);
+    assert(result == total_match);
+
+    return 0;
+}
+
+int main() {
     int sum1 = 0;
     std::vector<std::string> lst1;
     std::cout << "Enter strings for list 1: ";
@@ -22,12 +34,7 @@ bool main() {
         lst2.push_back(str);
     }
     
-    bool total_match = false;
-    if (lst1 == lst2) {
-        total_match = true;
-    } else if (!total_match && (sum1 != sum2)) total_match = false;
-    bool result = areListsEqual(lst1, lst2);
-    assert(result == total_match);
+    isMatch(sum1, sum2, lst1, lst2);
 
     return 0;
 }
