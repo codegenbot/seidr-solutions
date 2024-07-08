@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 using namespace std;
 
@@ -11,9 +11,9 @@ double diceGame(int n, int m) {
 }
 
 int main() {
-    int n = 6; 
-    int m = 6;
+    int n, m;
+    cin >> n >> m;
     double result = diceGame(n, m);
-    cout << "Probability: " << result << endl;
+    cout << fixed << setprecision(6) << result << endl;
     return 0;
 }
