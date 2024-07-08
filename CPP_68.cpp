@@ -1,21 +1,24 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
-    std::vector<int> evenNodes;
-
+    std::vector<std::pair<int, int>> evenNodes;
+    
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0) {
-            evenNodes.push_back(arr[i]);
+            evenNodes.push_back({arr[i], i});
         }
     }
 
+    evenNodes.empty() ? std::vector<std::pair<int, int>>{} : evenNodes;
+    
     if (evenNodes.empty()) {
         return {};
     }
 
-    int minEvenValue = *min_element(evenNodes.begin(), evenNodes.end());
+    int minEvenValue = *min_element(evenNodes.begin(), evenNodes.end())->first;
     
     std::vector<std::pair<int, int>> result;
     for (int i = 0; i < arr.size(); i++) {
@@ -32,6 +35,7 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
+    // Initialize the vector directly without specifying its size:
     std::vector<int> arr;
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
@@ -41,14 +45,6 @@ int main() {
     }
 
     auto result = findMinEvenNode(arr);
-
-    if(result.empty()) {
-        std::cout << "No even nodes found." << std::endl;
-    } else {
-        for(const auto& pair : result) {
-            std::cout << "Index of minimum even node: " << pair.second << ", Value: " << pair.first << std::endl;
-        }
-    }
 
     return 0;
 }
