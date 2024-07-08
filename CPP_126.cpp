@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -18,7 +19,6 @@ bool is_sorted(std::vector<int> lst){
     }
 
     return true;
-
 }
 
 int main(){
