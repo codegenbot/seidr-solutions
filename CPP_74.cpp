@@ -1,9 +1,9 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool isVectorSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -26,7 +26,8 @@ int main() {
         lst2.push_back(str);
     }
     
-    bool total_match = isVectorSame(lst1, lst2);
+    bool total_match;
+    total_match = issame(lst1, lst2);
 
     return 0;
 }
