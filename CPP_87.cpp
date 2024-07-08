@@ -29,7 +29,8 @@ int main(){
         std::vector<int> temp;
         for(int j = 0; j < n; j++) {
             int x;
-            std::cout << "Enter element " << i << "," << j << ": >";
+            std::cout << "Enter element " << i << "," << j << ": ";
+            std::cout << ">"; // add >
             std::cin >> x;
             temp.push_back(x);
         }
@@ -41,7 +42,8 @@ int main(){
         std::vector<int> temp;
         for(int j = 0; j < n; j++) {
             int x;
-            std::cout << "Enter element " << i << "," << j << ": >";
+            std::cout << "Enter element " << i << "," << j << ": ";
+            std::cout << ">"; // add >
             std::cin >> x;
             temp.push_back(x);
         }
