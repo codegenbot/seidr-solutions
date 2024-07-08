@@ -1,6 +1,16 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <algorithm>
 
-std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++)
+        if (a[i] != b[i])
+            return false;
+    return true;
+}
+
+std::pair<int, int> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
 
     for (int i = 0; i < arr.size(); i++) {
@@ -27,5 +37,5 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
 
     std::vector<std::pair<int, int>> result;
     result.push_back({minEvenValue, minIndex});
-    return result;
+    return result[0];
 }
