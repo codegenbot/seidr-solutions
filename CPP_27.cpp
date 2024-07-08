@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <cctype>
 #include <cassert>
@@ -10,10 +11,12 @@ std::string flip_case(std::string str) {
             c = std::tolower(c);
         }
     }
-    return str;
+    return str; // Return the modified string
 }
 
 int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    std::string result = flip_case("These violent delights have violent ends");
+    assert(result == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    std::cout << result << std::endl; // Output the result
     return 0;
 }
