@@ -1,4 +1,5 @@
-def mean_absolute_deviation(numbers):
+```
+def mean_absolute_deviation(numbers: List[float]): 
     if len(numbers) == 0:
         return None
     sum = 0
