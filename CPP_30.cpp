@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
@@ -36,39 +36,14 @@ float* get_positive(const std::vector<float>& vec, int& size) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter number of vectors: ";
-    std::cin >> n;
-
-    // Initialize an empty vector to store your result.
-    std::vector<std::vector<float>> vectors(n);
-
-    for (auto& v : vectors) {
-        int m;
-        std::cout << "Enter size of the vector: ";
-        std::cin >> m;
-
-        v.resize(m);
-        std::cout << "Enter elements of the vector: ";
-        for (float& f : v) {
-            std::cin >> f;
-        }
-    }
-
-    // Now call your existing function with these vectors.
+    std::vector<std::vector<float>> vectors = {{-1.0, 2.0}, {-3.0, 4.0}, {5.0, -6.0}, {7.0, 8.0}};
     std::vector<std::vector<float>> result = filter_vectors(vectors);
 
-    // Print your result.
-    if (!result.empty()) {
-        std::cout << "Resultant Vectors: " << std::endl;
-        for (const auto& v : result) {
-            for (float f : v) {
-                std::cout << f << " ";
-            }
-            std::cout << std::endl;
+    for (const auto& v : result) {
+        for (float f : v) {
+            std::cout << f << " ";
         }
-    } else {
-        std::cout << "No resultant vectors." << std::endl;
+        std::cout << "\n";
     }
 
     return 0;
