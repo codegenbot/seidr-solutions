@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 using namespace std;
 
 vector<int> cutVector(vector<int>& nums) {
@@ -12,7 +13,7 @@ vector<int> cutVector(vector<int>& nums) {
             pos = i;
         }
     }
-    return {vector<int>(nums.begin(), pos+1), vector<int>(pos, nums.size())};
+    return {vector<int>(nums.begin(), pos+1), vector<int>(pos, nums.end())};
 }
 
 int main() {
