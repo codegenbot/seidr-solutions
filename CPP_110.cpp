@@ -1,4 +1,8 @@
-int exchange(vector<int> lst1, vector<int> lst2) {
+```c++
+#include <vector>
+#include <string>
+
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     for (int num : lst1) {
         if (num % 2 != 0) {
             bool found = false;
@@ -9,8 +13,8 @@ int exchange(vector<int> lst1, vector<int> lst2) {
                     break;
                 }
             }
-            if (!found) return 0;
+            if (!found) return "NO";
         }
     }
-    return 1;
+    return "YES";
 }
