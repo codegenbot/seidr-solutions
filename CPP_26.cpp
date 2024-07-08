@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <set>
 #include <vector>
 
 bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
