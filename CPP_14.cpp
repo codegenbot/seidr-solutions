@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -25,9 +25,6 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    vector<string> prefixes = all_prefixes("WWW");
-    for (const auto& prefix : prefixes) {
-        cout << prefix << " ";
-    }
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
     return 0;
 }
