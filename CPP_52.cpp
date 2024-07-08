@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 
@@ -12,14 +11,6 @@ bool below_threshold(std::vector<int> l, int t) {
 }
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3};
-    int threshold = 2;
-    
-    if (below_threshold(numbers, threshold)) {
-        std::cout << "All numbers are below the threshold." << std::endl;
-    } else {
-        std::cout << "Not all numbers are below the threshold." << std::endl;
-    }
-    
+    assert(not(below_threshold({1, 8, 4, 10}, 10)));
     return 0;
 }
