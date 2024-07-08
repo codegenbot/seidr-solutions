@@ -1,11 +1,7 @@
 def fizz_buzz(x):
-    if not isinstance(x, int):
-        return "Error: Input must be a positive integer."
-    if x % 3 == 0 and x % 5 == 0:
+    if not (x % 3 or x % 5):
         return "FizzBuzz"
     elif x % 3 == 0:
-        return "Fizz"
-    elif x % 5 == 0:
-        return "Buzz"
+        return "Fizz" if x % 5 else "Fizz"
     else:
-        return str(x)
+        return str(x) if not (x % 3 and x % 5) else "Buzz"
