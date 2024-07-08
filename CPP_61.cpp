@@ -1,9 +1,9 @@
 bool correct_bracketing(const std::string& brackets) {
     int balance = 0;
     for (char c : brackets) {
-        if (c == '[') {
+        if (c == '(') {
             balance++;
-        } else if (c == ']') {
+        } else if (c == ')') {
             balance--;
         }
         if (balance < 0) {
