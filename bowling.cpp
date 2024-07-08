@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
 int bowlingScore(std::string s) {
     int score = 0;
