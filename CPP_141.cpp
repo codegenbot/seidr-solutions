@@ -1,31 +1,33 @@
 ```cpp
-#include<string>
-using namespace std;
+#include <iostream>
+#include <string>
+#include <cassert>
 
-string file_name_check(string file_name){
+std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     bool found_dot = false;
-    for(int i = 0; i < file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
+
+    for (char c : file_name) {
+        if (isdigit(c)) {
             digit_count++;
-            if(digit_count > 3) return "No";
-        } else if(file_name[i] == '.'){
+            if (digit_count > 3)
+                return "No";
+        } else if (c == '.') {
             found_dot = true;
-        } else if(found_dot){
-            if(file_name.substr(i).find_first_of("txt exe dll") != string::npos)
-                return "Yes";
-            else
+        } else if (!found_dot && !isalpha(c))
+            return "No";
+
+        if (found_dot) {
+            std::string extension = file_name.substr(file_name.find('.') + 1);
+            if (!(extension == "txt" || extension == "exe" || extension == "dll"))
                 return "No";
         }
     }
-    if(!found_dot) return "No";
-    return digit_count <= 3 ? "Yes" : "No";
+
+    return found_dot && digit_count <= 3 ? "Yes" : "No";
 }
 
-int main(){
-    string file_name;
-    cout<<"Enter a filename: ";
-    cin>>file_name;
-    cout<<"Result: "<<file_name_check(file_name)<<endl;
+int main() {
+    assert(file_name_check("s.") == "No");
     return 0;
 }
