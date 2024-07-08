@@ -24,3 +24,9 @@ bool consonant(char c){
     c = tolower(c);
     return (!vowel(c));
 }
+
+int main(){
+    std::string input;
+    // Input from the user...
+    // Call get_closest_vowel function here
+}
