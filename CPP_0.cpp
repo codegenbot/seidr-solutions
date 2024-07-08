@@ -1,10 +1,9 @@
 ```cpp
 #include <vector>
-#include <assert.h>
 
 bool has_close_elements(const std::vector<float>& arr, float threshold) {
-    for (int i = 1; i < arr.size(); i++) {
-        if (abs(arr[i] - arr[i-1]) <= threshold) {
+    for (size_t i = 0; i < arr.size() - 1; ++i) {
+        if (std::abs(arr[i] - arr[i + 1]) <= threshold) {
             return true;
         }
     }
