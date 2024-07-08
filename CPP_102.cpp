@@ -1,14 +1,21 @@
+```
 #include <iostream>
 using namespace std;
 
 int choose_num(int x, int y) {
-    string result = "";
-    for (int i = x; i <= y; i++) {
-        if (i % 2 == 0) {
-            result += to_string(i) + " ";
+    if(x % 2 == 0 && y >= x)
+        return y;
+    else if(y % 2 != 0 || x > y)
+        return -1;
+    else if(x % 2 == 0)
+        return x;
+    else
+        for(int i = x; i <= y; i++){
+            if(i % 2 == 0){
+                return i;
+            }
         }
-    }
-    return stoi(result);
+    return -1;
 }
 
 int main() {
@@ -17,5 +24,5 @@ int main() {
     cin >> x;
     cout << "Enter value of y: ";
     cin >> y;
-    cout << "The biggest even integer is: " << choose_num(x,y) << endl;
+    cout << "The biggest even integer is: " << std::to_string(choose_num(x,y)) << endl;
 }
