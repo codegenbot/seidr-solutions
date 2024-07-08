@@ -23,14 +23,12 @@ vector<string> reverse_delete(string s, string c) {
     }
     
     // Check if the result string is palindrome
-    bool is_palindrome = false;
+    bool is_palindrome = true;
     for (int i = 0; i < temp.length() / 2; i++) {
         if (temp[i] != temp[temp.length() - i - 1]) {
             is_palindrome = false;
             break;
         }
-    } else {
-        is_palindrome = true;
     }
     
     result.push_back(temp);
