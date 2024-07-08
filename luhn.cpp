@@ -1,5 +1,6 @@
-#include <vector>
+```c++
 #include <iostream>
+#include <vector>
 
 int luhn(std::vector<int> digits) {
     int sum = 0;
@@ -17,21 +18,22 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    std::vector<int> digits;
-    int cardNumber;
-    
-    // Get the card number from user
-    for(int i=0; i<16; ++i) {
-        std::cout << "Enter digit #" << (i+1) << ": ";
-        std::cin >> cardNumber;
-        digits.push_back(cardNumber);
+    std::vector<int> cardNumber;
+    int digit;
+
+    while (true) {
+        std::cout << "Enter a credit card number (16 digits): ";
+        for (int i = 0; i < 16; ++i) {
+            std::cin >> digit;
+            cardNumber.push_back(digit);
+        }
+        if (cardNumber.size() == 16)
+            break;
     }
-    
-    int result = luhn(digits);
-    if(result % 10 == 0)
-        std::cout << "The credit card number is valid." << std::endl;
-    else
-        std::cout << "The credit card number is not valid." << std::endl;
-    
+
+    int result = luhn(cardNumber);
+
+    std::cout << "The Luhn number is: " << result << "\n";
+
     return 0;
 }
