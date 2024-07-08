@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
@@ -9,5 +10,6 @@ vector<int> findLeaders(const vector<int>& nums) {
             maxRight = nums[i];
         }
     }
-    return vector<int>(leaders.rbegin(), leaders.rend());
+    reverse(leaders.begin(), leaders.end());
+    return leaders;
 }
