@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <algorithm>
 
 std::vector<int> findPair(std::vector<int>& nums, int target) {
     std::sort(nums.begin(), nums.end());
@@ -18,16 +19,13 @@ std::vector<int> findPair(std::vector<int>& nums, int target) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    int target = 7;
+    std::vector<int> nums = {1, 2, 3, 4};
+    int target = 5;
     std::vector<int> result = findPair(nums, target);
-    if(result[0] == -1 && result[1] == -1) {
-        std::cout << "No pair found" << std::endl;
+    if (result[0] != -1) {
+        std::cout << "Found pair: " << result[0] << ", " << result[1] << std::endl;
     } else {
-        for(auto num : result) {
-            std::cout << num << " ";
-        }
-        std::cout << std::endl;
+        std::cout << "No pair found." << std::endl;
     }
     return 0;
 }
