@@ -2,7 +2,6 @@
 #include <list>
 #include <any>
 #include <cassert>
-#include <typeinfo>
 
 std::vector<int> filter_integers(std::list<std::any> values){
     std::vector<int> result;
