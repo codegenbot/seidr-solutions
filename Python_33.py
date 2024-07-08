@@ -1,4 +1,3 @@
-```
 def sort_third(l: list):
     return [
         (
@@ -6,7 +5,7 @@ def sort_third(l: list):
             if i % 3 != 0
             else l[i // 3 * 3 + (i % 3) * 3:i // 3 * 3 + (i + 1) % 3 * 3][0]
             if i < len(l) - 2
-            else None
+            else None 
         )
         for i, val in enumerate(l)
     ]
