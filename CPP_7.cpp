@@ -1,11 +1,11 @@
 ```cpp
 namespace std {
-    bool isSame(std::vector<std::string> v1, std::vector<std::string> v2) {
-        if(v1.size() != v2.size())
+    bool isSame(std::vector<std::string> v1, std::vector<std::string> vec) {
+        if(v1.size() != vec.size())
             return false;
         
         for(int i=0; i<v1.size(); i++) {
-            if(v1[i] != v2[i])
+            if(v1[i] != vec[i])
                 return false;
         }
         
@@ -23,13 +23,7 @@ namespace std {
     }
 
     int main() {
-        std::vector<std::string> vec = {"grunt", "trumpet", "prune", "gruesome"};
-        std::string sub = "run";
-        std::vector<std::string> output = filter_by_substring(vec, sub);
-        if (isSame(output, {"grunt", "prune"})) {
-            return 0;
-        } else {
-            return 1;
-        }
+        assert(isSame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+        return 0;
     }
 }
