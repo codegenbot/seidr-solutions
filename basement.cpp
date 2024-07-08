@@ -13,13 +13,10 @@ int main() {
     int sum = 0;
     for (int i = 0; i < vec.size(); i++) {
         sum += vec[i];
-        if (sum < 0) {
+        if (sum <= 0) {
             cout << i << endl;
             break;
         }
-    }
-    if (sum >= 0) {
-        cout << -1 << endl;
     }
     return 0;
 }
