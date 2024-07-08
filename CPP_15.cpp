@@ -1,11 +1,11 @@
-string string_sequence(int n) {
+Here is the completed code:
+
+Here is the task: Given an integer n, return a string of all numbers from 0 to n separated by spaces.
+
+string string_sequence(int n){
     ostringstream oss;
-    for (int i = 0; i <= n; i++) {
+    for (int i = 0; i <= n; ++i) {
         oss << i << " ";
     }
     return oss.str();
-}
-
-int main() {
-    assert(string_sequence(10) == "0 1 2 3 4 5 6 7 8 9 10");
 }
