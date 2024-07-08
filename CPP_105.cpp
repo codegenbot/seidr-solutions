@@ -1,12 +1,16 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
             temp.push_back(i);
@@ -14,7 +18,7 @@ vector<string> by_length(vector<int> arr) {
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
-    vector<string> result;
+    std::vector<std::string> result;
     for (int i : temp) {
         switch (i) {
             case 1:
@@ -50,18 +54,14 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+    std::vector<int> input = {1,2,3};
+    std::vector<std::string> output = by_length(input);
+    
+    assert(issame(output, {"One", "Two", "Three"}));
+    
+    for (const auto& word : output) {
+        std::cout << word << std::endl;
     }
     
-    vector<string> output = by_length(arr);
-
-    for (const auto &str : output) {
-        cout << str << " ";
-    }
-
     return 0;
 }
