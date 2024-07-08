@@ -10,7 +10,7 @@ bool isVectorSame(const std::vector<std::string>& a, const std::vector<std::stri
     return true;
 }
 
-int main() {
+int mainHelper() {
     int sum1 = 0;
     std::vector<std::string> lst1;
     std::cout << "Enter strings for list 1: ";
@@ -28,4 +28,8 @@ int main() {
     bool total_match = isVectorSame(lst1, lst2);
 
     return 0;
+}
+
+int main() {
+    return mainHelper();
 }
