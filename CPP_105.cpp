@@ -1,3 +1,11 @@
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> by_length(vector<int> arr) {
     vector<int> numArr;
     for (int i : arr) {
