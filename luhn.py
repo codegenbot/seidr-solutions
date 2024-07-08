@@ -1,11 +1,21 @@
-card_number = [int(x) for x in input("Enter the card number:")]
+```
+def luhn(card_number):
+    card_number = [int(x) for x in card_number]
+    doubled = False
+    total = 0
+    
+    for digit in card_number:
+        if doubled:
+            if digit * 2 > 9:
+                total += (digit * 2) - 9
+            else:
+                total += digit * 2
+            doubled = False
+        else:
+            total += digit
+            doubled = True
 
-total = 0
-for i, n in enumerate(card_number):
-    if i % 2 == 1:
-        n *= 2
-        if n > 9:
-            n -= 9
-    total += n
+    return total
 
-print(total)
+card_number = input("Enter the card number: ")
+print(luhn(card_number))
