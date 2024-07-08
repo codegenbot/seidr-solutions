@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -12,11 +11,11 @@ bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> uniqueNumbers;
-    for(auto it = numbers.begin(); it != numbers.end(); ++it) {
-        if(std::find(uniqueNumbers.begin(), uniqueNumbers.end(), *it) == uniqueNumbers.end()) {
-            uniqueNumbers.push_back(*it);
-        }
-    }
+    std::vector<int> uniqueNumbers(numbers.begin(), std::unique(numbers.begin(), numbers.end()));
     return uniqueNumbers;
+}
+
+int main() {
+    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == std::vector<int>{1, 2, 3, 4, 5});
+    return 0;
 }
