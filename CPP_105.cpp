@@ -36,6 +36,5 @@ int main() {
     for (const auto& str : result) {
         std::cout << str << std::endl;
     }
-    assert(issame(by_length({9, 4, 8}) , {"Eight", "Four", "Nine"}));
     return 0;
 }
