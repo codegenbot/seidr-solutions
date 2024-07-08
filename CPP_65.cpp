@@ -8,7 +8,7 @@ string circular_shift(int x, int shift) {
     if (shift >= n)
         return str;
     else {
-        char buffer[n];  // Define a character array for output string.
+        char buffer[n];  
         int i;
         for (i = 0; i < n - shift; i++)
             buffer[i] = str[shift];
