@@ -1,2 +1,5 @@
-def vector_distance(v1, v2):
-    return math.sqrt(sum((x-y)**2 for x, y in zip(v1, v2)))
+[PYTHON]
+
+
+def vector_distance(vec1, vec2):
+    return np.linalg.norm(np.array(vec1) - np.array(vec2))
