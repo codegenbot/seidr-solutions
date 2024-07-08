@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -17,8 +18,6 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 
 }
 int main() {
-    vector<string> a = vector<string> {"grunt", "trumpet", "prune", "gruesome"};
-    vector<string> b = vector<string> {"grunt", "prune"};
-    assert(issame(filter_by_substring(a, "run") ,b));
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
     return 0;
 }
