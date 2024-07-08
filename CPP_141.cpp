@@ -1,8 +1,8 @@
 ```cpp
-#include <iostream>
-#include <string>
+#include<string>
+using namespace std;
 
-std::string file_name_check(std::string file_name) {
+string file_name_check(string file_name){
     int digit_count = 0;
     bool found_dot = false;
     for(int i = 0; i < file_name.length(); i++){
@@ -22,10 +22,10 @@ std::string file_name_check(std::string file_name) {
     return digit_count <= 3 ? "Yes" : "No";
 }
 
-int main() {
-    std::string file_name;
-    std::cout << "Enter the filename: ";
-    std::getline(std::cin, file_name);
-    std::cout << file_name_check(file_name) << std::endl;
+int main(){
+    string file_name;
+    cout<<"Enter a filename: ";
+    cin>>file_name;
+    cout<<"Result: "<<file_name_check(file_name)<<endl;
     return 0;
 }
