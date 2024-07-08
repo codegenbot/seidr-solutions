@@ -5,21 +5,22 @@ std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) return array;
 
     auto middle = array.begin() + array.size() / 2;
-    std::vector<int> left(array.begin(), middle);
-    std::vector<int> right(middle, array.end());
+    auto left = array.begin();
+    auto right = middle;
 
-    while (!left.empty() && !right.empty()) {
-        if (*left.rbegin() <= *right.begin()) {
-            sortedArray.push_back(*left.rbegin());
-            left.pop_back();
+    std::vector<int> sortedArray;
+
+    while (left != right && right != middle) {
+        if (*left <= *right) {
+            sortedArray.push_back(*left);
+            left++;
         } else {
-            sortedArray.push_back(*right.begin());
-            right.erase(right.begin());
+            sortedArray.push_back(*right);
+            right--;
         }
     }
 
-    sortedArray.insert(sortedArray.end(), left.begin(), left.end());
-    sortedArray.insert(sortedArray.end(), right.begin(), right.end());
+    sortedArray.insert(sortedArray.end(), left, middle);
 
     return sortedArray;
 }
@@ -34,5 +35,5 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    return (array == vector<int>({23, 21, 14, 11})) ? 0 : 1;
+    return (array == vector<int>({23, 21, 14, 11})) ? 0 : 1; 
 }
