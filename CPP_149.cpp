@@ -1,7 +1,4 @@
-```
-#include <bits/stdc++.h>
-using namespace std;
-
+```cpp
 vector<string> sorted_list_sum(vector<string> lst) {
     // Remove strings with odd lengths from the vector
     lst.erase(std::remove_if(lst.begin(), lst.end(),
@@ -20,11 +17,10 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return lst;
 }
 
+bool issame(vector<string> a,vector<string>b){
+    return a==b;
+}
+
 int main() {
-    vector<string> lst = {"aa", "bb", "ccc", "dd", "eee", "ff"};
-    vector<string> result = sorted_list_sum(lst);
-    for(auto s : result) {
-        cout << s << endl;
-    }
-    return 0;
+    assert (issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
 }
