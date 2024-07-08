@@ -1,10 +1,7 @@
-```
+```python
 from typing import List
 
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
     seen = set()
-    for num in numbers:
-        if not (num in seen):
-            seen.add(num)
-    return list(seen)
+    return [num for num in sorted(set(numbers)) if not (num in seen or seen.add(num) != 0)]
