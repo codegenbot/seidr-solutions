@@ -1,8 +1,10 @@
-#include <string>
-#include <vector>
-#include <cassert>
-
-using namespace std;
+vector<string> all_prefixes(string str) {
+    vector<string> result;
+    for (int i = 1; i <= str.size(); ++i) {
+        result.push_back(str.substr(0, i));
+    }
+    return result;
+}
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -14,12 +16,4 @@ bool issame(vector<string> a, vector<string> b) {
         }
     }
     return true;
-}
-
-vector<string> all_prefixes(string str) {
-    vector<string> result;
-    for (int i = 1; i <= str.size(); ++i) {
-        result.push_back(str.substr(0, i));
-    }
-    return result;
 }
