@@ -1,19 +1,20 @@
+
 #include <iostream>
 #include <string>
 using namespace std;
 
 int main() {
     string code, guess;
-    int blackPegs = 0, whitePegs = 0;
+    int whitePegs = 0, blackPegs = 0;
 
     while (getline(cin, code)) {
         getline(cin, guess);
 
         for (int i = 0; i < code.length(); i++) {
             if (code[i] == guess[i]) {
-                whitePegs++;
-            } else if (!duplicate_check(guess[i], guess)) { // added check to prevent duplicate characters in the guess string
                 blackPegs++;
+            } else if (!duplicate_check(guess[i], guess)) {
+                whitePegs++;
             }
         }
 
@@ -22,4 +23,10 @@ int main() {
 
     return 0;
 }
-```
+
+int duplicate_check(char ch, string str) {
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ch && str[i + 1] != ch) return false;
+    }
+    return true;
+}
