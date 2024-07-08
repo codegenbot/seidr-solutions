@@ -17,6 +17,6 @@ public:
 
 int main() {
     Solution s;
-    s.fizzBuzz(15);
+    s.fizzBuzz(3);
     return 0;
 }
