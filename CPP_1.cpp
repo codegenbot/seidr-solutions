@@ -1,8 +1,8 @@
-vector<string> issam(const vector<string> &a, const vector<string> b) {
+vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
     int balance = 0;
-
+    
     for (char c : paren_string) {
         if (c == '(') {
             if (balance > 0) {
@@ -19,6 +19,6 @@ vector<string> issam(const vector<string> &a, const vector<string> b) {
             }
         }
     }
-
+    
     return result;
 }
