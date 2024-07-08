@@ -1,12 +1,13 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
 
-bool compareVectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+        if (std::strcmp(a[i].c_str(), b[i].c_str()) != 0)
             return false;
     }
     return true;
@@ -14,10 +15,11 @@ bool compareVectors(const std::vector<std::string>& a, const std::vector<std::st
 
 int main() {
     std::vector<std::string> v1, v2;
-    int total_match;
+
+    int n; 
 
     std::cout << "Enter number of strings: ";
-    int n; std::cin >> n;
+    std::cin >> n;
 
     for (int i = 0; i < n; i++) {
         std::string str;
@@ -33,7 +35,7 @@ int main() {
         v2.push_back(str);
     }
 
-    if (compareVectors(v1, v2))
+    if (issame(v1, v2))
         std::cout << "Both vectors have same strings.";
     else
         std::cout << "Vectors do not have the same strings.";
