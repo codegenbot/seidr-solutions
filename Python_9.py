@@ -1,4 +1,3 @@
-```
 def rolling_max(numbers: List[int]) -> List[int]:
     if not numbers:
         return []
