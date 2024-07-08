@@ -14,12 +14,12 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    if (a.size() != b.size()) {
+bool issame(const vector<string>& a, const vector<string>& b){
+    if (a.size() != b.size()){
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for (size_t i = 0; i < a.size(); ++i){
+        if (a[i] != b[i]){
             return false;
         }
     }
@@ -28,4 +28,5 @@ bool issame(vector<string> a, vector<string> b){
 
 int main() {
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
