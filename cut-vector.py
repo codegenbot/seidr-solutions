@@ -1,10 +1,14 @@
 def cut_vector(nums):
-    min_diff = float("inf")
+    min_diff = 0
     split_index = 0
     for i in range(1, len(nums)):
-        left_sum = sum(sorted(nums[:i+1]))
-        right_sum = sum(sorted(nums[i:]))
-        if abs(left_sum - right_sum) < min_diff:
-            min_diff = abs(left_sum - right_sum)
+        left_sum = sum(nums[:i+1])
+        right_sum = sum(nums[i:])
+        if left_sum > right_sum:
             split_index = i
-    return sorted(nums[:split_index]), sorted(nums[split_index:])
+            break
+        diff = abs(left_sum - right_sum)
+        if diff < min_diff:
+            min_diff = diff
+            split_index = i
+    return nums[:split_index], nums[split_index:]
