@@ -13,5 +13,5 @@ int pairedDigits(string s) {
 }
 
 int main() {
-    return pairedDigits("123221");
+    return pairedDigits("123211");
 }
