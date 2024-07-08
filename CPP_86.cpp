@@ -1,17 +1,26 @@
-string anti_shuffle(string s){
-    string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' '){
-            result += ' ';
+#include <string>
+#include <algorithm>
+
+std::string anti_shuffle(std::string s) {
+    std::string result = "";
+    std::string temp;
+    for (char c : s) {
+        if (c == ' ') {
+            result += c;
         } else {
-            string temp = "";
-            for(int j=i; j<=s.find(' ', i); j++){
-                temp += s[j];
-                i = j;
-                break;
+            temp += c;
+            bool first = true;
+            for (char d : s.substr(s.find(c, temp.size()) + 1)) {
+                if (d != ' ') {
+                    temp += d;
+                    first = false;
+                }
             }
-            sort(temp.begin(), temp.end());
+            if (!first) {
+                std::sort(temp.begin(), temp.end());
+            }
             result += temp;
+            temp.clear();
         }
     }
     return result;
