@@ -1,3 +1,4 @@
+```
 #include <stdio.h>
 using namespace std;
 
@@ -13,8 +14,11 @@ int modp(int n, int p) {
     return res;
 }
 
-printf("Enter value of n: ");
-scanf("%d", &n);
-printf("Enter value of p: ");
-scanf("%d", &p);
-printf("2^%d mod %d = %d\n", n, p, modp(n, p));
+int main() {
+    int n, p;
+    printf("Enter value of n: ");
+    scanf("%d", &n);
+    printf("Enter value of p: ");
+    scanf("%d", &p);
+    printf("2^%d mod %d = %d\n", n, p, modp(n, p));
+}
