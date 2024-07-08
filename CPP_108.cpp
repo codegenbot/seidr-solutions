@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -8,22 +7,30 @@ using namespace std;
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        bool negativeFound = false;
-        int sum = 0;
-        if(num >= 0)
-            sign = 1;
-        else
-            sign = -1, negativeFound = true;
-
-        while(abs(num) > 0 || (negativeFound && abs(num) < 0)) {
-            int digit = abs(num) % 10 * sign;
-            if((digit > 0 && !negativeFound) || (digit == 1 && negativeFound))
-                sum += digit;
-            else
-                negativeFound = true;
-            num /= 10;
+        if (num >= 0) {
+            int sum = 0;
+            bool negativeFound = false;
+            while (num > 0 || (negativeFound && num < 0)) {
+                int digit = abs(num) % 10;
+                if ((digit > 1) || (digit == 1 && !negativeFound))
+                    sum += digit;
+                else
+                    negativeFound = true;
+                num /= 10;
+            }
+        } else {
+            int sum = 0;
+            bool negativeFound = false;
+            while (num < 0 || (negativeFound && num >= 0)) {
+                int digit = abs(num) % 10 * (-1);
+                if ((digit > -1) || (digit == -1 && !negativeFound))
+                    sum += digit;
+                else
+                    negativeFound = true;
+                num /= 10;
+            }
         }
-        if(sum > 0)
+        if (sum > 0)
             count++;
     }
     return count;
@@ -31,4 +38,5 @@ int count_nums(vector<int> nums) {
 
 int main() {
     assert(count_nums({1}) == 1);
+    // your code here
 }
