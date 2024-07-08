@@ -3,9 +3,7 @@
 #include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+    assert(a.size() == b.size());
 
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
@@ -14,9 +12,4 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     }
 
     return true;
-}
-
-int main() {
-    assert(issame({"()", "(())", "(()())"}, {"()", "(())", "(()())"}));
-    return 0;
 }
