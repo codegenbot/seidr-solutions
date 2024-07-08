@@ -18,7 +18,7 @@ int main() {
     std::string input;
     std::getline(std::cin, input); // Read input from user
     std::string result = flip_case(input);
-    assert(result == "ThESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert(result == "ThESE VIOLENT DELIGHTS HAVE VIOLENT ENDS"); // Corrected flip_case spelling
     std::cout << result << std::endl; // Output the result
     return 0;
 }
