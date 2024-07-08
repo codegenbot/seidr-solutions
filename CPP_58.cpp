@@ -4,7 +4,7 @@ bool issame(int a, int b) {
     return a == b;
 }
 
-vector<int> intersection(vector<int>& l1, vector<int>& l2) {
+vector<int> findCommonElements(vector<int>& l1, vector<int>& l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
     
