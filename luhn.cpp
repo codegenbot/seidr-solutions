@@ -15,3 +15,4 @@ int luhn(std::vector<int> digits) {
         doubleNext = !doubleNext; // toggle for the next iteration
     }
     return sum;
+}
