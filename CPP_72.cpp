@@ -22,21 +22,21 @@ bool will_it_fly(std::vector<int> q, int w) {
 int main() {
     std::vector<int> weights;
     int total_weight;
-
+    
     std::cout << "Enter the number of weights: ";
     int n;
     std::cin >> n;
-
+    
     for(int i = 0; i < n; i++) {
         std::cout << "Enter weight " << i + 1 << ": ";
         int weight;
         std::cin >> weight;
         weights.push_back(weight);
     }
-
+    
     std::cout << "Enter the total weight limit: ";
     std::cin >> total_weight;
-
+    
     if(will_it_fly(weights, total_weight)) {
         std::cout << "The package will fly.\n";
     } else {
