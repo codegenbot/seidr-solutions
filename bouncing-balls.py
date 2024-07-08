@@ -11,4 +11,5 @@ def bouncing_balls():
 
     return "{:.6f}".format(total_distance)
 
+
 print(bouncing_balls())
