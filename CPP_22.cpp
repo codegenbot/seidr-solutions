@@ -1,24 +1,19 @@
-```cpp
-#include <vector>
-#include <any>
-#include <initializer_list>
+using namespace std;
 
-bool issame(std::vector<int> const& a, std::vector<int> const& b) {
+bool areSame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> filterIntegers(const std::vector<std::any>& values) {
-    std::vector<int> result;
+vector<int> filterIntegers(const vector<any>& values) {
+    vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            result.push_back(std::any_cast<int>(value));
+        if (value.type() == type_id<int>()) {
+            result.push_back(any_cast<int>(value));
         }
     }
     return result;
 }
 
-int main() {
-    std::vector<int> a({3, 3, 3});
-    assert(issame(filterIntegers({3, 'c', 3, 3, 'a', 'b'}), a));
+int main_contest() {
+    assert(areSame(filterIntegers({3, 'c', 3, 3, 'a', 'b'}), vector<int>{3, 3, 3}));
     return 0;
-}
