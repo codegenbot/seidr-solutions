@@ -9,8 +9,5 @@ def parse_music(music_string: str) -> list:
     for note in notes:
         if note.strip() != "":
             note = note.replace("o", "").strip()
-            if not note.isalpha():
-                result.append(int(note))
-            else:
-                result.append(music_check(note))
+            result.append(int(note) if note else 0)
     return result
