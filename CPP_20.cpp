@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <vector>
 #include <limits>
+#include <cassert>
 
 bool issame(std::pair<float, float> p1, std::pair<float, float> p2) {
     return (p1.first == p2.first && p1.second == p2.second);
