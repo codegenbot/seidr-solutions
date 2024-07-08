@@ -1,29 +1,37 @@
+```cpp
 #include <vector>
-#include <algorithm>
-
 using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++)
+        if (a[i] != b[i])
+            return false;
+    return true;
+}
 
 vector<int> unique_digits(vector<int> x) {
     vector<int> result;
-    
-    for (int i : x) {
-        bool has_even_digit = false;
-        
-        // Convert integer to string and iterate over each character
-        string str = to_string(i);
-        for (char c : str) {
-            if (c % 2 == 0) { // Check if digit is even
-                has_even_digit = true;
+    for (int num : x) {
+        bool hasEvenDigit = false;
+        int digit = 0;
+        while (num > 0) {
+            digit = num % 10;
+            if (digit % 2 == 0) {
+                hasEvenDigit = true;
                 break;
             }
+            num /= 10;
         }
-        
-        if (!has_even_digit) {
-            result.push_back(i);
-        }
+        if (!hasEvenDigit)
+            result.push_back(num);
     }
-    
     sort(result.begin(), result.end());
-    
     return result;
+}
+
+int main() {
+    assert(issame(unique_digits({135, 103, 31}) , {31, 135}));
+    return 0;
 }
