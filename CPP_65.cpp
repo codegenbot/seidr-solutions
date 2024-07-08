@@ -1,14 +1,10 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
 using namespace std;
 
-string circular_shift(int x, int shift) {
-    ostringstream oss;
-    oss << x; 
-    string str = oss.str(); 
-
+std::string circular_shift(int x, int shift) {
+    std::string str = to_string(x);
     int n = str.length();
     if (shift >= n)
         return str;
