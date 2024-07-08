@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <algorithm>
 
@@ -55,7 +54,13 @@ int main() {
         std::cin >> arr[i];
     }
 
-    auto result = findMinEvenNode(arr);
+    auto result = std::vector<int>(0);
 
+    auto evenNums = findMinEvenNode(arr);
+    
+    if (!evenNums.empty()) {
+        result.push_back(evenNums[0].first);
+    }
+    
     return 0;
 }
