@@ -1,24 +1,11 @@
-#include <cstdio>
-
-using namespace std;
+#include <string>
 
 int fizz_buzz(int n) {
     int count = 0;
-    for (int i = 1; i < n; i++) {
-        if ((i % 11 == 0 || i % 13 == 0) && count(i)) {
-            count++;
+    for (int i = 1; i < n; ++i) {
+        if ((i % 11 == 0 || i % 13 == 0) && to_string(i).find("7") != string::npos) {
+            ++count;
         }
     }
     return count;
-}
-
-bool count(int num) {
-    int count7 = 0;
-    while (num > 0) {
-        if (num % 10 == 7) {
-            count7++;
-        }
-        num /= 10;
-    }
-    return count7 > 0;
 }
