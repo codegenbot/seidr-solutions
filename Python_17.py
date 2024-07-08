@@ -9,4 +9,3 @@ def parse_music(music_string: str) -> list:
     for note in notes:
         result.append(check(note.strip()))
     return result
-"""
