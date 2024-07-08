@@ -1,22 +1,22 @@
+```cpp
 #include <cassert>
 #include <string>
 #include <algorithm>
 #include <vector>
 #include <iostream>
 
-bool will_it_fly(const std::vector<int>& q, int w) {
-    bool result = true;
-    for(int i = 0; i < q.size() / 2; ++i) {
-        if(q[i] != q[q.size() - i - 1]) {
-            result = false;
-            break;
-        }
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
+    for(int i : q) {
+        str += std::to_string(i);
     }
+    if(str != std::string(str.rbegin(), str.end()))
+        return false;
     int sum = 0;
-    for(int weight : q) {
-        sum += weight;
+    for(int i : q) {
+        sum += i;
     }
-    return result && sum <= w;
+    return sum <= w;
 }
 
 int main() {
