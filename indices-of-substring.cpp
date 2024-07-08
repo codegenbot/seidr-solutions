@@ -1,4 +1,6 @@
 #include <vector>
+#include <string>
+#include <iostream>
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -9,7 +11,7 @@ vector<int> findIndices(string text, string target) {
     for (int i = 0; i <= n - m; i++) {
         bool found = true;
         for (int j = 0; j < m; j++) {
-            if (text[i + j] != target[j]) {
+            if (text[i + j] != target[j] || j == m - 1) {
                 found = false;
                 break;
             }

@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 double diceGame(int n, int m) {
@@ -17,6 +17,6 @@ int main() {
     cout << "Enter the number of sides for Colin's die: ";
     cin >> m;
     double result = diceGame(n, m);
-    cout << "Probability: " << std::fixed << std::setprecision(6) << result << endl;
+    cout << fixed << setprecision(2) << "Probability: " << result << endl;
     return 0;
 }
