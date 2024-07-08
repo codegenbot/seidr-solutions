@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool checkSame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -10,9 +11,9 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
     std::vector<std::vector<float>> result;
     for (const auto& v : vectors) {
         int size = 0;
-        assert(issame(get_positive(v, size), {}));
-        if (!issame({}, get_positive(v, size))) {
-            result.push_back(get_positive(v, size));
+        std::vector<float> positiveVec = get_positive(v, size);
+        if (!checkSame({}, std::vector<float>(size))) {
+            result.push_back(positiveVec);
         }
     }
     return result;
