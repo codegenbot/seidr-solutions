@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -31,13 +32,10 @@ int main() {
     string str = "Hello World";
     cout << spinWords(str) << endl;
     
-    str = "Spin words";
+    str = "This is a test";
     cout << spinWords(str) << endl;
     
-    str = "Short";
-    cout << spinWords(str) << endl;
-    
-    str = "";
+    str = "Short strings are not affected";
     cout << spinWords(str) << endl;
     
     return 0;
