@@ -1,18 +1,21 @@
-def bowling_score(frames):
-    score = 0
-    frames = [frame.strip() for frame in str(frames).replace("-", " ").split()]
-    for i, frame in enumerate(frames):
-        if len(frame) == 2:
-            if frame[0] == "X":
-                score += 10
-                if i < 9:
-                    next_frame = frames[i + 1]
-                    if next_frame[0] == "X" or (len(next_frame) > 1 and next_frame[1] != "/"):
-                        score += 10
-            elif frame[1] == "/":
-                score += 10 - int(frame[0])
-        else:
-            score += sum(map(int, frame))
-    return score
+```
+user_input = input()
+frames = [frame.replace("-", "") for frame in user_input.split("\n")]
 
-print(bowling_score("8-324333X518-3463X83"))
+
+def bowling_score(frames):
+    total_score = 0
+    current_frame_score = 0
+    roll_count = 1
+
+    for frame in frames:
+        if len(frame) == 2:
+            current_frame_score += 10 + (int(frame[1]) - 0)
+        elif len(frame) > 1:
+            current_frame_score += int(frame[0]) + int(frame[1])
+        else:
+            current_frame_score += 10
+        total_score += current_frame_score
+        roll_count = 1 if roll_count == 2 else 0
+
+    return total_score
