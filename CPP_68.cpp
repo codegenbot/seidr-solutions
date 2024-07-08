@@ -1,3 +1,6 @@
+#include <vector>
+#include <cassert>
+
 vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallest_even = INT_MAX;
