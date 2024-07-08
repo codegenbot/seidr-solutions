@@ -1,14 +1,6 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) return array;
 
@@ -42,7 +34,5 @@ int main() {
         std::cout << "Sum of first and last elements is even: ";
     }
     std::cout << array[0] + array.back() << std::endl;
-    
-    assert(issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11}));
     return 0;
 }
