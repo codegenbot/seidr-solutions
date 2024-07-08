@@ -1,20 +1,24 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
-bool issame(std::vector<float> x, std::vector<float> y) {
-    if (x.size() != y.size()) return false;
-    for (int i = 0; i < x.size(); i++) {
-        if (x[i] != y[i]) return false;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if ((a[i] != b[i]) && (a[i] > 0 || b[i] > 0)) {
+            return false;
+        }
     }
     return true;
 }
 
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
-    for (float x : l) {
+float get_positive(const std::vector<float>& l) {
+    float sum = 0.0f;
+    for (const auto& x : l) {
         if (x > 0) {
-            result.push_back(x);
+            sum += x;
         }
     }
-    return result;
+    return sum;
 }
