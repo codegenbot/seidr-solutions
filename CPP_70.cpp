@@ -1,6 +1,6 @@
+```
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
@@ -12,27 +12,25 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> strange_sort_list(std::initializer_list<int> lst) {
+std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
-    if (lst.size() == 0)
-        return result;
+    if (lst.empty()) return result;
 
-    std::vector<int> temp(lst);
-    std::sort(temp.begin(), temp.end());
+    std::sort(lst.begin(), lst.end());
 
-    while (!temp.empty()) {
-        result.push_back(*temp.begin());
-        temp.erase(temp.begin());
-        if (!temp.empty())
-            std::sort(temp.begin(), temp.end());
+    while (!lst.empty()) {
+        result.push_back(*lst.begin());
+        lst.erase(lst.begin());
+        if (!lst.empty())
+            std::sort(std::next(lst.begin()), lst.end());
     }
 
     return result;
 }
 
 int main() {
-    std::vector<int> result = strange_sort_list({111111});
-    if (issame(result, {11111})) {
+    std::vector<int> result = strange_sort_list({1, 1, 1, 1, 1});
+    if (issame(result, {1, 1, 1, 11})) {
         std::cout << "Output is correct.\n";
     } else {
         std::cout << "Output is incorrect.\n";
