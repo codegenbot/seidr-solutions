@@ -23,11 +23,7 @@ int main() {
     std::vector<float> expected_output = {0.0, 0.25, 0.5, 0.75, 1.0};
     std::vector<float> result = rescale_to_unit(numbers);
     
-    if (is_same(result, expected_output)) {
-        std::cout << "Output matches the expected result." << std::endl;
-    } else {
-        std::cout << "Output does not match the expected result." << std::endl;
-    }
+    assert(is_same(result, expected_output));
     
     return 0;
 }
