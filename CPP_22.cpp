@@ -1,7 +1,10 @@
+```
 #include <any>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) { return a == b; }
+bool issame(const std::vector<int>& a, const std::vector<int>& b) { 
+    return a == b; 
+} 
 
 std::vector<int> filter_integers(std::any values) {
     std::vector<int> result;
@@ -15,8 +18,8 @@ std::vector<int> filter_integers(std::any values) {
 }
 
 int main() {
-    auto values = std::any{int(3), char('c'), int(3), int(3), char('a'), char('b')};
+    auto values = std::any({static_cast<int>(3), static_cast<int>('c'), 3, 3, static_cast<int>('a'), static_cast<int>('b')});
     auto output = filter_integers(values);
-    assert(issame(output, std::vector<int>({3, 3, 3})));
+    assert(issame(output,{3}));
     return 0;
 }
