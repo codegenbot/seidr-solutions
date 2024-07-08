@@ -6,14 +6,14 @@ def check(note: str) -> int:
 
 def parse_music(music_string: str) -> list:
     result = []
-    notes = music_string.split("|")
+    notes = music_string.replace("|", ",").replace(" ", "").split(",")
     for note in notes:
         if note.strip() != "":
-            result.append(check(note.strip()))
+            result.append(check(note.strip().upper()))
     return result
 
 
-music = parse_music("o | . | o | . | o o| o o|")
+music = parse_music("o| .| o| .| o o| o o|")
 assert check(music[0]) == 2
 assert check(music[1]) == 1
 assert check(music[2]) == 2
