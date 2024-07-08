@@ -1,18 +1,22 @@
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
+std::vector<int> intersperse(const std::vector<int>& vec, int val) {
+    std::vector<int> result;
+    for (const auto& num : vec) {
+        result.push_back(num);
+        result.push_back(val);
     }
-    
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    result.pop_back(); // Remove the last added val
+    return result;
 }
 
-// Define intersperse function here if needed
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
 
+int main() {
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    
+    return 0;
+}
