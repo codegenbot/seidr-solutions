@@ -28,10 +28,9 @@ int main() {
     for (const auto &num : result[0]) {
         cout << num << " ";
     }
-    cout << "] [";
-    for (auto it = result[1].begin(); it != result[1].end(); ++it) {
-        cout << *it << " ";
+    cout << "] [" << std::endl;
+    for (const auto &num : result[1]) {
+        cout << num << " ";
     }
-    std::cout << "] ]" << std::endl;
+    cout << "]" << std::endl;
     return 0;
-}
