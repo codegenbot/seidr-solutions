@@ -16,4 +16,10 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     }
     return result;
 
-assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+bool main() {
+    vector<string> testStrings = {"grunt", "trumpet", "prune", "gruesome"};
+    vector<string> expectedResults = {"grunt", "prune"};
+
+    assert(issame(filter_by_substring(testStrings, "run"), expectedResults));
+    return 0;
+}
