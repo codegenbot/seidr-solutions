@@ -1,22 +1,20 @@
-bool issame(vector<any> values) {
-    vector<int> first, second;
+#include <vector>
+#include <any>
+
+bool issame(std::vector<any> values) {
+    bool result = true;
+
     for (const auto& value : values) {
-        if (std::any_cast<bool>(value)) {
-            int val = std::any_cast<int>(value).get_int();
-            if (first.empty()) first.push_back(val);
-            else if (second.empty()) second.push_back(val);
-            else return false;
-        }
+        if (!std::any_cast<bool>(value)) continue;
+        bool is_true = std::any_cast<bool>(value);
+        result &= is_true;
     }
-    return first == second;
+
+    return result;
 }
 
-vector<int> filter_integers(vector<any> values) {
-    vector<int> result;
-    for (const auto& value : values) {
-        boost::any_cast<int>(value);
-        if (!boost::any_cast<bool>(value)) continue;
-        result.push_back(boost::any_cast<int>(value));
-    }
-    return result;
+int main() {
+    std::vector<any> a = {3, 'c', 3.0f, 3, 'a', 'b'};
+    std::vector<any> b = {static_cast<int>(3), static_cast<int>(3), static_cast<int>(3)};
+    assert(issame(a, b)); 
 }
