@@ -1,1 +1,1 @@
-print(validate_tweet("To''''''''''''''long1"))
+print(validate_tweet("To''''''oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooolong1"))
