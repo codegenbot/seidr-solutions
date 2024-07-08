@@ -1,6 +1,5 @@
-```c++
 #include <iostream>
-using namespace std;
+#include <cmath>
 
 double diceGame(int n, int m) {
     double prob = 0.0;
@@ -12,8 +11,7 @@ double diceGame(int n, int m) {
 
 int main() {
     int n, m;
-    cin >> n >> m;
+    std::cin >> n >> m;
     double result = diceGame(n, m);
-    cout << fixed << setprecision(6) << result << endl;
     return 0;
 }
