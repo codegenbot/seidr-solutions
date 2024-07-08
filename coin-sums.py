@@ -1,7 +1,14 @@
 ```
+def coin_sums(cents):
+    coins = [25, 10, 5, 1]
+    result = [0, 0, 0, 0]
+
+    for i in range(3,-1,-1): 
+        while cents >= coins[i]:
+            cents -= coins[i]
+            result[i] += 1
+
+    return result
+
 cents = int(input())
-result = coin_sums(cents)
-print(f"Pennies: {result[0]}")
-print(f"Nickles: {result[1]}")
-print(f"Dimes: {result[2]}")
-print(f"Quarters: {result[3]}")
+print(*coin_sums(cents), sep='\n')
