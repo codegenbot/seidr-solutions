@@ -1,7 +1,13 @@
+```cpp
+#include <iostream>
+#include <string>
+#include <sstream>
+using namespace std;
+
 string circular_shift(int x, int shift) {
     ostringstream oss;
-    oss << x; // convert integer to string using ostringstream
-    string str = oss.str(); // get the converted string
+    oss << x; 
+    string str = oss.str(); 
 
     int n = str.length();
     if (shift >= n)
