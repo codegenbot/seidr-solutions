@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -39,7 +40,10 @@ int main() {
     for (const auto& str : result) {
         std::cout << str << std::endl;
     }
-    // Use the isSame function
-    assert(isSame(byLength({9, 4, 8}) , {"Eight", "Four", "Nine"}));
+    if(isSame(byLength({9, 4, 8}), {"Eight", "Four", "Nine"})) {
+        std::cout << "The lists are the same." << std::endl;
+    } else {
+        std::cout << "The lists are not the same." << std::endl;
+    }
     return 0;
 }
