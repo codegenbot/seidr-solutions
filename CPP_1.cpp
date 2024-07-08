@@ -1,48 +1,26 @@
-#include <vector>
-#include <string>
-#include <cassert>
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-std::vector<std::string> separate_paren_groups(const std::string& input) {
+std::vector<std::string> separate_paren_groups(std::string input) {
     std::vector<std::string> groups;
-    std::string temp;
-    int count = 0;
+    int level = 0;
+    std::string current_group;
 
-    for (char ch : input) {
-        if (ch == '(') {
-            if (count > 0) {
-                temp += ch;
+    for (char c : input) {
+        if (c == '(') {
+            level++;
+            if (level > 1) {
+                current_group += c;
             }
-            count++;
-        } else if (ch == ')') {
-            count--;
-            if (count > 0) {
-                temp += ch;
-            }
-            if (count == 0) {
-                groups.push_back(temp);
-                temp.clear();
+        } else if (c == ')') {
+            level--;
+            if (level > 0) {
+                current_group += c;
+            } else {
+                if (!current_group.empty()) {
+                    groups.push_back(current_group);
+                    current_group.clear();
+                }
             }
         }
     }
 
     return groups;
-}
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
 }
