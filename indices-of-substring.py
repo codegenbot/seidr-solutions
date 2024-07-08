@@ -1,3 +1,4 @@
+```
 def indices_of_substring(text, target):
     """Return a list of integers of the indices at which the target appears in the text."""
     result = []
