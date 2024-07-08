@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -39,9 +40,9 @@ int main() {
     std::cout << "Enter number of vectors: ";
     std::cin >> n;
 
-    std::vector<std::vector<float>> vectors(n);
+    std::vector<std::vector<float>> vectorPtr = std::vector<std::vector<float>>(n);
 
-    for (auto& v : vectors) {
+    for (auto& v : vectorPtr) {
         int m;
         std::cout << "Enter size of the vector: ";
         std::cin >> m;
@@ -53,7 +54,7 @@ int main() {
         }
     }
 
-    std::vector<std::vector<float>> result = filter_vectors(vectors);
+    std::vector<std::vector<float>> result = filter_vectors(vectorPtr);
 
     if (!result.empty()) {
         std::cout << "Resultant Vectors: " << std::endl;
@@ -67,10 +68,10 @@ int main() {
         std::cout << "No resultant vectors." << std::endl;
     }
 
-    for (auto& v : vectors) {
-        for (int i = 0; i < v.size(); i++) {
-            delete[] &v[i];
-        }
+    for (auto& v : vectorPtr) {
+        delete[] &v[0];
     }
+    delete &vectorPtr;
+
     return 0;
 }
