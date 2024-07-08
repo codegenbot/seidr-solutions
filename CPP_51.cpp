@@ -1,3 +1,4 @@
+```cpp
 int main() {
     assert(remove_vowels("ybcd") == "ybcd");
     std::string input;
@@ -9,24 +10,20 @@ int main() {
 
 std::string remove_vowels(const std::string& str) {
     std::string result = "";
-    for (char c : str) {
-        if (!isvowel(c)) {
+    for(char c : str) {
+        if(!isVowel(c)) {
             result += c;
         }
     }
     return result;
 }
 
-bool isvowel(char ch) {
-    char c = tolower(ch);
-    switch (c) {
-        case 'a':
-        case 'e':
-        case 'i':
-        case 'o':
-        case 'u':
+bool isVowel(char c) {
+    char vowels[] = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+    for(char vowel : vowels) {
+        if(c == vowel) {
             return true;
-        default:
-            return false;
+        }
     }
+    return false;
 }
