@@ -1,3 +1,11 @@
 #include <vector>
+#include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(std::vector<float>{}, std::vector<float>{}));
+    return 0;
+}
