@@ -1,7 +1,8 @@
+```c++
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector a, std::vector b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -21,22 +22,4 @@ float get_positive(std::vector<float> l) {
         }
     }
     return sum;
-}
-
-int main() {
-    std::vector<float> v;
-    int n;
-    cin >> n;
-    v.resize(n);
-    for (auto &num : v) {
-        cin >> num;
-    }
-    
-    if (issame(v, {1.0f}) && get_positive(v) > 0.0f) {
-        cout << get_positive(v) << endl;
-    } else {
-        cout << "Not Positive!" << endl;
-    }
-
-    return 0;
 }
