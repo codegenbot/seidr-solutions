@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -12,7 +13,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
             pos = i;
         }
     }
-    return {{vector<int>(nums.begin(), nums.begin() + pos + 1)}, {vector<int>(nums.begin() + pos, nums.end())}};
+    return {{vector<int>(nums.begin(), nums.begin() + pos + 1)}, {vector<int>(nums.begin() + pos + 1, nums.end())}};
 }
 
 int main() {
@@ -28,7 +29,7 @@ int main() {
         cout << num << " ";
     }
     cout << "] [";
-    for (int i = 0; i < result[1].size(); i++) {
+    for (int i = 0; i < result[1].size(); ++i) {
         cout << result[1][i] << " ";
     }
     cout << "] ]" << endl;
