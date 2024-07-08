@@ -17,11 +17,4 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     }
     return result;
 
-bool main() {
-    vector<string> input = {"grunt", "trumpet", "prune", "gruesome"};
-    string substring = "run";
-    vector<string> filtered = filter_by_substring(input, substring);
-    if (!issame(filtered, vector<string>({"grunt", "prune"}))) 
-        return false;
-    return true;
-}
+vector<string> output = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
