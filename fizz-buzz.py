@@ -1,9 +1,7 @@
+Here is the modified code:
 ```
 def fizz_buzz(x):
-    if x > 32767:
-        s = str(x)
-        return s if any(c in ['3', '5'] for c in s) else s
-    elif x % 15 == 0:
+    if x % 15 == 0:
         return "FizzBuzz"
     elif x % 5 == 0:
         return "Buzz"
