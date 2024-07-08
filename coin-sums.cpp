@@ -26,6 +26,11 @@ int main() {
 
     pennies = cents;
 
+    while (pennies > 0 && pennies % 5 != 0) {
+        pennies--;
+        nickles++;
+    }
+
     std::cout << quarters << "\n";
     std::cout << nickles << "\n";
     std::cout << dimes << "\n";
