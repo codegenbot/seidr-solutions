@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -26,15 +27,14 @@ float* get_positive(const std::vector<float>& vec, int& size) {
         }
     }
 
-    float* positiveVec = new float[size];
-    size_t j = 0;
+    std::vector<float> positiveVec;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
-            positiveVec[j++] = vec[i];
+            positiveVec.push_back(vec[i]);
         }
     }
 
-    return positiveVec;
+    return std::vector<float>(positiveVec);
 }
 
 int main() {
