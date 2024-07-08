@@ -1,3 +1,6 @@
+````
+#include <iostream>
+
 int main() {
     int cents;
     std::cin >> cents;
@@ -20,3 +23,4 @@ int main() {
 
     return 0;
 }
+```
