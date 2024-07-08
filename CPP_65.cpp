@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 using namespace std;
@@ -19,5 +20,8 @@ string circular_shift(int x, int shift) {
     }
 }
 
-cin >> x >> shift;
-cout << circular_shift(x, shift) << endl;
+int main() {
+    int x, shift;
+    cin >> x >> shift;
+    cout << circular_shift(x, shift) << endl;
+}
