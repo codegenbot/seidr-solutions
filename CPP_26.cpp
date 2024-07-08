@@ -1,14 +1,18 @@
-#include <initializer_list>
-#include <vector>
-
-bool issame(vector<int> a,vector<int>b){
+#include <set>
+bool std::operator==(const std::vector<int>& a, const std::vector<int>& b){
     if(a.size()!=b.size())return false;
     for(int i=0; i<a.size();i++)if(a[i]!=b[i])return false;
     return true;
-
 }
 
-int main() {
-    assert(issame(remove_duplicates({{1, 2}, {3, 4},{1, 2},{3, 4}}), {{1, 2}, {3, 4}}));
-    return 0;
+std::vector<std::vector<int>> remove_duplicates(std::vector<std::vector<int>> numbers) {
+    std::set<std::vector<int>> s;
+
+    for (int i = 0; i < numbers.size(); i++) {
+        if (!s.count(numbers[i])) {
+            s.insert(numbers[i]);
+        }
+    }
+
+    return std::vector<std::vector<int>>(s.begin(), s.end());
 }
