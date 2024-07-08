@@ -3,7 +3,7 @@
 #include <string>
 
 bool correct_bracketing(std::string s) {
-    std::stack<char> stack;
+    std::stack<char, std::vector<char>> stack;
     for(int i=0;i<s.length();i++){
         if(s[i] == '(')stack.push('(');
         else if(s[i] == ')'){
@@ -16,7 +16,7 @@ bool correct_bracketing(std::string s) {
 
 int main() {
     std::string s = "()()(()())()))";
-    assert(!correct_bracketing(s));  
+    assert(!correct_bracketing(s));  // expecting this assertion to fail
     std::cout << "Correct bracketing: " << (correct_bracketing("()")) << std::endl;
     return 0;
 }
