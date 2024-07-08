@@ -1,3 +1,8 @@
+#include <vector>
+#include <string>
+
+using namespace std;
+
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> filtered_strings;
     for(const auto& str : strings){
