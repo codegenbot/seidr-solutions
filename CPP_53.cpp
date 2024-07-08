@@ -2,17 +2,16 @@
 #include <cstdlib>
 #include <cassert>
 
-int add(int x, int y, int z) {
-    return x + y + z;
+int add(int x, int y) {
+    return x + y;
 }
 
 int main() {
     srand(time(NULL));
     int x = rand() % 1000;
     int y = rand() % 1000;
-    int z = rand() % 1000;
 
-    assert(add(x, y, z) == x + y + z);
+    assert(add(x, y) == x + y);
     
     return 0;
 }
