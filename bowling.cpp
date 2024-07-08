@@ -1,6 +1,4 @@
-using namespace std;
-
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     bool lastRollWasStrike = false;
     bool lastRollWasSpare = false;
@@ -11,7 +9,7 @@ int bowlingScore(string s) {
             lastRollWasStrike = true;
             lastRollWasSpare = false;
         } else if (c == '/') {
-            int nextTwoRolls = stoi(s.substr(find(c) + 1, 2)) * 10 / 2;
+            int nextTwoRolls = std::stoi(s.substr(s.find('/') + 1, 2)) * 10 / 2;
             score += (lastRollWasStrike ? 10 : (lastRollWasSpare ? 5 : 0));
             score += nextTwoRolls;
             lastRollWasStrike = false;
