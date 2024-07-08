@@ -12,7 +12,7 @@ string circular_shift(int x, int shift) {
     if (shift == 0) {
         return num_str;
     }
-    if (shift > n) {
+    if (shift >= n) {
         reverse(num_str.begin(), num_str.end());
         return num_str;
     }
