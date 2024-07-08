@@ -14,5 +14,8 @@ std::string decimal_to_binary(int decimal){
     return "db" + binary + "db";
 }
 
-assert(decimal_to_binary(15) == "db11111db"); 
-std::cout << decimal_to_binary(15);
+int main() {
+    assert(decimal_to_binary(15) == "db11111db"); 
+    std::cout << decimal_to_binary(15);
+    return 0;
+}
