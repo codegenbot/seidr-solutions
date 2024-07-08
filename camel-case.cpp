@@ -1,20 +1,19 @@
-```c++
 #include <iostream>
 #include <sstream>
 #include <string>
 
 std::string kebabToCamel(const std::string& s) {
-    std::stringstream result("");
+    std::stringstream result;
     bool capitalizeNext = false;
 
     for (char c : s) {
         if (c == '-' || c == ' ') { 
             capitalizeNext = true;
         } else if (capitalizeNext) {
-            result << toupper(c);
+            result << std::string(1, toupper(c));
             capitalizeNext = false;
         } else {
-            result << tolower(c);
+            result << std::string(1, tolower(c));
         }
     }
 
