@@ -2,10 +2,6 @@
 #include <string>
 #include <cassert>
 
-std::vector<std::string> separate_paren_groups(const std::string& s) {
-    // Implementation to separate groups of parentheses
-}
-
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -18,6 +14,10 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     }
 
     return true;
+}
+
+std::vector<std::string> separate_paren_groups(const std::string& str) {
+    // Implementation needed to separate parentheses groups from str
 }
 
 int main() {
