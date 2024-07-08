@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 
@@ -33,7 +32,6 @@ bool issame(vector<string> a, vector<string> b) {
         }
     }
     return true;
-}
 
 int main() {
     string words_string = "ahmed     , gamal"; 
