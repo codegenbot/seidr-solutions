@@ -1,10 +1,10 @@
-#include <string>
-bool check_if_last_char_is_a_letter(std::string txt) {
+bool check_if_last_char_is_a_letter(string txt) {
     if (txt.empty()) return false;
-    string words[] = {"a", "an", "the", "and", "is"};
-    for (int i = 0; i < sizeof(words)/sizeof(words[0]); i++) {
-        if (txt.find(words[i]) != std::string::npos) {
-            return txt.back() >= 'a' && txt.back() <= 'z';
+    char lastChar = txt.back();
+    if (!isalpha(lastChar)) return false;
+    for (int i = 0; i < txt.length() - 1; i++) {
+        if (isspace(txt[i]) && !isalpha(txt[i + 1])) {
+            return true;
         }
     }
-    return txt.back() >= 'a' && txt.back() <= 'z';
+    return false;
