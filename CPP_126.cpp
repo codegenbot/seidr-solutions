@@ -1,19 +1,13 @@
-Here's the completed code:
-
 bool is_sorted(vector<int> lst){
-    if (lst.size() <= 1) return true;
-
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i] >= lst[i-1]){
-            continue;
-        }else{
-            int count = 0;
-            for(int j = 0; j < lst.size(); j++){
-                if(lst[j] == lst[i]) count++;
-            }
-            return count > 1;
+    for(int i=1; i<lst.size();i++){
+        if(lst[i-1] >= lst[i]){
+            return false;
+        }
+        vector<int> v(lst.begin(), lst.end());
+        sort(v.begin(), v.end());
+        if(count(v.begin(), v.end(), v[0]) > 1){
+            return false;
         }
     }
-
     return true;
 }
