@@ -1,41 +1,32 @@
-```c++
 #include <vector>
-#include <algorithm>
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
-    int n = grid.size();
-    std::vector<std::vector<bool>> visited(n, std::vector<bool>(n, false));
-    std::vector<int> res;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) {
-                dfs(grid, visited, i, j, k, &res);
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    vector<int> result;
+    for (int i = 0; i < grid.size(); ++i) {
+        for (int j = 0; j < grid[0].size(); ++j) {
+            if (grid[i][j] == k) {
+                result.push_back(i);
+                result.push_back(j);
             }
         }
     }
-    return res;
-}
-
-void dfs(std::vector<std::vector<int>>& grid, std::vector<std::vector<bool>>& visited, int i, int j, int k, std::vector<int>* res) {
-    (*res).push_back(grid[i][j]);
-    visited[i][j] = true;
-    if (k > 1) {
-        for (int x = std::max(0, i - 1); x <= std::min(i + 1, grid.size() - 1); ++x) {
-            for (int y = std::max(0, j - 1); y <= std::min(j + 1, grid[0].size() - 1); ++y) {
-                if (!visited[x][y]) {
-                    dfs(grid, visited, x, y, k - 1, res);
-                    return;
-                }
-            }
-        }
-    }
+    return result;
 }
 
 int main() {
-    // your code here
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     return 0;
 }

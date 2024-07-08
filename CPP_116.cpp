@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <bitset>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a != b)
