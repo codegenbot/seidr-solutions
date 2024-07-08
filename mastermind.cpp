@@ -11,9 +11,9 @@ int main() {
 
         for (int i = 0; i < code.length(); i++) {
             if (code[i] == guess[i]) {
-                blackPegs++;
-            } else if (!duplicate_check(guess[i], guess)) { // added check to prevent duplicate characters in the guess string
                 whitePegs++;
+            } else if (!duplicate_check(guess[i], guess)) { // added check to prevent duplicate characters in the guess string
+                blackPegs++;
             }
         }
 
@@ -22,3 +22,4 @@ int main() {
 
     return 0;
 }
+```
