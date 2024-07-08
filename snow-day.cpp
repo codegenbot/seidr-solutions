@@ -1,8 +1,11 @@
+#include <cstdio>
+#include <cmath>
+
 float snow_day(int hours, float initial_snow, float rate_of_snowfall, float proportion_of_melting) {
     float current_snow = initial_snow;
     for (int i = 0; i < hours; i++) {
         current_snow += rate_of_snowfall;
-        current_snow -= floor(current_snow * proportion_of_melting);
+        current_snow -= fmod(current_snow * proportion_of_melting, 1.0f);
     }
     return current_snow;
 }
