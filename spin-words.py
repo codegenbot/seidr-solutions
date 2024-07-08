@@ -8,4 +8,4 @@ def spin_words(string):
 
 
 # Call the function with the user input
-print(spin_words("Hello World"))
+print(spin_words(string))
