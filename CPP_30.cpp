@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool same(const std::vector<float>& a, const std::vector<float>& b) {
+bool checkSame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -11,7 +12,7 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
     for (const auto& v : vectors) {
         int size = 0;
         std::vector<float> positiveVec = get_positive(v, size);
-        if (!same({}, positiveVec)) {
+        if (!checkSame({}, std::vector<float>(size))) {
             result.push_back(positiveVec);
         }
     }
@@ -63,7 +64,7 @@ int main() {
             for (float f : v) {
                 std::cout << f << " ";
             }
-            std::cout << ">" << std::endl;
+            std::cout << std::endl;
         }
     } else {
         std::cout << "No resultant vectors." << std::endl;
