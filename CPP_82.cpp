@@ -1,7 +1,17 @@
-bool prime_length(string str){
-    int len = str.length();
-    for(int i=2; i*i<=len; i++){
-        if(len%i==0) return false;
+bool prime_length(string str) {
+    int n = str.length();
+    bool is_prime = true;
+
+    if (n <= 1)
+        return false;
+    else if (n == 2)
+        return true;
+
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            is_prime = false;
+            break;
+        }
     }
-    return true;
-}
+
+    return is_prime;
