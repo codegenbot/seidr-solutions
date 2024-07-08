@@ -1,6 +1,5 @@
 import string
 
-
 def validate_tweet(tweet):
     if not all(c in string.printable for c in tweet):
         return "Your tweet contains non-printable characters"
