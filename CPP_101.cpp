@@ -32,6 +32,6 @@ bool compareArrays(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(compareArrays(splitString("ahmed     , gamal"), vector<string> {"ahmed", "gamal"}));
+    assert(compareArrays(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
