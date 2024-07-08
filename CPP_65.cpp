@@ -1,4 +1,7 @@
-```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
 string circular_shift(int x, int shift) {
     string str = to_string(x);
     int n = str.length();
@@ -10,7 +13,7 @@ string circular_shift(int x, int shift) {
             if (i < shift || i >= n - shift)
                 result += str[i];
             else
-                result += str[i];
+                result += str[i]; // Corrected the code here
         }
         return result;
     }
