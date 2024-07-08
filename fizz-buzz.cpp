@@ -1,14 +1,16 @@
-```cpp
+#include <ostream>
+
 std::string fizzBuzz(int x) {
-    std::stringstream result;
+    std::string result;
     if (x % 3 == 0 && x % 5 == 0) {
-        result << "FizzBuzz";
+        return "FizzBuzz";
     } else if (x % 3 == 0) {
-        result << "Fizz";
+        return "Fizz";
     } else if (x % 5 == 0) {
-        result << "Buzz";
+        return "Buzz";
     } else {
-        result << std::to_string(x);
+        std::ostringstream os;
+        os << x;
+        result = os.str();
     }
-    return result.str();
-}
+    return result;
