@@ -1,2 +1,5 @@
 def vector_distance(v1, v2):
-    return np.sqrt(((np.abs(v1) - np.abs(v2))**2).sum())
+    if np.allclose(v1, 0) or np.allclose(v2, 0):
+        return float('inf')
+    else:
+        return np.sqrt(((v1 - v2)**2).sum())
