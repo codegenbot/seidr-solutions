@@ -1,40 +1,29 @@
-bool issame(vector<string> v1, vector<string> v2) {
-    if (v1.size() != v2.size()) {
+#include <string>
+using namespace std;
+
+vector<string> splitString(string str) {
+    vector<string> words;
+    string word;
+    for(int i = 0; i < str.length(); i++) {
+        if(str[i] == ' ') {
+            words.push_back(word);
+            word.clear();
+        } else {
+            word += str[i];
+        }
+    }
+    words.push_back(word);
+    return words;
+}
+
+bool issame(vector<string> a, vector<string> b) { 
+    if(a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
     return true;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    vector<string> words_string(string s) {
-        vector<string> result;
-        string word = "";
-        for (char c : s) {
-            if (c == ' ' || c == ',') {
-                if (!word.empty()) {
-                    result.push_back(word);
-                    word = "";
-                }
-            } else {
-                word += c;
-            }
-        }
-        if (!word.empty()) {
-            result.push_back(word);
-        }
-        return result;
-    }
-    vector<string> v1 = words_string(s);
-    string s2;
-    cin >> s2;
-    vector<string> v2 = words_string(s2);
-    cout << (issame(v1, v2) ? "Same" : "Not same") << endl;
-    return 0;
 }
