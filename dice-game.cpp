@@ -9,7 +9,6 @@ double diceGame(int n, int m) {
         }
     }
     return 1 - prob; 
-
 }
 
 int main() {
