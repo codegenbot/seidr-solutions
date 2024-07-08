@@ -33,7 +33,7 @@ std::vector<int> sort_array(std::vector<int> array) {
     return sortedArray;
 }
 
-int driver_main() {
+int main() {
     std::vector<int> array = {21, 14, 23, 11};
     array = sort_array(array);
     if (array.size() % 2 == 1) {
@@ -43,7 +43,7 @@ int driver_main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    if (!issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11})) {
+    if (!issame(array, {23, 21, 14, 11})) {
         return 1;
     }
     return 0;
