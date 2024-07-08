@@ -1,22 +1,23 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-9f) { // Handle floating point precision issue
+        if ((a[i] != b[i])) {
             return false;
         }
     }
     return true;
 }
 
-float get_positive(const std::vector<float>& l) {
+float get_positive(const vector<float>& l) {
     float sum = 0.0f;
     for (const auto& x : l) {
-        if (std::abs(x) > 1e-9f) { // Handle floating point precision issue
+        if (x > 0) {
             sum += x;
         }
     }
@@ -24,6 +25,7 @@ float get_positive(const std::vector<float>& l) {
 }
 
 int main() {
-    assert(issame({get_positive({})}, {}));
+    assert(issame({1,2,3}, {1,2,3}));
+    cout << get_positive({-1,-2,3}) << endl;  
     return 0;
 }
