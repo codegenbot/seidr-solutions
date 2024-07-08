@@ -1,32 +1,29 @@
-```cpp
-#include <string>
-#include <cctype>
-#include <cassert>
-#include <iostream>
+Here is the solution to the problem:
 
-std::string remove_vowels(std::string text) {
-    std::string result = "";
-    for (char c : text) {
-        if (std::isalpha(c)) {
-            switch (std::tolower(c)) {
-                case 'a':
-                case 'e':
-                case 'i':
-                case 'o':
-                case 'u':
-                    break;
-                default:
-                    result += std::tolower(c);
-            }
-        } else {
+```cpp
+#include <iostream>
+#include <string>
+
+std::string remove_vowels(std::string str) {
+    std::string result;
+    for (char c : str) {
+        if (!isVowel(c)) {
             result += c;
         }
     }
     return result;
 }
 
-int mainFunc() {
-    assert(remove_vowels("ybcd") == "bcd");
+bool isVowel(char c) {
+    c = tolower(c);
+    if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+        return true;
+    }
+    return false;
+}
+
+int main() {
+    assert(remove_vowels("ybcd") == "ybcd");
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
