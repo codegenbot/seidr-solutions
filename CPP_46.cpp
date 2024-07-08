@@ -1,5 +1,6 @@
-```
+```cpp
 #include <iostream>
+#include <cstdio>
 
 using namespace std;
 
@@ -18,9 +19,11 @@ int fib4(int n) {
 }
 
 int main() {
-    int n = 0;
-    cout << "Enter the value of n (an integer): ";
+    int n;
+    cout << "Enter the value of n: ";
     cin >> n;
-    cout << "The " << n << "-th element of the fib4 number sequence is: " << fib4(n) << endl;
+    
+    string output = "The " + to_string(n) + "-th element of the fib4 number sequence is: " + to_string(fib4(n));
+    cout << output << endl;
     return 0;
 }
