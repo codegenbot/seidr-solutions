@@ -1,15 +1,12 @@
 #include <vector>
-#include <cassert>
-#include <climits> // Include for using INT_MAX
+#include <climits>
 
-using namespace std; // Add this line
-
-bool issame(vector<int> a, vector<int> b){ // Change function signature
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> pluck(vector<int> arr){
-    vector<int> result;
+std::vector<int> pluck(std::vector<int> arr){
+    std::vector<int> result;
     int smallest_even = INT_MAX;
     int smallest_even_index = -1;
     
@@ -29,6 +26,6 @@ vector<int> pluck(vector<int> arr){
 }
 
 int main(){
-    assert (issame(pluck({7, 9, 7, 1}) , {})); // Use {} for an empty vector
+    assert(issame(pluck({7, 9, 7, 1}), {}));
     return 0;
 }
