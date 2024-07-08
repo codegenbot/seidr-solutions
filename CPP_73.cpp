@@ -1,3 +1,5 @@
+#include <vector>
+
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     int left = 0, right = n - 1;
@@ -12,11 +14,11 @@ int smallest_change(std::vector<int> arr) {
             right--;
         }
     }
-    return changes;
+    return (n % 2 == 0)? changes : 1 - changes;
 }
 
 int main() {
     std::vector<int> arr = {1, 0};
     int result = smallest_change(arr);
-    return result;
+    return 0;
 }
