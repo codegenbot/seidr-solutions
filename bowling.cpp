@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 
@@ -20,9 +19,9 @@ int bowlingScore(std::string s) {
             lastRollWasSpare = true;
         } else {
             int roll = c - '0';
-            if (c == '9') lastRollWasSpare = true;
-            else lastRollWasStrike = true;
             score += roll;
+            if (roll == 9) lastRollWasSpare = true;
+            else lastRollWasStrike = true;
         }
     }
 
