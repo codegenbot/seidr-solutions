@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,8 +25,9 @@ int main() {
         lst2.push_back(str);
     }
     
-    bool total_match;
-    total_match = issame(lst1, lst2);
+    bool total_match = issame(lst1, lst2);
+    
+    assert(total_match);
 
     return 0;
 }

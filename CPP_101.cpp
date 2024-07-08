@@ -1,19 +1,25 @@
+```cpp
 #include <string>
 #include <vector>
+
 using namespace std;
 
-vector<string> splitString(string str) {
+vector<string> splitString(string input) {
     vector<string> words;
-    string word;
-    for(int i = 0; i < str.length(); i++) {
-        if(str[i] == ' ') {
-            words.push_back(word);
-            word.clear();
+    string word = "";
+    for(char c: input) {
+        if(c == ' ') {
+            if(!word.empty()) {
+                words.push_back(word);
+                word = "";
+            }
         } else {
-            word += str[i];
+            word += c;
         }
     }
-    words.push_back(word);
+    if(!word.empty()) {
+        words.push_back(word);
+    }
     return words;
 }
 
@@ -30,7 +36,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> words_string = splitString("ahmed     , gamal");
-    assert(issame(words_string, {"ahmed", "gamal"})); 
+    string words_string = "ahmed     , gamal"; 
+    assert (issame(splitString(words_string), vector<string>({"ahmed", "gamal"}))); 
     return 0;
 }
