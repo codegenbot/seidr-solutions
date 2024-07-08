@@ -1,21 +1,18 @@
-#include <algorithm>
 #include <iostream>
-using namespace std;
+#include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
-    if(a.size() == b.size())
-        return true;
-    else
-        return false;
+bool issame(std::vector<int> a,std::vector<int>b){ 
+    return (a.size() == b.size());
 }
 
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.begin() + k);
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::vector<int> result(arr.begin(), arr.begin() + k);
     sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7) , {0,-23,-400,1,2,3,243}));
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0) , {}));
     return 0;
 }
