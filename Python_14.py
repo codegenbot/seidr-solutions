@@ -7,4 +7,4 @@ def all_prefixes_and_suffixes(string: str) -> List[str]:
         result.append(string[: i + 1])
     for i in range(len(string) - 1, -1, -1):
         result.append(string[i:])
-    return [s for s in set(result)]
+    return [item for item in set(result)]
