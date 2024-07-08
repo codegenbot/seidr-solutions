@@ -3,10 +3,17 @@
 
 using namespace std;
 
-double calculateEuclideanDistance(const vector<float>& vector1, const vector<float>& vector2) {
-    double distance = 0;
-    for (int i = 0; i < vector1.size(); ++i) {
-        distance += pow(vector1[i] - vector2[i], 2);
+double calculateDistance(int n) {
+    vector<float> v1(n);
+    vector<float> v2(n);
+
+    for (int i = 0; i < n; ++i) {
+        cin >> v1[i] >> v2[i];
+    }
+
+    double distance = 0.0;
+    for (int i = 0; i < n; ++i) {
+        distance += pow(v1[i] - v2[i], 2);
     }
     return sqrt(distance);
 }
@@ -15,14 +22,7 @@ int main() {
     int n;
     cin >> n;
 
-    vector<float> vector1(n), vector2(n);
-
-    for (int i = 0; i < n; ++i) {
-        cin >> vector1[i] >> vector2[i];
-    }
-
-    double result = calculateEuclideanDistance(vector1, vector2);
-    cout << fixed << setprecision(10) << result << endl;
+    cout << fixed << setprecision(10) << calculateDistance(n) << endl;
 
     return 0;
 }
