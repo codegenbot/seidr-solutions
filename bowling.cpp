@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+
 int bowlingScore(std::string s) {
     int score = 0;
     bool lastRollWasStrike = false;
@@ -14,11 +17,17 @@ int bowlingScore(std::string s) {
                 int nextOneRoll = stoi(s.substr(0, pos));
                 score += nextOneRoll;
             } else {
-                int nextTwoRolls =stoi(s);
+                int nextTwoRolls = stoi(s);
                 score += nextTwoRolls / 2;
             }
             lastRollWasStrike = false;
             lastRollWasSpare = true;
+        } else if (c == '-') {
+            size_t pos = s.find('-');
+            if (pos != std::string::npos) {
+                int nextOneRoll = stoi(s.substr(0, pos));
+                score += 10 - nextOneRoll;
+            }
         } else {
             int roll = c - '0';
             if (c == '9') lastRollWasSpare = true;
