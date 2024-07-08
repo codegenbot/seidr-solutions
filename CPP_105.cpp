@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -44,4 +45,3 @@ std::vector<string> by_length(std::vector<int> arr) {
         result.push_back(std::to_string(i));
     }
     return result;
-}
