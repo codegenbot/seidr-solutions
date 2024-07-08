@@ -5,7 +5,7 @@
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (!issame({a[i], b[i]})) return false;
+        if (!issame({a[i],}, {b[i]})) return false;
     }
     return true;
 }
@@ -16,7 +16,7 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            if (!issame({numbers[i], numbers[j]})) {
+            if (!issame(std::vector<float>{numbers[i], numbers[j]}, std::vector<float>{})) {
                 float diff = std::abs(numbers[j] - numbers[i]);
                 if (diff < min_diff) {
                     min_diff = diff;
