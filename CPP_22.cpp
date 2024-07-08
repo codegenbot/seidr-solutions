@@ -1,14 +1,15 @@
-#include <any>
+```cpp
 #include <vector>
 
-bool issame(int a, int b) { return (a == b); }
-bool issame(char a, char b) { return (a == b); }
+bool issame(int a, int b) { return a == b; }
+bool issame(char a, char b) { return a == b; }
 
-template<typename T>
-bool is_same(std::any a, std::any b) {
-    if(a.type() != b.type())
-        return false;
-    return std::any_cast<T>(a) == std::any_cast<T>(b);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<int> filter_integers(std::any values) {
@@ -23,7 +24,8 @@ std::vector<int> filter_integers(std::any values) {
 }
 
 int main() {
-    auto values = std::any({std::any(3), std::any(static_cast<int>('c')), std::any(3), std::any(3), std::any(static_cast<int>('a')), std::any(static_cast<int>('b'))}); 
+    auto values = std::any({(int)3, (char)'c', (int)3, (int)3, (char)'a', (char)'b'});
     auto output = filter_integers(values);
-    assert(is_same(int, values, {std::any(3), std::any(3), std::any(3)}));
+    assert(issame(output,{3, 3, 3}));
     return 0;
+}
