@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -15,7 +14,7 @@ bool same(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> numerical_letter_grade(initializer_list<float> grades) {
+vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float grade : grades) {
         string letter_grade;
@@ -49,4 +48,4 @@ vector<string> numerical_letter_grade(initializer_list<float> grades) {
     return letter_grades;
 }
 
-int main() {}
+int main() {
