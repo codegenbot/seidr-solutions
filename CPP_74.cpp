@@ -1,20 +1,18 @@
 #include <string>
+#include <vector>
 
-bool issame(const vector<string>& lst1, const vector<string>& lst2) {
-    int total_chars_lst1 = 0;
-    int total_chars_lst2 = 0;
-    
-    for (const string& str : lst1) {
-        total_chars_lst1 += str.size();
+vector<string> chooseList(const vector<string>& lst1, const vector<string>& lst2) {
+    int total_chars1 = 0, total_chars2 = 0;
+    for (const string& s : lst1) {
+        total_chars1 += s.size();
+    }
+    for (const string& s : lst2) {
+        total_chars2 += s.size();
     }
     
-    for (const string& str : lst2) {
-        total_chars_lst2 += str.size();
+    if (total_chars1 < total_chars2) {
+        return lst1;
+    } else {
+        return lst2;
     }
-    
-    if (total_chars_lst1 < total_chars_lst2) {
-        return true;
-    }
-    
-    return false;
 }
