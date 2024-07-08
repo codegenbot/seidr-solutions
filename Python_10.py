@@ -1,10 +1,4 @@
-```
 def make_palindrome(s):
-    """
-    This function converts a given string into its closest possible palindrome.
-    :param s: 
-    :return: The input string converted to its closest possible palindrome.
-    """
     if len(s) == 0:
         return ""
 
