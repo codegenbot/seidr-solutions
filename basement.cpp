@@ -1,14 +1,22 @@
 #include <vector>
 #include <iostream>
 using namespace std;
-
-int basement(const vector<int>& vec) {
+int main() {
+    vector<int> vec;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        vec.push_back(x);
+    }
     int sum = 0;
-    for (size_t i = 0; i < vec.size(); ++i) {
+    for (int i = 0; i < vec.size(); i++) {
         sum += vec[i];
         if (sum < 0) {
-            return i;
+            cout << i << endl;
+            break;
         }
     }
-    return -1;
+    return 0;
 }
