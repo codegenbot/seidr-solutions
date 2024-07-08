@@ -28,3 +28,7 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
 
     return {{minEvenValue, minIndex}};
 }
+
+bool compareArrays(vector<int> a, vector<int> b) {
+    // Your code for comparing arrays goes here.
+}
