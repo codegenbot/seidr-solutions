@@ -11,5 +11,3 @@ vector<float> derivative(vector<float> xs) {
     }
     return result;
 }
-
-int main() { return 0; }
