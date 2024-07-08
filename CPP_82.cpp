@@ -1,7 +1,7 @@
 #include <string>
 #include <cassert>
 
-bool prime_length(const char* str) {
+bool prime_length(const char* str) { 
     int n = strlen(str);  
     bool is_prime = true;
 
