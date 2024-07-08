@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <array>
 
 bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
@@ -12,7 +12,7 @@ std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::s
         if (s.find(prefix) == 0) {
             result.push_back(s);
         }
-    }
+    };
     return result;
 }
 
