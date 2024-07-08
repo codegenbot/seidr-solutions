@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -8,3 +7,7 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
             if abs(numbers[i] - numbers[j]) <= threshold:
                 return True
     return False
+
+
+threshold = float(input("Enter the threshold value: "))
+print(has_close_elements([10.0, 11.3, 12.5, 13.6], threshold))
