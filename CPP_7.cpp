@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-namespace std;
 
 bool isSame(std::vector<std::string> v1, std::vector<std::string> v2) {
     if(v1.size() != v2.size())
@@ -15,7 +13,7 @@ bool isSame(std::vector<std::string> v1, std::vector<std::string> v2) {
     return true;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
+std::vector<std::string> filterBySubstring(std::vector<std::string> vec, std::string sub) {
     std::vector<std::string> result;
     for(const auto& str : vec) {
         if(str.find(sub) != std::string::npos)
@@ -25,7 +23,7 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::
     return result;
 }
 
-int main() {
-    assert(isSame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+int originalMain() {
+    assert(isSame(filterBySubstring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
 }
