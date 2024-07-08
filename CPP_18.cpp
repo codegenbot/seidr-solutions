@@ -12,21 +12,20 @@ int how_many_times(const std::string& str, const std::string& substring) {
     return count;
 }
 
+int initialMain() {
+    std::string input, sub;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "Enter a substring: ";
+    std::getline(std::cin, sub);
+    
+    int result = how_many_times(input, sub);
+    std::cout << "The substring appears " << result << " times in the input.\n";
+
+    return 0;
+}
+
 int main() {
-    int initialMain() {
-        std::string input, sub;
-        std::cout << "Enter a string: ";
-        std::getline(std::cin, input);
-        std::cout << "Enter a substring: ";
-        std::string temp;
-        std::getline(std::cin, temp);
-        sub = temp; // Store the input in the substring variable
-        
-        int result = how_many_times(input, sub);
-        std::cout << "The substring appears " << result << " times in the input.\n";
-        
-        return 0;
-    }
     initialMain();
     return 0;
 }
