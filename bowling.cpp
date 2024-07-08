@@ -1,7 +1,3 @@
-```
-#include <iostream>
-#include <vector>
-
 int bowlingScore(std::string s) {
     int score = 0;
     bool lastRollWasStrike = false;
@@ -18,7 +14,7 @@ int bowlingScore(std::string s) {
                 int nextOneRoll = stoi(s.substr(0, pos));
                 score += nextOneRoll;
             } else {
-                int nextTwoRolls = stoi(s);
+                int nextTwoRolls =stoi(s);
                 score += nextTwoRolls / 2;
             }
             lastRollWasStrike = false;
@@ -38,5 +34,5 @@ int main() {
     std::string s = "XXXXX/6/5/X-8/X/X-4/X/X/9/-7/-5";
     int score = bowlingScore(s);
     std::cout << "The score is: " << score << std::endl;
-    return 0
+    return 0;
 }
