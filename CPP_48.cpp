@@ -18,11 +18,11 @@ int main() {
     std::string input;
     std::cout << "Enter a text: ";
     std::cin >> input;
-    
+
     if (is_palindrome(input)) {
-        std::cout << "The text is a palindrome.";
+        std::cout << "The text is a palindrome." << std::endl;
     } else {
-        std::cout << "The text is not a palindrome.";
+        std::cout << "The text is not a palindrome." << std::endl;
     }
 
     return 0;
