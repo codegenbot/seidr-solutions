@@ -8,9 +8,13 @@ int hex_key(string num) {
         }
     }
     return count;
-
 }
 
 int main() {
     assert(hex_key("") == 0);
+    string input;
+    cout << "Enter a hexadecimal number: ";
+    cin >> input;
+    cout << "Number of '2'-'7' characters or B, D, F: " << hex_key(input) << endl;
+    return 0;
 }
