@@ -1,12 +1,17 @@
 ```
-def solve_boolean(expression):
-    if expression == 'T':
+def solve(input_str):
+    if input_str == 't':
         return True
-    elif expression == 'F':
+    elif input_str == 'f':
         return False
-    elif '&' in expression and '|' in expression:
+    elif '&' in input_str and '|' in input_str:
         raise ValueError("Invalid expression")
-    else:
-        expression = expression.replace('|', ' or ').replace('&', ' and ')
-        result = eval(' '.join(map(str, expression.split())))
-        return bool(result)
+    result = bool(solve(input_str.split('&')[0]))
+    for expr in input_str.split('&')[1:]:
+        result = result and bool(solve(expr))
+    if '&' not in input_str:
+        return result
+    result = result or bool(solve(input_str.split('|')[0]))
+    for expr in input_str.split('|')[1:]:
+        result = result or bool(solve(expr))
+    return result
