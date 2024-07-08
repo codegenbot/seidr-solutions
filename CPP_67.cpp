@@ -1,4 +1,3 @@
-#include <string>
 #include <cstdio>
 
 int fruit_distribution(std::string s, int n) {
