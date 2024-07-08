@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <limits>
@@ -31,7 +32,7 @@ bool same(std::vector<float> a, std::vector<float> b){
     return a == b;
 }
 
-int test_function() {
+int main() {
     assert(same({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, {2.2f, 3.1f}) && find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}) == std::make_pair(2.2f, 3.1f));
     return 0;
 }
