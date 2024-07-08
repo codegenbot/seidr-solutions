@@ -1,10 +1,12 @@
-```cpp
-bool issame(std::vector<float> a, std::vector<float> b) {
+#include <iostream>
+#include <vector>
+
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if ((a[i] != b[i])) {
+        if ((a[i] != b[i]) && (a[i] > 0 || b[i] > 0)) {
             return false;
         }
     }
