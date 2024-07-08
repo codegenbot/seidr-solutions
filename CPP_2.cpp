@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cmath>
 
-double truncate_number(double num) {
-    return num - static_cast<int>(num);
+double truncate_number(double number) {
+    return number - floor(number);
 }
 
 int main() {
