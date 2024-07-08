@@ -12,7 +12,5 @@ int pairedDigits(string s) {
 }
 
 int main() {
-    string s = "123211";  
-    cout << "Sum of paired digits: " << pairedDigits(s) << endl;
-    return 0;
+    return pairedDigits("123321");
 }
