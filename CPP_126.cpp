@@ -1,17 +1,26 @@
-Here is the completed code:
+```cpp
+#include <vector>
+using namespace std;
 
-bool is_sorted(vector<int> lst) {
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] <= lst[i - 1]) {
+bool is_sorted(vector<int> lst){
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] <= lst[i-1]){
             return false;
         }
-    }
-    vector<int> counts(lst.size(), 0);
-    for (int num : lst) {
-        counts[num]++;
-        if (counts[num] > 1) {
+        int count = 0;
+        for(int j = 0; j < lst.size(); j++){
+            if(lst[j] == lst[i]){
+                count++;
+            }
+        }
+        if(count > 1){
             return false;
         }
     }
     return true;
+
+int main() {
+    // Your code here
+    assert (is_sorted({1, 2, 3, 4}) == true);
+    return 0;
 }
