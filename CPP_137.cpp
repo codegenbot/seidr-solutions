@@ -1,18 +1,18 @@
-#include <boost/any.hpp>
-#include <string>
-#include <iostream>
-
-using namespace std;
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
+        int intA = boost::any_cast<int>(a);
+        float fltB = boost::any_cast<float>(b);
+        return (intA > fltB) ? a : ((intA < fltB) ? b : b);
     }
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
+        int intA = boost::any_cast<int>(a);
+        double dblB = boost::any_cast<double>(b);
+        return (intA > dblB) ? a : ((intA < dblB) ? b : b);
     }
     if (a.type() == typeid(float) && b.type() == typeid(double)) {
-        return b;
+        float fltA = boost::any_cast<float>(a);
+        double dblB = boost::any_cast<double>(b);
+        return (fltA > dblB) ? a : ((fltA < dblB) ? b : b);
     }
     if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string strA = boost::any_cast<string>(a);
@@ -26,18 +26,18 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     if ((a.type() == typeid(int) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(int))) {
-        string strA = boost::any_cast<string>(b);
-        int intB = boost::any_cast<int>(a);
-        return (strA > to_string(intB)) ? b : a;
+        int intA = boost::any_cast<int>(a);
+        string strB = boost::any_cast<string>(b);
+        return (strB > to_string(intA)) ? b : a;
     }
     if ((a.type() == typeid(float) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(float))) {
-        string strB = boost::any_cast<string>(b);
         float fltA = boost::any_cast<float>(a);
+        string strB = boost::any_cast<string>(b);
         return (strB > to_string(fltA)) ? b : a;
     }
     if ((a.type() == typeid(double) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(double))) {
-        string strB = boost::any_cast<string>(b);
         double dblA = boost::any_cast<double>(a);
+        string strB = boost::any_cast<string>(b);
         return (strB > to_string(dblA)) ? b : a;
     }
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
