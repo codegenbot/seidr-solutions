@@ -1,7 +1,6 @@
 def fruit_distribution(s, n):
-    s = s.replace("apples and ", "")
-    if "oranges" in s:
-        number_of_apples = int(s.split()[0].replace("apples ", ""))
-        return n - number_of_apples - 1
-    else:
-        return n - int(s) - 1
+    s = s.replace("apples and", "").replace("oranges", "").replace(" ", "")
+    parts = s.split()
+    if len(parts) < 3:
+        return n
+    return n - int(parts[-1]) - int(parts[2])
