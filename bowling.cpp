@@ -1,6 +1,6 @@
-```cpp
+```
 #include <iostream>
-#include <string>
+#include <vector>
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -36,6 +36,7 @@ int bowlingScore(std::string s) {
 
 int main() {
     std::string s = "XXXXX/6/5/X-8/X/X-4/X/X/9/-7/-5";
-    std::cout << "The score is: " << bowlingScore(s) << std::endl;
-    return 0;
+    int score = bowlingScore(s);
+    std::cout << "The score is: " << score << std::endl;
+    return 0
 }
