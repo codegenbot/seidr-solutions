@@ -1,4 +1,3 @@
-```python
 def dice_game(n, m):
     num_outcomes = n * m
     strictly_higher_count = 0
