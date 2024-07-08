@@ -1,13 +1,10 @@
-Here is the Python solution for the problem:
-
-```
-def indices_of_substring(text):
+def indices_of_substring(text, target):
     result = []
     index = 0
     while True:
-        index = text.find(text[index:], 1)
+        index = text.find(target, index)
         if index == -1:
             break
         result.append(index)
-        index += len(text[:index])
+        index += len(target)
     return result
