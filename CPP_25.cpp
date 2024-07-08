@@ -1,8 +1,4 @@
-Here is the completed code:
-
-```cpp
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -16,6 +12,5 @@ vector<int> factorize(int n) {
     }
     if (n > 1)
         factors.push_back(n);
-    sort(factors.begin(), factors.end());
     return factors;
 }
