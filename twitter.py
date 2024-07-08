@@ -1,4 +1,3 @@
-```
 def tweet_length(tweet):
     if len(tweet) > 140:
         return "Too many characters"
