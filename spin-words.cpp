@@ -1,5 +1,13 @@
+```c++
 #include <string>
 using namespace std;
+
+int main() {
+    string str = "Hello World"; 
+    string result = spinWords(str);
+    cout << result; 
+    return 0;
+}
 
 string spinWords(string str) {
     string result = "";
@@ -20,8 +28,4 @@ string spinWords(string str) {
         }
     }
     return result.substr(0, result.length()-1);
-}
-
-int main() {
-    return 0;
 }
