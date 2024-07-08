@@ -19,5 +19,8 @@ int main() {
     std::string s = "()()(()())()))";
     assert(!correct_bracketing(s));  
     std::cout << "Correct bracketing: " << (correct_bracketing("()")) << std::endl;
+    if (!correct_bracketing(s)) {  
+        // If the brackets are not correctly matched, handle this error here.
+    }
     return 0;
 }
