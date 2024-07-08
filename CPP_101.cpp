@@ -1,10 +1,11 @@
+```cpp
 #include <cassert>
 #include <string>
 #include <vector>
 
 using namespace std;
 
-vector<string> splitString(string str) {
+vector<string> words_string(string str) {
     vector<string> words;
     string word;
     for(int i = 0; i < str.length(); i++) {
@@ -29,9 +30,9 @@ bool issame(vector<string> a, vector<string> b) {
         }
     }
     return true;
-
 }
+
 int main() {
-    assert(issame(splitString("ahmed     , gamal"), vector<string>{ "ahmed", "gamal" }));
+    assert(issame(words_string("ahmed     , gamal"), vector<string>{ "ahmed", "gamal" }));
     return 0;
 }
