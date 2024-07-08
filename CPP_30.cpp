@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -17,13 +16,15 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main() {
-    assert(issame(1, 2, 1, 2));
-    assert(!issame(1, 2, 3, 4));
-    std::vector<float> v = { -10.0f, -5.0f, 0.0f, 5.0f, 10.0f };
-    std::cout << "Positive numbers: ";
-    for (float x : get_positive(v)) {
+    assert(issame(0.0, 0.0, 0.0, 0.0));
+    assert(!issame(1.5, 3.2, -4.7, -6.8));
+    
+    std::vector<float> v = {1.2, 3.7, -9.1, 11.1};
+    std::vector<float> pos = get_positive(v);
+    for (float x : pos) {
         std::cout << x << " ";
     }
-    std::cout << "\n";
+    std::cout << std::endl;
+    
     return 0;
 }
