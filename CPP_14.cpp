@@ -1,8 +1,7 @@
 #include <vector>
 #include <string>
-#include <iterator>
 
-bool issame(vector<string> a, vector<string> b) {
+bool isSame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++)
@@ -11,7 +10,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> all_prefixes(const string& str) {
+vector<string> allPrefixes(const string& str) {
     vector<string> result;
     for (int i = 1; i <= str.length(); i++) {
         result.push_back(str.substr(0, i));
@@ -20,6 +19,6 @@ vector<string> all_prefixes(const string& str) {
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW"), vector<string>{"W", "WW", "WWW"}));
+    assert(isSame(allPrefixes("WWW"), vector<string>{ "W", "WW", "WWW" }));
     return 0;
 }
