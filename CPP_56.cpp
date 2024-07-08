@@ -1,10 +1,11 @@
 #include <string>
+
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
-    for (auto it = brackets.begin(); it != brackets.end(); ++it) {
-        if (*it == '<') {
+    for (char bracket : brackets) {
+        if (bracket == '<') {
             count++;
-        } else if (*it == '>') {
+        } else if (bracket == '>') {
             count--;
         }
         if (count < 0) {
@@ -15,5 +16,6 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    assert(not (correct_bracketing("<><><<><>><>>><>")));
+    assert(!correct_bracketing("<><><<><>><>>><>"));
+    return 0;
 }
