@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <limits>
@@ -19,8 +18,8 @@ std::vector<std::pair<float, float>> find_closest_elements(const std::vector<flo
             float diff = std::abs(numbers[j] - numbers[i]);
             if(diff < min_diff) {
                 min_diff = diff;
-                closest_pair.first = (numbers[i] + numbers[j]) / 2.0;
-                closest_pair.second = closest_pair.first;
+                closest_pair.first = (numbers[i] + numbers[j]) / 2.0f;
+                closest_pair.second = closest_pair.first; // Since the problem wants closest pair of points with same value, we set both values to be the average
             }
         }
     }
