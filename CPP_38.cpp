@@ -24,9 +24,9 @@ std::string decode_cyclic(const std::string& s) {
 
 int main() {
     std::string str = "abcde";
-    std::string encoded_str = encode_cyclic(str); // Fixed typo in function call
+    std::string encoded_str = encode_cyclic(str);
     std::string decoded_str = decode_cyclic(encoded_str);
-    assert(str == "abcde"); // Defined str explicitly before using it in assertion
+    assert(decoded_str == str);
     std::cout << "Original: " << str << std::endl;
     std::cout << "Encoded: " << encoded_str << std::endl;
     std::cout << "Decoded: " << decoded_str << std::endl;
