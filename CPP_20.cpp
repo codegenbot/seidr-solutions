@@ -3,14 +3,9 @@
 #include <algorithm>
 #include <cassert>
 #include <cmath>
-#include <utility>
 
 bool isclose(float a, float b) {
-    return std::abs(a - b) < 1e-6; 
-}
-
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin(), isclose);
+    return std::abs(a - b) < 1e-6; // Tolerance for float comparison
 }
 
 std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
@@ -30,7 +25,6 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() {
-    assert(issame(std::vector<float>{find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}),
-                   std::vector<float>{2.2f, 3.1f}));
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::make_pair(2.2f, 3.1f));
     return 0;
 }
