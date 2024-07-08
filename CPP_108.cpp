@@ -1,6 +1,7 @@
 #include <cassert>
+#include <vector>
 
-int sign = 1;
+int sign = 1; 
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -13,13 +14,11 @@ int count_nums(vector<int> nums) {
 
         while(abs(num) > 0 || (negativeFound && abs(num) < 0)) {
             int digit = abs(num) % 10 * sign;
-            if((digit > 0 && !negativeFound) || (digit == 1 && negativeFound))
-                sum += digit;
-            else
-                negativeFound = true;
+            sum += digit;
             num /= 10;
         }
-        if(sum > 0)
+        
+        if(sum == 1)
             count++;
     }
     return count;
