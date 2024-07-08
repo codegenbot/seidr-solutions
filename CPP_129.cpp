@@ -1,59 +1,40 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
     vector<int> res;
-    for (int i = 0; i < grid.size(); i++) {
-        for (int j = 0; j < grid[i].size(); j++) {
-            if (k == 1) {
-                res.push_back(grid[i][j]);
-                return res;
-            }
-            vector<int> curPath;
-            int val = grid[i][j];
-            curPath.push_back(val);
-            vector<int> temp = dfs(grid, i, j, k - 1, val, &curPath);
-            if (res.empty() || temp < res) {
-                res = temp;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (!visited[i][j]) {
+                dfs(grid, visited, i, j, k, &res);
             }
         }
     }
     return res;
 }
 
-vector<int> dfs(vector<vector<int>>& grid, int x, int int y, int k, int val, vector<int>* path) {
-    (*path).push_back(val);
-    if (k == 0) {
-        return *path;
-    }
-    vector<int> res;
-    for (int i = -1; i <= 1; i++) {
-        for (int j = -1; j <= 1; j++) {
-            int nx = x + i;
-            int ny = y + j;
-            if (nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size()) {
-                vector<int>::iterator it = find((*path).begin(), (*path).end(), grid[nx][ny]);
-                if (it == (*path).end()) {
-                    vector<int> temp = dfs(grid, nx, ny, k - 1, grid[nx][ny], path);
-                    if (!temp.empty() && (res.empty() || temp < res)) {
-                        res = temp;
-                    }
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int i, int j, int k, vector<int>* res) {
+    (*res).push_back(grid[i][j]);
+    visited[i][j] = true;
+    if (k > 1) {
+        for (int x = max(0, i - 1); x <= min(i + 1, grid.size() - 1); ++x) {
+            for (int y = max(0, j - 1); y <= min(j + 1, grid[0].size() - 1); ++y) {
+                if (!visited[x][y]) {
+                    dfs(grid, visited, x, y, k - 1, res);
+                    return;
                 }
             }
         }
     }
-    return res;
-}
-
-int main() {
-    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    return 0;
 }
