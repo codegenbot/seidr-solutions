@@ -1,5 +1,6 @@
-#include <algorithm>
+```
 #include <vector>
+#include <algorithm>
 
 int next_smallest(std::vector<int> lst) {
     if (lst.size() < 2) return -1; 
@@ -9,3 +10,4 @@ int next_smallest(std::vector<int> lst) {
         if (sorted[i] != sorted[0]) return sorted[i];
     }
     return -1;
+}
