@@ -1,9 +1,8 @@
-int sign = 1; 
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         bool negativeFound = false;
-        int sum = 0;
+        int sign = 1;
         if(num >= 0)
             sign = 1;
         else
