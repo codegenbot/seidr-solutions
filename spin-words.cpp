@@ -3,22 +3,6 @@
 #include <algorithm>
 #include <sstream>
 
-std::vector<std::string> split(const std::string& s, char delimiter) {
-    std::vector<std::string> words;
-    std::istringstream iss(s);
-    for (std::string word; iss >> word; ) {
-        words.push_back(word);
-    }
-    return words;
-}
-
-std::string join(const std::vector<std::string>& words, char delimiter) {
-    std::ostringstream oss;
-    for (auto& word : words) {
-        oss << word << delimiter;
-    }
-    return oss.str();
-}
 int main() {
     std::string input;
     getline(std::cin, input);
