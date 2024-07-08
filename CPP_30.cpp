@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<float> get_positive(const std::vector<float>& values) {
+std::vector<float> get_positive(std::vector<float> values) {
     std::vector<float> result;
     for (float value : values) {
         if (value > 0) {
@@ -11,7 +11,7 @@ std::vector<float> get_positive(const std::vector<float>& values) {
     return result;
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     std::vector<float> positive_a = get_positive(a);
     std::vector<float> positive_b = get_positive(b);
 
@@ -19,8 +19,9 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    std::vector<float> a = {-1.5f, 2.0f, 3.5f};
-    std::vector<float> b = {4.0f, -2.5f, 1.0f};
+    // Example usage
+    std::vector<float> a = {-1.5, 2.0, 3.5};
+    std::vector<float> b = {4.0, -2.5, 1.0};
 
     if (issame(a, b)) {
         std::cout << "Both vectors have the same positive values." << std::endl;
