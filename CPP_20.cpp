@@ -6,7 +6,7 @@ bool issame(std::pair<float, float> p1, std::pair<float, float> p2) {
     return (p1.first == p2.first && p1.second == p2.second);
 }
 
-std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
+std::pair<float, float> find_closest_pair(const std::vector<float>& numbers) {
     if(numbers.size() <= 1)
         return {numbers[0], numbers[0]};
 
@@ -29,7 +29,7 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
 
 int main() {
     std::vector<float> numbers = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
-    std::pair<float, float> result = find_closest_elements(numbers);
-    std::cout << "(" << result.first << ", " << result.second << ")" << std::endl;
+    std::pair<float, float> closest_pair = find_closest_pair(numbers);
+    std::cout << "(" << closest_pair.first << ", " << closest_pair.second << ")" << std::endl;
     return 0;
 }
