@@ -9,7 +9,7 @@ for i in range(n):
     left_sum += arr[i]
     right_sum = total_sum - left_sum
     diff = abs(left_sum - right_sum)
-
+    
     if diff < min_diff or (diff == min_diff and abs(len(arr[:i+1]) - len(arr[i+1:])) > 0):
         min_diff = diff
         cut_index = i + 1
