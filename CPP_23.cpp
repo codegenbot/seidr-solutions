@@ -1,10 +1,8 @@
 #include <iostream>
 #include <string>
-#include <cstring>
-#include <cassert>
 
-int my_strlen(std::string str) {
-    return str.length();
+int my_strlen(const char* str) {
+    return static_cast<int>(std::string(str).length());
 }
 
 int main() {
