@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -18,36 +17,32 @@ bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
 
     return true;
 
-int main(){
-    std::vector<std::vector<int>> matrix1, matrix2;
-    int m, n;
-    std::cout << "Enter the number of rows and columns for each matrix: ";
-    std::cin >> m >> n;
-    
-    for(int i = 0; i < m; i++) {
-        matrix1.push_back({});
-        for(int j = 0; j < n; j++) {
-            int x;
-            std::cout << "Enter element " << i << "," << j << ": ";
-            std::cin >> x;
-            matrix1[i].push_back(x);
+int main() {
+    std::vector<std::vector<int>> matrix;
+    int row;
+
+    // Read input
+    int rows, cols;
+    std::cin >> rows >> cols;
+    for(int i = 0; i < rows; ++i) {
+        std::vector<int> rowVector(cols);
+        for(int j = 0; j < cols; ++j) {
+            std::cin >> rowVector[j];
         }
-    }
-    
-    for(int i = 0; i < m; i++) {
-        matrix2.push_back({});
-        for(int j = 0; j < n; j++) {
-            int x;
-            std::cout << "Enter element " << i << "," << j << ": ";
-            std::cin >> x;
-            matrix2[i].push_back(x);
-        }
+        matrix.push_back(rowVector);
     }
 
-    if(issame(matrix1, matrix2)) 
-        std::cout << "The two matrices are identical." << std::endl;
-    else 
-        std::cout << "The two matrices are not identical." << std::endl;
+    // Read input
+    std::cin >> row;
+
+    if(issame(matrix, matrix)) 
+        std::cout << get_row(matrix, row-1) << std::endl;
+    else
+        std::cout << "False" << std::endl;
 
     return 0;
+}
+
+int get_row(std::vector<std::vector<int>> matrix, int row) {
+    return matrix[row][0];
 }
