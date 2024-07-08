@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <cmath>
 
 float max_element(std::vector<float> l){
     float max = l[0];
