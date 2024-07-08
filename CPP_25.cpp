@@ -1,13 +1,16 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <cassert>
 
 std::vector<int> factorize(int n) {
     std::vector<int> factors;
-    for (int i = 2; i <= n; ++i) {
-        while (n % i == 0) {
-            factors.push_back(i);
-            n /= i;
+    int divisor = 2;
+    while (n > 1) {
+        if (n % divisor == 0) {
+            factors.push_back(divisor);
+            n /= divisor;
+        } else {
+            divisor++;
         }
     }
     return factors;
