@@ -8,5 +8,5 @@ def make_palindrome(string: str) -> str:
         string = string[1:-1]
     return prefix + string[0] + string[-1] + prefix[::-1]
 
-def is_palindrome(s):
+def is_palindrome(s: str) -> bool:
     return s == s[::-1]
