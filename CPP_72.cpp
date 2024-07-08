@@ -15,3 +15,11 @@ bool will_it_fly(const vector<int>& q, int w) {
     }
     return true;
 }
+
+int main()
+{
+    std::vector<int> q{5};
+    int w = 10;
+    bool result = will_it_fly(q, w);
+    return 0;
+}
