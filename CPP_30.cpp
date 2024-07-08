@@ -1,5 +1,5 @@
 #include <vector>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    // Add your implementation here
+bool issame(std::vector<float> a, std::vector<float> b) {
+    // Function implementation goes here
 }
