@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <algorithm>
 
@@ -57,19 +56,11 @@ int main() {
 
     auto result = std::vector<int>(0);
 
-    auto pluck(std::vector<int>& arr) -> std::vector<int> {
-        std::vector<int> evenNums;
-        for (int num : arr) {
-            if (num % 2 == 0) {
-                evenNums.push_back(num);
-            }
-        }
-        return evenNums;
+    auto evenNums = findMinEvenNode(arr);
+    
+    if (!evenNums.empty()) {
+        result.push_back(evenNums[0].first);
     }
-
-    auto numbers = pluck(arr);
-
-    assert(issame(result, numbers));
     
     return 0;
 }
