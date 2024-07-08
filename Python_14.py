@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -8,4 +9,4 @@ def all_prefixes_and_suffixes(string: str) -> List[str]:
     if len(string) > 0:
         for i in range(len(string), -1, -1):
             result.append(string[i:])
-    return [prefix for prefix in set(result)]
+    return [prefix for prefix in set(result)]  # remove duplicates
