@@ -1,28 +1,29 @@
+```
 #include <algorithm>
 #include <vector>
 #include <limits>
 
-std::bool issame(std::pair<float, float> p1, std::pair<float, float> p2) {
-    for (int i = 0; i < 2; ++i) {
-        if (p1.first != p2.first || p1.second != p2.second)
-            return false;
-    }
-    return true;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return (a.size() == b.size()) && std::all_of(a.begin(), a.end(), 
+        [&b](const float& x){ return std::abs(x - (*b.begin())) < numeric_limits<float>::epsilon(); });
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
-    std::pair<float, float> closest_pair;
+    std::vector<std::pair<float, float>> closest_pairs;
     float min_diff = std::numeric_limits<float>::max();
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = numbers[j] - numbers[i];
-            if (std::abs(diff) < min_diff && !issame(closest_pair, std::make_pair(numbers[i], numbers[j]))) {
-                min_diff = std::abs(diff);
-                closest_pair = std::make_pair(numbers[i], numbers[j]);
+            if (!issame(std::vector<float>(numbers.begin(), numbers.end()), 
+                std::vector<float>({numbers[i], numbers[j]}))) {
+                float diff = std::abs(numbers[j] - numbers[i]);
+                if (diff < min_diff) {
+                    min_diff = diff;
+                    closest_pairs = {{numbers[i], numbers[j]}};
+                }
             }
         }
     }
 
-    return std::vector<std::pair<float, float>>({closest_pair});
+    return closest_pairs;
 }
