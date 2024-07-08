@@ -1,19 +1,19 @@
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    stack = []
     temp = ""
-    
+    stack = 0
     for char in paren_string:
         if char == "(":
-            if stack:  # not the first opening parenthesis
-                temp += char
-            stack.append('(')
-        elif char == ")":
-            stack.pop()
-            temp += char
-            if not stack:  # all opening parentheses have been closed
+            stack += 1
+        temp += char
+        if char == ")":
+            stack -= 1
+            if stack == 0:
                 result.append(temp)
                 temp = ""
-    
     return result
+
+
+# Call the function with user input
+input_string = input("Enter a string with parentheses: ")
+print(separate_paren_groups(input_string))
