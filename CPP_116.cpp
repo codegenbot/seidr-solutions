@@ -1,4 +1,3 @@
-```cpp
 vector<int> sort_array(vector<int> arr) {
     vector<tuple<int, int>> result;
     
