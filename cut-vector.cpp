@@ -1,6 +1,6 @@
+```
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 using namespace std;
 
 vector<int> cutVector(vector<int>& nums) {
@@ -13,7 +13,7 @@ vector<int> cutVector(vector<int>& nums) {
             pos = i;
         }
     }
-    return {vector<int>(nums.begin(), pos+1), vector<int>(std::next(nums.begin(), pos), nums.end())};
+    return {vector<int>(nums.begin(), pos+1), vector<int>(nums.begin() + pos, nums.end())};
 }
 
 int main() {
@@ -25,12 +25,12 @@ int main() {
     }
     vector<int> result = cutVector(nums);
     cout << "[";
-    for (int num : result.at(0)) {
+    for (int num : result[0]) {
         cout << num << " ";
     }
     cout << "] [";
-    for (int i = 0; i < result.at(1).size(); i++) {
-        cout << result.at(1).at(i) << " ";
+    for (int i = 0; i < result[1].size(); i++) {
+        cout << result[1][i] << " ";
     }
     cout << "] ]" << endl;
     return 0;
