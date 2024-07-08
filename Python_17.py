@@ -1,4 +1,15 @@
-Here's the problem description and function signature:
-
-Problem Description:
-The task is to create a function that parses a given music string and returns a list of beats where each beat corresponds to either 1, 2, or 4 notes. The input music string will be in the format "o" for 4 notes, "o|" for 2 notes, and ".| " for 1 note.
+````
+def parse_music(music_string: str) -> List[int]:
+    beats = []
+    i = 0
+    while i < len(music_string):
+        if music_string[i] == 'o':
+            beats.append(4)
+            i += 1
+        elif music_string[i:i+2] == 'o|':
+            beats.append(2)
+            i += 2
+        elif music_string[i:i+3] == '.| ':
+            beats.append(1)
+            i += 3
+    return beats
