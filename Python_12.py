@@ -1,6 +1,9 @@
+```
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
+    if not all(isinstance(s, str) for s in strings):
+        return "Expected list of strings"
     if not strings:
         return None
     max_length = 0
@@ -9,6 +12,6 @@ def longest(strings: List[str]) -> Optional[str]:
         if len(s) > max_length:
             max_length = len(s)
             longest_str = s
-        elif len(s) == max_length:  
-            longest_str = s
     return longest_str
+
+longest(["apple", "banana", "cherry"])
