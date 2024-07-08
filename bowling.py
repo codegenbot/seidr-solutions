@@ -4,7 +4,7 @@ def bowling_score(frames):
     for i in range(0, len(frames), 2):
         if frames[i] == 'X':
             if i < 9:
-                score += 30 + int(frames[8])
+                score += 30 + int(frames[9])
             else:
                 score += 30
         elif frames[i] == '/':
