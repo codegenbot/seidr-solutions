@@ -30,4 +30,9 @@ string decode_cyclic(string s) {
     return decoded_str;
 }
 
-```
+string str = "abcde";
+string encoded_str = encode_cyclic(str);
+assert(decode_cyclic(encoded_str) == str);
+std::cout << "Original: " << str << std::endl;
+std::cout << "Encoded: " << encoded_str << std::endl;
+std::cout << "Decoded: " << decode_cyclic(encoded_str) << std::endl;
