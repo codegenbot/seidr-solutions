@@ -1,22 +1,21 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool isSame(const std::vector<std::string>& left, const std::vector<std::string>& right) {
-    if(left.size() != right.size()) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(size_t i = 0; i < left.size(); ++i) {
-        if(left[i] != right[i]) {
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<std::string> byLength(const std::vector<int>& arr) {
+std::vector<std::string> by_length(const std::vector<int>& arr) {
     std::vector<std::string> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
@@ -36,14 +35,12 @@ int main() {
         std::cin >> n;
         arr.push_back(n);
     }
-    std::vector<std::string> result = byLength(arr);
-    for (const auto& str : result) {
+    std::vector<std::string> numbers = by_length(arr);
+    for (const auto& str : numbers) {
         std::cout << str << std::endl;
     }
-    if(isSame(byLength({9, 4, 8}), {"Eight", "Four", "Nine"})) {
-        std::cout << "The lists are the same." << std::endl;
-    } else {
-        std::cout << "The lists are not the same." << std::endl;
+    if (!issame(by_length({9, 4, 8}) , {"Eight", "Four", "Nine"})) {
+        std::cout << "Assertion failed" << std::endl;
     }
     return 0;
 }
