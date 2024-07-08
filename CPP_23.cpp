@@ -1,20 +1,17 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <cassert>
 
-int my_strlen(std::string str) {
+int my_strlen(const char* str) {
     int len = 0;
-    for (char c : str) {
+    while (*str != '\0') {
         len++;
+        str++;
     }
     return len;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << "The length of '" << input << "' is: " << my_strlen(input) << "\n";
+    assert(my_strlen("asdasnakj") == 13);
+    std::cout << "The length of 'asdasnakj' is: " << my_strlen("asdasnakj") << "\n";
     return 0;
 }
