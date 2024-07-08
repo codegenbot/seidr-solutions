@@ -1,25 +1,25 @@
-```cpp
 #include <cassert>
 #include <string>
 #include <algorithm>
 #include <vector>
 
 bool will_it_fly(std::vector<int> q, int w) {
+    bool isPalindromic = true;
     std::string str = "";
     for(int i : q) {
         str += std::to_string(i);
     }
-    if(std::accumulate(q.begin(), q.end(), 0) != std::accumulate(q.rbegin(), q.rend(), 0))
-        return false;
+    if(str != std::string(str.rbegin(), str.rend()))
+        isPalindromic = false;
     int sum = 0;
     for(int i : q) {
         sum += i;
     }
-    return sum <= w;
+    return isPalindromic && sum <= w;
 }
 
 int main() {
-    assert(will_it_fly({5}, 5) == true);
+    assert(will_it_fly({5}, 5) == true;
     
     std::vector<int> weights;
     int total_weight;
