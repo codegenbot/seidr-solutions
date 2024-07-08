@@ -15,8 +15,9 @@ std::vector<int> sort_array(std::vector<int> arr) {
             return a < b;
         }
     };
-    std::sort(arr.begin(), arr.end(), comp);
-    return arr;
+    std::vector<int> res = arr;
+    std::sort(res.begin(), res.end(), comp);
+    return res;
 }
 
 int main() {
