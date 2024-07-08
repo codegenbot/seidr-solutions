@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int luhn(std::vector<int> digits) {
     int sum = 0;
@@ -17,7 +17,7 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    std::vector<int> digits = {3, 4, 5, 1, 3, 4, 2, 8, 2, 8, 9, 7, 3, 6, 5, 1}; 
+    std::vector<int> digits = {4,3,2,8,7,5,6,1}; // Your input credit card number
     int result = luhn(digits);
     std::cout << result << std::endl;
     return 0;
