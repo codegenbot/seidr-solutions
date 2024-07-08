@@ -8,12 +8,12 @@ def mean_absolute_deviation(numbers):
     count = 0
     mean_val = statistics.mean([float(num) for num in numbers])
     for num in [float(n) for n in numbers]:
-        total += abs(num - mean_val)
-        count += 1
-    return total / count
+        try:
+            total += abs(num - mean_val)
+            count += 1
+        except ValueError:
+            pass
+    return total / count if count > 0 else None
 
-numbers_str = input("Enter space-separated numbers: ")
-numbers = [num.strip().replace('.', '', 1).replace('-', '', 1).replace(' ', '') 
-           for num in numbers_str.split() if num.replace('.', '', 1).replace('-', 1).isnumeric()]
-
-print(mean_absolute_deviation(numbers))
+numbers = input("Enter space-separated numbers: ").split()
+print(mean_absolute_deviation([num for num in numbers if num.replace('.', '', 1).replace('-', 1).isnumeric()]))
