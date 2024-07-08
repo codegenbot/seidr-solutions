@@ -1,13 +1,14 @@
+```cpp
 #include <iostream>
 using namespace std;
 
 int choose_num(int x, int y) {
-    int even_sum = 0;
+    int result = 0;
     for (int i = x; i <= y; i++) {
         if (i % 2 == 0)
-            even_sum += i;
+            result = i;
     }
-    return even_sum;
+    return result;
 }
 
 int main() {
