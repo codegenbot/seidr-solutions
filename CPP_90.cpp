@@ -8,6 +8,6 @@ int next_smallest(vector<int> lst) {
         if (sorted[i] != sorted[i+1])
             return sorted[i+1];
     }
-    cout << "Error: The input list must have at least two unique elements." << endl;
+    cout << "Error: The list contains no distinct elements." << endl;
     return -1; 
 }
