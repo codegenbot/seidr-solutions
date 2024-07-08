@@ -27,4 +27,3 @@ int main() {
     auto output = filter_integers(values);
     assert(is_same(int, values, {std::any(3), std::any(3), std::any(3)}));
     return 0;
-}
