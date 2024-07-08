@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<string> words_string(string str) {
+vector<string> splitString(string str) {
     vector<string> words;
     string word;
     for(int i = 0; i < str.length(); i++) {
@@ -20,7 +20,7 @@ vector<string> words_string(string str) {
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b) { 
+bool isSameVectors(vector<string> a, vector<string> b) { 
     if(a.size() != b.size()) {
         return false;
     }
@@ -33,6 +33,10 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(words_string("ahmed     , gamal"), vector<string>{ "ahmed", "gamal" }));
+    // Original code
+}
+
+int testMain() {
+    assert(isSameVectors(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
