@@ -14,6 +14,5 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-void intersperse(std::vector<int> &a, const std::vector<int> &b, int pos) {
-    a.insert(a.begin() + pos, b.begin(), b.end());
-}
+// Define intersperse function here if needed
+
