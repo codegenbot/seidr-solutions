@@ -1,24 +1,27 @@
-```cpp
 #include <iostream>
 #include <string>
 
-int how_many_times(std::string str, std::string substring) {
+int how_many_times(const std::string& str, const std::string& substring) {
     int count = 0;
     size_t pos = 0;
     while ((pos = str.find(substring)) != std::string::npos) {
         count++;
-        pos = (pos + substring.size());
+        pos = str.find(substring, pos); // Start searching from the current position
     }
     return count;
 }
 
 int main() {
-    std::string s, sub;
-    std::cout << "Enter the string: ";
-    std::cin >> s;
-    std::cout << "Enter the substring: ";
-    std::cin >> sub;
-    int count = how_many_times(s, sub);
-    std::cout << "The substring appears " << count << " times." << std::endl;
+    std::string input, sub;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "Enter a substring: ";
+    std::string temp;
+    std::getline(std::cin, temp);
+    sub = temp; // Store the input in the substring variable
+
+    int result = how_many_times(input, sub);
+    std::cout << "The substring appears " << result << " times in the input.\n";
+
     return 0;
 }
