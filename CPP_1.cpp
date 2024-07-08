@@ -1,8 +1,8 @@
-vector<string> issame(vector<string> a, vector<string> b) {
+vector<string> issam(const vector<string> &a, const vector<string> b) {
     vector<string> result;
     string current_group;
     int balance = 0;
-    
+
     for (char c : paren_string) {
         if (c == '(') {
             if (balance > 0) {
@@ -19,9 +19,6 @@ vector<string> issame(vector<string> a, vector<string> b) {
             }
         }
     }
-    
+
     return result;
-}
-int main() {
-    // Your main function code here
 }
