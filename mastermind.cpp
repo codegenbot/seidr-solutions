@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
     string code, guess;
-    int whitePegs = 0, blackPegs = 0;
+    int blackPegs = 0, whitePegs = 0;
 
     while (getline(cin, code)) {
         getline(cin, guess);
@@ -21,12 +21,4 @@ int main() {
     }
 
     return 0;
-}
-
-// Check for duplicate characters in the guess string
-int duplicate_check(char ch, string str) {
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ch && str[i + 1] != ch) return true; // if character is found before and after the current position
-    }
-    return false;
 }
