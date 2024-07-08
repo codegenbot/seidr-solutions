@@ -13,7 +13,7 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> numbers = {11, -21, 131, 222};
-    cout << "Number of special integers: " << specialFilter(numbers) << endl;
+    vector<int> nums = {-11, -13, 17, -19};
+    cout << "The count of special numbers in the given vector is: " << specialFilter(nums) << endl;
     return 0;
 }
