@@ -1,6 +1,3 @@
-import sys
-
-
 def substitution_cipher(message, cipher):
     char_map = {}
     for i in range(len(cipher)):
@@ -27,5 +24,5 @@ cipher2 = cipher1 + cipher2
 # Apply substitution cipher to the message, character by character
 deciphered_message = ""
 for char in message:
-    deciphered_message += substitution_cipher(str(char), cipher2)
+    deciphered_message += substitution_cipher(str(char), cipher1 + char)
 print(f"Deciphered message: {deciphered_message}")
