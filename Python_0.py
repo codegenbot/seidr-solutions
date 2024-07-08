@@ -10,15 +10,15 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
     return False
 
 
-def main() -> None:
+def has_close_elements() -> None:
     while True:
         try:
-            input_str = input("Enter a list of floating point numbers separated by space: ")
-            numbers = [float(num) for num in input_str.split()]
-            if len(numbers) < 2:
+            user_input = input("Enter a list of floating point numbers separated by space: ")
+            input_list = [float(num) for num in user_input.split()]
+            if len(input_list) < 2:
                 raise ValueError
-            threshold = float(input("Enter the threshold value: "))
-            print(has_close_elements(numbers, threshold))
+            threshold_value = float(input("Enter the threshold value: "))
+            print(has_close_elements(input_list, threshold_value))
             break
         except ValueError:
             print("Invalid input. Please enter valid floating point numbers.")
