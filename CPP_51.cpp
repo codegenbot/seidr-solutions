@@ -1,4 +1,22 @@
-```cpp
+#include <algorithm>
+#include <string>
+#include <cctype>
+#include <cassert>
+
+std::string remove_vowels(std::string text) {
+    std::string result = "";
+    for (char c : text) {
+        if (!(std::iscntrl(c) && std::isalpha(c))) {
+            if (!std::isupper(c)) {
+                result += tolower(c);
+            } else {
+                result += c;
+            }
+        }
+    }
+    return result;
+}
+
 int main() {
     assert(remove_vowels("ybcd") == "ybcd");
     std::string input;
