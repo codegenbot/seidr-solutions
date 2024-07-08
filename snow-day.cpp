@@ -11,5 +11,6 @@ int main() {
     cin >> h;
     float s1, r, m;
     cin >> s1 >> r >> m;
-    cout << fixed << setprecision(10) << snowDay(h, s1, r, m) << endl;
+    cout << setprecision(10) << fixed << snowDay(h, s1, r, m) << endl;
     return 0;
+}
