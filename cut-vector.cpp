@@ -1,9 +1,8 @@
-```
 #include <vector>
 #include <iostream>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
+vector<int> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int pos = -1;
     for (int i = 0; i < nums.size() - 1; i++) {
@@ -13,7 +12,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
             pos = i;
         }
     }
-    return {{vector<int>(nums.begin(), nums.begin() + pos + 1)}, {vector<int>(nums.begin() + pos + 1, nums.end())}};
+    return {vector<int>(nums.begin(), nums.begin() + pos + 1), vector<int>(nums.begin() + pos + 1, nums.end())};
 }
 
 int main() {
@@ -23,7 +22,7 @@ int main() {
     for (auto &num : nums) {
         cin >> num;
     }
-    vector<vector<int>> result = cutVector(nums);
+    vector<int> result = cutVector(nums);
     cout << "[";
     for (int num : result[0]) {
         cout << num << " ";
