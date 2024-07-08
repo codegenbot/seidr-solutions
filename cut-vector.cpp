@@ -12,14 +12,7 @@ vector<int> cutVector(vector<int>& nums) {
             pos = i;
         }
     }
-    vector<int> result[2];
-    for (int i = 0; i < pos; i++) {
-        result[0].push_back(nums[i]);
-    }
-    for (int i = pos; i < nums.size(); i++) {
-        result[1].push_back(nums[i]);
-    }
-    return result;
+    return {vector<int>(nums.begin(), nums.begin() + pos + 1), vector<int>(nums.begin() + pos, nums.end())};
 }
 
 int main() {
@@ -31,12 +24,12 @@ int main() {
     }
     vector<int> result = cutVector(nums);
     cout << "[";
-    for (const auto &num : result[0]) {
+    for (int num : vector<int>(result[0])) {
         cout << num << " ";
     }
     cout << "] [";
     for (int i = 0; i < result[1].size(); i++) {
-        cout << result[1][i] << " ";
+        cout << result[1].at(i) << " ";
     }
     cout << "] ]" << endl;
     return 0;
