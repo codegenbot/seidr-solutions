@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     white_pegs = sum(1 for c1, c2 in zip(code, guess) if c1 == c2 and c1 != c2 and c1 != 'X')
     black_pegs = sum(1 for i in range(len(code)) if code[i] == guess[i])
