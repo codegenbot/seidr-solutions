@@ -18,6 +18,6 @@ int main() {
     for (int index : indices) {
         cout << index << " ";
     }
-    
+
     return 0;
 }
