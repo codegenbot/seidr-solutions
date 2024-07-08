@@ -1,4 +1,4 @@
-```cpp
+#include <initializer_list>
 #include <vector>
 #include <iostream>
 
@@ -30,7 +30,6 @@ int main(){
         for(int j = 0; j < n; j++) {
             int x;
             std::cout << "Enter element " << i << "," << j << ": ";
-            std::cout << ">"; // add >
             std::cin >> x;
             temp.push_back(x);
         }
@@ -43,7 +42,6 @@ int main(){
         for(int j = 0; j < n; j++) {
             int x;
             std::cout << "Enter element " << i << "," << j << ": ";
-            std::cout << ">"; // add >
             std::cin >> x;
             temp.push_back(x);
         }
@@ -56,4 +54,3 @@ int main(){
         std::cout << "The two matrices are not identical." << std::endl;
 
     return 0;
-}
