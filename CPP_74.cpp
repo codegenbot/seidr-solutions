@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 
-vector<string> chooseList(const vector<string>& lst1, const vector<string>& lst2) {
+vector<string> choose_list(const vector<string>& lst1, const vector<string>& lst2) {
     int total_chars1 = 0, total_chars2 = 0;
     for (const string& s : lst1) {
         total_chars1 += s.size();
