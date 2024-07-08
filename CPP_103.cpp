@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 string rounded_avg(int n, int m) {
@@ -25,8 +23,7 @@ string rounded_avg(int n, int m) {
 
 int main() {
     int n, m;
-    cout << "Enter the start and end values: ";
     cin >> n >> m;
-    cout << "The rounded average is: " << rounded_avg(n, m) << endl;
+    cout << rounded_avg(n, m);
     return 0;
 }
