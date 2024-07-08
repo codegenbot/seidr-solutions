@@ -14,21 +14,17 @@ bool has_close_elements(std::vector<double> numbers, double threshold) {
 }
 
 int main() {
-    std::vector<double> a;
-    double num;
-
-    std::cout << "Enter the number of elements: ";
-    int n;
+    double n, threshold;
+    std::cout << "Enter the size of array: ";
     std::cin >> n;
-
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        a.push_back(num);
+    std::vector<double> a(n);
+    
+    for (double& x : a) {
+        std::cout << "Enter number " << &x << ":";
+        std::cin >> x;
     }
-
-    double threshold;
-    std::cout << "Enter the threshold: ";
+    
+    std::cout << "Enter the threshold value: ";
     std::cin >> threshold;
 
     if (has_close_elements(a, threshold)) {
