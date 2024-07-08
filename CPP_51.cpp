@@ -1,32 +1,24 @@
-#include <iostream>
+```cpp
+#include <algorithm>
+#include <cctype>
 #include <string>
+#include <unordered_set>
 
 std::string remove_vowels(std::string str) {
     std::string result;
     for (char c : str) {
-        if (!isVowel(c)) {
+        if (!std::unordered_set<char>("aeiouAEIOU").count(c)) {
             result += c;
         }
     }
     return result;
 }
 
-bool isVowel(char c) {
-    c = tolower(c);
-    if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-        return true;
-    }
-    return false;
-}
-
 int main() {
     assert(remove_vowels("ybcd") == "ybcd");
     std::string input;
-    processInput(input);
-    std::cout << "String after removing vowels: " << remove_vowels(input) << std::endl;
-    return 0;
-
-void processInput(std::string& input) {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
+    std::cout << "String after removing vowels: " << remove_vowels(input) << std::endl;
+    return 0;
 }
