@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <unordered_map>
 #include <initializer_list>
@@ -11,4 +12,5 @@ vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> result;
 
     for (int i = 0; i < numbers.size(); i++) {
-        if (!mp.count(numbers[i]) || !mp[numers
+        if (!mp.count(numbers[i]) || !mp[numbers[i]]) {
+            mp[numers
