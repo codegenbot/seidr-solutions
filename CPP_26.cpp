@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <unordered_map>
-#include <initializer_list>
 
 bool issame(vector<int> a,vector<int> b){
     return a == b;
