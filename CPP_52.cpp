@@ -13,9 +13,9 @@ bool below_threshold(std::vector<int> l, int t) {
 
 int main() {
     if (!below_threshold({1, 8, 4, 10}, 10)) {
-        std::cout << "Test failed." << std::endl;
+        std::cout << "The vector is not below the threshold.\n";
     } else {
-        std::cout << "Test passed." << std::endl;
+        std::cout << "The vector is below the threshold.\n";
     }
     return 0;
 }
