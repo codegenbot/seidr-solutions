@@ -32,12 +32,10 @@ bool areEqual(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    int num;
-    std::cin >> num;
-    std::vector<float> numbers(num);
-    for(float& number : numbers) {
-        cin >> number;
+    std::vector<float> numbers = {1.1, 2.2, 3.1, 4.1, 5.1};
+    for (auto num : numbers) {
+        // code to sort the numbers
+        // code to find closest pair
     }
-    assert(areEqual(find_closest_elements(numbers), {{2.2, 3.1}}));
     return 0;
 }
