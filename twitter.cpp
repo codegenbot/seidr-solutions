@@ -10,10 +10,10 @@ int main() {
     int pos = tweet.find('\n');
     if (pos != -1) {
         tweet.replace(pos, 1, "");
-    }
-    pos = tweet.find('\r');
-    if (pos != -1) {
-        tweet.replace(pos, 1, "");
+        pos = tweet.find('\r');
+        if (pos != -1) {
+            tweet.replace(pos, 1, "");
+        }
     }
 
     // Check for length and print output
