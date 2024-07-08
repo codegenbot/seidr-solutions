@@ -1,4 +1,4 @@
-```
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -22,18 +22,36 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         result.push_back(*lst.begin());
         lst.erase(lst.begin());
         if (!lst.empty())
-            std::sort(std::next(lst.begin()), lst.end());
+            std::sort(lst.begin(), lst.end());
     }
 
     return result;
 }
 
 int main() {
-    std::vector<int> result = strange_sort_list({1, 1, 1, 1, 1});
-    if (issame(result, {1, 1, 1, 11})) {
-        std::cout << "Output is correct.\n";
-    } else {
-        std::cout << "Output is incorrect.\n";
+    std::vector<int> v = {1, 2, 3};
+    for (auto i : v) {
+        cout << i << " ";
     }
+    cout << endl;
+
+    vector<int> input;
+    int n;
+    cin >> n;
+    
+    for(int i=0; i<n; ++i){
+        int x;
+        cin >> x;
+        input.push_back(x);
+    }
+
+    std::vector<int> result = strange_sort_list(input);
+
+    if (issame(result, {1, 2, 3})) {
+        cout << "Output is correct.\n";
+    } else {
+        cout << "Output is incorrect.\n";
+    }
+    
     return 0;
 }

@@ -10,9 +10,9 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
     std::vector<std::vector<float>> result;
     for (const auto& v : vectors) {
         int size = 0;
-        std::vector<float> positiveVec = get_positive(v, size);
-        if (!issame({}, positiveVec)) {
-            result.push_back(positiveVec);
+        assert(issame(get_positive(v, size), {}));
+        if (!issame({}, get_positive(v, size))) {
+            result.push_back(get_positive(v, size));
         }
     }
     return result;
@@ -36,7 +36,7 @@ std::vector<float> get_positive(const std::vector<float>& vec, int& size) {
     return positiveVec;
 }
 
-void mainFunc() {
+int main() {
     int n;
     std::cout << "Enter number of vectors: ";
     std::cin >> n;
@@ -69,5 +69,5 @@ void mainFunc() {
         std::cout << "No resultant vectors." << std::endl;
     }
 
-    return;
+    return 0;
 }
