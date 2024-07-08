@@ -21,7 +21,7 @@ vector<string> splitString(string input) {
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) { 
     if(a.size() != b.size()) {
         return false;
     }
@@ -34,8 +34,18 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> words = splitString("ahmed     , gamal");
-    bool same = issame(words, {"ahmed", "gamal"});
-    cout << (same ? "True" : "False") << endl;
+    vector<string> result = splitString("ahmed     , gamal");
+    cout << "Result: ";
+    for(string word : result) {
+        cout << word << " ";
+    }
+    cout << endl;
+    
+    if(issame(result, vector<string>{"ahmed", "gamal"})) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    
     return 0;
 }
