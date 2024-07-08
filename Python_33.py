@@ -3,14 +3,7 @@ def sort_third(l: list):
         (
             val
             if i % 3 != 0
-            else sorted(
-                [
-                    x
-                    for x in l[
-                        : i // 3 * 3 + (i % 3) * 3 : (i + 1) // 3 * 3 + (i + 1) % 3 * 3
-                    ]
-                ]
-            )[0]
+            else max(x for x in l[:i] + l[i + 1 :] if (x % 3 == 0) and (x < val))
         )
         for i, val in enumerate(l)
     ]
