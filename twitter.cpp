@@ -8,14 +8,12 @@ int main() {
 
     // Replace newline and carriage return characters with empty strings
     int pos = tweet.find('\n');
-    while (pos != -1) {
+    if (pos != -1) {
         tweet.replace(pos, 1, "");
-        pos = tweet.find('\n', pos + 1);
     }
     pos = tweet.find('\r');
-    while (pos != -1) {
+    if (pos != -1) {
         tweet.replace(pos, 1, "");
-        pos = tweet.find('\r', pos + 1);
     }
 
     // Check for length and print output

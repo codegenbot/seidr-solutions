@@ -12,7 +12,9 @@ def validate_tweet(tweet):
         return "You didn't type anything"
 
 
-if __name__ == "__main__":
-    tweet = input("Enter your tweet: ")
-    result = validate_tweet(tweet)
-    print(result)
+# read input from user
+tweet = input("Enter your tweet: ")
+
+# validate the tweet
+result = validate_tweet(tweet)
+print(result)
