@@ -1,8 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
 int count_nums(vector<int> nums) {
+    int sign = 1;
     int count = 0;
     for (int num : nums) {
         bool negativeFound = false;
-        int sign = 1;
+        int sum = 0;
         if(num >= 0)
             sign = 1;
         else
