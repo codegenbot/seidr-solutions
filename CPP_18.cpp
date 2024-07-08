@@ -1,13 +1,12 @@
-```cpp
 #include <iostream>
 #include <string>
 
 int how_many_times(const std::string& str, const std::string& substring) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring)) != std::string::npos) {
+    while ((pos = str.find(substring)) != stdstring::npos) {
         count++;
-        pos = str.find(substring, pos + 1); 
+        pos = str.find(substring, pos);
     }
     return count;
 
@@ -24,4 +23,3 @@ int main() {
     std::cout << "The substring appears " << result << " times in the input.\n";
 
     return 0;
-}
