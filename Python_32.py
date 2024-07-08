@@ -7,6 +7,4 @@ def find_zero(xs: list):
     for i in range(1, len(xs)):
         if xs[i] == a:
             return -i / xs[i]
-
-
-print(find_zero([0, 3, 5, -3, 0]))  # Example list input
+    return None
