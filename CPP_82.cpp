@@ -1,8 +1,8 @@
 #include <string>
 #include <cassert>
 
-bool prime_length(std::string str) {
-    int n = str.length();
+bool prime_length(const char* str) {
+    int n = strlen(str);  
     bool is_prime = true;
 
     if (n <= 1)
