@@ -1,3 +1,5 @@
+#include <vector>
+
 std::vector<int> leaders(const std::vector<int>& v) {
     std::vector<int> result;
     for (auto it = v.rbegin(); it != v.rend(); ++it) {
@@ -8,7 +10,7 @@ std::vector<int> leaders(const std::vector<int>& v) {
                 break;
             }
         }
-        if (isLeader || it == v.rbegin()) result.push_back(*it);
+        if (isLeader) result.push_back(*it);
     }
     return result;
 }
