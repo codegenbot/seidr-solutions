@@ -1,4 +1,3 @@
-```
 def substitution_cipher(cipher_map, message):
     cipher_dict = {}
     for i in range(0, len(cipher_map), 2):
