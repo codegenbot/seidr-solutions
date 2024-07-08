@@ -11,32 +11,31 @@ bool issame(std::map<char,int> a,std::map<char,int> b) {
 }
 
 int main() {
-    std::map<char,int> map1, map2;
-    char ch;
-    int num;
+    std::map<char, int> m1;
+    char c1; int i1;
 
-    //input for first map
-    std::cout << "Enter elements for the first map. Enter 'q' when you are done.\n";
-    while(true) {
-        std::cin >> ch >> num;
-        if(ch == 'q') break;
-        map1[ch] = num;
+    // Input from user
+    std::cout << "Enter the number of characters: ";
+    int n = 0; std::cin >> n;
+
+    for(int i=0; i<n; i++) {
+        std::cout << "Enter character " << (i+1) << ": ";
+        std::cin >> c1;
+        m1[c1] = i+1;
     }
 
-    //input for second map
-    std::cout << "\nEnter elements for the second map. Enter 'q' when you are done.\n";
-    while(true) {
-        std::cin >> ch >> num;
-        if(ch == 'q') break;
-        map2[ch] = num;
+    // Create another map
+    std::map<char, int> m2;
+
+    for(auto p : m1) {
+        m2[p.first] = p.second;
     }
 
-    //check if both maps are same
-    if(issame(map1, map2)) {
-        std::cout << "\nThe two maps are the same.\n";
-    } else {
-        std::cout << "\nThe two maps are not the same.\n";
-    }
+    // Call the function
+    if(issame(m1,m2))
+        std::cout << "Maps are same.\n";
+    else
+        std::cout << "Maps are not same.\n";
 
     return 0;
 }
