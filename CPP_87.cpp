@@ -1,11 +1,20 @@
+#include <iostream>
 #include <vector>
-bool issame(const vector<vector<int>>& a, const vector<vector<int>>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i].size() != b[i].size()) return false;
-        for (int j = 0; j < a[i].size(); j++) {
-            if (a[i][j] != b[i][j]) return false;
+
+std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) {
+    std::vector<std::vector<int>> result;
+    for (int i = 0; i < lst.size(); i++) {
+        if (i == x) {
+            for (auto j : lst[i]) {
+                result.push_back({j});
+            }
         }
     }
-    return true;
+    return result;
+}
+
+int main() {
+    std::vector<std::vector<int>> lst = {{}, {1}, {1, 2, 3}};
+    std::vector<std::vector<int>> expected = {{1, 2, 3}};
+    assert(std::equal(get_row(lst, 2).begin(), get_row(lst, 2).end(), expected.begin()));
 }
