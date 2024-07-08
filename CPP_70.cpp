@@ -1,7 +1,8 @@
 #include <iostream>
-using namespace std;
+#include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -11,24 +12,46 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> strange_sort_list(vector<int> lst) {
-    vector<int> result;
+std::vector<int> strange_sort_list(std::vector<int> lst) {
+    std::vector<int> result;
     if (lst.empty()) return result;
 
-    sort(lst.begin(), lst.end());
+    std::sort(lst.begin(), lst.end());
 
     while (!lst.empty()) {
         result.push_back(*lst.begin());
         lst.erase(lst.begin());
         if (!lst.empty())
-            sort(lst.begin(), lst.end());
+            std::sort(lst.begin(), lst.end());
     }
 
     return result;
 }
 
 int main() {
-    vector<int> v = {1, 2, 3};
-    cout << "Hello, World!" << endl;
+    std::vector<int> v = {1, 2, 3};
+    for (auto i : v) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    vector<int> input;
+    int n;
+    cin >> n;
+    
+    for(int i=0; i<n; ++i){
+        int x;
+        cin >> x;
+        input.push_back(x);
+    }
+
+    std::vector<int> result = strange_sort_list(input);
+
+    if (issame(result, {1, 2, 3})) {
+        cout << "Output is correct.\n";
+    } else {
+        cout << "Output is incorrect.\n";
+    }
+    
     return 0;
 }
