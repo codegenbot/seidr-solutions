@@ -14,9 +14,10 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    std::vector<std::string> v1, v2;
+    std::vector<std::string> v1(n);
+    std::vector<std::string> v2(n);
 
-    int n;
+    int n; 
 
     std::cout << "Enter number of strings: ";
     std::cin >> n;
@@ -24,15 +25,15 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::string str;
         std::cout << "Enter string " << i + 1 << ": ";
-        std::getline(std::cin, str);
-        v1.push_back(str);
+        std::cin >> str;
+        v1[i] = str;
     }
 
     for (int i = 0; i < n; i++) {
         std::string str;
         std::cout << "Enter string " << i + 1 << ": ";
-        std::getline(std::cin, str);
-        v2.push_back(str);
+        std::cin >> str;
+        v2[i] = str;
     }
 
     if (issame(v1, v2))
