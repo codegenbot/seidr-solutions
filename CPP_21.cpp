@@ -16,10 +16,7 @@ bool is_same(std::vector<float> a, std::vector<float> b){
 }
 
 void rescale_to_unit(std::vector<float>& values) {
-    float max_value = *std::max_element(values.begin(), values.end());
-    for (size_t i = 0; i < values.size(); ++i) {
-        values[i] = values[i] / max_value;
-    }
+    // Your implementation for rescale_to_unit function
 }
 
 int main() {
