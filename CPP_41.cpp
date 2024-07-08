@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <iostream>
 using namespace std;
 
 int car_race_collision(int n) {
@@ -15,8 +15,8 @@ int car_race_collision(int n) {
 
 int main() {
     int n;
-    printf("Enter the number of cars: ");
-    scanf("%d", &n);
-    printf("Number of collisions: %d\n", car_race_collision(n));
+    cout << "Enter the number of cars: ";
+    cin >> n;
+    cout << "Number of collisions: " << car_race_collision(n) << endl;
     return 0;
 }
