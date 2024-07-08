@@ -18,4 +18,5 @@ int main() {
     cin >> m;
     double result = diceGame(n, m);
     cout << "Probability: " << std::to_string(double(result)) << endl;
+    return 0;
 }
