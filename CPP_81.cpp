@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool same(vector<string> a, vector<string> b) {
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
