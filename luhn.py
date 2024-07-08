@@ -10,4 +10,4 @@ def luhn(card_number):
             total_sum += temp_sum
         else:
             total_sum += num
-    return total_sum % 10 == 0
+    return total_sum % 10

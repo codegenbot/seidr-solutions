@@ -2,7 +2,15 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    return 1 - ((m-1)/m) * (n-1)/n;
+    double prob = 0.0;
+    for (int i = 1; i < min(n, m); i++) {
+        if(i != 1){
+            prob += (1.0 * (min(n, m) - i) / min(n, m));
+        }
+    }
+    if(m > n) return prob;
+    else if(n > m) return 1 - prob;
+    else return 1/2.0; 
 }
 
 int main() {
@@ -12,6 +20,5 @@ int main() {
     cout << "Enter the number of sides for Colin's die: ";
     cin >> m;
     double result = diceGame(n, m);
-    cout << "Probability: " << std::to_string(double(result)) << endl;
-    return 0;
-}
+    cout << "Probability: " << std::to_string(result) << endl;
+    return 0};
