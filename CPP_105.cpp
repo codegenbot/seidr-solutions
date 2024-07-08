@@ -1,23 +1,56 @@
 ```
-bool issame(const vector<string>& str1, const vector<string>& str2) {
-    if (str1.size() != str2.size())
-        return false;
-    for (int i = 0; i < str1.size(); i++)
-        if (str1[i] != str2[i])
-            return false;
-    return true;
+#include <algorithm>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool issame(int a, int b) {
+    return (a >= 1 && a <= 9 && b >= 1 && b <= 9);
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> result;
-    map<int, string> numStr = { {1,"One"}, {2,"Two"}, {3,"Three"}, {4,"Four"}, {5,"Five"}, {6,"Six"}, {7,"Seven"}, {8,"Eight"}, {9,"Nine"} };
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            string str = numStr[i];
-            result.push_back(str);
+    vector<vector<string>> result;
+    for (int i = 0; i < arr.size(); i++) {
+        string str;
+        if (!issame(arr[i], arr[(i+1)%arr.size()])) {
+            switch (arr[i]) {
+                case 1:
+                    str = "One";
+                    break;
+                case 2:
+                    str = "Two";
+                    break;
+                case 3:
+                    str = "Three";
+                    break;
+                case 4:
+                    str = "Four";
+                    break;
+                case 5:
+                    str = "Five";
+                    break;
+                case 6:
+                    str = "Six";
+                    break;
+                case 7:
+                    str = "Seven";
+                    break;
+                case 8:
+                    str = "Eight";
+                    break;
+                case 9:
+                    str = "Nine";
+                    break;
+            }
+            result.push_back({str});
+        } else {
+            if (i > 0) {
+                result[result.size()-1].push_back(str);
+            } else {
+                result.push_back({str});
+            }
         }
     }
-    sort(result.begin(), result.end());
-    reverse(result.begin(), result.end());
+    
     return result;
 }
