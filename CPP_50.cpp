@@ -1,5 +1,5 @@
-#include <string> // For string functions
-#include <cassert> // For assert function
+#include <string>
+#include <cassert>
 
 string encode_shift(string s);
 
