@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 
 int luhn(const std::vector<int>& digits) {
@@ -17,4 +16,3 @@ int luhn(const std::vector<int>& digits) {
     }
 
     return sum;
-}
