@@ -35,12 +35,5 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    bool areEqual = true;
-    for (int i = 0; i < array.size(); i++) {
-        if (array[i] != {23, 21, 14, 11}[i]) {
-            areEqual = false;
-            break;
-        }
-    }
-    return areEqual ? 0 : 1;
+    return (array != std::vector<int>(std::vector<int>({23, 21, 14, 11}))) ? 1 : 0;
 }
