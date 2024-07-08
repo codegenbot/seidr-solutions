@@ -1,4 +1,4 @@
-```python
+```
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -14,3 +14,7 @@ def find_indices(text, target):
         else:
             i += 1
     return indices
+
+text = "Hello, world!"
+target = "world"
+print(find_indices(text, target))
