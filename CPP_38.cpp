@@ -1,8 +1,10 @@
+#include <cassert>
 #include <iostream>
+
 #include <string>
 #include <cassert>
-using std::cout;
-using std::endl;
+
+using namespace std;
 
 string encode_cyclic(string s) {
     int l = s.length();
