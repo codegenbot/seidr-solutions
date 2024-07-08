@@ -9,7 +9,6 @@ def find_zero(xs: str):
         if xs[i] == a:
             return -i / xs[i]
 
-
 # Get user input
 user_input = input("Enter a list of integers separated by space: ")
 
