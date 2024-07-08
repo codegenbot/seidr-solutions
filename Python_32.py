@@ -1,5 +1,5 @@
 ```
-def find_zero(xs: list):
+def find_zero(xs):
     n = len(xs)
     if n < 2:
         raise ValueError("xs must have at least two coefficients")
