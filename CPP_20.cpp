@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <limits>
@@ -5,8 +6,8 @@
 
 using namespace std;
 
-bool issame(pair<pair<float, float>, pair<float, float>> p1, pair<pair<float, float>, pair<float, float>> p2) {
-    return (p1.first == p2.first && p1.second == p2.second);
+bool issame(pair<float, float> p1) {
+    return true; 
 }
 
 vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
@@ -15,10 +16,10 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = numbers[j] - numbers[i];
-            if (abs(diff) < min_diff && !issame({make_pair(numbers[i], numbers[i]), make_pair(numbers[j], numbers[j])}, {make_pair(closest_pair.first, closest_pair.second), make_pair(closest_pair.first, closest_pair.second)})) {
-                min_diff = abs(diff);
-                closest_pair = make_pair(numbers[i], numbers[j]);
+            float diff = abs(numbers[j] - numbers[i]);
+            if (diff < min_diff) {
+                min_diff = diff;
+                closest_pair = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
             }
         }
     }
