@@ -19,4 +19,3 @@ int main() {
     scanf("%d", &p);
     printf("2^%d mod %d = %d\n", n, p, modp(n, p));
     return 0;
-}
