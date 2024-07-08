@@ -2,11 +2,11 @@
 #include <vector>
 #include <string>
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool hasSameElements(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::string prefix) {
+std::vector<std::string> prefixFilter(std::vector<std::string> strings, std::string prefix) {
     std::vector<std::string> result;
     for (const auto& s : strings) {
         if (s.find(prefix) == 0) {
@@ -16,6 +16,6 @@ std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::s
 }
 
 int main() {
-    assert(isSame(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert(hasSameElements(prefixFilter({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
