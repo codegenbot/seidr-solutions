@@ -1,25 +1,15 @@
-Here is the corrected code:
-
 ```cpp
 #include <algorithm>
 #include <vector>
 
-bool cpp::issame(cpp::vector<int> a, cpp::vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-cpp::vector<int> sort_array(cpp::vector<int> array) {
+std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) return array;
 
     auto middle = array.begin() + array.size() / 2;
     auto left = array.begin();
     auto right = middle;
 
-    cpp::vector<int> sortedArray;
+    std::vector<int> sortedArray;
 
     while (left != right && right != middle) {
         if (*left <= *right) {
@@ -37,7 +27,7 @@ cpp::vector<int> sort_array(cpp::vector<int> array) {
 }
 
 int main() {
-    cpp::vector<int> array = {21, 14, 23, 11};
+    std::vector<int> array = {21, 14, 23, 11};
     array = sort_array(array);
     if (array.size() % 2 == 1) {
         std::cout << "Sum of first and last elements is odd: ";
@@ -46,7 +36,5 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    if (!issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11})) {
-        std::cerr << "Test failed" << std::endl;
-    }
+    return (array != {23, 21, 14, 11}) ? 1 : 0;
 }
