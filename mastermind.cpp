@@ -1,31 +1,29 @@
-#include <map>
 #include <string>
 
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    // Count the number of correct colors in incorrect positions
-    map<char, int> codeCount;
-    map<char, int> guessCount;
-    for (int i = 0; i < 4; ++i) {
-        codeCount[code[i]]++;
-        guessCount[guess[i]]++;
-    }
-    for (auto& pair : codeCount) {
-        if (pair.second > 0 && pair.second != guessCount[pair.first]) {
-            white += pair.second - guessCount[pair.first];
-        }
-    }
-
-    // Count the number of correct colors in correct positions
-    int codeIndex = 0;
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-            codeIndex = i + 1;
         }
     }
 
-    return white + black;
+    for (int i = 0; i < 4; i++) {
+        bool foundInCode = false;
+        for (int j = 0; j < 4; j++) {
+            if (guess[i] == code[j]) {
+                foundInCode = true;
+                break;
+            }
+        }
+        if (!foundInCode) {
+            white++;
+        } else {
+            black--;
+        }
+    }
+
+    return black + white;
 }

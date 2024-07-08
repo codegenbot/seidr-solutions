@@ -1,3 +1,6 @@
-```
-def leaders(input):
-    return [i for i in reversed(range(len(input))) if all(input[j] <= input[i] for j in range(i+1, len(input)))]
+input = list(map(int, input().split()))
+leaders = [input[-1]]
+for i in range(len(input)-2, -1, -1):
+    if input[i] >= max(input[i+1:]):
+        leaders.append(input[i])
+print(list(reversed(leaders)))

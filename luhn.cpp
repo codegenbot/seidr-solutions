@@ -1,14 +1,17 @@
+#include <vector>
+
 int luhn(std::vector<int> digits) {
     int sum = 0;
     bool doubleNext = false;
-    for (int i = digits.size() - 1; i >= 0; --i) {
+    for (int i = 0; i < digits.size(); ++i) {
         int digit = digits[i];
-        if (doubleNext) {
+        if (!doubleNext) { 
+            sum += digit;
+        } else { // it's time to double the next digit
             digit *= 2;
             if (digit > 9) digit -= 9;
+            sum += digit;            
         }
-        sum += digit;
-        doubleNext = !doubleNext;
+        doubleNext = !doubleNext; // toggle for the next iteration
     }
-    return sum;
-}
+    return sum % 10; // return the remainder of the sum divided by 10, which should be 0 for a valid card number
