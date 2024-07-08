@@ -1,32 +1,28 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here is the solution:
 
-bool evaluateBooleanExpression(const string& expression) {
-    bool result = true;
-    for (char c : expression) {
-        if (c == '&') {
-            result &= false;
-        } else if (c == '|') {
-            result |= false;
-        } else if (c == 'T' || c == 't') {
-            result = true;
-        } else if (c == 'F' || c == 'f') {
-            result = false;
+string solveBoolean(string expression) {
+    stack<char> s;
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
+            }
+            s.push('&');
+        } else if (expression[i] == '|') {
+            while (!s.empty()) {
+                s.pop();
+            }
+            s.push('|');
+        } else if (expression[i] == 't' || expression[i] == 'f') {
+            s.push(expression[i]);
         }
     }
-    return result;
-}
 
-int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    bool result = evaluateBooleanExpression(expression);
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
+    string result = "";
+    while (!s.empty()) {
+        result += s.top();
+        s.pop();
     }
-    return 0;
+
+    return (result == "tt") ? "True" : (result == "ff") ? "False" : "Invalid Input";
 }
