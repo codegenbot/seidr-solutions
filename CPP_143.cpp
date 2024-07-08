@@ -3,7 +3,7 @@ std::string words_in_sentence(std::string sentence) {
     for(int i=0; i<sentence.length(); i++){
         int len = 0;
         while(i < sentence.length() && sentence[i] != ' ') i++;
-        string word = sentence.substr(0, i);
+        std::string word = sentence.substr(0, i);
         for(int j=2; ;j++){
             bool isPrime = true;
             for(int k=2; k*k <= j; k++){
