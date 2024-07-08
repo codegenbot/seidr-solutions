@@ -14,10 +14,12 @@ int count_nums(vector<int> nums) {
         else
             sign = -1, negativeFound = true;
 
-        while(abs(num) > 0 || negativeFound) {
+        while(abs(num) > 0 || (negativeFound && abs(num) < 0)) {
             int digit = abs(num) % 10 * sign;
-            if(digit > 0 || (digit == 1 && !negativeFound))
+            if((digit > 0 && !negativeFound) || (digit == 1 && negativeFound))
                 count++;
+            else
+                negativeFound = true;
             num /= 10;
         }
     }
