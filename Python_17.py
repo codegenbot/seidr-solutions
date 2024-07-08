@@ -1,11 +1,10 @@
-``` 
-def parse_music(music_string: str) -> List[int]:
+def parse_music(music_string: str) -> list:
     beats = []
     i = 0
     while i < len(music_string):
-        if music_string[i:i+3] == 'o..':
+        if music_string[i] == 'o':
             beats.append(4)
-            i += 3
+            i += 1
         elif music_string[i:i+2] == 'o|':
             beats.append(2)
             i += 2
