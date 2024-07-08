@@ -1,3 +1,4 @@
+```
 def mastermind(code, guess):
     black_pegs = sum(1 for i in range(len(code)) if code[i] == guess[i])
     white_pegs = 0
