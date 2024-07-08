@@ -6,7 +6,6 @@ bounciness_index = first_bounce_height / start_height
 
 distance_per_bounce = 0
 for _ in range(num_bounces):
-    distance_per_bounce += bounciness_index * start_height
+    distance_per_bounce += (1 - bounciness_index) * 2 * start_height
     start_height *= bounciness_index
-
 print("{:.6f}".format(distance_per_bounce))
