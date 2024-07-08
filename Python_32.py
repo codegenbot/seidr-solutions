@@ -1,13 +1,14 @@
+xs = list(map(int, input().split()))
+
+
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        return None
-    a = max(xs, key=abs)
-    for i in range(1, len(xs)):
-        if xs[i] == a:
-            return -i / xs[0]
+    n = len(xs) - 1
+    a, b = xs[0], max(map(abs, xs))
+    for i in range(n):
+        if xs[i] == b:
+            a = xs[i + 1]
+            break
+    return -a / b
 
 
-input_list = list(map(int, input().split()))
-
-result = find_zero(input_list)
-print(result)
+find_zero(xs)
