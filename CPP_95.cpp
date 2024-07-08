@@ -1,4 +1,3 @@
-````
 #include <string>
 #include <cctype>
 
@@ -22,4 +21,3 @@ bool check_map_case(map<string, string> dict) {
 
     return allLower || allUpper;
 }
-```
