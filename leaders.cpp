@@ -1,36 +1,83 @@
 #include <iostream>
 #include <vector>
+#include <set>
+
 using namespace std;
 
-// Function to find leaders in a given vector
-vector<int> getLeaders(const vector<int>& input) {
-    // Initialize max to the first element of the input array
-    int max = input[0];
-    vector<int> output;
+// Function to find the leaders in a given vector
+vector<int> getLeaders(const vector<int>& v) {
+    // Initialize result and seen set
+    vector<int> result;
+    set<int> seen;
 
-    // Loop through the rest of the elements in the input array
-    for (size_t i = 1; i < input.size(); i++) {
-        if (input[i] >= max) {
-            // Update max to the current element and add it to the output vector
-            max = input[i];
-            output.push_back(max);
+    // Check if input is empty
+    if (v.empty()) return result;
+
+    for (auto it = v.rbegin(); it != v.rend(); ++it) {
+        bool isLeader = true;
+
+        // Check if current element is in seen set
+        if (seen.count(*it)) continue;
+
+        // Check if current element is greater than or equal to all the elements to its right
+        for (auto jt = it + 1; jt != v.rend() && *jt > *it; ++jt) {
+            if (*jt <= *it) {
+                isLeader = false;
+                break;
+            }
+        }
+
+        // If current element is a leader, add it to the result and seen sets
+        if (isLeader || it == v.rbegin()) {
+            result.push_back(*it);
+            seen.insert(*it);
         }
     }
-
-    return output;
+    return result;
 }
 
 int main() {
-    vector<int> input = {1, 2, 3, 4, 5, 6, 7};
+    // Test case 1: Empty vector
+    vector<int> input1 = {};
     cout << "Input: ";
-    for (auto it = input.begin(); it != input.end(); ++it) {
+    for (auto it = input1.begin(); it != input1.end(); ++it) {
         cout << *it << " ";
     }
     cout << endl;
 
-    vector<int> output = getLeaders(input);
+    vector<int> output1 = getLeaders(input1);
     cout << "Output: ";
-    for (auto it = output.begin(); it != output.end(); ++it) {
+    for (auto it = output1.begin(); it != output1.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    // Test case 2: Vector with one element
+    vector<int> input2 = {5};
+    cout << "Input: ";
+    for (auto it = input2.begin(); it != input2.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    vector<int> output2 = getLeaders(input2);
+    cout << "Output: ";
+    for (auto it = output2.begin(); it != output2.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    // Test case 3: Vector with multiple elements
+    vector<int> input3 = {1, 2, 3, 4, 5, 6, 7};
+    cout << "Input: ";
+    for (auto it = input3.begin(); it != input3.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    vector<int> output3 = getLeaders(input3);
+    cout << "Output: ";
+    for (auto it = output3.begin(); it != output3.end(); ++it) {
         cout << *it << " ";
     }
     cout << endl;
