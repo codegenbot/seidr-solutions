@@ -1,5 +1,6 @@
-#include <vector>
-std::vector<int> luhn(std::vector<int> digits) {
+```#include <vector>
+
+int luhn(std::vector<int> digits) {
     int sum = 0;
     bool doubleNext = false;
     for (int i = digits.size() - 1; i >= 0; --i) {
@@ -11,5 +12,5 @@ std::vector<int> luhn(std::vector<int> digits) {
         sum += digit;
         doubleNext = !doubleNext;
     }
-    return {sum};
-}
+    return sum;
+}``
