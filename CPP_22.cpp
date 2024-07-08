@@ -1,8 +1,7 @@
-```
 #include <vector>
 #include <any>
 
-bool is_same(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -16,7 +15,7 @@ std::vector<int> filter_integers(const std::vector<std::any>& values) {
     return result;
 }
 
-int main() {
-    assert(is_same(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+int main_test() {
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
