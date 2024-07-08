@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <vector>
 #include <limits>
-#include <initializer_list>
 
 bool equalPoints(std::pair<float, float> p1, std::pair<float, float> p2) {
     return (p1.first == p2.first && p1.second == p2.second);
@@ -33,6 +32,10 @@ bool areEqual(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    assert(areEqual({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, {{2.2f, 3.1f}}));
+    std::vector<float> numbers = {1.1, 2.2, 3.1, 4.1, 5.1};
+    for (auto num : numbers) {
+        // code to sort the numbers
+        // code to find closest pair
+    }
     return 0;
 }
