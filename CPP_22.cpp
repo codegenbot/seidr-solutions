@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
 #include <any>
+#include <boost/variant.hpp>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -16,6 +18,6 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 98, 3, 3, 42}), {3, 3, 42}));
+    assert(issame(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}), {3, 3, 3}));
     return 0;
 }

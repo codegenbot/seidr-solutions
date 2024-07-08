@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <climits>
+#include <climits> 
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
@@ -18,4 +18,3 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     if (smallest != INT_MAX)
         result.push_back({smallest, index});
     return result;
-}
