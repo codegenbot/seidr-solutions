@@ -21,5 +21,5 @@ else:
         print(mean_absolute_deviation([float(num) for num in numbers]))
     except ZeroDivisionError as e:
         print(f"Cannot calculate mean absolute deviation from an empty set of numbers.")
-    except ValueError as e:
-        print(f"Invalid input. {e}.")
+except ValueError as e:
+    print(f"Invalid input. {e}.")
