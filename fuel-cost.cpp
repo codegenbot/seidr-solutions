@@ -1,7 +1,26 @@
+```
+#include <iostream>
+#include <vector>
+#include <cmath> 
+using namespace std;
+
 int calculateFuelCost(vector<int> numbers) {
-    int total = 0;
+    int sum = 0;
     for (int num : numbers) {
-        total += (num / 3 - 2);
+        int result = floor((double)num / 3);
+        result -= 2;
+        sum += result;
     }
-    return total;
+    return sum;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> numbers(n);
+    for (int i = 0; i < n; i++) {
+        cin >> numbers[i];
+    }
+    cout << calculateFuelCost(numbers) << endl;
+    return 0;
 }
