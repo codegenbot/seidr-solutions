@@ -9,10 +9,22 @@ int main() {
     while (getline(cin, code)) {
         getline(cin, guess);
 
+        // Keep track of the number of unique characters in the guess string
+        unordered_map<char, int> countMap;
+        for (int i = 0; i < guess.length(); i++) {
+            char ch = guess[i];
+            if (!countMap.contains(ch)) {
+                countMap[ch] = 1;
+            } else {
+                countMap[ch]++;
+            }
+        }
+
+        // Count white and black pegs
         for (int i = 0; i < code.length(); i++) {
             if (code[i] == guess[i]) {
                 blackPegs++;
-            } else if (!duplicate_check(guess[i], guess)) { // added check to prevent duplicate characters in the guess string
+            } else if (!countMap[guess[i]]) {
                 whitePegs++;
             }
         }
@@ -21,13 +33,4 @@ int main() {
     }
 
     return 0;
-}
-
-// Check for duplicate characters in the guess string
-int duplicate_check(char ch, string str) {
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ch && str[i + 1] != ch) return true; // if character is found before and after the current position
-        if (str[i] == ch) return true; // check for duplicate at current position
-    }
-    return false;
 }
