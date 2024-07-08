@@ -1,3 +1,2 @@
-```
 def fizz_buzz(x):
     return "FizzBuzz" if x % 15 == 0 else "Buzz" if x % 5 == 0 and not x % 15 == 0 else "Fizz" if x % 3 == 0 and not (x % 5 == 0 or x % 15 == 0) else str(x)
