@@ -1,5 +1,6 @@
-```
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 int choose_num(int x, int y) {
