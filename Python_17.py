@@ -9,7 +9,7 @@ def parse_music(music_string: str) -> list:
     for note in notes:
         if note.strip() != "":
             note = note.replace("o", "").strip()
-            if note in note_map.values():
+            if not note.isalpha():
                 result.append(int(note))
             else:
                 result.append(music_check(note))
