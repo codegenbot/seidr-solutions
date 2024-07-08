@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 #include <limits>
@@ -18,7 +19,7 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
             float diff = abs(numbers[j] - numbers[i]);
-            if (diff < min_diff && !make_pair(numbers[i], numbers[j]) == closest_pair) {
+            if (diff < min_diff && !issame(make_pair(numbers[i], numbers[i]), make_pair(numbers[j], numbers[j]))) {
                 min_diff = diff;
                 closest_pair = make_pair(numbers[i], numbers[j]);
             }
@@ -28,10 +29,11 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     return vector<pair<float, float>>({closest_pair});
 }
 
-void mainTest() {
+int main() {
     vector<float> numbers = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
     vector<pair<float, float>> result = find_closest_elements(numbers);
     for (const auto& pair : result) {
-        cout << "(" << pair.first << ", " << pair.second << ")" << endl;
+        std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
     }
+    return 0;
 }
