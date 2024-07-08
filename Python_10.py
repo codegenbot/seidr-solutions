@@ -1,3 +1,4 @@
+```
 def make_palindrome(string: str) -> str:
     if len(string) == 0:
         return ""
