@@ -4,18 +4,19 @@
 #include <vector>
 #include <iostream>
 
-bool will_it_fly(std::vector<int> q, int w) {
-    std::string str = "";
-    for(int i : q) {
-        str += std::to_string(i);
+bool will_it_fly(const std::vector<int>& q, int w) {
+    bool result = true;
+    for(int i = 0; i < q.size() / 2; ++i) {
+        if(q[i] != q[q.size() - i - 1]) {
+            result = false;
+            break;
+        }
     }
-    if(std::string(str.rbegin(), str.end()) != std::string(str.begin(), str.end()))
-        return false;
     int sum = 0;
-    for(int i : q) {
-        sum += i;
+    for(int weight : q) {
+        sum += weight;
     }
-    return sum <= w;
+    return result && sum <= w;
 }
 
 int main() {
