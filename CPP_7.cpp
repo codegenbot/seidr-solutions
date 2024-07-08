@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -30,7 +29,7 @@ int main_function() {
     std::string sub = "run";
     std::vector<std::string> result = filter_by_substring(vec, sub);
     
-    assert(issame(result, std::vector<std::string>{{"grunt", "prune"}}));
+    assert(issame(result, std::vector<std::string>{{"grunt","prune"}}));
     
     return 0;
 }
