@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <any>
 
@@ -19,3 +20,4 @@ int main() {
     std::vector<std::any> values = {3, 'c', 3, 3, 'a', 'b'};
     assert(issame(filterintegers(values), std::vector<int>{3, 3, 3}));
     return 0;
+}
