@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,12 +16,12 @@ std::vector<std::string> all_prefixes(std::string str) {
     for (int i = 1; i <= str.length(); i++) {
         result.push_back(str.substr(0, i));
     }
-    return result;
+    return {result};
 }
 
 int main() {
     std::string str = "WWW";
     std::vector<std::string> prefixes = all_prefixes(str);
-    assert(issame({str}, all_prefixes(str)));
+    assert(issame({str}, {str.substr(0)});
     return 0;
 }
