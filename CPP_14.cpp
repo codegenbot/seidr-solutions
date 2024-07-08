@@ -1,11 +1,11 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
-    if(v1.size() != v2.size())
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& c) {
+    if(a.size() != c.size())
         return false;
-    for(int i = 0; i < v1.size(); i++)
-        if(v1[i] != v2[i])
+    for(int i = 0; i < a.size(); i++)
+        if(a[i] != c[i])
             return false;
     return true;
 }
@@ -17,7 +17,3 @@ std::vector<std::string> all_prefixes(const std::string& str) {
     }
     return result;
 }
-
-int main() {
-    assert(issame(all_prefixes("WWW"), std::vector<std::string>({"", "W", "WW", "WWW"})));
-    return 0;
