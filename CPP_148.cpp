@@ -34,10 +34,9 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    cout << "Output: ";
-    vector<string> res = bf("Jupiter", "Makemake");
-    for (string s : res) {
-        cout << s << " ";
+    cout << "Planets between Jupiter and Mars are: " << endl; 
+    vector<string> planets = bf("Jupiter", "Mars");
+    for (auto p : planets) {
+        cout << p << endl;
     }
-    cout << endl;
 }
