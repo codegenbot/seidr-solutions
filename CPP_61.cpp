@@ -1,13 +1,14 @@
-int balance = 0;
-for (char c : brackets) {
-    if (c == '(') {
-        balance++;
-    } else if (c == ')') {
-        balance--;
+bool correct_bracketing(const string& brackets) {
+    int count = 0;
+    for (char c : brackets) {
+        if (c == '(') {
+            count++;
+        } else if (c == ')') {
+            count--;
+            if (count < 0) {
+                return false;
+            }
+        }
     }
-    if (balance < 0) {
-        return false;
-    }
-}
-return balance == 0;
+    return count == 0;
 }
