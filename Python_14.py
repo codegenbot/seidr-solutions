@@ -1,5 +1,4 @@
-```
-def all_prefixes_and_suffixes(string: str) -> list:
+def all_prefixes_and_suffixes(string: str) -> List[str]:
     result = []
     for i in range(1, len(string) + 1):
         prefix = string[:i]
@@ -7,4 +6,3 @@ def all_prefixes_and_suffixes(string: str) -> list:
         if i < len(string):
             suffix = string[i:]
             result.append(suffix)
-    return result
