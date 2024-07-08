@@ -1,6 +1,3 @@
-Here is the completed code:
-
-```cpp
 #include <stdio.h>
 #include <vector>
 #include <string>
@@ -23,4 +20,3 @@ vector<string> words_string(string s) {
         result.push_back(word);
     }
     return result;
-}
