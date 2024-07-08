@@ -15,17 +15,5 @@ vector<int> leaders(vector<int>& arr) {
         }
     }
     
-    for(int i=0;i<result.size();i++){
-        for(int j=i+1;j<result.size();j++){
-            if(result[j]>result[i]){
-                break;
-            }
-            else if(j==result.size()-1){
-                result.erase(result.begin()+i);
-                i--;
-            }
-        }
-    }
-    
     return result;
 }
