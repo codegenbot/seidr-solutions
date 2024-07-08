@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -8,7 +9,9 @@ def all_prefixes_and_suffixes(string: str) -> List[str]:
             prefix = ""
         else:
             prefix = string[:i]
-        suffix = string[i:] if i < len(string) else ""
-        result.append(prefix)
-        result.append(suffix)
+        if i == len(string):
+            suffix = ""
+        else:
+            suffix = string[i:]
+        result.append(prefix + suffix)
     return result
