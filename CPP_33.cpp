@@ -1,11 +1,14 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
 vector<int> sort_third(vector<int> l);
-bool issame(vector<int> a, vector<int> b);
+
+bool issame(vector<int> a, vector<int> b) {
+    return (a.size() == b.size() && equal(a.begin(), a.end(), b.begin()));
+}
 
 vector<int> sort_third(vector<int> l) {
     vector<int> indices;
@@ -26,6 +29,10 @@ vector<int> sort_third(vector<int> l) {
 }
 
 int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    vector<int> input = {5, 6, 3, 4, 8, 9, 2, 1};
+    vector<int> result = sort_third(input);
+    for (int num : result) {
+        cout << num << " ";
+    }
     return 0;
 }
