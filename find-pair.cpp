@@ -1,18 +1,15 @@
 #include <vector>
-#include <algorithm>
-#include <initializer_list>
+#include <utility>
 
-std::vector<int> findPair(std::vector<int>& nums, int target) {
-    std::sort(nums.begin(), nums.end());
+std::vector<std::pair<int, int>> findPair(std::vector<int>& nums, int target) {
+    std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size() - 1; i++) {
         int complement = target - nums[i];
-        int j = i + 1;
-        while (j < nums.size() && nums[j] < complement) {
+        for (int j = i + 1; j < nums.size(); j++) {
             if (nums[j] + nums[i] == target) {
-                return {nums[i], nums[j]};
+                return {{nums[i], nums[j]}};
             }
-            j++;
         }
     }
-    return {-1, -1};
+    return {{-1, -1}};
 }
