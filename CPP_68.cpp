@@ -1,4 +1,4 @@
-std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
+std::vector<std::pair<int, int>> findMinEven(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
 
     for (int i = 0; i < arr.size(); i++) {
@@ -29,5 +29,6 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(findMinEvenNode({7, 9, 7, 1}), {})); 
+    assert(findMinEven({7, 9, 7, 1}) == {{},});
+    return 0;
 }

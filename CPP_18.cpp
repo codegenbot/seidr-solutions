@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -13,8 +14,7 @@ int how_many_times(const std::string& str, const std::string& substring) {
 }
 
 int main() {
-    std::string input;
-    std::string sub;
+    std::string input, sub;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     std::cout << "Enter a substring: ";
