@@ -17,6 +17,6 @@ std::vector<int> filterIntegers(const std::vector<std::any>& values) {
 }
 
 int main() {
-    assert(issame(filterIntegers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(isSame(filterIntegers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
