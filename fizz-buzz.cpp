@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 using namespace std;
 
@@ -18,7 +17,7 @@ public:
 
 int main() {
     Solution solution;
-    int x; // input integer
+    int x; 
     cout << "Enter an integer: ";
     cin >> x;
     string result = solution.fizzBuzz(x);
