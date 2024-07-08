@@ -1,17 +1,9 @@
 ```cpp
-#include <iostream>
-#include <algorithm>
+#include <vector>
+#include <utility>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size())
-        return false;
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-
-    return true;
+    return a == b;
 }
 
 std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
@@ -45,29 +37,5 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element at index " << i << ": ";
-        std::cin >> arr[i];
-    }
-
-    auto pluck(std::vector<int>& arr) -> std::vector<int> {
-        std::vector<int> evenNums;
-        for (int num : arr) {
-            if (num % 2 == 0) {
-                evenNums.push_back(num);
-            }
-        }
-        return evenNums;
-    }
-
-    auto result = pluck(arr);
-
-    assert(issame(result, {}));
-    
-    return 0;
+    assert(issame(pluck({7, 9, 7, 1}), {}));
 }
