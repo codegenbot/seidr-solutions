@@ -1,11 +1,4 @@
-Here is the completed code:
-
+#include <cmath>
 bool iscuber(int a){
-    int i = 1;
-    while (i * i * i <= a) {
-        if (i * i * i == a)
-            return true;
-        i++;
-    }
-    return false;
+    return std::cbrt(a) == round(std::cbrt(a));
 }
