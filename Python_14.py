@@ -1,5 +1,8 @@
+Here is the modified code:
+
 ```
-def all_prefixes_and_suffixes(string: str) -> list:
+from typing import List
+def all_prefixes_and_suffixes(string: str) -> List[str]:
     result = []
     for i in range(1, len(string) + 1):
         prefix = string[:i]
