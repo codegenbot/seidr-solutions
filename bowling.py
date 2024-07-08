@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     frames = [frame.strip().replace("-", "") for frame in frames.split("\n")]
@@ -12,21 +13,7 @@ def bowling_score(frames):
             elif frame[1] == "/":
                 score += 10 - int(frame[0])
         else:
-            frame_parts = list(frame)
-            total_pins = 0
-            for i in range(len(frame_parts)):
-                if frame_parts[i].isdigit():
-                    total_pins += int(frame_parts[i])
-                elif frame_parts[i] == "X":
-                    total_pins += 10
-                    if i < len(frame_parts) - 1 and frame_parts[i+1].isdigit():
-                        total_pins += int(frame_parts[i+1])
-                elif frame_parts[i] == "/":
-                    if frame_parts[i-1].isdigit():
-                        total_pins += 10 - int(frame_parts[i-1])
-                if i == len(frame_parts) - 1:
-                    break
-            score += total_pins
+            score += int(frame[0]) + int(frame[1])
     return score
 
 print(bowling_score("8-324333X518-3463X83"))
