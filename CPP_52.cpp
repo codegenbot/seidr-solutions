@@ -1,19 +1,18 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <cassert>
 
-using namespace std;
-
-bool below_threshold(vector<int> l, int t) {
-    for (int num : l) {
-        if (num >= t) {
+bool below_threshold(std::vector<int> vec, int threshold) {
+    for (int num : vec) {
+        if (num >= threshold) {
             return false;
         }
     }
     return true;
+
 }
 
 int main() {
-    assert(below_threshold({1, 8, 4, 10}, 10));
+    assert(not(below_threshold({1, 8, 4, 10}, 10)));
     return 0;
 }
