@@ -1,4 +1,5 @@
-bool check_if_last_char_is_a_letter(string txt) {
+#include <string>
+bool check_if_last_char_is_a_letter(std::string txt) {
     if (txt.empty()) return false;
     string words[] = {"a", "an", "the", "and", "is"};
     for (int i = 0; i < sizeof(words)/sizeof(words[0]); i++) {
