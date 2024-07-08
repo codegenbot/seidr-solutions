@@ -3,14 +3,11 @@ from typing import List
 
 
 def all_prefixes_and_suffixes(string: str) -> List[str]:
-    result = []
+    prefixes = []
     for i in range(len(string)):
-        result.append(string[:i + 1])
+        prefixes.append(string[:i + 1])
+    suffixes = []
     for i in range(len(string) - 1, -1, -1):
-        result.append(string[i:])
+        suffixes.append(string[i:])
+    result = prefixes + suffixes
     return result
-
-
-string = input("Enter a string: ")  
-result = all_prefixes_and_suffixes(string)  
-print(result)
