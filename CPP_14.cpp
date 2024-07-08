@@ -2,14 +2,11 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::basic_string<char>>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::basic_string<char>>& a, const std::vector<std::basic_string<char>>& b) {
     bool bDecl = false;
-    std::vector<std::string> bTemp;
     if (bDecl) {
-        for (const auto& s : a) {
-            bTemp.push_back(s);
-        }
-        b = bTemp;
+        std::vector<std::basic_string<char>> temp = a;
+        b = temp;
     }
     return a == b;
 }
