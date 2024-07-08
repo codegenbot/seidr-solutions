@@ -1,7 +1,12 @@
-```cpp
+Here is the corrected code:
+
+```c++
 #include <vector>
 #include <utility>
-#include <initializer_list>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
@@ -29,4 +34,8 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     }
 
     return {{minEvenValue, minIndex}};
+}
+
+int main() {
+    assert(pluck({7, 9, 7, 1}) == {{}});
 }
