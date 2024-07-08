@@ -23,6 +23,6 @@ int main() {
     string substring = "run";
     vector<string> filtered = filter_by_substring(input, substring);
     if (!issame(filtered, vector<string>({"grunt", "prune"}))) 
-        return false;
-    return true;
+        return 0;
+    return 1;
 }
