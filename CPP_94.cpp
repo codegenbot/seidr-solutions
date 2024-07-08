@@ -1,16 +1,12 @@
 #include <vector>
+#include <cmath>
 
-int skjkasdkd() {
-    vector<int> lst;
+int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
-    for(int i=0; i<3; i++){
-        int num;
-        cout << "Enter number: ";
-        cin >> num;
-        lst.push_back(num);
-        if(isPrime(num)){
-            if(maxPrime < num){
-                maxPrime = num;
+    for(int i=0; i<lst.size(); i++){
+        if(isPrime(lst[i])){
+            if(maxPrime < lst[i]){
+                maxPrime = lst[i];
             }
         }
     }
@@ -28,4 +24,9 @@ bool isPrime(int n) {
         if (n % i == 0) return false;
     }
     return true;
+}
+
+int main() {
+    assert (skjkasdkd({127, 97, 8192}) == 10);
+    return 0;
 }
