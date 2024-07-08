@@ -1,3 +1,4 @@
+```
 def fruit_distribution(s, n):
     s = s.replace("apples and ", "")
     if "oranges" in s:
