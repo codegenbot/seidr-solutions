@@ -1,3 +1,4 @@
+```
 def make_palindrome(string: str) -> str:
     prefix = ''
     while len(string) > 0 and not is_palindrome(prefix + string[0]):
