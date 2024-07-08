@@ -2,18 +2,19 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() == 0 && b.size() == 0) {
-        return true;
-    }
-    if(a.size() == 0 || b.size() == 0) {
+    if(a.size() != b.size()) {
         return false;
     }
     
-    bool result = std::equal(a.begin(), a.end(), b.begin());
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
     
-    return result;
+    return true;
 }
 
 int main() {
-    assert(issame({2, 2, 2}, {2, 2, 2, 2, 2}));
+    assert (issame({2, 2, 2}, {2, 2, 2, 2, 2}));
 }
