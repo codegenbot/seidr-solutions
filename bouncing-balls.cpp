@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -13,7 +14,7 @@ int main() {
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += startHeight * pow(2.0, i + 1.0) / (i + 1.0);
+        totalDistance += startHeight * pow(bouncinessIndex, i);
     }
 
     cout << fixed << setprecision(5) << showpoint << totalDistance << endl;
