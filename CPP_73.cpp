@@ -1,4 +1,3 @@
-```cpp
 int smallest_change(std::vector<int> arr) {
     std::string s = "";
     for (int i : arr) {
