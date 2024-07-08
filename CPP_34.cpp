@@ -1,15 +1,16 @@
-#include <algorithm>
+```cpp
 #include <vector>
+#include <set>
 
-bool issame(vector<int> a,vector<int>b){
-    if(a.size() != b.size())
-        return false;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
+std::vector<int> unique(std::vector<int> l) {
+    std::set<int> s(l.begin(), l.end());
+    return std::vector<int>(s.begin(), s.end());
 }
 
-vector<int> unique(vector<int> l){
-    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()).end());
-    return result;
+bool same(std::vector<std::vector<int>> l, std::vector<int> target) {
+    for (auto v : l) {
+        if (v == target)
+            return true;
+    }
+    return false;
 }
