@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -35,5 +36,12 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    return (array != std::vector<int>(std::vector<int>({23, 21, 14, 11}))) ? 1 : 0;
+    bool areEqual = true;
+    for (int i = 0; i < array.size(); i++) {
+        if (array[i] != 11 && array[i] != 14 && array[i] != 21 && array[i] != 23) {
+            areEqual = false;
+            break;
+        }
+    }
+    return areEqual ? 0 : 1;
 }
