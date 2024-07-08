@@ -7,7 +7,7 @@ string squareDigits(int number) {
     stringstream ss;
     while (number > 0) {
         int digit = number % 10;
-        ss << to_string(digit * digit);
+        ss << setw(2) << setfill('0') << to_string(digit * digit);
         number /= 10;
     }
     return ss.str();
