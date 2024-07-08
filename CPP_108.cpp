@@ -1,35 +1,29 @@
+```
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
 int count_nums(vector<int> nums) {
+    int sign = 1;
     int count = 0;
     for (int num : nums) {
-        if (num >= 0) {
-            bool negativeFound = false;
-            int sum = 0;
-            while (num > 0 || (negativeFound && num < 0)) {
-                int digit = num % 10;
-                if ((digit > 1) || (digit == 1 && !negativeFound))
-                    sum += digit;
-                else
-                    negativeFound = true;
-                num /= 10;
-            }
-        } else {
-            bool negativeFound = false;
-            int sum = 0;
-            while (num < 0 || (negativeFound && num >= 0)) {
-                int digit = num % 10 * (-1);
-                if ((digit > -1) || (digit == -1 && !negativeFound))
-                    sum += digit;
-                else
-                    negativeFound = true;
-                num /= 10;
-            }
+        bool negativeFound = false;
+        int sum = 0;
+        if(num >= 0)
+            sign = 1;
+        else
+            sign = -1, negativeFound = true;
+
+        while(abs(num) > 0 || (negativeFound && abs(num) < 0)) {
+            int digit = abs(num) % 10 * sign;
+            if((digit > 0 && !negativeFound) || (digit == 1 && negativeFound))
+                sum += digit;
+            else
+                negativeFound = true;
+            num /= 10;
         }
-        if (sum > 0)
+        if(sum > 0)
             count++;
     }
     return count;
@@ -37,5 +31,6 @@ int count_nums(vector<int> nums) {
 
 int main() {
     assert(count_nums({1}) == 1);
-    cout << count_nums({-1,2,-3,4,-5,6}) << endl;
+    cout << "Count: " << count_nums({-1234, 5678, -9012}) << endl;
+    return 0;
 }
