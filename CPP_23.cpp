@@ -1,4 +1,3 @@
-```c
 #include <cassert>
 #include <iostream>
 #include <string>
@@ -9,7 +8,7 @@ int my_strlen(std::string str) {
 }
 
 int main() {
-    assert(my_strlen(std::string("asdasnakj")) == 13);
-    std::cout << "The length of 'asdasnakj' is: " << my_strlen(std::string("asdasnakj")) << "\n";
+    assert(my_strlen("asdasnakj") == 13);
+    std::cout << "The length of 'asdasnakj' is: " << my_strlen("asdasnakj") << "\n";
     return 0;
 }
