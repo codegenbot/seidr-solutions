@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stack>
 #include <string>
+#include <deque>
 
 bool correct_bracketing(std::string s) {
     std::stack<char> stack;
