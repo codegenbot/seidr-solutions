@@ -6,7 +6,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-6) { // added 1e-6 to compare floating point values
+        if (std::abs(a[i] - b[i]) > 1e-9f) { // Handle floating point precision issue
             return false;
         }
     }
@@ -16,10 +16,8 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 float get_positive(const std::vector<float>& l) {
     float sum = 0.0f;
     for (const auto& x : l) {
-        if (x > 0) {
+        if (std::abs(x) > 1e-9f) { // Handle floating point precision issue
             sum += x;
-        } else if (x < -1e-6) { // added condition to handle small negative numbers
-            return 0.0f; 
         }
     }
     return sum;
