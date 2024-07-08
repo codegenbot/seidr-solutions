@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-#include <limits.h>
+#include <limits>
 
 long long minSubArraySum(vector<long long> nums) {
     long long sum = 0, min_sum = LLONG_MAX;
