@@ -4,23 +4,22 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    stack<char> st;
+    bool isAnd = false;
+    bool isOr = false;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return false;
+            isAnd = true;
+            isOr = false;
         } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) return true;
-        } else {
-            st.push(s[i]);
+            isOr = true;
+            isAnd = false;
+        } else if ((isAnd && s[i] == 'T') || (isOr && s[i] == 'F')) {
+            return !isOr;
+        } else if ((isAnd && s[i] == 'F') || (isOr && s[i] == 'T')) {
+            return isOr;
         }
     }
-    return !st.empty();
+    return !isAnd;
 }
 
 int main() {
