@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,7 +12,7 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
     }
 
     evenNodes.empty() ? std::vector<std::pair<int, int>>{} : evenNodes;
-    
+
     if (evenNodes.empty()) {
         return {};
     }
