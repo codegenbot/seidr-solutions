@@ -1,4 +1,5 @@
 #include <vector>
+#include <initializer_list>
 using namespace std;
 
 int maxPrime(vector<int> lst){
@@ -26,8 +27,7 @@ bool isPrime(int n) {
     return true;
 
 }
-int main() {
+int main(){
     vector<int> lst = {127, 97, 8192};
-    cout << maxPrime(lst);
+    cout << maxPrime(lst) << endl;
     return 0;
-}

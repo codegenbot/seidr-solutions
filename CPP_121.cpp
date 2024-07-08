@@ -1,3 +1,5 @@
+#include <cassert>
+
 int solutions(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
@@ -6,4 +8,10 @@ int solutions(vector<int> lst) {
         }
     }
     return sum;
+
+}
+
+int main() {
+    assert(solutions({3, 13, 2, 9}) == 3);
+    return 0;
 }
