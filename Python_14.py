@@ -1,7 +1,3 @@
-Here is the modified code:
-
-```
-from typing import List
 def all_prefixes_and_suffixes(string: str) -> List[str]:
     result = []
     for i in range(1, len(string) + 1):
