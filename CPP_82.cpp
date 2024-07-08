@@ -1,29 +1,29 @@
-```
 #include <string>
 #include <cassert>
 
-int main() {
-    std::string str;
-    int n;
-    bool is_prime;
+int prime_length(std::string s) {
+    int length = 0;
+    for (char c : s)
+        length++;
+    return prime(length);
+}
 
-    std::cout << "Enter a number: ";
-    std::cin >> str;
-    n = std::stoi(str);
-
+bool prime(int n) {
     if (n <= 1)
-        is_prime = false;
+        return false;
     else if (n == 2)
-        is_prime = true;
+        return true;
 
     for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) {
-            is_prime = false;
-            break;
+            return false;
         }
     }
 
-    std::cout << "The given number " << str << " is prime? " << is_prime << std::endl;
+    return true;
 
-    return 0;
+}
+
+int main() {
+    assert(prime_length("Hello") == prime(5));
 }

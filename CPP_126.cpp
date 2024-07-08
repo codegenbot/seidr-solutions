@@ -1,4 +1,5 @@
-Here is the completed code:
+#include <vector>
+using namespace std;
 
 bool is_sorted(vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
@@ -16,4 +17,11 @@ bool is_sorted(vector<int> lst){
         }
     }
     return true;
+
+}
+
+int main() {
+    // Your code here
+    assert (is_sorted({1, 2, 3, 4}) == true);
+    return 0;
 }
