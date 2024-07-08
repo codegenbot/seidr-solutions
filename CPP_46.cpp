@@ -1,5 +1,4 @@
 #include <cstdio>
-#include <iostream>
 
 int fib4(int n) {
     if (n <= 1)
@@ -16,8 +15,9 @@ int fib4(int n) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-    std::cout << "The " << n << "-th element of the fib4 number sequence is: " << fib4(n) << std::endl;
+    int n = 0; 
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+    printf("The %d-th element of the fib4 number sequence is: %d\n", n, fib4(n));
     return 0;
+}
