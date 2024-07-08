@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool isSame(vector<string> v1, vector<string> v2) {
+bool isSame(std::vector<std::string> v1, std::vector<std::string> v2) {
     if(v1.size() != v2.size())
         return false;
     
@@ -16,10 +16,10 @@ bool isSame(vector<string> v1, vector<string> v2) {
     return true;
 }
 
-vector<string> filter_by_substring(vector<string> vec, string sub) {
-    vector<string> result;
+std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
+    std::vector<std::string> result;
     for(const auto& str : vec) {
-        if(str.find(sub) != string::npos)
+        if(str.find(sub) != std::string::npos)
             result.push_back(str);
     }
     
