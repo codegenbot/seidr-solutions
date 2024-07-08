@@ -9,11 +9,8 @@ def parse_music(music_string: str) -> list:
     for note in notes:
         if note.strip() != "":
             note = note.replace("o", "").strip()
-            if '-' in note:
-                note = int(note.split('-')[1])
+            if note in note_map:
+                result.append(int(note))
             else:
-                note = str(music_check(note))
-                while len(note) < 3:
-                    note = "0" + note
-            result.append(int(note))
+                result.append(int(str(music_check(note)).zfill(3)))
     return result
