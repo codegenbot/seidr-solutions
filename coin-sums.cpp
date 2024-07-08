@@ -17,7 +17,7 @@ int main() {
 
     int nickles = (cents - (dimes * 10)) / 5; 
     if(cents < 10) {
-        pennies += cents; // remaining cents are just pennies
+        pennies += cents; 
     } else if(nickles > 0) {
         nickles = nickles;
     }
