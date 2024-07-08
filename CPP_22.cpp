@@ -1,8 +1,8 @@
 #include <any>
 #include <vector>
 
-bool issame(int a, int b) { return a == b; }
-bool issame(char a, char b) { return a == b; }
+bool issame(int a, int b) { return (a == b); }
+bool issame(char a, char b) { return (a == b); }
 
 std::vector<int> filter_integers(std::any values) {
     std::vector<int> result;
