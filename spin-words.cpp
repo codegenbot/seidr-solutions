@@ -1,5 +1,7 @@
 ```cpp
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 string spinWords(string str) {
@@ -31,12 +33,15 @@ string spinWords(string str) {
 int main() {
     string str = "Hello World";
     cout << spinWords(str) << endl;
-    
-    str = "This is a test";
+
+    str = "Spin words";
     cout << spinWords(str) << endl;
-    
-    str = "Short strings are not affected";
+
+    str = "Short";
     cout << spinWords(str) << endl;
-    
+
+    str = "";
+    cout << spinWords(str) << endl;
+
     return 0;
 }
