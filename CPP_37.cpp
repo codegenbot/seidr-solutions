@@ -20,7 +20,7 @@ void sort_even(const vector<float>& a) {
     sort(even_indices.begin(), even_indices.end());
 
     for (int i = 0; i < even_indices.size(); i++) {
-        a[even_indices[i].second] = even_indices[i].first;
+        const_cast<vector<float>&>(a)[even_indices[i].second] = even_indices[i].first;
     }
 
     assert(issame(a, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
