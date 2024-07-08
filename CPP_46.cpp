@@ -1,7 +1,17 @@
 #include <iostream>
-#include <cstdio>
 
 using namespace std;
+
+int main() {
+    int n;
+    
+    cout << "Enter the value of n: ";
+    cin >> n;
+    
+    cout << "The " << n << "-th element of the fib4 number sequence is: " << fib4(n) << endl;
+    
+    return 0;
+}
 
 int fib4(int n) {
     if (n <= 1)
@@ -16,10 +26,3 @@ int fib4(int n) {
     }
     return d;
 }
-
-int main() {
-    int n;
-    cout << "Enter the value of n: ";
-    cin >> n;
-    cout << "The " << n << "-th element of the fib4 number sequence is: " << fib4(n) << endl;
-    return 0;
