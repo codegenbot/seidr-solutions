@@ -1,10 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a,vector<string>b){
     if(a.size()!=b.size())
         return false;
     for(int i=0;i<a.size();i++){
@@ -14,24 +11,34 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
+#include <iostream>
+#include <vector>
+#include <string>
+
 int main() {
-    int n;
-    cin >> n;
-    vector<string> a(n);
-    for (string &s : a) {
-        cin >> s;
+    vector<string> v1, v2;
+    int total_match = 0;
+    
+    cout << "Enter number of strings: ";
+    int n; cin >> n;
+    
+    for(int i=0;i<n;i++){
+        string str;
+        cout << "Enter string " << i+1 << ": ";
+        cin >> str;
+        v1.push_back(str);
     }
-
-    vector<string> b(n);
-    for (string &s : b) {
-        cin >> s;
+    
+    for(int i=0;i<n;i++){
+        string str;
+        cout << "Enter string " << i+1 << ": ";
+        cin >> str;
+        v2.push_back(str);
     }
-
-    bool total_match = issame(a, b);
-
-    if(total_match){
-        cout << "True";
-    }else{
-        cout << "False";
-    }
+    
+    if(issame(v1,v2))
+        cout << "Both vectors have same strings.";
+    else
+        cout << "Vectors do not have the same strings.";
+    return 0;
 }
