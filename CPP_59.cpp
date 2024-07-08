@@ -7,5 +7,5 @@ int largest_prime_factor(int n){
             largestFactor++;
         }
     }
-    return largestFactor;
+    return n;
 }
