@@ -1,17 +1,12 @@
-Here is the completed code:
-
-def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return abs(a)
-
-def find_indices(text, target):
-    indices = []
-    i = 0
-    while i <= len(text) - len(target):
-        if text[i:i+len(target)] == target:
-            indices.append(i)
-            i += 1
-        else:
-            i += 1
-    return indices
+```
+while True:
+    try:
+        a = int(input("Enter the first integer: "))
+        b = int(input("Enter the second integer: "))
+        print(gcd(a, b))
+        text = input("Enter the text string: ")
+        target = input("Enter the target string: ")
+        print(find_indices(text, target))
+        break
+    except ValueError:
+        print("Invalid input. Please enter integers for gcd and strings for find_indices.")
