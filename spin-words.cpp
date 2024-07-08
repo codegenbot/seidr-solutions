@@ -27,7 +27,9 @@ std::string spinWords(std::string str) {
             reversedWord += str[i];
         }
         result += reversedWord + " ";
-    } 
+    } else {
+        result = str;
+    }
     
     return result;
 }
