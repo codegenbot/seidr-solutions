@@ -1,3 +1,7 @@
+Here is the modified code:
+
+```cpp
+#include <vector>
 #include <initializer_list>
 
 bool issame(int a, int b) { return a == b; }
@@ -23,7 +27,8 @@ std::vector<int> filter_integers(std::any values) {
 }
 
 int main() {
-    auto values = std::any({{3, 3, 3}, (char)'c', (int)3, (int)3, (char)'a', (char)'b'});
+    auto values = std::any({{3}, {(char)'c'}, {3}, {3}, {(char)'a'}, {(char)'b'}});
     auto output = filter_integers(values);
     assert(issame(output,{3, 3, 3}));
     return 0;
+}
