@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -7,14 +6,10 @@
 std::string filp_case(std::string str){
     std::string result = "";
     for(int i=0; i<str.length(); i++){
-        if(std::isalpha(str[i])) {
-            if(std::islower(str[i]))
-                result += std::toupper((char)str[i]);
-            else
-                result += std::tolower((char)str[i]);
-        } 
-        else {
-            result += str[i];
+        if(str[i] >= 'a' && str[i] <= 'z'){
+            result += std::toupper((char)str[i]);
+        } else {
+            result += std::tolower((char)str[i]);
         }
     }
     return result;
