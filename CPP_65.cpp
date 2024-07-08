@@ -1,6 +1,5 @@
 ```
 #include <iostream>
-#include <string>
 using namespace std;
 
 string circular_shift(int x, int shift) {
@@ -20,9 +19,5 @@ string circular_shift(int x, int shift) {
     }
 }
 
-int main() {
-    int x, shift;
-    cin >> x >> shift;
-    cout << circular_shift(x, shift) << endl;
-    return 0;
-}
+std::cin >> x >> shift;
+std::cout << circular_shift(x, shift) << std::endl;
