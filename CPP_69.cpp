@@ -8,10 +8,12 @@ int search(std::vector<int> lst) {
     for (int i : lst) {
         freq[i]++;
     }
-    for (auto& p : freq) { 
-        if (p.second >= p.first) {
-            return p.first;
+    auto p = freq.begin();
+    while(p != freq.end()) {
+        if (p->second >= p->first) {
+            return p->first;
         }
+        ++p;
     }
     return -1;
 }
