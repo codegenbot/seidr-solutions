@@ -1,9 +1,13 @@
-using namespace std;
+```c++
+#include <string>
+#include <bitset>
 
-string string_xor(string a, string b){
-    string result = "";
+std::string string_xor(std::string a, std::string b){
+    std::string result = "";
     for(int i=0; i<a.length(); i++){
-        if(a[i] == '1' && b[i] == '1' || a[i] == '0' && b[i] == '0')
+        int num1 = std::stoi(a.substr(i, 1), 0, 2);
+        int num2 = std::stoi(b.substr(i, 1), 0, 2);
+        if((num1 & num2) == 0)
             result += '0';
         else
             result += '1';
