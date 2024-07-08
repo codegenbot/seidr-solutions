@@ -1,4 +1,3 @@
-```
 def basement(nums):
     for i in range(len(nums)):
         current_sum = sum(nums[:i+1])
