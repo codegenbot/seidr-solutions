@@ -1,4 +1,3 @@
-```
 cents = int(input())
 result = coin_sums(cents)
 print(f"Pennies: {result[0]}")
