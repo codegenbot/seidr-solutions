@@ -1,8 +1,8 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <cassert>
 
-std::string flip_case(std::string str){
+std::string filp_case(std::string str){
     std::string result = "";
     for(int i=0; i<str.length(); i++){
         if(str[i] >= 'a' && str[i] <= 'z'){
@@ -15,7 +15,7 @@ std::string flip_case(std::string str){
 }
 
 int main() {
-    std::cout << flip_case("These violent delights have violent ends") << std::endl;
-    std::cout << flip_case("Hello, world!") << std::endl;
+    assert(filp_case("These violent delights have violent ends") == "these violent delights have violent ends");
+    std::cout << filp_case("Hello, world!") << std::endl;
     return 0;
 }
