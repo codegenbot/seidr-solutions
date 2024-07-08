@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     if expression == "T":
         return True
@@ -11,3 +12,5 @@ def solve_boolean(expression):
     elif "|" in expression:
         parts = expression.split("|")
         return any(solve_boolean(part.strip()) for part in parts)
+
+print(solve_boolean('t&f|t&t&f'))  # False
