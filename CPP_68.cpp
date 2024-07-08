@@ -1,18 +1,20 @@
 #include <iostream>
 #include <vector>
-#include <utility>
 
-bool issame(const std::pair<int, int>& a, const std::pair<int, int>& b) {
-    return (a.first == b.first);
+bool issame(int a, int b) {
+    if (a == b)
+        return true;
+    else
+        return false;
 }
 
-std::pair<int, int> pluck(std::vector<std::pair<int, int>> vec) {
-    if(vec.empty()) {
-        return {0, 0};
+std::pair<int, int> pluck(const std::vector<std::pair<int, int>>& pairs, int target) {
+    for (const auto& pair : pairs) {
+        if (pair.first == target)
+            return pair;
     }
-    else{
-        return vec[0];
-    }
+    // If no pair with the target value is found
+    return {0, 0};
 }
 
 std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
@@ -40,5 +42,7 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
         }
     }
 
-    return {{minEvenValue, minIndex}};
+    std::vector<std::pair<int, int>> result;
+    result.push_back({minEvenValue, minIndex});
+    return result;
 }
