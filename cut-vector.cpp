@@ -12,7 +12,7 @@ vector<int> cutVector(vector<int>& nums) {
             pos = i;
         }
     }
-    return {vector<int>(nums.begin(), pos+1), vector<int>(pos, nums.end())};
+    return {vector<int>(nums.begin(), pos + 1), vector<int>({pos, nums.end()})};
 }
 
 int main() {
