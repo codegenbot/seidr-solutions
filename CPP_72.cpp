@@ -1,11 +1,8 @@
 ```cpp
-#include <cassert>
-#include <string>
-#include <algorithm>
-#include <vector>
-
 bool will_it_fly(std::vector<int> q, int w) {
     std::string str = "";
+    if(q.empty()) 
+        return true; 
     for(int i : q) {
         str += std::to_string(i);
     }
@@ -16,13 +13,4 @@ bool will_it_fly(std::vector<int> q, int w) {
         sum += i;
     }
     return sum <= w;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);
-    
-    std::vector<int> weights = {};
-    int maxWeight;
-
-    // your code here
 }
