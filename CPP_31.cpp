@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -21,3 +22,4 @@ int main() {
         cout << num << " is not a prime number.\n";
     }
     return 0;
+}
