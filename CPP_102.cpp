@@ -1,4 +1,3 @@
-```c
 #include <stdio.h>
 using namespace std;
 
@@ -18,4 +17,3 @@ int main() {
     scanf("%d", &y);
     printf("The biggest even integer in the range is %d\n", choose_num(x, y));
     return 0;
-}
