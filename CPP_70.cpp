@@ -3,7 +3,7 @@
 #include <initializer_list>
 #include <iostream>
 
-bool isSameVector(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -13,15 +13,21 @@ bool isSameVector(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> strange_sort_list(std::initializer_list<int> lst) {
-    std::vector<int> result(lst);
-    std::sort(result.begin(), result.end());
+std::vector<int> strange_sort_list(initializer_list<int> lst) {
+    std::vector<int> result;
+    if (lst.size() == 0) return result;
+
+    sort(std::vector<int>(lst).begin(), std::vector<int>(lst).end());
+
+    for (int i : lst) {
+        result.push_back(i);
+    }
+
     return result;
 }
 
 int main() {
-    std::vector<int> result = strange_sort_list({111111});
-    if (isSameVector(result, {11111})) {
+    if (issame(strange_sort_list({11111}), {11111})) {
         std::cout << "Output is correct.\n";
     } else {
         std::cout << "Output is incorrect.\n";
