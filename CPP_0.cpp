@@ -1,18 +1,6 @@
-```
-#include <iostream>
+```cpp
 #include <vector>
-
-int main() {
-    std::vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    
-    if (has_close_elements(a, 0.1f)) {
-        std::cout << "The numbers have close elements." << std::endl;
-    } else {
-        std::cout << "The numbers do not have close elements." << std::endl;
-    }
-    
-    return 0;
-}
+#include <cmath>
 
 bool has_close_elements(std::vector<float> numbers, float threshold) {
     for (int i = 0; i < numbers.size(); i++) {
@@ -23,4 +11,13 @@ bool has_close_elements(std::vector<float> numbers, float threshold) {
         }
     }
     return false;
+}
+
+int main() {
+    std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    bool result = has_close_elements(a, 0.5);
+    if(result) 
+        std::cout << "There are close elements" << std::endl;
+    else
+        std::cout << "No close elements found" << std::endl;
 }
