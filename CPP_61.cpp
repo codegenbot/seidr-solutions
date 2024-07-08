@@ -1,5 +1,8 @@
-int count = 0;
-    for (char c : brackets) {
+#include <string>
+
+bool correct_bracketing(const std::string& brackets) {
+    int count = 0;
+    for (auto c : brackets) {
         if (c == '(') {
             count++;
         } else if (c == ')') {
