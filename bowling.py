@@ -1,6 +1,27 @@
 ```
-import re
+def calculate_score(frames):
+    score = 0
+    for i in range(len(frames)):
+        frame = frames[i]
+        if len(frame) == 2:
+            strike = True
+        elif len(frame) >= 3 and 'X' in frame:
+            spare = True
+        else:
+            strike = False
+            spare = False
+
+        if strike:
+            score += 10 + calculate_score(frames[i+1:i+2])
+        elif spare:
+            score += 10 + sum(map(int, filter(str.isdigit, frame)))
+        else:
+            first_roll = int(frame[0])
+            second_roll = int(frame[1]) if len(frame) > 1 else 0
+            score += first_roll + second_roll
+
+    return score
+
 user_input = input()
-frames = [int(''.join(filter(str.isdigit, frame))) for frame in user_input.split("\n") if len(frame.replace("-", "",)) > 0]
-total_score = sum([min(10, k) + (k-1)*1 if k <10 else k+30 if 'X' in frame else min(k//2,k) for k,frame in zip(frames,['8-324333X518-3463X83'.replace("-", "").index(str(k))+len(''.join(filter(str.isdigit, f))) for k,f in zip(map(int,user_input.split("\n")),frames)])])
-print(total_score)
+frames = [frame.replace("-", "") for frame in user_input.split("\n")]
+print(calculate_score(frames))
