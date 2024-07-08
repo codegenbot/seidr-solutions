@@ -24,5 +24,5 @@ std::vector<std::pair<float, float>> find_closest_elements(const std::vector<flo
         }
     }
 
-    return {{closest_pair.first, closest_pair.second}};
+    return {closest_pair};
 }
