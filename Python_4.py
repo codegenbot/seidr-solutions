@@ -1,7 +1,7 @@
-```
-def mean_absolute_deviation(numbers):
+def mean_absolute_deviation(numbers): -> float:
     if len(numbers) == 0:
         return None
+    import statistics
     sum = 0
     count = 0
     mean_val = statistics.mean(numbers)
