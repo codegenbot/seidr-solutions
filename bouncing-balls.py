@@ -3,8 +3,10 @@ first_bounce_height = float(input())
 num_bounces = int(input())
 
 bounciness_index = first_bounce_height / start_height
-distance_per_bounce = first_bounce_height * (1 - 0.5**2) / (1 - 0.5**2) * bounciness_index
 
-total_distance = distance_per_bounce * num_bounces + start_height
+distance_per_bounce = 0
+for _ in range(num_bounces):
+    distance_per_bounce += bounciness_index * start_height
+    start_height *= bounciness_index
 
-print("{:.6f}".format(total_distance))
+print("{:.6f}".format(distance_per_bounce))
