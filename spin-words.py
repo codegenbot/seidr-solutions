@@ -1,7 +1,11 @@
 import re
+
+
 def spin_words(string):
-    if not string: return ""
-    words = re.findall(r"\w+\b", string)
-    return " ".join(reversed(words))
-user_input = input("Enter a string: ")
-print("The spin-words result is:", spin_words(user_input))
+    words = string.split()
+    reversed_words = [word[::-1] if len(word) >= 5 else word for word in words]
+    return " ".join(reversed_words)
+
+
+# Call the function with the user input
+print(spin_words("Hello World"))
