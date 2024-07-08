@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <iostream>
 using namespace std;
 
 int choose_num(int x, int y) {
@@ -9,11 +9,16 @@ int choose_num(int x, int y) {
     return -1;
 }
 
-int main() {
+void anotherMain() {
     int x, y;
-    printf("Enter the first number: ");
-    scanf("%d", &x);
-    printf("Enter the second number: ");
-    scanf("%d", &y);
-    printf("The biggest even integer in the range is %d\n", choose_num(x, y));
+    cout << "Enter the first number: ";
+    cin >> x;
+    cout << "Enter the second number: ";
+    cin >> y;
+    cout << "The biggest even integer in the range is " << choose_num(x, y) << endl;
+}
+
+int main() {
+    anotherMain();
     return 0;
+}
