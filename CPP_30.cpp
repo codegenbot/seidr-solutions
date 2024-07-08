@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,15 +10,15 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
     std::vector<std::vector<float>> result;
     for (const auto& v : vectors) {
         int size = 0;
-        float* positiveVec = get_positive(v, size);
-        if (!issame({}, std::vector<float>({*(positiveVec),}))) {
-            result.push_back(v);
+        std::vector<float> positiveVec = get_positive(v, size);
+        if (!issame({}, positiveVec)) {
+            result.push_back(positiveVec);
         }
     }
     return result;
 }
 
-float* get_positive(const std::vector<float>& vec, int& size) {
+std::vector<float> get_positive(const std::vector<float>& vec, int& size) {
     size = 0;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
@@ -34,10 +33,10 @@ float* get_positive(const std::vector<float>& vec, int& size) {
         }
     }
 
-    return std::vector<float>(positiveVec);
+    return positiveVec;
 }
 
-int main() {
+void mainFunc() {
     int n;
     std::cout << "Enter number of vectors: ";
     std::cin >> n;
@@ -70,5 +69,5 @@ int main() {
         std::cout << "No resultant vectors." << std::endl;
     }
 
-    return 0;
+    return;
 }
