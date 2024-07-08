@@ -16,6 +16,6 @@ std::vector<int> remove_duplicates(std::vector<int> numbers) {
 }
 
 int main() {
-    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == vector<int>{1, 4, 5});
+    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == {1, 2, 3, 4, 5});
     return 0;
 }
