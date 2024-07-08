@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -23,7 +22,7 @@ int bowlingScore(std::string s) {
             }
             lastRollWasStrike = false;
             lastRollWasSpare = true;
-        } else {
+        } else if (c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9') {
             int roll = c - '0';
             if (c == '9') lastRollWasSpare = true;
             else lastRollWasStrike = true;
@@ -39,4 +38,3 @@ int main() {
     int score = bowlingScore(s);
     std::cout << "The score is: " << score << std::endl;
     return 0;
-}
