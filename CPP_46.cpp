@@ -1,6 +1,6 @@
 ```
 #include <iostream>
-#include <cstdio>
+#include <fstream>
 #include <sstream>
 
 using namespace std;
@@ -20,7 +20,7 @@ int fib4(int n) {
 }
 
 int main() {
-    string input;
+    std::string input;
     cout << "Enter the value of n: ";
     getline(cin, input);
     int n = stoi(input); // convert input string to integer
