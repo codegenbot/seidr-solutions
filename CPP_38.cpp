@@ -31,9 +31,13 @@ string decode_cyclic(string s) {
 }
 
 int main() {
-    string str = "abcde";
+    string str;
+    cout << "Enter a string to encode and decode: ";
+    cin >> str;
+
     string encoded_str = encode_cyclic(str);
     assert(decode_cyclic(encoded_str) == str);
+
     cout << "Original: " << str << endl;
     cout << "Encoded: " << encoded_str << endl;
     cout << "Decoded: " << decode_cyclic(encoded_str) << endl;
