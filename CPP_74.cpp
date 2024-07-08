@@ -17,8 +17,9 @@ int main() {
         }
         if (sum1 < sum2) return true;
         else if (sum1 > sum2) return false;
-        else return true;
+        else return true; 
     }
 
     assert(issame(total_match({"this"}, {}), {}));
     return 0;
+}
