@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-#include <initializer_list>
+#include <initializer_list>  
 using namespace std;
 
 int maxPrime(vector<int> lst){
@@ -31,3 +32,4 @@ int main(){
     vector<int> lst = {127, 97, 8192};
     cout << maxPrime(lst) << endl;
     return 0;
+}
