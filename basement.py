@@ -1,5 +1,5 @@
 def basement(nums):
-    total = -1
+    total = 0
     for i in range(len(nums)):
         if total < 0:
             return i
