@@ -2,6 +2,10 @@
 
 vector<float> get_positive(vector<float> l);
 
+bool issame(vector<float> a, vector<float> b){
+    // implementation of issame function
+}
+
 vector<float> get_positive(vector<float> l){
     vector<float> result;
     for (float num : l) {
@@ -12,11 +16,8 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b){
-    return a == b;
+int main() {
+    // main function code
 }
 
-int main() {
-    assert(get_positive({}) == vector<float>{});
-    return 0;
-}
+assert(get_positive({}) == vector<float>{});
