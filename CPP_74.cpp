@@ -1,12 +1,11 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool operator==(const vector<string>& a, const vector<string>& b) {
     return (a == b);
 }
 
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+int total_match(const vector<string>& lst1, const vector<string>& lst2) {
     int sum1 = 0;
     for (const auto& str : lst1) {
         sum1 += str.length();
@@ -15,12 +14,12 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     for (const auto& str : lst2) {
         sum2 += str.length();
     }
-    if (sum1 < sum2) return lst1;
-    else if (sum1 > sum2) return lst2;
-    else return {""}; // return empty vector
+    if (sum1 < sum2) return 0; 
+    else if (sum1 > sum2) return 1;
+    else return 0;
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    assert(std::vector<stdstring>({"this"}) == std::vector<string>(), true);
     return 0;
 }
