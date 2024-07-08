@@ -12,8 +12,8 @@ bool correct_bracketing(std::string s) {
             if(bracket_stack.empty())return false; 
             else bracket_stack.pop();
         }
-    }
-    
+   }
+
     return bracket_stack.empty();
 }
 
@@ -22,4 +22,3 @@ int main() {
     assert(!correct_bracketing(s));  
     std::cout << "Correct bracketing: " << (correct_bracketing("()")) << std::endl;
     return 0;
-}
