@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
@@ -7,7 +8,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
         return false;
     }
 
-    for (size_t i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -16,9 +17,9 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-int main() {
-    // Example test case
+int main(){
+    // Example usage
     assert(issame({"()", "(())", "(()())"}, {"()", "(())", "(()())"}));
-
+    
     return 0;
 }
