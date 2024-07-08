@@ -1,38 +1,19 @@
-#include <algorithm>
-#include <vector>
-#include <limits>
-#include <initializer_list>
-
-bool equalPoints(std::pair<float, float> p1, std::pair<float, float> p2) {
-    return (p1.first == p2.first && p1.second == p2.second);
-}
-
-std::vector<std::pair<float, float>> find_closest_elements(const std::vector<float>& numbers) {
-    if(numbers.size() <= 1)
-        return {};
-
-    std::pair<float, float> closest_pair;
-    float min_diff = std::numeric_limits<float>::max();
-
-    for(int i = 0; i < numbers.size() - 1; ++i) {
-        for(int j = i + 1; j < numbers.size(); ++j) {
-            float diff = std::abs(numbers[j] - numbers[i]);
-            if(diff < min_diff) {
-                min_diff = diff;
-                closest_pair.first = numbers[i];
-                closest_pair.second = numbers[j];
+std::pair<std::pair<float, float>>
+find_closest_elements(vector<float> v1, vector<float> v2) {
+    pair<float, float> result;
+    int min_diff = INT_MAX;
+    for (int i = 0; i < v1.size(); ++i) {
+        for (int j = 0; j < v2.size(); ++j) {
+            if (abs(v1[i] - v2[j]) < min_diff) {
+                result.first = v1[i];
+                result.second = v2[j];
+                min_diff = abs(v1[i] - v2[j]);
             }
         }
     }
-
-    return {{closest_pair.first, closest_pair.second}};
+    return result;
 }
 
-bool areEqual(std::vector<float> a, std::vector<float> b) {
-    return (a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()));
-}
-
-int main() {
-    assert(areEqual({1.1, 2.2, 3.1, 4.1, 5.1}, {{2.2, 3.1}}));
-    return 0;
+bool issame(vector<float> a, vector<float> b) {
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
