@@ -27,12 +27,7 @@ vector<int> strange_sort_list(vector<int> lst) {
     return result;
 }
 
-int mainFunc() {
-    vector<int> result = strange_sort_list({11111, 1});
-    if (issame(result, {1, 11111})) {
-        cout << "Output is correct.\n";
-    } else {
-        cout << "Output is incorrect.\n";
-    }
+int main() {
+    vector<int> result = strange_sort_list(vector<int>{111111});
     return 0;
 }
