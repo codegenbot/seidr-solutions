@@ -1,12 +1,12 @@
-```c++
 #include <vector>
 #include <any>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> filterintegers(const std::vector<std::any>& values) {
+std::vector<int> filterIntegers(const std::vector<std::any>& values) {
     std::vector<int> result;
     for (const auto& value : values) {
         if (value.type() == typeid(int)) {
@@ -17,7 +17,6 @@ std::vector<int> filterintegers(const std::vector<std::any>& values) {
 }
 
 int main() {
-    std::vector<std::any> values = {3, 'c', 3, 3, 'a', 'b'};
-    assert(issame(filterintegers(values), std::vector<int>{3, 3, 3}));
+    assert(issame(filterIntegers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
