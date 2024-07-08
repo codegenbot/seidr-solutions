@@ -5,7 +5,8 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
-
-# Call the function with the appropriate arguments
-result = check_numbers([4, 7, 2, 9], 3)
+# Example usage
+numbers = [3, 1, 5, 7, 2]
+threshold = 1
+result = check_numbers(numbers, threshold)
 print(result)
