@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -19,4 +18,3 @@ int main() {
     double result = diceGame(n, m);
     cout << "Probability: " << result << endl;
     return 0;
-}
