@@ -1,14 +1,24 @@
-```cpp
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 int choose_num(int x, int y) {
-    int result = 0;
+    vector<int> result;
+    stringstream ss;
     for (int i = x; i <= y; i++) {
         if (i % 2 == 0)
-            result = i;
+            ss << i << " ";
     }
-    return result;
+    string temp = ss.str();
+    size_t pos = 0;
+    while ((pos = temp.find(" ")) != string::npos) {
+        int num = stoi(temp.substr(0, pos));
+        result.push_back(num);
+        temp.erase(0, pos + 1);
+    }
+    if (!temp.empty())
+        result.push_back(stoi(temp));
+    return *max_element(result.begin(), result.end());
 }
 
 int main() {
