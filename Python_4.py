@@ -1,7 +1,12 @@
-```
-def mean_absolute_deviation(data):
-    mean = sum(data) / len(data)
-    return sum(abs(val - mean) for val in data) / len(data)
+import statistics
 
-data = list(map(float, input("Enter the numbers separated by space: ").split()))
-print(mean_absolute_deviation(data))
+
+def mean_absolute_deviation(lst):
+    return statistics.mean([abs(x - statistics.mean(lst)) for x in lst])
+
+
+print(
+    mean_absolute_deviation(
+        list(map(int, input("Enter numbers separated by space: ").split()))
+    )
+)
