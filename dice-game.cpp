@@ -4,9 +4,11 @@ using namespace std;
 double diceGame(int n, int m) {
     double prob = 0.0;
     for (int i = 1; i <= m; i++) {
-        prob += (1.0 / m);
+        for (int j = i + 1; j <= n; j++) {
+            prob += (1.0 / m) * (1.0 / (n - j + 1));
+        }
     }
-    return 1 - prob;
+    return prob;
 }
 
 int main() {
