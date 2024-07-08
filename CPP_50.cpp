@@ -3,8 +3,6 @@
 
 std::string encode_shift(std::string s);
 
-std::string decode_shift(std::string s);
-
 void test_code() {
     std::string str = "input string";
     std::string encoded_str = encode_shift(str);
