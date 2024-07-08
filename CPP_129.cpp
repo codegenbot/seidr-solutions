@@ -1,20 +1,16 @@
-```cpp
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+```c++
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
-    vector<int> res;
+    std::vector<std::vector<bool>> visited(n, std::vector<bool>(n, false));
+    std::vector<int> res;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
@@ -25,12 +21,12 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     return res;
 }
 
-void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int i, int j, int k, vector<int>* res) {
+void dfs(std::vector<std::vector<int>>& grid, std::vector<std::vector<bool>>& visited, int i, int j, int k, std::vector<int>* res) {
     (*res).push_back(grid[i][j]);
     visited[i][j] = true;
     if (k > 1) {
-        for (int x = max(0, i - 1); x <= min(i + 1, grid.size() - 1); ++x) {
-            for (int y = max(0, j - 1); y <= min(j + 1, grid[0].size() - 1); ++y) {
+        for (int x = std::max(0, i - 1); x <= std::min(i + 1, grid.size() - 1); ++x) {
+            for (int y = std::max(0, j - 1); y <= std::min(j + 1, grid[0].size() - 1); ++y) {
                 if (!visited[x][y]) {
                     dfs(grid, visited, x, y, k - 1, res);
                     return;
@@ -38,4 +34,8 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int i, int j,
             }
         }
     }
+}
+
+int main() {
+    // Your code goes here
 }
