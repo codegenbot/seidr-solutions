@@ -1,39 +1,29 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
-int count_nums(std::vector<int> nums) {
+using namespace std;
+
+int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num >= 0) {
             int sum = 0;
-            bool negativeFound = false;
-            while (num > 0 || (negativeFound && num < 0)) {
-                int digit = abs(num) % 10;
-                if ((digit > 0 && !negativeFound) || (digit == 1 && negativeFound))
-                    sum += digit;
-                else
-                    negativeFound = true;
+            bool hasNegative = false;
+            while (num > 0 || hasNegative) {
+                int digit = num % 10;
+                if (digit < 0) {
+                    hasNegative = true;
+                    digit = -digit;
+                }
+                sum += digit;
                 num /= 10;
             }
-            if (sum > 0)
+            if (sum > 0) {
                 count++;
-        } else {
-            int sum = 0;
-            bool negativeFound = false;
-            while (num < 0 || (negativeFound && num >= 0)) {
-                int digit = abs(num) % 10 * (-1);
-                if ((digit > -1 && !negativeFound) || (digit == -1 && negativeFound))
-                    sum += digit;
-                else
-                    negativeFound = true;
-                num /= 10;
             }
-            if (sum > 0)
-                count++;
         }
     }
     return count;
-
 }
 
 int main() {
