@@ -1,7 +1,7 @@
-#include <algorithm>
-
+```
 #include <cassert>
 #include <string>
+#include <algorithm>
 #include <vector>
 
 bool will_it_fly(std::vector<int> q, int w) {
