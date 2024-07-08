@@ -1,9 +1,4 @@
-#include <vector>
-#include <utility>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+#include <bits/stdc++.h>
 
 std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
@@ -33,8 +28,4 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
     std::vector<std::pair<int, int>> result;
     result.push_back({minEvenValue, minIndex});
     return result;
-}
-
-int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {})); 
 }
