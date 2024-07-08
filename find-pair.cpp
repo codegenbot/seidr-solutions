@@ -1,17 +1,11 @@
-#include <vector>
-#include <algorithm>
-
-std::pair<int, int> findPair(std::vector<int>& nums, int target) {
-    std::sort(nums.begin(), nums.end());
-    for (int i = 0; i < nums.size() - 1; i++) {
+int findPair(vector<int> nums, int target) {
+    unordered_map<int, int> numMap;
+    for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
-        int j = i + 1;
-        while (j < nums.size() && nums[j] < complement) {
-            if (nums[j] + nums[i] == target) {
-                return std::make_pair(nums[i], nums[j]);
-            }
-            j++;
+        if (numMap.find(complement) != numMap.end()) {
+            return vector<int>{complement, nums[i]};
         }
+        numMap[nums[i]] = i;
     }
-    return std::make_pair(-1, -1);
+    return vector<int>(); // return an empty pair if no such pair exists
 }
