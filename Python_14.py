@@ -1,5 +1,5 @@
 ```
-def all_prefixes_and_suffixes(string: str) -> list[str]:
+def all_prefixes_and_suffixes(string: str) -> list:
     result = []
     for i in range(1, len(string) + 1):
         prefix = string[:i]
