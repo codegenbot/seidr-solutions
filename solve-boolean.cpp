@@ -1,25 +1,28 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool isAnd = false;
-    bool isOr = false;
+    stack<char> st;
+    bool prevOp = false;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
-            isAnd = true;
-            isOr = false;
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) return false;
+            prevOp = true;
         } else if (s[i] == '|') {
-            isOr = true;
-            isAnd = false;
-        } else if ((isAnd && s[i] == 'T') || (isOr && s[i] == 'F')) {
-            return !isOr;
-        } else if ((isAnd && s[i] == 'F') || (isOr && s[i] == 'T')) {
-            return isOr;
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if (st.empty()) return true;
+            prevOp = false;
+        } else {
+            st.push(s[i]);
         }
     }
-    return !isAnd;
+    return !st.empty() || prevOp;
 }
 
 int main() {
