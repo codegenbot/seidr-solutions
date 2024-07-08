@@ -1,22 +1,21 @@
 #include <vector>
+#include <cassert>
 
-vector<float> get_positive(vector<float> l);
-
-bool issame(vector<float> a, vector<float> b){
-    vector<float> a_positives = get_positive(a);
-    vector<float> b_positives = get_positive(b);
-    
-    // Your implementation here
-    
-    return true; // Placeholder return statement
+bool issame(std::vector<float> a, std::vector<float> b){
+    return a == b;
 }
 
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
+std::vector<float> get_positive(std::vector<float> l){
+    std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
             result.push_back(num);
         }
     }
     return result;
+}
+
+int main(){
+    assert(issame(get_positive({}), {}));
+    return 0;
 }
