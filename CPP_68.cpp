@@ -39,8 +39,12 @@ int main() {
         std::cin >> arr[i];
     }
 
-    auto result = findMinEvenNode(std::vector<int>(arr, arr + n));
+    auto result = findMinEvenNode({arr[0], arr[1]});
     delete[] arr;
+    
+    for (const auto& pair : result) {
+        std::cout << "Index of the minimum even node: " << pair.second << "\n";
+    }
     
     return 0;
 }
