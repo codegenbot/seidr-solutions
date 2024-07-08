@@ -1,26 +1,26 @@
-std::vector<std::string> separate_paren_groups(std::string input) {
-    std::vector<std::string> groups;
-    int level = 0;
-    std::string current_group;
+#include <vector>
+#include <string>
+#include <cassert>
 
-    for (char c : input) {
-        if (c == '(') {
-            level++;
-            if (level > 1) {
-                current_group += c;
-            }
-        } else if (c == ')') {
-            level--;
-            if (level > 0) {
-                current_group += c;
-            } else {
-                if (!current_group.empty()) {
-                    groups.push_back(current_group);
-                    current_group.clear();
-                }
-            }
+std::vector<std::string> separate_paren_groups(const std::string& s) {
+    // Implementation to separate groups of parentheses
+}
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
 
-    return groups;
+    return true;
+}
+
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    return 0;
 }
