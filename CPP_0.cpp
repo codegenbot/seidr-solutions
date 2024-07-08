@@ -1,12 +1,11 @@
-#include <iostream>
 #include <vector>
+#include <cmath>
+#include <initializer_list>
 
-using namespace std;
-
-bool has_close_elements(vector<double> numbers, double threshold) {
+bool has_close_elements(std::vector<double> numbers, double threshold) {
     for (int i = 0; i < numbers.size(); i++) {
         for (int j = i + 1; j < numbers.size(); j++) {
-            if (abs(numbers[i] - numbers[j]) <= threshold) {
+            if (std::abs(numbers[i] - numbers[j]) <= threshold) {
                 return true;
             }
         }
@@ -15,26 +14,20 @@ bool has_close_elements(vector<double> numbers, double threshold) {
 }
 
 int main() {
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-
-    vector<double> a;
-    
-    for (int i = 0; i < n; i++) {
-        double num;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> num;
-        a.push_back(num);
+    std::vector<double> a;
+    double n;
+    while(true){
+        std::cout << "Enter a number, or 'q' to stop: ";
+        std::cin >> n;
+        if(n == 'q') break;
+        a.push_back(n);
     }
-    
-    double threshold;
-    cout << "Enter the threshold: ";
-    cin >> threshold;
-    
-    if (has_close_elements(a, threshold)) {
-        cout << "The array contains close elements." << endl;
+    double thresh;
+    std::cout << "Enter threshold value: ";
+    std::cin >> thresh;
+    if (has_close_elements(a, thresh)) {
+        std::cout << "The array contains close elements." << std::endl;
     } else {
-        cout << "The array does not contain close elements." << endl;
+        std::cout << "The array does not contain close elements." << std::endl;
     }
 }
