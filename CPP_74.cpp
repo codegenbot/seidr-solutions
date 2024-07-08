@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return (a == b);
 }
 
@@ -21,11 +22,22 @@ int main() {
         lst2.push_back(str);
     }
     
-    bool total_match = true;
-    if (sum1 < sum2) return total_match;
-    else if (sum1 > sum2) total_match = false;
-    bool result = isSame(lst1, lst2);
-    assert(result == total_match);
+    bool result = same(lst1, lst2);
+    
+    if (std::accumulate(lst1.begin(), lst1.end(), 0,
+                         [](int sum, const auto& str) { return sum + str.length(); })
+        <
+        std::accumulate(lst2.begin(), lst2.end(), 0,
+                         [](int sum, const auto& str) { return sum + str.length(); }))
+        result = true;
+    else if (std::accumulate(lst1.begin(), lst1.end(), 0,
+                             [](int sum, const auto& str) { return sum + str.length(); })
+             >
+             std::accumulate(lst2.begin(), lst2.end(), 0,
+                             [](int sum, const auto& str) { return sum + str.length(); }))
+        result = false;
+    else
+        result = true;
 
-    return 0;
+    return result;
 }
