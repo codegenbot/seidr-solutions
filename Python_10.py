@@ -1,23 +1,19 @@
+```
 def make_palindrome(s):
     if len(s) == 0:
         return ""
 
-    s = list(s)
+    palindrome = ""
     i, j = 0, len(s) - 1
-
     while i <= j:
-        palindrome = ""
-        while i <= j and s[i] != s[j]:
-            left_half = s[: i + 1]
-            right_half = s[j:]
-            middle = "".join(reversed(left_half[1:]))
-            palindrome = left_half[0] + middle + right_half
+        if s[i] != s[j]:
+            palindrome += s[i]
+            palindrome += s[j]
+        else:
+            palindrome += s[i]
             i += 1
             j -= 1
+        i += 1
+        j -= 1
 
-        if i <= j:
-            palindrome += s[i]
-        else:
-            break
-
-    return palindrome
+    return palindrome + ''.join(reversed(s))
