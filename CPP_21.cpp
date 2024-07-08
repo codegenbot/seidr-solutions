@@ -14,9 +14,7 @@ std::vector<float> rescale_to_unit(std::vector<float> numbers) {
     return rescaled;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
-}
+bool issame(std::vector<float> a, std::vector<float> b);
 
 int main() {
     std::vector<float> numbers = {2.0, 4.0, 6.0, 8.0, 10.0};
