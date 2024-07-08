@@ -1,9 +1,8 @@
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result;
-    for (int num : numbers) {
-        if (find(result.begin(), result.end(), num) == result.end()) {
-            result.push_back(num);
-        }
-    }
-    return result;
+    unordered_set<int> unique_nums(numbers.begin(), numbers.end());
+    return vector<int>(unique_nums.begin(), unique_nums.end());
 }
