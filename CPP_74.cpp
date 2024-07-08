@@ -26,7 +26,7 @@ int main() {
     }
     
     bool total_match = issame(lst1, lst2);
-    
+
     assert(total_match);
 
     return 0;
