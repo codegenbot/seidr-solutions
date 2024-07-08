@@ -13,5 +13,4 @@ def mean_absolute_deviation(numbers):
     return total / count
 
 numbers = input("Enter space-separated numbers: ").split()
-numbers = [float(num) for num in numbers]
-print(mean_absolute_deviation(numbers))
+print(mean_absolute_deviation([float(num) for num in numbers]))
