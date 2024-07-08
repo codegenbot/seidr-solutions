@@ -1,6 +1,6 @@
 #include <vector>
-#include <bitset>
 #include <algorithm>
+#include <bitset>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a != b)
@@ -16,7 +16,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
             return a < b;
         }
     };
-    std::sort(arr.begin(), arr.end(), comp);
+    sort(arr.begin(), arr.end(), comp);
     return arr;
 }
 
