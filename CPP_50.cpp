@@ -1,3 +1,8 @@
+#include <string> // For string functions
+#include <cassert> // For assert function
+
+string encode_shift(string s);
+
 string decode_shift(string s){
     string out;
     int i;
