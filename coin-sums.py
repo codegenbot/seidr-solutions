@@ -1,13 +1,14 @@
-```
+```Python
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
 
-    for coin in coins:  
-        result[coins.index(coin)] = int(cents / coin)
+    for i, coin in enumerate(coins):
+        count = cents // coin
+        result[i] = count
         cents %= coin
-        cents %= (cents % coin)
 
+    result[3] = cents  
     return result
 
 cents = int(input())
