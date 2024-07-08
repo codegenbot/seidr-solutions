@@ -1,6 +1,7 @@
-```python
+```
+note_map = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6}
+
 def music_check(note: str) -> int:
-    note_map = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6}
     return note_map.get(note.upper(), -1)
 
 def parse_music(music_string: str) -> list:
@@ -9,5 +10,11 @@ def parse_music(music_string: str) -> list:
     for note in notes:
         if note.strip() != "":
             note = note.replace("o", "").strip()
-            result.append(int(note) if note else 0)
+            if note in note_map:
+                result.append(int(note) if note else 0)
+            else:
+                note = str(music_check(note))
+                while len(note) < 3:
+                    note = "0" + note
+                result.append(int(note))
     return result
