@@ -14,17 +14,19 @@ int main() {
         cents -= 25;
     }
 
-    while (cents >= 10) {
+    int remaining = cents; 
+
+    while (remaining >= 10) {
         dimes++;
-        cents -= 10;
+        remaining -= 10;
     }
 
-    while (cents >= 5) {
-        nickles++;
-        cents -= 5;
+    while (remaining >= 5) {
+        nickles = (remaining + 4) / 5;
+        remaining %= 5;
     }
 
-    pennies = cents; 
+    pennies = remaining;
 
     std::cout << quarters << "\n";
     std::cout << nickles << "\n";
