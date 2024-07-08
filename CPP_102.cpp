@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 
 using namespace std;
@@ -10,11 +9,10 @@ int choose_num(int x, int y) {
         return -1;
     else if (x % 2 == 0)
         return x;
-    else
+    else 
         for (int i = x; i <= y; i++) {
-            if (i % 2 == 0) {
+            if (i % 2 == 0) 
                 return i;
-            }
         }
     return -1;
 }
