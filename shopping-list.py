@@ -1,4 +1,3 @@
-```
 def shopping_list():
     prices = list(map(float, input().split()))
     discounts = list(map(float, input().split()))
