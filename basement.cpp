@@ -10,5 +10,4 @@ int basement(std::vector<int> nums) {
     }
     return 0;
 }
-
 #endif // BASEMENT_H
