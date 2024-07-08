@@ -24,7 +24,6 @@ int main(){
     std::cout << "Enter the number of rows and columns for each matrix: ";
     std::cin >> m >> n;
     
-    // read in the first matrix
     for(int i = 0; i < m; i++) {
         matrix1.push_back({});
         for(int j = 0; j < n; j++) {
@@ -35,7 +34,6 @@ int main(){
         }
     }
     
-    // read in the second matrix
     for(int i = 0; i < m; i++) {
         matrix2.push_back({});
         for(int j = 0; j < n; j++) {
