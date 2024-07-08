@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <limits>
@@ -18,20 +19,16 @@ std::vector<std::pair<float, float>> find_closest_elements(const std::vector<flo
             float diff = std::abs(numbers[j] - numbers[i]);
             if(diff < min_diff) {
                 min_diff = diff;
-                closest_pair.first = numbers[i];
-                closest_pair.second = numbers[j];
+                closest_pair.first = (numbers[i] + numbers[j]) / 2.0;
+                closest_pair.second = min(numbers[i], numbers[j]);
             }
         }
     }
 
-    return {closest_pair};
+    return {{closest_pair.first, closest_pair.second}};
 }
 
 int main() {
-    std::vector<float> numbers = {1.1, 2.2, 3.1, 4.1, 5.1};
-    auto result = find_closest_elements(numbers);
-    if(result.size() > 0) {
-        assert(issame(*result.begin(), std::make_pair(numbers[0], numbers[0])));
-    }
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::vector<std::pair<float, float>>({{(1.1 + 2.2) / 2.0, min(1.1, 2.2)}});
     return 0;
 }
