@@ -3,21 +3,21 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
     return a == b;
 }
 
-std::vector<char> all_prefixes(std::string str) {
-    std::vector<char> result;
+std::vector<std::string> all_prefixes(std::string str) {
+    std::vector<std::string> result;
     for (int i = 1; i <= str.length(); i++) {
-        result.insert(result.end(), str.begin(), str.begin() + i);
+        result.push_back(str.substr(0, i));
     }
     return result;
 }
 
 int main() {
     std::string str = "WWW";
-    std::vector<char> prefixes = all_prefixes(str);
-    assert(issame({str}, {str}));
+    std::vector<std::string> result = all_prefixes(str);
+    assert(issame({str}, result));
     return 0;
 }
