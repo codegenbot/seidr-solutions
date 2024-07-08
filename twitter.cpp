@@ -6,6 +6,17 @@ int main() {
     string tweet;
     getline(cin, tweet);
 
+    // Replace newline and carriage return characters with empty strings
+    int pos = tweet.find('\n');
+    if (pos != -1) {
+        tweet.replace(pos, 1, "");
+    }
+    pos = tweet.find('\r');
+    if (pos != -1) {
+        tweet.replace(pos, 1, "");
+    }
+
+    // Check for length and print output
     if (tweet.length() > 140) {
         cout << "Too many characters" << endl;
         return 1; // Return failure status
