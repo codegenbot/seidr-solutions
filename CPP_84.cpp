@@ -1,13 +1,21 @@
 #include <string>
 
 string solve(int N) {
-    string result;
+    int sum = 0;
+    string result = "";
+    
     while (N > 0) {
-        if ((N & 1) == 1)
-            result = '1' + result;
-        else
-            result = '0' + result;
+        sum += N & 1;
         N >>= 1;
     }
+    
+    while (sum > 0) {
+        if (sum & 1)
+            result.append("1");
+        else
+            result.append("0");
+        sum >>= 1;
+    }
+    
     return result;
 }
