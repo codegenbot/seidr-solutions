@@ -11,7 +11,7 @@ def coin_sums(cents):
     while remaining_cents > 0:
         if remaining_cents >= 1:
             remaining_cents -= 1
-    return quarters, nickels, dimes, remaining_cents
+    return quarters, nickels, dimes, pennies % 25
 
 cents = int(input())
 quarters, nickels, dimes, pennies = coin_sums(cents)
