@@ -1,5 +1,3 @@
-Here's the completed code:
-
 bool is_sorted(vector<int> lst){
     if (lst.size() <= 1) return true;
 
@@ -16,4 +14,11 @@ bool is_sorted(vector<int> lst){
     }
 
     return true;
+
+}
+
+int main() {
+    vector<int> lst = {1, 2, 3, 4};
+    assert(is_sorted(lst) == true);
+    return 0;
 }
