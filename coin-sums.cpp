@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 int main() {
@@ -15,7 +14,6 @@ int main() {
         quarters++;
         cents -= 25;
     }
-
     dimes = 0;
     while (cents >= 10) {
         dimes++;
@@ -27,7 +25,6 @@ int main() {
         nickles++;
         cents -= 5;
     }
-
     pennies = cents;
 
     std::cout << quarters << "\n";
