@@ -1,3 +1,8 @@
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
 string circular_shift(int x, int shift) {
     string str = to_string(x);
     int n = str.length();
@@ -12,6 +17,12 @@ string circular_shift(int x, int shift) {
                 buffer[i] = str[i-shift];
         }
         buffer[n-1] = '\0';
-        return string(buffer, n-1);
+        return string(buffer) + "\0";
     }
+}
+
+int main() {
+    int x, shift;
+    cin >> x >> shift;
+    cout << circular_shift(x, shift) << endl;
 }
