@@ -1,4 +1,3 @@
-```
 def substitution_cipher(cipher_map, message):
     return ''.join([cipher_map[i] if i < len(cipher_map) else '' for i in range(len(message))])
 
