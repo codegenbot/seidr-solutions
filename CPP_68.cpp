@@ -1,3 +1,4 @@
+```cpp
 std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
 
