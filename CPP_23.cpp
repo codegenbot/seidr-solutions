@@ -1,7 +1,6 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <cassert>
-#include <cstring>
 
 int my_strlen(std::string str) {
     int len = 0;
@@ -15,7 +14,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    assert(my_strlen(input) == my_strlen("asdasnakj"));
-    std::cout << "The length of '" << input << "' is: " << my_strlen(input) << "\n";
+    std::cout << "The length of '" << input << "' is: " << my_strlen(input) << std::endl;
     return 0;
 }
