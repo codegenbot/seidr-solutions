@@ -1,6 +1,6 @@
-````
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 using namespace std;
 
 vector<int> cutVector(vector<int>& nums) {
@@ -13,24 +13,32 @@ vector<int> cutVector(vector<int>& nums) {
             pos = i;
         }
     }
-    return {vector<int>(nums.begin(), pos+1), vector<int>(std::next(nums.begin(), pos), nums.end())};
+    return {vector<int>(nums.begin(), pos+1), vector<int>(nums.begin() + pos + 1, nums.end())};
 }
 
 int main() {
     int n;
     cin >> n;
+    if(n < 1) {
+        cout << "Input integer should be greater than 0." << endl;
+        return -1;
+    }
     vector<int> nums(n);
     for (auto &num : nums) {
         cin >> num;
+        if(num < 1) {
+            cout << "Input integers should be positive." << endl;
+            return -1;
+        }
     }
     vector<int> result = cutVector(nums);
     cout << "[";
-    for (int num : result.at(0)) {
-        cout << num << " ";
+    for (auto it = result[0].begin(); it != result[0].end(); ++it) {
+        cout << *it << " ";
     }
     cout << "] [";
-    for (int i = 0; i < result.at(1).size(); i++) {
-        cout << result.at(1)[i] << " ";
+    for (auto it = result.at(1).begin(); it != result.at(1).end(); ++it) {
+        cout << *it << " ";
     }
     cout << "] ]" << endl;
     return 0;
