@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <string>
 #include <algorithm>
@@ -8,7 +9,7 @@ bool will_it_fly(std::vector<int> q, int w) {
     for(int i : q) {
         str += std::to_string(i);
     }
-    if(std::string(str.rbegin(), str.end()) != std::string(str.begin(), str.end()))
+    if(std::accumulate(q.begin(), q.end(), 0) != std::accumulate(q.rbegin(), q.rend(), 0))
         return false;
     int sum = 0;
     for(int i : q) {
