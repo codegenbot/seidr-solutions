@@ -1,10 +1,12 @@
+
 #include <string>
 #include <cassert>
 
-std::string encode_shift(std::string s);
+string encode_shift(string s);
+string decode_shift(string s);
 
 void test_code() {
-    std::string str = "input string";
-    std::string encoded_str = encode_shift(str);
+    string str = "input string";
+    string encoded_str = encode_shift(str);
     assert(decode_shift(encoded_str) == str);
 }
