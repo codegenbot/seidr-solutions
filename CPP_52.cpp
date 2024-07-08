@@ -1,14 +1,8 @@
-```cpp
-bool below_threshold(vector<int> l, int t) {
+```bool below_threshold(vector<int> l, int t) {
     for (int i : l) {
         if (i >= t) {
             return false;
         }
     }
     return true;
-
-}
-
-int main() {
-    assert(not(below_threshold({1, 8, 4, 10}, 10)));
 }
