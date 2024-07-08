@@ -23,4 +23,3 @@ int main() {
     cout << snowDay(hours, initialSnow, rateOfSnowfall, proportionOfMelting) << endl;
 
     return 0;
-}
