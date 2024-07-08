@@ -1,4 +1,4 @@
-#include <iostream>
+    #include <iostream>
 #include <vector>
 #include <set>
 
@@ -6,20 +6,19 @@ using namespace std;
 
 // Function to find the leaders in a given vector
 vector<int> getLeaders(const vector<int>& v) {
-    // Initialize result and seen set
     vector<int> result;
     set<int> seen;
 
-    // Check if input is empty
-    if (v.empty()) return result;
+    // Check if the input vector is empty
+    if (v.empty()) {
+        return result;
+    }
 
+    // Loop through the vector and find the leaders
     for (auto it = v.rbegin(); it != v.rend(); ++it) {
         bool isLeader = true;
 
-        // Check if current element is in seen set
-        if (seen.count(*it)) continue;
-
-        // Check if current element is greater than or equal to all the elements to its right
+        // Check if the current element is greater than or equal to all the elements to its right
         for (auto jt = it + 1; jt != v.rend() && *jt > *it; ++jt) {
             if (*jt <= *it) {
                 isLeader = false;
@@ -27,12 +26,13 @@ vector<int> getLeaders(const vector<int>& v) {
             }
         }
 
-        // If current element is a leader, add it to the result and seen sets
+        // If the current element is a leader, add it to the result vector and mark it as seen
         if (isLeader || it == v.rbegin()) {
             result.push_back(*it);
             seen.insert(*it);
         }
     }
+
     return result;
 }
 
