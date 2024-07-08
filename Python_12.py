@@ -1,9 +1,8 @@
-```
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
     if not all(isinstance(s, str) for s in strings):
-        return None
+        return "Expected list of strings"
     if not strings:
         return None
     max_length = 0
