@@ -1,36 +1,49 @@
 #include <iostream>
 #include <vector>
-#include <string>
-
-using namespace std;
+#include <algorithm>
 
 string exchange(vector<int> lst1, vector<int> lst2) {
-    for (int num : lst1) {
+    int sum = 0;
+    for (int num : lst2) {
         if (num % 2 != 0) {
             return "NO";
         }
+        sum += num;
     }
-    for (int i = 0; i < lst2.size(); i++) {
-        if (lst2[i] % 2 != 0) {
-            int found = 0;
-            for (int j = 0; j < lst1.size(); j++) {
-                if (lst2[i] == lst1[j]) {
-                    found = 1;
-                    lst1.erase(lst1.begin() + j);
-                    break;
-                }
-            }
-            if (!found) {
-                return "NO";
-            }
+
+    if(sum%4!=0){
+        return "NO";
+    }
+
+    for (int i = 0; i < lst1.size(); i++) {
+        if (std::find(lst2.begin(), lst2.end(), lst1[i]) == lst2.end()) {
+            return "NO";
         }
     }
+
     return "YES";
 }
 
 int main() {
-    vector<int> lst1 = {100, 200};
-    vector<int> lst2 = {200, 200};
+    vector<int> lst1;
+    vector<int> lst2;
+
+    int n, m;
+    cin >> n >> m;
+
+    for (int i = 0; i < n; i++) {
+        int num;
+        cin >> num;
+        lst1.push_back(num);
+    }
+
+    for (int i = 0; i < m; i++) {
+        int num;
+        cin >> num;
+        lst2.push_back(num);
+    }
+
     cout << exchange(lst1, lst2) << endl;
+
     return 0;
 }
