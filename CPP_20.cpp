@@ -16,7 +16,7 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
             closest_pair = {numbers[i], numbers[i + 1]};
         }
     }
-    return {closest_pair.first, closest_pair.second};
+    return closest_pair;
 }
 
 bool issame(std::vector<float> a, std::vector<float> b) {
@@ -24,6 +24,6 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1});
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
     return 0;
 }
