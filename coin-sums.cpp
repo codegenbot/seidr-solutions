@@ -14,7 +14,6 @@ int main() {
         quarters++;
         cents -= 25;
     }
-
     pennies = cents;
 
     dimes = pennies / 10; 
