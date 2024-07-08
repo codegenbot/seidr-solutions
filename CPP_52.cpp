@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <initializer_list>
 
 bool below_threshold(std::vector<int> l, int t) {
     for (int num : l) {
@@ -13,6 +13,6 @@ bool below_threshold(std::vector<int> l, int t) {
 }
 
 int main() {
-    assert(not(below_threshold(std::vector<int>({1, 8, 4, 10}), 10)));
+    assert(not(below_threshold({1, 8, 4, 10}, 10)));
     return 0;
 }
