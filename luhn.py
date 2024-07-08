@@ -3,7 +3,7 @@ def luhn(card_number):
     card_number.reverse()
     total_sum = 0
     for i, num in enumerate(card_number):
-        if (i % 2 == 1):
+        if (i % 2 == 1 and i != 0):  
             temp_sum = num * 2
             if (temp_sum > 9):
                 temp_sum -= 9
