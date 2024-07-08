@@ -1,7 +1,6 @@
-```cpp
-#include<bits/stdc++.h>
-using namespace std;
+Here is the modified code:
 
+```cpp
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
