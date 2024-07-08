@@ -1,10 +1,7 @@
 #include <any>
 #include <vector>
 
-bool issame(int a, int b) { return a == b; }
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
+bool issame(std::vector<int> a, std::vector<int> b) { return a == b; }
 
 std::vector<int> filter_integers(std::any values) {
     std::vector<int> result;
@@ -20,6 +17,6 @@ std::vector<int> filter_integers(std::any values) {
 int main() {
     auto values = std::any({(int)3, (int)'c', 3, 3, (int)'a', (int)'b'});
     auto output = filter_integers(values);
-    assert(issame(output.size(), 3));
+    assert(issame(std::vector<int>{3, 3}, output));
     return 0;
 }
