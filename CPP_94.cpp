@@ -1,17 +1,18 @@
+```
 #include <iostream>
 #include <vector>
 
-int skjkasdkd(int num) {
+int skjkasdkd(int n) {
     std::vector<int> lst;
     int maxPrime = 0;
-    for(int i=0; i<num; i++){
-        int n;
+    for(int i=0; i<n; i++){
+        int num;
         std::cout << "Enter number: ";
-        std::cin >> n;
-        lst.push_back(n);
-        if(isPrime(n)){
-            if(maxPrime < n){
-                maxPrime = n;
+        std::cin >> num;
+        lst.push_back(num);
+        if(isPrime(num)){
+            if(maxPrime < num){
+                maxPrime = num;
             }
         }
     }
