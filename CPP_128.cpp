@@ -13,3 +13,4 @@ int prod_signs(std::vector<int> arr){
     }
     
     return product * sum == 0 ? INT_MIN : product * sum;
+}
