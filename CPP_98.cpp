@@ -4,18 +4,13 @@
 int count_upper(std::string s) {
     int count = 0;
     for (int i = 0; i < s.length(); i++) {
-        if ((s[i] >= 'A' && s[i] <= 'U') || (s[i] >= 'a' && s[i] <= 'u')) {
+        if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z')) {
             count++;
         }
     }
-    if(count > 4) std::cout << "Error: More than 4 upper case letters detected." << std::endl;
+    if(count == 0) 
+        std::cout << "No uppercase characters found." << std::endl;
+    else
+        std::cout << "Total number of uppercase characters is: " << count << std::endl;
     return count;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-    int result = count_upper(input);
-    std::cout << "Number of upper case letters: " << result << std::endl;
-    return 0;
 }
