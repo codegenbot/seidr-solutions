@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
+std::vector<int> findMinEvenNode(std::vector<int> arr) {
     std::vector<int> evenNodes;
     
     for (int i = 0; i < arr.size(); i++) {
@@ -33,13 +33,13 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    // Initialize the vector with 'n' size.
+    // Initialize the vector directly without specifying its size:
     std::vector<int> arr;
-    arr.resize(n);
-
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
-        std::cin >> arr[i];
+        int temp;
+        std::cin >> temp;
+        arr.push_back(temp);
     }
 
     auto result = findMinEvenNode(arr);
