@@ -1,10 +1,10 @@
+```cpp
 #include <vector>
 #include <bitset>
 
 int main() {
-    std::vector<int> arr = {2,4,8,16,32};
-    bool issame = isSame(sortArray(arr), arr);
-    return (issame ? 0 : 1);
+    assert(isSame(sortArray({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
+    return 0;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
