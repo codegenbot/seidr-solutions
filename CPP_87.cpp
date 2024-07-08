@@ -1,8 +1,11 @@
-```cpp
 #include <vector>
 
-std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& matrix, int row) {
-    return matrix[row];
+std::vector<std::vector<int>> get_row(std::vector<std::vector<int>>& matrix, int row) {
+    std::vector<int> row_data;
+    for(int i = 0; i < matrix[0].size(); i++) {
+        row_data.push_back(matrix[row][i]);
+    }
+    return row_data;
 }
 
 bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
@@ -23,6 +26,5 @@ bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vecto
 }
 
 int main() {
-    std::vector<std::vector<int>> row = {{}, {1}, {1, 2, 3}};
-    assert(issame(get_row(row, 3), {{2, 2}}));
+    assert (issame(get_row({{}, {1}, {1, 2, 3}}, 3) , {{2, 2}}));
 }
