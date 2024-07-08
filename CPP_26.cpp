@@ -1,4 +1,6 @@
 #include <vector>
+#include <unordered_map>
+#include <initializer_list>
 
 bool std::issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
