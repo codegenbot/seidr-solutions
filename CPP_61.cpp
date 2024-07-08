@@ -1,7 +1,7 @@
+```c++
 #include <iostream>
 #include <stack>
 #include <string>
-#include <cassert>
 
 bool correct_bracketing(std::string s) {
     std::stack<char> stack;
