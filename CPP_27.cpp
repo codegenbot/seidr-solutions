@@ -1,20 +1,19 @@
-```cpp
 #include <iostream>
 #include <string>
 
-std::string filp_case(const std::string& str){
-    std::string result = str; 
-    for(int i=0; i<result.length(); i++){
-        if(result[i] >= 'a' && result[i] <= 'z'){
-            result[i] = std::toupper((char)result[i]);
+std::string flip_case(const std::string& str){
+    std::string result;
+    for(int i=0; i<str.length(); i++){
+        if(str[i] >= 'A' && str[i] <= 'Z'){
+            result += (char)(str[i] + ('a' - 'A'));
         } else {
-            result[i] = std::tolower((char)result[i]);
+            result += (char)(str[i] + ('A' - 'a'));
         }
     }
     return result;
 }
 
 int main() {
-    std::cout << filp_case("Hello, world!") << std::endl;
+    std::cout << flip_case("Hello, world!") << std::endl;
     return 0;
 }
