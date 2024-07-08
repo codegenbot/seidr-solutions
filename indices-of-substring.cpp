@@ -19,11 +19,11 @@ vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     string text;
     cout << "Enter the text: ";
-    getline(cin, text);
+    cin >> text;
 
     string target;
     cout << "Enter the target string: ";
-    getline(cin, target);
+    cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
 
