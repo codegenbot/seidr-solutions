@@ -1,12 +1,9 @@
 #include <vector>
 #include <iostream>
 
-bool issame(std::vector<float> x, std::vector<float> y) {
-    if (x.size() != y.size()) return false;
-    for (int i = 0; i < x.size(); i++) {
-        if (x[i] != y[i]) return false;
-    }
-    return true;
+bool issame(float x, float y) {
+    if (x == y && x > 0) return true;
+    else return false;
 }
 
 std::vector<float> get_positive(std::vector<float> l) {
@@ -16,5 +13,5 @@ std::vector<float> get_positive(std::vector<float> l) {
             result.push_back(x);
         }
     }
-    return result;
+    return std::vector<float>(result); 
 }
