@@ -7,5 +7,6 @@ def spin_words(string):
     return " ".join(reversed_words)
 
 
-# Call the function with the user input
-print(spin_words(string))
+input_str = input("Enter a string of one or more words: ")
+result = spin_words(input_str)
+print(f"Spinning Words: {result}")
