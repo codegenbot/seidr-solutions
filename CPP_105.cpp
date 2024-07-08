@@ -1,3 +1,14 @@
+#include <vector>
+#include <map>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+bool isequal(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> by_length(vector<int> arr) {
     vector<int> numArr;
     for (int i : arr) {
