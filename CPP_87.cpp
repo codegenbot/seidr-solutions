@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
     if (a.size() != b.size()) return false;
