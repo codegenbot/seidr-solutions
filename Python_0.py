@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -8,6 +9,5 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
                 return True
     return False
 
-
 threshold = float(input("Enter the threshold value: "))
-print(has_close_elements([10.0, 11.3, 12.5, 13.6], threshold))
+print(has_close_elements([float(x) for x in input("Enter space separated numbers: ").split()], threshold))
