@@ -24,7 +24,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     return res;
 }
 
-vector<int> dfs(vector<vector<int>>& grid, int x, int y, int k, int val, vector<int>* path) {
+vector<int> dfs(vector<vector<int>>& grid, int x, int int y, int k, int val, vector<int>* path) {
     (*path).push_back(val);
     if (k == 0) {
         return *path;
@@ -34,19 +34,12 @@ vector<int> dfs(vector<vector<int>>& grid, int x, int y, int k, int val, vector<
         for (int j = -1; j <= 1; j++) {
             int nx = x + i;
             int ny = y + j;
-            if(nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size()) {
-                vector<int> temp;
-                bool found = true;
-                for (int v : (*path)) {
-                    if (find(grid[nx][ny], grid[nx][ny] + 1, v) != grid[nx][ny] + 1) {
-                        found = false;
-                        break;
-                    }
-                }
-                if (found) {
-                    vector<int> tempPath = dfs(grid, nx, ny, k - 1, val, path);
-                    if (!tempPath.empty() && (res.empty() || tempPath < res)) {
-                        res = tempPath;
+            if (nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size()) {
+                vector<int>::iterator it = find((*path).begin(), (*path).end(), grid[nx][ny]);
+                if (it == (*path).end()) {
+                    vector<int> temp = dfs(grid, nx, ny, k - 1, grid[nx][ny], path);
+                    if (!temp.empty() && (res.empty() || temp < res)) {
+                        res = temp;
                     }
                 }
             }
