@@ -1,17 +1,24 @@
-int total_chars_lst1 = 0;
+#include <vector>
+#include <string>
+using namespace std;
+
+vector<string> total_match(const vector<string>& a, const vector<string>& b) {
+    vector<string> result;
+    int total_chars_lst1 = 0;
     int total_chars_lst2 = 0;
-    
-    for (const string& str : lst1) {
+
+    for (const string& str : a) {
         total_chars_lst1 += str.size();
     }
-    
-    for (const string& str : lst2) {
+
+    for (const string& str : b) {
         total_chars_lst2 += str.size();
     }
     
-    if (total_chars_lst1 < total_chars_lst2) {
-        return lst1;
+    if (total_chars_lst1 == total_chars_lst2) {
+        result = a;
+        result.insert(result.end(), b.begin(), b.end());
     }
     
-    return lst2;
+    return result;
 }
