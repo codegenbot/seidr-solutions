@@ -1,13 +1,17 @@
-arr = list(map(int, input().split()))
-
-closest_diff = float('inf')
+n = int(input())
+arr = [int(x) for x in input().split()]
+total_sum = sum(arr)
+left_sum = 0
+min_diff = total_sum
 cut_index = 0
 
-for i in range(1, len(arr)):
-    diff = abs(sum(arr[:i]) - sum(arr[i:]))
-    if diff < closest_diff:
-        closest_diff = diff
-        cut_index = i
+for i in range(n):
+    left_sum += arr[i]
+    right_sum = total_sum - left_sum
+    diff = abs(left_sum - right_sum)
+    if diff < min_diff:
+        min_diff = diff
+        cut_index = i + 1
 
 if cut_index == 0:
     subvector1 = [arr[0]]
