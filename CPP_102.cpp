@@ -26,4 +26,4 @@ int main() {
     cout << "Enter value of y: ";
     cin >> y;
     cout << "The biggest even integer is: " << choose_num(x,y) << endl;
-}
+    return 0;
