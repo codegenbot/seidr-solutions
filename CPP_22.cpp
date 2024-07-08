@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 
@@ -29,4 +28,3 @@ int main() {
     auto output = filter_integers(values);
     assert(output == std::vector<int>{3, 3, 3});
     return 0;
-}
