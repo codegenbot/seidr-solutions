@@ -1,28 +1,21 @@
-```
+```python
 def bowling_score(frames):
     score = 0
-    i = 0
-    while i < len(frames):
+    frame_num = 1
+    for i in range(len(frames)):
         if frames[i] == 'X':
-            if i+1 >= len(frames) or frames[i+1] != '/': 
+            if frame_num < 10:
                 score += 30
             else:
-                score += 20 + int(frames[i-1])
-            i += 2
+                score += 30 + int(frames[i-1])
+            frame_num += 1
         elif frames[i] == '/':
             score += 10 + int(frames[i+1])
-            i += 2
+            frame_num += 1
         else:
-            first_roll = int(frames[i])
-            if i+1 < len(frames) and frames[i+1] == 'X':
-                score += first_roll + 30
-                i += 2
-            elif i+1 < len(frames) and frames[i+1] == '/':
-                score += first_roll + 10
-                i += 2
+            if len(frames) > i+1 and frames[i+1] == 'X':
+                score += 10 + int(frames[i])
             else:
-                score += first_roll + int(frames[i+1])
-                i += 2
+                score += int(frames[i]) + int(frames[i+1])
+            frame_num += 1
     return score
-
-print(bowling_score('8-324333X518-3463X83'))
