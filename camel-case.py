@@ -1,3 +1,7 @@
 ```
-words = s.replace('-', ' ').split()
-return ''.join(word.capitalize() if i > 0 else words[0].lower() + words[1:].join(map(str.capitalize)) for i, word in enumerate(words)).replace(' ', '')
+def camel_case(s):
+    words = s.replace('-', ' ').replace('+', ' ').split()
+    result = words[0].lower()
+    for word in words[1:]:
+        result += word.capitalize()
+    return result
