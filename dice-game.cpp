@@ -14,6 +14,6 @@ int main() {
     int n = 6; 
     int m = 6;
     double result = diceGame(n, m);
-    cout << "Probability: " << result << endl;
+    std::cout << "Probability: " << result << std::endl;
     return 0;
 }
