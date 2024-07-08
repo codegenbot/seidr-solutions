@@ -8,7 +8,7 @@ vector<float> rescale_to_unit(vector<float> numbers);
 bool issame(vector<float> a, vector<float> b);
 
 bool issame(vector<float> a, vector<float> b) {
-    return equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
 }
 
 vector<float> rescale_to_unit(vector<float> numbers) {
