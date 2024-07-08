@@ -1,43 +1,39 @@
+```
 #include <algorithm>
 #include <vector>
 #include <limits>
-#include <iostream>
 
-bool issame(pair<float, float> p1, pair<float, float> p2) {
-    for (int i = 0; i < 2; ++i) {
-        if (p1.first != p2.first || p1.second != p2.second)
-            return false;
-    }
-    return true;
+bool issame(std::pair<float, float> p1, std::pair<float, float> p2) {
+    return (p1.first == p2.first && p1.second == p2.second);
 }
 
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != 2 || b.size() != 2)
-        return false;
-    return std::abs(a[0] - a[1]) == std::abs(b[0] - b[1]);
-}
+std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
+    if(numbers.size() <= 1)
+        return {};
 
-vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
-    pair<float, float> closest_pair;
-    float min_diff = numeric_limits<float>::max();
+    std::pair<float, float> closest_pair;
+    float min_diff = std::numeric_limits<float>::max();
 
-    for (int i = 0; i < numbers.size() - 1; ++i) {
-        for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = abs(numbers[j] - numbers[i]);
-            if (diff < min_diff && !make_pair(numbers[i], numbers[j]) == closest_pair) {
+    for(int i = 0; i < numbers.size() - 1; ++i) {
+        for(int j = i + 1; j < numbers.size(); ++j) {
+            float diff = std::abs(numbers[j] - numbers[i]);
+            if(diff < min_diff) {
                 min_diff = diff;
-                closest_pair = make_pair(numbers[i], numbers[j]);
+                closest_pair.first = numbers[i];
+                closest_pair.second = numbers[j];
             }
         }
     }
 
-    return vector<pair<float, float>>({closest_pair});
+    return {{closest_pair.first, closest_pair.second}};
 }
 
 int main() {
-    vector<float> numbers = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
-    vector<pair<float, float>> result = find_closest_elements(numbers);
-    for (const auto& pair : result) {
-        cout << "(" << pair.first << ", " << pair.second << ")" << endl;
+    assert(issame(std::make_pair(2.2f, 3.1f), find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f})));
+    std::vector<float> numbers = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
+    std::vector<std::pair<float, float>> result = find_closest_elements(numbers);
+    for(const auto& pair : result) {
+        std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
     }
+    return 0;
 }
