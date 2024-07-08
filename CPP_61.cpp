@@ -12,5 +12,6 @@ bool correct_bracketing(const std::string& brackets) {
             }
         }
     }
+    
     return count == 0;
 }
