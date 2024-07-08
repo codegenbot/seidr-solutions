@@ -1,11 +1,6 @@
-```
 def mean_absolute_deviation(numbers: List[float]) -> float:
     if len(numbers) == 0:
         return None
-    sum = 0
-    count = 0
     mean_val = statistics.mean(numbers)
-    for num in numbers:
-        sum += abs(num - mean_val)
-        count += 1
-    return sum / count
+    total_deviation = sum([abs(num - mean_val) for num in numbers])
+    return total_deviation / len(numbers)
