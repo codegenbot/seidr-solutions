@@ -6,13 +6,13 @@ def check(temp: str) -> bool:
     return True
 
 
-def parse_music(music_string: str) -> List[int]:
+def parse_music(music_string: str) -> list[int]:
     result = []
     notes = music_string.split(',')
 
     for note in notes:
-        if check(note):
-            note_value = int(note.strip().split(' ')[1])
+        if check(note.strip()):
+            note_value = int(note.split(' ')[1].strip())
             result.append(note_value)
         else:
             break
