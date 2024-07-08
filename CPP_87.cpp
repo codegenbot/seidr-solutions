@@ -16,6 +16,4 @@ bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
 
     return true;
 
-int get_row(std::vector<std::vector<int>> matrix, int row) {
-    return matrix[row][0];
 }
