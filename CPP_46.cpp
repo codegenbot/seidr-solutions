@@ -1,5 +1,4 @@
 #include <cstdio>
-using namespace std;
 
 int fib4(int n) {
     if (n <= 1)
