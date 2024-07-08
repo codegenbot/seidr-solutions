@@ -14,7 +14,7 @@ std::vector<float> rescale_to_unit(std::vector<float> numbers) {
     return rescaled;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
 
@@ -22,14 +22,6 @@ int main() {
     std::vector<float> numbers = {2.0, 4.0, 6.0, 8.0, 10.0};
     std::vector<float> expected_output = {0.0, 0.25, 0.5, 0.75, 1.0};
     std::vector<float> result = rescale_to_unit(numbers);
-    issame(result, expected_output);
-
-    // Additional test case
-    if (issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75})) {
-        std::cout << "Test passed!" << std::endl;
-    } else {
-        std::cout << "Test failed!" << std::endl;
-    }
-
+    assert(issame(result, expected_output));
     return 0;
 }
