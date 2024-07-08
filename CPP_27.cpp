@@ -7,18 +7,19 @@ std::string flip_case(std::string str) {
     for (char &c : str) {
         if (std::islower(c)) {
             c = std::toupper(c);
-        } else if (std::isupper(c)) {
+        }
+        else if (std::isupper(c)) {
             c = std::tolower(c);
         }
     }
-    return str; // Return the modified string
+    return str;
 }
 
 int main() {
     std::string input;
-    std::getline(std::cin, input); // Read input from user
+    std::getline(std::cin, input);
     std::string result = flip_case(input);
     assert(result == "ThESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    std::cout << result << std::endl; // Output the result
+    std::cout << result << std::endl;
     return 0;
 }
