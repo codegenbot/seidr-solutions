@@ -1,9 +1,7 @@
-```c
-int main() {
-    double result = 1.0;
-    for (int i = 1; i <= 5; i++) {
-        result -= 1.0 / 6.0;
+double diceGame(int n, int m) {
+    double total = 1.0;
+    for (int i = 1; i < n; i++) {
+        total += 1.0 / m;
     }
-    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << result << "\n";
     return 0;
 }
