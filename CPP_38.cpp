@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-using namespace std;
+using std::cout;
+using std::endl;
 
 string encode_cyclic(string s) {
     int l = s.length();
@@ -36,6 +37,5 @@ int main() {
     cout << "Original: " << str << endl;
     cout << "Encoded: " << encoded_str << endl;
     cout << "Decoded: " << decode_cyclic(encoded_str) << endl;
-    
     return 0;
 }
