@@ -34,12 +34,11 @@ int main() {
     std::cin >> n;
 
     // Initialize the vector with 'n' size.
-    std::vector<int> arr;
+    std::vector<int> arr(n);
+
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
-        int temp;
-        std::cin >> temp;
-        arr.push_back(temp);
+        std::cin >> arr[i];
     }
 
     auto result = findMinEvenNode(arr);
