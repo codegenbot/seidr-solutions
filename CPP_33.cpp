@@ -24,7 +24,6 @@ vector<int> sort_third(vector<int> l) {
     return l;
 }
 
-int main() {
-    vector<int> sorted = sort_third({5, 6, 3, 4, 8, 9, 2, 1});
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
