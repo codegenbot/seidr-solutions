@@ -27,4 +27,3 @@ int main() {
     std::vector<int> arr = {0, 1};
     int result = smallest_change(arr);
     return 0;
-}
