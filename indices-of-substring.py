@@ -1,8 +1,5 @@
 text = input()
 target = input()
-indices = []
-index = text.find(target)
-while index != -1:
-    indices.append(index)
-    index = text.find(target, index + 1)
-print(*indices)
+indices = [i for i in range(len(text) - len(target) + 1) if text[i:i + len(target)] == target]
+for index in indices:
+    print(index, end=" ")
