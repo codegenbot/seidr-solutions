@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
@@ -16,51 +16,41 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
     return result;
 }
 
-float* get_positive(const std::vector<float>& vec, int& size) {
-    size = 0;
+std::vector<float> get_positive(const std::vector<float>& vec) {
+    std::vector<float> result;
     for (int i = 0; i < vec.size(); i++) {
-        if (vec[i] > 0.0f) {
-            size++;
-        }
-    }
-
-    float* result = new float[size];
-    int j = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        if (vec[i] > 0.0f) {
-            result[j] = vec[i];
-            j++;
+        if (vec[i] > 0.0) {
+            result.push_back(vec[i]);
         }
     }
     return result;
 }
 
 int main() {
-    std::vector<std::vector<float>> vectors;
-    for(int i=0; i<3; i++){
-        int n;
-        float x;
-        std::cout << "Enter the number of elements: ";
-        std::cin >> n;
-        std::cout << "Enter the values (negative numbers will be ignored): ";
-        std::vector<float> v;
-        for(int j=0; j<n; j++){
-            std::cin >> x;
-            if(x > 0.0f) {
-                v.push_back(x);
-            }
+    int n;
+    std::cin >> n;
+
+    std::vector<std::vector<float>> vectors(n);
+    for (int i = 0; i < n; ++i) {
+        int m;
+        std::cin >> m;
+
+        vectors[i].resize(m);
+
+        for (int j = 0; j < m; ++j) {
+            float val;
+            std::cin >> val;
+            vectors[i][j] = val;
         }
-        vectors.push_back(v);
     }
 
     std::vector<std::vector<float>> filtered_vectors = filter_vectors(vectors);
-
-    for (const auto& v : filtered_vectors) {
-        std::cout << "Filtered Vector: ";
-        for (float x : v) {
-            std::cout << x << " ";
+    if (filtered_vectors.empty()) {
+        std::cout << "0\n";
+    } else {
+        for (const auto& v : filtered_vectors) {
+            std::cout << v.size() << "\n";
         }
-        std::cout << "\n";
     }
 
     return 0;
