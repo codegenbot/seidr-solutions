@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 string string_xor(string a, string b) {
@@ -10,4 +11,12 @@ string string_xor(string a, string b) {
         }
     }
     return result;
+}
+
+int main() {
+    std::cout << "Enter two strings: ";
+    std::string a, b;
+    std::cin >> a >> b;
+    std::cout << "XOR result: " << string_xor(a, b) << std::endl;
+    return 0;
 }
