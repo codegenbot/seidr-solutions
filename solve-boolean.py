@@ -8,6 +8,6 @@ def solve_boolean(expression):
     elif "&" in expression:
         parts = expression.split("&")
         return all(solve_boolean(part) for part in parts)
-    elif "|":
+    elif "|" in expression:
         parts = expression.split("|")
         return any(solve_boolean(part.strip()) for part in parts)
