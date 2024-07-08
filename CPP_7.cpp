@@ -1,21 +1,17 @@
-```c++
-#include <vector>
-#include <string>
-
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
     for(auto str : strings){
-        if(str.find(substring) != std::string::npos){
+        if(str.find(substring) != string::npos){
             result.push_back(str);
         }
     }
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool same(vector<string> a, vector<string> b) {
     bool flag = true;
-    for(int i = 0; i < std::min(a.size(), b.size()); i++){
-        if(!issame({a[i]}, {b[i]})){
+    for(int i = 0; i < min(a.size(), b.size()); i++){
+        if(!same(string_to_tuple(a[i]), string_to_tuple(b[i]))){
             flag = false;
             break;
         }
@@ -23,7 +19,11 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return flag;
 }
 
+tuple<char, char> string_to_tuple(const string& str) {
+    return make_tuple(str[0], str.back());
+}
+
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    assert(same({filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run")}, {"grunt", "prune"}));
     return 0;
 }
