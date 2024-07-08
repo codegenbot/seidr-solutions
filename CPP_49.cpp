@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <iostream>
 using namespace std;
 
 int modp(int n, int p) {
@@ -13,12 +13,12 @@ int modp(int n, int p) {
     return res;
 }
 
-int main() {
+int main_entrypoint() {
     int n, p;
-    printf("Enter value of n: ");
-    scanf("%d", &n);
-    printf("Enter value of p: ");
-    scanf("%d", &p);
-    printf("2^%d mod %d = %d\n", n, p, modp(n, p));
+    cout << "Enter value of n: ";
+    cin >> n;
+    cout << "Enter value of p: ";
+    cin >> p;
+    cout << "2^" << n << " mod " << p << " = " << modp(n, p) << endl;
     return 0;
 }
