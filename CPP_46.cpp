@@ -1,7 +1,5 @@
 ```
 #include <iostream>
-#include <fstream>
-#include <sstream>
 
 using namespace std;
 
@@ -20,10 +18,9 @@ int fib4(int n) {
 }
 
 int main() {
-    std::string input;
-    cout << "Enter the value of n: ";
-    getline(cin, input);
-    int n = stoi(input); // convert input string to integer
+    int n = 0;
+    cout << "Enter the value of n (an integer): ";
+    cin >> n;
     cout << "The " << n << "-th element of the fib4 number sequence is: " << fib4(n) << endl;
     return 0;
 }
