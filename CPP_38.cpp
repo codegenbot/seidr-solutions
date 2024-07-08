@@ -1,5 +1,5 @@
-#include <string>
 #include <iostream>
+#include <string>
 #include <cassert>
 
 std::string encode_cyclic(std::string s) {
