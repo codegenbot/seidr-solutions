@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
-#include <unordered_map>
 using namespace std;
+
+int duplicate_check(char ch, string str);
 
 int main() {
     string code, guess;
@@ -10,22 +11,10 @@ int main() {
     while (getline(cin, code)) {
         getline(cin, guess);
 
-        // Keep track of the number of unique characters in the guess string
-        unordered_map<char, int> countMap;
-        for (int i = 0; i < guess.length(); i++) {
-            char ch = guess[i];
-            if (!countMap.contains(ch)) {
-                countMap[ch] = 1;
-            } else {
-                countMap[ch]++;
-            }
-        }
-
-        // Count white and black pegs
         for (int i = 0; i < code.length(); i++) {
             if (code[i] == guess[i]) {
                 blackPegs++;
-            } else if (!countMap[guess[i]]) {
+            } else if (!duplicate_check(guess[i], guess)) {
                 whitePegs++;
             }
         }
@@ -34,4 +23,14 @@ int main() {
     }
 
     return 0;
+}
+
+int duplicate_check(char ch, string str) {
+    int count = 0;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ch) {
+            count++;
+        }
+    }
+    return (count > 1);
 }
