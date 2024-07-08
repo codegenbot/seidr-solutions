@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <iostream>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
@@ -21,21 +22,26 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     return res;
 }
 
-pair<vector<int>, vector<int>> main() {
+int main() {
     int n; cin >> n;
+    if(n <= 0) {
+        cout << "Invalid input. Please enter a positive integer." << endl;
+        return 1;
+    }
     vector<int> v(n+1);
     for (int i = 0; i <= n; ++i) {
         cin >> v[i];
     }
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "First: ";
+    cout << "Left side: ";
     for (auto num : result.first) {
         cout << num << " ";
     }
     cout << endl;
-    cout << "Second: ";
+    cout << "Right side: ";
     for (auto num : result.second) {
         cout << num << " ";
     }
-    return result;
+    cout << endl;
+    return 0;
 }
