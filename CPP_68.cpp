@@ -1,14 +1,25 @@
 ```cpp
 #include <iostream>
-#include <vector>
 #include <algorithm>
 
-std::vector<int> findMinEvenNode(std::vector<int> arr) {
-    std::vector<int> evenNodes;
-    
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+
+    return true;
+}
+
+std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> evenNodes;
+
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0) {
-            evenNodes.push_back(arr[i]);
+            evenNodes.push_back({arr[i], i});
         }
     }
 
@@ -16,15 +27,20 @@ std::vector<int> findMinEvenNode(std::vector<int> arr) {
         return {};
     }
 
-    int minEvenValue = *min_element(evenNodes.begin(), evenNodes.end());
-    
-    std::vector<std::pair<int, int>> result;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] == minEvenValue) {
-            result.push_back({minEvenValue, i});
+    int minEvenValue = evenNodes[0].first;
+    int minIndex = evenNodes[0].second;
+
+    for (int i = 1; i < evenNodes.size(); i++) {
+        if (evenNodes[i].first < minEvenValue) {
+            minEvenValue = evenNodes[i].first;
+            minIndex = evenNodes[i].second;
+        } else if (evenNodes[i].first == minEvenValue) {
+            minIndex = std::min(minIndex, evenNodes[i].second);
         }
     }
 
+    std::vector<std::pair<int, int>> result;
+    result.push_back({minEvenValue, minIndex});
     return result;
 }
 
@@ -39,7 +55,19 @@ int main() {
         std::cin >> arr[i];
     }
 
-    auto result = findMinEvenNode(arr);
+    auto pluck(std::vector<int>& arr) -> std::vector<int> {
+        std::vector<int> evenNums;
+        for (int num : arr) {
+            if (num % 2 == 0) {
+                evenNums.push_back(num);
+            }
+        }
+        return evenNums;
+    }
 
+    auto result = pluck(arr);
+
+    assert(issame(result, {}));
+    
     return 0;
 }
