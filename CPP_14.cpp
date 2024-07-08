@@ -2,12 +2,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::basic_string<char>>& a, const std::vector<std::basic_string<char>>& b) {
-    bool bDecl = false;
-    if (bDecl) {
-        std::vector<std::basic_string<char>> temp = a;
-        b = temp;
-    }
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
