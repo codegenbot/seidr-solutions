@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     for i, frame in enumerate(frames):
