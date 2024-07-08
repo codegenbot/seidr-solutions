@@ -1,13 +1,8 @@
-Here is the modified code:
 ```cpp
-#include <algorithm>
-#include <cctype>
-#include <string>
-
-std::string remove_vowels(std::string str) {
+int remove_vowels(const std::string& input) {
     std::string result;
-    for (char c : str) {
-        if (!std::unordered_set<char>("aeiouAEIOU").count(c)) {
+    for (char c : input) {
+        if (!isvowel(c)) {
             result += c;
         }
     }
