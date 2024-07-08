@@ -1,7 +1,5 @@
 ```cpp
-#include <string>
 #include <vector>
-
 using namespace std;
 
 vector<string> splitString(string input) {
@@ -36,7 +34,18 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    string words_string = "ahmed     , gamal"; 
-    assert (issame(splitString(words_string), vector<string>({"ahmed", "gamal"}))); 
+    vector<string> result = splitString("ahmed     , gamal");
+    cout << "Result: ";
+    for(string word : result) {
+        cout << word << " ";
+    }
+    cout << endl;
+    
+    if(issame(result, vector<string>{"ahmed", "gamal"})) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    
     return 0;
 }
