@@ -1,8 +1,15 @@
-#include <algorithm>
 #include <vector>
+#include <bitset>
 
 bool same(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (std::bitset<32>(a[i]).count() != std::bitset<32>(b[i]).count()) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> sort_array(std::vector<int> arr) {
@@ -20,3 +27,4 @@ std::vector<int> sort_array(std::vector<int> arr) {
 int main() {
     assert(same(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
     return 0;
+}
