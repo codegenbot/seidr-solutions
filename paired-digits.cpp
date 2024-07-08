@@ -1,3 +1,4 @@
+```c++
 #include <string>
 using namespace std;
 
@@ -12,5 +13,5 @@ int pairedDigits(string s) {
 }
 
 int main() {
-    return pairedDigits("123321");
+    return pairedDigits("123211");
 }
