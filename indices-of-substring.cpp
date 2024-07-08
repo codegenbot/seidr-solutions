@@ -1,16 +1,14 @@
-#include <iostream>
-#include <string>
 #include <list>
-
-int main() {
-    std::string text, target;
-    std::cin >> text; // Read input from the user for the text string
-    std::cin >> target; // Read input from the user for the target string
-    
-    std::list<int> result = indicesOfSubstring(text, target);
-    
-    for (auto idx : result) {
-        std::cout << idx << " ";
-    }
-    return 0;
+std::list<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+  int prev_idx = -1;
+  std::list<int> result;
+  for (size_t i = 0; i < text.length(); ++i) {
+      if (text.find(target) != std::string::npos && i >= prev_idx + target.length()) {
+          if (i - prev_idx > target.length()) {
+              result.push_back(i);
+              prev_idx = i; // Update prev_idx for non-overlapping targets
+          }
+      }
+  }
+  return result;
 }
