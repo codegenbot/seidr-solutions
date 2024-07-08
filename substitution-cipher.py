@@ -1,9 +1,13 @@
-Here is the solution:
+def substitution_cipher(cipher_input):
+    cipher = [c for c in cipher_input[0] if c.isalpha()]
+    message = cipher_input[2]
 
-def substitution_cipher(cipher_map, message):
-    return ''.join([cipher_map[i] if i < len(cipher_map) else '' for i in range(len(message))])
+    deciphered_message = "".join(
+        [
+            char
+            for char in message
+            if char.isalpha() and char.lower() in [c.lower() for c in cipher]
+        ]
+    )
 
-cipher = input().strip()
-map_cipher = cipher[:len(cipher)//2]
-decode_cipher = cipher[len(cipher)//2:]
-print(substitution_cipher(map_cipher, decode_cipher))
+    return deciphered_message
