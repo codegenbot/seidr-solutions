@@ -26,4 +26,3 @@ vector<int> sort_array(vector<int> arr) {
     }
     
     return sortedArray;
-}
