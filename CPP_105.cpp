@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -36,11 +35,12 @@ int main() {
         std::cin >> n;
         arr.push_back(n);
     }
-    std::vector<std::string> numbers = by_length(arr);
-    for (const auto& str : numbers) {
+    std::vector<std::string> result = by_length(arr);
+    for (const auto& str : result) {
         std::cout << str << std::endl;
     }
-    if (!issame(by_length({9, 4, 8}) , {"Eight", "Four", "Nine"})) {
+    std::vector<int> temp = {9, 4, 8};
+    if (!issame(by_length(temp), {"Eight", "Four", "Nine"})) {
         std::cout << "Assertion failed" << std::endl;
     }
     return 0;
