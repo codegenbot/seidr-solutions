@@ -3,17 +3,20 @@
 #include <string>
 
 std::string filp_case(std::string str){
+    std::string result = "";
     for(int i=0; i<str.length(); i++){
         if(str[i] >= 'a' && str[i] <= 'z'){
-            str[i] = std::toupper((char)str[i]);
+            result += toupper((char)str[i]);
         } else {
-            str[i] = std::tolower((char)str[i]);
+            result += tolower((char)str[i]);
         }
     }
-    return str;
+    return result;
 }
 
 int main() {
-    std::cout << filp_case("Hello, world!") << std::endl;
+    assert(filp_case("These violent delights have violent ends") == "these violent delights have violent ends");
+    std::string result = filp_case("Hello, world!");
+    std::cout << result << std::endl;
     return 0;
 }
