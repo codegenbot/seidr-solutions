@@ -1,5 +1,5 @@
 #include <string>
-#include <cctype> // Include for islower and isupper
+#include <cctype>
 #include <cassert>
 
 std::string flip_case(std::string str) {
