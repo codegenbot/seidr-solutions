@@ -1,17 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
-    std::vector<std::string> result;
-    for(const auto& str : vec) {
-        if(str.find(sub) != std::string::npos)
-            result.push_back(str);
-    }
-    
-    return result;
-}
-
+```cpp
 bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
     if(v1.size() != v2.size())
         return false;
@@ -24,8 +11,21 @@ bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
     return true;
 }
 
-int main_function() {
-    std::vector<std::string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+int main() {
+    std::vector<std::string> vec = {"grunt", "trumpet", "prune", "gruesome"};
+    std::string sub = "run";
+    std::vector<std::string> result = filter_by_substring(vec, sub);
+    
     assert(issame(result, {"grunt", "prune"}));
     return 0;
+}
+
+std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
+    std::vector<std::string> result;
+    for(const auto& str : vec) {
+        if(str.find(sub) != std::string::npos)
+            result.push_back(str);
+    }
+    
+    return result;
 }
