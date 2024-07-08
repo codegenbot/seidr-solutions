@@ -3,11 +3,9 @@ using namespace std;
 
 double diceGame(int n, int m) {
     double prob = 0.0;
-    // Calculate probability that Peter rolls higher or equal to Colin
     for (int i = 1; i <= m; i++) {
         prob += (1.0 * min(n - 1, i-1) / n);
     }
-    // Subtract the probability that they roll equal
     return 1 - prob;
 }
 
