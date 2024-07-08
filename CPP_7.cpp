@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cctype>
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
     std::vector<std::string> result;
@@ -26,7 +27,7 @@ bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
 }
 
 int main_function() {
-    std::string subInput; 
+    std::string subInput;
     std::cin >> subInput;
     result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, tolower(subInput));
     assert(issame(result, {"grunt", "prune"}));
