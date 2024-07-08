@@ -8,7 +8,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     for (size_t i = 0; i < text.length(); ++i) {
         if (text.substr(i, target.length()) == target && i >= prev_idx + target.length()) {
             result.push_back(i);
-            prev_idx = i - target.length() + 1; // Update prev_idx for overlapping targets
+            prev_idx = i; // Update prev_idx after each match
         }
     }
     return result;
