@@ -34,7 +34,7 @@ int main() {
             temp.push_back(x);
         }
         matrix1.push_back(temp);
-    }
+   
     
     // read in the second matrix
     for(int i = 0; i < m; i++) {
