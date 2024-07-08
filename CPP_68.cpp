@@ -11,20 +11,7 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
         }
     }
 
-    if (evenNodes.empty()) {
-        return {};
-    }
-
-    int minEvenValue = *min_element(evenNodes.begin(), evenNodes.end())->first;
-    
-    std::vector<std::pair<int, int>> result;
-    for (auto& pair : evenNodes) {
-        if (pair.first == minEvenValue) {
-            result.push_back(pair);
-        }
-    }
-
-    return result;
+    return evenNodes;
 }
 
 int main() {
