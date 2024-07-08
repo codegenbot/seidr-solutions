@@ -5,7 +5,7 @@
 using namespace std;
 
 int count_nums(vector<int> nums) {
-    int sign = 1;
+    int sign = 1; // Initialize sign here
     int count = 0;
     for (int num : nums) {
         bool negativeFound = false;
@@ -17,18 +17,21 @@ int count_nums(vector<int> nums) {
 
         while(abs(num) > 0 || (negativeFound && abs(num) < 0)) {
             int digit = abs(num) % 10 * sign;
-            sum += digit;
-            if(digit == 0)
-                continue;
-            if((digit == 1 || (digit >=5 && digit % 2 != 0))&& negativeFound)
-                count++;
+            if((digit > 0 && !negativeFound) || (digit == 1 && negativeFound))
+                sum += digit;
+            else
+                negativeFound = true;
+            num /= 10;
         }
+        if(sum > 0)
+            count++;
     }
     return count;
+
 }
 
 int main() {
     assert(count_nums({1}) == 1);
-    cout << "Count: " << count_nums({-1234, 5678, -9012}) << endl;
+    cout << count_nums({-123, -9, 3, 2, -11, 4, 5, -9, -6, 8, 7});
     return 0;
 }
