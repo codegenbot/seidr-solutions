@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 bool solveBoolean(string expression) {
     if (expression == "T" || expression == "t") return true;
     if (expression == "F" || expression == "f") return false;
@@ -24,5 +27,16 @@ bool solveBoolean(string expression) {
     if (expression == "t") return true;
     if (expression == "f") return false;
 
-    return false; // Default value
+    return false; 
+}
+
+int main() {
+    string expression;
+    cout << "Enter the Boolean expression: ";
+    cin >> expression;
+    if (expression == "exit") return 0;
+    bool result = solveBoolean(expression);
+    if (result) cout << "True" << endl;
+    else cout << "False" << endl;
+    return 0;
 }
