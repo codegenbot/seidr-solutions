@@ -1,6 +1,9 @@
+Here is the modified code:
+
+```
 def bowling_score(frames):
     score = 0
-    frames = [frame.strip().replace("-", "") for frame in frames.split("\n")]
+    frames = [frame.strip() for frame in frames.split("\n")]
     for i, frame in enumerate(frames):
         if len(frame) == 2:
             if frame[0] == "X":
@@ -12,7 +15,7 @@ def bowling_score(frames):
             elif frame[1] == "/":
                 score += 10 - int(frame[0])
         else:
-            score += sum(map(int, frame))
+            score += sum(int(x) for x in frame)
     return score
 
 print(bowling_score("8-324333X518-3463X83"))
