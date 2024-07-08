@@ -1,4 +1,5 @@
-Here is the completed code:
+#include <bits/stdc++.h>
+using namespace std;
 
 string decimal_to_binary(int decimal){
     string binary = "";
@@ -10,4 +11,10 @@ string decimal_to_binary(int decimal){
         decimal /= 2;
     }
     return "db" + binary + "db";
+}
+
+int main() {
+    assert(decimal_to_binary(15) == "db11111db"); 
+    cout << decimal_to_binary(15);
+    return 0;
 }
