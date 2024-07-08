@@ -1,9 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <limits>
-
 std::vector<int> findPair(std::vector<int>& nums, int target) {
     std::sort(nums.begin(), nums.end());
     for (int i = 0; i < nums.size() - 1; i++) {
@@ -11,7 +5,8 @@ std::vector<int> findPair(std::vector<int>& nums, int target) {
         int j = i + 1;
         while (j < nums.size() && nums[j] < complement) {
             if (nums[j] + nums[i] == target) {
-                return {nums[i], nums[j]};
+                std::vector<int> result({nums[i], nums[j]});
+                return result;
             }
             j++;
         }
