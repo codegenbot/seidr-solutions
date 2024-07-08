@@ -1,7 +1,7 @@
 #include <initializer_list>
 #include <vector>
 
-bool std::operator==(const std::vector<int>& a, const std::vector<int>& b){
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
