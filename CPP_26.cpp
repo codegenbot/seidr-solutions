@@ -6,8 +6,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::unordered_map<int, bool> mp;
-    std::vector<int> result;
+    unordered_map<int, bool> mp;
+    vector<int> result;
 
     for (int i = 0; i < numbers.size(); i++) {
         if (!mp.count(numbers[i])) {
