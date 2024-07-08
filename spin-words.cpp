@@ -1,25 +1,37 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <sstream>
 
 std::string spinWords(std::string str) {
-    std::stringstream ss(str);
-    std::string word;
     std::string result = "";
-
-    while (ss >> word) {
-        if (word.length() >= 5) {
-            for (int i = word.length() - 1; i >= 0; i--) {
-                result += word[i];
+    int wordLength = 0;
+    
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (wordLength >= 5) {
+                for (int j = i - 1; j >= i - wordLength; j--) {
+                    result += str[j];
+                }
+            } else {
+                result += str.substr(i, 1); 
             }
+            wordLength = 0;
         } else {
-            result += word;
+            wordLength++;
         }
-        result += " ";
     }
 
-    return result.substr(0, result.length() - 1);
+    if (wordLength >= 5) {
+        std::string reversedWord;
+        for (int i = str.length() - 1; i >= str.length() - wordLength; i--) {
+            reversedWord += str[i];
+        }
+        result += reversedWord + " ";
+    } else {
+        result = str;
+    }
+    
+    return result;
 }
 
 int main() {
