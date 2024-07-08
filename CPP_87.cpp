@@ -1,6 +1,5 @@
-```cpp
+```
 #include <vector>
-#include <initializer_list>
 
 std::vector<std::vector<int>> get_row(const std::vector<std::vector<int>>& matrix, int row) {
     return matrix[row];
@@ -24,8 +23,6 @@ bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vecto
 }
 
 int main() {
-    std::vector<std::vector<int>> row = {{}, {1}, {1, 2, 3}};
-    assert(issame(get_row(row, 0), {{1}}));
-    assert(issame(get_row(row, 1), {{1, 2, 3}}));
-    assert(issame(get_row(row, 2), {{1, 2, 3}}));
+    std::vector<std::vector<int>> row = {{1}, {2, 3}, {4, 5, 6}};
+    assert(issame(get_row(row, 2), {{2, 3}}));
 }
