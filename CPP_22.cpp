@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <any>
 
@@ -25,10 +25,7 @@ std::vector<int> filter_integers(const std::any& values) {
 }
 
 int main() {
-    std::any values;
-    for (auto& value : {3, 'c', 3, 3, 'a', 'b'}) {
-        values = value;
-    }
+    auto values = std::any({std::any(3), std::any('c'), std::any(3), std::any(3), std::any('a'), std::any('b')});
     auto output = filter_integers(values);
     assert(output == std::vector<int>({3, 3, 3}));
     return 0;
