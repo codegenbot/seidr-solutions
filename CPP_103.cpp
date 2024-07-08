@@ -1,9 +1,13 @@
 #include <cmath>
 #include <algorithm>
 #include <string>
+#include <iostream>
 
-int rounded_avg(int n,int m){
-    if(n > m) return -1;
+void rounded_avg(int n,int m){
+    if(n > m) {
+        std::cout << "-1" << std::endl;
+        return;
+    }
     int sum = 0;
     for(int i=n; i<=m; i++){
         sum += i;
@@ -16,13 +20,13 @@ int rounded_avg(int n,int m){
         avg /= 2;
     }
     if(binary.empty()) binary = "0";
-    reverse(binary.begin(),binary.end());
-    return stoi(binary);
+    std::reverse(binary.begin(),binary.end());
+    std::cout << binary << std::endl;
 }
 
 int main(){
     int n, m;
     std::cin >> n >> m;
-    std::cout << rounded_avg(n,m) << std::endl;
+    rounded_avg(n,m);
     return 0;
 }
