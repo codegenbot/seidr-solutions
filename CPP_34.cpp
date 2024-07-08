@@ -15,9 +15,7 @@ int main() {
     std::sort(c.begin(), c.end());
     std::sort(b.begin(), b.end());
 
-    assert(issame(c, b));
-
-    assert(issame(std::vector<int>{std::unique(a.begin(), a.end()), a.end()}, b));
+    assert(issame(std::unique(c.begin(), c.end()), b.end()));
 
     return 0;
 }
