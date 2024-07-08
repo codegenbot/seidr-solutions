@@ -9,18 +9,27 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> vectors) {
     std::vector<std::vector<float>> result;
     for (const auto& v : vectors) {
-        if (!issame(get_positive(v), std::vector<float>())) {
+        if (!issame(get_positive(v), {0.0f})) {
             result.push_back(v);
         }
     }
     return result;
 }
 
-std::vector<float> get_positive(const std::vector<float>& vec) {
-    std::vector<float> result;
+float* get_positive(const std::vector<float>& vec, int& size) {
+    size = 0;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
-            result.push_back(vec[i]);
+            size++;
+        }
+    }
+
+    float* result = new float[size];
+    int j = 0;
+    for (int i = 0; i < vec.size(); i++) {
+        if (vec[i] > 0.0f) {
+            result[j] = vec[i];
+            j++;
         }
     }
     return result;
@@ -31,6 +40,7 @@ int main() {
     std::cout << "Enter number of vectors: ";
     std::cin >> n;
 
+    // Initialize an empty vector to store your result.
     std::vector<std::vector<float>> vectors(n);
 
     for (auto& v : vectors) {
@@ -45,8 +55,10 @@ int main() {
         }
     }
 
+    // Now call your existing function with these vectors.
     std::vector<std::vector<float>> result = filter_vectors(vectors);
 
+    // Print your result.
     if (!result.empty()) {
         std::cout << "Resultant Vectors: " << std::endl;
         for (const auto& v : result) {
