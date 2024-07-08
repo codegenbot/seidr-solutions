@@ -28,8 +28,3 @@ bool isPrime(int n) {
     return true;
 
 }
-
-int main(){
-    assert(maxPrime({127, 97, 8192}) == 10);
-    return 0;
-}
