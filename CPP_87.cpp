@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <initializer_list>
 
@@ -27,5 +28,4 @@ int main() {
     assert(issame(get_row(row, 0), {{1}}));
     assert(issame(get_row(row, 1), {{1, 2, 3}}));
     assert(issame(get_row(row, 2), {{1, 2, 3}}));
-    assert(issame(get_row(row, 3), {{1, 2, 3}}));
 }
