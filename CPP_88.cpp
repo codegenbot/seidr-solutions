@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -25,6 +26,18 @@ std::vector<int> sort_array(std::vector<int> array) {
     return sortedArray;
 }
 
+bool areSame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
     std::vector<int> array = {21, 14, 23, 11};
     array = sort_array(array);
@@ -35,5 +48,7 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    return 0;
+    assert(areSame(sort_array({21, 14, 23, 11}), {11, 14, 21, 23}));
+    
+    return (array != std::vector<int>(array)) ? 1 : 0;
 }
