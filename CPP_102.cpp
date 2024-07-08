@@ -1,29 +1,24 @@
-```
 #include <iostream>
-
 using namespace std;
 
 int choose_num(int x, int y) {
-    if(x % 2 == 0 && y >= x)
-        return y;
-    else if(y % 2 != 0 || x > y)
-        return -1;
-    else if(x % 2 == 0)
-        return x;
-    else
-        for(int i = x; i <= y; i++){
-            if(i % 2 == 0){
-                return i;
-            }
-        }
+    for (int i = x; i <= y; i++) {
+        if (i % 2 == 0)
+            return i;
+    }
     return -1;
 }
 
-int main() {
+void anotherMain() {
     int x, y;
-    cout << "Enter value of x: ";
+    cout << "Enter the first number: ";
     cin >> x;
-    cout << "Enter value of y: ";
+    cout << "Enter the second number: ";
     cin >> y;
-    cout << "The biggest even integer is: " << choose_num(x,y) << endl;
+    cout << "The biggest even integer in the range is " << choose_num(x, y) << endl;
+}
+
+int main() {
+    anotherMain();
+    return 0;
 }
