@@ -1,13 +1,31 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return (a == b);
 }
 
 int main() {
-    if (issame({"this"}, {})) {
-        assert(isspace());
+    int sum1 = 0;
+    std::vector<std::string> lst1;
+    std::cout << "Enter strings for list 1: ";
+    for (std::string str; std::cin >> str;) {
+        lst1.push_back(str);
     }
+    
+    int sum2 = 0;
+    std::vector<std::string> lst2;
+    std::cout << "Enter strings for list 2: ";
+    for (std::string str; std::cin >> str;) {
+        lst2.push_back(str);
+    }
+    
+    bool total_match = true;
+    if (sum1 < sum2) return total_match;
+    else if (sum1 > sum2) total_match = false;
+    bool result = isSame(lst1, lst2);
+    assert(result == total_match);
+
     return 0;
 }
