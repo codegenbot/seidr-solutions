@@ -1,22 +1,24 @@
 #include <vector>
-#include <algorithm>
+#include <iostream>
 
 bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (int i = 0; i < v1.size(); ++i) {
-        if (std::abs(v1[i] - v2[i]) > 0.001f) return false;
-    }
+    if (v1.size() != v2.size())
+        return false;
+    for (size_t i = 0; i < v1.size(); ++i)
+        if (std::abs(v1[i] - v2[i]) > 0.001f)
+            return false;
     return true;
 }
 
-std::vector<std::vector<float>> get_positive(const std::vector<std::vector<float>>& vectors) {
+std::vector<std::vector<float>> get_positive(const std::vector<std::vector<float>>& vecs) {
     std::vector<std::vector<float>> result;
-    for (const auto& vec : vectors) {
-        std::vector<float> v;
-        for (float f : vec) {
-            if (f > 0.0f) v.push_back(f);
-        }
-        if (!v.empty()) result.push_back(v);
+    for (const auto& v : vecs) {
+        std::vector<float> pos_v;
+        for (float f : v)
+            if (f > 0.0f)
+                pos_v.push_back(f);
+        if (!pos_v.empty())
+            result.push_back(pos_v);
     }
     return result;
 }
