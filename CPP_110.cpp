@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
-
+#include <algorithm> 
 using namespace std;
 
 int exchange(vector<int> lst1, vector<int> lst2) {
