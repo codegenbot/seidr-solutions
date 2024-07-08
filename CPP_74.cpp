@@ -1,32 +1,42 @@
-```cpp
 #include <vector>
 #include <string>
+#include <iostream>
 
-bool total_match(vector<string> a,vector<string>b){
-    if(a.size()!=b.size())
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size())
         return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i].compare(b[i]) != 0)
+    for (int i = 0; i < a.size(); i++) {
+        if (std::strcmp(a[i].c_str(), b[i].c_str()) != 0)
             return false;
     }
     return true;
 }
 
-int main(){
-    int n;
-    cin >> n;
-    vector<string> a(n);
-    for(auto &x: a){
-        cin >> x;
+int main() {
+    std::vector<std::string> v1, v2;
+    int total_match = 0;
+
+    std::cout << "Enter number of strings: ";
+    int n; std::cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        std::string str;
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::cin >> str;
+        v1.push_back(str);
     }
-    vector<string> b(n);
-    for(auto &x: b){
-        cin >> x;
+
+    for (int i = 0; i < n; i++) {
+        std::string str;
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::cin >> str;
+        v2.push_back(str);
     }
-    
-    if(total_match(a,b))
-        cout << "Is same";
+
+    if (issame(v1, v2))
+        std::cout << "Both vectors have same strings.";
     else
-        cout << "Not same";
-    
+        std::cout << "Vectors do not have the same strings.";
+
+    return 0;
 }
