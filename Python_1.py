@@ -16,6 +16,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 group = ""
             else:
                 group += char
-    if group != "":
-        result.append("(" + group + ")")
+    result.append("(" + group + ")")
     return [x for x in result if len(x) > 1]
