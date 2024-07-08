@@ -1,8 +1,5 @@
 ```
 #include<iostream>
-#include<cctype>
-#include<string>
-
 using namespace std;
 
 string encrypt(string s) {
@@ -15,13 +12,11 @@ string encrypt(string s) {
         result += c;
     }
     return result;
-
 }
 
 int main() {
     string s;
-    cout << "Enter a string: ";
-    getline(cin, s);
-    cout << "Encrypted string is: " << encrypt(s) << endl;
+    cin >> s;
+    cout << encrypt(s);
     return 0;
 }
