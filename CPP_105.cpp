@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a == b) {
         return true;
     }
@@ -12,29 +12,29 @@ bool issame(vector<string> a, vector<string> b) {
     }
 }
 
-std::vector<string> by_length(std::vector<int> arr) {
-    std::vector<std::string> numbers;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            numbers.push_back(std::to_string(num));
-        }
-    }
-    std::sort(numbers.begin(), numbers.end());
-    std::reverse(numbers.begin(), numbers.end());
-    return numbers;
-}
-
 int main() {
-    std::vector<int> arr;    
+    std::vector<int> numbers;    
     for(int i=0; i<5; i++) {
         int n;
         std::cout << "Enter a number: ";
         std::cin >> n;
-        arr.push_back(n);
+        numbers.push_back(n);
     }
-    std::vector<string> result = by_length(arr);
+    std::vector<std::string> result = by_length(numbers);
     for (const auto& str : result) {
         std::cout << str << std::endl;
     }
     return 0;
+}
+
+std::vector<std::string> by_length(std::vector<int> numbers) {
+    std::vector<std::string> strings;
+    for (int number : numbers) {
+        if (number >= 1 && number <= 9) {
+            strings.push_back(std::to_string(number));
+        }
+    }
+    std::sort(strings.begin(), strings.end());
+    std::reverse(strings.begin(), strings.end());
+    return strings;
 }
