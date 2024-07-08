@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -8,8 +9,8 @@ std::vector<int> findPair(std::vector<int>& nums, int target) {
         int j = i + 1;
         while (j < nums.size() && nums[j] < complement) {
             if (nums[j] + nums[i] == target) {
-                std::vector<int> result({nums[i], nums[j]});
-                return result;
+                int result[2] = {nums[i], nums[j]};
+                return std::vector<int>(result, result+2);
             }
             j++;
         }
