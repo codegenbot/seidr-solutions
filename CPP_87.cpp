@@ -1,11 +1,11 @@
-vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
-    vector<vector<int>> result;
-    for (int i = 0; i < lst.size(); i++) {
-        if (x == i) {
-            for (int j = lst[i].size() - 1; j >= 0; j--) {
-                result.push_back({i, j});
-            }
+#include <vector>
+bool issame(const vector<vector<int>>& a, const vector<vector<int>>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i].size() != b[i].size()) return false;
+        for (int j = 0; j < a[i].size(); j++) {
+            if (a[i][j] != b[i][j]) return false;
         }
     }
-    return result;
+    return true;
 }
