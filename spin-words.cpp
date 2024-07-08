@@ -1,15 +1,18 @@
 
 #include <iostream>
-#include <string>
-#include <algorithm>
 #include <sstream>
+#include <string>
 
 int main() {
     std::string input;
     getline(std::cin, input);
 
     // Split the input string into words.
-    std::vector<std::string> words = split(input, ' ');
+    std::istringstream iss(input);
+    std::vector<std::string> words;
+    for (std::string word; iss >> word;) {
+        words.push_back(word);
+    }
 
     // Reverse each word that is 5 or more letters long.
     for (int i = 0; i < words.size(); i++) {
@@ -21,9 +24,14 @@ int main() {
     }
 
     // Join the words back together into a single string.
-    std::string output = join(words, ' ');
+    std::ostringstream oss;
+    for (int i = 0; i < words.size(); i++) {
+        if (i > 0) oss << ' ';
+        oss << words[i];
+    }
 
-    std::cout << output << '\n';
+    // Output the resulting string.
+    std::cout << oss.str() << '\n';
 
     return 0;
 }
