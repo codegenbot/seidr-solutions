@@ -1,29 +1,34 @@
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
-    for (int i = 0; i < n; i++) {
-        dp[i][0] = grid[i][0];
-        dp[0][i] = grid[0][i];
-    }
-    for (int i = 1; i < n; i++) {
-        for (int j = 1; j < n; j++) {
-            int minVal = INT_MAX;
-            if (grid[i-1][j] < minVal) minVal = grid[i-1][j];
-            if (grid[i][j-1] < minVal) minVal = grid[i][j-1];
-            dp[i][j] = minVal;
-        }
-    }
-    vector<int> res(k);
-    int cur = INT_MAX;
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
+    vector<int> res;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            if (dp[i][j] == cur) {
-                res[k-1] = grid[i][j];
-                k--;
-                if (k == 0) return res;
-                break;
+            if (!visited[i][j]) {
+                dfs(grid, visited, i, j, k, res);
             }
         }
     }
-    return {};
+    return res;
+}
+
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
+    int n = grid.size();
+    if (k == 0) {
+        return;
+    }
+    res.push_back(grid[x][y]);
+    visited[x][y] = true;
+    for (int dx = -1; dx <= 1; dx++) {
+        for (int dy = -1; dy <= 1; dy++) {
+            int nx = x + dx, ny = y + dy;
+            if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                dfs(grid, visited, nx, ny, k - 1, res);
+                if (res.size() == k) {
+                    return;
+                }
+            }
+        }
+    }
+    visited[x][y] = false;
 }
