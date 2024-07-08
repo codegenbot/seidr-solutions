@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -8,8 +8,16 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> result;
+    vector<int> numbers;
     for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            numbers.push_back(num);
+        }
+    }
+    sort(numbers.begin(), numbers.end());
+    reverse(numbers.begin(), numbers.end());
+    vector<string> result;
+    for (int num : numbers) {
         string str = "";
         switch (num) {
             case 1:
@@ -46,6 +54,5 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), vector<string>{"Nine", "Four", "Eight"}));
-    return 0;
+    assert(issame(by_length({9, 4, 8}), vector<string>{ "Nine", "Four", "Eight" }));
 }
