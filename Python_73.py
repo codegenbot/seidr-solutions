@@ -1,10 +1,6 @@
-```
 def smallest_change(arr):
     n = len(arr)
-    forward = arr[:]
-    backward = arr[::-1]
-    changes = 0
-    for i in range(n):
-        if forward[i] != backward[n - i - 1]:
-            changes += 1
+    forward = arr[: n // 2]
+    backward = arr[n // 2 :][::-1]
+    changes = sum(c1 != c2 for c1, c2 in zip(forward, backward))
     return changes
