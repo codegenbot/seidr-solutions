@@ -3,7 +3,8 @@ def make_palindrome(s):
         return ""
 
     palindrome = s
-    while i < len(s) // 2:  # for odd length strings
+    i = 0
+    while i < len(s) // 2:
         if s[i] != s[-i - 1]:
             if len(s) % 2 == 0:
                 palindrome += s[i]
