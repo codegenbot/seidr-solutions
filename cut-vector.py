@@ -1,16 +1,13 @@
-def calculate_cut_index(arr):
-    total_sum = sum(arr)
-    left_sum = 0
-    for i in range(len(arr)):
-        left_sum += arr[i]
-        if left_sum * 2 == total_sum or (left_sum * 2 - total_sum) ** 2 < (
-            left_sum * 2 - total_sum
-        ):
-            return i + 1
-    return 0
+arr = list(map(int, input().split()))
 
+closest_diff = float('inf')
+cut_index = 0
 
-cut_index = calculate_cut_index(arr)
+for i in range(1, len(arr)):
+    diff = abs(sum(arr[:i]) - sum(arr[i:]))
+    if diff < closest_diff:
+        closest_diff = diff
+        cut_index = i
 
 if cut_index == 0:
     subvector1 = [arr[0]]
