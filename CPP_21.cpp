@@ -22,12 +22,14 @@ int main() {
     std::vector<float> numbers = {2.0, 4.0, 6.0, 8.0, 10.0};
     std::vector<float> expected_output = {0.0, 0.25, 0.5, 0.75, 1.0};
     std::vector<float> result = rescale_to_unit(numbers);
-    
-    if (issame(result, expected_output)) {
-        std::cout << "Output matches the expected result." << std::endl;
+    issame(result, expected_output);
+
+    // Additional test case
+    if (issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75})) {
+        std::cout << "Test passed!" << std::endl;
     } else {
-        std::cout << "Output does not match the expected result." << std::endl;
+        std::cout << "Test failed!" << std::endl;
     }
-    
+
     return 0;
 }
