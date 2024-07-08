@@ -1,4 +1,3 @@
-```cpp
 bool prime_length(string str) {
     int n = str.length();
     bool is_prime = true;
@@ -16,4 +15,3 @@ bool prime_length(string str) {
     }
 
     return is_prime;
-}``
