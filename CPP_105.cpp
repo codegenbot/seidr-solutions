@@ -1,15 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for(size_t i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -40,8 +39,7 @@ int main() {
     for (const auto& str : result) {
         std::cout << str << std::endl;
     }
-    if (!issame(by_length({9, 4, 8}) , {"Eight", "Four", "Nine"})) {
-        std::cout << "Assertion failed" << std::endl;
-    }
+    // Use the issame function
+    assert(issame(by_length({9, 4, 8}) , {"Eight", "Four", "Nine"}));
     return 0;
 }
