@@ -1,4 +1,4 @@
-```cpp
+```
 #include <cassert>
 #include <string>
 #include <vector>
@@ -20,7 +20,7 @@ vector<string> splitString(string str) {
     return words;
 }
 
-bool isSameVectors(vector<string> a, vector<string> b) { 
+bool issame(vector<string> a, vector<string> b) { 
     if(a.size() != b.size()) {
         return false;
     }
@@ -33,6 +33,6 @@ bool isSameVectors(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert (isSameVectors(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert (issame(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
