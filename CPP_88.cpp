@@ -44,10 +44,9 @@ int main() {
     std::cout << array[0] + array.back() << std::endl;
     
     if (issame(sort_array({21, 14, 23, 11}) , {23, 21, 14, 11})) {
-        std::cout << "Sorted arrays are the same" << std::endl;
+        std::cout << "Arrays are the same" << std::endl;
     } else {
-        std::cout << "Sorted arrays are not the same" << std::endl;
+        std::cout << "Arrays are not the same" << std::endl;
     }
-    
     return 0;
 }
