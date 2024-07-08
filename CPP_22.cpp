@@ -1,9 +1,25 @@
-vector<int> filter_integers(list_any values){
+#include <vector>
+#include <any>
+#include <initializer_list>
+#include <type_traits>
+#include <cassert> // include assert
+using namespace std;
+
+bool same(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
+vector<int> filter_integers(const vector<any>& values) {
     vector<int> result;
     for (const auto& value : values) {
-        boost::any_cast<int>(value, 0);
-        if (!boost::any_cast<bool>(value)) continue;
-        result.push_back(boost::any_cast<int>(value));
+        if (value.type() == typeid(int)) {
+            result.push_back(any_cast<int>(value));
+        }
     }
     return result;
+}
+
+int main_contest() {
+    assert(same(filter_integers({3, 'c', 3, 3, 'a', 'b'}), vector<int>{3, 3, 3}));
+    return 0;
 }
