@@ -1,16 +1,9 @@
 ```cpp
-#include <assert.h>
+#include <string>
+#include <cassert>
 
-bool prime_length(const char* str) {
-    if (*str == '\0') 
-        return false;
-
-    int n = 0;
-    while (*str != '\0') {
-        str++;
-        n++;
-    }
-
+bool prime_length(std::string str) {
+    int n = std::stoi(str);
     bool is_prime = true;
 
     if (n <= 1)
@@ -26,8 +19,4 @@ bool prime_length(const char* str) {
     }
 
     return is_prime;
-}
-
-int main() {
-    assert(prime_length("0") == false);
 }
