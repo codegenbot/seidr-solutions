@@ -18,4 +18,3 @@ int main() {
     assert(filp_case("These violent delights have violent ends") == "these violent delights have violent ends");
     std::cout << filp_case("Hello, world!") << std::endl;
     return 0;
-}
