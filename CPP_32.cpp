@@ -11,7 +11,7 @@ vector<double> poly(vector<double> coeffs, double x){
 }
 
 double find_zero(vector<double> xs){
-    assert(xs.size() >= 2);
+    assert(xs.size() == 2);
     double a = xs[0];
     double b = xs[1];
     return -b/a;
