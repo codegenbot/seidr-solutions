@@ -1,8 +1,7 @@
 def find_zero(xs: list):
-    n = len(xs) - 1
-    a, b = xs[0], max(abs(xs))
-    for i in range(n):
-        if xs[i] == b:
-            a = xs[i + 1]
-            break
-    return -a / b
+    if len(xs) % 2 != 0 or xs[0] == 0:
+        return None
+    a = max(xs, key=abs)
+    for i in range(1, len(xs)):
+        if xs[i] == a:
+            return -i / xs[i]
