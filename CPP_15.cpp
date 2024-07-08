@@ -1,13 +1,18 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
+using namespace std;
 
 int main() {
-    std::cout << string_sequence(10) << std::endl;
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    string str = string_sequence(n);
+    cout << str << endl;
+    return 0;
 }
 
-std::string string_sequence(int n) {
+string string_sequence(int n) {
     ostringstream oss;
     for (int i = 0; i <= n; ++i) {
         oss << i << " ";
