@@ -1,6 +1,9 @@
 from typing import List
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
+    if len(set(numbers)) == 1:
+        return [1 for _ in numbers]
+    
     if not numbers:
         return []
     
