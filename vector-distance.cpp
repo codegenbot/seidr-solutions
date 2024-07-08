@@ -27,4 +27,3 @@ int main() {
     cout << fixed << setprecision(10) << calculateDistance(n) << endl;
 
     return 0;
-}
