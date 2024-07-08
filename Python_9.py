@@ -1,4 +1,3 @@
-```
 def rolling_max(numbers: List[int]) -> List[int]:
     result = [numbers[0]]
     max_so_far = numbers[0]
