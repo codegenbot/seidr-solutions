@@ -1,9 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 int mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -29,12 +23,5 @@ int mastermind(string code, string guess) {
         }
     }
     
-    return blackPegs * 100 + whitePegs;
-}
-
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << mastermind(code, guess) << endl;
-    return 0;
+    return blackPegs + whitePegs;
 }
