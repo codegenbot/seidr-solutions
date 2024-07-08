@@ -7,10 +7,9 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-# Input processing to convert input string into a list of integers
-user_input = input("Enter a list of integers separated by space: ")
-operations = list(map(int, user_input.split()))
-
-# Calling the function with the processed input
+# Read input as a list of integers
+operations = [int(x) for x in input().split()]
+# Call the function below_zero with the input list
 result = below_zero(operations)
+# Print the result
 print(result)
