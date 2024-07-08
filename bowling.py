@@ -13,13 +13,11 @@ def bowling_score(bowls):
             score += sum(get_value(char) for char in frames[i])
     return score
 
-
 def get_value(char):
     if char == "X" or char == "/":
         return 10
     else:
         return int(char)
-
 
 bowls = input()
 print(bowling_score(bowls))
