@@ -1,4 +1,3 @@
-```cpp
 int luhn(std::vector<int> digits) {
     int sum = 0;
     bool doubleNext = false;
@@ -13,5 +12,5 @@ int luhn(std::vector<int> digits) {
         }
         doubleNext = !doubleNext; // toggle for the next iteration
     }
-    return sum % 10; 
+    return sum % 10; // return the remainder of the sum divided by 10, which should be 0 for a valid card number
 }
