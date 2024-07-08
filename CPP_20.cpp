@@ -1,9 +1,17 @@
+```
 #include <algorithm>
 #include <vector>
 #include <limits>
 
-bool pmrissame(std::pair<float, float> p1, std::pair<float, float> p2) {
-    return (p1.first == p2.first && p1.second == p2.second);
+bool issame(const std::vector<std::pair<float, float>>& vec) {
+    if(vec.size() == 0)
+        return true;
+    
+    for(int i = 1; i < vec.size(); ++i) {
+        if(!issame(pair<float, float>(vec[i-1].first, vec[i-1].second), pair<float, float>(vec[i].first, vec[i].second)))
+            return false;
+    }
+    return true;
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(const std::vector<float>& numbers) {
@@ -27,21 +35,7 @@ std::vector<std::pair<float, float>> find_closest_elements(const std::vector<flo
     return {{closest_pair.first, closest_pair.second}};
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
-}
-
 int main() {
-    assert(issame({2.2f, 3.1f}, std::vector<float>(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}).begin(), find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}).end())));
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::make_pair(2.2, 3.1));
     return 0;
 }
