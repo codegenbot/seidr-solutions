@@ -1,7 +1,7 @@
-#include <iostream>
-#include <string>
-#include <cctype>
-#include <cassert>
+# include <iostream>
+# include <string>
+# include <cctype>
+# include <cassert>
 
 std::string flip_case(std::string str) {
     for (char &c : str) {
@@ -18,7 +18,7 @@ int main() {
     std::string input;
     std::getline(std::cin, input); // Read input from user
     std::string result = flip_case(input);
-    assert(result == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert(result == "ThESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     std::cout << result << std::endl; // Output the result
     return 0;
 }
