@@ -1,4 +1,4 @@
-```cpp
+```
 #include <stdio.h>
 
 using namespace std;
