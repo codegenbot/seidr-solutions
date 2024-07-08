@@ -14,12 +14,8 @@ bool has_close_elements(std::vector<double> numbers, double threshold) {
 }
 
 int main(int argc, char** argv) {
-    std::vector<std::vector<double>> a = {{"1.0", "2.0", "3.9", "4.0", "5.0", "2.2"}};
-    for (const auto& num : a[0]) {
-        a[0].clear();
-        a[0].push_back(std::stod(num));
-    }
-    if (has_close_elements(a[0], 0.1)) {
+    std::vector<std::vector<double>> a = {{1.0}, {2.0}, {3.9}, {4.0}, {5.0}, {2.2}};
+    if (has_close_elements({{x} for x in a[0]}, 0.1)) {
         std::cout << "The array contains close elements." << std::endl;
     } else {
         std::cout << "The array does not contain close elements." << std::endl;
