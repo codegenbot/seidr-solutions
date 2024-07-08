@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
@@ -17,7 +16,6 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    assert(not (correct_bracketing("<><><<><>><>>><>")));
-    
+    assert(!correct_bracketing("<><><<><>><>>><>"));
     return 0;
 }
