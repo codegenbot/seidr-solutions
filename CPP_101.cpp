@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 #include <cassert>
@@ -20,12 +19,12 @@ vector<string> splitString(string str) {
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b, vector<string> c) { 
-    if(a.size() != b.size() || b.size() != c.size()) {
+bool issame(vector<string> a, vector<string> b) { 
+    if(a.size() != b.size()) {
         return false;
     }
     for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i] || b[i] != c[i]) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
