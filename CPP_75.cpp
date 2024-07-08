@@ -1,5 +1,3 @@
-Here's the solution:
-
 bool is_multiply_prime(int a){
     for(int i=2; i<=a/3; i++){
         int prime1 = 0, prime2 = 0, prime3 = 0;
