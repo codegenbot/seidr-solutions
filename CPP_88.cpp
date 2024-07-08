@@ -4,7 +4,7 @@
 std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) return array;
 
-    auto middle = std::next(array.begin(), array.size() / 2);
+    auto middle = array.begin() + array.size() / 2;
     auto left = array.begin();
     auto right = middle;
 
@@ -35,5 +35,12 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    return (array != std::vector<int>{23, 21, 14, 11}) ? 1 : 0;
+    bool areEqual = true;
+    for (int i = 0; i < array.size(); i++) {
+        if (array[i] != {23, 21, 14, 11}[i]) {
+            areEqual = false;
+            break;
+        }
+    }
+    return areEqual ? 0 : 1;
 }
