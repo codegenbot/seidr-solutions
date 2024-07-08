@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -15,8 +16,8 @@ bool has_close_elements(std::vector<double> numbers, double threshold) {
 int main() {
     std::vector<double> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
     if (has_close_elements(a, 0.1)) {
-        std::cout << "The input list contains close elements.\n";
+        std::cout << "The array contains close elements." << std::endl;
     } else {
-        std::cout << "The input list does not contain close elements.\n";
+        std::cout << "The array does not contain close elements." << std::endl;
     }
 }
