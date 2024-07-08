@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <cassert>
 
 int my_strlen(std::string str) {
     int len = 0;
