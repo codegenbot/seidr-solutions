@@ -1,5 +1,3 @@
-Here is the completed code:
-
 vector<string> sorted_list_sum(vector<string> lst) {
     // Remove strings with odd lengths from the vector
     lst.erase(std::remove_if(lst.begin(), lst.end(),
@@ -16,4 +14,12 @@ vector<string> sorted_list_sum(vector<string> lst) {
         });
 
     return lst;
+}
+
+bool issame(vector<string> a,vector<string>b){
+    return a==b;
+
+}
+int main() {
+    assert (issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
 }
