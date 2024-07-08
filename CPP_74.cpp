@@ -17,7 +17,7 @@ int main() {
         }
         if (sum1 < sum2) return lst1;
         else if (sum1 > sum2) return lst2;
-        else return lst1;
+        else return vector<string>{};
     }
     assert (issame(total_match({"this"}, {}), {}));
     return 0;
