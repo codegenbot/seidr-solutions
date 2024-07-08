@@ -1,4 +1,4 @@
-```cpp
+#include <bits/c++config.h>
 #include <vector>
 #include <string>
 
@@ -13,12 +13,9 @@ std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::s
             result.push_back(s);
         }
     }
-    return result;
 }
 
 int main() {
-    std::vector<std::string> testVector = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    auto filteredVector = filterByPrefix(testVector, "xxx");
-    assert(isSame(filteredVector, {"xxx", "xxxAAA", "xxx"}));
+    assert(isSame(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }

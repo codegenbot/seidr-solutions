@@ -1,25 +1,18 @@
-#include <initializer_list>
-#include <vector>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); ++i)
-        if (a[i] != b[i])
-            return false;
+#include <set>
+bool std::operator==(const std::vector<int>& a, const std::vector<int>& b){
+    if(a.size()!=b.size())return false;
+    for(int i=0; i<a.size();i++)if(a[i]!=b[i])return false;
     return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::unordered_map<int, bool> mp;
-    std::vector<int> result;
+std::vector<std::vector<int>> remove_duplicates(std::vector<std::vector<int>> numbers) {
+    std::set<std::vector<int>> s;
 
-    for (int i = 0; i < numbers.size(); ++i) {
-        if (!mp.count(numbers[i])) {
-            mp[numbers[i]] = true;
-            result.push_back(numbers[i]);
+    for (int i = 0; i < numbers.size(); i++) {
+        if (!s.count(numbers[i])) {
+            s.insert(numbers[i]);
         }
     }
 
-    return result;
+    return std::vector<std::vector<int>>(s.begin(), s.end());
 }
