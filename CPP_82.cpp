@@ -1,12 +1,6 @@
+```cpp
 #include <string>
 #include <cassert>
-
-int prime_length(std::string s) {
-    int length = 0;
-    for (char c : s)
-        length++;
-    return prime(length);
-}
 
 bool prime(int n) {
     if (n <= 1)
@@ -24,6 +18,15 @@ bool prime(int n) {
 
 }
 
+int prime_length(std::string s) {
+    int len = 0;
+    for(char c : s) {
+        if(c >= '0' && c <= '9')
+            len++;
+    }
+    return prime(stoi(s.substr(0, len)));
+}
+
 int main() {
-    assert(prime_length("Hello") == prime(5));
+    assert(prime_length("0") == false);
 }
