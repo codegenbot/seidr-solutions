@@ -32,16 +32,15 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    // Initialize the vector directly without specifying its size:
-    std::vector<int> arr;
+    int* arr = new int[n];
+    
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
-        int temp;
-        std::cin >> temp;
-        arr.push_back(temp);
+        std::cin >> arr[i];
     }
 
-    auto result = findMinEvenNode(arr);
-
+    auto result = findMinEvenNode({arr[0], arr[1]});
+    delete[] arr;
+    
     return 0;
 }
