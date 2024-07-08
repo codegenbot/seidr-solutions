@@ -1,5 +1,4 @@
-Here's the solution:
-
+// Here's the solution:
 bool is_multiply_prime(int a){
     for(int i=2; i<=a/3; i++){
         int prime1 = 0, prime2 = 0, prime3 = 0;
@@ -24,3 +23,4 @@ bool is_multiply_prime(int a){
         if(prime1 && prime2 && prime3) return true;
     }
     return false;
+}
