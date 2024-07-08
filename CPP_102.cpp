@@ -1,6 +1,5 @@
-```cpp
+```c++
 #include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -12,15 +11,12 @@ int choose_num(int x, int y) {
     else if (x % 2 == 0)
         return x;
     else
-    {
-        std::string str;
         for (int i = x; i <= y; i++) {
             if (i % 2 == 0) {
-                str += to_string(i);
+                return i;
             }
         }
-        return -1;
-    }
+    return -1;
 }
 
 int main() {
