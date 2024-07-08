@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
 
-bool isSame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(vector<int> a,vector<int>b){
+    return a==b;
 }
 
 vector<int> strange_sort_vector(vector<int> lst) {
@@ -25,6 +24,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
 
 int main() {
     vector<int> test = strange_sort_vector({111111});
-    for (int i : test) cout << i << " ";
+    for(int i: test) cout << i << " ";
     return 0;
 }

@@ -1,3 +1,11 @@
+```c++
+#include <vector>
+#include <utility>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> evenNodes;
 
@@ -23,7 +31,10 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
         }
     }
 
-    std::vector<std::pair<int, int>> result;
-    result.push_back({minEvenValue, minIndex});
-    return result;
+    return {{minEvenValue, minIndex}};
+}
+
+int main() {
+    assert(pluck({7, 9, 7, 1}) == {{}});
+    // rest of your code
 }
