@@ -1,10 +1,8 @@
-```
-#include <iostream>
-#include <string>
-using namespace std;
-
 string circular_shift(int x, int shift) {
-    string str = to_string(x);
+    ostringstream oss;
+    oss << x; // convert integer to string using ostringstream
+    string str = oss.str(); // get the converted string
+
     int n = str.length();
     if (shift >= n)
         return str;
@@ -20,9 +18,9 @@ string circular_shift(int x, int shift) {
     }
 }
 
-void new_main() {
+int main() {
     int x, shift;
     cin >> x >> shift;
     cout << circular_shift(x, shift) << endl;
-    return;
+    return 0;
 }
