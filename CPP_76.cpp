@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 #include <iostream>
 
@@ -8,14 +7,20 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    int x, n;
-    std::cout << "Enter a number: ";
+    int x;
+    int n;
+    
+    std::cout << "Enter a base number: ";
     std::cin >> x;
-    std::cout << "Enter another number: ";
+    
+    std::cout << "Enter an exponent: ";
     std::cin >> n;
-    if (is_simple_power(x, n))
-        std::cout << x << " is a simple power of " << n << ".\n";
-    else
-        std::cout << x << " is not a simple power of " << n << ".\n";
+    
+    if (is_simple_power(x, n)) {
+        std::cout << "The number is a simple power of the given base.\n";
+    } else {
+        std::cout << "The number is not a simple power of the given base.\n";
+    }
+    
     return 0;
 }
