@@ -1,4 +1,5 @@
-from typing import List, Optional
+```
+from typing import Optional
 
 def longest() -> Optional[str]:
     strings = input("Enter space-separated string: ").split()
