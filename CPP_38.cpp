@@ -1,25 +1,42 @@
+#include <iostream>
+#include <string>
 #include <cassert>
 
-string decode_cyclic(string s) {
-    string decoded_str;
-    // Implement decoding logic here
-    return decoded_str;
-}
+using namespace std;
 
 string encode_cyclic(string s) {
-    string encoded_str;
     int l = s.length();
+    string encoded_str;
     for (int i = 0; i * 3 < l; i++) {
         string x = s.substr(i * 3, 3);
         if (x.length() == 3) {
-            x = x.substr(1) + x[0];
+            x = x[1] + x[2] + x[0];
         }
-        encoded_str += x;
+        encoded_str.append(x);
     }
     return encoded_str;
 }
 
-// In the main function or wherever you are calling the functions
-string str = "your_input_string";
-string encoded_str = encode_cyclic(str);
-assert(decode_cyclic(encoded_str) == str);
+string decode_cyclic(string s) {
+    int l = s.length();
+    string decoded_str;
+    for (int i = 0; i * 3 < l; i++) {
+        string x = s.substr(i * 3, 3);
+        if (x.length() == 3) {
+            x = x[2] + x[0] + x[1];
+        }
+        decoded_str.append(x);
+    }
+    return decoded_str;
+}
+
+int main() {
+    string str = "abcde";
+    string encoded_str = encode_cyclic(str);
+    assert(decode_cyclic(encoded_str) == str);
+    cout << "Original: " << str << endl;
+    cout << "Encoded: " << encoded_str << endl;
+    cout << "Decoded: " << decode_cyclic(encoded_str) << endl;
+
+    return 0;
+}
