@@ -4,23 +4,21 @@
 
 std::vector<std::string> separate_paren_groups(const std::string& input) {
     std::vector<std::string> groups;
-    int balance = 0;
+    int count = 0;
     std::string current_group;
 
     for (char c : input) {
         if (c == '(') {
-            balance++;
-            if (balance > 1) {
-                current_group += c;
-            }
+            count++;
         } else if (c == ')') {
-            balance--;
-            if (balance > 0) {
-                current_group += c;
-            } else {
-                groups.push_back(current_group);
-                current_group.clear();
-            }
+            count--;
+        }
+
+        current_group += c;
+
+        if (count == 0) {
+            groups.push_back(current_group);
+            current_group.clear();
         }
     }
 
