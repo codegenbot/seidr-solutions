@@ -1,5 +1,4 @@
 ```cpp
-#include <iostream>
 #include <string>
 using namespace std;
 
@@ -17,6 +16,8 @@ int is_bored(string S) {
 
 int main() {
     string S;
+    cout << "Enter a sentence: ";
     cin >> S;
-    cout << is_bored(S);
+    int res = is_bored(S);
+    cout << "Number of sentences starting with 'I' and ending with '.', '?', or '!': " << res << endl;
 }
