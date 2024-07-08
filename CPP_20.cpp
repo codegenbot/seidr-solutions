@@ -19,13 +19,12 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
             float diff = std::abs(numbers[j] - numbers[i]);
             if(diff < min_diff && !issame(numbers[i], numbers[j])) {
                 min_diff = diff;
-                closest_pair.first = numbers[i];
-                closest_pair.second = numbers[j];
+                closest_pair = std::make_pair(numbers[i], numbers[j]);
             }
         }
     }
 
-    return {std::pair<float, float>(closest_pair.first, closest_pair.second)};
+    return {std::make_pair(closest_pair.first, closest_pair.second)};
 }
 
 int main() {
