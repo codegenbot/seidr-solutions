@@ -1,11 +1,12 @@
+````
+#include <cassert>
 #include <algorithm>
 #include <iostream>
-#include <cassert>
 using namespace std;
 
 bool issame(vector<int> a,vector<int>b){
     if(a.size() == b.size())
-        return true;
+        return equal(a.begin(), a.end(), b.begin());
     else
         return false;
 }
@@ -20,3 +21,4 @@ int main() {
     assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7) , {0,-23,-400,1,2,3,243}));
     return 0;
 }
+```
