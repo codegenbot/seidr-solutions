@@ -1,10 +1,11 @@
+```cpp
 namespace std {
-    bool isSame(std::vector<std::string> v1, std::vector<std::string> v2) {
-        if(v1.size() != v2.size())
+    bool isSame(std::vector<std::string> v1, std::vector<std::string> vec) {
+        if(v1.size() != vec.size())
             return false;
         
         for(int i=0; i<v1.size(); i++) {
-            if(v1[i] != v2[i])
+            if(v1[i] != vec[i])
                 return false;
         }
         
