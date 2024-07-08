@@ -1,13 +1,9 @@
 #include <vector>
 #include <string>
-#include <cassert>
 using namespace std;
 
-vector<string> total_match(const initializer_list<string>& lst) {
-    return vector<string>(lst);
-}
-
-bool issame(const vector<string>& a, const vector<string>& b) {
+vector<string> total_match(const vector<string>& a, const vector<string>& b) {
+    vector<string> result;
     int total_chars_lst1 = 0;
     int total_chars_lst2 = 0;
 
@@ -18,12 +14,11 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     for (const string& str : b) {
         total_chars_lst2 += str.size();
     }
-
-    return total_chars_lst1 == total_chars_lst2;
-}
-
-int main() {
-    assert(issame(total_match({"this"}), total_match({})));
-
-    return 0;
+    
+    if (total_chars_lst1 == total_chars_lst2) {
+        result = a;
+        result.insert(result.end(), b.begin(), b.end());
+    }
+    
+    return result;
 }
