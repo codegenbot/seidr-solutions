@@ -1,11 +1,10 @@
-```
+```cpp
 #include <vector>
 #include <iostream>
-#define _SCL_SECURE_NO_WARNINGS
-#include < initializer>
+#include <initializer_list>
 
 bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
-    if (a.size() != b.size())
+    if(a.size() != b.size()) 
         return false;
     
     for(int i = 0; i < a.size(); i++) {
@@ -13,7 +12,7 @@ bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
             return false;
         
         for(int j = 0; j < a[i].size(); j++) {
-            if (a[i][j] != b[i][j]) 
+            if(a[i][j] != b[i][j]) 
                 return false;
         }
     }
@@ -27,19 +26,26 @@ int main(){
     std::cin >> m >> n;
     
     for(int i = 0; i < m; i++) {
-        std::vector<int> temp1,temp2;
+        matrix1.push_back({});
         for(int j = 0; j < n; j++) {
             int x;
             std::cout << "Enter element " << i << "," << j << ": ";
             std::cin >> x;
-            temp1.push_back(x);
-            temp2.push_back(x);
+            matrix1[i].push_back(x);
         }
-        matrix1.push_back(temp1);
-        matrix2.push_back(temp2);
+    }
+    
+    for(int i = 0; i < m; i++) {
+        matrix2.push_back({});
+        for(int j = 0; j < n; j++) {
+            int x;
+            std::cout << "Enter element " << i << "," << j << ": ";
+            std::cin >> x;
+            matrix2[i].push_back(x);
+        }
     }
 
-    if (issame(matrix1, matrix2)) 
+    if(issame(matrix1, matrix2)) 
         std::cout << "The two matrices are identical." << std::endl;
     else 
         std::cout << "The two matrices are not identical." << std::endl;
