@@ -1,4 +1,4 @@
-```
+```c++
 #include <stdio.h>
 using namespace std;
 
@@ -21,4 +21,4 @@ int main() {
     printf("Enter value of p: ");
     scanf("%d", &p);
     printf("2^%d mod %d = %d\n", n, p, modp(n, p));
-}
+    return 0;
