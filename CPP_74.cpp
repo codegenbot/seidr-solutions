@@ -3,42 +3,44 @@
 #include <string>
 #include <iostream>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+using namespace std;
+
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
-        if (std::strcmp(a[i].c_str(), b[i].c_str()) != 0)
+        if (a[i] != b[i])
             return false;
     }
     return true;
 }
 
 int main() {
-    std::vector<std::string> v1, v2;
+    vector<string> v1, v2;
 
-    int n; 
+    int n;
 
-    std::cout << "Enter number of strings: ";
-    std::cin >> n;
+    cout << "Enter number of strings: ";
+    cin >> n;
 
     for (int i = 0; i < n; i++) {
-        std::string str;
-        std::cout << "Enter string " << i + 1 << ": ";
-        std::cin >> str;
+        string str;
+        cout << "Enter string " << i + 1 << ": ";
+        getline(cin, str);
         v1.push_back(str);
     }
 
     for (int i = 0; i < n; i++) {
-        std::string str;
-        std::cout << "Enter string " << i + 1 << ": ";
-        std::cin >> str;
+        string str;
+        cout << "Enter string " << i + 1 << ": ";
+        getline(cin, str);
         v2.push_back(str);
     }
 
     if (issame(v1, v2))
-        std::cout << "Both vectors have same strings.";
+        cout << "Both vectors have same strings.";
     else
-        std::cout << "Vectors do not have the same strings.";
+        cout << "Vectors do not have the same strings.";
 
     return 0;
 }
