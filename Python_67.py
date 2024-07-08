@@ -1,5 +1,6 @@
-```
 def fruit_distribution(s, n):
-    s = s.replace("apples and ", "")
-    oranges = int(s.split()[0].replace("oranges", "")) if "oranges" in s else 0
-    return n - (int(s.split()[0].replace("apples ", ""))) - oranges
+    s = s.replace("apples and", "").replace("oranges", "").replace(" ", "")
+    parts = s.split()
+    if len(parts) < 3:
+        return n
+    return n - int(parts[-1]) - int(parts[2])
