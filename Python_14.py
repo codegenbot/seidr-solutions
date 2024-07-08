@@ -1,9 +1,10 @@
-for i in range(len(string) + 1):
-    if i == 0:
-        prefix = ""
-    else:
+```
+def all_prefixes_and_suffixes(string: str) -> List[str]:
+    result = []
+    for i in range(1, len(string) + 1):
         prefix = string[:i]
-    suffix = string[i:] if i < len(string) else ""
-    result.append(prefix)
-    result.append(suffix)
-    result.append(prefix + suffix)
+        result.append(prefix)
+        if i < len(string):
+            suffix = string[i:]
+            result.append(suffix)
+    return result
