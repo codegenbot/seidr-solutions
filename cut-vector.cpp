@@ -13,7 +13,7 @@ vector<int> cutVector(vector<int>& nums) {
             pos = i;
         }
     }
-    return {vector<int>(nums.begin(), nums.begin() + pos + 1), vector<int>(nums.begin() + pos, nums.end())};
+    return {std::vector<int>(nums.begin(), nums.begin() + pos + 1), std::vector<int>(nums.begin() + pos, nums.end())};
 }
 
 int main() {
