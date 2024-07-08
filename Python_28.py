@@ -1,22 +1,21 @@
+```
 from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    result = ""
+    user_strings = []
 
     while True:
         user_input = input(
-            "Enter a list of strings separated by commas or 'q' to quit: "
+            "Enter a string or 'q' to quit: "
         )
 
         if user_input.lower() == "q":
-            return result
+            break
 
         try:
-            for s in user_input.split(","):
-                result += s.strip()
-            break
+            user_strings.extend([s.strip() for s in user_input.split(",")])
         except ValueError:
             print("Invalid input. Please enter a list of strings separated by commas.")
 
-    return result
+    return "".join(user_strings)
