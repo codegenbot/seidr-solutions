@@ -1,14 +1,15 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
-bool issame(float x1, float y1, float x2, float y2) {
-    return (x1 == x2 && y1 == y2);
+bool issame(float x, float y) {
+    if (x > 0 && y > 0) return true;
+    else return false;
 }
 
 std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
     for (float x : l) {
-        if (x > 0) {
+        if (issame(x,0)) {
             result.push_back(x);
         }
     }
