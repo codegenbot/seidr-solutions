@@ -1,4 +1,3 @@
-```cpp
 int main() {
     assert(remove_vowels("ybcd") == "ybcd");
     std::string input;
