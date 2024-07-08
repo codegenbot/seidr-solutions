@@ -7,6 +7,7 @@ def find_zero(xs: list):
     zero_value = -xs[1] / (2 * largest_coeff)
     return zero_value
 
+
 user_input = input("Enter the list of coefficients (separated by spaces): ")
 coefficients = [float(i) for i in user_input.split()]
 
