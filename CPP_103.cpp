@@ -9,13 +9,13 @@ std::string rounded_avg(int n,int m){
         sum += i;
     }
     double avg = (double)sum/(m-n+1);
-    avg = std::floor(avg + 0.5); 
+    avg = floor(avg + 0.5); 
     std::string binary = "";
     while(avg > 0){
         if((int)avg & 1) binary += "1";
         else binary += "0";
         (double)avg >>= 1;
     }
-    std::reverse(binary.begin(),binary.end());
+    reverse(binary.begin(),binary.end());
     return binary;
 }
