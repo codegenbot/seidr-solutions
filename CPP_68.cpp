@@ -1,12 +1,9 @@
+```cpp
 #include <vector>
-#include <algorithm>
+#include <utility>
 
-std::vector<int> pluck(const std::vector<std::pair<int, int>>& arr) {
-    std::vector<int> result;
-    for (const auto& pair : arr) {
-        result.push_back(pair.first);
-    }
-    return result;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
@@ -37,4 +34,8 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
     std::vector<std::pair<int, int>> result;
     result.push_back({minEvenValue, minIndex});
     return result;
+}
+
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}), {}));
 }
