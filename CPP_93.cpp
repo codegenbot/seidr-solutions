@@ -3,21 +3,12 @@ string encode(string message) {
     for (char c : message) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
-            result += (c == toupper(base)) ? tolower(base) : toupper(base);
-            switch (c - base) {
-                case 0:
-                case 1:
-                    base = (base == 'A') ? 'C' : 'b';
-                    break;
-                default:
-                    base += 2;
-                    if (base > 'z' || base > 'Z')
-                        base -= 26;
+            c = (c >= base && c <= base + 25) ? char(base + 25 - (c - base)) : char(base);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                c = char((c - 'a' + 2) % 26 + 'a');
             }
-            result += base;
-        } else {
-            result += c;
         }
+        result += c;
     }
     return result;
 }
