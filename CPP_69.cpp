@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <map>
 
 int search(std::vector<int> lst) {
     std::map<int, int> freq;
@@ -17,18 +15,20 @@ int search(std::vector<int> lst) {
 }
 
 int main() {
-    int n; 
     std::vector<int> lst;
-    
+    int n;
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
-        int val;
-        std::cin >> val;
-        lst.push_back(val);
+        int x;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> x;
+        lst.push_back(x);
     }
-    
     int result = search(lst);
-    std::cout << "Result: " << result << std::endl;
-    
+    if (result != -1)
+        std::cout << "First number that appears the same or more times as its value is: " << result;
+    else
+        std::cout << "No such number found";
     return 0;
 }
