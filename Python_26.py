@@ -1,5 +1,6 @@
-```
-def remove_duplicates(numbers: list[int]) -> list[int]:
+from typing import List
+
+def remove_duplicates(numbers: List[int]) -> List[int]:
     unique_numbers = set()
     result = []
     
