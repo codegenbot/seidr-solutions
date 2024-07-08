@@ -1,6 +1,5 @@
-python
+```python
 import math
-
 
 def bouncing_balls():
     start_height = float(input())
@@ -16,6 +15,5 @@ def bouncing_balls():
     )
 
     return "{:.6f}".format(total_distance)
-
 
 print(bouncing_balls())
