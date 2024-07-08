@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-bool below_threshold(std::vector<int> l, int t) {
+bool below_threshold(const std::vector<int>& l, int t) {
     for (int num : l) {
         if (num >= t) {
             return false;
@@ -13,8 +13,8 @@ bool below_threshold(std::vector<int> l, int t) {
 }
 
 int main() {
-    std::vector<int> numbers = {1, 8, 4, 10};
-    int threshold = 6;
-    assert(below_threshold(numbers, threshold));
-    return 0;
+    int numbers_size = 4; 
+    std::vector<int> numbers(numbers_size);
+    numbers = {1, 8, 4, 10};
+    assert(below_threshold(numbers, 6));
 }
