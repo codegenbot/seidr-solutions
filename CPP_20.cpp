@@ -2,21 +2,17 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <utility>
+#include <cmath>
 
 bool isclose(float a, float b) {
-    return std::abs(a - b) < 1e-6;
-}
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin(), isclose);
+    return std::abs(a - b) < 1e-6; // Tolerance for float comparison
 }
 
 std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
-    std::pair<float, float> closest_pair = {numbers[0], numbers[1]];
-
+    std::pair<float, float> closest_pair = {numbers[0], numbers[1]};
+    
     for (size_t i = 1; i < numbers.size() - 1; i++) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < min_diff) {
@@ -24,11 +20,11 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
             closest_pair = {numbers[i], numbers[i + 1]};
         }
     }
-
+    
     return closest_pair;
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}), std::make_pair(2.2f, 3.1f));
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::make_pair(2.2f, 3.1f));
     return 0;
 }
