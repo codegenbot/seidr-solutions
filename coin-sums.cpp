@@ -25,8 +25,8 @@ int main() {
         quarters++;
         remaining -= 25;
     }
-    nickles = remaining / 5; // calculate nickels
-    pennies = remaining % 5; // calculate pennies
+    nickles = remaining / 5; 
+    pennies = remaining % 5; 
 
     std::cout << quarters << "\n";
     std::cout << nickles << "\n";
