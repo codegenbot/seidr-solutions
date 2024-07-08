@@ -2,9 +2,9 @@ start_height = float(input())
 first_bounce_height = float(input())
 num_bounces = int(input())
 
-bounciness_index = first_bounce_height / start_height
-distance_per_bounce = start_height * (1 - 0.5**2) / (1 - 0.5**2)
-
-total_distance = distance_per_bounce * num_bounces + start_height
+bounciness_index = pow(first_bounce_height / start_height, 1 / 2)
+total_distance = (
+    start_height * (1 - pow(bounciness_index, num_bounces)) / (1 - bounciness_index)
+)
 
 print("{:.6f}".format(total_distance))
