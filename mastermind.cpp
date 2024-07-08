@@ -1,4 +1,6 @@
 #include <string>
+#include <vector>
+#include <algorithm>
 
 int mastermind(string code, string guess) {
     int white = 0;
@@ -10,17 +12,16 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : code) {
-        bool found = false;
-        for (int j = 0; j < 4; ++j) {
-            if (c == guess[j] && !found) {
-                found = true;
-            } else if (c == guess[j]) {
-                white++;
-                break;
-            }
+    vector<char> code_chars(code.begin(), code.end());
+    vector<char> guess_chars(guess.begin(), guess.end());
+
+    for (char c : guess_chars) {
+        if (count(code_chars.begin(), code_chars.end(), c) > 0) {
+            white++;
+            auto it = remove(code_chars.begin(), code_chars.end(), c);
+            code_chars.erase(it, code_chars.end());
         }
     }
 
-    return black;
+    return black + white;
 }
