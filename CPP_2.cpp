@@ -7,8 +7,8 @@ double truncate_number(double number) {
 }
 
 int main() {
-    double number;
-    std::cin >> number;
-    std::cout << truncate_number(number) << std::endl;
+    double input;
+    std::cin >> input;
+    std::cout << truncate_number(input) << std::endl;
     return 0;
 }
