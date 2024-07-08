@@ -1,24 +1,24 @@
 #include <iostream>
 #include <string>
 
-std::string find_substrings(const std::string& str) {
+int how_many_times(const std::string& str, const std::string& substring) {
     int count = 0;
     size_t pos = 0;
-
-    while ((pos = str.find("is")) != std::string::npos) {
+    while ((pos = str.find(substring)) != std::string::npos) {
         count++;
-        pos = str.find("is", pos + 1);
+        pos = str.find(substring, pos + 1);
     }
-
-    return "The substring 'is' appears " + std::to_string(count) + " times in the input.\n";
+    return count;
 }
 
 int main() {
-    std::string input;
+    std::string input, sub;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
+    std::cout << "Enter a substring: ";
+    std::getline(std::cin, sub);
 
-    std::cout << find_substrings(input) << "\n";
-
+    int result = how_many_times(input, sub);
+    std::cout << "The substring appears " << result << " times in the input.\n";
     return 0;
 }
