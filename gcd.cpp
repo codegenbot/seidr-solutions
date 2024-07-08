@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -13,7 +12,7 @@ vector<int> findIndices(string text, string target) {
         }
         if (j == targetLength) {
             indices.push_back(i);
-            i += j - 1; 
+            i += j - 1; // adjust i to skip overlapping substrings
         } else {
             break;
         }
@@ -28,4 +27,3 @@ int gcd(int a, int b) {
         a = temp;
     }
     return a;
-}
