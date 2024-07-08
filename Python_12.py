@@ -1,4 +1,4 @@
-```
+```python
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -14,4 +14,4 @@ def longest(strings: List[str]) -> Optional[str]:
             longest_str = s
     return longest_str
 
-longest(["apple", "banana", "cherry"])
+print(longest(["apple", "banana", "cherry"]))
