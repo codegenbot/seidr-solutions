@@ -1,3 +1,4 @@
+```
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -11,8 +12,6 @@ def longest(strings: List[str]) -> Optional[str]:
         if len(s) > max_length:
             max_length = len(s)
             longest_str = s
-    if longest_str == "":
-        return None
     return longest_str
 
 print(longest(["apple", "banana", "cherry"]))
