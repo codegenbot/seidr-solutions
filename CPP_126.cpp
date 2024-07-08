@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 bool is_sorted(std::vector<int> lst){
     if (lst.size() <= 1) return true;
@@ -18,10 +17,27 @@ bool is_sorted(std::vector<int> lst){
     }
 
     return true;
-
 }
 
 int main(){
-    std::vector<int> lst = {1, 2, 3, 4};
-    assert(is_sorted(lst) == true);
+    std::vector<int> lst;
+    int n;
+    
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    for(int i = 0; i < n; i++){
+        std::cout << "Enter element " << (i+1) << ": ";
+        int num;
+        std::cin >> num;
+        lst.push_back(num);
+    }
+
+    if(is_sorted(lst)){
+        std::cout << "The list is sorted." << std::endl;
+    }else{
+        std::cout << "The list is not sorted." << std::endl;
+    }
+    
+    return 0;
 }
