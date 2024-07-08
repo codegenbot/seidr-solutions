@@ -1,9 +1,10 @@
 ```cpp
-namespace std;
 #include <vector>
 #include <string>
 
-bool isSame(std::vector<std::string> v1, std::vector<std::string> v2) {
+using namespace std;
+
+bool isSame(vector<string> v1, vector<string> v2) {
     if(v1.size() != v2.size())
         return false;
     
@@ -15,10 +16,10 @@ bool isSame(std::vector<std::string> v1, std::vector<std::string> v2) {
     return true;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
-    std::vector<std::string> result;
+vector<string> filter_by_substring(vector<string> vec, string sub) {
+    vector<string> result;
     for(const auto& str : vec) {
-        if(str.find(sub) != std::string::npos)
+        if(str.find(sub) != string::npos)
             result.push_back(str);
     }
     
