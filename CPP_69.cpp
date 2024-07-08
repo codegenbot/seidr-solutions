@@ -7,12 +7,14 @@ int search(std::vector<int> lst) {
     for (int i : lst) {
         freq[i]++;
     }
+    int max_val = -1;
     for (auto p = freq.begin(); p != freq.end(); ++p) {
         if (p->second >= p->first) {
-            return p->first;
+            max_val = p->first;
+            break;
         }
     }
-    return -1;
+    return max_val;
 }
 
 int main() {
