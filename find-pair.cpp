@@ -14,7 +14,8 @@ vector<int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    return {-1, -1};
+    vector<int> result = {-1, -1};
+    return result;
 }
 
 int main() {
@@ -27,10 +28,6 @@ int main() {
     int target;
     cin >> target;
     vector<int> result = findPair(nums, target);
-    if (result[0] != -1) {
-        cout << result[0] << " " << result[1] << endl;
-    } else {
-        cout << "No pair found" << endl;
-    }
+    cout << result[0] << " " << result[1] << endl;
     return 0;
 }
