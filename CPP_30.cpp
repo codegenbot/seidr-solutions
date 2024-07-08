@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,7 +13,7 @@ std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> v
         int size = 0;
         std::vector<float> positiveVec = get_positive(v, size);
         if (!issame({}, positiveVec)) {
-            result.push_back(v);
+            result.push_back(positiveVec);
         }
     }
     return result;
