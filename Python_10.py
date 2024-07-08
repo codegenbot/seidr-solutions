@@ -1,3 +1,4 @@
+```
 def make_palindrome(s):
     if len(s) == 0:
         return ""
