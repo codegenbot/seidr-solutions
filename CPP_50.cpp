@@ -1,9 +1,26 @@
-#include <string>
+#include <string> // For string functions
+#include <cassert> // For assert function
 
-string encode_shift(string s);
+std::string encode_shift(std::string s); // Function declaration
 
-void test_code() {
-    string str = "input string";
-    string encoded_str = encode_shift(str);
-    assert(decode_shift(encoded_str) == str);
+std::string decode_shift(std::string s){
+    std::string out;
+    int i;
+    for (i=0; i<s.length(); i++)
+    {
+        int w = ((int)s[i] - 5 - (int)'a' + 26) % 26 + (int)'a';   
+        out = out + (char)w;
+    }
+    return out;
+}
+
+std::string encode_shift(std::string s) { // Function definition
+    std::string encoded;
+    int i;
+    for (i = 0; i < s.length(); i++)
+    {
+        int w = ((int)s[i] + 5 - (int)'a' + 26) % 26 + (int)'a';   
+        encoded = encoded + (char)w;
+    }
+    return encoded;
 }
