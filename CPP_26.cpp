@@ -1,21 +1,12 @@
-```
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
 
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-typename std::vector<int> remove_duplicates(vector<int> numbers) {
-    unordered_map<int, bool> mp;
-    vector<int> result;
-
-    for (int i = 0; i < numbers.size(); i++) {
-        if (!mp.count(numbers[i])) {
-            mp[numbers[i]] = true;
-            result.push_back(numbers[i]);
-        }
-    }
-
-    return result;
+vector<int> remove_duplicates(vector<int> numbers) {
+    set<int> unique_numbers(numbers.begin(), numbers.end());
+    return vector<int>(unique_numbers.begin(), unique_numbers.end());
 }
