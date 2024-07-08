@@ -1,4 +1,3 @@
-```cpp
 int luhn(std::vector<int> digits) {
     int sum = 0;
     bool doubleNext = false;
@@ -7,11 +6,11 @@ int luhn(std::vector<int> digits) {
         if (!doubleNext) { 
             sum += digit;
         } else { // it's time to double the next digit
-            digit *= 2;
-            if (digit > 9) digit -= 9;
-            sum += digit;            
+            int doubledDigit = digit * 2;
+            if (doubledDigit > 9) doubledDigit -= 9;            
+            sum += doubledDigit;            
         }
-        doubleNext = !doubleNext; // toggle for the next iteration
+        doubleNext = !doubleNext; 
     }
-    return sum % 10; 
+    return sum % 10;
 }

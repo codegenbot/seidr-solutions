@@ -1,3 +1,4 @@
+```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
     card_number.reverse()
@@ -10,4 +11,4 @@ def luhn(card_number):
             total_sum += temp_sum
         else:
             total_sum += num
-    return total_sum
+    return total_sum % 10
