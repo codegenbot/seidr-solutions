@@ -1,22 +1,16 @@
-#include <iostream>
-#include <cassert>
+#include <string>
 
-bool correct_bracketing(const std::string& brackets) {
-    int balance = 0;
+bool correct_bracketing(const string& brackets) {
+    int count = 0;
     for (char c : brackets) {
         if (c == '(') {
-            balance++;
+            count++;
         } else if (c == ')') {
-            balance--;
-        }
-        if (balance < 0) {
-            return false;
+            count--;
+            if (count < 0) {
+                return false;
+            }
         }
     }
-    return balance == 0;
-}
-
-int main() {
-    assert(!correct_bracketing("()()(()())()))()"));
-    return 0;
+    return count == 0;
 }
