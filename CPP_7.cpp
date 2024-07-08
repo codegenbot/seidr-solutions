@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
 bool isSame(std::vector<std::string> v1, std::vector<std::string> v2) {
     if(v1.size() != v2.size())
