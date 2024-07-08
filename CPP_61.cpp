@@ -4,20 +4,20 @@
 #include <cassert>
 
 bool correct_bracketing(std::string s) {
-    std::stack<char> bracket_stack;
-    
+    std::stack<char> stack;
     for(int i=0;i<s.length();i++){
-        if(s[i] == '(')bracket_stack.push('(');
+        if(s[i] == '(')stack.push('(');
         else if(s[i] == ')'){
-            if(bracket_stack.empty())return false; 
-            else bracket_stack.pop();
+            if(stack.empty())return false;
+            else stack.pop();
         }
     }
-    
-    return bracket_stack.empty();
+    return stack.empty();
 }
 
-std::string s = "()()(()())()))";
-std::cout << "Correct bracketing: " << (correct_bracketing("()")) << std::endl;
-assert(!correct_bracketing(s));
-return 0;
+int main() {
+    std::string s = "()()(()())()))";
+    assert(!correct_bracketing(s));  
+    std::cout << "Correct bracketing: " << (correct_bracketing("()")) << std::endl;
+    return 0;
+}
