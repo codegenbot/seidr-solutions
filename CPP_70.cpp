@@ -1,8 +1,7 @@
-```cpp
-#include <vector>
-#include <algorithm>
+#include <iostream>
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -12,28 +11,24 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
+vector<int> strange_sort_list(vector<int> lst) {
+    vector<int> result;
     if (lst.empty()) return result;
 
-    std::sort(lst.begin(), lst.end());
+    sort(lst.begin(), lst.end());
 
     while (!lst.empty()) {
         result.push_back(*lst.begin());
         lst.erase(lst.begin());
         if (!lst.empty())
-            std::sort(lst.begin(), lst.end());
+            sort(lst.begin(), lst.end());
     }
 
     return result;
 }
 
 int main() {
-    std::vector<int> result = strange_sort_list(std::vector<int>(5, 1));
-    if (issame(result, std::vector<int>(5, 1))) {
-        std::cout << "Output is correct.\n";
-    } else {
-        std::cout << "Output is incorrect.\n";
-    }
+    vector<int> v = {1, 2, 3};
+    cout << "Hello, World!" << endl;
     return 0;
 }
