@@ -55,7 +55,21 @@ int main() {
         std::cin >> arr[i];
     }
 
-    auto result = findMinEvenNode(arr);
+    auto result = std::vector<int>(0);
 
+    auto pluck(std::vector<int>& arr) -> std::vector<int> {
+        std::vector<int> evenNums;
+        for (int num : arr) {
+            if (num % 2 == 0) {
+                evenNums.push_back(num);
+            }
+        }
+        return evenNums;
+    }
+
+    auto numbers = pluck(arr);
+
+    assert(issame(result, numbers));
+    
     return 0;
 }
