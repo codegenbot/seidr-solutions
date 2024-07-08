@@ -1,20 +1,32 @@
-```cpp
-int file_name_check(string file_name) {
+#include <iostream>
+#include <string>
+#include <cassert>
+
+std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     bool found_dot = false;
-    for(int index = 0; index < file_name.length(); index++){
-        if(file_name[index] >= '0' && file_name[index] <= '9'){
+
+    for (char c : file_name) {
+        if (isdigit(c)) {
             digit_count++;
-            if(digit_count > 3) return 0;
-        } else if(file_name[index] == '.'){
+            if (digit_count > 3)
+                return "No";
+        } else if (c == '.') {
             found_dot = true;
-        } else if(found_dot){
-            if(file_name.substr(index).find_first_of("txt exe dll") != string::npos)
-                return 1;
-            else
-                return 0;
+        } else if (!found_dot && !isalpha(c))
+            return "No";
+
+        if (found_dot) {
+            std::string extension = file_name.substr(file_name.find('.') + 1);
+            if (!(extension == "txt" || extension == "exe" || extension == "dll"))
+                return "No";
         }
     }
-    if(!found_dot) return 0;
-    return digit_count <= 3 ? 1 : 0;
+
+    return found_dot && digit_count <= 3 ? "Yes" : "No";
+}
+
+int main() {
+    assert(file_name_check("s.") == "No");
+    return 0;
 }
