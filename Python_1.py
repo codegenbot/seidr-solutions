@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -17,9 +16,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             else:
                 group += char
     return result
-
-def check(func):
-    result = func('((x+y)(a-b))')
-    print(result)
-
-check(separate_paren_groups)
