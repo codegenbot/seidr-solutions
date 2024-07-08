@@ -14,21 +14,30 @@ int main() {
         cents -= 25;
     }
 
-    int remaining = cents; 
-
-    while (remaining >= 10) {
+    while (cents >= 10) {
         dimes++;
-        remaining -= 10;
+        cents -= 10;
     }
 
-    while (remaining >= 5) {
+    while (cents >= 5) {
         nickles++;
-        remaining -= 5;
+        cents -= 5;
     }
 
-    while (remaining >= 1) {
-        pennies++;
-        remaining--;
+    while (cents > 0) {
+        if (cents >= 25) {
+            quarters++;
+            cents -= 25;
+        } else if (cents >= 10) {
+            dimes++;
+            cents -= 10;
+        } else if (cents >= 5) {
+            nickles++;
+            cents -= 5;
+        } else {
+            pennies = cents;
+            break;
+        }
     }
 
     std::cout << quarters << "\n";
