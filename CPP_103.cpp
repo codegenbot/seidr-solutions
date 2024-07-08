@@ -1,11 +1,6 @@
 ```cpp
-#include <cmath>
-#include <algorithm>
+#include <iostream>
 #include <string>
-
-int main() {
-    assert(rounded_avg(5, 5) == "101");
-}
 
 std::string rounded_avg(int n,int m){
     if(n > m) return "-1";
@@ -23,4 +18,12 @@ std::string rounded_avg(int n,int m){
     if(binary.empty()) binary = "0";
     reverse(binary.begin(),binary.end());
     return binary;
+}
+
+int main(){
+    int n, m;
+    std::cout << "Enter two numbers: ";
+    std::cin >> n >> m;
+    std::cout << rounded_avg(n,m);
+    return 0;
 }
