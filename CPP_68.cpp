@@ -1,17 +1,20 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
+    return a[0] == b[0];
+}
+
+vector<int> pluck(vector<int> arr);
+
+int main(){
+    vector<int> arr = {1, 2, 3, 4, 5};
+    vector<int> result = pluck(arr);
+    
+    for(int num : result){
+        cout << num << " ";
     }
-  
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-  
-    return true;
+    
+    return 0;
 }
 
 vector<int> pluck(vector<int> arr){
@@ -32,9 +35,4 @@ vector<int> pluck(vector<int> arr){
     }
 
     return result;
-}
-
-int main() {
-    // Main function to test the corrected code
-    return 0;
 }
