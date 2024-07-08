@@ -1,7 +1,9 @@
+```
 #include <vector>
 #include <bitset>
+#include <initializer_list>
 
-bool sameName(std::vector<int>& a, std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a != b)
         return false;
     return true;
@@ -17,9 +19,4 @@ std::vector<int> sort_array(std::vector<int> arr) {
     };
     sort(arr.begin(), arr.end(), comp);
     return arr;
-}
-
-int main() {
-    assert(sameName(sort_array({2,4,8,16,32}) , std::vector<int>({2, 4, 8, 16, 32})));
-    return 0;
 }
