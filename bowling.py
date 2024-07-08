@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     frames = [frame.strip() for frame in frames.split("\n")]
     score = 0
@@ -11,7 +12,7 @@ def bowling_score(frames):
             elif frame[1] == "/":
                 score += 10 + (10 - int(frame[0]))
         elif len(frame) == 1:
-            if i < 9 and int(frame) + int(frames[i+1].split()[0]) >= 10:
+            if i < 9 and int(frame) + int(frames[i+1].split()[0] if i < 9 else 0) >= 10:
                 score += 10 + int(frame)
             else:
                 score += int(frame) + int(frames[i+1].split()[0] if i < 9 else 0)
