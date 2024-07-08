@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -13,8 +14,10 @@ bool below_threshold(const std::vector<int>& l, int t) {
 }
 
 int main() {
-    int numbers_size = 4; 
-    std::vector<int> numbers(numbers_size);
-    numbers = {1, 8, 4, 10};
+    std::vector<int> numbers(4); // specify size as 4
+    numbers.push_back(1);
+    numbers.push_back(8);
+    numbers.push_back(4);
+    numbers.push_back(10);
     assert(below_threshold(numbers, 6));
 }
