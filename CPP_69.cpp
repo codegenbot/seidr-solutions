@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <map>
@@ -7,12 +8,12 @@ int search(std::vector<int> lst) {
     for (int i : lst) {
         freq[i]++;
     }
-    std::map<int, int>::iterator p = freq.begin();
-    while (p != freq.end()) {
-        if (p->second >= p->first) {
+    int prev = -1; // initialize previous key
+    for (auto p = freq.begin(); p != freq.end(); ++p) {
+        if (p->second >= p->first && p->first > prev) { 
             return p->first;
         }
-        ++p;
+        prev = p->first; 
     }
     return -1;
 }
