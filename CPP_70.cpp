@@ -26,3 +26,13 @@ std::vector<int> strange_sort_list(std::initializer_list<int> lst) {
 
     return result;
 }
+
+int main() {
+    std::vector<int> result = strange_sort_list({11111});
+    if (issame(result, {11111})) {
+        std::cout << "Output is correct.\n";
+    } else {
+        std::cout << "Output is incorrect.\n";
+    }
+    return 0;
+}
