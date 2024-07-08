@@ -24,14 +24,14 @@ def bowling_score(s):
                 if i + 1 < len(frames) and frames[i + 1] == "X"
                 else int(frames[i + 1])
             )
-        elif frames[i] == "-":
-            score += 0  # Handling missed bowl score
         else:
-            score += int(frames[i])
+            if frames[i] != "-":
+                score += int(frames[i])
         i += 1
         if frames[i - 1] == "X" or frames[i - 1] == "/":
             frame += 1
     return score
+
 
 s = input()
 print(bowling_score(s))
