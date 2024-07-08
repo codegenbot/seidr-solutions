@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> pluck(vector<int> arr) {
+vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> evenNodes;
 
     for (int i = 0; i < arr.size(); i++) {
@@ -10,7 +10,7 @@ vector<int> pluck(vector<int> arr) {
     }
 
     if (evenNodes.empty()) {
-        return {};
+        return {{}};
     }
 
     int minEvenValue = evenNodes[0].first;
