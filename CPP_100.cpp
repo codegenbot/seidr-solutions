@@ -1,12 +1,15 @@
 Here is the completed code:
 
+```cpp
 vector<int> make_a_pile(int n) {
-    vector<int> result;
-    for (int i = 1; i <= n; ++i) {
-        if (i % 2 == 0)
-            result.push_back(i + 1);
+    vector<int> pile;
+    int numStones = 1;
+    for (int i = 0; i < n; ++i) {
+        pile.push_back(numStones);
+        if (numStones % 2 == 0)
+            numStones += 1;
         else
-            result.push_back(2 * i - 1);
+            numStones += 2;
     }
-    return result;
+    return pile;
 }
