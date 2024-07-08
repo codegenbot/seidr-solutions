@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 using namespace std;
 
 vector<int> cutVector(vector<int>& nums) {
