@@ -1,28 +1,20 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
+vector<string> result;
+    string current_group;
+    int open_braces = 0;
 
-using namespace std;
-
-vector<string> separate_paren_groups(string s) {
-    vector<string> result;
-    string current;
-    int level = 0;
-
-    for (char c : s) {
+    for (char c : paren_string) {
         if (c == '(') {
-            level++;
-            if (level > 1) {
-                current += c;
+            if (open_braces > 0) {
+                current_group += c;
             }
+            open_braces++;
         } else if (c == ')') {
-            level--;
-            if (level > 0) {
-                current += c;
-            } else if (level == 0) {
-                result.push_back(current);
-                current.clear();
+            open_braces--;
+            if (open_braces > 0) {
+                current_group += c;
+            } else if (open_braces == 0) {
+                result.push_back(current_group);
+                current_group = "";
             }
         }
     }
