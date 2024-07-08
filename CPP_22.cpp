@@ -1,6 +1,5 @@
 ```cpp
 #include <vector>
-#include <any>
 
 bool issame(int a, int b) { return a == b; }
 bool issame(char a, char b) { return a == b; }
@@ -27,6 +26,6 @@ std::vector<int> filter_integers(const std::any& values) {
 int main() {
     auto values = std::any({{3}, {'c'}, {3}, {3}, {'a'}, {'b'}});
     auto output = filter_integers(values);
-    assert(output == std::vector<int>({3, 3, 3}));
+    assert(output == std::vector<int>{3, 3, 3});
     return 0;
 }
