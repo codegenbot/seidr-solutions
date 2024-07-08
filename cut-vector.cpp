@@ -1,9 +1,8 @@
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int pos = -1;
     for (int i = 0; i < nums.size() - 1; i++) {
@@ -23,14 +22,14 @@ int main() {
     for (auto &num : nums) {
         cin >> num;
     }
-    vector<int> result = cutVector(nums);
+    pair<vector<int>, vector<int>> result = cutVector(nums);
     cout << "[";
-    for (int num : result[0]) {
+    for (int num : result.first) {
         cout << num << " ";
     }
     cout << "] [";
-    for (int i = 0; i < result[1].size(); i++) {
-        cout << result[1].at(i) << " ";
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second.at(i) << " ";
     }
     cout << "] ]" << endl;
     return 0;
