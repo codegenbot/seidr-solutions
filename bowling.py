@@ -1,6 +1,6 @@
 def bowling_score(frames):
     score = 0
-    frames = [frame.strip() for frame in frames.split("\n")]
+    frames = frames.split("\n")
     for i, frame in enumerate(frames):
         if len(frame) == 2:
             if frame[0] == "X":
