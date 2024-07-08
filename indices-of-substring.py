@@ -1,9 +1,13 @@
 text = input()
 target = input()
 
-indices = [i for i in range(len(text)) if text.startswith(target, i)]
+indices = []
+start = -1
 
-indices = [i for i in indices if len(text[i:i+len(target)]) == len(target)]
+while True:
+    start = text.find(target, start + 1)
+    if start == -1:
+        break
+    indices.append(start)
 
-for index in indices:
-    print(index, end=" ")
+print(*indices)
