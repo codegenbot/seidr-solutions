@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -41,6 +40,7 @@ int main() {
     std::cout << "Enter number of vectors: ";
     std::cin >> n;
 
+    // Initialize an empty vector to store your result.
     std::vector<std::vector<float>> vectors(n);
 
     for (auto& v : vectors) {
@@ -55,8 +55,10 @@ int main() {
         }
     }
 
+    // Now call your existing function with these vectors.
     std::vector<std::vector<float>> result = filter_vectors(vectors);
 
+    // Print your result.
     if (!result.empty()) {
         std::cout << "Resultant Vectors: " << std::endl;
         for (const auto& v : result) {
