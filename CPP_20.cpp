@@ -5,7 +5,7 @@
 #include <utility>
 
 bool isclose(float a, float b) {
-    return std::abs(a - b) < 1e-6; 
+    return std::abs(a - b) < 1e-6;
 }
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
@@ -15,8 +15,8 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
-    std::pair<float, float> closest_pair = {numbers[0], numbers[1]};
-    
+    std::pair<float, float> closest_pair = {numbers[0], numbers[1]];
+
     for (size_t i = 1; i < numbers.size() - 1; i++) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < min_diff) {
@@ -24,7 +24,7 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
             closest_pair = {numbers[i], numbers[i + 1]};
         }
     }
-    
+
     return closest_pair;
 }
 
