@@ -1,20 +1,15 @@
-#include <string>
-
-bool prime_length(string str) {
-    int n = str.length();
-    bool is_prime = true;
-
-    if (n <= 1)
-        return false;
-    else if (n == 2)
-        return true;
-
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            is_prime = false;
-            break;
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    string s;cin>>s;
+    int n=s.length();
+    for(int i=2;i*i<=n;i++){
+        if(n%i==0){
+            cout<<"Not prime length";
+            return 0;
         }
     }
-
-    return is_prime;
+    cout<<n<<" is prime length";
+    return 0;
 }

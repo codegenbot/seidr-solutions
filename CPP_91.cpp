@@ -1,6 +1,6 @@
 #include <string>
 
-int is_bored(string S) {
+int is_bored(string S){
     int bored_count = 0;
     size_t start = 0;
     while (start < S.size()) {
