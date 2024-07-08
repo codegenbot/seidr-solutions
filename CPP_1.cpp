@@ -1,15 +1,22 @@
-#include <vector>
-#include <string>
-#include <cassert>
+std::vector<std::string> separate_paren_groups(const std::string& input) {
+    std::vector<std::string> groups;
+    int count = 0;
+    std::string group;
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    assert(a.size() == b.size());
+    for (char c : input) {
+        if (c == '(') {
+            count++;
+        } else if (c == ')') {
+            count--;
+        }
 
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
+        group.push_back(c);
+
+        if (count == 0) {
+            groups.push_back(group);
+            group.clear();
         }
     }
 
-    return true;
+    return groups;
 }
