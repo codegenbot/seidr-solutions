@@ -6,5 +6,4 @@ def indices_of_substring(text, target):
         if index == -1:
             break
         result.append(index)
-        index += 1  # start searching from where the previous occurrence ended
-    return result
+        index = index + len(target)
