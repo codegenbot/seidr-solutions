@@ -5,9 +5,7 @@
 std::string encode_cyclic(const std::string& s) {
     std::string encoded_str;
     for (int i = 0; i < s.length(); i += 3) {
-        std::string x = s.substr(i, 3);
-        x = x.substr(1) + x[0];
-        encoded_str += x;
+        encoded_str += s.substr(i + 1, 2) + s[i];
     }
     return encoded_str;
 }
@@ -15,9 +13,7 @@ std::string encode_cyclic(const std::string& s) {
 std::string decode_cyclic(const std::string& s) {
     std::string decoded_str;
     for (int i = 0; i < s.length(); i += 3) {
-        std::string x = s.substr(i, 3);
-        x = x[2] + x.substr(0, 2);
-        decoded_str += x;
+        decoded_str += s[i + 2] + s.substr(i, 2);
     }
     return decoded_str;
 }
