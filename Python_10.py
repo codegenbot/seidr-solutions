@@ -1,14 +1,23 @@
-```
-def make_palindrome(string: str) -> str:
-    if len(string) == 0:
+def make_palindrome(s):
+    if len(s) == 0:
         return ""
-    prefix = ""
-    while not is_palindrome(prefix + string[0] + string[-1]):
-        if len(string) <= 3 or is_palindrome(string):
-            return string
-        prefix += string[0]
-        string = string[1:-1]
-    return prefix + string[0] + string[-1] + prefix[::-1]
 
-def is_palindrome(s):
-    return s == s[::-1]
+    s = list(s)
+    i, j = 0, len(s) - 1
+
+    while i <= j:
+        palindrome = ""
+        while i <= j and s[i] != s[j]:
+            left_half = s[: i + 1]
+            right_half = s[j:]
+            middle = "".join(reversed(left_half[1:]))
+            palindrome = left_half[0] + middle + right_half
+            i += 1
+            j -= 1
+
+        if i <= j:
+            palindrome += s[i]
+        else:
+            break
+
+    return palindrome
