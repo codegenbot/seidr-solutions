@@ -7,10 +7,10 @@ string spinWords(string str) {
 
     for (char c : str) {
         if (c == ' ') {
-            if (word.length() >= 5) {
+            if (word.length() >= 5)
                 for (int i = word.length() - 1; i >= 0; --i)
                     result += word[i];
-            } else
+            else
                 result += word;
             word = "";
         } else {
@@ -18,24 +18,27 @@ string spinWords(string str) {
         }
     }
 
-    if (word.length() >= 5) {
+    if (word.length() >= 5)
         for (int i = word.length() - 1; i >= 0; --i)
             result += word[i];
-    } else
+    else
         result += word;
 
     return result;
 }
 
 int main() {
-    string str = "Hello World";
-    cout << spinWords(str) << endl;
+    string str1 = "Hello World";
+    cout << spinWords(str1) << endl;
     
-    str = "This is a test";
-    cout << spinWords(str) << endl;
+    string str2 = "This is a test";
+    cout << spinWords(str2) << endl;
     
-    str = "Short words";
-    cout << spinWords(str) << endl;
+    string str3 = "";
+    cout << spinWords(str3) << endl;
+    
+    string str4 = "a";
+    cout << spinWords(str4) << endl;
     
     return 0;
 }
