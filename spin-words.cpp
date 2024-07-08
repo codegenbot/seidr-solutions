@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    string str = "Hello World"; 
+    string str = "Hello World"; // example input
     string result = spinWords(str);
     cout << result; 
     return 0;
