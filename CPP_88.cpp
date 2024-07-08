@@ -1,3 +1,4 @@
+```c++
 #include <algorithm>
 #include <vector>
 #include <initializer_list>
@@ -36,5 +37,5 @@ int main() {
     }
     std::cout << array[0] + array.back() << std::endl;
     
-    return (array != {23, 21, 14, 11}) ? 1 : 0;
+    return (array != std::vector<int>({23, 21, 14, 11})) ? 1 : 0;
 }
