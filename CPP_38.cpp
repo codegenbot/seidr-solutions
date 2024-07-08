@@ -1,5 +1,6 @@
-string decode_cyclic(string s){ 
+string decode_cyclic(string s){
     int l=s.length();
+    int num=(l+2)/3;
     string x,output;
     int i;
     for (i=0;i*3<l;i++)
