@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <stdexcept>
 
@@ -14,7 +13,7 @@ bool issame(const std::vector<std::vector<int>>& a, const std::vector<std::vecto
         return false;
     
     for(int i = 0; i < a.size(); i++) {
-        if(std::vector<int>(a[i]).size() != std::vector<int>(b[i]).size()) 
+        if(a[i].size() != b[i].size()) 
             return false;
         
         for(int j = 0; j < a[i].size(); j++) {
