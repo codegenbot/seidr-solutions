@@ -1,6 +1,13 @@
 #include <iostream>
 #include <string>
 
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
+}
+
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> result;
     size_t pos = 0;
@@ -11,13 +18,6 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     }
 
     return result;
-}
-
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
 }
 
 int main() {
