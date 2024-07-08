@@ -48,12 +48,30 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {3.9, 2.5, 4.0};
-    vector<string> letterGrades = numerical_letter_grade(grades);
-    
-    for (const auto& grade : letterGrades) {
-        std::cout << grade << std::endl;
+    vector<float> grades; 
+    // Read input from user and store in grades
+    // Write your code here to read the user's input
+    int n;
+    cout << "Enter the number of students: ";
+    cin >> n;
+
+    for(int i=0; i<n; i++) {
+        float g;
+        cout << "Enter grade of student " << i+1 << ": ";
+        cin >> g;
+        grades.push_back(g);
     }
-    
+
+    vector<string> letter_grade_result = numerical_letter_grade(grades);
+
+    // Display the result
+    if(same(letter_grades, letter_grade_result)) {
+        for (int i = 0; i < n; i++) {
+            cout << "Student " << i+1 << "'s grade is: " << letter_grade_result[i] << endl;
+        }
+    } else {
+        cout << "Invalid input!" << endl;
+    }
+
     return 0;
 }
