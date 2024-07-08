@@ -9,5 +9,8 @@ def parse_music(music_string: str) -> list:
     for note in notes:
         if note.strip() != "":
             note = note.replace("o", "").strip()
-            result.append(int(music_check(note)) if note else 0)
+            result.append(int(music_check(note)))
     return result
+
+music_string = "A|B|C"
+print(parse_music(music_string))  # Output: [0, 1, 2]
