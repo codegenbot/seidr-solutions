@@ -7,9 +7,10 @@ int how_many_times(std::string str, std::string substring) {
     size_t pos = 0;
     while ((pos = str.find(substring)) != std::string::npos) {
         count++;
-        pos = (pos + substring.size());
+        pos = (pos + substring.size()); 
     }
     return count;
+
 }
 
 int main() {
@@ -21,4 +22,5 @@ int main() {
     int count = how_many_times(s, sub);
     std::cout << "The substring appears " << count << " times." << std::endl;
     return 0;
+
 }
