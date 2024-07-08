@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,6 +18,6 @@ std::vector<char> all_prefixes(std::string str) {
 int main() {
     std::string str = "WWW";
     std::vector<char> prefixes = all_prefixes(str);
-    assert(issame({str[0]}, {str[0]}));
+    assert(issame({str}, {str}));
     return 0;
 }
