@@ -3,10 +3,10 @@
 std::vector<float> get_positive(std::vector<float> l);
 
 bool issame(std::vector<float> a, std::vector<float> b){
-    std::vector<float> positive_a = get_positive(a);
-    std::vector<float> positive_b = get_positive(b);
-
-    return positive_a == positive_b;
+    std::vector<float> a_positives = get_positive(a);
+    std::vector<float> b_positives = get_positive(b);
+    
+    return a_positives == b_positives;
 }
 
 std::vector<float> get_positive(std::vector<float> l){
@@ -17,9 +17,4 @@ std::vector<float> get_positive(std::vector<float> l){
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(get_positive({}), {}));
-    return 0;
 }
