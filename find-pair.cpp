@@ -28,6 +28,10 @@ int main() {
     int target;
     cin >> target;
     vector<int> result = findPair(nums, target);
-    cout << result[0] << " " << result[1] << endl;
+    if (result[0] != -1) {
+        cout << result[0] << " " << result[1] << endl;
+    } else {
+        cout << "No pair found" << endl;
+    }
     return 0;
 }
