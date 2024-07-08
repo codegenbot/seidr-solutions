@@ -1,3 +1,6 @@
-def sort_third(l: list):
-    third_nums = [val for val in l if val % 3 == 0]
-    return sorted([max(third_nums) if i % 3 == 0 else val for i, val in enumerate(l)])
+Here is the corrected code with test cases:
+
+def sort_third(l):
+    return sorted(l, key=lambda x: (x % 3, x))
+
+print(sort_third([1, 2, 4, 3]))
