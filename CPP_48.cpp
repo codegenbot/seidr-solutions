@@ -1,4 +1,7 @@
-bool is_palindrome(const string& text) {
+#include <iostream>
+#include <string>
+
+bool is_palindrome(const std::string& text) {
     int left = 0;
     int right = text.length() - 1;
     while (left < right) {
@@ -10,7 +13,17 @@ bool is_palindrome(const string& text) {
     }
     return true;
 }
-// Example usage
+
 int main() {
-    assert (is_palindrome("xywzx") == false);
+    std::string input;
+    std::cout << "Enter a text: ";
+    std::cin >> input;
+    
+    if (is_palindrome(input)) {
+        std::cout << "The text is a palindrome.";
+    } else {
+        std::cout << "The text is not a palindrome.";
+    }
+
+    return 0;
 }
