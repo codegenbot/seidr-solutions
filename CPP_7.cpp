@@ -1,8 +1,8 @@
-#include <iostream>
+```cpp
 #include <vector>
 #include <string>
 
-bool compareVectors(std::vector<std::string> v1, std::vector<std::string> v2) {
+bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
     if(v1.size() != v2.size())
         return false;
     
@@ -12,21 +12,21 @@ bool compareVectors(std::vector<std::string> v1, std::vector<std::string> v2) {
     }
     
     return true;
+
 }
 
-namespace std {
-    std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
-        std::vector<std::string> result;
-        for(const auto& str : vec) {
-            if(str.find(sub) != std::string::npos)
-                result.push_back(str);
-       }
-        
-        return result;
+std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::string sub) {
+    std::vector<std::string> result;
+    for(const auto& str : vec) {
+        if(str.find(sub) != std::string::npos)
+            result.push_back(str);
     }
+    
+    return result;
+
 }
 
 int main() {
-    assert(compareVectors(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
 }
