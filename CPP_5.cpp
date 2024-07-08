@@ -1,5 +1,7 @@
 #include <vector>
 
+std::vector<int> intersperse(std::vector<int> numbers, int delimiter);
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) {
         return false;
