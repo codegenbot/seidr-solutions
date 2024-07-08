@@ -4,10 +4,6 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return (std::equal(a.begin(), a.end(), b.begin(), b.end()));
-}
-
 vector<int> remove_duplicates(const vector<int>& numbers) {
     vector<int> result;
     for (int num : numbers) {
@@ -18,7 +14,11 @@ vector<int> remove_duplicates(const vector<int>& numbers) {
     return result;
 }
 
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return (std::equal(a.begin(), a.end(), b.begin(), b.end()));
+}
+
 int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), vector<int>{1, 4, 5}));
     return 0;
 }
