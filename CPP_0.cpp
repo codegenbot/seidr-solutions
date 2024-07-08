@@ -1,5 +1,5 @@
 #include <vector>
-#include <cmath>  // For abs() function
+#include <cmath>
 
 bool has_close_elements(std::vector<float> numbers, float threshold) {
     for (int i = 0; i < numbers.size(); i++) {
@@ -14,5 +14,5 @@ bool has_close_elements(std::vector<float> numbers, float threshold) {
 
 int main() {
     std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    assert(has_close_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5f) == false);
+    std::cout << (has_close_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5f) ? "true" : "false");
 }
