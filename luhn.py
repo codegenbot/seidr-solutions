@@ -1,4 +1,7 @@
+```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
-    checksum = sum(2*c if i % 2 else c for i, c in enumerate(card_number))
-    return (checksum // 10 + 1) % 10
+    result = sum(2*int(digit) if i % 2 else int(digit) for i, digit in enumerate(card_number))
+    if result % 10 != 0:
+        return "Invalid Card Number"
+    return "Valid Card Number"
