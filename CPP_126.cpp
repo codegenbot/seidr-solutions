@@ -1,13 +1,26 @@
-bool is_sorted(vector<int> lst){
-    for(int i=1; i<lst.size();i++){
-        if(lst[i-1] >= lst[i]){
-            return false;
-        }
-        vector<int> v(lst.begin(), lst.end());
-        sort(v.begin(), v.end());
-        if(count(v.begin(), v.end(), v[0]) > 1){
-            return false;
+#include <iostream>
+#include <vector>
+
+bool is_sorted(std::vector<int> lst){
+    if (lst.size() <= 1) return true;
+
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] >= lst[i-1]){
+            continue;
+        }else{
+            int count = 0;
+            for(int j = 0; j < lst.size(); j++){
+                if(lst[j] == lst[i]) count++;
+            }
+            return count > 1;
         }
     }
+
     return true;
+}
+
+int main(){
+    std::vector<int> lst = {1, 2, 3, 4};
+    assert(is_sorted(lst) == true);
+    return 0;
 }
