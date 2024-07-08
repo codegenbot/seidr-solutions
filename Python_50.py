@@ -1,3 +1,4 @@
+```
 def decode_shift(s: str):
     if s[:7] != 'decode ':
         return "Invalid input. Please start with 'decode '"
