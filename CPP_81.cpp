@@ -1,8 +1,9 @@
+#include <initializer_list>
+
 #pragma GCC required "c++11"
 
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -54,4 +55,3 @@ int main() {
     vector<float> grades = {3.8, 2.5};
     assert(same(numerical_letter_grade(grades), {"A", "C-" }));
     return 0;
-}
