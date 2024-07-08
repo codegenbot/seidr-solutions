@@ -11,7 +11,7 @@ std::vector<float> get_positive(std::vector<float> values) {
     return result;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     std::vector<float> positive_a = get_positive(a);
     std::vector<float> positive_b = get_positive(b);
 
