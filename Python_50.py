@@ -1,10 +1,31 @@
-```
-def decode_shift(s: str):
+```Python
+def decode_shift():
+    while True:
+        try:
+            shift = int(input("Enter the shift value (0-25): "))
+            if 0 <= shift <= 25:
+                break
+            else:
+                print("Invalid input! Shift should be between 0 and 25. Try again.")
+        except ValueError:
+            print("Invalid input! Please enter a number. Try again.")
+
+    s = ""
+    while True:
+        try:
+            s = input("Enter the encoded string: ")
+            if any(not c.isalpha() for c in s):
+                break
+            else:
+                print("Invalid input! String should only contain alphabets. Try again.")
+        except ValueError:
+            pass
+
     decoded_s = ""
     for ch in s:
         if ch.isalpha():
             ascii_offset = ord('a') if ch.lower() == ch else ord('A')
-            decoded_s += chr((ord(ch) - ascii_offset - 3) % 26 + ascii_offset)
+            decoded_s += chr((ord(ch) - ascii_offset - shift) % 26 + ascii_offset)
         else:
             decoded_s += ch
     return decoded_s
