@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -12,10 +11,13 @@ std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::s
         if (s.find(prefix) == 0) {
             result.push_back(s);
         }
-    }
+    };
 }
 
 int main() {
     assert(isSame(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    if (!isSame(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"})) {
+        std::cout << "Test failed. The expected and actual results are not the same.\n";
+    }
     return 0;
 }
