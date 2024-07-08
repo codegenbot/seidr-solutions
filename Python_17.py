@@ -1,4 +1,3 @@
-```
 def check(temp: str) -> bool:
     for char in temp:
         if not char.isalpha() and not char.isdigit():
@@ -6,13 +5,13 @@ def check(temp: str) -> bool:
     return True
 
 
-def parse_music(music_string: str) -> list[int]:
+def parse_music(music_string: str) -> List[int]:
     result = []
     notes = music_string.split(',')
 
     for note in notes:
-        if check(note.strip()):
-            note_value = int(note.split(' ')[1].strip())
+        if check(note):
+            note_value = int(''.join(filter(str.isalnum, note)).strip().split(' ')[1])
             result.append(note_value)
         else:
             break
