@@ -1,10 +1,8 @@
 #include <vector>
-#include <algorithm>
-#include <iostream>
+#include <string>
+#include <cassert>
 
 using namespace std;
-
-vector<int> parse_nested_parens(string paren_string);
 
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> depths;
@@ -29,12 +27,8 @@ vector<int> parse_nested_parens(string paren_string) {
     return depths;
 }
 
-bool is_same(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(is_same(parse_nested_parens("(()(())((())))"), {4}));
+    assert(parse_nested_parens("(()(())((())))") == vector<int>{4});
     
     return 0;
 }
