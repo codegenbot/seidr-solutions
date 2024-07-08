@@ -1,7 +1,8 @@
 #include <vector>
 #include <bitset>
+#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool std::issame(std::vector<int> a, std::vector<int> b) {
     if (a != b)
         return false;
     return true;
@@ -15,11 +16,11 @@ std::vector<int> sort_array(std::vector<int> arr) {
             return a < b;
         }
     };
-    std::sort(arr.begin(), arr.end(), comp);
+    sort(arr.begin(), arr.end(), comp);
     return arr;
 }
 
-int main() {
+int main_ {
     assert(issame(sort_array({2,4,8,16,32}) , std::vector<int>{2, 4, 8, 16, 32}));
     return 0;
 }
