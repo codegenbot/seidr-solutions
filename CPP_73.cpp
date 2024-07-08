@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert>
+#include <cassert> 
 using namespace std;
 
 int smallest_change(vector<int> arr) {
@@ -32,6 +32,7 @@ int smallest_change(vector<int> arr) {
         }
     }
     return changes;
+
 }
 
 int main() {
