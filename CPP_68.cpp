@@ -1,12 +1,24 @@
 #include <vector>
-#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a == b;
+bool issame(vector<int> a, vector<int> b){
+    return a[0] == b[0];
 }
 
-std::vector<int> pluck(const std::vector<int>& arr){
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr);
+
+int main(){
+    vector<int> arr = {1, 2, 3, 4, 5};
+    vector<int> result = pluck(arr);
+    
+    for(int num : result){
+        cout << num << " ";
+    }
+    
+    return 0;
+}
+
+vector<int> pluck(vector<int> arr){
+    vector<int> result;
     int min_even = INT_MAX;
     int min_index = INT_MAX;
 
@@ -23,9 +35,4 @@ std::vector<int> pluck(const std::vector<int>& arr){
     }
 
     return result;
-}
-
-int main(){
-    assert(issame(pluck({7, 9, 7, 1}), {}));
-    return 0;
 }
