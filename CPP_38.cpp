@@ -1,12 +1,15 @@
 #include <iostream>
+#include <ostream>
 #include <string>
 #include <cassert>
 
-std::string encode_cyclic(std::string s) {
+using namespace std;
+
+string encode_cyclic(string s) {
     int l = s.length();
-    std::string encoded_str;
+    string encoded_str;
     for (int i = 0; i * 3 < l; i++) {
-        std::string x = s.substr(i * 3, 3);
+        string x = s.substr(i * 3, 3);
         if (x.length() == 3) {
             x = x[1] + x[2] + x[0];
         }
@@ -15,11 +18,11 @@ std::string encode_cyclic(std::string s) {
     return encoded_str;
 }
 
-std::string decode_cyclic(std::string s) {
+string decode_cyclic(string s) {
     int l = s.length();
-    std::string decoded_str;
+    string decoded_str;
     for (int i = 0; i * 3 < l; i++) {
-        std::string x = s.substr(i * 3, 3);
+        string x = s.substr(i * 3, 3);
         if (x.length() == 3) {
             x = x[2] + x[0] + x[1];
         }
@@ -28,13 +31,9 @@ std::string decode_cyclic(std::string s) {
     return decoded_str;
 }
 
-int main() {
-    std::string str = "abcde";
-    std::string encoded_str = encode_cyclic(str);
-    assert(decode_cyclic(encoded_str) == str);
-    std::cout << "Original: " << str << std::endl;
-    std::cout << "Encoded: " << encoded_str << std::endl;
-    std::cout << "Decoded: " << decode_cyclic(encoded_str) << std::endl;
-    
-    return 0;  // Indicate successful completion
-}
+string str = "abcde";
+string encoded_str = encode_cyclic(str);
+assert(decode_cyclic(encoded_str) == str);
+std::cout << "Original: " << str << std::endl;
+std::cout << "Encoded: " << encoded_str << std::endl;
+std::cout << "Decoded: " << decode_cyclic(encoded_str) << std::endl;
