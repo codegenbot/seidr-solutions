@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 using namespace std;
 
@@ -27,7 +28,7 @@ bool solveBoolean(string expression) {
     if (expression == "t") return true;
     if (expression == "f") return false;
 
-    return false; 
+    return false; // Default value
 }
 
 int main() {
