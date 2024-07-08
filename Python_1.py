@@ -1,7 +1,6 @@
 ```
-from typing import List
-
 def separate_paren_groups(paren_string: str) -> List[str]:
+    from typing import List
     result = []
     group = ''
     for char in paren_string:
