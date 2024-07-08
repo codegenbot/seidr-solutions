@@ -2,12 +2,11 @@
 #include <iostream>
 #include <string>
 
-int my_strlen(const char* str) {
-    return static_cast<int>(std::string(str).length());
-}
-
 int main() {
-    assert(my_strlen("asdasnakj") == 13);
-    std::cout << "The length of 'asdasnakj' is: " << my_strlen("asdasnakj") << "\n";
+    std::string str = "asdasnakj";
+    for (int i = 0; i < 13; ++i) {
+        str += 'a';
+    }
+    std::cout << "The length of 'asdasnakj' is: " << str.length() << "\n";
     return 0;
 }
