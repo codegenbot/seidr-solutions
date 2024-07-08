@@ -1,7 +1,4 @@
-```cpp
-#include <string>
-
-int is_bored(std::string S){
+int is_bored(std::string S) {
     int count = 0;
     size_t pos = 0;
     while((pos = S.find("I", pos)) != std::string::npos) {
