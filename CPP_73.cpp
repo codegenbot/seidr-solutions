@@ -1,7 +1,8 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <iostream>
 
-int smallest_change(std::vector<int> arr){
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     std::vector<std::vector<int>> dp(n, std::vector<int>(n));
     
@@ -25,6 +26,20 @@ int smallest_change(std::vector<int> arr){
 }
 
 int main() {
-    assert (smallest_change({0, 1}) == 1);
+    std::vector<int> arr;
+    int n;
+    std::cout << "Enter the number of elements in array: ";
+    std::cin >> n;
+    arr.resize(n);
+    for(int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i];
+    }
+    int minChanges = smallest_change(arr);
+    if(minChanges != 0) {
+        std::cout << "Minimum number of changes required: " << minChanges << std::endl;
+    } else {
+        std::cout << "Array is already sorted." << std::endl;
+    }
     return 0;
 }
