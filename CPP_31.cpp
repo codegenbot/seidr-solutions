@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -13,22 +12,13 @@ bool is_prime(long long n) {
 }
 
 int main() {
-    long long num1, num2;
-    cout << "Enter the first number: ";
-    cin >> num1;
-    cout << "Enter the second number: ";
-    cin >> num2;
-    
-    if (is_prime(num1)) {
-        cout << num1 << " is a prime number.\n";
+    long long num;
+    cout << "Enter a number: ";
+    cin >> num;
+    if (is_prime(num)) {
+        cout << num << " is a prime number.\n";
     } else {
-        cout << num1 << " is not a prime number.\n";
-    }
-    
-    if (is_prime(num2)) {
-        cout << num2 << " is a prime number.\n";
-    } else {
-        cout << num2 << " is not a prime number.\n";
+        cout << num << " is not a prime number.\n";
     }
     return 0;
 }
