@@ -12,7 +12,7 @@ vector<float> derivative(vector<float> xs) {
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
+int main() {
+    assert(derivative({1}) == vector<float>{});
+    return 0;
 }
-```
