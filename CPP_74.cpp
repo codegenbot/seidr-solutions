@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -39,4 +38,3 @@ int main() {
         std::cout << "Vectors do not have the same strings.";
 
     return 0;
-}
