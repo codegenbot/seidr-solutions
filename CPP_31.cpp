@@ -2,7 +2,7 @@
 
 bool is_prime(long long n) {
     bool is_divisible = false;
-    for (int i = 2; i * i <= n && !is_divisible; ++i) {
+    for (long long int i = 2; i * i <= n && !is_divisible; ++i) {
         if (n % i == 0) {
             is_divisible = true;
         }
