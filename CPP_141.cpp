@@ -1,19 +1,31 @@
-int file_name_check(string file_name) {
+```cpp
+#include <iostream>
+#include <string>
+
+std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     bool found_dot = false;
-    for(int index = 0; index < file_name.length(); index++){
-        if(file_name[index] >= '0' && file_name[index] <= '9'){
+    for(int i = 0; i < file_name.length(); i++){
+        if(file_name[i] >= '0' && file_name[i] <= '9'){
             digit_count++;
-            if(digit_count > 3) return 0;
-        } else if(file_name[index] == '.'){
+            if(digit_count > 3) return "No";
+        } else if(file_name[i] == '.'){
             found_dot = true;
         } else if(found_dot){
-            if(file_name.substr(index).find_first_of("txt exe dll") != string::npos)
-                return 1;
+            if(file_name.substr(i).find_first_of("txt exe dll") != string::npos)
+                return "Yes";
             else
-                return 0;
+                return "No";
         }
     }
-    if(!found_dot) return 0;
-    return digit_count <= 3 ? 1 : 0;
+    if(!found_dot) return "No";
+    return digit_count <= 3 ? "Yes" : "No";
+}
+
+int main() {
+    std::string file_name;
+    std::cout << "Enter the filename: ";
+    std::getline(std::cin, file_name);
+    std::cout << file_name_check(file_name) << std::endl;
+    return 0;
 }
