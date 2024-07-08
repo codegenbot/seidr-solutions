@@ -1,15 +1,10 @@
-#include <iostream>
-#include <string>
-#include <list>
-
-std::list<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     int prev_idx = -1;
-    std::list<int> result;
+    std::vector<int> result;
     for (size_t i = 0; i < text.length(); ++i) {
-        size_t found_idx = text.find(target, prev_idx + target.length());
-        if (found_idx != std::string::npos && found_idx >= prev_idx + target.length()) {
+        if (text.substr(i, target.length()) == target && i >= prev_idx + target.length()) {
             result.push_back(i);
-            prev_idx = found_idx; // Update prev_idx for non-overlapping targets
+            prev_idx = i - target.length() + 1; // Update prev_idx for overlapping targets
         }
     }
     return result;
