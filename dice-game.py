@@ -1,6 +1,6 @@
 def dice_game(n, m):
-    if n <= m:
-        return 0
-    favorable_outcomes = sum(1 for _ in range(m))
-    total_outcomes = n * m
-    return 1 - (favorable_outcomes / total_outcomes)
+    num_outcomes = n * m
+    strictly_higher_count = 0
+    for i in range(1, min(n, m) + 1):
+        strictly_higher_count += (n - i) * m + i * (n - m)
+    return strictly_higher_count / num_outcomes
