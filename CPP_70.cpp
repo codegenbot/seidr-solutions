@@ -20,9 +20,13 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
     return result;
 }
 
-std::vector<int> input = {4, 2, 8, 3, 1, 6, 9};
-std::vector<int> expected = {1, 9, 2, 8, 3, 6, 4};
+int main(){
+    std::vector<int> input = {4, 2, 8, 3, 1, 6, 9};
+    std::vector<int> expected = {1, 9, 2, 8, 3, 6, 4};
 
-std::vector<int> output = strange_sort_list(input);
+    std::vector<int> output = strange_sort_list(input);
     
-assert(issame(output, expected));
+    assert(issame(output, expected));
+
+    return 0;
+}
