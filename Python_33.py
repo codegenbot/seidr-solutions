@@ -1,8 +1,6 @@
-```
 def sort_third(l: list):
-    sorted_zeroes = [x for x in l if x % 3 == 0]
-    sorted_zeroes.sort()
+    l.sort()
     return [
-        val if i % 3 != 0 else sorted_zeroes.pop(0)
+        val if i % 3 != 0 else l[i // 3]
         for i, val in enumerate(l)
     ]
