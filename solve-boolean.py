@@ -1,12 +1,10 @@
-Here is the solution:
-
-def solve_boolean(s):
-    if s == 'T':
+def solve_boolean(expression):
+    if expression == 'T':
         return True
-    elif s == 'F':
+    elif expression == 'F':
         return False
-    elif '&' in s:
-        a, b = s.split('&')
-        return bool(int(a)) & bool(int(b))
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
     else:
-        return bool(int(s))
+        result = eval(' '.join(map(lambda x: str(x) if x in ['T', 'F'] else x, expression)))
+        return result
