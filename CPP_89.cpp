@@ -1,6 +1,4 @@
-```
-#include<iostream>
-using namespace std;
+#include <string>
 
 string encrypt(string s) {
     string result = "";
@@ -12,11 +10,4 @@ string encrypt(string s) {
         result += c;
     }
     return result;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << encrypt(s);
-    return 0;
 }
