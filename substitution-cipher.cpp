@@ -14,7 +14,7 @@ int main() {
             return cipher2[index];
         } else {
             // If a character is not found in the current cipher, then it should be printed as is.
-            return message[i];
+            cout << message[i];
         }
     }
     
