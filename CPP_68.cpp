@@ -14,25 +14,9 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
         }
     }
 
-    if (evenNodes.empty()) {
-        return {};
-    }
-
-    int minEvenValue = evenNodes[0].first;
-    int minIndex = evenNodes[0].second;
-
-    for (int i = 1; i < evenNodes.size(); i++) {
-        if (evenNodes[i].first < minEvenValue) {
-            minEvenValue = evenNodes[i].first;
-            minIndex = evenNodes[i].second;
-        } else if (evenNodes[i].first == minEvenValue) {
-            minIndex = min(minIndex, evenNodes[i].second);
-        }
-    }
-
-    return {{minEvenValue, minIndex}};
+    return evenNodes;
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), std::vector<std::pair<int, int>>{{}}));
+    assert(issame(pluck({7, 9, 7, 1}), std::vector<std::pair<int, int>>()));
 }
