@@ -2,7 +2,8 @@
 
 bool correct_bracketing(const string& brackets) {
     int count = 0;
-    for (char c : brackets) {
+    for (auto it = brackets.begin(); it != brackets.end(); ++it) {
+        char c = *it;
         if (c == '(') {
             count++;
         } else if (c == ')') {
@@ -13,4 +14,8 @@ bool correct_bracketing(const string& brackets) {
         }
     }
     return count == 0;
+}
+
+int main() {
+    assert(not correct_bracketing("()()(()())()()"));
 }
