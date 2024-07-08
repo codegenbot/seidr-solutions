@@ -1,4 +1,4 @@
-Here is the solution:
+Here is the completed code:
 
 string decimal_to_binary(int decimal){
     string binary = "";
