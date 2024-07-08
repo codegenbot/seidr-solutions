@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -15,13 +14,13 @@ std::string filp_case(std::string str){
 }
 
 int main() {
-    std::cout << "Error: Please enter a string!" << std::endl;
-    if (std::cin >> "") {
-        std::cout << "Error: Invalid input. Only letters are allowed." << std::endl;
-    } else {
-        std::string s;
-        std::cin >> s;
-        std::cout << filp_case(s) << std::endl;
+    std::cout << "Please enter the string you want to flip: ";
+    std::string input;
+    std::cin >> input;
+    if(input.empty()){
+        std::cout << "Error: Please provide a valid input." << std::endl;
+    } else{
+        std::cout << filp_case(input) << std::endl;
     }
     return 0;
 }
