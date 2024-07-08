@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<float> a, vector<float> b) {
+bool sort_even(vector<float>& a) {
     vector<float> even_indices;
     vector<float> sorted_even_indices;
 
@@ -22,5 +22,11 @@ bool issame(vector<float> a, vector<float> b) {
         }
     }
 
+    return a;
+}
+
+
+bool issame(vector<float> a, vector<float> b) {
+    sort_even(a);
     return a == b;
 }
