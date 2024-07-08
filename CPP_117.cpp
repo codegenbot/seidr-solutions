@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -7,41 +6,39 @@ using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word;
-    int consonants = 0;
-
+    string word = "";
     for (char c : s) {
-        if (c == ' ') {
-            if (consonants == n)
-                result.push_back(word);
-            word.clear();
-            consonants = 0;
-        } else {
-            bool isVowel = false;
-            for (char v : "aeiouAEIOU") {
-                if (c == v) {
-                    isVowel = true;
-                    break;
+        if (c != ' ') {
+            word += c;
+        } else if (!word.empty()) {
+            int consonants = 0;
+            bool hasVowel = false;
+            for (char ch : word) {
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'
+                    || ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+                    hasVowel = true;
+                } else if (ch != ' ') {
+                    consonants++;
                 }
             }
-            if (!isVowel)
-                consonants++;
-            word += c;
+            if (!hasVowel && consonants == n) {
+                result.push_back(word);
+            }
+            word = "";
         }
     }
-
-    if (consonants == n)
-        result.push_back(word);
-
-    return result;
-}
-
-int main() {
-    string s = "Mary had a little lamb";
-    int n = 4;
-    vector<string> res = select_words(s, n);
-    for (string str : res) {
-        cout << str << endl;
+    int consonants = 0;
+    bool hasVowel = false;
+    for (char ch : word) {
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'
+            || ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+            hasVowel = true;
+        } else if (ch != ' ') {
+            consonants++;
+        }
     }
-    return 0;
+    if (!hasVowel && consonants == n) {
+        result.push_back(word);
+    }
+    return result;
 }
