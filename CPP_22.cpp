@@ -17,7 +17,6 @@ std::vector<int> filter_integers(std::any values) {
 
 int main() {
     auto values = std::any({3, 'c', 3, 3, 'a', 'b'}); 
-    auto output = filter_integers(values);
-    assert(issame(output, {3, 3, 3}));
+    assert(issame(filter_integers(values), {3, 3, 3}));
     return 0;
 }
