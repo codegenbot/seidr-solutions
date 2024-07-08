@@ -1,8 +1,8 @@
-```c++
 #include <string>
 using namespace std;
 
-int pairedDigits(string s) {
+int main() {
+    string s = "your_input_string_here";
     int sum = 0;
     for(int i=0; i<s.length()-1; i++) {
         if(s[i] == s[i+1]) {
@@ -10,8 +10,4 @@ int pairedDigits(string s) {
         }
     }
     return sum;
-}
-
-int main() {
-    return pairedDigits("123456");
 }
