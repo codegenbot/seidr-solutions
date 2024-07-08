@@ -1,2 +1,3 @@
-user_input = input()
-frames = [frame.replace("-", "") for frame in user_input.split("\n")]
+```
+frames = input("Please enter the bowling frames (one frame per line): ")
+frames = [frame.replace("-", "") for frame in frames.split("\n")]
