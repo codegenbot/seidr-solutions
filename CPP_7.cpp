@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+
 #include <algorithm>
 
 bool isSame(std::vector<std::string> v1, std::vector<std::string> v2) {
@@ -28,4 +28,3 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> vec, std::
 int main() {
     assert(isSame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
-}
