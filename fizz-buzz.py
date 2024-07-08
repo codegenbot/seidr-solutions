@@ -1,4 +1,3 @@
-```
 def fizz_buzz(x):
     if x > 32767:
         s = str(x)
