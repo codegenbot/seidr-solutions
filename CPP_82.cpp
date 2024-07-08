@@ -15,6 +15,7 @@ bool prime(int n) {
     }
 
     return true;
+
 }
 
 int prime_length(std::string s) {
