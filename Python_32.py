@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```
 def find_zero(xs: list):
     n = len(xs)
