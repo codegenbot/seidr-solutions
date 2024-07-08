@@ -1,9 +1,9 @@
 ```
 def make_palindrome(s):
     """
-    This function takes a string as input and returns the next smallest possible palindrome.
+    This function converts a given string into its closest possible palindrome.
     :param s: 
-    :return: 
+    :return: The input string converted to its closest possible palindrome.
     """
     if len(s) == 0:
         return ""
