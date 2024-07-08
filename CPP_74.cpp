@@ -1,11 +1,13 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-#include <limits>
 
 bool isVectorSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return (a == b);
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
@@ -14,7 +16,6 @@ int main() {
     std::cout << "Enter strings for list 1: ";
     for (std::string str; std::cin >> str;) {
         lst1.push_back(str);
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     
     int sum2 = 0;
@@ -22,14 +23,9 @@ int main() {
     std::cout << "Enter strings for list 2: ";
     for (std::string str; std::cin >> str;) {
         lst2.push_back(str);
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     
-    bool total_match = true;
-    if (sum1 < sum2) return 0;
-    else if (sum1 > sum2) total_match = false;
-    bool result = isVectorSame(lst1, lst2);
-    assert(result == total_match);
+    bool total_match = isVectorSame(lst1, lst2);
 
     return 0;
 }
