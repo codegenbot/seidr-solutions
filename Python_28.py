@@ -1,8 +1,8 @@
 ```
-def concatenate(lst):
+def concatenate(strings=[]):
     result = ""
-    for s in lst:
-        if result:
-            result += ", "
-        result += s
-    return result
+    
+    for string in strings:
+        result += string + " "
+        
+    return result.strip()
