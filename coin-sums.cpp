@@ -23,7 +23,7 @@ int main() {
 
     while (remaining >= 5) {
         nickles = (remaining + 4) / 5;
-        remaining %= 5;
+        break;
     }
 
     pennies = remaining;
