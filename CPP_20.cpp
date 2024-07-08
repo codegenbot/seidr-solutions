@@ -1,1 +1,1 @@
-std::pair<std::pair<float, float>>
+std::pair<std::pair<float, float>> result = std::make_pair(std::make_pair(closest_pair.first, closest_pair.second));
