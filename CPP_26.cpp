@@ -1,5 +1,5 @@
-```cpp
 #include <algorithm>
+#include <set>
 #include <vector>
 
 bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
@@ -12,11 +12,6 @@ bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> uniqueNumbers;
-    for(auto it = numbers.begin(); it != numbers.end(); ++it) {
-        if(std::find(uniqueNumbers.begin(), uniqueNumbers.end(), *it) == uniqueNumbers.end()) {
-            uniqueNumbers.push_back(*it);
-        }
-    }
-    return uniqueNumbers;
+    std::set<int> uniqueNumbers(numbers.begin(), numbers.end());
+    return std::vector<int>(uniqueNumbers.begin(), uniqueNumbers.end());
 }
