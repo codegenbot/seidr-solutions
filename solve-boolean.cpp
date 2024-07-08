@@ -22,5 +22,5 @@ string solveBoolean(string expression) {
         s.pop();
     }
 
-    return (result == "tt") ? "True" : (result == "ff") ? "False" : "Invalid Input";
+    return (result == "tt") ? "True" : (result == "ff") ? "False" : (result[0] == 't') ? "True" : "False";
 }
