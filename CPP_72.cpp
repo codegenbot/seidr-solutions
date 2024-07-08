@@ -1,4 +1,11 @@
-bool will_it_fly(vector<int> q, int w) {
+```cpp
+#include <vector>
+#include <string>
+#include <algorithm>
+
+bool will_it_fly(vector<int> q,int w);
+
+bool will_it_fly(vector<int> q,int w){
     string str = "";
     for(int i : q) {
         str += to_string(i);
@@ -13,5 +20,5 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    assert(will_it_fly({5}, 5) == true); 
+    assert (will_it_fly({5}, 5) == true);
 }
