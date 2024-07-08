@@ -3,7 +3,6 @@
 #include <sstream>
 using namespace std;
 
-// Forward declaration of squareDigits function
 string squareDigits(int number);
 
 int main() {
