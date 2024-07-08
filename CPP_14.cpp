@@ -1,20 +1,12 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
+bool issame(const std::vector<std::string>& a) {
     return true;
 }
 
-vector<string> all_prefixes(string str) {
-    vector<string> result;
+std::vector<std::string> all_prefixes(std::string str) {
+    std::vector<std::string> result;
     for (int i = 1; i <= str.length(); i++) {
         result.push_back(str.substr(0, i));
     }
@@ -22,19 +14,18 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    cin >> str;
-    vector<string> prefixes = all_prefixes(str);
-    cout << "Prefixes of the string are: ";
-    for (string prefix : prefixes) {
-        cout << prefix << " ";
+    std::cout << "Enter a string: ";
+    std::string input;
+    std::cin >> input;
+    
+    std::vector<std::string> prefixes = all_prefixes(input);
+    for (const auto& prefix : prefixes) {
+        if (issame(prefix)) {
+            std::cout << "All characters in the string are the same.\n";
+        } else {
+            std::cout << "Prefix: " << prefix << "\n";
+        }
     }
-    bool same = issame(prefixes, all_prefixes("WWW"));
-    if (same) {
-        cout << "\nAll strings have same prefixes.";
-    } else {
-        cout << "\nStrings do not have same prefixes.";
-    }
+    
     return 0;
 }
