@@ -1,12 +1,12 @@
 #include <vector>
 using namespace std;
 
-int maxPrime(int n){
+int maxPrime(vector<int> lst){
     int maxPrime = 0;
-    for(int i=2; i<=n; i++){
-        if(isPrime(i)){
-            if(maxPrime < i){
-                maxPrime = i;
+    for(int i=0; i<lst.size(); i++){
+        if(isPrime(lst[i])){
+            if(maxPrime < lst[i]){
+                maxPrime = lst[i];
             }
         }
     }
@@ -24,4 +24,10 @@ bool isPrime(int n) {
         if (n % i == 0) return false;
     }
     return true;
+
+}
+int main() {
+    vector<int> lst = {127, 97, 8192};
+    cout << maxPrime(lst);
+    return 0;
 }
