@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,26 +6,19 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> vectors) {
-    std::vector<std::vector<float>> result;
-    for (const auto& v : vectors) {
-        int size = 0;
-        std::vector<float> positiveVec = get_positive(v, size);
-        if (!issame({}, positiveVec)) {
-            result.push_back(positiveVec);
-        }
-    }
-    return result;
-}
-
-std::vector<float> get_positive(const std::vector<float>& vec, int& size) {
-    size = 0;
+int getSize(std::vector<float> vec) {
+    int size = 0;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
             size++;
         }
     }
 
+    return size;
+}
+
+std::vector<float> get_positive(const std::vector<float>& vec) {
+    int size = getSize(vec);
     std::vector<float> positiveVec;
     for (int i = 0; i < vec.size(); i++) {
         if (vec[i] > 0.0f) {
@@ -37,7 +29,7 @@ std::vector<float> get_positive(const std::vector<float>& vec, int& size) {
     return positiveVec;
 }
 
-int mainFunc() {
+void mainFunc() {
     int n;
     std::cout << "Enter number of vectors: ";
     std::cin >> n;
@@ -70,5 +62,17 @@ int mainFunc() {
         std::cout << "No resultant vectors." << std::endl;
     }
 
-    return 0;
+    return;
+}
+
+std::vector<std::vector<float>> filter_vectors(std::vector<std::vector<float>> vectors) {
+    std::vector<std::vector<float>> result;
+    for (const auto& v : vectors) {
+        int size = 0;
+        std::vector<float> positiveVec = get_positive(v, size);
+        if (!issame({}, positiveVec)) {
+            result.push_back(positiveVec);
+        }
+    }
+    return result;
 }
