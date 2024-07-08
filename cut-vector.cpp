@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
+std::pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int pos = -1;
     for (int i = 0; i < nums.size() - 1; i++) {
@@ -12,5 +12,4 @@ vector<int> cutVector(vector<int>& nums) {
             pos = i;
         }
     }
-    return vector<int>(nums.begin(), pos+1), vector<int>(pos, nums.end());
-}
+    return {vector<int>(nums.begin(), pos+1), vector<int>(pos, nums.end())};
