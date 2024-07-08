@@ -1,9 +1,7 @@
 #include <vector>
-#include <cmath>
-
 using namespace std;
 
-int maxPrime(int n) {
+int maxPrime(int n){
     int maxPrime = 0;
     for(int i=2; i<=n; i++){
         if(isPrime(i)){
