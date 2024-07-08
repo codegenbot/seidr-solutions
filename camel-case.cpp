@@ -6,9 +6,7 @@ string CamelCase(string s) {
     for (char c : s) {
         if (c == '-' || c == ' ') {
             if (!result.empty()) {
-                if (!capitalizeNext) {
-                    result[0] = toupper(result[0]);
-                }
+                result[0] = toupper(result[0]);
             }
             result += " ";
             capitalizeNext = true;
