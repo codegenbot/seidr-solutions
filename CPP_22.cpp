@@ -1,4 +1,3 @@
-```cpp
 #include <any>
 #include <vector>
 
