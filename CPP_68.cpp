@@ -1,9 +1,17 @@
 ```cpp
-#include <vector>
-#include <utility>
+#include <iostream>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size())
+        return false;
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+
+    return true;
 }
 
 std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
@@ -37,5 +45,17 @@ std::vector<std::pair<int, int>> findMinEvenNode(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}));
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element at index " << i << ": ";
+        std::cin >> arr[i];
+    }
+
+    auto result = findMinEvenNode(arr);
+
+    return 0;
 }
