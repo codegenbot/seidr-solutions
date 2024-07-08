@@ -17,7 +17,6 @@ bool is_sorted(std::vector<int> lst){
     }
 
     return true;
-
 }
 
 int main(){
