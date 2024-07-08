@@ -1,5 +1,5 @@
-#include <iostream>
 #include <ostream>
+#include <iostream>
 #include <string>
 #include <cassert>
 
