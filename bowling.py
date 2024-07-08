@@ -1,37 +1,29 @@
-def bowling_score(s):
+def bowling_score(bowls):
     score = 0
-    frames = [c for c in s]
-    frame = 1
-    i = 0
-    while frame <= 10:
+    frames = bowls.split("/")
+    for i in range(min(10, len(frames))):
         if frames[i] == "X":
-            score += 10
-            score += 10 if i + 1 < len(frames) and frames[i + 1] == "X" else 0
-            score += (
-                10
-                if i + 2 < len(frames) and frames[i + 2] == "X"
-                else (
-                    int(frames[i + 1])
-                    if i + 1 < len(frames) and frames[i + 1] != "/"
-                    else int(frames[i + 2])
-                )
-            )
-            i += 1
-        elif frames[i] == "/":
-            score += 10 - int(frames[i - 1])
-            score += (
-                10
-                if i + 1 < len(frames) and frames[i + 1] == "X"
-                else int(frames[i + 1])
-            )
-        else:
-            if frames[i] != "-":
-                score += int(frames[i])
-        i += 1
-        if frames[i - 1] == "X" or frames[i - 1] == "/":
-            frame += 1
+            score += 10 + get_value(frames[i + 1]) + get_value(frames[i + 2])
+        elif len(frames[i]) == 2:
+            if frames[i][1] == "-":
+                score += get_value(frames[i][0])
+            else:
+                score += get_value(frames[i][0]) + get_value(frames[i][1])
+        elif frames[i] == "-":
+            score += 0
     return score
 
 
-s = input()
-print(bowling_score(s))
+def get_value(char):
+    if char == "X":
+        return 10
+    elif char == "-":
+        return 0
+    elif char == "/":
+        return 10
+    else:
+        return int(char)
+
+
+bowls = input()
+print(bowling_score(bowls))
