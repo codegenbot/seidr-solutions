@@ -4,7 +4,7 @@
 int how_many_times(const std::string& str, const std::string& substring) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring)) != stdstring::npos) {
+    while ((pos = input.find(substring)) != std::string::npos) {
         count++;
         pos += substring.size();
     }
@@ -18,8 +18,12 @@ int main() {
     std::cout << "Enter a substring: ";
     std::getline(std::cin, sub);
 
-    int result = how_many_times(input, sub);
-    std::cout << "The substring appears " << result << " times in the input.\n";
+    if(sub.size() == 0) {
+        std::cout << "Error: Substring cannot be empty.\n";
+    } else {
+        int result = how_many_times(input, sub);
+        std::cout << "The substring appears " << result << " times in the input.\n";
+    }
 
     return 0;
 }
