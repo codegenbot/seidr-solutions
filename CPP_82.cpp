@@ -1,11 +1,7 @@
-```cpp
 #include <string>
 #include <cassert>
 
-bool prime_length(std::string str) {
-    int n = std::stoi(str);
-    bool is_prime = true;
-
+bool prime(int n) {
     if (n <= 1)
         return false;
     else if (n == 2)
@@ -13,21 +9,25 @@ bool prime_length(std::string str) {
 
     for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) {
-            is_prime = false;
-            break;
+            return false;
         }
     }
 
-    return is_prime;
+    return true;
+
+}
+
+int prime_length(std::string s) {
+    int length = 0;
+    for (char c : s)
+        length++;
+    return prime(length);
 }
 
 int main() {
-    assert(prime_length("0") == false);
+    assert(prime(0) == false);
     std::string str;
-    std::cout << "Enter a string: ";
-    std::cin >> str;
-    if (prime_length(str))
-        std::cout << str << " has prime length\n";
-    else
-        std::cout << str << " does not have prime length\n";
+    cin >> str;
+    cout << "Prime length is: " << prime_length(str) << endl;
+    return 0;
 }
