@@ -20,6 +20,6 @@ int total_match(const vector<string>& lst1, const vector<string>& lst2) {
 }
 
 int main() {
-    assert(std::vector<stdstring>({"this"}) == std::vector<string>(), true);
+    assert(operator==(vector<string>({"this"}), vector<string>()) == true);
     return 0;
 }
