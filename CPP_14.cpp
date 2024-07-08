@@ -1,6 +1,8 @@
-```cpp
-#include <vector>
+#include <iostream>
+#include <algorithm>
 #include <string>
+#include <vector>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
@@ -20,6 +22,6 @@ vector<string> all_prefixes(const string& str) {
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW"), std::vector<string>({"W", "WW", "WWW"})));
+    assert(issame(all_prefixes("WWW"), vector<string>{"W", "WW", "WWW"}));
     return 0;
 }
