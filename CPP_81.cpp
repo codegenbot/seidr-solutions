@@ -1,10 +1,10 @@
 #include <vector>
 #include <string>
-
-bool issame(const vector<string>& a, const vector<string>& b);
+#include <cassert>
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
+    
     for (float gpa : grades) {
         if (gpa == 4.0) {
             letter_grades.push_back("A+");
@@ -34,5 +34,10 @@ vector<string> numerical_letter_grade(vector<float> grades) {
             letter_grades.push_back("E");
         }
     }
+    
     return letter_grades;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
