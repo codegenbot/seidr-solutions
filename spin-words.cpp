@@ -3,6 +3,30 @@
 #include <algorithm>
 using namespace std;
 
+vector<string> splitStringBySpace(string str);
+string reverseString(string str);
+string joinStringBySpace(vector<string> words);
+
+int main() {
+    string input, output;
+    getline(cin, input);
+    // Split the input string into words.
+    vector<string> words = splitStringBySpace(input);
+
+    // Reverse each word that is 5 or more letters long.
+    for (int i = 0; i < words.size(); i++) {
+        if (words[i].length() >= 5) {
+            string reversedWord = reverseString(words[i]);
+            words[i] = reversedWord;
+        }
+    }
+
+    // Join the words back together into a single string.
+    output = joinStringBySpace(words);
+
+    cout << output << endl;
+}
+
 vector<string> splitStringBySpace(string str) {
     vector<string> words;
     size_t pos = 0;
@@ -26,25 +50,4 @@ string joinStringBySpace(vector<string> words) {
         output += words[i];
     }
     return output;
-}
-
-int main() {
-    string input, output;
-    getline(cin, input);
-
-    // Split the input string into words.
-    vector<string> words = splitStringBySpace(input);
-
-    // Reverse each word that is 5 or more letters long.
-    for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() >= 5) {
-            string reversedWord = reverseString(words[i]);
-            words[i] = reversedWord;
-        }
-    }
-
-    // Join the words back together into a single string.
-    output = joinStringBySpace(words);
-
-    cout << output << endl;
 }
