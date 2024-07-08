@@ -15,9 +15,9 @@ int can_arrange(vector<int> arr) {
 
 int main() {
     assert(can_arrange({}) == -1);
-    vector<int> a = {1, 2, 3};
-    cout << can_arrange(a) << endl; 
-    a = {1, 2, 4};
-    cout << can_arrange(a) << endl;
+    vector<int> arr1 = {1, 3, 6};
+    assert(can_arrange(arr1) == 2);
+    vector<int> arr2 = {1, 2, 3, 4, 5};
+    assert(can_arrange(arr2) == 0);
     return 0;
 }
