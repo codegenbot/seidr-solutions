@@ -12,6 +12,10 @@ def mean_absolute_deviation(numbers):
         count += 1
     return total / count
 
-numbers = input("Enter space-separated numbers: ").split()
-numbers = [float(num) for num in numbers]
+numbers = []
+while True:
+    user_input = input("Enter space-separated numbers (or 'done' if finished): ")
+    if user_input.lower() == 'done':
+        break
+    numbers.extend([float(num) for num in user_input.split()])
 print(mean_absolute_deviation(numbers))
