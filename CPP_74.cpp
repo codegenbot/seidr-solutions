@@ -29,5 +29,10 @@ int main() {
     bool total_match;
     total_match = issame(lst1, lst2);
 
+    if (total_match)
+        std::cout << "Lists are the same.\n";
+    else
+        std::cout << "Lists are not the same.\n";
+
     return 0;
 }
