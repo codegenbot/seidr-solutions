@@ -1,5 +1,4 @@
 ```
-#include <string>
 #include <cmath>
 
 int closest_integer(std::string value) {
