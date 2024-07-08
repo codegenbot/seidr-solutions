@@ -1,11 +1,11 @@
 #include <vector>
 #include <string>
 
-bool same(vector<string> a, vector<string> b) {
-    if(a.size() != b.size())
+bool isSame(const vector<string>& a, const vector<string>& c) {
+    if(a.size() != c.size())
         return false;
     for(int i = 0; i < a.size(); i++)
-        if(a[i] != b[i])
+        if(a[i] != c[i])
             return false;
     return true;
 }
@@ -20,6 +20,6 @@ vector<string> allPrefixes(const string& str) {
 
 int main() {
     vector<string> prefixes = allPrefixes("WWW"); 
-    assert(same(prefixes, {"", "W", "WW", "WWW"}));
+    assert(isSame(prefixes, {"", "W", "WW", "WWW"}));
     return 0;
 }
