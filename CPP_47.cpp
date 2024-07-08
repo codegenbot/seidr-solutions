@@ -12,7 +12,6 @@ double median(const std::vector<int>& l) {
 
 int main() {
     std::vector<int> l = {8, 1, 3, 9, 9, 2, 7};
-    // Median of {8, 1, 3, 9, 9, 2, 7} is 7
     assert(std::abs(median(l) - 7) < 1e-4);
     return 0;
 }
