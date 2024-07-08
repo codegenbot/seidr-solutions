@@ -1,9 +1,9 @@
+```cpp
 #include <string>
 #include <cassert>
 
 bool prime_length(const char* str) {
-    std::string s(str);
-    int n = s.size();
+    int n = strlen(str);
     bool is_prime = true;
 
     if (n <= 1)
@@ -22,5 +22,6 @@ bool prime_length(const char* str) {
 }
 
 int main() {
-    assert(prime_length("0") == false);
+    const char* str = "0";
+    assert(prime_length(str) == false);
 }
