@@ -1,32 +1,27 @@
-def bowling_score(frames):
+```Python
+def calculate_score(frames):
     score = 0
-    frames = [frame.strip().replace("-", "") for frame in frames.split("\n")]
-    for i, frame in enumerate(frames):
+    for i in range(len(frames)):
+        frame = frames[i]
         if len(frame) == 2:
-            if frame[0] == "X":
-                score += 10
-                if i < 9:
-                    next_frame = frames[i + 1]
-                    if next_frame[0] == "X" or (len(next_frame) > 1 and next_frame[1] != "/"):
-                        score += 10
-            elif frame[1] == "/":
-                score += 10 - int(frame[0])
+            strike = True
+        elif len(frame) >= 3 and 'X' in frame:
+            spare = True
         else:
-            frame_parts = list(frame)
-            total_pins = 0
-            for i in range(len(frame_parts)):
-                if frame_parts[i].isdigit():
-                    total_pins += int(frame_parts[i])
-                elif frame_parts[i] == "X":
-                    total_pins += 10
-                    if i < len(frame_parts) - 1 and frame_parts[i+1].isdigit():
-                        total_pins += int(frame_parts[i+1])
-                elif frame_parts[i] == "/":
-                    if frame_parts[i-1].isdigit():
-                        total_pins += 10 - int(frame_parts[i-1])
-                if i == len(frame_parts) - 1:
-                    break
-            score += total_pins
+            strike = False
+            spare = False
+
+        if strike:
+            score += 10 + calculate_score(frames[i+1:i+2])
+        elif spare:
+            score += 10 + sum(map(int, filter(str.isdigit, frame)))
+        else:
+            first_roll = int(frame[0])
+            second_roll = int(frame[1]) if len(frame) > 1 else 0
+            score += first_roll + second_roll
+
     return score
 
-print(bowling_score("8-324333X518-3463X83"))
+user_input = input()
+frames = [frame.replace("-", "") for frame in user_input.split("\n")]
+print(calculate_score(frames))
