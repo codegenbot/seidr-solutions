@@ -1,21 +1,21 @@
-#include <vector>
 #include <iostream>
 #include <string>
 #include <sstream>
 
 std::string spinWords(std::string str) {
-    std::istringstream iss(str);
+    std::stringstream ss(str);
     std::string word;
+    
     std::string result = "";
     
-    while (iss >> word) {
+    while (ss >> word) {
         if(word.length() >= 5)
             result += std::string(word.rbegin(), word.rend()) + " ";
         else
             result += word + " ";
     }
     
-    return result.substr(0, result.size()-1);
+    return result.substr(0, result.length()-1);
 }
 
 int main() {
