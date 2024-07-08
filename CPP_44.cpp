@@ -1,11 +1,10 @@
-#include <string>
 #include <iostream>
 #include <cassert>
 
 std::string change_base(int x, int base) {
     std::string result = "";
     while (x > 0) {
-        result = std::to_string(x % base) + result;
+        result = std::__cxx11::to_string(x % base) + result;
         x /= base;
     }
     return result;
