@@ -30,11 +30,12 @@ string spinWords(string str) {
 int main() {
     string str = "Hello World";
     cout << spinWords(str) << endl;
+    
     str = "This is a test";
     cout << spinWords(str) << endl;
-    str = "short";
+    
+    str = "Short words";
     cout << spinWords(str) << endl;
-    str = "longer than 5 letters";
-    cout << spinWords(str) << endl;
+    
     return 0;
 }
