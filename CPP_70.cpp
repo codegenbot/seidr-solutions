@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -29,6 +28,6 @@ vector<int> strange_sort_list(vector<int> lst) {
 }
 
 int main() {
-    vector<int> result = strange_sort_list(vector<int>{111111});
+    vector<int> result = strange_sort_list({1, 2, 3});
     return 0;
 }
