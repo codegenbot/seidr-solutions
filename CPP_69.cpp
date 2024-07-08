@@ -1,21 +1,18 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <map>
 
 int search(std::vector<int> lst) {
-    std::map<int, int> freq;
+    std::map<int, size_t> freq;
     for (int i : lst) {
         freq[i]++;
     }
-    int max_val = -1;
     for (auto p = freq.begin(); p != freq.end(); ++p) {
         if (p->second >= p->first) {
-            max_val = p->first;
-            break;
+            return p->first;
         }
     }
-    return max_val;
+    return -1;
 }
 
 int main() {
