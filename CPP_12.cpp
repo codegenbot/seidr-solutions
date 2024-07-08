@@ -1,9 +1,11 @@
-std::string longest(vector<std::string> strings){
+using namespace std;
+
+string longest(vector<string> strings){
     if(strings.empty()) return "";
-    std::string longest = strings[0];
-    for(const auto& s : strings) {
-        if(s.length() > longest.length())
+    string longest = strings[0];
+    for(auto s : strings){
+        if(s.length() > longest.length()){
             longest = s;
+        }
     }
     return longest;
-}
