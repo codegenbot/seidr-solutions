@@ -1,19 +1,45 @@
 ```
 def bowling_score(frames):
     score = 0
-    frames = frames.split('\n')
-    for i, frame in enumerate(frames):
-        if len(frame) == 2:
-            if frame[0] == 'X':
-                if i < 9:
-                    score += 30
+    frame_number = 1
+    for frame in frames:
+        if len(frame) == 2 and frame[1] == '/':
+            strike = False
+            while True:
+                if not strike and len(frames[frame_number]) > 1 and frames[frame_number][1] == 'X':
+                    score += 10 + int(frames[frame_number][0])
+                    break
+                elif not strike and frames[frame_number].split()[0] != 'X' and int(frames[frame_number].split()[0]) + int(frames[frame_number].split()[1]) < 10:
+                    score += int(frames[frame_number].split()[0])
+                    break
                 else:
-                    score += 30 + int(list('X-' + frames[i+1])[3])
-            elif frame[1] == '/':
-                score += 10 + (10 - int(frame[0]))
-        elif len(frame) == 1:
-            if i < 9 and int(frame) + int(frames[i+1].split()[0]) >= 10:
-                score += 10 + int(frame)
+                    if frame[0] == 'X':
+                        score += 30
+                    elif int(frame) == 10:
+                        score += 10
+                    else:
+                        score += int(frame)
+                    strike = True
+                frame_number += 1
+        elif len(frame) > 2:
+            while len(frames[frame_number]) > 2:
+                if frames[frame_number].split()[0] != 'X' and int(frames[frame_number].split()[0]) + int(frames[frame_number].split()[1]) < 10:
+                    score += int(frames[frame_number].split()[0])
+                    break
+                else:
+                    if frame[0] == 'X':
+                        score += 30
+                    elif int(frame) == 10:
+                        score += 10
+                    else:
+                        score += int(frame)
+            score += int(frames[frame_number].split()[1])
+        else:
+            if frame[0] == 'X':
+                score += 30
+            elif int(frame) == 10:
+                score += 10
             else:
-                score += int(frame) + int(frames[i+1].split()[0])
+                score += int(frame)
+        frame_number += 1
     return score
