@@ -1,30 +1,44 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> get_odd_collatz(int n);
+
+using namespace std;
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    return a == b;
+}
+
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
     while (n != 1) {
-        if (n % 2 != 0) {
-            result.push_back(n);
-        }
+        result.push_back(n);
         if (n % 2 == 0) {
-            n = n / 2;
+            n /= 2;
         } else {
             n = 3 * n + 1;
         }
     }
     result.push_back(1);
-    sort(result.begin(), result.end());
-    return result;
+    std::vector<int> odd_result;
+    for (int num : result) {
+        if (num % 2 != 0) {
+            odd_result.push_back(num);
+        }
+    }
+    std::sort(odd_result.begin(), odd_result.end());
+    return odd_result;
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> b = get_odd_collatz(n);
-    for (int i = 0; i < b.size(); i++) {
-        cout << b[i] << " ";
-    }
+    std::cin >> n;
+    std::vector<int> oddCollatz = get_odd_collatz(n);
+    // Additional code for contest problem ...
     return 0;
 }
