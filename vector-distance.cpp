@@ -1,20 +1,23 @@
+#include <vector>
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
 double vectorDistance() {
-    int n;
-    cin >> n;
+    int dim;
+    cin >> dim;
 
-    float v1[n], v2[n];
+    float v1[dim];
+    float v2[dim];
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < dim; i++) {
         cin >> v1[i] >> v2[i];
     }
 
     double distance = 0.0;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < dim; i++) {
         double diff = pow(v2[i] - v1[i], 2);
         distance += diff;
     }
