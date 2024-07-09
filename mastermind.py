@@ -6,10 +6,10 @@ def mastermind(code, guess):
         if guess[i] == code[i]:
             black_pegs += 1
         else:
-            match = False
+            found = False
             for j in range(4):
-                if guess[j] == code[i] and not match:
+                if guess[j] == code[i] and not found:
                     white_pegs += 1
-                    match = True
+                    found = True
 
     return str(black_pegs) + "\n" + str(white_pegs)
