@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -39,9 +38,4 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::sort(result.begin(), result.end());
     
     return result;
-}
-
-int main() {
-    assert(bf("Jupiter", "Makemake") == {});
-    // ...
 }
