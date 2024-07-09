@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -20,6 +21,7 @@ int main() {
     getline(cin, s1);
     cout << "Enter the second string: ";
     getline(cin, s2);
+    
     if (same_chars(s1, s2)) {
         cout << "True";
     } else {
