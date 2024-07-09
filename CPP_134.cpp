@@ -1,2 +1,9 @@
-string txt = txt.substr(0,txt.length()-1);
-return (txt.find(" ") == string::npos || txt.back() >= 'a' && txt.back() <= 'z') ? true : false;
+#include <string>
+#include <algorithm>
+#include <cctype>
+
+bool check_if_last_char_is_a_letter(string txt) {
+    if(txt.empty()) return false;
+    char lastChar = txt.back();
+    return (isalpha(lastChar)) && (!any_of(txt.begin(), txt.end(), std::isspace));
+}
