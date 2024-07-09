@@ -1,10 +1,35 @@
 ```cpp
+#include <iostream>
+#include <string>
+#include <boost/any.hpp>
+
+using namespace std;
+using namespace boost;
+
+int main() {
+    int a = 0;
+    float b = 0.0f;
+    cout << "Enter the first number (integer or float): ";
+    cin >> boost::any_cast<int>(&a);
+    
+    cout << "Enter the second number (integer or float): ";
+    cin >> boost::any_cast<float>(&b);
+
+    boost::any result = compare_one(boost::any(a), boost::any(b));
+    if (boost::any_cast<string>(result) == "None")
+        cout << "The numbers are equal.\n";
+    else
+        cout << "The larger number is: " << boost::any_cast<string>(result) << ".\n";
+
+    return 0;
+}
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
+        return (boost::any_cast<float>(b) > boost::any_cast<int>(a)) ? b : a;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return a;
+        return (boost::any_cast<int>(a) > boost::any_cast<float>(b)) ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str1 = boost::any_cast<string>(a);
@@ -36,7 +61,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (num1 < num2)
             return b;
         else
-            return boost::any("None");
+            return "None";
     }
     else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
         string str = boost::any_cast<string>(a);
@@ -59,17 +84,14 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (num1 < num2)
             return b;
         else
-            return boost::any("None");
+            return "None";
     }
     else {
-        float f1 = boost::any_cast<float>(a);
-        float f2 = boost::any_cast<float>(b);
-
-        if (f1 > f2)
+        if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
             return a;
-        else if (f1 < f2)
+        else if (boost::any_cast<float>(a) < boost::any_cast<float>(b))
             return b;
         else
-            return boost::any("None");
+            return "None";
     }
 }
