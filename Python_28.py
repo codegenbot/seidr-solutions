@@ -1,14 +1,6 @@
-def main():
-    num_strings = int(input("Enter the number of strings: "))
-    strings = []
-
-    for i in range(num_strings):
-        string = input(f"Enter string {i+1}: ")
-        strings.append(string)
-
-    result = concatenate(strings)
-    print(result)
-
-
-def concatenate(strings: List[str]) -> str:
-    return "".join(strings)
+```
+def count_vowels_and_consonants(input_string: str) -> (int, int):
+    vowels = 'aeiouAEIOU'
+    vowel_count = sum(1 for char in input_string if char in vowels)
+    consonant_count = len(input_string) - vowel_count
+    return vowel_count, consonant_count
