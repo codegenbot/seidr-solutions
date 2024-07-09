@@ -3,24 +3,20 @@
 #include <queue>
 using namespace std;
 
-struct Element {
-    int value;
-    pair<int, int> position;
+int n;
+vector<vector<int>> grid;
+int k;
 
-    bool operator<(const Element& other) const {
-        return this->value < other.value;
-    }
-};
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
+vector<int> minPath(vector<vector<int>> grid1, int k1) {
+    n = grid1.size();
     vector<vector<bool>>(n, vector<bool>(n, false)) visited;
-    priority_queue<Element> pq;
+
+    vector<pair<int, pair<int, int>>> pq;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
-                pq.push({grid[i][j], {i, j}});
+                pq.push_back({grid1[i][j], {i, j}});
                 visited[i][j] = true;
             }
         }
@@ -29,15 +25,14 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> res;
 
     while (!pq.empty()) {
-        Element val = pq.top();
-        pq.pop();
+        int val = pq.back().first;
+        int x = pq.back().second.first;
+        int y = pq.back().second.second;
+        res.push_back(val);
+        pq.pop_back();
 
-        res.push_back(val.value);
-        int x = val.position.first;
-        int y = val.position.second;
-
-        if (k > 0) {
-            --k;
+        if (k1 > 0) {
+            --k1;
 
             for (int dx : {-1, 0, 1}) {
                 for (int dy : {-1, 0, 1}) {
@@ -46,7 +41,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 
                     if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
                         visited[nx][ny] = true;
-                        pq.push({grid[nx][ny], {nx, ny}});
+                        pq.push_back({grid1[nx][ny], {nx, ny}});
                     }
                 }
             }
