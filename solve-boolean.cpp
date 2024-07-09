@@ -1,3 +1,9 @@
+Here is the modified code:
+
+```cpp
+#include <stack>
+#include <string>
+
 using namespace std;
 
 bool solveBoolean(string s) {
@@ -22,4 +28,5 @@ bool solveBoolean(string s) {
     while (!st.empty()) {
         st.pop();
     }
-    return !st.empty();
+    return st.empty();
+}
