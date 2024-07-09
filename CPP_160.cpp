@@ -1,3 +1,4 @@
+```
 #include <sstream>
 #include <vector>
 #include <utility>
@@ -39,19 +40,12 @@ int main() {
     std::istringstream iss(str);
     
     std::vector<std::pair<char, int>> operators_and_operands;
+    char op;
     std::string token;
     while (std::getline(iss, token, '+')) {
         if (token != "") {
-            token[0] = '';  // consume the operator
-            char op = token[0];
-            int operand = 0; // default value in case of parsing error
-            try {
-                operand = std::stoi(token.substr(1));
-            } catch(const std::invalid_argument& e) {
-                // Handle invalid input string that cannot be parsed as an integer
-                std::cout << "Invalid input: " << token << "\n";
-                return 1; 
-            }
+            op = token[0];
+            int operand = std::stoi(token.substr(1));
             operators_and_operands.push_back({op, operand});
         }
     }
