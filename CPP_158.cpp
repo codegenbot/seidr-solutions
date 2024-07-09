@@ -1,17 +1,19 @@
-string find_max(vector<string> words){
-    string result = "";
-    int max_chars = 0;
+Here is the solution:
 
-    for(const auto& word : words){
-        set<char> unique_chars(word.begin(), word.end());
-        if(unique_chars.size() > max_chars){
-            max_chars = unique_chars.size();
-            result = word;
-        } else if(unique_chars.size() == max_chars){
-            if(result.compare(word) < 0)
-                result = word;
+```cpp
+string find_max(vector<string> words){
+    string res = words[0];
+    for(int i=1;i<words.size();i++){
+        int count1 = 0;
+        int count2 = 0;
+        set<char> s1(res.begin(),res.end());
+        set<char> s2(words[i].begin(),words[i].end());
+
+        if(s1.size() > s2.size()){
+            res = words[i];
+        }else if(s1.size() == s2.size()){
+            res = (s1 < s2) ? res : words[i];
         }
     }
-
-    return result;
+    return res;
 }
