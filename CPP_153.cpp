@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <iostream>
 #include <vector>
@@ -16,5 +15,6 @@ std::string Strongest_Extension(std::string className, const std::vector<std::st
 
 int main() {
     int result = Strongest_Extension("Sp", {"671235", "Bb"});
+    assert(result == 1);
     std::cout << "Result: " << (result > 0 ? "Strongest Extension exists" : "No strongest extension") << std::endl;
 }
