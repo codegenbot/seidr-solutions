@@ -1,18 +1,6 @@
 #include <vector>
 #include <cmath>
 
-double poly(const std::vector<double>& coeffs, double solution) {
-    double result = 0;
-    for (int i = 0; i < coeffs.size(); ++i) {
-        if (i % 2 == 1) {
-            result -= coeffs[i] * pow(solution, i+1);
-        } else {
-            result += coeffs[i];
-        }
-    }
-    return result;
-}
-
 double find_zero(const std::vector<double>& coeffs) {
     double solution = 0;
     for (int i = 0; i < coeffs.size(); ++i) {
@@ -25,20 +13,28 @@ double find_zero(const std::vector<double>& coeffs) {
     return solution;
 }
 
+double poly(const std::vector<double>& coeffs, double x) {
+    double result = 0.0;
+    for (int i = 0; i < coeffs.size(); ++i) {
+        result += coeffs[i] * pow(x, i);
+    }
+    return result;
+}
+
 int main() {
-    std::vector<double> coeffs; 
-    double coeff; 
-    int n;
-    std::cout << "Enter the number of coefficients: ";
-    std::cin >> n;
-    
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter coefficient " << i+1 << ": ";
-        std::cin >> coeff;
+    std::vector<double> coeffs;
+    double coeff, solution;
+
+    // Assign coefficients
+    for (int i = 0; i < 5; ++i) {
+        printf("Enter coefficient %d: ", i+1);
+        scanf("%lf", &coeff);
         coeffs.push_back(coeff);
     }
-    
-    double solution = find_zero(coeffs); 
-    assert(abs(poly(coeffs, solution)) < 1e-3); 
+
+    solution = find_zero(coeffs);
+
+    assert(abs(poly(coeffs, solution)) < 1e-3);
+
     return 0;
 }
