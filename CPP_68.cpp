@@ -2,7 +2,7 @@
 #include <limits>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == 0 && b.size() == 0) || (a == b);
+    return (a.size() == 0 && b.size() == 0);
 }
 
 int pluckSame(const std::vector<int>& arr) {
