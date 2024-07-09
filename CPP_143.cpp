@@ -1,32 +1,31 @@
-#include <cmath>
-using namespace std;
-
-string words_in_sentence(string sentence) {
+string words_in_sentence(string sentence){
     string result = "";
-    bool isPrime[100] = {false};
-    
-    for (int i = 2; i * i <= 100; i++) {
-        if (!isPrime[i]) {
-            for (int j = i; j * i < 100; j++) {
-                isPrime[j * i] = true;
-            }
+    for(auto word : split(sentence, " ")){
+        if(is_prime(word.length())){
+            result += word + " ";
         }
     }
+    return result.substr(0, result.size() - 1);
+}
 
-    int len = sentence.size();
-    int spaceIndex = 0;
-
-    while (spaceIndex < len) {
-        spaceIndex = sentence.find(' ', spaceIndex);
-        if (spaceIndex == -1)
-            break;
-        
-        string word = sentence.substr(0, spaceIndex);
-        if (!isPrime[word.size()]) 
-            continue;
-
-        result += word + " ";
+bool is_prime(int num) {
+    if(num <= 1)
+        return false;
+    for(int i = 2; i*i <= num; i++) {
+        if(num % i == 0)
+            return false;
     }
-    
+    return true;
+}
+
+vector<string> split(string sentence, string delimiter) {
+    vector<string> result;
+    size_t pos = 0;
+    while((pos = sentence.find(delimiter)) != string::npos) {
+        result.push_back(sentence.substr(0, pos));
+        sentence.erase(0, pos + delimiter.length());
+    }
+    if (!sentence.empty())
+        result.push_back(sentence);
     return result;
 }
