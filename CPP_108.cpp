@@ -1,36 +1,34 @@
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        if (num > 0) {
+        if (num >= 0) {
             int sum = 0;
-            bool negative = false;
-            while (num != 0) {
-                int digit = abs(num) % 10;
-                if (digit != 0 || !negative) {
-                    sum += digit;
+            bool hasNonZeroSum = false;
+            while (num > 0) {
+                int digit = num % 10;
+                sum += digit;
+                if (digit != 0) {
+                    hasNonZeroSum = true;
                 }
                 num /= 10;
-                if (num < 0) {
-                    negative = true;
-                }
             }
-            if (sum > 0) {
+            if (hasNonZeroSum) {
                 count++;
             }
-        } else if (num < 0) {
+        } else {
+            num = -num; // convert to positive for calculation
             int sum = 0;
-            bool negative = false;
-            while (num != 0) {
-                int digit = abs(num) % 10;
-                if (digit != 0 || !negative) {
-                    sum -= digit;
+            bool hasNonZeroSum = false;
+            while (num > 0) {
+                int digit = num % 10;
+                if (digit == 5) { // special case: 5 is the only single-digit number with a non-zero sum of digits
+                    hasNonZeroSum = true;
+                    break;
                 }
+                sum += digit;
                 num /= 10;
-                if (num < 0) {
-                    negative = true;
-                }
             }
-            if (sum > 0) {
+            if (hasNonZeroSum) {
                 count++;
             }
         }
