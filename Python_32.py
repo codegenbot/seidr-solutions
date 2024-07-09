@@ -1,13 +1,13 @@
 def find_zero(xs: list):
-    assert len(xs) % 2 == 0
-    n = len(xs) - 1
-    a = xs[0]
-    b = xs[n]
-    return -a / b
+    n = len(xs)
+    if n % 2 != 0:
+        return None
+    a = max(xs, key=abs)
+    b = -a
+    return b
 
-# Read input from user
-input_list = list(map(int, input().split()))
 
-# Call the function with the given input list
-result = find_zero(input_list)
-print(result)
+if __name__ == "__main__":
+    xs = list(map(int, input().split()))
+    result = find_zero(xs)
+    print(result)
