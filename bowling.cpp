@@ -1,4 +1,3 @@
-```
 int getBonus(int a, int b) {
     if(a + b == 10) {
         return 10;
@@ -6,7 +5,6 @@ int getBonus(int a, int b) {
         return a + b;
     }
 }
-
 #include <string>
 
 int bowlingScore(std::string s) {
@@ -35,3 +33,4 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
+}
