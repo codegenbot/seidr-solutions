@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -7,7 +8,7 @@ using namespace std;
 
 bool issame(const string& a, const vector<string>& b, const string& s) {
     for (const auto& str : b) {
-        if (!issame(a, vector<string>(1, str), s)) return false;
+        if (!issame(a, vector<string>({string(str)}), s)) return false;
     }
     return true;
 }
