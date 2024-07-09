@@ -6,8 +6,6 @@
 
 using namespace std;
 
-string sort_numbers(string numbers);
-
 map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
@@ -20,6 +18,8 @@ map<string, int> num_map = {
     {"eight", 8},
     {"nine", 9}
 };
+
+string sort_numbers(string numbers);
 
 int main() {
     assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
