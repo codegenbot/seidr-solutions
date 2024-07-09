@@ -3,16 +3,24 @@
 
 using namespace std;
 
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    if(v1.size()!=v2.size())return false;
-    for(int i=0;i<v1.size();i++){
-        if(v1[i]!=v2[i])return false;
+bool is_same(vector<int>& v1, vector<int>& v2) {
+    if (v1.size() != v2.size())
+        return false;
+    
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i])
+            return false;
     }
+    
     return true;
 }
 
+bool operator==(const vector<int>& v1, const vector<int>& v2) {
+    return is_same(v1, v2);
+}
+
 int main() {
-    assert(equal(get_odd_collatz(1).begin(), get_odd_collatz(1).end(), vector<int>({1}).begin()));
+    assert(get_odd_collatz(1) == vector<int>({1}));
     return 0;
 }
 
