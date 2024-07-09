@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -31,7 +30,7 @@ int main() {
     
     std::vector<int> output = strange_sort_list(input);
     
-    if (issame(output, {111111})) {
+    if (issame(output, {1,2,3,4,5,6})) {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
