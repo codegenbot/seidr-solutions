@@ -1,6 +1,4 @@
-Here is the corrected code:
-
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,7 +20,7 @@ vector<string> by_length(vector<int> arr) {
     vector<string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            temp.push_back(std::to_string(i)); // Convert int to string
+            temp.push_back(std::to_string(i)); 
         }
     }
 
@@ -71,9 +69,9 @@ int main() {
     
     if (issame({{"One", "Four", "Eight"}})) {
         for (string str : output) {
-            std::cout << str << std::endl;
+            cout << str << endl;
         }
     } else {
-        std::cout << "Output is incorrect." << std::endl;
+        cout << "Output is incorrect." << endl;
     }
 }
