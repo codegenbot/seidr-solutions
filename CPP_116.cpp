@@ -1,8 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-namespace std {
-
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
@@ -17,6 +15,4 @@ std::vector<int> sort_array(std::vector<int> arr){
         return countA < countB;
     });
     return arr;
-}
-
 }
