@@ -4,13 +4,9 @@ def decode_cyclic(s: str) -> str:
     return "".join(groups)
 
 while True:
-    try:
-        input_str = input("Enter a string: ")
-        if all(ch.isalpha() or ch.isspace() for ch in input_str):
-            break
-        else:
-            print("Invalid input. Please enter alphabetic characters only.")
-    except:
-        print("Invalid input. Please enter alphabetic characters only.")
-
-print(decode_cyclic(input_str))
+    input_str = input("Enter a string: ")
+    if all(char.isalpha() for char in input_str):
+        print(decode_cyclic(input_str))
+        break
+    else:
+        print("Invalid input. Please enter a string consisting of alphabetic characters only.")
