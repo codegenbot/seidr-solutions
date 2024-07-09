@@ -1,6 +1,6 @@
 int largest_divisor(int n) {
-    for (int i = n; i >= 1; --i)
+    for (int i = 1; i * i <= n; ++i)
         if (n % i == 0)
-            return i;
-    return 1;
+            return n / i;
+    return i;
 }
