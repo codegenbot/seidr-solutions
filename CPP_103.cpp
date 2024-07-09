@@ -24,15 +24,8 @@ std::string rounded_avg(int n, int m) {
 
 int main() {
     int n, m;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-    std::cout << "Enter the value of m: ";
-    std::cin >> m;
-    std::string result = rounded_avg(n, m);
-    if (result == "-1") {
-        std::cout << "Invalid input. n should be less than or equal to m." << std::endl;
-    } else {
-        std::cout << "The average rounded is: " << result << std::endl;
-    }
+    std::cout << "Enter the range [n, m]: ";
+    std::cin >> n >> m;
+    std::cout << "Rounded average: " << rounded_avg(n, m) << std::endl;
     return 0;
 }
