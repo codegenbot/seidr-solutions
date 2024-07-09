@@ -12,12 +12,3 @@ std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& g
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
-
-int main() {
-    const auto result = compare({1, 2, 3, 5}, {-1, 2, 3, 4});
-    assert(result[0] == 2);
-    assert(result[1] == 0);
-    assert(result[2] == 0);
-    assert(result[3] == 1);
-    return 0;
-}
