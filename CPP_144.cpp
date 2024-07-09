@@ -2,13 +2,7 @@
 #include <string>
 using namespace std;
 
-int gcdFunc(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcdFunc(b, a % b);
-}
-
+int gcdFunc(int a, int b);
 bool simplify(std::string x, std::string n) {
     int numerator = 0, denominator = 0;
     char slash;
@@ -27,4 +21,11 @@ bool simplify(std::string x, std::string n) {
     int gcd = gcdFunc(numerator, denominator);
     return (numerator / gcd) == (denominator / gcd);
 
+}
+
+int gcdFunc(int a, int b) {
+    if (b == 0)
+        return a;
+    else
+        return gcdFunc(b, a % b);
 }
