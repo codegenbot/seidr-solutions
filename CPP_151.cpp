@@ -20,3 +20,4 @@ int main() {
     std::cout << "The difference is: " << result << std::endl;
 
     return 0;
+}
