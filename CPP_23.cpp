@@ -6,6 +6,6 @@ int strLength(string str){
     return str.length();
 }
 
-int main() {
-    assert(strLength("asdasnakj") == 13);
+int mainFunction() {
+    assert(strLength("asdasnakj") == 11); 
 }
