@@ -1,5 +1,7 @@
+```
 #include <string>
 #include <vector>
+#include <ostream>
 #include <iostream>
 
 std::vector<std::pair<int, std::string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"},
