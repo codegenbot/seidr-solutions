@@ -3,8 +3,6 @@
 #include <iostream>
 #include <cassert>
 
-vector<string> separate_paren_groups(string paren_string);
-
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
@@ -35,8 +33,8 @@ int main() {
     cin >> input;
 
     vector<string> groups = separate_paren_groups(input);
-
-    assert(groups.size() == 0); // Placeholder condition for assert
+    
+    assert(groups.size() == 2);
 
     return 0;
 }
