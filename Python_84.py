@@ -1,3 +1,6 @@
 def solve(N):
-    n = int(str(bin(sum(int(i) for i in str(bin(N)[2:]))) [2:]), 2)
-    return bin(n)[2:]
+    if N > 0:
+        s = bin(N)[2:] 
+        return bin(int(s)) if s else "0"
+    else:
+        return "0"
