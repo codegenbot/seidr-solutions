@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <cassert>
 
@@ -13,4 +14,9 @@ int solve(int n) {
         n /= 2;
     }
     return binary.length() ? stoi(binary) : 0;
+}
+
+int main() {
+    assert(solve(963) == 11010); 
+    return 0;
 }
