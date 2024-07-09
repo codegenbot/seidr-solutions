@@ -5,6 +5,7 @@
 #include <iostream>
 
 using namespace std;
+using boost::any_cast;
 
 variant<int, float, string> compare_one(const variant<int, float, string>& a, const variant<int, float, string>& b) {
     if (holds_alternative<int>(a) && holds_alternative<int>(b)) {
@@ -29,9 +30,9 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
 }
 
 int main() {
-    assert(boost::any_cast<string>(&compare_one(string("1"), string("2")))->compare("2") == 0);
-    assert(boost::any_cast<int>(&compare_one(10, 5)) == 10);
-    assert(boost::any_cast<float>(&compare_one(3.14f, 2.718f) == 3.14f);
+    assert(any_cast<string>(&compare_one(string("1"), string("2")))->second == "2");
+    assert(any_cast<int>(&compare_one(10, 5))->second == 10);
+    assert(any_cast<float>(&compare_one(3.14f, 2.718f))->second == 3.14f);
 
     return 0;
 }
