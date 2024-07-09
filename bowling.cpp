@@ -1,9 +1,12 @@
-#include <string>
+#include <iostream>
+#include <sstream>
 
 int bowlingScore(std::string s) {
     int score = 0;
     int currentRoll = 0;
-    for (char c : s) {
+    std::istringstream iss(s);
+    char c;
+    while (iss >> c) {
         if (c == 'X') {
             score += 30;
             currentRoll = 10;
@@ -13,11 +16,21 @@ int bowlingScore(std::string s) {
         } else {
             int roll = c - '0';
             currentRoll += roll;
-            if (s[s.size() - 2] == '/' || s[s.size() - 1] == 'X') {
-                score += currentRoll * 2;
+            if (iss.peek() == '/' || iss.peek() == 'X') {
+                score += roll * 2;
             } else {
-                score += currentRoll;
+                score += roll;
             }
         }
     }
     return score;
+}
+
+int main() {
+    std::cout << "Enter bowling scores (X for strike, / for spare, numbers for rolls):" << std::endl;
+    std::string s;
+    std::getline(std::cin, s);
+    int result = bowlingScore(s);
+    std::cout << "Your score is: " << result << std::endl;
+    return 0;
+}
