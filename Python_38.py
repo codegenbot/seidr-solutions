@@ -1,5 +1,6 @@
-s = input().strip()
+print("Enter a string:")
+s = input()
 result = ""
-for i in range(len(s)):
-    result += chr((ord(s[i]) + i) % 26 + ord('A'))
+for char in s:
+    result += chr(ord(char) - 1)
 print(result)
