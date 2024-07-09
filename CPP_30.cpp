@@ -25,8 +25,8 @@ int main() {
     if(n > 0) {
         std::vector<std::unique_ptr<float>> numbers;
         for(int i=0; i<n;i++){
-            float num;
             std::cout << "Enter element " << i+1 << ": ";
+            float num;
             std::cin >> num;
             numbers.push_back(std::make_unique<float>(num));
         }
