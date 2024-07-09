@@ -1,25 +1,25 @@
-#include <iostream>
+#include <stdio.h>
 using namespace std;
 
-bool isPrime(int num) {
-    if (num <= 1)
-        return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0)
-            return false;
+int prime_fib(int n) {
+    int a = 0, b = 1;
+    for (int i = 2; ; i++) {
+        if (i == n) return b;
+        int temp = a + b;
+        a = b;
+        b = temp;
+        bool is_prime = true;
+        for (int j = 2; j * j <= b; j++)
+            if (b % j == 0) is_prime = false;
+        if (!is_prime) continue;
+        return b;
     }
-    return true;
 }
 
-int prime_fib(int n) {
-    int fib_num = 0, fib_prev = 1, count = 0;
-    while (true) {
-        int fib_new = fib_prev + fib_num;
-        if (isPrime(fib_new)) {
-            if (++count == n)
-                return fib_new;
-            fib_num = fib_new;
-            fib_prev = fib_num - fib_prev;
-        }
-    }
+int main() {
+    int n;
+    printf("Enter the position of the number: ");
+    scanf("%d", &n);
+    printf("The %dth number that is a Fibonacci number and it's also prime is %d\n", n, prime_fib(n));
+    return 0;
 }
