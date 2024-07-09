@@ -3,17 +3,18 @@
 #include <sstream>
 
 int main() {
-    std::string startHeightStr;
-    std::string firstBounceStr;
-    std::string numBouncesStr;
+    double startHeight;
+    double firstBounce;
+    int numBounces;
 
-    std::getline(std::cin, startHeightStr);
-    std::getline(std::cin, firstBounceStr);
-    std::getline(std::cin, numBouncesStr);
-
-    double startHeight = stod(startHeightStr);
-    double firstBounce = stod(firstBounceStr);
-    int numBounces = stoi(numBouncesStr);
+    std::string input;
+    std::getline(std::cin, input);
+    std::istringstream iss(input);
+    double tempStartHeight, tempFirstBounce, tempNumBounces;
+    iss >> tempStartHeight >> tempFirstBounce >> tempNumBounces;
+    startHeight = tempStartHeight;
+    firstBounce = tempFirstBounce;
+    numBounces = tempNumBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
 
