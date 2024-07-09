@@ -1,6 +1,3 @@
-#include <iostream>
-#include <iomanip>
-
 int main() {
     int hours;
     float groundSnow, rateOfSnowFall, proportionMelting;
