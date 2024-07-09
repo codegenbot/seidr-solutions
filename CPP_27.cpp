@@ -1,6 +1,7 @@
+#include <cassert>
 int main() {
     std::string input;
-    std::cout << "Enter your string: ";
+    std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     std::string output;
     for (char c : input) {
@@ -12,5 +13,5 @@ int main() {
             output += c;
         }
     }
-    return 0;
+    assert(output == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
 }
