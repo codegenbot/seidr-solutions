@@ -1,4 +1,4 @@
-string Strongest_Extension(string class_name, vector<string> extensions) {
+int Strongest_Extension(string class_name, vector<string> extensions) {
     string strongest_extension = "";
     int strongest_strength = 0;
 
@@ -16,11 +16,11 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
 
         int strength = cap - sm;
 
-        if (strength > strongest_strength || (strength == strongest_strength && strongest_extension.empty())) {
+        if (strength > strongest_strength || (strength == strongest_strength && extension < strongest_extension)) {
             strongest_extension = extension;
             strongest_strength = strength;
         }
     }
 
-    return class_name + "." + strongest_extension;
+    return strongest_extension + "." + strongest_extension;
 }
