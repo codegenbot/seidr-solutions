@@ -8,7 +8,7 @@ bool isSame(const std::string& a, const std::string& b) {
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     auto it = unique(lst.begin(), lst.end(),
-                      [](const string& a, const string& b) { return a.length() % 2 == 1; });
+                      [](const string& a, const string& b) { return abs(stoi(a)) + abs(stoi(b)) % 2; });
     lst.erase(it, lst.end());
     sort(lst.begin(), lst.end(),
          [](const string& a, const string& b) {
