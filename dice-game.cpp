@@ -2,15 +2,11 @@
 #include <iostream>
 
 double probability(int n, int m) {
-    double total = 0; // total favorable outcomes: sum(i-1)/n for i=1 to min(n,m)
+    double total = 0; // total favorable outcomes: sum(m-1)/n for i=1 to min(n,m)
     for (int i = 1; i <= std::min(n, m); i++) {
-        if (i < m) { 
-            total += (i - 1) / (double)n;
-        } else { 
-            total += (n - m + 1) / (double)n; 
-        }
+        total += (m - i) / (double)n;
     }
-    return total;
+    return (total - m / n) / (1.0 * (n - 1));
 }
 
 int main() {
