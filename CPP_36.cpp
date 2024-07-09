@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -19,4 +18,5 @@ int main() {
     } else {
         fizz_buzz(n);
     }
+    return 0;
 }
