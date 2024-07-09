@@ -12,9 +12,8 @@ std::vector<int> incr_list(std::vector<int> l){
     return l;
 }
 
-std::vector<int> input = {1, 2, 3, 4};
-
 int main() {
+    std::vector<int> input = {1, 2, 3, 4};
     std::vector<int> modified = incr_list(input);
     
     if (issame(input, modified)) {
