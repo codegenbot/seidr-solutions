@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -8,7 +7,7 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<vector<int>> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
     vector<int> res;
@@ -25,11 +24,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
     int n = grid.size();
     if (k == 0) {
-        for(int i=0; i<res.size(); i++){
-            for(int j=i+1; j<res.size(); j++){
-                if(res[i] != res[j]) return;
-            }
-        }
+        res.insert(res.end(), res.begin(), res.end());
         return;
     }
     visited[x][y] = true;
@@ -44,4 +39,9 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y,
         }
     }
     visited[x][y] = false;
+}
+
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
 }
