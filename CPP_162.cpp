@@ -1,6 +1,7 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <digest.h>
 
 using namespace std;
 
@@ -8,7 +9,6 @@ std::string string_to_md5(std::string text) {
     if (text.empty()) return "None";
     
     unsigned char md5[16];
-    // Add the implementation of MD5 function or include the necessary header file that contains it
     MD5((const unsigned char*)text.c_str(), text.size(), md5);
     
     std::string result;
