@@ -8,7 +8,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 std::vector<int> even_odd_palindrome(int n){
     std::vector<int> result(2, 0);
-    for(int i = 1 ; i <= n; ++i){
+    for(int i = 1; i <= n; ++i){
         std::string s = std::to_string(i);
         std::string rev_s = s;
         std::reverse(rev_s.begin(), rev_s.end());
