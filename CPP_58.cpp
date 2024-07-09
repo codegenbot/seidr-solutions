@@ -1,16 +1,36 @@
-```cpp
-#include <vector>
-#include <set>
+#include <iostream>
 #include <algorithm>
+#include <vector>
 
-std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
-    std::set<int> s1(l1.begin(), l1.end());
-    std::set<int> s2(l2.begin(), l2.end());
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) 
+        return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) 
+            return false;
+    }
+    return true;
+}
 
-    std::set<int> intersection;
-    set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-                      inserter(intersection, intersection.begin()));
+int main() {
+    int n1, n2;
+    std::cout << "Enter number of elements in first vector: ";
+    std::cin >> n1;
+    std::vector<int> l1(n1);
+    for(int i = 0; i < n1; i++) 
+        std::cin >> l1[i];
+    
+    std::cout << "Enter number of elements in second vector: ";
+    std::cin >> n2;
+    std::vector<int> l2(n2);
+    for(int i = 0; i < n2; i++) 
+        std::cin >> l2[i];
 
-    std::vector<int> result(intersection.begin(), intersection.end());
-    return result;
+    if(issame(l1, l2)) {
+        std::cout << "Vectors are same." << std::endl;
+    }
+    else
+        std::cout << "Vectors are not same." << std::endl;
+
+    return 0;
 }
