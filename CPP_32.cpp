@@ -1,17 +1,16 @@
-vector<double> coeffs = {1, -6, 11, -6};
-
-double poly(vector<double> xs, double x){
-    double result = 0;
-    
-    for(int i=0; i<coeffs.size(); i++){
-        result += coeffs[i] * pow(x, i);
+double poly(vector<double> xs, double x) {
+    int n = coeffs.size();
+    double sum = 0;
+    for (int i = 0; i < n; ++i) {
+        sum += coeffs[i] * pow(x, i);
     }
-    
-    return result;
+    return sum;
 }
 
+vector<double> coeffs;
+
 double find_zero(vector<double> xs){
-    double x = 1.0;
+    double x = 1;
     double tol = 1e-6; // tolerance for finding zero
     int max_iter = 1000; // maximum number of iterations
     
@@ -22,7 +21,7 @@ double find_zero(vector<double> xs){
             return round(x, 2);
         }
         
-        x -= f / poly(xs, x); // Newton's method
+        x -= f / poly(vector<double>(xs.begin(), xs.end()), x); // Newton's method
     }
     
     return -1.0; // not found
