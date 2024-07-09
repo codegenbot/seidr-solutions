@@ -1,11 +1,8 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    a = xs[-1]
-    b = xs[-2]
-    x = -a / b
-    return x
+    a, b = xs[0], xs[1]
+    return -b / a
 
-
-xs = list(map(int, input().split()))
-result = find_zero(xs)
+input_list = list(map(int, input("Enter list of integers separated by space: ").split()))
+result = find_zero(input_list)
 print(result)
