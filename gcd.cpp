@@ -44,7 +44,7 @@ int main() {
 
     if (a == 0 || b == 0) {
         cout << "GCD of two zero is undefined. Terminating the program.\n";
-        return 1; // Exit with failure
+        return 1; 
     }
 
     cout << gcd(a, b) << endl;
