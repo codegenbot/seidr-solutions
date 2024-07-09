@@ -8,6 +8,3 @@ def encode(message):
         else:
             encoded_message += char.swapcase()
     return encoded_message
-
-result = encode("I DoNt KnOw WhAt tO WrItE")
-print(result)
