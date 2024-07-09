@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-
+```cpp
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
@@ -55,15 +53,7 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {1,2,3,4,5};
-    vector<string> result = by_length(arr);
-    for (string str : result) {
-        std::cout << str << " ";
-    }
-    if(issame(result, {"One", "Two", "Three", "Four", "Five"}))
-        std::cout << "\nThey are same." << endl;
-    else
-        std::cout << "\nThey are not same." << endl;
-
+    vector<int> numbers = {1, 2, 3};
+    vector<string> result = by_length(numbers);
     return 0;
 }
