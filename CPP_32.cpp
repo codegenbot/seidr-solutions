@@ -9,7 +9,8 @@ double poly(vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(vector<double> xs){
+double find_zero(vector<double> xs) {
+    vector<double> coeffs(xs.begin(), xs.end());
     double x = -xs[1]/(2*abs(xs[1]));
-    return poly(xs,x);
+    return poly(coeffs, x);
 }
