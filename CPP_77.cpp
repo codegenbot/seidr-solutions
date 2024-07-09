@@ -1,5 +1,4 @@
-Here is the completed code:
-
+#include <cmath>
 bool iscuber(int a){
     int i = 1;
     while (pow(i, 3) <= a) {
