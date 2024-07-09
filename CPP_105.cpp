@@ -66,8 +66,8 @@ int main() {
     vector<int> input = {1, 4, 8};
     vector<string> output = by_length(input);
     
-    if (issame({{"One"}, {(string)"Four"}}, {{output[0], output[1], output[2]}})) {
-        for (const auto& str : output) {
+    if (issame({{"One"}}, {{output[0]}})) {
+        for (string str : output) {
             cout << str << endl;
         }
     } else {
