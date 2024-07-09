@@ -20,3 +20,8 @@ int pluckSame(const std::vector<int>& arr) {
 
     return minIndex;
 }
+
+int main() {
+    assert(issame(pluckSame({7, 9, 7, 1}), {}));
+    return 0;
+}
