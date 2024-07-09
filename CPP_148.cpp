@@ -1,9 +1,5 @@
-#include <vector>
-#include <algorithm>
-#include <string>
-
-bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& other) {
+    return a == other;
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
@@ -35,3 +31,11 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::sort(result.begin(), result.end());
     
     return result;
+}
+
+int main() {
+    if (!issame(bf("Jupiter", "Makemake"), {})) {
+        return 1; 
+    }
+    return 0;
+}
