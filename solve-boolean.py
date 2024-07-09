@@ -1,4 +1,4 @@
-```python
+```
 def solve_boolean(expression):
     while '(' in expression:
         start = 0
@@ -10,7 +10,7 @@ def solve_boolean(expression):
                 end = i
                 break
         result = eval(expression[start+1:end])
-        expression = expression[:start] + str(result) + expression[end+1:]
+        expression = expression[:start] + str(bool(result)) + expression[end+1:]
     if '&' in expression and '|' in expression:
         left, right = expression.split('&')
         return bool(eval(left)) and solve_boolean(right)
