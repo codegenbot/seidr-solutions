@@ -1,7 +1,25 @@
+```cpp
+#include <map>
+#include <string>
+
 int main() {
-    map<string, string> dict;
+    std::map<std::string, std::string> dict;
+
+    while (true) {
+        std::cout << "Enter a key-value pair (or 'q' to quit): ";
+        std::string key, value;
+        std::cin >> key >> value;
+        if (key == "q") break;
+        dict.insert({key, value});
+    }
+
     bool result = check_dict_case(dict);
-    // rest of your code
+    if (result) {
+        std::cout << "All keys are either all upper case or all lower case." << std::endl;
+    } else {
+        std::cout << "Not all keys follow the rule." << std::endl;
+    }
+    return 0;
 }
 
 bool check_dict_case(map<string, string> dict) {
