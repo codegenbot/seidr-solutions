@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <boost/any.hpp>
 
 using namespace std;
@@ -13,10 +14,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (stod(a.convert_to<string>()) > stod(b.convert_to<string>())) {
+        string str1 = a.convert_to<string>();
+        string str2 = b.convert_to<string>();
+        if (stod(str1) > stod(str2)) {
             return a;
         }
-        else if (stod(a.convert_to<string>()) < stod(b.convert_to<string>())) {
+        else if (stod(str1) < stod(str2)) {
             return b;
         }
        	else {
@@ -25,11 +28,12 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         double a_num = stod(a.convert_to<string>());
-        double b_num = stod(b.convert_to<string>());
-        if (a_num > b_num) {
+        string str2 = b.convert_to<string>();
+        int b_int = stoi(str2);
+        if (a_num > b_int) {
             return a;
         }
-       	else if (a_num < b_num) {
+       	else if (a_num < b_int) {
             return b;
         }
 		else {
@@ -81,17 +85,18 @@ boost::any compare_one(boost::any a, boost::any b) {
 }
 
 int main() {
-    // Your code here
-    cout << "Enter two values: ";
-    boost::any a, b;
-    cin >> a >> b;
-    boost::any result = compare_one(a, b);
-    if (result.type() == typeid(string)) {
-        cout << "The comparison is None." << endl;
-    }
-    else {
-        cout << "The comparison is: " << result << endl;
-    }
+    // Test cases
+    boost::any a = 10; // int
+    boost::any b = "20.5"; // string
+    cout << compare_one(a, b) << endl;
+
+    a = 3.14; // float
+    b = "2"; // string
+    cout << compare_one(a, b) << endl;
+
+    a = "10"; // string
+    b = "20"; // string
+    cout << compare_one(a, b) << endl;
 
     return 0;
 }
