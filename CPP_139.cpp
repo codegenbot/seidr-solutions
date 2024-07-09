@@ -1,26 +1,27 @@
+```cpp
 #include <iostream>
 #include <cmath>
+#include <string>
 
 std::string special_factorial(int n) {
     if (n <= 1)
         return "1";
 
     std::string result = "1";
-    for (int i = 1; i <= n; i++) {
+    for (int i = 2; i <= n; i++) {
         long long mul_result = 1;
-        for (int j = 2; j <= i; j++)
+        for (int j = 1; j <= i; j++)
             mul_result *= j;
 
-        std::cout << result << " * " << mul_result << std::endl;
-        result = "1";
+        result += " * " + std::to_string(mul_result);
     }
-    return "1";
+    return result;
 }
 
 int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
+    std::cout << "Special factorial of " << std::to_string(n) << " is " << special_factorial(n) << std::endl;
     return 0;
 }
