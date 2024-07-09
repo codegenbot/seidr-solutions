@@ -1,27 +1,19 @@
+```cpp
 #include <string>
 #include <algorithm>
-#include <limits>
 
-std::string compareOne(int a, float b) {
-    if (a > b)
-        return "A";
-    else if (a < b)
-        return "B";
-    else
-        return "Equal";
-}
+using namespace std;
 
-int main() {
-    int num1;
-    std::cout << "Enter the first number: ";
-    std::cin >> num1;
-
-    float num2;
-    std::cout << "Enter the second number: ";
-    std::cin >> num2;
-
-    std::string result = compareOne(num1, num2);
-    std::cout << "The comparison result is: " << result << std::endl;
-
-    return 0;
+string compare_one(string a, string b) {
+    double d1 = stod(a.replace(".", ",")), d2 = stod(b.replace(".", ","));
+    
+    if(d1 > d2) {
+        return a;
+    } 
+    else if(d2 > d1) {
+        return b;
+    } 
+    else {
+        return "None";
+    }
 }
