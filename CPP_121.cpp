@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -10,7 +9,6 @@ int solutions(std::vector<int> lst){
         }
     }
     return sum;
-
 }
 
 int main() {
