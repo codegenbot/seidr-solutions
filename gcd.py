@@ -1,14 +1,7 @@
-Here is the solution:
+a = int(input("Enter the first integer: "))
+b = int(input("Enter the second integer: "))
+print(gcd(a, b))
 
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return abs(a)
-
-text = input()
-target = input()
-
-indices = [i for i in range(len(text)) if text.startswith(target, i)]
-
-print(gcd(int(input()), int(input())))
-print(indices)
+text = input("Enter the text string: ")
+target = input("Enter the target string: ")
+print(indices_of_substring(text, target))
