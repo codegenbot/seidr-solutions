@@ -1,5 +1,6 @@
 ```cpp
 #include <vector>
+#include <iostream>
 
 int luhn(std::vector<int> ccNum) {
     long long sum = 0;
@@ -23,9 +24,14 @@ int luhn(std::vector<int> ccNum) {
         sum /= 10;
     }
     return static_cast<int>(result);
-
 }
 
 int main() {
-    return luhn(std::vector<int>{}); 
+    std::vector<int> vec(16);
+    for (int i = 0; i < 16; i++) {
+        int digit;
+        std::cin >> digit;
+        vec[i] = digit;
+    }
+    return luhn(vec);
 }
