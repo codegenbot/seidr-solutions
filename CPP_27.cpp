@@ -13,9 +13,3 @@ std::string flip_case(const std::string& input) {
             result += c;
     }
     return result;
-}
-
-int testMain() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE vIOLENT dELIGHTS hAVE vIOLENT eNDS");
-    return 0;
-}
