@@ -1,10 +1,11 @@
-```cpp
 #include <vector>
 
+// Define the issame function
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size();
 }
 
+// Define the get_positive function
 std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
     for (float num : l) {
@@ -17,12 +18,19 @@ std::vector<float> get_positive(std::vector<float> l) {
 
 int main() {
     assert(get_positive({}) == {});
-    std::vector<float> v1 = {1.2f, -3.4f, 5.6f};
-    std::vector<float> v2 = {-7.8f, 9.0f, -11.12f};
-
-    if (issame(get_positive(v1), get_positive(v2))) {
-        std::cout << "The two vectors have the same positive elements.\n";
+    vector<float> numbers;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; ++i){
+        float num;
+        cin >> num;
+        numbers.push_back(num);
+    }
+    
+    std::vector<float> pos_numbers = get_positive(numbers);
+    if(issame({1.0},pos_numbers)) {
+        cout << "The numbers are the same." << endl;
     } else {
-        std::cout << "The two vectors do not have the same positive elements.\n";
+        cout << "The numbers are not the same." << endl;
     }
 }
