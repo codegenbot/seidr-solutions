@@ -1,7 +1,10 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
+bool sameVec(std::vector<int> a, std::vector<int> b) {
+    return a.size() == b.size() && a == b;
+}
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
@@ -14,10 +17,10 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    int test[] = {1, 2, 3, -23, 243, -400, 0};
-    std::vector<int> testVector(test, test + sizeof(test) / sizeof(test[0]));
-    for (int i : maximum(testVector, 3)) {
+    std::vector<int> test = maximum({1, 2, 3, -23, 243, -400, 0}, 3);
+    for (int i : test) {
         std::cout << i << " ";
     }
+    assert(sameVec(test, {result[0], result[1], result[2]}));
     return 0;
 }
