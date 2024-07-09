@@ -40,9 +40,9 @@ int main() {
         lst.push_back(s);
     }
     if (!issame(sorted_list_sum(lst), {"cc", "dd", "aaaa", "bbbb"})) {
-        cout << "Test failed" << endl;
+        std::cout << "Test failed" << std::endl;
     } else {
-        cout << "Test passed" << endl;
+        std::cout << "Test passed" << std::endl;
     }
     return 0;
 }
