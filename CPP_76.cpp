@@ -1,27 +1,11 @@
 #include <cmath>
-#include <iostream>
+#include <cassert>
 
-bool isSimplePower(int x) {
-    for (int i = 2; i <= x; ++i) {
-        int n = 0;
-        while (pow(i, n) <= x) {
-            if (pow(i, n) == x) {
-                return true;
-            }
-            n++;
-        }
-    }
-    return false;
+bool is_simple_power(int x, int n) {
+    double y = pow(n, log(x) / log(n));
+    return (y == x);
 }
 
 int main() {
-    int x;
-    std::cout << "Enter a number: ";
-    std::cin >> x;
-    if (isSimplePower(x)) {
-        std::cout << x << " is a simple power.\n";
-    } else {
-        std::cout << x << " is not a simple power.\n";
-    }
-    return 0;
+    assert(is_simple_power(1, 12)==true);
 }
