@@ -1,4 +1,5 @@
 def sort_third(l: list):
     for i in range(2, len(l), 3):
-        l[i - 2 : i + 1] = sorted(l[i - 2 : i + 1], reverse=True)
+        end_index = min(i + 3, len(l))
+        l[i - 2 : end_index] = sorted(l[i - 2 : end_index])
     return l
