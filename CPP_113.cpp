@@ -1,41 +1,48 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
-std::vector<std::string> odd_count(std::vector<std::string> lst);
+using namespace std;
 
-void displayOutput(std::vector<std::string> output) {
-    for (std::string s : output) {
-        std::cout << s << std::endl;
+vector<string> odd_count(vector<string> lst);
+
+void displayOutput(vector<string> output) {
+    for (string s : output) {
+        cout << s << endl;
     }
 }
 
-int main() {
-    std::vector<std::string> lst;
-    std::string temp;
-    while (std::getline(std::cin, temp) && !temp.empty()) {
-        lst.push_back(temp);
-    }
-    std::vector<std::string> output = odd_count(lst);
-    displayOutput(output);
-    return 0;
-}
-
-std::vector<std::string> odd_count(std::vector<std::string> lst) {
-    std::vector<std::string> result;
+vector<string> odd_count(vector<string> lst) {
+    vector<string> result;
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
         for (char c : lst[i]) {
-            if (c % 2 != 0) {
+            if ((int(c) % 2 != 0)) {
                 count++;
             }
         }
-        std::string temp = "the number of odd elements is ";
-        temp += std::to_string(count);
+        string temp = "The number of odd elements is ";
+        temp += to_string(count);
         temp += " in the string";
-        temp += std::to_string(i + 1);
+        temp += to_string(i + 1);
         temp += ".";
+        result.push_back(temp);
+    }
+    return result;
+}
+
+vector<string> odd_count(vector<string> lst) {
+    vector<string> result;
+    for (int i = 0; i < lst.size(); i++) {
+        int count = 0;
+        for (char c : lst[i]) {
+            if ((int(c) % 2 != 0)) {
+                count++;
+            }
+        }
+        string temp = to_string(i + 1);
+        temp += ": " + to_string(count) + " character(s) are odd.";
         result.push_back(temp);
     }
     return result;
