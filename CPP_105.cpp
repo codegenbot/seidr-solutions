@@ -1,56 +1,9 @@
-```
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <initializer_list>
 
-bool issame(std::vector<std::string> a) {
-    std::vector<std::string> b = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-    return a == b;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return std::lexicographical_compare(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
-    std::vector<int> num;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            num.push_back(i);
-        }
-    }
-
-    std::sort(num.begin(), num.end());
-    std::reverse(num.begin(), num.end());
-
-    std::vector<std::vector<std::string>> result;
-    for (int n : num) {
-        switch (n) {
-            case 1:
-                result.push_back({"One"});
-                break;
-            case 2:
-                result.push_back({"Two"});
-                break;
-            case 3:
-                result.push_back({"Three"});
-                break;
-            case 4:
-                result.push_back({"Four"});
-                break;
-            case 5:
-                result.push_back({"Five"});
-                break;
-            case 6:
-                result.push_back({"Six"});
-                break;
-            case 7:
-                result.push_back({"Seven"});
-                break;
-            case 8:
-                result.push_back({"Eight"});
-                break;
-            case 9:
-                result.push_back({"Nine"});
-                break;
-        }
-    }
-
-    return result;
