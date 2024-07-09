@@ -1,10 +1,15 @@
-```c++
+```
 #include <cassert>
 #include <string>
 #include <iostream>
 #include <algorithm>
 
 using namespace std;
+
+int main() {
+    cout << same_chars("aabb", "aaccc") << endl;
+    return 0;
+}
 
 bool same_chars(string s0, string s1) {
     if(s0.length() != s1.length()) {
@@ -16,9 +21,4 @@ bool same_chars(string s0, string s1) {
         }
     }
     return s0 == s1;
-}
-
-int main() {
-    cout << (same_chars("aabb", "aaccc") ? "True" : "False");
-    return 0;
 }
