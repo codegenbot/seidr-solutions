@@ -27,7 +27,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         Pair p;
         p.first = arr[i];
         p.second = i;
-        pq.push(std::make_pair(arr[i], i));
+        pq.push(p);
     }
 
     // Keep popping elements from the priority queue until k elements are popped
@@ -57,12 +57,12 @@ int main() {
     std::cin >> k;
 
     std::cout << "Enter elements: ";
-    std::vector<int> arr;
+    std::vector<int> arr(n); // Initialize the array with size n
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
-        arr.push_back(val);
+        arr[i] = val;
     }
 
     std::vector<int> result = maximum(arr, k);
