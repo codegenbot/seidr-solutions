@@ -16,10 +16,20 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         lst.erase(newEnd, lst.end());
 
         if (!lst.empty()) {
-            int max_val = *std::max_element(lst.begin(), lst.end());
-            result.push_back(max_val);
-            auto newEnd2 = std::remove(lst.begin(), lst.end(), max_val);
-            lst.erase(newEnd2, lst.end());
+            bool foundMax = false;
+            int max_val = INT_MIN;
+            for (int i : lst) {
+                if (i > max_val) {
+                    max_val = i;
+                    foundMax = true;
+                }
+            }
+
+            if (foundMax) {
+                result.push_back(max_val);
+                auto newEnd2 = std::remove(lst.begin(), lst.end(), max_val);
+                lst.erase(newEnd2, lst.end());
+            }
         }
     }
     return result;
