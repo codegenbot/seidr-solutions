@@ -1,23 +1,32 @@
+#include<stdio.h>
+#include<vector>
+#include<string>
+using namespace std;
+
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group = "";
-    bool in_group = false;
-
+    
     for (char c : paren_string) {
-        if (c == '(') {
-            in_group = true;
-            current_group += c;
-        } else if (c == ')') {
-            if (in_group) {
+        if (c == '(' || c == ')') {
+            if (current_group.empty() || current_group.back() == '(' && c == ')') {
                 current_group += c;
+            } else {
                 result.push_back(current_group);
-                in_group = false;
                 current_group = "";
+                while (!current_group.empty() && current_group.back() != '(') {
+                    current_group.pop_back();
+                }
+                if (!current_group.empty()) {
+                    current_group.pop_back();
+                }
+                current_group += c;
             }
         } else {
-            continue;
+            current_group += c;
         }
     }
-
+    
+    result.push_back(current_group);
     return result;
 }
