@@ -1,6 +1,8 @@
+#include <algorithm>
 #include <string>
 using namespace std;
-string anti_shuffle(string s){
+
+int anti_shuffle(string s){
     string result = "";
     for(size_t i=0; i<s.size(); i++){
         if(s[i] == ' '){
@@ -13,7 +15,7 @@ string anti_shuffle(string s){
         }
         i = j - 1;
         sort(word.begin(), word.end());
-        result += word;
+        result += word + " ";
     }
-    return result;
+    return 0;
 }
