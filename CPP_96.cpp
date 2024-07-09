@@ -1,18 +1,15 @@
 vector<int> count_up_to(int n);
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    
-    vector<int> result = count_up_to(n);
-    
-    for (int num : result) {
-        cout << num << " ";
+    if (a.size() != b.size()) {
+        return false;
     }
-
-    return 0;
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
