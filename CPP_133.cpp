@@ -12,9 +12,9 @@ int sum_squares(float arr[], int n){
 }
 
 int main(){
-    float testArray[] = {-1, 1, 0};
-    int n = sizeof(testArray)/sizeof(testArray[0]);
-    int result = sum_squares(testArray, n);
+    std::vector<float> testArray = {-1, 1, 0};
+    int n = testArray.size();
+    int result = sum_squares(&testArray[0], n);
     std::cout << "Sum of squares: " << result << std::endl;
     return 0;
 }
