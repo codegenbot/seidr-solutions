@@ -2,11 +2,16 @@ string encrypt(string s) {
     string result = "";
     for (char c : s) {
         if (c >= 'a' && c <= 'z') {
-            c = ('a' + ((c - 'a' + 4 * 2) % 26));
+            int pos = c - 'a';
+            pos = (pos + 4 * 2) % 26; // shift down by two multiplied to two places
+            result += 'a' + pos;
         } else if (c >= 'A' && c <= 'Z') {
-            c = ('A' + ((c - 'A' + 4 * 2) % 26));
+            int pos = c - 'A';
+            pos = (pos + 4 * 2) % 26; // shift down by two multiplied to two places
+            result += 'A' + pos;
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }
