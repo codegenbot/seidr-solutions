@@ -7,18 +7,20 @@ def gcd(a, b):
 a = int(input("Enter the first integer: "))
 b = int(input("Enter the second integer: "))
 print(gcd(a, b))
+
 text = input("Enter the text string: ")
 target = input("Enter the target string: ")
 
 def indices_of_substring(text, target):
-    indices = []
-    pos = 0
-    while pos < len(text):
-        pos = text.find(target, pos)
-        if pos == -1:
+    result = []
+    i = 0
+    while True:
+        try:
+            i = text.index(target)
+            result.append(i)
+            text = text[i+1:]
+        except ValueError:
             break
-        indices.append(pos)
-        pos += 1
-    return indices
+    return result
 
 print(indices_of_substring(text, target))
