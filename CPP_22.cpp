@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <list>
@@ -26,6 +27,6 @@ bool is_same(vector<int> a, vector<int> b) {
 
 int main_func() {
     list<any> values = {3, int(3), 3, 'a', 'b'};
-    assert((is_same(filter_integers(values), vector<int>{3, 3, 3}))); 
+    assert(is_same(filter_integers(vector<int>({3, 'c', 3, 3, 'a', 'b'})), vector<int>(3, 3)));
     return 0;
 }
