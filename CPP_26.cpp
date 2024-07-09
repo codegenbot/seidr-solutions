@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <set>
@@ -19,12 +18,17 @@ bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
     if (numbers.empty()) return std::vector<int>();
 
-    std::set<int, decltype(*this)(const int& a, const int& b) const> uniqueNumbersSet(*this);
+    std::map<int, int> uniqueNumbersCount;
     for (int num : numbers) {
-        uniqueNumbersSet.insert(num);
+        uniqueNumbersCount[num]++;
     }
-    std::vector<int> uniqueNumbers(uniqueNumbersSet.begin(), uniqueNumbersSet.end());
-    std::sort(uniqueNumbers.begin(), uniqueNumbers.end());
+
+    std::vector<int> uniqueNumbers;
+    for (auto it = uniqueNumbersCount.begin(); it != uniqueNumbersCount.end(); ++it) {
+        for (int i = 0; i < it->second; i++) {
+            uniqueNumbers.push_back(it->first);
+        }
+    }
 
     return uniqueNumbers;
 }
@@ -57,6 +61,4 @@ int main() {
     } else {
         std::cout << "All elements are duplicates." << std::endl;
     }
-
-    return 0; 
 }
