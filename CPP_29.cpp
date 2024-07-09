@@ -12,25 +12,20 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 bool issame(vector<string> a, vector<string> b){
-    // your logic to check if two vectors are the same
     if(a.size() != b.size())
-        return false;
-
-    for(int i=0; i<a.size(); i++){
+        throw runtime_error("Vectors are not the same size");
+    for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i])
-            return false;
+            throw runtime_error("Vectors are not the same");
     }
-
     return true;
 }
 
 int main() {
-    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    string prefix = "xxx";
     try{
-        assert (issame(filter_by_prefix(strings, prefix) , {"xxx", "xxxAAA", "xxx"}));
-    }catch(int e){
-        cout << "Error: The vectors are not the same." << endl;
+        assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
+    }catch(runtime_error& e){
+        cout << "Error: " << e.what() << endl;
     }
     return 0;
 }
