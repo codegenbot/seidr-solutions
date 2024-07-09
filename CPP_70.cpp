@@ -27,15 +27,16 @@ std::pmr::vector<int> strange_sort_list(std::pmr::pmr_vector<int> lst) {
 }
 
 int main() {
-    std::pmr::monotonic_buffer_resource buffer_resource;
-    std::pmr::vector<int> input(buffer_resource);
+    std::pmr::polymorphic_allocator<int> global_mr;
+    std::pmr::pmr_vector<int> input(global_mr), output(global_mr);
+
     for (int i = 0; i < 6; ++i) {
         int num;
         std::cin >> num;
         input.push_back(num);
     }
 
-    std::pmr::vector<int> output = strange_sort_list(input);
+    output = strange_sort_list(input);
 
     if (issame(output, {1,2,3,4,5,6})) {
         std::cout << "True" << std::endl;
