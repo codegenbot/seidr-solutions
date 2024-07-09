@@ -19,8 +19,8 @@ int main() {
     cout << quarters << endl;
     cout << nickles << endl;
     cout << dimes << endl;
-    int remainingPennies = cents;
-    cout << remainingPennies << endl;
+    int remainingCents = cents;
+    cout << remainingCents << endl;
 
     return 0;
 }
