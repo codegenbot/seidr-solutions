@@ -1,4 +1,3 @@
-```
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     """
     Check if there are two numbers in the list within a certain threshold.
