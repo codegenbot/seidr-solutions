@@ -1,8 +1,10 @@
 #include <stack>
-#include <vector>
 #include <string>
+#include <iostream>
 
-std::string solveBoolean(std::string s) {
+using namespace std;
+
+std::string solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
@@ -11,10 +13,12 @@ std::string solveBoolean(std::string s) {
             }
             if (st.empty()) return "False";
             else st.pop();
-        } else if (s[i] == '|') {
+        } 
+        else if (s[i] == '|') {
             while (!st.empty()) st.pop();
             st.push(s[i]);
-        } else {
+        } 
+        else {
             st.push(s[i]);
         }
     }
