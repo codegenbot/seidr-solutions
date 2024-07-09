@@ -18,9 +18,9 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    assert (will_it_fly({5}, 5) == true);
-    assert (will_it_fly({1, 2, 3, 2, 1}, 10) == true);
-    assert (will_it_fly({1, 2, 3, 4, 5}, 10) == false);
+    assert(will_it_fly({5}, 5) == true);
+    assert(will_it_fly({1, 2, 3, 2, 1}, 10) == true);
+    assert(will_it_fly({1, 2, 3, 4, 5}, 10) == false);
 
     return 0;
 }
