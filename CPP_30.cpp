@@ -2,18 +2,10 @@
 #include <algorithm>
 
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-9) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
     assert(get_positive({}) == {});
-    // rest of your code
+    return 0;
 }
