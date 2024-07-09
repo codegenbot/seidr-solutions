@@ -28,9 +28,24 @@ def minFallingRainWater(grid):
     start = [i for i, row in enumerate(map(str, grid)) if "1" in "".join(row)][0]
     path = dfs(start, 0, [str(grid[start][0])], set())
 
-    max_val = -float("inf")
-    for cell in path:
-        val = int(cell)
-        max_val = max(max_val, val)
+    min_path_len = len(path)
 
-    return max_val
+    queue = deque([(0, start)])
+    visited = set()
+    min_len = float("inf")
+
+    while queue:
+        level, node = queue.popleft()
+
+        if level > min_len:
+            continue
+
+        if node not in visited:
+            visited.add(node)
+
+            for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                ni, nj = node[0] + di, node[1] + dj
+                if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
+                    queue.append((level + 1, (ni, nj)))
+
+    return min_path_len
