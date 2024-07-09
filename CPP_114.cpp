@@ -28,7 +28,6 @@ long long minSubArraySum(vector<long long> nums) {
 }
 
 int main() {
-    vector<long long> nums = {2,3,-1,5,-7,2,3};
-    cout << minSubArraySum(nums) << endl;
-    return 0;
+    vector<long long> test(5,3);
+    cout << minSubArraySum(test) << endl;
 }
