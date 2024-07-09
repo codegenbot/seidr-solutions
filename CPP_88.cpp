@@ -1,20 +1,39 @@
+```cpp
+#include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size())
+bool issame(int x, int y) {
+    if (x == y)
+        return true;
+    else
         return false;
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[b.size()-i-1])
-            return false;
-    return true;
 }
 
-vector<vector<int>> sort_array(vector<int> array) {
-    int first = array.empty() ? 0 : array[0];
-    int last = array.empty() ? 0 : array.back();
-    if ((first + last) % 2 == 1)
-        return {array};
-    else
-        return {{array.rbegin(), array.rend()}};
+std::vector<int> sort_array(std::vector<int> array) {
+    int sum = 0;
+    for(int i=0; i<array.size(); i++)
+        sum += array[i];
+    
+    if (sum % 2 == 0) {
+        std::sort(array.begin(), array.end(), greater<int>());
+    } else {
+        std::sort(array.begin(), array.end());
+    }
+    return array;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> array(n);
+    for(int i=0; i<n; i++) {
+        std::cin >> array[i];
+    }
+
+    sort_array(array);
+
+    for(auto x:array)
+        std::cout << x << " ";
+    return 0;
 }
