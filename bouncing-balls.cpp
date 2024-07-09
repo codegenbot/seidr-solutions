@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <boost/lexical_cast.hpp>
 
 int main() {
     int startHeight, firstBounce, numBounces;
@@ -12,11 +13,10 @@ int main() {
 
     double bouncinessIndex = static_cast<double>(firstBounce) / static_cast<double>(startHeight);
 
-    std::cout << bouncinessIndex << " ";
-    double height = startHeight;
+    std::cout << boost::lexical_cast<std::string>(bouncinessIndex) << " ";
     for (int i = 1; i <= numBounces; ++i) {
-        height *= 0.5;
-        std::cout << height << " ";
+        firstBounce *= 0.5;
+        std::cout << boost::lexical_cast<std::string>(static_cast<double>(firstBounce)) + " ";
     }
     return 0;
 }
