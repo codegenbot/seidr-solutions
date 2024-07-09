@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -13,13 +13,15 @@ float shoppingList(const std::vector<float>& prices, const std::vector<float>& d
 }
 
 int main() {
-    std::vector<float> prices;
-    std::vector<float> discounts;
+    int n;
+    std::cout << "Enter the number of items: ";
+    std::cin >> n;
 
-    float price, discount;
-    while (std::cin >> price >> discount) {
-        prices.push_back(price);
-        discounts.push_back(discount / 100.0); // convert percentage to decimal
+    std::vector<float> prices(n, 0), discounts(n, 0);
+
+    for (size_t i = 0; i < n; ++i) {
+        std::cout << "Enter price and discount for item " << i + 1 << ": ";
+        std::cin >> prices[i] >> discounts[i];
     }
 
     std::cout << std::fixed << std::setprecision(2) << shoppingList(prices, discounts) << std::endl;
