@@ -1,12 +1,16 @@
-#include <iostream>
+#include <vector>
 #include <string>
 
-string longest(vector<string> strings){
+std::string maxString(const std::vector<std::string>& strings) {
     if(strings.empty()) return "";
-    string result = strings[0];
-    for(string s : strings) {
-        if(s.length() > result.length())
-            result = s;
+    std::string result = strings[0];
+    for(auto str : strings){
+        if(str.length() > result.length()){
+            result = str;
+        }
+        else if(str.length() == result.length()){
+            result = str;
+        }
     }
     return result;
 }
