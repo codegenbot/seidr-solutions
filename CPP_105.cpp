@@ -53,12 +53,7 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<string> v1 = by_length({4,3,2});
-    vector<string> v2 = by_length({9,8,7,6,5,4,3,2,1});
-    if (issame(v1,v2)) {
-        cout << "The strings are the same." << endl;
-    } else {
-        cout << "The strings are not the same." << endl;
-    }
+    vector<int> numbers = {1, 2, 3};
+    vector<string> result = by_length(numbers);
     return 0;
 }
