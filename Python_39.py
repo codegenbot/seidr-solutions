@@ -1,4 +1,3 @@
-```
 def prime_fib(n: int):
     a, b = 2, 3
     count = 1
