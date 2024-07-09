@@ -1,7 +1,9 @@
 #include <vector>
 
-bool issame(int a, int b){
-    return a == b;
+vector<int> generate_integers(int a, int b);
+
+bool issame(int num1, int num2){
+    return num1 == num2;
 }
 
 vector<int> generate_integers(int a, int b){
