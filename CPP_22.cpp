@@ -24,7 +24,7 @@ vector<int> filter_integers(initializer_list<any> values) {
 }
 
 int mainTest() {
-    vector<any> values = {any(3), any('c'), any(3), any(3), any('a'), any('b')};
-    assert(is_same(filter_integers(values), {any(3), any(3), any(3)}));
+    vector<any> values = {3, make_any(3), 3, 'a', 'b'};
+    assert(is_same(filter_integers({any_cast<int>(3), any('c'), int(3), int(3), any_cast<char>('a'), any_cast<char>('b')}), {int(3), int(3), int(3)}));
     return 0;
 }
