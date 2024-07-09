@@ -1,9 +1,8 @@
-```cpp
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     int n = v.size();
-    vector<std::vector<int>> res(2);
+    std::vector<std::vector<int>> res(2);
     
     res[0].resize(0);
     res[1].resize(0);
