@@ -1,25 +1,12 @@
-#include <stdio.h>
-
-using namespace std;
-
 int fib4(int n) {
-    if (n <= 1)
+    if (n < 0 || n % 3 == 1)
         return 0;
-    int a = 0, b = 2, c = 0, d = 2;
-    for (int i = 3; i <= n; i++) {
-        int temp = a + b + c + d;
+    int a = 2, b = 0, c = 0, d = 0;
+    for (int i = 4; i <= n; i++) {
+        d = a + b + c;
         a = b;
         b = c;
         c = d;
-        d = temp;
     }
     return d;
-}
-
-int main() {
-    int n;
-    printf("Enter the number: ");
-    scanf("%d", &n);
-    printf("The %d-th element of the fib4 sequence is: %d\n", n, fib4(n));
-    return 0;
 }
