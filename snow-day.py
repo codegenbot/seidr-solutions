@@ -1,2 +1,2 @@
-def snow_day(hours, initial_snow, rate, proportion):
-    return round(initial_snow + hours * rate - hours * proportion, 6)
+def snow_day(hours, on_ground, rate, melt):
+    return round(on_ground + rate * hours - melt * hours, 5)
