@@ -5,6 +5,6 @@ def parse_music(music_string: str) -> List[int]:
     music_string = music_string.replace(" ", "")
     return [notes.get(note, -1) for note in music_string.split("|") if note in notes]
 
-input_string = input().strip()
+input_string = "o|.|O|o|."
 result = parse_music(input_string)
 print(result)
