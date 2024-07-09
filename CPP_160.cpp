@@ -1,4 +1,4 @@
-#include <assert>
+#include <cassert>
 #include <iterator>
 
 class _160 {
@@ -6,12 +6,6 @@ public:
     int do_algebra(const std::vector<std::string>& args, const std::vector<int>& numbers);
 
 };
-
-int main() {
-    _160 obj;
-    assert(obj.do_algebra({"//", "*"}, {7, 3, 4}) == 8);
-    return 0;
-}
 
 int _160::do_algebra(const std::vector<std::string>& args, const std::vector<int>& numbers) {
     if (std::find(std::begin(numbers), std::end(numbers), 0) != std::end(numbers)) {
@@ -26,4 +20,10 @@ int _160::do_algebra(const std::vector<std::string>& args, const std::vector<int
         }
     }
     return result;
+}
+
+int main() {
+    _160 obj;
+    assert(obj.do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    return 0;
 }
