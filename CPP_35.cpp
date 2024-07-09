@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cmath>
 
@@ -12,8 +13,8 @@ float max_element(const std::vector<float>& l){
 }
 
 int main() {
-    std::vector<float> v = {1.2, 3.4, -5.6, 7.8};
-    float result = max_element(v);
+    std::vector<float> numbers = {4.5, -2.8, 7.9, 0.3};
+    float result = max_element(numbers);
     std::cout << "The maximum element is: " << result << std::endl;
     return 0;
 }
