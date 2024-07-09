@@ -1,4 +1,3 @@
-```cpp
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
@@ -53,7 +52,7 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3};
-    vector<string> result = by_length(numbers);
+    vector<int> arr = {1, 3, 2};
+    by_length(arr);
     return 0;
 }
