@@ -1,8 +1,9 @@
+```c++
 #include <string>
 #include <stack>
 
 int main() {
-    std::string s = "input_string_here"; // replace with user input or test case
+    std::string s = "input_string_here"; 
     std::cout << solveBoolean(s) << std::endl;
     return 0;
 }
