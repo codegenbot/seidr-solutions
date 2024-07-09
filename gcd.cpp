@@ -9,7 +9,7 @@ int gcd(int a, int b) {
         b = a % b;
         a = temp;
     }
-    return b; // Corrected here
+    return a;
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
@@ -17,7 +17,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     int index = 0;
 
     while (index <= text.length() - target.length()) {
-        size_t found = text.find(target);
+        size_t found = text.find(target.c_str());
         if (found != std::string::npos) {
             result.push_back(found);
             index = found + 1;
