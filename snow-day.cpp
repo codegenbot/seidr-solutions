@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <iomanip>
 
@@ -8,14 +7,12 @@ int main() {
 
     std::cin >> hours >> groundSnow >> rateOfSnowFall >> proportionMelting;
 
-    float calculatedSnow = groundSnow;
-
-    for(int i = 0; i < hours; i++) {
-        calculatedSnow += rateOfSnowFall;
-        calculatedSnow -= calculatedSnow * proportionMelting / 100.0f;
+    float initialGroundSnow = groundSnow;
+    for(int i=0; i < hours; i++) {
+        groundSnow += rateOfSnowFall;
+        groundSnow *= (1 - proportionMelting/100.0f);
     }
-
-    std::cout << std::fixed << std::setprecision(2) << calculatedSnow << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << initialGroundSnow + groundSnow << std::endl;
 
     return 0;
 }
