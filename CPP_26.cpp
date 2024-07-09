@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-stdAME(std::vector<int> a, std::vector<int> b){
+bool isSame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
@@ -21,8 +22,6 @@ std::vector<int> remove_duplicates(std::vector<int> numbers){
     return result;
 
 int main() {
-    int nums[] = {1, 2, 3, 2, 4, 3, 5};
-    std::vector<int> numbers(nums, nums + sizeof(nums)/sizeof(nums[0]));
-    assert(stdAME(remove_duplicates(numbers), std::vector<int>{1, 2, 3, 4, 5}));
-    return 0;
+    std::vector<int> numbers = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
+    assert(isSame(numbers, {1, 2, 3, 4, 5}));
 }
