@@ -1,14 +1,15 @@
 using namespace std;
 
-string longest(vector<string> strings){
+string longest(vector<string> strings) {
     if(strings.empty()) return "";
-    string str1 = strings[0];
-    for(auto s : strings){
-        if(s.length() > str1.length()){
-            str1 = s;
+    string strng = strings[0];
+    for(auto str : strings){
+        if(str.length() > strng.length()){
+            strng = str;
         }
-        else if(s.length() == str1.length()){
-            str1 = s;
+        else if(str.length() == strng.length()){
+            strng = str;
         }
     }
-    return str1;
+    return strng;
+}
