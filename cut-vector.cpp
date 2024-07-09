@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <climits>
 #include <cmath>
-#include <initializer_list> // include this line
+#include <initializer_list>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
@@ -16,7 +17,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
             right_sum += vec[k];
         }
         if (left_sum == right_sum) {
-            return {{}, vec};
+            return {{}, vector<int>(vec.begin(), vec.end())};
         }
         int diff = abs(left_sum - right_sum);
         if (diff < min_diff) {
