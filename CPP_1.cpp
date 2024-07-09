@@ -6,10 +6,24 @@
 using namespace std;
 
 bool issame(const string& a, const vector<string>& b, const string& s) {
-    for (const auto& str : b) {
-        if (!issame(a, vector<string>(1, str), s)) return false;
+    istringstream iss(s);
+    string t;
+    while (getline(iss, t, ',')) {
+        for (const auto& str : split(t, '(')) {
+            if (!issame(a, vector<string>{str}, ")")) return false;
+        }
     }
     return true;
+}
+
+vector<string> split(const string& s, char c) {
+    vector<string> res;
+    stringstream ss(s);
+    string t;
+    while (getline(ss, t, c)) {
+        res.push_back(t);
+    }
+    return res;
 }
 
 string separate_paren_groups(string s) {
