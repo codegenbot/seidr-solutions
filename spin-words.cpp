@@ -1,20 +1,18 @@
+```c++
 #include <algorithm>
 #include <string>
+#include <sstream>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::vector<std::string> result;
-    size_t pos = 0;
-    size_t prevPos = 0;
-    while ((pos = str.find(delimiter, prevPos)) != std::string::npos) {
-        if (prevPos != pos) {
-            result.push_back(str.substr(prevPos, pos - prevPos));
-        }
-        prevPos = pos + 1;
+    std::stringstream ss(str);
+    std::string token;
+    std::vector<std::string> tokens;
+
+    while (std::getline(ss, token, delimiter)) {
+        tokens.push_back(token);
     }
-    if (prevPos < str.length()) {
-        result.push_back(str.substr(prevPos));
-    }
-    return result;
+
+    return tokens;
 }
 
 std::string spinWords(const std::string& str) {
@@ -32,4 +30,9 @@ std::string spinWords(const std::string& str) {
     }
 
     return result.substr(0, result.size() - 1);
+}
+
+int main() {
+    std::cout << spinWords("Hello World") << std::endl;
+    return 0;
 }
