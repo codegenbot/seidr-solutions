@@ -1,10 +1,11 @@
-#include <vector>
+```c++
 #include <iostream>
 #include <string>
+#include <cctype>
 
 std::string kebabToCamel(const std::string& s) {
     std::string result;
-    bool capitalize = false;
+    bool capitalize = true;
 
     for (char c : s) {
         if (c == '-') {
@@ -12,18 +13,17 @@ std::string kebabToCamel(const std::string& s) {
         } else if (capitalize) {
             result += std::toupper(c);
             capitalize = false;
-            result += ' ';
         } else {
-            result += c;
+            result += std::tolower(c);
         }
     }
 
-    return result.substr(1); // Remove leading space
+    return result;
 }
 
 int main() {
     std::string input;
-    std::cin >> input;
+    std::getline(std::cin, input);
     std::cout << kebabToCamel(input) << std::endl;
 
     return 0;

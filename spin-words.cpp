@@ -1,40 +1,43 @@
-#include <iostream>
+```cpp
 #include <string>
+#include <algorithm> 
+using namespace std;
 
-using std::string;
-using std::cout;
-using std::endl;
-
-string spinWords(string sentence) {
+string spinWords(string str) {
     string result = "";
-    int start = 0;
-    
-    for(int i = 0; i <= sentence.length(); i++) {
-        if(i == sentence.length() || sentence[i] == ' ') {
-            string word = sentence.substr(start, i - start);
-            
-            if(word.length() >= 5) {
-                string reversedWord = "";
-                for(int j = word.length() - 1; j >= 0; j--) {
-                    reversedWord += word[j];
-                }
-                result += reversedWord + " ";
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (word.length() >= 5) {
+                result += word;
+                reverse(word.begin(), word.end());
+                result += " ";
+                word = "";
             } else {
-                result += word + " ";
+                result += word;
+                result += " ";
+                word = "";
             }
-            
-            start = i + 1;
+        } else {
+            word += str[i];
         }
     }
-    
-    return result.substr(0, result.length() - 1);
+
+    if (word.length() >= 5) {
+        result += word;
+        reverse(word.begin(), word.end());
+    } else {
+        result += word;
+    }
+
+    return result;
 }
 
 int main() {
-    cout << spinWords("a") << endl; 
-    cout << spinWords("this is a test") << endl; 
-    cout << spinWords("this is another test") << endl; 
-    cout << spinWords("hi") << endl; 
-
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    cout << spinWords(str) << endl;
     return 0;
 }
