@@ -1,24 +1,18 @@
-```
+Here is the modified code:
+
 def bowling_score(frames):
     score = 0
-    for frame in frames.split('/'):
-        if len(frame) == 1:
+    frames = [int(i) for i in frames.replace('-', '0').split('/')]
+    for i, frame in enumerate(frames):
+        if len(str(frame)) == 1:
             score += 10
-        elif len(frame) == 2:
-            first_roll = int(frame[0])
-            second_roll = int(frame[1])
-            if first_roll + second_roll == 10:
-                score += 10
+        elif len(str(frame)) == 2:
+            if frame == 10:
+                score += 10 + (10 - frame)
             else:
-                score += first_roll + second_roll
+                score += frame
         else:
-            first_roll = int(frame[0])
-            second_roll = int(frame[1])
-            third_roll = int(frame[2])
-            if first_roll + second_roll + third_roll == 30:
-                score += 30
-            elif first_roll + second_roll >= 10:
-                score += 10 + third_roll
-            else:
-                score += first_roll + second_roll + third_roll
+            first = frames[i]
+            second = frames[i+1] if i < 8 else 10 - sum(frames[:i])
+            score += first + second
     return score
