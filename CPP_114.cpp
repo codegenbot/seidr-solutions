@@ -1,5 +1,3 @@
-Here is the solution:
-
 long long minSubArraySum(vector<long long> nums) {
     long long min_sum = INT_MAX, current_sum = 0;
     for (int i = 0; i < nums.size(); i++) {
