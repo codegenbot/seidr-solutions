@@ -7,33 +7,22 @@ map<char, int> histogram(string test) {
     if (test.empty()) return result;
 
     int maxCount = 0;
-    char mostRepeatedChar = '\0';
-
-    string lettersOnly = test;
-    for (char& c : lettersOnly) {
-        c = tolower(c);
-    }
-
-    for (const auto& pair : unique(lettersOnly)) {
-        int count = 0;
-        for (const auto& letter : lettersOnly) {
-            if (letter == pair.second) {
-                count++;
-            }
-        }
-        if (count > maxCount) {
-            maxCount = count;
-            mostRepeatedChar = pair.second;
-        } else if (count == maxCount) {
-            result[mostRepeatedChar] = maxCount;
+    for (char c : test) {
+        if (c != ' ') {
+            if (result.find(c) == result.end())
+                result[c] = 1;
+            else
+                result[c]++;
+            if (result[c] > maxCount)
+                maxCount = result[c];
         }
     }
 
-    for (const auto& letter : lettersOnly) {
-        if (letter == mostRepeatedChar) {
-            result[letter] = maxCount;
-        }
+    map<char, int> maxResult;
+    for (auto& pair : result) {
+        if (pair.second == maxCount)
+            maxResult[pair.first] = pair.second;
     }
 
-    return result;
+    return maxResult;
 }
