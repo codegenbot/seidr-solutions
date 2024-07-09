@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <string>
 #include <sstream>
+#include <initializer_list>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::stringstream ss(str);
@@ -14,11 +15,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     return tokens;
 }
 
-int main() {
-    std::string str;
-    std::cout << "Enter a string of one or more words (separated by spaces): ";
-    std::cin >> str;
-    
+std::string spinWords(const std::string& str) {
     std::vector<std::string> words = split(str, ' ');
     std::string result;
 
@@ -32,7 +29,10 @@ int main() {
         }
     }
 
-    std::cout << "The resulting string is: " << result.substr(0, result.size() - 1) << std::endl;
-    
+    return result.substr(0, result.size() - 1);
+}
+
+int main() {
+    std::cout << spinWords("Hello World") << std::endl;
     return 0;
 }
