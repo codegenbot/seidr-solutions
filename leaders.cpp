@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -22,7 +23,7 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> input = {16, 17, 4, 3, 5, 2, 7, 1};
+    vector<int> input = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
     vector<int> result = leaders(input);
     for (int i : result) {
         cout << i << " ";
