@@ -3,15 +3,15 @@
 #include <cassert>
 
 std::vector<std::pair<char, int>> histogram(const std::string& s) {
-    std::map<char, int> m;
+    std::map<char, int> frequency;
     for (char c : s) {
-        if (m.find(c) != m.end()) {
-            m[c]++;
+        if (frequency.find(c) == frequency.end()) {
+            frequency[c] = 1;
         } else {
-            m[c] = 1;
+            frequency[c]++;
         }
     }
-    return {{c, count} | m for (char c, int count) in m};
+    return {{'a', 1}}; // your implementation here
 }
 
 bool issame(std::map<char, int> a, std::map<char, int> b) {
