@@ -7,23 +7,17 @@
 bool is_happy(const std::string& s) {
     if (s.length() < 3)
         return false;
+    int pos = 0;
     for (int i = 0; i <= s.length() - 3; i++) {
         bool unique = true;
         char c1 = s[i];
         char c2 = s[i + 1];
         char c3 = s[i + 2];
-        std::string::iterator it = s.begin() + i;
-        for (; it != s.begin() + i + 3; ++it) {
-            if (*it == c1)
-                continue;
-            else if (*it == c2)
-                continue;
-            else if (*it == c3)
-                continue;
-            else
+        for (int j = 0; j < 3 && pos < i + 3; ++j) {
+            if (s[pos++] != c1 || s[pos - 1] == c2 || s[pos - 2] == c3)
                 break;
         }
-        if (it != s.begin() + i + 3)
+        if (pos >= s.length() || s[pos] != c1 || s[pos - 1] == c2 || s[pos - 2] == c3)
             return false;
     }
     return true;
