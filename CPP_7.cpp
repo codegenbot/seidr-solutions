@@ -1,48 +1,31 @@
-Here's the modified code:
-```cpp
+```
 #include <vector>
 #include <string>
-#include <cstdint>
+#include <algorithm>
 
-bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+bool issame(const std::string& str1, const std::string& str2) {
+    int count = 0;
+    for (char c : str2) {
+        if (str1.find(c) != std::string::npos)
+            count++;
     }
-    return true;
+    return count == str2.length();
 }
 
-std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
-    std::vector<std::string> output_vector;
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substr) {
+    std::vector<std::string> result;
     for (const auto& s : strings) {
-        if (s.find(substring) != std::string::npos)
-            output_vector.push_back(s);
+        if (issame(s, substr))
+            result.push_back(s);
     }
-    return output_vector;
+    return result;
 }
 
 int main() {
-    int n, m;
-    std::cin >> n >> m;
-
-    std::vector<std::string> strings(n);
-    for (int i = 0; i < n; ++i) {
-        strings[i].resize(m);
-        for (int j = 0; j < m; ++j)
-            std::cin >> strings[i][j];
-    }
-
-    std::string substring;
-    std::cin >> substring;
-
-    std::vector<std::string> output_vector = filter_by_substring(strings, substring);
-
-    // Print the result
-    for (const auto& s : output_vector) {
-        for (char c : s)
-            std::cout << c << ' ';
-        std::cout << '\n';
-    }
-
+    std::vector<std::string> strings = {"grunt", "prune"};
+    std::string substr = "un";
+    std::vector<std::string> filteredStrings = filter_by_substring(strings, substr);
+    for (const auto& s : filteredStrings)
+        std::cout << s << std::endl;
     return 0;
 }
