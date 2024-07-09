@@ -6,12 +6,12 @@ std::string middleCharacter(std::string s) {
     if(len == 0)
         return "";
     
-    if (len % 2 == 0) { 
-        int middleIndex = len / 2; 
-        return s.substr(middleIndex, 2); 
-    } else {
-        return s.substr(len/2, 1);
-    }
+    int mid1 = len / 2; 
+    int mid2 = (len % 2 == 0) ? mid1 : mid1 + 1;
+    
+    std::string result = s.substr((len-1)/2, (len % 2 == 0) ? 2 : 1);
+    
+    return result;
 }
 
 int main() {
@@ -19,7 +19,7 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);  
     if(input.empty()) {
-        return middleCharacter("");
+        std::cout << "";
     } else {
         std::cout << middleCharacter(input) << std::endl;  
     }
