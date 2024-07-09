@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 using namespace std;
@@ -14,5 +15,9 @@ string squareDigits(string input) {
 
 int main() {
     string input("34");
-    cout << std::move(squareDigits(input)) << endl;
+    if(input.empty()) {
+        cout << "Error: Input cannot be empty." << endl;
+    } else {
+        cout << squareDigits(input) << endl;
+    }
 }
