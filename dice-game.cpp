@@ -1,7 +1,9 @@
+```cpp
 #include <iostream>
 
 double probability(int n, int m) {
-    return (1.0 * (n - m)) / ((double)(n*m));
+    double total = (double)(n*m);
+    return 1 - ((double)(m-1)) / (double)m;
 }
 
 int main() {
