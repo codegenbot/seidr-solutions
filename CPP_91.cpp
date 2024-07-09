@@ -16,8 +16,8 @@ int is_bored(string S) {
     }
 
     return boredom_count;
-
 }
+
 int main() {
     assert(is_bored("You and I are going for a walk") == 0);
     return 0;
