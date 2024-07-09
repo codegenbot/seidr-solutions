@@ -1,17 +1,16 @@
 ```
 import math
 def max_fill(grid: List[List[int]], capacity: int) -> int:
-    """The function calculates the maximum number of people that can be seated in a table given a grid representation of the table and its capacity.
-    The input grid is a list of lists where 0 represents an empty seat, 1 represents a person already sitting there, and 2 represents a seat that is to be filled. 
-    The function returns the maximum number of people that can sit in the table.
+    """This function calculates the maximum amount of water that can be held in a grid based on its dimensions and a given capacity. The input grid is a list of lists where '0' represents an empty cell, '1' represents a column with no water, and '2' represents a column with some water. The function iterates over each row in the grid, calculates how much water can be added to the current remaining capacity, and updates the total water amount and remaining capacity accordingly.
 
     Args:
-    grid (List[List[int]]): A 2D grid representing the table.
-    capacity (int): The total capacity of the table.
+        grid (List[List[int]]): A 2D list representing the dimensions of the grid.
+        capacity (int): An integer representing the maximum capacity of the grid.
 
     Returns:
-    int: The maximum number of people that can be seated in the table."""
-    
+        int: The maximum amount of water that can be held in the grid.
+    """
+
     if not isinstance(grid, list) or not all(isinstance(row, list) for row in grid):
         raise ValueError("Invalid grid format")
     
