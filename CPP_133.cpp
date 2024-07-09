@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -15,10 +16,11 @@ int main() {
     int size;
     std::cout << "Enter the number of elements: ";
     std::cin >> size;
-    for(std::vector<float>::iterator it = inputVector.begin(); it != inputVector.begin()+size; ++it) { 
+    inputVector.resize(size);
+    for(std::size_t i = 0; i < size; ++i) { 
         float val;
-        std::cout << "Enter element " << (it-inputVector.begin()+1) << ": ";
-        std::cin >> *it;
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> inputVector[i];
     }
 
     int result = sum_squares(inputVector);
