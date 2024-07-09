@@ -57,35 +57,13 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {  
-    vector<string> lst1;
-    vector<string> lst2;
-
-    cout << "Enter the number of strings for list 1: ";
-    int n1;
-    cin >> n1;
-    cout << "Enter " << n1 << " strings for list 1: ";
-    for (int i = 0; i < n1; i++) {
-        string s;
-        cin >> s;
-        lst1.push_back(s);
-    }
-
-    cout << "Enter the number of strings for list 2: ";
-    int n2;
-    cin >> n2;
-    cout << "Enter " << n2 << " strings for list 2: ";
-    for (int i = 0; i < n2; i++) {
-        string s;
-        cin >> s;
-        lst2.push_back(s);
-    }
-
+    vector<string> lst1 = {"apple", "banana"};
+    vector<string> lst2 = {"orange", "grape"};
     vector<string> result = totalMatch(lst1, lst2);
     cout << "Result: ";
     for (const string& s : result) {
         cout << s << " ";
     }
     cout << endl;
-
     return 0; 
 }
