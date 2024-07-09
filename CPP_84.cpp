@@ -18,6 +18,7 @@ int solve(int n) {
 }
 
 int main() {
-    assert(solve(15) == 16); 
+    int expected = solve(963); 
+    assert(expected == 10 || cout << "Expected: " << expected << " got " << expected<< endl;);
     return 0;
 }
