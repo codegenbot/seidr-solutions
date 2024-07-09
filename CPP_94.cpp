@@ -33,10 +33,12 @@ bool isPrime(int n) {
 int main() {
     vector<int> lst;
     int num;
-    cout << "Enter numbers: ";
-    while(cin >> num) {
+    cout << "Enter the numbers (enter -1 to stop): ";
+    while(true) {
+        cin >> num;
+        if(num == -1) break;
         lst.push_back(num);
     }
-    cout << "Sum of digits in the maximum prime number is: " << maxPrimeSum(lst) << endl;
+    cout << "The sum of digits of the maximum prime is: " << maxPrimeSum(lst) << endl;
     return 0;
 }
