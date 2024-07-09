@@ -6,7 +6,7 @@ int vowels_count(std::string s) {
     
     for (char c : s) {
         if ((c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') 
-            || (c == 'y' && s.find("y") != s.size() - 1)) {
+            || (c == 'y' && s.find('y') != std::string::npos)) {
             count++;
         }
     }
@@ -20,7 +20,7 @@ int main() {
         std::cout << "Enter a string: ";
         std::getline(std::cin, input);
         if (input.empty()) {
-            throw std::runtime_error("Error: Input cannot be empty.");
+            throw std::runtime_error("Input cannot be empty.");
         }
         int result = vowels_count(input);
         std::cout << "Number of vowels in the string is: " << result << std::endl;
@@ -28,4 +28,3 @@ int main() {
         std::cerr << "Error: " << e.what() << std::endl;
     }
     return 0;
-}
