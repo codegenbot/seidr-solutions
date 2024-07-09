@@ -1,13 +1,14 @@
+```
 #include <algorithm>
 #include <vector>
 #include <utility>
 #include <cmath>
 
 bool issame(float a, float b) {
-    if (abs(a - b) < 1e-9)
+    if (abs(a - b) <= 1e-9) {
         return true;
-    else
-        return false;
+    }
+    return false;
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
