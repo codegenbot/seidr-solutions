@@ -1,25 +1,41 @@
-#include <string>
+Here is the solution:
+
+```cpp
+#include<string>
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = 0, b = 0, c = 0, d = 0;
-    string temp1, temp2;
-    // Convert the fractions to integers.
-    for(int i=1; i<x.size(); i++) {
-        if(x[i]=='/') break;
-        if(x[i-1]!='/') a = a*10 + (x[i]-'0');
+    int num1 = 0, den1 = 0, num2 = 0, den2 = 0;
+    int gcd = 1;
+
+    // Convert strings to fractions
+    int temp = 0;
+    for (int i = 1; i < x.size(); i++) {
+        if (x[i] == '/') {
+            num1 = stoi(x.substr(0, i - 1));
+            den1 = stoi(x.substr(i + 1));
+            break;
+        }
+        temp *= 10;
+        temp += x[i] - '0';
     }
-    for(int i=x.size()-1; i>0; i--) {
-        if(x[i-1]!='/') b = b*10 + (x[i]-'0');
+
+    for (int i = 1; i < n.size(); i++) {
+        if (n[i] == '/') {
+            num2 = stoi(n.substr(0, i - 1));
+            den2 = stoi(n.substr(i + 1));
+            break;
+        }
+        temp *= 10;
+        temp += n[i] - '0';
     }
-    for(int i=1; i<n.size(); i++) {
-        if(n[i]=='/') break;
-        if(n[i-1]!='/') c = c*10 + (n[i]-'0');
+
+    // Calculate the greatest common divisor
+    int a = abs(num1 * den2 - num2 * den1);
+    for (int i = 1; i <= a; i++) {
+        if (a % i == 0 && gcd > i)
+            gcd = i;
     }
-    for(int i=n.size()-1; i>0; i--) {
-        if(n[i-1]!='/') d = d*10 + (n[i]-'0');
-    }
-    // Calculate the greatest common divisor of a, b, c and d.
-    int g = __gcd(__gcd(a, b), __gcd(c, d));
-    return (a/g) == (c/g);
+
+    return num1 * den2 / gcd == num2 * den1 / gcd;
 }
