@@ -1,7 +1,8 @@
+#include <iostream>
 #include <string>
 #include <cctype>
 
-std::string getClosestVowel(std::string word) {
+std::string get_closest_vowel(std::string word) {
     int left = 0;
     for (int i = word.length() - 1; i >= 0; --i) {
         if (!is_vowel(word[i])) {
