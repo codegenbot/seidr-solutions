@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a,vector<int> b){
+bool issimilar(vector<int> a,vector<int> b){
     return a == b;
 }
 
@@ -21,17 +21,23 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
 int main() {
     int n;
+    vector<int> l1,l2;
+    cout << "Enter number of elements for first list: ";
     cin >> n;
-    vector<int> l1(n);
-    for(int i = 0; i < n; i++) {
-        cin >> l1[i];
+    cout << "Enter " << n << " elements for first list: ";
+    for(int i = 0; i < n; i++){
+        int x;
+        cin >> x;
+        l1.push_back(x);
     }
     
-    int m;
-    cin >> m;
-    vector<int> l2(m);
-    for(int i = 0; i < m; i++) {
-        cin >> l2[i];
+    cout << "Enter number of elements for second list: ";
+    cin >> n;
+    cout << "Enter " << n << " elements for second list: ";
+    for(int i = 0; i < n; i++){
+        int x;
+        cin >> x;
+        l2.push_back(x);
     }
     
     vector<int> commonElements = common(l1, l2);
