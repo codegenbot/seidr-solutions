@@ -17,7 +17,7 @@ string string_to_md5(string text) {
 
     stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        ss << setw(2) << setfill('0') << hex << (int)md[i];
+        ss << setfill('0') << setw(2) << hex << (int)md[i];
     }
 
     return ss.str();
