@@ -7,9 +7,12 @@ using namespace std;
 int how_many_times(string& str, const string& substring) {
     int count = 0;
     size_t pos = 0;
+    size_t original_len = str.length();
+    
     while ((pos = str.find(substring)) != string::npos) {
         count++;
-        str.erase(pos, substring.length());
+        str.erase(0, pos + substring.length());
+        original_len -= (pos + substring.length());
     }
     return count;
 
