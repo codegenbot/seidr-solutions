@@ -1,14 +1,14 @@
+```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
+
 using namespace std;
 
-string anti_shuffle(string s) {
-    string result = "";
-    for (const auto& word : split(s, ' ')) {
-        string temp = word;
-        sort(temp.begin(), temp.end());
-        result += temp + " ";
+string join(const vector<string>& vec, const string& sep) {
+    string result;
+    for (const auto& s : vec) {
+        result += s + sep;
     }
     return result.substr(0, result.size() - 1);
 }
@@ -24,12 +24,23 @@ string split(const string& str, char sep) {
     return join(tokens, " ");
 }
 
-string join(const vector<string>& vec, const string& sep) {
-    string result;
-    for (const auto& s : vec) {
-        if (!result.empty())
-            result += sep;
-        result += s;
+string anti_shuffle(string s) {
+    vector<string> words;
+    string word = "";
+    for (const auto& c : s) {
+        if (c == ' ') {
+            words.push_back(word);
+            word = "";
+        } else {
+            word += c;
+        }
     }
-    return result;
+    words.push_back(word);
+
+    string result = "";
+    for (const auto& word : words) {
+        sort(word.begin(), word.end());
+        result += word + " ";
+    }
+    return result.substr(0, result.size() - 1);
 }
