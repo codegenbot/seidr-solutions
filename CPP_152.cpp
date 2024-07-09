@@ -37,17 +37,22 @@ int main() {
         game.push_back(temp);
     }
     
+    // Create a new vector and reserve space
+    std::vector<int> guess;
+    guess.resize(n);
+    
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
-        game[i] = temp;
+        guess.push_back(temp);
     }
-    if(issame(game, game))
+    
+    if(issame(game, guess))
     {
         std::cout << "The two vectors are the same.\n";
     } else {
-        std::vector<int> result = compare(game, game);
+        std::vector<int> result = compare(game, guess);
         for(int i = 0; i < game.size(); i++){
             std::cout << "Element " << i+1 << ": ";
             if(result[i] == 0)
