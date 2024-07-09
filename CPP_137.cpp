@@ -1,30 +1,28 @@
 #include <boost/any.hpp>
 #include <string>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
-template <typename T>
-T compare(const boost::any& a, const boost::any& b) {
-    assert(a.type() == b.type());
+template <typename T1, typename T2>
+boost::any compare(boost::any a, boost::any b) {
+    assert(a.type() == typeid(T1) && b.type() == typeid(T2) || a.type() == typeid(T2) && b.type() == typeid(T1));
 
-    if (a.type() == typeid(T)) {
-        if (boost::any_cast<T>(a) > boost::any_cast<T>(b))
-            return boost::any_cast<T>(a);
-        else if (boost::any_cast<T>(a) < boost::any_cast<T>(b))
-            return boost::any_cast<T>(b);
-        else
-            return T();
-    }
-    else {
-        return T();
+    if (boost::any_cast<T1>(a) > boost::any_cast<T2>(b)) {
+        return a;
+    } else if (boost::any_cast<T1>(a) < boost::any_cast<T2>(b)) {
+        return b;
+    } else {
+        return "None";
     }
 }
 
 int main() {
-    // Usage example
-    boost::any a = 5, b = 10;
-    int result = compare<int>(a, b);
-    
+    boost::any a = 5;
+    boost::any b = 10;
+
+    cout << boost::any_cast<int>(compare<int, int>(a, b)) << endl;
+
     return 0;
 }
