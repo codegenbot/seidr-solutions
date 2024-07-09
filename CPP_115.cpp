@@ -1,4 +1,6 @@
-Here is the completed code:
+#include<vector>
+#include<algorithm>
+using namespace std;
 
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
@@ -6,9 +8,10 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     for (int i = 0; i < n; i++) {
         total_water += accumulate(grid[i].begin(), grid[i].end(), 0);
     }
-    int max_buckets = total_water / capacity;
-    if (total_water % capacity != 0) {
-        max_buckets++;
-    }
-    return max_buckets;
+    return ceil((double)total_water / capacity);
+}
+
+int main() {
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
+    return 0;
 }
