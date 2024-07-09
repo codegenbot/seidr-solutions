@@ -17,18 +17,6 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
-vector<int> leaders(vector<int>& arr) {
-    vector<int> leaders;
-    int max_right = arr.back();
-    for(int i = arr.size() - 1; i >= 0; i--) {
-        if(arr[i] >= max_right) {
-            leaders.push_back(arr[i]);
-            max_right = arr[i];
-        }
-    }
-    return leaders;
-}
-
 int main() {
     vector<int> arr = {5, 2, 3, 4};
     vector<int> result = leaders(arr);
