@@ -1,7 +1,9 @@
+```cpp
 #include <algorithm>
 #include <cassert>
 #include <vector>
-
+#include <array>
+#include <initializer_list>
 using namespace std;
 
 int findMax(vector<int> l) {
@@ -11,8 +13,9 @@ int findMax(vector<int> l) {
 }
 
 int main() {
-    assert(abs(findMax(vector<int>({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}))) < 1e-4);
+    vector<int> v({1, 2, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
+    assert(abs(*max_element(v.begin(), v.end())) < 1e-4);
+
     vector<int> v = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
     int maximum = *max_element(v.begin(), v.end());
-    return 0;
 }
