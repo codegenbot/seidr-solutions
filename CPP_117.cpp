@@ -1,1 +1,46 @@
-return {pair<int,string>{{vowelCount, word}}};
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <cctype>
+
+using std::count;
+using std::size_t;
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+    for(int i = 0; i<a.size(); i++){
+        auto p1 = a[i];
+        auto p2 = b[i];
+        if(p1 != p2) return false;
+    }
+    return true;
+}
+
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    int wordCount = 0;
+    std::string word = "";
+    for (char c : s) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                size_t vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+                    count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
+                if (vowelCount <= n) {
+                    result.push_back(word);
+                }
+                word = "";
+            }
+            wordCount++;
+        } else {
+            word += tolower(c);
+        }
+    }
+    if (!word.empty()) {
+        size_t vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+            count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
+        if (vowelCount <= n) {
+            result.push_back(word);
+        }
+    }
+    return result;
+}

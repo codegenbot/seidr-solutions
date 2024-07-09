@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <string>
 #include <algorithm>
 
@@ -11,4 +11,5 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? std::string(s).substr(0, s.size()) + std::string(s.begin(), s.end()[::-1]) : result;
+    return !result.empty() ? result : std::string(s.begin(), s.end()) + std::string(s.rbegin(), s.rend());
+}
