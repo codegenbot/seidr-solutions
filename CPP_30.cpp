@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -12,24 +11,14 @@ bool issame(vector<float> a, vector<float> b){
 
 int main(){
     assert (issame(get_positive({}), {})); 
-    vector<float> l;
-    cout << "Enter elements of the vector (negative to stop): ";
-    while(cin >> l.push_back) {
-        if(l.back() <= 0) break;
-    }
-    vector<float> result = get_positive(l);
-    cout << "Positive numbers are: ";
-    for(float i : result){
-        cout << i << " ";
-    }
-    return 0;
+    // Rest of your code...
 }
 
-vector<std::vector<float>> get_positive(vector<float> l){
-    vector<std::vector<float>> result;
+vector<float> get_positive(vector<float> l){
+    vector<float> result;
     for(float i : l){
         if(i > 0) {
-            result.push_back(std::vector<float>(1, i));
+            result.push_back(i);
         }
     }
     return result;
