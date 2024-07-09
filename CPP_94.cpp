@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int skjkasdkd(std::vector<int> lst){
+int skjkasdkd(std::vector<int> lst) {
     int maxPrime = 0;
     for(int i : lst) {
         if(i > 1) {
@@ -26,16 +26,7 @@ int skjkasdkd(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> lst;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> num;
-        lst.push_back(num);
-    }
-    std::cout << "The sum of the last digits of all prime numbers is: " << skjkasdkd(lst) << std::endl;
+    std::vector<int> lst = {2,3,4,5};
+    std::cout << "The sum of the digits of the largest prime in the list is: " << skjkasdkd(lst) << std::endl;
     return 0;
 }
