@@ -1,20 +1,7 @@
 ```cpp
 #include <vector>
-#include <algorithm>
 
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (abs(a[i] - b[i]) > 0.0001f) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<float> get_positive(vector<float> l){
+vector<float> get_positive(vector<float> l) {
     vector<float> result;
     for (float num : l) {
         if (num > 0) {
@@ -22,4 +9,19 @@ vector<float> get_positive(vector<float> l){
         }
     }
     return result;
+}
+
+bool issame(vector<float> a, vector<float> b) {
+    bool same = true;
+    if (a.size() != b.size()) {
+        same = false;
+    } else {
+        for (int i = 0; i < a.size(); i++) {
+            if (abs(a[i] - b[i]) > 0.0001) {
+                same = false;
+                break;
+            }
+        }
+    }
+    return same;
 }
