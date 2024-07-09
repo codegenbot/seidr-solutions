@@ -1,5 +1,4 @@
-#include <vector>
-#include <algorithm>
+```cpp
 using namespace std;
 
 string words_in_sentence(string sentence) {
