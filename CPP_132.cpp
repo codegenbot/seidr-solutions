@@ -7,7 +7,7 @@ bool is_nested(string str){
     for(char c : str){
         if(c == '['){
             st.push(c);
-        } else if(c == ']' && !st.empty() && st.top() == '['){
+        } else if(c == ']' && !st.empty()){
             st.pop();
         } else {
             return false;
