@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```python
 def fix_spaces(text):
     result = ""
     for i in range(len(text)):
