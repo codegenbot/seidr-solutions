@@ -9,11 +9,6 @@ bool issame(vector<float> a, vector<float> b){
     return true;
 }
 
-int main(){
-    assert (issame(get_positive({}), {})); 
-    // Rest of your code...
-}
-
 vector<float> get_positive(vector<float> l){
     vector<float> result;
     for(float i : l){
