@@ -1,29 +1,23 @@
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 vector<int> unique_digits(vector<int> x) {
     vector<int> result;
-    
     for (int num : x) {
-        bool has_even_digit = false;
-        
-        // Convert integer to string and iterate over each character
-        string str = to_string(num);
-        for (char c : str) {
-            if (stoi(string(1, c)) % 2 == 0) {
-                has_even_digit = true;
+        bool hasEvenDigit = false;
+        int digit = 0;
+        while (num > 0) {
+            digit = num % 10;
+            if (digit % 2 == 0) {
+                hasEvenDigit = true;
                 break;
             }
+            num /= 10;
         }
-        
-        if (!has_even_digit) {
+        if (!hasEvenDigit) {
             result.push_back(num);
         }
     }
-    
     sort(result.begin(), result.end());
-    
     return result;
 }
