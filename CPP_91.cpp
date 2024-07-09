@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -31,4 +30,3 @@ int main() {
     std::cout << "Count: " << result << std::endl;
 
     return 0;
-}
