@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    vector<float> lst = {1.5f, -2.3f, 3.8f};
+    vector<float> lst = {1.5f, 2.0f, 3.25f};
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num) {
