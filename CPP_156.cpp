@@ -7,14 +7,9 @@ string intToMiniRoman(int number) {
     for (const auto& p : roman) {
         while (number >= p.first) {
             number -= p.first;
-            result += p.second;
+            result += tolower(p.second[0]);
         }
     }
 
-    return tolower(result);
-}
-
-int main() {
-    assert(intToMiniRoman(1000) == "m");
-    return 0;
+    return result;
 }
