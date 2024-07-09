@@ -1,20 +1,16 @@
-#include <vector>
-#include <cmath>
-
-double poly(const std::vector<double>& xs, double x) {
-    double result = xs[0] + xs[1] * x;
+vector<double> coeffs;
+double poly(vector<double> xs, double x) {
+    double result = 0;
+    for (int i = 0; i < xs.size(); i++) {
+        result += xs[i] * pow(x, i);
+    }
     return result;
 }
 
-double find_zero(std::vector<double> xs){
-    if (xs.size() != 2) {
-        return -1.0; 
-    }
-    
-    double sum = 0;
+double find_zero(vector<double> xs){
     double root = -xs[1]/(2*xs[0]);
     
-    if (poly(xs,root) < 0)
+    if (poly({xs[0], 1},root) < 0)
         return root;
     else
         return -1.0; 
