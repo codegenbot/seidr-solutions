@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -12,6 +11,8 @@ int sum_squares(std::vector<float> lst){
 }
 
 int main(){
+    assert (sum_squares({-1,1,0})==2);
+
     std::vector<float> numbers;
     float n;
 
