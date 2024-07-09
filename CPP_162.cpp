@@ -1,5 +1,6 @@
-```cpp
 #include <string>
+#include <openssl/ssl.h>
+#include <openssl/crypto.h>
 #include <openssl/md5.h>
 #include <openssl/evp.h>
 
@@ -9,7 +10,8 @@ string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char* data = (unsigned char*)text.c_str();
-    EVP_MD5(data, text.size(), &md5);
+    unsigned char md5[16];
+    EVP_MD5((const unsigned char*)data, text.size(), &md5);
 
     string result;
     for (int i = 0; i < 16; ++i) {
