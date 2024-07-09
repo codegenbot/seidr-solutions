@@ -21,6 +21,6 @@ int main() {
     } else {
         std::cout << "The input and modified vectors are different." << std::endl;
     }
-    
+
     return 0;
 }
