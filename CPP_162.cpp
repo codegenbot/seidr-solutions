@@ -1,3 +1,4 @@
+```cpp
 #include <openssl/evp.h>
 #include <string>
 
@@ -17,4 +18,9 @@ std::string my_string_to_md5(std::string text) {
         ss << setfill('0') << setw(2) << hex << (int)md[i];
     }
     return ss.str();
+}
+
+int main() {
+    std::cout << my_string_to_md5("password") << std::endl;
+    return 0;
 }
