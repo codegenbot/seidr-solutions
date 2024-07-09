@@ -1,6 +1,15 @@
 #include <vector>
 #include <string>
 
+int main() {
+    vector<string> extensions;
+    string class_name = "Sp";
+    extensions.push_back("671235");
+    extensions.push_back("Bb");
+    assert (Strongest_Extension(class_name, extensions) == "Sp.671235");
+    return 0;
+}
+
 int Strongest_Extension(string class_name, vector<string> extensions) {
     int max_strength = 0;
     string strongest_extension;

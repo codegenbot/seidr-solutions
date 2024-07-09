@@ -1,4 +1,4 @@
-```
+```c++
 #include <iostream>
 #include <vector>
 
@@ -16,7 +16,7 @@ int main() {
     int size;
     std::cout << "Enter the number of elements: ";
     std::cin >> size;
-    inputVector.resize(size);
+    inputVector.reserve(size);
     for(int i = 0; i < size; ++i) { 
         float val;
         std::cout << "Enter element " << (i+1) << ": ";
