@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <set>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::set<int>& a, const std::set<int>& b) {
-    return a == b;
+bool sameSets(const std::set<int>& s1, const std::set<int>& s2) {
+    return s1 == s2;
 }
 
 void solveProblem() {
@@ -45,7 +46,7 @@ void solveProblem() {
     }
     std::cout << "\n";
 
-    if(issame(s1, s2)) {
+    if(sameSets(s1, s2)) {
         std::cout << "Sets are same.\n";
     } else {
         std::cout << "Sets are not same.\n";
