@@ -1,4 +1,3 @@
-```
 #include <string>
 
 int is_bored(string S) {
@@ -11,4 +10,3 @@ int is_bored(string S) {
         pos += 1;
     }
     return count;
-}
