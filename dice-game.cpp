@@ -1,6 +1,6 @@
 ```cpp
-#include<iostream>
-using namespace std;
+#include <iostream>
+#include <cmath>
 
 double probability(int n, int m) {
     double total = (n + m - 1);
@@ -9,8 +9,8 @@ double probability(int n, int m) {
 
 int main() {
     int n, m;
-    cin >> n >> m;
+    std::cin >> n >> m;
     double result = probability(n, m);
-    cout << result << endl;
+    std::cout << result << std::endl;
     return 0;
 }
