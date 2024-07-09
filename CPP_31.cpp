@@ -16,10 +16,14 @@ int cpp_main() {
     }
 
     for(int i = 2; i <= num; i++) {
-        if(is_prime(i)) {
+        if(i == num)
             std::cout << i << " is the entered prime number." << std::endl;
-        } else {
-            std::cout << std::to_string(i) << (is_prime(i) ? " is a prime number." : " is not a prime number.") << std::endl;
+        else {
+            std::string s = std::to_string(i);
+            if(is_prime(i))
+                std::cout << s << " is a prime number." << std::endl;
+            else
+                std::cout << s << " is not a prime number." << std::endl;
         }
     }
 
