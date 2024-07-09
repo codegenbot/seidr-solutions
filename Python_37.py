@@ -1,10 +1,13 @@
 ```
-def sort_even(l):
+def sort_even(l: list):
+    evens = [x for i, x in enumerate(l) if i % 2 == 0]
+    sorted_evens = sorted(evens)
     result = []
-    for i in range(len(l)):
-        even_indices = [x for x in range(len(l)) if (x - i) % 2 == 0]
-        if i in even_indices:
-            result.append(sorted([l[j] for j in even_indices])[::-1][i % 2])
+    even_idx = 0
+    for i, x in enumerate(l):
+        if i % 2 == 0:
+            result.append(sorted_evens[even_idx])
+            even_idx += 1
         else:
-            result.append(l[i])
+            result.append(x)
     return result
