@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool will_it_fly(vector<int> q, int w) {
+bool will_it_fly(std::vector<int> q, int w) {
     std::string str = "";
     for (int i : q) {
         str += std::to_string(i);
