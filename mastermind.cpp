@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 using namespace std;
 
 int mastermind(string code, string guess) {
@@ -25,9 +26,9 @@ int mastermind(string code, string guess) {
 int main() {
     string code, guess;
     cout << "Enter the Mastermind code: ";
-    getline(cin, code);
+    cin >> code;
     cout << "Enter your guess: ";
-    getline(cin, guess);
+    cin >> guess;
     int pegs = mastermind(code, guess);
     cout << "Number of pegs: " << pegs << endl;
     return 0;
