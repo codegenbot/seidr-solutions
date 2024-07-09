@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <map>
 #include <string>
 
 using namespace std;
 
-bool keys_in_same_case(map<string,string> dict){
+bool sameCase(map<string,string> dict){
     if(dict.empty()) return false;
     
     string first_key = dict.begin()->first;
@@ -27,7 +28,7 @@ int main() {
         cin >> value;
         dictionary[input] = value;
     }
-    if(keys_in_same_case(dictionary)) {
+    if(sameCase(dictionary)) {
         cout << "All keys in the same case.\n";
     } else {
         cout << "Keys have mixed case.\n";
