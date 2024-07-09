@@ -1,26 +1,48 @@
-#include <boost/any.hpp>
 #include <vector>
 #include <list>
-#include <algorithm>
+#include <any>
+#include <boost/any.hpp>
 
-using namespace std;
+namespace boost { namespace result_of {
+template<>
+struct any_cast<int>(std::any) {
+    explicit any_cast(std::any const& a) : a_(a) {}
 
-template<typename T1, typename T2>
-bool issame(const boost::any& a) {
-    return boost::any_cast<T1>(a) != 0 && boost::any_cast<T2>(a) == 0;
+    operator int() const {
+        if (!a_) return 0;
+        try {
+            return std::any_cast<int>(a_);
+        } catch (...) {
+            return 0;
+        }
+    }
+
+private:
+    std::any a_;
+};
 }
 
-vector<int> filter_integers(list<any> values) {
-    vector<int> result;
+namespace boost { namespace type_traits {
+
+template<typename T>
+struct is_same : public std::false_type {};
+
+templatetypename T1, typename T2>
+struct is_same<T1, T2> : public std::is_same<T1,T2> {};
+
+} } // namespace boost
+
+std::vector<int> filter_integers(std::list<std::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if(boost::any_cast<int>(value, 0)) {
+        if (boost::any_cast<int>(value)) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
-    return vector<int>(result.begin(), result.end());
+    return result;
 }
 
 int main() {
-    assert(is_same(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(std::is_same<decltype(filter_integers({3, 'c', 3, 3, 'a', 'b'})), std::vector<int>>::value);
     // ...
 }
