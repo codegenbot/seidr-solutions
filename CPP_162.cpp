@@ -1,11 +1,6 @@
 #include <string>
-#include <sstream>
-#include <openssl/ssl.h>
-#include <openssl/x509v3.h>
-
 using namespace std;
-
-string string_to_md5(string text) {
+string string_to_md5(std::string text) {
     if (text.empty()) return "";
     
     unsigned char md[16];
