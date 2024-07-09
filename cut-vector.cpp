@@ -9,7 +9,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     vector<vector<int>> res(2);
     
     for (int i = 0; i < 2; i++) {
-        res[i].clear(); // initialize each inner vector by clearing it
+        res[i].assign({}); // initialize each inner vector by assigning an empty vector
     }
     int minDiff = INT_MAX;
     for (int i = 0; i < n; i++) {
@@ -28,11 +28,7 @@ vector<vector<int>> cutVector(vector<int> v) {
             }
             res[1].clear();
             for (int j = i + 1; j < n; j++) {
-                if (i < 1) {
-                    res[1].push_back(v[j]); // push back to only one of the sub-vectors initially
-                } else {
-                    res[1].push_back(v[j]);
-                }
+                res[1].push_back(v[j]);
             }
         }
     }
