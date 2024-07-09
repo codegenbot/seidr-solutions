@@ -1,44 +1,17 @@
 vector<string> by_length(vector<int> arr) {
-    vector<int> sortedArr;
+    vector<int> numArr;
     for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            sortedArr.push_back(i);
-    }
-    sort(sortedArr.begin(), sortedArr.end());
-    reverse(sortedArr.begin(), sortedArr.end());
-    vector<string> result;
-    for (int i : sortedArr) {
-        string str = "";
-        switch (i) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
+        if (i >= 1 && i <= 9) {
+            numArr.push_back(i);
         }
-        result.push_back(str);
+    }
+    sort(numArr.begin(), numArr.end());
+    reverse(numArr.begin(), numArr.end());
+    vector<string> result;
+    map<int, string> numName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
+                                 {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+    for (int i : numArr) {
+        result.push_back(numName[i]);
     }
     return result;
 }
