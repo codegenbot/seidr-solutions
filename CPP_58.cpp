@@ -1,16 +1,29 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <set>
 
-using namespace std;
+int main() {
+    std::set<int> s1;
+    std::set<int> s2;
+    // Read input from user
+    int n1, m1, n2, m2;
+    std::cin >> n1 >> m1 >> n2 >> m2;
 
-vector<int> common(vector<int> l1, vector<int> l2) {
-    set<int> s1(l1.begin(), l1.end());
-    set<int> s2(l2.begin(), l2.end());
+    for(int i = 0; i < n1; i++) {
+        int x;
+        std::cin >> x;
+        s1.insert(x);
+    }
 
-    set<int> intersection; 
-    intersection.insert(set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(),
-        inserter(intersection, intersection.begin())));
-    vector<int> result(intersection.begin(), intersection.end());
-    return result;
+    for(int i = 0; i < m1; i++) {
+        int y;
+        std::cin >> y;
+        s2.insert(y);
+    }
+
+    // Calculate the difference between two sets
+    set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(),
+        inserter(intersection, intersection.begin()));
+
+    return 0;
 }
