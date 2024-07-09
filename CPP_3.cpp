@@ -14,16 +14,20 @@ bool below_zero(const std::vector<int>& operations) {
 }
 
 int main() {
-    std::vector<int> operations;
-    int input;
-    while (std::cin >> input) {
-        operations.push_back(input);
+    std::vector<int> values;
+    int n;
+    std::cin >> n;
+
+    for (int i = 0; i < n; ++i) {
+        int val;
+        std::cin >> val;
+        values.push_back(val);
     }
-    
-    if (below_zero(operations)) {
-        std::cout << "Below zero balance reached.\n";
+
+    if (below_zero(values)) {
+        std::cout << "There are negative balances in the operations." << std::endl;
     } else {
-        std::cout << "Below zero balance not reached.\n";
+        std::cout << "No negative balances in the operations." << std::endl;
     }
 
     return 0;
