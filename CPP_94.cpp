@@ -10,17 +10,13 @@ bool isPrime(int n) {
     return true;
 }
 
-int find_max_prime_and_sum_digits(int n, int num){
-    int maxPrime = 0;
-    for(int i = 0; i < n; i++){
-        if(isPrime(num) && num > maxPrime)
-            maxPrime = num;
-        num++;
-    }
-    int sum = 0;
-    while(maxPrime > 0){
-        sum += maxPrime % 10;
-        maxPrime /= 10;
+int find_max_prime_and_sum_digits(int num){
+    int maxPrime = 0, sum = 0;
+    while(num > 0){
+        if(isPrime(num % 10))
+            maxPrime = num % 10;
+        sum += num % 10;
+        num /= 10;
     }
     return sum;
 }
@@ -33,10 +29,10 @@ int main() {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
         if(i == n-1) {
-            maxPrimeAndSum = find_max_prime_and_sum_digits(n, num);
+            maxPrimeAndSum = find_max_prime_and_sum_digits(num);
             std::cout << "The sum of digits is equal to " << maxPrimeAndSum << "." << std::endl;
         } else {
-            int temp = find_max_prime_and_sum_digits(n, num);
+            int temp = find_max_prime_and_sum_digits(num);
             std::cout << "Maximum prime and sum of digits: " << temp << std::endl;
             maxPrimeAndSum = temp;
         }
