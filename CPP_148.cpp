@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std<string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -19,7 +19,7 @@ std::vector<std::string> bf(string planet1, string planet2) {
     int mercury = 57.9, venus = 67.2, earth = 0, mars = 225, 
         jupiter = 778, saturn = 1433, uranus = 2870, neptune = 4495;
 
-    if (planet1 == planet2) {
+    if(planet1 == planet2) {
         result.push_back("The two planets are the same.");
     } else {
         result.push_back("The two planets are different.");
