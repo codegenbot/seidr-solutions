@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(int x, int y) {
+    return x == y;
 }
 
 vector<int> maximum(vector<int> arr,int k){
