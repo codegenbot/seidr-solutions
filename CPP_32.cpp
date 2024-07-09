@@ -1,16 +1,14 @@
 #include <vector>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 double poly(std::vector<double> coeffs, double x){
-    double result = 0;
+    double result = 0.0;
     for(int i=0; i<coeffs.size(); i++){
-        result += coeffs[i] * pow(x, i);
+        result += coeffs[i] * std::pow(x, i);
     }
     return result;
 }
-
-double find_zero(std::vector<double> xs);
 
 double find_zero(std::vector<double> xs){
     assert(xs.size() == 2);
