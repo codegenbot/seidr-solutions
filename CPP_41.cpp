@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -17,5 +18,6 @@ int main() {
     string s;
     cout << "Enter the number of cars: ";
     getline(cin, s);
-    cout << "Number of collisions: " << car_race_collision(s) << endl;
-}
+    int num_cars = car_race_collision(s);
+    cout << "Number of collisions: " << num_cars << endl;
+    return 0;
