@@ -1,28 +1,27 @@
-Here is the completed code:
+bool hasOdd(vector<int> v) {
+    for (int num : v) {
+        if (num % 2 != 0)
+            return true;
+    }
+    return false;
+}
 
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
-    for (int num : lst1) {
-        if (num % 2 != 0) {
-            oddCount++;
-        }
-    }
-    if (oddCount > lst2.size()) {
+    if (!hasOdd(lst1))
+        return "YES";
+    if (hasOdd(lst2)) 
         return "NO";
-    }
-    for (int i = 0; i < lst1.size(); i++) {
-        if (lst1[i] % 2 != 0) {
-            int j;
-            for (j = 0; j < lst2.size(); j++) {
-                if (lst2[j] % 2 != 0) {
-                    break;
-                }
+    for (int num : lst2) {
+        int found = 0;
+        for (int num2 : lst1) {
+            if (num % 2 == 0 && num2 % 2 != 0) {
+                swap(num, num2);
+                found = 1;
+                break;
             }
-            if (j == lst2.size()) {
-                return "NO";
-            }
-            swap(lst1[i], lst2[j]);
         }
+        if (!found)
+            return "NO";
     }
     return "YES";
 }
