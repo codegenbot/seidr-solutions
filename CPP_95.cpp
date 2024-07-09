@@ -1,9 +1,6 @@
-```cpp
 #include <map>
 #include <string>
 #include <cctype>
-#include <cassert>
-#include <algorithm>
 
 bool check_dict_case(std::map<std::string, std::string> dict) {
     if (dict.empty()) return false;
@@ -24,6 +21,6 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
 }
 
 int main() {
-    assert(check_dict_case({}) == false);
+    assert(check_dict_case({{"key1", "value1"}, {"key2", "value2"}}) == false);
     return 0;
 }
