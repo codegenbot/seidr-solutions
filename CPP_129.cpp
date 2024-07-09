@@ -1,13 +1,24 @@
-```
+#include <iostream>
 #include <vector>
 #include <queue>
-#include <algorithm>
 
-std::vector<int> minPath(std::vector<std::vector<int>>& grid, int k) {
+using namespace std;
+
+bool isSame(vector<int> &a, vector<int> &b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i])
+            return false;
+    return true;
+}
+
+vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
-    std::vector<std::vector<bool>> visited(n, std::vector<bool>(n));
-    std::vector<std::pair<int, int>> dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    std::priority_queue<std::pair<int, std::pair<int, int>>, std::vector<std::pair<int, std::pair<int, int>>>, std::greater<std::pair<int, std::pair<int, int>>>> pq;
+    vector<vector<bool>> visited(n, vector<bool>(n));
+    vector<pair<int, int>> dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> pq;
+    vector<int> res;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -17,8 +28,6 @@ std::vector<int> minPath(std::vector<std::vector<int>>& grid, int k) {
             }
         }
     }
-
-    std::vector<int> res;
 
     while (!pq.empty()) {
         auto [dist, pos] = pq.top();
@@ -41,4 +50,11 @@ std::vector<int> minPath(std::vector<std::vector<int>>& grid, int k) {
     }
 
     return res;
+}
+
+int main() {
+    vector<vector<int>> grid = {{0, 0}, {0, 0}, {1, 1}};
+    int k = 2;
+    vector<int> minPathRes = minPath(grid, k);
+    for (auto &x: minPathRes) cout << x;
 }
