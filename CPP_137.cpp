@@ -1,36 +1,24 @@
+```cpp
 #include <any>
-#include <variant>
-#include <string>
 
 using namespace std;
 
 any compare_one(any a, any b) {
-    if (holds_alternative<int, float, double>(a)) {
-        int intA = get<int>(a);
-        int intB;
-        if (holds_alternative<int>(b)) {
-            intB = get<int>(b);
-        } else if (holds_alternative<float>(b)) {
-            intB = static_cast<int>(get<float>(b));
-        } else {
-            intB = static_cast<int>(get<double>(b));
-        }
-        
-        if (intA > intB) {
+    if (holds_alternative<int, float, double>(a) &&
+        holds_alternative<string>(b)) {
+        if (get<int>(a) > stod(get<string>(b))) {
             return b;
         }
     }
-
-    if (holds_alternative<string>(a)) {
-        string strA = get<string>(a);
-        string strB = get<string>(b);
-
-        if (strA > strB) {
-            return a;
-        } else {
+    if (holds_alternative<string>(a) &&
+        holds_alternative<int, float, double>(b)) {
+        if (stoi(get<string>(a)) > get<int>(b)) {
+            return b;
+        } else if (stod(get<string>(a)) > get<float>(b)) {
+            return b;
+        } else if (stod(get<string>(a)) > get<double>(b)) {
             return b;
         }
     }
-
     return a;
 }
