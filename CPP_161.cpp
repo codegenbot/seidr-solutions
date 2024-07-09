@@ -1,1 +1,1 @@
-return result.empty() ? std::string(s).rbegin() : result;
+return result.empty() ? std::string(s).rbegin().to_string() : result;
