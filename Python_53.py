@@ -1,5 +1,6 @@
-def find_max_min(x: int, y: int):
-    if x >= y:
-        return f"The maximum number is {x} and the minimum number is {y}"
+```
+def max_of_two_numbers(x: int, y: int) -> int:
+    if x > y:
+        return x
     else:
-        return f"The maximum number is {y} and the minimum number is {x}"
+        return y
