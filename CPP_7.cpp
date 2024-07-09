@@ -1,29 +1,20 @@
-#include <vector>
-#include <string>
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
+vector<bool> isSame(vector<vector<string>>& strings, string substring) {
+    vector<bool> result;
+    for (const auto& s : strings) {
+        if (s[0].find(substring) != string::npos || s[1].find(substring) != string::npos) {
+            result.push_back(true);
+        } else {
+            result.push_back(false);
         }
     }
-    return true;
+    return result;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring) {
+vector<string> filter_by_substring(vector<vector<string>>& strings, string substring){
     vector<string> result;
-    for(string s : strings) {
-        if(s.find(substring) == string::npos) {
-            bool issameToPrev = (result.empty()) ? false : issame({s}, result);
-            if (!issameToPrev) {
-                result.clear();
-                result.push_back(s);
-            } else {
-                result.push_back(s);
-            }
+    for (const auto& s : strings) {
+        if(issame(s, substring)[0] || issame(s, substring)[1]) {
+            result.push_back(s[0]);
         }
     }
     return result;
