@@ -1,12 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    // Your comparison logic here
-}
-
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
     while (n != 1) {
         if (n % 2 != 0) {
             result.push_back(n);
@@ -18,10 +15,16 @@ std::vector<int> get_odd_collatz(int n) {
         }
     }
     result.push_back(1);
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    // Your assertions and testing code here
+    int n;
+    cin >> n;
+    vector<int> b = get_odd_collatz(n);
+    for (int i = 0; i < b.size(); i++) {
+        cout << b[i] << " ";
+    }
+    return 0;
 }
