@@ -1,5 +1,6 @@
 #include <sstream>
 #include <iomanip>
+#include <openssl/md5.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
@@ -14,7 +15,7 @@ string string_to_md5(string text) {
 
     stringstream ss;
     for (int i = 0; i < 16; i++) {
-        ss << hex << setfill('0') << setw(2) << static_cast<char>(md5[i]);
+        ss << hex << setfill('0') << setw(2) << (unsigned int)(md5[i]);
     }
 
     return ss.str();
