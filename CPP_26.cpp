@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -22,5 +23,6 @@ std::vector<int> remove_duplicates(std::vector<int> numbers){
 }
 
 int main() {
-    {std::vector<int> numbers = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
-    assert(isSame(numbers, std::vector<int>{1, 2, 3, 4, 5}));}
+    std::vector<int> numbers = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
+    assert(isSame(numbers, {1, 2, 3, 4, 5}));
+}
