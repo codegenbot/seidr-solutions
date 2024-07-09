@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <cassert>
 
 std::string string_xor(std::string a, std::string b) {
     if (a.length() != b.length())
@@ -17,7 +18,7 @@ std::string string_xor(std::string a, std::string b) {
     return result;
 }
 
-int main 
+int main
 {
     assert(string_xor("0101", "0000") == "0101");
     try {
@@ -38,4 +39,5 @@ int main
     } catch (...) { 
         std::cout << "An error occurred." << std::endl;
     }
+    return 0;
 }
