@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 
@@ -10,14 +10,10 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> sorted_list_sum(vector<vector<string>> lst) {
+vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
 
-    for (const auto& vec : lst) {
-        string str;
-        for(const auto& s:vec) {
-            str += s + " ";
-        }
+    for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
             result.push_back(str);
         }
@@ -36,6 +32,10 @@ vector<string> sorted_list_sum(vector<vector<string>> lst) {
 }
 
 int main() {
-    assert(sorted_list_sum({{"aaaa"}, {"bbbb"}, {"d"}, {"cc"}}) == {" cc", " d", "aaaa bbb"});
+    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
+    vector<string> output = sorted_list_sum(input);
+    for (const auto& str : output) {
+        cout << str << endl;
+    }
     return 0;
 }
