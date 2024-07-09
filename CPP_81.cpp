@@ -1,10 +1,8 @@
-#include <vector>
-#include <string>
-
+```cpp
 bool issame(std::vector<std::string> a) {
-    if(a.size() == 0) return true;
-    for(int i = 1; i < a.size(); i++) {
-        if(a[i] != a[0]) return false;
+    if (a.size() == 0) return true;
+    for (int i = 1; i < a.size(); i++) {
+        if (a[i] != a[0]) return false;
     }
     return true;
 }
