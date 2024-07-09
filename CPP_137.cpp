@@ -8,22 +8,14 @@ boost::any compare_one(boost::any a, boost::any b) {
     if (is_any_of<a>(int.class)) {
         int ai = any_cast<int>(a);
         int bi = any_cast<int>(b);
-        if (ai > bi) return a;
-        else if (bi > ai) return b;
-        else return boost::any("None");
-    }
-    else if (is_any_of<a>(double.class)) {
+        return ai > bi ? a : (bi > ai ? b : "None");
+    } else if (is_any_of<a>(double.class)) {
         double ad = any_cast<double>(a);
         double bd = any_cast<double>(b);
-        if (ad > bd) return a;
-        else if (bd > ad) return b;
-        else return boost::any("None");
-    }
-    else {
+        return ad > bd ? a : (bd > ad ? b : "None");
+    } else {
         std::string as = any_cast<std::string>(a);
         std::string bs = any_cast<std::string>(b);
-        if (as > bs) return a;
-        else if (bs > as) return b;
-        else return boost::any("None");
+        return as > bs ? a : (bs > as ? b : "None");
     }
 }
