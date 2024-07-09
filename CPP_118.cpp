@@ -16,6 +16,6 @@ string get_closest_vowel(string word){
 }
 
 int main() {
-    // Main function implementation (if needed)
+    // Your main function code here
     return 0;
 }

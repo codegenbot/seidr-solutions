@@ -1,10 +1,19 @@
-sort(arr.begin(), arr.end(), [](int a, int b) {
-    int count_a = __builtin_popcount(a);
-    int count_b = __builtin_popcount(b);
-    if (count_a == count_b) {
-        return a < b;
-    }
-    return count_a < count_b;
-});
-return arr;
+bool issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end(), [](int x, int y) {
+        int countX = __builtin_popcount(x);
+        int countY = __builtin_popcount(y);
+        if (countX == countY) {
+            return x < y;
+        }
+        return countX < countY;
+    });
+    sort(b.begin(), b.end(), [](int x, int y) {
+        int countX = __builtin_popcount(x);
+        int countY = __builtin_popcount(y);
+        if (countX == countY) {
+            return x < y;
+        }
+        return countX < countY;
+    });
+    return a == b;
 }
