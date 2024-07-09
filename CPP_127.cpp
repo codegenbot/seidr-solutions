@@ -1,30 +1,16 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-using namespace std;
-
 string intersection(vector<int> interval1, vector<int> interval2) {
     int start = max(interval1[0], interval2[0]);
     int end = min(interval1[1], interval2[1]);
 
     if (start > end) return "NO";
-
-    int length = end - start + 1;
-
-    bool isPrime = true;
-    for (int i = 2; i * i <= length && isPrime; i++) {
-        if (length % i == 0) isPrime = false;
+    
+    for(int i = 2; i <= sqrt(end); i++) {
+        if(end % i == 0) {
+            end = i;
+            break;
+        }
     }
 
-    return isPrime ? "YES" : "NO";
-}
-
-int main() {
-    vector<int> interval1 = {1, 3};
-    vector<int> interval2 = {2, 4};
-
-    cout << intersection(interval1, interval2);
-
-    return 0;
+    if (end > 1) return "YES";
+    else return "NO";
 }
