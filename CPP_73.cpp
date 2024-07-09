@@ -9,8 +9,8 @@ int smallest_change(std::vector<int> arr) {
     }
     int left = 0, right = s.length() - 1;
     int changes = 0;
-    bool swapped = true;
-    while (swapped) {
+    bool swapped;
+    do {
         swapped = false;
         for (int i = left; i < right; ++i) {
             if (s[i] != s[s.length() - 1 - i]) {
@@ -22,13 +22,11 @@ int smallest_change(std::vector<int> arr) {
         }
         left++;
         right--;
-    }
+    } while (swapped);
     return changes;
 }
 
 int main() {
-    std::vector<int> arr = {8,7,6,5,4,3};
-    int result = smallest_change(arr);
-    std::cout << "Minimum number of operations: " << result << std::endl;
+    int smallestChanges = smallest_change({5, 6, 3, 4});
     return 0;
 }
