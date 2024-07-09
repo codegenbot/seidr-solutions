@@ -8,7 +8,7 @@ def bowling_score(bowls):
         if frames[i] == "X":
             if len(frames) > i + 2:
                 if frames[i + 1] == "X":
-                    score += 10 + 10 + get_value(frames[i + 2])
+                    score += 20
                 else:
                     score += 10 + get_value(frames[i + 1]) + get_value(frames[i + 2])
             else:
@@ -17,14 +17,6 @@ def bowling_score(bowls):
             score += sum(get_value(char) for char in frames[i])
 
     return score
-
-
-def get_value(char):
-    if char == "X" or char == "/":
-        return 10
-    else:
-        return int(char)
-
 
 bowls = input()
 print(bowling_score(bowls))
