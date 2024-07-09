@@ -1,7 +1,4 @@
-#include "/usr/local/include/boost/any.hpp"
 #include <iostream>
-#include <string>
-
 using namespace std;
 
 int main() {
