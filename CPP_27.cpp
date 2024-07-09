@@ -8,16 +8,21 @@ string flip_case(string str){
     string result = "";
     for(int i=0; i<str.length(); i++){
         char c = str[i];
-        if(c >= 'a' && c <= 'z')
-            result += toupper(c);
+        if(isalpha(c)){
+            if(isupper(c))
+                result += tolower(c);
+            else
+                result += toupper(c);
+        }
         else
-            result += tolower(c);
+            result += c;
     }
     return result;
 }
 
 int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    string test = "These violent delights have violent ends";
+    assert(flip_case(test) == "tHESE vIOLENT dELIGHTS hAVE vIOLENT eNDS");
     cout << "All tests passed." << endl;
     return 0;
 }
