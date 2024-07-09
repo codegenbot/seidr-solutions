@@ -1,10 +1,10 @@
 def fix_spaces(text):
     result = ""
-    previous_was_space = False
-    for char in text:
-        if char == " " and previous_was_space:
-            result += "-"
-        else:
+    previous_char_was_space = True
+    for char in text + " ":  
+        if not (char == " " and previous_char_was_space):
             result += char
-        previous_was_space = char == " "
-    return result
+        elif previous_char_was_space:
+            result += "-"
+        previous_char_was_space = char == " "
+    return result.strip()
