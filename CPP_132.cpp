@@ -1,15 +1,11 @@
-bool is_nested(string str) {
-    int count = 0;
-    for (int i = 0; i < str.length(); ++i) {
-        if (str[i] == '[') {
-            ++count;
-        } else if (str[i] == ']') {
-            if (count > 0) {
-                --count;
-            } else {
-                return false;
-            }
-        }
+```
+int count = 0, last = -1;
+for (char c : str) {
+    if (c == '[') count++;
+    else if (c == ']') {
+        if (last != -1 && last < --count)
+            return true;
+        last = count;
     }
-    return count >= 1;
 }
+return false;
