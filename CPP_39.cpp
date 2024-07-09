@@ -10,7 +10,7 @@ bool isPrime(int n) {
     return true;
 }
 
-string prime_fib(int num) {
+string primeFib(int num) {
     int a = 0, b = 1, fibNum = 0;
     while (true) {
         fibNum = a + b;
@@ -26,6 +26,6 @@ void solveProblem() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    cout << "The first prime Fibonacci number greater than " << num << " is " << prime_fib(num) << endl;
-    assert(prime_fib(10) == "433494437");
+    cout << "The first prime Fibonacci number greater than " << num << " is " << primeFib(num) << endl;
+    assert(primeFib(10) == "433494437");
 }
