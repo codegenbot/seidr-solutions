@@ -19,4 +19,4 @@ int main() {
     assert(specialFilter({}) == 0);
     
     return 0;
-}  
+}
