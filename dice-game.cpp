@@ -1,21 +1,24 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
 double diceGame(int n, int m) {
-    if(n > m) {
-        swap(n, m);
+    double total = pow(n+m, 2);
+    double higher = 0;
+    
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (i > j) {
+                higher++;
+            }
+        }
     }
     
-    double sum = 1.0;
-    for(int i = 1; i < n; i++) {
-        sum += (1.0 / m) * (1 - (i + 1.0 / (m + 1)) / m);
-    }
-    
-    return sum;
+    return higher / total;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(6) << diceGame(n, m) << endl;
+    cout << setprecision(6) << fixed << diceGame(n, m);
     return 0;
 }
