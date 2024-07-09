@@ -1,7 +1,8 @@
+```cpp
 #include <algorithm>
 #include <cmath>
 
-int getMax() {
+int main() {
     int n;
     std::vector<int> l;
     std::cout << "Enter the number of elements: ";
@@ -14,9 +15,6 @@ int getMax() {
         l.push_back(x);
     }
     
-    return *std::max_element(l.begin(), l.end());
-}
-
-int main() {
-    return getMax();
+    int max_val = *std::max_element(l.begin(), l.end());
+    return 0;
 }
