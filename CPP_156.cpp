@@ -1,4 +1,3 @@
-int main() {
-    assert(int_to_mini_roman(1000) == "M");
-    return 0;
+int main {
+    assert(int_to_mini_roman(4) == "IV");
 }
