@@ -1,4 +1,3 @@
-#include <cassert>
 #include <vector>
 #include <algorithm>
 #include <numeric>
@@ -8,15 +7,14 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
         throw std::runtime_error("Vector must contain at least two elements");
     }
 
-    float min_diff = std::numeric_limits<float>::max();
-    std::pair<float, float> closest_pair;
+    float min_diff = numeric_limits<float>::max();
+    pair<float, float> closest_pair;
 
     for (int i = 0; i < numbers.size(); ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = std::abs(numbers[i] - numbers[j]);
-            if (diff < min_diff) {
-                min_diff = diff;
-                closest_pair = {numbers[i], numbers[j]};
+            if ((numbers[i] <= numbers[j]) && (abs(numbers[i] - numbers[j]) < min_diff)) {
+                min_diff = abs(numbers[i] - numbers[j]);
+                closest_pair = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
             }
         }
     }
@@ -24,7 +22,10 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
     return closest_pair;
 }
 
+bool issame(const vector<float>& a, const vector<float>& b) { 
+  return a == b; 
+} 
+
 int main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::make_pair(2.2f, 3.1f));
-    return 0;
+  assert(std::equal(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
 }
