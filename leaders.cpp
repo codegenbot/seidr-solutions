@@ -1,4 +1,5 @@
 #include <iostream>
+#include <initializer_list>
 #include <vector>
 
 std::vector<int> leaders(std::vector<int>& inputVector) {
