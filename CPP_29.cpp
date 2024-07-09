@@ -1,9 +1,14 @@
-```cpp
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
-    for (const auto& str : strings) {
-        if (str.substr(0, prefix.size()).compare(prefix) == 0) {
-            result.push_back(str);
-        }
+int main {
+    std::vector<std::string> strings;
+    strings.push_back("hello");
+    strings.push_back("hi");
+    strings.push_back("helloworld");
+
+    std::string prefix = "h";
+    std::vector<std::string> result = filter_by_prefix(strings, prefix);
+
+    for (const auto& str : result) {
+        std::cout << str << std::endl;
     }
-    return result;
+
+}
