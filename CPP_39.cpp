@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -10,22 +9,22 @@ bool isPrime(int n) {
     return true;
 }
 
-int prime_fib(int n) {
-    int a = 0, b = 1, fib = 0;
+int primeFib(int num) {
+    int a = 0, b = 1, fibNum = 0;
     while (true) {
-        fib = a + b;
-        if (fib > n) break;
+        fibNum = a + b;
         a = b;
-        b = fib;
-        if (isPrime(fib)) return fib; 
+        b = fibNum;
+        if (isPrime(fibNum)) {
+            if (fibNum > num) return fibNum;
+        }
     }
-    return -1; 
 }
 
 int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    cout << "The first prime Fibonacci number greater than " << num << " is " << std::to_string(prime_fib(num)) << endl;
+    cout << "The first prime Fibonacci number greater than " << num << " is " << primeFib(num) << endl;
     return 0;
 }
