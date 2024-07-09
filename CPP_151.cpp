@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -22,7 +23,7 @@ int main() {
         lst.push_back(num);
     }
     
-    assert(double_the_difference(lst) == 0); 
+    assert(double_the_difference(lst) == odd_sum); 
     
     return 0;
 }
