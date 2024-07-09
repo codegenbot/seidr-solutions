@@ -1,53 +1,37 @@
-#include <iostream>
-#include <string>
 #include <boost/any.hpp>
-
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        int ai = boost::any_cast<int>(a);
-        float bf = boost::any_cast<float>(b);
-        return (bf > ai) ? b : a;
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int ai = boost::any_cast<int>(a);
-        string bs = boost::any_cast<string>(b);
-        istringstream iss(bs);
-        float bf;
-        iss >> bf;
-        return (bf > ai) ? b : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float af = boost::any_cast<float>(a);
-        int bi = boost::any_cast<int>(b);
-        return (af > bi) ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string as = boost::any_cast<string>(a);
-        istringstream iss(as);
-        float af;
-        iss >> af;
-        return (af > boost::any_cast<float>(b)) ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string as = boost::any_cast<string>(a);
-        istringstream iss(as);
-        float af;
-        iss >> af;
-        return (af > bi) ? a : b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        float af = boost::any_cast<float>(a);
-        string bs = boost::any_cast<string>(b);
-        istringstream iss(bs);
-        int bi;
-        iss >> bi;
-        return (af > bi) ? a : b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int ai = boost::any_cast<int>(a);
-        string bs = boost::any_cast<string>(b);
-        istringstream iss(bs);
-        float bf;
-        iss >> bf;
-        return (bf > ai) ? b : a;
-    } else if (boost::any_cast<float>(a) == boost::any_cast<float>(b)) {
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return b;
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = any_cast<string>(a);
+        string strB = any_cast<string>(b);
+
+        int i = strA.find('.');
+        if (i != -1)
+            strA.erase(i, 1);
+
+        i = strB.find(',');
+        if (i != -1)
+            strB[i] = '.';
+
+        return (stod(strA) > stod(strB)) ? a : b;
+    }
+    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
+        string strA = any_cast<string>(a);
+        int i = strA.find('.');
+        if (i != -1)
+            strA.erase(i, 1);
+
+        double numB = any_cast<double>(b);
+        return (stod(strA) > numB) ? a : b;
+    }
+    else {
         return "None";
     }
-    return a;
 }
