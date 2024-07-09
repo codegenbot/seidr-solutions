@@ -21,5 +21,5 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(is_same(even_odd_palindrome(1), {0, 1}));
+    assert(is_same(even_odd_palindrome(5), {0, 1, 0, 1, 0}));
 }
