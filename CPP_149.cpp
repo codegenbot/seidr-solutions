@@ -1,8 +1,18 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string>, vector<string>);
+bool issame(vector<std::string> v1, vector<std::string> v2) {
+    if(v1.size()!=v2.size())
+        return false;
+    
+    for(int i = 0; i<v1.size(); i++) {
+        if( v1[i] != v2[i])
+            return false;
+    }
+    return true;
+}
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
@@ -27,14 +37,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return result;
 }
 
-bool issame(vector<string> vec1, vector<string> vec2) {
-    if (vec1.size() != vec2.size()) {
-        return false;
-    }
-    for (int i = 0; i < vec1.size(); ++i) {
-        if (vec1[i] != vec2[i]) {
-            return false;
-        }
-    }
-    return true;
+int main() {
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    return 0;
 }
