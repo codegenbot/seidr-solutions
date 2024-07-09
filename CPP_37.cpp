@@ -28,7 +28,7 @@ int main() {
         }
     }
     
-    std::vector<float> sortedEven = sort_even(vec);
+    std::vector<float> sortedEven = std::vector<float>(sort_even(vec));
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
             result[i] = sortedEven[0];

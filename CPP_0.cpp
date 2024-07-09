@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <initializer_list>
 
 bool has_close_elements(std::vector<std::vector<float>> numbers, float tol) {
     for (int i = 0; i < numbers.size() - 1; i++) {
@@ -29,7 +28,6 @@ bool has_close_elements(std::vector<std::vector<float>> numbers, float tol) {
 
 int main() {
     std::vector<std::vector<float>> numbers;
-    numbers.reserve(14); 
     for (int i = 0; i < 7; i++) {
         std::vector<float> row;
         for (int j = 0; j < 2; j++) {
@@ -40,8 +38,8 @@ int main() {
             else if (i == 4) row.push_back(5.0f);
             else if (i == 5) row.push_back(2.2f);
             else row.push_back(0.0f);
-            numbers.push_back(row);
         }
+        numbers.push_back(row);
     }
     assert(has_close_elements(numbers, 0.5) == false);
     
