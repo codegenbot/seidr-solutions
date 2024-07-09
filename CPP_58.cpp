@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <set>
 #include <vector>
@@ -27,4 +28,6 @@ int main() {
     } else {
         cout << "The sets are not same." << endl;
     }
+    
+    return 0;
 }
