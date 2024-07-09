@@ -1,19 +1,13 @@
-#include <iostream>
 #include <string>
-
-using namespace std;
-
 int digitSum(string s) {
-    int sum = 0;
+    int letterSum = 0;
+    int digitSum = 0;
     for (char c : s) {
         if (isupper(c)) {
-            sum += (c - 'A' + 1); 
+            letterSum += c - 'A' + 1; // Convert uppercase to numbers (A=1, B=2...)
+        } else if (isdigit(c)) {
+            digitSum += c - '0'; // Convert digits to numbers
         }
     }
-    return sum;
-}
-
-int main() {
-    cout << digitSum("You arE Very Smart");
-    return 0;
+    return letterSum + digitSum;
 }
