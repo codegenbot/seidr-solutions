@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 using namespace std;
@@ -14,6 +13,5 @@ std::string squareDigits(std::string input) {
 }
 
 int main() {
-    std::cout << squareDigits("34") << std::endl;
     return 0;
 }
