@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -25,5 +24,4 @@ int main() {
     } else {
         std::cout << "The difference is: " << odd_sum - lst[0] << std::endl;
     }
-    return 0;
 }
