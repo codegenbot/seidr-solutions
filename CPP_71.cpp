@@ -1,5 +1,10 @@
-#include <iostream>
 #include <cmath>
+float abs(float x) {
+    if(x < 0)
+        return -x;
+    else
+        return x;
+}
 
 float triangle_area(float a, float b, float c) {
     if ((a + b > c) && (a + c > b) && (b + c > a)) {
@@ -11,14 +16,6 @@ float triangle_area(float a, float b, float c) {
 }
 
 int main() {
-    float a, b, c;
-    std::cout << "Enter the lengths of three sides of a triangle: ";
-    std::cin >> a >> b >> c;
-    float area = triangle_area(a, b, c);
-    if (area == -1.0f) {
-        std::cout << "Not a valid triangle.\n";
-    } else {
-        std::cout << "The area of the triangle is: " << area << "\n";
-    }
+    assert(abs(triangle_area(2, 2, 10) + 1) < 0.01);
     return 0;
 }
