@@ -1,7 +1,7 @@
 int search(vector<int>& lst) {
     unordered_map<int, int> freq;
     int maxFrequency = -1;
-    
+
     for (int num : lst) {
         freq[num]++;
         maxFrequency = max(maxFrequency, freq[num]);
