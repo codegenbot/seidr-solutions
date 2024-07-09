@@ -1,3 +1,7 @@
-def max_fill(grid: List[List[int]], capacity: int) -> float:
-    total_water = sum(min(capacity, row.count(0)) for row in grid)
-    return math.ceil(total_water / len(grid))
+def max_fill(grid: list[list[int]], capacity: int) -> int:
+    total_water = 0
+    for row in grid:
+        water_per_row = min(capacity, sum(row))
+        total_water += water_per_row
+        capacity -= water_per_row
+    return total_water // (capacity + 1)
