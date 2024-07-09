@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 
 bool isSimplePower(int num) {
     for (int base = 2; base * base <= num; ++base) {
@@ -22,11 +21,7 @@ int main() {
         std::cout << "Invalid input. Please enter a numeric value.\n";
     } else {
         bool isValidInput = true;
-        std::ostringstream oss;
-        oss << num;
-        std::string numStr = oss.str();
-        
-        for (char c : numStr) { 
+        for (auto c : std::to_string(num)) { 
             if (!std::isdigit(c)) {
                 isValidInput = false;
                 break;
