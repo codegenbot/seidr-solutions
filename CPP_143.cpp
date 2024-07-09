@@ -1,4 +1,3 @@
-```
 #include <cstddef>
 #include <string>
 
@@ -23,13 +22,4 @@ string words_in_sentence(string sentence) {
         }
     }
     return result.substr(0, result.size() - 1);
-}
-
-int main() {
-    string sentence;
-    cout << "Enter a sentence: ";
-    getline(cin, sentence);
-    string output = words_in_sentence(sentence);
-    cout << "Output: " << output << endl;
-    return 0;
 }
