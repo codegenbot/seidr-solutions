@@ -1,3 +1,5 @@
+Here's the corrected code:
+
 ```python
 def leaders(arr):
     n = len(arr)
