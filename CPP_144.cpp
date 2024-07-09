@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <sstream>
 #include <cctype>
@@ -6,15 +7,17 @@
 bool simplify(string x, string n) {
     char arr1[6], arr2[4];
     stringstream s1(x), s2(n);
-    s1 >> arr1;
-    char slash;
-    s2 >> arr2;
-    slash = s2.peek();
-    s2.get(); // Consume the slash
-    s2 >> arr2[1];
+    int val;
+    s1 >> val;
+    sprintf(arr1, "%d", val);
 
-    return (atoi(arr1) * (slash - '0') == 
-           atoi(std::string(1, arr2[0]).c_str()) * (slash - '0'));
+    char c;
+    s2 >> c;
+    slash = c;
+
+    string s2_str(c, 1);
+    return (atoi(arr1) * atoi(s2_str.c_str()) == 
+           atoi(arr1[0].c_str()) * (slash - '0'));
 }
 
 int main() {
