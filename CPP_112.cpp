@@ -1,8 +1,7 @@
 #include <vector>
 #include <string>
-#include <iostream>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -12,8 +11,8 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
 
     for (char& ch : s) {
         bool found = false;
@@ -24,11 +23,11 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found)
-            result.push_back(string(1, ch));
+            result.push_back(std::string(1, ch));
     }
 
-    string res_str = "";
-    for (string str : result)
+    std::string res_str = "";
+    for (std::string str : result)
         res_str += str;
     bool is_palindrome = false;
     int start = 0, end = res_str.length() - 1;
@@ -41,8 +40,17 @@ vector<string> reverse_delete(string s, string c) {
     if (start >= end)
         is_palindrome = true;
 
-    vector<string> final_result;
+    std::vector<std::string> final_result;
     final_result.push_back(res_str);
-    final_result.push_back((is_palindrome ? "True" : "False"));
+    final_result.push_back(std::to_string(is_palindrome));
     return final_result;
+}
+
+int main() {
+    std::vector<std::string> b = {"", "1"};
+    if(issame(reverse_delete("mamma", "mia"), b))
+        std::cout << "Test case passed." << std::endl;
+    else
+        std::cout << "Test case failed." << std::endl;
+    return 0;
 }
