@@ -10,17 +10,14 @@ bool is_prime(long long n) {
     }
     return true;
 
-}
-
 int main() {
-    int num;
+    long long num;
     cout << "Enter a number: ";
     cin >> num;
-    
-    if (is_prime(num)) 
-        cout << num << " is prime";
+    if(is_prime(num))
+        cout << "Number is prime";
     else
-        cout << num << " is not prime";
+        cout << "Number is not prime";
     
     return 0;
 }
