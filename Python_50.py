@@ -1,7 +1,5 @@
 def decode_shift(s: str):
-    if not s.islower():
-        return "Input must contain lowercase alphabet characters only"
-    return "".join([chr((ord(ch) - 5 - ord("a")) % 26 + ord("a")) for ch in s])
+    return "".join([chr((ord(ch) - 3 - ord("a")) % 26 + ord("a")) for ch in s])
 
 # Prompt the user to enter input
 input_str = input("Enter the string to decode: ")
