@@ -1,7 +1,3 @@
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
-
 bool prime_length(string str) {
     int len = str.length();
     if (len <= 1)
@@ -11,9 +7,4 @@ bool prime_length(string str) {
             return false;
     }
     return true;
-
 }
-
-int main() {
-    assert(prime_length("0") == false);
-    // ...
