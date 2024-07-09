@@ -1,3 +1,6 @@
+#include <iostream>
+#include <iomanip>
+
 int main() {
     int hours;
     float groundSnow, rateOfSnowFall, proportionMelting;
@@ -7,8 +10,8 @@ int main() {
     float calculatedSnow = groundSnow;
 
     for(int i = 1; i <= hours; i++) {
-        calculatedSnow += rateOfSnowFall;
         calculatedSnow = std::round(calculatedSnow * 100) / 100;
+        calculatedSnow += rateOfSnowFall;
         calculatedSnow -= calculatedSnow * proportionMelting / 100.0f;
     }
 
