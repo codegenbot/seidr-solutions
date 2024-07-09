@@ -1,18 +1,19 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
-bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
-        return false;
+bool issame(vector<int> game, vector<int> guess) {
+    for (int i = 0; i < game.size(); i++) {
+        if (game[i] != guess[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    std::vector<int> result;
+vector<int> compare(vector<int> game, vector<int> guess) {
+    vector<int> result;
     for (int i = 0; i < game.size(); i++) {
-        if (issame(game[i], guess[i])) {
+        if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
             result.push_back(abs(guess[i] - game[i]));
@@ -22,28 +23,30 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
-    int n, m;
-    std::cout << "Enter the number of elements in your game and guess vectors: ";
-    std::cin >> n >> m;
-
-    std::vector<int> game(n);
-    std::vector<int> guess(m);
-
-    std::cout << "Enter the elements for your game vector: ";
+    int n;
+    cin >> n;
+    
+    vector<int> game(n), guess(n);
+    
     for (int i = 0; i < n; i++) {
-        std::cin >> game[i];
+        cin >> game[i];
     }
-
-    std::cout << "Enter the elements for your guess vector: ";
-    for (int i = 0; i < m; i++) {
-        std::cin >> guess[i];
+    
+    for (int i = 0; i < n; i++) {
+        cin >> guess[i];
     }
-
-    std::vector<int> res = compare(game, guess);
-
-    std::cout << "The result is: ";
-    for (int i = 0; i < res.size(); i++) {
-        std::cout << res[i] << " ";
+    
+    if (issame(game, guess)) {
+        cout << "Game and Guess are the same" << endl;
+    } else {
+        vector<int> res = compare(game, guess);
+        
+        for (int i : res) {
+            cout << i << " ";
+        }
+        
+        cout << endl;
     }
+    
     return 0;
 }
