@@ -40,4 +40,3 @@ int main() {
         cout << "\nThe piles are not the same.\n";
     }
     return 0;
-}
