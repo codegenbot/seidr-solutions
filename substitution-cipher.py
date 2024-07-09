@@ -9,8 +9,8 @@ cipher_dict = {c: k for c, k in zip(key1, key2)}
 result = ""
 message = input("Enter the message to decipher: ")
 for char in message:
-    if char in cipher_dict:
-        result += cipher_dict[char]
+    if char.isalpha():  
+        result += cipher_dict.get(char.lower(), char)  
     else:
         result += char
 
