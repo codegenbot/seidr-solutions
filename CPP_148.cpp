@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -34,7 +37,6 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     sort(result.begin(), result.end());
     
     return result;
-
 }
 
 int main() {
