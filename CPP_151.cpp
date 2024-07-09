@@ -22,7 +22,16 @@ int main() {
         lst.push_back(num);
     }
 
-    long odd_sum = double_the_difference(lst);
+    long odd_sum = 0;
+    for (float num : lst) {
+        if (num > 0 && floor(num) == num) { 
+            if (fmod(num, 2.0) != 0.0) { 
+                odd_sum += pow(num, 2);
+            }
+        }
+    }
+
+    assert(double_the_difference(lst) == odd_sum);
 
     return 0;
 }
