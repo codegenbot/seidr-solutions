@@ -13,11 +13,12 @@ def max_fill() -> int:
 
     total_water = 0
 
+    if not grid or not all(len(row) == len(grid[0]) for row in grid):
+        raise ValueError("Grid should be a square")
+
     for row in grid:
         water_per_row = min(capacity, sum(row))
         total_water += water_per_row
         capacity -= water_per_row if water_per_row > 0 else 0
 
-    avg_fill_level = math.ceil(total_water / max(1, capacity))
-
-    return avg_fill_level
+    return math.ceil(total_water / max(1, capacity))
