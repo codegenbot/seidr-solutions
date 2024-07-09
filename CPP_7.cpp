@@ -11,7 +11,6 @@ int main() {
     vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
     string substring = "run";
     vector<string> result = filter_by_substring(strings, substring);
-    
     for(string s : result) {
         cout << s << endl;
     }
