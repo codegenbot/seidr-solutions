@@ -1,3 +1,6 @@
-def leaders(a):
-    leaders = [a[i] for i in range(len(a) - 1, -1, -1) if a[i] >= max(a[i + 1 :])]
-    return leaders[::-1]
+def leaders(arr):
+    return [
+        arr[i]
+        for i in range(len(arr) - 1, -1, -1)
+        if all(x <= arr[i] for x in arr[i + 1 :])
+    ]
