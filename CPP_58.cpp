@@ -1,41 +1,32 @@
-````
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 int main() {
-    int m1, n1, m2, n2;
-    std::cout << "Enter number of elements in list 1: ";
-    std::cin >> m1;
-    std::cout << "Enter the elements of list 1: ";
-    std::vector<int> v1(m1);
-    for(int i=0; i<m1; i++) {
-        std::cin >> v1[i];
+    vector<int> l1 = {1, 2, 3};
+    vector<int> l2 = {2, 3, 4};
+
+    vector<int> common = common(l1, l2);
+
+    for (int x : common) {
+        cout << x << " ";
     }
-    
-    std::cout << "Enter number of elements in list 2: ";
-    std::cin >> n2;
-    std::cout << "Enter the elements of list 2: ";
-    std::vector<int> v2(n2);
-    for(int i=0; i<n2; i++) {
-        std::cin >> v2[i];
-    }
-    
-    if(issame(v1, v2)) {
-        std::cout << "Lists are same" << std::endl;
-    } else {
-        std::vector<int> common = common(v1, v2);
-        for(int num : common) {
-            std::cout << num << " ";
-        }
-        std::cout << std::endl;
-    }
-    
+    cout << endl;
+
     return 0;
 }
 
-```
+vector<int> common(vector<int> l1, vector<int> l2) {
+    set<int> s1(l1.begin(), l1.end());
+    set<int> s2(l2.begin(), l2.end());
+
+    set<int> intersection;
+    set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
+                      inserter(intersection, intersection.begin()));
+
+    vector<int> result(intersection.begin(), intersection.end());
+    return result;
+}
