@@ -1,12 +1,13 @@
-#include <iostream>
-#include <string>
 #include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+#include <sstream>
 
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max(a, b);
+        return max(a, boost::any(b));
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         istringstream iss(static_cast<string>(b));
@@ -36,13 +37,4 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
     else
         return boost::any("None");
-}
-
-int main() {
-    boost::any a = 5; // int
-    boost::any b = "10.5"; // float
-
-    cout << "Result: " << compare_one(a, b).type().name() << endl;
-    
-    return 0;
 }
