@@ -1,2 +1,2 @@
-def car_race_collision(num_cars: int):
-    return num_cars * (num_cars - 1) // 2
+def car_race_collision(car: int, speed: int = 100):
+    return car * (car - 1) // 2 + speed
