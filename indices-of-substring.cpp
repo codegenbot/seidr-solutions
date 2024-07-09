@@ -8,17 +8,18 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     for (int i = 0; i <= n - m; i++) {
-        for (int j = 0; j <= m - 1; j++) {
-            if (i + j >= n || text[i + j] != target[j]) {
-                i += j;
+        bool found = true;
+        for (int j = 0; j < m; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
                 break;
             }
         }
-        if (i + m == n) {
-            break;
-        }
-        if (i + m - 1 < n && text.substr(i, m) == target) {
-            result.push_back(i);
+        if (found) {
+            while (i < n - m && text.substr(i, m) == target) {
+                result.push_back(i);
+                i += m;
+            }
         }
     }
 
