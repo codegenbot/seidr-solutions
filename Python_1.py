@@ -1,6 +1,10 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
+    paren_string = input("Enter the expression with parentheses: ")
+    if paren_string.count("(") != paren_string.count(")"):
+        return []
+
     result = []
     temp = ""
     open_count = 0
@@ -19,5 +23,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 temp += char
 
     return result
-
-print(separate_paren_groups("((group1)(group2))"))
