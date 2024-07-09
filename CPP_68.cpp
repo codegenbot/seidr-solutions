@@ -1,5 +1,7 @@
 #include <vector>
-#include <climits> // Include for INT_MAX
+#include <climits>
+
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> pluck(std::vector<int> arr){
     std::vector<int> result;
@@ -21,6 +23,10 @@ std::vector<int> pluck(std::vector<int> arr){
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
+}
+
+int main(){
+    assert(issame(pluck({7, 9, 7, 1}), {}));
 }
