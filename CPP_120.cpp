@@ -6,9 +6,9 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> maximum(vector<int> arr, int k) {
-    if (k > arr.size()) {
-        cout << "Error: k cannot be greater than the array size." << endl;
-        return vector<int>();
+    if(k > arr.size()) {
+        cout << "k is larger than the size of array";
+        return {};
     }
     vector<int> result;
     for(int i = 0; i < k; i++) {
@@ -20,5 +20,5 @@ vector<int> maximum(vector<int> arr, int k) {
 }
 
 int main() {
-    // your code here
+    
 }
