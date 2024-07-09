@@ -1,8 +1,13 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    std::vector<int> result;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> strange_sort_list(vector<int> lst) {
+    vector<int> result;
     while (!lst.empty()) {
         int minVal = *min_element(lst.begin(), lst.end());
         result.push_back(minVal);
@@ -17,11 +22,7 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(strange_sort_vector({111111}), {111111}));
-    return 0;
+    assert(issame(strange_sort_list({111111}), {111111}));
+    // Rest of your code
 }
