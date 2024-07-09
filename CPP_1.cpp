@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(const std::string& a, const std::string& b) {
+bool issame(std::string& a, std::string& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -11,7 +10,7 @@ bool issame(const std::string& a, const std::string& b) {
     return true;
 }
 
-std::string separate_paren_groups(std::string s) {
+std::string separate_paren_groups(std::string& s) {
     int count = 0;
     std::string current_group = "";
     std::string result = "";
@@ -40,7 +39,7 @@ std::string separate_paren_groups(std::string s) {
 }
 
 int main() {
-    std::string s = "";  // Initialize with an empty string
+    std::string s;
 
     while (true) {
         std::cout << "Enter a string: ";
