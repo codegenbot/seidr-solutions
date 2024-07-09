@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <cassert>
+#include <string>
 
 std::string solve(std::string s){
     for(char &c : s){
@@ -16,9 +16,4 @@ std::string solve(std::string s){
         std::reverse(s.begin(), s.end());
     }
     return s;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    return 0;
 }
