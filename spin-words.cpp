@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <string>
 
 std::string spinWords(const std::string& str) {
@@ -14,5 +15,5 @@ std::string spinWords(const std::string& str) {
         }
     }
 
-    return join(std::vector<std::string>{result}, ' ');
+    return split(result, ' ')[0];
 }
