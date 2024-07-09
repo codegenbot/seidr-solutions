@@ -18,15 +18,17 @@ string camelCase(string s) {
     return result;
 }
 
-string s; 
-char c;
-while ((c = cin.get()) && c != '\n') {
-    if (c == '-') {
-        getline(cin, s);
-        s += " ";
-    } else {
-        s += c;
+int main() {
+    string s; 
+    char c;
+    while ((c = cin.get()) && c != '\n') {
+        if (c == '-') {
+            getline(cin, s);
+            s += " ";
+        } else {
+            s += c;
+        }
     }
+    cout << camelCase(s) << endl;
+    return 0;
 }
-cout << camelCase(s) << endl;
-return 0;
