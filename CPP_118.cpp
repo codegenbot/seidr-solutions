@@ -1,20 +1,21 @@
+Here is the completed code:
+
 string get_closest_vowel(string word) {
-    for(int i = word.length() - 1; i > 0; --i) {
-        if(isvowel(word[i])) {
-            for(int j = i - 1; j >= 0; --j) {
-                if(!isvowel(word[j]) && !ispunct(word[j]))
-                    return string(1, word[i]);
+    int n = word.size();
+    for (int i = 1; i < n - 1; ++i) {
+        if (!isalpha(word[i])) continue;
+        if (ispunct(word[i]) || isupper(word[i])) continue;
+        string left, right;
+        for (int j = i + 1; j < n && !ispunct(word[j]); ++j)
+            right += word[j];
+        for (int j = i - 1; j >= 0 && !ispunct(word[j]); --j)
+            left += word[j];
+        bool found = false;
+        for (char c : "aeiouAEIOU") {
+            if (left.find(c) != string::npos || right.find(c) != string::npos) {
+                return c == 'Y' ? "Y" : string(1, c);
             }
         }
     }
     return "";
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
-}
-
-bool ispunct(char c) {
-    return ispunct(c); // assuming it's a predefined function
 }
