@@ -1,27 +1,36 @@
-Here is the completed code:
+Here is the solution:
 
 ```cpp
-#include<string>
+#include <string>
 using namespace std;
 
 bool simplify(string x, string n) {
-    long long int num1 = 0, denom1 = 0, num2 = 0, denom2 = 0;
-    int numeratorPos = x.find("/");
-    int denominatorPos = x.find("/");
-    num1 = stol(x.substr(0, numeratorPos));
-    denom1 = stol(x.substr(numeratorPos + 1, denominatorPos - numeratorPos - 1));
-    num2 = stol(n.substr(0, n.find("/")));
-    denom2 = stol(n.substr(n.find("/") + 1));
+    int numerator1 = stoi(split(x, '/')[0]);
+    int denominator1 = stoi(split(x, '/')[1]);
 
-    long long int commonDivisor = gcd(abs(num1 * denom2), abs(denom1 * num2));
-    
-    return (abs(num1 * denom2) / commonDivisor == abs(num2 * denom1)) && (commonDivisor != 0);
+    int numerator2 = stoi(split(n, '/')[0]);
+    int denominator2 = stoi(split(n, '/')[1]);
 
+    long gcd = calculateGCD(denominator1 * denominator2);
+
+    return (long)numerator1 * denominator2 / gcd == (long)denominator1 * numerator2 / gcd;
 }
 
-long long int gcd(long long int a, long long int b){
-    if(b==0)
+string split(string s, char c) {
+    size_t pos = 0;
+    string token;
+
+    while ((pos = s.find(c)) != string::npos) {
+        token = s.substr(0, pos);
+        s.erase(0, pos + 1);
+    }
+
+    return token;
+}
+
+long calculateGCD(long a, long b) {
+    if (b == 0)
         return a;
     else
-        return gcd(b,a%b);
+        return calculateGCD(b, a % b);
 }
