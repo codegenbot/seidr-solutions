@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -14,7 +13,7 @@ std::string squareDigits(std::string input) {
 int main() {
     std::string input;
     std::cout << "Enter a number: ";
-    std::cin >> input;
+    std::getline(std::cin, input);
 
     if (input.empty()) {
         std::cout << "Error: Input cannot be empty." << std::endl;
@@ -22,4 +21,3 @@ int main() {
         std::cout << "Squared digits: " << squareDigits(input) << std::endl;
     }
     return 0;
-}
