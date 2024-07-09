@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,7 +21,7 @@ int main() {
     vector<string> lst;
     int n;
     cin >> n;
-    for(int i=0; i<n; ++i++){
+    for(int i=0; i<n; i++){
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         string s;
         getline(cin, s);
