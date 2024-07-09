@@ -2,11 +2,11 @@
 #include <algorithm>
 #include <iostream>
 
-bool issame(std::vector<std::vector<float>> a, std::vector<std::vector<float>> b) {
+bool checkEquality(std::vector<float> a, std::vector<float> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<float> sort_even(const std::vector<float>& l) {
+std::vector<float> sortEven(const std::vector<float>& l) {
     std::vector<float> evenVals;
     for (int j = 0; j < l.size(); j++) {
         if (j % 2 == 0) {
@@ -22,13 +22,13 @@ int main() {
     std::vector<float> result(vec.size()); 
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
-            result[i] = sort_even(vec)[0];
+            result[i] = sortEven(vec)[0];
         } else {
             result[i] = vec[i];
         }
    }
     
-    std::vector<float> sortedEven = sort_even(vec);
+    std::vector<float> sortedEven = sortEven(vec);
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
             result[i] = sortedEven[0];
@@ -39,6 +39,6 @@ int main() {
     }
     
     std::vector<float> expected = { -12, 8, 3, 4, 5, 2, 12, 11, 23, -10 };
-    assert(issame(result, expected));
+    assert(checkEquality(result, expected));
     return 0;
 }
