@@ -9,7 +9,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<string> reverse_delete(string s, string c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
     vector<string> result;
     string temp = "";
     for (char ch : s) {
