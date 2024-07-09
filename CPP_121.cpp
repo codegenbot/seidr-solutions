@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <cassert>
+#include <iostream>
 using namespace std;
 
 int solution(vector<int> lst) {
