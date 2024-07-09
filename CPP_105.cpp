@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) return false;
@@ -10,11 +10,11 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<int> by_length(const std::vector<int>& arr) {
-    std::vector<int> result;
+std::vector<std::string> by_length(const std::vector<int>& arr) {
+    std::vector<std::string> result;
     for (int num : arr) {
         int length = to_string(num).size();
-        result.push_back(length);
+        result.push_back(to_string(length));
     }
     return result;
 }
@@ -27,7 +27,11 @@ int main() {
         intArray.push_back(stoi(str));
     }
     
-    std::vector<int> lengthArr = by_length(intArray);
+    std::vector<std::string> lengthArr;
+    for(int num : intArray) {
+        int length = to_string(num).size();
+        lengthArr.push_back(to_string(length));
+    }
     // Test assertion
     assert(issame({to_string(9).size(), to_string(4).size(), to_string(8).size()}, vector<string>(lengthArr.begin(), lengthArr.end())));
     return 0;
