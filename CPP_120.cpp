@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -29,17 +29,17 @@ int main() {
     int n, k;
     std::cout << "Enter the size of array: ";
     std::cin >> n;
+
     std::cout << "Enter the value of k: ";
     std::cin >> k;
 
-    for(int i=0; i<n; ++i) {
-        arr.push_back(0); 
-    }
-
-    std::vector<int> arr(n);
+    std::vector<int> arr;
+    std::cout << "Enter elements: ";
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
-        std::cin >> arr[i];
+        int val;
+        std::cin >> val;
+        arr.push_back(val);
     }
 
     std::vector<int> result = maximum(arr, k);
