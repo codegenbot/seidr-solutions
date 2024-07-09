@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <algorithm>
-#include <numeric>
 
 float mean_absolute_deviation(vector<float> numbers) {
     float sum = 0.0;
