@@ -1,25 +1,31 @@
 #include <iostream>
 #include <string>
 
+bool is_happy(int n);
+
 bool is_happy(int n) {
     if (n < 1) return false;
-    int slow = n, fast = n;
-
-    do {
-        slow = digit_sum(slow);
-        fast = digit_sum(digit_sum(fast));
-    } while (slow != fast);
-
-    return slow == 1;
+    while (n > 1) {
+        int sum = 0;
+        while (n) {
+            n %= 10;
+            sum += n * n;
+            n /= 10;
+        }
+        n = sum;
+    }
+    return n == 1;
 }
 
 int main() {
-    int num; 
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    if(is_happy(num)) 
-        std::cout << "The number is happy.\n";
-    else
-        std::cout << "The number is not happy.\n";
+    std::cout << "Enter a happy number: ";
+    std::string num_str;
+    std::cin >> num_str;  
+    int num = std::stoi(num_str);  
+    if (is_happy(num)) {
+        std::cout << num << " is a happy number.\n";
+    } else {
+        std::cout << num << " is not a happy number.\n";
+    }
     return 0;
 }
