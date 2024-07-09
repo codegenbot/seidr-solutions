@@ -25,4 +25,3 @@ int main() {
     cout << fixed << setprecision(6);
     cout << probability(n, m) << endl;
     return 0;
-}
