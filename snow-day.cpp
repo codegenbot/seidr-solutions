@@ -6,8 +6,8 @@ using namespace std;
 double snowDay(int hours, float groundSnow, float rateFall, float meltRate) {
     double totalSnow = 0;
     for (int i = 0; i < hours; i++) {
-        groundSnow += rateFall;
-        groundSnow -= groundSnow * meltRate / 100.0; // Convert melt rate to percentage
+        totalSnow += rateFall;
+        groundSnow += rateFall - groundSnow * meltRate;
     }
     return groundSnow;
 }
@@ -17,6 +17,6 @@ int main() {
     cin >> hours;
     float groundSnow, rateFall, meltRate;
     cin >> groundSnow >> rateFall >> meltRate;
-    cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rateFall / 100.0, meltRate / 100.0) << endl;
+    cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rateFall, meltRate) << endl;
     return 0;
 }
