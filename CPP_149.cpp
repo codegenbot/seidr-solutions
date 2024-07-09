@@ -5,9 +5,9 @@
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     auto it = std::remove_if(lst.begin(), lst.end(), [](const std::string& s){ return s.length() % 2; });
     lst.erase(it, lst.end());
-    std::sort(lst.begin(), lst.end(),
-        [](const std::string& a, const std::string& b) {
-            if (a.length() != b.length()) {
+    std::sort(lst.begin(), lst.end(), 
+        [](const std::string& a, const std::string& b){
+            if(a.length() != b.length()) {
                 return a.length() < b.length();
             } else {
                 return a < b;
@@ -28,11 +28,11 @@ int main() {
     
     std::vector<std::string> result = sorted_list_sum(lst);
     
-    std::cout << "Sorted List Sum: ";
+    cout << "Sorted List Sum: ";
     for(auto str : result) {
-        std::cout << str << " ";
+        cout << str << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
     
     return 0;
 }
