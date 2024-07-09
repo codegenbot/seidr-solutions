@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -22,28 +21,33 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
-    int n, m;
-    std::cout << "Enter the number of elements in your game and guess vectors: ";
-    std::cin >> n >> m;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
 
-    std::vector<int> game(n);
-    std::vector<int> guess(m);
+    std::vector<int> game, guess;
 
-    std::cout << "Enter the elements for your game vector: ";
     for (int i = 0; i < n; i++) {
-        std::cin >> game[i];
+        int x;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> x;
+        game.push_back(x);
     }
 
-    std::cout << "Enter the elements for your guess vector: ";
-    for (int i = 0; i < m; i++) {
-        std::cin >> guess[i];
+    for (int i = 0; i < n; i++) {
+        int x;
+        std::cout << "Enter your guess: ";
+        std::cin >> x;
+        guess.push_back(x);
     }
 
     std::vector<int> res = compare(game, guess);
 
     std::cout << "The result is: ";
-    for (int i = 0; i < res.size(); i++) {
+    for (int i = 0; i < n; i++) {
         std::cout << res[i] << " ";
     }
+    std::cout << std::endl;
+
     return 0;
 }
