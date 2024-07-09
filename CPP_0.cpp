@@ -1,20 +1,18 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <assert.h>
 
-bool has_close_elements(const std::vector<float>& vec, float threshold) {
-    for (int i = 0; i < vec.size() - 1; ++i) {
-        if (std::abs(vec[i] - vec[i + 1]) <= threshold)
+bool has_close_elements(std::vector<float> elements, float threshold) {
+    for (int i = 0; i < elements.size() - 1; ++i) {
+        if (std::abs(elements[i] - elements[i + 1]) <= threshold) {
             return true;
+        }
     }
     return false;
 }
 
 int main() {
     std::vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    float threshold = 0.1f; // adjust this value as needed
-    if (has_close_elements(a, threshold))
-        std::cout << "Vector has close elements." << std::endl;
-    else
-        std::cout << "Vector does not have close elements." << std::endl;
+    assert(has_close_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5f) == false);
     return 0;
 }
