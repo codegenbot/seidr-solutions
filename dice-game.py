@@ -1,4 +1,4 @@
-```
+```Python
 import math
 
 def roll_dice(n, m):
