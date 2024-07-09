@@ -1,4 +1,3 @@
-```
 import math
 
 def fuel_cost(input_vector):
