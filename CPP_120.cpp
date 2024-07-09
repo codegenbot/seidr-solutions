@@ -1,9 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> ,vector<int>){ // Declare the function here
-
-}
+bool issame(vector<int> ,vector<int>){}
 
 vector<int> maximum(vector<int> arr, int k) {
     if(k > arr.size()) {
