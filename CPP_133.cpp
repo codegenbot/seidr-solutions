@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -21,7 +22,7 @@ int main() {
         std::cout << "Enter element " << (i+1) << ": ";
         std::cin >> val;
         inputVector.push_back(val);
-   
+    }
     
     int result = sum_squares(inputVector);
 
