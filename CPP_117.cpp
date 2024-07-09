@@ -1,9 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 #include <cctype>
-#include <algorithm>
 #include <initializer_list>
 
 using namespace std;
@@ -28,7 +26,7 @@ vector<pair<int, string>> select_words(string s, int n) {
                 size_t vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
                     count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
                 if (vowelCount <= n) {
-                    result.push_back({{vowelCount, word}});
+                    result.push_back({make_pair(vowelCount, word)});
                 }
                 word = "";
             }
@@ -41,7 +39,7 @@ vector<pair<int, string>> select_words(string s, int n) {
         size_t vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
             count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
         if (vowelCount <= n) {
-            result.push_back({{vowelCount, word}});
+            result.push_back({make_pair(vowelCount, word)});
         }
     }
     return result;
