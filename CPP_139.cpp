@@ -1,16 +1,20 @@
-```
+```cpp
 #include <iostream>
 #include <cmath>
+#include <string>
 
-long long special_factorial(int n) {
+std::string special_factorial(int n) {
     if (n <= 1)
-        return 1;
-    long long result = 1;
+        return "1";
+
+    std::string result = "1";
     for (int i = 2; i <= n; i++) {
-        long long fact = 1;
-        for (int j = 1; j <= i; j++)
-            fact *= j;
-        result += fact;
+        long long mul_result = 1;
+        for (int j = 2; j <= i; j++)
+            mul_result *= j;
+
+        if(i > 1)
+            result += " * " + std::to_string(mul_result);
     }
     return result;
 }
