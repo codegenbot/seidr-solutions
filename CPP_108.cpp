@@ -24,16 +24,13 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
     for(int i = 0; i < n; i++) {
         int num;
-        std::cout << "Enter element " << i + 1 << ": ";
+        std::cout << "Enter element " << (i+1) << ": ";
         std::cin >> num;
         nums.push_back(num);
     }
-    
     int result = count_nums(nums);
-    std::cout << "The number of elements that are not palindromes is: " << result << std::endl;
-    
+    std::cout << "Number of numbers with sum greater than 0: " << result << std::endl;
     return 0;
 }
