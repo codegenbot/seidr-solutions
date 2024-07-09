@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,13 +7,12 @@ using namespace std;
 int digitSum(string s){
     int sum = 0;
     for(auto& word : split(s, " ")){
-        for(char c : word){
+        for(char c : word.erase()){
             if(isdigit(c))
-                sum += c - '0';
+                sum += (c - '0');
         }
     }
     return sum;
-
 }
 
 string split(const string& s, const char& sep) {

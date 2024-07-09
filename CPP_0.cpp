@@ -1,40 +1,21 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
-#include <cmath>
 
-bool has_close_elements(const std::vector<float>& a, float delta) {
-    for (int i = 0; i < a.size() - 1; i++) {
-        if (std::abs(a[i] - a[i + 1]) <= delta) {
-            return true;
-        }
-    }
-    return false;
-}
+bool haveCloseElements(const std::vector<float>& vec, float threshold);
 
 int main() {
-    std::vector<float> a;
-    float num;
-    int n;
-
-    std::cout << "Enter the number of elements in the vector: ";
-    std::cin >> n;
-
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        a.push_back(num);
-    }
-
-    float d;
-    std::cout << "Enter delta: ";
-    std::cin >> d;
-
-    if (has_close_elements(a, d)) {
-        std::cout << "Vector has at least two elements that are less than or equal to delta." << std::endl;
-    } else {
-        std::cout << "Vector does not have at least two elements that are less than or equal to delta." << std::endl;
-    }
-
+    std::vector<float> myVector = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
+    
+    assert(haveCloseElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5f) == false);
+    
     return 0;
+}
+
+bool haveCloseElements(const std::vector<float>& vec, float threshold) {
+    for (int i = 0; i < vec.size() - 1; i++) {
+        if (abs(vec[i] - vec[i + 1]) <= threshold)
+            return true;
+    }
+    return false;
 }
