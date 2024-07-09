@@ -1,12 +1,9 @@
-```cpp
 #include <string>
 #include <vector>
-#include <cctype>
 
 int main() {
-    string class_name = "Class";
-    vector<string> extensions = {"abc", "DEF", "ghi", "JKL"};
-    
+    string class_name = "ClassName";
+    vector<string> extensions = {"Java", "Python", "Kotlin", "C++"};
     cout << Strongest_Extension(class_name, extensions) << endl;
 }
 
