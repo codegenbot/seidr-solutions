@@ -12,23 +12,21 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst;
-    float sum = 0, odd_sum = 0;
+    std::vector<float> lst;  
+    float sum = 0;
+    int odd_sum = 0;
 
-    // Read input from user
+    // read input from user
     int n;
     cin >> n;
-
-    lst.resize(n);
-
-    for (float& num : lst) {
+    for (int i = 0; i < n; i++) {
+        float num;
         cin >> num;
+        lst.push_back(num);
     }
 
-    // Calculate the difference
-    sum = double_the_difference(lst);
-
-    cout << "The result is: " << sum << endl;
+    // calculate the sum and return it
+    cout << double_the_difference(lst) << endl;
 
     return 0;
 }
