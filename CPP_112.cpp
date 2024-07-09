@@ -1,6 +1,7 @@
 #include <string>
 #include <cassert>
 #include <algorithm>
+#include <vector>
 
 bool issame(std::pair<std::string, std::string> a, std::pair<std::string, std::string> b) {
     return a == b;
