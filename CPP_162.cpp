@@ -1,5 +1,16 @@
-string result;
-for (int i = 0; i < 16; ++i) {
-    result.push_back(static_cast<char>((md[i] >> 4) & 0x0f));
-    result.push_back(static_cast<char>(md[i] & 0x0f));
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <openssl/sha.h>
+
+std::string string_to_sha1(std::string text) {
+    if (text.empty()) return "";
+    
+    unsigned char sha[SHA_DIGEST_LENGTH];
+    SHA1((unsigned char*)text.c_str(), text.size(), sha);
+    std::stringstream ss;
+    for (int i = 0; i < SHA_DIGEST_LENGTH; i++) {
+        ss << hex << std::setfill('0') << std::setw(2) << (int)sha[i];
+    }
+    return ss.str();
 }
