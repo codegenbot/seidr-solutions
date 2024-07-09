@@ -3,8 +3,17 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    // your logic here to compare two vectors of strings
-    return true; 
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -23,10 +32,12 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else if (sum1 > sum2)
         return lst2;
 
-    return lst1;
-}
-
-int main() {
-    assert(issame(total_match({"this"}, {}), {}));
-    return 0;
+    vector<string> result;
+    for (const auto& str : lst1) {
+        if (!issame(lst1, {str}) && !issame({str}, lst2)) {
+            result.push_back(str);
+        }
+    }
+    
+    return result;
 }
