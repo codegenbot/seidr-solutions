@@ -1,7 +1,10 @@
-string sort_numbers(const vector<string>& numbers) {
-    #include <algorithm>
+#include <iostream>
+#include <map>
+#include <algorithm>
+#include <sstream>
 
-    map<string, int> number_map = {
+std::string sort_numbers(const std::string &numbers_str) {
+    std::map<std::string, int> number_map = {
         {"zero", 0},
         {"one", 1},
         {"two", 2},
@@ -14,13 +17,25 @@ string sort_numbers(const vector<string>& numbers) {
         {"nine", 9}
     };
 
-    sort(numbers.begin(), numbers.end(), [&](const string &a, const string &b) {
+    std::stringstream ss(numbers_str);
+    std::vector<std::string> numbers;
+    std::string word;
+    while (ss >> word) {
+        numbers.push_back(word);
+    }
+
+    std::sort(numbers.begin(), numbers.end(), [&](const std::string &a, const std::string &b) {
         return number_map[a] < number_map[b];
     });
 
-    string result;
-    for (const string& num : numbers) {
+    std::string result;
+    for (const auto &num : numbers) {
         result += num + " ";
     }
+
     return result;
+}
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
 }
