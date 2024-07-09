@@ -1,22 +1,29 @@
-```cpp
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-string compare_one(string a, string b) {
-    if (a > b)
-        return a;
+string compareOne(int a, int b) {
+    if (a > b) 
+        return "First";
     else if (b > a)
-        return b;
-    else
-        return "None";
+        return "Second";
+    else 
+        return "Equal";
 }
 
 int main() {
-    string a, b;
-    cout << "Enter two strings: ";
-    cin >> a >> b;
-    cout << "Greater or equal one is: " << compare_one(a, b) << endl;
+    int num1, num2;
+    
+    cout << "Enter the first number: ";
+    cin >> num1;
+    
+    cout << "Enter the second number: ";
+    cin >> num2;
+
+    string result = compareOne(num1, num2);
+    
+    cout << "Result: " << result << endl;
+    
     return 0;
 }
