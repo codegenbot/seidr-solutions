@@ -6,7 +6,7 @@ std::string encrypt(std::string s){
     std::string result = "";
     for(char c : s){
         if(std::isalpha(c)){
-            char encrypted = c + 4; 
+            char encrypted = c + 4; // changed to c + 2 * 2 to c + 4
             if(std::isupper(c)){
                 if(encrypted > 'Z'){
                     encrypted = 'A' + (encrypted - 'Z' - 1);
