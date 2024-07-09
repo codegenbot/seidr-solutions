@@ -1,6 +1,11 @@
-def find_max_sum_subarray(arr):
-    max_sum = current_sum = arr[0]
-    for num in arr[1:]:
-        current_sum = max(num, current_sum + num)
-        max_sum = max(max_sum, current_sum)
-    return max_sum
+# Your comments here if needed
+
+def correct_bracketing(brackets: str):
+    stack = []
+    for bracket in brackets:
+        if bracket == "<":
+            stack.append("<")
+        elif bracket == ">":
+            if len(stack) == 0 or stack.pop() != "<":
+                return False
+    return len(stack) == 0
