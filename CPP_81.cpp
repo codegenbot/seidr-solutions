@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <initializer_list>
 
 using namespace std;
 
@@ -9,7 +8,7 @@ bool issame(vector<string> a) {
     return all_of(a.begin(), a.end(), [&](const string& s) { return s == a[0]; });
 }
 
-vector<string> numerical_letter_grade(initializer_list<float> grades) {
+vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
         if (grade >= 4.0)
@@ -42,7 +41,7 @@ vector<string> numerical_letter_grade(initializer_list<float> grades) {
 
 int main() {
     vector<float> grades = {4.0};
-    vector<string> result = numerical_letter_grade({grades[0]});
+    vector<string> result = numerical_letter_grade(grades);
     if (issame({result[0]})) {
         for (string s : result) {
             if (s != "E") {
