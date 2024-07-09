@@ -1,47 +1,28 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
+bool isPlanet(string planet) {
+    string planets[] = {"Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    for (const string& p : planets) {
+        if (p == planet)
+            return true;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return false;
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> bf(string planet1, string planet2) {
     vector<string> result;
-    if (planet1 == "Earth" && planet2 == "Mars") {
-        result.push_back("Mercury");
-        result.push_back("Venus");
-        result.push_back(planet1);
-        result.push_back(planet2);
-        return result;
-    } else if (planet1 == "Mars" && planet2 == "Jupiter") {
-        result.push_back("Saturn");
-        result.push_back(planet1);
-        result.push_back(planet2);
-        return result;
-    } else if (planet1 == "Venus" && planet2 == "Neptune") {
-        result.push_back("Uranus");
-        result.push_back(planet1);
-        result.push_back(planet2);
-        return result;
-    } else if (issame({planet1, planet2}, {"Earth", "Mars"})) {
-        result.push_back("Mercury");
-        result.push_back("Venus");
-        result.push_back("Neptune");
-        return result;
-    } else if (issame({planet1, planet2}, {"Jupiter", "Saturn"})) {
-        result.push_back("Uranus");
-        result.push_back("Neptune");
-        return result;
+    if (isPlanet(planet1) && isPlanet(planet2)) {
+        if (planet1 < planet2)
+            result.push_back(planet1);
+        else
+            result.push_back(planet2);
     }
-    return {};
+    return result;
 }
 
 int main() {
@@ -57,6 +38,12 @@ int main() {
             cout << planet << " ";
         }
         cout << "\n";
+        vector<string> temp = {planet1, planet2};
+        if(issame(result, temp)) {
+            cout << "The planets are the same.\n";
+        } else {
+            cout << "The planets are different.\n";
+        }
     }
     return 0;
 }
