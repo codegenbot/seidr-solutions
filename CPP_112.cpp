@@ -30,6 +30,7 @@ int main() {
         std::cout << str << " ";
     }
 
+    // Add test cases to verify the implementation
     assert(issame("hello", "hello"));
     assert(!issame("world", "earth"));
 
