@@ -1,13 +1,14 @@
-```cpp
 #include <cassert>
 #include <vector>
+#include <initializer_list>
 
 bool is_sorted(std::vector<int> lst) {
     if(lst.size() <= 1)
         return true;
     for(int i = 1; i < lst.size(); i++){
         if(lst[i-1] > lst[i]){
-            lst.erase(lst.begin()+i, lst.end());
+            std::vector<int>::iterator it = std::unique(lst.begin(), lst.end());
+            lst.erase(it, lst.end());
             return false;
         }
     }
