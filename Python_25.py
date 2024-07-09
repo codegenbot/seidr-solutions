@@ -1,16 +1,7 @@
-def factorize(n):
-    factors = []
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            factors.append(i)
-    if n > 1:
-        factors.append(n)
-    return factors
+import sympy
 
+def factorize(n):
+    return sympy.factorint(n)
 
 try:
     print("Please enter an integer:")
