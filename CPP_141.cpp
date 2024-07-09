@@ -1,34 +1,38 @@
-int count_digits(string str) {
-    int count = 0;
-    for (char c : str) {
-        if (c >= '0' && c <= '9') {
-            count++;
+Here is the completed code:
+
+```cpp
+#include <cctype>
+string file_name_check(string file_name) {
+    int dot_count = 0, digit_count = 0;
+    bool valid = true;
+
+    for (char c : file_name) {
+        if (c == '.') {
+            dot_count++;
+            if (dot_count > 1) {
+                valid = false;
+                break;
+            }
+        } else if (!std::isalnum(c)) {
+            valid = false;
+            break;
+        } else if (std::isdigit(c)) {
+            digit_count++;
+            if (digit_count > 3) {
+                valid = false;
+                break;
+            }
         }
     }
-    return count;
-}
 
-bool check_extension(string file_name) {
-    size_t dot_pos = file_name.find('.');
-    string extension = file_name.substr(dot_pos + 1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    return (find(valid_extensions.begin(), valid_extensions.end(), extension) != valid_extensions.end());
-}
+    string extension;
+    for (int i = file_name.find('.') + 1; i < file_name.size(); i++) {
+        extension += file_name[i];
+    }
 
-bool check_filename(string file_name) {
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || count_digits(file_name.substr(0, dot_pos)) > 1) {
-        return false;
+    if (!valid || extension != "txt" && extension != "exe" && extension != "dll") {
+        return "No";
+    } else {
+        return "Yes";
     }
-    if (count_digits(file_name.substr(dot_pos + 1)) > 0) {
-        return false;
-    }
-    if (!isalpha(file_name[0])) {
-        return false;
-    }
-    return check_extension(file_name);
-}
-
-string file_name_check(string file_name) {
-    return check_filename(file_name) ? "Yes" : "No";
 }
