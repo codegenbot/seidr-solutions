@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cassert>
 #include <iostream>
@@ -10,7 +9,9 @@ int how_many_times(const string& str, const string& substring) {
     size_t pos = 0;
     while ((pos = str.find(substring)) != string::npos) {
         count++;
-        str.erase(pos, substring.length());
+        if (pos < str.length()) {
+            str.erase(pos, str.find(substring) - pos);
+        }
     }
     return count;
 
@@ -19,9 +20,9 @@ int how_many_times(const string& str, const string& substring) {
 int main() {
     string str, substring;
     cout << "Enter a string: ";
-    getline(cin, str);
+    cin >> str;
     cout << "Enter a substring: ";
-    getline(cin, substring);
+    cin >> substring;
     
     if (str.find(substring) == string::npos) {
         cout << "Error: The substring is not found in the string.\n";
