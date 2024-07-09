@@ -57,7 +57,7 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
     return {};
 }
 
-int main() {  
+int mainTest() {  
     vector<string> lst1;
     lst1.push_back("apple");
     lst1.push_back("banana");
