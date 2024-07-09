@@ -1,7 +1,10 @@
+```c++
+#include <string>
+
 int bowlingScore(std::string input) {
     int score = 0;
     int i = 0;
-    while (i < input.length()) {
+    while(i < input.length()) {
         if(input[i] == 'X') { 
             score += 10;
             i++; 
@@ -33,4 +36,10 @@ int bowlingScore(std::string input) {
         }
     }
     return score;
+}
+
+int main() {
+    std::string input = "your-input-string"; // replace with user input or test data
+    int result = bowlingScore(input);
+    return 0;
 }
