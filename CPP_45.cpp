@@ -1,1 +1,5 @@
-return 0.5 * a * h;
+Here is the completed code:
+
+float triangle_area(float a, float h) {
+    return 0.5 * a * h;
+}

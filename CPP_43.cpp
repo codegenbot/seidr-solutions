@@ -1,10 +1,11 @@
-#include <vector>
-using namespace std;
-
+Here is the solution:
+```c++
 bool pairs_sum_to_zero(vector<int> l) {
     unordered_set<int> s(l.begin(), l.end());
-    for (int x : s) {
-        if (s.find(-x) != s.end()) return true;
+    for (auto it = s.begin(); it != s.end(); ++it) {
+        if (s.find(-(*it)) != s.end()) {
+            return true;
+        }
     }
     return false;
 }
