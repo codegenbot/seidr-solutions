@@ -1,25 +1,17 @@
-bool is_happy(string s) {
-    if (s.length() < 3)
-        return false;
-
-    for (int i = 0; i <= s.length() - 3; i++) {
-        string sub = s.substr(i, 3);
+bool is_happy(string s){
+    if(s.length() < 3) return false;
+    for(int i=0; i<s.length()-2; i++){
         bool unique = true;
-        for (char c : sub) {
-            int count = 0;
-            for (int j = i; j < i + 3 && j < s.length(); j++) {
-                if (s[j] == c) {
-                    count++;
+        for(int j=i; j<i+3 && j<s.length(); j++){
+            for(int k=j+1; k<j+3 && k<s.length(); k++){
+                if(s[j] == s[k]) {
+                    unique = false;
+                    break;
                 }
             }
-            if (count > 1) {
-                unique = false;
-                break;
-            }
+            if(!unique) break;
         }
-        if (!unique)
-            return false;
+        if(unique) return true;
     }
-
-    return true;
+    return false;
 }
