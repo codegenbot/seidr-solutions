@@ -1,15 +1,16 @@
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> generate_integers(int start, int end) {
+std::vector<int> generate_integers(int low, int high) {
     std::vector<int> result;
-    for (int i = start; i <= end; ++i) {
+    for (int i = low; i <= high; ++i) {
         result.push_back(i);
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
