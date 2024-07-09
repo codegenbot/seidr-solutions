@@ -1,3 +1,5 @@
+Here is the modified code:
+
 using namespace std;
 
 string solveBoolean(string s) {
