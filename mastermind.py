@@ -1,5 +1,17 @@
-def mastermind(code, guess):
-    white = sum(c in guess for c in set(guess) & set(code))
-    code_count = {c: code.count(c) for c in set(code)}
-    black = sum((c1 == c2) and (code_count[c1] > 0) for c1, c2 in zip(code, guess))
-    return str(white), str(black)
+code_chars = [0] * 6
+
+code = input("Enter the Mastermind code:").upper()
+guess = input("Enter your guess:").upper()
+
+for c in code:
+    if c in "ROYGBI":
+        code_chars[ord(c) - ord("R")] += 1
+
+black, white = 0, 0
+for i in range(4):
+    if code[i] == guess[i]:
+        black += 1
+    elif code_chars[ord(code[i]) - ord("R")] > 0:
+        white += 1
+
+print(f"Black: {black}, White: {4 - black}")

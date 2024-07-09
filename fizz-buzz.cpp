@@ -1,21 +1,12 @@
 #include <string>
-#include <iostream>
 
-std::string fizzBuzz(int x) {
-    std::string result;
+std::string std::fizzBuzz(int x) {
     if (x % 3 == 0 && x % 5 == 0)
-        result = "FizzBuzz";
+        return "FizzBuzz";
     else if (x % 3 == 0)
-        result = (x % 5 == 0) ? "FizzBuzz" : "Fizz";
+        return "Fizz";
     else if (x % 5 == 0)
-        result = "Buzz";
+        return "Buzz";
     else
-        result = std::to_string(x);
-    return result;
-}
-
-int main() {
-    for(int i = 1; i <= 212647; i++) {
-        std::cout << fizzBuzz(i) << std::endl;
-    }
+        return std::to_string(x);
 }

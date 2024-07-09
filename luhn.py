@@ -1,13 +1,12 @@
-def luhn(card_number):
-    card_number = [int(x) for x in str(card_number)]
+def luhn():
+    card_number = [int(x) for x in str(input("Enter your credit card number: "))]
     total = 0
-    for i in range(len(card_number)):
+    for i, num in enumerate(reversed(card_number)):
         if i % 2 == 1:
-            temp = (card_number[i] * 2) % 10
-            if temp > 9:
-                total += temp + 9
-            else:
-                total += temp
+            doubled = (num * 2) % 10   
+            total += doubled
         else:
-            total += card_number[i]
-    return total
+            total += num
+    return "Invalid" if (total + card_number[-1]) % 10 != 0 else "Valid"
+
+print(luhn())
