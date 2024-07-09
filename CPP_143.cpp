@@ -1,5 +1,4 @@
-#include <string>
-#include <vector>
+using namespace std;
 
 string words_in_sentence(string sentence) {
     vector<int> primeLengths;
