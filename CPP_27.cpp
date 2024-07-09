@@ -1,3 +1,7 @@
+#include <iostream>
+#include <cctype>
+using namespace std;
+
 string filp_case(string str){
     string result = "";
     for(int i=0; i<str.length(); i++){
@@ -10,12 +14,11 @@ string filp_case(string str){
     return result;
 }
 
-string filp_case(string str);
 int main() {
-    string s;
-    cout << "Enter a sentence: ";
-    cin >> s;
-    string res = filp_case(s);
-    cout << "Flipped case: " << res << endl;
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    string flipped = filp_case(str);
+    cout << "Flipped case: " << flipped << endl;
     return 0;
 }
