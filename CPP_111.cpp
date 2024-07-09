@@ -1,7 +1,7 @@
-#include <initializer_list>
-
+```
 #include <map>
 #include <string>
+#include <initializer_list>
 
 bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     if (a.size() != b.size()) return false;
@@ -12,7 +12,7 @@ bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
 }
 
 int main() {
-    assert(issame(histogram("a"), {{ 'a', 1 } }));
+    assert(issame(histogram("a"), std::map<char, int>{{'a', 1}}));
     return 0;
 }
 
