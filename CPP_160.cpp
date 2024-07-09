@@ -3,19 +3,20 @@
 
 int do_algebra(std::string input) {
     std::stringstream ss(input);
-    char ops;
-    int operand;
-
     std::vector<std::pair<char, int>> operators_and_operands;
 
-    while (ss >> ops >> operand) {
-        operators_and_operands.push_back({ops, operand});
+    char op;
+    int operand;
+
+    while (ss >> op >> operand) {
+        if (op == '+' || op == '-' || op == '*' || op == '/' || op == '**') {
+            operators_and_operands.push_back(std::make_pair(op, operand));
+        } else {
+            // Invalid input
+            return -1;
+        }
     }
 
-    if (operators_and_operands.size() == 0) {
-        return 0;
-    }
-    
     int result = operators_and_operands[0].second;
     for (const auto& pair : operators_and_operands) {
         if (pair.first == '+') {
