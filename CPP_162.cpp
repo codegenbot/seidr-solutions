@@ -22,7 +22,5 @@ std::string string_to_md5(const std::string& text) {
         sprintf(&mdString[i * 2], "%02x", digest[i]);
     }
 
-    mdString[digest_len * 2] = '\0'; // Null-terminate the string
-
-    return mdString;
+    return std::string(mdString);
 }
