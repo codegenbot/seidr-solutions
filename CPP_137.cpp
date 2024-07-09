@@ -5,9 +5,9 @@
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any(a.cast_to<int>() > boost::any_cast<float>(b));
+        return boost::any(a.convert_to<int>() > boost::any_cast<float>(b));
     } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any(a.cast_to<int>() > boost::any_cast<double>(b));
+        return boost::any(a.convert_to<int>() > boost::any_cast<double>(b));
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         std::string str = boost::any_cast<std::string>(a);
         int num = boost::any_cast<int>(b);
