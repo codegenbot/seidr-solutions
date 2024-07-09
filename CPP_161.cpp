@@ -1,14 +1,15 @@
 Here is the solution:
 
-```cpp
-string solve(string s){
+string solve(string s) {
     string result = "";
     for (char c : s) {
-        if (!isalnum(c)) {
-            result += c;
-        } else {
-            result += (islower(c) ? toupper(c) : tolower(c));
+        if (isalpha(c)) {
+            c = (islower(c))? toupper(c): tolower(c);
         }
+        result += c;
+    }
+    if (!any(isalpha, s)) {
+        reverse(result.begin(), result.end());
     }
     return result;
 }
