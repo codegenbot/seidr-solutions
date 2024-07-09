@@ -17,12 +17,13 @@ double find_zero(const std::vector<double>& coeffs) {
 }
 
 int main() {
-    int n, degree; 
-    std::cin >> n >> degree;
+    int n; 
+    std::cin >> n;
 
-    std::vector<double> coeffs(degree+1);
+    std::vector<double> coeffs;
+    coeffs.resize(n, 0.0);
 
-    for (int i = 0; i <= degree; i++) {
+    for (int i = 0; i < n; i++) {
         double coeff;
         std::cin >> coeff;
         coeffs[i] = coeff;
@@ -32,7 +33,7 @@ int main() {
     std::cin >> x;
     
     // Call poly function with input values
-    double sum = poly(coeffs, x);
+    double sum = poly({coeffs[0], coeffs[1], coeffs[2]}, x);
     std::cout << "The polynomial evaluation at x = " << x << " is: " << sum << std::endl;
 
     // Calculate the root using find_zero function
