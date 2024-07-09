@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -12,44 +13,37 @@ void displayOutput(vector<string> output) {
     }
 }
 
-int main() {
-    vector<string> lst;
-    string temp;
-    while(getline(cin,temp) && !temp.empty()) {
-        lst.push_back(temp);
+vector<string> odd_count(vector<string> lst) {
+    vector<string> result;
+    for (int i = 0; i < lst.size(); i++) {
+        int count = 0;
+        for (char c : lst[i]) {
+            if ((int(c) % 2 != 0)) {
+                count++;
+            }
+        }
+        string temp = "The number of odd elements is ";
+        temp += to_string(count);
+        temp += " in the string";
+        temp += to_string(i + 1);
+        temp += ".";
+        result.push_back(temp);
     }
-    vector<string> output = odd_count(lst);
-    displayOutput(output);
-    return 0;
+    return result;
 }
 
 vector<string> odd_count(vector<string> lst) {
     vector<string> result;
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
-        string temp = "";
         for (char c : lst[i]) {
-            if (c % 2 != 0) {
+            if ((int(c) % 2 != 0)) {
                 count++;
-                temp += c;
             }
         }
-        if (!temp.empty()) {
-            string finalTemp = "the number of odd elements is ";
-            finalTemp += to_string(count);
-            finalTemp += " in the string";
-            finalTemp += to_string(i + 1);
-            finalTemp += ".";
-            result.push_back(finalTemp);
-            result.push_back(temp);
-        } else {
-            if (count == 0) {
-                string finalTemp = "all characters are even in the string";
-                finalTemp += to_string(i + 1);
-                finalTemp += ".";
-                result.push_back(finalTemp);
-            }
-        }
+        string temp = to_string(i + 1);
+        temp += ": " + to_string(count) + " character(s) are odd.";
+        result.push_back(temp);
     }
     return result;
 }
