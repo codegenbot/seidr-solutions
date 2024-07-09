@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     strike_count = 0
@@ -15,6 +16,14 @@ def bowling_score(frames):
             strike_count = i + 1
         else:
             score += sum(int(part) for part in frames[i].split(" "))
-    if strike_count == 10:
-        score += 10 * (strike_count - 9)
+    while strike_count < 10:
+        if "/" in frames[strike_count]:
+            parts = frames[strike_count].split("/")
+            score += min(int(parts[0]), 10) * 2 + int(parts[1])
+            strike_count += 1
+        elif "X" == frames[strike_count]:
+            score += 10
+            strike_count += 1
+        else:
+            break
     return score
