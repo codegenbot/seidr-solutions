@@ -1,4 +1,3 @@
-```
 import re
 
 def validate_tweet(tweet):

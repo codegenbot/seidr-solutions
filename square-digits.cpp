@@ -9,12 +9,3 @@ std::string squareDigits(std::string input) {
         output += to_string(squared);
     }
     return output;
-}
-
-int main() { 
-    std::string input; 
-    cin >> input; 
-    string result = squareDigits(input); 
-    cout << result << endl; 
-    return 0; 
-}
