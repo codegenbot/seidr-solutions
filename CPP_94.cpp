@@ -1,27 +1,14 @@
-int calculateSumOfDigitPrimes(vector<int> numbers) {
-    int maxPrime = 0;
-    for (int num : numbers) {
-        if (isPrime(num)) {
-            maxPrime = num;
-            break;
+int sumOfUniqueNumbers(vector<int> nums) {
+    set<int> uniqueNums(nums.begin(), nums.end());
+    int total = 0;
+    for (int num : uniqueNums) {
+        int count = 0;
+        for (int i : nums) {
+            if (i == num)
+                count++;
         }
+        if (count > 1) continue;
+        total += num;
     }
-    int sumOfDigits = 0;
-    while (maxPrime > 0) {
-        sumOfDigits += maxPrime % 10;
-        maxPrime /= 10;
-    }
-    return sumOfDigits;
-}
-
-bool isPrime(int number) {
-    if (number <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= number; i++) {
-        if (number % i == 0) {
-            return false;
-        }
-    }
-    return true;
+    return total;
 }
