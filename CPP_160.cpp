@@ -1,12 +1,18 @@
+long long pow(long long base, int exponent) {
+    if(exponent == 0)
+        return 1;
+    else
+        return base * pow(base, exponent - 1);
+}
+
 int do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
         expression += to_string(operand[i]);
         expression += operator_[i];
-        i++; // increment i here
     }
     expression += to_string(operand[operator_.size()]);
-
+    
     long long result = eval(expression);
     
     return (int)result;
@@ -15,7 +21,7 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
 long long eval(const string& s) {
     int n = s.size();
     stack<int> st;
-    int i = 0; // declare i here
+    int i = 0;
     while (i < n) {
         if (isdigit(s[i])) {
             int num = 0;
@@ -79,17 +85,6 @@ long long eval(const string& s) {
                 st.pop();
             }
             res += num;
-        } else if (op == '**') {
-            long long num = pow(st.top(), 1);
-            st.pop();
-            while (!st.empty() && st.top() == '(') {
-                st.pop();
-            }
-            if (!st.empty()) {
-                num = pow(num, st.top());
-                st.pop();
-            }
-            res += num;
         } else if (op == '//') {
             long long num = st.top() / 1;
             st.pop();
@@ -98,6 +93,17 @@ long long eval(const string& s) {
             }
             if (!st.empty()) {
                 num /= st.top();
+                st.pop();
+            }
+            res += num;
+        } else if (op == '**') {
+            long long num = pow(st.top(), 1);
+            st.pop();
+            while (!st.empty() && st.top() == '(') {
+                st.pop();
+            }
+            if (!st.empty()) {
+                num = pow(num, st.top());
                 st.pop();
             }
             res += num;
