@@ -17,9 +17,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> list) {
-    // Sort the list of strings and return
-    std::sort(list.begin(), list.end());
-    return list;
+    // Code implementation to sort list and return
 }
 
 int main() {
