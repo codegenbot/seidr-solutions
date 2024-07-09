@@ -1,20 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <set>
-#include <algorithm>
+using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(vector<int> a, vector<int> b){
+    return (a == b);
 }
 
 vector<int> common(vector<int> l1, vector<int> l2) {
@@ -31,13 +22,32 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    vector<int> l1 = {1, 2, 3, 4, 5};
-    vector<int> l2 = {4, 5, 6, 7, 8};
+    int n1, m1, n2, m2;
+    cout << "Enter the number of elements for the first list: ";
+    cin >> n1;
+    vector<int> l1(n1);
+    cout << "Enter the elements for the first list: ";
+    for (int i = 0; i < n1; i++) {
+        cin >> l1[i];
+    }
+    
+    cout << "Enter the number of elements for the second list: ";
+    cin >> m2;
+    vector<int> l2(m2);
+    cout << "Enter the elements for the second list: ";
+    for (int i = 0; i < m2; i++) {
+        cin >> l2[i];
+    }
     
     vector<int> output = common(l1, l2);
-    
-    for (int i : output) {
-        std::cout << i << " ";
+    if(output.size() == 0) cout << "The lists have no common elements.\n";
+    else {
+        cout << "The lists have the following common elements: ";
+        for (int i : output) {
+            cout << i << " ";
+        }
+        cout << "\n";
     }
+    
     return 0;
 }
