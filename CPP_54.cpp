@@ -1,7 +1,8 @@
+```cpp
 #include <string>
 #include <algorithm>
 #include <limits>
-#include <sstream>
+#include <iostream>
 
 using namespace std;
 
@@ -24,3 +25,4 @@ int main() {
         cout << "The strings do not have the same characters.\n";
     }
     return 0;
+}
