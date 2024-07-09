@@ -1,9 +1,6 @@
-vector<int> unique_lst = lst;
-    sort(unique_lst.begin(), unique_lst.end());
-    for (int i = 0; i < unique_lst.size(); i++) {
-        if (count(lst.begin(), lst.end(), unique_lst[i]) > 1) {
+for(int i=1; i<lst.size(); i++){
+        if(lst[i] <= lst[i-1] || count(lst.begin(), lst.end(), lst[i]) > 1)
             return false;
-        }
     }
-    return lst == unique_lst;
+    return true;
 }
