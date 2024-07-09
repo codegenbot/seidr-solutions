@@ -1,25 +1,7 @@
-vector<string> by_length(vector<int> arr){
-    vector<int> nums;
-    for(int i: arr){
-        if(i>=1 && i<=9)nums.push_back(i);
-    }
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
-    vector<string> result;
-    for(int num : nums){
-        string s = "";
-        switch(num){
-            case 1: s="One"; break;
-            case 2: s="Two"; break;
-            case 3: s="Three"; break;
-            case 4: s="Four"; break;
-            case 5: s="Five"; break;
-            case 6: s="Six"; break;
-            case 7: s="Seven"; break;
-            case 8: s="Eight"; break;
-            case 9: s="Nine";
-        }
-        result.push_back(s);
-    }
-    return result;
+bool issame(vector<string> a, vector<string>b){
+    return a == b;
+}
+
+int main() {
+    assert (issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
 }
