@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <cassert>
 #include <iostream>
 
