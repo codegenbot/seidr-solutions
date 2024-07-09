@@ -15,9 +15,10 @@ string validateTweet(string tweet) {
 
 int main() {
     string tweet;
-    cout << "Enter a tweet: ";
-    getline(cin, tweet);
-    tweet.erase(remove(tweet.begin(), tweet.end(), ' '), end(tweet));
+    std::cout << "Enter a tweet: ";
+    std::getline(std::cin, tweet);
+    tweet.erase(remove(tweet.begin(), tweet.end(), ' '), end(tweet)), 
+              tweet.erase(remove(tweet.begin(), tweet.end(), '\r'), end(tweet));
     cout << validateTweet(tweet) << endl;
     return 0;
 }
