@@ -4,6 +4,8 @@ import math
 
 
 def factorize(n: int) -> List[int]:
+    if n < 2:
+        return [1]
     factors = []
     for i in range(2, n + 1):
         if n % i == 0:
@@ -12,6 +14,4 @@ def factorize(n: int) -> List[int]:
                 n //= i
                 count += 1
             factors.extend([i] * count)
-    if n > 1:  
-        factors.append(n) 
     return factors
