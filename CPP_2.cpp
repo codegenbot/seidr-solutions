@@ -1,4 +1,6 @@
+#include <cmath>
+
 float truncate_number(float number) {
-    int integer = (int)number;
-    return number - integer;
+    int integerPart = (int)number;
+    return number - static_cast<float>(integerPart);
 }
