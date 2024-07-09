@@ -17,12 +17,11 @@ bool operator==(const vector<int>& a, initializer_list<int> b) {
 
 vector<int> make_a_pile(int n) {
     vector<int> pile = {0, 1};
-    for (int i = 2; i <= n; ++i)
-        pile.insert(pile.begin(), i);
+    for (int i = 2; i <= n; ++i) {
+        vector<int> temp = {pile.back() + i}; 
+        while (!temp.empty()) pile.insert(pile.begin(), temp.back());
+    }
     return pile;
 }
 
-int main() {
-    assert(make_a_pile(8) == vector<int>({8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
-}
+assert(make_a_pile(8) == vector<int>({8, 10, 12, 14, 16, 18, 20, 22}));
