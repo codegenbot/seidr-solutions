@@ -38,9 +38,9 @@ int main() {
     vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
     vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
     if (!issame(sorted_list_sum(lst), expected)) {
-        cout << "Test failed" << endl;
+        std::cout << "Test failed" << std::endl;
     } else {
-        cout << "Test passed" << endl;
+        std::cout << "Test passed" << std::endl;
     }
     return 0;
 }
