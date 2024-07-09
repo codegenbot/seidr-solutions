@@ -1,7 +1,7 @@
+```c++
 #include <algorithm>
-#include <iostream>
 #include <string>
-
+#include <iostream> 
 using namespace std;
 
 string anti_shuffle(string s) {
