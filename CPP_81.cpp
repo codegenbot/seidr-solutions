@@ -1,38 +1,48 @@
 #include <vector>
 #include <string>
+using namespace std;
 
 vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grads;
+    vector<string> result;
     for (float g : grades) {
-        string letter_grade;
-        if (g >= 4.0) {
-            letter_grade = "A+";
-        } else if (g > 3.7) {
-            letter_grade = "A";
-        } else if (g > 3.3) {
-            letter_grade = "A-";
-        } else if (g > 3.0) {
-            letter_grade = "B+";
-        } else if (g > 2.7) {
-            letter_grade = "B";
-        } else if (g > 2.3) {
-            letter_grade = "B-";
-        } else if (g > 2.0) {
-            letter_grade = "C+";
-        } else if (g > 1.7) {
-            letter_grade = "C";
-        } else if (g > 1.3) {
-            letter_grade = "C-";
-        } else if (g > 1.0) {
-            letter_grade = "D+";
-        } else if (g > 0.7) {
-            letter_grade = "D";
-        } else if (g > 0.0) {
-            letter_grade = "D-";
-        } else {
-            letter_grade = "E";
-        }
-        letter_grads.push_back(letter_grade);
+        string letterGrade;
+        if (g >= 4.0)
+            letterGrade = "A+";
+        else if (g > 3.7)
+            letterGrade = "A";
+        else if (g > 3.3)
+            letterGrade = "A-";
+        else if (g > 3.0)
+            letterGrade = "B+";
+        else if (g > 2.7)
+            letterGrade = "B";
+        else if (g > 2.3)
+            letterGrade = "B-";
+        else if (g > 2.0)
+            letterGrade = "C+";
+        else if (g > 1.7)
+            letterGrade = "C";
+        else if (g > 1.3)
+            letterGrade = "C-";
+        else if (g > 1.0)
+            letterGrade = "D+";
+        else if (g > 0.7)
+            letterGrade = "D";
+        else
+            letterGrade = "E";
+
+        result.push_back(letterGrade);
     }
-    return letter_grades;
+    return result;
+}
+
+int main() {
+    vector<float> grades = {3.9, 2.8, 4.1};
+    vector<string> letterGrades = numerical_letter_grade(grades);
+
+    for (string grade : letterGrades) {
+        cout << grade << endl;
+    }
+
+    return 0;
 }
