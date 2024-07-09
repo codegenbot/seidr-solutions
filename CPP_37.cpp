@@ -1,4 +1,3 @@
-```cpp
 using namespace std;
 
 bool isSame(const vector<float>& a, const vector<float>& b) {
