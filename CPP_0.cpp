@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <cmath>
 
@@ -11,10 +12,11 @@ bool has_close_elements(const std::vector<float>& a, float delta) {
 }
 
 int main() {
-    std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    using namespace std;
+    vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
     if (has_close_elements(a, 0.1)) {
-        std::cout << "Vector has at least two elements that are less than or equal to delta." << std::endl;
+        cout << "There are close elements." << endl;
     } else {
-        std::cout << "Vector does not have at least two elements that are less than or equal to delta." << std::endl;
+        cout << "No close elements found." << endl;
     }
 }
