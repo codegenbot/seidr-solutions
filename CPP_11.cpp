@@ -12,31 +12,28 @@ std::string string_xor(std::string a, std::string b) {
         int x = (a[i] - '0');
         int y = (b[i] - '0');
         int res = x ^ y;
-        result += res == 1 ? "1" : "0";
+        result += (res > 0) ? '1' : '0';
     }
     return result;
 }
 
 int main() { 
     assert(string_xor("0101", "0000") == "0101");
-    char c;
     std::string str1;
-    while ((c = std::cin.get()) != '\n') {
-        if (c == ' ') {
-            continue;
-        }
-        str1 += c - '0';
-    }
-    str1.erase(0, 1);
-    char d;
     std::string str2;
-    while ((d = std::cin.get()) != '\n') {
-        if (d == ' ') {
-            continue;
-        }
-        str2 += d - '0';
+    std::cout << "Enter the first string (only 0s and 1s): ";
+    str1 = std::string();
+    while(str1.length() > 0) {
+        str1.pop_back(); // remove last character until the length is equal to 'a'
     }
-    str2.erase(0, 1);
+    std::getline(std::cin, str1);
+
+    std::cout << "Enter the second string (only 0s and 1s): ";
+    str2 = std::string();
+    while(str2.length() > 0) {
+        str2.pop_back(); // remove last character until the length is equal to 'a'
+    }
+    std::getline(std::cin, str2);
     try {
         std::string result = string_xor(str1, str2);
         std::cout << "XOR of the two strings is: " << result << std::endl;
