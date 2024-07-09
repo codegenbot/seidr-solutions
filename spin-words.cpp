@@ -1,24 +1,26 @@
+Here is the solution:
+
 #include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
-    std::istringstream iss(sentence);
-    std::string word;
-    std::stringstream result;
+using namespace std;
 
-    while (iss >> word) {
-        if(word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+string spinWords(string str) {
+    string result = "";
+    for (int i = 0; i <= str.length(); i++) {
+        if ((i == str.length() || isspace(str[i])) && str.substr(i - (i > 0), i - (i > 0)).length() >= 5) {
+            reverse(str.substr(i - (i > 0), i - (i > 0)).begin(), str.substr(i - (i > 0), i - (i > 0)).end());
         }
-        result << word << " ";
+        result += str[i];
     }
-
-    return result.str();
+    return result;
 }
 
 int main() {
-    // Example usage
-    std::cout << spinWords("this is a test") << std::endl;
+    cout << spinWords("a") << endl; // Should print "a"
+    cout << spinWords("this is a test") << endl; // Should print "this is a test"
+    cout << spinWords("this is another test") << endl; // Should print "this is rehtona test"
+    cout << spinWords("hi") << endl; // Should print "hi"
     return 0;
 }
