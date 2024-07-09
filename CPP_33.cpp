@@ -10,12 +10,12 @@ vector<int> sort_third(vector<int> l) {
     int i = 0;
     while (i < l.size()) {
         if (i + 2 < l.size()) {
-            vector<int> block(static_cast<size_t>(std::min(l.size() - i, 3)));
-            for (int j = 0; j < static_cast<size_t>(std::min(l.size() - i, 3)); j++) {
+            vector<int> block(3);
+            for (int j = 0; j < 3 && i + j < l.size(); j++) {
                 block[j] = l[i + j];
             }
             sort(block.begin(), block.end());
-            for (int j = 0; j < static_cast<size_t>(std::min(l.size() - i, 3)); j++) {
+            for (int j = 0; j < 3; j++) {
                 result.push_back(block[j]);
             }
             i += 3;
