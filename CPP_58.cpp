@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -23,28 +22,8 @@ int main() {
     }
 
     // Calculate the difference between two sets
-    std::vector<int> diff(s1.size() + s2.size());
-    set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(),
-        std::back_inserter(diff));
-
-    // Calculate the intersection of two sets
-    auto intersection = s1;
-    s1.clear();
-    std::vector<int> intersect(s1.size() + s2.size());
-    std::set_intersection(s2.begin(), s2.end(), intersection.begin(), intersection.end(),
-        std::back_inserter(intersect));
-
-    // Print the results
-    std::cout << "Difference: ";
-    for (int i : diff) {
-        std::cout << i << " ";
-    }
-    std::cout << "\n";
-    std::cout << "Intersection: ";
-    for (int i : intersect) {
-        std::cout << i << " ";
-    }
-    std::cout << "\n";
+    std::set<int> common(s1.begin(), s1.end());
+    set_difference(common.begin(), common.end(), s2.begin(), s2.end(),
+                    inserter(s1, s1.begin()));
 
     return 0;
-}
