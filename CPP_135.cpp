@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -11,21 +10,11 @@ bool can_arrange(std::vector<int> arr){
 }
 
 int main(){
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> arr(n);
-    
-    for(int i = 0; i < n; i++){
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> arr[i];
+    std::vector<int> arr = {5, 3, 7, 2};
+    if(can_arrange(arr)){
+        std::cout << "The array can be arranged in increasing order." << std::endl;
+    } else {
+        std::cout << "The array cannot be arranged in increasing order." << std::endl;
     }
-
-    if(can_arrange(arr))
-        std::cout << "The elements can be arranged in increasing order." << std::endl;
-    else
-        std::cout << "The elements cannot be arranged in increasing order." << std::endl;
-
     return 0;
 }
