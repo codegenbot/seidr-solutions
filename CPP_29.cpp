@@ -1,6 +1,6 @@
-#include <vector>
+#include <algorithm>
 #include <string>
-#include <initializer_list>
+#include <vector>
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
     std::vector<std::string> result;
@@ -10,3 +10,4 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
         }
     }
     return result;
+}
