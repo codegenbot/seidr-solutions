@@ -1,13 +1,8 @@
 def find_zero(xs: list):
-    if len(xs) < 2:
-        return "List should contain at least two elements"
-    
+    n = len(xs) - 1
     a, b = xs[0], xs[1]
-    if a == 0:
-        return "Division by zero error"
-    
     return -b / a
 
-input_list = list(map(int, input("Enter list of integers separated by space: ").split()))
+input_list = list(map(int, input("Enter list of integers separated by space: ").strip().split()))
 result = find_zero(input_list)
 print(result)
