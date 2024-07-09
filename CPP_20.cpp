@@ -1,17 +1,13 @@
 #include <algorithm>
 #include <vector>
 #include <cmath>
+#include <utility>
 
-bool isSame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
+bool issame(float a, float b) {
+    if (abs(a - b) < 0.0001)
+        return true;
+    else
         return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (std::abs(a[i] - b[i]) > 1e-6) {
-            return false;
-        }
-    }
-    return true;
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
@@ -20,8 +16,8 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            if (std::abs(numbers[j] - numbers[i]) < std::abs(closest_pair.second - closest_pair.first)) {
-                closest_pair = make_pair(std::min(numbers[i], numbers[j]), std::max(numbers[i], numbers[j]));
+            if (abs(numbers[j] - numbers[i]) < abs(closest_pair.second - closest_pair.first)) {
+                closest_pair = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
             }
         }
     }
