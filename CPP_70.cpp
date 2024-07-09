@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(vector<vector<int>>& a, vector<vector<int>>& b) {
     if (a.size() != b.size()) {
@@ -25,11 +24,13 @@ vector<int> strange_sort_vector(vector<int> lst) {
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
         result.push_back(min_val);
-        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
+        auto it = std::remove(lst.begin(), lst.end(), min_val);
+        lst.erase(it, lst.end());
         if (!lst.empty()) {
             int max_val = *max_element(lst.begin(), lst.end());
             result.push_back(max_val);
-            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
+            it = std::remove(lst.begin(), lst.end(), max_val);
+            lst.erase(it, lst.end());
         }
     }
     return result;
@@ -38,4 +39,5 @@ vector<int> strange_sort_vector(vector<int> lst) {
 int main() {
     assert(issame({{1, 2}, {3, 4}}, {{2, 1}, {4, 3}}));
     vector<int> result = strange_sort_vector({111111});
+    // Do something with the result
 }
