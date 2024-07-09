@@ -1,9 +1,10 @@
-int can_arrange(vector<int> arr); 
-
 int can_arrange(vector<int> arr){
-    for(int i=0; i<arr.size(); i++){
+    int i = 0;
+    while(i < arr.size()){
         if(i==0 || arr[i-1] <= arr[i])
-            return i;
+            i++;
+        else
+            return -1;
     }
-    return -1;
+    return 1;
 }
