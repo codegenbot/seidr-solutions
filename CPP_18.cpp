@@ -1,5 +1,5 @@
-#include <string>
 #include <cassert>
+#include <string>
 
 int how_many_times(const std::string& str, const std::string& substring) {
     int count = 0;
@@ -13,6 +13,7 @@ int how_many_times(const std::string& str, const std::string& substring) {
 
 int main() {
     std::string str = "john doe";
-    int result = how_many_times(str, "john");
+    std::string substring = "john";
+    int result = how_many_times(str, substring);
     assert(result == 1);
 }
