@@ -26,7 +26,7 @@ int main(){
     vector<string> result = filter_by_prefix(test_strings, "a");
     
     assert(issame(result, expected_result));
-    
+
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
 
     return 0;
