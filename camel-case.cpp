@@ -15,6 +15,7 @@ std::string camelCase(std::string s) {
             }
             std::string word = s.substr(i, j - i);
             for (char c : word) {
+                if (c == '-') continue;
                 result.push_back(std::tolower(c));
             }
         } else if (!std::isalnum(s[i])) {
