@@ -1,9 +1,8 @@
-```
-long long double_the_difference(vector<float> lst) {
+long long double_the_difference(vector<float> lst){
     long long sum = 0;
-    for (float x : lst) {
-        if (std::abs(x) == static_cast<long long>(x) && x > 0) {
-            sum += std::pow(x, 2);
+    for(float num : lst){
+        if(int(num) > 0 && (int(num) & 1)){
+            sum += pow((int(num)), 2);
         }
     }
     return sum;
