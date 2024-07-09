@@ -1,16 +1,11 @@
-Here is the completed code:
+using namespace std;
 
-string longest(vector<string> strings){
-    if (strings.empty()) {
-        return "";
+std::string longest(vector<std::string> strings) {
+    if(strings.empty()) return "";
+    string result = strings[0];
+    for(auto str : strings) {
+        if(str.length() > result.length())
+            result = str;
     }
-    string longest = strings[0];
-    for (const auto& s : strings) {
-        if (s.length() > longest.length()) {
-            longest = s;
-        } else if (s.length() == longest.length()) {
-            longest = s; // the first one with same length
-        }
-    }
-    return longest;
+    return result;
 }
