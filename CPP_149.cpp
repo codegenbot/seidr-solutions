@@ -13,3 +13,7 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
     });
     return sorted_list;
 }
+
+int main() {
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));    
+}
