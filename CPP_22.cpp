@@ -3,7 +3,7 @@
 #include <vector>
 
 bool filter_integers(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() { 
@@ -12,9 +12,6 @@ int main() {
 
     std::vector<int> a;
     std::vector<int> b;
-
-    std::vector<int>().swap(a);
-    std::vector<int>().swap(b);
 
     for(int i = 0; i < n; ++i)
         {
@@ -30,7 +27,7 @@ int main() {
             b.push_back(x);
         }
 
-    if(a == b)
+    if (filter_integers(a, b))
         std::cout << "The two vectors are the same." << std::endl;
     else
         std::cout << "The two vectors are not the same." << std::endl;
