@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,14 +12,21 @@ int findGCD(int a, int b) {
     return std::abs(b); 
 }
 
-std::vector<int> findIndices(const std::string& text, const std::string& target) {
-    std::vector<int> indices;
-    size_t pos = 0;
-    while ((pos = text.find(target, pos)) != std::string::npos) {
-        indices.push_back(pos);
-        pos += target.size();
+std::vector<int> findIndices(std::string text, std::string target) {
+    std::vector<int> result;
+    for (int i = 0; i <= text.size() - target.size(); ++i) {
+        bool found = true;
+        for (int j = 0; j < target.size(); ++j) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            result.push_back(i);
+        }
     }
-    return indices;
+    return result;
 }
 
 int main() {
@@ -28,15 +36,19 @@ int main() {
     int result = findGCD(a, b);
     std::cout << "The GCD is: " << result << std::endl;
 
-    std::string text, target;
-    std::cout << "Enter the text: ";
-    std::getline(std::cin, text);
-    std::cout << "Enter the target string: ";
-    std::getline(std::cin, target);
-
+    std::string text = "Hello World! Hello";
+    std::string target = "ello";
     std::vector<int> indices = findIndices(text, target);
-    for (int i : indices) {
-        std::cout << i << " ";
+
+    if (indices.empty()) {
+        std::cout << "Target not found in the text." << std::endl;
+    } else {
+        std::cout << "Indices: ";
+        for (int index : indices) {
+            std::cout << index << " ";
+        }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
+
+    return 0;
 }
