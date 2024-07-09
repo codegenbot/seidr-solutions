@@ -7,14 +7,26 @@ std::string match_parens(std::vector<std::string> lst){
     for(int i=0; i<lst.size(); i++){
         for(char c: lst[i]){
             if(c == '(') open++;
-            else close++;
+            else if (c == ')') close++;
         }
     }
     return (open==close) ? "Yes" : "No";
 }
 
-int main() {
-    std::vector<std::string> strings = {"(Hello", ")World"};
-    std::cout << match_parens(strings) << std::endl;
+int main(){
+    std::vector<std::string> lst;
+    int n;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> n;
+    
+    for(int i = 0; i < n; ++i){
+        std::string s;
+        std::cout << "Enter string " << i+1 << ": ";
+        std::getline(std::cin, s);
+        lst.push_back(s);
+    }
+    
+    std::cout << "Do the strings match? " << match_parens(lst) << std::endl;
+    
     return 0;
 }
