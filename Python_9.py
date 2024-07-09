@@ -1,13 +1,15 @@
 from collections import deque
+from typing import List, Tuple
+
 
 def rolling_max(numbers: List[int]) -> List[int]:
     result = []
-    max_values = deque()
-    
-    for num in numbers:
-        while max_values and max_values[-1] < num:
-            max_values.pop()
-        max_values.append(num)
-        result.append(max_values[0])
-    
+    window = deque()
+    for i, num in enumerate(numbers):
+        while window and numbers[window[-1]] < num:
+            window.pop()
+        window.append(i)
+        if window[0] == i - len(window):
+            window.popleft()
+        result.append(numbers[window[0]])
     return result
