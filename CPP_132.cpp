@@ -9,3 +9,11 @@ bool is_nested(const std::string& str) {
     }
     return count == 0;
 }
+
+int main() {
+    assert(is_nested("[]") == true);
+    assert(is_nested("[[]") == false);
+    assert(is_nested("[][]") == true);
+
+    return 0;
+}
