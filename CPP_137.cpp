@@ -3,27 +3,25 @@ if(a.type() == typeid(int) && b.type() == typeid(int)){
         return a;
     } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
         return b;
+    } else {
+        return "None";
     }
 } else if(a.type() == typeid(float) && b.type() == typeid(float)){
     if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
         return a;
     } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
         return b;
+    } else {
+        return "None";
     }
 } else if(a.type() == typeid(string) && b.type() == typeid(string)){
-    string strA = boost::any_cast<string>(a);
-    string strB = boost::any_cast<string>(b);
-    if(strA.find_first_of(".,") != string::npos){
-        replace(strA.begin(), strA.end(), ',', '.');
-    }
-    if(strB.find_first_of(".,") != string::npos){
-        replace(strB.begin(), strB.end(), ',', '.');
-    }
-    if(stod(strA) > stod(strB)){
+    if(stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b))){
         return a;
-    } else if(stod(strA) < stod(strB)){
+    } else if(stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b))){
         return b;
+    } else {
+        return "None";
     }
-}
-return "None";
+} else {
+    return "None";
 }
