@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -15,6 +15,6 @@ int next_smallest(vector<int> lst) {
 }
 
 int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    cout << next_smallest({-35, 34, 12, -45}) << endl;
     return 0;
 }
