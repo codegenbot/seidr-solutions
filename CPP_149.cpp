@@ -1,11 +1,11 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<assert.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
 using namespace std;
 
-bool areSame(const vector<string>& a, const vector<string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
@@ -22,6 +22,14 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
 }
 
 int main() {
-    assert(areSame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    vector<string> lst = {"apple", "banana", "carrot", "date", "elephant"};
+    vector<string> result = sorted_list_sum(lst);
+    for (const auto& s : result) {
+        cout << s << " ";
+    }
+    cout << endl;
+    
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    
     return 0;
 }
