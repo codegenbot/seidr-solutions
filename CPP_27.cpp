@@ -1,7 +1,8 @@
+```cpp
 #include <cassert>
 #include <string>
 
-std::string filp_case(const std::string& str) {
+std::string flip_case(const std::string& str) {
     std::string result;
     for (char c : str) {
         if (isupper(c)) {
