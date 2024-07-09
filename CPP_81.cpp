@@ -1,9 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string> &b){
-    // Function implementation here
-}
+bool issame(const vector<string> &a, const vector<string> &b);
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
