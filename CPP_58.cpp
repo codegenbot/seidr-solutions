@@ -1,4 +1,9 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <set>
+#include <algorithm>
+
 int main() {
     std::set<std::string> s1;
     std::set<std::string> s2;
@@ -12,7 +17,8 @@ int main() {
         s1Vec.push_back(x);
     }
 
-    s1 = std::set<std::string>(s1Vec.begin(), s1Vec.end());
+    s1.reserve(s1Vec.size());
+    for(auto x : s1Vec) s1.insert(x);
 
     std::vector<std::string> s2Vec;
     for(int i = 0; i < m1; i++) {
@@ -21,7 +27,8 @@ int main() {
         s2Vec.push_back(y);
     }
 
-    s2 = std::set<std::string>(s2Vec.begin(), s2Vec.end());
+    s2.reserve(s2Vec.size());
+    for(auto x : s2Vec) s2.insert(x);
 
     std::vector<std::string> diff(s1.begin(), s1.end());
     set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(),
