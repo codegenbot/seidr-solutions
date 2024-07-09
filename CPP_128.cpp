@@ -1,6 +1,3 @@
-```cpp
-#include <vector>
-
 int prod_signs(std::vector<int> arr){
     long long res = 1;
     int sum = 0;
