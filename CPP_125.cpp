@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cctype>
 
-using string = std::basic_string<char>;
-
-std::vector<string> split_words(string txt) {
-    std::vector<string> words;
-    string word;
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> words;
+    std::string word;
     for (char& c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -23,7 +22,7 @@ std::vector<string> split_words(string txt) {
     if (words.empty()) {
         int count = 0;
         for (char& c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
+            if (std::islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
@@ -46,6 +45,14 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    // code implementation
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::vector<std::string> result = split_words(input);
+
+    for (const auto& word : result) {
+        std::cout << word << " ";
+    }
+
     return 0;
 }
