@@ -18,11 +18,11 @@ bool prime_length(int n) {
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     if (prime_length(n)) {
-        std::cout << "Prime length";
+        cout << "Prime length";
     } else {
-        std::cout << "Not prime length";
+        cout << "Not prime length";
     }
     return 0;
 }
