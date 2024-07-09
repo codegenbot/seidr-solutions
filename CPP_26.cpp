@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,9 +15,17 @@ bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
-    std::vector<int> uniqueNumbers(numbers.begin(), numbers.end());
-    uniqueNumbers.erase(std::unique(uniqueNumbers.begin(), uniqueNumbers.end()), uniqueNumbers.end());
-    return uniqueNumbers;
+    std::vector<int> sortedNumbers = numbers; 
+    std::sort(sortedNumbers.begin(), sortedNumbers.end()); 
+
+    for (auto it = sortedNumbers.begin(); it != sortedNumbers.end() - 1; ++it) {
+        if (*it == *(it + 1)) {
+            it = sortedNumbers.erase(it);
+            --it;
+        }
+    }
+
+    return sortedNumbers;
 }
 
 int mainFunction() {
@@ -25,7 +33,7 @@ int mainFunction() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> numbers;  // Declare and initialize the vector
+    std::vector<int> numbers;  
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int num;
@@ -35,7 +43,7 @@ int mainFunction() {
 
     std::vector<int> uniqueNumbers = remove_duplicates(numbers);
 
-    if (areVectorsEqual(uniqueNumbers, numbers)) {
+    if (issame(uniqueNumbers, numbers)) {
         std::cout << "The resulting vector is the same as the original." << std::endl;
     } else {
         std::cout << "The resulting vector is different from the original." << std::endl;
