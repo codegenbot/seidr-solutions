@@ -19,9 +19,9 @@ std::string fix_spaces(std::string text) {
 }
 
 int main() {
-    std::string str;
+    std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << "Fixed string: " << fix_spaces(str) << std::endl;
+    std::getline(std::cin, input);
+    std::cout << "Fixed string: " << fix_spaces(input) << std::endl;
     return 0;
 }
