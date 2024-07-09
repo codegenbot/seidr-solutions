@@ -1,27 +1,22 @@
-```cpp
+double poly(double c, double s) { return c + s; }
 double find_zero(vector<double> xs) {
-    double c;
+    double c, solution;
     vector<double> polyCoeffs;
     int n = xs.size();
     c = xs[0];
+    polyCoeffs.push_back(c);
     for (int i = 1; i < n; i++) {
         if ((i & 1) == 0) {
-            polyCoeffs.push_back(-c*xs[i]);
+            polyCoeffs.insert(polyCoeffs.begin(), -c*xs[i]);
         } else {
             c = xs[i];
+            polyCoeffs.push_back(c);
         }
     }
-    double solution;
-    double poly(double a, double b) { return a + b; };
-    for (int i = 2; i < polyCoeffs.size(); ) {
-        double p0 = poly(c, -polyCoeffs[1]/c);
-        if (abs(p0)<1e-3)
-            solution = c;
-        else
-            c = p0;
-        for (int j = 1; j <=i/2; j++)
-            polyCoeffs.pop_back();
-        i--;
+    int degree = polyCoeffs.size() - 1;
+    double root = 1.0;
+    for (int i = 0; i <= degree; i++) {
+        root -= polyCoeffs[degree - i]/poly(root, c) / pow(1., i+1.);
     }
-    return solution;
+    return root;
 }
