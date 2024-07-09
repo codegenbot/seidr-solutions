@@ -1,54 +1,37 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> res;
+vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
+    vector<vector<int>> dp(n, vector<int>(n));
+    vector<int> res;
+    
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (k == 1) {
-                res.push_back(grid[i][j]);
-                return res;
-            }
-            int val = grid[i][j];
-            grid[i][j] = -1;
-            vector<int> temp;
-            for (int m = i-1; m <= i+1 && m >= 0 && m < n; ++m) {
-                for (int p = j-1; p <= j+1 && p >= 0 && p < n; ++p) {
-                    if (grid[m][p] != -1) {
-                        temp.push_back(grid[m][p]);
+                dp[i][j] = grid[i][j];
+            } else {
+                int minVal = INT_MAX;
+                for (int x = -1; x <= 1; ++x) {
+                    for (int y = -1; y <= 1; ++y) {
+                        if (0 <= i + x && i + x < n && 0 <= j + y && j + y < n) {
+                            minVal = min(minVal, dp[i + x][j + y]);
+                        }
                     }
                 }
-            }
-            sort(temp.begin(), temp.end());
-            bool found = false;
-            for (int m = 0; m < temp.size(); ++m) {
-                if (temp[m] == val) {
-                    res.push_back(val);
-                    --k;
-                    found = true;
-                    break;
-                } else if (!found && k > 1) {
-                    res.push_back(temp[m]);
-                    --k;
-                }
-            }
-            if (!found) {
-                res.push_back(val);
-                --k;
+                dp[i][j] = grid[i][j] + minVal;
             }
         }
     }
-    return res;
-}
-
-int main() {
-    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (auto val : result) {
-        cout << val << " ";
+    
+    int minVal = INT_MAX;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (dp[i][j] < minVal) {
+                minVal = dp[i][j];
+                res = {grid[i][j]};
+            } else if (dp[i][j] == minVal) {
+                res.push_back(grid[i][j]);
+            }
+        }
     }
-    return 0;
+    
+    return res;
 }
