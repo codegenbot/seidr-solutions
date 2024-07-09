@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -23,4 +23,18 @@ std::vector<int> make_a_pile(int n) {
         }
     }
     return pile;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of stones: ";
+    std::cin >> n;
+
+    std::vector<int> pile = make_a_pile(n);
+    
+    for (auto i : pile) {
+        std::cout << i << " ";
+    }
+    
+    return 0;
 }
