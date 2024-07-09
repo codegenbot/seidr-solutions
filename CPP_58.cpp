@@ -1,11 +1,10 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <set>
 
-bool issame(int a) {
-    if(a <= 0)
-        return false;
-    else
-        return true;
+bool issame(int a, int b) {
+    return (a == b);
 }
 
 int common(vector<int> l1, vector<int> l2) {
@@ -16,17 +15,22 @@ int common(vector<int> l1, vector<int> l2) {
     set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
                       inserter(intersection, intersection.begin()));
 
-    return intersection.size();
+    int count = 0;
+    for(int num: intersection) {
+        if(issame(count,0)) return num; // return the first common element
+        count++;
+    }
+    return -1;
 }
 
 int main() {
-    vector<int> v1 = {1, 2, 3, 4, 5};
-    vector<int> v2 = {3, 4, 5, 6, 7};
-    
-    if(issame(common(v1, v2)))
-        cout << "The two lists are the same." << endl;
+    vector<int> l1 = {1,2,3};
+    vector<int> l2 = {2,4,5};
+    int result = common(l1, l2);
+    if(result != -1)
+        std::cout << "The first common element is: " << result << endl;
     else
-        cout << "The two lists are not the same." << endl;
+        std::cout << "No common elements are found." << endl;
 
     return 0;
 }
