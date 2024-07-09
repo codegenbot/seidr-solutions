@@ -3,7 +3,7 @@ def minPath(grid, k):
     start = min(min(row) for row in grid)
     result = [start]
     seen = {(i, j) for i in range(n) for j in range(n) if grid[i][j] == start}
-    while len(result) < k:
+    while len(result) < k + 1:
         neighbors = [(i, j) for i, j in seen if i > 0 and (i - 1, j) not in seen]
         neighbors += [(i, j) for i, j in seen if i < n - 1 and (i + 1, j) not in seen]
         neighbors += [(i, j) for i, j in seen if j > 0 and (i, j - 1) not in seen]
