@@ -1,13 +1,12 @@
-```cpp
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
-int main() {
-    assert(skkkasdkd({127, 97, 8192}) == 10);
+int myMain() {
+    assert(skjkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
 
-int skjkasdkd(vector<int> lst){
+int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
     for(int i = 0; i < lst.size(); i++){
         if(isPrime(lst[i])){
