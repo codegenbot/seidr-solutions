@@ -3,6 +3,11 @@
 #include <vector>
 #include <queue>
 
+struct Pair {
+    int first;
+    int second;
+};
+
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -19,14 +24,22 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     std::priority_queue<std::pair<int,int>, std::vector<std::pair<int,int>>, std::greater<std::pair<int,int>>> pq;
 
     for(int i = 0; i < arr.size(); i++) {
-        pq.push({arr[i],i});
+        Pair p;
+        p.first = arr[i];
+        p.second = i;
+        pq.push(p);
     }
 
     // Keep popping elements from the priority queue until k elements are popped
     while (!pq.empty() && k--) {
-        arr.erase(std::remove(arr.begin(), arr.end(), pq.top().first), arr.end());
+        int idx = pq.top().second;
         pq.pop();
+        if (idx < arr.size()) {
+            arr[idx] = -1;  // Mark this index as processed, don't pop it directly
+        }
     }
+
+    arr.erase(std::remove(arr.begin(), arr.end(), -1), arr.end()); // Erase the marked indices
 
     return arr;
 }
