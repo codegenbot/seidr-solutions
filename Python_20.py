@@ -1,15 +1,20 @@
-```
-from typing import list, tuple
-
-def find_closest_elements(numbers: list[float]) -> tuple[float, float]:
-    numbers.sort()
+numbers = list(map(float, input("Enter a series of space-separated numbers: ").split()))
+def find_closest_elements(numbers):
     min_diff = float("inf")
     closest_pair = ()
 
-    for i in range(len(numbers) - 1):
-        diff = numbers[i + 1] - numbers[i]
-        if diff < min_diff:
-            min_diff = diff
-            closest_pair = (numbers[i], numbers[i + 1])
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            diff = abs(numbers[i] - numbers[j])
+            if diff < min_diff:
+                min_diff = diff
+                closest_pair = (numbers[i], numbers[j])
 
     return closest_pair
+
+try:
+    result = find_closest_elements(numbers)
+except ValueError as e:
+    print("Invalid input. Please enter only numeric values.")
+else:
+    print(result)
