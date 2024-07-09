@@ -1,9 +1,20 @@
-string make_palindrome(string str){
-    string rev_str(str.rbegin(), str.rend());
-    for (int i = str.size(); i >= 0; i--) {
-        if (is_palindrome(str.substr(i))) {
-            return str + rev_str.substr(0, str.size() - i);
+int main(){
+    string str;
+    cin >> str;
+    
+    if(is_palindrome(str)){
+        cout << str;
+    } else {
+        string prefix = "", suffix = str;
+        
+        while(!is_palindrome(suffix)){
+            prefix += suffix.back();
+            suffix.pop_back();
         }
+        
+        reverse(prefix.begin(),prefix.end());
+        cout << str + prefix;
     }
-    return "";
+    
+    return 0;
 }
