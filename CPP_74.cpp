@@ -4,7 +4,11 @@
 #include <string>
 
 bool issame(const std::string& s1, const std::string& s2, const std::string& s3) {
-    return s1 == s2 && s1 == s3;
+    if (s1.length() != s2.length() || s1.length() != s3.length()) return false;
+    for (char c : s1) {
+        if (!(c == s2[0] && c == s3[0])) return false;
+    }
+    return true;
 }
 
 int total_sum(std::vector<std::string> lst) {
@@ -27,8 +31,8 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    std::vector<std::string> lst1;
-    std::vector<std::string> lst2;
+    std::vector<std::string> lst1 {"this", "is", "a"};
+    std::vector<std::string> lst2 {"hello", "from", "c++"};
 
     assert(issame("this", "", ""));
     std::cout << "Test passed" << std::endl;
