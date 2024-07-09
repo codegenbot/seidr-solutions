@@ -1,5 +1,5 @@
-```cpp
 #include <string>
+#include <algorithm>
 using namespace std;
 
 string anti_shuffle(string s) {
@@ -8,33 +8,20 @@ string anti_shuffle(string s) {
         if (s[i] == ' ') {
             result += ' ';
         } else {
-            char temp = s[i];
-            while (temp != ' ') {
-                char c = temp;
-                bool changed = false;
-                for (char j = 'a'; j <= 'z'; j++) {
-                    if (j < c) {
-                        c = j;
-                        changed = true;
-                    }
+            string word = "";
+            bool first = true;
+            for (int j = i; j < s.length() && s[j] != ' '; j++) {
+                char c = s[j];
+                if (!first) {
+                    word += c;
                 }
-                for (char j = 'A'; j <= 'Z'; j++) {
-                    if (j < c) {
-                        c = j;
-                        changed = true;
-                    }
-                }
-                temp = c;
+                first = false;
             }
-            result += temp;
+            for (char c : word) {
+                result += *min_element(word.begin(), word.end());
+            }
+            i += word.length() - 1;
         }
     }
     return result;
-}
-
-int main() {
-    string input;
-    cin >> input;
-    cout << anti_shuffle(input);
-    return 0;
 }
