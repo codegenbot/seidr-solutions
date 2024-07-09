@@ -1,3 +1,4 @@
+```
 #include <boost/any.hpp>
 #include <boost/type_index.hpp>
 
@@ -29,13 +30,13 @@ boost::any compare_one(boost::any a, boost::any b) {
         return n1 > n2 ? a : b;
     }
     else if (a.type() == typeid(int) && boost::any_cast<int>(a) == boost::any_cast<double>(a)) {
-        return boost::any("None");
+        return type_id<int>();
     }
     else if (a.type() == typeid(double) && boost::any_cast<double>(a) == boost::any_cast<int>(a)) {
-        return boost::any("None");
+        return type_id<int>();
     }
     else if (a.type() == typeid(string) && any_cast<string>(a).find('.') == std::string::npos) {
-        return boost::any("None");
+        return type_id<int>();
     }
     return a;
 }
