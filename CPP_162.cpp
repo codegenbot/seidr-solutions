@@ -1,14 +1,12 @@
-```cpp
+#include <openssl/evp.h>
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <cstring>
-#include <openssl/ssl.h>
-#include <openssl/crypto.h>
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
-
+    
     unsigned char md5[16];
     EVP_MD_CTX mdctx;
     EVP_PKEY *md5_sig = EVP_get_digestbyname("MD5");
