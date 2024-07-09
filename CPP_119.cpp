@@ -1,4 +1,8 @@
-int match_parens(const vector<string>& lst) {
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int match_parens(vector<string>& lst) {
     int countOpen = 0;
     for (const auto& s : lst) {
         int countClose = 0;
@@ -18,8 +22,8 @@ int match_parens(const vector<string>& lst) {
 }
 
 int main() {
-    vector<string> lst = {"(())"};
-    cout << match_parens(lst);
-    assert(match_parens({""}) == "Yes");
+    vector<string> input = {"(())"};
+    cout << match_parens(input);
+    assert(match_parens({"")")"} == "Yes");
     return 0;
 }
