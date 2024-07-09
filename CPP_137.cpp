@@ -2,11 +2,16 @@
 using namespace std;
 
 int main() {
-    boost::any a, b;
-    cout << "Enter first value (integer, float, double or string): ";
-    cin >> a;
-    cout << "Enter second value (integer, float, double or string): ";
-    cin >> b;
-
-    return compare_one(a, b);
+    int num1, num2;
+    cout << "Enter first number: ";
+    cin >> num1;
+    cout << "Enter second number: ";
+    cin >> num2;
+    
+    if(num1 > num2)
+        cout << "First number is greater";
+    else
+        cout << "Second number is greater";
+    
+    return 0;
 }
