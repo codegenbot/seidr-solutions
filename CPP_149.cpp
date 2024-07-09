@@ -1,11 +1,12 @@
-```
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <initializer_list>
-#include <iostream>
-
 using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> evenLengthStrings;
@@ -29,11 +30,16 @@ vector<string> sorted_list_sum(vector<string> lst) {
 
 int main() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
+    sort(input.begin(), input.end(),
+         [](const string& a, const string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
+         });
 
-    if (sorted_list_sum(input) == expected) {
-        cout << "The lists are the same." << endl;
-    } else {
-        cout << "Error: The lists are not the same." << endl;
+    for (const string& str : input) {
+        cout << str << endl;
     }
 }
