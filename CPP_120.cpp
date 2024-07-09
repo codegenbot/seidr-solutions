@@ -16,19 +16,17 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::priority_queue<int, std::vector<int>, std::greater<int>> pq;
-    
-    for(int i = 0; i < arr.size(); i++) {
-        pq.push(arr[i]);
-    }
-    
+    std::priority_queue<int, std::vector<int>, std::greater<int>> pq(arr);
+    arr.sort();
+    pq = std::priority_queue<int, std::vector<int>, std::greater<int>>(arr);
+
     std::vector<int> result;
-    
+
     for(int i = 0; i < k && !pq.empty(); i++) {
         result.push_back(pq.top());
         pq.pop();
     }
-    
+
     return result;
 }
 
