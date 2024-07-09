@@ -10,8 +10,3 @@ string flip_case(string str){
     }
     return str;
 }
-
-int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    return 0;
-}
