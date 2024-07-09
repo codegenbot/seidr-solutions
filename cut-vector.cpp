@@ -16,8 +16,15 @@ vector<vector<int>> cutVector(vector<int> vec) {
     }
     
     vector<vector<int>> result(2);
-    result[0].insert(result[0].end(), vec.begin(), vec.begin() + cutIndex + 1);
-    result[1].insert(result[1].begin(), vec.begin() + cutIndex + 1, vec.end());
+    result[0].reserve(cutIndex + 1);
+    for(int i = 0; i <= cutIndex; i++) {
+        result[0].push_back(vec[i]);
+    }
+    
+    result[1].reserve(vec.size() - cutIndex - 1);
+    for(int i = cutIndex + 1; i < vec.size(); i++) {
+        result[1].push_back(vec[i]);
+    }
     
     return result;
 }
