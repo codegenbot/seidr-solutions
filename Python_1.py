@@ -24,6 +24,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     return result
 
 paren_string = input()
-
-result = separate_paren_groups(paren_string)
-print(result)
+print(separate_paren_groups(paren_string))
