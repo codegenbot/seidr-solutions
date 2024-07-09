@@ -1,12 +1,10 @@
+```
 from typing import List
 
 
-def rescale_to_unit(numbers: List[float]) -> List[float]:
-    if not isinstance(numbers, list):
-        return []
-
-    if any(not isinstance(num, float) for num in numbers):
-        return []
+def rescale_to_unit():
+    numbers = input("Enter the list of floating point numbers separated by space: ")
+    numbers = list(map(float, numbers.split()))
 
     if len(numbers) == 0:
         return []
@@ -14,4 +12,10 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
     min_val = min(numbers)
     max_val = max(numbers)
 
+    if max_val - min_val == 0:
+        return [1.0] * len(numbers)  
+
     return [(x - min_val) / (max_val - min_val) for x in numbers]
+
+
+print(rescale_to_unit())
