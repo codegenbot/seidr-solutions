@@ -12,6 +12,3 @@ def search(lst):
         if k >= v and k > 0 and k > max_num:
             max_num = k
     return max_num if max_num != -1 else -1
-
-numbers = list(map(int, input("Enter the numbers separated by space: ").split()))
-print(search(numbers))
