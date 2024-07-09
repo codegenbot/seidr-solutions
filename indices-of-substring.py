@@ -5,7 +5,7 @@ def indices_of_substring(text, target):
         pos = text.find(target, last_pos)
         if pos != -1:
             result.append(pos)
-            last_pos = pos + 1  
+            last_pos = pos + len(target)  
         else:
             break
     return result
