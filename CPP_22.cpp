@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <variant>
@@ -23,7 +24,7 @@ std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int
                     }
                 }
                 if (!found)
-                    result.push_back(value); // Corrected line
+                    result.push_back(value);
             }
         } catch (...) {
             // ignore non-integer values
@@ -34,7 +35,7 @@ std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int
 
 int main() {
     std::vector<std::variant<int>> values = {3, 123, 3, 3, 'a', 'b'};
-    std::vector<std::variant<int>> result;
+    std::vector<std::variant<int>, std::allocator_traits<std::allocator<std::variant<int>>>::propagate_on_container_copy_assignment> result;
     for (const auto& value : values) {
         try {
             if (value.index() == 0) {
@@ -52,6 +53,4 @@ int main() {
         } catch (...) {
             // ignore non-integer values
         }
-    }
-    return 0;
 }
