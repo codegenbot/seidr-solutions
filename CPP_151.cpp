@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 float doubleTheDifference(std::vector<float> lst) {
     float odd_sum = 0;
