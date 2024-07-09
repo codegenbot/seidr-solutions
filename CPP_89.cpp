@@ -1,13 +1,15 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <cassert>
+
 using namespace std;
 
 string encrypt(string s){
     string result = "";
     for(char c : s){
         if(isalpha(c)){
-            char encrypted = c + 4;
+            char encrypted = c + 2 * 2;
             if(islower(c) && encrypted > 'z'){
                 encrypted = 'a' + (encrypted - 'z' - 1);
             } else if(isupper(c) && encrypted > 'Z'){
@@ -22,6 +24,6 @@ string encrypt(string s){
 }
 
 int main() {
-    assert (encrypt("a") == "e");
+    assert(encrypt("a") == "e");
     return 0;
 }
