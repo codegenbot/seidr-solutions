@@ -1,12 +1,14 @@
-Here is the completed code:
-
-bool prime_length(string str) {
-    int len = str.length();
-    if (len <= 1)
+bool isPrime(int n) {
+    if (n <= 1)
         return false;
-    for (int i = 2; i * i <= len; i++) {
-        if (len % i == 0)
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
             return false;
     }
     return true;
+}
+
+bool prime_length(string str) {
+    int length = str.length();
+    return isPrime(length);
 }
