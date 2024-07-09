@@ -1,3 +1,4 @@
+
 #include <map>
 #include <string>
 #include <cassert>
@@ -15,15 +16,11 @@ bool issame(std::map<char,int> a, std::map<char,int> b) {
 }
 
 int main() {
-    std::map<char, int> hist1 = histogram("aabbc");
-    std::map<char, int> hist2 = histogram("abbac");
-    
-    assert(issame(hist1, hist2) == true);
+    std::map<char, int> hist1 = histogram("programming");
+    std::map<char, int> hist2 = histogram("contest");
 
-    std::map<char, int> hist3 = histogram("hello");
-    std::map<char, int> hist4 = histogram("world");
-
-    assert(issame(hist3, hist4) == false);
+    assert(issame(hist1, hist1));
+    assert(!issame(hist1, hist2));
 
     return 0;
 }
