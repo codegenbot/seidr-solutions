@@ -1,9 +1,8 @@
-a = int(input("Enter the first integer: "))
-b = int(input("Enter the second integer: "))
-
+```
 try:
-    a = int(a)
-    b = int(b)
+    a = int(input("Enter the first integer: "))
+    b = int(input("Enter the second integer: "))
+
 except ValueError:
     print("Invalid input! Please enter integers.")
 else:
