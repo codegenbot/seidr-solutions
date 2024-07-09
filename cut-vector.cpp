@@ -5,8 +5,8 @@
 
 int main() {
     std::vector<int> v = {1, 2, 3, 4, 5};
-    auto res = cutVector(v);
-    for (const auto& sub : {res.first, res.second}) {
+    std::vector<std::vector<int>> res = cutVector(v);
+    for (const auto& sub : res) {
         for (int num : sub) {
             std::cout << num << " ";
         }
@@ -15,8 +15,10 @@ int main() {
     return 0;
 }
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
+std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     int n = v.size();
+    std::vector<std::vector<int>> res;
+
     long long totalSum = 0;
     for (int i = 0; i < n; i++) {
         totalSum += v[i];
@@ -40,18 +42,18 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
         }
     }
 
-    std::vector<int> first;
+    res.push_back(std::vector<int>());
     for (int j = 0; j <= leftIndex; j++) {
-        first.push_back(v[j]);
+        res.back().push_back(v[j]);
     }
-    std::vector<int> second;
     if (totalSum != halfSum) {
+        res.push_back(std::vector<int>());
         for (int j = leftIndex; j < n; j++) {
-            second.push_back(v[j]); 
+            res.back().push_back(v[j]); 
         }
     } else {
-        second = first;
+        res.push_back(res[0]);
     }
 
-    return {first, second};
+    return res;
 }
