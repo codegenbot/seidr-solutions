@@ -23,51 +23,74 @@ string int_to_mini_roman(int num) {
         if (num >= 1000) {
             num -= 1000;
             result += "M";
-        } else if (num >= 900) {
+        }
+        else if (num >= 900) {
             num -= 900;
             result += "CM";
-        } else if (num >= 500) {
+        }
+        else if (num >= 500) {
             num -= 500;
             result += "D";
-        } else if (num >= 400) {
+        }
+        else if (num >= 400) {
             num -= 400;
             result += "CD";
-        } else if (num >= 100) {
-            for(int i = 0; ; ++i) {
-                if((i * 10) > num) break;
-                num -= i * 10;
+        }
+        else if (num >= 100) {
+            while(num >= 100) {
+                num -= 100;
                 result += "C";
-                for(int j = 0; j < i - 1; ++j) {
+            }
+        }
+        else if (num >= 90) {
+            while(num >= 90) {
+                num -= 90;
+                result += "XC";
+            }
+        }
+        else if (num >= 50) {
+            while(num >= 50) {
+                num -= 50;
+                result += "L";
+            }
+        }
+        else if (num >= 40) {
+            while(num >= 40) {
+                num -= 40;
+                result += "XL";
+            }
+        }
+        else if (num >= 10) {
+            while(num > 9) {
+                if(num >= 30) {
+                    num -= 30;
+                    result += "XXX";
+                }
+                else if (num >= 20) {
+                    num -= 20;
+                    result += "XX";
+                }
+                else if (num >= 10) {
+                    num--;
                     result += "X";
                 }
             }
-        } else if (num >= 90) {
-            num -= 90;
-            result += "XC";
-        } else if (num >= 50) {
-            num -= 50;
-            result += "L";
-        } else if (num >= 40) {
-            num -= 40;
-            result += "XL";
-        } else if (num >= 10) {
-            for(int i = 0; ; ++i) {
-                if((i * 10) > num) break;
-                num -= i * 10;
-                result += "X";
-                for(int j = 0; j < i - 1; ++j) {
-                    result += "I";
+        }
+        else {
+            while(num > 3) {
+                if(num >= 9) {
+                    num -= 9;
+                    result += "IX";
                 }
-            }
-        } else {
-            while(num > 0) {
-                if(num >= 3) {
-                    num -= 3;
-                    result += "I";
-                } else if (num == 2) {
-                    result += "II";
-                    return result;
-                } else {
+                else if (num >= 6) {
+                    num -= 6;
+                    result += "VI";
+                }
+                else if (num >= 4) {
+                    num -= 4;
+                    result += "IV";
+                }
+                else {
                     num--;
                     result += "I";
                 }
