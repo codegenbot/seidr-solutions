@@ -1,18 +1,26 @@
 #include <algorithm>
-#include <numeric>
 #include <vector>
+#include <limits>
 
-pair<bool,bool> issame(pair<float,float> p1,pair<float,float> p2)
-{
-    if(p1.first==p2.first&&p1.second==p2.second) return {true,true};
-    else return {false,false};
+using namespace std;
+
+pair<bool, bool> issame(float a, float b) {
+    pair<bool, bool> res;
+    if (a == b) {
+        res.first = true;
+        res.second = true;
+    } else {
+        res.first = false;
+        res.second = false;
+    }
+    return res;
 }
 
-vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
+vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numeric_limits<float>::max();
     pair<float, float> closest_pair;
-    
+
     for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < min_diff) {
@@ -20,6 +28,6 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
             closest_pair = {numbers[i], numbers[i + 1]};
         }
     }
-    
-    return {{closest_pair.first,closest_pair.second}};
+
+    return vector<float>(closest_pair.begin(), closest_pair.end());
 }
