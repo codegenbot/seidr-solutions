@@ -1,8 +1,3 @@
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         int x = boost::any_cast<int>(a);
