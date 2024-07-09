@@ -1,38 +1,27 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <algorithm>
 #include <sstream>
 
-std::vector<std::string> split(std::string str, char delimiter) {
-    std::vector<std::string> tokens;
-    std::string token;
-    std::istringstream tokenStream(str);
-    while (std::getline(tokenStream, token, delimiter)) {
-        tokens.push_back(token);
-    }
-    return tokens;
-}
+using namespace std;
 
-bool issame(const std::map<char,int>& a, const std::map<char,int>& b) {
-    return a == b;
-}
-
-std::map<char,int> histogram(std::string test){
-    std::map<char,int> result;
+map<char,int> histogram(string test){
+    map<char,int> result;
     int maxCount = 0;
 
-    for (std::string word : split(test, ' ')) {
+    for (string word : split(test, ' ')) {
         for (char c : word) {
             if (result.find(c) == result.end()) {
                 result[c] = 1;
             } else {
                 result[c]++;
             }
-            maxCount = std::max(maxCount, result[c]);
+            maxCount = max(maxCount, result[c]);
         }
     }
 
-    std::map<char,int> finalResult;
+    map<char,int> finalResult;
 
     for (auto it = result.begin(); it != result.end(); ++it) {
         if (it->second == maxCount) {
@@ -43,8 +32,22 @@ std::map<char,int> histogram(std::string test){
     return finalResult;
 }
 
+vector<string> split(string str, char delimiter) {
+    vector<string> tokens;
+    string token;
+    istringstream tokenStream(str);
+    while (std::getline(tokenStream, token, delimiter)) {
+        tokens.push_back(token);
+    }
+    return tokens;
+}
+
+bool issame(map<char,int> a, map<char,int> b) {
+   return a == b;
+}
+
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    // Your test case code here
-    return 0;
+   assert(issame(histogram("a"), {{'a', 1}}));
+   // Your test case code here
+   return 0;
 }
