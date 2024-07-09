@@ -1,30 +1,31 @@
-string sort_numbers(string numbers){
-    map<string,int> numMap;
-    for(int i=0; i<10; i++){
-        string str = (i==0)?"zero":(char)(48+i+48);
-        numMap[str] = i;
-    }
+```cpp
+map<string, int> numMap = {
+    {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+    {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+    {"eight", 8}, {"nine", 9}
+};
+
+string sort_numbers(string numbers) {
     vector<string> nums;
     string temp;
-    for(int i=0; i<numbers.length(); i++){
-        if(numbers[i]==' '){
-            continue;
+
+    for (int i = 0; i < numbers.length(); i++) {
+        if (numbers[i] == ' ') {
+            nums.push_back(temp);
+            temp = "";
+        } else {
+            temp += numbers[i];
         }
-        temp="";
-        while(i<numbers.length() && numbers[i]!=' '){
-            temp+=numbers[i];
-            i++;
-        }
-        nums.push_back(temp);
     }
+    nums.push_back(temp);
 
-    sort(nums.begin(),nums.end(),[&numMap](string a, string b) {
-        return numMap[a] < numMap[b];
-    });
+    sort(nums.begin(), nums.end(), 
+         [&numMap](string a, string b) { return numMap[a] < numMap[b]; });
 
-    string result = "";
-    for(auto &n : nums){
+    string result;
+    for (auto &n : nums) {
         result += n + " ";
     }
-    return result.substr(0,result.length()-1);
+
+    return result.substr(0, result.length() - 1);
 }
