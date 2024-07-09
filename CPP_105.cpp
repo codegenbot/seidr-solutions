@@ -1,11 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
@@ -15,7 +12,7 @@ vector<string> by_length(vector<int> arr) {
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
 
-    vector<string> result;
+    std::vector<std::string> result;
     for (int num : numbers) {
         switch (num) {
             case 1:
@@ -49,15 +46,4 @@ vector<string> by_length(vector<int> arr) {
     }
 
     return result;
-}
-
-int main() {
-    vector<int> arr = {1, 3, 5, 7};
-    vector<string> output = by_length(arr);
-    
-    for (string str : output) {
-        cout << str << endl;
-    }
-    
-    return 0;
 }
