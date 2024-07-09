@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -16,7 +17,7 @@ std::vector<float> sort_even(const std::vector<float>& l) {
     return evenVals;
 }
 
-std::vector<float> main() {
+int main() {
     std::vector<float> vec = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     std::vector<float> result(vec.size());
     for (int i = 0; i < vec.size(); i++) {
@@ -37,6 +38,7 @@ std::vector<float> main() {
         }
     }
     
-    assert(sameVectors(sort_even(vec), { -12, 8, 3, 4, 5, 2, 12, 11, 23, -10 }));
-    return result;
+    std::vector<float> expected = std::vector<float>({ -12, 8, 3, 4, 5, 2, 12, 11, 23, -10 });
+    assert(sameVectors(sort_even(vec), expected));
+    return 0;
 }
