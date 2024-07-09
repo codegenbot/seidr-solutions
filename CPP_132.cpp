@@ -1,12 +1,13 @@
-bool is_nested(string str) {
-    int count = 0;
-    for (char c : str) {
-        if (c == '[') {
-            count++;
-        } else if (c == ']') {
-            if (count > 1) return true;
-            count--;
-        }
+Here is the solution:
+
+```cpp
+int count = 0;
+for (char c : str) {
+    if (c == '[') {
+        count++;
+    } else if (c == ']') {
+        if (count > 1) return true;
+        count--;
     }
-    return false;
 }
+return false;
