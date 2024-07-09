@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 bool is_nested(string str) {
@@ -9,4 +8,3 @@ bool is_nested(string str) {
         if (count < 0) return true;
     }
     return false;
-}
