@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <initializer_list>
 #include <utility>
@@ -16,8 +17,10 @@ bool operator==(const vector<int>& a, initializer_list<int> b) {
 
 vector<int> make_a_pile(int n) {
     vector<int> pile = {0, 1};
-    for (int i = 2; i <= n; ++i)
-        pile.insert(pile.begin(), i);
+    for (int i = 2; i <= n; ++i) {
+        vector<int> temp = {pile.back() + i}; 
+        while (!temp.empty()) pile.insert(pile.begin(), temp.back());
+    }
     return pile;
 }
 
