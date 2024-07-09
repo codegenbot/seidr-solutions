@@ -15,7 +15,11 @@ int main() {
     std::vector<float> input = {12.0, 11.0, 15.0, 13.0, 14.0};
     rescale_to_unit(input);
     
-    assert(input == std::vector<float>{0.25, 0.0, 1.0, 0.5, 0.75});
+    assert(input[0] == 0.25);
+    assert(input[1] == 0.0);
+    assert(input[2] == 1.0);
+    assert(input[3] == 0.5);
+    assert(input[4] == 0.75);
     
     return 0;
 }
