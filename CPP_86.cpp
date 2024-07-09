@@ -3,9 +3,9 @@
 #include <string>
 
 std::string anti_shuffle(std::string s) {
-    std::string res(s.length(), ' ');
+    std::string res = s; // Initialize res as a copy of s.
     for (int i = 0; i < s.length(); i++) {
-        if (i % 2 == 0) {
+        if (i % 2 != 0) {
             res[i] = s[i];  
         }
     }
