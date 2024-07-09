@@ -1,4 +1,7 @@
-vector<int> result;
+#include <vector>
+
+vector<int> findNumbersWithoutEvenDigit(vector<int> x) {
+    vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;

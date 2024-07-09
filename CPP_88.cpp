@@ -1,25 +1,25 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
+
+void sort_array(std::vector<int> arr) {
+    if (!arr.empty()) {
+        if ((arr.front() + arr.back()) % 2 == 0) {
+            std::sort(arr.begin(), arr.end(), std::greater<int>());
+        } else {
+            std::sort(arr.begin(), arr.end());
+        }
+    }
+}
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.empty()) return true;
-    if((a.front() + a.back()) % 2 == 0) {
-        std::sort(a.begin(), a.end(), std::greater<int>());
-    } else {
-        std::sort(a.begin(), a.end());
-    }
+    sort_array(a);
     return a == b;
 }
 
 int main() {
-    std::vector<int> vec1 = {1, 3, 2};
-    std::vector<int> vec2 = {1, 2, 3};
-
-    if (issame(vec1, vec2)) {
-        std::cout << "Arrays are same after sorting." << std::endl;
-    } else {
-        std::cout << "Arrays are different after sorting." << std::endl;
-    }
-
+    std::vector<int> input = {21, 14, 23, 11};
+    sort_array(input);
+    assert(issame(input, {23, 21, 14, 11}));
     return 0;
 }
