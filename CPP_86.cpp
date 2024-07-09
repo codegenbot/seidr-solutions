@@ -1,7 +1,7 @@
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <string>
-#include <initializer_list>
 
 using namespace std;
 
@@ -17,8 +17,10 @@ string anti_shuffle(string s) {
                 word += s[j];
                 j++;
             }
-            std::sort(word.begin(), word.end());
-            result += word;
+            sort(word.begin(), word.end());
+            for (char c : word) {
+                result += c;
+            }
         }
     }
     return result;
@@ -30,3 +32,4 @@ int main() {
     getline(cin, str);
     cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
     return 0;
+}
