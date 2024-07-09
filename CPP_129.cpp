@@ -1,35 +1,54 @@
-#include <stdio.h>
+#include <iostream>
 #include <vector>
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
+    vector<int> res;
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n, 1e9));
-    vector<vector<int>> prev(n, vector<int>(n, -1));
-
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
             if (k == 1) {
-                dp[i][j] = grid[i][j];
-            } else {
-                for (int x = max(0, i - 1); x <= min(n - 1, i + 1); x++) {
-                    for (int y = max(0, j - 1); y <= min(n - 1, j + 1); x) {
-                        if (dp[x][y] != 1e9 && dp[i][j] > grid[i][j] + dp[x][y]) {
-                            dp[i][j] = grid[i][j] + dp[x][y];
-                            prev[i][j] = {x, y};
-                        }
+                res.push_back(grid[i][j]);
+                return res;
+            }
+            int val = grid[i][j];
+            grid[i][j] = -1;
+            vector<int> temp;
+            for (int m = i-1; m <= i+1 && m >= 0 && m < n; ++m) {
+                for (int p = j-1; p <= j+1 && p >= 0 && p < n; ++p) {
+                    if (grid[m][p] != -1) {
+                        temp.push_back(grid[m][p]);
                     }
                 }
             }
+            sort(temp.begin(), temp.end());
+            bool found = false;
+            for (int m = 0; m < temp.size(); ++m) {
+                if (temp[m] == val) {
+                    res.push_back(val);
+                    --k;
+                    found = true;
+                    break;
+                } else if (!found && k > 1) {
+                    res.push_back(temp[m]);
+                    --k;
+                }
+            }
+            if (!found) {
+                res.push_back(val);
+                --k;
+            }
         }
     }
-
-    vector<int> res;
-    int i = 0, j = 0;
-    for (int l = 0; l < k; l++) {
-        res.push_back(grid[i][j]);
-        auto p = prev[i][j];
-        i = p[0], j = p[1];
-    }
     return res;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for (auto val : result) {
+        cout << val << " ";
+    }
+    return 0;
 }
