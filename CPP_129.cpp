@@ -1,7 +1,8 @@
+```
 #include <vector>
 #include <limits>
 
-std::vector<int> minPath(std::vector<std::vector<int>>& grid, int k) {
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
     std::vector<std::vector<int>> dp(n, std::vector<int>(n));
     for (int i = 0; i < n; i++) {
@@ -31,7 +32,7 @@ std::vector<int> minPath(std::vector<std::vector<int>>& grid, int k) {
     return {};
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a,std::vector<int> b){
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size();i++){
         if(a[i] != b[i]) return false;
