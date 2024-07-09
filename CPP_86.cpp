@@ -1,16 +1,19 @@
-```
 #include <algorithm>
 #include <string>
 #include <vector>
+#include <initializer_list>
 
 using namespace std;
 
 string join(const vector<string>& vec, const string& sep) {
     string result;
     for (const auto& s : vec) {
-        result += s + sep;
+        if (!result.empty()) {
+            result += sep;
+        }
+        result += s;
     }
-    return result.substr(0, result.size() - 1);
+    return result;
 }
 
 string split(const string& str, char sep) {
@@ -25,22 +28,11 @@ string split(const string& str, char sep) {
 }
 
 string anti_shuffle(string s) {
-    vector<string> words;
-    string word = "";
-    for (const auto& c : s) {
-        if (c == ' ') {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += c;
-        }
-    }
-    words.push_back(word);
-
     string result = "";
-    for (const auto& word : words) {
-        sort(word.begin(), word.end());
-        result += word + " ";
+    for (const auto& word : split(s, ' ')) {
+        vector<char> temp(word.begin(), word.end());
+        sort(temp.begin(), temp.end());
+        result += string(temp.begin(), temp.end()) + " ";
     }
     return result.substr(0, result.size() - 1);
 }
