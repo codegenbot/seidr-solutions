@@ -1,14 +1,15 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool isSame(std::vector<std::string> a) {
-    for(int i = 1; i < a.size(); i++) {
-        if(a[i] != a[0]) return false;
+bool issame(std::vector<std::string> a) {
+    if (a.size() == 0 || all_of(a.begin(), a.end(), [s = a[0]](const std::string& x) { return s == x; })) {
+        return true;
     }
-    return true;
+    return false;
 }
 
-std::vector<std::string> numericalLetterGrade(std::vector<float> grades) {
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> result;
     for (int i = 0; i < grades.size(); i++) {
         if (grades[i] >= 4.0)
@@ -40,9 +41,9 @@ std::vector<std::string> numericalLetterGrade(std::vector<float> grades) {
 }
 
 int main() {
-    std::vector<float> grades = {0.0, 0.7};
-    std::vector<std::string> result = numericalLetterGrade(grades);
-    if (isSame({result})) {
+    std::vector<float> grades = {4.0};
+    std::vector<std::string> result = numerical_letter_grade(grades);
+    if (issame({result})) {
         for (std::string s : result) {
             if (s != "E") {
                 return 1;
