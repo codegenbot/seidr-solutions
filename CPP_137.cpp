@@ -1,6 +1,10 @@
 #include <boost/any.hpp>
 #include <string>
+#include <limits>
+#include <stdexcept>
+
 using namespace boost;
+
 any compareOne(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int x = boost::any_cast<int>(a);
@@ -10,7 +14,7 @@ any compareOne(any a, any b) {
         else if (y > x)
             return b;
         else
-            return typeid(void);
+            return any(typeid(string) == "None");
     } 
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         float x = boost::any_cast<float>(a);
@@ -20,39 +24,49 @@ any compareOne(any a, any b) {
         else if (y > x)
             return b;
         else
-            return typeid(void);
+            return any(typeid(string) == "None");
     } 
-    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         std::string x = boost::any_cast<std::string>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        if (x > y)
-            return a;
-        else if (y > x)
-            return b;
-        else
-            return typeid(void);
-    } 
-    else if (a.type() == typeid(std::string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
-        std::string x = boost::any_cast<std::string>(a);
-        double y = boost::any_cast<double>(b);
+        int y = boost::any_cast<int>(b);
         if (std::stod(x) > y)
             return a;
         else if (y > std::stod(x))
             return b;
         else
-            return typeid(void);
+            return any(typeid(string) == "None");
     } 
-    else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(std::string)) {
-        double x = boost::any_cast<double>(a);
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        int x = boost::any_cast<int>(a);
         std::string y = boost::any_cast<std::string>(b);
         if (x > std::stod(y))
             return a;
         else if (std::stod(y) > x)
             return b;
         else
-            return typeid(void);
+            return any(typeid(string) == "None");
+    } 
+    else if ((a.type() == typeid(float)) && (b.type() == typeid(std::string))) {
+        float x = boost::any_cast<float>(a);
+        std::string y = boost::any_cast<std::string>(b);
+        if (x > std::stod(y))
+            return a;
+        else if (std::stod(y) > x)
+            return b;
+        else
+            return any(typeid(string) == "None");
+    } 
+    else if ((a.type() == typeid(std::string)) && (b.type() == typeid(float))) {
+        std::string x = boost::any_cast<std::string>(a);
+        float y = boost::any_cast<float>(b);
+        if (std::stod(x) > y)
+            return a;
+        else if (y > std::stod(x))
+            return b;
+        else
+            return any(typeid(string) == "None");
     } 
     else {
-        return typeid(void);
+        throw std::runtime_error("Invalid input types");
     }
 }
