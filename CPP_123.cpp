@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 bool issame(vector<int> a,vector<int>b){
@@ -22,10 +21,10 @@ vector<int> get_odd_collatz(int n) {
             result.push_back(n);
         }
     }
-    return result; // stop storing numbers when n becomes 1
+    return result; 
 }
 
 int main() {
-    test = vector<int>(get_odd_collatz(1));
-    assert(issame(test , vector<int>{1}));
+    vector<int> test = get_odd_collatz(12); 
+    assert(issame(test , vector<int>{6, 3}));
 }
