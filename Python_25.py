@@ -1,3 +1,4 @@
+```
 from typing import List
 import math
 
@@ -6,28 +7,24 @@ def main():
     while True:
         try:
             n = int(input("Enter an integer: "))
-            if n < 1:
-                print("Please enter a positive integer.")
-                continue
+            factors = []
+            i = 2
+            while i * i <= n:
+                if n % i:
+                    i += 1
+                else:
+                    n //= i
+                    count = 0
+                    while n % i == 0:
+                        n //= i
+                        count += 1
+                    factors.extend([i] * count)
+            if n > 1:
+                factors.append(n)
+            print(factors)
             break
         except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-
-    factors = []
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            count = 0
-            while n % i == 0:
-                n //= i
-                count += 1
-            factors.extend([i] * count)
-    if n > 1:
-        factors.append(n)
-    print(factors)
+            print("Invalid input. Please enter an integer.")
 
 
 if __name__ == "__main__":
