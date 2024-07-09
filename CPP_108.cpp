@@ -1,35 +1,20 @@
-Here is the solution:
-
-```cpp
-int count_nums(vector<int> n) {
+int count_nums(vector<int> nums) {
     int count = 0;
-    for (int num : n) {
-        if (num > 0) {
-            int sum = 0;
-            bool sign = false;
-            while (num != 0) {
-                int digit = abs(num) % 10;
-                if (!sign && digit > 5) {
-                    sign = true;
-                    digit -= 9;
-                }
-                num /= 10;
-                sum += digit;
+    for (int num : nums) {
+        bool has_positive_sum = false;
+        if (num < 0) {
+            num = -num; // make it positive to calculate signed digits
+        }
+        while (num > 0) {
+            int digit = num % 10;
+            num /= 10;
+            if (digit != 0) {
+                has_positive_sum = true;
+                break;
             }
-            if (sum > 0) count++;
-        } else if (num < 0) {
-            int sum = 0;
-            bool sign = true;
-            while (num != 0) {
-                int digit = abs(num) % 10;
-                if (!sign && digit > 5) {
-                    sign = false;
-                    digit -= 9;
-                }
-                num /= 10;
-                sum += digit;
-            }
-            if (sum > 0) count++;
+        }
+        if (has_positive_sum) {
+            count++;
         }
     }
     return count;
