@@ -1,21 +1,31 @@
-vector<string> numerical_letter_grade(vector<float> grades){
-    vector<string> letter_grades;
-    for(float g: grades){
-        string letter;
-        if(g >= 4.0) letter = "A+";
-        else if(g > 3.7) letter = "A";
-        else if(g > 3.3) letter = "A-";
-        else if(g > 3.0) letter = "B+");
-        else if(g > 2.7) letter = "B";
-        else if(g > 2.3) letter = "B-";
-        else if(g > 2.0) letter = "C+";
-        else if(g > 1.7) letter = "C";
-        else if(g > 1.3) letter = "C-";
-        else if(g > 1.0) letter = "D+";
-        else if(g > 0.7) letter = "D";
-        else if(g > 0.0) letter = "D-";
-        else letter = "E";
-        letter_grades.push_back(letter);
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> result;
+    for (float g : grades) {
+        if (g >= 4.0) {
+            result.push_back("A+");
+        } else if (g > 3.7) {
+            result.push_back("A");
+        } else if (g > 3.3) {
+            result.push_back("A-");
+        } else if (g > 3.0) {
+            result.push_back("B+");
+        } else if (g > 2.7) {
+            result.push_back("B");
+        } else if (g > 2.3) {
+            result.push_back("B-");
+        } else if (g > 2.0) {
+            result.push_back("C+");
+        } else if (g > 1.7) {
+            result.push_back("C");
+        } else if (g > 1.3) {
+            result.push_back("C-");
+        } else if (g > 1.0) {
+            result.push_back("D+");
+        } else if (g > 0.7) {
+            result.push_back("D");
+        } else {
+            result.push_back("E");
+        }
     }
-    return letter_grades;
+    return result;
 }
