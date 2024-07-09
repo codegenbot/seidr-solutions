@@ -1,6 +1,6 @@
+```cpp
 #include <string>
 #include <map>
-#include <utility>
 
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -31,7 +31,7 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
 
 int main() {
     std::string code = "XXXX";
-    std::string guess = "ABCD"; // replace with your test inputs
+    std::string guess = "XXXX"; 
     std::pair<int, int> result = mastermind(code, guess);
     std::cout << "White pegs: " << result.first << ", Black pegs: " << result.second << std::endl;
     return 0;
