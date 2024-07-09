@@ -1,23 +1,37 @@
+#include <iostream>
+#include <vector>
+#include <limits>
+#include <algorithm>
+
+float median(std::vector<float> numbers) {
+    std::sort(numbers.begin(), numbers.end());
+    int size = numbers.size();
+    if (size % 2 == 0)
+        return (numbers[size / 2 - 1] + numbers[size / 2]) / 2.0;
+    else
+        return numbers[size / 2];
+}
+
 int testMedian() {
-    vector<float> numbers;
-    cout << "Enter the numbers (enter 'stop' to finish): ";
+    std::vector<float> numbers;
+    std::cout << "Enter the numbers (enter 'stop' to finish): ";
+    std::string input;
     while (true) {
-        float num;
-        cin >> num;
-        if (cin.fail()) {
-            cin.clear();
-            char c;
-            cin >> c;
-            if (c == 's') {
-                break;
-            } else {
-                cout << "Invalid number. Please enter a valid floating point number." << endl;
-                continue;
+        std::cin >> input;
+        if (input == "stop") break;
+        try {
+            float num = std::stof(input);
+            numbers.push_back(num);
+        } catch(const std::invalid_argument& e) {
+            std::cout << "Invalid number. Please enter a valid floating point number." << std::endl;
+            while (!(std::cin >> input)) {  
+                std::cout << "Invalid input. Please try again: ";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             }
         }
-        numbers.push_back(num);
     }
     float result = median(numbers);
-    cout << "The median of the given numbers is: " << result << endl;
+    std::cout << "The median of the given numbers is: " << result << std::endl;
     return 0;
 }
