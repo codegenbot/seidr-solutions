@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     while "&" in expression or "|" in expression:
         expression = expression.replace(
