@@ -3,33 +3,30 @@ int bowlingScore(std::string input) {
     for(int i = 0; i < input.length(); i++) {
         if(input[i] == 'X') { 
             score += 10;
-            if(i + 1 < input.length()) {
-                if(input[i+1] == 'X') { 
-                    score += 10;
-                    i++; 
-                } else {
-                    score += input[i+1] - '0' + input[i+2] - '0';
-                    i+=2; 
-                }
-            } else {
+            if(i < input.length() - 1 && input[i+1] == '/') { 
                 score += 10;
+                i++; 
+            } else if(i < input.length() - 1) {
+                roll = input[i+1] - '0';
+                score += 10 + roll;
+                i++; 
             }
         } else if(input[i] == '/') { 
             score += 10 - (input[i+1] - '0' + input[i+2] - '0');
             i+=2; 
         } else {
-            int roll1 = input[i] - '0';
-            if(i + 1 < input.length()) {
+            int roll = input[i] - '0';
+            if(i < input.length() - 1) {
                 if(input[i+1] == '/') { 
-                    score += roll1 + 10 - (input[i+2] - '0' + input[i+3] - '0');
-                    i+=3; 
+                    score += roll;
+                    i++; 
                 } else {
-                    int roll2 = input[i+1] - '0';
-                    score += roll1 + roll2;
+                    int nextRoll = input[i+1] - '0';
+                    score += roll + nextRoll;
                     i++; 
                 }
             } else {
-                score += roll1;
+                score += roll;
             }
         }
     }
