@@ -1,4 +1,11 @@
-int Strongest_Extension(string class_name,vector<string> extensions){
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+std::string Strongest_Extension(std::string class_name, vector<string> extensions) {
     int strongest = 0;
     string strongest_extension;
 
