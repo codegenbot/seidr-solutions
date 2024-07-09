@@ -1,30 +1,30 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a,vector<int> b){
-    if(a.size()!=b.size())return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i])return false;
+std::vector<int> strange_sort_list(std::vector<int> lst) {
+    std::vector<int> result;
+    while (!lst.empty()) {
+        int minVal = *min_element(lst.begin(), lst.end());
+        result.push_back(minVal);
+        lst.erase(remove(lst.begin(), lst.end(), minVal), lst.end());
+        if (!lst.empty()) {
+            int maxVal = *max_element(lst.begin(), lst.end());
+            result.push_back(maxVal);
+            lst.erase(remove(lst.begin(), lst.end(), maxVal), lst.end());
+        }
+    }
+    return result;
+}
+
+bool isSame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[b.size()-i-1]) return false;
     }
     return true;
 }
 
-int main(){
-    vector<int> v1,v2;
-    cout<<"Enter the size of array: ";
-    int n;
-    cin>>n;
-    cout<<"Enter elements of first array:\n";
-    for(int i=0;i<n;i++){
-        int x;cin>>x;v1.push_back(x);
-    }
-    cout<<"Enter elements of second array:\n";
-    for(int i=0;i<n;i++){
-        int x;cin>>x;v2.push_back(x);
-    }
-
-    if(issame(v1,v2))cout<<"Both arrays are same.\n";
-    else cout<<"Both arrays are not same.\n";
-
+int main() {
+    assert(isSame(strange_sort_list({1, 2, 3}), {3, 2, 1}));
     return 0;
 }
