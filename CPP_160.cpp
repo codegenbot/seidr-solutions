@@ -1,8 +1,3 @@
-```cpp
-#include <vector>
-#include <string>
-using namespace std;
-
 int do_algebra(vector<string> op, vector<int> operands) {
     int result = operands[0];
     for (int i = 0; i < op.size(); i++) {
@@ -13,8 +8,11 @@ int do_algebra(vector<string> op, vector<int> operands) {
         } else if (op[i] == "*") {
             result *= operands[i + 1];
         } else if (op[i] == "/") {
-            result /= operands[i + 1];
-        } else if (op[i] == "**" || op[i] == "^") {
+            if(operands[i+1] != 0)
+                result /= operands[i + 1];
+            else
+                return -1;
+        } else if (op[i] == "**") {
             result = pow(result, operands[i + 1]);
         }
     }
