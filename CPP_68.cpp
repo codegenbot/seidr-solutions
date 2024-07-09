@@ -1,17 +1,24 @@
-Here is the completed code:
+#include <vector>
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
+vector<vector<int>> pluck(vector<int> arr) {
+    vector<vector<int>> result;
     if (arr.empty()) return result;
 
-    int minEven = INT_MAX;
+    int smallest_even = INT_MAX;
     int index = -1;
+
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
+        if (arr[i] % 2 == 0 && arr[i] < smallest_even) {
+            smallest_even = arr[i];
             index = i;
         }
     }
 
-    result.push_back({minEven, index});
+    vector<int> output;
+    output.push_back(smallest_even);
+    output.push_back(index);
+
+    result.push_back(output);
+
     return result;
+}
