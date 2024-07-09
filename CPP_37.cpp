@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -12,32 +13,29 @@ namespace myspace {
 
     std::vector<float> sort_even(const std::vector<float>& l) {
         std::vector<float> result(l.size());
-        std::vector<float> evens;
-        
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                evens.push_back(l[i]);
-            }
-        }
-
-        std::sort(evens.begin(), evens.end());
-
-        int index = 0;
-        for (int i = 0; i < l.size(); i++) {
-            if (i % 2 == 0) {
-                result[i] = evens[index];
-                index++;
+                std::vector<float> evens;
+                for (int j = 0; j < l.size(); j++) {
+                    if (j % 2 == 0) {
+                        evens.push_back(l[j]);
+                    }
+                }
+                std::sort(evens.begin(), evens.end());
+                result[i] = evens[0];
             } else {
                 result[i] = l[i];
             }
         }
-        
         return result;
     }
 }
 
 int main() {
-    std::vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
+    std::vector<float> input;
+    for (float num : {5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f}) {
+        input.push_back(num);
+    }
     std::cout << "Original array: ";
     for (float num : input) {
         std::cout << num << " ";
