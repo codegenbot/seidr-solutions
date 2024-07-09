@@ -1,27 +1,17 @@
-int prod_signs(vector<int> arr) {
-    int product = 1;
-    for (int num : arr) {
-        if (num != 0) {
-            product *= sign(num);
-        }
-    }
-    return product * sum_magnitude(arr);
-}
+#include <vector>
 
-int sign(int num) {
-    if (num > 0) {
-        return 1;
-    } else if (num < 0) {
-        return -1;
-    } else {
-        return 0;
-    }
-}
+int prod_signs(const vector<int>& arr) {
+    if (arr.empty()) return -32768;
+    
+    int sign_product = 1;
+    long long sum_magnitudes = 0;
 
-long long sum_magnitude(vector<int> arr) {
-    long long sum = 0;
     for (int num : arr) {
-        sum += abs(num);
+        if (num == 0) continue;
+        if (sign_product * abs(num) > INT_MAX || sign_product * abs(num) < INT_MIN) return -32768; // check overflow
+        sign_product *= (num > 0 ? 1 : -1);
+        sum_magnitudes += abs(num);
     }
-    return sum;
+    
+    return static_cast<int>(sum_magnitudes) * sign_product;
 }
