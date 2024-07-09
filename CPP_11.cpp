@@ -9,10 +9,8 @@ std::string string_xor(std::string a, std::string b) {
 
     std::string result = "";
     for (int i = 0; i < a.length(); i++) {
-        int x = a[i] - '0';
-        int y = b[i] - '0';
-        int res = x ^ y;
-        result += (static_cast<char>(res) > '0') ? "1" : "0";
+        char c = (a[i] - '0' ^ b[i] - '0') + '0';
+        result += c;
     }
     return result;
 }
@@ -25,7 +23,6 @@ int main() {
         std::getline(std::cin, str1);
 
         std::cout << "Enter the second string: ";
-        std::cin.ignore(); // wait for the user to enter a newline character
         std::getline(std::cin, str2);
         
         try {
