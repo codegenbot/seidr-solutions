@@ -3,10 +3,7 @@
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
-vector<vector<string>> filter_by_substring(vector<vector<string>> input, string sub);
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<std::string> a, vector<std::string> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -31,13 +28,6 @@ vector<vector<string>> filter_by_substring(vector<vector<string>> input, string 
 }
 
 int main() {
-    vector<vector<string>> input = {{"grunt", "trumpet", "prune", "gruesome"}};
-    string sub = "gru";
-    vector<vector<string>> result = filter_by_substring(input, sub);
-    for(auto &v : result) {
-        for(auto &s : v) {
-            std::cout << s << " ";
-        }
-        std::cout << std::endl;
-    }
+    assert (issame(filter_by_substring({{"grunt"}, {"trumpet"}, {"prune"}, {"gruesome"}}, "run"), {{"grunt"}, {"prune"}}));
+    return 0;
 }
