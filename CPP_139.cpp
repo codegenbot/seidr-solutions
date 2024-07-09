@@ -9,7 +9,6 @@ long long special_factorial(int n) {
         }
     }
     return result;
-
 }
 
 int main() {
