@@ -1,16 +1,21 @@
 int sum = 0;
-    for(int i=0; i<q.size(); i++){
+    for (int i = 0; i < q.size(); i++) {
         sum += q[i];
     }
     
-    if(sum > w)
+    if (q.size() % 2 != 0) {
         return false;
+    }
     
-    vector<int> q_reverse = q;
-    reverse(q_reverse.begin(), q_reverse.end());
+    for (int i = 0; i < q.size()/2; i++) {
+        if (q[i] != q[q.size() - 1 - i]) {
+            return false;
+        }
+    }
     
-    if(q == q_reverse)
+    if (sum <= w) {
         return true;
-    
-    return false;
+    } else {
+        return false;
+    }
 }
