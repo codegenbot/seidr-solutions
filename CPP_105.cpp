@@ -20,19 +20,14 @@ std::vector<std::string> by_length(const std::vector<int>& arr) {
 }
 
 int main() {
-    // User input
-    std::vector<int> intArray = {};
+    std::vector<int> intArray;
     std::cout << "Enter the numbers separated by space: ";
     for (std::string str; std::getline(std::cin, str); ) {
         intArray.push_back(stoi(str));
     }
     
-    std::vector<std::string> lengthArr;
-    for(int num : intArray) {
-        int length = to_string(num).size();
-        lengthArr.push_back(to_string(length));
-    }
-    // Test assertion
-    assert(issame({to_string(9).size(), to_string(4).size(), to_string(8).size()}, std::vector<std::string>(lengthArr.begin(), lengthArr.end())));
+    std::vector<std::string> lengthArr = by_length(intArray);
+    std::vector<std::string> expected = {"9", "4", "8"};
+    assert(issame(expected, lengthArr));
     return 0;
 }
