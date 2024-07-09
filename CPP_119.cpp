@@ -1,22 +1,42 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
 std::vector<std::string> lst;
 
-int main() {
-    int n;
-    std::cin >> n;
+bool match_parens(const std::string& s) {
+    int count = 0;
+    for (char c : s) {
+        if (c == '(')
+            ++count;
+        else if (c == ')')
+            --count;
+        if (count < 0)
+            return false;
+    }
+    return count == 0;
+}
 
+void processInput(int n) {
     for(int i=0; i<n; ++i){
         std::string s;
         std::getline(std::cin, s);
         if (!s.empty()) {
-            s.erase(s.begin(), s.end()); 
-            lst.push_back(s);
+            bool isMatch = match_parens(s); 
+            if(isMatch) {
+                lst.push_back("Yes");
+            } else {
+                lst.push_back("No");
+            }
+        } else {
+            lst.push_back("No");
         }
     }
+}
 
+int main() {
+    int n;
+    std::cin >> n;
+    processInput(n);
     return 0;
 }
