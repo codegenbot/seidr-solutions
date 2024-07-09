@@ -1,9 +1,15 @@
 #include <vector>
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.empty()) return a;
-    if((a.front() + a.back()) % 2 == 0)
-        sort_array(a.rbegin(), a.rend());
+#include <algorithm>
+
+std::vector<int> sort_array(std::vector<int> array) {
+    if(array.empty()) return array;
+    if((array.front() + array.back()) % 2 == 0)
+        std::sort(array.rbegin(), array.rend());
     else
-        sort_array(a.begin(), a.end());
-    return a;
+        std::sort(array.begin(), array.end());
+    return array;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return sort_array(a) == sort_array(b);
 }
