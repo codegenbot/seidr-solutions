@@ -3,44 +3,40 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(char a, char b) {
+    if (a == '(' && b == ')') 
+        return true;
+    else if (a == '[' && b == ']') 
+        return true;
+    else if (a == '{' && b == '}') 
+        return true;
+    return false;
 }
 
-string separate_paren_groups(string s) {
-    int count = 0;
-    string current_group = "";
-    string result = "";
-
+std::vector<std::string> separate_paren_groups(std::string s) {
+    std::vector<std::string> result;
+    std::string current_group = "";
     for (char c : s) {
-        if (c == '(') {
-            count++;
+        if ((c == '(' || c == '[' || c == '{') && current_group.empty()) {
             current_group += c;
-        } else if (c == ')') {
-            count--;
+        } else if ((c == ')' || c == ']' || c == '}') && !current_group.empty() && issame(current_group.back(), c)) {
             current_group += c;
-            if (count == 0) {
-                for (char d : current_group) {
-                    result.push_back(d);
-                }
-                current_group = "";
-            }
-        } else {
-            if (count > 0) {
-                current_group += c;
-            } else {
-                result += c;
-            }
+            result.push_back(std::to_string(current_group));
+            current_group = "";
+        } else if (c != '(' && c != '[' && c != '{' && c != ')' && c != ']' && c != '}') {
+            current_group += c;
         }
     }
-
     return result;
 }
 
 int main() {
-    string s;
-    std::cout << "Enter a string: ";
+    std::string s;
+    std::cout << "Enter a string of parentheses: ";
     std::getline(std::cin, s);
-    std::cout << "Result: " << separate_paren_groups(s) << std::endl;
+    std::vector<std::string> groups = separate_paren_groups(s);
+    for (const auto& group : groups) {
+        std::cout << group << "\n";
+    }
     return 0;
 }
