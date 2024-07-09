@@ -12,7 +12,7 @@ int findMax(std::vector<int> numbers) {
 
 int main() {
     std::vector<int> numbers;
-    for(int i=0; i<5; i++){
+    for(int i=0; i<4; i++){
         int num;
         std::cin >> num;
         numbers.push_back(num);
