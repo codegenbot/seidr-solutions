@@ -1,6 +1,2 @@
 ```
-def sum_squares(lst):
-    total = 0
-    for num in lst:
-        total += num ** 2 + num ** 3
-    return total
+print(sum_squares([1, 2, 3, 4, 5]))
