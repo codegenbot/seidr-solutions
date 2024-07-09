@@ -1,4 +1,5 @@
 #include <vector>
+
 int next_smallest(vector<int>& lst) {
     if (lst.size() < 2) {
         return -1;
@@ -19,6 +20,8 @@ int next_smallest(vector<int>& lst) {
     return -1;
 }
 
-// Invoke next_smallest function with input vector { -35, 34, 12, -45 }
-vector<int> input = { -35, 34, 12, -45 };
-int result = next_smallest(input);
+int main() {
+    vector<int> lst = { -35, 34, 12, -45 };
+    int result = next_smallest(lst);
+    return result;
+}
