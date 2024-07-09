@@ -9,19 +9,22 @@ bool is_happy(const std::string& s) {
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
         bool unique = true;
-        for (auto it = s.begin(); it != s.end() && it - s.begin() < 3; ++it) {
-            char c = *it;
-            int count = 0;
-            for (; it - s.begin() < 3 && it != s.end(); ++it) {
-                if (*it == c)
-                    count++;
-            }
-            if (count > 1) {
-                unique = false;
+        char c1 = s[i];
+        char c2 = s[i + 1];
+        char c3 = s[i + 2];
+        for (int j = i; j < s.length(); j++) {
+            if (s[j] == c1)
+                continue;
+            else if (s[j] == c2)
+                continue;
+            else if (s[j] == c3)
+                continue;
+            else
                 break;
-            }
         }
-        if (!unique)
+        if ((s.find(c1) != std::string::npos && s.find(c1, i + 1) != std::string::npos) ||
+            (s.find(c2) != std::string::npos && s.find(c2, i + 1) != std::string::npos) ||
+            (s.find(c3) != std::string::npos && s.find(c3, i + 1) != std::string::npos))
             return false;
     }
     return true;
