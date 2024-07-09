@@ -12,11 +12,14 @@ bool is_happy(const std::string& s) {
 
 int main() {
     std::string input;
+    std::cout << "Enter a string: ";
     std::cin >> input;
-    if(is_happy(input)) {
-        std::cout << "Input string is happy." << std::endl;
+    
+    if(is_happy(input)){
+        std::cout << "The string is happy." << std::endl;
     } else {
-        std::cout << "Input string is not happy." << std::endl;
+        std::cout << "The string is not happy." << std::endl;
     }
+    
     return 0;
 }
