@@ -1,7 +1,6 @@
-```cpp
-#include <iostream>
 #include <cmath>
 #include <vector>
+#include <iostream>
 
 double vectorDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
     if(v1.size() != v2.size()) {
@@ -16,9 +15,16 @@ double vectorDistance(const std::vector<float>& v1, const std::vector<float>& v2
 }
 
 int main() {
-    std::vector<float> v1 = {1.0f, 2.0f};
-    std::vector<float> v2 = {3.0f, 4.0f};
-    double distance = vectorDistance(v1, v2);
-    std::cout << "Euclidean distance: " << distance << std::endl;
+    std::vector<float> v1 = {1.0, 2.0, 3.0};
+    std::vector<float> v2 = {4.0, 5.0, 6.0};
+    
+    try {
+        double distance = vectorDistance(v1, v2);
+        std::cout << "The Euclidean distance between the two vectors is: " << distance << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 1;
+    }
+    
     return 0;
 }
