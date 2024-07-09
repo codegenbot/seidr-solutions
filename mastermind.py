@@ -1,11 +1,11 @@
 code_chars = [0] * 6
-guess_chars = [0] * 6
 
-for c in input("Enter the Mastermind code:"):
-    code_chars[ord(c) - ord("R")] += 1
+code = input("Enter the Mastermind code:").upper()
+guess = input("Enter your guess:").upper()
 
-for c in input("Enter your guess:"):
-    guess_chars[ord(c) - ord("R")] += 1
+for c in code:
+    if c in "ROYGBI":
+        code_chars[ord(c) - ord("R")] += 1
 
 black, white = 0, 0
 for i in range(4):
