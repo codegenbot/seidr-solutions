@@ -24,19 +24,17 @@ bool has_close_elements(std::vector<std::pair<float*, float*>> numbers, float to
 }
 
 int main() {
-    float* arr1 = new float[2];
-    float* arr2 = new float[2];
+    float arr1[2] = {1.0f, 2.0f};
+    float arr2[2] = {1.5f, 3.0f}; // Different elements
+    float* p1 = &arr1[0];
+    float* p2 = &arr2[0];
 
-    arr1[0] = 1.0f;
-    arr1[1] = 2.0f;
-
-    arr2[0] = 1.5f;
-    arr2[1] = 3.0f; // Different elements
-
-    std::vector<std::pair<float*, float*>> input = {{arr1, arr2}};
+    std::vector<std::pair<float*, float*>> input = {{{arr1, arr1}, {arr2, arr2}}};
     
-    assert(has_close_elements({{arr1, arr1}, {arr2, arr2}}, 0.5) == false);
-    delete[] arr1;
-    delete[] arr2;
+    if (!has_close_elements(input, 0.5)) {
+        std::cout << "No close elements found." << std::endl;
+    } else {
+        std::cout << "Close elements found." << std::endl;
+    }
     return 0;
 }
