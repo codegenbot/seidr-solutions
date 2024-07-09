@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> issame(vector<int> a, vector<int> &b, int n) {
+vector<int> solveProblem(int n) {
     vector<int> result;
     int factorial = 1;
     int sum = 0;
