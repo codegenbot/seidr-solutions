@@ -4,27 +4,32 @@ using namespace std;
 int bowlingScore(string input) {
     int score = 0;
     int i = 0;
-    while (i < 10) {
+    for (int frame = 1; frame <= 10; frame++) {
         if (input[i] == 'X') {
             score += 30;
             i++;
+            continue;
+        } else if (input.substr(i, 1) == "X") {
+            i++;
+            int nextRoll = stoi(input.substr(i, 1));
+            score += 10 + nextRoll;
+            i++;
+            continue;
         } else if (input[i] == '/') {
-            string subStr = input.substr(i, 2);
-            int nextTwo = stoi(subStr);
-            score += 10 + nextTwo;
-            i += 3;
-        } else {
-            int currentRoll = stoi(input.substr(i, 2));
+            i++;
+            int nextTwo = stoi(input.substr(i, 2));
+            score += 10 + nextTwo / 2;
             i += 2;
-            if (currentRoll == 10) {
-                continue;
-            }
-            if (currentRoll < 10) {
-                score += currentRoll;
-            } else {
-                score += currentRoll - 10 + 10;
-            }
+            continue;
+        }
+        int currentRoll1 = stoi(input.substr(i, 1));
+        i++;
+        if (input[i] == '0') {
+            int currentRoll2 = stoi(input.substr(i, 1));
+            score += currentRoll1 + currentRoll2;
+            i++;
+        } else {
+            score += currentRoll1;
         }
     }
     return score;
-}
