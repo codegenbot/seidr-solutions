@@ -2,21 +2,28 @@
 #include <vector>
 #include <string>
 
-int match_parens(const std::vector<std::string>& lst) {
-    int countOpen = 0;
-    for (const auto& s : lst) {
-        int countClose = 0;
+std::string match_parens(std::vector<std::string> lst) {
+    int countOpen = 0, countClose = 0;
+
+    for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') {
                 countOpen++;
-            } else if (c == ')') {
-                if (countOpen > 0) {
-                    countOpen--;
-                } else {
-                    countClose++;
-                }
+            } else {
+                countClose++;
             }
         }
     }
-    return countOpen == 0 ? 1 : -1;
+
+    if ((countOpen == 0 && countClose % 2 == 1) || (countOpen > countClose)) {
+        return "No";
+    } else {
+        return "Yes";
+    }
+}
+
+int main() {
+    std::vector<std::string> lst = {"())((()))", "((()))"};
+    cout << match_parens(lst) << endl;
+    return 0;
 }
