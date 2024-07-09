@@ -28,7 +28,7 @@ int main() {
     }
     
     cout << "The amount of snow on the ground after " << hours << " hours is: ";
-    cout << std::fixed << std::setiosflags(std::ios_base::floatfield::fixed) << totalSnow << endl;
+    cout << std::fixed << std::setprecision(4) << std::showpoint << totalSnow << endl;
 
     return 0;
 }
