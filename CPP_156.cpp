@@ -1,25 +1,25 @@
 ```cpp
 #include <map>
 using std::map;
+#include <string>
 
-string int_to_mini_roman(int number) {
+#pragma GCC diagnostic push
+{
+    #pragma GCC diagnostic ignored "-Werror"
+    #pragma GCC diagnostic warning "-Wc++0x-compat"
+}
+std::string int_to_mini_roman(int number) {
     map<int, string> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
         {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
         {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
 
-    string result = "";
-    #pragma GCC diagnostic push
-    {
-    #pragma GCC diagnostic ignored "-Werror"
-    #pragma GCC diagnostic warning "-Wc++0x-compat"
-} 
+    std::string result = "";
     for (auto pair : roman) {
         while (number >= pair.first) {
             number -= pair.first;
             result += pair.second;
         }
     }
-#pragma GCC diagnostic pop
     return result;
 }
 
@@ -27,3 +27,4 @@ int main() {
     assert(int_to_mini_roman(1000) == "M");
     return 0;
 }
+#pragma GCC diagnostic pop
