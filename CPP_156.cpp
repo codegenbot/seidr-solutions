@@ -2,7 +2,7 @@
 #include <vector>
 #include <utility>
 
-std::string int_to_mini_roman(int number){
+std::string int_to_mini_romank(int number){
     std::vector<std::pair<int, std::string>> roman_map = {
         {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
         {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
