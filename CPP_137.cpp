@@ -1,29 +1,37 @@
 #include <boost/any.hpp>
 #include <string>
 #include <cassert>
+#include <iostream>
+
 using namespace std;
 
-boost::any resolve(boost::any a, boost::any b) {
-    assert(a.type() == b.type());
+template<typename T, typename U>
+boost::any compare(boost::any a, boost::any b) {
+    assert(a.type() == typeid(T) && b.type() == typeid(U));
+    
+    if(boost::any_cast<T>(a) > boost::any_cast<U>(b))
+        return a;
+    else if(boost::any_cast<T>(a) < boost::any_cast<U>(b))
+        return b;
+    else
+        return boost::any("None");
+}
 
-    if (a.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
-            return a;
-        else if (boost::any_cast<int>(a) < boost::any_cast<int>(b))
-            return b;
-    }
-    else if (a.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
-            return a;
-        else if (boost::any_cast<float>(a) < boost::any_cast<float>(b))
-            return b;
-    }
-    else if (a.type() == typeid(string)) {
-        if (stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b)))
-            return a;
-        else if (stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b)))
-            return b;
-    }
-
-    return "None";
+int main() {
+    boost::any a = 5;
+    boost::any b = 10;
+    
+    cout << boost::any_cast<int>(compare<int, int>(a, b)) << endl;
+    
+    a = 3.14f;
+    b = 6.28f;
+    
+    cout << boost::any_cast<float>(compare<float, float>(a, b)) << endl;
+    
+    a = string("hello");
+    b = string("world");
+    
+    cout << boost::any_cast<string>(compare<string, string>(a, b)) << endl;
+    
+    return 0;
 }
