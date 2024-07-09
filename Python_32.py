@@ -9,6 +9,16 @@ def find_zero(xs: str):
         if xs[i] == a:
             return -i / xs[i]
 
-user_input = input("Enter a list of integers separated by space: ").strip()
+# Get user input
+user_input = input("Enter a list of integers separated by space: ")
 
+# Validate input format
+try:
+    for num in user_input.split():
+        int(num)
+except ValueError:
+    print("Invalid input format. Please enter a list of integers separated by space.")
+    exit()
+
+# Call the function with user input and print the result
 print(find_zero(user_input))
