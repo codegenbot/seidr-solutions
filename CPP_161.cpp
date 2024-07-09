@@ -1,17 +1,14 @@
-Here is the modified code:
-
-```c++
-#include <string>
 #include <algorithm>
+#include <iostream>
+#include <string>
 
-std::string solve(std::string s) {
-    std::string result = "";
+std::string solve(const std::string& s) {
+    int count = 0;
     for (char c : s) {
-        if (isalpha(c)) {
-            result += tolower(c) == 'a' ? toupper(c) : tolower(c);
-        } else {
-            result += c;
+        if (c == 'o') {
+            count++;
         }
     }
-    return !result.empty() ? result : s;
+
+    return result.empty() ? s.substr(0, s.size()) : std::accumulate(s.rbegin(), s.rend(), "", [&](char c){ return result + c; });
 }
