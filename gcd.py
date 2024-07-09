@@ -1,5 +1,4 @@
-Here's the modified code:
-
+```
 a = int(input("Enter the first integer: "))
 b = int(input("Enter the second integer: "))
 
