@@ -1,11 +1,13 @@
 #include <string>
 #include <map>
 
-int mastermind(std::basic_string<char> code, std::basic_string<char> guess) {
+using namespace std;
+
+int mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
 
-    std::map<char, int> code_count;
+    map<char, int> code_count;
     for (char c : code) {
         code_count[c]++;
     }
@@ -30,4 +32,14 @@ int mastermind(std::basic_string<char> code, std::basic_string<char> guess) {
     }
 
     return black + white;
+}
+
+int main() {
+    string code = "abcd";
+    string guess = "abcd";
+
+    int result = mastermind(code, guess);
+    cout << "Black pegs: " << result - (code_count[code].count('a') - 1) << ", White pegs: " << result - black << endl;
+
+    return 0;
 }
