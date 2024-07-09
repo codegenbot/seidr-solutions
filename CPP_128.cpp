@@ -5,7 +5,7 @@
 int prod_signs(std::string str1, std::string str2, std::string str3) {
     for (auto& s : {str1, str2, str3}) {
         for (const char& c : s) {
-            c = std::toupper(c);
+            c = static_cast<char>(std::toupper(c));
         }
         
         if ((str1[0] == '-' || str1[0] == ' ') && str1.length() > 1) {
