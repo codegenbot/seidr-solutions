@@ -1,8 +1,11 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+using namespace std;
+
+bool same(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -21,29 +24,37 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
             result.push_back(s);
     }
     return result;
+}
 
 int main() {
     vector<string> a;
-    vector<string> b;
-    int n;
-    cin >> n;
-    
-    for(int i = 0; i < n; i++) {
+    cout << "Enter the number of strings: ";
+    int n; cin >> n;
+    for(int i = 1; i <= n; i++){
         string s;
+        cout << "Enter string " << i << ": ";
         cin >> s;
-        if(i < n/2) 
-            a.push_back(s);
-        else
-            b.push_back(s);
+        a.push_back(s);
     }
     
-    if(issame(a, b)) {
-        vector<string> filtered = filter_by_prefix(a, "abc");
-        for(string s : filtered)
+    vector<string> b;
+    cout << "Enter the number of strings: ";
+    cin >> n;
+    for(int i = 1; i <= n; i++){
+        string s;
+        cout << "Enter string " << i << ": ";
+        cin >> s;
+        b.push_back(s);
+    }
+    
+    if(same(a, b)) {
+        vector<string> result = filter_by_prefix(a, "Hello");
+        for(string s : result) {
             cout << s << endl;
+        }
     } else {
-        cout << "Not the same" << endl;
+        cout << "The lists are not the same." << endl;
     }
-    
+
     return 0;
 }
