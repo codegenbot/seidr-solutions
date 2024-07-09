@@ -1,8 +1,7 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool same(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
@@ -11,7 +10,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> numerical_letter_grade(std::initializer_list<float> grades) {
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
     for (float grade : grades) {
         if (grade >= 4.0)
@@ -37,12 +36,12 @@ std::vector<std::string> numerical_letter_grade(std::initializer_list<float> gra
         else if (grade > 0.7)
             letter_grades.push_back("D");
         else
-            letter_grades.push_back("E");
+            letter_grades.push_back("F");
     }
     return letter_grades;
 }
 
 int main() {
-    assert(issame(numerical_letter_grade({0.0f, 0.7f}), {"E", "D-"}));
+    assert(same(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
     return 0;
 }
