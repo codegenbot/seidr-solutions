@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 bool prime_length(std::string str){
@@ -8,10 +7,4 @@ bool prime_length(std::string str){
         if(len%i==0) return false;
     }
     return true;
-
-}
-
-int main() {
-    assert(prime_length("0") == false);
-    return 0;
 }
