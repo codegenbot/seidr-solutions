@@ -1,24 +1,19 @@
-double poly(double c, double s) { 
-    return c + s; 
-}
-
+```cpp
 double find_zero(vector<double> xs) {
-    vector<double> polyCoeffs; // changed to double
-    double c;
     int n = xs.size();
-    c = xs[0];
-    for (int i = 1; i < n; i++) { 
+    double coeffs;
+    vector<double> polyCoeffs;
+
+    coeffs = xs[0];
+    
+    for (int i = 1; i < n; i++) {
         if ((i & 1) == 0) {
-            polyCoeffs.insert(polyCoeffs.begin(), -c*xs[i]);
+            polyCoeffs.insert(polyCoeffs.begin(), -coeffs*xs[i]);
         } else {
-            c = xs[i];
+            coeffs = xs[i];
         }
     }
-    double solution;
-    if (!polyCoeffs.empty()) {
-        polynomial p(polyCoeffs);
-        solution = -p.find_zero();
-    } 
-    assert (abs(poly(c, solution)) < 1e-3);
-    return -c / c;
+
+    double poly(double c, double s) { return c + s; }
+    return -coeffs / coeffs;
 }
