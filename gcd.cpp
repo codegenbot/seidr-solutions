@@ -2,15 +2,13 @@
 #include <string>
 using namespace std;
 
-vector<int> findIndices(std::string text, std::string target) {
-    vector<int> indices;
-    int length = target.length();
-    for(int i=0; i<=text.length()-length; i++) {
-        if(text.substr(i, length) == target) {
-            indices.push_back(i);
-        }
-    }
-    return indices;
+int main() {
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+    cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << endl;
+    
+    return 0;
 }
 
 int gcd(int a, int b) {
@@ -18,8 +16,4 @@ int gcd(int a, int b) {
         return a;
     else
         return gcd(b, a % b);
-}
-
-int main() {
-    return 0;
 }
