@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool comp(string a, string b) {
     return a == b;
 }
 
