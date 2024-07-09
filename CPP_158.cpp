@@ -1,22 +1,14 @@
+Here is the solution:
+
+```cpp
 string find_max(vector<string> words){
-    string result = "";
-    int maxUniqueChars = 0;
-
-    for (const auto& word : words) {
-        unordered_map<char, bool> uniqueChars;
-        int uniqueCount = 0;
-        for (char c : word) {
-            if (!uniqueChars.count(c)) {
-                uniqueChars[c] = true;
-                uniqueCount++;
+    string max_word = *max_element(words.begin(), words.end(), 
+        [&] (const string &a, const string &b) {
+            if (a.length() == b.length()) {
+                return a < b;
             }
-        }
-
-        if (uniqueCount > maxUniqueChars || (uniqueCount == maxUniqueChars && word < result)) {
-            maxUniqueChars = uniqueCount;
-            result = word;
-        }
-    }
-
-    return result;
+            return count(a.begin(), a.end(), unique_copy(a.begin(), a.end())) > 
+                   count(b.begin(), b.end(), unique_copy(b.begin(), b.end()));
+        });
+    return max_word;
 }
