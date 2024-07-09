@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 using namespace std;
 
@@ -29,7 +30,7 @@ double find_zero(vector<double> xs){
 }
 
 int main() {
-    vector<double> xs; // input coefficients
+    vector<double> xs; 
     cout << "Enter coefficients (space separated): ";
     for(double x; cin >> x; xs.push_back(x)); 
     double solution = find_zero(xs);
