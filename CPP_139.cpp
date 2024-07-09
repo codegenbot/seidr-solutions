@@ -1,4 +1,8 @@
+```cpp
 #include <iostream>
+
+#ifndef MY_CPP_H
+#define MY_CPP_H
 
 long long special_factorial(int n) {
     if (n <= 1)
@@ -12,6 +16,8 @@ long long special_factorial(int n) {
     return result;
 }
 
+#endif
+
 int main() {
     int n;
     std::cout << "Enter a number: ";
@@ -19,3 +25,4 @@ int main() {
     long long result = special_factorial(n);
     std::cout << "The special factorial of " << n << " is " << result << "." << std::endl;
     return 0;
+}
