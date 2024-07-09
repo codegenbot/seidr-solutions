@@ -19,14 +19,17 @@ bool match_parens(vector<string> lst) {
 int main() {
     vector<string> lst;
     int n;
-    cin >> n;
-    for(int i=0; i<n; ++i++){
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        string s;
+    string str, s;
+
+    cin >> str; 
+    n = stoi(str);
+    for(int i=0; i<n; ++i){ 
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
         getline(cin, s);
         if (!s.empty()) {
             lst.push_back(s);
         }
     }
+
     cout << (match_parens(lst) ? "Yes" : "No") << endl;
 }
