@@ -1,8 +1,11 @@
-double num = stod(value);
-    int intNum = (int)round(num);
+#include <cmath>
+
+int closest_integer(std::string value) {
+    double num = std::stod(value);
+    int intNum = (int)std::round(num);
     if (num - intNum < 0) {
-        return (int)ceil(num);
+        return (int)std::ceil(num);
     } else {
-        return (int)floor(num);
+        return (int)std::floor(num);
     }
 }
