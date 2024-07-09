@@ -1,20 +1,21 @@
 #include <vector>
 #include <list>
-#include <boost/any.hpp>
+#include <variant>
+#include <cassert>
 
-using namespace std;
+bool issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> filter_integers(list<boost::any> values){
-    vector<int> result;
+std::vector<int> filter_integers(std::list<std::variant<int, char>> values){
+    std::vector<int> result;
     for (auto val : values) {
-        if (val.type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(val));
+        if (std::holds_alternative<int>(val)) {
+            result.push_back(std::get<int>(val));
         }
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
