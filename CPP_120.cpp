@@ -33,11 +33,11 @@ std::vector<int> maximum(std::vector<int>& arr, int k) {
     }
 
     // Keep popping elements from the priority queue until k elements are popped
-    while (!pq.empty() && k-- > 0) {
+    while (!pq.empty() && k-- < arr.size()) {
         int idx = pq.top().second;
         pq.pop();
         if (idx < arr.size()) {
-            arr[idx] = -1;  // Mark this index as processed, don't pop it directly
+            arr.push_back(-1);  // Mark this index as processed, don't pop it directly
         }
     }
 
