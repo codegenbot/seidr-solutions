@@ -1,4 +1,5 @@
 ```cpp
+#include <cassert>
 #include <vector>
 #include <string>
 
@@ -19,4 +20,9 @@ vector<string> filter_by_prefix(vector<string> words, string prefix) {
     }
     return result;
 
+}
+
+int main() {
+    assert(areEqual(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaaAaAa", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
