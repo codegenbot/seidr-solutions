@@ -3,18 +3,14 @@
 #include <cassert>
 #include <iostream>
 
-bool is_happy(const std::string& s) {
+bool is_happy(std::string s) {
     if (s.length() < 3)
         return false;
-    for (int i = 0; i <= s.length() - 3; i++) {
+    for (int i = 0; i < s.length() - 2; i++) {
+        std::string sub = s.substr(i, 3);
         bool unique = true;
-        for (int j = i; j < i + 3; j++) {
-            char c = s[j];
-            int count = 0;
-            for (int k = j; k < j + 3 && k < s.length(); k++) {
-                if (s[k] == c)
-                    count++;
-            }
+        for (char c : sub) {
+            int count = std::count(s.begin(), s.end(), c);
             if (count > 1) {
                 unique = false;
                 break;

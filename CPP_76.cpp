@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 
-bool isSimplePower(int base, int power); 
-bool isSimplePower(int num); 
+bool isSimplePower(int base, int power);
+bool isSimplePower(int num);
 
 int simplePowerCheckerMain() {
     std::string input;
@@ -28,4 +28,8 @@ bool isSimplePower(int num) {
         }
     }
     return false;
+}
+
+bool isSimplePower(int base, int power) {
+    return (int)pow(base, power) == num;
 }
