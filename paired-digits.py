@@ -9,7 +9,7 @@ def paired_digits(s):
         prev = d
     return total
 
-print(paired_digits("99"))
+print(paired_digits("99")) 
 print(paired_digits("88"))
 print(paired_digits("77"))
 print(paired_digits("55"))
