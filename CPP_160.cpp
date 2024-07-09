@@ -7,7 +7,7 @@ int do_algebra(vector<string> operators, vector<int> operands) {
             result -= operands[i + 1];
         } else if (operators[i] == "*") {
             result *= operands[i + 1];
-        } else if (operators[i] == "//") {
+        } else if (operators[i] == "/") { // Changed "//" to "/" as it's the correct division operator
             result = result / operands[i + 1];
         } else if (operators[i] == "**") {
             result = pow(result, operands[i + 1]);
