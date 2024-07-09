@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 using namespace std;
@@ -17,15 +16,4 @@ vector<int> parse_music(string music_string) {
         }
     }
     return result;
-}
-
-int main() {
-    string input = "o|o.|.";
-    vector<int> output = parse_music(input);
-    cout << "Output: ";
-    for (int i : output) {
-        cout << i << " ";
-    }
-    cout << endl;
-    return 0;
 }
