@@ -32,9 +32,9 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
 }
 
 int main() {
-    BOOST_ASSERT(get<int>(compare_one(10, 5)) == 10);
-    BOOST_ASSERT_MSG(get<string>(compare_one(string("one"), string("two"))) == "two", "Failed assertion: Strings comparison");
-    BOOST_ASSERT_MSG(get<string>(compare_one(string("None"), string("None"))) == "None", "Failed assertion: Equal strings comparison");
+    BOOST_ASSERT(boost::any_cast<int>(compare_one(10, 5)) == 10);
+    BOOST_ASSERT_MSG(boost::any_cast<string>(compare_one(string("one"), string("two"))) == "two", "String comparison failed");
+    BOOST_ASSERT_MSG(boost::any_cast<string>(compare_one(string("None"), string("None"))) == "None", "String comparison failed");
 
     return 0;
 }
