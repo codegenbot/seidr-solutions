@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -9,10 +9,8 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> pluck(vector<int> arr); // Declare the function before using it
-
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
+std::vector<int> pluck(const std::vector<int>& arr) {
+    std::vector<int> result;
     if (arr.empty()) return result;
 
     int minEven = INT_MAX;
@@ -31,12 +29,7 @@ vector<int> pluck(vector<int> arr) {
     return result;
 }
 
-#include <cinttypes>
-#include <iostream>
-
 int main() {
-    vector<int> input = {7, 9, 7, 1};
-    vector<int> output = pluck(input);
-    assert(issame(output, vector<int>{}));
+    assert(issame(pluck({7, 9, 7, 1}), {}));
     return 0;
 }
