@@ -21,4 +21,4 @@ int main() {
     
     vector<float> numbers2 = {static_cast<float>(1.1), static_cast<float>(2.2), static_cast<float>(3.1), static_cast<float>(4.1), static_cast<float>(5.1)};
     assert(has_close_elements(numbers2, 0.5) == false);
-}
+    return 0;
