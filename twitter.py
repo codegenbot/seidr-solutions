@@ -1,12 +1,13 @@
 ```
+import re
+
 def validate_tweet(tweet):
-    tweet = ''.join(e for e in tweet if e.isascii())
-    if len(tweet) > 140:
+    if len(re.sub(r'\W+', '', tweet)) > 140:
         return "Too many characters"
     elif not tweet.strip():
         return "You didn't type anything"
     else:
-        return f"Your tweet has {len(tweet)} characters"
+        return f"Your tweet has {len(re.sub(r'\W+', '', tweet))} characters"
 
 print(validate_tweet("")) 
 print(validate_tweet("1")) 
