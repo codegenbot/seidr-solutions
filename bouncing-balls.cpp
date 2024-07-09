@@ -1,4 +1,3 @@
-```cpp
 int main() {
     int startHeight, firstBounce, numBounces;
 
@@ -15,5 +14,10 @@ int main() {
         std::cout << "Height at bounce " << i+1 << ": " << height << std::endl;
         startHeight = height;
     }
+
+    double totalDistance = bouncinessIndex * (1 - pow(0.5, numBounces + 1));
+
+    std::cout << "Total distance: " << totalDistance << std::endl;
+
     return 0;
 }
