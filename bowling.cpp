@@ -22,4 +22,3 @@ int bowlingScore(string input) {
         }
     }
     return score;
-}
