@@ -11,5 +11,4 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return !result.empty() ? result : std::string(s.begin(), s.end()) + std::string(s.rbegin(), s.rend());
-}
+    return result.empty() ? std::string(s).substr(0, s.size()) + std::string(s.begin(), s.end()) : result;
