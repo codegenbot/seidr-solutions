@@ -5,11 +5,11 @@
 
 using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> largest_smallest_integers(std::vector<int> lst) {
+vector<int> largest_smallest_integers(vector<int> lst) {
     int largest_negative = INT_MIN, smallest_positive = INT_MAX;
     for (int num : lst) {
         if (num < 0 && num > largest_negative) {
@@ -22,6 +22,7 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
 }
 
 int main() {
-    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), std::vector<int>{-100, 1}));
+    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1}));
+    
     return 0;
 }
