@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 
 bool is_sorted(std::vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
-            std::vector<int> temp;
+            vector<int> temp;
             bool duplicate = false;
             for(int j = 0; j < lst.size(); j++){
                 if(j == i) continue;
@@ -27,4 +28,5 @@ bool is_sorted(std::vector<int> lst){
 
 int main(){
     assert (is_sorted({1, 2, 3, 4}) == true);
+    // your other code...
 }
