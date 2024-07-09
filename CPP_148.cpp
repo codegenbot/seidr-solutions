@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include < initializer_list>
 
 bool isPlanet(string planet) {
     string planets[] = {"Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
