@@ -12,8 +12,8 @@ float max_element(const std::vector<float>& l){
 }
 
 int main() {
-    std::vector<float> v = {4.2, 5.8, -3.7, 0.9};
-    float result = max_element(v);
+    std::vector<float> vec = {5.2, -3.4, 7.8, 0.9};
+    float result = max_element(vec);
     std::cout << "Maximum element: " << result << std::endl;
     return 0;
 }
