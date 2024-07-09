@@ -1,40 +1,19 @@
-#include <iostream>
-#include <string>
-#include <stdexcept>
+try {
+    std::string str1, str2;
+    std::cout << "Enter the first string: ";
+    std::getline(std::cin, str1);
 
-std::string string_xor(std::string a, std::string b) {
-    if (a.length() != b.length())
-        throw std::invalid_argument("Input strings must have the same length.");
+    std::cout << "Enter the second string: ";
+    std::cin >> str2; // read the initial characters
+    str2 += '\n';  // add the newline character manually
+    std::getline(std::cin, str2); // now you can safely get the remaining line
 
-    std::string result = "";
-    for (int i = 0; i < a.length(); i++) {
-        int x = a[i] - '0';
-        int y = b[i] - '0';
-        int res = x ^ y;
-        result += (res > 0) ? "1" : "0";
-    }
-    return result;
-}
-
-int main() { 
-    assert(string_xor("0101", "0000") == "0101");
     try {
-        std::string str1, str2;
-        std::cout << "Enter the first string: ";
-        std::getline(std::cin, str1);
-
-        std::cout << "Enter the second string: ";
-        std::cin.ignore(); // wait for the user to enter a newline character
-        std::getline(std::cin, str2);
-        
-        try {
-            std::string result = string_xor(str1, str2);
-            std::cout << "XOR of the two strings is: " << result << std::endl;
-        } catch (const std::invalid_argument& e) {
-            std::cout << "Error: " << e.what() << std::endl;
-        }
-    } catch (...) { 
-        std::cout << "An error occurred." << std::endl;
+        std::string result = string_xor(str1, str2);
+        std::cout << "XOR of the two strings is: " << result << std::endl;
+    } catch (const std::invalid_argument& e) {
+        std::cout << "Error: " << e.what() << std::endl;
     }
-    return 0;
+} catch (...) { 
+    std::cout << "An error occurred." << std::endl;
 }
