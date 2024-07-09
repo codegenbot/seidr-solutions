@@ -39,7 +39,7 @@ int main() {
         if (i % 2 == 0) {
             coeffs.push_back(xs[i] / xs[i-1]);
         }
-    }
+    };
     assert(abs(poly(coeffs, solution))< 1e-3);
     return 0;
 }
