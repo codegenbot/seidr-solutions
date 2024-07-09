@@ -21,9 +21,9 @@ string solve(string s) {
 
 int main() {
     assert(solve("#ccc") == "#CCC");
-    assert(solve("1234") == "4321");
-    assert(solve("#ABCD") == "#abcd");
-    assert(solve("HeLlO") == "hElLo");
+    assert(solve("123") == "321");
+    assert(solve("AbcDef") == "aBCdEF");
+    assert(solve("WXYZ") == "ZYXW");
     
     return 0;
 }
