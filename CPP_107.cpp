@@ -29,4 +29,3 @@ int main() {
             expected.push_back(1);
     }
     assert(isSame(even_odd_palindrome(5), expected));
-}
