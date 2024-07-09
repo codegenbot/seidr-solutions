@@ -1,3 +1,4 @@
+```c
 #include <vector>
 #include <cmath>
 
@@ -11,6 +12,16 @@ bool has_close_elements(const std::vector<float>& a, float delta) {
 }
 
 int main() {
-    std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    std::cout << (has_close_elements(a, 0.1) ? "True" : "False") << std::endl;
+    std::vector<float> a={1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    float input;
+    std::cout << "Enter the delta value: ";
+    std::cin >> input;
+    
+    if(has_close_elements(a, input)) {
+        std::cout << "The array has close elements.\n";
+    } else {
+        std::cout << "The array does not have close elements.\n";
+    }
+    
+    return 0;
 }
