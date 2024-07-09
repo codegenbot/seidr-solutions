@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 #include <cctype>
 
-int Strongest_Extension(string class_name,vector<string> extensions){
+int Strongest_Extension(string class_name, vector<string> extensions) {
     int max_strength = 0;
     string strongest_extension;
 
@@ -11,8 +10,8 @@ int Strongest_Extension(string class_name,vector<string> extensions){
         int cap = 0;
         int sm = 0;
         for (char c : extension) {
-            if (std::isupper(c)) cap++;
-            else if (std::islower(c)) sm++;
+            if (isupper(c)) cap++;
+            else if (islower(c)) sm++;
         }
         int strength = cap - sm;
         if (strength > max_strength) {
