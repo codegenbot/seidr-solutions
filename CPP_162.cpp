@@ -1,5 +1,5 @@
-#include <openssl/ssl.h>
 #include <string>
+#include <openssl/ssl.h>
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
