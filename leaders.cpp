@@ -1,22 +1,24 @@
 #include <vector>
-#include <climits>
 #include <algorithm>
 #include <iostream>
+#include <climits>
 using std::vector;
 using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
-    int maxRight = INT_MIN;
+    int n = nums.size();
 
-    for (int i = nums.size() - 1; i >= 0; i--) {
-        if (nums[i] >= maxRight) {
+    int maxSoFar = INT_MIN;
+    for (int i = n - 1; i >= 0; i--) {
+        if (nums[i] >= maxSoFar) {
+            maxSoFar = nums[i]; // Update maxSoFar to the current element
             leaders.push_back(nums[i]);
-            maxRight = nums[i];
         }
     }
 
     reverse(leaders.begin(), leaders.end());
+
     return leaders;
 }
 
