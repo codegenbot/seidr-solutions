@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> solve(int n) {
+std::vector<int> function_name(int n) {
     std::vector<int> result;
     for (int i = 1; i <= n; ++i) {
         if (i % 2 == 0) {
@@ -19,8 +19,4 @@ std::vector<int> solve(int n) {
         }
     }
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
