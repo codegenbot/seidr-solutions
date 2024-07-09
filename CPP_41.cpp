@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 using namespace std;
 
@@ -18,3 +19,4 @@ int main() {
     cin >> s;
     cout << "Number of collisions: " << car_race_collision(s) << endl;
     return 0;
+}
