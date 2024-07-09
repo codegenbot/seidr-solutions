@@ -7,7 +7,7 @@ int search(std::vector<int> lst) {
     for (int i : lst) {
         freq[i]++;
     }
-    int prev = -1; // initialize previous key
+    int prev = -1; 
     for (auto p = freq.begin(); p != freq.end(); ++p) {
         if (p->second >= p->first && (p == freq.begin() || p->first > prev)) { 
             return p->first;
