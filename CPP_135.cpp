@@ -1,9 +1,8 @@
-int n = arr.size();
-    int idx = -1;
-    for(int i=1; i<n; i++){
-        if(arr[i-1] > arr[i]){
-            idx = i-1;
+int can_arrange(vector<int> arr){
+    for(int i=arr.size()-2; i>=0; i--){
+        if(arr[i] < arr[i+1]){
+            return i;
         }
     }
-    return idx;
+    return -1;
 }
