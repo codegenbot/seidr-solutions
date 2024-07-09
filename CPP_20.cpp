@@ -18,14 +18,7 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
             closest = make_pair(numbers[i], numbers[i + 1]);
         }
     }
-    vector<pair<float, float>> result;
-    for (int i = 0; i < numbers.size() - 1; i++) {
-        float diff = numbers[i + 1] - numbers[i];
-        if (diff == min_diff) {
-            result.push_back(make_pair(numbers[i], numbers[i + 1]));
-        }
-    }
-    return result;
+    return {closest};
 }
 
 int main() {
