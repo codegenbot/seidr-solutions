@@ -1,6 +1,9 @@
 def add(numbers: list):
     return sum(numbers)
 
-numbers = [int(num) for num in input("Enter numbers separated by spaces: ").split()]
-result = add(numbers)
-print(result)
+num_test_cases = int(input())
+
+for _ in range(num_test_cases):
+    numbers = [int(num) for num in input().split()]
+    result = add(numbers)
+    print(result)
