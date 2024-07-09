@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <limits>
 #include <vector>
