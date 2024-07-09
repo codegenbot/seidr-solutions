@@ -1,9 +1,9 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 
 bool filter_integers(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return (a == b);
 }
 
 int main() {
@@ -18,7 +18,7 @@ int main() {
     for(int i = 0; i < n; ++i)
         std::cin >> b[i];
 
-    if(filter_integers(a, b))
+    if(a == b)
         std::cout << "The two vectors are the same." << std::endl;
     else
         std::cout << "The two vectors are not the same." << std::endl;
