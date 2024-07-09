@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-bool checkPalindrome(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[std::abs(i - (a.size() - 1))]) return false;
@@ -20,27 +20,21 @@ std::vector<int> even_odd_palindrome(int n) {
     return result;
 }
 
-int main() {
-    int n = 5;
-    std::vector<int> expected = even_odd_palindrome(n);
-    
-    for(int i = 0; i <= n; ++i) {
-        if(i % 2 == 0)
-            expected.push_back(0);
+std::vector<int> generatePalindrome(int n) {
+    std::vector<int> oddNumbers, evenNumbers;
+    for (int i = 1; i <= n; ++i) {
+        if (i % 2 == 0)
+            evenNumbers.push_back(0);
         else
-            expected.push_back(1);
+            oddNumbers.push_back(1);
     }
-    
-    int expected_result = 1; // Initialize expected variable
-    assert(checkPalindrome(even_odd_palindrome(n), expected));
-    std::cout << "The even-odd palindrome for " << n << " is: ";
-    for (int i = 0; i < even_odd_palindrome(n).size(); ++i) {
-        if(i % 2 == 0)
-            std::cout << 0;
-        else
-            std::cout << 1;
+    for (int i = oddNumbers.size() - 1; i >= 0; --i) {
+        result.push_back(oddNumbers[i]);
     }
-    std::cout << std::endl;
-    
-    return 0;
+    for (int i = evenNumbers.size() - 1; i >= 0; --i) {
+        if (!result.empty()) {
+            result.push_back(evenNumbers[i]);
+        }
+    }
+    return result;
 }
