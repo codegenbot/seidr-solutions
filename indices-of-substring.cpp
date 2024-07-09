@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-std::string main() {
+int main() {
     std::string text, target;
     std::getline(std::cin, text);
     std::cin >> target;

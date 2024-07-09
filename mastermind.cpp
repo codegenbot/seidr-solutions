@@ -1,5 +1,5 @@
 #include <iostream>
-#include <map>
+#include <set>
 #include <algorithm>
 
 using namespace std;
@@ -9,27 +9,25 @@ int main() {
     cin >> code >> guess;
 
     int whitePegs = 0, blackPegs = 0;
-    map<char, int> codeFreq, guessFreq;
+    set<int> countedIndices;
 
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
+            countedIndices.insert(i);
         } else {
             codeFreq[code[i]]++;
             guessFreq[guess[i]]++;
         }
     }
 
-    if (blackPegs == 4) {
-        cout << blackPegs << endl << whitePegs << endl;
-        return 0;
-    }
-
-    for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
-        whitePegs += std::min(it->second, guessFreq[it->first]);
+    for (int i = 0; i < 4; ++i) {
+        if (countedIndices.count(i) == 0) {
+            whitePegs += std::min(codeFreq[code[i]], guessFreq[code[i]]);
+        }
     }
 
     cout << whitePegs << endl << blackPegs << endl;
 
     return 0;
-} 
+}
