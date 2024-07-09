@@ -1,4 +1,3 @@
-int count = 0;
-    count = n * 2 - 1;
-    return count;
+int starts_one_ends(int n){
+    return 2 * 9 * (n - 1) + 10;
 }
