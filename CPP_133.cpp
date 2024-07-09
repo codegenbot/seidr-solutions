@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -12,7 +11,7 @@ int sum_squares(double arr[], int n){
     return total;
 }
 
-int mainOriginal(){
+int main_test(){
     double testArray[] = {1.0, 2.0, 3.0};
     int n = sizeof(testArray)/sizeof(testArray[0]);
     int result = sum_squares(testArray, n);
@@ -20,28 +19,10 @@ int mainOriginal(){
     
     assert (sum_squares({1.0, 2.0, 3.0},3) == 14);
 
-    return 0;
-}
-
-int mainTest(){
-    double testArray[] = {-1, 1, 0};
-    int n = sizeof(testArray)/sizeof(testArray[0]);
-    int result = sum_squares(testArray, n);
-    assert (result == 2);
-    return 0;
-}
-
-int main(){
-    int* testArray = new double[3];
-    for(int i=0; i<3; i++){
-        testArray[i] = -1 + 2*i;
-    }
-    int n = sizeof(testArray)/sizeof(testArray[0]);
-    int result = sum_squares(testArray, n);
-    assert (result == 2);
-    delete[] testArray;
-    
-    mainOriginal();
+    double testArray1[] = {-1, 1, 0};
+    int n1 = sizeof(testArray1)/sizeof(testArray1[0]);
+    int result1 = sum_squares(testArray1, n1);
+    assert (result1 == 2);
     
     return 0;
 }
