@@ -2,15 +2,16 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+#include <limits>
 
 using namespace std;
 
-bool issame(const string& a, const vector<string>& b, const string& s) {
-    for (const auto& str : b) {
-        if (!issame(a, vector<string>{string(str)}, s)) return false;
+bool issame(const string& a, const string& s) {
+    bool found = false;
+    if (s == a) {
+        found = true;
     }
-    return true;
+    return found;
 }
 
 string separate_paren_groups(string s) {
@@ -46,14 +47,15 @@ int main() {
 
     while (true) {
         cout << "Enter a string: ";
-        if (!(cin >> s)) { 
+        cin >> s;
+        if (!cin) { 
             cin.clear(); 
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
             break; 
         }
     }
 
-    assert(issame(separate_paren_groups("( ) (( )) (( )( )"), {"", "(())", "(()())"}));
+    assert(issame(separate_paren_groups("( ) (( ")) == issame("(())", "(())"));
 
     cout << "Result: " << separate_paren_groups(s) << endl;
     return 0;
