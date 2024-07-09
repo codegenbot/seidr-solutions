@@ -33,10 +33,10 @@ int main() {
     for (unsigned int i : pile) {
         cout << i << " ";
     }
-    if(isSame(make_a_pile(8), make_a_pile(8))) {
-        cout << "\nThe piles are the same.\n";
+    if(isSame(make_a_pile(8), vector<unsigned int>{unsigned int(8), unsigned int(10), unsigned int(12), unsigned int(14), unsigned int(16), unsigned int(18), unsigned int(20), unsigned int(22)})) {
+        cout << "The piles are the same." << endl;
     } else {
-        cout << "\nThe piles are not the same.\n";
+        cout << "The piles are not the same." << endl;
     }
     return 0;
 }
