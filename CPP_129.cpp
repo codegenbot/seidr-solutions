@@ -1,40 +1,33 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <algorithm>
-
-using namespace std;
-
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
-    priority_queue<pair<vector<int>, pair<int, int>>, vector<pair<vector<int>, pair<int, int>>>>
-            pq({{grid[0][0], {grid[0][0]}}, {0, 0}});
     vector<int> res;
-    
-    while (!pq.empty()) {
-        auto [val, path] = pq.top();
-        pq.pop();
-        
-        if (path.size() == k) {
-            return path.first;
-        }
-        
-        int r = path.second / n, c = path.second % n;
-        
-        for (int dr = -1; dr <= 1; dr++) {
-            for (int dc = -1; dc <= 1; dc++) {
-                if (dr == 0 && dc == 0) continue;
-                
-                int nr = r + dr, nc = c + dc;
-                
-                if (nr >= 0 && nr < n && nc >= 0 && nc < n && !visited[nr][nc]) {
-                    visited[nr][nc] = true;
-                    pq.push({val, {path.first, path.second + 1}});
-                }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (!visited[i][j]) {
+                dfs(grid, visited, i, j, k, res);
             }
         }
     }
-    
-    return {};
+    return res;
+}
+
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
+    int n = grid.size();
+    if (k == 0) {
+        res.insert(res.end(), res.begin(), res.end());
+        return;
+    }
+    visited[x][y] = true;
+    res.push_back(grid[x][y]);
+    for (int dx = -1; dx <= 1; dx++) {
+        for (int dy = -1; dy <= 1; dy++) {
+            int nx = x + dx, ny = y + dy;
+            if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                dfs(grid, visited, nx, ny, k - 1, res);
+                return;
+            }
+        }
+    }
+    visited[x][y] = false;
 }
