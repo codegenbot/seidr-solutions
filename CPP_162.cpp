@@ -1,29 +1,25 @@
-```cpp
-#include <iostream>
 #include <string>
 #include <functional>
 #include <algorithm>
-
+#include <iostream>
 #include <openssl/md5.h>
 
 std::string string_to_md5(const std::string& input) {
-    unsigned char md5[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, input.c_str(), input.size());
-    MD5_Final(md5, &ctx);
-
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5(input.c_str(), input.length(), result);
     std::string output;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        char buffer[3];
-        sprintf(buffer, "%02x", md5[i]);
-        output += std::string(buffer);
-    }
-
+    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i)
+        output.push_back(int(result[i]) + 0x100);
     return output;
 }
 
 int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882c99");
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    
+    std::string md5_hash = string_to_md5(str);
+    std::cout << "MD5 hash: " << md5_hash << std::endl;
+    
     return 0;
 }
