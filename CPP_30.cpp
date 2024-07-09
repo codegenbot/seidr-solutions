@@ -23,12 +23,12 @@ int main() {
     std::cin >> n;
 
     if(n > 0) {
-        std::vector<std::unique_ptr<double>> numbers;
+        std::vector<std::unique_ptr<float>> numbers;
         for(int i=0; i<n;i++){
             std::cout << "Enter element " << i+1 << ": ";
-            double num;
-            std::cin >> num;
-            numbers.push_back(std::make_unique<double>(num));
+            float num; // Declare here
+            std::cin >> num; // Fix the error here
+            numbers.push_back(std::make_unique<float>(num));
         }
 
         auto positive_numbers = get_positive(numbers);
