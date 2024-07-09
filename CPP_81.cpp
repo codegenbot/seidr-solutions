@@ -28,7 +28,7 @@ std::vector<std::string> numerical_letter_grade(const std::vector<double>& grade
     return result;
 }
 
-int main() {
+int main2() {
     std::vector<double> input = {0.0, 0.7};
     std::vector<std::string> result1 = numerical_letter_grade(input);
     
