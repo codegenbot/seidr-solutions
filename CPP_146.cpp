@@ -1,7 +1,5 @@
 #include <vector>
 #include <initializer_list> 
-#include <iostream>
-
 using namespace std;
 
 int specialFilter(vector<int> nums) {
