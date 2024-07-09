@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -57,12 +57,17 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {  
-    vector<string> lst1 = {"apple", "banana"};
+    vector<string> lst1;
+    lst1.push_back("apple");
+    lst1.push_back("banana"); 
     vector<string> lst2;
+    lst2.push_back("orange");
+    lst2.push_back("grape"); 
     vector<string> result = totalMatch(lst1, lst2);
     cout << "Result: ";
     for (const string& s : result) {
         cout << s << " ";
     }
     cout << endl;
-    return 0;
+    return 0; 
+}
