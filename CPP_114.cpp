@@ -1,4 +1,3 @@
-```cpp
 int minSubArraySum(vector<long long> nums) {
     long long min_sum = LLONG_MAX;
     for (int start = 0; start < nums.size(); ++start) {
