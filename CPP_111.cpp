@@ -1,14 +1,16 @@
-```cpp
-#include <iostream>
+#include <map>
 #include <vector>
 #include <string>
 #include <sstream>
-#include <map>
 
 using namespace std;
 
-bool issame(map<char,int> a, map<char,int> b) {
-    return a == b;
+bool issame(map<char,int> a,map<char,int> b) {
+    if(a.size() != b.size()) return false;
+    for(auto it = a.begin();it!=a.end();++it){
+        if(b.find(it->first)==b.end() || b[it->first] != it->second) return false;
+    }
+    return true;
 }
 
 map<char,int> histogram(string test){
@@ -47,9 +49,8 @@ vector<string> split(string str, char delimiter) {
     return tokens;
 
 }
+
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-    // Your test case code here
-    cout << "Histogram is same" << endl;
     return 0;
 }
