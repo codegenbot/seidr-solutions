@@ -27,7 +27,7 @@ int eval(const string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * stoi(s.substr(start, 1));
+            result += sign * std::stoi(s.substr(start, 1).c_str());
             start = i + 1;
         }
     }
