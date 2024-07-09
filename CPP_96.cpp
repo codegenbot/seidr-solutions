@@ -1,8 +1,7 @@
 #include <vector>
-#include <cmath>
 
-bool issame(int x, int y) {
-    return x == y;
+bool issame(int a, int b) {
+    return a == b;
 }
 
 std::vector<int> count_up_to(int n);
