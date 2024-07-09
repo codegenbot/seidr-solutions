@@ -1,5 +1,4 @@
-```
-#include <iostream>
+```#include <iostream>
 #include <string>
 
 bool is_bored(std::string S) {
@@ -17,8 +16,7 @@ bool is_bored(std::string S) {
     return count;
 }
 
-int main 
-{
+int main() {
     std::cout << "Enter a sentence: ";
     std::string S;
     std::cin >> S;
@@ -27,4 +25,4 @@ int main
     std::cout << "Count: " << result << std::endl;
 
     return 0;
-}
+}```
