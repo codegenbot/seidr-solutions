@@ -1,13 +1,18 @@
-int search(vector<int> lst) {
-    int largestNum = -1;
-    unordered_map<int, int> freq;
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
+int search(std::vector<int> lst) {
+    int result = -1;
     for (int num : lst) {
-        freq[num]++;
-        if (num > largestNum && freq[num] >= num) {
-            largestNum = num;
+        if (num > 0 && std::count(lst.begin(), lst.end(), num) >= num) {
+            result = std::max(result, num);
         }
     }
+    return result;
+}
 
-    return largestNum;
+int main() {
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    return 0;
 }
