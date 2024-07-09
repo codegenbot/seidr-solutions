@@ -1,9 +1,6 @@
-```
 def leaders(input_list):
-    leaders = []
-    max_seen_so_far = input_list[-1]
-    for i in range(len(input_list) - 1, -1, -1):
-        if input_list[i] >= max_seen_so_far:
-            leaders.append(input_list[i])
-            max_seen_so_far = input_list[i]
-    return reversed(leaders)
+    return [
+        x
+        for i, x in enumerate(input_list)
+        if all(x >= y for y in input_list[i + 1:])
+    ]
