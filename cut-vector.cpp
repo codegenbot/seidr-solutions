@@ -1,7 +1,6 @@
 ```c++
 #include <vector>
 #include <numeric>
-#include <limits>
 
 int main() {
     std::vector<int> v = {1, 2, 3, 4, 5};
@@ -21,7 +20,7 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
     for (int i = 0; i < n; i++) {
         totalSum += v[i];
     }
-    int minDiff = std::numeric_limits<int>::max(); 
+    int minDiff = INT_MAX; 
     int leftIndex = 0;
 
     long long halfSum = totalSum / 2;
@@ -33,8 +32,8 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
         while (i < n && totalSum > halfSum) {
             totalSum -= v[i];
             leftIndex = i + 1;
-            if (totalSum == halfSum || std::abs(totalSum - halfSum) < minDiff) {
-                minDiff = std::abs(totalSum - halfSum);
+            if (totalSum == halfSum || abs(totalSum - halfSum) < minDiff) {
+                minDiff = abs(totalSum - halfSum);
                 break;
             }
         }
@@ -53,5 +52,5 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
         second = first;
     }
 
-    return {std::move(first), std::move(second)};
+    return {first, second};
 }
