@@ -1,4 +1,4 @@
-#include <boost/variant.hpp>
+#include "../../../path/to/boost/include/boost/variant.hpp"
 #include <string>
 
 using namespace std;
