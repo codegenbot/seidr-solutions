@@ -3,7 +3,7 @@
 #include <cassert>
 #include <set>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
