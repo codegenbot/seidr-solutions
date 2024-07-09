@@ -1,2 +1,4 @@
-int c = round(cbrt(a));
-return (c*c*c == a);
+bool iscuber(int a){
+    int i = round(cbrt(a));
+    return (i*i*i == a);
+}
