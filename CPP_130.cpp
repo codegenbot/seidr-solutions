@@ -1,13 +1,25 @@
-vector<int> res(n + 1);
-    res[0] = 3;
-    if (n > 0) {
-        res[1] = 1;
+#include <vector>
+
+vector<int> tri(int n){
+    vector<int> result;
+    if (n == 0) {
+        result.push_back(0);
+        return result;
     }
-    for (int i = 2; i <= n; ++i) {
+    result.push_back(3);
+    if (n == 1) {
+        return result;
+    }
+    result.push_back(2);
+    if (n == 2) {
+        return result;
+    }
+    for (int i = 3; i <= n; ++i) {
         if (i % 2 == 0) {
-            res[i] = 1 + i / 2;
+            result.push_back(1 + i / 2);
         } else {
-            res[i] = res[i - 1] + res[i - 2] + res[i + 1];
+            result.push_back(result[i - 1] + result[i - 2] + result[i - 3]);
         }
     }
-    return res;
+    return result;
+}
