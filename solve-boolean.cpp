@@ -1,4 +1,4 @@
-#include <string>
+using namespace std;
 
 string solveBoolean(string s) {
     stack<char> st;
@@ -9,11 +9,14 @@ string solveBoolean(string s) {
             }
             if (st.empty()) return "False";
             else st.pop();
-        } else if (s[i] == '|') {
+        } 
+        else if (s[i] == '|') {
             while (!st.empty()) st.pop();
             st.push(s[i]);
-        } else {
+        } 
+        else {
             st.push(s[i] == 'T' ? '1' : '0');
         }
     }
     return st.top() == '1' ? "True" : "False";
+}
