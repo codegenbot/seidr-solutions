@@ -1,22 +1,10 @@
-```c
-#include <iostream>
-
+```cpp
 int findGCD(int a, int b) {
-    a = std::abs(a);
-    b = std::abs(b);
-
-    if (b == 0) return a;
+    if (b == 0) return std::abs(a);
     while (b != 0) {
         int temp = b;
         b = a % b;
         a = temp;
     }
-    return b; 
-}
-
-int main() {
-    int a, b;
-    std::cout << "Enter two integers: ";
-    std::cin >> a >> b;
-    return findGCD(a, b); 
+    return std::abs(b); 
 }
