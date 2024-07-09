@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 using namespace std;
@@ -24,4 +23,3 @@ vector<float> sort_even(vector<float> l){
         }
     }
     return l_prime;
-}
