@@ -1,8 +1,10 @@
 def add(x: int, y: int) -> int:
     return x + y
 
-x = int(input("Enter the first number: "))
-y = int(input("Enter the second number: "))
+# Input
+x = int(input("Enter value for x: "))
+y = int(input("Enter value for y: "))
 
+# Output
 result = add(x, y)
-print(f"The sum is: {result}")
+print(f"Result: {result}")
