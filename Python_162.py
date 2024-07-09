@@ -6,5 +6,7 @@ def string_to_md5(text):
     else:
         return None
 
-text = input("Enter the text to convert to MD5 hash: ")
-print(string_to_md5(text))
+text = input("Enter a text: ")
+result = string_to_md5(text)
+
+print(result)
