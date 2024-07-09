@@ -15,6 +15,5 @@ std::pair<std::string, std::string> reverse_delete(const std::string& s, const s
 }
 
 int main() {
-    auto result = reverse_delete("mamma", "mia");
-    assert(result == std::make_pair("", "True"));
+    assert(reverse_delete("mamma", "mia") == std::make_pair("", "True"));
 }
