@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
-#include <cctype>  // for islower
-#include <string>  // for std::to_string
+#include <cctype>
 #include <assert.h>
+#include <iostream>
 
 std::vector<std::string> split_words(std::string txt){
     std::vector<std::string> words;
