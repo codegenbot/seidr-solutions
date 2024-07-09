@@ -1,10 +1,9 @@
 #include <vector>
-
-std::vector<int> sort_array(std::vector<int> array) {
-    if(array.empty()) return array;
-    if((array.front() + array.back()) % 2 == 0)
-        sort(array.rbegin(), array.rend());
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.empty()) return a;
+    if((a.front() + a.back()) % 2 == 0)
+        sort_array(a.rbegin(), a.rend());
     else
-        sort(array.begin(), array.end());
-    return array;
+        sort_array(a.begin(), a.end());
+    return a;
 }
