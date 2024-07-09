@@ -1,15 +1,22 @@
-string solve(string s){
-    string result = "";
-    bool has_letter = false;
+#include <algorithm>
+using namespace std;
 
-    for(int i = 0; i < s.length(); i++){
-        if(isalpha(s[i])){
-            has_letter = true;
-            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+string solve(string s) {
+    string result = "";
+    bool hasLetter = false;
+
+    for (char c : s) {
+        if (isalpha(c)) {
+            hasLetter = true;
+            result += (c == toupper(c)) ? tolower(c) : toupper(c);
         } else {
-            result += s[i];
+            result += c;
         }
     }
 
-    return has_letter ? result : string(reverse(result));
+    if (!hasLetter) {
+        reverse(result.begin(), result.end());
+    }
+
+    return result;
 }
