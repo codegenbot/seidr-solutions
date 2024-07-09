@@ -1,6 +1,4 @@
-#include <iostream>
-#include <string>
-
+```cpp
 std::string file_name_check(std::string file_name){
     int digitCount = 0;
     bool foundDot = false;
@@ -12,14 +10,15 @@ std::string file_name_check(std::string file_name){
             foundDot = true;
         }else if(foundDot){
             if(file_name.length() < 4) {
-                return "No";
+                return "";
             }
             std::string extension = file_name.substr(i);
             if(file_name.length() < i+extension.length() || extension != "txt" && extension != "exe" && extension != "dll"){
-                return "No";
+                return "";
             }
         }
     }
-    if(digitCount > 3 || !foundDot) return "No";
-    if(file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z') return "No";
+    if(digitCount > 3 || !foundDot) return "";
+    if(file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z') return "";
     return "Yes";
+}
