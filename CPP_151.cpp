@@ -1,8 +1,19 @@
-long long total = 0;
-    for (const auto &num : lst) {
-        if (num > 0 && num == floor(num) && static_cast<int>(num) % 2 != 0) {
-            total += static_cast<long long>(pow(num, 2));
+#include <vector>
+#include <cmath>
+
+long long double_the_difference(std::vector<float> lst){
+    long long sum = 0;
+    for(auto num : lst){
+        if(num > 0 && num == (int)num && (int)num % 2 != 0){
+            sum += (long long)pow(num, 2);
         }
     }
-    return total;
+    return sum;
+}
+
+int main(){
+    std::vector<float> lst = {1.0, 2.0, 3.0};
+    long long odd_sum = 14; // Example value, change according to your requirements
+
+    return 0;
 }

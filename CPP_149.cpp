@@ -1,19 +1,30 @@
-bool issame(const vector<string>& a, const vector<string>& b) {
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> sorted_list_sum(const vector<string>& lst) {
-    vector<string> sorted_list = lst;
-    sorted_list.erase(remove_if(sorted_list.begin(), sorted_list.end(), [](const string& s) { return s.length() % 2 != 0; }), sorted_list.end());
-    sort(sorted_list.begin(), sorted_list.end(), [](const string& a, const string& b) {
+vector<string> sorted_list_sum(vector<string> lst) {
+    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
+    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
-    return sorted_list;
+    return lst;
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));    
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    
+    cout << "Test passed!" << endl;
+    
+    return 0;
 }
