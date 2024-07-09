@@ -1,5 +1,3 @@
-Here is the solution:
-
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for (const auto& str : strings) {
@@ -8,3 +6,4 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         }
     }
     return result;
+}
