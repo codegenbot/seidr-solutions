@@ -1,3 +1,4 @@
+```cpp
 bool prime_length(string str){
     int n = str.length();
     if (n <= 1) return false;
