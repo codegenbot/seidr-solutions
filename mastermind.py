@@ -1,14 +1,15 @@
 def mastermind(code, guess):
-    black = 0
-    white = 0
+    white_pegs = 0
+    black_pegs = 0
 
-    for i in range(6):
-        code_count = code.count(chr(i + 65))
-        guess_count = guess.count(chr(i + 65))
-
-        if code[i] == guess[i]:
-            black += 1
+    for i in range(4):
+        if guess[i] == code[i]:
+            black_pegs += 1
         else:
-            white += min(code_count, guess_count) - (code[i] != guess[i])
+            found = False
+            for j in range(4):
+                if guess[j] == code[i] and not found:
+                    white_pegs += 1
+                    found = True
 
-    return str(black) + "\n" + str(white)
+    return str(black_pegs) + "\n" + str(white_pegs)
