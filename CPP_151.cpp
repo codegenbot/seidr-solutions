@@ -1,26 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <variant>
-
-long long double_the_difference(std::vector<std::variant<float, long long>> lst) {
-    long long sum = 0;
-    for (auto &num : lst) {
-        if (std::holds_alternative<float>(num)) {
-            float f = std::get<float>(num);
-            if (f > 0 && std::floor(f) == f) { 
-                if (static_cast<long long>(f) % 2 != 0) { 
-                    sum += static_cast<long long>(std::pow(f, 2)); 
-                }
-            }
-        }
-    }
-    return static_cast<long long>(sum);
-}
-
-int main() {
-    float input;
+int main_cpp() {
+    float input; 
     int n = 0;
     std::vector<std::variant<float, long long>> lst;
+    long long odd_sum = 0;
 
     while (1) {
         std::cout << "Enter a number (negative to stop): ";
@@ -39,9 +21,8 @@ int main() {
             lst.push_back(input);
         }
         n++;
-    }
+   }
     
-    long long odd_sum = double_the_difference(lst);
-    std::cout << "The sum of squares of even numbers is: " << odd_sum << std::endl;
+    odd_sum = double_the_difference(lst);
     return 0;
 }
