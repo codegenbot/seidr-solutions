@@ -1,15 +1,29 @@
 #include <vector>
+#include <cassert>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    vector<int> result;
-    for (int i = a; i <= b; ++i) {
-        if (i % 2 == 0) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<int> generate_integers(int a, int b) {
+    std::vector<int> result;
+    for(int i = a; i <= b; ++i) {
+        if(i % 2 == 0) {
             result.push_back(i);
         }
     }
     return result;
 }
 
-// Define the generate_integers function before calling it in the main function
-
-```
+int main() {
+    // Main function implementation containing code to use the above functions
+    return 0;
+}
