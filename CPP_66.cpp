@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -6,8 +7,7 @@ using namespace std;
 
 int digitSum(string s){
     int sum = 0;
-    vector<string> words = ssplit(s, " ");
-    for(auto& word : words){
+    for(auto& word : split(s, " ")){
         for(char c : word){
             if(isdigit(c))
                 sum += (c - '0');
@@ -17,7 +17,7 @@ int digitSum(string s){
 
 }
 
-string ssplit(const string& s, const char& sep) {
+string split(const string& s, const char& sep) {
     vector<string> v;
     size_t pos = 0, prev = 0;
 
