@@ -1,4 +1,4 @@
-```c++
+```
 #include <iostream>
 #include <vector>
 #include <variant>
@@ -19,9 +19,9 @@ long long double_the_difference(std::vector<std::variant<float, long long>> lst)
 }
 
 int main() {
+    std::vector<std::variant<float, long long>> lst;
     float input; 
     int n = 0;
-    std::vector<std::variant<float, long long>> lst;
 
     while (1) {
         std::cout << "Enter a number (negative to stop): ";
@@ -30,14 +30,14 @@ int main() {
         if (input < 0) break;
         if (input > 0 && std::floor(input) == input) {
             if (static_cast<long long>(input) % 2 != 0) { 
-                lst.push_back(std::in_place_type_t<float>, static_cast<float>(std::pow(input, 2))); 
+                lst.push_back(static_cast<long long>(std::pow(input, 2))); 
             }
             else {
                 lst.push_back(input);
             }
         }
         else {
-            lst.emplace_back(std::in_place_type_t<std::variant<float, long long>>, input);
+            lst.push_back(input);
         }
         n++;
     }
