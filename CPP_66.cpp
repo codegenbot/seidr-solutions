@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -13,8 +12,8 @@ int digitSum(string s){
         }
     }
     return sum;
-
 }
+
 int main() {
     assert(digitSum("You arE Very Smart") == 327);
     cout << "Program ended successfully" << endl;
