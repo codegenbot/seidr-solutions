@@ -1,12 +1,10 @@
-```cpp
 #include <vector>
-
-int fuelCost(std::vector<int> v);
+#include <cmath>
 
 int main() {
     std::vector<int> v = {1, 2, 3};
     int result = fuelCost(v);
-    return result;
+    return 0;
 }
 
 int fuelCost(std::vector<int> v) {
