@@ -1,6 +1,3 @@
-Here is the modified code for the given task description and function signature:
-
-```
 def encode(message):
     result = ""
     for char in message:
