@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <climits>
 #include <cmath>
@@ -35,13 +36,17 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n);
-    for (auto& x : vec) cin >> x;
+    vector<int> vec = {1, 2, 3, 4, 5}; // Example input
     pair<vector<int>, vector<int>> result = cutVector(vec);
-    cout << "[";
-    for (const auto& x : result.first) cout << x << " ";
-    cout << "], [";
-    for (const auto& x : result.second) cout << x << " ";
-    cout << "]";
+    cout << "Left: ";
+    for (int num : result.first) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Right: ";
+    for (int num : result.second) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
+}
