@@ -1,13 +1,18 @@
-string flip_case(string s) {
-    string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            if (isupper(c))
-                result += tolower(c);
-            else
-                result += toupper(c);
-        } else
-            result += c;
+#include <string>
+#include <cctype>
+
+std::string flip_case(std::string str) {
+    std::string result = "";
+    for(char c : str){
+        if(isalpha(c)) {
+            c = (isupper(c)) ? tolower(c) : toupper(c);
+        }
+        result += c;
     }
     return result;
+}
+
+int main() {
+    std::cout << flip_case("These violent delights have violent ends") << std::endl;
+    return 0;
 }
