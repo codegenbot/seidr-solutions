@@ -16,9 +16,9 @@ int do_algebra(vector<string> ops, vector<int> nums) {
         } else if (ops[i] == "*") {
             temp *= nums[i];
         } else if (ops[i] == "/") {
-            temp /= std::stoll(to_string(nums[i]));
+            temp /= nums[i];
         } else if (ops[i] == "^") {
-            temp = pow(temp, std::stoll(to_string(nums[i])));
+            temp = pow(temp, nums[i]);
         }
     }
 
