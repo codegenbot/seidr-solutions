@@ -1,1 +1,7 @@
-std::string str = "asdasnakj";
+#include <cstring>
+
+int main() {
+    const char* str = "asdasnakj";
+    assert(strlen(str) == 9);
+    return strlen(str);
+}
