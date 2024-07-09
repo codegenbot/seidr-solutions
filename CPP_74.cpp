@@ -12,13 +12,22 @@ bool issame(vector<string> a,vector<string> b) {
 }
 
 vector<vector<string>> total_match(vector<string> a, vector<vector<string>> b){
-    vector<vector<string>> matches;
-    for(const auto& pair: {make_pair(a, {}), make_pair({}, a)}){
-        if(issame(pair.first, pair.second)){
-            matches.push_back(pair);
+    vector<vector<string>> result;
+    for(auto &sentence : a) {
+        for(auto &word : sentence) {
+            bool found = false;
+            for(auto &match : b) {
+                if(issame({word}, match)) {
+                    found = true;
+                    break;
+                }
+            }
+            if(!found)
+                continue;
+            result.push_back({word});
         }
     }
-    return matches;
+    return result;
 }
 
 int main() {
