@@ -5,15 +5,14 @@ int main() {
     std::string input;
     std::cin >> input;
 
-    if (input.empty()) {
-        std::cout << "Invalid input" << std::endl;
-        return 1; // Exit program with error code 1
-    }
-
     std::string output = "";
     for (char digit : input) {
         int num = digit - '0';
-        output += std::to_string(num * num);
+        int square = num * num;
+        if (square > 9) {
+            square -= 10; // Adjust square to be in range 0-9
+        }
+        output += '0' + square;
     }
 
     std::cout << output << std::endl;
