@@ -1,9 +1,10 @@
-```cpp
+```
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
+#include <set>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSameVector(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -11,46 +12,31 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
-    std::vector<int> result;
-    for (int num : numbers) {
-        bool found = false;
-        for (int i = 0; i < result.size(); i++) {
-            if (result[i] == num) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            result.push_back(num);
-        }
-    }
-    return result;
+std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
+    std::set<int> uniqueNumbers(numbers.begin(), numbers.end());
+    return std::vector<int>(uniqueNumbers.begin(), uniqueNumbers.end());
 
 }
 
-int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+std::cout << "Enter the number of elements: ";
+std::cin >> n;
     
-    std::vector<int> numbers(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> numbers[i];
-    }
-    
-    std::vector<int> unique_numbers = remove_duplicates(numbers);
-    
-    if (!issame(std::vector<int>(numbers), std::vector<int>(unique_numbers))) {
-        std::cout << "Unique numbers: ";
-        for (int num : unique_numbers) {
-            std::cout << num << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "All elements are duplicates." << std::endl;
-    }
-    
-    return 0;
+std::vector<int> numbers(n);
+for (int i = 0; i < n; i++) {
+    std::cout << "Enter element " << i + 1 << ": ";
+    std::cin >> numbers[i];
 }
+    
+std::vector<int> uniqueNumbers = removeDuplicates(numbers);
+    
+if (!isSameVector(numbers, uniqueNumbers)) {
+    std::cout << "Unique numbers: ";
+    for (int num : uniqueNumbers) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+} else {
+    std::cout << "All elements are duplicates." << std::endl;
+}
+    
+return 0;
