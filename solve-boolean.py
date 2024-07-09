@@ -1,10 +1,10 @@
 def solve_boolean(expression):
     return eval(
-        expression.replace("T", "true")
-        .replace("F", "false")
+        expression.replace("T", "True")
+        .replace("F", "False")
         .replace("|", " or ")
         .replace("&", " and "),
-        {"true": True, "false": False},
+        {"True": True, "False": False},
     )
 
 output = solve_boolean(input())
