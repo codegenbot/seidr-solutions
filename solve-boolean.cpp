@@ -4,7 +4,7 @@ using namespace std;
 bool solveBoolean(const string& s, size_t& i) {
     bool result = true;
 
-    if (i < s.size()) {
+    while (i < s.size()) {
         switch (s[i]) {
             case 'T':
                 return true;
@@ -12,12 +12,13 @@ bool solveBoolean(const string& s, size_t& i) {
                 return false;
             case '&': {
                 i++; // skip &
-                result &= solveBoolean(s, ++i);
+                if (!solveBoolean(s, i)) return false;  // short-circuit
                 break;
             }
             case '|': {
                 i++; // skip |
-                result = result || solveBoolean(s, ++i);
+                result = result || solveBoolean(s, i);
+                if (result) return true;  // short-circuit
                 break;
             }
         }
