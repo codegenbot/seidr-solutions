@@ -1,11 +1,9 @@
+```cpp
 #include <iostream>
 #include <string>
+using namespace std;
 
-using std::cout;
-using std::getline;
-using std::string;
-
-string anti_shuffle(string str) {
+string anti_shuffle(string &str) {
     string result = "";
     int start = 0;
     for(int i = 0; i < str.length(); i++) {
@@ -27,3 +25,4 @@ int main() {
         cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
     }
     return 0;
+}
