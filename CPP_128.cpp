@@ -1,28 +1,24 @@
 #include <cassert>
 #include <iostream>
-#include <string>
+#include <cctype>
 
 int prod_signs(std::string str1, std::string str2, std::string str3) {
     for (auto& s : {str1, str2, str3}) {
-        std::transform(s.begin(), s.end(), s.begin(), ::toupper);
-        
-        if ((s[0] == '-' || s[0] == ' ') && s.length() > 1) {
+        if (!s.empty()) {
             size_t i = 0;
-            if (s.length() > 1) {
-                while (i < s.size()) {
-                    if (!((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))) {
-                        break;
-                    }
-                    ++i;
+            while (i < s.size()) {
+                if (!(std::isalpha(s[i]) || s[i] == ' ')) {
+                    break;
                 }
+                ++i;
+            }
+            if (i > 0) {
                 s.erase(0, i);
             }
         }
     }
-    
-    if (str1.empty() || str2.empty() || str3.empty()) return 0;
-    if (str1[0] == '-' || str2[0] == '-' || str3[0] == '-') return -1;
-    return 1;
+
+    return (str1.empty() || str2.empty() || str3.empty()) ? 0 : (str1[0] == '-' || str2[0] == '-' || str3[0] == '-') ? -1 : 1;
 }
 
 int main() {
