@@ -1,7 +1,12 @@
+```cpp
 #include <algorithm>
 #include <cassert>
 #include <vector>
 #include <initializer_list>
+#include <iterator>
+using namespace std;
+
+namespace std;
 using namespace std;
 
 int findMax(vector<int> l) {
