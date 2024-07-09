@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -10,10 +10,12 @@ int basement(vector<int>& nums) {
             return i;
     }
     return -1;
+
 }
 
 int main() {
-    vector<int> nums = {-5, 3, 4, -2};
-    cout << basement(nums) << endl;  
+    vector<int> nums = {-2, 3, -4};
+    int result = basement(nums);
+    cout << "Basement index: " << result << endl;
     return 0;
 }
