@@ -1,25 +1,24 @@
-```cpp
 #include <map>
-#include <string>
+#include <vector>
+#include <cassert>
 
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
-    if (a.size() != b.size()) return false;
-    for (const auto& p : a) {
-        if (!b.count(p.first) || b.at(p.first) != p.second) return false;
+std::vector<std::pair<char, int>> histogram(const std::string& s) {
+    std::map<char, int> m;
+    for (char c : s) {
+        if (m.find(c) != m.end()) {
+            m[c]++;
+        } else {
+            m[c] = 1;
+        }
     }
-    return true;
+    return {{c, count} | m for (char c, int count) in m};
+}
+
+bool issame(std::map<char, int> a, std::map<char, int> b) {
+    return a == b;
 }
 
 int main() {
-    std::map<char, int> b = { { 'a' , 1 } };
-    assert(issame(histogram("a"), b));
+    assert(issame(histogram("a"), {{'a', 1}}));
     return 0;
 }
-
-std::map<char, int> histogram(const std::string& s) {
-    std::map<char, int> hist;
-    for (char c : s) {
-        if (hist.count(c)) hist[c]++;
-        else hist[c] = 1;
-    }
-    return hist; }
