@@ -13,4 +13,4 @@ std::pair<int, int> sum_product(std::vector<int> numbers) {
 
 int main() {
     assert(sum_product({10}) == std::make_pair(10, 10));
-}
+} 
