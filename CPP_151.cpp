@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -14,7 +13,7 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    float sum = 0.0f;
+    float sum = 0;
     int odd_sum = 0;
 
     for (float num : lst) {
@@ -23,6 +22,5 @@ int main() {
         }
     }
 
-    std::cout << "The double difference is: " << sum << std::endl;
     return 0;
 }
