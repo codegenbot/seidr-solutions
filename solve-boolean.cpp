@@ -1,5 +1,4 @@
-#include <string>
-
+```cpp
 bool solveBoolean(std::string s) {
     bool result = true;
     int i = 0;
@@ -7,26 +6,24 @@ bool solveBoolean(std::string s) {
         if (s[i] == 'F') {
             return false;
         } else if (s[i] == '|') {
-            if (i == s.size() - 1 || (s[i + 1] == '&' && (i + 2 >= s.size() || s[i + 1] == 'F'))) {
+            if (i == s.size() - 1 || s[i + 1] == 'F') {
                 return true;
-            } else if (i == s.size() - 1 || s[i + 1] == 'F') {
-                return false;
             }
             i++;
         } else if (s[i] == '&') {
             bool foundT = false;
-            for (; i < s.size(); i++) {
+            while (i < s.size()) {
                 if (s[i] == 'T') {
                     foundT = true;
                     break;
                 } else if (s[i] == 'F') {
                     return false;
                 }
+                i++;
             }
             result = foundT;
-        } else if (s[i] == 'T' || s[i] == 'F') {
-            i++;
         }
+        i++;
     }
     return result;
 }
