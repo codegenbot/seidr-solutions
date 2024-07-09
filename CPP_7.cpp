@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <algorithm>
 #include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
@@ -20,6 +20,7 @@ int main() {
     std::vector<std::string> strings = {"grunt", "trumpet", "prune", "gruesome"};
     std::string substring = "run";
     std::vector<std::string> result = filter_by_substring(strings, substring);
+    
     for (const auto& s : result) {
         std::cout << s << std::endl;
     }
