@@ -1,7 +1,7 @@
-from typing import List, Optional
-
-def longest() -> Optional[str]:
-    strings = input("Enter strings separated by space: ").split()
+def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    return max(strings, key=len)
+    for s in strings:
+        if len(s) == 0:
+            raise ValueError("Each string must have at least one character")
+    return max(map(str, strings), key=len)

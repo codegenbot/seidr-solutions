@@ -1,19 +1,20 @@
-#include <string>
-#include <sstream>
-#include <iomanip>
+#include<string>
+#include<openssl/md5.h>
+#include<sstream>
+#include<iomanip>
 
 using namespace std;
+using namespace OpenSSL;
 
-std::string string_to_md5(std::string text) {
+string string_to_md5(string text) {
     if (text.empty()) return "None";
     
     unsigned char md5[16];
-    // Add the implementation of MD5 function or include the necessary header file that contains it
     MD5((const unsigned char*)text.c_str(), text.size(), md5);
     
-    std::string result;
+    string result;
+    ostringstream ss;
     for(int i = 0; i < 16; ++i){
-        stringstream ss;
         ss << hex << (int)md5[i];
         result += ss.str();
     }
