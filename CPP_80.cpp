@@ -10,22 +10,22 @@ bool is_happy(const std::string& s) {
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
         bool unique = true;
-        std::string subStr = s.substr(i, 3); 
+        std::string subStr = std::string(s.substr(i, 1)); 
         size_t pos = s.find(subStr);
         while (pos != std::string::npos) {
-            if (s.length() < i + 3) return false;
-            pos = s.find(subStr, pos);
+            if (s.length() < i + 3)
+                return false;
+            pos = s.find(subStr, pos+1); 
         }
     }
     return true;
 }
 
-int main 
-{
+int main() {
     assert(is_happy("iopaxioi") == false);
     std::string s;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, s); 
+    std::getline(std::cin, s; 
     if (is_happy(s))
         std::cout << "The string is happy." << std::endl;
     else
