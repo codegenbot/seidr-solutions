@@ -1,5 +1,6 @@
+```cpp
 bool issame(float a, float b) {
-    if (abs(a - b) < 1e-9)
+    if (abs(a - b) < 0.001)
         return true;
     else
         return false;
