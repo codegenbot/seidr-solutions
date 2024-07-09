@@ -1,28 +1,34 @@
-string file_name_check(string file_name){
-    int digit_count = 0;
-    int dot_count = 0;
+#include <cctype>
+using namespace std;
 
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
+string file_name_check(string file_name) {
+    int dot_index = -1;
+    int digit_count = 0;
+    bool start_with_letter = false;
+
+    for (int i = 0; i < file_name.length(); ++i) {
+        char c = file_name[i];
+        if (c == '.') {
+            dot_index = i;
+        } else if (isdigit(c)) {
             digit_count++;
-        }
-        else if(file_name[i] == '.'){
-            dot_count++;
+        } else if (!start_with_letter && isalpha(c)) {
+            start_with_letter = true;
         }
     }
 
-    if(dot_count != 1 || digit_count > 3){
+    if (dot_index < 0 || dot_index >= file_name.length() - 1) {
+        return "No";
+    }
+    string before_dot = file_name.substr(0, dot_index);
+    string after_dot = file_name.substr(dot_index + 1);
+
+    if (!start_with_letter || digit_count > 3) {
         return "No";
     }
 
-    string before_dot = "";
-    for(int i=0; i<file_name.find('.'); i++){
-        before_dot += file_name[i];
-    }
-
-    string after_dot = file_name.substr(file_name.find('.')+1);
-
-    if(!isalpha(before_dot[0]) || (after_dot != "txt" && after_dot != "exe" && after_dot != "dll")){
+    set<string> extensions = {"txt", "exe", "dll"};
+    if (find(extensions.begin(), extensions.end(), after_dot) == extensions.end()) {
         return "No";
     }
 
