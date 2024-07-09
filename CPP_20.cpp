@@ -1,5 +1,8 @@
 ```cpp
-#include <bits/stdc++.h> 
+#include <iostream>
+#include <vector>
+#include <limits>
+#include <algorithm>
 
 using namespace std;
 
@@ -27,7 +30,7 @@ int mainDriver(){
     if(sameVectors(a, b)) cout << "The vectors are the same." << endl;
     else cout << "The vectors are not the same." << endl;
     
-    vector<float> vec({1.1, 2.2, 3.1, 4.1, 5.1});
+    vector<float> vec = {1.1f, 2.2f, 3.1f, 4.1f, 5.1f};
     float result = find_closest_elements(vec);
     cout << "Closest elements: " << result << endl;
     return 0;
