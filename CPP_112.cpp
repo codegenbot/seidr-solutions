@@ -1,3 +1,12 @@
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <initializer_list>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
