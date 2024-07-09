@@ -1,41 +1,44 @@
-#include <iostream>
 #include <vector>
+#include <cmath>
 
-// Function to calculate the value of polynomial
-double poly(std::vector<double> coeffs, double x) {
+double poly(const std::vector<double>& coeffs, double solution) {
     double result = 0;
-    for (int i = 0; i < coeffs.size(); i++) {
-        result += coeffs[i] * pow(x, i);
+    for (int i = 0; i < coeffs.size(); ++i) {
+        if (i % 2 == 1) {
+            result -= coeffs[i] * pow(solution, i+1);
+        } else {
+            result += coeffs[i];
+        }
     }
     return result;
 }
 
-// Function to find the zero of polynomial using Newton-Raphson method
-double find_zero(std::vector<double> coeffs) {
-    double x = 1.0; // initial guess
-    while (true) {
-        double fx = poly(coeffs, x);
-        if (fabs(fx) < 1e-3) break;
-        x -= fx / poly(coeffs, x + 0.00001); // avoid division by zero
+double find_zero(const std::vector<double>& coeffs) {
+    double solution = 0;
+    for (int i = 0; i < coeffs.size(); ++i) {
+        if (i % 2 == 1) {
+            solution -= coeffs[i] / pow(1 + solution, i+1);
+        } else {
+            solution += coeffs[i];
+        }
     }
-    return x;
+    return solution;
 }
 
 int main() {
-    int ncoeff; // number of coefficients
+    std::vector<double> coeffs; 
+    double coeff; 
+    int n;
     std::cout << "Enter the number of coefficients: ";
-    std::cin >> ncoeff;
-
-    std::vector<double> coeffs(ncoeff); // vector to hold coefficients
-
-    for (int i = 0; i < ncoeff; i++) {
-        std::cout << "Enter coefficient " << i + 1 << ": ";
-        std::cin >> coeffs[i];
-    }
-
-    double solution = find_zero(coeffs);
+    std::cin >> n;
     
-    assert (abs(poly(coeffs, solution))< 1e-3);
-
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter coefficient " << i+1 << ": ";
+        std::cin >> coeff;
+        coeffs.push_back(coeff);
+    }
+    
+    double solution = find_zero(coeffs); 
+    assert(abs(poly(coeffs, solution)) < 1e-3); 
     return 0;
 }
