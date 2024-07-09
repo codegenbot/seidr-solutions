@@ -11,13 +11,8 @@ int fuelCost(std::vector<int> v) {
         sum += temp;
     }
     return sum;
-
 }
 
 int main() {
-    std::vector<int> v = {1, 2, 3};
-    int result = fuelCost(v);
-    printf("Result: %d\n", result);
-
     return 0;
 }
