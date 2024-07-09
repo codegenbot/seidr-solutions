@@ -48,15 +48,21 @@ int main() {
     std::getline(std::cin, user_input1);
     std::getline(std::cin, user_input2);
 
-    std::istringstream iss1(user_input1);
-    std::string fruit;
-    while (iss1 >> fruit) {
-        lst1.push_back(fruit);
+    size_t i = 0;
+    for (const auto& str : user_input1) {
+        if (str == ' ') {
+            lst1.push_back(user_input1.substr(0, ++i));
+            i++;
+        }
     }
 
-    std::istringstream iss2(user_input2);
-    while (iss2 >> fruit) {
-        lst2.push_back(fruit);
+    i = 0;
+    for (const auto& str : user_input2) {
+        if (str == ' ') {
+            i++;
+        } else {
+            lst2.push_back(user_input2.substr(0, ++i));
+        }
     }
 
     if (!lst1.empty() && !lst2.empty()) {
