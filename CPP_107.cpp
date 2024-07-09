@@ -19,22 +19,3 @@ std::vector<int> even_odd_palindrome(int n) {
     }
     return result;
 }
-
-std::vector<int> generatePalindrome(int n) {
-    std::vector<int> oddNumbers, evenNumbers;
-    for (int i = 1; i <= n; ++i) {
-        if (i % 2 == 0)
-            evenNumbers.push_back(0);
-        else
-            oddNumbers.push_back(1);
-    }
-    for (int i = oddNumbers.size() - 1; i >= 0; --i) {
-        result.push_back(oddNumbers[i]);
-    }
-    for (int i = evenNumbers.size() - 1; i >= 0; --i) {
-        if (!result.empty()) {
-            result.push_back(evenNumbers[i]);
-        }
-    }
-    return result;
-}
