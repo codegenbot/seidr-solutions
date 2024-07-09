@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -20,7 +21,7 @@ int main() {
     std::string substring = "run";
     std::vector<std::string> result = filter_by_substring(strings, substring);
     
-    for (const auto& s : result) {
+    for(std::string s : result) {
         std::cout << s << std::endl;
     }
 }
