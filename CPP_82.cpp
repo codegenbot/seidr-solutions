@@ -1,8 +1,8 @@
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <string>
 
-bool prime_length(string str) {
+bool prime_length(std::string str) {
     int len = str.length();
     if (len <= 1)
         return false;
@@ -16,4 +16,5 @@ bool prime_length(string str) {
 
 int main() {
     assert(prime_length("0") == false);
-    // ...
+    std::cout << "Program is running fine." << std::endl;
+}
