@@ -29,14 +29,13 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     std::vector<int> game(n);
-    std::vector<int> guess(n); // Declare guess vector here
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
         game[i] = temp;
-        guess[i] = temp; 
     }
+    std::vector<int> guess(game);
     if(issame(game, guess)){
         std::cout << "The two vectors are the same.\n";
     } else {
