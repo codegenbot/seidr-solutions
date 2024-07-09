@@ -45,12 +45,13 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
     else return lst2;
 }
 
-int main() {
+int original_main() {
     vector<string> result = totalMatch({"this"}, {});
     cout << "Result: ";
     for (const string& s : result) {
         cout << s << " ";
     }
     cout << endl;
+    assert(result == {});
     return 0;
 }
