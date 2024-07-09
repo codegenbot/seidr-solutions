@@ -13,7 +13,7 @@ bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
     return true;
 }
 
-std::vector<float> getPositive(const std::vector<float>& numbers) {
+std::vector<float> get_positive(const std::vector<float>& numbers) {
     std::vector<float> positiveNumbers = std::vector<float>();
     for (float num : numbers) {
         if (num >= 0) {
@@ -40,7 +40,7 @@ int main() {
         numbers.push_back(num);
 }
 
-    if (issame(numbers, getPositive(numbers))) {
+    if (issame(numbers, get_positive(numbers))) {
         std::cout << "The input vector and the positive vector are the same." << std::endl;
     } else {
         std::cout << "The input vector and the positive vector are not the same." << std::endl;
