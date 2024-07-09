@@ -4,9 +4,9 @@ def substitution_cipher(cipher1, cipher2, message):
         if char.isalpha():
             index = ord(char.upper()) - ord("A")
             if char.isupper():
-                result += chr(ord(cipher2[index].upper()) + (ord("A") - ord("A")))
+                result += cipher2[index].upper()
             else:
-                result += chr(ord(cipher2[index].lower()) + (ord("a") - ord("a")))
+                result += cipher2[index].lower()
         else:
             result += char
     return result
