@@ -5,11 +5,11 @@
 
 using namespace std;
 
+pair<int, int> sum_product(const vector<int>& numbers);
+
 bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
-
-pair<int, int> sum_product(const vector<int>& numbers);
 
 int main() {
     assert(issame(sum_product({10}), {10, 10}));
