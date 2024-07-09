@@ -1,5 +1,7 @@
-#include <initializer_list>
-
+```cpp
+#include <vector>
+#include <string>
+#include <iostream>
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -42,12 +44,19 @@ int main() {
 
     cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
 
-    cout << "Enter the text: ";
-    getline(cin, text);
+    while(true) {
+        cout << "Enter the text: ";
+        getline(cin, text);
+        if(text.empty()) continue;
+        break;
 
-    cout << "Enter the target substring: ";
-    getline(cin, target);
+        cout << "Enter the target substring: ";
+        getline(cin, target);
+        if(target.empty()) continue;
+        break;
+    }
 
     vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices)
         cout << i << " ";
+}
