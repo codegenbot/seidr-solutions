@@ -1,6 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
 using namespace std;
 
 bool has_close_elements(vector<float> numbers, float threshold) {
@@ -15,12 +12,12 @@ bool has_close_elements(vector<float> numbers, float threshold) {
 }
 
 int main() {
-    vector<float> numbers = {1.0, 2.0, 3.0, 4.5};
-    float threshold = 0.5;
+    vector<float> numbers = {0.5, 0.6, 0.7, 1.2, 1.3};
+    float threshold = 0.1;
     if (has_close_elements(numbers, threshold)) {
-        cout << "The array contains close elements." << endl;
+        cout << "The input list contains elements that are within the given threshold." << endl;
     } else {
-        cout << "The array does not contain close elements." << endl;
+        cout << "The input list does not contain elements that are within the given threshold." << endl;
     }
     return 0;
 }
