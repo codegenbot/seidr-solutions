@@ -5,18 +5,15 @@
 #include <cstdlib>
 
 bool simplify(string x, string n) {
-    char arr1[6], arr2[4];
-    stringstream s1(x), s2(n);
-    getline(s1, arr1);
-    char slash;
-    s2 >> arr2;
-    slash = s2.peek();
-    s2.get(); // Consume the slash
-    s2 >> arr2[1];
+    std::string temp;
+    temp = x.substr(0,x.find('/'));
+    std::string numerator = temp; // assign the substring to a std::string
 
-    string str1(arr1), str2(arr2);
+    temp.erase(0,temp.find('/')); // remove the part before '/'
+    numerator += "/" + temp; // concatenate the result with a slash
+    n = n.substr(n.find('/')); // extract the denominator
 
-    return (atoi(str1.c_str()) * (slash - '0') == atoi(str2.substr(0, 1).c_str()) * (slash - '0'));
+    return (atoi(numerator.substr(0, numerator.find('/')).data()) * (numerator[1] - '0') == atoi(std::string(1, numerator[3]).data()) * (numerator[4] - '0'));
 }
 
 int mainFunction() {
