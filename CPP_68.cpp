@@ -3,8 +3,10 @@
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
-    if (arr.empty()) return result;
 
+    if (arr.empty()) 
+        return result;
+        
     int smallest_even = INT_MAX;
     int index = -1;
 
@@ -26,6 +28,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}));
+    assert(issame(pluck({7, 9, 7, 1}), std::vector<int>{}));
     return 0;
 }
