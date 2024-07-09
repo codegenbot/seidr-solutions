@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
@@ -24,6 +23,6 @@ def minPath(grid, k):
             grid[i][j] = str(grid[i][j])
     
     start = [i for i, row in enumerate(grid) if '1' in ''.join(row)][0]
-    path = dfs(start, 0, [int(grid[start][0])], set())
+    path = dfs(start, 0, [grid[start][0]], set())
     
     return path
