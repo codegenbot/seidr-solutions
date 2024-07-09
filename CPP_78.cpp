@@ -4,8 +4,8 @@
 
 int hex_key(std::string num) {
     int count = 0;
-    for (auto it = num.begin(); it != num.end(); ++it) { 
-        if (((*it >= '2' && *it <= '7') || (*it == 'B' || *it == 'D' || *it == 'F'))){ 
+    for (char c : num) { 
+        if ((c >= '2' && c <= '7') || (c == 'B' || c == 'D' || c == 'F')){ 
             count++;
         }
     }

@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <string>
+#include <sstream>
 
 string solve(int N) {
     int sum = 0;
@@ -6,5 +7,5 @@ string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
-    return to_string(sum);
+    return std::to_string(sum);
 }
