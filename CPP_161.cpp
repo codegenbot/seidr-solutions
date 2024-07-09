@@ -1,14 +1,13 @@
-string solve(string s) {
-    string result = "";
+#include <string>
+
+std::string solve(std::string s) {
+    std::string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? char(c - ('a' - 'A')) : char(c + ('a' - 'A'));
+        if (c >= '0' && c <= '9') {
+            result += "0";
         } else {
             result += c;
         }
-    }
-    if (result.empty()) {
-        reverse(result.begin(), result.end());
     }
     return result;
 }
