@@ -1,4 +1,8 @@
-```
+Here is the modified code:
+
+```cpp
+#include <string>
+
 std::string int_to_mini_roman(int num) {
     std::string roman[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
                           "", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
@@ -31,61 +35,49 @@ std::string int_to_mini_roman(int num) {
             num -= 400;
             result += "CD";
         } else if (num >= 100) {
-            for(int i = 0; i < 3; ++i) {
-                if(num >= 100) {
-                    num -= 100;
-                    result += "C";
-                }
-                else break;
+            for(int i = 0; i < num/100; i++) {
+                result += "C";
+                num -= 100;
             }
         } else if (num >= 90) {
-            num -= 90;
-            result += "XC";
+            while(num >= 90) {
+                num -= 90;
+                result += "XC";
+            }
         } else if (num >= 50) {
-            for(int i = 0; i < 2; ++i) {
-                if(num >= 50) {
-                    num -= 50;
-                    result += "L";
-                }
-                else break;
+            for(int i = 0; i < num/50; i++) {
+                result += "L";
+                num -= 50;
             }
         } else if (num >= 40) {
-            num -= 40;
-            result += "XL";
+            while(num >= 40) {
+                num -= 40;
+                result += "XL";
+            }
         } else if (num >= 10) {
-            for(int i = 0; i < 3; ++i) {
-                if(num >= 10) {
-                    num -= 10;
-                    result += "X";
-                }
-                else break;
+            for(int i = 0; i < num/10; i++) {
+                result += "X";
+                num -= 10;
             }
         } else if (num >= 9) {
-            num -= 9;
-            result += "IX";
+            while(num >= 9) {
+                num -= 9;
+                result += "IX";
+            }
         } else if (num >= 5) {
-            for(int i = 0; i < 2; ++i) {
-                if(num >= 5) {
-                    num -= 5;
-                    result += "V";
-                }
-                else break;
+            for(int i = 0; i < num/5; i++) {
+                result += "V";
+                num -= 5;
             }
         } else if (num >= 4) {
-            num -= 4;
-            result += "IV";
+            while(num >= 4) {
+                num -= 4;
+                result += "IV";
+            }
         } else {
-            while(num > 0) {
-                if(num >= 3) {
-                    num -= 3;
-                    result += "I";
-                } else if (num == 2) {
-                    result += "II";
-                    return result;
-                } else {
-                    num--;
-                    result += "I";
-                }
+            for(int i = 0; i < num; i++) {
+                result += "I";
+                num--;
             }
         }
     }
