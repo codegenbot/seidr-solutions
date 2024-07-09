@@ -1,3 +1,4 @@
+````
 #include <vector>
 #include <algorithm>
 
@@ -22,3 +23,4 @@ vector<int> maximum(vector<int> arr, int k) {
     }
     return result;
 }
+```
