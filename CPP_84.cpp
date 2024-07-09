@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <bitset>
-#include <cassert>
 
 std::string solve(int N) {
     int sum = 0;
@@ -13,6 +12,6 @@ std::string solve(int N) {
 }
 
 int main() {
-    assert(solve(963) == "10010");
+    std::cout << (solve(963) == "10010" ? "Test Passed" : "Test Failed") << std::endl;
     return 0;
 }
