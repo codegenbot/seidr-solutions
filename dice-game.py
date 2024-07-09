@@ -1,6 +1,5 @@
-```
 def roll_dice(n, m):
     total_outcomes = n * m
-    p_wins = sum(min(i, j) < max(i, j) for i in range(1, n+1) for j in range(1, m+1))
+    p_highest_count = sum(1 for _ in range(min(n, m) + 1, n + 1) if _ > max(range(m + 1), min(m, 1)))
     
-    return p_wins / total_outcomes
+    return p_highest_count / total_outcomes
