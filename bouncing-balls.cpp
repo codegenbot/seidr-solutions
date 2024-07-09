@@ -1,1 +1,2 @@
+```c
 double bouncinessIndex = 2.0 * (firstBounceHeight / startHeight);
