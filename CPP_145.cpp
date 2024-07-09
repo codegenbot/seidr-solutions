@@ -26,3 +26,7 @@ vector<int> order_by_points(vector<int> nums) {
     
     return result;
 }
+
+int main() {
+    assert (issame(vector<int>(order_by_points({0,6,6,-76,-21,23,4}) ), vector<int>({-76, -21, 0, 4, 23, 6, 6})));
+}
