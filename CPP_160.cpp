@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <cassert>
 
@@ -23,6 +22,7 @@ public:
 };
 
 int main() {
-    cpp_160 obj;
-    assert(obj.do_algebra({{"//", "*"}}, {7, 3, 4}) == 8);
+    cpp_160 obj; 
+    int output = obj.do_algebra({"//", "*"}, {7, 3, 4});
+    assert(output == 8); 
 }
