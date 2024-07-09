@@ -1,6 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
 #include <limits>
 
 long long minSubArraySum(std::vector<long long> nums) {
