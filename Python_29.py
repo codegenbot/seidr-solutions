@@ -1,1 +1,2 @@
-filter_strings = lambda strings, prefix: [s for s in strings if s.startswith(prefix)]
+def filter_strings(strings, prefix):
+    return [s for s in strings if s.startswith(prefix)]
