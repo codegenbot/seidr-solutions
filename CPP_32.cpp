@@ -1,3 +1,4 @@
+```
 #include<stdio.h>
 #include<math.h>
 #include<vector>
@@ -13,12 +14,14 @@ double poly(vector<double> xs, double x){
     return sum;
 }
 
-double find_zero(vector<double> xs){
-    if(xs.size()%2 != 0) return -1; 
-    double x=-1*fmax(-1*min(xs),-1*(xs[0]-1.0));
-    while(abs(poly(xs,x)) > 1e-5)
-    {
-        x+=0.1;
+void find_zero(vector<double> xs){
+    if(xs.size()%2 != 0) printf("-1"); // Print -1 if the number of coefficients is odd
+    else{
+        double x=-1*fmax(-1*min(xs),-1*(xs[0]-1.0));
+        while(abs(poly(xs,x)) > 1e-5)
+        {
+            x+=0.1;
+        }
+        std::fixed; std::cout << std::setprecision(2) << x << std::endl;
     }
-    std::fixed; std::cout << std::setprecision(2) << x << endl;
 }
