@@ -2,13 +2,13 @@
 #include <string>
 #include <cctype>
 
-bool dictionaryCaseChecker(const std::pair<std::string, std::string>& dict) {
-    if (dict.empty()) return false;
+bool isAllCaseConsistent(map<string, string> inputMap) {
+    if (inputMap.empty()) return false;
 
     bool allLower = true;
     bool allUpper = true;
 
-    for (const auto& pair : dict) {
+    for (auto& pair : inputMap) {
         if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
             allLower = false;
             allUpper = false;
