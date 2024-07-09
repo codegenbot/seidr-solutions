@@ -1,13 +1,12 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool isPlanet(string planet);
 bool issame(vector<string> a, vector<string> b);
 vector<string> mybf(string planet1, string planet2);
 
-bool main() {
+int main() {
     cout << "Enter two planets separated by space: ";
     string planet1, planet2;
     cin >> planet1 >> planet2;
