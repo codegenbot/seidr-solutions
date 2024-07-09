@@ -1,7 +1,8 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <cassert>
 
 bool isvowel(char c) {
     c = tolower(c);
