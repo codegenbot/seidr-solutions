@@ -3,7 +3,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::string& a, const std::string& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -20,6 +20,6 @@ std::pair<std::string, std::string> reverse_delete(const std::string& s, const s
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia").first, ""));
-    assert(issame(reverse_delete("mamma", "mia").second, "True"));
+    auto result = reverse_delete("mamma", "mia");
+    assert(result.first == "" && result.second == "True");
 }
