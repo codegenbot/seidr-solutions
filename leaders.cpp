@@ -19,9 +19,21 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
     
-    for(int i=n-1; i>=0; i--){
+    if(n==1)
+        return arr;
+        
+    int lastLeaderIndex=-1;
+    for(int i=n-2; i>=0; i--){
+        if(arr[i] >= arr[i+1])
+            lastLeaderIndex=i;
+        else
+            break;
+    }
+    
+    result.push_back(arr[lastLeaderIndex]);
+    for(int i=lastLeaderIndex-1; i>=0; i--){
         bool leader = true;
-        for(int j=i+1; j<n; j++){
+        for(int j=i+1; j<=lastLeaderIndex; j++){
             if(arr[j] >= arr[i]){
                 leader = false;
                 break;
