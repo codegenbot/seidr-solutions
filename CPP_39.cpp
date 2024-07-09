@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -28,10 +27,11 @@ int prime_fib(int n) {
 
     int a = 0, b = 1, count = 0;
     while (true) {
-        if (isPrime(b))
+        string str = to_string(b); // Convert int to string
+        if (isPrime(stoi(str))) // Convert string back to int for isPrime()
             count++;
         if (count == n)
-            return b;
+            return stoi(str); // Convert int back to string and return
         a += b;
         b = a - b;
     }
