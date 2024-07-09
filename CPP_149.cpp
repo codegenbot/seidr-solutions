@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -13,7 +14,7 @@ bool issame(vector<string> v1, vector<string> v2) {
     return true;
 }
 
-vector<string> sorted_list_sum(const vector<string>& lst) {
+vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
 
     // Remove strings with odd lengths
@@ -34,13 +35,10 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
               });
 
     return result;
+
 }
 
 int main() {
-    vector<string> lst = {"apple", "banana", "cherry", "date", "elderberry"};
-    if (issame(sorted_list_sum(lst), {"cher", "dat"})) {
-        cout << "The function works correctly." << endl;
-    } else {
-        cout << "There is a problem in the code." << endl;
-    }
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    return 0;
 }
