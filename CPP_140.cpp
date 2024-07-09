@@ -1,15 +1,15 @@
 string fix_spaces(string text){
-    string result = "";
+    string new_text = "";
     for(int i=0; i<text.length(); i++){
         if(text[i] == ' '){
-            if(i < text.length() - 1 && text[i+1] == ' '){
-                if(result.length() > 0 || i > 0) result += "-";
+            if(i < text.length()-1 && text[i+1] == ' ' && text.find(' ',i+2) == string::npos){
+                new_text += "-";
             } else {
-                result += '_';
+                new_text += "_";
             }
         } else {
-            result += text[i];
+            new_text += text[i];
         }
     }
-    return result;
+    return new_text;
 }
