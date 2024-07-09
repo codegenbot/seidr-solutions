@@ -14,18 +14,6 @@ int solution(std::vector<int> lst) {
     return sum;
 }
 
-void runTest() {
-    int num, size = 0;
-    std::cin >> num;
-    std::vector<int> lst;
-    while (num != -1) {
-        lst.push_back(num);
-        std::cin >> num;
-        size++;
-    }
-    assert(solution(lst) == 16); 
-}
-
 int main() {
     int num, size = 0;
     std::cin >> num;
