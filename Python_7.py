@@ -3,4 +3,4 @@ def filter_strings(strings, substring):
 
 strings = input("Enter a list of strings separated by space: ").split()
 substring = input("Enter a substring to filter by: ")
-print(filter_strings(strings, substring))  
+print(filter_strings(strings, substring))
