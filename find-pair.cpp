@@ -1,6 +1,5 @@
-using std::pair;
-
-std::pair<int, int> findPair(vector<int>& nums, int target) {
+#include <pair>
+pair<int, int> findPair(vector<int>& nums, int target) {
     sort(nums.begin(), nums.end());
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
