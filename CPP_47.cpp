@@ -15,8 +15,8 @@ float median(std::vector<float> numbers) {
 
 int main() {
     std::vector<float> numbers;
-    std::string input;
     while (true) {
+        std::string input;
         std::cin >> input;
         if (input == "stop") break;
         try {
