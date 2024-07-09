@@ -1,3 +1,4 @@
+#include <cassert>
 #include <iostream>
 #include <string>
 
@@ -26,5 +27,5 @@ int prod_signs(std::string str1, std::string str2, std::string str3) {
 
 int main() {
     assert(prod_signs("-1", "1", "1") == 0);
-    std::cout << prod_signs("1", "1", "1") << std::endl; 
+    std::cout << prod_signs("-1", "1", "1") << std::endl; 
 }
