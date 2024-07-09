@@ -6,13 +6,14 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     res[0].push_back(v[0]);
+    int sum1 = v[0], sum2 = 0;
     for (int i = 1; i < n; ++i) {
-        if (v[i] - v[0] <= 0) {
+        if (abs(sum1 - sum2) <= abs(v[i] - v[0])) {
+            sum1 += v[i];
             res[0].push_back(v[i]);
         } else {
-            res[0].pop_back();
+            sum2 += v[i];
             res[1].push_back(v[i]);
-            break;
         }
     }
     return res;
