@@ -18,7 +18,7 @@ int main() {
     set<int> common;
     for (int i : {n1, n2, n3, n4, n5, n6, n7}) {
         v.push_back(i);
-        common.insert(i);
+        common.insert(i);  // Ensure all inputs are integers
     }
 
     bool result = isSame(common, common);
