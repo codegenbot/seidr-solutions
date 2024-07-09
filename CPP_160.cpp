@@ -1,17 +1,16 @@
-```cpp
 #include <cstdlib>
 #include <vector>
 #include <string>
 
-std::vector<std::string> ops = {"//", "*"}; 
+std::vector<std::string> ops = {"//", "*"};
 
-int do_algebra(std::vector<std::string> operator_, std::vector<int> operand) {
+int do_algebra(std::vector<std::string> operator_, std::vector<std::string> operand_strs) {
     std::string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
-        expression += to_string(operand[i]);
+        expression += operand_strs[i];
         expression += operator_[i];
     }
-    expression += to_string(operand.back());
+    expression += operand_strs.back();
     
     int result = eval(expression);
     
@@ -34,7 +33,7 @@ int eval(const std::string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * std::atoi(&s[i] - &s[0]);
+            result += sign * std::stoi(s.substr(start, i - start));
         }
     }
     
@@ -42,6 +41,6 @@ int eval(const std::string& s) {
 }
 
 int main() {
-    int result = do_algebra(ops, {7, 3, 4});
+    int result = do_algebra(ops, {"7", "3", "4"});
     return 0;
 }
