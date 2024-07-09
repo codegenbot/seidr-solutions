@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b){
     if(a.size() != b.size())
@@ -15,15 +13,15 @@ bool operator==(const std::vector<std::string>& a, const std::vector<std::string
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
     std::vector<std::string> result;
     for(auto it = strings.begin(); it != strings.end(); ++it){
-        if(it->find(prefix) == 0)
+        if(it->find(prefix) == std::string::npos)
             result.push_back(*it);
     }
     return result;
 }
 
 int main() {
-    std::vector<std::string> a = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx");
+    std::initializer_list<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"};
     std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
-    assert(operator==(a, b));
+    assert(operator==(filter_by_prefix({a}, "xxx"), b));
     return 0;
 }
