@@ -1,6 +1,6 @@
-#include <iostream>
 #include <string>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -9,7 +9,9 @@ int how_many_times(const string& str, const string& substring) {
     size_t pos = 0;
     while ((pos = str.find(substring)) != string::npos) {
         count++;
-        str.erase(pos, substring.length());
+        if (pos < str.length()) {
+            str.erase(pos, substring.length());
+        }
     }
     return count;
 
