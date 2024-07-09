@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     i = 0
@@ -9,8 +10,6 @@ def bowling_score(frames):
                     score += 10
                 else:
                     score += int(frames[i+1].strip())
-            if i < len(frames) - 2 and frames[i+1].strip() == "X" or frames[i+1].strip()[:2] == "10":
-                score += 10
             i += 1
         elif frames[i] == "/":
             frame_score = 10
