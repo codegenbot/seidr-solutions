@@ -1,14 +1,24 @@
-int count_nums(vector<int> n) {
+int count_nums(vector<int> nums) {
     int count = 0;
-    for (int num : n) {
-        if (num < 0)
-            num = -num;
-        long sum = 0;
-        while (num > 0) {
-            sum += num % 10;
-            num /= 10;
+    for (auto num : nums) {
+        bool has_sum_greater_than_zero = false;
+        if (num < 0) {
+            long long abs_num = labs(num);
+            while (abs_num > 0) {
+                long long digit = abs_num % 10;
+                if (digit != 0 || num < 0)
+                    has_sum_greater_than_zero = true;
+                abs_num /= 10;
+            }
+        } else {
+            while (num > 0) {
+                int digit = num % 10;
+                if (digit != 0)
+                    has_sum_greater_than_zero = true;
+                num /= 10;
+            }
         }
-        if (sum > 0)
+        if (has_sum_greater_than_zero)
             count++;
     }
     return count;
