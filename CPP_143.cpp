@@ -5,19 +5,19 @@
 
 using namespace std;
 
-void words_in_sentence(string sentence);
+void splitSentence(string sentence);
 
 int main() {
     string sentence;
     cout << "Enter a sentence: ";
     getline(cin, sentence);
     
-    words_in_sentence(sentence);
+    splitSentence(sentence);
     cout << endl;
     return 0;
 }
 
-void words_in_sentence(string sentence) {
+void splitSentence(string sentence) {
     vector<string> words;
     string word;
     bool isWord = false;
@@ -39,9 +39,8 @@ void words_in_sentence(string sentence) {
     }
 
     if (isWord) {
-        if (!word.empty()) {
-            cout << word << endl;
-        } else {
-            cout << sentence << endl;
-        }
+        cout << word;
+    } else {
+        cout << sentence; // handle case when input only contains spaces
     }
+}
