@@ -1,11 +1,11 @@
-def add_delimiters(numbers, delimiter):
+def insert_delimeter(numbers, delimeter):
     result = []
     for num in numbers:
-        result.extend([num, delimiter])
+        result.extend([num, delimeter])
     result.pop()
     return result
 
 numbers = [1, 2, 3, 4, 5]
-delimiter = '-'
-output = add_delimiters(numbers, delimiter)
+delimeter = ","
+output = insert_delimeter(numbers, delimeter)
 print(output)
