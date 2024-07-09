@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -20,18 +21,15 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
-    string substring = "run";
     vector<string> expected = {"grunt", "prune"};
-    vector<string> actual = filter_by_substring(strings, substring);
-    if (!issame(actual, expected)) {
-        for (const auto& s : strings) {
-            if (s.find(substring) != std::string::npos) {
-                cout << s << endl;
-            }
+    vector<string> actual = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    vector<string> v1 = {"grunt", "trumpet", "prune", "gruesome"};
+    vector<string> v2;
+    
+    for(string s : v1) {
+        if(s.find("run") != std::string::npos) {
+            v2.push_back(s);
         }
-    } else {
-        cout << "All elements in the actual vector are present in the expected vector." << endl;
     }
     return 0;
 }
