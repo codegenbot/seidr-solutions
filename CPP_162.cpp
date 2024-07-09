@@ -1,19 +1,21 @@
 #include <openssl/ssl.h>
 #include <string>
 
-string string_to_md5(string text) {
+std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
-    unsigned char md5[16];
+    unsigned char buffer[16];
     MD5_CTX ctx;
     MD5_Init(&ctx);
-    const char* cstr = text.c_str();
+    const char* str = text.c_str();
     size_t len = text.size();
-    MD5_Update(&ctx, cstr, len);
-    MD5_Final(md5, &ctx);
-    string result;
+    MD5_Update(&ctx, str, len);
+    MD5_Final(buffer, &ctx);
+
+    std::string result;
     for (int i = 0; i < 16; ++i) {
-        char buff[3];
-        sprintf(buff, "%02x", md5[i]);
-        result += buff;
+        char buf[3];
+        sprintf(buf, "%02x", buffer[i]);
+        result += std::string(buf);
     }
     return result;
+}
