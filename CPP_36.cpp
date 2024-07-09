@@ -1,3 +1,4 @@
+```
 #include <sstream>
 using namespace std;
 
@@ -8,9 +9,12 @@ int fizz_buzz(int n) {
             count++;
     }
     return count;
-
 }
 
 int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << "Number of multiples of 11 or 13 up to " << num << ": " << fizz_buzz(num) << endl;
     return 0;
 }
