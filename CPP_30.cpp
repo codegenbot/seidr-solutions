@@ -25,4 +25,5 @@ std::vector<float> getPositive(const std::vector<float>& l) {
 
 int main() {
     assert(issame(getPositive({}), {}) == true);
+    return 0;
 }
