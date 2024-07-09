@@ -1,4 +1,4 @@
-```Python
+```
 def match_parens():
     lst = [line.strip() for line in input().split(',')]
     
