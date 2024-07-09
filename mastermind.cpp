@@ -1,4 +1,5 @@
 #include <string>
+#include <map>
 #include <unordered_map>
 
 std::pair<int, int> mastermind(std::string code, std::string guess) {
