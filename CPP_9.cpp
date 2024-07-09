@@ -1,10 +1,6 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <cassert>
-
-using namespace std;
-
-vector<int> rolling_max(const vector<int>& numbers);
 
 bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
@@ -33,8 +29,10 @@ vector<int> rolling_max(const vector<int>& numbers) {
 }
 
 int main() {
-    assert(issame({1, 2, 3}, {1, 2, 3}));
-    assert(!issame({1, 2, 3}, {1, 2, 4}));
+    vector<int> numbers = {1, 3, 5, 2, 8, 7};
+    vector<int> result = rolling_max(numbers);
+    
+    assert(issame(result, {1, 3, 5, 5, 8, 8}));
     
     return 0;
 }
