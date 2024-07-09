@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,9 +21,11 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    int n; cin >> n;
+    // Read input from user
+    int n; 
+    cin >> n;
     
-    vector<string> lst(n);
+    std::vector<std::string> lst(n);
     
     for(int i = 0; i < n; i++) {
         cin >> lst[i];
@@ -32,6 +33,7 @@ int main() {
     
     std::vector<std::string> result = sorted_list_sum(lst);
     
+    // Return output
     cout << "Sorted List Sum: ";
     for(auto str : result) {
         cout << str << " ";
