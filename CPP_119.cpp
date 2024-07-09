@@ -17,7 +17,10 @@ bool match_parens(const std::string& s) {
     return count == 0;
 }
 
-void processInput(int n) {
+int main() {
+    int n;
+    std::cin >> n;
+
     for(int i=0; i<n; ++i){
         std::string s;
         std::getline(std::cin, s);
@@ -32,11 +35,9 @@ void processInput(int n) {
             lst.push_back("No");
         }
     }
-}
 
-int main() {
-    int n;
-    std::cin >> n;
-    processInput(n);
+    for (const auto& str : lst)
+        std::cout << str << '\n';
+
     return 0;
 }
