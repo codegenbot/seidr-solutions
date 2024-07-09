@@ -1,12 +1,11 @@
-```cpp
 #include <iostream>
 #include <string>
 
 std::string anti_shuffle(std::string s) {
-    std::string res;
+    std::string res(s.length(), ' '); 
     for (int i = 0; i < s.length(); i++) {
         if (i % 2 == 0) {
-            res.insert(res.end(), 1, s[i]);  
+            res[i] = s[i];  
         }
     }
     return res;
@@ -19,4 +18,3 @@ int main() {
     std::string res = anti_shuffle(str);
     std::cout << "Anti-Shuffled String: " << res << std::endl;
     return 0;
-}
