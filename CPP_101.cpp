@@ -7,7 +7,7 @@ vector<string> words_string(string s) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 result.push_back(word);
-                word.clear();
+                word = "";
             }
         } else {
             word += c;
