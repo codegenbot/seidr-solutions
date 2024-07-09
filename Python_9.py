@@ -1,5 +1,3 @@
-Here is the solution:
-
 def rolling_max(numbers: List[int]) -> List[int]:
     result = []
     max_until_now = numbers[0]
