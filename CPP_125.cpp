@@ -1,38 +1,40 @@
-#include<stdio.h>
-#include<vector>
-#include<string>
-#include<algorithm>
-using namespace std;
+Here is the completed code:
 
+```cpp
 vector<string> split_words(string txt) {
+    string temp = "";
     vector<string> result;
-    size_t pos = 0, prev = 0;
-    
-    while ((pos = txt.find_first_of(" ,")) != string::npos) {
-        if (pos == 0 || txt[pos - 1] != ' ') {
-            prev = pos;
+
+    for (char c : txt) {
+        if (isspace(c)) {
+            if (!temp.empty()) {
+                result.push_back(temp);
+                temp = "";
+            }
+        } else if (c == ',') {
+            if (!temp.empty()) {
+                result.push_back(temp);
+                temp = "";
+            }
+        } else {
+            temp += c;
         }
-        
-        string word = txt.substr(prev, pos - prev);
-        result.push_back(word);
-        
-        prev = pos + 1;
     }
-    
-    if (prev < txt.size()) {
-        result.push_back(txt.substr(prev));
-    } else if (result.empty()) {
+
+    if (!temp.empty()) {
+        result.push_back(temp);
+    } else {
         int count = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
+        for (char c = 'a'; c <= 'z'; ++c) {
+            if (islower(c)) {
                 count++;
-                if ((count - 1) % 2 == 0) {
-                    result.push_back(to_string(count));
-                    break;
-                }
+            }
+            if (count % 2 == 1) {
+                result.push_back(to_string(count));
+                break;
             }
         }
     }
-    
+
     return result;
 }
