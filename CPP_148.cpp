@@ -1,24 +1,34 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
-std::vector<std::string> bf(const std::string& str1, const std::string& str2) {
-    if(str1 == "Jupiter" && str2 == "Makemake") {
-        return {"Pluto", "Haumea"};
-    } else if(str1 == "Mars" && str2 == "Ceres") {
-        return {"Vesta", "Pallas"};
-    } else if(str1 == "Neptune" && str2 == "Eris") {
-        return {"Sedna", "Quaoar"};
-    } else {
-        return {};
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) {
+        return false;
     }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+vector<string> bf(string a, string b) {
+    if(a.length() != b.length()) {
+        return {};
+    }
+    vector<string> result;
+    for(int i = 0; i < a.length(); i++) {
+        if(tolower(a[i]) != tolower(b[i])) {
+            return {};
+        }
+    }
+    return {a, b};
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));  // Test your custom function bf
+    assert (issame(bf("Jupiter", "Makemake"), {"Jupiter", "Makemake"}));
     return 0;
 }
