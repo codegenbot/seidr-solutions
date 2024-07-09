@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <string>
 #include <initializer_list>
+#include <memory>
 
 using namespace std;
 
@@ -42,12 +43,12 @@ int main_entry() {
     cin >> n;
     
     vector<string> inputStrings;
+    inputStrings.resize(n);  // Modify this line
     for(int i = 0; i < n; i++) {
         string str;
         cout << "Enter string " << (i+1) << ": ";
-        cin.ignore();  
         getline(cin, str);
-        inputStrings.push_back(str);
+        inputStrings[i] = str;
     }
     
     vector<string> output = sorted_list_sum(inputStrings);
