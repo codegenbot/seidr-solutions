@@ -1,4 +1,7 @@
-bool valid_date(string date) {
+#include <iostream>
+#include <cassert>
+
+bool valid_date(const std::string& date) {
     int days_in_month[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     if (date.size() != 10) return false;
     if (date[2] != '-' || date[5] != '-') return false;
@@ -15,6 +18,5 @@ bool valid_date(string date) {
 
 int main() {
     assert(valid_date("04-2003") == false);
-    // Add more test cases if needed
     return 0;
 }
