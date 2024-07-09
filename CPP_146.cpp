@@ -15,6 +15,8 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    vector<int> nums = {11, 12, 13, 14, 15, 16};
-    cout << specialFilter(nums);
+    vector<int> nums = {11,12,15,16,20};
+    cout << "Number of special numbers in the array is: " << specialFilter(nums) << endl;
+    
+    return 0;
 }
