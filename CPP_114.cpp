@@ -1,8 +1,9 @@
+```c++
 #include <vector>
 #include <climits>
 #include <cassert>
 
-long long minSubArraySumFunction(const std::vector<long long>& nums) {
+long long minSubArray(std::vector<long long> nums) {
     long long sum = 0, min_sum = LLONG_MAX;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
@@ -17,6 +18,6 @@ long long minSubArraySumFunction(const std::vector<long long>& nums) {
 }
 
 int testMain() {
-    assert(minSubArraySumFunction({1, -1}) == -1);
+    assert(minSubArray({1, -1}) == -1);
     return 0;
 }
