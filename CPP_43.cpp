@@ -1,9 +1,8 @@
 bool pairs_sum_to_zero(vector<int> l) {
-    set<int> s = set<int>(l.begin(), l.end()); 
-    for (int i = 0; i < s.size(); i++) { 
-        int complement = -s[i];
-        auto it = s.find(complement);
-        if (it != s.end() && it != s.begin()) {
+    set<int> s(l.begin(), l.end()); 
+    for (auto it = next(s.begin(), 1); it != s.end(); ++it) { 
+        int complement = -(*it);
+        if (find(s.begin(), it, complement) != s.end()) {
             return true;
         }
     }
