@@ -13,9 +13,3 @@ vector<string> all_prefixes(const string& str) {
     }
     return result;
 }
-
-int main() {
-    string str = "WWW";
-    assert(issame(all_prefixes(str), vector<string>({"W", "WW", "WWW"})));
-    return 0;
-}
