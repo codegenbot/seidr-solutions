@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int firstNegativeIndex(vector<int>& nums) {
@@ -9,3 +10,4 @@ int firstNegativeIndex(vector<int>& nums) {
         if (sum < 0) return i;
     }
     return -1;
+}
