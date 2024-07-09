@@ -16,7 +16,12 @@ vector<int> findIndices(string text, string target) {
                 break;
             }
         }
-        if (found && i < n - m) indices.push_back(i);
+        if (found) indices.push_back(i);
+        
+        // Check for overlapping occurrences
+        if (found && i < n - m) {
+            i += m - 1;  // Skip over the last occurrence to avoid duplicate finds
+        }
     }
 
     return indices;
