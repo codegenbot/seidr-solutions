@@ -24,14 +24,14 @@ int main() {
     int n = 5;
     std::vector<int> expected = even_odd_palindrome(n);
     
-    for(int i = 1; i <= n; ++i) {
+    for(int i = 0; i <= n; ++i) {
         if(i % 2 == 0)
             expected.push_back(0);
         else
             expected.push_back(1);
     }
     
-    int expected_result = 1;
+    int expected_result = 1; // Initialize expected variable
     assert(checkPalindrome(even_odd_palindrome(n), expected));
     std::cout << "The even-odd palindrome for " << n << " is: ";
     for (int i = 0; i < even_odd_palindrome(n).size(); ++i) {
