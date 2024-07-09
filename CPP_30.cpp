@@ -1,21 +1,12 @@
-```
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    // Your implementation here
 }
 
-vector<float> get_positive(vector<float> l) {
-    vector<float> result;
+std::vector<float> get_positive(std::vector<float> l) {
+    std::vector<float> result;
     for (float x : l) {
         if (x > 0) {
             result.push_back(x);
@@ -25,10 +16,16 @@ vector<float> get_positive(vector<float> l) {
 }
 
 int main() {
-    std::vector<float> v1 = { -2.0f, 3.0f, -4.0f, 5.0f };
-    vector<float> res = get_positive(v1);
-    for (float x : res) {
-        std::cout << x << " ";
+    std::vector<float> numbers = {1, -2, 3, -4, 5};
+    auto pos_numbers = get_positive(numbers);
+    
+    for (float x : pos_numbers) {
+        if (!issame({x}, {pos_numbers[0]})) {
+            std::cout << "Error: Element " << x << " is not the same as the first element.\n";
+        } else {
+            std::cout << "Element " << x << " is the same as the first element.\n";
+        }
     }
+    
     return 0;
 }
