@@ -25,7 +25,7 @@ vector<string> words_string(string s){
             word += s[i];
         }
     }
-    if (!word.empty())
+    if(!word.empty())
         result.emplace_back(word);
     return result;
 }
