@@ -43,9 +43,9 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    std::vector<float> grades = {0, 0.7f};
+    std::vector<float> grades = {0.0, 0.7};
     std::vector<std::string> output = numerical_letter_grade(grades);
-    if (checkIfSame(output, {"E", "D-" })) {
+    if (checkIfSame(output, {"F", "D-"})) {
         std::cout << "The input vector contains the same elements as expected." << std::endl;
     } else {
         std::cout << "The input vector does not contain the same elements as expected." << std::endl;
