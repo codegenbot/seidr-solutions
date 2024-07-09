@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
 std::vector<double> coeffs;
 double coeff;
@@ -12,7 +13,7 @@ int main() {
     std::cout << "Enter the number of coefficients: ";
     std::cin >> n;
 
-    std::vector<double> coeffs = std::vector<double>(n);
+    std::vector<double>(n); // Modified line
 
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter coefficient " << i+1 << ": ";
@@ -26,9 +27,16 @@ int main() {
 }
 
 double find_zero(std::vector<double> coeffs) {
-    // Your code here
+    double sum = 0.0;
+    for (int i = 0; i < coeffs.size(); ++i) {
+        sum += coeffs[i] / pow(2, i);
+    }
+    return -sum;
 }
 
 double poly(std::vector<double> coeffs, double solution) {
-    // Your code here
-}
+    double result = 0.0;
+    for (int i = 0; i < coeffs.size(); ++i) {
+        result += coeffs[i] * pow(solution, i);
+    }
+    return result;
