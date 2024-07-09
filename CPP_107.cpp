@@ -1,30 +1,22 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a[0] == b[0] && a[1] == b[1];
+}
 
-std::vector<int> even_odd_palindrome(int n) {
-    int even = 0, odd = 0;
+std::vector<int> palindromeCount(int n) {
+    std::vector<int> res(2, 0);
     for (int i = 1; i <= n; ++i) {
-        std::string num = std::to_string(i);
-        std::string rev = num;
+        std::string s = std::to_string(i);
+        std::string rev = s;
         std::reverse(rev.begin(), rev.end());
-        if (num == rev) {
-            if ((num.back() - '0') % 2 == 0) {
-                even++;
+        if (s == rev) {
+            if (i % 2 == 0) {
+                res[0]++;
             } else {
-                odd++;
+                res[1]++;
             }
         }
     }
-    return {even, odd};
-}
-
-int main() {
-    // Your code here
-
-    assert(issame(even_odd_palindrome(1), {0, 1})); // Correct function call
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    // Your function implementation
+    return res;
 }
