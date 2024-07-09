@@ -9,22 +9,22 @@ bool isPrime(int n) {
     return true;
 }
 
-int primeFib(int num) {
+string primeFib(int num) {
     int a = 0, b = 1, fibNum = 0;
     while (true) {
         fibNum = a + b;
         a = b;
         b = fibNum;
         if (isPrime(fibNum)) {
-            if (fibNum > num) return fibNum;
+            if (fibNum > num) return to_string(fibNum);
         }
     }
 }
 
-int run() {
+int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
     cout << "The first prime Fibonacci number greater than " << num << " is " << primeFib(num) << endl;
-    return 0;
+    assert(primeFib(10) == "433494437");
 }
