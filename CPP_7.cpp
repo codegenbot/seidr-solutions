@@ -15,10 +15,13 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int main() {
-    // Main function code here
-    return 0;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
