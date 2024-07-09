@@ -1,6 +1,12 @@
-string words_in_sentence(string sentence){
-    string result = "";
-    string word = "";
+#include <iostream>
+#include <string>
+#include <cassert>
+
+std::string words_in_sentence(std::string sentence);
+
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    std::string word = "";
     int primes[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31}; // Pre-defined prime numbers
 
     for (char c : sentence) {
