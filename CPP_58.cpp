@@ -13,3 +13,21 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
     return result;
 }
+
+bool issame(vector<int> a, vector<int> b){
+
+}
+
+int main() {
+    vector<int> l1 = {1, 2, 2, 3, 4};
+    vector<int> l2 = {2, 2, 3, 3, 4, 5};
+
+    vector<int> result = common(l1, l2);
+
+    for (int num : result) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
