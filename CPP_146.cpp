@@ -1,11 +1,10 @@
 int specialFilter(vector<int> nums){
     int count = 0;
     for (int num : nums) {
-        if (num > 10) {
-            string numStr = to_string(num);
-            if ((numStr[0] - '0') % 2 == 1 && (numStr.back() - '0') % 2 == 1) {
-                count++;
-            }
+        int firstDigit = abs(to_string(num)[0] - '0');
+        int lastDigit = abs(to_string(num).back() - '0');
+        if (num > 10 && (firstDigit % 2 != 0) && (lastDigit % 2 != 0)) {
+            count++;
         }
     }
     return count;
