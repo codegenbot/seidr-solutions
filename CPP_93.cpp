@@ -1,5 +1,5 @@
 std::string encode(const std::string& message) {
-    std::string encodedMessage = message; 
+    std::string encodedMessage = message;
     for (int i = 0; i < encodedMessage.length(); ++i) {
         if (isalpha(encodedMessage[i])) {
             if (islower(encodedMessage[i])) {
