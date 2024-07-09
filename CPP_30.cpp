@@ -1,28 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
-
-std::vector<float> get_positive(const std::vector<float>& numbers) {
-    std::vector<float> positive_numbers;
-    for (float num : numbers) {
-        if (num > 0) {
-            positive_numbers.push_back(num);
-        }
-    }
-    return positive_numbers;
-}
-
-bool isSame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
+#include <limits>
 
 int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    if(n > 10000) {
-        std::cout << "Too many elements. Please enter less than or equal to 10000." << std::endl;
+    if(n > std::numeric_limits<unsigned>::max()) {
+        std::cout << "Too many elements. Please enter less than or equal to " << std::numeric_limits<unsigned>::max() << "." << std::endl;
         return 0;
     }
 
@@ -47,4 +33,19 @@ int main() {
     }
 
     return 0;
+
+}
+
+bool isSame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+std::vector<float> get_positive(const std::vector<float>& numbers) {
+    std::vector<float> positive_numbers;
+    for (float num : numbers) {
+        if (num > 0) {
+            positive_numbers.push_back(num);
+        }
+    }
+    return positive_numbers;
 }
