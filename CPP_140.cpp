@@ -1,18 +1,18 @@
-string result;
-    bool hasSpace = false;
+string result = "";
+    int count = 0;
     for (char c : text) {
         if (c == ' ') {
-            if (!hasSpace) {
-                result += '_';
-                hasSpace = true;
-            } else {
+            count++;
+            if (count > 2) {
                 if (result.back() != '-') {
                     result += '-';
                 }
+            } else {
+                result += '_';
             }
         } else {
+            count = 0;
             result += c;
-            hasSpace = false;
         }
     }
     return result;
