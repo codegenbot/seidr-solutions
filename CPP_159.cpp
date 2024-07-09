@@ -17,6 +17,6 @@ bool issame(vector<int> v1, vector<int> v2) {
 
 int main() {
     assert(issame(eat(4, 5, 1), vector<int>{5, 0}));
-    
+
     return 0;
 }
