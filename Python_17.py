@@ -1,3 +1,6 @@
+```Python
+import re
+
 def parse_music(music_string: str) -> list:
     beats_per_note = {"o": 4, "o|": 2, ".|": 1}
     music_notes = re.split('\s+', music_string)
