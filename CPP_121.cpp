@@ -29,8 +29,8 @@ int main() {
     std::cout << "Enter numbers (terminate with 0): ";
     int count = 0;
     while (count < 100 && std::cin >> num && num != 0) {
-        if(count > 0)
-            lst.reserve(count + 1); 
+        if (count == 0)
+            lst.push_back(num); 
         else
             lst.push_back(num); 
         count++;
