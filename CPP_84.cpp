@@ -1,4 +1,3 @@
-```c++
 #include <cassert>
 #include <iostream>
 #include <string>
@@ -16,6 +15,7 @@ int solve(int n) {
 }
 
 int main() {
-    assert(solve(963) == 18); 
+    int expected = solve(963); 
+    assert(expected == 18); 
     return 0;
 }
