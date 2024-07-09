@@ -9,7 +9,7 @@ double find_zero(const std::vector<double>& xs){
 
 double poly(const std::vector<double>& coeffs, double solution){
     double result = 0.0;
-    for (int i = 0; i < coeffs.size(); ++i) {
+    for (int i = 0; i < coeffs.size(); ++i){
         result += coeffs[i] * pow(solution, i);
     }
     return result;
