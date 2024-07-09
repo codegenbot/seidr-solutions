@@ -1,21 +1,24 @@
-int digit_count = 0;
-    for (char c : file_name) {
-        if (c >= '0' && c <= '9') {
-            digit_count++;
+int countDigits(string s) {
+    int count = 0;
+    for(char c : s) {
+        if(isdigit(c)) {
+            count++;
         }
     }
-    
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
-        return "No";
-    }
-    
-    string prefix = file_name.substr(0, dot_pos);
-    string suffix = file_name.substr(dot_pos + 1);
-    
-    if (digit_count > 3 || !isalpha(prefix[0]) || suffix != "txt" && suffix != "exe" && suffix != "dll") {
-        return "No";
-    }
-    
+    return count;
+}
+
+string file_name_check(string file_name) {
+    if(file_name.find('.') == string::npos) return "No";
+    int dotPos = file_name.find('.');
+    string nameBeforeDot = file_name.substr(0, dotPos);
+    string nameAfterDot = file_name.substr(dotPos + 1);
+
+    if(countDigits(nameBeforeDot) > 3) return "No";
+
+    if(nameBeforeDot.empty() || !isalpha(nameBeforeDot[0])) return "No";
+
+    if(nameAfterDot != "txt" && nameAfterDot != "exe" && nameAfterDot != "dll") return "No";
+
     return "Yes";
 }
