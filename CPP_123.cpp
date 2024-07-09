@@ -1,24 +1,23 @@
 #include <vector>
+
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
+    return a == b;
 }
 
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
-    while (n != 1) {
-        if (n % 2 == 0)
-            n = n / 2;
-        else
-            n = 3 * n + 1;
-        if (n % 2 != 0)
-            result.push_back(n);
+vector<vector<int>> get_collatz_vectors(int n) {
+    vector<vector<int>> result;
+    for (int i = 1; i <= n; i++) {
+        vector<int> collatz_sequence;
+        int num = i;
+        while (num != 1) {
+            if (num % 2 == 0) {
+                num = num / 2;
+            } else {
+                num = 3 * num + 1;
+            }
+            collatz_sequence.push_back(num);
+        }
+        result.push_back(collatz_sequence);
     }
-    sort(result.begin(), result.end());
     return result;
 }
