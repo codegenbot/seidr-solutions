@@ -1,39 +1,15 @@
-#include <vector>
-#include <algorithm>
+```cpp
+#include <iostream>
 #include <string>
+#include <algorithm>
+#include <vector>
 
-int main() {
-    vector<int> q;
-    int w;
-    cout << "Enter the number of queries: ";
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cout << "Enter query " << i+1 << ": ";
-        int val;
-        cin >> val;
-        q.push_back(val);
-    }
-    cout << "Enter the maximum weight: ";
-    cin >> w;
-
-    bool willItFly = will_it_fly(q, w);
-
-    if (willItFly) {
-        cout << "Yes, it will fly." << endl;
-    } else {
-        cout << "No, it won't fly." << endl;
-    }
-
-    return 0;
-}
-
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
-    if (str != reverse(str).s) {
+    if (str != std::string(str.rbegin(), str.rend())) {
         return false;
     }
     int sum = 0;
@@ -41,4 +17,26 @@ bool will_it_fly(vector<int> q, int w) {
         sum += i;
     }
     return sum <= w;
+}
+
+int main() {
+    std::vector<int> q = {};
+    int w = 0;
+    
+    // Input values
+    std::cout << "Enter the weight limit: ";
+    std::cin >> w;
+    std::cout << "Enter the queue: ";
+    for (auto& i : q) {
+        std::cin >> i;
+    }
+    
+    // Call the function and print the result
+    if (will_it_fly(q, w)) {
+        std::cout << "The queue will fly." << std::endl;
+    } else {
+        std::cout << "The queue will not fly." << std::endl;
+    }
+
+    return 0;
 }
