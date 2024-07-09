@@ -7,19 +7,19 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-int main() {
+int main {
     vector<int> arr = {7, 9, 7, 1};
     int num;
     cout << "Enter a number: ";
     cin >> num;
     vector<int> vec;
     if (num % 2 == 0 && num < INT_MAX) {
-        vec = {7, 9, 7, 1}; 
+        vec.push_back(num);
     }
     if (num != -1) {
         assert(issame(vec, arr));
     } else {
         assert(issame({}, arr));
     }
-    return 0;
+    { return 0; }
 }
