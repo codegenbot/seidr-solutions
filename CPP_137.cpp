@@ -2,7 +2,7 @@
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any(1.5f);
+        return boost::any(1.5);
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         return boost::any("equal");
@@ -15,9 +15,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (strA < strB)
             return b;
         else
-            return boost::any("equal");
+            return boost::any("Equal");
     }
     else {
-        return boost::any(1.0f);
+        return boost::any(1.0);
     }
 }
