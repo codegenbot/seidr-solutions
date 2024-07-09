@@ -1,7 +1,5 @@
-Here is the completed code:
-
-int multiply(int a, int b) {
-    int digit1 = a % 10;
-    int digit2 = b % 10;
-    return digit1 * digit2;
+int multiply(int a, int b){
+    int unitA = a % 10;
+    int unitB = abs(b) % 10;
+    return unitA * unitB;
 }
