@@ -13,7 +13,7 @@ bool is_happy(const std::string& s){
 
 int main(){
     std::cout << is_happy("abc") << std::endl;
-    std::cout << is_happy("xyz") << std::endl;
+    std::cout << is_happy("aba") << std::endl;
     
     return 0;
 }
