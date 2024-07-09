@@ -1,8 +1,6 @@
-```c++
 #include <vector>
 #include <string>
 #include <iostream>
-
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -44,19 +42,15 @@ int main() {
     cout << gcd(a, b) << endl;
 
     string text, target;
-    bool isValidInput = false;
-    while (!isValidInput) {
+    while (!(cin >> text >> target)) {
+        cout << "Invalid input. Please enter valid strings: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cin >> text >> target;
-        if (cin) {  // Check if input operation was successful
-            isValidInput = true;
-        } else {
-            cout << "Invalid input. Please enter valid strings: ";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
     }
 
     vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices)
         cout << i << " ";
+    return 0;
 }
