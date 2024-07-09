@@ -1,14 +1,17 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool issame(int a, int b) {
+    if (a == b)
+        return true;
+    else
+        return false;
+}
 
 vector<int> maximum(vector<int> arr, int k) {
-    priority_queue<int> pq;
-    for (int i : arr) {
-        pq.push(i);
-    }
-    vector<int> result;
-    for (int i = 0; i < k; i++) {
-        result.push_back(pq.top());
-        pq.pop();
-    }
+    vector<int> result(arr.begin(), arr.begin() + k);
+    sort(result.begin(), result.end());
     return result;
 }
