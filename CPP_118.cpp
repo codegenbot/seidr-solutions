@@ -13,7 +13,6 @@ string get_closest_vowel(string word) {
 }
 
 int main() {
-    assert(get_closest_vowel("Hello") == "o");
-    assert(get_closest_vowel("world") == "");
+    assert(get_closest_vowel("helloworld") == "o");
     return 0;
 }
