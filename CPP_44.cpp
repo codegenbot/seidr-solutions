@@ -1,1 +1,1 @@
-res = (remainder < 10 ? to_string(remainder) : string(1, 'A') + (remainder - 10)) + res;
+res = std::string(1, (remainder - 10) + 'A') + res;
