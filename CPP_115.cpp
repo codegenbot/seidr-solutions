@@ -1,17 +1,22 @@
-#include<vector>
-#include<algorithm>
-using namespace std;
+#include <vector>
+#include <algorithm>
 
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
-    int total_water = 0;
+    int ans = 0;
     for (int i = 0; i < n; i++) {
-        total_water += accumulate(grid[i].begin(), grid[i].end(), 0);
+        int fill = 0;
+        for (int j = 0; j < grid[i].size(); j++) {
+            if (grid[i][j] == 1) {
+                fill++;
+            }
+        }
+        while (fill > 0) {
+            int to_fill = min(fill, capacity);
+            ans += to_fill;
+            fill -= to_fill;
+            capacity = max(0, capacity - to_fill);
+        }
     }
-    return ceil((double)total_water / capacity);
-}
-
-int main() {
-    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
-    return 0;
+    return ans;
 }
