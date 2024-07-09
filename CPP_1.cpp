@@ -21,7 +21,7 @@ void separate_paren_groups(vector<string>& result, int open_count) {
         current_group += '(';
     }
     for (char c : current_group) {
-        result.push_back(string(1, c)); // Create a string with one character
+        result.push_back(std::string(1, c));
     }
 }
 
