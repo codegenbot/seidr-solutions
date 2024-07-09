@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -27,7 +28,8 @@ int main() {
 
     std::vector<int> lst;
     for (int i = 0; i < n; ++i) {
-        while (!(std::cout << "Enter element " << i + 1 << ": ") || !((std::cin >> num))) {
+        int num; 
+        while (!(std::cout << "Enter element " << i + 1 << ": ") || !std::cin) {
             if (!std::cin)
                 std::cout << "Invalid input. Please enter an integer.\n";
             else
@@ -35,7 +37,7 @@ int main() {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        lst.push_back(num); 
+        std::cin >> num; lst.push_back(num); 
     }
 
     if(lst.empty()) {
