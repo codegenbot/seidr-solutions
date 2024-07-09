@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -23,4 +24,22 @@ int gcd(int a, int b) {
         a = temp;
     }
     return a;
+}
+
+int main() {
+    string text = "hello";
+    string target = "ll";
+    vector<int> result = indicesOfSubstring(text, target);
+    cout << "Indices: ";
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    int a = 48;
+    int b = 18;
+    int g = gcd(a, b);
+    cout << "GCD of " << a << " and " << b << ": " << g << endl;
+
+    return 0;
 }
