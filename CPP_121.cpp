@@ -25,16 +25,18 @@ int solutions(std::vector<int> lst) {
 
 int main() {
     int num, n = 0;
-    std::vector<int> lst; 
+    std::vector<int> lst;
     std::cout << "Enter numbers (terminate with 0): ";
     int count = 0;
     while (count < 100 && std::cin >> num && num != 0) {
         if(count > 0)
-            lst.resize(count + 1); 
-        else
             lst.push_back(num); 
+        else
+            lst.push_back(num);
         count++;
     }
+    std::vector<int>().swap(lst);
+    lst.reserve(100);
     int result = solutions(lst);
     if(result == 25)
         std::cout << "Test passed.\n";
