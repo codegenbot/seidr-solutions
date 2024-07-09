@@ -7,15 +7,14 @@ bool is_prime(int n) {
 }
 
 bool is_multiply_prime(int a) {
-    for (int i = 2; i <= a / 3; i++) {
-        if (a % i == 0 && is_prime(i)) {
-            int b = a / i;
-            for (int j = i + 1; j <= b / 2; j++) {
-                if (b % j == 0 && is_prime(j) && is_prime(b / j)) {
-                    return true;
-                }
+    int count = 0;
+    for (int i = 2; i <= a; i++) {
+        if (is_prime(i) && a % i == 0) {
+            count++;
+            if (count > 3) {
+                return false;
             }
         }
     }
-    return false;
+    return count == 3;
 }
