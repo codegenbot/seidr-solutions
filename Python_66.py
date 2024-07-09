@@ -1,3 +1,6 @@
-```
 def digitSum(s):
-    return sum(ord(c) for c in s if 'A' <= c <= 'Z')
+    total_sum = 0
+    for char in s:
+        if char.isdigit():
+            total_sum += int(char)
+    return total_sum
