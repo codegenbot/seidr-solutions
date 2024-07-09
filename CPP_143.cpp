@@ -25,7 +25,7 @@ void words_in_sentence(string sentence) {
     for (char c : sentence) {
         if (c == ' ') {
             if (!isWord) {
-                continue; // skip multiple spaces
+                continue; 
             }
             isWord = false;
         } else {
@@ -39,9 +39,8 @@ void words_in_sentence(string sentence) {
     }
 
     if (isWord) {
-        if (!word.empty()) {
-            cout << word << endl;
-        } else {
-            cout << sentence << endl;
-        }
+        cout << word << endl;
+    } else {
+        cout << sentence << endl; 
     }
+}
