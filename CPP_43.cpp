@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <set>
 
@@ -18,7 +19,7 @@ bool pairs_sum_to_zero(const std::vector<std::pair<int, int>>& l) {
 }
 
 int main() {
-    std::vector<std::pair<int, int>> inputVector({{-3, 9}, {-1, 4}, {-2, 2}, {31, -31}});
-    assert(pairs_sum_to_zero(inputVector) == false);
+    std::vector<std::pair<int, int>> input({{-3, 9}, {-1, 4}, {-2, 2}, {31, -31}});
+    assert(pairs_sum_to_zero(input) == false);
     return 0;
 }
