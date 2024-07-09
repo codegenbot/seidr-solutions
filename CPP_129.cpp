@@ -1,28 +1,13 @@
-#include <stdio.h>
-#include <vector>
-using namespace std;
-
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> result;
-    for (int i = 0; i < k; i++) {
-        int minVal = INT_MAX;
-        int minRow = -1, minCol = -1;
-        for (int j = 0; j < grid.size(); j++) {
-            for (int col = 0; col < grid[j].size(); col++) {
-                if (grid[j][col] <= minVal) {
-                    minVal = grid[j][col];
-                    minRow = j;
-                    minCol = col;
-                }
+    int n = grid.size();
+    vector<int> res;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (!res.size() || grid[i][j] == res.back()) {
+                res.push_back(grid[i][j]);
+                if (res.size() == k) return res;
             }
         }
-        result.push_back(minVal);
-        for (int i = 0; i < grid.size(); i++) {
-            grid[i][minCol] = INT_MAX;
-        }
-        for (int i = 0; i < grid[0].size(); i++) {
-            grid[minRow][i] = INT_MAX;
-        }
     }
-    return result;
+    return res;
 }
