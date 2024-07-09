@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 
@@ -14,7 +13,7 @@ bool below_threshold(vector<int> l, int t) {
 }
 
 int main() {
-    vector<int> numbers(5);
+    vector<int> numbers(5); 
     int threshold;
 
     cout << "Enter the threshold: ";
@@ -30,4 +29,6 @@ int main() {
     } else {
         cout << "At least one number is not below the threshold." << endl;
     }
+
+    return 0;
 }
