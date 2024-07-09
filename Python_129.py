@@ -4,7 +4,7 @@ def minPath(grid, k):
     visited = set()
 
     def dfs(x, y, path):
-        if len(path) == k:
+        if sum(path) == k:
             return path
         visited.add((x, y))
         for dx, dy in directions:
