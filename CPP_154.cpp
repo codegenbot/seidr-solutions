@@ -1,25 +1,19 @@
 #include <string>
 using namespace std;
 
-int cycpattern_check(string a, string b) {
-    for(int i = 0; i < a.length(); i++) {
-        string temp = a.substr(i);
-        if(temp.length() >= b.length()) {
-            bool flag = true;
-            for(int j = 0; j < b.length(); j++) {
-                if(temp.find(b[j]) == string::npos) { 
-                    flag = false;
-                    break;
-                }
-                temp = temp.substr(1) + temp[0]; 
+bool cycpattern_check(string a, string b) {
+    if(a.length() < b.length()) return false;
+    for(int i = 0; i < b.length(); i++) {
+        bool flag = true;
+        string temp = a;
+        while(temp.length() >= b.length()) {
+            temp = temp.substr(1) + temp[0];
+            if(temp.find(b.substr(i, b.length())) == -1) {
+                flag = false;
+                break;
             }
-            if(flag) return 1; 
         }
+        if(flag) return true;
     }
-    return 0;
-}
-
-int main() {
-    assert(cycpattern_check("winemtt","tinem") == 1 );
-    return 0;
+    return false;
 }
