@@ -1,3 +1,4 @@
+```Python
 from typing import List
 
 
@@ -19,5 +20,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(temp)
                 temp = ""
     if stack:
-        raise ValueError("Parentheses are unbalanced")
+        while stack:
+            temp += ")"
+            stack.pop()
+        result.append(temp)
+
     return [x for x in result]
