@@ -1,3 +1,6 @@
+#include <cmath>
+#include <iostream>
+
 int main() {
     int startHeight, firstBounce, numBounces;
 
