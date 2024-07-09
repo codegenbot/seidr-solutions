@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <string>
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -33,6 +33,8 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     return result;
 }
 
-bool assertSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool assertEqual(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
+
+assert(assertEqual(bf("Jupiter", "Mars"), {}));
