@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <initializer_list>
 using namespace std;
 
 bool is_same(const vector<int>& a, const vector<int>& b) {
@@ -21,10 +22,7 @@ vector<int> filter_integers(list<any> values) {
 }
 
 int main_func() {
-    list<any> values;
-    for (auto i : {3, 3, 'a', 'b'}) {
-        values.push_back(i);
-    }
-    assert(is_same(filter_integers(values), vector<int>{3, 3, 3}));
+    vector<any> values = {3, any(3), 3, 'a', 'b'};
+    assert(is_same(filter_integers({any(3), 'c', 3, 3, 'a', 'b'}), vector<int>{3, 3, 3}));
     return 0;
 }
