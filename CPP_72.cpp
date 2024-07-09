@@ -2,12 +2,6 @@
 #include <string>
 #include <algorithm>
 
-bool is_palindrome(string s) {
-    string rev = s;
-    reverse(rev.begin(), rev.end());
-    return s == rev;
-}
-
 bool will_it_fly(const vector<int>& q, int w) {
     string str = "";
     for (int i : q) {
@@ -21,4 +15,10 @@ bool will_it_fly(const vector<int>& q, int w) {
         sum += i;
     }
     return sum <= w;
+}
+
+bool is_palindrome(string s) {
+    string rev = s;
+    reverse(rev.begin(), rev.end());
+    return s == rev;
 }
