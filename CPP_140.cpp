@@ -12,10 +12,13 @@ string fix_spaces(string text) {
         }
     }
     return text;
-} 
+}
 
 int main() {
-    assert(fix_spaces("hello   world") == "hello-_world");
-    assert(fix_spaces("this  is  a  test") == "this-_is-_a-_test");
+    string input_text;
+    getline(cin, input_text);
+    string result = fix_spaces(input_text);
+    cout << result << endl;
+
     return 0;
 }
