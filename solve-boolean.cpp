@@ -1,32 +1,30 @@
 #include <iostream>
 #include <string>
-
+#include <stack>
 using namespace std;
 
-bool evaluateBooleanExpression(const string& expression) {
-    if (expression == "t") {
-        return true;
-    } else if (expression == "f") {
-        return false;
-    } else {
-        bool left = evaluateBooleanExpression(expression.substr(0, 1));
-        bool right = evaluateBooleanExpression(expression.substr(2));
-        if (expression[1] == '&') {
-            return left && right;
-        } else {
-            return left || right;
+int main() {
+    string input;
+    cin >> input;
+
+    stack<bool> stk;
+    for (char ch : input) {
+        if (ch == 'T') {
+            stk.push(true);
+        } else if (ch == 'F') {
+            stk.push(false);
+        } else if (ch == '|') {
+            bool op2 = stk.top(); stk.pop();
+            bool op1 = stk.top(); stk.pop();
+            stk.push(op1 || op2);
+        } else if (ch == '&') {
+            bool op2 = stk.top(); stk.pop();
+            bool op1 = stk.top(); stk.pop();
+            stk.push(op1 && op2);
         }
     }
-    return false; // Add a default return statement
-}
 
-int main() {
-    string expression;
-    cin >> expression;
-    if (evaluateBooleanExpression(expression)) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    cout << (stk.top() ? "True" : "False") << endl;
+
     return 0;
 }
