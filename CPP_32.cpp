@@ -1,26 +1,20 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <cmath>
 
-double poly(const std::vector<double>& coeffs, double x) {
-    double result = 0;
-    for (int i = 0; i < coeffs.size(); ++i) {
-        result += coeffs[i] * pow(x, i);
+double poly(const std::vector<double>& xs, double x) {
+    double res = 0;
+    for (int i = 0; i < xs.size(); i++) {
+        res += xs[i] * pow(x, i);
     }
-    return result;
+    return res;
 }
 
-double find_zero(std::vector<double> xs) {
-    vector<double> coeffs(xs.size());
-    double root;
-    for(int i=0;i<coeffs.size();++i){
-        coeffs[i]=pow(-1,i)*xs[i];
+double find_zero(std::vector<double> xs){
+    if(xs.size() % 2 != 0) return -1; 
+    double x = 1;
+    while (std::abs(poly(xs, x)) > 1e-9) {
+        x -= poly(xs, x) / (poly({xs[0], xs[2]}, x));
     }
-    if(poly(coeffs, 1.0) == 0 && poly(coeffs, -1.0) > 0) {
-        for(double x=-2.0;x<=2.0;x+=0.01){
-            if(poly(coeffs,x)==0) return round(x*100.0)/100.0;
-        }
-    } else {
-        root = find_zero_ternary(xs);
-        return std::round(root);
-    }
+    return x;
 }
