@@ -15,16 +15,18 @@ long long double_the_difference(std::vector<float> lst){
 int main() {
     std::vector<float> lst; 
     float odd_sum = 0; 
+    // read input
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i=0;i<n;i++){
-        float x;
-        std::cout << "Enter element "<<i+1<<": ";
-        std::cin >> x;
-        lst.push_back(x);
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        float num;
+        cin >> num;
+        lst.push_back(num);
     }
-    odd_sum = double_the_difference(lst);
-    std::cout << "The sum of the squares of the positive integers in the list is: " << odd_sum << std::endl;
+    
+    // calculate and print the result
+    long long result = double_the_difference(lst);
+    cout << "Result: " << result << endl;
+    
     return 0;
 }
