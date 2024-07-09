@@ -33,8 +33,8 @@ int main2() {
     std::vector<double> input = {0.0, 0.7};
     std::vector<std::string> result1 = numerical_letter_grade(input);
     
-    std::vector<std::string> result2 = {"F", "C"};
-    if (issame({result1[0], result1[1]}, result2)) {
+    std::vector<std::string> input2 = {"F", "C"};
+    if (issame({result1[0], result1[1]}, input2)) {
         std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
