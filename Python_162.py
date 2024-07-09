@@ -1,5 +1,11 @@
-while True:
+import hashlib
+
+
+def string_to_md5():
     text = input("Please enter some text: ")
-    if text:
-        print(hashlib.md5(text.encode()).hexdigest())
-        break
+    if not text:
+        return None
+    return hashlib.md5(text.encode()).hexdigest()
+
+
+print(string_to_md5())
