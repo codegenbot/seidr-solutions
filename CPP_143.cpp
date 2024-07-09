@@ -8,15 +8,15 @@ string words_in_sentence(string sentence){
     return result.substr(0, result.size() - 1);
 }
 
-vector<string> split(const string& s, const string& delimiter) {
-    vector<string> result;
+vector<string> split(const string& str, const string& delimiter) {
+    vector<string> tokens;
     size_t pos = 0;
-    while ((pos = s.find(delimiter)) != stdstring::npos) {
-        result.push_back(s.substr(0, pos));
-        s.erase(0, pos + delimiter.length());
+    while ((pos = str.find(delimiter)) != string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + delimiter.length());
     }
-    result.push_back(s);
-    return result;
+    tokens.push_back(str);
+    return tokens;
 }
 
 bool is_prime(int n) {
