@@ -1,4 +1,6 @@
+```c++
 #include <iostream>
+#include <iomanip>
 
 int main() {
     int startHeight, firstBounce, numBounces;
@@ -11,10 +13,11 @@ int main() {
 
     double bouncinessIndex = static_cast<double>(firstBounce) / static_cast<double>(startHeight);
 
-    std::cout << std::to_string(bouncinessIndex) << " ";
+    std::cout << std::fixed << std::setprecision(2) << bouncinessIndex << " ";
     for (int i = 1; i <= numBounces; ++i) {
+        startHeight = static_cast<double>(firstBounce);
         firstBounce *= 0.5;
-        std::cout << std::to_string(firstBounce) + " ";
+        std::cout << std::fixed << std::setprecision(2) << startHeight << " ";
     }
     return 0;
 }
