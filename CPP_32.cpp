@@ -1,5 +1,30 @@
-double find_zero(const std::vector<double>& coeffs) {
-    if(coeffs.size() % 2 != 0) return -1; // Return -1 if number of coefficients is odd
-    double root = -coeffs[1]/(2*coeffs[0]); 
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+double find_zero(std::vector<double> xs){
+    if(xs.size() % 2 != 0) return -1; 
+    double root = -xs[1]/(2*xs[0]); 
     return std::round(root);
+}
+
+int main() {
+    std::vector<double> inputCoeffs;
+    int ncoeff;
+    std::cout << "Enter the degree of the polynomial: ";
+    std::cin >> ncoeff;
+
+    for(int i = 0; i <= ncoeff; ++i) {
+        double coeff;
+        std::cout << "Enter coefficient of x^" << i << ": ";
+        std::cin >> coeff;
+        inputCoeffs.push_back(coeff);
+    }
+
+    double solution = find_zero(inputCoeffs);  
+    if (solution == -1) {
+        std::cout << "Error: number of coefficients is odd." << std::endl;
+    } else {
+        std::cout << "The zero of the polynomial is: " << solution << std::endl;
+    }
 }
