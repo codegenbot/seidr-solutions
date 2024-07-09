@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <initializer_list>
 #include <assert.h>
@@ -14,6 +15,9 @@ bool has_close_elements(float a[], int n, float tol) {
 }
 
 int main() {
-    std::vector<float> numbers({1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f, 0});
-    assert(has_close_elements(&numbers[0], numbers.size(), 0.5) == false);
+    float numbers[] = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f, 0};
+    assert(has_close_elements(numbers, sizeof(numbers) / sizeof(numbers[0]), 0.5) == false);
+    
+    float numbers2[] = {1.1f, 2.2f, 3.1f, 4.1f, 5.1f};
+    assert(has_close_elements(numbers2, sizeof(numbers2) / sizeof(numbers2[0]), 0.5) == false);
 }
