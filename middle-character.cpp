@@ -1,10 +1,16 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 int main() {
     string s;
     cin >> s;
-    if (s.length() % 2 == 0) {
-        cout << s.substr(s.length() / 2 - 1, 2) << endl;
+    int n = s.size();
+    if (n % 2 == 0) {
+        cout << s.substr(n/2 - 1, 2);
     } else {
-        cout << s[s.length() / 2] << endl;
+        cout << s.substr(n/2, 1);
     }
     return 0;
 }
