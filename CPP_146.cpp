@@ -11,9 +11,6 @@ int specialFilter(vector<int> nums) {
     return count;
 
 int main() {
-    vector<int> nums;
-    for(int i = 123; i <= 789; i++) {
-        nums.push_back(i);
-    }
+    vector<int> nums = {123, 456, 789};
     cout << specialFilter(nums);
 }
