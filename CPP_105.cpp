@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -25,6 +26,7 @@ int main() {
     
     std::vector<int> lengthArr = by_length(intArray);
     // Test assertion
-    assert(issame(lengthArr, static_cast<std::initializer_list<int>>({to_string(9).size(), to_string(4).size(), to_string(8).size()})));
+    assert(issame(lengthArr, {to_string(9).size(), to_string(4).size(), to_string(8).size()}));
+
     return 0;
 }
