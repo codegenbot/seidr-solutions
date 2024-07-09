@@ -7,5 +7,5 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    throw std::runtime_error("No pair found that sums to the target");
+    return {-1, -1};
 }
