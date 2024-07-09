@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <assert.h>
 
 std::vector<float> get_positive(std::vector<float> v) {
     std::vector<float> result;
@@ -9,10 +9,11 @@ std::vector<float> get_positive(std::vector<float> v) {
     return result;
 }
 
-bool is_same(std::vector<float> vector1, std::vector<float> vector2) {
-    return vector1 == vector2;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return a == b;
 }
 
 int main() {
+    assert(issame(get_positive({}), std::vector<float>()) == true); 
     return 0;
 }
