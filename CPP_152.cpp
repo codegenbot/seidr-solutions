@@ -25,11 +25,12 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
+    std::vector<int>(n);  // or std::vector<int>() for dynamic sizing
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     std::vector<int> game(n);
-    std::vector<int> guess(n);
+    std::vector<int> guess = game; 
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
