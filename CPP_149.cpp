@@ -1,9 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <limits>
 
 using namespace std;
 
@@ -46,17 +44,12 @@ int main_entry() {
     for(int i = 0; i < n; i++) {
         string str;
         cout << "Enter string " << (i+1) << ": ";
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Add this line to ignore the newline character left in the buffer
         getline(cin, str);
+        char* temp = new char[str.size() + 1];
+        strcpy(temp, str.c_str());
         totalSize += str.size() + 1; 
-    }
-    
-    for(int i = 0; i < n; i++) {
-        string str;
-        cout << "Enter string " << (i+1) << ": ";
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Add this line to ignore the newline character left in the buffer
-        getline(cin, str);
-        inputStrings.push_back(str);
+        inputStrings.push_back(string(temp));
+        delete[] temp;
     }
     
     vector<string> output = sorted_list_sum(inputStrings);
