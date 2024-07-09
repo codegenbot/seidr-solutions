@@ -11,11 +11,13 @@ int search(vector<int> lst) {
         }
     }
 
-    for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
-        if (it->second >= it->first && it->first > 0) {
-            return it->first;
+    int maxFreq = -1;
+    for (auto& pair : freqMap) {
+        if (pair.second >= pair.first && pair.first > 0) {
+            maxFreq = pair.first;
+            break;
         }
     }
 
-    return -1;
+    return maxFreq;
 }
