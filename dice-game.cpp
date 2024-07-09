@@ -1,8 +1,8 @@
-#include <cmath>
 #include <iostream>
+#include <iomanip>
 
-long double probability(int n, int m) {
-    long double total = 0; 
+double probability(int n, int m) {
+    double total = 0; 
     int count = 0;
     for (int i = 1; i <= m; i++) {
         for (int j = i + 1; j <= n; j++) {
@@ -11,11 +11,11 @@ long double probability(int n, int m) {
             }
         }
     }
-    return static_cast<long double>(count) / ((long double)(n * m));
+    return (double)count / (n * m);
 }
 
 int main() {
     std::cout << "The probability that Peter rolls strictly higher than Colin is: "
-              << probability(34, 24) << '\n';
+              << probability(34, 24);
     return 0;
 }
