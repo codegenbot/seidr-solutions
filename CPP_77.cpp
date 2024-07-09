@@ -17,7 +17,8 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> num;
     
-    std::string str = std::to_string(num);
-    assert(isCube(stoi(str)) == isCube(1729)); 
+    num = std::to_string(num);
+
+    assert(isCube(std::stoi(num)) == isCube(1729)); 
     return 0;
 }
