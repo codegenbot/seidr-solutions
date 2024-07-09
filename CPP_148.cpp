@@ -41,6 +41,7 @@ vector<string> bf(string planet1, string planet2) {
         }
     }
 
+    result.erase(unique(result.begin(), result.end()), result.end());
     sort(result.begin(), result.end());
 
     return result;
