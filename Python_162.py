@@ -1,3 +1,4 @@
+```
 import hashlib
 
 
@@ -8,6 +9,7 @@ def string_to_md5(text):
 
 
 if __name__ == "__main__":
+    pass
     while True:
         user_input = input("Enter a string (or 'q' to quit): ")
         if user_input.lower() == "q":
