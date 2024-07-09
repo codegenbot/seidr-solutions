@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cassert>
 #include <iostream>
@@ -17,7 +18,7 @@ int how_many_times(const string& str, const string& substring) {
 
 }
 
-int main() {
+main() {
     string str, substring;
     cout << "Enter a string: ";
     getline(cin, str);
