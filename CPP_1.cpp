@@ -4,27 +4,19 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    
-    for (int i = 0; i < a.size(); i++) {
+
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-    
+
     return true;
 }
 
+#include "header_file.h"
+
 int main() {
-    // Include the necessary header file where separate_paren_groups function is declared
-    
-    string input;
-    cin >> input;
-    
-    vector<string> result = separate_paren_groups(input);
-    
-    for (string group : result) {
-        cout << group << " ";
-    }
-    
+    // Main function implementation here
     return 0;
 }
