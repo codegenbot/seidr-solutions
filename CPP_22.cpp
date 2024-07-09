@@ -19,16 +19,10 @@ std::vector<int> filter_integers(std::list<bool> values) {
         if (value) {
             int num;
             // Check that the next value in the list is an integer
-            for (auto it = values.begin(); it != values.end(); ++it) {
-                if (std::any_cast<bool>(*it)) {
-                    continue;
-                }
-                try {
-                    num = std::any_cast<int>(*it);
+            if (values.front()) {
+                if (std::any_cast<bool>(values.back())) {
+                    num = std::any_cast<int>(values.back());
                     result.push_back(num);
-                    break;
-                } catch(const std::bad_any_cast& e) {
-                    // handle error
                 }
             }
         }
