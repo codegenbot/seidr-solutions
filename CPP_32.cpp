@@ -1,6 +1,3 @@
-#include <cmath>
-#include <vector>
-
 double poly(double coeffs, double solution) {
     // your polynomial calculation here
 }
