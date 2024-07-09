@@ -4,15 +4,19 @@
 
 int prod_signs(std::string str1, std::string str2, std::string str3) {
     for (auto& s : {str1, str2, str3}) {
-        std::transform(s.begin(), s.end(), s.begin(),
-            [](unsigned char c){ return std::isupper(c) ? std::tolower(c) : std::toupper(c); });
-        
-        if ((s[0] >= 'a' && s[0] <= 'z') || (s[0] >= 'A' && s[0] <= 'Z')) {
-            s[0] = std::toupper(s[0]);
-        }
+        std::transform(s.begin(), s.end(), s.begin(), ::toupper);
         
         if ((s[0] == '-' || s[0] == ' ') && s.length() > 1) {
-            s = s.substr(1);
+            size_t i = 0;
+            if (s.length() > 1) {
+                while (i < s.size()) {
+                    if (!((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))) {
+                        break;
+                    }
+                    ++i;
+                }
+                s.erase(0, i);
+            }
         }
     }
     
