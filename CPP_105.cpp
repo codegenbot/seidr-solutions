@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <map>
+#include <vector>
 
 using namespace std;
 
