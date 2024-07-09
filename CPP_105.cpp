@@ -8,14 +8,21 @@ bool issame(vector<string> a,vector<string>b){
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> result;
-    map<int, string> numMap = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, 
-                                {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+    vector<string> temp;
     for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            result.push_back(numMap[i]);
+        switch (i) {
+            case 1: temp.push_back("One"); break;
+            case 2: temp.push_back("Two"); break;
+            case 3: temp.push_back("Three"); break;
+            case 4: temp.push_back("Four"); break;
+            case 5: temp.push_back("Five"); break;
+            case 6: temp.push_back("Six"); break;
+            case 7: temp.push_back("Seven"); break;
+            case 8: temp.push_back("Eight"); break;
+            case 9: temp.push_back("Nine"); break;
+        }
     }
-    sort(result.begin(), result.end());
-    reverse(result.begin(), result.end());
-    return result;
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
+    return temp;
 }
