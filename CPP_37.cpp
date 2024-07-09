@@ -7,3 +7,4 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b){
         if(abs(a[i] - b[i]) > 1e-6) return false;
     }
     return true;
+}
