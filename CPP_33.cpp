@@ -15,7 +15,7 @@ vector<int> sort_third(vector<int> l) {
         else
             others.push_back(l[i]);
 
-        if (multiplesOfThree.size() > l.size() / 2) {
+        if (multiplesOfThree.size() >= l.size() / 3) {
             break;
         }
     }
@@ -29,7 +29,7 @@ vector<int> sort_third(vector<int> l) {
         else
             result.push_back(others[i % others.size()]);
 
-        if (multiplesOfThree.size() > l.size() / 2) {
+        if (multiplesOfThree.size() >= l.size() / 3) {
             break;
         }
     }
