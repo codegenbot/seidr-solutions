@@ -2,7 +2,6 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <cassert>
 
 using namespace std;
 
@@ -33,7 +32,9 @@ double find_zero(vector<double> xs){
 int main() {
     vector<double> xs; 
     cout << "Enter coefficients (space separated): ";
-    for(double x; cin >> x; xs.push_back(x)); 
+    for(double x; cin >> x; ) {
+        xs.push_back(x); 
+    }    
     double solution = find_zero(xs);
     vector<double> coeffs;
     for (int i = 1; i < xs.size(); i++) {
@@ -42,6 +43,5 @@ int main() {
         }
     }
     assert(abs(poly(coeffs, solution))< 1e-3);
-    cout << "The zero of the polynomial is: " << solution << endl;
     return 0;
 }
