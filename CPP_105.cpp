@@ -2,7 +2,7 @@
 #include <algorithm>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    vector<int> temp;
+    std::vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
             temp.push_back(i);
@@ -11,9 +11,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     
     sort(temp.begin(), temp.end());
     
-    vector<string> result;
+    std::vector<std::string> result;
     for (int i : temp) {
-        string s = "";
+        std::string s = "";
         switch (i) {
             case 1:
                 s = "One";
