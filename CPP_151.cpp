@@ -40,6 +40,6 @@ int main() {
     }
 
     long long sum = double_the_difference(lst);
-    std::cout << "The total difference is: " << sum;
+    std::cout << "Sum: " << sum << std::endl;
     return 0;
 }
