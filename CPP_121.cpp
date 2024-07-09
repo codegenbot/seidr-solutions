@@ -1,7 +1,6 @@
 ```cpp
-#include <initializer_list>
-#include <cassert>
 #include <iostream>
+#include <vector>
 
 int sumOdd(std::vector<int> lst) {
     int sum = 0;
