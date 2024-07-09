@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
@@ -8,7 +9,7 @@ def minPath(grid, k):
 
         visited.add((i, j))
 
-        min_path = float("inf")
+        min_path = float('inf')
         for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = i + di, j + dj
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
@@ -23,6 +24,6 @@ def minPath(grid, k):
             grid[i][j] = str(grid[i][j])
 
     start = [i for i, row in enumerate(grid) if "1" in "".join(row)][0]
-    path = dfs(start, 0, [int(grid[start][0])], set())
+    path = dfs(start, 0, [grid[start][0]], set())
 
     return path
