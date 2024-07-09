@@ -5,24 +5,25 @@
 
 using namespace std;
 
-template <typename T1, typename T2>
 boost::any compare(boost::any a, boost::any b) {
-    assert(a.type() == typeid(T1) && b.type() == typeid(T2) || a.type() == typeid(T2) && b.type() == typeid(T1));
+    assert(a.type() == b.type());
 
-    if (boost::any_cast<T1>(a) > boost::any_cast<T2>(b)) {
-        return a;
-    } else if (boost::any_cast<T1>(a) < boost::any_cast<T2>(b)) {
-        return b;
-    } else {
-        return "None";
+    if (a.type() == typeid(int)) {
+        if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
+            return a;
+        else if (boost::any_cast<int>(a) < boost::any_cast<int>(b))
+            return b;
+    } else if (a.type() == typeid(float)) {
+        if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
+            return a;
+        else if (boost::any_cast<float>(a) < boost::any_cast<float>(b))
+            return b;
+    } else if (a.type() == typeid(string)) {
+        if (stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b)))
+            return a;
+        else if (stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b)))
+            return b;
     }
-}
 
-int main() {
-    boost::any a = 5;
-    boost::any b = 10;
-
-    cout << boost::any_cast<int>(compare<int, int>(a, b)) << endl;
-
-    return 0;
+    return boost::any();
 }
