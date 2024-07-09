@@ -18,7 +18,8 @@ std::vector<int> filter_integers(const std::list<bool>& values) {
     std::vector<int> result;
     for (const auto& value : values) {
         if (value) {
-            // You can't do type checking or casting here, so this code will not work
+            int num = static_cast<int>(values.begin()->get_allocator().get_insert_pos());
+            result.push_back(num);
         }
     }
     return result;
