@@ -1,79 +1,61 @@
 ```cpp
+#include <iostream>
+#include <fstream>
 #include <sstream>
 #include <vector>
-#include <utility>
-#include <cmath>
 
-struct pair {
-    char first;
-    int second;
+using namespace std;
 
-    pair(char x, int y) : first(x), second(y) {}
+struct Expression {
+    char op;
+    int operand;
 };
 
-int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
-    if (operators_and_operands.size() == 0) {
-        return 0;
-    }
-    
-    int result = operators_and_operands[0].second;
-    for (const auto& pair : operators_and_operands) {
-        if (pair.first == '+') {
-            result += pair.second;
-        } else if (pair.first == '-') {
-            result -= pair.second;
-        } else if (pair.first == '*') {
-            result *= pair.second;
-        } else if (pair.first == '/') {
-            if (pair.second != 0) {
-                result /= pair.second;
-            }
-        } else if (pair.first == '^') { 
-            result = std::pow(result, pair.second);
-        }
-    }
-    return result;
-}
-
 int main() {
-    std::string str = "++7*3+4";
-    std::istringstream iss(str);
-    
+    if (fopen_s(&fin, "input.txt", "r") != 0) {
+        cerr << "Failed to open input file.\n";
+        return 1;
+    }
+
+    vector<Expression> operators_and_operands;
+
+    string token;
     char op = '+';
-    int operand = 0; // initialize operand variable
-    std::vector<std::pair<char, int>> operators_and_operands(std::allocator<std::pair<char, int>>());
-    std::string token;
-    while (iss >> token) {
+    int operand = 0;
+
+    while (fin >> token) {
         if (!token.empty()) {
-            if (op != '+') {
-                operators_and_operands.push_back({op, operand});
+            if (!op == '+') {
+                operators_and_opernds.push_back({op, operand});
                 op = '+';
                 operand = 0;
             }
             if (token[0] == '+') {
                 op = '+';
-                operand = std::stoi(token.substr(1));
+                operand = stoi(token.substr(1));
             } else if (token[0] == '-') {
                 op = '-';
-                operand = std::stoi(token.substr(1));
+                operand = stoll(token.substr(1));
             } else if (token[0] == '*') {
                 op = '*';
-                operand = std::stoi(token.substr(1));
+                operand = stoll(token.substr(1));
             } else if (token[0] == '/') {
                 op = '/';
-                operand = std::stoi(token.substr(1));
+                operand = stoll(token.substr(1));
             } else if (token[0] == '^') {
                 op = '^';
-                operand = std::stoi(token.substr(1));
+                operand = stoi(token.substr(1));
             }
         }
     }
-    
+
     // add the last operator and operand to vector
-    if (op != '+') {
+    if (!op == '+') {
         operators_and_operands.push_back({op, operand});
     }
-    
-    int result = do_algebra(operators_and_operands);
-    return 0;
+
+    for (const auto& expression : operators_and_operands) {
+        cout << "Operator: " << expression.op;
+        cout << ", Operand: " << expression.operand << endl;
+    }
 }
