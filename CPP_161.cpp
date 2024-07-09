@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
 std::string solve(std::string s) {
     std::string result = "";
     for (char c : s) {
@@ -7,7 +11,5 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-
-    int pos = s.find_last_of(' ');
-    return !result.empty() ? s.erase(pos, s.size() - pos) : s;
+    if (!result.empty()) return s;
 }
