@@ -1,16 +1,23 @@
-int bowlingScore(string &s) {
+int bowlingScore(string s) {
     int score = 0;
-    for(int i = 0; i < 10; ++i){
-        if(s[i] == '/'){
-            string leftPart = s.substr(0, i);
-            int rightPart = stoi(s.substr(i+1));
-            if(stoi(leftPart) == 10 && leftPart.size() > 1)
-                score += 20;
-            else
-                score += (stoi(leftPart) + rightPart);
-        }else{
-            score += (s[i] - '0') * (i < 9 ? 2 : 3);
+    int frame = 0;
+    
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == 'X') {
+            score += 10 + (i < s.length()-1 && s[i+1] != '/') ? 10 : 0;
+            frame++;
+        } else if(s[i] == '/') {
+            int temp = 10 - (s[i-1] - '0' + s[i+1] - '0');
+            score += temp + 10;
+            frame++;
+        } else {
+            int points = s[i] - '0';
+            score += points;
+            if(s[i+1] == '/') {
+                frame++;
+            }
         }
     }
+    
     return score;
 }
