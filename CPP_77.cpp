@@ -20,4 +20,3 @@ int main(){
     else
         std::cout << n << " is not a perfect cube.\n";
     return 0;
-}
