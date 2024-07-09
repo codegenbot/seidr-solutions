@@ -1,10 +1,9 @@
 #include <vector>
 #include <cassert>
-#include <climits>
-
+#include <climits> // for INT_MAX
 using namespace std;
 
-vector<int> pluck(vector<int> arr) {
+vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallest_even = INT_MAX;
     int smallest_even_index = -1;
