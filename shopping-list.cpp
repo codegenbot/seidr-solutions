@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <initializer_list>
 using namespace std;
@@ -26,4 +25,3 @@ int main() {
     }
     cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
-}
