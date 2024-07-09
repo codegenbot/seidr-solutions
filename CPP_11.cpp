@@ -32,12 +32,19 @@ int main() {
             } catch (const std::invalid_argument& e) {
                 std::cout << "Error: " << e.what() << std::endl;
             }
-        } else if (!str1.empty()) {  
-            str1.pop_back(); 
-        } else if (!str2.empty()) {  // check if str2 is not empty
-            str2.pop_back();
-        } else {
-            std::cout << "Both strings are empty." << std::endl;
+        } else if (!str1.empty()) { 
+            try {
+                for (char c : str1) {
+                    if (c != '0' && c != '1') {
+                        throw std::invalid_argument("Input strings must contain only 0's and 1's.");
+                    }
+                }
+                std::cout << "Error: No second input string provided." << std::endl;
+            } catch (const std::invalid_argument& e) {
+                std::cout << "Error: " << e.what() << std::endl;
+            }
+        } else { 
+            std::cout << "No input strings provided." << std::endl;
         }
     } catch (...) { 
         std::cout << "An error occurred." << std::endl;
