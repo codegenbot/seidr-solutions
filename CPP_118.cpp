@@ -1,26 +1,22 @@
 #include <string>
 
-std::string getClosestVowel(const std::string& word) {
+std::string getClosestVowel(std::string word) {
     std::string result = "";
-    for (int i = word.length() - 1; i > 0; --i) {
+    int closestIndex = -1;
+    for (int i = word.length() - 1; i >= 0; --i) {
         if (isVowel(word[i])) {
-            int left = i - 1;
-            while (left >= 0 && !isVowel(word[left])) --left;
-            if (left < i - 1) {
-                result = word.substr(left + 1, i - left - 1);
-                break;
-            }
+            if (closestIndex == -1)
+                closestIndex = i;
+            else if (abs(closestIndex - i) < abs(i - (word.length() - 1)))
+                closestIndex = i;
         }
     }
-    return result;
+    return word.substr(closestIndex, 1);
 }
 
 bool isVowel(char c) {
-    std::string vowels = "aeiouAEIOU";
-    for (char vowel : vowels) {
-        if (c == vowel) {
-            return true;
-        }
-    }
-    return false;
+    return c == 'a' || c == 'e' || c == 'i' || 
+           c == 'o' || c == 'u' || c == 'A' || 
+           c == 'E' || c == 'I' || c == 'O' || 
+           c == 'U';
 }
