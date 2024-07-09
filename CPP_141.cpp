@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-std::string file_name_check(std::string file_name){
+std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     bool found_dot = false;
     std::string before_dot;
