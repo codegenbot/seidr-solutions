@@ -1,4 +1,4 @@
-int findSumOfDigits(vector<int> numbers) {
+int sumOfUniqueDigits(vector<int> numbers) {
     int maxPrime = 0;
     for (int num : numbers) {
         if (isPrime(num)) {
@@ -11,7 +11,7 @@ int findSumOfDigits(vector<int> numbers) {
         sumOfDigits += maxPrime % 10;
         maxPrime /= 10;
     }
-    return sumOfDigits;
+    return sumOfUniqueDigits(numbers);
 }
 
 bool isPrime(int num) {
