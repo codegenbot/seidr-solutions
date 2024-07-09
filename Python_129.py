@@ -21,7 +21,7 @@ def minPath(grid, k):
                 if min_path is None or sum(res) < sum(min_path):
                     min_path = res
         return min_path
-
+    
     for i in range(n):
         for j in range(n):
             path = dfs(i, j, set(), [], 0)
