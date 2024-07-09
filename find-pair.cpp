@@ -1,21 +1,20 @@
 int main() {
-    int n;
+    int n, target;
     cin >> n;
     vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    int target;
     cin >> target;
     
-    map<int, int> num_idx;
+    map<int, int> hash;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
-        if (num_idx.find(complement) != num_idx.end()) {
-            cout << complement << endl << nums[i] << endl;
+        if (hash.find(complement) != hash.end()) {
+            cout << complement << endl << nums[i];
             break;
         }
-        num_idx[nums[i]] = i;
+        hash[nums[i]] = i;
     }
     
     return 0;
