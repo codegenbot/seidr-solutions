@@ -5,8 +5,9 @@ using namespace std;
 int calculateFuelCost(vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
-        int result = static_cast<int>(floor(double(num)/3)) - 2;
-        sum += result;
+        int result = (num / 3);
+        int newNum = floor((double)result) - 2;
+        sum += newNum;
     }
     return sum;
 }
