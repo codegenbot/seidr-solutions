@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -21,10 +22,9 @@ vector<float> get_positive(vector<float> l){
 int main() {
     vector<float> vec1 = {1, 2, 3};
     vector<float> vec2 = {1, 2, 4}; 
-    vector<float> posVec1 = get_positive(vec1);
-    vector<float> posVec2 = get_positive(vec2);
-    
-    if(issame(posVec1, posVec2)) {
+    vector<float> posvec1 = get_positive(vec1);
+    vector<float> posvec2 = get_positive(vec2); 
+    if(issame(posvec1, posvec2)) {
         cout << "The two vectors are the same." << endl;
     } else {
         cout << "The two vectors are different." << endl;
