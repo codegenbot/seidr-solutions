@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -39,9 +38,12 @@ vector<vector<string>> by_length(vector<int> arr) {
                     num.push_back("Nine");
                     break;
             }
-        }
+        } 
     }
 
-    vector<vector<string>> result = {{num}};
+    vector<vector<string>> result;
+    for (int i = 0; i < arr.size(); i++) {
+        if (i > 0) result.push_back(num);
+    }
     return result;
 }
