@@ -1,22 +1,28 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-vector<int> sort_third(vector<int> l) {
-    vector<int> result;
-    for (int i = 0; i < l.size(); ) {
-        if (i % 3 == 0 && i + 2 < l.size()) { 
+int* sort_third(vector<int> l) {
+    int size = (l.size() + 2)/3 * 3; 
+    int* result = new int[size]; 
+    int i = 0;
+    for (i = 0; i < l.size(); ) {
+        if (i % 3 == 0 && i < l.size() - 2) {
             vector<int> temp;
             for (int j = i; j < min(i + 3, l.size()); j++) {
                 temp.push_back(l[j]);
             }
             sort(temp.begin(), temp.end());
-            result.insert(result.end(), temp.begin(), temp.end());
-            i += 2; 
+            int k = 0;
+            for (int t : temp) {
+                result[i/3]++; 
+                i++;
+            }
         } else {
-            result.push_back(l[i]);
+            result[i/3]++; 
             i++;
         }
     }
@@ -39,20 +45,23 @@ int main() {
     }
     cout << endl;
 
-    vector<int> result1 = sort_third(l1);
-    vector<int> result2 = sort_third(l2);
+    int* result1 = sort_third(l1);
+    int* result2 = sort_third(l2);
 
     cout << "result1: ";
-    for (int i : result1) {
-        cout << i << " ";
+    for (int i = 0; i < ((l1.size() + 2)/3 * 3); i++) {
+        cout << result1[i] << " ";
     }
     cout << endl;
 
     cout << "result2: ";
-    for (int i : result2) {
-        cout << i << " ";
+    for (int i = 0; i < ((l2.size() + 2)/3 * 3); i++) {
+        cout << result2[i] << " ";
     }
     cout << endl;
 
+    delete[] result1;
+    delete[] result2;
+    
     return 0;
 }
