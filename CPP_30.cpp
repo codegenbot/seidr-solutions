@@ -1,4 +1,3 @@
-```
 vector<float> get_positive(vector<float> l){
     vector<float> result;
     for(float i : l){
@@ -9,39 +8,32 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-bool issame(vector<float> v1, vector<float> v2){
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); i++){
-        if(abs(v1[i] - v2[i]) > 0.00001) return false;
+bool issame(vector<float> v1, vector<float> v2) {
+    if(v1.size() != v2.size()) {
+        return false;
+    }
+    for(int i = 0; i < v1.size(); i++) {
+        if(v1[i] != v2[i]) {
+            return false;
+        }
     }
     return true;
 }
 
-int main(){
-    vector<float> l;
-    cout << "Enter numbers separated by space: ";
-    for(float x : getline(cin, str).get()) l.push_back(x);
-    vector<float> pos = get_positive(l);
-    if(pos.size() > 0) {
-        for(float i : pos){
-            cout << i << " ";
-        }
-        cout << endl;
-        vector<float> same;
-        for(int i = 0; i < pos.size(); i++){
-            for(int j = i+1; j <= pos.size(); j++){
-                if(issame({pos[i]}, {pos[j]})){
-                    same.push_back(pos[i]);
-                    break;
-                }
-            }
-        }
-        cout << "Same numbers: ";
-        for(float i : same){
-            cout << i << " ";
-        }
-        cout << endl;
+int main() {
+    vector<float> l1 = {1.5, -3.4, 7.8};
+    vector<float> l2 = {-1.2, 3.9, -6.7};
+    vector<float> l3 = {0.0, 1.1, 2.2};
+
+    vector<float> pos_l1 = get_positive(l1);
+    vector<float> pos_l2 = get_positive(l2);
+    vector<float> pos_l3 = get_positive(l3);
+
+    if(issame(pos_l1, pos_l2) || issame(pos_l1, pos_l3)) {
+        cout << "Yes";
     } else {
-        cout << "No positive numbers." << endl;
+        cout << "No";
     }
+
+    return 0;
 }
