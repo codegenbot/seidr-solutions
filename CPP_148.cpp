@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,7 +7,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b);
 std::vector<std::string> bf(std::string planet1, std::string planet2);
 
 int main() {
-    std::vector<std::string> b;
+    std::vector<std::string> planets;
     std::cout << "Enter two planets separated by space: ";
     std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
@@ -22,7 +21,7 @@ int main() {
         }
         std::cout << "\n";
 
-        if(issame(result,{planet1,planet2})){
+        if(issame({planet1,planet2},result)){
             std::cout << "The planets are the same.\n";
         } else {
             std::cout << "The planets are different.\n";
@@ -50,9 +49,13 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) { 
-    if (!isPlanet(planet1) || !isPlanet(planet2)) return {}; // Return an empty vector if either of the planets is not in the list.
-    if (planet1 < planet2)
-        return {planet1, planet2};
-    else
-        return {planet2, planet1};
+    std::vector<std::string> result;
+    if (isPlanet(planet1) && isPlanet(planet2)) {
+        if (planet1 < planet2)
+            result.push_back(planet1);
+        else
+            result.push_back(planet2);
+    }
+    return result;
+
 }

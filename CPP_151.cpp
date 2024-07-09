@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -15,14 +14,14 @@ int main() {
             input.push_back(num);
         }
     }
-    long long result = double_the_difference(input);
+    long result = double_the_difference(input);
     std::cout << "The total sum of squares is: " << static_cast<int>(result) << std::endl;
 }
 
-long long double_the_difference(const std::vector<int>& input) {
-    long long sum = 0;
+long double_the_difference(const std::vector<int>& input) {
+    long sum = 0;
     for (const auto& num : input) {
-        sum += (long long)num * (long long)num;
+        sum += (long)num * (long)num; 
     }
-    return sum;
+    return (long)sum; 
 }
