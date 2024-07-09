@@ -31,19 +31,14 @@ int main() {
     std::cin >> n;
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
+        int temp;
+        std::cin >> temp;
         if(i == 0) {
-            int temp;
-            std::cin >> temp;
             game.push_back(temp);
             guess.push_back(temp); 
         } else {
-            int temp1, temp2; 
-            std::cout << "Enter element " << i+1 << " (Game): ";
-            std::cin >> temp1;
-            game.push_back(temp1);
-            std::cout << "Enter element " << i+1 << " (Guess): ";
-            std::cin >> temp2;
-            guess.push_back(temp2); 
+            game.push_back(temp);
+            guess.push_back(temp); 
         }
     }
     if(issame(game, guess)){

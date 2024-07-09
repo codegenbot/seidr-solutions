@@ -24,6 +24,7 @@ int main() {
     for(int i=0; i<n; ++i){
         string s;
         getline(cin, s);
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         if (!s.empty()) {
             lst.push_back(s);
         }
