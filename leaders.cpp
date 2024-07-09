@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 std::vector<int> leaders(std::vector<int>& arr) {
@@ -6,7 +5,12 @@ std::vector<int> leaders(std::vector<int>& arr) {
     std::vector<int> res;
     
     for(int i=n-1; i>=0; i--) {
-        if(i == n-1 || arr[i] >= arr[i+1])
+        bool isLeader = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[i] < arr[j])
+                isLeader = false;
+        }
+        if(isLeader)
             res.push_back(arr[i]);
     }
     
@@ -14,11 +18,9 @@ std::vector<int> leaders(std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> input = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
-    std::vector<int> leadersVec = leaders(input);
-    
-    for (int i : leadersVec) {
+    std::vector<int> input = {18, 48, 517, 190, 204, 169, 784, 446, 770, 327, 555, 908, 56, 410, 987, 629, 467, 142, 858};
+    std::vector<int> leaders = leaders(input);
+    for(int i: leaders)
         std::cout << i << " ";
-    }
     return 0;
 }
