@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,8 +15,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> temp;
+vector<string> by_length(vector<int> arr, vector<string> b) {
+    vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
             temp.push_back(i);
@@ -26,7 +26,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
 
-    std::vector<std::string> result;
+    vector<string> result;
     for (int i : temp) {
         switch (i) {
             case 1:
@@ -62,15 +62,15 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
-int main() {
-    std::vector<int> input = {1,4,8};
-    std::vector<std::string> output = by_length(input);
+int main_1() {
+    vector<int> input = {9, 4, 8};
+    vector<string> output = by_length(input, {""});
     
-    if (issame({1,4,8}, {9, 4, 8})) {
-        for (std::string str : output) {
-            std::cout << str << std::endl;
+    if (issame({"Nine", "Four", "Eight"}, output)) {
+        for (string str : output) {
+            cout << str << endl;
         }
     } else {
-        std::cout << "Output is incorrect." << std::endl;
+        cout << "Output is incorrect." << endl;
     }
 }
