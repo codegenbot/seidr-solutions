@@ -11,10 +11,10 @@ std::string special_factorial(int n) {
         for (int j = 2; j <= i; j++)
             mul_result *= j;
 
+        result += std::to_string(mul_result);
+
         if(i > 1) 
-            result += std::to_string(mul_result);
-        else
-            result = std::to_string(mul_result);
+            result = " * " + result;
     }
     return "n! = " + result;
 }
