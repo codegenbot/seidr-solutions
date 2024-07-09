@@ -1,16 +1,17 @@
-string fix_spaces(string text) {
-    string result = "";
-    for (int i = 0; i < text.size(); i++) {
-        if (text[i] == ' ') {
-            if (i + 1 < text.size() && text[i+1] == ' ' && text[i-1] != ' ') {
-                result += "-";
-            } else if (result.back() == ' ') {
-                continue;
+string fix_spaces(string text){
+    for(int i=0; i<text.length();i++){
+        if(text[i] == ' '){
+            if(i+1 < text.length() && text[i+1] == ' '){
+                int j = i;
+                while(j+1 < text.length() && text[j+1] == ' ')
+                    j++;
+                for(int k=j; k>=i;k--)
+                    text[k] = '-';
+                return text;
             }
-            result += '_';
-        } else {
-            result += text[i];
+            else
+                text[i] = '_';
         }
     }
-    return result;
+    return text;
 }
