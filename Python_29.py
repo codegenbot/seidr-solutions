@@ -1,1 +1,1 @@
-return [s for s in strings if s.startswith(prefix)]
+return [string for string in strings if string.startswith(prefix)]
