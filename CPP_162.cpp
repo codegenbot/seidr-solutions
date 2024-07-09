@@ -10,10 +10,7 @@ string string_to_md5(string text) {
     if (text.empty()) return "None";
     
     unsigned char result[16];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, (const unsigned char*)text.c_str(), text.size());
-    MD5_Final(result, &ctx);
+    MD5((const unsigned char*)text.c_str(), text.size(), result);
     
     string md5_hash;
     for (int i = 0; i < 16; ++i) {
