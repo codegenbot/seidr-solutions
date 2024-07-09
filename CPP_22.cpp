@@ -2,22 +2,33 @@
 #include <vector>
 #include <list>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-vector<int> filter_integers(list<boost::any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        int casted_value = boost::any_cast<int>(value);
-        if(casted_value) {
-            result.push_back(casted_value);
+        if(boost::any_cast<bool>(value)) {
+            int temp = boost::any_cast<int>(value);
+            bool issame = true; // Add this variable
+            for(int i = 0; i < result.size(); i++) { 
+                if(result[i] != temp) { 
+                    issame = false;
+                    break;
+                }
+            }
+            if(issame) {
+                result.push_back(temp);
+            } else {
+                bool found = false;
+                for(int i = 0; i < result.size(); i++) {
+                    int val = boost::any_cast<int>(value); 
+                    if(result[i] == val) { 
+                        found = true;
+                        break;
+                    }
+                }
+                if(!found) {
+                    result.push_back(temp);
+                }
+            }
         }
     }
     return result;
