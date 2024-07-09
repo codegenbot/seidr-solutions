@@ -17,7 +17,7 @@ int main() {
     std::vector<float> lst;  
     float val;
     int size;
-
+    
     std::cout << "Enter the number of elements: ";
     std::cin >> size;
 
@@ -29,7 +29,7 @@ int main() {
 
     long long odd_sum = double_the_difference(lst);
 
-    std::cout << "The sum is: " << odd_sum << std::endl;
+    assert(double_the_difference(lst) == odd_sum);  // Check the sum
 
     return 0;
 }
