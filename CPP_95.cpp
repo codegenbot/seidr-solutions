@@ -1,9 +1,12 @@
-bool check_dict_case(map<string,string> dict){
-    if(dict.empty()) return false;
-    string firstKey = *(dict.begin())->first;
-    for(auto it=dict.begin();it!=dict.end();++it) {
-        if(tolower(firstKey) != tolower(it->first) && toupper(firstKey) != toupper(it->first))
-            return false;
+bool check_dict_case(map<string, string> dict) {
+    bool allLower = true;
+    bool allUpper = true;
+
+    for (auto& pair : dict) {
+        if (dict.empty()) return false;
+        if (!islower(pair.first[0])) allLower = false;
+        if (!isupper(pair.first[0])) allUpper = false;
     }
-    return true;
+
+    return allLower || allUpper;
 }
