@@ -1,12 +1,9 @@
-#include <iostream>
 #include <string>
-#include <vector>
-#include <algorithm>
 
-std::string file_name_check(std::string file_name) {
+string file_name_check(string file_name){
     int digit_count = 0;
     bool found_dot = false;
-    std::string before_dot;
+    string before_dot;
 
     for(int i=0; i<file_name.length(); i++){
         char c = file_name[i];
@@ -27,15 +24,10 @@ std::string file_name_check(std::string file_name) {
         return "No";
 
     int start = file_name.find('.');
-    std::string after_dot = file_name.substr(start+1);
-    std::vector<std::string> valid_extensions = {"txt", "exe", "dll"};
+    string after_dot = file_name.substr(start+1);
+    vector<string> valid_extensions = {"txt", "exe", "dll"};
     if(find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end())
         return "No";
 
     return "Yes";
-}
-
-int main() {
-    std::cout << (file_name_check("s.") == "No") << std::endl; // Print if the condition is true or not
-    return 0;
 }
