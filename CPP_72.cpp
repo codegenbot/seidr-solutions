@@ -1,12 +1,11 @@
 #include <vector>
-#include <algorithm>
 #include <string>
 
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
-    bool balanced = (str == reverse(str).substr(0, str.length()));
-    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
+    bool balanced = (str == std::string(str.rbegin(), str.rend()).substr(0, str.length()));
+    return balanced && std::accumulate(q.begin(), q.end(), 0) <= w;
 }
