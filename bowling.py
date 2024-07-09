@@ -16,7 +16,7 @@ def bowling_score(bowls):
         else:
             frame_score = sum(get_value(char) for char in frames[i])
             if "/" in frames[i]:
-                if len(frames[i+1]) > 0:
+                if len(frames[i + 1]) > 0:
                     score += 10 + get_value(frames[i + 1][0])
                 else:
                     score += 10
