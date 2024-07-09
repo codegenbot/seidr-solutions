@@ -15,7 +15,7 @@ vector<int> cutVector(vector<int>& vec) {
             right_sum += vec[j];
 
         if (left_sum == right_sum) {
-            return {vec.begin(), vec.begin() + i} , vector<int>(vec.begin() + i, vec.end());
+            return {vec.begin(), vec.begin() + i}, vector<int>(vec.begin() + i, vec.end());
         }
 
         int diff = abs(left_sum - right_sum);
@@ -25,5 +25,5 @@ vector<int> cutVector(vector<int>& vec) {
         }
     }
 
-    return {vec.begin(), vec.begin() + cut_idx} , vector<int>(vec.begin() + cut_idx, vec.end());
+    return {vec.begin(), vec.begin() + cut_idx}, vector<int>(vec.begin() + cut_idx, vec.end());
 }
