@@ -1,6 +1,5 @@
-```
 def solve_boolean(expression):
-    while '&' in expression and '|' in expression:
+    if '&' in expression and '|' in expression:
         start = 0
         end = 0
         for i, char in enumerate(expression):
@@ -9,12 +8,11 @@ def solve_boolean(expression):
             elif char == '|':
                 end = i
                 break
-        left = ''.join(filter(lambda x: x not in '&|', expression[:start]))
-        right = ''.join(filter(lambda x: x not in '&|', expression[start+1:end]))
-        expression = f"({str(bool(left) and bool(right))}){expression[end:]}"
+        result = solve_boolean(f"{expression[:start]} & {expression[start+1:end]}")
+        expression = f"({str(bool(result))}){expression[end:]}".replace("True", "1").replace("False", "0")
     if '&' in expression:
         left, right = expression.split('&')
-        return bool(eval(f"{left} & {right}"))
+        return bool(solve_boolean(left) and solve_boolean(right))
     elif '|' in expression:
         return any(solve_boolean(arg) for arg in expression.split('|'))
     else:
