@@ -9,10 +9,10 @@ std::string middleCharacter(std::string s) {
     if (len == 1) {
         return "";
     } else {
-        int middleIndex = len / 2 + (len % 2 == 0 ? 1 : 0);
+        int middleIndex = (len - 1) / 2;
         std::string result;
         if(len % 2 == 0) {
-            result = s.substr(middleIndex - 1, 2);
+            result = s.substr(middleIndex, 2);
         } else {
             result = s.substr(middleIndex, 1);
         }
@@ -23,13 +23,11 @@ std::string middleCharacter(std::string s) {
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-
+    std::getline(std::cin, input);  
     if(input.empty()) {
-        std::cout << "Enter a non-empty string" << std::endl;
+        std::cout << "";
     } else {
-        int len = input.length();
-        std::cout << middleCharacter(input) << std::endl;
+        std::cout << middleCharacter(input) << std::endl;  
     }
     return 0;
 }
