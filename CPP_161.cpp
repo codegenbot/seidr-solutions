@@ -2,13 +2,16 @@ Here is the solution:
 
 ```cpp
 string solve(string s){
-    string result = "";
-    for (char c : s) {
-        if (!isalnum(c)) {
-            result += c;
-        } else {
-            result += (islower(c) ? toupper(c) : tolower(c));
+    string result;
+    for(int i=0; i<s.size(); i++){
+        if(isalpha(s[i])){
+            if(islower(s[i]))
+                result += toupper(s[i]);
+            else
+                result += tolower(s[i]);
         }
+        else
+            result += s[i];
     }
-    return result;
+    return (result.empty() ? string(1, s.back()) + s.substr(0, s.size()-1) : result);
 }
