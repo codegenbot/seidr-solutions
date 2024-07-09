@@ -1,9 +1,12 @@
-```
-vector<float> get_positive(vector<float> l){
+#include <vector>
+
+using namespace std;
+
+vector<float> get_positive(vector<float> v) {
     vector<float> result;
-    for (float x : l) {
-        if (x > 0) {
-            result.push_back(x);
+    for (float num : v) {
+        if (num > 0) {
+            result.push_back(num);
         }
     }
     return result;
