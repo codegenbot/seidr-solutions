@@ -4,10 +4,10 @@
 #include <iostream>
 
 int getMax(int n) {
-    std::vector<int> l;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
+    std::vector<int> l;
     for (int i = 0; i < n; i++) {
         int x;
         std::cout << "Enter element " << i + 1 << ": ";
