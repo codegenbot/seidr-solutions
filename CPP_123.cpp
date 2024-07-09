@@ -1,8 +1,10 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
+using namespace std;
+
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
             n /= 2;
@@ -13,12 +15,11 @@ std::vector<int> get_odd_collatz(int n) {
             result.push_back(n);
         }
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    using namespace std;
     assert(equal(get_odd_collatz(1).begin(), get_odd_collatz(1).end(), vector<int>({1}).begin()));
     return 0;
 }
