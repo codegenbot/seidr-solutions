@@ -1,28 +1,22 @@
-```cpp
-int digit_count = 0;
-bool has_dot = false;
-size_t dot_pos = string::npos;
+bool hasDigits = false;
+bool hasDot = false;
 
-for (char c : file_name) {
-    if (isdigit(c)) {
-        digit_count++;
-    } else if (c == '.') {
-        has_dot = true;
-        dot_pos = file_name.find(c);
+for(int i=0; i<file_name.length(); i++) {
+    if(file_name[i] >= '0' && file_name[i] <= '9') {
+        if(hasDigits) return "No";
+        hasDigits = true;
+    }
+    else if(file_name[i] == '.') {
+        if(hasDot) return "No";
+        hasDot = true;
     }
 }
 
-if (digit_count > 3 || !has_dot || dot_pos == string::npos) {
+if(!hasDot || !file_name.substr(0, file_name.find('.')).find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos)
     return "No";
-}
 
-string before_dot = file_name.substr(0, dot_pos);
-string after_dot = file_name.substr(dot_pos + 1);
+string extension = file_name.substr(file_name.find('.') + 1);
+if(extension != "txt" && extension != "exe" && extension != "dll")
+    return "No";
 
-if (!before_dot.empty() && isalpha(before_dot[0])) {
-    if (after_dot == "txt" || after_dot == "exe" || after_dot == "dll") {
-        return "Yes";
-    }
-}
-
-return "No";
+return "Yes";
