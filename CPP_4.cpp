@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <numeric>
 #include <initializer_list>
+#include <iostream>
 
 float mean_absolute_deviation(std::vector<float> numbers) {
     float sum = 0.0;
