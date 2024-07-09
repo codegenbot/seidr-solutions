@@ -22,4 +22,5 @@ double find_zero(std::vector<double> coeffs){
 
 int main(){
     std::vector<double> coeffs = {1, -3, 2}; 
+    return 0;
 }
