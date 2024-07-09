@@ -5,9 +5,6 @@
 
 using namespace std;
 
-vector<string> by_length(vector<int> arr);
-bool issame(vector<string> a, vector<string> b);
-
 vector<string> by_length(vector<int> arr){
     vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
     vector<int> filtered_arr;
