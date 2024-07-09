@@ -1,5 +1,3 @@
-numbers, threshold = map(int, input("Enter numbers and threshold separated by space: ").split())
-
 def check_numbers(numbers, threshold):
     numbers.sort()
     for i in range(len(numbers) - 1):
@@ -7,6 +5,8 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
-numbers = numbers.split()
+numbers = [int(x) for x in input().split()]
+threshold = int(input())
+
 result = check_numbers(numbers, threshold)
 print(result)
