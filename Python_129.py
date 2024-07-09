@@ -28,4 +28,9 @@ def minFallingRainWater(grid):
     start = [i for i, row in enumerate(map(str, grid)) if "1" in "".join(row)][0]
     path = dfs(start, 0, [str(grid[start][0])], set())
 
-    return min(path)
+    max_val = -float("inf")
+    for cell in path:
+        val = int(cell)
+        max_val = max(max_val, val)
+
+    return max_val
