@@ -1,6 +1,5 @@
-
 #include <string>
-#include <cassert> 
+#include <cassert> // Include the assert header file
 
 std::string make_palindrome(std::string str){
     std::string rev_str(str.rbegin(), str.rend());
