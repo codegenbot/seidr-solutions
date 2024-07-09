@@ -1,3 +1,2 @@
-```
 def paired_digits(s):
-    return sum(int(a) for a, b in zip(s, s[:len(s)-1]) if a == b)
+    return sum(int(a) * 2 for a in s if s[s.index(a)+1:].count(a)>0)
