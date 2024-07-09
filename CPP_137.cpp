@@ -21,6 +21,6 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
     } else {
-        throw bad_any_cast("Invalid types");
+        throw invalid_argument("Invalid types");
     }
 }
