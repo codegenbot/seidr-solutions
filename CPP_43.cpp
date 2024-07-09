@@ -2,10 +2,11 @@
 using namespace std;
 
 bool pairs_sum_to_zero(vector<int> l) {
-    unordered_set<int> s;
-    for (int x : l) {
-        if (s.count(-x)) return true;
-        s.insert(x);
+    set<int> s(l.begin(), l.end());
+    for (int i : s) {
+        if (s.find(-i) != s.end()) {
+            return true;
+        }
     }
     return false;
 }
