@@ -1,10 +1,4 @@
 ```cpp
-#ifdef __cplusplus
-    #define CXX_VERSION 201103L
-#else
-    #error This file relies on the ISO C++ standard for its operation
-#endif
-
 #include <vector>
 #include <cmath>
 #include <iostream>
