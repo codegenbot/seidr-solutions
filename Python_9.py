@@ -1,15 +1,25 @@
-def calculate_total_expenses():
-    expenses = []
-    while True:
-        category = input("Enter expense category (or 'stop' to finish): ")
-        if category.lower() == 'stop':
-            break
-        amount = float(input("Enter the expense amount: "))
-        expenses.append((category, amount))
-    return calculate_total_expenses(expenses)
+def calculate_total_expenses(expenses):
+    """
+    Calculate total expenses.
 
-def main():
-    print(calculate_total_expenses())
+    Args:
+        expenses (list): A list of tuples, where each tuple contains the category and amount of expenses.
 
-if __name__ == "__main__":
-    main()
+    Returns:
+        float: The total amount of expenses.
+    """
+    total = 0
+    for expense in expenses:
+        total += expense[1]
+    return total
+
+
+expenses = []
+while True:
+    cat = input("Enter expense category (or 'done' if finished): ")
+    if cat.lower() == "done":
+        break
+    amount = float(input("Enter expense amount: "))
+    expenses.append((cat, amount))
+
+print(f"Total expenses: {calculate_total_expenses(expenses)}")
