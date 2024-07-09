@@ -2,13 +2,20 @@
 #include <string>
 
 std::string anti_shuffle(std::string s) {
-    std::string res = ""; // Initialize res as an empty string.
-    for (int i = 0; i < s.length(); i++) {
-        if (i % 2 != 0) {
-            res += s[i];  
+    int left = 0;
+    int right = s.length() - 1;
+
+    while (left < right) {
+        if (left % 2 == 0) {
+            std::swap(s[left], s[right]);
+            left++;
+            right--;
+        } else {
+            left++;
         }
     }
-    return res;
+
+    return s;
 }
 
 int main() {
