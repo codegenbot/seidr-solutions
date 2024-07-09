@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 std::string int_to_mini_roman(int number) {
