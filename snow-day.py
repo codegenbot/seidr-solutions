@@ -1,8 +1,10 @@
-def snow_day(hours, initial_snow, rate_of_fall, melting_rate):
-    snow = initial_snow
+```
+from decimal import Decimal, getcontext
+
+def snow_day(hours, ground_snow, rate_snowfall, melt_rate):
+    getcontext().prec = 30
+    ground_snow = Decimal(str(ground_snow))
     for _ in range(hours):
-        snow += rate_of_fall
-        if snow > 0:
-            excess_snow = snow - (snow * melting_rate)
-            snow = excess_snow
-    return round(snow, 8)
+        ground_snow += Decimal(str(rate_snowfall))
+        ground_snow -= ground_snow * Decimal(str(melt_rate))
+    return str(round(float(ground_snow), 6))
