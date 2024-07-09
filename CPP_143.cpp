@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <sstream>
 
@@ -10,21 +11,9 @@ int main() {
     cout << "Enter a sentence: ";
     getline(cin, sentence);
     
-    words_in_sentence(sentence);
-    cout << endl;
+    cout << sentence << endl;
     return 0;
 }
 
-void words_in_sentence(string sentence) {
-    stringstream ss(sentence);
-    string word;
-    int count = 0;
-
-    while (getline(ss, word, ' ')) {
-        if (count > 0) {
-            cout << ", ";
-        }
-        cout << word;
-        count++;
-    }
+void words_in_sentence(string) {
 }
