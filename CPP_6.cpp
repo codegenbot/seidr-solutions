@@ -33,6 +33,14 @@ vector<int> parse_nested_parens(string paren_string) {
 }
 
 int main() {
-    // Test your functions here
+    vector<int> a = parse_nested_parens("(()(()) ) ");
+    vector<int> b = parse_nested_parens("( () ( () ) )");
+    
+    if (issame(a, b)) {
+        cout << "Same depths" << endl;
+    } else {
+        cout << "Different depths" << endl;
+    }
+
     return 0;
 }
