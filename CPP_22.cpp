@@ -1,4 +1,8 @@
 #include <initializer_list>
+#include <vector>
+#include <any>
+#include <list>
+#include <memory>
 
 bool issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
     return a == b;
@@ -22,3 +26,4 @@ int main() {
     std::list<std::any> input = {{3}, {97}, {3}, {3}, {98}, {99}};
     assert(issame(filter_integers(input), std::vector<int>{3, 3, 3}));
     return 0;
+}
