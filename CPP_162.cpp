@@ -1,4 +1,4 @@
-```
+#include <openssl/ssl.h>
 #include <string>
 
 string string_to_md5(string text) {
@@ -17,4 +17,8 @@ string string_to_md5(string text) {
     }
     
     return result;
+}
+
+int main() {
+    return 0;
 }
