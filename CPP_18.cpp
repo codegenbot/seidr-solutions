@@ -10,6 +10,7 @@ int how_many_times(string str, string substring) {
         str.erase(pos, substring.length());
     }
     return count;
+
 }
 
 int main() {
