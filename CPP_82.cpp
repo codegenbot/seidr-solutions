@@ -1,8 +1,14 @@
-Here is the completed code:
+#include <string>
+#include <cassert>
 
-```cpp
-bool prime_length(string str) {
-    int n = str.length();
+bool prime_length(std::string str) {
+    int n;
+    try {
+        n = std::stoi(str);
+    } catch (...) {
+        return false;
+    }
+
     bool is_prime = true;
 
     if (n <= 1)
