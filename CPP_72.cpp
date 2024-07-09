@@ -1,17 +1,16 @@
 int sum = 0;
-    for (const auto &elem : q) {
-        sum += elem;
+    for(int i=0; i<q.size(); i++){
+        sum += q[i];
     }
     
-    if (q.size() % 2 != 0) {
+    if(sum > w)
         return false;
-    }
     
-    for (int i = 0; i < q.size() / 2; i++) {
-        if (q[i] != q[q.size() - i - 1]) {
-            return false;
-        }
-    }
+    vector<int> q_reverse = q;
+    reverse(q_reverse.begin(), q_reverse.end());
     
-    return sum <= w;
+    if(q == q_reverse)
+        return true;
+    
+    return false;
 }
