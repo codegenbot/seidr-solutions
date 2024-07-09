@@ -1,3 +1,4 @@
+```cpp
 int findGCD(int a, int b) {
     if (b == 0) return std::abs(a);
     while (b != 0) {
