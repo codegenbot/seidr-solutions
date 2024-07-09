@@ -1,15 +1,17 @@
 ```cpp
+#include <iostream>
+
 int main() {
-    std::string line;
-    double startHeight, firstBounce;
-    int numBounces;
+    int startHeight, firstBounce, numBounces;
 
-    std::getline(std::cin, line);
-    std::istringstream iss(line);
+    std::cin >> startHeight >> firstBounce >> numBounces;
+    
+    if (!(std::cin)) {
+        // Handle invalid input (e.g., print error message and exit)
+        return 1;
+    }
 
-    iss >> startHeight >> firstBounce >> numBounces;
-
-    double bouncinessIndex = firstBounce / startHeight;
+    double bouncinessIndex = static_cast<double>(firstBounce) / static_cast<double>(startHeight);
 
     std::cout << bouncinessIndex << " ";
     for (int i = 1; i <= numBounces; ++i) {
