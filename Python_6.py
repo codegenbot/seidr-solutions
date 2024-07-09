@@ -7,10 +7,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         for paren in paren_string.split()
     ]
 
-
-# Read input from the user
 input_string = input("Enter the string with parentheses: ")
 
-# Call the function with the user input
 output = parse_nested_parens(input_string)
 print(output)
