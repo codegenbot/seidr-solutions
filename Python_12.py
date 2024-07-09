@@ -1,2 +1,5 @@
-strings = input().split()
-print(min(strings, key=len))
+# Read space-separated strings from input
+strings = input().strip().split()
+
+# Find and print the longest string
+print(max(strings, key=len))
