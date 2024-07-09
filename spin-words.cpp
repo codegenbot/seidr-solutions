@@ -1,4 +1,3 @@
-```c++
 std::string spinWords(std::string str) {
     std::vector<std::string> words = split(str, ' ');
     for (int i = 0; i < words.size(); i++) {
