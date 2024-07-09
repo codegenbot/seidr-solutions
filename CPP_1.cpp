@@ -40,9 +40,16 @@ std::string separate_paren_groups(std::string s) {
 }
 
 int main() {
-    std::string s = "";
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
+    std::string s;
+
+    while (true) {
+        std::cout << "Enter a string: ";
+        if (!(std::cin >> s)) { 
+            std::cin.clear(); 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            break; 
+        }
+    }
     std::cout << "Result: " << separate_paren_groups(s) << std::endl;
     return 0;
 }
