@@ -1,4 +1,3 @@
-```c++
 string intToMiniRoman(int number) {
     vector<pair<int, string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
                                          {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
@@ -13,9 +12,4 @@ string intToMiniRoman(int number) {
     }
 
     return tolower(result);
-}
-
-int main() {
-    assert(intToMiniRoman(1000) == "m");
-    return 0;
 }
