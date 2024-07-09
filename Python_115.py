@@ -1,7 +1,7 @@
 def max_fill(grid: List[List[int]], capacity: int) -> int:
-    total_water = sum(sum(row) for row in grid)
-    
-    # Calculate how many times the tank can be filled
-    num_times = -(-total_water // capacity)  # This does ceiling division
-    
-    return num_times
+    total_water = 0
+    for row in grid:
+        water_per_row = min(capacity, sum(row))
+        total_water += water_per_row
+        capacity -= water_per_row
+    return math.ceil(total_water / capacity)
