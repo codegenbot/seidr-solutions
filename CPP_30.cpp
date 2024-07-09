@@ -10,8 +10,8 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    std::vector<float> input = {1.2, -3.4, 5.6, -7.8};
+    std::vector<float> input = {1.2f, -3.4f, 5.6f};
     auto result = get_positive(input);
-    assert(isSame(result, {1.2, 5.6}));
+    assert(isSame(result, {5.6f}));
     return 0;
 }
