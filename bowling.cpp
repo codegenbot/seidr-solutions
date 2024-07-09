@@ -1,14 +1,9 @@
-```c++
+Here is the modified code:
+
+```cpp
 #include <string>
 
-int getBonus(int a, int b) {
-    if(a + b == 10) {
-        return 10;
-    } else {
-        return a + b;
-    }
-}
-
+int getBonus(int a, int b);
 int bowlingScore(std::string s) {
     int score = 0;
     int currentFrame = 1;
@@ -35,3 +30,12 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
+}
+
+int getBonus(int a, int b) {
+    if(a + b == 10) {
+        return 10;
+    } else {
+        return a + b;
+    }
+}
