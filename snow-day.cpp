@@ -17,7 +17,7 @@ int main() {
         snow_on_ground += snow_fall_rate;
         snow_on_ground -= snow_melt_rate;
         
-        if(snow_on_ground < 0.0) {
+        if (snow_on_ground < 0.0) {
             snow_on_ground = 0.0;
         }
     }
