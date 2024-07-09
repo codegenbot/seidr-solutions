@@ -1,27 +1,25 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+using namespace std;
 
-int findMaximum(std::vector<int> numbers) {
-    int maxNum = (numbers.empty()) ? -1 : *std::max_element(numbers.begin(), numbers.end());
+int findMaximum(vector<int> numbers) {
+    int maxNum = (numbers.empty()) ? -1 : *max_element(numbers.begin(), numbers.end());
     if (maxNum != -1)
-        std::cout << maxNum << std::endl;
+        cout << maxNum << endl;
     return 0;
 }
 
 int main() {
-    std::vector<int> numbers;
+    vector<int> numbers;
     int num = 0; 
-    std::cout << "Enter numbers (separated by spaces): ";
-    while(std::cin >> num) { 
-        while(std::cin.peek() == ' ') {
-            std::cin.ignore();
+    cout << "Enter numbers (separated by spaces): ";
+    while(cin >> num) { 
+        while(cin.peek() == ' ') {
+            cin.ignore();
         }
         numbers.push_back(num);
-        while(std::cin.get() != '\n') { 
-            std::cin.ignore(); 
-        }
+        while(getline(cin, string())) ; 
     }
     findMaximum(numbers);
     return 0;
