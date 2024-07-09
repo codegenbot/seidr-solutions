@@ -5,10 +5,10 @@
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (any_cast<float>(a) > any_cast<float>(b)) {
+    if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
         return a;
-    } else if (any_cast<float>(a) == any_cast<float>(b)) {
-        return "None";
+    } else if (boost::any_cast<float>(a) == boost::any_cast<float>(b)) {
+        return any("None");
     }
     return b;
 }
