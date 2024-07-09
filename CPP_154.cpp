@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <string>
 
-bool cycpattern_check(std::string a, std::string b) {
+bool cycpattern_check(string a, string b) {
     for(int i = 0; i < a.length(); i++) {
-        std::string temp = a.substr(i);
+        string temp = a.substr(i);
         if(temp.length() >= b.length()) {
             bool flag = true;
             for(int j = 0; j < b.length(); j++) {
@@ -21,16 +20,16 @@ bool cycpattern_check(std::string a, std::string b) {
 }
 
 int main() {
-    std::string a, b;
-    std::cout << "Enter the first string: ";
-    std::cin >> a;
-    std::cout << "Enter the second string: ";
-    std::cin >> b;
+    string a, b;
+    cout << "Enter the first string: ";
+    cin >> a;
+    cout << "Enter the second string: ";
+    cin >> b;
     
     if(cycpattern_check(a, b)) {
-        std::cout << "Cyclic pattern found." << std::endl;
+        cout << "The pattern is cyclically present in the given strings." << endl;
     } else {
-        std::cout << "No cyclic pattern found." << std::endl;
+        cout << "The pattern is not cyclically present in the given strings." << endl;
     }
     
     return 0;
