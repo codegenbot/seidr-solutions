@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(std::vector<float> v1, std::vector<float> v2) {
+bool checkEqual(std::vector<float> v1, std::vector<float> v2) {
     if(v1.size() != v2.size()) return false;
     for(int i = 0; i < v1.size(); i++) {
         if(v1[i] != v2[i]) return false;
@@ -9,7 +9,7 @@ bool isSame(std::vector<float> v1, std::vector<float> v2) {
     return true;
 }
 
-std::vector<float> sortEven(std::vector<float> l) {
+std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result(l.size());
     int j = 0;
     for (int i = 0; i < l.size(); i++) {
@@ -30,7 +30,7 @@ int main()
     while(std::cin >> num) {
         input.push_back(num);
     }
-    std::vector<float> output = sortEven(input);
+    std::vector<float> output = sort_even(input);
     for(float f : output) {
         std::cout << f << " ";
     }
