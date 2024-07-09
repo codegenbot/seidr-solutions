@@ -14,17 +14,16 @@ bool is_happy(const std::string& s) {
         char c3 = s[i + 2];
         std::string::const_iterator it = s.begin() + i;
         for (; it != s.begin() + i + 3; ++it) {
-            if (*it == c1)
-                continue;
-            else if (*it == c2)
-                continue;
-            else if (*it == c3)
-                continue;
-            else
-                break;
+            bool found = false;
+            for (int j = 0; j < 3; j++) {
+                if (*it == s[i + j]) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+                return false;
         }
-        if (it != s.begin() + i + 3)
-            return false;
     }
     return true;
 }
