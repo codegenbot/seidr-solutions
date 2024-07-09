@@ -35,5 +35,5 @@ int get_odd_collatz(int n) {
 int main() {
     int num;
     std::cin >> num;
-    get_odd_collatz(num);
+    int result = get_odd_collatz(num);
 }
