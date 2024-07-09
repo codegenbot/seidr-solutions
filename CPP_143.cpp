@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <sstream>
 
 std::vector<std::string> words_in_sentence(const std::string& sentence) {
     if (sentence.empty()) {
