@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -14,14 +13,5 @@ int sum_squares(std::vector<float> lst){
 
 int main(){
     assert (sum_squares({-1,1,0})==2);
-    std::vector<float> numbers;
-    float num;
-    
-    while(std::cin >> num){
-        numbers.push_back(num);
-    }
-    
-    int result = sum_squares(numbers);
-    std::cout << "Sum of squares: " << result << "\n";
     return 0;
 }
