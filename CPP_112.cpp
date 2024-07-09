@@ -1,20 +1,6 @@
-```cpp
-#include <vector>
-#include <string>
-
-bool issame(vector<string> a,vector<string>b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
-}
-
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
-
+    
     // Delete all characters in s that are equal to any character in c
     for (char& ch : s) {
         bool found = false;
@@ -48,3 +34,13 @@ vector<string> reverse_delete(string s, string c) {
     final_result.push_back(res_str);
     final_result.push_back(is_palindrome ? "True" : "False");
     return final_result;
+}
+
+bool issame(vector<string> a,vector<string>b){
+    return (a == b);
+}
+
+int main() {
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    return 0;
+}
