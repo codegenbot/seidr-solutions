@@ -3,8 +3,8 @@
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
-    unsigned char result[MD5_DIGEST_LENGTH];
+
+    unsigned char result[16];
     MD5_CTX mdContext;
     MD5_Init(&mdContext);
     const char* ptr = text.c_str();
@@ -13,9 +13,9 @@ string string_to_md5(string text) {
         ptr++;
     }
     MD5_Final(result, &mdContext);
-    
+
     string output;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+    for (int i = 0; i < 16; i++) {
         char buff[3];
         sprintf(buff, "%02x", result[i]);
         output += buff;
