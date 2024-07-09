@@ -9,9 +9,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> even_odd_palindrome(int n);
 
-int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));
-    return 0;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 std::vector<int> even_odd_palindrome(int n){
@@ -29,4 +28,9 @@ std::vector<int> even_odd_palindrome(int n){
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(even_odd_palindrome(1), {0, 1}));
+    return 0;
 }
