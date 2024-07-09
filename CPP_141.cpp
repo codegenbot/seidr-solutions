@@ -1,22 +1,22 @@
-bool hasDigits = false;
-bool hasDot = false;
-
-for(int i=0; i<file_name.length(); i++) {
-    if(file_name[i] >= '0' && file_name[i] <= '9') {
-        if(hasDigits) return "No";
-        hasDigits = true;
+string file_name_check(string file_name){
+    bool oneDot = false;
+    int digitCount = 0;
+    for(int i=0; i<file_name.size(); i++){
+        char c = file_name[i];
+        if(c == '.'){
+            oneDot = true;
+        }else if(isdigit(c)){
+            digitCount++;
+            if(digitCount > 3) return "No";
+        }else{
+            if(i == 0 && !isalpha(c)) return "No"; // check the first letter
+        }
     }
-    else if(file_name[i] == '.') {
-        if(hasDot) return "No";
-        hasDot = true;
-    }
+    if(!oneDot || file_name.find('.') == string::npos)
+        return "No"; 
+    int dotIndex = file_name.find('.');
+    string ext = file_name.substr(dotIndex+1);
+    if(ext != "txt" && ext != "exe" && ext != "dll")
+        return "No";
+    return "Yes";
 }
-
-if(!hasDot || !file_name.substr(0, file_name.find('.')).find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos)
-    return "No";
-
-string extension = file_name.substr(file_name.find('.') + 1);
-if(extension != "txt" && extension != "exe" && extension != "dll")
-    return "No";
-
-return "Yes";
