@@ -1,8 +1,8 @@
 ```
-def add(x: int, y: int):
-    a = int(input("Enter first integer: "))
-    b = int(input("Enter second integer: "))
-    return a + b
+def add(x: int, y: int) -> int:
+    print("Addition Function")
+    x = int(input("Enter first integer: "))
+    y = int(input("Enter second integer: "))
+    return x + y
 
-result = add(0, 0)
-print(result)
+print(add(0, 0))

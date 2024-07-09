@@ -19,16 +19,18 @@ def minPath(grid):
 
         return False
 
-    start = [i for i, row in enumerate(grid) if any(cell == 1 for cell in row)][0]
+    for i in range(n):
+        for j in range(m):
+            if grid[i][j] == 1:
+                start = (i, j)
 
     min_length = float("inf")
     min_path = []
 
-    for j in range(m):
-        path = [(start, 0), (start, j)]
-        if bfs(start, j, path):
-            if len(path) < min_length:
-                min_length = len(path)
-                min_path = path
+    path = [start]
+    if bfs(*start, path):
+        if len(path) < min_length:
+            min_length = len(path)
+            min_path = path
 
     return min_path
