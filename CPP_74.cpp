@@ -10,7 +10,7 @@ bool issame(const std::vector<std::string>& s1, const std::vector<std::string>& 
 int total_sum(const std::vector<std::string>& lst) {
     int sum = 0;
     for (const auto& s : lst) {
-        for (char c : s) {
+        for (char c : std::string(s)) {
             sum += static_cast<int>(c);
         }
     }
@@ -33,7 +33,7 @@ std::vector<std::string> total_match(const std::vector<std::string>& lst1, const
 }
 
 int main() {
-    std::vector<std::string> lst1 = {"apple", "banana", "cherry"};
+    std::vector<std::string> lst1 = {"apple", "banana", "cherry"}; 
     std::vector<std::string> lst2 = {"date", "elderberry", "fig"};
     std::vector<std::string> lst3 = {"grape", "honeydew", "ice cream"};
     std::vector<std::string> lst4 = {"jackfruit", "kiwi", "lemon"};
