@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <initializer_list>
 
-bool isSequenceEqual(std::vector<int> a, std::vector<int> b) {
+bool areSequencesEqual(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     
