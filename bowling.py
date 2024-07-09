@@ -1,3 +1,4 @@
+```python
 def bowling_score(frames):
     score = 0
     frames = [int(x) if x.isdigit() else x for x in frames.split('/')]
