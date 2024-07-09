@@ -1,29 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
-
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
-int main() {
-    std::string planet1, planet2;
-    std::cin >> planet1 >> planet2;
-
-    std::vector<std::string> result = bf(planet1, planet2);
-
-    if (!isSame({}, result)) {
-        for (const auto& planet : result) {
-            std::cout << planet << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "Invalid Input" << std::endl;
-    }
-
-    return 0;
-}
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -54,4 +31,15 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::sort(result.begin(), result.end());
     
     return result;
+}
+
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
+int main() {
+    std::string planet1, planet2;
+    std::cin >> planet1 >> planet2;
+    std::cout << "Output: " << bf(planet1, planet2).size() << std::endl;
+    return 0;
 }
