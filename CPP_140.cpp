@@ -1,24 +1,15 @@
-Here is the solution:
-
-```cpp
-#include <string>
-using namespace std;
-
-string fix_spaces(string text) {
-    string result = "";
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == ' ') {
-            if (i > 0 && result.back() == ' ' && (result.length() < 2 || result.length() % 3 != 0)) {
-                result.pop_back();
+string fix_spaces(string text){
+    string new_text = "";
+    for(int i=0; i<text.length(); i++){
+        if(text[i] == ' '){
+            if(i < text.length()-1 && text[i+1] == ' ' && text.find(' ',i+2) == string::npos){
+                new_text += "-";
             } else {
-                if (result.length() >= 2 && result.back() == '-' && result[result.length()-2] == ' ') {
-                    result.erase(result.length()-1, 1);
-                }
-                result += '_';
+                new_text += "_";
             }
         } else {
-            result += text[i];
+            new_text += text[i];
         }
     }
-    return result;
+    return new_text;
 }
