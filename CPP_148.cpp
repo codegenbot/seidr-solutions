@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -18,7 +19,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
 
     if (idx1 == 0 || idx2 == 0)
-        return std::vector<std::string>();
+        return vector<string>();
 
     for (int i = idx1 + 1; i < idx2; i++) {
         result.push_back(planets[i]);
