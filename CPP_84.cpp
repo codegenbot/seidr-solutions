@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <bitset>
 
 std::string solve(int N) {
