@@ -21,11 +21,9 @@ int main() {
     std::cout << "Enter a word: ";
     std::getline(std::cin, word); 
     if (word.empty()) {
-        std::string result = get_closest_vowel(word); 
-        std::cout << result << std::endl;
+        std::cout << get_closest_vowel(word) << std::endl;
     } else {
-        std::string result = get_closest_vowel(word); 
-        std::cout << result << std::endl;
+        std::cout << get_closest_vowel(word) << std::endl;
     }
     return 0;
 }
