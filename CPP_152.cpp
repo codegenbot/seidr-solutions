@@ -1,21 +1,18 @@
+```cpp
 #include <iostream>
 #include <vector>
-
-using namespace std;
 
 bool issame(int a, int b) {
     return a == b;
 }
 
-vector<int> compare(vector<int> game, vector<int> guess) {
-    vector<int> result;
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+    std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
         if (issame(game[i], guess[i])) {
             result.push_back(0);
-        } else if (game[i] > guess[i]) {
-            result.push_back(1);
         } else {
-            result.push_back(-1);
+            result.push_back(abs(guess[i] - game[i]));
         }
     }
     return result;
@@ -23,23 +20,46 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 
 int main() {
     int n;
-    cin >> n;
-    
-    vector<int> game(n);
+    std::cout << "Enter the number of games: ";
+    std::cin >> n;
+
+    std::vector<std::vector<int>> games(n);
     for (int i = 0; i < n; i++) {
-        cin >> game[i];
+        int m;
+        std::cout << "Enter the number of numbers in game " << i + 1 << ": ";
+        std::cin >> m;
+        games[i].resize(m);
+        
+        std::cout << "Enter " << m << " numbers for game " << i + 1 << ": ";
+        for (int j = 0; j < m; j++) {
+            std::cin >> games[i][j];
+        }
     }
-    
-    vector<int> guess(n);
-    for (int i = 0; i < n; i++) {
-        cin >> guess[i];
+
+    int k;
+    std::cout << "Enter the number of guesses: ";
+    std::cin >> k;
+
+    std::vector<std::vector<int>> guesses(k);
+    for (int i = 0; i < k; i++) {
+        int m;
+        std::cout << "Enter the number of numbers in guess " << i + 1 << ": ";
+        std::cin >> m;
+        guesses[i].resize(m);
+        
+        std::cout << "Enter " << m << " numbers for guess " << i + 1 << ": ";
+        for (int j = 0; j < m; j++) {
+            std::cin >> guesses[i][j];
+        }
     }
-    
-    vector<int> output = compare(game, guess);
-    
-    for (int i = 0; i < n; i++) {
-        cout << output[i] << " ";
+
+    for (int i = 0; i < k; i++) {
+        std::cout << "Result for guess " << i + 1 << ": ";
+        for (int j = 0; j < games[0].size(); j++) {
+            std::cout << compare(games[i], guesses[i])[j] << " ";
+        }
+        std::cout << std::endl;
     }
-    
+
     return 0;
 }
