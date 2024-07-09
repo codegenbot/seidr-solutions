@@ -1,9 +1,15 @@
-bool cycpattern_check(string a, string b) {
-    int n = a.size();
-    int m = b.size();
-    if (n != m) return false;
+#include <iostream>
+#include <string>
+#include <cassert>
 
-    string temp = a + a;
+bool cycpattern_check(std::string a, std::string b) {
+    if(a.length() != b.length()) return false;
+    std::string temp = b + b;
+    return (temp.find(a) != std::string::npos);
+}
 
-    return (temp.find(b) != string::npos);
+int main() {
+    assert(cycpattern_check("winemtt", "tinem") == true);
+
+    return 0;
 }
