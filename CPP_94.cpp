@@ -20,6 +20,8 @@ bool isPrime(int n){
     }
     return true;
 
-int main{
-    assert(skkkasdkd({127, 97, 8192}) == 10);
+int main(){
+    int result = skjkasdkd({127, 97, 8192});
+    cout << "The sum of digits is: " << result << endl;
     return 0;
+}
