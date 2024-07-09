@@ -22,4 +22,3 @@ int main() {
         cout << "not prime";
     }
     return 0;
-}
