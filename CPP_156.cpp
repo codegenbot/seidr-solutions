@@ -1,82 +1,89 @@
-#include <string>
+std::string int_to_mini_roman(int num) {
+    std::string roman[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
+                          "", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
+                          "", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX",
+                          "", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
+                          "", "L", "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX", "LX",
+                          "", "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX",
+                          "", "LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV", "LXXVI", "LXXVII", "LXXVIII", "LXXIX", "LXXX",
+                          "", "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC",
+                          "", "C", "CI", "CII", "CIII", "CIV", "CV", "CVI", "CVII", "CVIII", "CX", "CXI", "CXII", "CXIII", "CXIV", "CXV", "CXVI", "CXVII", "CXVIII", "CXIX", "CXX",
+                          "", "CXXI", "CXXII", "CXXIII", "CXXIV", "CXXV", "CXXVI", "CXXVII", "CXXVIII", "CXXIX", "CXXX",
+                          "", "CXXXI", "CXXXII", "CXXXIII", "CXXXIV", "CXXXV", "CXXXVI", "CXXXVII", "CXXXVIII", "CXXXIX", "CXL",
+                          "", "CXLI", "CXLII", "CXLIII", "CXLIV", "CXLV", "CXLVI", "CXLVII", "CXLVIII", "CXlix", "CL",
+                          "", "CLI", "CII", "CC", "CCI", "CCC", "CCCI", "CCCII", "CCCIII", "CCCIV", "CCCV", "CCCVI", "CCCvii", "CCcviii", "CCXC", 
+                          "", "CM"};
 
-string int_to_mini_roman(int num) {
-    string roman = "";
-    if (num >= 1000) {
-        while (num >= 1000) {
-            roman += "M";
+    std::string result = "";
+
+    while (num > 0) {
+        if (num >= 1000) {
             num -= 1000;
-        }
-    }
-    if (num >= 900) {
-        while (num >= 900) {
-            roman += "CM";
+            result += "M";
+        } else if (num >= 900) {
             num -= 900;
-        }
-    }
-    if (num >= 500) {
-        while (num >= 500) {
-            roman += "D";
+            result += "CM";
+        } else if (num >= 500) {
             num -= 500;
-        }
-    }
-    if (num >= 400) {
-        while (num >= 400) {
-            roman += "CD";
+            result += "D";
+        } else if (num >= 400) {
             num -= 400;
-        }
-    }
-    if (num >= 100) {
-        while (num >= 100) {
-            roman += "C";
-            num -= 100;
-        }
-    }
-    if (num >= 90) {
-        while (num >= 90) {
-            roman += "XC";
+            result += "CD";
+        } else if (num >= 100) {
+            int i = 1;
+            while(num >= 100 * i) {
+                num -= 100 * i;
+                result += std::string(i, 'C');
+                i++;
+            }
+        } else if (num >= 90) {
             num -= 90;
-        }
-    }
-    if (num >= 50) {
-        while (num >= 50) {
-            roman += "L";
-            num -= 50;
-        }
-    }
-    if (num >= 40) {
-        while (num >= 40) {
-            roman += "XL";
+            result += "XC";
+        } else if (num >= 50) {
+            int i = 1;
+            while(num >= 50 * i) {
+                num -= 50 * i;
+                result += std::string(i, 'L');
+                i++;
+            }
+        } else if (num >= 40) {
             num -= 40;
-        }
-    }
-    if (num >= 10) {
-        while (num >= 10) {
-            roman += "X";
-            num -= 10;
-        }
-    }
-    if (num >= 9) {
-        while (num >= 9) {
-            roman += "IX";
+            result += "XL";
+        } else if (num >= 10) {
+            int i = 1;
+            while(num >= 10 * i) {
+                num -= 10 * i;
+                result += std::string(i, 'X');
+                i++;
+            }
+        } else if (num >= 9) {
             num -= 9;
-        }
-    }
-    if (num >= 5) {
-        while (num >= 5) {
-            roman += "V";
-            num -= 5;
-        }
-    }
-    if (num >= 4) {
-        while (num >= 4) {
-            roman += "IV";
+            result += "IX";
+        } else if (num >= 5) {
+            int i = 1;
+            while(num >= 5 * i) {
+                num -= 5 * i;
+                result += std::string(i, 'V');
+                i++;
+            }
+        } else if (num >= 4) {
             num -= 4;
+            result += "IV";
+        } else {
+            int i = 1;
+            while(num > 0) {
+                if(num >= 3) {
+                    num -= 3;
+                    result += "I";
+                } else if (num == 2) {
+                    return result + "II";
+                } else {
+                    num--;
+                    result += "I";
+                }
+            }
         }
     }
-    if (num > 0) {
-        roman += "I";
-        num -= 1;
-    }
-    return roman;
+
+    return result;
 }
