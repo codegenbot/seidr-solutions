@@ -7,14 +7,14 @@ int main() {
     string text;
     cout << "Enter a string: ";
     getline(cin, text);
-    string new_result = "";
+    string result(text); 
     for(char c : text){
         if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && 
            tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && 
            tolower(c) != 'o' && tolower(c) != 'u'){
-            new_result += c;
+            result += c;
         }
     }
-    cout << "String after removing vowels: " << new_result << endl;
+    cout << "String after removing vowels: " << result << endl;
     return 0;
 }
