@@ -1,7 +1,18 @@
-string find_max(vector<string> words){
-    string result = *minmax_element(words.begin(), words.end(),
+#include <algorithm>
+#include <vector>
+#include <string>
+
+std::string find_max(vector<string> words){
+    string max_word = *max_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
-            return count(a.begin(), a.end(), a[0]) > count(b.begin(), b.end(), b[0]);
-        })->first;
-    return result;
+            if (a.length() == b.length())
+                return a < b;
+            return a.length() > b.length();
+        });
+    return max_word;
+}
+
+int main() {
+   vector<string> words = {"apple", "banana", "cherry"};
+   std::cout << find_max(words) << std::endl;
 }
