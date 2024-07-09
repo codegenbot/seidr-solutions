@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -28,7 +27,7 @@ It std::distinct(It first, It last) {
     return result.begin();
 }
 
-void solveProblem() {
+int main() {
     std::vector<int> input;
     int n;
     cin >> n;
@@ -48,5 +47,5 @@ void solveProblem() {
     
     assert(std::equal({0, 2, 3, 5, 9, 123}.begin(), {0, 2, 3, 5, 9, 123}.end(), std::vector<int>(std::distinct(input.begin(), input.end()).begin(), std::distinct(input.end())));
 
-    return;
+    return 0;
 }
