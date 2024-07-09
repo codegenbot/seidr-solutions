@@ -1,8 +1,7 @@
-```cpp
 #include <string>
 #include <iostream>
 
-int hex_key(std::string num); 
+int hex_key(std::string num);
 
 int main() {
     std::string input;
