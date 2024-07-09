@@ -1,6 +1,7 @@
+```cpp
 #include <boost/any.hpp>
-#include <boost/convert.hpp>
 #include <string>
+#include <sstream>
 
 using namespace boost;
 
@@ -10,10 +11,15 @@ boost::any compare_one(boost::any a, boost::any b) {
         float fb = get<float>(b);
         return fa > fb ? a : b;
     } else if (is_string(a) && is_string(b)) {
-        std::string sa = get<std::string>(a);
-        std::string sb = get<std::string>(b);
-        return stof(sa) > stof(sb) ? a : (stof(sa) == stof(sb) ? boost::any(std::to_string(stof(sa)) + " = " + std::to_string(stof(sb))) : b);
+        std::string sa = boost::any_cast<std::string>(a);
+        std::string sb = boost::any_cast<std::string>(b);
+        if (std::stof(sa) > std::stof(sb))
+            return a;
+        else if (std::stof(sa) == std::stof(sb))
+            return "None";
+        else
+            return b;
     } else {
-        return boost::any("None");
+        return "None";
     }
 }
