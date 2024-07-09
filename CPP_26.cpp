@@ -33,12 +33,12 @@ int mainFunction() {
         std::cout << "Enter element " << i+1 << ": ";
         int num;
         std::cin >> num;
-        numbers.push_back(num);
+        result.push_back(num);
     }
 
-    std::vector<int> uniqueNumbers = remove_duplicates(numbers);
+    std::vector<int> result = remove_duplicates(result);
 
-    if (areVectorsEqual(uniqueNumbers, numbers)) {
+    if (areVectorsEqual(result, numbers)) {
         std::cout << "The resulting vector is the same as the original." << std::endl;
     } else {
         std::cout << "The resulting vector is different from the original." << std::endl;
