@@ -1,13 +1,13 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 #include <string>
 
-bool isSame(const std::string& str1, const std::string& str2) {
-    if (str1.length() != str2.length()) {
+bool issame(const std::string& s1, const std::string& s2) {
+    if (s1.length() != s2.length()) {
         return false;
     }
-    for (int i = 0; i < str1.length(); ++i) {
-        if (str1[i] != str2[i]) {
+    for (int i = 0; i < s1.length(); ++i) {
+        if (s1[i] != s2[i]) {
             return false;
         }
     }
@@ -21,13 +21,21 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
             result.push_back(str);
         }
     }
-    sort(result.begin(), result.end(),
-         [](const std::string& a, const std::string& b) {
+    sort(result.begin(), result.end(), 
+         [](const string& a, const string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
              } else {
                  return a < b;
              }
          });
+    for (int i = 0; i < result.size(); ++i) {
+        for (int j = i + 1; j < result.size(); ++j) {
+            if (!issame(result[i], result[j])) {
+                std::swap(result[i], result[j]);
+                break;
+            }
+        }
+    }
     return result;
 }
