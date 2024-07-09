@@ -1,11 +1,11 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool same(vector<int> a,vector<int>b) {
     return (a == b);
 }
 
-vector<int> evenCount(int num) { 
+vector<int> even_odd_count(int num) {
     int evens = 0, odds = 0;
     string str = to_string(abs(num));
     for (char c : str) {
@@ -18,6 +18,6 @@ vector<int> evenCount(int num) {
 }
 
 int main() {
-    assert (issame(evenCount(0), vector<int>({1, 0})));
+    assert (same(even_odd_count(0), vector<int>({1, 0})));
     return 0;
 }
