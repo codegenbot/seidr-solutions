@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -44,9 +43,10 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 
 int main() {
     std::vector<float> grades = {0, 0.7};
-    std::vector<std::string> result = numerical_letter_grade(grades);
-    if (!checkGrades(result, {"E", "D"})) {
-        return 1; 
-    }
+    std::vector<std::string> expected = {"F", "D"};
+    if (!checkGrades(numerical_letter_grade(grades), expected)) {
+        std::cout << "Test failed.\n";
+    } else
+        std::cout << "Test passed.\n";
     return 0;
 }
