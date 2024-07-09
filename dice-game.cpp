@@ -1,20 +1,14 @@
 #include <iostream>
+#include <iomanip>
 
 int main() {
     int n, m;
     std::cin >> n >> m;
     
-    double probability = 0;
+    double total_outcomes = n * m;
+    double favorable_outcomes = (n * (m - 1) + m) / (2.0 * n * m);
     
-    for (int i = 1; i <= n; ++i) {
-        probability += ((double)(i - 1) / n) * ((double)(m) / (n + m));
-        
-        if (m < n) {
-            probability += ((double)(n - i) / m) * ((double)(n) / (n + m));
-        }
-    }
-    
-    std::cout << probability << std::endl;
+    std::cout << std::fixed << std::setprecision(6) << favorable_outcomes << std::endl;
     
     return 0;
 }
