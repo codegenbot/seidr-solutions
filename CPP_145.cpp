@@ -1,39 +1,22 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::sort(nums.begin(), nums.end(), [&](int a, int b) {
+        if (getSumOfDigits(a) == getSumOfDigits(b)) {
+            return a > b;
         }
-    }
-    return true;
+        return getSumOfDigits(a) < getSumOfDigits(b);
+    });
+    
+    return nums;
 }
 
-int order_by_points(vector<int> nums) {
-    vector<pair<int, int>> pairs;
-    for (int i = 0; i < nums.size(); i++) {
-        int sumOfDigits = 0;
-        int num = abs(nums[i]);
-        while (num > 0) {
-            sumOfDigits += num % 10;
-            num /= 10;
-        }
-        pairs.push_back({sumOfDigits, i});
+int getSumOfDigits(int num) {
+    int sum = 0;
+    while (num != 0) {
+        sum += num % 10;
+        num /= 10;
     }
-
-    sort(pairs.begin(), pairs.end());
-
-    vector<int> result;
-    for (int i = 0; i < nums.size(); i++) {
-        while (pairs[i].second != i) {
-            std::swap(pairs[i], pairs[--i]);
-        }
-        result.push_back(nums[pairs[i].second]);
-    }
-
-    return result.size() ? nums[0] : -1;
+    return sum;
 }
