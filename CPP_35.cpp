@@ -1,3 +1,9 @@
 float max_element(vector<float> l){
-    return *max_element(l.begin(), l.end());
+    float max = l[0];
+    for (auto it = l.begin(); it != l.end(); ++it) {
+        if (*it > max) {
+            max = *it;
+        }
+    }
+    return max;
 }
