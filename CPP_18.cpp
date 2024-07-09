@@ -1,8 +1,8 @@
+```cpp
 #include <string>
-#include <cassert>
 using namespace std;
 
-int how_many_times(string str, string substring) {
+int how_many_times(const string& str, const string& substring) {
     int count = 0;
     size_t pos = 0;
     while ((pos = str.find(substring)) != string::npos) {
@@ -10,10 +10,4 @@ int how_many_times(string str, string substring) {
         str.erase(pos, substring.length());
     }
     return count;
-
-}
-
-int main() {
-    assert(how_many_times("john doe", "john") == 1);
-    return 0;
 }
