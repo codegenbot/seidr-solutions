@@ -1,11 +1,8 @@
-Here is the solution:
-
-```cpp
-bool is_nested(string str) {
-    int open = 0, close = 0;
-    for (char c : str) {
-        if (c == '[') open++;
-        else if (c == ']') close++;
-    }
-    return open > 1 || (open == 1 && close > 1);
+```
+int stack = 0;
+for (char c : str) {
+    if (c == '[') stack++;
+    else if (c == ']') stack--;
+    if (stack < 0) return true;
 }
+return false;
