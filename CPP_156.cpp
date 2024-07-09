@@ -1,61 +1,38 @@
-```cpp
 #include <cassert>
+
 const char* roman[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
-string int_to_roman(int n) {
-    string result;
-    for (int i = 0; i < 13; ++i) {
-        while (n >= roman2int(roman[i])) {
-            n -= roman2int(roman[i]);
-            result += roman[i];
-        }
+int int_to_mini_roman(int n) {
+    if(n >= 1000){
+        return strlen("M");
+    } else if (n >= 900) {
+        return strlen("CM");
+    } else if (n >= 500) {
+        return strlen("D");
+    } else if (n >= 400) {
+        return strlen("CD");
+    } else if (n >= 100) {
+        return strlen("C");
+    } else if (n >= 90) {
+        return strlen("XC");
+    } else if (n >= 50) {
+        return strlen("L");
+    } else if (n >= 40) {
+        return strlen("XL");
+    } else if (n >= 10) {
+        return strlen("X");
+    } else if (n >= 9) {
+        return strlen("IX");
+    } else if (n >= 5) {
+        return strlen("V");
+    } else if (n >= 4) {
+        return strlen("IV");
+    } else{
+        return strlen("I");
     }
-    return result;
 }
 
-int roman2int(const char *s) {
-    int val = 0;
-    for (; *s; ++s)
-        if (*s == 'M')
-            val += 1000;
-        else if (*s == 'C' || *s == 'D')
-            switch (*s) {
-                case 'M':
-                    val += 900;
-                    break;
-                case 'C':
-                    val += 400;
-                    break;
-                default:
-                    val += 500;
-            }
-        else if (*s >= 'I' && *s <= 'X')
-            switch (*s) {
-                case 'M':
-                    return -1000;
-                case 'C':
-                    if (roman2int(s + 1) > 0)
-                        val -= 100;
-                    break;
-                default:
-                    if (val < 4)
-                        val--;
-                    else
-                        val += int(val / 10);
-            }
-        else
-            switch (*s) {
-                case 'I':
-                    val++;
-                    break;
-                case 'V':
-                    val += 3;
-                    break;
-                case 'L':
-                    val += 30;
-                    break;
-                default:
-                    return -1;
-            }
-    return val;
+int main() {
+    assert(int_to_mini_roman(1000) == 1);
+    return 0;
 }
