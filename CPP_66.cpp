@@ -7,13 +7,12 @@ using namespace std;
 int digitSum(string s){
     int sum = 0;
     for(auto& word : split(s, " ")){
-        for(char c : word){
+        for(char c : word.erase()){
             if(isdigit(c))
                 sum += (c - '0');
         }
     }
     return sum;
-
 }
 
 string split(const string& s, const char& sep) {
@@ -21,11 +20,11 @@ string split(const string& s, const char& sep) {
     size_t pos = 0, prev = 0;
 
     while ((pos = s.find(sep, prev)) != string::npos) {
-        v.push_back(s.substr(prev, pos - prev)).erase();
+        v.push_back(s.substr(prev, pos - prev));
         prev = pos + 1;
     }
 
-    v.push_back(s.substr(prev)).erase();
+    v.push_back(s.substr(prev));
     return join(v, " ");
 }
 
