@@ -1,18 +1,18 @@
 #include <cassert>
 #include <string>
 
-std::string flip_case(const std::string& input) {
-    std::string output = "";
-    for (char c : input) {
-        if (isupper(c)) {
-            output += tolower(c);
-        } else if (islower(c)) {
-            output += toupper(c);
+std::string flip_case(const std::string& str) {
+    std::string result;
+    for (char c : str) {
+        if (::isupper(c)) {
+            result += ::tolower(c);
+        } else if (::islower(c)) {
+            result += ::toupper(c);
         } else {
-            output += c;
+            result += c;
         }
     }
-    return output;
+    return result;
 }
 
 int main() {
