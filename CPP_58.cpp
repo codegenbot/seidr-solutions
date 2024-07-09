@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <set>
 #include <algorithm>
@@ -23,7 +24,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {});
 
-    int n1, n2; // Number of elements in the two vectors
+    int n1, n2; 
     cin >> n1 >> n2;
 
     vector<int> l1(n1);
@@ -38,10 +39,10 @@ int main() {
     
     vector<int> result = common(l1, l2);
 
-    // Print the output
-    cout << "[";
+    cout << "["; 
     for(auto i: result)
         cout << i << " ";
     cout << "]"<<endl;
     
     return 0;
+}
