@@ -1,21 +1,14 @@
 Here is the completed code:
 
+```cpp
 int search(vector<int> lst) {
-    unordered_map<int, int> freqMap;
-    for (int num : lst) {
-        if (freqMap.find(num) == freqMap.end()) {
-            freqMap[num] = 1;
-        } else {
-            freqMap[num]++;
+    int result = 0;
+    for (int i : lst) {
+        if (i > 0 && i <= count) {
+            return i;
         }
+        count = accumulate(cbegin(lst), cend(lst), 0, 
+                            [](int a, int b){return a + (b == i);});
     }
-    
-    int result = -1;
-    for (auto& pair : freqMap) {
-        if (pair.first > 0 && pair.second >= pair.first) {
-            result = pair.first;
-            break;
-        }
-    }
-    
-    return result;
+    return -1;
+}
