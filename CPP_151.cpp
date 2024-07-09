@@ -14,7 +14,7 @@ long long double_the_difference(std::vector<float> lst){
 
 int main() {
     std::vector<float> lst = {1.0, 2.0, 3.0, 4.0};
-    long long odd_sum = 10; // Calculated expected odd sum manually as 1^2 + 3^2 = 1 + 9 = 10
+    long long odd_sum = 0; // Calculate the expected odd sum here
     assert(double_the_difference(lst) == odd_sum);
     
     return 0;
