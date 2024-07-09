@@ -1,6 +1,8 @@
 #include <vector>
 #include <cassert>
 #include <initializer_list>
+#include <algorithm>
+
 using namespace std;
 
 bool is_same(const vector<int>& a, const vector<int>& b) {
@@ -23,6 +25,6 @@ vector<int> filter_integers(initializer_list<any> values) {
 
 int main_func() {
     vector<any> values = {3, any(3), 3, 'a', 'b'};
-    assert(is_same(filter_integers({any(3), 'c', 3, 3, 'a', 'b'}), vector<int>{3, 3, 3}));
+    assert(is_same(vector<any>({any(3), 'c', 3, 3, 'a', 'b'})), filter_integers({any(3), 'c', 3, 3, 'a', 'b'})));
     return 0;
 }
