@@ -1,12 +1,11 @@
 ```cpp
 #include <string>
-#include <vector>
 
 int luhn(std::string ccNum) {
     long long sum = 0;
-    for (int i = 0; i < ccNum.length(); i++) {
-        int digit = (ccNum[i] - '0');
-        if ((i % 2 == 1)) {
+    for (char c : ccNum) {
+        int digit = c - '0';
+        if ((ccNum.find(c) % 2 == 1)) {
             digit *= 2;
             if (digit > 9)
                 digit -= 9;
@@ -18,9 +17,11 @@ int luhn(std::string ccNum) {
 
 int main() {
     std::string ccNum;
-    std::cout << "Enter a credit card number: ";
+    // Input the credit card number
+    std::cout << "Enter your credit card number: ";
     std::cin >> ccNum;
+
     int result = luhn(ccNum);
-    std::cout << "The Luhn check value is: " << result << std::endl;
-    return 0;
+
+    std::cout << "The result of Luhn's algorithm is: " << result << "\n";
 }

@@ -1,3 +1,4 @@
+```
 def main():
     n = int(input())
     items = list(map(float, input().split()))
