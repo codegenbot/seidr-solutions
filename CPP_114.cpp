@@ -1,4 +1,3 @@
-```
 long long findMinSubArraySum(vector<long long> nums) {
     long long total = 0;
     long long min_sum = LLONG_MAX;
