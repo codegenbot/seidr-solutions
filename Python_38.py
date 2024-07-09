@@ -1,4 +1,3 @@
-```
 def decode_cyclic(s: str):
     temp = ""
     for char in s:
