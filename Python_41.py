@@ -1,4 +1,3 @@
-```Python
-def car_race_collision():
-    n = int(input("Enter the number of cars: "))
-    return n * (n - 1) // 2
+def car_race_collision(n: int, speed1: float, speed2: float):
+    distance = (speed1 + speed2) / (speed1 * speed2)
+    return round(distance, 2)
