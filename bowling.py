@@ -1,24 +1,27 @@
-```
-def bowling_score(rolls):
+def bowling_score(game):
     score = 0
-    roll_index = 0
-    for frame in range(1, 11):
-        if rolls[roll_index] == 'X':
-            score += 30
-            roll_index += 1
-        elif rolls[roll_index:roll_index+2].count('/'):
-            ones, twos = map(int, rolls[roll_index:roll_index+2].split('/'))
-            score += ones + twos
-            roll_index += 2
+    frame = 1
+    i = 0
+    while i < len(game):
+        if game[i] == "X":
+            if frame < 10:
+                score += 10 + (10 if frame < 9 else 0)
+            frame += 1
+            i += 1
+        elif game[i] == "/":
+            first_roll = int(game[i - 1])
+            second_roll = 10 - first_roll
+            score += first_roll + second_roll
+            frame += 1
+            i += 2
         else:
-            ones = int(rolls[roll_index])
-            if frame < 10 and rolls[roll_index+1] == 'X':
-                score += 10 + 30
-                roll_index += 2
-            elif frame < 9 and rolls[roll_index+1:roll_index+3].count('/'):
-                score += 10 + ones + int(rolls[roll_index+1].split('/')[0])
-                roll_index += 3
+            if game[i + 1] == "X" or game[i + 1] == "/":
+                score += int(game[i]) + (10 - int(game[i]))
+                if frame < 10:
+                    frame += 1
+                i += 2
             else:
-                score += 10 + ones
-                roll_index += 2
+                score += int(game[i]) + int(game[i + 1])
+                frame += 2
+                i += 2
     return score
