@@ -1,6 +1,7 @@
-#include <string> // Include the string header file
+#include <iostream>
+#include <string>
 
-std::string make_palindrome(std::string str){ // Use std::string instead of string
+std::string make_palindrome(std::string str){
     std::string rev_str(str.rbegin(), str.rend());
     std::string palindrome = str;
     for (int i = 0; i < str.length(); ++i) {
@@ -12,7 +13,7 @@ std::string make_palindrome(std::string str){ // Use std::string instead of stri
     return palindrome;
 }
 
-int main(){
+int main() {
     assert (make_palindrome("jerry") == "jerryrrej");
     return 0;
 }
