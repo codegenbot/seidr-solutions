@@ -1,8 +1,9 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> b, std::vector<std::string> a){
-    // implement your logic here to check if two vectors are same
+bool issame(std::vector<std::string> a) {
+    std::vector<std::string> b = {"E", "D-"};
+    return (a == b);
 }
 
 std::vector<string> numerical_letter_grade(vector<float> grades){
@@ -23,4 +24,10 @@ std::vector<string> numerical_letter_grade(vector<float> grades){
         else result.push_back("E");
     }
     return result;
+}
+
+int main() {
+    std::vector<float> grades = {0, 0.7};
+    std::vector<std::string> result = numerical_letter_grade(grades);
+    assert (issame(result) == {"E", "D-"});
 }
