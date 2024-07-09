@@ -20,6 +20,6 @@ std::string encrypt(std::string s) {
 int main() {
     // Test the encrypt function
     assert(encrypt("a") == "e");
-    
+
     return 0;
 }
