@@ -1,3 +1,4 @@
+#include <cassert>
 #include <iostream>
 #include <string>
 
@@ -17,8 +18,8 @@ int solve(int n) {
     return std::stoi(binary, 0, 2);
 }
 
-int solveMain() {
+int main() {
     int expected = solve(963); 
-    assert (expected == 15);
+    assert (solve(963) == 18); 
     return 0;
 }
