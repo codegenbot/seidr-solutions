@@ -5,9 +5,8 @@ using namespace std;
 
 double probability(int n, int m) {
     double total = 0.0;
-    for (int i = n; i <= n*m; i++) {
-        if(i%m<m && i/n>n%m)
-            total += 1.0 / (n*m);
+    for (int i = n; i <= m + n - 1; i++) {
+        total += min(1.0 / n, 1.0 / m);
     }
     return total;
 }
