@@ -12,7 +12,9 @@ int main() {
         groundSnow += rateOfSnowFall;
         groundSnow *= (1 - proportionMelting/100.0f);
     }
-    std::cout << std::fixed << std::setprecision(2) << initialGroundSnow + groundSnow << std::endl;
+    float calculatedSnow = initialGroundSnow + groundSnow;
+
+    std::cout << std::fixed << std::setprecision(2) << calculatedSnow << std::endl;
 
     return 0;
 }
