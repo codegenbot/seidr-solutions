@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+bool same(const std::vector<float>& a, const std::vector<float>& b);
+
 std::vector<float> get_positive(const std::vector<float>& numbers) {
     std::vector<float> positive_numbers;
     for (float num : numbers) {
