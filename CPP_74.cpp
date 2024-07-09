@@ -1,7 +1,10 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
    return a == b;
 }
 
@@ -20,4 +23,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     return lst2;
 }
 
-assert(issame(total_match({"this"}, {}), {}));
+int main() {
+    assert(issame(total_match({"this"}, {}), {}));
+}
