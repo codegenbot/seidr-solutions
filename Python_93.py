@@ -3,12 +3,15 @@ def encode(message):
     encoded_message = ""
 
     for char in message:
-        if char.isalpha():
-            if char.lower() in vowels:
-                encoded_message += chr((ord(char) - ord("a") + 1) % 26 + ord("A")) + ' '  # Add a space after encoding each character
+        if char.isalpha() or char.isspace():
+            if char.isalpha():
+                if char.lower() in vowels:
+                    encoded_message += chr((ord(char) - ord("a") + 1) % 26 + ord("A"))
+                else:
+                    encoded_message += char.swapcase()
             else:
-                encoded_message += char.swapcase() + ' '  # Add a space after encoding each character
+                encoded_message += char
         else:
-            encoded_message += char + ' '  # Add a space for non-alphabetic characters
+            encoded_message += char
 
-    return encoded_message.rstrip()  # Remove the trailing space before returning
+    return encoded_message
