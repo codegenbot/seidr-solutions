@@ -4,36 +4,32 @@
 
 int main() {
     int n;
-    std::cout << "Enter number of elements: ";
     std::cin >> n;
 
-    std::vector<int> lst;
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        lst.push_back(num);
+    if (n == 0) {
+        return 0;
+    }
+
+    std::vector<int> lst(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> lst[i];
     }
 
     int result = next_smallest(lst);
 
-    if(result == -1) {
-        std::cout << "No smaller number found.\n";
-    } else {
-        std::cout << "The next smallest number is: " << result << "\n";
-    }
+    std::cout << "The next smallest number is: " << result << std::endl;
 
     return 0;
 }
 
-int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; 
-    vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
+int next_smallest(std::vector<int> lst) {
+    if (lst.empty()) return -1; // None in Python
+    std::vector<int> sorted_lst = lst;
+    std::sort(sorted_lst.begin(), sorted_lst.end());
     for (int i = 0; i < sorted_lst.size() - 1; i++) {
         if (sorted_lst[i] != sorted_lst[i + 1]) {
             return sorted_lst[i + 1];
         }
     }
-    return -1; 
+    return -1; // None in Python
 }
