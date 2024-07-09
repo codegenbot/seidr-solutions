@@ -36,7 +36,7 @@ int main() {
         std::cin >> temp;
         game.push_back(temp);
     }
-    std::vector<int> guess(n, 0);
+    std::vector<int> guess(game.size(), 0);
     
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";

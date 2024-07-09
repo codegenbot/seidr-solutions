@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -42,5 +43,4 @@ int main() {
     for (const auto& str : lst) {
         std::cout << str << std::endl;
     }
-    return 0;
 }
