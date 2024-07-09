@@ -15,7 +15,7 @@ int main() {
     for(int i = 0; i < n1; i++) {
         std::string x;
         std::cin >> x;
-        s1Vec[i] = x; 
+        s1Vec[i].assign(x); 
     }
 
     for(auto &i : s1Vec) {
@@ -28,7 +28,7 @@ int main() {
     for(int i = 0; i < m1; i++) {
         std::string y;
         std::cin >> y;
-        s2Vec[i] = y; 
+        s2Vec[i].assign(y); 
     }
 
     for(auto &i : s2Vec) {
