@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <vector>
 
 std::vector<float> get_positive(std::vector<float> v) {
@@ -9,30 +10,34 @@ std::vector<float> get_positive(std::vector<float> v) {
     return result;
 }
 
-bool equals(std::vector<float> vector1, std::vector<float> vector2) {
-    if (vector1.size() != vector2.size()) {
-        return false;
-    }
-    for (int i = 0; i < vector1.size(); i++) {
-        if (vector1[i] != vector2[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<float> vec1, std::vector<float> vec2) {
+    return vec1 == vec2;
 }
 
 int main() {
-    std::vector<float> v1 = {1.0, -2.0, 3.0};
-    std::vector<float> v2 = {-4.0, 5.0, 6.0};
-    std::vector<float> v3 = {7.0, 8.0, 9.0};
+    int n;
+    std::cin >> n;
 
-    std::vector<float> result1 = get_positive(v1);
-    std::vector<float> result2 = get_positive(v2);
-    std::vector<float> result3 = get_positive(v3);
+    std::vector<std::vector<float>> input(n);
 
-    assert(equals(result1, {})); 
-    assert(equals(result2, {})); 
-    assert(!equals(result1, result2));
-    
+    for (auto &vec : input) {
+        int m;
+        std::cin >> m;
+        for (int i = 0; i < m; i++) {
+            float x;
+            std::cin >> x;
+            vec.push_back(x);
+        }
+    }
+
+    bool same = true;
+
+    for (const auto &vec : input) {
+        if (!issame(get_positive(vec), {})) {
+            same = false;
+            break;
+        }
+    }
+
     return 0;
 }
