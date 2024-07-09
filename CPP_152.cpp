@@ -1,28 +1,21 @@
+```cpp
 #include <iostream>
 #include <vector>
 
 bool issame(int a, int b) {
-    if(a == b) {
+    if (a == b)
         return true;
-    }
-    return false;
+    else
+        return false;
 }
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
-        if(game[i] == guess[i]) {
+        if (issame(game[i], guess[i])) {
             result.push_back(0);
         } else {
-            int diff = abs(guess[i] - game[i]);
-            if(diff == 1) {
-                result.push_back(-1);
-            } else if(diff > 1) {
-                result.push_back(2);
-            }
-            else {
-                result.push_back(1);
-            }
+            result.push_back(abs(guess[i] - game[i]));
         }
     }
     return result;
@@ -30,23 +23,35 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 
 int main() {
     std::vector<int> game, guess;
-    int n;
-    std::cout << "Enter the size of the game: ";
-    std::cin >> n;
-    game.resize(n);
-    guess.resize(n);
 
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter value for game[" << i << "]: ";
-        std::cin >> game[i];
-        std::cout << "Enter value for guess[" << i << "]: ";
-        std::cin >> guess[i];
+    int n;
+    std::cout << "Enter the number of games: ";
+    std::cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        int x;
+        std::cout << "Enter game number " << i + 1 << ": ";
+        std::cin >> x;
+        game.push_back(x);
+    }
+
+    for (int i = 0; i < n; i++) {
+        int y;
+        std::cout << "Enter guess for game number " << i + 1 << ": ";
+        std::cin >> y;
+        guess.push_back(y);
     }
 
     std::vector<int> output = compare(game, guess);
 
-    for(int i = 0; i < n; i++) {
-        std::cout << "Result for game[" << i << "] is: " << output[i] << "\n";
+    std::cout << "The result is: ";
+    for (int i = 0; i < n; i++) {
+        if (output[i] == 0)
+            std::cout << "C";
+        else
+            std::cout << output[i];
     }
+    std::cout << std::endl;
+
     return 0;
 }
