@@ -53,7 +53,8 @@ int main() {
         if (str == ' ') {
             i++;
         } else {
-            lst1.push_back(user_input1.substr(i, i != 0 ? i - 1 : i));
+            std::string temp = user_input1.substr(i, user_input1.find(' ', i) - i);
+            lst1.push_back(temp);
             i++;
         }
     }
@@ -63,7 +64,8 @@ int main() {
         if (str == ' ') {
             i++;
         } else {
-            lst2.push_back(user_input2.substr(i, i != 0 ? i - 1 : i));
+            std::string temp = user_input2.substr(i, user_input2.find(' ', i) - i);
+            lst2.push_back(temp);
             i++;
         }
     }
