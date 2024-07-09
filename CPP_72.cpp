@@ -1,5 +1,3 @@
-bool will_it_fly(vector<int> q, int w); 
-
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
