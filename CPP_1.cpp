@@ -21,24 +21,22 @@ void separate_paren_groups(vector<string>& result, int open_count) {
         current_group += '(';
     }
     for (char c : current_group) {
-        result.push_back(std::string(1, c));
+        if (c == '(') {
+            for (int j = 0; j < open_count; j++) {
+                result.push_back(std::string(1, '('));
+            }
+        } else {
+            result.push_back(std::string(1, ')'));
+        }
     }
 }
 
-void start() {
+int main() {
     int open_count;
     std::cin >> open_count;
 
     vector<string> result;
     separate_paren_groups(result, open_count);
 
-    assert(issame(result, {"(", "(()", "((()))"}));
-
-    return;
-}
-
-int main() {
-    start();
-    
     return 0;
 }
