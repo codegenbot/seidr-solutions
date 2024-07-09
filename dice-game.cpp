@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <cmath>
 #include <iostream>
 #include <iomanip>
@@ -13,12 +13,11 @@ long double probability(int n, int m) {
             }
         }
     }
-    return std::to_string((long double)count / (n * m)) 
-       << std::fixed << std::setprecision(9);
+    return static_cast<long double>(count) / (n * m);
 }
 
 int main() {
     std::cout << "The probability that Peter rolls strictly higher than Colin is: "
-              << probability(34, 24);
+              << std::fixed << std::setprecision(9) << probability(34, 24);
     return 0;
 }
