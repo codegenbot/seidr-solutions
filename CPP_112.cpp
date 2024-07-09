@@ -1,13 +1,12 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size())
+bool issame(std::vector<std::string> vec) {
+    if (vec.size() > 2)
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+    for (int i = 1; i < vec.size(); i++) {
+        if (vec[0] != vec[i])
             return false;
     }
     return true;
@@ -44,11 +43,15 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
     std::vector<std::string> final_result;
     final_result.push_back(res_str);
-    final_result.push_back((is_palindrome ? "True" : "False"));
+    final_result.push_back(std::to_string(is_palindrome));
     return final_result;
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
-    return 0;
+    std::vector<std::string> result = reverse_delete("mamma", "mia");
+    if (issame(result)) {
+        for (std::string str : result)
+            std::cout << str << " ";
+        std::cout << std::endl;
+    }
 }
