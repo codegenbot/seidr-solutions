@@ -1,13 +1,10 @@
-Here is the solution:
-
-if (lst.size() < 2) return NULL;
-
-sort(lst.begin(), lst.end());
-
-for (int i = 1; i < lst.size(); i++) {
-    if (lst[i] != lst[0]) {
-        return lst[i];
+int next_smallest(vector<int> lst){
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for(int i=1; i<sorted.size();i++){
+        if(sorted[i] != sorted[0]){
+            return sorted[i];
+        }
     }
+    return -1;
 }
-
-return NULL;
