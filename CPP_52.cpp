@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 
@@ -16,6 +15,8 @@ bool below_threshold(vector<int> l, int t) {
 bool getNumbers(vector<int>& numbers, int& threshold) {
     cout << "Enter the threshold: ";
     cin >> threshold;
+
+    numbers.resize(5);
 
     cout.fill('0');
     cout.width(5);
