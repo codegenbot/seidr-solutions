@@ -28,13 +28,17 @@ bool is_happy(const std::string& s) {
 
 int main() {
     assert(is_happy("iopaxioi") == false);
-    char s[256];
+    char* s = new char[256];
     std::cout << "Enter a string: ";
-    std::cin.getline(s, 255); // 255 for null-terminator
-    s[strlen(s)-1] = '\0'; // Remove newline character
-    if (is_happy(std::string(s).substr(0, strlen(s))))
-        std::cout << "The string is happy." << std::endl;
-    else
-        std::cout << "The string is not happy." << std::endl;
+    if(std::cin.getline(s, 255)) {
+        s[strlen(s)-1] = '\0'; // Remove newline character
+        if (is_happy(std::string(s)))
+            std::cout << "The string is happy." << std::endl;
+        else
+            std::cout << "The string is not happy." << std::endl;
+        delete[] s;  // Don't forget to delete the array!
+    } else {
+        std::cout << "Invalid input. Please try again." << std::endl;
+    }
     return 0;
 }
