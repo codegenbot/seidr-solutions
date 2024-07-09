@@ -7,7 +7,7 @@
 using namespace std;
 
 vector<int> filter_integers(list<any> values) {
-    vector<int> result; // Initialize with empty vector
+    vector<int> result; 
     for (const auto& value : values) {
         try {
             int val = any_cast<int>(value);
@@ -25,7 +25,7 @@ bool is_same(vector<int> a, vector<int> b) {
 }
 
 int main_func() {
-    list<any> values = {3, int(3), 3, 'a', 'b'};
-    assert(is_same(filter_integers({int(3), 'c', int(3), int(3), 'a', 'b'})), vector<int>(3, 3));
+    vector<any> values = {3, int(3), 3, 'a', 'b'};
+    assert(std::is_same(filter_integers(vector<any>({3, 'c', 3, 3, 'a', 'b'}))), std::vector<int>(std::vector<int>{3, 3, 3})));
     return 0;
 }
