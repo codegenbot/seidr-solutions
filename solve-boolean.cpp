@@ -1,39 +1,40 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here is the solution:
 
-bool solveBoolean(string expression) {
-    int i = 0;
-    while (i < expression.length()) {
-        if (expression[i] == '&') {
-            i++;
-            bool a = (expression[i] == 't');
-            i++;
-            bool b = (expression[i] == 't');
-            i++;
-            return a && b;
-        } else if (expression[i] == '|') {
-            i++;
-            bool a = (expression[i] == 't');
-            i++;
-            bool b = true;
-            while (i < expression.length() && expression[i] != '&') i++;
-            for (; i < expression.length(); i++) {
-                if (expression[i] == 't') b = true;
-                else b = false;
+bool solveBoolean(string s) {
+    if(s.length() == 0)
+        return false;
+    
+    stack<char> st;
+    for(int i = 0; i < s.length(); i++) {
+        char c = s[i];
+        if(c == '&')
+            while(!st.empty()) {
+                if(st.top() == 'F') {
+                    st.pop();
+                    break;
+                }
+                else
+                    st.pop();
             }
-            return a || b;
-        } else if (expression[i] == 'f' || expression[i] == 't') {
-            i++;
-            return expression[i - 1] == 't';
+        else if(c == '|') 
+            while(!st.empty()) {
+                st.pop();
+            }  
+        else {
+            st.push(c);
         }
     }
-    return true; // default to True
+    
+    return st.size() > 0 && st.top() != 'F';
 }
 
 int main() {
-    string expression;
-    cin >> expression;
-    cout << (solveBoolean(expression) ? "True" : "False");
+    string s;
+    cin >> s;
+    bool res = solveBoolean(s);
+    if(res)
+        cout << "True";
+    else
+        cout << "False";
     return 0;
 }
