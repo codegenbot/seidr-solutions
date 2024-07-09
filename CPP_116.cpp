@@ -1,19 +1,19 @@
 bool issame(vector<int> a, vector<int> b) {
-    sort(a.begin(), a.end(), [](int x, int y) {
-        int countX = __builtin_popcount(x);
-        int countY = __builtin_popcount(y);
-        if (countX == countY) {
-            return x < y;
+    sort(a.begin(), a.end(), [](int num1, int num2) {
+        int countNum1 = __builtin_popcount(num1);
+        int countNum2 = __builtin_popcount(num2);
+        if (countNum1 == countNum2) {
+            return num1 < num2;
         }
-        return countX < countY;
+        return countNum1 < countNum2;
     });
-    sort(b.begin(), b.end(), [](int x, int y) {
-        int countX = __builtin_popcount(x);
-        int countY = __builtin_popcount(y);
-        if (countX == countY) {
-            return x < y;
+    sort(b.begin(), b.end(), [](int num1, int num2) {
+        int countNum1 = __builtin_popcount(num1);
+        int countNum2 = __builtin_popcount(num2);
+        if (countNum1 == countNum2) {
+            return num1 < num2;
         }
-        return countX < countY;
+        return countNum1 < countNum2;
     });
     return a == b;
 }
