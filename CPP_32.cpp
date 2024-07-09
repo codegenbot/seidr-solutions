@@ -1,13 +1,6 @@
-#include <vector>
-#include <cmath>
-
-double find_zero(std::vector<double> xs){
-    double solution = xs[0];
-    for (int i = 1; i < xs.size(); i++){
-        solution = xs[i] / xs[0] - solution;
-        while (std::abs(solution) > 1e-6){
-            solution = xs[i] / xs[0] - solution;
-        }
-    }
-    return solution;
+double find_zero(vector<double> coeffs){
+    double result = 0;
+    for (int i = 1; i < coeffs.size(); i++)
+        result += coeffs[i] * pow(coeffs[0], i);
+    return -result / coeffs[0];
 }
