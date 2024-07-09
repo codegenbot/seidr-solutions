@@ -3,7 +3,7 @@
 #include <string>
 #include <stdexcept>
 
-std::string string_xor(std::string a, std::string b) {
+std::string string_xor(const std::string& a, const std::string& b) {
     if (a.length() != b.length())
         throw std::invalid_argument("Input strings must have the same length.");
 
@@ -17,27 +17,35 @@ std::string string_xor(std::string a, std::string b) {
 
 int main() {
     assert(string_xor("0101", "0000") == "0101");
+    
+    std::string str1, str2;
     try {
-        char c1, c2;
         std::cout << "Enter the first string: ";
-        while(std::cin >> c1) {
-            str1 += c1;
-        }
+        std::getline(std::cin, str1);
         
         std::cout << "Enter the second string: ";
-        while(std::cin >> c2) {
-            str2 += c2;
-        }
+        std::getline(std::cin, str2);
 
         if (!str1.empty() && !str2.empty()) {  
             try {
-                std::string result = string_xor(str1, str2);
+                const std::string result = string_xor(str1, str2);
                 std::cout << "XOR of the two strings is: " << result << std::endl;
             } catch (const std::invalid_argument& e) {
                 std::cout << "Error: " << e.what() << std::endl;
             }
-        } else {
-            std::cout << "An error occurred." << std::endl;
+        } else if (!str1.empty()) { 
+            try {
+                for (char c : str1) {
+                    if (c != '0' && c != '1') {
+                        throw std::invalid_argument("Input strings must contain only 0's and 1's.");
+                    }
+                }
+                std::cout << "Error: No second input string provided." << std::endl;
+            } catch (const std::invalid_argument& e) {
+                std::cout << "Error: " << e.what() << std::endl;
+            }
+        } else { 
+            std::cout << "No input strings provided." << std::endl;
         }
     } catch (...) { 
         std::cout << "An error occurred." << std::endl;
