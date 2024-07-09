@@ -1,16 +1,18 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cctype>
+#include <limits>
 
-std::string Strongest_Extension(const std::string& className, const std::vector<std::string>& extensions) {
+int Strongest_Extension(std::string className, const std::vector<std::string>& extensions) {
+    int strongest = 0;
     for (const auto& extension : extensions) {
-        if (className.length() + 1 + extension.length() <= 255) {
-            return className + "." + extension;
+        if (extension.find(className) != std::string::npos) {
+            strongest = 1;
+            break;
         }
     }
-    return "";
+    return strongest;
 }
 
 int main() {
@@ -24,6 +26,7 @@ int main() {
     while(std::cin >> temp) {
         extensions.push_back(temp);
     }
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << Strongest_Extension(class_name, extensions) << std::endl;
 
