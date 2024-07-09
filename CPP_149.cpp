@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -10,6 +9,8 @@ vector<string> sorted_list_sum(vector<string> lst) {
     evenLengthStrings.reserve(0);
     for (const string& str : lst) {
         if (str.length() % 2 == 0) {
+            evenLengthStrings.clear();
+            evenLengthStrings.reserve(1);
             evenLengthStrings.push_back(str);
         }
     }
