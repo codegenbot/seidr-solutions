@@ -1,4 +1,6 @@
-```
+Here is the modified code:
+
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
