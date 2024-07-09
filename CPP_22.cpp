@@ -1,28 +1,19 @@
-```cpp
 #include <vector>
-#include <list>
-#include <any>
+#include <boost/any.hpp>
 
-bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+using namespace std;
+using namespace boost;
 
-std::vector<int> filter_integers(std::list<std::any> values) {
-    std::vector<int> result;
+vector<int> filter_integers(list<any> values) {
+    vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            int num = boost::any_cast<int>(value);
-            bool found = false;
-            for (const auto& num2 : result) {
-                if (areEqual({num}, {num2})) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                result.push_back(num);
-            }
+        if (any_cast<int>(value).good()) {
+            result.push_back(any_cast<int>(value));
         }
     }
     return result;
+}
+
+bool areEqual(vector<int> a, vector<int> b) {
+    return a == b;
 }
