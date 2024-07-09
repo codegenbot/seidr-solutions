@@ -3,8 +3,8 @@ int mastermind(std::string code, std::string guess) {
     int black = 0;
 
     // Count the number of correct colors in incorrect positions
-    std::map<char, int> codeCount;
-    std::map<char, int> guessCount;
+    map<char, int> codeCount;
+    map<char, int> guessCount;
     for (int i = 0; i < 4; ++i) {
         codeCount[code[i]]++;
         guessCount[guess[i]]++;
