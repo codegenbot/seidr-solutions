@@ -19,31 +19,5 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (auto& pair : code_count) {
-        while(pair.second > 0) {
-            white++;
-            pair.second--;
-        }
-    }
-
     return black + white;
-}
-
-int main() {
-    string code = "abcd";
-    string guess = "abcd";
-
-    int result = mastermind(code, guess);
-    
-    map<char, int> code_count;
-    for (char c : code) {
-        code_count[c]++;
-    }
-    
-    int black = 0;
-    int white = result - black;
-
-    cout << "Black pegs: " << black << ", White pegs: " << white << endl;
-
-    return 0;
 }
