@@ -1,2 +1,4 @@
-if 'path' is not defined or passed as an argument:
-    return None
+path = []  # Define path variable before using it in code snippet
+
+if path:
+    path.pop()
