@@ -1,27 +1,37 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <climits> 
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res(2);
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += v[i];
+    vector<vector<int>> res;
+    
+    for (int i = 0; i < 2; i++) {
+        res.push_back({}); // initialize each inner vector by clearing any existing elements
     }
-    int minDiff = INT_MAX, minIndex = 0;
+    int minDiff = INT_MAX;
     for (int i = 0; i < n; i++) {
-        int leftSum = 0, rightSum = sum - leftSum;
+        int leftSum = 0, rightSum = 0;
         for (int j = 0; j <= i; j++) {
             leftSum += v[j];
         }
-        if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            rightSum += v[j];
+        }
+        if (leftSum == rightSum || abs(leftSum - rightSum) < minDiff) {
+            minDiff = leftSum == rightSum ? 0 : abs(leftSum - rightSum);
+            res[0].clear();
+            for (int j = 0; j <= i; j++) {
+                res[0].push_back(v[j]);
+            }
+            res[1].clear();
+            for (int j = i + 1; j < n; j++) {
+                res[1].push_back(v[j]);
+            }
         }
     }
-    res[0] = vector<int>(v.begin(), v.begin() + minIndex + 1);
-    res[1] = vector<int>(v.begin() + minIndex, v.end());
     return res;
 }
 
