@@ -1,27 +1,28 @@
+```cpp
 #include <vector>
-#include <iostream>
 
-bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size())
-        return false;
-    
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size();
 }
 
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
-    for(float num : l){
-        if(num > 0)
+std::vector<float> get_positive(std::vector<float> l) {
+    std::vector<float> result;
+    for (float num : l) {
+        if (num > 0) {
             result.push_back(num);
+        }
     }
     return result;
 }
 
 int main() {
-    assert(issame(get_positive({}), {}));
-    // your other code here
+    assert(get_positive({}) == {});
+    std::vector<float> v1 = {1.2f, -3.4f, 5.6f};
+    std::vector<float> v2 = {-7.8f, 9.0f, -11.12f};
+
+    if (issame(get_positive(v1), get_positive(v2))) {
+        std::cout << "The two vectors have the same positive elements.\n";
+    } else {
+        std::cout << "The two vectors do not have the same positive elements.\n";
+    }
 }
