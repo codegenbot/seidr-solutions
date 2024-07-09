@@ -1,6 +1,7 @@
 #include <vector>
 #include <numeric>
-#include <initializer_list>
+#include <limits>
+#include <cmath>
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     int n = v.size();
