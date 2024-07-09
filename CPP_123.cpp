@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -32,11 +30,7 @@ int main() {
     std::cin >> num;
     std::vector<int> sequence;
     get_odd_collatz(num, sequence);
-    for (int i = 1; i <= 10; ++i) {
-        if (!sequenceEqual(get_odd_collatz(i), {i})) {
-            std::cout << "Hello World!" << std::endl; 
-            return 0; 
-        }
-    }
-    return 0;
+    assert(sequenceEqual(std::vector<int>{}, sequence));
+    std::cout << "Hello World!" << std::endl; 
+    return 0; 
 }
