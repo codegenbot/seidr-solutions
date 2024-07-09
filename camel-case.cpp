@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
-#include <initializer_list>
+#include <cctype>
 
 std::string kebabToCamel(const std::string& s) {
     std::string result;
@@ -13,10 +13,10 @@ std::string kebabToCamel(const std::string& s) {
         if (c == '-') {
             capitalize = true;
         } else if (capitalize) {
-            result += toupper(c);
+            result += std::toupper(c);
             capitalize = false;
         } else {
-            result += tolower(c);
+            result += std::tolower(c);
         }
     }
 
@@ -26,7 +26,6 @@ std::string kebabToCamel(const std::string& s) {
 int main() {
     std::string input;
     std::cin >> input;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cout << kebabToCamel(input) << std::endl;
 
     return 0;
