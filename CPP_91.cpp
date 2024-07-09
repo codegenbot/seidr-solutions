@@ -1,16 +1,17 @@
+#include <string>
+
 int is_bored(string S){
     int count = 0;
-    string boredom = "I";
-    size_t pos = 0;
-
-    while ((pos = S.find("I", pos)) != string::npos) {
-        if (S.substr(pos, boredom.length()).compare(boredom) == 0) {
-            count++;
-            pos += boredom.length();
+    string word;
+    for(int i=0; i<S.length(); i++){
+        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
+            if(word.length() > 0 && word[0] == 'I')
+                count++;
+            word.clear();
         } else {
-            pos++;
+            word += S[i];
         }
     }
-
+    if(word.length() > 0 && word[0] == 'I')
+        count++;
     return count;
-}
