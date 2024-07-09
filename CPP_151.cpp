@@ -15,8 +15,7 @@ long long double_the_difference(std::vector<float> input) {
     return sum;
 }
 
-int main
-{
+int main() {
     std::vector<float> input;
     float num;
     int n;
