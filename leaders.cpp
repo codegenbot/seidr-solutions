@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
@@ -23,5 +23,6 @@ int main() {
     std::vector<int> leaders = leaders(input);
     for(int i: leaders)
         std::cout << i << " ";
+    std::endl;
     return 0;
 }
