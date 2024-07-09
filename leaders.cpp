@@ -7,15 +7,16 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> res;
     
-    for(int i=0; i<n-1; i++) {
-        bool leader = true;
+    for(int i=n-1; i>=0; i--) {
+        int maxRight = arr[i];
         for(int j=i+1; j<n; j++) {
-            if(arr[j] <= arr[i]) {
-                leader = false;
-                break;
+            if(arr[j] >= maxRight) {
+                maxRight = arr[j];
             }
         }
-        if(leader) res.push_back(arr[i]);
+        if(maxRight == arr[i]) {
+            res.push_back(arr[i]);
+        }
     }
     
     return res;
