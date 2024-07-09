@@ -1,8 +1,11 @@
-bool is_divisor = false;
-for (long long i = 2; i * i <= n; ++i) {
-    if (n % i == 0) {
-        is_divisor = true;
-        break;
+#include <math.h>
+
+using namespace std;
+
+bool is_prime(long long n) {
+    if (n <= 1) return false;
+    for (long long i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
     }
+    return true;
 }
-return !is_divisor;
