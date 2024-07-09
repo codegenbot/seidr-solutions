@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-
 using namespace std;
 
 bool issame(const vector<float>& a,const vector<float>&b){
@@ -24,4 +22,3 @@ vector<float> sort_even(vector<float> l){
         }
     }
     return l_prime;
-}
