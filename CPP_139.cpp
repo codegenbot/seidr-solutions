@@ -13,11 +13,12 @@ long long special_factorial(int n) {
     return result;
 }
 
-int main 
-{
+int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
+    long long result = special_factorial(n);
+    std::string output = "Special factorial of " + std::to_string(n) + " is " + std::to_string(result) + "\n";
+    std::cout << output;
     return 0;
 }
