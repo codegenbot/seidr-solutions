@@ -1,4 +1,3 @@
 def camel_case(s):
-    if len(s) == 1 or s.isupper():
-        return s
-    return s[0].upper() + "".join(word.capitalize() for word in s.split("-")[1:])
+    words = s.split("-")
+    return words[0].upper() + "".join(word.capitalize() for word in words[1:]).replace(' ', '')
