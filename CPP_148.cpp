@@ -35,8 +35,8 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
     return result;
 }
 
-int main(...) {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
+int main() {
+    assert(issame(bf("Jupiter", "Makemake"), {"Mars", "Saturn", "Uranus"}));
     
     return 0;
 }
