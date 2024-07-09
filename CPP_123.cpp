@@ -1,6 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
+
+using namespace std;
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
@@ -32,15 +34,7 @@ std::vector<int> get_odd_collatz(int n) {
 int main() {
     int n;
     std::cin >> n;
-
-    std::vector<int> odd_collatz = get_odd_collatz(n);
-    std::vector<int> comparison_vector = {1, 3, 5, 7}; 
-
-    if (issame(odd_collatz, comparison_vector)) {
-        std::cout << "Vectors are the same." << std::endl;
-    } else {
-        std::cout << "Vectors are different." << std::endl;
-    }
-
+    std::vector<int> oddCollatz = get_odd_collatz(n);
+    // Additional code for contest problem ...
     return 0;
 }
