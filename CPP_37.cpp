@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool checkSame(std::vector<float> v1, std::vector<float> v2) {
     if(v1.size() != v2.size()) return false;
@@ -30,10 +29,7 @@ std::vector<float> sort_even(std::vector<float> l) {
     return result;
 }
 
-std::vector<float> v1 = {5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f};
-std::vector<float> v2 = {-12.0f, 8.0f, 3.0f, 4.0f, 5.0f, 2.0f, 12.0f, 11.0f, 23.0f, -10.0f};
-
 int main() {
-    assert(checkSame(sort_even(v1), v2));
+    assert(checkSame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
