@@ -22,17 +22,17 @@ double find_zero(const std::vector<double>& coeffs) {
 }
 
 int main() {
-    std::vector<double> coeffs;
-    int n; 
+    int n; // Number of terms in the polynomial
     std::cin >> n;
 
+    std::vector<double> coeffs(n); 
     for (int i = 0; i < n; i++) {
         double coeff;
         std::cin >> coeff;
-        coeffs.push_back(coeff);
+        coeffs[i] = coeff;
     }
 
-    double x; 
+    double x; // Input value
     std::cin >> x;
     
     // Call poly function with input values
