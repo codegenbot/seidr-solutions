@@ -1,4 +1,6 @@
-bool solveBoolean(string s) {
+#include <string>
+
+bool solveBoolean(std::string s) {
     bool result = true;
     int i = 0;
 
