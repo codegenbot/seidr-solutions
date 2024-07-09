@@ -1,12 +1,6 @@
-int sumOfUniqueDigitsInPrime(int n) {
-    vector<int> lst;
-    for (int i = 2; i <= n; i++) {
-        if (isPrime(i)) {
-            lst.push_back(i);
-        }
-    }
+int findSumOfDigits(vector<int> numbers) {
     int maxPrime = 0;
-    for (int num : lst) {
+    for (int num : numbers) {
         if (isPrime(num)) {
             maxPrime = num;
             break;
