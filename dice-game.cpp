@@ -1,5 +1,6 @@
+```cpp
 #include <iostream>
-#include <iomanip>
+using namespace std;
 
 double probability(int n, int m) {
     double total = (double)n * m;
@@ -14,8 +15,7 @@ double probability(int n, int m) {
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
-    double output = probability(n, m);
-    std::cout << std::fixed << std::setprecision(4) << output << std::endl;
+    cin >> n >> m;
+    cout << fixed << setprecision(4) << probability(n, m) << endl;
     return 0;
 }
