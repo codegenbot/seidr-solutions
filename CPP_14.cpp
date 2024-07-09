@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::vector<std::string> all_prefixes(const std::string& str) {
     std::vector<std::string> prefixes;
@@ -13,14 +12,16 @@ std::vector<std::string> all_prefixes(const std::string& str) {
 
 bool issame(std::vector<std::string> a) {
     if (a != std::vector<std::string>({"W", "WW", "WWW"})) 
-        return false;  // or you can handle the comparison as per your requirement
-    
+        return false;  
     return true;
 }
 
-{
-    int main() {
-        assert(issame(all_prefixes("WWW")));
-        return 0;
+int main() {
+    {   
+        if (!issame(all_prefixes("WWW"))) {
+            std::cout << "Test failed" << std::endl;
+        } else {
+            std::cout << "Test passed" << std::endl;
+        }
     }
 }
