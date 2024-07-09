@@ -1,6 +1,3 @@
-Here is the modified code with the missing using directive:
-
-```c++
 using namespace std;
 
 string solveBoolean(string s) {
