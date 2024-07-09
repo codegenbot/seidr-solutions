@@ -1,36 +1,43 @@
+#include <string>
+#include <algorithm>
+#include <vector>
+
 vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+    vector<char> charArr(s.begin(), s.end());
     
-    // Create a set of characters in string c for efficient lookup
-    set<char> c_set(c.begin(), c.end());
-    
-    // Initialize an empty string to store the result
-    string res = "";
-    
-    // Iterate over each character in string s
-    for (char c_s : s) {
-        // Check if the character is not in set c_set
-        if (c_set.count(c_s) == 0) {
-            // Add the character to the result string
-            res += c_s;
+    for (char &ch : charArr) {
+        bool found = false;
+        for (char cc : c) {
+            if (cc == ch) {
+                found = true;
+                break;
+            }
+        }
+        
+        if (!found) {
+            continue;
+        }
+        
+        size_t pos = 0;
+        while ((pos = charArr.begin() + find(charArr.begin(), charArr.end(), ch) - charArr.begin()) != charArr.end()) {
+            charArr.erase(charArr.begin() + pos);
         }
     }
     
-    // Check if the result string is palindrome or not
-    bool is_palindrome = true;
-    int start = 0, end = res.length() - 1;
+    string resultStr((char*)charArr.data());
+    bool isPalindrome = true;
+    size_t start = 0, end = resultStr.length();
     while (start < end) {
-        if (res[start] != res[end]) {
-            is_palindrome = false;
+        if (resultStr[start] != resultStr[end - 1]) {
+            isPalindrome = false;
             break;
         }
         start++;
         end--;
     }
     
-    // Add the result string and palindrome status to the vector
-    result.push_back(res);
-    result.push_back((is_palindrome ? "True" : "False"));
-    
+    vector<string> result;
+    result.push_back(resultStr);
+    result.push_back(isPalindrome ? "True" : "False");
     return result;
 }
