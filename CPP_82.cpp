@@ -1,7 +1,7 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-bool prime_length(string str) {
+bool prime_length(const std::string& str) {
     int n = str.length();
     if (n <= 1)
         return false;
@@ -15,5 +15,6 @@ bool prime_length(string str) {
 
 int main() {
     assert(prime_length("0") == false);
-    // Your main code here
+    // ... rest of your code ...
+    return 0;
 }

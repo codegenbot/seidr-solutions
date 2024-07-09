@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <string>
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
@@ -28,8 +26,4 @@ int smallest_change(vector<int> arr) {
         }
     }
     return changes;
-}
-
-int main() {
-    assert(smallest_change({0, 1}) == 1);
 }
