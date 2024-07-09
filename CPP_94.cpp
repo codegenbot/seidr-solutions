@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -21,8 +22,11 @@ bool isPrime(int n){
         if(n % i == 0)
             return false;
     return true;
+}
 
-int main(){
-    assert (skjkasdkd({127, 97, 8192}) == 10);
+int main() {
+    std::vector<int> lst = {127, 97, 8192};
+    int result = skjkasdkd(lst);
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
