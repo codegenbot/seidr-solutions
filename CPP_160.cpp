@@ -1,7 +1,13 @@
-```cpp
+#include <vector>
+#include <cmath>
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 int do_algebra(vector<string> ops, vector<int> nums) {
     int result = 0;
-    long long temp = 1;
+    int temp = 1;
 
     for (int i = 0; i < ops.size(); i++) {
         if (ops[i] == "+") {
@@ -10,12 +16,22 @@ int do_algebra(vector<string> ops, vector<int> nums) {
             result -= temp * nums[i];
         } else if (ops[i] == "*") {
             temp *= nums[i];
-        } else if (ops[i] == "/") {
+        } else if (ops[i] == "/") {  
+            if(nums[i] == 0) return -1;  // handle division by zero
             temp /= nums[i];
-        } else if (ops[i] == "^") {
-            temp = pow(temp, nums[i]);
-        }
+        } 
     }
 
     return result;
+}
+
+int main() {
+    int assertResult = do_algebra({"+", "/"}, {7, 3, 4});
+    if (assertResult == 8) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+
+    return 0;
 }
