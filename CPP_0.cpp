@@ -1,5 +1,16 @@
 using namespace std;
 
+int main() {
+    vector<float> numbers = {1.0f, 2.0f, 3.0f, 4.0f};
+    float threshold = 1.5f;
+    
+    if (has_close_elements(numbers, threshold)) {
+        cout << "The vector has at least two elements that are within the given threshold." << endl;
+    } else {
+        cout << "The vector does not have any elements that are within the given threshold." << endl;
+    }
+}
+
 bool has_close_elements(vector<float> numbers, float threshold) {
     for (int i = 0; i < numbers.size(); ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
@@ -9,10 +20,4 @@ bool has_close_elements(vector<float> numbers, float threshold) {
         }
     }
     return false;
-}
-
-int main() {
-    vector<float> nums = {1.0, 2.0, 3.0, 4.5};
-    cout << has_close_elements(nums, 0.5) << endl;
-    return 0;
 }
