@@ -25,16 +25,13 @@ int main() {
         ++index;
     }
 
-    int diff1 = abs(target - prefixSum);
-    int diff2 = abs(target - (prefixSum - nums[index - 1]));
-
-    if (diff1 <= diff2) {
+    if (prefixSum == target) {
         for (int i = 0; i < index; ++i) {
             cout << nums[i] << endl;
         }
         cout << 0 << endl;
     } else {
-        for (int i = 0; i < index - 1; ++i) {
+        for (int i = 0; i < index; ++i) {
             cout << nums[i] << endl;
         }
         cout << 0 << endl;
