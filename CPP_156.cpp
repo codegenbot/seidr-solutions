@@ -11,8 +11,8 @@ string int_to_mini_roman(int num) {
                       "", "C", "CI", "CII", "CIII", "CIV", "CV", "CVI", "CVII", "CVIII", "CX", "CXI", "CXII", "CXIII", "CXIV", "CXV", "CXVI", "CXVII", "CXVIII", "CXIX", "CXX",
                       "", "CXXI", "CXXII", "CXXIII", "CXXIV", "CXXV", "CXXVI", "CXXVII", "CXXVIII", "CXXIX", "CXXX",
                       "", "CXXXI", "CXXXII", "CXXXIII", "CXXXIV", "CXXXV", "CXXXVI", "CXXXVII", "CXXXVIII", "CXXXIX", "CXL",
-                      "", "CXLI", "CXLII", "CXLIII", "CXLIV", "CXLV", "CXLVI", "CXLVII", "CXLVIII", "Clix", "CL",
-                      "", "CLI", "CII", "CC", "CCI", "CCC", "CCCI", "CCCII", "CCCIII", "CCCIV", "CCCV", "CCCVI", "CCcvii", "CCcviii", "CCXC", 
+                      "", "CXLI", "CXLII", "CXLIII", "CXLIV", "CXLV", "CXLVI", "CXLVII", "CXLVIII", "CXlix", "CL",
+                      "", "CLI", "CII", "CC", "CCI", "CCC", "CCCI", "CCCII", "CCCIII", "CCCIV", "CCCV", "CCCVI", "CCCvii", "CCcviii", "CCXC", 
                       "", "CM"};
 
     string result = "";
@@ -31,22 +31,37 @@ string int_to_mini_roman(int num) {
             num -= 400;
             result += "CD";
         } else if (num >= 100) {
-            for(int i = 0; ; ++i) {
-                if((i * 100) > num) break;
-                num -= i * 100;
-                result += "C";
-                for(int j = 0; j < i - 1; ++j) {
-                    result += "X";
-                }
+            int count = 0;
+            while(num >= 100) {
+                num -= 100;
+                count++;
             }
+            for(int i = 0; i < count; i++) {
+                result += "C";
+            }
+        } else if (num >= 90) {
+            num -= 90;
+            result += "XC";
+        } else if (num >= 50) {
+            int count = 0;
+            while(num >= 50) {
+                num -= 50;
+                count++;
+            }
+            for(int i = 0; i < count; i++) {
+                result += "L";
+            }
+        } else if (num >= 40) {
+            num -= 40;
+            result += "XL";
         } else if (num >= 10) {
-            for(int i = 0; ; ++i) {
-                if((i * 10) > num) break;
-                num -= i * 10;
+            int count = 0;
+            while(num >= 10) {
+                num -= 10;
+                count++;
+            }
+            for(int i = 0; i < count; i++) {
                 result += "X";
-                for(int j = 0; j < i - 1; ++j) {
-                    result += "I";
-                }
             }
         } else {
             while(num > 0) {
