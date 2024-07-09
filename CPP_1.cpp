@@ -1,9 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-
-void separate_paren_groups(vector<string>& result, int open_count);
 
 bool issame(vector<string> vec1, vector<string> vec2) {
     if (vec1.size() != vec2.size()) {
@@ -22,11 +19,9 @@ void separate_paren_groups(vector<string>& result, int open_count) {
     for (int i = 0; i < open_count; i++) {
         current_group += '(';
     }
-    while (open_count > 0) {
-        current_group += ')';
-        open_count--;
+    for (char c : current_group) {
+        result.push_back(std::string(1, c));
     }
-    result.push_back(current_group);
 }
 
 int main() {
@@ -36,15 +31,8 @@ int main() {
     vector<string> result;
     separate_paren_groups(result, open_count);
 
-    // add the last group
-    if (open_count > 0) {
-        string current_group = "";
-        while (open_count > 0) {
-            current_group += ')';
-            open_count--;
-        }
-        result.push_back(current_group);
-    }
-
+    // Add your unit tests here. For example:
+    assert(issame(result, {"(", "(()", "((()))"}));
+    
     return 0;
 }
