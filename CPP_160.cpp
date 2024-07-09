@@ -8,7 +8,9 @@ int do_algebra(vector<string> operato, vector<int> operand){
         } else if (operato[i] == "*") {
             result *= operand[i + 1];
         } else if (operato[i] == "//") {
-            result /= operand[i + 1];
+            if (operand[i + 1] != 0) {
+                result /= operand[i + 1];
+            }
         } else if (operato[i] == "**") {
             result = pow(result, operand[i + 1]);
         }
