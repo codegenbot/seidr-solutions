@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -6,7 +6,7 @@ using namespace std;
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
-    for (int i = n - 1; i >= 0; i--) {
+    for (int i = 0; i < n; i++) {
         bool isLeader = true;
         for (int j = i + 1; j < n; j++) {
             if (arr[j] >= arr[i]) {
@@ -18,15 +18,5 @@ vector<int> leaders(vector<int>& arr) {
             result.push_back(arr[i]);
         }
     }
-    reverse(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    vector<int> input = {16, 17, 4, 3, 5, 2};
-    vector<int> result = leaders(input);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    return 0;
 }
