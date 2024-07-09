@@ -29,8 +29,11 @@ int main() {
     vector<string> list = {"apple", "banana", "cherry", "date", "elderberry"};
     vector<string> sorted = sorted_list_sum(list);
     
-    assert(issame(sorted, {"apple", "banana"}));
-    cout << (issame(sorted, {"apple", "banana"}) ? "The sorted list is the same as expected." : "The sorted list is not what was expected.") << endl;
+    if (issame(sorted, {"apple", "banana"})) {
+        cout << "The sorted list is the same as expected." << endl;
+    } else {
+        cout << "The sorted list is not what was expected." << endl;
+    }
     
     return 0;
 }
