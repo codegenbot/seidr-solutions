@@ -1,8 +1,5 @@
 ```cpp
-#include <iostream>
-#include <vector>
-
-int solutions(std::vector<int> lst) {
+int solutions(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
@@ -10,11 +7,4 @@ int solutions(std::vector<int> lst) {
         }
     }
     return sum;
-}
-
-int main() {
-    std::vector<int> test = {3, 4, 5, 6};
-    int result = solutions(test);
-    std::cout << "Result: " << result << std::endl;
-    return 0;
 }
