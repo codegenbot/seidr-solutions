@@ -1,21 +1,23 @@
+```cpp
 #include <vector>
 #include <set>
 
 // Declare vector and issame here
-bool issame(vector<int> a, vector<int> b);
+std::vector<int> result;
+bool issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> common(vector<int> l1, vector<int> l2) {
-    set<int> s1(l1.begin(), l1.end());
-    set<int> s2(l2.begin(), l2.end());
+std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
+    std::set<int> s1(l1.begin(), l1.end());
+    std::set<int> s2(l2.begin(), l2.end());
 
-    set<int> intersection;
-    set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
+    std::set<int> intersection;
+    std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
         inserter(intersection, intersection.begin()));
 
-    vector<int> result(intersection.begin(), intersection.end());
+    result = std::vector<int>(intersection.begin(), intersection.end());
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     // Your logic for checking if the vectors are same
 }
