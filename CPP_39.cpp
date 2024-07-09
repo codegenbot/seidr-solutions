@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main() {
@@ -24,7 +23,7 @@ int main() {
             suffix = "th";
         }
         cout << "The " << to_string(result) << suffix << " prime Fibonacci number is: ";
-        cout << to_string(result) << endl;
+        cout << to_string(result).c_str() << endl;
     }
 
     return 0;
