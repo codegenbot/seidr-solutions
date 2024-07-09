@@ -1,7 +1,8 @@
-if (x == 1) return true;
-    int power = 0;
-    while (pow(n, power) < x) {
-        power++;
+if(x == 1)
+        return true;
+    for(int i=2; i<sqrt(x)+1; i++){
+        if(pow(i, n) == x)
+            return true;
     }
-    return pow(n, power) == x;
+    return false;
 }
