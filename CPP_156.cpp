@@ -1,21 +1,78 @@
-#include <vector>
-#include <string>
+string int_to_mini_roman(int num) {
+    string roman[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
+                      "", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
+                      "", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX",
+                      "", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
+                      "", "L", "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX", "LX",
+                      "", "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX",
+                      "", "LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV", "LXXVI", "LXXVII", "LXXVIII", "LXXIX", "LXXX",
+                      "", "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC",
+                      "", "C", "CI", "CII", "CIII", "CIV", "CV", "CVI", "CVII", "CVIII", "CX", "CXI", "CXII", "CXIII", "CXIV", "CXV", "CXVI", "CXVII", "CXVIII", "CXIX", "CXX",
+                      "", "CXXI", "CXXII", "CXXIII", "CXXIV", "CXXV", "CXXVI", "CXXVII", "CXXVIII", "CXXIX", "CXXX",
+                      "", "CXXXI", "CXXXII", "CXXXIII", "CXXXIV", "CXXXV", "CXXXVI", "CXXXVII", "CXXXVIII", "CXXXIX", "CXL",
+                      "", "CXLI", "CXLII", "CXLIII", "CXLIV", "CXLV", "CXLVI", "CXLVII", "CXLVIII", "CXlix", "CL",
+                      "", "CLI", "CII", "CC", "CCI", "CCC", "CCCI", "CCCII", "CCCIII", "CCCIV", "CCCV", "CCCVI", "CCCvii", "CCcviii", "CCXC", 
+                      "", "CM"};
 
-using namespace std;
+    string result = "";
 
-string int_to_mini_roman(int number) {
-    vector<pair<int, string>> roman_map = {{1000, "M"}, {900, "CM"}, {500, "D"},
-                                            {400, "CD"}, {100, "C"}, {90, "XC"},
-                                            {50, "L"}, {40, "XL"}, {10, "X"},
-                                            {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-
-    string roman = "";
-    for (const auto& pair : roman_map) {
-        while (number >= pair.first) {
-            number -= pair.first;
-            roman += pair.second;
+    while (num > 0) {
+        if (num >= 1000) {
+            num -= 1000;
+            result += "M";
+        } else if (num >= 900) {
+            num -= 900;
+            result += "CM";
+        } else if (num >= 500) {
+            num -= 500;
+            result += "D";
+        } else if (num >= 400) {
+            num -= 400;
+            result += "CD";
+        } else if (num >= 100) {
+            for(int i = 0; i < 3 && num >= 100; ++i) {
+                num -= 100;
+                result += "C";
+            }
+        } else if (num >= 90) {
+            while(num >= 90) {
+                num -= 90;
+                result += "XC";
+            }
+        } else if (num >= 50) {
+            for(int i = 0; i < 2 && num >= 50; ++i) {
+                num -= 50;
+                result += "L";
+            }
+        } else if (num >= 40) {
+            while(num >= 40) {
+                num -= 40;
+                result += "XL";
+            }
+        } else if (num >= 10) {
+            for(int i = 0; ; ++i) {
+                if((i * 10) > num) break;
+                num -= i * 10;
+                result += "X";
+                for(int j = 0; j < i - 1; ++j) {
+                    result += "I";
+                }
+            }
+        } else {
+            while(num > 0) {
+                if(num >= 3) {
+                    num -= 3;
+                    result += "I";
+                } else if (num == 2) {
+                    result += "II";
+                    return result;
+                } else {
+                    num--;
+                    result += "I";
+                }
+            }
         }
     }
 
-    return roman;
+    return result;
 }
