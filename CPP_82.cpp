@@ -11,3 +11,9 @@ bool prime_length(string str){
 
     return is_prime;
 }
+
+int main() {
+    assert(prime_length("0") == false);
+    // Your code here...
+    return 0;
+}

@@ -1,52 +1,34 @@
-bool issame(vector<string> a,vector<string>b){
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
-}
+```
+#include <vector>
+#include <string>
 
-int main() {
-    vector<float> grades = {4.0,3.8,3.5,2.9,1.8};
-    vector<string> result = numerical_letter_grade(grades);
-    
-    for(auto grade : result){
-        if(issame({grade}, {"A+"})){
-            cout << "A+";
-        }
-        else if(issame({grade}, {"A"})){
-            cout << "A";
-        }
-        else if(issame({grade}, {"A-" })){
-            cout << "A-";
-        }
-        else if(issame({grade}, {"B+"})){
-            cout << "B+";
-        }
-        else if(issame({grade}, {"B"})){
-            cout << "B";
-        }
-        else if(issame({grade}, {"B-" })){
-            cout << "B-";
-        }
-        else if(issame({grade}, {"C+"})){
-            cout << "C+";
-        }
-        else if(issame({grade}, {"C"})){
-            cout << "C";
-        }
-        else if(issame({grade}, {"C-" })){
-            cout << "C-";
-        }
-        else if(issame({grade}, {"D+"})){
-            cout << "D+";
-        }
-        else if(issame({grade}, {"D"})){
-            cout << "D";
-        }
-        else{
-            cout << "E";
-        }
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> letter_grades;
+    for (float grade : grades) {
+        if (grade >= 4.0)
+            letter_grades.push_back("A+");
+        else if (grade > 3.7)
+            letter_grades.push_back("A");
+        else if (grade > 3.3)
+            letter_grades.push_back("A-");
+        else if (grade > 3.0)
+            letter_grades.push_back("B+");
+        else if (grade > 2.7)
+            letter_grades.push_back("B");
+        else if (grade > 2.3)
+            letter_grades.push_back("B-");
+        else if (grade > 2.0)
+            letter_grades.push_back("C+");
+        else if (grade > 1.7)
+            letter_grades.push_back("C");
+        else if (grade > 1.3)
+            letter_grades.push_back("C-");
+        else if (grade > 1.0)
+            letter_grades.push_back("D+");
+        else if (grade > 0.7)
+            letter_grades.push_back("D");
+        else
+            letter_grades.push_back("F");
     }
-    return 0;
+    return letter_grades;
 }
