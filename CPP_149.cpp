@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -34,15 +35,10 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst;
-    for (string s : {"aaaa", "bbbb", "dd", "cc"}) {
-        lst.push_back(s);
-    }
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    if (!issame(sorted_list_sum(lst), expected)) {
+    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    if (!issame(sorted_list_sum(lst), {"cc", "dd", "aaaa", "bbbb"})) {
         cout << "Test failed" << endl;
     } else {
         cout << "Test passed" << endl;
     }
     return 0;
-}
