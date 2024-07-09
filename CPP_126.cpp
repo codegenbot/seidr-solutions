@@ -1,13 +1,15 @@
 Here is the completed code:
 
-```cpp
 bool is_sorted(vector<int> lst){
-    if (lst.size() <= 1)
-        return true;
-
-    for(int i = 0; i < lst.size() - 1; i++) {
-        if(lst[i] >= lst[i+1]) 
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i-1] >= lst[i]){
             return false;
+        }
+    }
+    vector<int> copy = lst;
+    sort(copy.begin(), copy.end());
+    if(copy != lst) {
+        return false;
     }
     return true;
 }
