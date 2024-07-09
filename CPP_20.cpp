@@ -1,7 +1,8 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
-bool issame(vector<float> a, vector<float>b) {
+bool issame(vector<float> a, vector<float> b) {
     return a.size() == b.size();
 }
 
