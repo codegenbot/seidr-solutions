@@ -1,4 +1,7 @@
-string result;
+#include <string>
+
+std::string fix_spaces(const std::string& text) {
+    std::string result;
     bool consecutive = false;
     for (char c : text) {
         if (c == ' ') {
