@@ -1,5 +1,3 @@
-Here's the completed code:
-
 ```python
 from typing import List
 
