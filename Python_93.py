@@ -11,4 +11,3 @@ def encode(message):
             encoded_message += char
 
     return encoded_message
-```
