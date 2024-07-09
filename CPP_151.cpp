@@ -30,4 +30,3 @@ int main() {
     
     long long odd_sum = double_the_difference(lst);
     return 0;
-}
