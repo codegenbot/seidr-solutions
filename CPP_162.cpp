@@ -6,7 +6,7 @@
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
-
+    
     unsigned char md5[16];
     EVP_MD_CTX mdctx;
     EVP_MD_CTX_init(&mdctx);
@@ -26,7 +26,6 @@ std::string string_to_md5(std::string text) {
     return result;
 }
 
-std::string text;
 std::cout << "Enter a string: ";
 std::getline(std::cin, text);
 std::cout << "MD5: " << string_to_md5(text) << std::endl;
