@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
+    
     if (arr.empty()) return result;
     
     int minEvenIndex = -1;
@@ -25,9 +25,19 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    vector<int> numbers = {10, 3, 4, 6};
-    for (auto& p : pluck(numbers)) {
-        cout << "Pair: (" << p.first << ", " << p.second << ")" << endl;
+    vector<int> input;
+    int num;
+
+    while (cin >> num) {
+        input.push_back(num);
     }
+
+    auto output = pluck(input);
+
+    for (const auto& pair : output) {
+        cout << "Minimum even value: " << pair.first 
+             << ", Index: " << pair.second << endl;   
+    }
+    
     return 0;
 }
