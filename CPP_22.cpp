@@ -1,11 +1,6 @@
 ```cpp
-#ifdef __cpp_initializer_list_67
-#define _GLIBCXX_CONCEPT_ASSERT(x) x
-#else
-#include <initializer_list>
-#endif
-
 #include <vector>
+#include <initializer_list>
 #include <any>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
