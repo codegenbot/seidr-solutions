@@ -1,3 +1,4 @@
-min_num = min(numbers)
-    max_num = max(numbers)
-    return [(num - min_num) / (max_num - min_num) for num in numbers]
+min_number = min(numbers)
+max_number = max(numbers)
+transformed_numbers = [(x - min_number) / (max_number - min_number) for x in numbers]
+return transformed_numbers
