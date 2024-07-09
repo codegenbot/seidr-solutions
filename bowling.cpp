@@ -1,16 +1,23 @@
+```cpp
+#include <string>
+#include <sstream>
+
 int bowlingScore(std::string s) {
     int score = 0;
-    for (char c : s) {
-        if (c == 'X') {
-            score += 30;
-        } else if (c == '/') {
-            score += currentRoll + 10;
-        } else {
-            int currentRoll = c - '0';
-            if (s[1] == '/' || s[2] == 'X') {
-                score += currentRoll * 2;
+    std::stringstream ss(s);
+    std::string line;
+    while (std::getline(ss, line)) {
+        int currentRoll = 0;
+        for (char c : line) {
+            if (c == 'X') {
+                score += 30;
+                currentRoll = 0;
+            } else if (c == '/') {
+                score += currentRoll + 10;
+                currentRoll = 0;
             } else {
-                score += currentRoll;
+                currentRoll *= 10;
+                currentRoll += c - '0';
             }
         }
     }
