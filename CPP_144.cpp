@@ -1,27 +1,27 @@
 ```cpp
 #include <string>
+#include <sstream>
 using namespace std;
 
-int gcdFunc(int a, int b) {
+int gcdFunc(int a, int int b) {
     if (b == 0)
         return a;
     else
         return gcdFunc(b, a % b);
 }
 
-bool simplify(std::string x, std::string n) {
+bool simplify(istringstream xStream, istringstream nStream) {
     int numerator = 0, denominator = 0;
     char slash;
 
-    for (int i = 0; i < x.length(); i++) {
-        if (x[i] == '/') {
-            slash = x[i];
-            break;
-        }
-        if (isdigit(x[i])) {
-            if (i == 0) numerator = numerator * 10 + (x[i] - '0');
-            else denominator = denominator * 10 + (x[i] - '0');
-        }
+    xStream >> numerator;
+    nStream >> denominator;
+    while (nStream.peek() == '/') {
+        nStream.ignore();
+        break;
+    }
+    if (nStream.peek() != '\n') {
+        nStream >> slash;
     }
 
     int gcd = gcdFunc(numerator, denominator);
