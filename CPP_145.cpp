@@ -1,9 +1,11 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
+using namespace std;
+
 bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) {
+    if (a.size() != b.size()) {
         return false;
     }
     sort(a.begin(), a.end());
@@ -31,4 +33,20 @@ vector<int> order_by_points(vector<int> nums) {
     }
 
     return result;
+}
+
+int main() {
+    int n; cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
+    }
+    
+    vector<int> res = order_by_points(nums);
+
+    for(int num : res) {
+        cout << num << " ";
+    }
+
+    return 0;
 }
