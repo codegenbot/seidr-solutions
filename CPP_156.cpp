@@ -20,7 +20,7 @@ std::string int_to_mini_roman(int n) {
             if (n > 3) roman += int_to_mini_roman((n - 3) / 10);
             break;
         default:
-            roman = (n >= 40 ? "XL" : (n >= 30 ? "XXX" : (n >= 20 ? "XX" : "X"))) + int_to_mini_roman((n - 10) / 10);
+            roman = "X" + int_to_mini_roman((n - 10) / 10);
     }
     return roman.empty() ? "" : roman;
 }
