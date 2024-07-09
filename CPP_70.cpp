@@ -27,3 +27,8 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
     }
     return true;
 }
+
+int main() {
+    assert(isSame(strange_sort_list({1, 2, 3}), {3, 2, 1}));
+    return 0;
+}
