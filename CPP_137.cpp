@@ -1,6 +1,6 @@
 #include <variant>
 #include <string>
-#include <cassert> // Include the <cassert> header for using assert
+#include <cassert>
 
 using namespace std;
 
@@ -27,9 +27,9 @@ auto compare_one(const variant<int, float, string>& a, const variant<int, float,
 }
 
 int main() {
-    assert(get<std::string>(compare_one(std::string("1"), std::string("2"))) == "2"); // Test case for comparing two strings
-    assert(get<int>(compare_one(10, 5)) == 10); // Test case for comparing two integers
-    assert(get<float>(compare_one(3.14f, 2.718f)) == 3.14f); // Test case for comparing two floats
+    assert(get<std::string>(compare_one(std::string("1"), std::string("2"))) == "2");
+    assert(get<int>(compare_one(10, 5)) == 10);
+    assert(get<float>(compare_one(3.14f, 2.718f)) == 3.14f);
 
     return 0;
 }
