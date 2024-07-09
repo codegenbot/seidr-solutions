@@ -3,13 +3,13 @@
 
 using namespace std;
 
-vector<int> common(vector<int> l1, vector<int> l2) {
-    set<int> s1(l1.begin(), l1.end());
-    set<int> s2(l2.begin(), l2.end());
-
+vector<int> common(vector<int> s1, vector<int> s2) {
     set<int> intersection;
-    intersection.insert(set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-                      intersection.begin()));
+    set<int> s2(s2.begin(), s2.end());
+
+    set<int> s1(s1.begin(), s1.end());
+    set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
+                      inserter(intersection, intersection.begin()));
 
     return vector<int>(intersection.begin(), intersection.end());
 }
