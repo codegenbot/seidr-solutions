@@ -8,11 +8,12 @@ int main() {
     cin >> n;
 
     vector<float> vec1(n);
+    vector<float> vec2(n);
+
     for (int i = 0; i < n; ++i) {
         cin >> vec1[i];
     }
 
-    vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec2[i];
     }
@@ -23,7 +24,7 @@ int main() {
     }
 
     float result = sqrt(sum);
-    cout << result << endl;
+    cout << fixed << result << endl;
 
     return 0;
 }
