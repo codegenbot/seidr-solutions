@@ -12,18 +12,9 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst; 
-    float a = 5.6f;
-    float b = -7.8f;
-    float c = 0.9f;
-    float d = 3.4f;
-    
-    lst.push_back(a);
-    lst.push_back(b);
-    lst.push_back(c);
-    lst.push_back(d);
-
-    int odd_sum = 0; 
+    vector<float> lst; // declare the vector here
+    // add elements to the vector as required
+    int odd_sum = 0; // declare odd_sum here
     assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
