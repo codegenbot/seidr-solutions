@@ -1,10 +1,12 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <cassert>
 #include <iostream>
 
-class _160 {
+class cpp_160 {
 public:
+    cpp_160() {}
     int do_algebra(const std::vector<std::string>& ops, const std::initializer_list<int>& nums) {
         if (ops.size() != static_cast<size_t>(nums.size())) {
             return -1;
@@ -24,7 +26,7 @@ public:
 };
 
 int main() {
-    _160 obj;
+    cpp_160 obj;
     int output = obj.do_algebra({"*","//"}, {7, 3, 4});
     std::cout << output << std::endl;
 }
