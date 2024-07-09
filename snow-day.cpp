@@ -8,7 +8,7 @@ int main() {
     cin >> hours;
     
     double initialSnow;
-    cout << "Enter the initial snow on the ground (in feet): ";
+    cout << "Enter the total amount of snow initially (in feet): ";
     cin >> initialSnow;
     
     double rateOfSnowFall;
@@ -19,28 +19,15 @@ int main() {
     cout << "Enter the proportion of snow melting per hour: ";
     cin >> proportionOfSnowMeltingPerHour;
 
-    double totalSnow = initialSnow;  // Initialize with initial snow
-    
+    double totalSnow = 0;  // Initialize with 0
+
     for (int i = 0; i < hours; i++) {
-        double snowToBeAdded = rateOfSnowFall;
-        double snowToBeMelted = proportionOfSnowMeltingPerHour * totalSnow;
-        
-        if (snowToBeAdded > 0) { // Only add if it's a positive amount of snow
-            totalSnow += snowToBeAdded - snowToBeMelted; 
-            // If the remaining snow to be added is still greater than zero, then we need to add it
-            if (totalSnow < 0.0) {
-                totalSnow = 0.0;
-            }
-        } else {  // No new snow falling
-            if (totalSnow > 0.0) {
-                totalSnow -= snowToBeMelted;  
-            } else {
-                totalSnow = 0.0;
-            }
-        }
+        double newSnow = initialSnow + rateOfSnowFall;
+        totalSnow += newSnow - proportionOfSnowMeltingPerHour * newSnow;
+        initialSnow = totalSnow; // Update the initial snow
     }
     
-    cout << fixed << setprecision(10);  // This is the precision to match your expected output
+    cout << fixed << setprecision(5);
     cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << " ft" << endl;
     return 0;
 }
