@@ -25,13 +25,9 @@ int main() {
         std::cout << "Enter the second string: ";
         std::getline(std::cin, str2);
 
-        if (str1.length() > 0 && str1.back() == '\n') {
-            str1.pop_back();
-        }
-        if (str2.length() > 0 && str2.back() == '\n') {
-            str2.pop_back();
-        }
-        
+        str1.pop_back(); // Remove the last character from str1
+        str2.pop_back(); // Remove the last character from str2
+
         try {
             std::string result = string_xor(str1, str2);
             std::cout << "XOR of the two strings is: " << result << std::endl;
