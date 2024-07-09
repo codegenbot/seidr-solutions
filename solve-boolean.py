@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     while "&" in expression or "|" in expression:
         if "&" in expression:
@@ -8,4 +9,4 @@ def solve_boolean(expression):
             expression = str(bool(a)) + "|"
         else:
             break
-    return expression == "t"
+    return expression.replace("True", "t").replace("False", "f") == "t"
