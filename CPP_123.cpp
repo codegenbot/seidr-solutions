@@ -21,7 +21,7 @@ std::vector<int> get_odd_collatz(int n) {
             result.push_back(n);
         }
     }
-    return result; 
+    return result; // stop storing numbers when n becomes 1
 }
 
 int main() {
