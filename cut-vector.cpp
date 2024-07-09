@@ -10,6 +10,10 @@ int main() {
     while (cin >> num) {
         nums.push_back(num);
     }
+
+    char c;
+    cin.clear();
+    cin >> c;
     
     int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
@@ -25,12 +29,12 @@ int main() {
         ++index;
     }
     
-    if (abs(prefixSum - target) < abs(prefixSum - target - nums[index])) {
+    if (prefixSum == target) {
         for (int i = 0; i < index; ++i) {
             cout << nums[i] << endl;
         }
     } else {
-        for (int i = 0; i <= index; ++i) {
+        for (int i = 0; i < index; ++i) {
             cout << nums[i] << endl;
         }
     }
