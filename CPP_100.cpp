@@ -1,15 +1,19 @@
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> make_a_pile(int n) {
-    vector<int> result;
-    for (int i = 0; ; i++) {
-        if ((i + 1) % 2 == 0) {
-            if (n % 2 != 0) break;
-            result.push_back(n);
-            n++;
+    vector<int> pile;
+    int numStones = 1;
+    for (int i = 0; i < n; ++i) {
+        if (numStones % 2 == 0) {
+            pile.push_back(numStones);
         } else {
-            if (n % 2 == 0) break;
-            result.push_back(n);
-            n++;
+            pile.push_back(numStones + 1);
         }
+        numStones += (numStones % 2 == 0 ? 2 : 1);
     }
-    return result;
+    return pile;
 }
