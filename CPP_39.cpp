@@ -1,18 +1,21 @@
 int prime_fib(int n) {
-    int a = 0, b = 1, fib = 0;
-    for (int i = 1; ; i++) {
-        if (i == n) return b;
-        fib = a + b;
+    int a = 0, b = 1;
+    for (int i = 2; ; i++) {
+        if (i == n)
+            return b;
+        int temp = a + b;
         a = b;
-        b = fib;
-        if (!isPrime(fib)) continue;
+        b = temp;
+        if (!is_prime(b))
+            continue;
     }
 }
 
-bool isPrime(int num) {
-    if (num <= 1) return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return false;
-    }
+bool is_prime(int x) {
+    if (x <= 1)
+        return false;
+    for (int i = 2; i * i <= x; i++)
+        if (x % i == 0)
+            return false;
     return true;
 }
