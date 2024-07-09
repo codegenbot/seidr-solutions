@@ -1,18 +1,19 @@
-bool hasOdd(int x) {
-    return (x & 1);
-}
-
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
     for (int x : lst1) {
-        if (hasOdd(x)) {
-            oddCount++;
+        if (x % 2 != 0)
+            return "NO";
+    }
+    for (auto it = lst1.begin(); it != lst1.end(); ++it) {
+        bool found = false;
+        for (auto jt = lst2.begin(); jt != lst2.end(); ++jt) {
+            if (*it == *jt) {
+                *it = *jt; // replace in lst1
+                found = true;
+                break;
+            }
         }
+        if (!found)
+            return "NO";
     }
-
-    if (oddCount > (lst2.size() / 2)) {
-        return "NO";
-    } else {
-        return "YES";
-    }
+    return "YES";
 }
