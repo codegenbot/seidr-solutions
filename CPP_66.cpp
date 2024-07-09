@@ -16,7 +16,12 @@ int digitSum(string s){
 }
 
 int main() {
-    assert(digitSum("you are very smart") == 342);
-    cout << digitSum("you are very smart") << endl;
-    return 0;
+    assert(digitSum("you are very smart") == 21);
+    cout << digitSum(input()) << endl;
+}
+
+string input() {
+    string s;
+    cin >> s;
+    return s;
 }
