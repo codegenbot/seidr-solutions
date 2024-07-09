@@ -1,20 +1,20 @@
 #include <iostream>
 #include <string>
 
-bool cycpattern_check(std::string a, std::string b) {
+bool cycpattern_check(string a, string b) {
     int n = a.size(), m = b.size();
     if (n != m) return false;
     
-    std::string temp = a + a;
+    string temp = a + a;
     
-    return (temp.find(b) != std::string::npos);
+    return (temp.find(b) != string::npos);
 }
 
 int main() {
-    std::string a, b;
-    std::cin >> a >> b;
+    std::string a = "abc";
+    std::string b = "cab";
     
-    std::cout << (cycpattern_check(a, b) ? "true" : "false") << std::endl;
+    std::cout << cycpattern_check(a, b) << std::endl;
 
     return 0;
 }
