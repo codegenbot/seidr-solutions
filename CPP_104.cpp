@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -6,7 +7,7 @@ bool same(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> unique_digits(std::vector<int> x) {
-    vector<int> result;
+    std::vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
