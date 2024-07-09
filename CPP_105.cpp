@@ -10,8 +10,8 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
     }
 
-    sort(numbers.begin(), numbers.end());
-    reverse(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
+    std::reverse(numbers.begin(), numbers.end());
 
     std::vector<std::string> result;
     for (int num : numbers) {
@@ -50,10 +50,12 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3, 4, 5};
-    std::vector<std::string> result = by_length(arr);
-    for (auto str : result) {
-        std::cout << str << " ";
+    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    std::vector<std::string> result = by_length(numbers);
+    
+    for (const auto& str : result) {
+        std::cout << str << std::endl;
     }
+    
     return 0;
 }
