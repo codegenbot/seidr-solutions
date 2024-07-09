@@ -1,25 +1,8 @@
 ```cpp
 #include <iostream>
+bool is_happy(int n);
 
-bool is_happy(int n) {
-    if (n < 1)
-        return false;
-
-    int sum = 0;
-    while (n != 1) {
-        n = sum;
-        sum = 0;
-        while (n != 0) {
-            int digit = n % 10;
-            n /= 10;
-            sum += digit * digit;
-        }
-    }
-
-    return true;
-}
-
-int main_problem() {
+int main() {
     std::cout << "Enter a number: ";
     int num;
     std::cin >> num;  
@@ -29,4 +12,27 @@ int main_problem() {
         std::cout << num << " is not a happy number.\n";
     }
     return 0;
+}
+bool is_happy(int n) {
+    int sum = 0, remainder = 0;
+    while(n > 0){
+        remainder = n % 10;
+        sum += (remainder * remainder);
+        n /= 10;
+    }
+    if(sum == 1)
+        return true;
+    else{
+        n = sum;
+        sum = 0;
+        while(n > 0){
+            remainder = n % 10;
+            sum += (remainder * remainder);
+            n /= 10;
+        }
+    }
+    if(sum == 1)
+        return true;
+    else
+        return false;
 }
