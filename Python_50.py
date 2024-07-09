@@ -1,4 +1,4 @@
-```Python
+```
 def decode_shift():
     while True:
         try:
@@ -24,11 +24,9 @@ def decode_shift():
     for ch in s:
         if ch.isalpha():
             if ch.isupper():
-                decoded_s += chr(((ord(ch) - ord('A')) - shift) % 26 + ord('A'))
+                decoded_s += chr(((ord(ch) - ord('A')) + 26 - shift) % 26 + ord('A'))
             else:
-                decoded_s += chr(((ord(ch) - ord('a')) - shift) % 26 + ord('a'))
+                decoded_s += chr(((ord(ch) - ord('a')) + 26 - shift) % 26 + ord('a'))
         else:
             decoded_s += ch
     return decoded_s
-
-print(decode_shift())
