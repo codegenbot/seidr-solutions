@@ -32,5 +32,5 @@ int main() {
     int num;
     std::cin >> num;
     get_odd_collatz(num);
-    assert(isSame(get_odd_collatz(1) , {1}));
+    assert(isSame(get_odd_collatz(1), {1}));
 }
