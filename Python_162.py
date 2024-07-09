@@ -6,5 +6,10 @@ def string_to_md5(text):
         return None
     return hashlib.md5(text.encode()).hexdigest()
 
-text = input("Enter a string: ")
-print(string_to_md5(text))
+while True:
+    try:
+        text = input("Please enter a string: ")
+        print(string_to_md5(text))
+        break
+    except Exception as e:
+        print(f"Invalid input. Please try again.")
