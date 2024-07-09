@@ -1,9 +1,5 @@
 #include <vector>
-#include <algorithm>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
+#include <iostream>
 
 std::vector<int> even_odd_count(int num) {
     int count_even = 0, count_odd = 0;
@@ -18,7 +14,12 @@ std::vector<int> even_odd_count(int num) {
     return {count_even, count_odd};
 }
 
-int main() {
-    assert(even_odd_count(0) == std::vector<int>(1, 0));
+bool issame(std::vector<int> a,std::vector<int>b){
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+}
+
+int main(){
+    assert(even_odd_count(0) == std::vector<int>{1, 0});
+    std::cout << "Test Passed!" << std::endl;
     return 0;
 }
