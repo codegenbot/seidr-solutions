@@ -15,17 +15,19 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 
 int main() {
     int n, k;
-    std::cin >> n >> k;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
     std::vector<int> arr(n);
-    for(int i=0; i<n; i++) {
+    for(int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
         std::cin >> arr[i];
     }
-
-    std::cout << "Maximum elements: ";
-    for (int i : maximum(arr, k)) {
+    std::cout << "Enter number of maximum elements to extract: ";
+    std::cin >> k;
+    
+    std::vector<int> test = maximum(arr, k);
+    for (int i : test) {
         std::cout << i << " ";
     }
-    std::cout << std::endl;
-
     return 0;
 }
