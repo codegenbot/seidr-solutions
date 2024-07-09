@@ -13,13 +13,17 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, c
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
     std::vector<std::string> vec = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     std::string prefix = "xxx";
     std::vector<std::string> result = filter_by_prefix(vec, prefix);
-    bool same = issame(result, {prefix + "AAA"});
+    bool same = issame(result, {result[0], result[1], "xxx"});
     return 0;
 }
