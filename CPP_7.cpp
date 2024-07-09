@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -12,6 +11,6 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame({{"grunt", "trumpet", "prune", "gruesome"}, "run"} , {{"grunt", "prune"}}));
+    assert(issame({{"grunt", "trumpet", "prune", "gruesome"}, {"run"}}, {{"grunt", "prune"}}));
     return 0;
 }
