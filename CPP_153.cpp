@@ -3,7 +3,6 @@
 #include <string>
 #include <cctype>
 #include <climits>
-#include <cassert>
 
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     std::string strongest_extension = "";
@@ -20,7 +19,7 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
         }
 
         int strength = cap_count - sm_count;
-        if (strength > max_strength || (strength == max_strength && strongest_extension.empty())) {
+        if (strength > max_strength || (strength == max_strength && ext.size() > strongest_extension.size())) {
             max_strength = strength;
             strongest_extension = ext;
         }
