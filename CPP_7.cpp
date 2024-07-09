@@ -1,10 +1,13 @@
+```cpp
 #include <vector>
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    bool b;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
+    if(a.size() != b.size()) 
+        return false;
+    for(string s : a) {
+        if(std::find(b.begin(), b.end(), s) == b.end())
+            return false;    
     }
     return true;
 }
