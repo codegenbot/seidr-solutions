@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -15,7 +16,17 @@ int main() {
         std::cout << "-1" << std::endl; 
     } else {
         int result = prime_fib(n);
-        std::cout << "The " << (n == 1 ? "first" : n == 2 ? "second" : n == 3 ? "third" : "the " << std::to_string(n) << "th") << " prime Fibonacci number is: ";
+        std::string suffix;
+        if (n == 1) {
+            suffix = "st";
+        } else if (n == 2) {
+            suffix = "nd";
+        } else if (n == 3) {
+            suffix = "rd";
+        } else {
+            suffix = "th";
+        }
+        std::cout << "The " << result << " " << suffix << " prime Fibonacci number is: ";
         std::cout << result << std::endl;
     }
 }
