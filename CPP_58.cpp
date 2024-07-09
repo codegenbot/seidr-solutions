@@ -1,9 +1,10 @@
-#include <set>
 #include <vector>
+#include <set>
+
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    return common(a, b).size() == a.size();
+    return common(a, b);
 }
 
 vector<int> common(vector<int> l1, vector<int> l2) {
