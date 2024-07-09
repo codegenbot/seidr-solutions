@@ -16,27 +16,22 @@ std::vector<std::string> words_string(std::string s){
     std::string word = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
-            if(word.size() > 30){ 
-                int pos = s.find(' ', i);
-                if(pos != std::string::npos) {
-                    word = s.substr(i, pos-i);
-                    result.push_back(word);
-                    i = pos;
-                } else {
-                    word = s.substr(i);
-                    result.push_back(word);
-                    break;
-                }
-            }else{
-                if(word.size() > 0)  
-                    result.push_back(word);
+            if(word.size() <= 30){ 
+                result.push_back(word);
                 word = "";
+            } else {
+                if (word.size() > 0) {
+                    result.push_back(word);
+                    word = "";
+                }
             }
         }else{
             word += s[i];
         }
     }
-    if(word.size() > 30 || word.size() > 0)  
+    if(word.size() <= 30)  
+        result.push_back(word);
+    else if (word.size() > 0)
         result.push_back(word);
     return result;
 }
