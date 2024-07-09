@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool areSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -46,7 +46,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     return result;
 }
 
-int main() {
+int main_ {
     std::vector<int> input;
     for (int i = 0; i < 6; ++i) {
         int num;
@@ -56,12 +56,13 @@ int main() {
 
     std::vector<int> output = strange_sort_list(input);
 
-    if (areSame(output, {1,2,3,4,5,6})) {
+    if (areEqual(output, {1,2,3,4,5,6})) {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
     }
 
-    assert(areSame(strange_sort_list({111}), {111}));
+    assert(areEqual(strange_sort_list({111111}), {111111}));
+
     return 0;
 }
