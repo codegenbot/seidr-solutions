@@ -1,6 +1,6 @@
-```cpp
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 namespace myspace {
     bool issame(const std::vector<float>& a, const std::vector<float>& b) {
@@ -16,9 +16,14 @@ namespace myspace {
         int evenIndex = 0;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                std::partial_sort_copy(l.begin(), l.end(),
-                    &result[evenIndex++], &result[i+1],
+                auto it = std::minmax_element(l.begin(), l.end(),
                     [](float a, float b){ return a<b; });
+                result[i] = *(it.first);
+                for(int j = 0; j < l.size(); j++){
+                    if(j%2==0 && l[j] != *(it.first)){
+                        result[evenIndex++] = l[j];
+                    }
+                }
             } else {
                 result[i] = l[i];
             }
