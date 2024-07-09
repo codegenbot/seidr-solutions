@@ -1,17 +1,16 @@
-vector<float> sort_even(vector<float> l){
-    vector<float> result(l.size());
-    for(int i = 0; i < l.size(); i++){
-        if(i % 2 == 0){ // even index
-            vector<float> temp;
-            for(auto x : l) {
-                if(x <= l[i]) {
-                    temp.push_back(x);
-                }
-            }
-            result[i] = *max_element(temp.begin(), temp.end());
-        } else { // odd index
-            result[i] = l[i];
+#include <algorithm>
+using namespace std;
+
+vector<float> sort_even(vector<float> l) {
+    vector<float> l_prime;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 2 == 0) {
+            vector<float> even_indices(l.begin() + i, l.begin() + i + 1);
+            sort(even_indices.begin(), even_indices.end());
+            l_prime.push_back(even_indices[0]);
+        } else {
+            l_prime.push_back(l[i]);
         }
     }
-    return result;
+    return l_prime;
 }
