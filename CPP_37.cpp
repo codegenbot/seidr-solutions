@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```cpp
 #include <algorithm>
 #include <vector>
@@ -18,15 +16,15 @@ namespace myspace {
         int evenIndex = 0;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                auto it = l.begin();
-                for (int j = 0; j < l.size(); j++) {
-                    if (l[j] < *it) {
-                        it = &l[j];
+                float min = l[0];
+                for(int j = 0; j < l.size(); j++){
+                    if(j%2==0 && l[j] < min){
+                        min = l[j];
                     }
                 }
-                result[i] = *it;
+                result[i] = min;
                 for(int j = 0; j < l.size(); j++){
-                    if(j%2==0 && l[j] != *it){
+                    if(j%2==0 && l[j] != min){
                         result[evenIndex++] = l[j];
                     }
                 }
