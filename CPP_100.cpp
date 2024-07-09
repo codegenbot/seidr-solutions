@@ -1,7 +1,16 @@
+```cpp
 #include <vector>
-#include <algorithm>
+#include <assert.h>
 
-bool issame(vector<int> a, vector<int> b) {
+std::vector<int> make_a_pile(int size) {
+    std::vector<int> result;
+    for (int i = 0; i < size; i++) {
+        result.push_back(i * 2 + 8);
+    }
+    return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,18 +22,6 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    int stones = n;
-    while (stones > 0) {
-        pile.push_back(stones);
-        if (n % 2 == 1) {
-            n++;
-            stones = n;
-        } else {
-            n++;
-            stones = n;
-        }
-    }
-    return pile;
+int main() {
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
 }
