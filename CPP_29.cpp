@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
@@ -13,6 +12,12 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, c
 
 int main() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"};
-    std::vector<std::string> b = filter_by_prefix(a, "xxx");
-    assert(issame(b, {"xxx", "xxxAAA", "xxx"}));
+    std::vector<std::string> b;
+    b = filter_by_prefix(a, "xxx");
+    
+    if (issame(b, {"xxx", "xxxAAA", "xxx"})) {
+        return 0;
+    } else {
+        return -1; 
+    }
 }
