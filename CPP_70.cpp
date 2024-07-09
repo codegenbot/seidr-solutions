@@ -21,7 +21,7 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[b.size() - i - 1]) {
+        if (a[i] != b[b.size() - 1 - i]) {
             return false;
         }
     }
