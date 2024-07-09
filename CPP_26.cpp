@@ -1,9 +1,13 @@
 vector<int> remove_duplicates(vector<int> numbers){
+    unordered_map<int, bool> mp;
     vector<int> result;
-    for(int num : numbers) {
-        if(find_if(result.begin(), result.end(), bind(greater<int>(), placeholders::_1, num)) == result.end()) {
-            result.push_back(num);
+
+    for(int i = 0; i < numbers.size(); i++){
+        if(mp.find(numbers[i]) == mp.end()){
+            mp[numbers[i]] = true;
+            result.push_back(numbers[i]);
         }
     }
+
     return result;
 }
