@@ -1,33 +1,7 @@
-map<string, int> numMap = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
+map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
 
-string sort_numbers(string numbers){
-    string result = "";
-    vector<string> numList;
-    stringstream ss(numbers);
-    string token;
-    
-    while (ss >> token) {
-        numList.push_back(token);
-    }
-    
-    sort(numList.begin(), numList.end(), [&](const string &a, const string &b) {
-        return numMap[a] < numMap[b];
-    });
-    
-    for (const string &num : numList) {
-        result += num + " ";
-    }
-    
-    return result;
-}
+sort(numbers.begin(), numbers.end(), [&](const string &a, const string &b) {
+    return num_map[a] < num_map[b];
+});
+
+return numbers;
