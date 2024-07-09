@@ -1,22 +1,13 @@
+```
 cipher_dict = {}
+key1, key2, message = input().split()
 for char in key1:
-    cipher_dict[char] = char
-for char in key2:
     if char.isalpha():
-        cipher_dict[char.lower()] = (
-            cipher_dict.get(char.lower(), char).upper()
-            if char.isupper()
-            else cipher_dict.get(char.lower(), char)
-        )
-
+        cipher_dict[char] = key2[key1.index(char)]
 result = ""
-message = input()
 for char in message:
     if char.isalpha():
-        result += (
-            cipher_dict.get(char.lower(), char).upper()
-            if char.isupper()
-            else cipher_dict.get(char.lower(), char)
-        )
+        result += cipher_dict.get(char.lower(), char).upper() if char.isupper() else cipher_dict.get(char.lower(), char)
     else:
         result += char
+print(result)
