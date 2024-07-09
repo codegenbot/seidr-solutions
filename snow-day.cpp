@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <iomanip>
 
@@ -9,8 +9,9 @@ float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proporti
     
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowFall;
-        if(totalSnow > 0)
+        if (totalSnow > 0) {
             totalSnow -= totalSnow * proportionOfSnowMeltingPerHour / 100.0f;
+        }
     }
     
     return totalSnow;
@@ -20,11 +21,10 @@ int main() {
     int hours;
     cin >> hours;
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
-    while((cin >> ws).hits()); 
-    if (!(cin >> initialSnow)) break; 
-    if (!(cin >> rateOfSnowFall)) break; 
-    if (!(cin >> proportionOfSnowMeltingPerHour)) break; 
-
+    while (!(cin >> initialSnow) || !(cin >> rateOfSnowFall) || !(cin >> proportionOfSnowMeltingPerHour)) {
+        cout << "Invalid input. Please enter a number for each prompt." << endl;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
     cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
     return 0;
-}
