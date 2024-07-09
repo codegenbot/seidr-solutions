@@ -1,7 +1,3 @@
-```cpp
-#include <string>
-#include <cctype>
-
 std::string flip_case(std::string str){
     std::string result = "";
     for(char c : str){
@@ -13,4 +9,3 @@ std::string flip_case(std::string str){
             result += c;
     }
     return flip_case(str);
-}
