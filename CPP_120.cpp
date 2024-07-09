@@ -13,11 +13,9 @@ std::vector<int> maxKItems(std::vector<int>& arr, int k) {
 }
 
 int main() {
-    int n, k;
-    std::cout << "Enter number of elements: ";
+    int n;
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    std::cout << "Enter k: ";
-    std::cin >> k;
 
     std::vector<int> test(n);
     for(int i = 0; i < n; i++) {
@@ -25,7 +23,11 @@ int main() {
         std::cin >> test[i];
     }
 
-    auto result = maxKItems(test, k);
+    int k;
+    std::cout << "Enter the number of maximum elements to remove: ";
+    std::cin >> k;
+
+    std::vector<int> result = maxKItems(test, k);
 
     for (int i : result) {
         std::cout << i << " ";
