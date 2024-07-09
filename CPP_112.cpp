@@ -1,4 +1,4 @@
-```cpp
+````
 #include <vector>
 #include <string>
 
@@ -12,7 +12,7 @@ bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
+std::vector<std::string> std::reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
 
     for (char& ch : s) {
@@ -47,7 +47,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return final_result;
 }
 
-int main::cpp112() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+int main() {
+    std::assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
