@@ -20,6 +20,6 @@ int main() {
 
     long long odd_sum = double_the_difference(lst); 
     std::cout << "The sum of squares is: " << odd_sum << std::endl;
-
+    
     return 0;
 }
