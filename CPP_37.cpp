@@ -1,4 +1,3 @@
-```cpp
 using namespace std;
 
 bool isSame(const vector<float>& a, const vector<float>& b) {
@@ -22,4 +21,3 @@ vector<float> sortEven(vector<float> l) {
         }
     }
     return l_prime;
-}
