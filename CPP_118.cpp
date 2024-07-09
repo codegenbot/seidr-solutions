@@ -1,4 +1,5 @@
 #include <string>
+
 string get_closest_vowel(const string& word) {
     string vowels = "aeiouAEIOU";
     int n = word.size();
