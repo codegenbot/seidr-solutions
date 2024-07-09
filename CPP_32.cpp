@@ -22,25 +22,25 @@ double find_zero(const std::vector<double>& coeffs) {
 }
 
 int main() {
-    int n; // Number of terms in the polynomial
+    double coeffs[n];
+    int n; 
     std::cin >> n;
 
-    std::vector<double> coeffs(n); 
     for (int i = 0; i < n; i++) {
         double coeff;
         std::cin >> coeff;
         coeffs[i] = coeff;
     }
 
-    double x; // Input value
+    double x; 
     std::cin >> x;
     
     // Call poly function with input values
-    double sum = poly(coeffs, x);
+    double sum = poly({coeffs[0], coeffs[1], coeffs[2]}, x);
     std::cout << "The polynomial evaluation at x = " << x << " is: " << sum << std::endl;
 
     // Calculate the root using find_zero function
-    double solution = find_zero(coeffs);
+    double solution = find_zero({coeffs[0], coeffs[1], coeffs[2]});
 
     return 0;
 }
