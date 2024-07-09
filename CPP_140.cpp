@@ -1,7 +1,8 @@
+```cpp
 #include <string>
 
-string fix_spaces(string text) {
-    string result = "";
+std::string fix_spaces(std::string text){
+    std::string result = "";
     bool previousSpaceWasConsecutive = false;
 
     for(int i=0; i<text.length(); i++){
