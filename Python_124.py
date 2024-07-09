@@ -22,6 +22,5 @@ def valid_date(date):
     else:
         return False
 
-# Example usage:
 date_str = input("Enter a date in the format YYYY-MM-DD: ")
 print(valid_date(date_str))
