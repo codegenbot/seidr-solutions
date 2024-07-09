@@ -1,8 +1,9 @@
+```cpp
+#include <iostream>
 #include <string>
-using namespace std;
 
-std::string myFlipCase(std::string str){
-    string result = "";
+std::string flip_case(std::string str){
+    std::string result = "";
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z')
@@ -13,4 +14,9 @@ std::string myFlipCase(std::string str){
             result += c;
     }
     return result;
+}
+
+int main(){
+    std::cout << flip_case("These violent delights have violent ends") << std::endl;
+    return 0;
 }
