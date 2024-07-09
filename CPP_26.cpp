@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <set>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -11,20 +12,11 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
-    std::vector<int> uniqueNumbers;
+    std::set<int> uniqueNumbers;
     for (int num : numbers) {
-        bool found = false;
-        for (int i = 0; i < uniqueNumbers.size(); i++) {
-            if (uniqueNumbers[i] == num) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            uniqueNumbers.push_back(num);
-        }
+        uniqueNumbers.insert(num);
     }
-    return uniqueNumbers;
+    return std::vector<int>(uniqueNumbers.begin(), uniqueNumbers.end());
 }
 
 int main() {
