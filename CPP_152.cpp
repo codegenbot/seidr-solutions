@@ -8,33 +8,43 @@ bool issame(int a, int b) {
         return false;
 }
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    std::vector<int> result;
+int main() {
+    vector<int> game, guess;
+    
+    cout << "Enter the number of rounds: ";
+    int n; cin >> n;
+    
+    for (int i = 0; i < n; i++) {
+        cout << "Enter score for round " << i+1 << ": ";
+        int x; cin >> x;
+        game.push_back(x);
+        
+        cout << "Enter guess for round " << i+1 << ": ";
+        int y; cin >> y;
+        guess.push_back(y);
+    }
+    
+    vector<int> result = compare(game, guess);
+
+    cout << "\n";
+    for (int i = 0; i < n; i++) {
+        if (issame(game[i], guess[i]))
+            cout << "Same: " << game[i] << endl;
+        else
+            cout << "Different: " << game[i] << " vs. " << guess[i] << endl;
+    }
+    
+    return 0;
+}
+
+vector<int> compare(vector<int> game, vector<int> guess) {
+    vector<int> result;
     for (int i = 0; i < game.size(); i++) {
-        if (issame(game[i], guess[i])) {
+        if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
             result.push_back(abs(guess[i] - game[i]));
         }
     }
     return result;
-}
-
-int main() {
-    int n, m;
-    std::cout << "Enter the number of rounds: ";
-    std::cin >> n;
-    std::vector<int> game(n), guess(n);
-    
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter game[" << i << "] and guess[" << i << "]: ";
-        std::cin >> game[i] >> guess[i];
-    }
-    
-    std::vector<int> result = compare(game, guess);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Result[" << i << "] = " << result[i] << "\n";
-    }
-    
-    return 0;
 }
