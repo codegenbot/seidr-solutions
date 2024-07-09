@@ -21,12 +21,3 @@ std::vector<int> parse_nested_parens(const std::string& paren_string) {
     depths.push_back(max_depth);
     return depths;
 }
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a == b;
-}
-
-int main() {
-    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
-    return 0;
-}
