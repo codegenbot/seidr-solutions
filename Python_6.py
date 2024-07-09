@@ -1,5 +1,5 @@
 ```
-def parse_nested_parens(paren_string: str) -> List[int]:
+def parse_nested_parens(paren_string: str) -> list:
     result = []
     for s in paren_string.split():
         level = 0
