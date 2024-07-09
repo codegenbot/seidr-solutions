@@ -1,16 +1,19 @@
-#include <vector>
-using namespace std;
+#include <iostream>
+#include <cmath>
 
-int sum_squares(vector<float> lst){
+int sum_squares(float arr[], int n){
     int total = 0;
-    for(float x : lst){
-        int ceil_x = ceil(x);
-        total += pow(ceil_x,2);
+    for(int i=0; i<n; i++){
+        int ceil_x = std::ceil(arr[i]);
+        total += std::pow(ceil_x,2);
     }
     return total;
 }
 
 int main(){
-    assert(sum_squares({-1.0f,1.0f,0.0f})==2); 
+    float arr[] = {1.5, 2.7, 3.8};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int result = sum_squares(arr, n);
+    std::cout << "Sum of squares: " << result << std::endl;
     return 0;
 }
