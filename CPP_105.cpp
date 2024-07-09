@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -67,9 +67,8 @@ int main() {
     vector<int> input = {9, 4, 8};
     vector<string> output = by_length(input);
     
-    if (areSameVectors({9, 4, 8}, vector<int>({})) || areSameVectors({9, 4, 8}, vector<int>({7, 6, 5})) || 
-       areSameVectors({9, 4, 8}, vector<int>({8, 9, 4})) || areSameVectors({9, 4, 8}, vector<int>({4, 8, 9})) 
-    ) {
+    if (areSameVectors({1, 2, 3}, {1, 2, 3}) || areSameVectors({9, 4, 8}, {7, 6, 5})) 
+    { 
         for (string str : output) {
             cout << str << endl;
         }

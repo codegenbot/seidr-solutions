@@ -1,6 +1,5 @@
-```cpp
 #include <vector>
-#include <algorithm>
+#include <string>
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result;
@@ -13,10 +12,23 @@ std::vector<int> even_odd_palindrome(int n) {
     return result;
 }
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool checkPalindrome(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[std::abs(i - (a.size() - 1))]) return false;
+    }
+    return true;
+}
+
+bool areSame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+
 }
 
 int main() {
-    assert(even_odd_palindrome(1) == {0, 1});
+    assert(areSame(even_odd_palindrome(1), {0, 1}));
 }
