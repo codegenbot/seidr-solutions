@@ -6,18 +6,10 @@ long long minSubArraySum(vector<long long> nums) {
 
     for (int i = 0; i < nums.size(); i++) {
         current_sum += nums[i];
-
         if (current_sum < min_sum) {
             min_sum = current_sum;
         }
-
         if (current_sum > 0) {
-            int left = i;
-            while (left >= 0 && current_sum > min_sum) {
-                current_sum -= nums[left];
-                left--;
-            }
-        } else {
             current_sum = 0;
         }
     }
