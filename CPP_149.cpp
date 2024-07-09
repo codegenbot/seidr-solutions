@@ -1,4 +1,3 @@
-```
 vector<string> sorted_list_sum(vector<string> lst){
     vector<string> result;
     for(auto s: lst) {
@@ -15,9 +14,4 @@ vector<string> sorted_list_sum(vector<string> lst){
          });
 
     return result;
-}
-
-int main() {
-    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == vector<string>({"cc", "dd", "aaaa", "bbbb"}));
-    return 0;
 }
