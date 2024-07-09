@@ -7,6 +7,7 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
         int minVal = *min_element(lst.begin(), lst.end());
         result.push_back(minVal);
         lst.erase(remove(lst.begin(), lst.end(), minVal), lst.end());
+        
         if (!lst.empty()) {
             int maxVal = *max_element(lst.begin(), lst.end());
             result.push_back(maxVal);
