@@ -1,5 +1,3 @@
-#include <string>
-
 int* pairedDigits(std::string s) {
     int sum = 0;
     for (int i = 1; i < s.length(); i++) {
@@ -22,5 +20,6 @@ int main() {
     } else {
         std::cout << "Sum of paired digits: " << *result << std::endl;
     }
+    delete result; 
     return 0;
 }
