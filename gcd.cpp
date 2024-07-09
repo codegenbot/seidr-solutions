@@ -14,13 +14,13 @@ int gcd(int a, int b) {
 }
 
 vector<int> findIndicesOfSubstring(const string& text, const string& target) {
-    vector<int> result;
-    size_t pos = 0;
-    while ((pos = text.find(target, pos)) != string::npos) {
-        result.push_back(pos);
-        pos++;
+    vector<int> indices;
+    size_t pos = text.find(target, 0);
+    while (pos != string::npos) {
+        indices.push_back(pos);
+        pos = text.find(target, pos + 1);
     }
-    return result;
+    return indices;
 }
 
 int main() {
