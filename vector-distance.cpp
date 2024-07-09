@@ -1,6 +1,6 @@
 ```cpp
-#include <cmath>
 #include <vector>
+#include <cmath>
 
 double vectorDistance(const std::vector<double>& v1, const std::vector<double>& v2) {
     double sum = 0;
