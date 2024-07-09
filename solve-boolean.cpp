@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+```cpp
+#include <string>
+#include <iostream>
 using namespace std;
 
 bool solveBoolean(const string& s, size_t& i) {
@@ -36,10 +38,6 @@ int main() {
 
     size_t i = 0;
     bool result = solveBoolean(input, i);
-
-    if (i < input.size()) { 
-        result = false; // invalid input
-    }
 
     if (result) {
         cout << "The result is True." << endl;
