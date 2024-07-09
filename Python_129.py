@@ -7,7 +7,7 @@ def minPath(grid, k):
         if sum(path) > k:
             return None
         visited.add((x, y))
-        if len(path) == n * n:
+        if len(path) == n * n or sum(path) == k:
             return path
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
@@ -16,7 +16,7 @@ def minPath(grid, k):
                 if new_path:
                     return new_path
         visited.remove((x, y))
-
+      
     for i in range(n):
         for j in range(n):
             path = dfs(i, j, [grid[i][j]])
