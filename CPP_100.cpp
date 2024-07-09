@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <initializer_list>
 
-bool issame(std::vector<int> const &a, const std::vector<int> &b) {
+bool same(std::vector<int> const &a, const std::vector<int> &b) {
     return a == b;
 }
 
@@ -16,6 +16,6 @@ std::vector<int> make_a_pile(int n) {
 int main() {
     int n = 8;
     std::vector<int> pile = make_a_pile(n);
-    assert(issame(pile, pile));
+    assert(same(pile, pile));
     return 0;
 }
