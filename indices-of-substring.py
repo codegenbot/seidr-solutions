@@ -6,11 +6,6 @@ def indices_of_substring(text, target):
         if pos == -1:
             break
         result.append(i + pos)
-        i += pos + 1
+        i += pos + len(target)
 
     return result
-
-if __name__ == "__main__":
-    text = input("Enter the text: ")
-    target = input("Enter the target: ")
-    print(indices_of_substring(text, target))
