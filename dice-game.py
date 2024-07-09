@@ -1,9 +1,6 @@
 def roll_dice(n, m):
-    p_total = n
-    c_total = m
-    
-    same_count = sum(1 for _ in range(min(n, m), 0) if (p_total - _) == (c_total - _))
-    
-    same_or_greater_count = sum(1 for _ in range(min(n, m), 1) if (p_total - _) > (c_total - _))
-    
-    return (same_or_greater_count + 1) / (n * m)
+    p_win_count = sum(
+        1 for i in range(min(n, m) + 1, n + 1) for j in range(1, min(m, i) + 1)
+    )
+
+    return p_win_count / (n * m)
