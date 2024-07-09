@@ -1,3 +1,4 @@
+```
 def sum_squares(lst):
     if not all(1 <= i <= 10 for i in lst):
         return "Error: List must contain only numbers between 1 and 10."
