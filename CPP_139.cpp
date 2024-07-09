@@ -24,10 +24,14 @@ int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    if(n < 0){
-        std::cout << "Error! Factorial is not defined for negative numbers." << std::endl;
-    } else {
-        std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
+    try {
+        if (n < 0) {
+            throw std::invalid_argument("Input should be a non-negative integer.");
+        } else {
+            std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
+        }
+    } catch(const std::exception &e) {
+        std::cerr << "Error: " << e.what() << '\n';
     }
     return 0;
 }
