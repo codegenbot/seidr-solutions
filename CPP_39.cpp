@@ -1,10 +1,27 @@
-```cpp
 #include <iostream>
-#include <string>
 
-bool isPrime(int num); 
+bool isPrime(int num) {
+    if (num <= 1)
+        return false; 
+    for (int i = 2; i * i <= num; i++)
+        if (num % i == 0)
+            return false;
+    return true;
+}
 
-int prime_fib(int n);
+int prime_fib(int n) {
+    if (n <= 0)
+        return -1; 
+    int a = 1, b = 1, count = 2;
+    while (true) {
+        if (isPrime(b))
+            if (++count == n)
+                return b;
+        int temp = a + b;
+        a = b;
+        b = temp;
+    }
+}
 
 int main() {
     int n;
@@ -26,30 +43,7 @@ int main() {
         } else {
             suffix = "th";
         }
-        std::cout << "The " << num << suffix << " prime Fibonacci number is: ";
+        std::cout << "The " << result << suffix << " prime Fibonacci number is: ";
         std::cout << result << std::endl;
     }
-}
-
-int prime_fib(int n) {
-    if (n <= 0)
-        return -1; 
-    int a = 1, b = 1, count = 2;
-    while (true) {
-        if (isPrime(b))
-            if (++count == n)
-                return b;
-        int temp = a + b;
-        a = b;
-        b = temp;
-    }
-}
-
-bool isPrime(int num) {
-    if (num <= 1)
-        return false; 
-    for (int i = 2; i * i <= num; i++)
-        if (num % i == 0)
-            return false;
-    return true;
 }
