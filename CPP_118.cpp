@@ -1,20 +1,16 @@
-#include <string>
-#include <algorithm>
-using namespace std;
+Here is the solution:
 
 string get_closest_vowel(string word) {
-    int left = 0;
-    for (int i = 0; i < word.size(); i++) {
-        if (!isvowel(word[i])) {
-            left = i + 1;
-        } else if (i > left) {
-            return string(1, word[i]);
+    int n = word.size();
+    for(int i=n-2; i>=1; --i){
+        if(isvowel(word[i])){
+            return string(1,word[i]);
         }
     }
     return "";
 }
 
-bool isvowel(char c) {
+bool isvowel(char c){
     c = tolower(c);
     return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
