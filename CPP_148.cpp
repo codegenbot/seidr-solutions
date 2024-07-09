@@ -2,13 +2,6 @@
 #include <algorithm>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a == b) {
-        return true;
-    }
-    return false;
-}
-
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
@@ -38,4 +31,8 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::sort(result.begin(), result.end());
     
     return result;
+}
+
+bool bf(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
