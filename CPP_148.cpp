@@ -1,6 +1,10 @@
 #include <vector>
 using namespace std;
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> bf(string planet1, string planet2) {
     vector<string> result;
 
@@ -25,10 +29,12 @@ vector<string> bf(string planet1, string planet2) {
         return result;
     }
 
-    for (int i = min(index1, index2); i <= max(index1, index2); i++) {
-        result.push_back(planets[i]);
+    for (int i = 0; i < 9; i++) {
+        if (i >= std::min(index1, index2) && i <= std::max(index1, index2)) {
+            result.push_back(planets[i]);
+        }
     }
-    
+
     sort(result.begin(), result.end());
 
     return result;
