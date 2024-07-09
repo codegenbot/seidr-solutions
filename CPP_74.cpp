@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -33,7 +34,16 @@ int main() {
     std::vector<std::string> lst1 {"this", "is", "a"};
     std::vector<std::string> lst2 {"hello", "from", "c++"};
 
-    assert(issame({std::vector<std::string>{{"this"}}} , std::vector<std::string>{} , std::vector<std::string>{}));
+    assert(issame({{"this"}}, {""}, {}));
     std::cout << "Test passed" << std::endl;
+    
+    if (total_sum(lst1) < total_sum(lst2)) {
+        std::cout << "List 1 has the highest sum." << std::endl;
+    } else if (total_sum(lst1) > total_sum(lst2)) {
+        std::cout << "List 2 has the highest sum." << std::endl;
+    } else {
+        std::cout << "Both lists have the same sum." << std::endl;
+    }
+    
     return 0;
 }
