@@ -18,7 +18,7 @@ bool areVectorsEqual(vector<int> a, vector<int> b) {
 vector<int> remove_duplicates(vector<int> numbers) {
     std::vector<int> newVector;
     for(int i:numbers){
-        if(std::find_if(newVector.begin(), newVector.end(), [&](int x){return std::to_string(x) != std::to_string(i);}) == newVector.end()){
+        if(std::find(newVector.begin(), newVector.end(), i) == newVector.end()){
             newVector.push_back(i);
         }
     }
@@ -30,14 +30,15 @@ int mainFunction() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    vector<int> numbers(n);
+    std::vector<int> numbers(n); // declare with size n
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> numbers[i];
     }
 
-    vector<int> result = remove_duplicates(numbers);
+    std::vector<int> result = remove_duplicates(numbers);
 
+    numbers.clear(); 
     if (areVectorsEqual(result, numbers)) {
         std::cout << "The resulting vector is the same as the original." << std::endl;
     } else {
