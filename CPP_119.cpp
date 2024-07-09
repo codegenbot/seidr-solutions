@@ -1,17 +1,10 @@
-Here is the completed code:
-
-```cpp
-int stack_size = 0;
-for (auto &s : lst) {
-    int size = s.size();
-    for (int i = 0; i < size; i++) {
-        if (s[i] == '(') {
-            stack_size++;
-        } else if (s[i] == ')') {
-            if (stack_size <= 0) return "No";
-            stack_size--;
+string match_parens(vector<string> lst){
+    int open = 0, close = 0;
+    for (const string& s : lst) {
+        for (char c : s) {
+            if (c == '(') open++;
+            else close++;
         }
     }
+    return (open == close) ? "Yes" : "No";
 }
-if (stack_size > 0) return "No";
-return "Yes";
