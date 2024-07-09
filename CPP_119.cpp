@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,6 +19,6 @@ std::string match_parens(vector<string> lst) {
 }
 
 int main() {
-    cout << match_parens({{"(", ")"}) << endl;
+    assert(match_parens({{"(", ")"}) == "Yes");  
     return 0;
 }
