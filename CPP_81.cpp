@@ -30,25 +30,23 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades1 = {0.0f, 0.7f};
-    vector<string> result1;
+    int n;
+    cout << "Enter the number of grades: ";
+    cin >> n;
 
-    for (float grade : grades1) {
-        if (grade < 0.9)
-            result1.push_back("F");
-        else if (grade >= 0.9 && grade < 1.0)
-            result1.push_back("A");
-        else if (grade >= 0.8 && grade < 0.9)
-            result1.push_back("B");
-        else if (grade >= 0.7 && grade < 0.8)
-            result1.push_back("C");
-        else
-            result1.push_back("D+");
+    vector<float> grades1(n);
+    for (float &grade : grades1) {
+        cout << "Enter grade " << (n-1) + 1 << ": ";
+        cin >> grade;
     }
+    
+    vector<string> result1 = numerical_letter_grade(grades1);
 
     if (checkResults(result1, result1)) {
         cout << "The two vectors are the same." << endl;
     } else {
         cout << "The two vectors are not the same." << endl;
     }
+
+    return 0;
 }
