@@ -1,10 +1,8 @@
-```cpp
-double find_zero(vector<double> coefficients) {
+double find_zero(vector<double> coeffs){
     double sum = 0;
-    int coeff = 1;
-    for (int i = 1; i < coefficients.size(); i += 2) {
-        sum -= coeff * coefficients[i] / coefficients[0];
-        coeff *= -1;
+    vector<double> ncoeffs; // rename 'coeffs' to 'ncoeffs'
+    for (int i = 1; i < coeffs.size(); i += 2) {
+        ncoeffs.push_back(coeffs[i] / coeffs[0]);
     }
-    return -sum / coefficients[0];
+    return -sum / coeffs[0];
 }
