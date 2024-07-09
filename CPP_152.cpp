@@ -1,26 +1,29 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
 bool issame(int a, int b) {
     if (a == b)
         return true;
-    else if ((a % 10) == (b % 10))
-        return false;
     else
-        return true;
+        return false;
 }
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    int black = 0, white = 0;
+    std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
-        if (game[i] == guess[i])
-            continue;
-        else if (issame(game[i], guess[i]))
-            white++;
-        else
-            black++;
+        if (issame(game[i], guess[i])) {
+            result.push_back(0);
+        } else if (game[i] > guess[i]) {
+            if (abs(game[i] - guess[i]) == 1)
+                result.push_back(1);
+            else
+                result.push_back(abs(game[i] - guess[i]));
+        } else {
+            if (abs(game[i] - guess[i]) == 1)
+                result.push_back(-1);
+            else
+                result.push_back(abs(game[i] - guess[i]));
+        }
     }
-    std::vector<int> result({black, white});
     return result;
 }

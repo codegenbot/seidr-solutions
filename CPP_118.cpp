@@ -5,15 +5,13 @@ std::string getClosestVowel(std::string word) {
     int closestIndex = -1;
     for (int i = word.length() - 1; i >= 0; --i) {
         if (isVowel(word[i])) {
-            if (closestIndex == -1 || i < closestIndex)
+            if (closestIndex == -1)
+                closestIndex = i;
+            else if (abs(closestIndex - i) < abs(i - (word.length() - 1)))
                 closestIndex = i;
         }
     }
-    if (closestIndex != -1) {
-        result = word.substr(closestIndex, 1);
-    } else
-        result = "No vowel found";
-    return result;
+    return word.substr(closestIndex, 1);
 }
 
 bool isVowel(char c) {
