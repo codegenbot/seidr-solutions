@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <cmath>
 
 int findGCD(int a, int b) {
     if (b == 0) return std::abs(a);
@@ -17,5 +17,4 @@ int main() {
     std::cin >> a >> b;
     int result = findGCD(a, b);
     std::cout << "The GCD is: " << result << std::endl;
-    return 0;
 }

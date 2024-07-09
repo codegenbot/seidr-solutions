@@ -1,56 +1,34 @@
 ```c++
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <vector>
-
-std::vector<std::string> split(const std::string& str, char c) {
-    std::vector<std::string> words;
-    std::string word;
-    for (int i = 0; i < str.length(); i++) {
-        if (i == str.length() || str[i] == c) {
-            if (i < str.length()) {
-                word += str[i];
-            }
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
-            }
-            if (i < str.length()) {
-                word = "";
-            }
-        } else {
-            word += str[i];
-        }
-    }
-    return words;
-}
-
-std::string join(const std::vector<std::string>& vec, char c) {
-    std::string result;
-    for (int i = 0; i < vec.size(); i++) {
-        if (i > 0) {
-            result += c;
-        }
-        result += vec[i];
-    }
-    return result;
-}
-
 std::string spinWords(std::string str) {
     std::vector<std::string> words = split(str, ' ');
     for (int i = 0; i < words.size(); i++) {
         if (words[i].length() >= 5) {
-            std::reverse(words[i].begin(), words[i].end());
+            std::string temp = words[i];
+            std::reverse(temp.begin(), temp.end());
+            words[i] = temp;
         }
     }
     return join(words, ' ');
 }
 
-int main() {
-    std::cout << "Enter a string: ";
-    std::string str;
-    std::getline(std::cin, str);
-    std::cout << spinWords(str) << std::endl;
-    return 0;
+std::vector<std::string> split(const std::string& str, char c) {
+    std::vector<std::string> tokens;
+    size_t pos = 0;
+    while ((pos = str.find(c)) != std::string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
+    }
+    tokens.push_back(str);
+    return tokens;
+}
+
+std::string join(const std::vector<std::string>& vec, char c) {
+    std::string result;
+    for (const auto& s : vec) {
+        if (!result.empty()) {
+            result += c;
+        }
+        result += s;
+    }
+    return result;
 }
