@@ -1,14 +1,36 @@
+```cpp
+#include <vector>
+#include <cassert>
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<int> make_a_pile(int n) {
     vector<int> pile;
     int stones = n;
     while (stones > 0) {
-        if (n % 2 == 1) { // If n is odd
-            pile.push_back(2*stones + 1);
-        } else { // If n is even
-            pile.push_back(2*stones);
+        if (n % 2 == 1) {
+            pile.push_back(stones);
+            stones = stones + 1;
+        } else {
+            pile.push_back(stones);
+            stones = stones + 2;
         }
-        stones /= 2;
-        n = stones;
+        n++;
     }
     return pile;
+}
+
+int main() {
+    assert(make_a_pile(8).size() == 8); 
+    return 0;
 }
