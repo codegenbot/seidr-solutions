@@ -43,39 +43,39 @@ int main() {
     std::vector<std::string> lst4 = {"jackfruit", "kiwi", "lemon"};
 
     // User input
-    std::cout << "Enter 2 lists of fruits separated by commas: ";
+    std::cout << "Enter 2 lists of fruits separated by spaces: ";
     std::string user_input1, user_input2;
     std::getline(std::cin, user_input1);
     std::getline(std::cin, user_input2);
 
+    std::istringstream iss(user_input1);
     std::vector<std::string> lst5;
-    std::stringstream iss(user_input1);
-    std::string s;
-    while (std::getline(iss, s, ',')) {
-        lst5.push_back(s);
+    while (std::getline(iss, user_input1, ' ')) {
+        lst5.push_back(user_input1);
     }
 
+    std::istringstream iis(user_input2);
     std::vector<std::string> lst6;
-    std::stringstream iis(user_input2);
-    while (std::getline(iis, s, ',')) {
-        lst6.push_back(s);
+    while (std::getline(iis, user_input2, ' ')) {
+        lst6.push_back(user_input2);
     }
 
-    if (total_sum(lst1) < total_sum(lst2)) {
-        std::cout << "List 1 has a lower sum." << std::endl;
-    }
-    else if (total_sum(lst1) > total_sum(lst2)) {
-        std::cout << "List 2 has a higher sum." << std::endl;
-    }
-    else {
-        std::cout << "The sums are equal." << std::endl;
+    if (!lst1.empty() && !lst2.empty()) {
+        if (total_sum(lst1) < total_sum(lst2)) {
+            std::cout << "List 1 has a lower sum." << std::endl;
+        } else if (total_sum(lst1) > total_sum(lst2)) {
+            std::cout << "List 2 has a higher sum." << std::endl;
+        } else {
+            std::cout << "The sums are equal." << std::endl;
+        }
     }
 
-    if (issame(lst5, lst6)) {
-        std::cout << "The lists are the same." << std::endl;
-    }
-    else {
-        std::cout << "The lists are different." << std::endl;
+    if (!lst5.empty() && !lst6.empty()) {
+        if (issame(lst5, lst6)) {
+            std::cout << "The lists are the same." << std::endl;
+        } else {
+            std::cout << "The lists are different." << std::endl;
+        }
     }
 
     return 0;
