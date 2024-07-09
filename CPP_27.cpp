@@ -1,6 +1,8 @@
+```cpp
+#include <cctype>
 using namespace std;
 
-string flipCase(string str) {
+string flip_case(string str){
     string result = "";
     for(char c : str){
         if(islower(c))
