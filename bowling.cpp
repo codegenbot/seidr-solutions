@@ -1,4 +1,4 @@
-#include <string>
+```cpp
 #include <sstream>
 
 int bowlingScore(std::string s) {
@@ -52,4 +52,10 @@ int bowlingScore(std::string s) {
     }
 
     return score;
+}
+
+int main() {
+    std::string s = "X/X/5-4/10/-9/-8/X/X/6+3/7-2";
+    int result = bowlingScore(s);
+    return result;
 }
