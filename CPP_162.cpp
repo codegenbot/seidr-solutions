@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <openssl/evp.h>
-#include <string_view>
 
 std::string_view string_to_md5(const std::string& text) {
     if (text.empty()) {
@@ -27,5 +26,5 @@ std::string_view string_to_md5(const std::string& text) {
         sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
-    return std::string_view(mdString, 32);
-}
+    return mdString;
+}  
