@@ -23,5 +23,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     return result
 
-paren_string = input("Enter the expression with parentheses: ")
-print(separate_paren_groups(paren_string))
+if __name__ == "__main__":
+    input_string = input("Enter a string: ")
+    result = separate_paren_groups(input_string)
+    print(result)
