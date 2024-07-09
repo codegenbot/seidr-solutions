@@ -1,5 +1,13 @@
 #include <vector>
-using namespace std;
+
+bool is_same(string s1, string s2) {
+    if (s1.size() != s2.size())
+        return false;
+    for (int i = 0; i < s1.size(); ++i)
+        if (s1[i] != s2[i])
+            return false;
+    return true;
+}
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
@@ -28,7 +36,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else if (g > 0.7)
             letterGrade = "D";
         else
-            letterGrade = "F";
+            letterGrade = "E";
 
         result.push_back(letterGrade);
     }
