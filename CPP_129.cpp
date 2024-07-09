@@ -50,7 +50,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     return res;
 }
 
-int main() {
+int mainTest() {
     vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     int k = 3;
 
