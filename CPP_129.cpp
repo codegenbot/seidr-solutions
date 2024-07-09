@@ -8,12 +8,18 @@ struct prior {
     pair<int, int> pos;
 };
 
-priority_queue<prior> pq;
-
-vector<vector<bool>> visited(1000, vector<bool>(1000, false));
+prior operator>(const prior& a, const prior& b) {
+    if (a.val == b.val) {
+        return {a.val, {a.pos.first + 1, a.pos.second}} > {{b.val, {b.pos.first + 1, b.pos.second}}};
+    }
+    return a.val > b.val;
+}
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
+    vector<vector<bool>> visited(1000, vector<bool>(1000, false));
+    
+    priority_queue<prior> pq;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
