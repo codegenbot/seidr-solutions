@@ -1,1 +1,1 @@
-std::string result = std::string();
+std::string result(1);
