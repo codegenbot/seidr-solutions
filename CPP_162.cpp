@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <string>
 
 using namespace std;
 
@@ -12,7 +14,7 @@ std::string string_to_md5(std::string text) {
 
     std::string output;
     for(int i = 0; i < 16; i++) {
-        stringstream ss;
+        ostringstream ss;
         ss << setfill('0') << setw(2) << hex << (int)result[i];
         output += ss.str();
     }
