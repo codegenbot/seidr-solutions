@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <string>
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -11,9 +11,9 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    std::string a, b;
-    std::cout << "Enter two strings: ";
+    std::cout << "Enter two integers: ";
+    int a, b;
     std::cin >> a >> b;
-    std::cout << "GCD: " << gcd(a.size(), b.size()) << std::endl;
+    std::cout << "GCD: " << gcd(a, b) << std::endl;
     return 0;
 }
