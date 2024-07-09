@@ -1,30 +1,33 @@
-```cpp
+#include <boost/any.hpp>
 #include <vector>
-#include <list>
+#include <algorithm>
 
-using namespace std;
-
-bool issame(vector<any> a, vector<any> b) {
+bool issame(vector<boost::any> a, vector<boost::any> b) {
     if (a.size() != b.size())
         return false;
     for (size_t i = 0; i < a.size(); i++) {
-        any& value_a = a[i];
-        any& value_b = b[i];
-        if (!any_cast<bool>(value_a) || !any_cast<bool>(value_b))
+        if (!boost::any_cast<bool>(a[i]) || !boost::any_cast<bool>(b[i]))
             continue;
-        if (any_cast<int>(value_a) != any_cast<int>(value_b))
+        if (boost::any_cast<int>(a[i]) != boost::any_cast<int>(b[i]))
             return false;
     }
     return true;
 }
 
-vector<int> filter_integers(list<any> values){
+vector<int> filter_integers(vector<boost::any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<bool>(value)) {
-            int num = any_cast<int>(value);
-            result.push_back(num);
+        bool isInt = boost::any_cast<bool>(value);
+        int integerValue = 0;
+        if (isInt && boost::any_cast<void*>(value)) {
+            integerValue = boost::any_cast<int>(value);
+            result.push_back(integerValue);
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}), {3, 3, 3}));
+    return 0;
 }
