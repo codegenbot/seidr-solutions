@@ -1,7 +1,8 @@
-#include<string>
-#include<openssl/md5.h>
-#include<iomanip>
-#include<sstream>
+#include <string>
+#include <openssl/ssl.h>
+#include <openssl/md5.h>
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -9,17 +10,19 @@ string string_to_md5(string text) {
     if (text.empty()) return "None";
     
     unsigned char md5[16];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, (const unsigned char*)text.c_str(), text.size());
-    MD5_Final(md5, &ctx);
+    EVP_MD_CTX *md_ctx = EVP_MD_CTX_new();
+    EVP_MD *md = EVP_md_md5();
+    EVP_DigestInit_ex(md_ctx, md, NULL);
+    EVP_DigestUpdate(md_ctx, text.c_str(), text.size());
+    EVP_DigestFinal_ex(md_ctx, md5, NULL);
 
     string result;
     for(int i = 0; i < 16; ++i){
-        std::ostringstream ss;
-        ss << hex << setw(2) << setfill('0') << (int)md5[i];
+        ostringstream ss;
+        ss << hex << (int)md5[i];
         result += ss.str();
     }
     
+    EVP_MD_CTX_free(md_ctx);
     return result;
 }

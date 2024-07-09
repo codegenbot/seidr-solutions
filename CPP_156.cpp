@@ -1,5 +1,3 @@
-#include <string>
-
 string int_to_mini_roman(int num) {
     string roman[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
                       "", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
@@ -32,55 +30,29 @@ string int_to_mini_roman(int num) {
             num -= 400;
             result += "CD";
         } else if (num >= 100) {
-            while(num >= 100) {
-                if(num >= 900) {
-                    num -= 900;
-                    result += "CM";
-                } else if(num >= 500) {
-                    num -= 500;
-                    result += "D";
-                } else {
-                    num -= 100;
-                    result += "C";
-                }
+            for(int i = 0; i < (num / 100); ++i) {
+                num -= 100;
+                result += "C";
             }
         } else if (num >= 90) {
             num -= 90;
             result += "XC";
         } else if (num >= 50) {
-            while(num >= 50) {
-                if(num >= 40) {
-                    num -= 40;
-                    result += "XL";
-                } else {
-                    num -= 50;
-                    result += "L";
-                }
-            }
-        } else if (num >= 9) {
-            num -= 9;
-            result += "IX";
-        } else if (num >= 5) {
-            while(num >= 5) {
-                if(num >= 4) {
-                    num -= 4;
-                    result += "IV";
-                } else {
-                    num -= 5;
-                    result += "V";
-                }
-            }
-        } else if (num >= 3) {
-            while(num > 2) {
-                num--;
-                result += "I";
-            }
-            if(num == 2) {
-                return "II";
-            }
+            num -= 50;
+            result += "L";
+        } else if (num >= 40) {
+            num -= 40;
+            result += "XL";
         } else {
-            num--;
-            result += "I";
+            for(int i = 0; ; ++i) {
+                if ((num-i*1 >= 10 && num-i*5 < 10) || i == 9) break;
+                num -= i*5;
+                result += roman[i];
+            }
+            while (num > i*1) {
+                num -= i*1;
+                result += roman[i];
+            }
         }
     }
 
