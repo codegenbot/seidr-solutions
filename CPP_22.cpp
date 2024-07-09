@@ -1,28 +1,33 @@
 #include <boost/any.hpp>
 #include <vector>
-#include <algorithm>
 
-bool issame(vector<boost::any> a, vector<boost::any> b) {
+bool issame(std::vector<boost::any> a, std::vector<boost::any> b) {
     if (a.size() != b.size())
         return false;
     for (size_t i = 0; i < a.size(); i++) {
-        if (!boost::any_cast<bool>(a[i]) || !boost::any_cast<bool>(b[i]))
+        bool a_bool = boost::any_cast<bool>(a[i]);
+        bool b_bool = boost::any_cast<bool>(b[i]);
+        int a_int = boost::any_cast<int>(a[i]);
+        int b_int = boost::any_cast<int>(b[i]);
+
+        if (!a_bool || !b_bool)
             continue;
-        if (boost::any_cast<int>(a[i]) != boost::any_cast<int>(b[i]))
+
+        if (a_bool != b_bool || a_int != b_int)
             return false;
     }
     return true;
 }
 
-vector<int> filter_integers(vector<boost::any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::vector<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        bool isInt = boost::any_cast<bool>(value);
-        int integerValue = 0;
-        if (isInt && boost::any_cast<void*>(value)) {
-            integerValue = boost::any_cast<int>(value);
-            result.push_back(integerValue);
-        }
+        bool is_int = boost::any_cast<bool>(value);
+        if (!is_int)
+            continue;
+
+        int v = boost::any_cast<int>(value);
+        result.push_back(v);
     }
     return result;
 }
