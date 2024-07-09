@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -45,4 +44,3 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 int main() {
     assert(checkIfSame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
     return 0;
-}
