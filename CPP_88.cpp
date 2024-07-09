@@ -1,13 +1,11 @@
-if (array.empty()) {
-    return array;
-}
+#include <vector>
 
-int sum = array.front() + array.back();
-if (sum % 2 == 0) {
-    sort(array.rbegin(), array.rend());
-} else {
-    sort(array.begin(), array.end());
-}
-
-return array;
+bool sort_array(vector<int> a, vector<int> b) {
+    if(a.empty()) return b;
+    if((a.front() + a.back()) % 2 == 0) {
+        sort(a.begin(), a.end(), greater<int>());
+    } else {
+        sort(a.begin(), a.end());
+    }
+    return a == b;
 }
