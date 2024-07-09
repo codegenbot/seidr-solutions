@@ -1,27 +1,52 @@
 #include <string>
+#include <iostream>
 
 bool solveBoolean(std::string s) {
     bool result = true;
-    for (int i = 0; i < s.size(); i++) {
+    int i = 0;
+    while (i < s.size()) {
         switch (s[i]) {
             case 'T':
+                i++;
                 break;
             case 'F':
                 if (result)
                     result = false;
                 else
                     return false;
+                i++;
                 break;
-            case '|':
-                result = true;
-                break;
-            case '&':
-                return result;
+            case '|': {
+                bool subResult = true;
+                while (i < s.size() && s[i] == '|') {
+                    i++;
+                }
+                for (; i < s.size() && s[i] != '&'; i++) {
+                    if (s[i] == 'F')
+                        subResult = false;
+                }
+                result = subResult;
+                break; }
+            case '&': {
+                bool subResult = true;
+                while (i < s.size() && s[i] == '&') {
+                    i++;
+                }
+                for (; i < s.size(); i++) {
+                    if (s[i] != 'T' && s[i] != 'F')
+                        return false;  // Incorrect input
+                    if (s[i] == 'F')
+                        subResult = false;
+                }
+                result = subResult;
+                break; }
         }
     }
     return result;
 }
 
 int main() {
-    return solveBoolean("input_string");
+    std::cout << solveBoolean("T|F&F") << std::endl;
+    std::cout << solveBoolean("f&f|f&f|f|f&f&f&f|t|f|t|f&f&f&f&f|f&t");
+    return 0;
 }
