@@ -1,13 +1,21 @@
-#include <boost/any.hpp>
+#include <typeindex>
 
-bool boost::typeindex::is_same(const boost::any& a, const boost::any& b) {
-    return a.type() == b.type();
+bool is_same(const std::any& value) {
+    try {
+        if (std::any_cast<int>(value).type() == typeid(int)) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (const std::bad_any_cast&) {
+        return false;
+    }
 }
 
-vector<int> filter_integers(list_any values) {
+vector<int> filter_integers(list-any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if(boost::any_cast<int>(value).type() == typeid(int)) {
+        if (is_same(value)) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
