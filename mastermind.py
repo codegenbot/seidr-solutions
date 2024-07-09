@@ -1,5 +1,5 @@
 code = input("Enter Mastermind code: ")
-guess = input("Enter guess: ")
+guess = input("Enter your guess: ")
 black, white = 0, 0
 for i in range(4):
     if code[i] == guess[i]:
