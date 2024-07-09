@@ -1,7 +1,4 @@
-Here's the modified code:
-
 #include <vector>
-#include <string>
 
 using namespace std;
 
