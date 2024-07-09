@@ -1,5 +1,7 @@
-```cpp
-bool areEqual(vector<string> a, vector<string> b) {
+#include <vector>
+#include <string>
+
+bool same(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -7,18 +9,7 @@ bool areEqual(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> filter_by_prefix(vector<string> words, string prefix) {
-    vector<string> result;
-    for (string word : words) {
-        if (word.find(prefix) == 0) {
-            result.push_back(word);
-        }
-    }
-    return result;
-
-}
-
 int main() {
-    assert(isSame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaaAaAa", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert(same(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaaAaAa", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
