@@ -13,18 +13,15 @@ int basement(std::vector<int>& v) {
 
 int main() {
     std::vector<int> v;
-    int n;
-    while (!(std::cin >> n) || n == 3) {
-        if (!v.empty())
+    int input;
+    while(true) {
+        std::cout << "Enter an integer (-1 to finish): ";
+        std::cin >> input;
+        if(input == -1)
             break;
-        for (; ;) {
-            v.push_back(n);
-            std::cin >> n;
-            if (n == 3)
-                break;
-        }
+        v.push_back(input);
     }
     int result = basement(v);
-    // do something with the result
+    std::cout << "The first index with negative sum is: " << result << "\n";
     return 0;
 }
