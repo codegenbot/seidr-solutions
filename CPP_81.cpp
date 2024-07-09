@@ -48,3 +48,4 @@ int main() {
     assert(issame(vector<string>(result.begin(), result.end())));
     return 0;
 }
+#include <initializer_list>
