@@ -27,5 +27,4 @@ void words_in_sentence(string sentence) {
         cout << word;
         count++;
     }
-    cout << endl;
 }
