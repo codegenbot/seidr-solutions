@@ -1,3 +1,4 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
@@ -7,12 +8,16 @@ std::string kebabToCamel(const std::string& s) {
 
     for (char c : s) {
         if (c == '-') {
-            capitalize = true;
+            if (s.find(c) < s.size() - 1 && std::isalpha(s[s.find(c) + 1])) {
+                capitalize = true;
+            } else {
+                result += c;
+            }
         } else if (capitalize) {
-            result += toupper(c);
+            result += std::toupper(c);
             capitalize = false;
         } else {
-            result += tolower(c);
+            result += std::tolower(c);
         }
     }
 
@@ -21,9 +26,8 @@ std::string kebabToCamel(const std::string& s) {
 
 int main() {
     std::string input;
-    while ((std::cin >> input).good()) {
-        std::cout << kebabToCamel(input) << std::endl;
-    }
+    std::cin >> input;
+    std::cout << kebabToCamel(input) << std::endl;
 
     return 0;
 }
