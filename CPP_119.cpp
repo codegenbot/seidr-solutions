@@ -12,6 +12,7 @@ int main() {
         std::string s;
         std::getline(std::cin, s);
         if (!s.empty()) {
+            s.erase(s.begin(), s.end()); 
             lst.push_back(s);
         }
     }
