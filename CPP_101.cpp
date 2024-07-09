@@ -24,15 +24,16 @@ bool issame(vector<string> a, vector<string> b){
 }
 
 int main(){
-    string input_str;
-    getline(cin, input_str);
+    string input;
+    cout << "Enter a string with words separated by spaces and commas (,): ";
+    getline(cin, input);
+    
+    vector<string> words = words_string(input);
 
-    vector<string> input_words = words_string(input_str);
-
-    for (const auto& word : input_words) {
+    cout << "Words extracted from input: ";
+    for (const auto &word : words) {
         cout << word << " ";
     }
-    cout << endl;
-
+    
     return 0;
 }
