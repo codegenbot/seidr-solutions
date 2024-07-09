@@ -56,13 +56,13 @@ int main() {
     std::cout << "Enter the value of k: ";
     std::cin >> k;
 
-    std::vector<int> arr(n);  // Initialize vector before adding elements
-
+    std::cout << "Enter elements: ";
+    std::vector<int> arr;
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
-        arr[i] = val;  // Add elements to the initialized vector
+        arr.push_back(val);
     }
 
     std::vector<int> result = maximum(arr, k);
