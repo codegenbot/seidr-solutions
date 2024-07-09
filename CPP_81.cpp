@@ -1,3 +1,10 @@
+Here is the modified code:
+
+```cpp
+#ifndef __cpp_initiliazer
+#define __cpp_initiliazer 201304 (C++1y)
+#endif
+
 #include <vector>
 #include <string>
 
