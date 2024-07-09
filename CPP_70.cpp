@@ -1,5 +1,5 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
@@ -20,7 +20,7 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[b.size() - i - 1]) {
             return false;
         }
