@@ -1,4 +1,4 @@
-```#include <vector>
+#include <vector>
 
 int fuelCost(std::vector<int> v) {
     int sum = 0;
@@ -10,4 +10,3 @@ int fuelCost(std::vector<int> v) {
         sum += temp;
     }
     return sum;
-}
