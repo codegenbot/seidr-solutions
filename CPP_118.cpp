@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -8,13 +7,13 @@ std::string get_closest_vowel(const std::string& word) {
             return std::string(1, c);
         }
     }
-    return "";
+    return "No vowel found";
 }
 
 int main() {
-    std::string word;
+    std::string __str;
     std::cout << "Enter a word: ";
-    std::getline(std::cin, word); 
-    std::cout << "The closest vowel is: " << get_closest_vowel(word) << std::endl;
+    std::getline(std::cin, __str); 
+    std::cout << "The closest vowel is: " << get_closest_vowel(__str) << std::endl;
     return 0;
 }
