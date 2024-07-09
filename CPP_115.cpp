@@ -3,8 +3,5 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     for (const auto& row : grid) {
         total_water += accumulate(row.begin(), row.end(), 0);
     }
-    
-    int buckets_needed = total_water / capacity + ((total_water % capacity > 0) ? 1 : 0);
-    
-    return buckets_needed;
+    return total_water / capacity + (total_water % capacity != 0);
 }
