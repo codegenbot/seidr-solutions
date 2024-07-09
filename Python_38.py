@@ -1,4 +1,7 @@
-def decode_cyclic(s):
+```python
+s = input()
+
+def decode_cyclic(s: str):
     result = ""
     temp = ""
     for char in s:
@@ -21,5 +24,4 @@ def decode_cyclic(s):
             result += temp
     return result
 
-s = input()
 print(decode_cyclic(s))
