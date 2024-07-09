@@ -1,9 +1,3 @@
-```c++
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
 string spinWords(string str) {
     string result = "";
     string word = "";
@@ -33,12 +27,4 @@ string spinWords(string str) {
     }
 
     return result;
-}
-
-int main() {
-    string str;
-    cout << "Enter a string: ";
-    cin >> str;
-    cout << spinWords(str) << endl;
-    return 0;
 }
