@@ -2,7 +2,10 @@
 #include <set>
 
 bool issame(int a, int b) {
-    return a == b;
+    if(a == b)
+        return true;
+    else
+        return false;
 }
 
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
@@ -13,5 +16,5 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
         inserter(result, result.begin()));
     
-    return std::vector<int>(result.begin(), result.end());
+    return vector<int>(result.begin(), result.end());
 }
