@@ -1,4 +1,3 @@
-#include <vector>
 #include <cmath>
 
 int prod_signs(std::vector<int> arr){
@@ -12,4 +11,5 @@ int prod_signs(std::vector<int> arr){
         sum += std::abs(i);
     }
     
-    return product * sum;
+    return product * sum == 0 ? -32768 : product * sum;
+}
