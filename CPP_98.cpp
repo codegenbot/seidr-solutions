@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -13,6 +14,6 @@ int count_upper(std::string s) {
 
 int main() {
     assert(count_upper("EEEE") == 2);
-    std::cout << "Count of upper vowels in odd positions: " << count_upper("ABCDE") << std::endl;
+    std::cout << "Count of upper vowels in odd positions: " << count_upper("EEEE") << std::endl;
     return 0;
 }
