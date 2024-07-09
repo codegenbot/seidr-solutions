@@ -1,3 +1,7 @@
+#include <map>
+#include <string>
+#include <cctype>
+
 bool check_dict_case(map<pair<string, string>, bool> dict) {
     if (dict.empty()) return false;
 
