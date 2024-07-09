@@ -1,19 +1,20 @@
 #include <cctype>
 #include <string>
+#include <cassert>
 
 bool flip_case(const std::string& input) {
     std::string output = "";
     
     for (char c : input) {
-        if (isupper(c)) {
-            output += tolower(c);
-        } else if (islower(c)) {
-            output += toupper(c);
+        if (std::isupper(c)) {
+            output += std::tolower(c);
+        } else if (std::islower(c)) {
+            output += std::toupper(c);
         } else {
             output += c;
         }
     }
-    return output == "these violent delights have violent ends";
+    return output;
 }
 
 int main() {
