@@ -1,15 +1,8 @@
-```cpp
 #include <vector>
-#include <string>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
-    // your logic here to compare two vectors of strings
-    return true; 
-}
-
-int main() {
-    vector<string> result = total_match({"this"}, {});
-    return 0;
+    return (a == b);
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
