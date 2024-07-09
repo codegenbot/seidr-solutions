@@ -1,6 +1,10 @@
 #include <vector>
 #include <string>
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
 int totalChars(vector<string> lst) {
@@ -11,10 +15,6 @@ int totalChars(vector<string> lst) {
     return total;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     if (totalChars(lst1) < totalChars(lst2)) {
         return lst1;
@@ -23,10 +23,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    vector<string> v1 = {"abc", "def"};
-    vector<string> v2 = {"ghi", "jkl"};
-    
-    vector<string> result = total_match(v1, v2);
-    
+    // Main function code here
     return 0;
 }
