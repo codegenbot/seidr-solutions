@@ -1,15 +1,18 @@
 #include <string>
+#include <stack>
 using namespace std;
 
 bool is_nested(string str){
-    int count = 0;
+    stack<char> st;
     for(char c : str){
         if(c == '['){
-            count++;
-        } else if(c == ']' && count){
-            count--;
+            st.push(c);
+        } else if(c == ']' && !st.empty() && st.top() == '['){
+            st.pop();
+        } else {
+            return false;
         }
     }
     
-    return (str.size() > 2 && count > 0);
+    return st.empty();
 }
