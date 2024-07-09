@@ -1,3 +1,4 @@
+Here's the modified code:
 ```cpp
 #include <vector>
 #include <string>
@@ -21,10 +22,27 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
 }
 
 int main() {
-    std::vector<std::string> strings = {"grunt", "prune"};
-    std::vector<std::string> filtered_strings = filter_by_substring(strings, "ru");
-    for (const auto& s : filtered_strings) {
-        std::cout << s << "\n";
+    int n, m;
+    std::cin >> n >> m;
+
+    std::vector<std::string> strings(n);
+    for (int i = 0; i < n; ++i) {
+        strings[i].resize(m);
+        for (int j = 0; j < m; ++j)
+            std::cin >> strings[i][j];
     }
+
+    std::string substring;
+    std::cin >> substring;
+
+    std::vector<std::string> output_vector = filter_by_substring(strings, substring);
+
+    // Print the result
+    for (const auto& s : output_vector) {
+        for (char c : s)
+            std::cout << c << ' ';
+        std::cout << '\n';
+    }
+
     return 0;
 }
