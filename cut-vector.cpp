@@ -6,25 +6,33 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-    
+
     while (cin >> num) {
         nums.push_back(num);
     }
-    
+
     int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
     }
-    
+
     int target = sum / 2;
+    if (sum % 2 != 0) {
+        ++target;
+    }
+    
     int prefixSum = 0;
     int index = 0;
-    
+
     while (prefixSum < target) {
         prefixSum += nums[index];
         ++index;
+
+        if (cin.eof()) {
+            break;
+        }
     }
-    
+
     if (prefixSum == target) {
         for (int i = 0; i < index; ++i) {
             cout << nums[i] << endl;
