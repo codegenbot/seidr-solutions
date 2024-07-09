@@ -1,19 +1,41 @@
-string words_in_sentence(string sentence){
+#include <string>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i <= sqrt(n); ++i) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+string words_in_sentence(string sentence) {
     string result = "";
-    int primes[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
+    vector<string> words;
     string word = "";
-    for(char c : sentence){
-        if(c == ' '){
-            if(find(begin(primes), end(primes), word.length()) != end(primes)){
-                result += word + " ";
-            }
+    
+    for (char c : sentence) {
+        if (c == ' ') {
+            words.push_back(word);
             word = "";
         } else {
             word += c;
         }
     }
-    if(find(begin(primes), end(primes), word.length()) != end(primes)){
-        result += word;
+    words.push_back(word);
+    
+    for (const string& w : words) {
+        if (isPrime(w.length())) {
+            result += w + " ";
+        }
     }
+    
+    if (!result.empty()) {
+        result.pop_back(); // Remove the extra space at the end
+    }
+    
     return result;
 }
