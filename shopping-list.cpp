@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -18,14 +17,14 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
 int main() {
     int n;
     cin >> n;
-    vector<float> prices(n);
+    float prices[n];
     for (float &price : prices) {
         cin >> price;
     }
-    vector<float> discounts(n);
+    float discounts[n];
     for (float &discount : discounts) {
         cin >> discount;
     }
-    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
+    cout << fixed << setprecision(1) << shoppingList(vector<float>(prices, prices + n), vector<float>(discounts, discounts + n)) << endl;
     return 0;
 }
