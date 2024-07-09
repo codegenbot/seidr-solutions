@@ -1,10 +1,11 @@
 #include <map>
 #include <string>
-#include <cctype>
+#include <algorithm>
+#include <utility>
 
 using namespace std;
 
-bool check_dict_case(map<pair<string, string>, bool> dict) {
+bool check_dict_case(unordered_map<string, pair<string, bool>> dict) {
     if (dict.empty()) return false;
 
     bool allLower = true;
