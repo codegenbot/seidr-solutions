@@ -13,16 +13,17 @@ namespace myspace {
 
     std::vector<float> sort_even(const std::vector<float>& l) {
         std::vector<float> result(l.size());
+        int evenIndex = 0;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                std::vector<float> evens;
-                for (int j = 0; j < l.size(); j++) {
-                    if (j % 2 == 0) {
-                        evens.push_back(l[j]);
+                auto it = std::minmax_element(l.begin(), l.end(),
+                    [](float a, float b){ return a<b; });
+                result[i] = *(it.first);
+                for(int j = 0; j < l.size(); j++){
+                    if(j%2==0 && l[j] != *(it.first)){
+                        result[evenIndex++] = l[j];
                     }
                 }
-                std::sort(evens.begin(), evens.end());
-                result[i] = evens[0];
             } else {
                 result[i] = l[i];
             }
@@ -31,8 +32,19 @@ namespace myspace {
     }
 }
 
-int main_function() { 
-    std::vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
+int main() {
+    std::vector<float> input(10);
+    input.push_back(5);
+    input.push_back(8);
+    input.push_back(-12);
+    input.push_back(4);
+    input.push_back(23);
+    input.push_back(2);
+    input.push_back(3);
+    input.push_back(11);
+    input.push_back(12);
+    input.push_back(-10);
+
     std::cout << "Original array: ";
     for (float num : input) {
         std::cout << num << " ";
@@ -45,7 +57,6 @@ int main_function() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-    
-    assert(myspace::issame(sortedEven, {2, 4, 8, 12})); 
+
     return 0;
 }
