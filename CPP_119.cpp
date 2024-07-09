@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+
 int match_parens(const std::vector<std::string>& lst) {
     int countOpen = 0;
     for (const auto& s : lst) {
