@@ -14,12 +14,14 @@ vector<int> sort_third(vector<int> l) {
             if(groupCount != 0) { 
                 // Sort and reverse the current group
                 sort(result.begin(), result.end());
-                vector<int> temp = result;
-                result.clear(); 
-                for (int j = temp.size() - 1; j >= 0; j--) {
-                    result.push_back(temp[j]);
+                vector<int> temp;
+                temp.resize(result.size(), 0);
+                for (int j = result.size() - 1; j >= 0; j--) {
+                    temp[j] = result[j];
                 }
+                result = temp;
             }
+            result.clear(); 
         }
         result.push_back(i);
         groupCount++;
@@ -27,6 +29,12 @@ vector<int> sort_third(vector<int> l) {
 
     if(groupCount % 3 == 0) {
         sort(result.begin(), result.end());
+        vector<int> temp;
+        temp.resize(result.size(), 0);
+        for (int j = result.size() - 1; j >= 0; j--) {
+            temp[j] = result[j];
+        }
+        result = temp;
     }
 
     return result;
