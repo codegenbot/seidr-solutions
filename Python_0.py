@@ -5,14 +5,7 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
-input_numbers = input("Enter numbers separated by space: ")
-try:
-    numbers = [int(x) for x in input_numbers.split()]
-except ValueError:
-    print("Invalid input format. Please provide space-separated numbers.")
-    exit()
-
-threshold = int(input("Enter threshold value: "))
+numbers, threshold = map(int, input("Enter numbers and threshold separated by space: ").split())
 
 result = check_numbers(numbers, threshold)
 print(result)
