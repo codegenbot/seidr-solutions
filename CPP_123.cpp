@@ -31,12 +31,11 @@ std::vector<int> get_odd_collatz(int num) {
 int main() {
     int num;
     std::cin >> num;
-    std::vector<int> sequence = get_odd_collatz(num);
-    for(int i : sequence)
+    std::vector<int> result = get_odd_collatz(num);
+    for(int i : result)
         std::cout << i << " ";
     std::cout << std::endl;
-    if (sequence.size() != 1 && !sequenceEqual(sequence, get_odd_collatz(1))) {
-        std::cerr << "Invalid input. Sequence must start with 1.\n";
-    }
+    assert(sequenceEqual(get_odd_collatz(1), {1}));
+    std::cout << "Hello World!" << std::endl;
     return 0;
 }
