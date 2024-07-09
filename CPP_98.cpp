@@ -1,12 +1,20 @@
-```cpp
+#include <iostream>
 #include <string>
+using namespace std;
 
 int count_upper(string s) {
     int count = 0;
     for(int i = 0; i < s.length(); i++) {
-        if((s[i] >= 'A' && s[i] <= 'U') || (s[i] >= 'a' && s[i] <= 'u')) {
+        if(i % 2 == 0 && (s[i] >= 'A' && s[i] <= 'E') || (s[i] >= 'A' && s[i] <= 'U')) {
             count++;
         }
     }
     return count;
+}
+
+int main() {
+    assert(count_upper("EEEE") == 4); 
+    cout << "Expected output: ";
+    cout << count_upper("ABCDE") << endl;
+    return 0;
 }
