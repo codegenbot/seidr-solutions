@@ -24,7 +24,9 @@ int main() {
     std::getline(std::cin, str1);
 
     std::cout << "Enter the second string: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, str2);
+    
     try {
         std::string result = string_xor(str1, str2);
         std::cout << "XOR of the two strings is: " << result << std::endl;
