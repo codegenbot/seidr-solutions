@@ -1,4 +1,11 @@
 #include <cmath>
+float abs(float x) {
+    if(x < 0)
+        return -x;
+    else
+        return x;
+}
+
 float triangle_area(float a, float b, float c) {
     if ((a + b > c) && (a + c > b) && (b + c > a)) {
         float s = (a + b + c) / 2.0;
