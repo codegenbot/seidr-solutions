@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <iostream>
 
@@ -12,7 +13,7 @@ bool isCube(int n) {
 
 }
 
-int mainFunc() { 
+int main() { 
     int num;
     std::cout << "Enter a cube number (like 1729): ";
     std::cin >> num;
