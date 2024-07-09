@@ -1,13 +1,12 @@
-int prod_signs(vector<int> arr){
-    long long res = 1;
-    int sum = 0;
-
-    for(int i : arr){
-        if(i != 0) {
-            sum += abs(i);
-            res *= (i > 0 ? 1 : -1);
+int prod_signs(vector<int> arr) {
+    int sign = 1;
+    long long sum = 0;
+    for (int i : arr) {
+        if (i == 0) {
+            return -32768; // special case: empty array
         }
+        sign *= i < 0 ? -1 : 1;
+        sum += abs(i);
     }
-
-    return res * sum == 0 ? -32768 : res;
+    return sum * sign;
 }

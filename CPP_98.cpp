@@ -14,9 +14,8 @@ int count_upper(std::string s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    int result = count_upper(input);
-    std::cout << "Count of uppercase vowels at even positions is: " << result << std::endl;
+    cout << "Enter a string: ";
+    cin >> input;
+    cout << "Number of uppercase vowels at even positions is: " << count_upper(input) << endl;
     return 0;
 }
