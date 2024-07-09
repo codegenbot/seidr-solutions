@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -20,9 +19,9 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> b = get_odd_collatz(n);
+    int input;
+    cin >> input;
+    vector<int> b = get_odd_collatz(input);
     for (int i = 0; i < b.size(); i++) {
         cout << b[i] << " ";
     }
