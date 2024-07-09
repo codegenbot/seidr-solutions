@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <numeric>
 #include <vector>
+#include <limits>
 
 bool issame(vector<float> a, vector<float> b) {
     return a == b;
@@ -21,10 +22,10 @@ vector<float> find_closest_elements(vector<float> numbers) {
         }
     }
 
-    return vector<float>(1, min(closest_pair.first, closest_pair.second));
+    return vector<float>{closest_pair.first, closest_pair.second};
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), vector<float>(1, 2.2)));
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
     return 0;
 }
