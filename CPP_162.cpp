@@ -1,9 +1,3 @@
-```cpp
-#include <iostream>
-#include <limits>
-#include <string>
-#include <iomanip>
-#include <sstream>
 #include <openssl/ssl.h>
 #include <openssl/evp.h>
 
@@ -16,7 +10,6 @@ string string_to_md5(string text) {
     EVP_MD_CTX md_ctx;
     unsigned char* d = nullptr;
     size_t len = 0;
-    EVP_PassphraseCallback callback = NULL;
     const EVP_MD *md = EVP_sha256();
     
     int ret = EVP_DigestInit_ex(&md_ctx, md, NULL);
@@ -58,4 +51,3 @@ int main() {
     
     cout << "MD5 Hash: " << md5_hash << endl;
     return 0;
-}
