@@ -1,11 +1,11 @@
-#include <iostream>
+```
 #include <string>
-using namespace std;
+#include <vector>
 
-string file_name_check(string file_name) {
+std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     bool found_dot = false;
-    string prefix;
+    std::string prefix;
 
     for (char c : file_name) {
         if (isdigit(c)) {
