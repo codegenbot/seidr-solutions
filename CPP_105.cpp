@@ -1,23 +1,24 @@
-```cpp
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-vector<bool> by_length(vector<int> arr) {
-    vector<bool> result;
+vector<string> by_length(vector<int> arr) {
+    vector<string> result;
+    map<int, string> numberNames = {{1, "One"}, {2, "Two"}, {3, "Three"}, 
+                                     {4, "Four"}, {5, "Five"}, {6, "Six"}, 
+                                     {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+    
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            bool same = false;
-            for (string name : {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"}) {
-                if (stoi(name.substr(0, 3)) == num) {
-                    same = true;
-                    break;
-                }
-            }
-            result.push_back(same);
-        } else {
-            result.push_back(false);
+            result.push_back(numberNames[num]);
         }
     }
+    
+    sort(result.begin(), result.end());
+    
+    reverse(result.begin(), result.end());
+    
     return result;
+}
+
+bool issame(vector<string> a) {
+    vector<int> input = {1, 2, 3};
+    vector<string> output = by_length(input);
+    return (a == output);
 }
