@@ -8,4 +8,4 @@ def decode_cyclic():
 
 
 decoded_string = decode_cyclic()
-print(decoded_string)
+print(f"Decoded string: {decoded_string}")
