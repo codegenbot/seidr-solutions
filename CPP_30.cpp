@@ -18,6 +18,7 @@ std::vector<std::unique_ptr<float>> get_positive(const std::vector<std::unique_p
 
 int main() {
     int n;
+
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
@@ -35,7 +36,7 @@ int main() {
         if(issame(numbers, positive_numbers)) {
             std::cout << "The list of positive numbers is: ";
             for (auto& num : positive_numbers) {
-                std::cout << *num << " ";
+                std::cout << std::to_string(*num) << " ";
             }
             std::cout << std::endl;
         } else {
