@@ -1,4 +1,5 @@
-```s = input()
+```
+s = input()
 
 def decode_cyclic(s: str):
     result = ""
@@ -23,4 +24,4 @@ def decode_cyclic(s: str):
             result += temp
     return result
 
-print(decode_cyclic(s))```
+print(decode_cyclic(s))
