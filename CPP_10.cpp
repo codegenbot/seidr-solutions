@@ -1,6 +1,6 @@
-#include <string>
+#include <string> // Include the string header file
 
-std::string make_palindrome(std::string str){
+std::string make_palindrome(std::string str){ // Use std::string instead of string
     std::string rev_str(str.rbegin(), str.rend());
     std::string palindrome = str;
     for (int i = 0; i < str.length(); ++i) {
