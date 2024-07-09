@@ -11,12 +11,13 @@ std::string string_to_md5(const std::string& input) {
     return "md5_result";
 }
 
-int main {
+int main 
+{
     vector<string> strings = {"input1", "input2"};
-    for (const auto& str : strings) {
+    for (const auto& str : strings) 
+    {
         string md5_str = string_to_md5(str);
         stringstream ss;
-        ss << setw(10) << md5_str.size();
+        ss << setprecision(10) << md5_str.size();
         cout << ss.str() << endl;
     }
-}
