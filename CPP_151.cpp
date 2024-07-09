@@ -13,6 +13,5 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst; 
-    // Use the function with declared variables
-    assert(double_the_difference(lst) == );
+    assert(double_the_difference(lst) == 0);
 }
