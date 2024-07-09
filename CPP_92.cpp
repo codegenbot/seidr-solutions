@@ -1,8 +1,14 @@
 Here is the completed code:
 
+```cpp
+#include <cmath>
+
+using namespace std;
+
 bool any_int(float a, float b, float c) {
-    if (floor(a) == a && floor(b) == b && floor(c) == c) {
-        return a == b + c || a == c + b || b == a + c || b == c + a || c == a + b || c == b + a;
-    }
-    return false;
+    int ai = (int)a;
+    int bi = (int)b;
+    int ci = (int)c;
+    
+    return (a == ai + bi + ci) || (b == ai + bi + ci) || (c == ai + bi + ci);
 }
