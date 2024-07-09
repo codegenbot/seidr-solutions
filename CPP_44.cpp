@@ -1,5 +1,6 @@
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 string change_base(int x, int base){
@@ -12,7 +13,7 @@ string change_base(int x, int base){
 }
 
 int main(){
-    int x = 42;
+    int x = 10;
     assert(change_base(x, x + 1) == to_string(x));
     return 0;
 }
