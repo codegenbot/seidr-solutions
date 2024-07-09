@@ -1,6 +1,8 @@
-```
+```c++
 #include <vector>
 #include <cmath>
+#include <assert.h>
+#pragma GCC target "c++11"
 
 bool has_close_elements(std::vector<float> numbers, float threshold) {
     for (int i = 0; i < numbers.size(); i++) {
