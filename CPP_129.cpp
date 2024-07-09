@@ -1,4 +1,4 @@
-vector<int> minPath(vector<vector<int>> grid, int k){
+vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> result;
     int n = grid.size();
     int row = 0, col = 0;
