@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 
@@ -21,7 +22,7 @@ int main() {
     }
     else if (choice == 2 || choice == 3) {
         float c;
-        if (choice == 2)
+        if (choice == 2) 
             std::cout << "Enter your second value: ";
         else
             std::cout << "Enter your string value: ";
@@ -31,18 +32,20 @@ int main() {
         x = compare_one(x, z);
     }
 
-    if (x.type() == typeid(std::string))
-        std::cout << boost::any_cast<std::string>(x) << std::endl;
+    std::cout << boost::any_cast<std::string>(x) << std::endl;
 
     return 0;
 }
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any<int>(int(1));
+        if(boost::any_cast<int>(a) < boost::any_cast<float>(b))
+            return boost::any("int is less than float");
+        else
+            return boost::any("float is less than or equal to int");
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        if (boost::any_cast<int>(a) < 0)
+        if(boost::any_cast<int>(a) < 0)
             return boost::any("Negative integer is less than string");
         else
             return boost::any("Positive integer is greater than or equal to string");
