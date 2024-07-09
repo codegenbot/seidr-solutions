@@ -27,10 +27,7 @@ int main() {
         totalSnow -= initialSnow * proportionOfSnowMeltingPerHour;
     }
     
-    std::streamsize precision = 6;
-    std::ios_base::fmtflags flags = cout.flags();
-    cout << std::fixed << std::setprecision(precision);
-    cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << " ft" << endl;
-    cout.flags(flags); // Reset the precision
+    cout << fixed << setprecision(2) << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << " ft" << endl;
+
     return 0;
 }
