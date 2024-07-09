@@ -1,7 +1,6 @@
-```
 #include <vector>
 #include <iostream>
-#pragma GCC link -std=c++11
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
 }
@@ -20,6 +19,7 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), {1, 0}));
+    #pragma GCC link -std=c++11
+    assert(issame(even_odd_count(0), std::vector<int>({1, 0})));
     return 0;
 }
