@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 
@@ -31,8 +32,9 @@ namespace myspace {
     }
 }
 
+using namespace myspace;
+
 int main() {
-    using namespace myspace;
     std::vector<float> input(10);
     input.push_back(5.0f);
     input.push_back(8.0f);
@@ -52,11 +54,17 @@ int main() {
     std::cout << std::endl;
 
     std::vector<float> sortedEven = sort_even(input);
-    if (!issame(sortedEven, input)) {
-        std::cout << "Array changed." << std::endl;
-    } else {
-        std::cout << "Array remains the same." << std::endl;
+    bool same = issame(sortedEven, myspace::sort_even(input));
+    std::cout << "Sorted even array: ";
+    for (float num : sortedEven) {
+        std::cout << num << " ";
     }
-    
+    std::cout << std::endl;
+
+    if(same)
+        std::cout << "Arrays are the same." << std::endl;
+    else
+        std::cout << "Arrays are not the same." << std::endl;
+
     return 0;
 }
