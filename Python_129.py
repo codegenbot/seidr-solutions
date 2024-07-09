@@ -1,4 +1,4 @@
-from collections import deque
+import collections
 
 
 def minFallingRainWater(grid):
@@ -29,3 +29,19 @@ def minFallingRainWater(grid):
     path = dfs(start, 0, [grid[start][0]], set())
 
     return path
+
+
+def main():
+    n = int(input("Enter the number of rows: "))
+
+    # Read the grid from user
+    m = list(map(str, input(f"Enter {n} rows separated by space: ").split()))
+
+    for i in range(0, len(m), n):
+        m[i] = [int(x) for x in m[i]]
+
+    print(minFallingRainWater(list(map(int, m))))
+
+
+if __name__ == "__main__":
+    main()
