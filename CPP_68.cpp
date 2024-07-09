@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <cassert>
@@ -33,7 +32,7 @@ std::vector<int> pluck(std::vector<int> arr) {
 
 }
 
-int mainFunction() {
+int main() {
     std::vector<int> input = {7, 9, 7, 1};
     std::vector<int> output = pluck(input);
     assert(issame(output, {}));
