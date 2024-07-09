@@ -3,13 +3,13 @@
 #include <vector>
 #include <string>
 
-int do_algebra(vector<int> operand_, vector<string> operator_) {
+int do_algebra(vector<int> operand, vector<string> operator_) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
-        expression += to_string(operand_[i]);
+        expression += to_string(operand[i]);
         expression += operator_[i];
     }
-    expression += to_string(operand_.back());
+    expression += to_string(operand.back());
     
     int result = eval(expression);
     
