@@ -5,10 +5,12 @@
 std::string flip_case(std::string str){
     std::string result = "";
     for(char c : str){
-        if(c >= 'a' && c <= 'z')
-            result += toupper(c);
-        else if(c >= 'A' && c <= 'Z')
-            result += tolower(c);
+        if(std::isalpha(c)) {
+            if(std::islower(c))
+                result += toupper(c);
+            else
+                result += tolower(c);
+        }
         else
             result += c;
     }
@@ -16,5 +18,6 @@ std::string flip_case(std::string str){
 }
 
 int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert (flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
 }
