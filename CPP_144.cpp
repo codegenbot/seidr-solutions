@@ -1,36 +1,30 @@
+```cpp
 #include <string>
+#include <sstream>
 using namespace std;
 
-int gcdFunc(int a, int b) {
+int gcdFunc(int a, int int b) {
     if (b == 0)
         return a;
     else
         return gcdFunc(b, a % b);
 }
 
-bool simplify(std::string x) {
-    int numerator = 0, denominator = 1;
-    int i = 0;
-    
-    // Calculate the numerator
-    while(i < x.length()) {
-        if (isdigit(x[i])) {
-            numerator = numerator * 10 + (x[i] - '0');
-        } else if (x[i] == '/') {
-            break;
-        }
-        i++;
-    }
+bool simplify(istringstream xStream, istringstream nStream) {
+    int numerator = 0, denominator = 0;
+    char slash;
 
-    // Calculate the denominator
-    i += 1; // Skip '/'
-    while(i < x.length()) {
-        if (isdigit(x[i])) {
-            denominator = denominator * 10 + (x[i] - '0');
-        } 
-        i++;
+    xStream >> numerator;
+    nStream >> denominator;
+    while (nStream.peek() == '/') {
+        nStream.ignore();
+        break;
+    }
+    if (nStream.peek() != '\n') {
+        nStream >> slash;
     }
 
     int gcd = gcdFunc(numerator, denominator);
     return (numerator / gcd) == (denominator / gcd);
+
 }
