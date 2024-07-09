@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main() {
@@ -40,10 +38,10 @@ int main() {
         cents -= 5;
     }
 
-    cout << to_string(quarters) << endl;
-    cout << to_string(dimes) << endl;
-    cout << to_string(nickles) << endl;
-    cout << to_string(pennies) << endl;
+    cout << quarters << endl;
+    cout << dimes << endl;
+    cout << nickles << endl;
+    cout << pennies << endl;
 
     return 0;
 }
