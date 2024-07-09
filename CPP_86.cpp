@@ -1,31 +1,21 @@
 #include <algorithm>
+#include <string>
+
 using namespace std;
 
 string anti_shuffle(string s) {
     string result = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ') {
-            result += ' ';
+            result += s[i];
         } else {
-            char temp = s[i];
-            while (temp != ' ') {
-                char c = temp;
-                bool changed = false;
-                for (char j = 'a'; j <= 'z'; j++) {
-                    if (j < c) {
-                        c = j;
-                        changed = true;
-                    }
-                }
-                for (char j = 'A'; j <= 'Z'; j++) {
-                    if (j < c) {
-                        c = j;
-                        changed = true;
-                    }
-                }
-                temp = c;
+            string word = "";
+            while (i < s.length() && s[i] != ' ') {
+                word += s[i++];
             }
-            result += temp;
+            for (char c : word) {
+                result += (word[0] == *min_element(word.begin(), word.end()) ? c : ' ');
+            }
         }
     }
     return result;
