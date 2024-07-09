@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 
@@ -7,15 +6,13 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> get_odd_collatz(int start) {
-    std::vector<int> result;
-    int num = start;
-    while(num != 1) {
-        if(num % 2 != 0) {
-            result.push_back(num);
-        }
-        num = num / 2;
+    std::vector<int> sequence;
+    while (start != 1) {
+        if (start % 2 != 0)
+            sequence.push_back(start);
+        start = start / 2 + (start % 2);
     }
-    return result;
+    return sequence;
 }
 
 int main() {
