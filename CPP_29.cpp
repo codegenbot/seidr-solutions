@@ -24,11 +24,7 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
-    std::vector<std::string> test = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAffAA", "xxx"}, "xxx");
-    if (!issame(test, {"xxx", "xxxAAA", "xxx"})) {
-        std::cout << "Test failed!" << std::endl;
-    } else {
-        std::cout << "Test passed!" << std::endl;
-    }
+    std::string b;
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAffAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
