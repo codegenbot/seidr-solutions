@@ -15,7 +15,12 @@ int main() {
     for(int i = 0; i < n1; i++) {
         std::string x;
         std::cin >> x;
-        s1.insert(x);
+        s1Vec.push_back(x); 
+    }
+
+    for(auto &i : s1Vec) {
+        if(s1.insert(i).second)  
+            continue; 
     }
 
     std::vector<std::string> s2Vec;
@@ -23,7 +28,12 @@ int main() {
     for(int i = 0; i < m1; i++) {
         std::string y;
         std::cin >> y;
-        s2.insert(y);
+        s2Vec.push_back(y); 
+    }
+
+    for(auto &i : s2Vec) {
+        if(s2.insert(i).second)  
+            continue; 
     }
 
     std::vector<std::string> diff(s1.begin(), s1.end());
@@ -33,7 +43,7 @@ int main() {
     auto intersection = s1;
     s1.clear();
     std::vector<std::string> intersect;
-    std::set_intersection(s2.begin(), s2.end(), s1.begin(), s1.end(),
+    std::set_intersection(intersection.begin(), intersection.end(), s2.begin(), s2.end(),
                            std::back_inserter(intersect));
 
     std::cout << "Difference: ";
