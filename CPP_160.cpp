@@ -1,8 +1,4 @@
 ```cpp
-#include <vector>
-#include <cmath>
-using namespace std;
-
 int do_algebra(vector<string> ops, vector<int> nums) {
     int result = 0;
     long long temp = 1;
