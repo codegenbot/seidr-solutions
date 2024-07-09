@@ -15,6 +15,6 @@ int main() {
     std::cin >> a >> b;
     
     std::cout << (cycpattern_check(a, b) ? "true" : "false") << std::endl;
-
+    
     return 0;
 }
