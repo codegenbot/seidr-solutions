@@ -1,7 +1,14 @@
+from collections import deque
+
+
 def rolling_max(numbers: List[int]) -> List[int]:
-    result = []
-    max_num = float('-inf')
+    max_nums = []
+    max_queue = deque()
+    
     for num in numbers:
-        max_num = max(max_num, num)
-        result.append(max_num)
-    return result
+        while max_queue and max_queue[-1] < num:
+            max_queue.pop()
+        max_queue.append(num)
+        max_nums.append(max_queue[0])
+    
+    return max_nums
