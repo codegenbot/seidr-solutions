@@ -1,6 +1,5 @@
-n = len(numbers)
-    for i in range(n):
-        for j in range(i+1, n):
-            if abs(numbers[i] - numbers[j]) < threshold:
-                return True
+numbers.sort()
+    for i in range(len(numbers) - 1):
+        if abs(numbers[i] - numbers[i + 1]) < threshold:
+            return True
     return False
