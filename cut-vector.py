@@ -2,7 +2,7 @@ def cut_vector(vector):
     if len(vector) <= 1: 
         return '', vector if not vector else ''
     if vector[0] == vector[1]:
-        return vector[:1], ''.join(map(str, vector[1:]))
+        return [vector[0]], ''.join(map(str, vector[1:]))
     left = 0
     min_diff = float("inf")
     split_index = -1
