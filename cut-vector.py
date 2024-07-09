@@ -1,3 +1,4 @@
+n = int(input())
 arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
@@ -7,7 +8,7 @@ right_sum = total_sum
 min_diff = float("inf")
 cut_idx = -1
 
-for i in range(len(arr)):
+for i in range(n):
     left_sum += arr[i]
     right_sum -= arr[i]
     diff = abs(left_sum - right_sum)
