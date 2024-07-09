@@ -1,26 +1,43 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    string str = test + " ";
+map<char,int> histogram(string test){
+    map<char,int> result;
     int maxCount = 0;
-
-    for (int i = 0; i < str.length(); i++) {
-        char c = str[i];
-        if (c != ' ') {
-            if (result.find(c) == result.end()) {
-                result[c] = 1;
+    for (const string& word : split(test)) {
+        char c = word[0];
+        int count = 1;
+        for (int i = 1; i < word.size(); ++i) {
+            if (word[i] == c) {
+                ++count;
             } else {
-                result[c]++;
+                break;
             }
-            maxCount = max(maxCount, result[c]);
+        }
+        if (count > maxCount) {
+            maxCount = count;
+        }
+        result[c] = count;
+    }
+    map<char,int> maxResult;
+    for (auto& pair : result) {
+        if (pair.second == maxCount) {
+            maxResult[pair.first] = pair.second;
         }
     }
+    return maxResult;
+}
 
-    map<char, int> finalResult;
-    for (auto it = result.begin(); it != result.end(); it++) {
-        if (it->second == maxCount) {
-            finalResult[it->first] = it->second;
+vector<string> split(string test){
+    vector<string> result;
+    string temp;
+    for (char c: test) {
+        if (c != ' ') {
+            temp += c;
+        } else if (!temp.empty()) {
+            result.push_back(temp);
+            temp = "";
         }
     }
-
-    return finalResult;
+    if (!temp.empty()) {
+        result.push_back(temp);
+    }
+    return result;
 }
