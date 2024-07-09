@@ -5,25 +5,30 @@ using namespace std;
 vector<int> eat(int number, int need, int remaining) {
     vector<int> result;
     
-    // Calculate the total number of carrots eaten after your meals
-    int total = number + (remaining >= need ? need - remaining : need);
-    
-    // Calculate the number of carrots left after your meals
-    int left = max(0, min(total, 1000) - need);
-    
-    result.push_back(total);
-    result.push_back(left);
+    if (need > remaining) {
+        result.push_back(number + remaining);
+        result.push_back(0);
+    } else {
+        result.push_back(number + need);
+        result.push_back(remaining - need);
+    }
     
     return result;
 }
 
 int main() {
-    cout << "{ " << eat(5, 6, 10).at(0) << ", " << eat(5, 6, 10).at(1) << " }";
-    cout << endl;
-    cout << "{ " << eat(4, 8, 9).at(0) << ", " << eat(4, 8, 9).at(1) << " }";
-    cout << endl;
-    cout << "{ " << eat(1, 10, 10).at(0) << ", " << eat(1, 10, 10).at(1) << " }";
-    cout << endl;
-    cout << "{ " << eat(2, 11, 5).at(0) << ", " << eat(2, 11, 5).at(1) << " }";
+    int number, need, remaining;
+    cout << "Enter the number of carrots you have eaten: ";
+    cin >> number;
+    cout << "Enter the number of carrots you need to eat: ";
+    cin >> need;
+    cout << "Enter the number of remaining carrots: ";
+    cin >> remaining;
+    
+    vector<int> result = eat(number, need, remaining);
+    
+    cout << "Total number of eaten carrots after your meals: " << result[0] << endl;
+    cout << "The number of carrots left after your meals: " << result[1] << endl;
+    
     return 0;
 }
