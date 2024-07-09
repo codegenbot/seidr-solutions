@@ -1,8 +1,7 @@
-```cpp
 #include <iostream>
 using namespace std;
 
-bool isPrime(int num); // Function prototype for isPrime()
+bool isPrime(int num);
 
 int prime_fib(int n);
 
@@ -11,15 +10,6 @@ int main() {
     cout << "Enter the number: ";
     cin >> n;
     cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << endl; 
-}
-
-bool isPrime(int num) {
-    if (num <= 1)
-        return false;
-    for (int i = 2; i * i <= num; i++)
-        if (num % i == 0)
-            return false;
-    return true;
 }
 
 int prime_fib(int n) {
@@ -35,4 +25,13 @@ int prime_fib(int n) {
         a += b;
         b = a - b;
     }
+}
+
+bool isPrime(int num) {
+    if (num <= 1)
+        return false;
+    for (int i = 2; i * i <= num; i++)
+        if (num % i == 0)
+            return false;
+    return true;
 }
