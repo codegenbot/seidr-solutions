@@ -16,6 +16,7 @@ int main() {
     std::cout << "Enter numbers (separated by spaces): ";
     while(std::cin >> num) { 
         numbers.push_back(num);
+        if (!(std::cin >> num)) break; // Break when non-digit is encountered
     }
     findMaximum(numbers);
     return 0;
