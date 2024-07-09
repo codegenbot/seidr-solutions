@@ -1,3 +1,5 @@
+bool valid_date(string date);
+
 bool valid_date(string date) {
     if (date.empty()) {
         return false;
