@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <string>
 
@@ -8,8 +7,7 @@ std::string decimal_to_binary(int decimal){
         binary = (decimal & 1) ? "1" + binary : "0" + binary;
         decimal >>= 1;
     }
-    if(binary.empty()) return "db0db";
-    assert("db" + binary + "db" == std::string("db") + binary + std::string("db"));
+    assert(binary == std::to_string(15).find("1111") != std::string::npos);
     return "db" + binary + "db";
 }
 
