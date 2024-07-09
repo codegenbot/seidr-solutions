@@ -18,7 +18,6 @@ int prod_signs(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {-1, 1, 1, 0};
-    cout << prod_signs(arr) << endl;
+    cout << prod_signs({-1, 1, 1, 0}) << endl; 
     return 0;
 }
