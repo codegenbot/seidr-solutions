@@ -1,41 +1,28 @@
-```c++
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
+std::string kebabToCamel(const std::string& s) {
     std::string result;
-    for (int i = 0; i <= s.size(); i++) {
-        if (i == s.size() || s[i] == '-') {
-            if (result.back() != ' ') {
-                result.push_back(' ');
-            }
-            size_t j = i + 1;
-            while (j < s.size() && s[j] != '-' && s[j] != ' ') {
-                j++;
-            }
-            std::string word = s.substr(i, j - i);
-            for (char c : word) {
-                result.push_back(std::tolower(c));
-            }
-        } else if (!std::isalnum(s[i])) {
-            continue;
+    bool capitalize = true;
+
+    for (char c : s) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
         } else {
-            if (result.back() == ' ') {
-                result.pop_back();
-            }
-            result.push_back(std::toupper(s[i]));
+            result += tolower(c);
         }
     }
+
     return result;
 }
 
 int main() {
-    std::string s;
-    while (true) {
-        std::cout << "Enter a string in kebab-case (type 'q' to quit): ";
-        std::cin >> s;
-        if (s == "q") break; 
-        std::cout << camelCase(s) << std::endl;
-    }
+    std::string input;
+    std::getline(std::cin, input);
+    std::cout << kebabToCamel(input) << std::endl;
+
     return 0;
-}
