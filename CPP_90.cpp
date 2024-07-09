@@ -1,23 +1,17 @@
-```
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <bits/stdc++.h>
+using namespace std;
 int main() {
+    vector<int> lst;
     int n;
-    std::cin >> n;
-
-    std::vector<int> lst;
-    for (int i = 0; i < n; i++) {
-        int temp;
-        std::cin >> temp;
-        lst.push_back(temp);
+    cout<<"Enter number of elements in the list: ";
+    cin>>n;
+    for(int i=0;i<n;i++){
+        int x;
+        cout<<"Enter element "<<i+1<<": ";
+        cin>>x;
+        lst.push_back(x);
     }
-
-    int result = next_smallest(lst);
-
-    std::cout << result << std::endl;
-
+    cout<<"Next smallest element is :"<<next_smallest(lst)<<endl;
     return 0;
 }
 
@@ -30,5 +24,5 @@ int next_smallest(vector<int> lst) {
             return sorted_lst[i + 1];
         }
     }
-    return -1;
+    return -1; 
 }
