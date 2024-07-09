@@ -1,21 +1,29 @@
-```cpp
 #include <vector>
-#include <algorithm>
+#include <string>
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    vector<string> temp;
+bool isSame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++)
+        if (a[i] != b[i])
+            return false;
+    return true;
+}
+
+vector<string> by_length(vector<int> arr) {
+    vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            temp.push_back(to_string(i));
+            temp.push_back(i);
         }
     }
     
     sort(temp.begin(), temp.end());
     
     vector<string> result;
-    for (int i = temp.size() - 1; i >= 0; --i) {
-        string s = "Zero";
-        switch (stoi(temp[i])) {
+    for (int i : temp) {
+        string s = "";
+        switch (i) {
             case 1:
                 s = "One";
                 break;
@@ -46,6 +54,8 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
         result.push_back(s);
     }
+    
+    reverse(result.begin(), result.end());
     
     return result;
 }
