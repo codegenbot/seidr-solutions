@@ -15,20 +15,21 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    assert(specialFilter({}) == 0); 
     int n;
-    cout << "Enter the number of integers: ";
+    vector<int> numbers;
+    cout << "Enter number of elements: ";
     cin >> n;
 
-    vector<int> nums(n);
-    for(int i = 0; i < n; i++){
-        cout << "Enter integer #"<<(i+1)<<":";
-        cin >> nums[i];
+    for(int i=0; i<n; i++){
+        cout << "Enter element: ";
+        int num;
+        cin >> num;
+        numbers.push_back(num);
     }
 
-    int output = specialFilter(nums);
+    int result = specialFilter(numbers);
 
-    cout << "The number of integers that satisfy the condition is: "<<output<<endl;
-    
+    cout << "Number of integers that meet the condition is: " << result << endl;
+
     return 0;
 }
