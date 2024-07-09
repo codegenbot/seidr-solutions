@@ -1,3 +1,4 @@
+```c++
 #include <string>
 
 bool solveBoolean(std::string s) {
@@ -33,3 +34,4 @@ bool solveBoolean(std::string s) {
     }
 
     return result;
+}

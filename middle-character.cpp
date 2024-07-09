@@ -6,11 +6,12 @@ std::string middleCharacter(std::string s) {
     if(len == 0)
         return "";
     
+    int middleIndex = len / 2;
     std::string result;
     if(len % 2 == 0) {
-        result = s.substr(len/2-1, 2);
+        result = s.substr(middleIndex - 1, 2);
     } else {
-        result = s.substr(len/2, 1);
+        result = s.substr(middleIndex, 1);
     }
     return result;
 }
@@ -24,13 +25,7 @@ int main() {
         std::cout << "Enter a non-empty string" << std::endl;
     } else {
         int len = input.length();
-        std::string result; 
-        if(len % 2 == 0) {
-            result = input.substr(len/2-1, 2);
-        } else {
-            result = input.substr(len/2, 1);
-        }
-        std::cout << input;
+        std::cout << middleCharacter(input) << std::endl;
     }
     return 0;
 }
