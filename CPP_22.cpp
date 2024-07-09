@@ -14,7 +14,8 @@ int main() {
         return 1; 
     }
 
-    std::vector<int> a, b;
+    std::vector<int> a;
+    std::vector<int> b;
 
     for(int i = 0; i < n; ++i) {
         int x;
