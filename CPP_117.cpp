@@ -14,7 +14,6 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    int wordCount = 0;
     string word = "";
     for (char c : s) {
         if (c == ' ') {
@@ -26,7 +25,6 @@ vector<string> select_words(string s, int n) {
                 }
                 word = "";
             }
-            wordCount++;
         } else {
             word += c;
         }
