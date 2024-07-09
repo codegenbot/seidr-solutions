@@ -1,11 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <queue>
 #include <algorithm>
 
-using namespace std;
-
-bool issame(vector<int> a,vector<int>b){
+bool issame(vector<int> a, vector<int> b) {
     return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
@@ -38,14 +35,4 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
     return path;
-}
-
-int main() {
-    vector<vector<int>> grid = {{1,2},{3,4}};
-    int k = 2;
-    vector<int> result = minPath(grid, k);
-    for (auto i : result) {
-        cout << i << " ";
-    }
-    return 0;
 }
