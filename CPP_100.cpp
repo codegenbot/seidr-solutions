@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 
@@ -12,3 +11,4 @@ std::vector<int> make_a_pile(int n) {
         pile.insert(pile.begin(), i);
     return pile;
 }
+#include <initializer_list>
