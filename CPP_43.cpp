@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <assert.h>
 
 bool pairs_sum_to_zero(const std::vector<std::pair<int, int>>& pairs) {
     for (const auto& pair : pairs) {
@@ -11,6 +11,7 @@ bool pairs_sum_to_zero(const std::vector<std::pair<int, int>>& pairs) {
 }
 
 int main() {
-    assert(pairs_sum_to_zero({{-3, 9}, {-1, 4}, {-2, 2}, {31, -31}}));
+    std::vector<std::pair<int, int>> pairs = {{-3, 9}, {-1, 4}, {-2, 2}, {31, -31}};
+    assert(pairs_sum_to_zero(pairs));
     return 0;
 }
