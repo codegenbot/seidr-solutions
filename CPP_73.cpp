@@ -1,20 +1,13 @@
+#include <vector>
+#include <algorithm>
+
 int smallest_change(std::vector<int> arr) {
-    int n = arr.size();
-    std::vector<int> uniques;
-    
-    for (int i : arr) {
-        bool exists = false;
-        for (int j = 0; j < uniques.size(); ++j) {
-            if (uniques[j] == i) {
-                exists = true;
-                break;
-            }
-        }
-        
-        if (!exists) {
-            uniques.push_back(i);
+    std::sort(arr.begin(), arr.end());
+    int changes = 0;
+    for (int i = 1; i < arr.size(); ++i) {
+        if (arr[i] != arr[i - 1]) {
+            changes++;
         }
     }
-    
-    return uniques.size();
+    return changes;
 }
