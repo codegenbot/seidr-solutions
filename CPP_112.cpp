@@ -19,6 +19,10 @@ std::pair<std::string, std::string> reverse_delete(const std::string& s, const s
     return {result, result == result_reversed ? "True" : "False"};
 }
 
+/*- Modify the `main` function here to avoid redefinition - uncomment this section or the one above
+
 int main() {
     assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
 }
+
+-•*/
