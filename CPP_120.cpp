@@ -26,4 +26,3 @@ vector<int> maximum(vector<int> arr, int k) {
         arr.erase(it);
     }
     return result;
-}
