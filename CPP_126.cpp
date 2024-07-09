@@ -1,6 +1,4 @@
-#include <vector>
-#include <algorithm>
-
+```cpp
 bool is_sorted(vector<int> lst) {
     for(int i = 1; i < lst.size(); i++){
         if(lst[i-1] >= lst[i]){
@@ -14,10 +12,7 @@ bool is_sorted(vector<int> lst) {
 }
 
 int main() {
-    // Task description: Write a program that checks whether an array is sorted or not.
-    // The array contains only integers. If the array is sorted, it returns true; otherwise, it returns false.
-
-    // Example usage:
-    assert (is_sorted({1, 2, 3, 4}) == true);
+    vector<int> lst = {1, 2, 3, 4};
+    cout << is_sorted(lst) << endl;
     return 0;
 }
