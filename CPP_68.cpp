@@ -1,25 +1,18 @@
-#include <vector>
+Here is the solution:
 
-using namespace std;
+vector<int> pluck(vector<int> arr) {
+    vector<pair<int, int>> evenNodes;
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return {};
-
-    int minEven = INT_MAX;
-    int indexMinEven = 0;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
-            indexMinEven = i;
+        if (arr[i] % 2 == 0) {
+            evenNodes.emplace_back(arr[i], i);
         }
     }
 
-    if (minEven != INT_MAX) {
-        result.push_back({minEven, indexMinEven});
-    } else {
-        result.push_back({});
+    if (evenNodes.empty()) {
+        return {};
     }
 
-    return result;
+    auto smallest = *min_element(evenNodes.begin(), evenNodes.end());
+    return {{smallest.first, smallest.second}};
 }
