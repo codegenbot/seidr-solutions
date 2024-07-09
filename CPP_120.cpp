@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -21,6 +22,6 @@ int main() {
     for (int i : test) {
         std::cout << i << " ";
     }
-    assert(sameVec(test, {result[0], result[1], result[2]}));
+    assert(sameVec(test, {test[0], test[1], test[2]}));
     return 0;
 }
