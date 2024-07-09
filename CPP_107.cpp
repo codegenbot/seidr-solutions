@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <initializer_list>
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result;
@@ -21,8 +21,5 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> output = even_odd_palindrome(5);
-    for(int i=0; i<output.size(); i++) {
-        std::cout << output[i] << " ";
-    }
+    assert(isSame(even_odd_palindrome(5), std::vector<int>({0, 1, 0, 1, 0})));
 }
