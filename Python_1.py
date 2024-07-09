@@ -19,7 +19,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             temp += char
 
     return result
-
-input_string = "((group1)(group2)outside(group3)(group4))"
-output = separate_paren_groups(input_string)
-print(output)
