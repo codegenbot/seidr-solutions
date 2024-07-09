@@ -14,7 +14,7 @@ string fizzBuzz(int x) {
 
 int main() {
     int x;
-    cout << "Enter an integer: ";
+    cout << "Enter a number: ";
     cin >> x;
     cout << fizzBuzz(x) << endl;
     return 0;
