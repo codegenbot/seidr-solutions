@@ -1,3 +1,4 @@
+```
 def mastermind(code, guess):
     white_pegs = 0
     black_pegs = 0
