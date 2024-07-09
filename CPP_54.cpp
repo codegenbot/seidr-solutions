@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -6,16 +7,9 @@ bool same_chars(string s1, string s2) {
         return false;
     }
     for(int i = 0; i < s1.size(); i++){
-        bool match = true;
-        int j = 0;
-        while(j < s1.size() && j+i < s1.size() && s1[j+i] == s1[i]) {
-            if(s2[j] != s1[i]) {
-                match = false;
-                break;
-            }
-            j++;
+        if(s1.at(i) != s2.at(i)) { 
+            return false;
         }
-        if(!match) return false;
     }
     return true;
 
