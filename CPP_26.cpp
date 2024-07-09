@@ -14,7 +14,7 @@ bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
     if (numbers.empty()) return std::vector<int>();
 
-    std::vector<int> uniqueNumbers;
+    std::vector<int> uniqueNumbers = {};
     for (int num : numbers) {
         bool found = false;
         for (int i = 0; i < uniqueNumbers.size(); i++) {
@@ -40,9 +40,6 @@ int main() {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
         std::cin >> num;
-        if (numbers.size() == numbers.capacity()) {
-            numbers.reserve(n); 
-        }
         numbers.push_back(num);
     }
 
