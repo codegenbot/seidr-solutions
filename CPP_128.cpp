@@ -1,11 +1,18 @@
-#include <vector>
-#include <numeric>
+int prod_signs(vector<int> arr) {
+    int sign_product = 1;
+    long long sum = 0;
 
-int prod_signs(std::vector<int> arr) {
-    if (arr.empty()) return -32768;
+    for (int num : arr) {
+        if (num == 0) {
+            return -32768;
+        }
+        sign_product *= abs(num);
+        sum += abs(num);
+    }
 
-    int sign_product = std::accumulate(arr.begin(), arr.end(), 1, 
-        [](int acc, int n){ return n == 0 ? acc : (n > 0 ? 1 : -1); });
+    if (arr.empty()) {
+        return -32768;
+    }
 
-    return std::abs(std::accumulate(arr.begin(), arr.end(), 0)) * sign_product;
+    return sum * sign_product;
 }
