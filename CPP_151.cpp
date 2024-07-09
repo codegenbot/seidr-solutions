@@ -1,22 +1,20 @@
-#include <cmath>
+```cpp
 #include <vector>
-#include <algorithm>
+#include <cassert>
 
-bool isOdd(float num) {
-    return fmod(num, 1) != 0;
-}
-
-double double_the_difference(const vector<float>& lst) {
-    double odd_sum = 0;
-    for (float num : lst) {
-        if (isOdd(num)) {
-            odd_sum += pow(fmod(num, 1), 2);
+float double_the_difference(const std::vector<float>& lst) {
+    float odd_sum = 0;
+    for (const auto& num : lst) {
+        if (num % 1 != 0) {
+            odd_sum += num;
         }
     }
-    return odd_sum;
+    return odd_sum * 2.0f;
 }
 
 int main() {
-    vector<float> lst = {1.2f, -3.4f, 5.6f, 0.7f, -8.9f};
-    assert(double_the_difference(lst) == pow(fmod(1.2, 1), 2) + pow(fmod(-3.4, 1), 2) + pow(fmod(5.6, 1), 2));
+    std::vector<float> lst = {1.0f, 2.5f, -3.5f, 4.0f};
+    float expected = double_the_difference(lst);
+    assert(expected == 6.0f);  
+    return 0;
 }
