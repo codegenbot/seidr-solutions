@@ -1,26 +1,11 @@
-#include <vector>
-#include <climits>
-
-vector<int> rolling_max(vector<int> numbers);
-
-vector<int> rolling_max(vector<int> numbers){
-    vector<int> result;
-    int max_val = INT_MIN;
-    for(int i=0; i<numbers.size(); i++){
-        max_val = max(max_val, numbers[i]);
-        result.push_back(max_val);
-    }
-    return result;
+bool issame(const vector<int>& a, const vector<int>& b){
+    return a == b;
 }
 
-int main() {
-    // Example usage of rolling_max function
-    vector<int> example_numbers = {1, 3, 5, 2, 8, 4, 10};
-    vector<int> max_values = rolling_max(example_numbers);
+vector<int> rolling_max(vector<int> numbers);
+bool issame(const vector<int>& a, const vector<int>& b); // Function declaration
 
-    for(int val : max_values){
-        cout << val << " ";
-    }
-
+int main(){
+    assert (issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
     return 0;
 }
