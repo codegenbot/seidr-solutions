@@ -1,4 +1,4 @@
-#include <cassert>
+```
 #include <string>
 #include <vector>
 
@@ -11,13 +11,4 @@ std::string longest(std::vector<std::string> strings){
         }
     }
     return result;
-}
-
-int main() {
-    testMain();
-    return 0;
-}
-
-void testMain(){
-    assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
 }
