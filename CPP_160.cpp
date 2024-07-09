@@ -3,14 +3,9 @@
 #include <utility>
 #include <cmath>
 
-struct pair {
-    char first;
-    int second;
+using namespace std;
 
-    pair(char x, int y) : first(x), second(y) {}
-};
-
-int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
+int do_algebra(vector<pair<char, int>> operators_and_operands) {
     if (operators_and_operands.size() == 0) {
         return 0;
     }
@@ -28,28 +23,21 @@ int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
                 result /= pair.second;
             }
         } else if (pair.first == '^') { 
-            result = std::pow(result, pair.second);
+            result = pow(result, pair.second);
         }
     }
     return result;
 }
 
 int main() {
-    std::string str = "++7*3+4";
+    string str = "++7*3+4";
+    istringstream iss(str);
     
-    // Add spaces around operators and at the beginning and end of the string
-    str = "(" + str + ")";
-    for (char op : "+-*/^") {
-        str = str.replace(str.find(op), 1, " " + op + " ");
-    }
-    
-    std::istringstream iss(str);
-    
-    std::vector<std::pair<char, int>> operators_and_operands;
-    std::string token;
+    vector<pair<char, int>> operators_and_operands;
+    string token;
     int operand = 0; // initialize operand variable
     char op = '+';
-    while (std::getline(iss, token)) {
+    while (getline(iss, token)) {
         if (!token.empty()) {
             // if operator is not '+' then add previous operand and operator to vector
             if (op != '+') {
@@ -60,23 +48,22 @@ int main() {
             // process the current token as operand or operator
             if (token[0] == '+') {
                 op = '+';
-                operand = std::stoi(token.substr(1));
+                operand = stoi(token.substr(1));
             } else if (token[0] == '-') {
                 op = '-';
-                operand = std::stoi(token.substr(1));
+                operand = stoi(token.substr(1));
             } else if (token[0] == '*') {
                 op = '*';
-                operand = std::stoi(token.substr(1));
+                operand = stoi(token.substr(1));
             } else if (token[0] == '/') {
                 op = '/';
-                operand = std::stoi(token.substr(1));
+                operand = stoi(token.substr(1));
             } else if (token[0] == '^') {
                 op = '^';
-                operand = std::stoi(token.substr(1));
+                operand = stoi(token.substr(1));
             }
         }
     }
-    
     // add the last operator and operand to vector
     if (op != '+') {
         operators_and_operands.push_back({op, operand});
