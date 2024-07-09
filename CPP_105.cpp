@@ -1,53 +1,48 @@
-#include <vector>
-#include <string>
-
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size())
-        return false;
-    for(int i=0; i<a.size(); i++)
-        if(a[i] != b[i])
-            return false;
-    return true;
+```cpp
+bool issame(vector<string> a,vector<string>b){
+    return a == b;
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> temp;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            string s = "";
-            switch (i) {
+    vector<string> numbers;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            switch (num) {
                 case 1:
-                    s = "One";
+                    numbers.push_back("One");
                     break;
                 case 2:
-                    s = "Two";
+                    numbers.push_back("Two");
                     break;
                 case 3:
-                    s = "Three";
+                    numbers.push_back("Three");
                     break;
                 case 4:
-                    s = "Four";
+                    numbers.push_back("Four");
                     break;
                 case 5:
-                    s = "Five";
+                    numbers.push_back("Five");
                     break;
                 case 6:
-                    s = "Six";
+                    numbers.push_back("Six");
                     break;
                 case 7:
-                    s = "Seven";
+                    numbers.push_back("Seven");
                     break;
                 case 8:
-                    s = "Eight";
+                    numbers.push_back("Eight");
                     break;
                 case 9:
-                    s = "Nine";
+                    numbers.push_back("Nine");
                     break;
             }
-            temp.push_back(s);
         }
     }
-    sort(temp.begin(), temp.end());
-    reverse(temp.begin(), temp.end());
-    return temp;
+    sort(numbers.begin(), numbers.end());
+    reverse(numbers.begin(), numbers.end());
+    return numbers;
+}
+
+int main() {
+    assert(by_length({9, 4, 8}) == vector<string>({"Nine", "Eight", "Four"}));
 }
