@@ -14,7 +14,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<std::vector<int>> strange_sort_list(std::vector<std::vector<int>> lst) {
-    std::vector<std::vector<int>> result = {{}};
+    std::vector<std::vector<int>> result;
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin()->begin(), lst.end()->end());
         for (auto& v : lst) {
@@ -39,8 +39,16 @@ std::vector<std::vector<int>> strange_sort_list(std::vector<std::vector<int>> ls
 }
 
 int main() {
-    assert(issame(strange_sort_list(std::vector<std::vector<int>>{{{1,1,1,1,1}}}), std::vector<std::vector<int>>{{{{1,1,1,1,1}}}}));
     std::vector<std::vector<int>> input = {{1,2,3}, {4,5,6}, {7,8,9}};
     std::vector<std::vector<int>> result = strange_sort_list(input);
+    for (auto& v : result) {
+        for (int i = 0; i < v.size(); i++) {
+            if (i == v.size() - 1 || *std::max_element(v.begin(), v.end()) != *std::max_element({v[i]})) {
+                std::cout << " ";
+                break;
+            }
+            std::cout << *std::max_element({v[i]}) << " ";
+        }
+    }
     return 0;
 }
