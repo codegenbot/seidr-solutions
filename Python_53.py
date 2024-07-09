@@ -1,4 +1,4 @@
-def add(x: int, y: int) -> int:
+def add(x: int, y: int):
     return x + y
 
 try:
@@ -7,4 +7,4 @@ try:
     result = add(x, y)
     print(result)
 except ValueError:
-    print("Please enter valid integers.")
+    print("Please enter integers only.")
