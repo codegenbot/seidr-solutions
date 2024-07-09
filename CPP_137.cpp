@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -17,21 +18,21 @@ boost::any compare_one(boost::any a, boost::any b) {
         string x = boost::any_cast<string>(a);
         string y = boost::any_cast<string>(b);
         return (stof(x) > stof(y)) ? a : ((stof(x) < stof(y)) ? b : boost::any("None"));
-    } else if (a.type() == typeid(string) && b.type() != typeid(string)) {
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         string x = boost::any_cast<string>(a);
-        return (stof(x) > boost::any_cast<float>(b)) ? a : ((stof(x) < boost::any_cast<float>(b)) ? b : boost::any("None"));
-    } else if (b.type() == typeid(string) && a.type() != typeid(string)) {
+        return (stof(x) > b) ? a : ((stof(x) < b) ? b : boost::any("None"));
+    } else if (b.type() == typeid(string) && a.type() == typeid(float)) {
         string y = boost::any_cast<string>(b);
-        return (stof(y) > boost::any_cast<float>(a)) ? b : ((stof(y) < boost::any_cast<float>(a)) ? a : boost::any("None"));
+        return (stof(y) > a) ? b : ((stof(y) < a) ? a : boost::any("None"));
     } else {
         return boost::any("None");
     }
 }
 
 int main() {
-    cout << boost::any_cast<string>(compare_one(boost::any(1), boost::any(2.5))) << endl;
-    cout << boost::any_cast<string>(compare_one(boost::any(1), boost::any("2,3"))) << endl;
-    cout << boost::any_cast<string>(compare_one(boost::any("5,1"), boost::any("6"))) << endl;
-    cout << boost::any_cast<string>(compare_one(boost::any("1"), boost::any(1))) << endl;
+    cout << boost::any_cast<string>(compare_one(1, 2.5)) << endl;
+    cout << boost::any_cast<string>(compare_one(1, "2.5")) << endl;
+    cout << boost::any_cast<string>(compare_one("5", "6")) << endl;
+    cout << boost::any_cast<string>(compare_one("1", 1)) << endl;
     return 0;
 }
