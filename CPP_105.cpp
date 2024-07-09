@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,13 +16,12 @@ int main() {
     std::vector<int> intArray(numArray, numArray + sizeof(numArray) / sizeof(numArray[0]));
     std::vector<std::string> stringArray;
 
-    for (int i = 0; i < intArray.size(); i++) {
-        if (intArray[i] == 9) stringArray.push_back("Nine");
-        else if (intArray[i] == 4) stringArray.push_back("Four");
-        else if (intArray[i] == 8) stringArray.push_back("Eight");
+    for (int i : intArray) {
+        if (i == 9) stringArray.push_back("Nine");
+        else if (i == 4) stringArray.push_back("Four");
+        else if (i == 8) stringArray.push_back("Eight");
     }
 
-    std::vector<std::string> strArr = {"Nine", "Four", "Eight"};
+    std::vector<std::string> strArr = {"" + std::to_string(i) for i in intArray};
     assert(issame(stringArray, strArr));
-    return 0;
 }
