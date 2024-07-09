@@ -18,8 +18,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> arr1 = {21, 14, 23, 11};
-    std::vector<int> arr2 = {23, 21, 14, 11};
-    assert(issame(arr1, arr2));
+    assert(issame({21, 14, 23, 11}, {23, 21, 14, 11}));
     return 0;
 }
