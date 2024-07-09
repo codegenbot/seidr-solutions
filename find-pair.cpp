@@ -12,12 +12,6 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (numMap.find(complement) != numMap.end()) {
-            return std::make_pair(nums[i], complement);
-        }
-    }
     return {-1, -1};
 }
 
