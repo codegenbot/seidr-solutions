@@ -1,5 +1,9 @@
 #include <vector>
-#include <stack>
+using namespace std;
+
+bool issame(vector<int> a,vector<int>b){
+    return a == b;
+}
 
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
@@ -16,4 +20,10 @@ vector<int> parse_nested_parens(string paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    assert(std::issame(parse_nested_parens("(()(())((()))"), {4}));
+    // your other code here
+    return 0;
 }
