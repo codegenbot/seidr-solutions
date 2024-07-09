@@ -16,10 +16,5 @@ std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
         }
     }
 
-    std::sort(result.begin(), result.end());
-
-    auto last = std::unique(result.begin(), result.end());
-    result.erase(last, result.end());
-
     return result;
 }
