@@ -4,7 +4,7 @@
 
 std::vector<std::string> ops = { "//", "*" }; 
 
-int do_algorithm(std::vector<std::string> operators, std::vector<int> operands) {
+int do_algebra(std::vector<std::string> operators, std::vector<int> operands) {
     std::string expression = "";
     for (int i = 0; i < operators.size(); i++) {
         expression += std::to_string(operands[i]);
