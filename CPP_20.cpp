@@ -1,10 +1,9 @@
-```cpp
 #include <initializer_list>
 #include <algorithm>
 #include <vector>
 #include <limits>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool isSame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
@@ -31,6 +30,6 @@ std::vector<float> findClosestElements(std::vector<float> numbers) {
 }
 
 int main() {
-    assert(isSame(findClosestElements({1.1, 2.2, 3.1, 4.1, 5.1}) , {2.2, 3.1}));
+    assert(isSame({2.2, 3.1}, findClosestElements({1.1, 2.2, 3.1, 4.1, 5.1})); 
     return 0;
 }
