@@ -24,8 +24,6 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     }
     return result;
 
-}
-
 int main() {
     int n, m;
     cout << "Enter number of strings: ";
