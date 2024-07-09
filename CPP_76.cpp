@@ -1,3 +1,4 @@
+```
 #include <cmath>
 #include <iostream>
 
@@ -14,7 +15,7 @@ bool isSimplePower(int x) {
     return false;
 }
 
-int main1() {
+int main() {
     int x;
     std::cout << "Enter a number: ";
     std::cin >> x;
