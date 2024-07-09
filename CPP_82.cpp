@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -12,12 +11,10 @@ bool prime_length(string str){
             return false;
     }
     return true;
-
 }
 
 int main(){
     cout << boolalpha << (prime_length("10") ? "Prime" : "Not Prime") << endl;
     assert (!prime_length("0"));
     return 0;
-
 }
