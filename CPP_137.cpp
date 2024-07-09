@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 
@@ -16,6 +17,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if(f1 < f2) return b;
         else return boost::any("Both strings are equal");
     } else {
-        return boost::any("At least one is not a string or float");
+        return boost::any("Not comparable types");
     }
 }
