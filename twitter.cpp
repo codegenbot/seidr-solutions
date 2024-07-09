@@ -1,6 +1,6 @@
+```cpp
 std::string userTweet;
-std::cout << "Enter a tweet: ";
-std::getline(std::cin, userTweet);
+std::cin >> userTweet;
 if (userTweet.size() > 140) {
     return "Too many characters";
 } else if (userTweet.empty()) {
