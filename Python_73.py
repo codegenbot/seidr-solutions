@@ -1,4 +1,3 @@
-```
 def smallest_change(arr):
     arr = str(arr)
     rev_arr = arr[::-1]
