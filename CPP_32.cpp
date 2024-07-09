@@ -2,11 +2,12 @@
 #include <cmath>
 
 double poly(const vector<double>& coeffs, double x);
+
 double find_zero(const vector<double>& coeffs);
 
-double find_zero(const vector<double>& coeffs){
-    double a = coeffs[0];
-    double b = coeffs[1];
+double find_zero(const vector<double>& xs){
+    double a = poly(xs, 0);
+    double b = poly(xs, 1);
     return -b/a;
 }
 
