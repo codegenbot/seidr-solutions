@@ -1,8 +1,6 @@
-bool is_divisor = false;
-for (long long i = 2; i * i <= n; ++i) {
-    if (n % i == 0) {
-        is_divisor = true;
-        break;
-    }
+int i = 2;
+while(i * i <= n) {
+    if(n % i == 0) return false;
+    i++;
 }
-return !is_divisor;
+return true;
