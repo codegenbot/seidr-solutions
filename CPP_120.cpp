@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
@@ -22,4 +22,3 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         arr.erase(it);
     }
     return result;
-}
