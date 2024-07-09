@@ -1,4 +1,2 @@
-```
 def leaders(vector):
-    leaders = [vector[i] for i in range(len(vector) - 1, -1, -1)]
-    return [x for x in reversed(leaders)]
+    return [vector[i] for i in range(len(vector) - 1, -1, -1) if all(vector[j] <= vector[i] for j in range(i + 1, len(vector)))]
