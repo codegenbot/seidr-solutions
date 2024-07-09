@@ -2,7 +2,7 @@
 #include <map>
 #include <sstream>
 
-bool issamse(std::map<char, int> a, std::map<char, int> b) {
+bool issame(std::map<char, int> a, std::map<char, int> b) {
     return a == b;
 }
 
