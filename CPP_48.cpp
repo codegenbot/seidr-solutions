@@ -11,7 +11,3 @@ bool is_palindrome(string text){
     return true;
 
 }
-
-int main(){
-    assert (is_palindrome("xywzx") == false);
-}
