@@ -1,5 +1,5 @@
-def decode_shift():
-    s = input("Enter the encoded message: ")
-    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
+import sys
 
-print(decode_shift())
+def decode_shift():
+    s = sys.stdin.readline().strip()
+    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
