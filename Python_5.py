@@ -1,6 +1,5 @@
+def intersperse(numbers, delimiter):
+    return [value for pair in zip(numbers, [delimiter] * len(numbers)) for value in pair]
+
 def process_numbers(numbers, delimiter):
-    result = []
-    for num in numbers:
-        result.extend([num, delimiter])
-    result.pop()
-    return result
+    return intersperse(numbers, delimiter)
