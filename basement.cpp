@@ -1,8 +1,10 @@
+```c++
 #include <vector>
+using namespace std;
 
-int basement(const std::vector<int>& v) {
+int basement(vector<int>& v) {
     int sum = 0;
-    for (int i = 0; i < v.size(); ++i) {
+    for (int i = 0; i < v.size(); i++) {
         sum += v[i];
         if (sum < 0) return i;
     }
@@ -10,5 +12,8 @@ int basement(const std::vector<int>& v) {
 }
 
 int main() {
-    return basement({-2, 5, -4, 3});
+    vector<int> v = {-2, 3, 1, -5, 4};
+    int result = basement(v);
+    cout << "Result: " << result << endl; 
+    return 0;
 }
