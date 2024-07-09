@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if not expression.strip():
         return False
