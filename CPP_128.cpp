@@ -20,7 +20,7 @@ int prod_signs(const std::vector<int>& arr) {
         sumMagnitudes += std::abs(num);
     }
     
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
-    
     return signProduct * sumMagnitudes;
 }
+
+assert(prod_signs({-1, 1, 1, 0}) == 0);
