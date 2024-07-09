@@ -1,38 +1,21 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
-    string expression = "";
-    for (int i = 0; i < operator_.size(); i++) {
-        expression += to_string(operand[i]);
-        expression += operator_[i];
-    }
-    expression += to_string(operand.back());
-    
-    int result = eval(expression);
-    
-    return result;
-}
+#include <iostream>
+#include <vector>
+#include <cmath>
 
-int eval(const string& s) {
-    int result = 0;
-    if (s.empty()) {
-        return result;
-    }
-    
-    int start = 0, sign = 1;
-    for (int i = 0; i < s.size(); i++) {
-        if (!isdigit(s[i])) {
-            if (s[i] == '+') {
-                sign = 1;
-            } else if (s[i] == '-') {
-                sign = -1;
-            }
-            start = i + 1;
-        } else if (i == s.size() - 1) {
-            result += sign * (int)(s[i] - '0');
-        } else if (!isdigit(s[i + 1])) {
-            result += sign * (int)(s[i] - '0');
-            i++;
+int do_algebra(vector<string> operators, vector<int> operands) {
+    int result = operands[0];
+    for (int i = 0; i < operators.size(); i++) {
+        if (operators[i] == "+") {
+            result += operands[i + 1];
+        } else if (operators[i] == "-") {
+            result -= operands[i + 1];
+        } else if (operators[i] == "*") {
+            result *= operands[i + 1];
+        } else if (operators[i] == "//") {
+            result = result / operands[i + 1];
+        } else if (operators[i] == "**") {
+            result = pow(result, operands[i + 1]);
         }
     }
-    
     return result;
 }
