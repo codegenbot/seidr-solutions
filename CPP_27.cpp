@@ -1,28 +1,23 @@
+```cpp
 #include <cassert>
 #include <string>
+#include <cctype>
 
 std::string flip_case(const std::string& input) {
     std::string result;
     for (char c : input) {
-        if (isalpha(c)) {
-            if (islower(c))
-                result += toupper(c);
+        if (std::isalpha(c)) {
+            if (std::islower(c))
+                result += std::toupper(c);
             else
-                result += tolower(c);
+                result += std::tolower(c);
         } else
             result += c;
     }
     return result;
 }
 
-int main() {
-    std::string expected = "theSE Violent Delights Have Violent Ends";
-    assert(flip_case("These violent delights have violent ends").compare(expected) == 0);
-
-    std::cout << "Enter a string: ";
-    std::string user_input;
-    std::cin >> user_input;
-    std::cout << "Flipped case: " << flip_case(user_input) << std::endl;
-
+int testMain() {
+    assert(flip_case("These violent delights have violent ends") == "tHESE vIOLENT dELIGHTS hAVE vIOLENT eNDS");
     return 0;
 }
