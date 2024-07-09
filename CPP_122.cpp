@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,24 +13,8 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> arr;
-    int num_elements, k;
-    
-    std::cout << "Enter number of elements: ";
-    std::cin >> num_elements;
-    
-    for (int i = 0; i < num_elements; i++) {
-        std::cout << "Enter element " << (i + 1) << ": ";
-        int element;
-        std::cin >> element;
-        arr.push_back(element);
-    }
-    
-    std::cout << "Enter k: ";
-    std::cin >> k;
-    
-    int result = add_elements(arr, k);
-    std::cout << "The sum of elements with length <= 2 is: " << result << std::endl;
-
+    std::vector<int> arr = {1};
+    int result = add_elements(arr, 1);
+    assert(result == 1);
     return 0;
 }
