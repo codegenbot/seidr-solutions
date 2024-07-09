@@ -13,5 +13,5 @@ string make_palindrome(string str){
         i--;
     if(i<0)
         return str+str;
-    return str.substr(0,i)+std::string(str.substr(i-1,1)).reverse()+str.substr(i);
+    return str.substr(0,i)+std::string(str.substr(i-1, 1)).reverse()+str.substr(i);
 }
