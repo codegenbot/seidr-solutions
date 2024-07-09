@@ -13,34 +13,32 @@ bool issame(const vector<string>& v1, const vector<string>& v2) {
     return true;
 }
 
-vector<string> sorted_list_sum(const vector<string>& lst) {
-    vector<string> result;
+std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
+    std::vector<string> result;
 
-    // Remove strings with odd lengths
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
             result.push_back(str);
         }
     }
 
-    // Sort the resulted vector by length and then alphabetically
-    sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
+    std::sort(result.begin(), result.end(),
+              [](const string& a, const string& b) {
+                  if (a.length() != b.length()) {
+                      return a.length() < b.length();
+                  } else {
+                      return a < b;
+                  }
+              });
 
     return result;
 }
 
 int main() {
-    vector<string> lst = {"apple", "banana", "cherry", "date", "elderberry"};
+    std::vector<std::string> lst = {"apple", "banana", "cherry", "date", "elderberry"};
     if (issame(sorted_list_sum(lst), {"cher", "dat"})) {
-        cout << "The function works correctly." << endl;
+        std::cout << "The function works correctly." << std::endl;
     } else {
-        cout << "There is a problem in the code." << endl;
+        std::cout << "There is a problem in the code." << std::endl;
     }
 }
