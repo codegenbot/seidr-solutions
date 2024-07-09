@@ -1,38 +1,36 @@
-#include<stdio.h>
-#include<vector>
-#include<string>
-#include<algorithm>
+#include <vector>
+#include <string>
+#include <algorithm>
+
 using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prev = 0;
     
-    while ((pos = txt.find_first_of(" ,")) != string::npos) {
-        if (pos == 0 || txt[pos - 1] != ' ') {
-            prev = pos;
-        }
-        
-        string word = txt.substr(prev, pos - prev);
-        result.push_back(word);
-        
-        prev = pos + 1;
+    size_t pos = 0;
+    string token;
+    
+    while ((pos = txt.find(' ')) != string::npos) {
+        token = txt.substr(0, pos);
+        result.push_back(token);
+        txt.erase(0, pos + 1);
     }
     
-    if (prev < txt.size()) {
-        result.push_back(txt.substr(prev));
-    } else if (result.empty()) {
-        int count = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                count++;
-                if ((count - 1) % 2 == 0) {
-                    result.push_back(to_string(count));
-                    break;
-                }
-            }
-        }
+    if (txt.empty()) {
+        return result;
     }
     
-    return result;
+    result.push_back(txt);
+    
+    return result.size() == 1 ? vector<string>({"" + to_string(count_lowercase(txt))}) : result;
+}
+
+int count_lowercase(string str) {
+    int count = 0;
+    for (char c : str) {
+        if (c >= 'a' && c <= 'z') {
+            count += 1;
+        }
+    }
+    return count;
 }
