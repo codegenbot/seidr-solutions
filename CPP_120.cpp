@@ -1,16 +1,12 @@
-Here is the completed code:
-
-```cpp
-#include <vector>
-#include <algorithm>
-using namespace std;
-
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> res;
-    for (int i = 0; i < k; i++) {
-        auto it = max_element(arr.begin(), arr.end());
-        res.push_back(*it);
-        arr.erase(it);
+    vector<int> result;
+    if (k >= arr.size()) {
+        return sort(arr.begin(), arr.end()); // Return entire array if k is equal to or more than the size of the array.
+    } else {
+        sort(arr.begin(), arr.end());  // Sort the given array
+        for (int i = 0; i < k; i++) { 
+            result.push_back(arr[arr.size() - i - 1]); // Add the last element to the result which will be the maximum in this case.
+        }
     }
-    return res;
+    return result;
 }
