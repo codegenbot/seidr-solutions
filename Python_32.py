@@ -1,6 +1,9 @@
-def solve():
-    a, b, c = map(int, input("Enter three integers separated by space: ").split())
+def solve(a, b, c):
     return -c / b
 
-result = solve()
+a = int(input())
+b = int(input())
+c = int(input())
+
+result = solve(a, b, c)
 print(result)
