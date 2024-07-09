@@ -17,11 +17,6 @@ bool issame(std::vector<std::string> a) {
 }
 
 int main() {
-    {   
-        if (!issame(all_prefixes("WWW"))) {
-            std::cout << "Test failed" << std::endl;
-        } else {
-            std::cout << "Test passed" << std::endl;
-        }
-    }
+    assert(issame(all_prefixes("WWW")));
+    return 0;
 }
