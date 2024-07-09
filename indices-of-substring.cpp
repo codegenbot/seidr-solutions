@@ -24,11 +24,10 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text = "ABCDCDC";
-    string target = "CDC";
+    string text = "abcabc";
+    string target = "abc";
     vector<int> result = indicesOfSubstring(text, target);
-    for(int i : result) {
-        cout << i << endl;
-    }
+    for (int i : result)
+        cout << i << " ";
     return 0;
 }
