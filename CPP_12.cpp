@@ -1,4 +1,3 @@
-```
 Str longest(vector<Str> strings){
     if(strings.empty()) {
         return Str("");
