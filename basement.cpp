@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 int basement(vector<int> nums) {
@@ -21,6 +20,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    cout << basement(nums) << std::endl;
+    cout << basement(nums) << endl;
     return 0;
 }
