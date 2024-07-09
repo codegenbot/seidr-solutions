@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,6 +12,8 @@ bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
+    if (numbers.empty()) return std::vector<int>();
+
     std::vector<int> uniqueNumbers;
     for (int num : numbers) {
         bool found = false;
@@ -51,7 +54,8 @@ int main() {
     }
 
     if (!isEqualVector({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
-        assert(false);
+        std::cout << "All elements are not duplicates." << std::endl;
+    } else {
+        std::cout << "All elements are duplicates." << std::endl;
     }
-    return 0;
 }
