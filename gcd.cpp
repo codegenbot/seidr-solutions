@@ -1,5 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -30,10 +33,8 @@ int main() {
 
     cout << gcd(a, b) << endl;
 
-    string text;
-    getline(cin, text);
-    string target;
-    cin >> target;
+    string text, target;
+    cin >> text >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
 
