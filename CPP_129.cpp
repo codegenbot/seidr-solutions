@@ -20,7 +20,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             return vector<int>({val});
         }
         
-        int r = pair<int,int>::second.first / n, c = pair<int,int>::second.second % n;
+        int r = path.second / n, c = path.second % n;
         
         for (int dr = -1; dr <= 1; dr++) {
             for (int dc = -1; dc <= 1; dc++) {
