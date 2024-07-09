@@ -1,8 +1,7 @@
-```c++
+```
 #include <vector>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
