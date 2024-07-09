@@ -1,6 +1,2 @@
-def kebab_to_camel(s):
-    return " ".join(word.capitalize() for word in s.split("-"))
-
-
-s = input()
-print(kebab_to_camel(s))
+def camel_case(input_string):
+    return ''.join(word.capitalize() for word in input_string.split()) if '-' not in input_string else ' '.join(word.title() for word in input_string.split('-'))
