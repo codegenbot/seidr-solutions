@@ -4,23 +4,23 @@
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_none(a) || is_none(b))
-        return boost::any("None");
+    if (is_none(a) || is_none(b)) return any(null_type());
     
-    int intA = any_cast<int>(a);
-    int intB = any_cast<int>(b);
-    float floatA = any_cast<float>(a);
-    float floatB = any_cast<float>(b);
-    std::string strA = any_cast<std::string>(a);
-    std::string strB = any_cast<std::string>(b);
-
-    if (intA > intB) return a;
-    else if (floatA > floatB) return a;
-    else if (strA > strB) return a;
+    int ai = any_cast<int>(a);
+    float af = any_cast<float>(a);
+    std::string as = any_cast<std::string>(a);
     
-    if (intB > intA) return b;
-    else if (floatB > floatB) return b;
-    else if (strB > strA) return b;
+    int bi = any_cast<int>(b);
+    float bf = any_cast<float>(b);
+    std::string bs = any_cast<std::string>(b);
     
-    return boost::any("None");
+    if (ai > bi) return a;
+    else if (af > bf) return a;
+    else if (as > bs) return a;
+    
+    if (bi > ai) return b;
+    else if (bf > af) return b;
+    else if (bs > as) return b;
+    
+    return any(null_type());
 }
