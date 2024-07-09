@@ -1,4 +1,7 @@
+#include <vector>
+#include <climits>
 #include <cassert>
+#include <limits>
 
 long long minSubArray(std::vector<long long> nums) {
     long long sum = 0, min_sum = LLONG_MAX;
