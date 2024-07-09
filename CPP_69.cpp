@@ -45,8 +45,7 @@ int main() {
             std::cin.clear();
             while (std::cin.get() != '\n') {}
         }
-        lst.resize(i + 1);
-        lst[i] = num; 
+        lst.push_back(num); 
     }
 
     if(lst.empty()) {
