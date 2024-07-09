@@ -15,13 +15,7 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    float x;
-    float y;
-    std::cout << "Enter the first number: ";
-    std::cin >> x;
-    std::cout << "Enter the second number: ";
-    std::cin >> y;
-    std::vector<float> lst = {x, y};
-    long long odd_sum = double_the_difference(lst);
+    std::vector<float> lst = {1.5f, 2.8f};
+    double_the_difference(lst);
     return 0;
 }
