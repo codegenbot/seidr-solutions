@@ -21,12 +21,12 @@ int main() {
     std::cin >> n;
 
     std::vector<double> coeffs;
-    coeffs.resize(n);
+    coeffs.reserve(n);  // Reserve space for 'n' elements
 
     for (int i = 0; i < n; i++) {
         double coeff;
         std::cin >> coeff;
-        coeffs[i] = coeff;
+        coeffs.push_back(coeff);
     }
 
     double x; 
