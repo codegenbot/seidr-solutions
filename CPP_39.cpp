@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <cassert>
 
@@ -35,7 +35,9 @@ int prime_fib(int n) {
 int main() {
     int n;
     std::cout << "Enter the number: ";
-    std::cin >> n;
+    char input[100];
+    std::cin >> input;
+    n = std::stoi(input);
     if (n > 0) {
         std::cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << std::endl;
     } else {
