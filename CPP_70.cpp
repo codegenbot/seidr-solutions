@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <initializer_list>
 
-bool issame(vector<vector<int>>& a, vector<vector<int>>& b) {
+bool issame(vector<vector<int>> a, vector<vector<int>> b) {
     if (a.size() != b.size()) {
         return false;
     }
