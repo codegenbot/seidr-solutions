@@ -1,3 +1,4 @@
+```
 def cut_vector(vector):
     min_diff = float("inf")
     split_index = 0
@@ -12,3 +13,8 @@ def cut_vector(vector):
             min_diff = diff
             split_index = i
     return vector[:split_index], vector[split_index:]
+
+input_vector = [1, 2, 3, 4, 5]
+left_vector, right_vector = cut_vector(input_vector)
+print("Left Vector: ", left_vector)
+print("Right Vector: ", right_vector)
