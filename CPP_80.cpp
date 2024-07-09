@@ -23,19 +23,15 @@ int main() {
     int num;
     while(true) {
         std::cout << "Enter a number: ";
-        std::cin >> num;  
-        if (std::cin.fail()) {
+        if (!(std::cin >> num)) {
             std::cout << "Invalid input. Please enter an integer.\n";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        } else {
             break;
         }
-    }
-    if (is_happy(num)) {
-        std::cout << num << " is a happy number.\n";
-    } else {
-        std::cout << num << " is not a happy number.\n";
+        if (is_happy(num)) {
+            std::cout << num << " is a happy number.\n";
+        } else {
+            std::cout << num << " is not a happy number.\n";
+        }
     }
     return 0;
 }
