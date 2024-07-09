@@ -20,8 +20,11 @@ bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-int main(){
-    assert(issame(minPath({{1, 2}, {3, 4}, {5, 6}}, 5), {1, 2}));
-    
+int main() {
+    vector<vector<int>> test_grid = {{3, 1, 2}, {2, 4, 1}, {6, 3, 2}};
+    int k = 6;
+    vector<int> expected = {3, 2, 1};
+
+    assert(issame(minPath(test_grid, k), expected));
     return 0;
 }
