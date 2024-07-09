@@ -1,20 +1,20 @@
 int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+    int white = 0, black = 0;
+    vector<char> codeArray(code.begin(), code.end());
+    vector<char> guessArray(guess.begin(), guess.end());
 
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
+    for (int i = 0; i < 4; ++i) {
+        if (codeArray[i] == guessArray[i]) {
+            --guessArray.end(); // Move to the next character
             black++;
         }
     }
 
-    set<char> code_set(code.begin(), code.end());
-    set<char> guess_set(guess.begin(), guess.end());
-
-    for (char c : code_set) {
-        if (guess_set.count(c)) {
+    for (char c : guessArray) {
+        auto it = std::find(codeArray.begin(), codeArray.end(), c);
+        if (it != codeArray.end()) {
+            ++it; // Move to the next character
             white++;
-            guess_set.erase(c);
         }
     }
 
