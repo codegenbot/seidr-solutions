@@ -29,7 +29,9 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) 
 }
 
 int main() {
-    std::vector<std::vector<int>> lst = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    auto result = get_row(lst, 5);
-    assert(issame(result[0], {1, 1}));
+    std::vector<std::vector<int>> test {{1, 2, 3}, {3, 2, 1}, {4, 5, 6}, {3, 6, 9}};
+    std::vector<std::vector<int>> result = get_row(test, 3);
+    assert(issame(result[0], {0, 2}) && issame(result[1], {1, 0}) && issame(result[2], {3, 0}));
+    
+    return 0;
 }
