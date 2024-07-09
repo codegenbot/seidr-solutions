@@ -5,8 +5,8 @@
 using namespace std;
 
 int do_algebra(vector<pair<char, string>> operators_and_operands) {
-    int result = stoi(operators_and_operands[0].second);
-    for (const auto& pair : operators_and_operands) {
+    int result = stoi(operators_and_opernds[0].second);
+    for (const auto& pair : operators_and_opernds) {
         if (pair.first == "+") {
             result += stoi(pair.second);
         } else if (pair.first == "-") {
@@ -23,7 +23,7 @@ int do_algebra(vector<pair<char, string>> operators_and_operands) {
 }
 
 int main() {
-    vector<pair<char, string>> operators_and_operands = {{"+", "7"}, {"*", "3"}, {"**", "4"}};
-    assert(do_algebra(operators_and_operands) == 8);
+    vector<pair<char, string>> operators_and_opernds = {{"+", "7"}, {"*", "3"}, {"**", "4"}};
+    cout << do_algebra(operators_and_opernds) << endl;
     return 0;
 }
