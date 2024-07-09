@@ -1,17 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 
-std::vector<std::string> compareVector(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if(a.size() != b.size())
-        return {};
-    
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
-            return {};
-    }
-    
-    return a;
+std::vector<std::string> compareVector(const std::vector<std::string>& a, const std::vector<std::string>& b){
+    return (a == b);
 }
 
 std::vector<string> numerical_letter_grade(vector<float> grades){
