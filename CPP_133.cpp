@@ -1,10 +1,17 @@
-Here is the solution:
+#include <iostream>
+#include <vector>
+#include <cmath>
 
-int sum_squares(vector<float> lst) {
-    int total = 0;
-    for (float num : lst) {
-        double roundedNum = ceil(num);
-        total += pow(roundedNum, 2);
+int sum_squares(std::vector<float> lst){
+    int sum = 0;
+    for(float num : lst){
+        sum += std::ceil(num) * std::ceil(num);
     }
-    return total;
+    return sum;
+}
+
+int main(){
+    assert (sum_squares({-1,1,0})==2);
+    // Add your code here
+    return 0;
 }
