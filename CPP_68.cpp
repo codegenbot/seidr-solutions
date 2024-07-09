@@ -1,3 +1,10 @@
+#include <vector>
+#include <limits>
+
+bool issame(vector<int> a, vector<int> b) {
+    return (a.size() == 0 && b.size() == 0);
+}
+
 vector<int> pluck(vector<int> arr) {
     vector<int> result;
     if (arr.empty()) return result;
