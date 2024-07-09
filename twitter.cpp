@@ -1,12 +1,10 @@
-int main() {
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cin.ignore(); 
-    string tweet;
-    cout << "Enter a tweet: ";
-    getline(cin, tweet);
-    cout << validateTweet(tweet) << endl;
-    return 0;
-}
+```cpp
+#include <iostream>
+#include <string>
+#include <limits>
+
+using namespace std;
+
 string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
@@ -15,4 +13,14 @@ string validateTweet(string tweet) {
         return "Too many characters";
     }
     return "Your tweet has " + to_string(tweet.length()) + " characters";
+}
+
+int main() {
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.ignore();
+    string tweet;
+    cout << "Enter a tweet: ";
+    getline(cin, tweet);
+    cout << validateTweet(tweet) << endl;
+    return 0;
 }
