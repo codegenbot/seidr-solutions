@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -11,10 +12,11 @@ std::string special_factorial(int n) {
         for (int j = 2; j <= i; j++)
             mul_result *= j;
 
-        if(i > 1) 
-            result += std::to_string(mul_result);
-        else
+        if(i > 1) {
+            result += " * " + std::to_string(mul_result);
+        } else {
             result = std::to_string(mul_result);
+        }
     }
     return "n! = " + result;
 }
