@@ -1,7 +1,4 @@
 ```cpp
-#include <vector>
-#include <string>
-
 bool issame(std::vector<std::string>, std::vector<std::string>) {
     std::vector<std::string> total_match(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
         int sum1 = 0, sum2 = 0;
