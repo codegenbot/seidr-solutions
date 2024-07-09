@@ -1,3 +1,9 @@
+Here is the modified code:
+
+```cpp
+#include <vector>
+#include <cmath>
+#include <numeric>
 #include <initializer_list>
 
 float mean_absolute_deviation(std::vector<float> numbers) {
