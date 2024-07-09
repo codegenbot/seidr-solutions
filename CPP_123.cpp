@@ -15,13 +15,14 @@ bool sameSequence(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> sequence;
-    while(n > 1) {
-        if(n % 2 != 0)
-            sequence.push_back(n);
-        if(n == 1)
-            break;
-        n = (n * 3 + 1);
+    while (n > 1) {
+        if (n % 2 == 0)
+            n /= 2;
+        else
+            n = n * 3 + 1;
+        sequence.push_back(n);
     }
+    sequence.push_back(1);
     return sequence;
 }
 
