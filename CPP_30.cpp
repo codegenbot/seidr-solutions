@@ -1,3 +1,4 @@
+```cpp
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
@@ -22,5 +23,10 @@ std::vector<float> get_positive(std::vector<float> l) {
 
 int main() {
     assert(issame(get_positive({}), {}) == true);
-    return 0;
+    std::vector<float> v1 = {1, -2, 3, -4};
+    std::vector<float> v2 = get_positive(v1);
+    for (float num : v2) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
 }
