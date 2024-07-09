@@ -11,7 +11,6 @@ def solve_boolean(expression):
                 left = eval_expr(expression[i+1:j])
                 expression = expression[:i] + expression[j+1:]
                 return eval_expr(left) and right or left  
-
             else:
                 left = eval_expr(expression[1])
                 right = eval_expr(expression[2:])
@@ -19,7 +18,6 @@ def solve_boolean(expression):
                     return left and right
                 else:
                     return left or right
-
         else:  
             i = expression.find("(")
             j = expression.find(")")
