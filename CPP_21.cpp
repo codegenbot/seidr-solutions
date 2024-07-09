@@ -1,26 +1,32 @@
+#include <cassert>
 #include <vector>
 #include <algorithm>
 #include <cmath>
 
-const float EPS = 1e-6;
+const float epsilon = 0.0001;
+
+bool issame(float a, float b) {
+    return std::abs(a - b) < epsilon;
+}
 
 void rescale_to_unit(std::vector<float>& numbers) {
     float min_num = *std::min_element(numbers.begin(), numbers.end());
     float max_num = *std::max_element(numbers.begin(), numbers.end());
     
     for (float &num : numbers) {
-        num = (num - min_num) / (max_num - min_num + EPS);
+        num = (num - min_num) / (max_num - min_num);
     }
 }
 
-bool issame(const std::vector<float>& vec1, const std::vector<float>& vec2) {
-    if(vec1.size() != vec2.size())
-        return false;
+int main() {
+    std::vector<float> test_vec = {2.0, 4.0, 6.0, 8.0};
+    std::vector<float> expected_result = {0.0, 0.3333, 0.6666, 1.0};
     
-    for(size_t i = 0; i < vec1.size(); ++i) {
-        if(std::abs(vec1[i] - vec2[i]) > EPS)
-            return false;
+    rescale_to_unit(test_vec);
+    
+    for (size_t i = 0; i < test_vec.size(); ++i) {
+        assert(issame(test_vec[i], expected_result[i]));
     }
     
-    return true;
+    return 0;
 }
