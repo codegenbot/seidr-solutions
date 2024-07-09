@@ -1,15 +1,17 @@
-vector<string> words;
-cin >> ws;
-for (string s; cin >> s;) {
-    words.push_back(move(s));
+string find_max(vector<string> words){
+    string result = *max_element(words.begin(), words.end(),
+        [&] (const string& a, const string& b) {
+            int uniqueA = a.size();
+            int uniqueB = b.size();
+            for(int i=0; i<a.size(); ++i)
+                if(a[i] > ' ')
+                    ++uniqueA;
+            for(int i=0; i<b.size(); ++i)
+                if(b[i] > ' ')
+                    ++uniqueB;
+            if(uniqueA == uniqueB) 
+                return a < b;
+            return uniqueA > uniqueB;
+        });
+    return result;
 }
-
-string result = *max_element(words.begin(), words.end(), 
-    [](const string& a, const string& b) -> bool {
-        if (a.size() == b.size()) {
-            return a < b;
-        }
-        return a.size() > count(b.begin(), b.end(), unique_copy(b.begin(), b.end()).front());
-    });
-
-cout << result << endl;
