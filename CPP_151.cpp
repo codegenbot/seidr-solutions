@@ -1,4 +1,4 @@
-```cpp
+```c
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -15,17 +15,15 @@ long double_the_difference(std::vector<float> lst) {
     return sum;
 }
 
-int main() {
-    std::vector<float> lst;
-    float num;
+std::vector<float> lst;
+float num;
 
-    while (std::cin >> num) {
-        lst.push_back(num);
-    }
-
-    long odd_sum = double_the_difference(lst);
-
-    assert(double_the_difference(lst) == odd_sum);
-
-    return 0;
+while (std::cin >> num) {
+    lst.push_back(num);
 }
+
+long odd_sum = double_the_difference(lst);
+
+assert(double_the_difference(lst) == odd_sum); 
+
+return 0;
