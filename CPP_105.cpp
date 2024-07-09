@@ -1,4 +1,3 @@
-```cpp
 vector<string> by_length(vector<int> arr) {
     vector<int> numbers;
     for (int num : arr) {
@@ -57,6 +56,6 @@ vector<string> by_length(vector<int> arr) {
         }
         return true;
     }
-    
+
     return result;
 }
