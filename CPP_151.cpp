@@ -1,38 +1,33 @@
-```cpp
 #include <vector>
-#include <cmath>
+#include <algorithm>
 
 int double_the_difference(vector<float> numbers) {
-    int sum = 0;
-    float middle_number;
-    for(int i = 0; i < numbers.size(); i++) {
-        if(i == (numbers.size() -1)/2) {
-            middle_number = numbers[i];
-        }
-        else if((i % 2 != 0)) {
-            sum += numbers[i];
-        }
-    }
+    int minNum = *min_element(numbers.begin(), numbers.end());
+    int maxNum = *max_element(numbers.begin(), numbers.end());
     
-    return abs(middle_number - (sum / ((numbers.size() + 1) / 2.0)));
+    if (maxNum - minNum % 2 == 0) {
+        return static_cast<int>((double(maxNum - minNum)) / 2);
+    }
+    else {
+        return 0;
+    }
 }
 
 int odd_sum(vector<float> numbers) {
     int sum = 0;
-    for(int i = 0; i < numbers.size(); i++) {
-        if((i % 2 != 0)) {
-            sum += numbers[i];
+    for (float num : numbers) {
+        if (num % 1 != 0) {
+            sum += static_cast<int>(num);
         }
     }
-    
     return sum;
 }
 
 int main() {
     vector<float> lst = {1.5, 2.0, 3.5};
     int odd_sum;
+    assert(double_the_difference(lst) == odd_sum);
     odd_sum = odd_sum(lst);
-    int double_the_difference_value;
-    double_the_difference_value = double_the_difference(lst);
-    assert(double_the_difference_value == odd_sum);
+    cout << "Double the difference: " << double_the_difference(lst) << endl;
+    cout << "Sum of odds: " << odd_sum << endl;
 }
