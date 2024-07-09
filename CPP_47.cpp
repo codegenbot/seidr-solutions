@@ -1,33 +1,23 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
-float median(vector<float> l) {
-    sort(l.begin(), l.end());
-    int n = l.size();
-    if (n % 2 == 0) {
-        return (l[n / 2 - 1] + l[n / 2]) / 2.0;
-    } else {
-        return l[n / 2];
-    }
-}
-
-int main() {
+int testMedian() {
     vector<float> numbers;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        float x;
-        cout << "Enter element " << (i+1) << ": ";
-        cin >> x;
-        numbers.push_back(x);
+    cout << "Enter the numbers (enter 'stop' to finish): ";
+    string input;
+    while (true) {
+        cin >> input;
+        if (input == "stop") break;
+        float num;
+        try {
+            num = stof(input);
+            numbers.push_back(num);
+        } catch (invalid_argument& e) {
+            cout << "Invalid input. Please enter a number." << endl;
+        }
     }
-    
-    float result = median(numbers);
-    cout << "The median of the given numbers is: " << result << endl;
+    if (!numbers.empty()) {
+        float result = median(numbers);
+        cout << "The median of the given numbers is: " << result << endl;
+    } else {
+        cout << "No numbers entered." << endl;
+    }
     return 0;
 }
