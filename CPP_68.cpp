@@ -1,9 +1,8 @@
 #include <vector>
-#include <initializer_list>
+#include <algorithm>
 
 std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
-    if (arr.empty()) return result;
+    if (arr.empty()) return {};
 
     int smallest_even = INT_MAX;
     int index = -1;
@@ -15,8 +14,5 @@ std::vector<int> pluck(std::vector<int> arr) {
         }
     }
 
-    result.push_back(smallest_even);
-    result.push_back(index);
-
-    return result;
+    return {smallest_even, index};
 }
