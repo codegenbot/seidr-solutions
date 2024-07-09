@@ -2,11 +2,11 @@
 def file_name_check(file_name):
     if len([c for c in file_name if c.isdigit()]) > 3:
         return 'No'
-    dot_index = file_name.find('.')
-    if dot_index == -1 or file_name[:dot_index].isalpha() == False:
+    elif '.' not in file_name or len(file_name.split('.')) != 2:
         return 'No'
-    after_dot = file_name[dot_index+1:]
-    allowed_extensions = ['txt', 'exe', 'dll']
-    if after_dot not in allowed_extensions:
+    elif not file_name[:file_name.index('.')].isalnum():
         return 'No'
-    return 'Yes'
+    elif file_name[file_name.index('.'):].lower() not in ['txt', 'exe', 'dll']:
+        return 'No'
+    else:
+        return 'Yes'
