@@ -1,44 +1,17 @@
-#include <boost/any.hpp>
-#include <string>
-#include <algorithm>
+```
+using namespace boost;
 
-using namespace std;
-
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any_cast<double>(b) > boost::any_cast<int>(a)
-               ? b
-               : a;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return boost::any_cast<string>(b) > to_string(boost::any_cast<int>(a))
-               ? b
-               : a;
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        return boost::any_cast<string>(b) > to_string(boost::any_cast<double>(a))
-               ? b
-               : a;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any_cast<int>(a) >= boost::any_cast<int>(b)
-               ? "None"
-               : (boost::any_cast<int>(a) > boost::any_cast<int>(b))
-                 ? a
-                 : b;
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        return boost::any_cast<double>(a) >= boost::any_cast<double>(b)
-               ? "None"
-               : (boost::any_cast<double>(a) > boost::any_cast<double>(b))
-                 ? a
-                 : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return boost::any_cast<string>(a) >= boost::any_cast<string>(b)
-               ? "None"
-               : (boost::any_cast<string>(a) > boost::any_cast<string>(b))
-                 ? a
-                 : b;
-    }
+any compare_one(any a, any b) {
+    if(a.type() == typeid(int) && b.type() == typeid(int))
+        return (get<int>(a) > get<int>(b)) ? a : ((get<int>(a) < get<int>(b)) ? b : "None");
+    else if(a.type() == typeid(double) && b.type() == typeid(double))
+        return (get<double>(a) > get<double>(b)) ? a : ((get<double>(a) < get<double>(b)) ? b : "None");
+    else if(a.type() == typeid(string) && b.type() == typeid(string))
+        return (get<string>(a) > get<string>(b)) ? a : ((get<string>(a) < get<string>(b)) ? b : "None");
+    else if((a.type() == typeid(int) && b.type() != typeid(int)) ||
+            (a.type() == typeid(double) && b.type() != typeid(double)) ||
+            (a.type() == typeid(string) && b.type() != typeid(string)))
+        return (get<int>(a) > get<double>(b)) ? &a : ((get<int>(a) < get<double>(b)) ? &b : "None");
+    else
+        return "None";
 }
