@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 
-string concatenate(vector<string> strings) {
+string concatenate(vector<string> strings){
     string result = "";
     for(auto str : strings) {
         result += str;
