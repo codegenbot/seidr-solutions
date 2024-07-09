@@ -1,13 +1,13 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <variant>
-#include <algorithm>
 
-bool issame(const std::variant<int>& v1, const std::variant<int>& v2) {
-    if (v1.index() != v2.index()) return false;
-    if (v1.index() == 0) return std::get<int>(v1) == std::get<int>(v2);
-    return false;
+bool issame(const std::vector<std::variant<int>>& v1, const std::vector<std::variant<int>>& v2) {
+    if (v1.size() != v2.size()) return false;
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (!issame(v1[i], v2[i])) return false;
+    }
+    return true;
 }
 
 std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int>> values) {
@@ -24,7 +24,7 @@ std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int
                     }
                 }
                 if (!found)
-                    result.push_back(value);
+                    result.push_back(value); 
             }
         } catch (...) {
             // ignore non-integer values
@@ -34,23 +34,8 @@ std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int
 }
 
 int main() {
-    std::vector<std::variant<int>> values = {3, 123, 3, 3, 'a', 'b'};
-    std::vector<std::variant<int>, std::allocator_traits<std::allocator<std::variant<int>>>::propagate_on_container_copy_assignment> result;
-    for (const auto& value : values) {
-        try {
-            if (value.index() == 0) {
-                int val = std::get<int>(value);
-                bool found = false;
-                for (auto& v : result) {
-                    if (v.index() == 0 && std::get<int>(v) == val) {
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found)
-                    result.push_back(value);
-            }
-        } catch (...) {
-            // ignore non-integer values
-        }
+    auto values = {3, 123, 3, 3, 1, 2};
+    auto integers = filter_integers({values});
+    bool same = issame(integers, {std::variant<int>(3), std::variant<int>(3)});
+    return 0;
 }
