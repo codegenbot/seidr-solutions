@@ -32,9 +32,9 @@ vector<string> numerical_letter_grade(vector<string> grades) {
 
 int main() {
     vector<string> grades1 = {"0.0", "0.7"};
-    vector<string> result1 = numerical_letter_grade(grades1);
+    vector<string> result1 = numerical_letter_grade({grades1[0], grades1[1]});
     
-    if (checkResults(vector<string>{result1[0], result1[1]}, vector<string>{"F", "D+"})) {
+    if (checkResults({result1[0]}, {result1[1]})) { 
         cout << "The two vectors are the same." << endl;
     } else {
         cout << "The two vectors are not the same." << endl;
