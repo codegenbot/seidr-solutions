@@ -1,6 +1,5 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <numeric>
 
 using namespace std;
 
@@ -29,14 +28,4 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     }
     
     return steps - 1;
-}
-
-int main() {
-    vector<vector<int>> grid = {{0, 0, 0, 0}, {1, 1, 0, 0}, {0, 1, 0, 1}};
-    int capacity = 3;
-
-    int result = max_fill(grid, capacity);
-    cout << "The maximum number of steps needed is: " << result << endl;
-    
-    return 0;
 }
