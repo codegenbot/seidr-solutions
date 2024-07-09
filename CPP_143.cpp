@@ -1,11 +1,10 @@
 ```cpp
 #include <iostream>
 #include <sstream>
-#include <vector>
 
 using namespace std;
 
-void words_in_sentence(string sentence);
+void words_in_sentence(string input_sentence);
 
 int main() {
     string sentence;
@@ -17,30 +16,16 @@ int main() {
     return 0;
 }
 
-void words_in_sentence(string sentence) {
-    vector<string> words;
+void words_in_sentence(string input_sentence) {
+    istringstream ss(input_sentence);
     string word;
-    bool isWord = false;
+    int count = 0;
 
-    for (char c : sentence) {
-        if (c == ' ') {
-            if (!isWord) {
-                continue; // skip multiple spaces
-            }
-            isWord = false;
-        } else {
-            if (!isWord) {
-                word += c;
-                isWord = true;
-            } else {
-                word += c;
-            }
+    while (getline(ss, word, ' ')) {
+        if (count > 0) {
+            cout << ", ";
         }
-    }
-
-    if (isWord) {
         cout << word;
-    } else {
-        cout << sentence; // handle case when input only contains spaces
+        count++;
     }
 }
