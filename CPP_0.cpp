@@ -1,6 +1,5 @@
-```cpp
+```
 #include <vector>
-#include <initializer_list>
 #include <assert.h>
 
 bool has_close_elements(float a[], int n, float tol) {
