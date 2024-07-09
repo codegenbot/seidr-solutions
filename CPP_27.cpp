@@ -1,25 +1,18 @@
-#include <string>
+```cpp
 #include <iostream>
 #include <cctype>
 
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-
+bool filp_case(const std::string& input) {
     std::string output = "";
-
-    for (char c : input) {
-        if (isupper(c)) {
-            output += tolower(c);
-        } else if (islower(c)) {
-            output += toupper(c);
+    
+    for (const char& c : input) {
+        if (std::isupper(c)) {
+            output += std::tolower(c);
+        } else if (std::islower(c)) {
+            output += std::toupper(c);
         } else {
             output += c;
         }
     }
-
-    std::cout << "Output: " << output << std::endl;
-
-    return 0;
+    return output == "these violent delights have violent ends";
 }

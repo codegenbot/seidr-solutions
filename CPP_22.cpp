@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool assertEqual(const vector<int>& a, const vector<int>& b) {
+bool is_same(const vector<int>& a, const vector<int>& b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
@@ -25,6 +25,6 @@ vector<int> filter_integers(initializer_list<variant<int>> values) {
 
 int mainTest() {
     vector<variant<int>> values = {3, 3, 3};
-    assert(assertEqual(filter_integers(values), vector<int>({3, 3, 3})));
+    assert(is_same({int(i) for i : filter_integers(values)}, vector<int>({3, 3, 3})));
     return 0;
 }
