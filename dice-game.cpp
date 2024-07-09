@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 
 double probability(int n, int m) {
@@ -6,5 +7,5 @@ double probability(int n, int m) {
 }
 
 int main() {
-    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << std::to_string(probability(34, 24)) << std::endl;
-    return 0;}
+    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << std::to_string(static_cast<long double>(probability(34, 24))) << std::endl;
+}
