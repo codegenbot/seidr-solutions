@@ -3,15 +3,15 @@ def bowling_score(bowls):
     rolls = bowls.replace("-", "0")
     
     for i in range(len(rolls)):
-        if rolls[i] == 'X':
+        if rolls[i] == 'X':  # handle strike
             score += 10
             if i + 2 < len(rolls):
-                score += sum(map(int, rolls[i+1:i+3].replace('/', '0')))
-        elif rolls[i] == '/':
+                score += sum(map(int, rolls[i+1:i+3].replace('/', '0'))
+        elif rolls[i] == '/':  # handle spare
             score += 10 - int(rolls[i-1])
             if i + 1 < len(rolls):
                 score += int(rolls[i+1])
-        else:
+        else:  # handle regular rolls
             score += int(rolls[i])
 
     return score
