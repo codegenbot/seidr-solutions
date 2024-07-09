@@ -1,14 +1,7 @@
 #include <vector>
 #include <algorithm>
-#include <string>
 
-bool issame(vector<string> vec1, vector<string> vec2) {
-    if (vec1.size() != vec2.size()) return false;
-    for (int i = 0; i < vec1.size(); i++) {
-        if (vec1[i] != vec2[i]) return false;
-    }
-    return true;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr) {
     vector<vector<string>> result;
@@ -26,6 +19,6 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    assert(issame({{"Nine"}, {"Eight"}, {"Four"}}, {{"Nine"}, {"Eight"}, {"Four"}}));
     return 0;
 }
