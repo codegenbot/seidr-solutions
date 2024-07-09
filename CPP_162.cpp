@@ -1,6 +1,6 @@
 #include <openssl/evp.h>
 #include <string>
-#include <iomanip> 
+#include <iomanip>
 
 using namespace std;
 
@@ -23,7 +23,7 @@ string string_to_md5(string text) {
     EVP_MD_CTX_final(&ctx, &ctx);
     EVP_DigestFinal_CTX(&ctx, md);
 
-    std::ostringstream oss; 
+    std::ostringstream oss;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
         oss << setfill('0') << setw(2) << hex << (int)md[i];
     }
