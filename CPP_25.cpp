@@ -32,7 +32,13 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main() {
-    // Your main function code here
+int main(){
+    int n;
+    cin >> n;
+    vector<int> factors = factorize(n);
+    for(int factor : factors){
+        cout << factor << " ";
+    }
+    cout << endl;
     return 0;
 }
