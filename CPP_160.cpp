@@ -1,27 +1,109 @@
-```cpp
-#include <vector>
-#include <cmath>
-
 int do_algebra(vector<string> operator_, vector<int> operand) {
-    int result = operand[0];
-    for (int i = 1; i <= operator_.size(); i++) {
-        if (operator_[i-1] == "+") {
-            result += operand[i];
-        } else if (operator_[i-1] == "-") {
-            result -= operand[i];
-        } else if (operator_[i-1] == "*") {
-            result *= operand[i];
-        } else if (operator_[i-1] == "//" || operator_[i-1] == "**") {
-            if (i == operator_.size()) {
-                return -1;
+    string expression = "";
+    for (int i = 0; i < operator_.size(); i++) {
+        expression += to_string(operand[i]);
+        expression += operator_[i];
+        i++; // increment i here
+    }
+    expression += to_string(operand[operator_.size()]);
+
+    long long result = eval(expression);
+    
+    return (int)result;
+}
+
+long long eval(const string& s) {
+    int n = s.size();
+    stack<int> st;
+    int i = 0; // declare i here
+    while (i < n) {
+        if (isdigit(s[i])) {
+            int num = 0;
+            while (i < n && isdigit(s[i])) {
+                num = num * 10 + (s[i] - '0');
+                i++;
             }
-            int op = operand[i];
-            if (operator_[i-1] == "//") {
-                result = result / op;
-            } else if (operator_[i-1] == "**") {
-                result = pow(result, op);
+            st.push(num);
+        } else if (s[i] == '(') {
+            i++;
+            stack<int> temp;
+            while (i < n && s[i] != ')') {
+                if (isdigit(s[i])) {
+                    int num = 0;
+                    while (i < n && isdigit(s[i])) {
+                        num = num * 10 + (s[i] - '0');
+                        i++;
+                    }
+                    temp.push(num);
+                } else if (s[i] == '(') {
+                    temp.push(eval("(" + s.substr(i++) + ")"));
+                } else if (s[i] == ')') {
+                    break;
+                }
+            }
+            while (!temp.empty()) {
+                st.push(temp.top());
+                temp.pop();
             }
         }
     }
-    return result;
+    
+    long long res = 0;
+    char op = '+';
+    while (!st.empty()) {
+        if (op == '+') {
+            res += st.top();
+            st.pop();
+        } else if (op == '-') {
+            res -= st.top();
+            st.pop();
+        } else if (op == '*') {
+            long long num = st.top() * 1;
+            st.pop();
+            while (!st.empty() && st.top() == '(') {
+                st.pop();
+            }
+            if (!st.empty()) {
+                num *= st.top();
+                st.pop();
+            }
+            res += num;
+        } else if (op == '/') {
+            long long num = st.top() / 1;
+            st.pop();
+            while (!st.empty() && st.top() == '(') {
+                st.pop();
+            }
+            if (!st.empty()) {
+                num /= st.top();
+                st.pop();
+            }
+            res += num;
+        } else if (op == '**') {
+            long long num = pow(st.top(), 1);
+            st.pop();
+            while (!st.empty() && st.top() == '(') {
+                st.pop();
+            }
+            if (!st.empty()) {
+                num = pow(num, st.top());
+                st.pop();
+            }
+            res += num;
+        } else if (op == '//') {
+            long long num = st.top() / 1;
+            st.pop();
+            while (!st.empty() && st.top() == '(') {
+                st.pop();
+            }
+            if (!st.empty()) {
+                num /= st.top();
+                st.pop();
+            }
+            res += num;
+        }
+        op = s[i++];
+    }
+    
+    return res;
 }
