@@ -1,10 +1,13 @@
 using namespace std;
 int leaders(vector<int>& arr) {
-    int n = arr.size();
     vector<int> result;
-    for (int i = 0; i < n; i++) {
-        if (i == n - 1 || arr[i] >= arr[i + 1])
-            result.push_back(arr[i]);
+    int n = arr.size();
+    int leader = arr[n - 1];
+    for (int i = n - 2; i >= 0; i--) {
+        if (arr[i] >= leader) {
+            leader = arr[i];
+            result.push_back(leader);
+        }
     }
-    return result.size() ? result[0] : -1;
-}
+    reverse(result.begin(), result.end());
+    return result.size();
