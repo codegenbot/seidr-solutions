@@ -1,3 +1,4 @@
+```cpp
 string anti_shuffle(string s) {
     vector<string> words;
     string word = "";
@@ -13,9 +14,8 @@ string anti_shuffle(string s) {
 
     string result = "";
     for (const auto& word : words) {
-        vector<char> v = word;
-        sort(v.begin(), v.end());
-        result += string(v.begin(), v.end()) + " ";
+        sort(word.begin(), word.end()); // Sort each word individually
+        result += word + " ";
     }
     return result.substr(0, result.size() - 1);
 }
