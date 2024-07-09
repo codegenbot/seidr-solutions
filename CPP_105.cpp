@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -14,10 +15,16 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> nums;
+    vector<int> nums;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
-            nums.push_back(to_string(i) == "1" ? "One"
+            nums.push_back(i);
+    }
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
+    vector<string> result;
+    for (int i : nums)
+        result.push_back(to_string(i) == "1" ? "One"
                             : to_string(i) == "2" ? "Two"
                             : to_string(i) == "3" ? "Three"
                             : to_string(i) == "4" ? "Four"
@@ -26,10 +33,7 @@ vector<string> by_length(vector<int> arr) {
                             : to_string(i) == "7" ? "Seven"
                             : to_string(i) == "8" ? "Eight"
                             : "Nine");
-    }
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
-    return nums;
+    return result;
 }
 
 int main() {
