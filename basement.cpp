@@ -9,3 +9,4 @@ int firstNegativeIndex(vector<int>& nums) {
         if (sum < 0) return i;
     }
     return -1;
+}
