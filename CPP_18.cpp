@@ -7,7 +7,7 @@ int how_many_times(const std::string& str, const std::string& substring) {
     size_t pos = 0;
     while ((pos = str.find(substring)) != std::string::npos) {
         count++;
-        str = str.erase(0, pos + substring.length());
+        str = str.erase(pos, substring.length());
     }
     return count;
 }
