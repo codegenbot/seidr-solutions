@@ -35,19 +35,19 @@ int gcd(int a, int b) {
 int main() {
     int a, b;
 
-    while (!(cin >> a >> b) || a < 1 || b < 1) {
+    while (!(cin >> a >> b) || !(a > 0 && b > 0)) {
+        cout << "Invalid input. Please enter two positive integers: ";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Invalid input. Please enter two positive integers: ";
     }
 
     cout << gcd(a, b) << endl;
 
     string text, target;
     while (!(cin >> text >> target)) {
+        cout << "Invalid input. Please enter valid strings: ";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Invalid input. Please enter valid strings: ";
     }
 
     vector<int> indices = indicesOfSubstring(text, target);
