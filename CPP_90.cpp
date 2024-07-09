@@ -1,10 +1,13 @@
-int next_smallest(vector<int> lst){
-    if(lst.size() < 2)
-        return -1; 
-    else {
-        vector<int>::iterator it = unique(lst.begin(), lst.end());
-        *it = INT_MAX;
-        sort(lst.begin(), it);
-        return *(lst.begin()+1);
+Here is the solution:
+
+if (lst.size() < 2) return NULL;
+
+sort(lst.begin(), lst.end());
+
+for (int i = 1; i < lst.size(); i++) {
+    if (lst[i] != lst[0]) {
+        return lst[i];
     }
 }
+
+return NULL;
