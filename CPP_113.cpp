@@ -4,6 +4,8 @@
 
 using namespace std;
 
+vector<string> odd_count(vector<string> lst);
+
 void displayOutput(vector<string> output) {
     for (string s : output) {
         cout << s << endl;
@@ -27,18 +29,16 @@ vector<string> odd_count(vector<string> lst) {
 }
 
 int main() {
-    vector<string> input;
-    cout << "Enter the number of strings: ";
     int n;
     cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        input.push_back(s);
+
+    vector<string> lst(n);
+
+    for(int i = 0; i < n; i++) {
+        cin >> lst[i];
     }
-    
-    vector<string> output = odd_count(input);
+
+    vector<string> output = odd_count(lst);
     displayOutput(output);
 
     return 0;
