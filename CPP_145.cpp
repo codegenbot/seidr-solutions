@@ -1,29 +1,20 @@
 bool issame(vector<int> a, vector<int> b) {
-    int sum_a = 0, sum_b = 0;
-    for (int num : a) {
-        sum_a += abs(num);
-    }
-    for (int num : b) {
-        sum_b += abs(num);
-    }
+    int sum_a = accumulate(a.begin(), a.end(), 0);
+    int sum_b = accumulate(b.begin(), b.end(), 0);
+    
     return sum_a == sum_b;
 }
 
 void order_by_points(vector<int>& nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sum_a = 0, sum_b = 0;
-        int temp_a = abs(a), temp_b = abs(b);
-        while(temp_a > 0){
-            sum_a += temp_a % 10;
-            temp_a /= 10;
-        }
-        while(temp_b > 0){
-            sum_b += temp_b % 10;
-            temp_b /= 10;
-        }
+        int sum_a = accumulate_digits(a);
+        int sum_b = accumulate_digits(b);
+        
         if (sum_a == sum_b) {
             return a < b;
         }
         return sum_a < sum_b;
     });
 }
+
+return nums;
