@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <string>
 #include <limits>
+#include <memory>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return (a == b);
