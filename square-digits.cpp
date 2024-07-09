@@ -18,7 +18,7 @@ int main() {
     cin >> input;
     string output = squareDigits(to_string(input));
     cout << "Squared digits: " << output << endl;
-
+    
     long long squaredInteger = 0; 
     for(char c : output) {
         int digit = c - '0';
