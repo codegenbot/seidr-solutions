@@ -15,6 +15,6 @@ int solution(std::vector<int> lst) {
 int main() {
     std::vector<int> lst = {1, 2, 3, 4, 5};
     int result = solution(lst);
-    std::cout << "The result is: " << result << std::endl;
+    std::cout << "The sum of the elements in the vector is: " << result << std::endl;
     return 0;
 }
