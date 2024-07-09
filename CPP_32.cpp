@@ -1,40 +1,49 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-double find_zero(const std::vector<double>& coeffs) {
-    double solution = 0;
+double poly(const std::vector<double>& coeffs, double solution) {
+    double result = 0;
     for (int i = 0; i < coeffs.size(); ++i) {
-        if (i % 2 == 1) {
-            solution -= coeffs[i] / pow(1 + solution, i+1);
-        } else {
-            solution += coeffs[i];
-        }
-    }
-    return solution;
-}
-
-double poly(const std::vector<double>& coeffs, double x) {
-    double result = 0.0;
-    for (int i = 0; i < coeffs.size(); ++i) {
-        result += coeffs[i] * pow(x, i);
+        result += coeffs[i] * pow(solution, i);
     }
     return result;
 }
 
-int main() {
-    std::vector<double> coeffs;
-    double coeff, solution;
+double find_zero(const std::vector<double>& coeffs) {
+    double solution = 1.0;
+    double tolerance = 1e-6;
 
-    // Assign coefficients
-    for (int i = 0; i < 5; ++i) {
-        printf("Enter coefficient %d: ", i+1);
-        scanf("%lf", &coeff);
-        coeffs.push_back(coeff);
+    while (true) {
+        double poly_val = poly(coeffs, solution);
+
+        if (abs(poly_val) < tolerance)
+            break;
+
+        solution -= poly_val / coeffs.back();
     }
 
-    solution = find_zero(coeffs);
+    return solution;
+}
 
-    assert(abs(poly(coeffs, solution)) < 1e-3);
+int main() {
+    std::vector<double> coeffs; 
 
+    double coeff; 
+    int n;
+    std::cout << "Enter the number of coefficients: ";
+    std::cin >> n;
+
+    coeffs.resize(n);
+
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter coefficient " << i+1 << ": ";
+        std::cin >> coeff;
+        coeffs[i] = coeff;
+    }
+
+    double solution = find_zero(coeffs); 
+    assert(abs(poly(coeffs, solution)) < 1e-3); 
     return 0;
 }

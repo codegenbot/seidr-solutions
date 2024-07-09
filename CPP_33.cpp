@@ -11,13 +11,11 @@ vector<int> sort_third(vector<int> l) {
         if (i % 3 == 0) {
             vector<int> temp;
             int j = i;
-            while (j < l.size() && j % 3 == 0) {
+            while (j < l.size() && j % 3 != 0) {
                 temp.push_back(l[j]);
                 j++;
             }
-            if (!temp.empty()) {
-                sort(temp.begin(), temp.end());
-            }
+            sort(temp.begin(), temp.end());
             for (int k = 0; k < temp.size(); k++) {
                 result.push_back(temp[k]);
             }
