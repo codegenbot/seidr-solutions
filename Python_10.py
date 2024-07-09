@@ -1,6 +1,7 @@
-```
+```python
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
-        return string
+        return string + reverse_half
     else:
-        return string + "".join([string[::-1][:1], string, string[::-1][1:]])
+        reverse_half = string[::-1]
+        return "".join([reverse_half[:1], reverse_half[1:], string])
