@@ -1,6 +1,6 @@
-```cpp
 #include <boost/any.hpp>
 #include <string>
+#include <limits>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (is_any_of<a>(std::string{}.type())) {
@@ -8,7 +8,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         std::string bs = any_cast<std::string>(b);
         return (as <= bs ? a : b);
     }
-    else if (is_any_of<a>(int().type())) {
+    else if (is_any_of<a>(int{}.type())) {
         int ai = any_cast<int>(a);
         int bi = any_cast<int>(b);
         return (ai <= bi ? a : b);
@@ -18,4 +18,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         double bd = any_cast<double>(b);
         return (ad <= bd ? a : b);
     }
+    else
+        return boost::any(std::numeric_limits<int>::min());
 }
