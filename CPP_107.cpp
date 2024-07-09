@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -13,7 +12,7 @@ std::vector<int> even_odd_palindrome(int n) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool std::issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[std::abs(i-(a.size()-1))]) return false;
@@ -22,5 +21,5 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));
+    assert(std::issame(even_odd_palindrome(1), {0, 1}));
 }
