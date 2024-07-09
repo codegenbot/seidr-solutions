@@ -1,7 +1,8 @@
-#include <bits/stdc++.h>
+#include <cmath>
+#include <iostream>
 
 bool isSimplePower(int x) {
-    for (int i = 2; i * i <= x; ++i) {
+    for (int i = 2; i <= sqrt(x); ++i) {
         int n = 0;
         while (pow(i, n) <= x) {
             if (pow(i, n) == x) {
@@ -14,12 +15,13 @@ bool isSimplePower(int x) {
 }
 
 int main() {
-    int x;
+    std::string input;
     std::cout << "Enter a number: ";
-    std::cin >> x;
-    if (isSimplePower(x)) {
-        std::cout << x << " is a simple power.\n";
+    std::cin >> input;
+    if (isSimplePower(std::stoi(input))) {
+        std::cout << input << " is a simple power.\n";
     } else {
-        std::cout << x << " is not a simple power.\n";
+        std::cout << input << " is not a simple power.\n";
     }
     return 0;
+}
