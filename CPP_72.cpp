@@ -15,15 +15,16 @@ bool will_it_fly(std::vector<int> q, int w) {
 }
 
 int main() {
-    int n; 
+    int n; // number of elements
     cin >> n;
 
+    // input array size
     std::vector<int> q(n);
     for(int i=0; i<n; i++) {
         cin >> q[i];
     }
 
-    int w; 
+    int w; // weight
     cin >> w;
 
     cout << (will_it_fly(q, w) ? "It will fly" : "It won't fly");
