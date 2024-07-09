@@ -19,7 +19,7 @@ int main() {
     float price, discount;
     while (std::cin >> price >> discount) {
         prices.push_back(price);
-        discounts.push_back(discount / 100.0); 
+        discounts.push_back(discount / 100.0); // convert percentage to decimal
     }
 
     std::cout << std::fixed << std::setprecision(2) << shoppingList(prices, discounts) << std::endl;
