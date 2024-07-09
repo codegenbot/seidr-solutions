@@ -1,12 +1,14 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(vector<int> a,vector<int>b){
+    return a==b;
 }
 
 int main() {
-    assert(issame({-76, -21, 0, 4, 23, 6, 6}, order_by_points({0,6,6,-76,-21,23,4})));
+    vector<int> order_by_points_result = order_by_points({0,6,6,-76,-21,23,4});
+    assert(issame({-76, -21, 0, 4, 23, 6, 6}, order_by_points_result));
     return 0;
 }
 
