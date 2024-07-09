@@ -1,12 +1,19 @@
 vector<int> even_odd_count(int num) {
-    vector<int> result(2);
+    int count_even = 0;
+    int count_odd = 0;
+
+    if (num < 0)
+        num = -num;
+
     while (num != 0) {
         int digit = num % 10;
         if (digit % 2 == 0)
-            result[0]++;
+            count_even++;
         else
-            result[1]++;
+            count_odd++;
+
         num /= 10;
     }
-    return result;
+
+    return {count_even, count_odd};
 }
