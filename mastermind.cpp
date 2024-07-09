@@ -1,4 +1,4 @@
-```c
+```cpp
 int mastermind(std::string code, std::string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -24,4 +24,3 @@ int mastermind(std::string code, std::string guess) {
     }
 
     return blackPegs + whitePegs;
-}
