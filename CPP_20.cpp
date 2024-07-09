@@ -3,11 +3,9 @@
 #include <limits>
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
-    if (numbers.size() <= 1) {
-        return {};
-    }
+    if (numbers.size() < 2) return {};
 
-    std::float_t min_diff = std::numeric_limits<std::float_t>::max();
+    float min_diff = std::numeric_limits<float>::max();
     std::pair<float, float> closest_pair;
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
