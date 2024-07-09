@@ -22,4 +22,5 @@ int main() {
         }
     }
     std::cout << "Sum: " << double_the_difference(lst) << std::endl;
+    assert(double_the_difference(lst) == odd_sum);
 }
