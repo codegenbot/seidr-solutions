@@ -1,4 +1,6 @@
+#include <vector>
 #include <climits>
+
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
@@ -14,5 +16,5 @@ vector<int> largest_smallest_integers(vector<int> lst) {
         }
     }
 
-    return {std::max(max_negative, 0), std::min(min_positive, INT_MAX)};
+    return {max_negative, min_positive};
 }
