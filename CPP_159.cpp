@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <vector>
 #include <cassert>
-#include <iostream>
 
 using namespace std;
 
@@ -13,8 +12,7 @@ vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    auto result = eat(4, 5, 1);
-    assert(result[0] == 5 && result[1] == 0);
-
+    assert(eat(4, 5, 1) == vector<int>{5, 0});
+    
     return 0;
 }
