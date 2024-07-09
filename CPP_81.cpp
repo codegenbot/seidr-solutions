@@ -7,7 +7,7 @@ bool issame(const vector<string> &a, const vector<string> &b){
         if(a[i] != b[i]) return false;
     }
     return true;
-} 
+}
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
