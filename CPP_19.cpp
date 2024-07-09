@@ -1,5 +1,5 @@
 #include <algorithm>
-#include<string>
+#include <string>
 
 using namespace std;
 
@@ -7,31 +7,29 @@ string sort_numbers(string numbers) {
     map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
                                 {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
                                 {"eight", 8}, {"nine", 9}};
-    vector<string> nums;
+
+    vector<string> numVec;
     string temp;
 
     for (int i = 0; i < numbers.length(); i++) {
-        while (i + 1 <= numbers.length() && !isalpha(numbers[i])) {
-            i++;
+        if (numbers[i] == ' ') {
+            continue;
         }
-        temp = "";
-        while (i + 1 <= numbers.length() && isalpha(numbers[i])) {
-            temp += tolower(numbers[i]);
-            i++;
+        for (auto it = numMap.begin(); it != numMap.end(); it++) {
+            if (it->first.find(string(1, numbers[i])) != string::npos) {
+                temp = it->first;
+                break;
+            }
         }
-
-        if (!temp.empty()) {
-            nums.push_back(temp);
-        }
+        numVec.push_back(temp);
     }
 
-    sort(nums.begin(), nums.end(), [&numMap](string a, string b) {
-        return numMap[a] < numMap[b];
-    });
+    sort(numVec.begin(), numVec.end());
 
     string result = "";
-    for (auto str : nums) {
-        result += str + " ";
+    for (auto it = numVec.begin(); it != numVec.end(); it++) {
+        result += *it + " ";
     }
+
     return result.substr(0, result.length() - 1);
 }
