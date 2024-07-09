@@ -6,7 +6,7 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> bf(string planet1, string planet2) {
+vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
@@ -29,3 +29,21 @@ std::vector<std::string> bf(string planet1, string planet2) {
     }
     
     return result;
+}
+
+int main() {
+    cout << "Enter two planets separated by space: ";
+    string planet1, planet2;
+    cin >> planet1 >> planet2;
+    vector<string> result = bf(planet1, planet2);
+    if (result.empty()) {
+        cout << "Planets not found.\n";
+    } else {
+        cout << "Planets in order are: ";
+        for (const string& planet : result) {
+            cout << planet << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
