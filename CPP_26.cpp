@@ -11,8 +11,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
-    std::set<int> uniqueSet(numbers.begin(), numbers.end());
-    std::vector<int> result(uniqueSet.begin(), uniqueSet.end());
+    std::set<int> s (numbers.begin(), numbers.end());
+    std::vector<int> result(s.begin(), s.end());
     return result;
 
 }
