@@ -1,9 +1,8 @@
-```c++
 #include <cctype>
 #include <string>
 #include <iostream>
 
-std::string filp_case(const std::string& str) {
+std::string filp_case(std::string& str) {
     std::string result = str;
     for (char &c : result) {
         if (std::islower(c)) {
@@ -16,8 +15,6 @@ std::string filp_case(const std::string& str) {
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::cout << filp_case(input) << std::endl;
+    std::cout << filp_case("These violent delights have violent ends") << std::endl;
     return 0;
 }
