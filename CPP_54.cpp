@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -19,6 +18,7 @@ bool same_chars(string s1, string s2) {
         }
     }
     return true;
+
 }
 
 int main() {
