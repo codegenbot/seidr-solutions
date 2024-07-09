@@ -1,13 +1,14 @@
 def solve(a, b, c):
+    return -c / b
+
+
+while True:
     try:
-        return -float(c) / float(b)
-    except ZeroDivisionError:
-        return "Error: Division by zero"
-
-
-a = int(input("Enter value for a: "))
-b = int(input("Enter value for b: "))
-c = int(input("Enter value for c: "))
+        a, b, c = map(int, input().split())
+        break
+    except ValueError:
+        print("Input must contain three integers separated by spaces. Try again.")
+        continue
 
 result = solve(a, b, c)
 print(result)
