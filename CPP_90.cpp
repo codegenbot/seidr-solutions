@@ -1,12 +1,14 @@
-```cpp
-#include <vector>
 #include <algorithm>
+#include <iterator>
 
-int nextSmallest(const std::vector<int>& lst) {
-    if (lst.size() < 2) return -1; // or return None
-
-    std::vector<int> sorted = lst;
-    std::sort(sorted.begin(), sorted.end());
-    int res = *std::next(std::begin(sorted)+1, std::end(sorted));
+int main() {
+    if (lst.size() < 2) return -1;
+    
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    
+    auto it = prev(end(sorted));
+    int res = *it;
+    
     return res;
 }
