@@ -2,7 +2,7 @@ operations = input().strip().split()
 try:
     operations = list(map(int, operations))
 except ValueError:
-    print("Input error: Please provide space-separated integer values.")
+    print("Invalid input. Please provide space-separated integer values.")
 else:
     balance = 0
     for operation in operations:
