@@ -1,20 +1,12 @@
-```cpp
-#include <iostream>
-#include <vector>
-
-double poly(const std::vector<double>& xs, double x) {
-    double res = 0;
-    for (int i = 0; i < xs.size(); i++) {
-        res += xs[i] * pow(x, i);
+double poly(vector<double> xs, int n){
+    double sum = xs[0];
+    for(int i = 1; i < n; i++){
+        sum += xs[i] * pow(-1, i) / fact(i);
     }
-    return res;
+    return sum;
 }
 
-double find_zero(std::vector<double> xs){
-    if(xs.size() % 2 != 0) return -1; 
-    double x = 1;
-    while (std::abs(poly(xs, x)) > 1e-9) {
-        x -= poly(xs, x) / (poly({xs[0], xs[2]}, x));
-    }
-    return x;
+int fact(int n){
+    if(n > 1) return n * fact(n-1);
+    else return 1;
 }
