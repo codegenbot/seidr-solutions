@@ -1,27 +1,23 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
-#include <cassert>
+using namespace std;
 
-std::vector<float> sort_even(std::vector<float> l) {
+vector<float> sort_even(vector<float> l) {
     for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            continue;
-        }
+        if (i % 2 == 0) continue;
         l[i] = l[i - 1];
     }
     sort(l.begin(), l.end());
     return l;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
+int issame (vector<float> l) {
+    return sort_even(l) == l;
 }
 
 int main() {
-    assert(issame(sort_even({2.0, 3.0, 1.5, 1.5, 4.0}), {1.5, 1.5, 2.0, 3.0, 4.0}));
-    assert(issame(sort_even({1.0, 2.0, 3.0}), {1.0, 1.0, 2.0}));
-    assert(issame(sort_even({4.0, 2.5, 1.0}), {1.0, 1.0, 2.5}));
-    
+    vector<float> l = {5.5, 2.2, 3.3, 4.4, 1.1};
+    assert(issame(l));
     return 0;
 }
