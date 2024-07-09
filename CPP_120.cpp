@@ -69,7 +69,7 @@ int main() {
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
-        arr.push_back({val});   // Create a new vector with one element
+        arr.push_back({val});   // Create a new vector with val elements and push back val into it
     }
 
     std::vector<int> result = maximum(arr, k);
