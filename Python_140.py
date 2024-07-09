@@ -6,3 +6,4 @@ def fix_spaces(text):
                 result += "-"
             else:
                 result += text[i].replace(" ", "_")
+    return result
