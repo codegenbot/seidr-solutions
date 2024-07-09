@@ -1,7 +1,8 @@
+```cpp
 #include <string>
 #include <cassert>
 
-bool correct_bracketing(string brackets){
+bool correct_bracketing(std::string brackets){
     int count = 0;
     for(int i=0; i<brackets.length(); i++){
         if(brackets[i] == '<'){
