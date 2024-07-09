@@ -1,15 +1,14 @@
+Here is the completed code:
+
+```cpp
 string solve(string s) {
     string result = "";
-    bool hasLetter = false;
-
     for (char c : s) {
-        if (isalpha(c)) { // Check if character is a letter
-            hasLetter = true;
+        if (isalpha(c)) {
             result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
             result += c;
         }
     }
-
-    return hasLetter ? result : string(rbegin(s), rend(s)); // Check if the string contains any letters
+    return result.empty() ? string(s).reverse() : result;
 }
