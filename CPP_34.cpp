@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -15,7 +14,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int solution() {
-    std::vector<int> uniqueVec = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    std::vector<int> uniqueVec({5, 3, 5, 2, 3, 3, 9, 0, 123});
     std::sort(uniqueVec.begin(), uniqueVec.end());
     auto it = uniqueVec.begin();
     while (it != uniqueVec.end()) {
@@ -25,7 +24,7 @@ int solution() {
         }
         it = nextIt;
     }
-    std::vector<int> unique(std::vector<int>(it, uniqueVec.end()));
+    std::vector<int> unique(uniqueVec.begin(), it);
     assert(issame(unique, uniqueVec));
     return 0;
 }
