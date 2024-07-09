@@ -1,3 +1,10 @@
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 bool issame(const vector<string>& a, const vector<string>& b){
     return a == b;
 }
