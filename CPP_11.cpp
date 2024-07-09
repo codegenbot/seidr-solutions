@@ -1,7 +1,9 @@
-#include <string>
 #include <cassert>
+#include <string>
 
-std::string string_xor(std::string a, std::string b) {
+std::string string_xor(std::string a, std::string b); // Function declaration needed
+
+std::string string_xor(std::string a, std::string b) { // Implement function after declaration
     std::string result;
     for(int i=0; i<a.size(); i++){
         if(a[i] == b[i]){
@@ -15,8 +17,5 @@ std::string string_xor(std::string a, std::string b) {
 
 int main() {
     assert(string_xor("0101", "0000") == "0101");
-    
-    // Add more test cases if needed
-    
     return 0;
 }
