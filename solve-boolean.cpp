@@ -1,9 +1,3 @@
-Here is the modified code:
-
-```cpp
-#include <stack>
-#include <string>
-
 using namespace std;
 
 bool solveBoolean(string s) {
