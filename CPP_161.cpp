@@ -1,9 +1,12 @@
-for(char &c : s){
-    if(isalpha(c)){
-        c = isupper(c) ? tolower(c) : toupper(c);
+for (int i = 0; i < s.size(); i++) {
+        if (isalpha(s[i])) {
+            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+        }
     }
+    
+    if (count_if(s.begin(), s.end(), ::isalpha) == 0) {
+        reverse(s.begin(), s.end());
+    }
+    
+    return s;
 }
-if(all_of(s.begin(), s.end(), [](char c){ return !isalpha(c); })){
-    reverse(s.begin(), s.end());
-}
-return s;
