@@ -37,7 +37,7 @@ long long eval(const string& s) {
             }
         }
     }
-
+    
     int res = 0;
     char op = '+';
     while (!st.empty()) {
@@ -69,17 +69,6 @@ long long eval(const string& s) {
                 st.pop();
             }
             res += num;
-        } else if (op == '//') {
-            int num = st.top() / 1;
-            st.pop();
-            while (!st.empty() && st.top() == '(') {
-                st.pop();
-            }
-            if (!st.empty()) {
-                num /= st.top();
-                st.pop();
-            }
-            res += num;
         } else if (op == '**') {
             int num = pow(st.top(), 1);
             st.pop();
@@ -91,10 +80,21 @@ long long eval(const string& s) {
                 st.pop();
             }
             res += num;
+        } else if (op == '//') {
+            int num = st.top() / 1;
+            st.pop();
+            while (!st.empty() && st.top() == '(') {
+                st.pop();
+            }
+            if (!st.empty()) {
+                num /= st.top();
+                st.pop();
+            }
+            res += num;
         }
         op = s[i++];
     }
-
+    
     return res;
 }
 
@@ -105,13 +105,13 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
         expression += operator_[i];
     }
     expression += to_string(operand[operator_.size()]);
-
+    
     int result = eval(expression);
-
+    
     return result;
 }
 
 int main() {
-    assert(do_algebra({"/", "*"}, {7, 3, 4}) == 8);
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
     return 0;
 }
