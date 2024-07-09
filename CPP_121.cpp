@@ -1,7 +1,10 @@
+Here is the modified code:
+
+```cpp
 #include <iostream>
 #include <vector>
-#include <cassert>
 #include <memory>
+#include <cassert>
 
 int sumOdd(std::vector<int> lst) {
     int sum = 0;
@@ -25,6 +28,7 @@ int solutions(std::vector<int> lst) {
 int main() {
     std::vector<int> lst;
     int num;
+    lst.reserve(10); // initialize with a default size of 10
     while (std::cin >> num) {
         lst.push_back(num);
     }
