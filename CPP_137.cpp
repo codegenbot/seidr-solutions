@@ -24,5 +24,11 @@ auto compare_one(const boost::any& a, const boost::any& b) {
         else if (stof(any_cast<string>(a)) < stof(any_cast<string>(b)))
             return b;
     }
-    return any(); // Return default-constructed boost::any
+    return any();
+}
+
+int main() {
+    assert(any_cast<string>(compare_one(string("1"), string("2"))) == "2");
+    
+    return 0;
 }
