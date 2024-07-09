@@ -1,5 +1,3 @@
-coefficients = list(map(int, input().split()))
-
 def find_zero(xs: list):
     n = len(xs)
     assert n % 2 == 0, "Number of coefficients must be even"
@@ -7,7 +5,8 @@ def find_zero(xs: list):
     a = xs[0]
     b = xs[1]
     c = xs[-1]
-    return -c / b
+    return (-b + (b**2 - 4*a*c)**0.5) / (2*a)
 
+coefficients = list(map(int, input().split()))
 result = find_zero(coefficients)
 print(result)
