@@ -3,8 +3,8 @@ def add(x: int, y: int) -> int:
 
 try:
     x = int(input("Enter first number: "))
-    y = int(input("Enter second number: "))
+    y = int(input("Enter second number: ")
 except ValueError:
-    print("Invalid input. Please enter integer numbers.")
-else:
-    print(add(x, y))
+    print("Please enter valid integers for x and y.")
+    
+print(add(x, y))
