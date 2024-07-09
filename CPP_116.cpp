@@ -8,7 +8,7 @@ bool issame(int a, int b) {
 }
 
 std::vector<int> sort_array(std::vector<int> arr) {
-    std::sort(arr.begin(), arr.end(), [](int a, int b) {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
         if (issame(a, b)) {
             return a < b;
         }
@@ -18,11 +18,12 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {5, 3, 9, 6, 1};
+    std::vector<int> arr = {5, 3, 10, 7, 15, 8};
     arr = sort_array(arr);
+
     for (int num : arr) {
-        // Output/display the sorted array elements
-        printf("%d ", num);
+        std::cout << num << " ";
     }
+
     return 0;
 }
