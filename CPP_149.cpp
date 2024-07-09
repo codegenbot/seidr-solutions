@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -29,7 +30,7 @@ int main() {
     if (result == vector<string>{"cc", "dd", "aaaa", "bbbb"}) {
         cout << "The lists are the same." << endl;
     } else {
-        cout << "The lists are not the same: actual - " << endl;
+        cout << "The lists are not the same: actual - " << std::endl;
         for (const string& str : result) {
             cout << str << " ";
         }
