@@ -1,7 +1,5 @@
-```cpp
+```
 #include <iostream>
-#include <string>
-
 using namespace std;
 
 bool is_prime(long long n) {
@@ -19,10 +17,11 @@ int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
+    string str = to_string(num);
     if (is_prime(num)) {
-        cout << std::to_string(num) << " is a prime number.\n";
+        cout << str << " is a prime number.\n";
     } else {
-        cout << std::to_string(num) << " is not a prime number.\n";
+        cout << str << " is not a prime number.\n";
     }
     return 0;
 }
