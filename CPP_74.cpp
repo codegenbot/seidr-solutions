@@ -53,8 +53,6 @@ int main() {
         if (str == ' ') {
             lst1.push_back(user_input1.substr(0, ++i));
             i++;
-        } else if (i > 0) {
-            i++;
         }
     }
 
@@ -62,10 +60,9 @@ int main() {
     for (const auto& str : user_input2) {
         if (str == ' ') {
             i++;
-            lst2.push_back(user_input2.substr(0, i));
-            i++;
-        } else if (i > 0) {
-            i++;
+        } else {
+            lst2.push_back(user_input2.substr(0, ++i).substr(0, user_input2.substr(0, i).find(' ')));
+            lst2.pop_back();
         }
     }
 
