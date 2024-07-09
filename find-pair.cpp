@@ -1,4 +1,7 @@
 ```c++
+#pragma GCC version 11
+#include <initializer_list>
+
 #include <vector>
 #include <utility>
 #include <unordered_map>
