@@ -15,9 +15,9 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (stof(boost::any_cast<std::string>(a)) > stof(boost::any_cast<std::string>(b))) {
+        if (std::stof(boost::any_cast<std::string>(a)) > std::stof(boost::any_cast<std::string>(b))) {
             return a;
-        } else if (stof(boost::any_cast<std::string>(a)) < stof(boost::any_cast<std::string>(b))) {
+        } else if (std::stof(boost::any_cast<std::string>(a)) < std::stof(boost::any_cast<std::string>(b))) {
             return b;
         }
     }
