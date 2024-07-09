@@ -15,8 +15,9 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
     int n = grid.size();
     if (k == 0) {
-        res.insert(res.end(), res.begin(), res.end());
-        return;
+        return; // No need to insert the same path
+        //res.insert(res.end(), res.begin(), res.end());
+        //return;
     }
     visited[x][y] = true;
     res.push_back(grid[x][y]);
