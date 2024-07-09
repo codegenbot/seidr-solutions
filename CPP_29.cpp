@@ -1,7 +1,7 @@
-```cpp
+#include <initializer_list>
+
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix) {
     std::vector<std::string> result;
@@ -14,7 +14,11 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, c
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
