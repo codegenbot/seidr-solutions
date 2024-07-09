@@ -13,9 +13,6 @@ int main() {
     std::vector<int> a;
     std::vector<int> b;
 
-    a.resize(n);
-    b.resize(n);
-
     for(int i = 0; i < n; ++i)
         {
             int x;
@@ -30,7 +27,7 @@ int main() {
             b.push_back(x);
         }
 
-    if(a == b)
+    if(filter_integers(a, b))
         std::cout << "The two vectors are the same." << std::endl;
     else
         std::cout << "The two vectors are not the same." << std::endl;
