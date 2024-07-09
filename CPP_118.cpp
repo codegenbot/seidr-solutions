@@ -1,31 +1,20 @@
-string get_closest_vowel(string word) {
-    string::reverse_iterator it = word.rbegin();
-    bool found = false;
-    while (it != word.rend()) {
-        if (*it == 'a' || *it == 'e' || *it == 'i' || *it == 'o' || *it == 'u' ||
-            *it == 'A' || *it == 'E' || *it == 'I' || *it == 'O' || *it == 'U') {
-            found = true;
-            break;
+#include<stdexcept>
+using namespace std;
+
+string get_closest_vowel(string word){
+    int left = 0;
+    for(int right = word.size() - 1; right >= 0 && !isVowel(word[right]); right--) {
+        left = right + 1;
+    }
+    for(int i = 0; i < word.size(); i++) {
+        if(isVowel(word[i])) {
+            return word.substr(i, 1);
         }
-        it++;
-    }
-    if (!found) return "";
-    while (it != word.rend() && !ispunct(*it)) {
-        it++;
-    }
-    if (it == word.rend()) return "";
-    string::reverse_iterator prevIt = it;
-    it--;
-    while (it != word.rend() && !ispunct(*it)) {
-        it--;
-    }
-    if (it == word.rend()) return "";
-    while (it != prevIt) {
-        if (*it == 'a' || *it == 'e' || *it == 'i' || *it == 'o' || *it == 'u' ||
-            *it == 'A' || *it == 'E' || *it == 'I' || *it == 'O' || *it == 'U') {
-            return string(1, *it);
-        }
-        it++;
     }
     return "";
+}
+
+bool isVowel(char c) {
+    c = toupper(c);
+    return (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
 }
