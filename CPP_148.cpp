@@ -1,15 +1,18 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <sstream>
 
 using namespace std;
 
-bool compareStrings(vector<string> a, vector<string> b) {
+bool compareVectors(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) {
+        cout << "Error: Vectors are not the same size." << endl;
         return false;
     }
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) {
+            cout << "Error: Strings at index " << i << " do not match." << endl;
             return false;
         }
     }
@@ -30,6 +33,6 @@ vector<string> bf(string a, string b) {
 }
 
 int main() {
-    assert (compareStrings(bf("Jupiter", "Makemake"), {"Jupiter", "Makemake"}));
+    assert(compareVectors(bf("Jupiter", "Makemake"), {"Jupiter", "Makemake"}));
     return 0;
 }
