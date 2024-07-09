@@ -1,6 +1,7 @@
-Here is the completed code:
+#include <string>
+#include <vector>
 
-string exchange(vector<int> lst1, vector<int> lst2) {
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     int oddCount = 0;
     for (int num : lst1) {
         if (num % 2 != 0) {
@@ -19,4 +20,10 @@ string exchange(vector<int> lst1, vector<int> lst2) {
     } else {
         return "NO";
     }
+}
+
+int main() {
+    assert(exchange({100, 200}, {200, 200}) == "YES");
+    std::cout << exchange({1, 2, 3, 4, 5}, {6, 7, 8}) << std::endl;
+    return 0;
 }
