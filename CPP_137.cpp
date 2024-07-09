@@ -1,6 +1,6 @@
 #include <variant>
 #include <string>
-#include <boost/any.hpp>
+#include <iostream>
 
 using namespace std;
 
@@ -23,13 +23,13 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
         else if (stof(get<string>(a)) < stof(get<string>(b)))
             return b;
     }
-    return variant<int, float, string>();
+    return {};
 }
 
 int main() {
     assert(compare_one(string("1"), string("2")) == string("2"));
     assert(compare_one(10, 5) == 10);
-    assert(compare_one(3.14f, 2.718f) == 3.14f);
+    assert(get<string>(compare_one(string("1"), string("None"))) == "None");
 
     return 0;
 }
