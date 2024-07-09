@@ -1,3 +1,4 @@
+```
 frames = input("Enter the string representing individual bowls: ")
 def bowling_score(frames):
     score = 0
