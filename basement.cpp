@@ -21,6 +21,8 @@ int main() {
             break;
         }
     }
+
     std::cout << basement(nums) << std::endl;
+
     return 0;
 }
