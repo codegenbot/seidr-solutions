@@ -5,22 +5,15 @@
 int main() {
     std::string input;
     std::getline(std::cin, input);
-    std::istringstream iss(input);
-    int startHeight;
-    double firstBounce;
-    int numBounces;
-
-    iss >> startHeight >> firstBounce >> numBounces;
+    int startHeight = std::stoi(input.substr(0, input.find(' ')));
+    double firstBounce = std::stod(input.substr(input.find(' ') + 1, input.find('\n') - input.find(' ') - 1));
+    int numBounces = std::stoi(input.substr(input.find('\n') + 1));
 
     startHeight = static_cast<double>(startHeight);
     firstBounce = static_cast<double>(firstBounce);
 
     double bouncinessIndex = firstBounce / startHeight;
 
-    std::cout << bouncinessIndex << " ";
-    for (int i = 1; i <= numBounces; ++i) {
-        firstBounce *= 0.5;
-        std::cout << firstBounce << " ";
-    }
+    std::cout << std::to_string(startHeight) << " " << std::to_string(firstBounce) << "\n" << numBounces;
     return 0;
 }
