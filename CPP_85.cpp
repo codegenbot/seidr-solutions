@@ -11,7 +11,16 @@ int add(vector<int> lst){
 }
 
 int main(){
-    vector<int> lst = {4, 4, 6, 8};
+    vector<int> lst;
+    int num;
+
+    cout << "Enter numbers (negative to stop): ";
+    while(true){
+        cin >> num;
+        if(num < 0) break;
+        lst.push_back(num);
+    }
+
     cout << "Result: " << add(lst) << endl;
     return 0;
 }
