@@ -16,7 +16,7 @@ std::any compare_one(std::any a, std::any b) {
             return b;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::stof(std::any_cast<std::string>(std::any_cast<std::string>(a))) > std::stof(std::any_cast<std::string>(b))) {
+        if (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) {
             return a;
         } else if (std::stof(std::any_cast<std::string>(a)) < std::stof(std::any_cast<std::string>(b))) {
             return b;
@@ -26,6 +26,6 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    assert (std::any_cast<std::string>(compare_one(std::string("1"), std::string("2"))) == "2");
+    assert (std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
     return 0;
 }
