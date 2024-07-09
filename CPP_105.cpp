@@ -2,8 +2,12 @@
 #include <algorithm>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a == b);
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
@@ -26,6 +30,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
-int main() {
+int main_test() {
     assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    return 0;
 }
