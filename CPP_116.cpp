@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a != b)
         return false;
     return true;
@@ -20,6 +20,5 @@ std::vector<int> sortArray(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(sortArray({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
+    assert(isSame(sortArray({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
     return 0;
-}
