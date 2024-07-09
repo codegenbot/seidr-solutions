@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(const std::vector<float>& lst) {
     long long sum = 0;
     for (float x : lst) {
         if (x > 0 && std::floor(x) == x) {
@@ -15,7 +15,6 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst;
     float input;
-    
     while(std::cin >> input)
         lst.push_back(input);
 
