@@ -1,7 +1,6 @@
-```
-#include <vector>
-#include <string>
-using namespace std;
+```cpp
+using std::vector;
+using std::string;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
