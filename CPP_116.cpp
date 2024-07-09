@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 
@@ -15,6 +16,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32}));
+    std::vector<int> test = {2, 4, 8, 16, 32};
+    assert(issame(sort_array(test), test));
     return 0;
 }
