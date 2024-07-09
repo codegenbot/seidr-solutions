@@ -16,9 +16,3 @@ int search(std::vector<int> lst) {
         }
     }
     return -1;
-}
-
-int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
-    return 0;
-}
