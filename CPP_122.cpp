@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
-#include <cassert>
 #include <initializer_list>
+#include <cassert>
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
