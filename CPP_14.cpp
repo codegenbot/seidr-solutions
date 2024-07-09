@@ -1,9 +1,15 @@
-#include <initializer_list>
+```cpp
+#include <vector>
+#include <string>
 
 const std::vector<std::string> all_prefixes(const std::string& str) {
     std::vector<std::string> result;
     for (int i = 1; i <= str.length(); i++) {
-        result.push_back(str.substr(0, i));
+        std::string prefix = str.substr(0, i);
+        if (i > 1) { 
+            prefix.push_back(',');
+        }
+        result.push_back(prefix);
     }
     return result;
 }
