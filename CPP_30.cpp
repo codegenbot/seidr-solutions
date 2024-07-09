@@ -1,6 +1,5 @@
-```
 #include <vector>
-#include <numeric>
+#include <cmath>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
@@ -10,7 +9,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> get_positive(std::vector<float> l){
+std::vector<float> get_positive(const std::vector<float>& l){
     std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
@@ -18,4 +17,10 @@ std::vector<float> get_positive(std::vector<float> l){
         }
     }
     return result;
+
+}
+
+int main() {
+    assert(issame(get_positive({}), {}));
+    return 0;
 }
