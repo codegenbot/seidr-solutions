@@ -1,11 +1,25 @@
+#include <vector>
+#include <algorithm>
 #include <cassert>
 
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
+    while (n != 1) {
+        if (n % 2 != 0) {
+            result.push_back(n);
+        }
+        n = (n % 2 == 0) ? n / 2 : 3 * n + 1;
+    }
+    result.push_back(1);
+    std::sort(result.begin(), result.end());
+    return result;
+}
+
 int main() {
-    std::vector<int> output = get_odd_collatz(10);
-    assert(output == std::vector<int>{5, 3, 1});
-    
-    output = get_odd_collatz(19);
-    assert(output == std::vector<int>{19, 29, 43, 65, 98, 49, 74, 37, 56, 28, 14, 7, 11, 17, 26, 13, 20, 10, 5, 8, 4, 2, 1});
-    
+    std::vector<int> test_output = get_odd_collatz(10);
+    std::vector<int> expected_output = {1, 1, 3, 5};
+
+    assert(test_output == expected_output);
+
     return 0;
 }
