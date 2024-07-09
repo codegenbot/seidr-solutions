@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
@@ -13,6 +12,6 @@ std::vector<int> get_odd_collatz(int n) {
             result.push_back(n);
         }
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
