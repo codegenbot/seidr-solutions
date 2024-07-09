@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
-#include <vector>
 #include <set>
+#include <vector>
 #include <algorithm>
 
 int main() {
@@ -17,8 +17,7 @@ int main() {
         s1Vec.push_back(x);
     }
 
-    s1.reserve(s1Vec.size());
-    for(auto x : s1Vec) s1.insert(x);
+    s1 = std::set<std::string>(s1Vec.begin(), s1Vec.end());
 
     std::vector<std::string> s2Vec;
     for(int i = 0; i < m1; i++) {
@@ -27,18 +26,17 @@ int main() {
         s2Vec.push_back(y);
     }
 
-    s2.reserve(s2Vec.size());
-    for(auto x : s2Vec) s2.insert(x);
+    s2 = std::set<std::string>(s2Vec.begin(), s2Vec.end());
 
     std::vector<std::string> diff(s1.begin(), s1.end());
-    set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(),
-                    std::back_inserter(diff));
+    std::set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(),
+                        std::back_inserter(diff));
 
     auto intersection = s1;
     s1.clear();
-    std::vector<std::string> intersect(s2.begin(), s2.end());
-    set_intersection(intersection.begin(), intersection.end(), s2.begin(), s2.end(),
-                     std::back_inserter(intersect));
+    std::vector<std::string> intersect;
+    std::set_intersection(intersection.begin(), intersection.end(), s2.begin(), s2.end(),
+                           std::back_inserter(intersect));
 
     std::cout << "Difference: ";
     for (const auto& i : diff) {
