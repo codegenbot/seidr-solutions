@@ -1,37 +1,42 @@
-#include <algorithm>
-#include <string>
-#include <vector>
-#include <initializer_list>
-using namespace std;
-
-string join(const vector<string>& vec, const string& sep) {
-    string result;
-    for (const auto& s : vec) {
-        if (!result.empty()) {
-            result += sep;
-        }
-        result += s;
-    }
-    return result;
-}
-
-string split(const string& str, char sep) {
-    vector<string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(sep)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
-    }
-    tokens.push_back(str);
-    return join(tokens, " ");
-}
-
 string anti_shuffle(string s) {
-    string result = "";
-    for (const auto& word : split(s, ' ')) {
-        vector<char> temp(word.begin(), word.end());
-        sort(temp.begin(), temp.end());
-        result += string(temp.begin(), temp.end()) + " ";
+    vector<string> words;
+    string word = "";
+    for (const auto& c : s) {
+        if (c == ' ') {
+            words.push_back(word);
+            word = "";
+        } else {
+            word += c;
+        }
     }
+    words.push_back(word);
+
+    unordered_map<string, int> wordCount;
+    vector<string> tempWords;
+
+    for (const auto& w : words) {
+        if (wordCount.find(w) == wordCount.end()) {
+            wordCount[w] = 0;
+            tempWords.push_back(w);
+        }
+        wordCount[w]++;
+    }
+
+    string result = "";
+    while (!tempWords.empty()) {
+        int maxCount = 0;
+        string maxWord = "";
+
+        for (const auto& w : tempWords) {
+            if (wordCount[w] > maxCount) {
+                maxCount = wordCount[w];
+                maxWord = w;
+            }
+        }
+
+        result += maxWord + " ";
+        wordCount[maxWord]--;
+    }
+
     return result.substr(0, result.size() - 1);
 }
