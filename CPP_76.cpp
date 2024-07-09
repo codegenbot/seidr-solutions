@@ -16,17 +16,14 @@ bool isSimplePower(int num) {
     return false;
 }
 
-int main() { 
-    int num; 
-    std::cout << "Enter a number: "; 
-    if (!(std::cin >> num)) { 
-        std::cerr << "Invalid input. Exiting.\n"; 
-        return 1; 
-    } 
+int main() {
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
     if (isSimplePower(num)) {  
-        std::cout << std::to_string(num) << " is a simple power.\n";
+        std::cout << num << " is a simple power.\n";
     } else {
-        std::cout << std::to_string(num) << " is not a simple power.\n";
+        std::cout << num << " is not a simple power.\n";
     }
     return 0;
 }
