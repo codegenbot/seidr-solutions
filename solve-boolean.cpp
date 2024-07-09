@@ -8,14 +8,12 @@ string solveBoolean(std::string s) {
             }
             if (st.empty()) return "False";
             else st.pop();
-        } 
-        else if (s[i] == '|') {
+        } else if (s[i] == '|') {
             while (!st.empty()) st.pop();
             st.push(s[i]);
-        } 
-        else {
+        } else {
             st.push(s[i]);
         }
     }
-    return st.top() == 'T' ? "True" : "False";
+    return (char)st.top() == 'T' ? "True" : "False";
 }
