@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 bool isCube(int a) {
     int i = 1;
@@ -11,7 +12,7 @@ bool isCube(int a) {
     return false;
 }
 
-int originalMain(){
+int originalFunction(){
     int n;
     std::cout << "Enter an integer: ";
     std::cin >> n;
@@ -22,6 +23,6 @@ int originalMain(){
 }
 
 int main(){
-    originalMain();
+    originalFunction();
     assert (isCube(1729) == false);
 }
