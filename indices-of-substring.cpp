@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -9,16 +8,15 @@ vector<int> findIndices(string text, string target) {
     int n = text.size();
     int m = target.size();
 
-    for (int i = 0; i <= n - m + 1; i++) {
+    for (int i = 0; i <= n - m; i++) {
+        bool found = true;
         for (int j = 0; j < m; j++) {
-            if (i + j >= n) break; // Check for out-of-bounds access
             if (text[i + j] != target[j]) {
-                i += j; // Move the index to the next potential match
-                continue;
+                found = false;
+                break;
             }
         }
-        if (i + m <= n && text.substr(i, m) == target)
-            indices.push_back(i);
+        if (found) indices.push_back(i - (m - 1));
     }
 
     return indices;
