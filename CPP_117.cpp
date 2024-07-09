@@ -1,9 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <string>
-#include <cctype>
-
+#include <array> 
 using namespace std;
 
 bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
@@ -30,7 +27,7 @@ vector<pair<int, string>> select_words(string s, int n) {
             }
             wordCount++;
         } else {
-            word += tolower(c);
+            word += c;
         }
     }
     if (!word.empty()) {
