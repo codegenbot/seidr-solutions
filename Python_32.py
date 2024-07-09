@@ -1,1 +1,1 @@
-user_input = list(map(int, input().split()))
+user_input = [1, 2, 3, 4, 5]
