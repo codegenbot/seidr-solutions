@@ -12,7 +12,3 @@ bool iscuber(int a){
     return false;
 
 }
-
-int main() {
-    assert(iscuber(1729) == false);
-}
