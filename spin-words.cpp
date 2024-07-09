@@ -34,6 +34,6 @@ string spinWords(string str) {
     return result;
 }
 
-int main() {
-    return spinWords("This is a test string");
+int main() { 
+    return spinWords("Hello World"); 
 }
