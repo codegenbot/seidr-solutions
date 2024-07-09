@@ -18,7 +18,7 @@ std::vector<std::string> numerical_letter_grade(const std::vector<double>& grade
     return result;
 }
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -28,12 +28,12 @@ bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-int main() {
+int main2() {
     std::vector<double> input = {0.0, 0.7};
     std::vector<std::string> result1 = numerical_letter_grade(input);
     
     std::vector<std::string> result2 = {"F", "D+"};
-    if (isSame({"F", result1[1]}, result2)) {
+    if (issame({"F", result1[1]}, result2)) {
         std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
