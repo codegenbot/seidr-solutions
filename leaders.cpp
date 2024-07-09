@@ -2,11 +2,15 @@
 #include <iostream>
 
 std::vector<int> leaders(std::vector<int>& arr) {
-    int n = arr.size();
-    std::vector<int> res;
+    if(arr.empty()) {
+        return {};
+    }
     
-    for(int i=n-1; i>=0; i--) {
-        if(res.empty() || arr[i] >= res.back()) 
+    int n = arr.size();
+    std::vector<int> res({arr.back()}); // initialize result with the last element
+    
+    for(int i=n-2; i>=0; i--) {
+        if(res.back() <= arr[i]) 
             res.push_back(arr[i]);
         else
             break;
@@ -16,10 +20,10 @@ std::vector<int> leaders(std::vector<int>& arr) {
 }
 
 int main() {
-    int n;
     std::vector<int> input;
-    while(std::cin >> n) {
-        input.push_back(n);
+    int num;
+    while(std::cin >> num) {
+        input.push_back(num);
     }
     std::vector<int> result = leaders(input);
     for(int i: result)
