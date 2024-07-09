@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <limits>
 
 std::string kebabToCamel(const std::string& s) {
     std::string result;
@@ -27,3 +28,4 @@ int main() {
     std::cout << kebabToCamel(input) << std::endl;
 
     return 0;
+}
