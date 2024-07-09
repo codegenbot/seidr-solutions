@@ -1,14 +1,43 @@
-#include <algorithm>
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) 
-        return false;
-    for(int i = 0; i < a.size(); i++) 
-        if(a[i] != b[i])
-            return false;
-    return true;
-}
+#include <iostream>
+#include <vector>
+#include <string>
 
-int main() {
-    assert (issame(split_words(""), {"0"}));
-    return 0;
+using namespace std;
+
+vector<string> split_words(string txt) {
+    vector<string> result;
+    
+    size_t pos = 0;
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+        if (pos == 0) {
+            if (txt.find(',') == string::npos) {
+                int count = 0;
+                for (char c : txt) {
+                    if (c >= 'a' && c <= 'z') {
+                        if ((int)c % 2 != 0) {
+                            count++;
+                        }
+                    }
+                }
+                result.push_back(to_string(count));
+                return result;
+            }
+        }
+        
+        size_t nextPos = txt.find_first_of(" ,", pos + 1);
+        string token = txt.substr(pos, nextPos - pos);
+        if (!token.empty()) {
+            result.push_back(token);
+        }
+        pos = nextPos;
+    }
+
+    if (pos < txt.size()) {
+        string token = txt.substr(pos);
+        if (!token.empty()) {
+            result.push_back(token);
+        }
+    }
+
+    return result;
 }
