@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -10,16 +12,7 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
-    for(auto it = strings.begin(); it != strings.end(); ++it){
-        if(it->find(prefix) == string::npos)
-            result.push_back(*it);
-    }
-    return result;
-
-}
-
 int main_test() {
     assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
