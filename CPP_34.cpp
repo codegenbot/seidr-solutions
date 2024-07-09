@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -26,11 +25,12 @@ int solution() {
         }
         it = nextIt;
     }
-    std::vector<int> unique(uniqueVec.begin(), uniqueVec.end());
+    std::vector<int> unique({*(uniqueVec.begin()), *(uniqueVec.end()-1)});
     assert(issame(unique, uniqueVec));
     return 0;
 }
 
 int main() {
     solution();
+    return 0;
 }
