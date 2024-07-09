@@ -1,3 +1,4 @@
+
 #include <string> // Include the string header file
 
 std::string make_palindrome(std::string str){ // Use std::string instead of string
