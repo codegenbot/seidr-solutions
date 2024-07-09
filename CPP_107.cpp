@@ -20,12 +20,12 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> result = even_odd_palindrome(5);
+    std::vector<int> expected;
     for(int i = 0; i <= 5; ++i) {
         if(i % 2 == 0)
-            result.push_back(0);
+            expected.push_back(0);
         else
-            result.push_back(1);
+            expected.push_back(1);
     }
-    assert(isSame(result, {}));
+    assert(isSame(even_odd_palindrome(5), expected));
 }
