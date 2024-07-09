@@ -1,39 +1,44 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n, -1));
-    
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>> pq;
+    vector<int> res;
+
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (k == 1) {
-                dp[i][j] = grid[i][j];
-            } else {
-                int minVal = INT_MAX;
-                if (i > 0) minVal = min(minVal, dp[i-1][j]);
-                if (j > 0) minVal = min(minVal, dp[i][j-1]);
-                if (i < n - 1) minVal = min(minVal, dp[i+1][j]);
-                if (j < n - 1) minVal = min(minVal, dp[i][j+1]);
-                dp[i][j] = grid[i][j];
-                for (int x : {i-1, i+1, j-1, j+1}) {
-                    if (x >= 0 && x < n) {
-                        dp[i][j] += minVal;
-                    }
+            if (!visited[i][j]) {
+                pq.push({grid[i][j], {i, j}});
+                visited[i][j] = true;
+            }
+        }
+    }
+
+    while (!pq.empty()) {
+        int val = pq.top().first;
+        int x = pq.top().second.first;
+        int y = pq.top().second.second;
+
+        res.push_back(val);
+        for (int i = -1; i <= 1; ++i) {
+            for (int j = -1; j <= 1; ++j) {
+                if (abs(i) + abs(j) == 1 && x + i >= 0 && y + j >= 0 && x + i < n && y + j < n && !visited[x + i][y + j]) {
+                    pq.push({grid[x + i][y + j], {x + i, y + j}});
+                    visited[x + i][y + j] = true;
                 }
             }
         }
+
+        if (res.size() == k) break;
+
+        pq.pop();
     }
-    
-    vector<int> res;
-    int val = INT_MAX;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (dp[i][j] == val) {
-                res.push_back(grid[i][j]);
-                --k;
-                if (k == 0) return res;
-            }
-            val = min(val, dp[i][j]);
-        }
-    }
-    
-    return {};
+
+    return res;
 }
