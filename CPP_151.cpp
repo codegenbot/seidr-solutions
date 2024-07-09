@@ -1,6 +1,6 @@
 #include <vector>
 #include <cmath>
-#include <initializer_list>
+#include <iostream>
 
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
@@ -17,11 +17,9 @@ int main() {
     float val;
     int size;
 
-    // Get the size of the vector from the user
     std::cout << "Enter the number of elements: ";
     std::cin >> size;
 
-    // Add elements to the vector from the user
     for(int i = 0; i < size; i++) {
         std::cout << "Enter element " << (i+1) << ": ";
         std::cin >> val;
@@ -30,6 +28,6 @@ int main() {
 
     long long odd_sum = double_the_difference(lst);
 
-    // Check the sum
-    assert(double_the_difference(lst) == odd_sum );
+    assert(odd_sum == double_the_difference(lst));
+    return 0;
 }
