@@ -5,7 +5,9 @@
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result(n+1, 0);
+    vector<int> result(2);
+    int even = 0;
+    int odd = 0;
 
     for (int i = 1; i <= n; i++) {
         string str = to_string(i);
@@ -19,11 +21,14 @@ vector<int> even_odd_palindrome(int n) {
         }
 
         if (isPalindrome && i % 2 == 0) {
-            result[i] += 1;
+            even++;
         } else if (isPalindrome && i % 2 != 0) {
-            result[i] += 1;
+            odd++;
         }
     }
+
+    result[0] = even;
+    result[1] = odd;
 
     return result;
 }
@@ -31,6 +36,6 @@ vector<int> even_odd_palindrome(int n) {
 int main() {
     int n;
     cin >> n; 
-    cout << "(" << even_odd_palindrome(n)[1] << ", " << even_odd_palindrome(n)[0] << ")" << endl; 
+    cout << "(" << even_odd_palindrome(n)[0] << ", " << even_odd_palindrome(n)[1] << ")" << endl; 
     return 0;
 }
