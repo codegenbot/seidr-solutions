@@ -1,23 +1,4 @@
-```cpp
-#include <iostream>
-#include <sstream>
-#include <vector>
-
-using namespace std;
-
-void print_words(string sentence);
-
-int main() {
-    string sentence;
-    cout << "Enter a sentence: ";
-    getline(cin, sentence);
-    
-    print_words(sentence);
-    cout << endl;
-    return 0;
-}
-
-void print_words(string sentence) {
+void words_in_sentence(string sentence) {
     vector<string> words;
     string word;
     bool isWord = false;
@@ -38,9 +19,9 @@ void print_words(string sentence) {
         }
     }
 
-    if (isWord) {
-        cout << word;
-    } else {
-        cout << sentence; // handle case when input only contains spaces
+    words.push_back(word);
+    cout << "The words in the sentence are: ";
+    for (string w : words) {
+        cout << w << endl;
     }
 }
