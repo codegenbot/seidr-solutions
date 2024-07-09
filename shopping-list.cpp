@@ -33,7 +33,6 @@ int main() {
     std::string line;
     iss >> line; // Read the first line
     std::vector<double> prices;
-    std::vector<double> discounts;
     while (std::getline(iss, line)) {
         if (!prices.empty()) {
             istringstream lineIss(line);
@@ -41,7 +40,7 @@ int main() {
                 prices.push_back(std::stod(line)); 
             }
         } else {
-            discounts = stream_string_to_vector(line);
+            std::vector<double> discounts = stream_string_to_vector(line);
         }
     }
 
