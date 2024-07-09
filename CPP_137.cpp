@@ -58,16 +58,16 @@ int main() {
 }
 
 boost::variant<std::string, int> compare_one(boost::variant<int, float, std::string> a, boost::variant<int, float, std::string> b) {
-    if (std::holds_alternative<int>(a) && std::holds_alternative<float>(b)) {
+    if (boost::holds_alternative<int>(a) && boost::holds_alternative<float>(b)) {
         return "Integer 1 is less than Float 2";
     }
-    else if (std::holds_alternative<int>(a) && std::holds_alternative<std::string>(b)) {
+    else if (boost::holds_alternative<int>(a) && boost::holds_alternative<std::string>(b)) {
         if (boost::get<int>(a) < 0)
             return "Negative integer is less than string";
         else
             return "Positive integer is greater than or equal to string";
     }
-    else if (std::holds_alternative<int>(a) && std::holds_alternative<int>(b)) {
+    else if (boost::holds_alternative<int>(a) && boost::holds_alternative<int>(b)) {
         int x = boost::get<int>(a);
         int y = boost::get<int>(b);
         if(x < y)
@@ -77,7 +77,7 @@ boost::variant<std::string, int> compare_one(boost::variant<int, float, std::str
         else
             return "Integers are equal";
     }
-    else if (std::holds_alternative<float>(a) && std::holds_alternative<int>(b)) {
+    else if (boost::holds_alternative<float>(a) && boost::holds_alternative<int>(b)) {
         float x = boost::get<float>(a);
         int y = boost::get<int>(b);
         if(x < y)
@@ -86,6 +86,14 @@ boost::variant<std::string, int> compare_one(boost::variant<int, float, std::str
             return "Float 1 is greater than Integer 2";
         else
             return "Float and integer are equal";
+    }
+    else if (boost::holds_alternative<std::string>(a) && boost::holds_alternative<int>(b)) {
+        std::string strA = boost::get<std::string>(a);
+        int y = boost::get<int>(b);
+        if (strA > "0")
+            return "String 1 is greater than Integer 2";
+        else
+            return "Integer 1 is less than String 2";
     }
     else {
         return "Invalid input";
