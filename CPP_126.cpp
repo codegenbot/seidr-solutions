@@ -1,15 +1,18 @@
-bool is_sorted(vector<int> lst){
-    bool result = true;
+```cpp
+bool is_sorted(vector<int> lst) {
     for(int i = 1; i < lst.size(); i++){
-        if(lst[i] <= lst[i-1]){
-            result = false;
-            break;
+        if(lst[i-1] >= lst[i]){
+            if(count(lst.begin(), lst.end(), lst[i]) > 1)
+                return false;
         }
-    }
-    vector<int>::iterator it;
-    for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
-        if(std::distance(it, lst.end()) > 1)
+        else
             return false;
     }
-    return result;
+    return true;
+}
+
+int main() {
+    vector<int> lst = {1, 2, 3, 4};
+    cout << is_sorted(lst) << endl;
+    return 0;
 }
