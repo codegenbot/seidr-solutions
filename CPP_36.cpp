@@ -1,3 +1,4 @@
+```cpp
 #include <sstream>
 using namespace std;
 
@@ -8,3 +9,9 @@ int fizz_buzz(int n) {
             count++;
     }
     return count;
+
+}
+
+int main() {
+    return 0;
+}
