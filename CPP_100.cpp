@@ -28,6 +28,10 @@ vector<int> make_a_pile(int n) {
 
 int main() {
     vector<int> a = make_a_pile(8);
-    assert (issame(a, vector<int>{8,10,12,14,16,18,20,22}));
+    std::cout << "a: ";
+    for (auto i : a) std::cout << i << " ";
+    std::cout << std::endl;
+    
+    assert (issame(a, vector<int>({8, 10, 12, 14, 16, 18, 20, 22})));
     return 0;
 }
