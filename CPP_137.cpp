@@ -1,21 +1,20 @@
 #include <boost/any.hpp>
+#include <string>
+#include <algorithm>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<a>(int.class)) {
-        int x = any_cast<int>(a);
-        int y = any_cast<int>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (is_any_of<a>(double.class)) {
-        double x = any_cast<double>(a);
-        double y = any_cast<double>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (is_any_of<a>(string.class)) {
-        string x = any_cast<string>(a);
-        string y = any_cast<string>(b);
-        double ax = stod(x);
-        double ay = stod(y);
-        return (ax > ay) ? a : ((ax < ay) ? b : boost::any("None"));
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return (string)b.convert_to<string>() > (string)a.convert_to<string>() ? b : a;
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return max((float)a.convert_to<float>(), (int)b.convert_to<int>());
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        return (string)b.convert_to<string>() > (string)a.convert_to<string>() ? b : a;
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return (string)b.convert_to<string>() > to_string((int)a.convert_to<int>()) ? b : "None";
     }
+    return "None";
 }
