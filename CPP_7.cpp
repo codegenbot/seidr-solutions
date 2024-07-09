@@ -1,8 +1,15 @@
-```cpp
 #include <set>
-bool issame(std::set<std::string> a, std::set<std::string> b) {
-    return a == b;
+#include <vector>
+#include <algorithm>
+
+bool issame(std::set<std::string> a, std::vector<std::string> b) {
+    std::set<std::string> setb;
+    for (const auto& s : b) {
+        setb.insert(s);
+    }
+    return a == setb;
 }
+
 int main() {
-    assert(issame(std::set<std::string>{"grunt", "trumpet", "prune", "gruesome"}, std::set<std::string>{"run"}));
+    assert(issame({{"grunt", "trumpet", "prune", "gruesome"}}, {"run"}.second,{{"grunt", "prune"}}));
 }
