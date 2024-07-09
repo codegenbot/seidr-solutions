@@ -20,11 +20,11 @@ int main() {
     vector<string> lst;
     int n;
     cin >> n;
-    for (int i = 0; i < n; i++) {
-        string s;
+    string s;
+    for(int i=0; i<n; ++i){
         getline(cin, s);
         lst.push_back(s);
     }
-    std::cout << (match_parens(lst) ? "Yes" : "No") << std::endl;
+    cout << (match_parens(lst) ? "Yes" : "No") << endl;
     return 0;
 }
