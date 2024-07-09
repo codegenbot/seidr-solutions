@@ -1,26 +1,27 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
-bool isSame(std::vector<int> a, std::vector<int> b){
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(std::find(b.begin(), b.end(), a[i]) == b.end()) return false;
     }
     return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers){
+std::vector<int> remove_duplicates(std::vector<int> v) {
     std::vector<int> result;
-    for(int num : numbers){
-        if(std::find(result.begin(), result.end(), num) == result.end()){
-            result.push_back(num);
+    for(int i = 0; i < v.size(); i++) {
+        if(std::find(result.begin(), result.end(), v[i]) == result.end()) {
+            result.push_back(v[i]);
         }
     }
     return result;
+}
 
-int main() {
+int main2() {
     std::vector<int> numbers = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
     assert(isSame(numbers, {1, 2, 3, 4, 5}));
+}
