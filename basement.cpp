@@ -1,12 +1,13 @@
 #include <vector>
 using namespace std;
 
-int basementIndex(vector<int> &v) {
+int findFirstNegativeIndex(const vector<int>& nums) {
     int sum = 0;
-    for (int i = 0; i < v.size(); i++) {
-        sum += v[i];
-        if (sum < 0)
+    for (int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
+        if (sum < 0) {
             return i;
+        }
     }
-    return -1; // If no such index found
+    return -1; // or throw an exception, depending on the requirements
 }
