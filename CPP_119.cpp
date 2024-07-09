@@ -1,10 +1,13 @@
-string match_parens(vector<string> lst){
+string match_parens(vector<string> lst) {
     int open = 0, close = 0;
-    for(int i=0; i<lst.size(); i++){
-        for(char c: lst[i]){
-            if(c == '(') open++;
-            else close++;
+    for (const string& s : lst) {
+        for (char c : s) {
+            if (c == '(') {
+                open++;
+            } else if (c == ')') {
+                close++;
+            }
         }
     }
-    return (open==close) ? "Yes" : "No";
+    return (open == close) ? "Yes" : "No";
 }
