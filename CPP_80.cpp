@@ -1,17 +1,16 @@
+```cpp
 #include <iostream>
-#include <string>
-
-bool is_happy(int n);
 
 bool is_happy(int n) {
     if (n < 1) return false;
     while (n > 1) {
-        std::string str = std::to_string(n);
         int sum = 0;
-        for(char c : str) {
-            sum += (c - '0')*(c - '0');
+        while (n) {
+            n %= 10;
+            sum += n * n;
+            n /= 10;
         }
-        n = std::stoi(std::to_string(sum));
+        n = sum;
     }
     return n == 1;
 }
