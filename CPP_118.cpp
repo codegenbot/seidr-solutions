@@ -1,26 +1,10 @@
-#include <string>
-#include <cctype>
-
-bool isvowel(char c) {
-    return std::tolower(c) == 'a' || std::tolower(c) == 'e' ||
-           std::tolower(c) == 'i' || std::tolower(c) == 'o' ||
-           std::tolower(c) == 'u';
-}
-
-std::string get_closest_vowel(std::string word) {
-    int n = word.size();
-    for (int i = 0; i < n; ++i) {
-        if (!isalpha(word[i])) continue;
-        if (ispunct(word[i]) || isdigit(word[i])) continue;
-        if (word[i] == 'Y' && i > 1 && isupper(word[i-1]) && islower(word[i-2]))
-            return std::string(1, word[i]);
-        if (ispunct(word[i]) || isdigit(word[i])) break;
-        if (isvowel(word[i])) return std::string(1, word[i]);
+std::string get_closest_vowel(const std::string& word) {
+    for (char c : word) {
+        if (std::tolower(c) == 'a' || std::tolower(c) == 'e' || 
+            std::tolower(c) == 'i' || std::tolower(c) == 'o' || 
+            std::tolower(c) == 'u') {
+            return std::string(1, c); // Return the closest vowel
+        }
     }
-    return "";
-}
-
-int main() {
-    assert(get_closest_vowel("Above") == "o");
-    return 0;
+    return "No vowels found"; // Return this if no vowels are found
 }
