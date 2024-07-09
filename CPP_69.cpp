@@ -17,7 +17,7 @@ int search(std::vector<int> lst) {
     return -1;
 }
 
-int main() {
+int originalMain() {
     int n; 
     std::vector<int> lst;
     
