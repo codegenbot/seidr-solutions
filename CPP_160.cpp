@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -35,18 +36,17 @@ int main() {
     cin >> n;
     
     for (int i = 0; i < n; i++) {
-        string op;
-        string strOp, strNum;
+        string op, strOp, strNum;
 
         cout << "Enter operation (+, -, *, /, ^): ";
-        cin >> strOp;
+        cin >> op;
         
         cout << "Enter number: ";
         cin >> strNum;
         
         try {
             int num = stoi(strNum);
-            ops.push_back(strOp);
+            ops.push_back(op);
             nums.push_back(num);
         } catch (invalid_argument e) {
             // Handle non-integer values
