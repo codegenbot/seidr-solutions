@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -31,6 +29,6 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(make_a_pile(8).size() == 8); 
+    assert(make_a_pile(8).size() == 8);
     return 0;
 }
