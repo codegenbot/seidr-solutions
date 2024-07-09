@@ -3,5 +3,5 @@ def add(a=0, b=0):
         if i == 1:
             x = int(input(f"Enter the {a if i==1 else 'second'} number: ") or a)
         else:
-            y = int(input(f"Enter the {b if i==2 else 'second'} number: ") or b)
+            y = int(input(f"Enter the {'second' if i==2 else ' '}number: ") or b)
     print(x + y)
