@@ -5,6 +5,11 @@ int main() {
     std::string input;
     std::cin >> input;
 
+    if (input.empty()) {
+        std::cout << "Invalid input" << std::endl;
+        return 1; // Exit program with error code 1
+    }
+
     std::string output = "";
     for (char digit : input) {
         int num = digit - '0';
