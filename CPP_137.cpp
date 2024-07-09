@@ -1,29 +1,17 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string compareOne(int a, int b) {
-    if (a > b) 
-        return "First";
-    else if (b > a)
-        return "Second";
-    else 
-        return "Equal";
+std::string compareOne(std::string s1, std::string s2) {
+    if (s1.compare(s2) > 0) {
+        return s1;
+    } else if (s1.compare(s2) < 0) {
+        return s2;
+    } else {
+        return "None";
+    }
 }
 
 int main() {
-    int num1, num2;
-    
-    cout << "Enter the first number: ";
-    cin >> num1;
-    
-    cout << "Enter the second number: ";
-    cin >> num2;
-
-    string result = compareOne(num1, num2);
-    
-    cout << "Result: " << result << endl;
-    
+    std::cout << compareOne("apple", "banana") << std::endl;
     return 0;
 }
