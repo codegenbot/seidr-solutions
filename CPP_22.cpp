@@ -1,13 +1,6 @@
-vector<int> filter_integers(initializer_list<variant<int>> values) {
-    vector<int> result; 
-    for (const auto& value : values) {
-        try {
-            int val = any_cast<int>(value);
-            if(find(result.begin(), result.end(), val) == result.end())
-                result.push_back(val);
-        } catch (...) {
-            // ignore non-integer values
-        }
-    }
-    return result;
+int mainTest() {
+    vector<variant<int>> values = {{1}, {2}, {3}};
+    initializer_list<variant<int>> il(values.begin(), values.end());
+    assertEqual(filter_integers(il), vector<int>({1, 2, 3}));
+    return 0;
 }
