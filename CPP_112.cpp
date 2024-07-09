@@ -14,7 +14,6 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
 
-    // Delete all characters in s that are equal to any character in c
     for (char& ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -27,7 +26,6 @@ vector<string> reverse_delete(string s, string c) {
             result.push_back(string(1, ch));
     }
 
-    // Check if the result string is palindrome
     string res_str = "";
     for (string str : result)
         res_str += str;
@@ -42,14 +40,17 @@ vector<string> reverse_delete(string s, string c) {
     if (start >= end)
         is_palindrome = true;
 
-    // Return the result
     vector<string> final_result;
     final_result.push_back(res_str);
-    final_result.push_back(is_palindrome ? "True" : "False");
+    final_result.push_back(to_string(is_palindrome));
     return final_result;
 }
 
-int test() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+int main() {
+    vector<string> result = reverse_delete("mamma", "mia");
+    if (!issame(result, vector<string>{ "", "True"})) {
+        cout << "Test failed";
+        return 1;
+    }
     return 0;
 }
