@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -24,4 +23,16 @@ std::vector<float> sort_even(std::vector<float> l) {
     return result;
 }
 
-int main
+int main() 
+{
+    std::vector<float> input;
+    float num;
+    while(std::cin >> num) {
+        input.push_back(num);
+    }
+    std::vector<float> output = sort_even(input);
+    for(float f : output) {
+        std::cout << f << " ";
+    }
+    return 0;
+}
