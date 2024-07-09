@@ -34,11 +34,11 @@ boost::any compare_one(boost::any a, boost::any b) {
             num1 = stoi(str1);
             num2 = stoi(str2);
 
-            return (num1 > num2) ? str1 : ((num1 < num2) ? str2 : a);
+            return (num1 > num2) ? str1 : ((num1 < num2) ? str2 : boost::any("None"));
         } else {
             return max(a, b);
         }
     }
 
-    return a;
+    return boost::any("None");
 }
