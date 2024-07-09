@@ -1,5 +1,6 @@
 from typing import List
 
+
 def remove_duplicates() -> List[int]:
     numbers = input("Enter space-separated numbers: ").split()
     seen = set()
