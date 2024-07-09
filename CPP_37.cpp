@@ -12,16 +12,17 @@ namespace myspace {
 
     std::vector<float> sort_even(const std::vector<float>& l) {
         std::vector<float> result(l.size());
+        std::vector<float> evens;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                std::vector<float> evens;
-                for (int j = 0; j < l.size(); j++) {
-                    if (j % 2 == 0) {
-                        evens.push_back(l[j]);
-                    }
-                }
-                std::sort(evens.begin(), evens.end());
-                result[i] = evens[0];
+                evens.push_back(l[i]);
+            }
+        }
+        std::sort(evens.begin(), evens.end());
+        int k = 0;
+        for (int i = 0; i < l.size(); i++) {
+            if (i % 2 == 0) {
+                result[i] = evens[k++];
             } else {
                 result[i] = l[i];
             }
@@ -30,7 +31,7 @@ namespace myspace {
     }
 }
 
-int main() {
+int main_function() {
     std::vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
     std::cout << "Original array: ";
     for (float num : input) {
@@ -38,6 +39,12 @@ int main() {
     }
     std::cout << std::endl;
 
-    assert(myspace::issame(myspace::sort_even(input), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    std::vector<float> sortedEven = myspace::sort_even(input);
+    std::cout << "Sorted even array: ";
+    for (float num : sortedEven) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+    assert(myspace::issame(sortedEven, {2, 4, 8, 12})); 
     return 0;
 }
