@@ -1,3 +1,4 @@
+// Here is the completed code:
 string middleCharacter(string s) {
     int len = s.length();
     if (len % 2 != 0) {
