@@ -1,8 +1,8 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <initializer_list>
+#include <iostream>
 
 using namespace std;
 
@@ -32,11 +32,9 @@ vector<string> sorted_list_sum(vector<string> lst) {
 
 int main() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-
-    if (sorted_list_sum(input) == expected) {
-        cout << "The lists are the same." << endl;
-    } else {
-        cout << "The lists are not the same." << endl;
+    cout << "The sorted list of strings with even lengths is: ";
+    for (const string& str : sorted_list_sum(input)) {
+        cout << str << " ";
     }
+    cout << endl;
 }
