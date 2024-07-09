@@ -36,14 +36,11 @@ std::vector<int> maximum(std::vector<std::vector<int>>& arr, int k) {
 
     // Keep popping elements from the priority queue until k elements are popped
     while (!pq.empty() && k-- > 0) {
-        int val = pq.top().first;
         int idx = pq.top().second;
         pq.pop();
-        
-        // Mark this index as processed, don't pop it directly
-        for(int j = 0; j < arr[idx].size(); j++) {
-            if(arr[idx][j] == val) {
-                arr[idx][j] = -1; 
+        if (idx < arr.size()) {
+            for(int j = 0; j < arr[idx].size(); j++) {
+                arr[idx][j] = -1;  // Mark this index as processed, don't pop it directly
             }
         }
     }
@@ -69,10 +66,11 @@ int main() {
 
     std::vector<std::vector<int>> arr; 
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element at index " << i << ": ";
         int val;
+        std::cout << "Enter element at index " << i << ": ";
         std::cin >> val;
-        arr.push_back({val});   // Create a new vector with one element
+        std::vector<int> temp(val);  
+        arr.push_back(temp);
     }
 
     std::vector<int> result = maximum(arr, k);
