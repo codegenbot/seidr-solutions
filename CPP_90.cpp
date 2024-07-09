@@ -33,3 +33,4 @@ int main() {
         std::cout << "No next smallest number exists";
     
     return 0;
+}
