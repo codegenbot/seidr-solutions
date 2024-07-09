@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -10,21 +11,21 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return true;
 }
 
-std::vector<std::string> split_string(std::string s){
+std::vector<std::string> words_string(std::string s){
     std::vector<std::string> result;
     std::string word = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
-            if(word.size() <= 100){ 
+            if(word.size() <= 100){ // Limit string size
                 result.push_back(word);
                 word = "";
             }else{
-                word.resize(100); 
+                word.resize(100); // Resize the word to fit in vector
                 result.push_back(word);
-                word.resize(0); 
+                word.resize(0); // Reset the word for next iteration
             }
         }else{
-            if(word.size() < 100) 
+            if(word.size() < 100) // Limit string size while adding characters
                 word += s[i];
         }
     }
@@ -33,7 +34,6 @@ std::vector<std::string> split_string(std::string s){
     return result;
 }
 
-int main(){
-    assert (issame(split_string("ahmed     , gamal") , std::vector<std::string> {"ahmed", "gamal"}));
-    return 0;
-}
+std::vector<std::string> b = words_string("ahmed     , gamal");
+assert (issame(b, std::vector<std::string> {"ahmed", "gamal"}));
+return 0;
