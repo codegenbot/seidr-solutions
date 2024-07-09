@@ -7,6 +7,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
         if(abs(a[i]) != abs(b[i])) return false;
     }
     return true;
+
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
