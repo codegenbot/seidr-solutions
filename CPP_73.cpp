@@ -32,6 +32,5 @@ int main() {
         left++;
         right--;
     }
-    
     return changes;
 }
