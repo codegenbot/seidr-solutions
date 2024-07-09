@@ -18,14 +18,10 @@ std::vector<int> filter_integers(std::list<bool> values) {
     for (const auto& value : values) {
         if (value) {
             int num;
-            // Check that the next value in the list is an integer
-            if (values.front()) {
-                if (std::any_cast<bool>(values.back())) {
-                    num = std::any_cast<int>(values.back());
-                    result.push_back(num);
-                }
+            if (values.begin()->second.type() == typeid(int)) {
+                num = std::any_cast<int>(std::any(values.begin()->second));
+                result.push_back(num);
             }
         }
     }
     return result;
-}
