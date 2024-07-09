@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -17,7 +15,7 @@ void displayOutput(vector<string> output) {
 int main() {
     vector<string> lst;
     string temp;
-    while(getline(cin,temp)) 
+    while(getline(cin,temp) && !temp.empty())
         lst.push_back(temp);
     vector<string> output = odd_count(lst);
     displayOutput(output);
