@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+template<typename T>
+bool issame(const std::vector<T>& v1, const std::vector<T>& v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -13,11 +14,12 @@ bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     return true;
 }
 
-std::vector<int> pluck(const std::vector<std::vector<int>>& arr, int index) {
+template<typename T>
+std::vector<T> pluck(const std::vector<std::vector<T>>& arr, int index) {
     return arr[index];
 }
 
 int main() {
-    assert(issame(pluck({{7, 9, 7, 1}}), {{7, 9, 7, 1}}));
+    assert(issame(pluck({7, 9, 7, 1}, {}), {}));
     return 0;
 }
