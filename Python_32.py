@@ -5,7 +5,6 @@ def find_zero(xs: list):
     b = xs[n]
     return -a / b
 
-input_list = list(map(int, input().split()))
-
-result = find_zero(input_list)
+xs = list(map(int, input("Enter a list of numbers separated by spaces: ").split()))
+result = find_zero(xs)
 print(result)
