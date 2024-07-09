@@ -22,4 +22,3 @@ std::map<char, int> histogram(const std::string& s) {
         else hist[c] = 1;
     }
     return hist;
-}
