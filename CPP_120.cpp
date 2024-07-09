@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
@@ -7,7 +9,7 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> maximum(vector<int> arr, int k) {
     if(k > arr.size()) {
-        cout << "Invalid value of k. It must be less than or equal to the size of array." << endl;
+        std::cout << "Invalid value of k. It must be less than or equal to the size of array." << std::endl;
         return {};
     }
     
