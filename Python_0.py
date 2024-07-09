@@ -5,9 +5,12 @@ def check_threshold(numbers, threshold):
                 return True
     return False
 
+# Read input from user
 numbers = list(map(int, input().split()))
 threshold = int(input())
 
+# Call the function with correct parameters
 result = check_threshold(numbers, threshold)
 
+# Print the result
 print(result)
