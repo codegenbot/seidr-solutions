@@ -39,13 +39,13 @@ int main() {
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        if(boost::any_cast<int>(a) < boost::any_cast<float>(b))
+        if (boost::any_cast<int>(a) < boost::any_cast<float>(b))
             return boost::any("int is less than float");
         else
-            return boost::any("float is less than or equal to int");
+            return boost::any("int is greater than or equal to float");
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        if(boost::any_cast<int>(a) < 0)
+        if (boost::any_cast<int>(a) < 0)
             return boost::any("Negative integer is less than string");
         else
             return boost::any("Positive integer is greater than or equal to string");
