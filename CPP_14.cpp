@@ -23,12 +23,5 @@ std::vector<std::string> all_prefixes(std::string str) {
 
 int main() {
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    std::vector<std::string> expected({"W", "WW", "WWW"});
-    std::vector<std::string> actual = all_prefixes("WWW");
-    if (!issame(actual, expected)) {
-        for (const auto& s : actual) {
-            std::cout << s << "\n";
-        }
-    }
     return 0;
 }
