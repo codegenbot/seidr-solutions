@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -16,5 +15,5 @@ long long solve(int n) {
 }
 
 int main() {
-    assert(solve(963) == 1010);
+    assert(solve(963) == 1010LL);
 }
