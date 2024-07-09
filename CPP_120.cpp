@@ -14,19 +14,8 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    int n, k;
-    std::cout << "Enter number of elements: ";
-    std::cin >> n;
-    std::vector<int> arr(n);
-    std::cout << "Enter the elements: ";
-    for(int i = 0; i < n; i++) {
-        std::cin >> arr[i];
-    }
-    std::cout << "Enter K: ";
-    std::cin >> k;
-    std::vector<int> result = maximum(arr, k);
-    std::cout << "The first " << k << " maximum elements are: ";
-    for (int i : result) {
+    std::vector<int> test = maximum({1, 2, 3, -23, 243, -400, 0}, 3);
+    for (int i : test) {
         std::cout << i << " ";
     }
     return 0;
