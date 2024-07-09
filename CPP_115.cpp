@@ -4,10 +4,7 @@ int max_fill(vector<vector<int>> grid, int capacity) {
         total_water += accumulate(row.begin(), row.end(), 0);
     }
     
-    int steps = total_water / capacity;
-    if (total_water % capacity != 0) {
-        steps++;
-    }
+    int steps = -(-total_water / capacity); // ceiling division
     
     return steps;
 }
