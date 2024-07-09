@@ -1,1 +1,38 @@
+#include <string>
+#include <map>
+#include <utility>
+
 std::pair<int, int> mastermind(std::string code, std::string guess) {
+    int white = 0;
+    int black = 0;
+
+    std::map<char, int> codeCount;
+    std::map<char, int> guessCount;
+    for (int i = 0; i < 4; ++i) {
+        codeCount[code[i]]++;
+        guessCount[guess[i]]++;
+    }
+    for (auto& pair : codeCount) {
+        if (pair.second > 0 && pair.second != guessCount[pair.first]) {
+            white += pair.second - guessCount[pair.first];
+        }
+    }
+
+    int codeIndex = 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            black++;
+            codeIndex = i + 1;
+        }
+    }
+
+    return std::make_pair(white, black);
+}
+
+int main() {
+    std::string code = "XXXX";
+    std::string guess = "ABCD"; // replace with your test inputs
+    std::pair<int, int> result = mastermind(code, guess);
+    std::cout << "White pegs: " << result.first << ", Black pegs: " << result.second << std::endl;
+    return 0;
+}
