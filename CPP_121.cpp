@@ -16,15 +16,12 @@ int main() {
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
-    
-    for(int i = 0; i < n; i++) {
+    for (int i = 1; i <= n; i++) {
         int x;
-        cout << "Enter element " << i+1 << ": ";
+        cout << "Enter element " << i << ": ";
         cin >> x;
         lst.push_back(x);
     }
-    
-    int result = solution(lst);
-    cout << "The sum of odd numbers is: " << result << endl;
+    cout << "Sum of odd numbers is: " << solution(lst) << endl;
     return 0;
 }
