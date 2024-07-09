@@ -1,16 +1,18 @@
 ```cpp
-#include <iostream>
+#include <vector>
+#include <initializer_list>
 
-bool pairs_sum_to_zero(int a, int b) {
-    if (a + b == 0) {
-        return true;
+bool pairs_sum_to_zero(const std::vector<std::pair<int, int>>& pairs) {
+    for (const auto& pair : pairs) {
+        if (pair.first + pair.second == 0) {
+            return true;
+        }
     }
     return false;
 }
 
 int main() {
-    int a = -3; 
-    int b = 9; 
-    std::cout << (pairs_sum_to_zero(a, b) ? "True" : "False");
+    std::vector<std::pair<int, int>> pairs = {{-3, 9}, {-1, 4}, {-2, 2}, {31, -31}};
+    assert(pairs_sum_to_zero(pairs));
     return 0;
 }
