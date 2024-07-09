@@ -1,7 +1,6 @@
 def add(numbers):
     return sum(numbers)
 
-
 numbers = []
 while not numbers:
     print("Enter numbers separated by spaces:")
