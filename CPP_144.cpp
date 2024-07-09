@@ -1,18 +1,32 @@
-```cpp
 #include <iostream>
 #include <sstream>
 #include <cctype>
-#include <string>
 
 bool simplify(string x, string n) {
-    char arr1[6], arr2[4];
-    stringstream s1(x), s2(n);
-    s1 >> arr1;
-    char slash;
-    s2 >> arr2[0] >> slash >> arr2[1];
+    int numerator = 0, denominator = 1;
+    int gcd = 1;
 
-    return (atoi(arr1) * atoi(std::string(1, arr2[1]).c_str()) == 
-           atoi(std::string(1, arr2[0]).c_str()) * (slash - '0'));
+    // Convert the input strings to integers
+    stringstream s(x);
+    s >> numerator;
+
+    s.str(n);
+    s >> denominator;
+
+    // Calculate the greatest common divisor (GCD)
+    for(int i = min(abs(numerator), abs(denominator)); i > 0; --i) {
+        if(numerator % i == 0 && denominator % i == 0) {
+            gcd = i;
+            break;
+        }
+    }
+
+    // Simplify the fraction
+    numerator /= gcd;
+    denominator /= gcd;
+
+    // Check if the simplified fraction is equal to the original one
+    return (numerator == numerator / denominator * denominator);
 }
 
 int main() {
