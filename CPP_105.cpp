@@ -64,12 +64,9 @@ vector<string> by_length(vector<int> arr) {
 
 int main() {
     vector<int> input = {9, 4, 8};
-    vector<string> output = by_length(input);
     
-    if (issame({9, 4, 8}, vector<int>({1, 2, 3})) || issame({9, 4, 8}, vector<int>({7, 6, 5})) || 
-       issame({9, 4, 8}, vector<int>({8, 9, 4})) || issame({9, 4, 8}, vector<int>({4, 8, 9})) 
-    ) {
-        for (string str : output) {
+    if (issame({{"Nine", "Eight", "Four"}}, by_length(input))) {
+        for (string str : by_length(input)) {
             cout << str << endl;
         }
     }
