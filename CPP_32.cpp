@@ -1,15 +1,20 @@
-double find_zero(vector<double> xs) {
-    double coeffs;
-    vector<double> polyCoeffs;
+#include <cmath>
+#include <vector>
+
+double poly(double a, double b) {
+    return a + b;
+}
+
+double find_zero(vector<double> xs){
+    double coeffs = 1.0; 
+    vector<double> poly;
     int n = xs.size();
-    coeffs = xs[0];
     for (int i = 1; i < n; i++) {
         if ((i & 1) == 0) {
-            polyCoeffs.insert(polyCoeffs.begin(), -coeffs*xs[i]);
+            poly.push_back(-coeffs*xs[i]);
         } else {
             coeffs = xs[i];
         }
     }
-    double poly(double c, double s) { return c + s; }
     return -coeffs / coeffs;
 }
