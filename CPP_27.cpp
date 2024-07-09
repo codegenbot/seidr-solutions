@@ -1,4 +1,5 @@
 #include <string>
+#include <cctype>
 
 string filp_case(string str){
     string result = "";
@@ -12,4 +13,3 @@ string filp_case(string str){
             result += c;
     }
     return result;
-}
