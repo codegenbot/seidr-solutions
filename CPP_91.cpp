@@ -1,12 +1,21 @@
+```cpp
 #include <iostream>
 #include <string>
 
 bool is_bored(std::string S) {
     int count = 0;
     std::string boredom = "I";
-    for (int i = 0; i < S.size(); i++) {
-        if (S.substr(i, boredom.size()) == boredom && i + boredom.size() < S.size()) {
+    size_t pos = 0;
+
+    while (pos != std::string::npos) {
+        pos = S.find(" ", pos);
+        if (pos == std::string::npos)
+            break;
+        if (std::string(S.substr(0, pos)).compare(boredom) == 0 && S.size() > pos + boredom.length()) {
             count++;
+            pos += boredom.length();
+        } else {
+            pos++;
         }
     }
 
