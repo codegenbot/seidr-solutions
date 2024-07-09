@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     if expression == "T":
         return True
@@ -10,6 +11,6 @@ def solve_boolean(expression):
         left, right = expression.split("|")
         return solve_boolean(left) or solve_boolean(right)
     else:
-        if not expression.strip(): 
+        if not expression.strip():  
             return False  
         raise ValueError("Invalid input")
