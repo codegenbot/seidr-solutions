@@ -19,9 +19,9 @@ std::vector<int> pluck(std::vector<int>& arr) {
     result.push_back(index);
 
     return result;
+
 }
 
 int main() {
-    assert(pluck({7, 9, 7, 1}) == std::vector<int>({},{1}));
-    return 0;
+    assert(pluck({7, 9, 7, 1}) == std::vector<int>({}));
 }
