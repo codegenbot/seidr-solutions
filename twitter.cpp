@@ -1,15 +1,16 @@
 #include <iostream>
+using namespace std;
 
 int main() {
-    std::string tweet;
-    std::getline(std::cin, tweet);
+    string tweet;
+    getline(cin, tweet);
 
     if (tweet.empty()) {
-        std::cout << "You didn't type anything" << std::endl;
+        cout << "You didn't type anything" << endl;
     } else if (tweet.size() > 140) {
-        std::cout << "Too many characters" << std::endl;
+        cout << "Too many characters" << endl;
     } else {
-        std::cout << "Your tweet has " << tweet.size() << " characters" << std::endl;
+        cout << "Your tweet has " << tweet.size() << " characters" << endl;
     }
 
     return 0;
