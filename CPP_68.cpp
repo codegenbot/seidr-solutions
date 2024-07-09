@@ -1,11 +1,12 @@
+```
 #include <iostream>
 #include <vector>
 
-bool issame(int i1, int i2) {
-    if (i1 == i2)
-        return true;
-    else
-        return false;
+bool issame(const std::vector<int>& v) {
+    if(v.empty()) return true;
+    for(int i = 1; i < v.size(); ++i)
+        if(v[i] != v[0]) return false;
+    return true;
 }
 
 std::vector<int> pluck(std::vector<int> arr) {
@@ -31,14 +32,12 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    int i1, i2;
-    std::cout << "Enter two integers: ";
-    std::cin >> i1 >> i2;
-    
-    if (issame(i1, i2)) 
-        std::cout << "The numbers are same." << std::endl;  
-    else
-        std::cout << "The numbers are not the same." << std::endl;  
-
+    std::vector<int> numbers = {1, 2, 3};
+    bool same = issame(numbers);
+    std::cout << "Are all elements the same? " << (same ? "Yes" : "No") << "\n";
+    std::vector<int> result = pluck(numbers);
+    for(int i: result) {
+        std::cout << i << " ";
+    }
     return 0;
 }
