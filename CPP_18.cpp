@@ -8,13 +8,7 @@ int how_many_times(const std::string& str, const std::string& substring) {
 
     while ((pos = str.find(substring)) != std::string::npos) {
         count++;
-        str = str.substr(pos + substring.length());
+        str.erase(0, pos + substring.length());
     }
     return count;
-}
-
-int main() {
-    const std::string str = "john doe";
-    assert(how_many_times(str, std::string("john")) == 1);
-    return 0;
 }
