@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -21,6 +20,7 @@ vector<float> rescale_to_unit(vector<float> numbers) {
         result.push_back((num - min_val) / (max_val - min_val));
     }
     return result;
+
 }
 
 int main() {
