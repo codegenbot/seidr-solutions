@@ -8,11 +8,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x);
 
-int main() {
-    // Test cases can be added here
-    return 0;
-}
-
 std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) {
     std::vector<std::vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
