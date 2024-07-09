@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <memory>
 
 using namespace std;
 
@@ -23,4 +24,3 @@ int main() {
         cout << "The vector does not contain close elements." << endl;
     }
     return 0;
-}
