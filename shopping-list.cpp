@@ -6,7 +6,7 @@ float shoppingList(const std::vector<float>& prices, const std::vector<float>& d
     float total = 0;
     for (int i = 0; i < prices.size(); ++i) {
         float price = prices[i];
-        float discount = 1 - (discounts[i] / 100.0f); 
+        float discount = 1 - (discounts[i] / 100.0f); // calculate the discounted price and add to total
         total += price * discount; 
     }
     return total;
