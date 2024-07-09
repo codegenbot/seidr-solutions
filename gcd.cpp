@@ -17,12 +17,12 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
 }
 
 int gcd(int a, int b) {
-    a = (a < 0) ? -a : a;
-    b = (b < 0) ? -b : b;
-    if (b == 0) {
-        return a;
+    while (b != 0) {
+        int t = b;
+        b = a % b;
+        a = t;
     }
-    return gcd(b, a % b);
+    return abs(a);
 }
 
 int main() {
