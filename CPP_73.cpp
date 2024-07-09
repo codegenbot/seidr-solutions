@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 int smallest_change(std::vector<int> arr) {
@@ -19,7 +18,7 @@ int smallest_change(std::vector<int> arr) {
             if (arr[i] == arr[j])
                 dp[i][j] = dp[i + 1][j - 1];
             else
-                dp[i][j] = 1 + min({dp[i + 1][j], dp[i][j - 1], dp[i + 1][j - 1]});
+                dp[i][j] = 1 + std::min({dp[i + 1][j], dp[i][j - 1], dp[i + 1][j - 1]});
         }
     }
     
@@ -27,6 +26,7 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::cout << smallest_change({0, 1}) << std::endl;
-    return 0;
+    std::vector<int> input = {0, 1};
+    int output = smallest_change(input);
+    return output;
 }
