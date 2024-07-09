@@ -1,12 +1,12 @@
+```
 string flip_case(string s) {
     string result = "";
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] >= 'a' && s[i] <= 'z') {
-            result += char(toupper(s[i]));
-        } else if(s[i] >= 'A' && s[i] <= 'Z') {
-            result += char(int('a') + (s[i] - 'A'));
+    for (char c : s) {
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'a' : 'A';
+            result += tolower(c) == base ? toupper(c) : tolower(c);
         } else {
-            result += s[i];
+            result += c;
         }
     }
     return result;
