@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int specialFilter(vector<int> nums){
     int count = 0;
     
@@ -11,4 +15,11 @@ int specialFilter(vector<int> nums){
     }
     
     return count;
+}
+
+int main(){
+    // Add test cases here
+    assert (specialFilter({}) == 0);
+    
+    return 0;
 }
