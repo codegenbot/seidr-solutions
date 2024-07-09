@@ -1,6 +1,4 @@
 #include <cassert>
-#include <string>
-
 int how_many_times(const std::string& str, const std::string& substring) {
     int count = 0;
     size_t pos = 0;
