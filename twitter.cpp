@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```cpp
 string validateTweet(string tweet) {
     if (tweet.empty()) {
