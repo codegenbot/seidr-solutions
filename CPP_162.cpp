@@ -7,7 +7,6 @@ string string_to_md5(string text) {
 
     unsigned char md5[16];
     MD5_CTX ctx;
-    #include <openssl/md5.h>
     MD5_Init(&ctx);
     const unsigned char* ptr = reinterpret_cast<const unsigned char*>(text.c_str());
     size_t len = text.size();
