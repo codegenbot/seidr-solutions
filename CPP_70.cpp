@@ -12,14 +12,14 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
         result.push_back(min_val);
-        auto it = std::remove(lst.begin(), lst.end(), min_val);
-        lst.erase(it, lst.end());
+        auto newEnd = std::remove_if(lst.begin(), lst.end(), [min_val](int x){ return x == min_val; });
+        lst.erase(newEnd, lst.end());
 
         if (!lst.empty()) {
             int max_val = *std::max_element(lst.begin(), lst.end());
             result.push_back(max_val);
-            it = std::remove(lst.begin(), lst.end(), max_val);
-            lst.erase(it, lst.end());
+            auto newEnd2 = std::remove_if(lst.begin(), lst.end(), [max_val](int x){ return x == max_val; });
+            lst.erase(newEnd2, lst.end());
         }
     }
     return result;
