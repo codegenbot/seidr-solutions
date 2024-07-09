@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,9 +21,8 @@ std::vector<std::string> words_string(std::string s){
                 word = "";
             }
         }else{
-            if((s[i] != ' ') && (s[i] != ',')){
+            if(s[i] != ' ' && s[i] != ',')  
                 word += s[i];
-            }
         }
     }
     if(word.size() <= 30)  
