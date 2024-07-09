@@ -1,1 +1,2 @@
-std::string result = "Your tweet has " + std::to_string(tweet.size()) + " characters"; return result;
+``` 
+return std::string("Your tweet has ") + std::to_string(tweet.size()) + " characters";
