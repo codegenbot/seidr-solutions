@@ -1,3 +1,18 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+bool isSame(vector<int> &a, vector<int> &b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i])
+            return false;
+    return true;
+}
+
 vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
@@ -35,4 +50,11 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
     }
 
     return res;
+}
+
+int main() {
+    vector<vector<int>> grid = {{0, 0}, {0, 0}, {1, 1}};
+    int k = 2;
+    vector<int> minPathRes = minPath(grid, k);
+    for (auto &x: minPathRes) cout << x;
 }
