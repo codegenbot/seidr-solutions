@@ -1,4 +1,3 @@
-```
 def encode(message):
     result = ""
     for char in message:
@@ -8,9 +7,9 @@ def encode(message):
         elif char.isdigit():  
             result += char
         elif not char.isalnum() and char != ' ':  
-            result += '*'
-        else:
             result += char
+        else:
+            result += '*'
     return result
 
 print(encode("I DoNt KnOw WhAt tO WrItE"))
