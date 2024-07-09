@@ -1,0 +1,1 @@
+return txt.strip()[-1].isalpha() and txt.strip()[-2] == " "
