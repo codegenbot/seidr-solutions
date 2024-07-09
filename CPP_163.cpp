@@ -1,9 +1,9 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> generate_integers(int a, int b) {
+std::vector<int> generate_integers(int start, int end) {
     std::vector<int> result;
-    for(int i = a; i <= b; ++i){
+    for(int i = start; i <= end; ++i){
         if(i % 2 == 0){
             result.push_back(i);
         }
@@ -11,10 +11,11 @@ std::vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool is_same(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-assert(issame(generate_integers(17, 89), std::vector<int>{}));
-
-return 0;
+int main() {
+    assert(is_same(generate_integers(17, 89), std::vector<int>{}));
+    return 0;
+}
