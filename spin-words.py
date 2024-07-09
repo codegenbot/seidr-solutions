@@ -8,4 +8,4 @@ def spin_words(sentence):
         else:
             result.append(word + " ")
 
-    return " ".join(result).strip()
+    return "".join(result).strip()
