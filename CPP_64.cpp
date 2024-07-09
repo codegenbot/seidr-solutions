@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+#include <string>
+
 int vowels_count(std::string s) {
     int count = 0;
     for (char c : s) {
@@ -7,4 +11,13 @@ int vowels_count(std::string s) {
         }
     }
     return count;
+
+int main{
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    
+    int vowelCount = vowels_count(input);
+    std::cout << "Number of vowels in the string is: " << vowelCount << std::endl;
+    
 }
