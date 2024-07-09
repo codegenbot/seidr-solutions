@@ -3,7 +3,7 @@
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return b;
+        return boost::any(b);
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
             return a;
@@ -15,9 +15,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         else
             return boost::any("None");
     } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
+        return boost::any(b);
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return a;
+        return boost::any(a);
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         try {
             float af = boost::lexical_cast<float>(boost::any_cast<std::string>(a));
@@ -27,7 +27,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             else
                 return boost::any("None");
         } catch (...) {
-            return b;
+            return boost::any(b);
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         try {
@@ -38,7 +38,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             else
                 return boost::any("None");
         } catch (...) {
-            return b;
+            return boost::any(b);
         }
     }
     return boost::any();
