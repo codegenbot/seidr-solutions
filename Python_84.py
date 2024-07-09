@@ -1,3 +1,8 @@
 def solve(N):
-    n = int(str(bin(sum(int(i) for i in str(bin(N)[2:]))) [2:]), 2)
-    return bin(n)[2:]
+    if N == 0:
+        return "0"
+    elif N < 0:
+        return "-" + bin(-N)[2:]
+    else:
+        total = sum(int(digit) ** len(str(bin(N)[2:])) for digit in str(N))
+        return bin(total)[2:]
