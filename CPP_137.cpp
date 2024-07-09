@@ -1,14 +1,21 @@
-#include <any>
-#include <iostream>
+#include <boost/any.hpp>
 #include <string>
 
 using namespace std;
 
-std::any compare_one(std::any a, std::any b) {
-    if (any_cast<float>(a) > any_cast<float>(b)) {
-        return a;
-    } else if (any_cast<float>(a) == any_cast<float>(b)) {
-        return "None";
+boost::any compare_one(boost::any a, boost::any b) {
+    if (is_float(a) || is_float(b)) {
+        float fa = get<float>(a);
+        float fb = get<float>(b);
+        return fa > fb ? a : b;
+    } else if (is_string(a) && is_string(b)) {
+        string sa = get<string>(a);
+        string sb = get<string>(b);
+        float f1 = stof(sa), f2 = stof(sb);
+        if(f1 > f2) return a;
+        else if(f1 < f2) return b;
+        else return boost::any("Both values are equal");
+    } else {
+        return boost::any("Types do not match for comparison");
     }
-    return b;
 }
