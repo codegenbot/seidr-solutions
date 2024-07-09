@@ -1,21 +1,32 @@
-bool issame(string a, string b) {
-    int sum1 = 0, sum2 = 0;
-    for (int i = 0; i < a.length(); i++) {
-        sum1 += (a[i] - '0');
-    }
-    for (int i = 0; i < b.length(); i++) {
-        sum2 += (b[i] - '0');
-    }
-    return sum1 == sum2;
+```cpp
+#include <vector>
+#include <string>
+#include <algorithm>
+
+bool assertEqual(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
     for (const auto& str : lst) {
-        if (str.length() % 2 == 0 || issame(str, "1")) {
+        if (str.length() % 2 == 0) {
             result.push_back(str);
         }
     }
-    sort(result.begin(), result.end());
+    sort(result.begin(), result.end(), 
+         [](const string& a, const string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
+         });
     return result;
+}
+
+int main() {
+    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    assertEqual(sorted_list_sum(lst), {"cc","dd","aaaa","bbbb"});
+    return 0;
 }
