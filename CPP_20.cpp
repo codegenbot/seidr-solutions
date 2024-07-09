@@ -1,6 +1,4 @@
 ```cpp
-#pragma GCC diagnostic ignored "-Werror"
-#include <initializer_list>
 #include <algorithm>
 #include <vector>
 #include <limits>
