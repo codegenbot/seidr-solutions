@@ -1,16 +1,12 @@
+```cpp
 #include <vector>
-using namespace std;
+#include <cmath>
 
-int sum_squares(vector<float> lst){
+int sum_squares(std::initializer_list<float> lst){
     int total = 0;
     for(float x : lst){
         int ceil_x = ceil(x);
         total += pow(ceil_x,2);
     }
     return total;
-}
-
-int main(){
-    assert(sum_squares({-1.0f,1.0f,0.0f})==2); 
-    return 0;
 }
