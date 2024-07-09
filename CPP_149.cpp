@@ -39,8 +39,6 @@ int main_entry() {
     for(int i = 1; i <= n; i++) {
         std::string str;
         std::cout << "Enter string " << i << ": ";
-        for(int j = 0; j < i; j++)
-            for (int k = 0; std::cin.get(k) && k < '\n'; ) {} 
         std::getline(std::cin, str);
         inputStrings.push_back(str);
     }
