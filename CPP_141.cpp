@@ -1,28 +1,25 @@
-// Check the conditions for a valid file name
-  int digitCount = 0;
-  int dotIndex = -1;
-  for (int i = 0; i < file_name.length(); i++) {
-    if (file_name[i] >= '0' && file_name[i] <= '9') {
-      digitCount++;
-    } else if (file_name[i] == '.') {
-      if (dotIndex != -1) // Check if there are more than one dot
-        return "No";
-      dotIndex = i;
-    } else if (i == 0 && ((file_name[i] >= 'a' && file_name[i] <= 'z') || 
-                         (file_name[i] >= 'A' && file_name[i] <= 'Z'))) {
-      continue;
-    } else if (file_name[i] == 't' && file_name.length() > i + 2 &&
-               file_name.substr(i, 3) == "txt") {
-      if (digitCount <= 3 && dotIndex != -1 && dotIndex != file_name.length() - 4)
-        return "Yes";
-    } else if ((file_name[i] == 'e' || file_name[i] == 'd') && file_name.length() > i + 2 &&
-               (file_name.substr(i, 3) == "exe" || file_name.substr(i, 3) == "dll")) {
-      if (digitCount <= 3 && dotIndex != -1 && dotIndex != file_name.length() - 4)
-        return "Yes";
+int digit_counter = 0;
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digit_counter++;
+        }
     }
-
-    if (digitCount > 3 || dotIndex == -1)
-      return "No";
-  }
-  return "No";
+    
+    size_t dot_pos = file_name.find('.');
+    if (digit_counter > 3 || dot_pos == string::npos) {
+        return "No";
+    }
+    
+    string name_before_dot = file_name.substr(0, dot_pos);
+    string extension = file_name.substr(dot_pos + 1);
+    
+    if (name_before_dot.empty() || !isalpha(name_before_dot[0])) {
+        return "No";
+    }
+    
+    if (extension != "txt" && extension != "exe" && extension != "dll") {
+        return "No";
+    }
+    
+    return "Yes";
 }
