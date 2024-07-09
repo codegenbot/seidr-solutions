@@ -2,42 +2,44 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
-    std::vector<std::string> result;
+bool issame(const std::vector<std::string>& strings) {
+    if (strings.size() > 1) {
+        for (size_t i = 1; i < strings.size(); ++i) {
+            if (strings[i] != strings[0]) return false;
+        }
+        return true;
+    } else {
+        return true;
+    }
+}
+
+int main() {
+    std::vector<std::string> strings;
+    std::cout << "Enter some strings. Enter 'stop' when you're done.\n";
+    for (std::string s; std::cin >> s && s != "stop";) {
+        strings.push_back(s);
+    }
+    
+    if (!issame(strings)) {
+        std::cout << "Strings are not the same.\n";
+    } else {
+        std::cout << "Strings are the same.\n";
+    }
+
+    vector<string> filtered = filter_by_substring(strings, "");
+    for (const auto& str : filtered) {
+        cout << str << endl;
+    }
+    
+    return 0;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
     for (const auto& str : strings) {
-        if(str.find(substring) != std::string::npos) {
+        if(str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
     return result;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
-
-    std::vector<std::string> strings;
-    for(int i = 0; i < n; i++) {
-        std::string s;
-        std::cout << "Enter string " << i+1 << ": ";
-        std::getline(std::cin, s);
-        strings.push_back(s);
-    }
-
-    std::string substring;
-    std::cout << "Enter the substring: ";
-    std::cin >> substring;
-
-    std::vector<std::string> filtered_strings = filter_by_substring(strings, substring);
-
-    if(filtered_strings.size() == 0) {
-        std::cout << "No strings contain the given substring." << std::endl;
-    } else {
-        for(const auto& str : filtered_strings) {
-            std::cout << str << std::endl;
-        }
-    }
-
-    return 0;
 }
