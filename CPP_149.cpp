@@ -36,15 +36,6 @@ int main_entry() {
     std::cin >> n;
     
     std::vector<std::string> inputStrings; 
-    int totalSize = 0;
-    for(int i = 0; i < n; i++) {
-        std::string str;
-        std::cout << "Enter string " << (i+1) << ": ";
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-        totalSize += str.size() + 1; // Fix: Add the newline character to totalSize
-        std::getline(std::cin, str);
-    }
-    
     for(int i = 0; i < n; i++) {
         std::string str;
         std::cout << "Enter string " << (i+1) << ": ";
