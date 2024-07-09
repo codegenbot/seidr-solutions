@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <limits>
 
@@ -20,4 +21,9 @@ std::vector<std::pair<int, int>> pluck_function(std::vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(pluck_function({7, 9, 7, 1}) , std::vector<std::pair<int, int>>{}));
+    // Your code here
 }
