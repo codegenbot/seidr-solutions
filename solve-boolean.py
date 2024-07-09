@@ -1,17 +1,28 @@
 def solve_boolean(expression):
-    if expression == "T":
-        return True
-    elif expression == "F":
-        return False
-    else:
-        stack = []
-        for char in reversed(expression):
-            if char in ["&", "|"]:
-                stack.append({"T": lambda: left and right, "F": lambda: left or right}[char])
-                if char == "&":
-                    stack.append({"T": False, "F": True})
-                elif char == "|":
-                    stack.append({"T": True, "F": False})
+    def eval_expr(expression):
+        if expression == "T":
+            return True
+        elif expression == "F":
+            return False
+        elif expression[0] in ["&", "|"]:
+            i = expression.find("(")
+            if i != -1:  
+                j = expression.find(")")
+                left = eval_expr(expression[i+1:j])
+                expression = expression[:i] + expression[j+1:]
+                return eval_expr(left) and right or left  
+
             else:
-                stack.append(char == "T")
-        return stack[0]
+                left = eval_expr(expression[1])
+                right = eval_expr(expression[2:])
+                if expression[0] == "&":
+                    return left and right
+                else:
+                    return left or right
+
+        else:  
+            i = expression.find("(")
+            j = expression.find(")")
+            return eval_expr(expression[i+1:j])
+
+    return eval_expr(expression)
