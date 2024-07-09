@@ -1,3 +1,8 @@
+```cpp
+#include <iostream>
+#include <string>
+#include <stdexcept>
+
 std::string string_xor(const std::string& a, const std::string& b) {
     if (a.length() != b.length())
         throw std::invalid_argument("Input strings must have the same length.");
@@ -15,13 +20,21 @@ int main() {
     
     std::string str1, str2;
     try {
-        std::cout << "Enter the first string: ";
-        std::getline(std::cin, str1);
+        for (char c; std::cin >> c && !std::cin.fail();) {
+            if (c != '0' && c != '1') {
+                throw std::invalid_argument("Input strings must contain only 0's and 1's.");
+            }
+            str1 += (char)c;
+        }
         
-        std::cout << "Enter the second string: ";
-        std::getline(std::cin, str2);
+        for (char c; std::cin >> c && !std::cin.fail();) {
+            if (c != '0' && c != '1') {
+                throw std::invalid_argument("Input strings must contain only 0's and 1's.");
+            }
+            str2 += (char)c;
+        }
 
-        if (str1.length() > 0 && str2.length() > 0) {  
+        if (!str1.empty() && !str2.empty()) {  
             try {
                 const std::string result = string_xor(str1, str2);
                 std::cout << "XOR of the two strings is: " << result << std::endl;
