@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -35,7 +36,7 @@ double find_zero(vector<double> xs){
     return -sum / coeff;
 }
 
-int originalMain() {
+int main() {
     vector<double> xs; 
     cout << "Enter coefficients (space separated): ";
     for(double x; cin >> x; ) {
@@ -49,10 +50,5 @@ int originalMain() {
         }
     }
     assert(abs(poly(coeffs, solution))< 1e-3);
-    return 0;
-}
-
-int main() {
-    originalMain();
     return 0;
 }
