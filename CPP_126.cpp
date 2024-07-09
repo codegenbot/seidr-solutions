@@ -1,16 +1,16 @@
-Here's the solution:
+#include <vector>
+#include <cassert>
 
-```cpp
-bool is_sorted(vector<int> lst) {
-    for(int i = 0; i < (lst.size() - 1); i++) {
-        if(lst[i] >= lst[i + 1]) return false;
-    }
-    bool has_duplicates = false;
-    for(int i = 0; i < (lst.size() - 1); i++) {
-        if(lst[i] == lst[i + 1]) {
-            has_duplicates = true;
-            break;
+int main() {
+    bool is_sorted(vector<int> lst) {
+        for (int i = 0; i < lst.size() - 1; ++i) {
+            if (lst[i] >= lst[i + 1]) {
+                return false;
+            }
         }
+        return true;
     }
-    return !has_duplicates;
+
+    assert(is_sorted({1, 2, 3, 4}) == true);
+    return 0;
 }
