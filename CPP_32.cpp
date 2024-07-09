@@ -14,12 +14,15 @@ double abs(double num){
 }
 
 double find_zero(std::vector<double> coeffs){
+    if(coeffs.size() < 2) return 0.0;
     double a = coeffs[0];
     double b = coeffs[1];
     return -b/a;
 }
 
-// In the main function or where you are calling the functions
-std::vector<double> coeffs = {1, -3, 2}; // Example set of coefficients
-double solution = find_zero(coeffs); // Call find_zero with corrected parameter
-assert(abs(poly(coeffs, solution)) < 1e-3); // Call poly with corrected function name
+int main() {
+    std::vector<double> coeffs = {1, -3, 2};
+    double solution = find_zero(coeffs);
+    assert(abs(poly(coeffs, solution)) < 1e-3);
+    return 0;
+}
