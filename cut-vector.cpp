@@ -31,7 +31,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& vec) {
     return {left_vec, right_vec};
 }
 
-pair<vector<int>, vector<int>> main() {
+int main() {
     int n; cin >> n;
     vector<int> vec(n);
     for(int i = 0; i < n; i++) {
@@ -48,5 +48,5 @@ pair<vector<int>, vector<int>> main() {
         cout << x << " ";
     }
     cout << endl;
-    return make_pair(result);
+    return 0;
 }
