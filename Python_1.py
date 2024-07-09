@@ -1,4 +1,3 @@
-```
 def solve_task():
     while True:
         try:
@@ -14,7 +13,7 @@ def solve_task():
         if response in ["y", "n"]:
             if response == "y":
                 return f"Result: {result}"
-            elif response == "n":
+            else:
                 print("Operation cancelled!")
                 return None
         else:
