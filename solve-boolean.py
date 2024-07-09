@@ -1,26 +1,18 @@
 def solve_boolean(expression):
-    while '&' in expression and '|' in expression:
-        start = 0
-        end = 0
-        for i, char in enumerate(expression):
-            if char == '&':
-                start = i
-            elif char == '|':
-                end = i
-                break
-        left = ''.join(filter(lambda x: x not in '&|', expression[:start]))
-        right = ''.join(filter(lambda x: x not in '&|', expression[start+1:end]))
-        expression = f"({str(bool(left) and bool(right))}){expression[end:]}"
-    if '&' in expression:
-        left, right = expression.split('&')
-        return eval(f"{left} & {right}")
-    elif '|' in expression:
-        result = False
-        for arg in expression.split('|'):
-            result = solve_boolean(arg)
-            if not result:
-                continue
-            break
-        return result
-    else:
-        return eval(expression.replace("True", "1").replace("False", "0"))
+    while "&" in expression or "|" in expression:
+        if "&" not in expression:
+            expression = expression.replace("|", " |(")
+        elif "|" not in expression:
+            expression = expression.replace("&", " &(")
+        else:
+            start = 0
+            for i, char in enumerate(expression):
+                if char == "&":
+                    start = i
+                    break
+            end = len(expression) - 1
+            while end > start and expression[end] != "&":
+                end -= 1
+            expression = expression[:start+1] + " & (" + expression[start+2:end] + ") )"
+            expression = expression.replace("|", " |(", 1)
+    return eval(expression)
