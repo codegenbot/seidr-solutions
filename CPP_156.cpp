@@ -17,6 +17,7 @@ std::string int_to_mini_roman(int number) {
     return roman;
 }
 
-int main() {
+int testMain() {
     assert(int_to_mini_roman(1000) == "M");
     return 0;
+}
