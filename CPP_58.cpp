@@ -3,6 +3,10 @@
 #include <vector>
 #include <algorithm>
 
+bool isSame(const std::set<std::string>& s1, const std::set<std::string>& s2) {
+    return s1 == s2;
+}
+
 void solveProblem() {
     std::set<std::string> s1;
     std::set<std::string> s2;
@@ -33,7 +37,7 @@ void solveProblem() {
             continue; 
     }
 
-    std::vector<std::string> diff(s1.begin(), s1.end());
+    std::vector<std::string> diff;
     std::set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(),
                         std::back_inserter(diff));
 
@@ -54,7 +58,7 @@ void solveProblem() {
     }
     std::cout << "\n";
 
-    if(s1 == s2) {
+    if(isSame(s1, s2)) {
         std::cout << "Sets are same.\n";
     } else {
         std::cout << "Sets are not same.\n";
