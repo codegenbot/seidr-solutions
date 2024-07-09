@@ -50,7 +50,7 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<string> test = by_length({9, 4, 8});
-    assert(test == vector<string>({"Nine", "Eight", "Four"}));
+    vector<string> result = by_length({9, 4, 8});
+    assert(result == vector<string>({"Nine", "Eight", "Four"}));
     return 0;
 }
