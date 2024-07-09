@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 int fuelCost(int n) {
     int cost = (n / 3) - (n % 3 == 0 ? 2 : 1);
@@ -8,9 +8,8 @@ int fuelCost(int n) {
 }
 
 int main() {
-    std::vector<int> v = {2909, 7270, 6972};  
     int sum = 0;
-    for(int n : v) {
+    for(int n : std::vector<int> {{2909, 7270, 6972}}) { 
         sum += fuelCost(n);
     }
     std::cout << "Result: " << sum << std::endl;
