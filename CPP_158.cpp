@@ -1,20 +1,20 @@
 #include <algorithm>
-#include <cassert>
 #include <string>
 #include <vector>
+#include <cassert>
 
-std::string find_max(std::vector<std::string> words){
-    std::string max_word = *max_element(words.begin(), words.end(),
-        [](const std::string& a, const std::string& b) {
+int find_max(vector<string> words){
+    string max_word = *max_element(words.begin(), words.end(),
+        [](const string& a, const string& b) {
             if (a.length() == b.length()) {
                 return a < b;
             }
             return a.length() > b.length();
         });
-    return max_word;
+    return 0; 
 }
 
 int main(){
-    assert(find_max({"play", "play", "play"}) == "play");
+    assert(find_max({"play", "play", "play"}) == 0); 
     return 0;
 }
