@@ -1,6 +1,7 @@
-std::string file_name_check(std::string& file_name){ 
-    int digitCount = 0; 
-    bool foundDot = false; 
+```cpp
+std::string file_name_check(std::string& file_name){
+    int digitCount = 0;
+    bool foundDot = false;
     for(int i=0; i<file_name.length(); i++){
         char c = file_name[i];
         if(c >= '0' && c <= '9'){
