@@ -1,5 +1,5 @@
 bool solveBoolean(std::string s) {
-    std::stack<char> s;
+    stack<char> s;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
             while (!s.empty() && s.top() == '&') {
