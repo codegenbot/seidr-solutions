@@ -1,4 +1,4 @@
-bool solveBoolean(const std::string& s) {
+bool solveBoolean(std::string s) {
     bool result = true;
     int i = 0;
 
@@ -31,3 +31,4 @@ bool solveBoolean(const std::string& s) {
     }
 
     return result;
+}
