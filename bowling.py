@@ -1,21 +1,26 @@
+```
 def bowling_score(frames):
-    frames = [int(x) for x in frames.replace('/', '+')]
     score = 0
-    for i in range(0, len(frames), 2):
-        if i + 1 < len(frames):
-            roll1, roll2 = frames[i], frames[i+1]
+    frames = [list(map(int, frame.split())) for frame in frames.replace('/', ' ').split()]
+    for i, frame in enumerate(frames):
+        if len(frame) == 1:
+            score += 10
+        elif len(frame) == 2:
+            score += sum(frame)
         else:
-            roll1, = frames[i],
-        
-        if roll1 + roll2 == 10:  # spare
-            score += 10
-            if i < 8:
-                score += frames[i+2]
-        elif roll1 == 10:  # strike
-            score += 10
-            if i < 8:
-                score += frames[i+1] + frames[i+2]
-        else:  # regular frame
-            score += roll1 + roll2
-    
+            first_two = sum(frame[:2])
+            last_roll = frame[2]
+            inner_score = 0
+            j = i
+            while len(frames[j]) > 0:
+                if frames[j][0] == 10:
+                    inner_score += 10 + sum(frames[j][1:3])
+                    break
+                elif frames[j][0] + first_two <= 10:
+                    inner_score += frames[j][0] + first_two
+                    break
+                else:
+                    inner_score += frames[j][0]
+                    j += 1
+            score += inner_score
     return score
