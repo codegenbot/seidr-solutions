@@ -1,26 +1,23 @@
-#include <string>
+Here is the completed code:
 
-using namespace std;
-
-string file_name_check(string file_name) {
-    int digit_count = 0;
-    bool found_dot = false;
-    string before_dot = "";
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            digit_count++;
-        } else if (c == '.') {
-            found_dot = true;
-        } else {
-            if (!found_dot) {
-                before_dot += c;
-            }
+string file_name_check(string file_name){
+    int count = 0;
+    bool has_dot = false;
+    for(int i=0; i<file_name.length();i++){
+        if(isdigit(file_name[i])){
+            count++;
+            if(count>3) return "No";
         }
+        else if(file_name[i] == '.'){
+            has_dot = true;
+        }
+        else if(!has_dot && !isalpha(file_name[i])) return "No";
     }
-    if (digit_count > 3 || !found_dot || before_dot.empty() || 
-        (before_dot[0] < 'a' && before_dot[0] < 'A') || 
-        (find({"txt", "exe", "dll"}, file_name.substr(file_name.find('.') + 1)) == {"txt", "exe", "dll").end())) {
+    if(!has_dot || file_name.find('.') == string::npos) return "No";
+    size_t pos = file_name.find('.');
+    string ext = file_name.substr(pos+1);
+    vector<string> valid_extensions = {"txt", "exe", "dll"};
+    if(find(valid_extensions.begin(), valid_extensions.end(), ext) == valid_extensions.end()) 
         return "No";
-    }
     return "Yes";
 }
