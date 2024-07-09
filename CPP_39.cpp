@@ -1,32 +1,36 @@
-int prime_fib(int n) {
-    if(n <= 1)
-        return 1;
-    int a = 1, b = 1, fib = 2;
-    while(fib < n){
-        int temp = a + b;
-        a = b;
-        b = temp;
-        if(isPrime(b))
-            return b;
-        fib++;
-    }
-    return -1; // not found
-}
+#include <iostream>
+#include <string>
 
-bool isPrime(int num) {
-    if(num <= 1)
-        return false;
-    for(int i = 2; i*i <= num; i++)
-        if(num % i == 0)
-            return false;
-    return true;
-}
+using namespace std;
+
+int prime_fib(int n);  
 
 int main() {
     int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    std::cout << "The " << std::to_string(n) << "th prime Fibonacci number is: " << std::to_string(prime_fib(n)) << std::endl;
-    assert (prime_fib(10) == 433494437);
-    return 0;
+    cout << "Enter a number: ";
+    cin >> n;
+    cout << "The " << to_string(n) << "th prime Fibonacci number is: " << to_string(prime_fib(n)) << endl;
+}
+
+int prime_fib(int n) {
+    if (n <= 0)
+        return -1; // Return -1 for invalid input
+    int a = 1, b = 1, count = 2;
+    while (true) {
+        if (isPrime(b))
+            if (++count == n)
+                return b;
+        int temp = a + b;
+        a = b;
+        b = temp;
+    }
+}
+
+bool isPrime(int num) {
+    if (num <= 1)
+        return false; // Prime numbers are greater than 1
+    for (int i = 2; i * i <= num; i++)
+        if (num % i == 0)
+            return false;
+    return true;
 }
