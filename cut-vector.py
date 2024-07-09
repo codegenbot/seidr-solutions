@@ -13,7 +13,7 @@ for i in range(n):
         min_diff = diff
         cut_index = i + 1
 
-if min_diff == 0 or (min_diff == 1 and len(arr) == 2):
+if min_diff <= 1:
     subvector1 = arr[:cut_index+1]
     subvector2 = arr[cut_index+1:]
 else:

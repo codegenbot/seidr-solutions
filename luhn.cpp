@@ -20,7 +20,7 @@ int main() {
         }
     }
     
-    cout << sum << endl;
+    std::cout << sum << '\n';
     
     return 0;
 }
