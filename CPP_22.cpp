@@ -26,6 +26,7 @@ std::vector<int> filter_integers(const std::list<std::any> &values) {
     }
     return result;
 }
+
 int main() {
     assert(issame(filter_integers({true, std::any(3), true, 3, true, 3, false, 'a', false, 'b'}), {3, 3, 3}));
     return 0;
