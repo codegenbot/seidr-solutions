@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -31,8 +32,8 @@ int skjkasdkd(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {127, 97, 8192};
-    int result = skjkasdkd(lst);
-    std::cout << "The sum of the digits of the maximum prime number is: " << result << std::endl;
+    std::vector<int> input = {127, 97, 8192};
+    int output = skjkasdkd(input);
+    std::cout << "The result is: " << output << std::endl;
     return 0;
 }
