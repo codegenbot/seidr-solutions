@@ -3,7 +3,8 @@ from typing import List
 
 
 def rescale_to_unit():
-    numbers = input("Enter the list of floating point numbers separated by space: ")
+    numbers = """Enter the list of floating point numbers separated by space: """
+    numbers = input(numbers)
     numbers = list(map(float, numbers.split()))
 
     if len(numbers) == 0:
