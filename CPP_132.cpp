@@ -3,16 +3,16 @@
 using namespace std;
 
 bool is_nested(string str){
-    stack<char> brackets;
+    stack<char> st;
     for(char c : str){
         if(c == '['){
-            brackets.push(c);
-        } else if(c == ']' && !brackets.empty()){
-            brackets.pop();
+            st.push(c);
+        } else if(c == ']' && !st.empty()){
+            st.pop();
         } else {
             return false;
         }
     }
     
-    return brackets.empty();
+    return st.empty();
 }
