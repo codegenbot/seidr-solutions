@@ -6,12 +6,12 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result;
+    vector<int> result(l.size()); // Initialize with some value
     int groupCount = 0;
 
     for (int i : l) {
         if(groupCount % 3 == 0) { 
-            result.push_back(i);
+            result[groupCount] = i;
             groupCount++;
             if(groupCount % 3 != 0) { 
                 // Sort and reverse the current group
@@ -24,7 +24,7 @@ vector<int> sort_third(vector<int> l) {
                 }
             }
         } else {
-            result.push_back(i);
+            result[groupCount] = i;
             groupCount++;
         }
     }
