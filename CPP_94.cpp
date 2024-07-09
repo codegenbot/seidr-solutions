@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 
@@ -29,6 +30,15 @@ int maxPrime(vector<int> lst){
 }
 
 int main() {
-    assert(maxPrime({127, 97, 8192}) == 10);
+    vector<int> lst;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i=0; i<n; i++){
+        cout << "Enter element " << (i+1) << ": ";
+        cin >> lst.push_back();
+    }
+    cout << "The maximum prime is " << maxPrime(lst) << endl;
+    
     return 0;
 }
