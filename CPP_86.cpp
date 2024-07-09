@@ -1,5 +1,5 @@
 #include <string>
-
+using namespace std;
 string anti_shuffle(string s){
     string result = "";
     for(size_t i=0; i<s.size(); i++){
@@ -13,7 +13,7 @@ string anti_shuffle(string s){
         }
         i = j - 1;
         sort(word.begin(), word.end());
-        result += word + " ";
+        result += word;
     }
     return result;
 }
