@@ -1,27 +1,43 @@
-int main() {
-    std::vector<std::pair<char, int>> operators_and_operands;
-    char op;
-    int operand;
+#include <vector>
+#include <utility>
+#include <cmath>
+#include <iostream>
+#include <sstream>
+#include <algorithm>
 
-    while (std::cin >> op >> operand) {
-        operators_and_operands.push_back({op, operand});
+struct pair {
+    char first;
+    int second;
+};
+
+int do_algebra(std::vector<std::string> operators_and_operands) {
+    if (operators_and_operands.size() == 0) {
+        return 0;
     }
-
-    int result = operators_and_operands[0].second;
-    for (const auto& pair : operators_and_operands) {
-        if (pair.first == '+') {
-            result += pair.second;
-        } else if (pair.first == '-') {
-            result -= pair.second;
-        } else if (pair.first == '*') {
-            result *= pair.second;
-        } else if (pair.first == '/') {
-            if (pair.second != 0) {
-                result /= pair.second;
+    
+    int result = std::stoi(operators_and_operands[0].substr(0, operators_and_operands[0].find_first_of("+-*/^")));
+    for (const auto& string : operators_and_operands) {
+        char op = string.substr(0, string.find_first_of("+-*/^")).at(0);
+        int num = std::stoi(string.substr(string.find_first_of("+-*/^") + 1));
+        if (op == '+') {
+            result += num;
+        } else if (op == '-') {
+            result -= num;
+        } else if (op == '*') {
+            result *= num;
+        } else if (op == '/') {
+            if (num != 0) {
+                result /= num;
             }
-        } else if (pair.first == '^') { 
-            result = std::pow(result, pair.second);
+        } else if (op == '^') { 
+            result = std::pow(result, num);
         }
     }
     return result;
+}
+
+int main() {
+    assert(do_algebra({"7+3+4"}) == 14);
+    // You can add more test cases here.
+    return 0;
 }
