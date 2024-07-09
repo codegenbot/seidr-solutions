@@ -1,45 +1,19 @@
-#include <map>
 #include <string>
-
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            nums.push_back(num);
-        }
-    }
-    
-    sort(nums.begin(), nums.end());
-    
-    reverse(nums.begin(), nums.end());
-    
     vector<string> result;
     map<int, string> digitName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
     
-    for (int num : nums) {
-        if (!result.empty() && digitName.find(num) != digitName.end()) {
-            if (!issame(result.back(), digitName[num])) {
-                result.push_back("Error: Same Numbers");
-                break;
-            } else {
-                result.push_back(digitName[num]);
-            }
-        } else {
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
             result.push_back(digitName[num]);
+        }
+        else {
+            throw runtime_error("Error: Input must be a number between 1 and 9.");
         }
     }
     
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
