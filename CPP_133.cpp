@@ -15,5 +15,5 @@ int sum_squares(vector<float> lst){
 
 int main() {
     assert(sum_squares({-1,1,0})==2);
-    return sum_squares({-1,1,0});
+    return 0;
 }
