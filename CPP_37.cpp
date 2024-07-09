@@ -17,7 +17,7 @@ std::vector<float> sortEven(const std::vector<float>& l) {
     return evenVals;
 }
 
-int main_input() {
+int main() {
     std::vector<float> vec;
     int n;
     std::cout << "Enter the number of elements: ";
