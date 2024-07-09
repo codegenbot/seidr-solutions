@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-bool same(std::vector<std::string> a, std::vector<std::string> b) {
+bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -32,9 +32,5 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    if (same(by_length({9, 4, 8}), {"Nine", "Eight", "Four"})) {
-        return 0;
-    } else {
-        return 1;
-    }
+    assert(isSame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
 }
