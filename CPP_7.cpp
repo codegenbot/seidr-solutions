@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <string>
 
@@ -25,4 +24,3 @@ int main() {
     vector<string> actual = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
     assert(issame(actual, expected));
     return 0;
-}
