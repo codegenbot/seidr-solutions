@@ -1,37 +1,37 @@
+```
 from collections import deque
 
 
 def minPath(grid):
     n = len(grid)
-    start = None
-    for i in range(n):
-        if "1" in str(grid[i]):
-            start = (i, 0)
-            break
-    if start is None:
-        return []
 
     def bfs(i, j, path):
-        nonlocal start
-        if grid[i][j] == 0:
+        if grid[i][j] == "1":
             return False
-        grid[i][j] = 1
+        grid[i][j] = str(1)
 
         for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = i + di, j + dj
-            if 0 <= ni < n and 0 <= nj < len(grid[0]):
+            if 0 <= ni < n and 0 <= nj < n:
                 new_path = path + [(i, j), (ni, nj)]
-                if (ni, nj) == start:
+                if bfs(ni, nj, new_path):
                     return True
 
         return False
+
+    grid = []
+    for _ in range(int(input("Enter number of rows: "))):
+        row = list(input("Enter row {}: ".format(_+1)))
+        grid.append(row)
+
+    start = [i for i, row in enumerate(grid) if "1" in "".join(row)][0]
 
     min_length = float("inf")
     min_path = []
 
     for j in range(len(grid[0])):
-        path = [(start[0], 0), start]
-        if bfs(start[0], j, path):
+        path = [(start, 0), (start, j)]
+        if bfs(start, j, path):
             if len(path) < min_length:
                 min_length = len(path)
                 min_path = path
