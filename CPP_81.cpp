@@ -1,7 +1,15 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
+}
 
 std::vector<std::string> numerical_letter_grade(const std::vector<double>& grades) {
     std::vector<std::string> result;
@@ -18,16 +26,6 @@ std::vector<std::string> numerical_letter_grade(const std::vector<double>& grade
             result.push_back("F");
     }
     return result;
-}
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
 }
 
 int main2() {
