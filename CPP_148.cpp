@@ -1,15 +1,15 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<std::string> bf() {
+std::vector<std::string> bf(std::string, std::string) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); ++i) {
-        if ("Jupiter" == planets[i]) {
+        if (planet1 == planets[i]) {
             index1 = i;
         }
-        else if ("Makemake" == planets[i]) {
+        else if (planet2 == planets[i]) {
             index2 = i;
         }
         
@@ -35,7 +35,6 @@ std::vector<std::string> bf() {
 bool std::assertEqual(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
-
 int main() {
     assertEqual(bf("Jupiter", "Makemake"), {});
     return 0;
