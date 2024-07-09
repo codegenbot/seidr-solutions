@@ -1,7 +1,4 @@
 ```
-code = input("Enter Mastermind code: ")
-guess = input("Enter guess: ")
-
 code_chars = [0] * 6
 guess_chars = [0] * 6
 
