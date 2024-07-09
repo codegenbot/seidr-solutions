@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const int& a, const int& b) {
     return a == b;
 }
 
@@ -27,7 +26,7 @@ std::vector<int> unique_digits(std::vector<int> x) {
     return result;
 }
 
-int main() {
-    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+int main(int argc, char** argv) {
+    assert(issame(std::vector<int>({135, 103, 31}), std::vector<int>({31, 135})));
     return 0;
 }
