@@ -1,14 +1,9 @@
-#include <string>
-#include <iostream>
 #include <cctype>
+#include <string>
 
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-
+bool flip_case(const std::string& input) {
     std::string output = "";
-
+    
     for (char c : input) {
         if (isupper(c)) {
             output += tolower(c);
@@ -18,8 +13,10 @@ int main() {
             output += c;
         }
     }
+    return output == "these violent delights have violent ends";
+}
 
-    std::cout << "Output: " << output << std::endl;
-
+int main() {
+    assert(flip_case("These violent delights have violent ends") == "theSE Violent Delights Have Violent Ends");
     return 0;
 }
