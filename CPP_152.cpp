@@ -29,12 +29,17 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     std::vector<int> game(n);
-    std::vector<int> guess(n);
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
         game[i] = temp;
+    }
+    std::vector<int> guess(n);
+    for(int i = 0; i < n; i++){
+        std::cout << "Enter element " << i+1 << ": ";
+        int temp;
+        std::cin >> temp;
         guess[i] = temp;
     }
     if(issame(game, guess)){
