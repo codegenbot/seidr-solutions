@@ -1,7 +1,4 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-int Strongest_Extension(string class_name,vector<string> extensions){
+int Strongest_Extension(string class_name, vector<string> extensions) {
     int max_strength = 0;
     string strongest_extension = "";
     for(auto extension:extensions){
@@ -18,9 +15,4 @@ int Strongest_Extension(string class_name,vector<string> extensions){
         }
     }
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-    return 0;
 }
