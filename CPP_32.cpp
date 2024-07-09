@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <initializer_list>
 using namespace std;
 
 double poly(vector<double> coeffs, double solution) {
