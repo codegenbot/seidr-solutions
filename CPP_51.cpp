@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-void mainFunc() {
+void main_func() {
     string text;
     cout << "Enter a string: ";
     getline(cin, text);
