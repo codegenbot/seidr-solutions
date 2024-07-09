@@ -1,4 +1,4 @@
-#include <openssl/evp.h>
+#include <openssl/md5.h>
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -7,15 +7,13 @@ std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
     
     unsigned char md5[16];
-    EVP_MD_CTX ctx;
-    EVP_MD_CONTEXT_init(&ctx);
-    const std::string& str = text;
-    const unsigned char* p = str.c_str();
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char* p = text.c_str();
     while (*p) {
-        EVP_DigestUpdate(&ctx, p, 1);
-        p++;
+        MD5_Update(&ctx, p++, 1);
     }
-    EVP_DigestFinal_ctx(&ctx, md5, nullptr);
+    MD5_Final(md5, &ctx);
 
     std::string result(32, '0');
     for (int i = 0; i < 16; ++i) {
