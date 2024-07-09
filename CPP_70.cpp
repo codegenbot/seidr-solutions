@@ -4,19 +4,12 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
-
-vector<int> strange_sort_list(vector<int> lst);
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b); 
 
 vector<int> strange_sort_list(vector<int> lst) {
     sort(lst.begin(), lst.end());
     vector<int> result;
     int left = 0, right = lst.size() - 1;
-    
     while (left <= right) {
         result.push_back(lst[left]);
         if (left != right) {
@@ -25,8 +18,11 @@ vector<int> strange_sort_list(vector<int> lst) {
         left++;
         right--;
     }
-    
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 int main() {
