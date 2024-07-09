@@ -14,4 +14,3 @@ int main() {
     string result = squareDigits("17");
     cout << result << endl;
     return 0;
-}
