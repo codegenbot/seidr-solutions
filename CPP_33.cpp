@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -26,26 +27,8 @@ vector<int> sort_third(vector<int> l) {
 }
 
 int main() {
-    vector<int> l1;
-    int n;
-    cout << "Enter the number of elements in l1: ";
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> x;
-        l1.push_back(x);
-    }
-
-    vector<int> l2;
-    cout << "Enter the number of elements in l2: ";
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> x;
-        l2.push_back(x);
-    }
+    vector<int> l1 = {1, 2, 3};
+    vector<int> l2 = {5, 6, 3, 4, 8, 9, 2};
 
     cout << "l1: ";
     for (int i : l1) {
@@ -73,6 +56,6 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-
+    
     return 0;
 }
