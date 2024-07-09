@@ -1,7 +1,3 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     return std::is_permutation(a.begin(), a.end(), b.begin());
 }
