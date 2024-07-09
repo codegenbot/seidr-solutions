@@ -7,11 +7,11 @@ string& squareDigits(string& input) {
         int digit = c - '0'; // Convert character to integer
         output += to_string(digit * digit); // Square and concatenate
     }
-    return output;
+    return input = output;
 }
 
 int main() {
-    string input; 
+    string input;
     cin >> input;
     cout << squareDigits(input) << endl;
     return 0;
