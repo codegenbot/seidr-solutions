@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -17,6 +18,7 @@ std::vector<float> get_positive(const std::vector<float>& l){
         }
     }
     return result;
+
 }
 
 int main() {
