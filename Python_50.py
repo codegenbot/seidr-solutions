@@ -3,12 +3,10 @@ def decode_shift(s: str):
 
 while True:
     try:
-        input_str = input().strip()
+        input_str = input()
         if input_str == '':
             break
         result = decode_shift(input_str)
         print(result)
-    except EOFError:
-        break
     except Exception as e:
         print("Invalid input. Please enter a valid string.")
