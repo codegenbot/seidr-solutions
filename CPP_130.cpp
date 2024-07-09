@@ -1,14 +1,13 @@
-vector<int> tri(int n){
-    vector<int> sequence(n+1);
-    sequence[1] = 3;
-
-    for (int i = 2; i <= n; ++i){
-        if (i % 2 == 0){
-            sequence[i] = 1 + i / 2;
+vector<int> res(n + 1);
+    res[0] = 3;
+    if (n > 0) {
+        res[1] = 1;
+    }
+    for (int i = 2; i <= n; ++i) {
+        if (i % 2 == 0) {
+            res[i] = 1 + i / 2;
         } else {
-            sequence[i] = sequence[i - 1] + sequence[i - 2] + sequence[i + 1];
+            res[i] = res[i - 1] + res[i - 2] + res[i + 1];
         }
     }
-
-    return sequence;
-}
+    return res;
