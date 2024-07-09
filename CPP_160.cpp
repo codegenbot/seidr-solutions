@@ -1,6 +1,5 @@
 #include <utility>
 #include <vector>
-#include <cmath>
 
 int do_algebra(vector<pair<char, int>> operators_and_operands) {
     if (operators_and_opernds.size() == 0) {
