@@ -17,6 +17,8 @@ vector<string> by_length(vector<int> arr) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return (a == b);
+bool issame(vector<string> a) {
+    vector<int> arr = {1, 2, 3};
+    vector<string> b = by_length(arr);
+    return (a == b); // Compare the vectors.
 }
