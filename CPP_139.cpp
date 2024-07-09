@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -16,7 +17,7 @@ const char* special_factorial(int n) {
         else
             result = std::to_string(mul_result);
     }
-    return "n! = " + result;
+    return ("n! = " + result).c_str();
 }
 
 int main() {
