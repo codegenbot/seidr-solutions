@@ -1,12 +1,12 @@
-```cpp
+#include <vector>
+#include <string>
+#include <initializer_list>
+using namespace std;
+
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Werror"
 #include <initializer_list>
 #pragma GCC diagnostic pop
-
-#include <vector>
-#include <string>
-using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
