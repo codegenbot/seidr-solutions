@@ -4,3 +4,9 @@ def check_numbers(numbers, threshold):
         if abs(numbers[i] - numbers[i + 1]) < threshold:
             return True
     return False
+
+
+numbers = [4, 7, 2, 10, 5]
+threshold = 3
+result = check_numbers(numbers, threshold)
+print(result)
