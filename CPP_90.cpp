@@ -1,11 +1,14 @@
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Return None is equivalent to -1 here
+Here is the solution:
+
+int next_smallest(vector<int> lst){
+    if(lst.empty()) return -1; // Return None
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    for (auto it = sorted.begin(); it != prev(sorted.end()); ++it) {
-        if (*it != *(prev(it))) {
-            return *it;
+    for(int i=0; i<sorted.size(); i++){
+        if(i==0) continue;
+        if(binary_search(sorted.begin(), sorted.end(), sorted[i-1]) == sorted.end()){
+            return sorted[i];
         }
     }
-    return -1; // Return None is equivalent to -1 here
+    return -1; // Return None
 }
