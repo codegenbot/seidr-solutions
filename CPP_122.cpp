@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
@@ -28,3 +27,4 @@ int main() {
     int result = add_elements(arr, k);
     std::cout << "Sum of elements: " << result << std::endl;
     return 0;
+}
