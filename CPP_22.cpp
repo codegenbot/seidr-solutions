@@ -1,21 +1,13 @@
-#include <iostream>
-#include <list>
 #include <vector>
-#include <typeindex>
+#include <list>
 #include <any>
 #include <algorithm>
 
-using namespace std;
-
-bool issame(list_any a, list_any b) {
-    return false; // replace with your own logic
-}
-
-vector<int> filter_integers(list_any values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<std::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).type() == typeid(int)) {
-            result.push_back(any_cast<int>(value));
+        if (value.type() == typeid(int)) {
+            result.push_back(std::any_cast<int>(value));
         }
     }
     return result;
