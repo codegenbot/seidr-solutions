@@ -1,30 +1,29 @@
 #include <algorithm>
 #include <vector>
-#include <numeric>
 #include <cmath>
+#include <numeric>
 
-bool issame(const std::vector<float>& vec) {
-    if (vec.size() <= 1)
-        return true;
-    for (int i = 0; i < vec.size(); ++i) {
-        for (int j = i + 1; j < vec.size(); ++j) {
-            if (std::abs(vec[i] - vec[j]) < 1e-9)
-                return false;
-        }
+bool isSame(const std::vector<float>& v1, const std::vector<float>& v2) {
+    if (v1.size() != v2.size()) return false;
+    for (int i = 0; i < v1.size(); ++i) {
+        if (std::abs(v1[i] - v2[i]) > 1e-6) return false;
     }
     return true;
 }
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
-    
-    float min_diff = numeric_limits<float>::max();
+    if (numbers.size() <= 1) {
+        return {};
+    }
+
+    float min_diff = std::numeric_limits<float>::max();
     float closest_pair[2] = {0, 0};
 
     for (int i = 0; i < numbers.size(); ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            if (std::abs(numbers[i] - numbers[j]) < min_diff) {
-                min_diff = std::abs(numbers[i] - numbers[j]);
+            float diff = std::abs(numbers[i] - numbers[j]);
+            if (diff < min_diff) {
+                min_diff = diff;
                 closest_pair[0] = numbers[i];
                 closest_pair[1] = numbers[j];
             }
@@ -32,21 +31,4 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
     }
 
     return {closest_pair[0], closest_pair[1]};
-}
-
-int main() {
-    // Example usage:
-    std::vector<float> numbers = {1.2, 3.4, 5.6, 7.8};
-    if (!issame(numbers)) {
-        std::cout << "The input array contains duplicate elements.\n";
-    } else {
-        std::vector<float> closest_pair = find_closest_elements(numbers);
-        std::cout << "The closest pair of numbers is: ";
-        for (float num : closest_pair) {
-            std::cout << num << " ";
-        }
-        std::cout << "\n";
-    }
-
-    return 0;
 }
