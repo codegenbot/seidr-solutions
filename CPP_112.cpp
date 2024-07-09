@@ -1,3 +1,4 @@
+```cpp
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
