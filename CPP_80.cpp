@@ -30,3 +30,4 @@ bool is_happy(int n) {
         sum = 0;
     }while(n > 9);
     return n == 1;
+}
