@@ -1,22 +1,32 @@
-```Python
+```
 def solve_boolean(expression):
     def eval_expr(expression):
         if expression == "T":
             return True
         elif expression == "F":
             return False
-        elif len(expression) > 1 and expression[0] in ["&", "|"]:
-            i = 1
-            j = len(expression) - 1
-            while i <= j and (expression[i] in ["&", "|"]):
-                i += 1
-            left = eval_expr(expression[:i-1])
-            right = eval_expr(expression[i:])
-            if expression[0] == "&":
-                return left and right
+        elif expression[0] in ["&", "|"]:
+            i = expression.find("(")
+            j = expression.find(")")
+            if i != -1:  
+                left = eval_expr(expression[i+1:j])
+                expression = expression[:i] + expression[j+1:]
+                right = eval_expr(expression)
+                return left and right or left
             else:
-                return left or right
+                left = eval_expr(expression[1])
+                right = eval_expr(expression[2:])
+                if expression[0] == "&":
+                    return left and right
+                else:
+                    return left or right
 
-        return {"T": True, "F": False}[expression]
+        else:  
+            i = expression.find("(")
+            j = expression.find(")")
+            if i != -1:  
+                return eval_expr(expression[i+1:j])
+            elif j != -1:
+                return eval_expr(expression[:j])
 
     return eval_expr(expression)
