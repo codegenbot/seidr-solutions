@@ -1,16 +1,19 @@
-```cpp
-#include <digest.h>
+#include <string>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
+    
+    unsigned char md[MD5_DIGEST_LENGTH];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char* ptr = text.c_str();
+    while (*ptr) MD5_Update(&ctx, ptr, 1);
+    MD5_Final(md, &ctx);
 
-    unsigned char hash[MD5_DIGEST_LENGTH];
-    MD5(text.c_str(), text.size(), hash);
-
-    stringstream ss;
+    string result;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << setfill('0') << setw(2) << hex << (int)hash[i];
+        sprintf(result + strlen(result), "%02x", md[i]);
     }
-
-    return ss.str();
+    
+    return result;
 }
