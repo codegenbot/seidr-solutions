@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) return false;
@@ -29,6 +27,7 @@ int main() {
     
     std::vector<std::string> lengthArr = by_length(intArray);
     std::vector<std::string> expected = {"9", "4", "8"};
+    std::vector<std::string> b;  // Declare and initialize b
     assert(issame(expected, lengthArr));
     return 0;
 }
