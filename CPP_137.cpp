@@ -1,5 +1,9 @@
 #include <iostream>
 #include <string>
+#include <boost/config.hpp>
+#ifdef _MSC_VER
+#pragma comment(lib, "boost_any")
+#endif
 #include <boost/any.hpp>
 
 using namespace std;
