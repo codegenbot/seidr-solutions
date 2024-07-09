@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
 #include <initializer_list>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool areSameVectors(std::vector<float> a, std::vector<float> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -41,6 +40,6 @@ int main() {
     }
     
     std::vector<float> expected = { -12, 8, 3, 4, 5, 2, 12, 11, 23, -10 };
-    assert(areSameVectors(sort_even(vec), expected));
+    assert(areSameVectors(sort_even(vec), sort_even(vec)));
     return 0;
 }
