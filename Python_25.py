@@ -11,6 +11,6 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-n = int(input("Enter the number to factorize: "))
-result = factorize(n)
+number = int(input())
+result = factorize(number)
 print(result)
