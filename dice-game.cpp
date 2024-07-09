@@ -1,6 +1,13 @@
-```cpp
-#include <iostream>
-#include <iomanip>
+```c
+#include <stdio.h>
+
+int main() {
+    int n = 6; 
+    int m = 4;
+    double result = probability(n, m);
+    printf("Probability: %f\n", result);
+    return 0;
+}
 
 double probability(int n, int m) {
     double total = (double)n * m;
@@ -13,11 +20,4 @@ double probability(int n, int m) {
     }
 
     return p;
-}
-
-int main() {
-    std::cout << std::fixed << std::setprecision(5);
-    std::cout << "The probability that Peter rolls strictly higher than Colin is: "
-              << probability(6, 6) << std::endl;
-    return 0;
 }
