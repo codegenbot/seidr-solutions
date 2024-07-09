@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int basement(std::vector<int>& v) {
@@ -13,7 +12,7 @@ int basement(std::vector<int>& v) {
 }
 
 int main() {
-    std::vector<int> input = {-14, -27, 3, 7, 12};
+    std::vector<int> input = {2, -3, 4, -1, -2, 1, 5, -3};
     int result = basement(input);
     // use the result
     return 0;
