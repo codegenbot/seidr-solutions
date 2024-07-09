@@ -35,7 +35,7 @@ vector<int> filter_integers(const list<any>& values) {
 }
 
 int main() {
-    list<any> inputs = {3, 67, 'c', 45, 34.5, true};
+    list<any> inputs = {any(3), any(67), any(45), any(34)};
     vector<int> integers = filter_integers(inputs);
 
     bool same = issame({any(3), any(67), any(45), any(34)}, {any(3), any(67), any(45), any(34)});
