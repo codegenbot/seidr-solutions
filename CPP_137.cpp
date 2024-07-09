@@ -48,22 +48,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         iss >> bf;
         return (bf > ai) ? b : a;
     } else if (boost::any_cast<float>(a) == boost::any_cast<float>(b)) {
-        return boost::any("None");
+        return b;
     }
     return a;
-}
-
-int main() {
-    boost::any a = 5; // int
-    boost::any b = "10.5"; // string
-
-    boost::any result = compare_one(a, b);
-
-    if (result.type() == typeid(string)) {
-        cout << "The result is: " << boost::any_cast<string>(result) << endl;
-    } else {
-        cout << "The result is: " << boost::any_cast<int>(result) << endl;
-    }
-
-    return 0;
 }
