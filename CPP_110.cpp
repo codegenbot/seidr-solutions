@@ -1,16 +1,15 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
+    int oddCount = 0;
+    
     for (int num : lst1) {
         if (num % 2 != 0) {
-            bool found = false;
-            for (int &num2 : lst2) {
-                if (num2 % 2 != 0) {
-                    swap(num, num2);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) return "NO";
+            oddCount++;
         }
     }
-    return "YES";
+    
+    if (oddCount > (lst2.size() - oddCount)) {
+        return "NO";
+    } else {
+        return "YES";
+    }
 }
