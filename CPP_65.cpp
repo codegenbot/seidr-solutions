@@ -1,11 +1,9 @@
-string circular_shift(int x, int shift){
-    string s = to_string(x);
-    shift %= s.size();
+string num_str = to_string(x);
+    int n = num_str.size();
+    shift %= n;
     if (shift == 0) {
-        return s;
+        return num_str;
     }
-    else {
-        shift = s.size() - shift;
-        return s.substr(shift) + s.substr(0, shift);
-    }
+    string result = num_str.substr(n - shift) + num_str.substr(0, n - shift);
+    return result;
 }
