@@ -1,4 +1,3 @@
-```cpp
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
         return false;
@@ -21,5 +20,6 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 int main() {
     vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAAC", "xxx"};
     string prefix = "xxx";
-    assert(issame(filter_by_prefix(strings,prefix) , {"xxx", "xxxAAA", "xxx"}));
+    vector<string> res = filter_by_prefix(strings, prefix) ;
+    assert(issame(res , {"xxx", "xxxAAA", "xxx"}));
 }
