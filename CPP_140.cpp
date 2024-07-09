@@ -1,12 +1,12 @@
-string fix_spaces(string text){
+string fix_spaces(string text) {
     string result = "";
     for(int i=0; i<text.length(); i++){
         if(text[i] == ' '){
-            if(i+1 < text.length() && text[i+1] == ' '){
-                if(result.length() > 0) result += '-';
-                else continue;
+            if(i < text.length() - 1 && text[i+1] == ' ' && text[i+2] == ' '){
+                result += "-";
+            }else{
+                result += "_";
             }
-            result += '_';
         }else{
             result += text[i];
         }
