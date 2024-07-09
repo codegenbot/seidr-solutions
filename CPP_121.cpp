@@ -13,14 +13,6 @@ int solution(std::vector<int> lst) {
 }
 
 int main() {
-    int num, size = 0;
-    std::cin >> num;
-    std::vector<int> lst;
-    while (num != -1) {
-        lst.push_back(num);
-        std::cin >> num;
-        size++;
-    }
-    assert(solution(lst) == 16);
+    assert(solution({3, 13, 2, 9}) == 16);
     return 0;
 }
