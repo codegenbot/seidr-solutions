@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <set>
 #include <vector>
@@ -15,17 +16,15 @@ int main() {
     cin >> n1 >> n2 >> n3 >> n4 >> n5 >> n6 >> n7;
 
     vector<int> v;
-    set<int> s1, s2;
+    set<int> common;
     for (int i : {n1, n2, n3, n4, n5, n6, n7}) {
         v.push_back(i);
-        s1.insert(i);  
+        if (common.count(i) == 0) {
+            common.insert(i);  
+        }
     }
 
-    for (int i : {n1, n2, n3, n4, n5, n6, n7}) {
-        s2.insert(i);  
-    }
-
-    bool result = isSame(s1, s2);
+    bool result = isSame(common, common);
     if(result) {
         cout << "The sets are same." << endl;
     } else {
