@@ -1,4 +1,6 @@
-Here is the completed code:
+#include <vector>
+
+using namespace std;
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
@@ -6,7 +8,7 @@ vector<int> compare(vector<int> game, vector<int> guess) {
         if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
-            result.push_back(abs(guess[i] - game[i]));
+            result.push_back(abs(game[i] - guess[i]));
         }
     }
     return result;
