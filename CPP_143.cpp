@@ -28,8 +28,8 @@ bool is_prime(int num) {
 }
 
 std::vector<std::string> split(const std::string& sentence, char delimiter) {
-    vector<string> words;
-    string word;
+    std::vector<std::string> words;
+    std::string word;
     
     for (char c : sentence) {
         if (c != delimiter) {
@@ -43,4 +43,3 @@ std::vector<std::string> split(const std::string& sentence, char delimiter) {
     words.push_back(word);
     
     return words;
-}
