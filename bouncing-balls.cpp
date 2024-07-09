@@ -1,7 +1,4 @@
-#include <iostream>
-#include <iomanip>
-#include <cmath>
-
+```cpp
 int main() {
     int startHeight, firstBounce, numBounces;
 
@@ -15,8 +12,13 @@ int main() {
 
     for (int i = 0; i <= numBounces; ++i) {
         int height = static_cast<int>(startHeight * pow(0.5, i));
-        std::cout << std::to_string(height) << " ";
+        std::cout << "Height at bounce " << i+1 << ": " << height << std::endl;
         startHeight = height;
     }
+
+    double totalDistance = bouncinessIndex * (1 - pow(0.5, numBounces + 1));
+
+    std::cout << "Total distance: " << totalDistance << std::endl;
+
     return 0;
 }
