@@ -1,7 +1,5 @@
-```
 #include <vector>
 #include <cmath>
-#include <initializer_list>
 #include <iostream>
 
 bool isPrime(int n) {
@@ -38,4 +36,3 @@ int main() {
         lst.push_back(num);
     }
     std::cout << "Maximum prime and sum of digits: " << find_max_prime_and_sum_digits(lst) << std::endl;
-}
