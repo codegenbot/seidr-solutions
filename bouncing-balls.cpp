@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 #include <cmath>
@@ -11,12 +12,13 @@ int main() {
         return 1;
     }
 
-    double bouncinessIndex = static_cast<double>(firstBounce) / static_cast<double>(startHeight);
+    double bouncinessIndex = static_cast<double>(firstBounce) / startHeight;
 
-    std::cout << std::fixed << std::setprecision(2);
+    std::cout << std::setiosflags(std::ios_base::fixed) << std::setprecision(6);
     for (int i = 0; i <= numBounces; ++i) {
-        int height = static_cast<int>(startHeight * bouncinessIndex * pow(0.5, i));
+        int height = static_cast<int>(startHeight * pow(0.5, i));
         std::cout << height << " ";
+        startHeight = height;
     }
     return 0;
 }
