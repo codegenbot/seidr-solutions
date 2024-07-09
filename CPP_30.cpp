@@ -25,8 +25,8 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main() {
-    std::vector<float> input = {1.5, -2.3, 4.7, -5.9};
+    std::vector<float> input = {1.0f, -2.0f, 3.0f, -4.0f};
     auto result = get_positive(input);
-    assert(isSame(result, {1.5, 4.7}));
+    assert(isSame(result, {1.0f, 3.0f}));
     return 0;
 }
