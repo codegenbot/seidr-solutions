@@ -1,4 +1,3 @@
-```cpp
 int main() {
     int startHeight, firstBounce, numBounces;
 
