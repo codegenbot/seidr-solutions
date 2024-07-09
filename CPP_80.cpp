@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <iostream>
 #include <fstream>
@@ -9,12 +10,19 @@ bool is_happy(const std::string& s) {
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
         bool unique = true;
-        std::string subStr = s.substr(i, 3); 
+        std::string subStr = s.substr(i, 3);
         size_t pos = s.find(subStr);
         while (pos != std::string::npos) {
-            if (s.length() < i + 3) return false;
-            pos = s.find(subStr, pos);
+            if (s.length() < i + 3)
+                return false;
+            for (int j = 0; j < 3 && unique; j++) {
+                if (s.find(std::string(1, subStr[j])) != pos) 
+                    unique = false;
+            }
+            pos = s.find(subStr, pos + 1);
         }
+        if (unique)
+            return true;
     }
     return true;
 }
@@ -28,3 +36,4 @@ int main() {
         std::cout << "The string is happy." << std::endl;
     else
         std::cout << "The string is not happy." << std::endl;
+}
