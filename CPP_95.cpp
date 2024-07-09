@@ -1,32 +1,35 @@
-map<string,string> dict;
-string first_key;
+#include <iostream>
+#include <map>
+#include <string>
 
-cout << "Enter a series of key-value pairs (e.g., 'name:John'): ";
-while (true) {
-    string line, key, value;
-    cin >> line;
-    if (line.empty()) break;  // End of input
+using namespace std;
 
-    size_t colon = line.find(':');
-    if (colon == string::npos || line.size() < 2) {
-        cout << "Invalid format. Please use 'key:value'." << endl;
-        continue;
+bool check_dict_case(map<string,string> dict){
+    if(dict.empty()) return false;
+    
+    string first_key = *(dict.begin()->first);
+    
+    for(auto it = dict.begin(); it != dict.end(); ++it){
+        if(std::toupper(first_key[0]) != std::toupper(it->first[0])) return false;
     }
-
-    key = line.substr(0, colon);
-    value = line.substr(colon + 1);
-    dict[key] = value;
-
-    if (dict.empty()) {
-        first_key = key;
-    } else if (std::toupper(first_key[0]) != std::toupper(key[0])) {
-        cout << "Error: Dictionary case mismatch." << endl;
-        return 1;  // Exit with error code
-    }
+    
+    return true;
 }
 
-if (!check_dict_case(dict)) {
-    cout << "Error: Dictionary is not in the same case." << endl;
-} else {
-    cout << "Dictionary is consistent in case." << endl;
+int main() {
+    map<string,string> dictionary;
+    string input;
+    while(true){
+        cout << "Enter a key-value pair (or 'q' to quit): ";
+        cin >> input;
+        if(input == "q") break;
+        string value;
+        cin >> value;
+        dictionary[input] = value;
+    }
+    if(check_dict_case(dictionary)) {
+        cout << "All keys in the same case.\n";
+    } else {
+        cout << "Keys have mixed case.\n";
+    }
 }
