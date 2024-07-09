@@ -24,8 +24,11 @@ int solutions(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> lst = {"3", "13", "2", "9"};
-    int result = solutions(lst);
-    assert(result == 25);
+    std::vector<std::string> lst;
+    lst.push_back("3");
+    lst.push_back("13");
+    lst.push_back("2");
+    lst.push_back("9");
+    assert(solutions(lst) == 25);
     std::cout << "Test passed.\n";
 }
