@@ -1,4 +1,4 @@
-```
+```cpp
 #include <algorithm>
 #include <vector>
 #include <limits>
@@ -23,10 +23,5 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
         }
     }
     
-    vector<pair<float, float>> result;
-    if (!numbers.empty()) {
-        result.push_back(closest);
-    }
-    
-    return result;
+    return vector<pair<float, float>>(1,{closest});
 }
