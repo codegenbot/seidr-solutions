@@ -1,9 +1,7 @@
-```
 #include <iostream>
-
 int prime_fib(int n);
 
-int main() { 
+int main() {
     int n;
     std::cout << "Enter the number: ";
     std::cin >> n;
