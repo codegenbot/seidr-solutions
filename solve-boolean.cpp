@@ -1,35 +1,48 @@
 bool solveBoolean(const std::string& s) {
     bool result = true;
-    int i = 0;
+    size_t i = 0;
 
-    while (i < s.length()) {
-        if (s[i] == '&') {
-            i++;
-            if (s.substr(i, 1) == "T") {
-                result &= (s.substr(i, 1) == "T");
-                i++;
-            } else if (s[i] == '|') {
-                result = false;
-                break;
-            } else {
-                result &= (s.substr(i, 1) == "T");
-                i++;
-            }
+    while (i < s.size()) {
+        if (s[i] == 'T') {
+            result = true;
+        } else if (s[i] == 'F') {
+            result = false;
         } else if (s[i] == '|') {
+            bool temp = result;
             i++;
-            if (s.substr(i, 1) == "|") {
-                result |= (s.substr(i + 1, 1) == "T");
-                i += 2;
-            } else if (s[i] == '&') {
-                break;
-            } else {
-                result |= (s.substr(i, 1) == "T");
+            while (i < s.size() && s[i] != '|') {
+                if (s[i] == '&') {
+                    i++;
+                    while (i < s.size() && s[i] != '|') {
+                        if (s[i] == 'T') {
+                            result = temp;
+                        } else {
+                            result = !temp;
+                        }
+                        i++;
+                    }
+                } else {
+                    if (s[i] == 'T') {
+                        result = temp;
+                    } else {
+                        result = !temp;
+                    }
+                    i++;
+                }
+            }
+        } else if (s[i] == '&') {
+            bool temp = result;
+            i++;
+            while (i < s.size() && s[i] != '&') {
+                if (s[i] == 'T') {
+                    result = temp;
+                } else {
+                    result = !temp;
+                }
                 i++;
             }
-        } else {
-            result = (s.substr(i, 1) == "T");
-            i++;
         }
+        i++;
     }
-
     return result;
+}
