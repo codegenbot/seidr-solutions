@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 bool is_happy(int n) {
     if (n < 1) return false;
@@ -14,14 +15,14 @@ bool is_happy(int n) {
     return n == 1;
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char const *argv[]) {
     int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
+    cout << "Enter a number: ";
+    cin >> num;
     if (is_happy(num)) {
-        std::cout << num << " is a happy number.\n";
+        cout << num << " is a happy number.\n";
     } else {
-        std::cout << num << " is not a happy number.\n";
+        cout << num << " is not a happy number.\n";
     }
     return 0;
 }
