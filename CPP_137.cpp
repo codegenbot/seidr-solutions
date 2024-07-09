@@ -1,9 +1,6 @@
-```cpp
-#include <iostream>
+```
+#include <boost/any.hpp>
 #include <string>
-#include <boost/variant.hpp>
-
-using boost::variant;
 
 int main() {
     std::string a;
@@ -14,13 +11,13 @@ int main() {
     std::cout << "Enter 1 for integer, 2 for float, 3 for string: ";
     std::cin >> choice;
 
-    variant x = choice;
+    boost::any x = boost::any(choice);
 
     if (choice == 1) {
         std::string b;
         std::cout << "Enter your second value: ";
         std::cin >> b;
-        variant y = b;
+        boost::any y = boost::any(b);
         x = compare_one(x, y);
     }
     else if (choice == 2 || choice == 3) {
@@ -31,56 +28,56 @@ int main() {
             std::cout << "Enter your string value: ";
         
         std::cin >> c;
-        variant z = c;
+        boost::any z = boost::any(c);
         x = compare_one(x, z);
     }
 
-    std::cout << boost::get<std::string>(x) << std::endl;
+    std::cout << boost::any_cast<std::string>(x) << std::endl;
 
     return 0;
 }
 
-variant compare_one(variant a, variant b) {
-    if (boost::holds_alternative<int>(a) && boost::holds_alternative<float>(b)) {
-        return "1";
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return boost::any((int)(1));
     }
-    else if (boost::holds_alternative<int>(a) && boost::holds_alternative<std::string>(b)) {
-        if (boost::get<int>(a) < 0)
-            return "Negative integer is less than string";
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        if (boost::any_cast<int>(a) < 0)
+            return boost::any("Negative integer is less than string");
         else
-            return "Positive integer is greater than or equal to string";
+            return boost::any("Positive integer is greater than or equal to string");
     }
-    else if (boost::holds_alternative<int>(a) && boost::holds_alternative<int>(b)) {
-        int x = boost::get<int>(a);
-        int y = boost::get<int>(b);
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int x = boost::any_cast<int>(a);
+        int y = boost::any_cast<int>(b);
         if(x < y)
-            return "Integer 1 is less than Integer 2";
+            return boost::any("Integer 1 is less than Integer 2");
         else if(x > y)
-            return "Integer 1 is greater than Integer 2";
+            return boost::any("Integer 1 is greater than Integer 2");
         else
-            return "Integers are equal";
+            return boost::any("Integers are equal");
     }
-    else if (boost::holds_alternative<float>(a) && boost::holds_alternative<float>(b)) {
-        float x = boost::get<float>(a);
-        float y = boost::get<float>(b);
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float x = boost::any_cast<float>(a);
+        float y = boost::any_cast<float>(b);
         if(x < y)
-            return "Float 1 is less than Float 2";
+            return boost::any("Float 1 is less than Float 2");
         else if(x > y)
-            return "Float 1 is greater than Float 2";
+            return boost::any("Float 1 is greater than Float 2");
         else
-            return "Floats are equal";
+            return boost::any("Floats are equal");
     }
-    else if (boost::holds_alternative<std::string>(a) && boost::holds_alternative<std::string>(b)) {
-        std::string strA = boost::get<std::string>(a);
-        std::string strB = boost::get<std::string>(b);
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string strA = boost::any_cast<std::string>(a);
+        std::string strB = boost::any_cast<std::string>(b);
         if (strA > strB)
-            return "String 1 is greater than String 2";
+            return boost::any("String 1 is greater than String 2");
         else if (strA < strB)
-            return "String 1 is less than String 2";
+            return boost::any("String 1 is less than String 2");
         else
-            return "Strings are equal";
+            return boost::any("Strings are equal");
     }
     else {
-        return "Invalid input";
+        return boost::any("Invalid input");
     }
 }
