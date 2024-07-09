@@ -1,6 +1,3 @@
-#include <string>
-#include <iostream>
-
 bool solveBoolean(std::string s) {
     bool result = true;
     int i = 0;
@@ -17,38 +14,29 @@ bool solveBoolean(std::string s) {
                 i++;
                 break;
             case '|': {
-                bool temp = true;
+                bool subResult = true;
                 while (i < s.size() && s[i] == '|') {
                     i++;
                 }
-                if (!temp) {
-                    result = false;
-                } else {
-                    while (i < s.size() && s[i] == '&') {
-                        i++;
-                    }
-                    if (!result) {
-                        return false;
-                    } else {
-                        result = true;
-                    }
+                for (; i < s.size() && s[i] != '&'; i++) {
+                    if (s[i] == 'F')
+                        subResult = false;
                 }
-            } break;
+                result = subResult;
+                break; }
             case '&': {
-                bool temp = false;
+                bool subResult = true;
                 while (i < s.size() && s[i] == '&') {
                     i++;
                 }
-                if (!temp) {
-                    if (result)
-                        return false;
-                    result = false;
-                } else {
-                    if (!result)
-                        return false;
-                    result = true;
+                for (; i < s.size(); i++) {
+                    if (s[i] != 'T' && s[i] != 'F')
+                        return false;  // Incorrect input
+                    if (s[i] == 'F')
+                        subResult = false;
                 }
-            } break;
+                result = subResult;
+                break; }
         }
     }
     return result;
@@ -56,5 +44,6 @@ bool solveBoolean(std::string s) {
 
 int main() {
     std::cout << solveBoolean("T|F&F") << std::endl;
+    std::cout << solveBoolean("f&f|f&f|f|f&f&f&f|t|f|t|f&f&f&f&f|f&t");
     return 0;
 }
