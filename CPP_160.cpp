@@ -3,16 +3,19 @@
 
 class _160 {
 public:
-    int do_algebra(int ops, const std::vector<int>& nums) { 
-        if (ops == "*")
+    int do_algorithm(int op, std::vector<int> nums) { 
+        if (op == "*")
             return nums[0] * nums[1];
-        else
+        else if (op == "/")
             return nums[0] / nums[1];
+        else
+            return 0;
     }
 };
 
-int cppMain() {
+int main() {
     _160 obj;
-    assert(obj.do_algebra(42, {7, 3}) == 21);
+    assert(obj.do_algorithm("*", {7, 3}) == 21);
+    int res = obj.do_algorithm("//", {7, 3, 4});
     return 0;
 }
