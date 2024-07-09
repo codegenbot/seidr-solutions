@@ -1,24 +1,16 @@
-#include <iostream>
-#include <vector>
-
-long long doubleTheDifference(std::vector<float> lst) {
-    long long oddSum = 0;
+long long double_the_difference(vector<float> lst) {
+    long long sum = 0;
     for (float num : lst) {
         if (num > 0 && modf(num, &num) == 0.0) {
-            oddSum += pow(num, 2);
+            sum += pow(num, 2);
         }
     }
-    return oddSum;
+    return sum;
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<float> lst(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> lst[i];
-    }
-    long long result = doubleTheDifference(lst);
-    std::cout << result << std::endl;
+    vector<float> lst = {1.0, 2.0, 3.0}; 
+    int odd_sum = double_the_difference(lst); 
+    assert(odd_sum == 14); 
     return 0;
 }
