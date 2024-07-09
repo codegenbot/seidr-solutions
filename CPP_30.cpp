@@ -17,7 +17,7 @@ std::vector<std::unique_ptr<float>> get_positive(const std::vector<std::unique_p
 }
 
 int main() {
-    float n;
+    int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
