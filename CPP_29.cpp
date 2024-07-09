@@ -3,13 +3,17 @@
 #include <vector>
 #include <string>
 
-bool areSameVectors(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool equal_vectors(const std::vector<std::string>& a, const std::vector<std::string>& b){
     if(a.size() != b.size())
         return false;
     for(size_t i = 0; i < a.size(); ++i)
         if(a[i] != b[i])
             return false;
     return true;
+}
+
+bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b){
+    return equal_vectors(a, b);
 }
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
@@ -22,7 +26,7 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 
 }
 
-int main() {
-    std::vector<std::string> b = {"asd", "xxy", "john doe", "xAAs"};
-    assert(areSameVectors(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+int main_test() {
+    assert (is_same(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    std::vector<std::string> strings = {"asd", "xxy", "john doe", "xAAs"};
 }
