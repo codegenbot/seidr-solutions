@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 using namespace std;
 
 int do_algebra(vector<string>, vector<int>);
@@ -24,4 +25,3 @@ int do_algebra(vector<string> ops, vector<int> nums) {
 
     return result;
 }
-#include <math.h>
