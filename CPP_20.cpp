@@ -1,13 +1,13 @@
+```
 #include <vector>
 #include <algorithm>
-#include <limits>
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
     if (numbers.size() < 2) {
         throw std::runtime_error("Vector must contain at least two elements");
     }
 
-    float min_diff = std::numeric_limits<float>::max();
+    float min_diff = numeric_limits<float>::max();
     std::pair<float, float> closest_pair;
 
     for (int i = 0; i < numbers.size(); ++i) {
