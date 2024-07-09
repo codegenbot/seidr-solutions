@@ -9,7 +9,6 @@ def indices_of_substring(text, target):
             result.append(i)
     return result
 
-
 print(gcd(1, 1))
 print(gcd(4, 400000))
 print(gcd(54, 24))
