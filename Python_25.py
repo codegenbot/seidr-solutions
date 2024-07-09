@@ -1,14 +1,20 @@
-def factorize(n): 
-    factors = [] 
-    for i in range(1, n + 1): 
-        if n % i == 0: 
-            factors.append(i) 
-    return factors
-  
-def main(): 
-    n = int(input()) 
-    factors = factorize(n) 
-    print(factors) 
+from typing import List
 
-if __name__ == "__main()": 
+def factorize(n: int) -> List[int]:
+    factors = []
+    divisor = 2
+    while n > 1:
+        if n % divisor == 0:
+            factors.append(divisor)
+            n //= divisor
+        else:
+            divisor += 1
+    return factors
+
+def main():
+    n = int(input())
+    factors = factorize(n)
+    print(factors)
+
+if __name__ == "__main__":
     main()
