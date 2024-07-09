@@ -9,9 +9,9 @@ variant<string, int, double, float> compare_one(variant<string, int, double, flo
         return strA > strB ? a : b;
     }
     else if ((holds_alternation<string>(a) && holds_alternation<int>(b)) || (holds_alternation<string>(b) && holds_alternation<int>(a))) {
-        int val1 = get_or_else(get_to<variant<string, int, double, float>>(a), "None", [](auto& v) { return boost::none; });
+        int val1 = get_or_else(get<string>(a), 0, [](auto& v) { return boost::none; });
         string str2 = get_or_else(b, "None", [](auto& v) { return boost::none; });
-        return get(val1) > 0 ? a : b;
+        return val1 > 0 ? a : b;
     }
     else if ((holds_alternation<int>(a) && holds_alternation<string>(b)) || (holds_alternation<int>(b) && holds_alternation<string>(a))) {
         int val1 = get<int>(a), val2 = get_or_else(b, "None", [](auto& v) { return boost::none; });
