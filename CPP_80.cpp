@@ -1,1 +1,1 @@
-bool is_happy(std::string s){
+`bool is_happy(std::string s){`
