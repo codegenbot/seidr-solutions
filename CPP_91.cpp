@@ -1,16 +1,17 @@
-```cpp
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 int main() {
     int count = 0;
-    std::string boredom = "I";
-    std::string S;
-    std::cout << "Enter a sentence: ";
-    std::cin >> S;
+    string boredom = "I";
+    string S;
+    cout << "Enter a sentence: ";
+    cin >> S;
 
     size_t pos = 0;
-    while ((pos = S.find(" ", pos)) != std::string::npos) {
+    while ((pos = S.find(" ", pos)) != string::npos) {
         if (S.substr(0, pos).compare(boredom) == 0) {
             count++;
             break;
@@ -18,21 +19,21 @@ int main() {
         pos++;
     }
 
-    std::cout << "Count: " << count << std::endl;
+    cout << "Count: " << count << endl;
 
-    return is_bored(S);
+    return 0;
 }
 
-int is_bored(std::string S){
+int is_bored(string S){
     int count = 0;
-    std::string boredom = "I";
+    string boredom = "I";
     size_t pos = 0;
-    while ((pos = S.find(" ", pos)) != std::string::npos) {
+    while ((pos = S.find(" ", pos)) != string::npos) {
         if (S.substr(0, pos).compare(boredom) == 0) {
             count++;
             break;
         }
         pos++;
     }
-    return count;
+    return 0; // this function doesn't need to return the result
 }
