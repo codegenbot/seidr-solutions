@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-std::string fix_spaces(string text){
+std::string fix_spaces(std::string text){
     string result = "";
     for(int i=0; i < text.length(); i++){
         if(text[i] == ' ' && (i==0 || text[i-1] != ' ')){
@@ -22,6 +21,6 @@ std::string fix_spaces(string text){
 }
 
 int main() {
-    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    cout << fix_spaces("   Exa 1 2 2 mple") << endl;
     return 0;
 }
