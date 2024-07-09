@@ -27,7 +27,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (strA < strB)
             return b;
         else
-            return "Equal";
+            return typeid(std::string);
     }
     else {
         return typeid(int);
