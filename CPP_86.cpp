@@ -1,4 +1,3 @@
-```cpp
 #include <cstddef>
 #include <string>
 #include <vector>
@@ -13,11 +12,17 @@ int anti_shuffle(std::string str, char sep) {
     }
     tokens.push_back(str);
 
-    // Anti-shuffle logic here
-    std::random_device rd;
-    std::mt19937 g(rd());
-    std::shuffle(tokens.begin(), tokens.end(), g);
+    for (size_t i = 0; i < tokens.size(); ++i) {
+        size_t j = (i + 1) % tokens.size();
+        std::swap(tokens[i], tokens[j]);
+    }
 
+    std::string result;
+    for (const auto& token : tokens) {
+        if (!result.empty())
+            result += sep;
+        result += token;
+    }
     return 0;
 }
 
