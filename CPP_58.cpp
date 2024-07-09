@@ -1,10 +1,10 @@
 #include <vector>
-#include <assert>
+#include <cassert>
 #include <iostream>
 
 using namespace std;
 
-bool issimilar(vector<int> a,vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -20,25 +20,8 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    int n;
-    vector<int> l1,l2;
-    cout << "Enter number of elements for first list: ";
-    cin >> n;
-    cout << "Enter " << n << " elements for first list: ";
-    for(int i = 0; i < n; i++){
-        int x;
-        cin >> x;
-        l1.push_back(x);
-    }
-    
-    cout << "Enter number of elements for second list: ";
-    cin >> n;
-    cout << "Enter " << n << " elements for second list: ";
-    for(int i = 0; i < n; i++){
-        int x;
-        cin >> x;
-        l2.push_back(x);
-    }
+    vector<int> l1 = {4, 3, 2, 8};
+    vector<int> l2 = {2, 4, 6, 8};
     
     vector<int> commonElements = common(l1, l2);
     cout << "Common elements are: ";
