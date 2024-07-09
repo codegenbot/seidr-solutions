@@ -13,8 +13,13 @@ def calculate_discounted_price(price, discount_rate):
     return price * (1 - discount_rate / 100)
 
 def main():
+    # Get the price from the user
     price = float(input("Enter the price: "))
+
+    # Get the discount rate from the user
     discount_rate = float(input("Enter the discount rate (in %): "))
+
+    # Calculate and print the discounted price
     discounted_price = calculate_discounted_price(price, discount_rate)
     print(f"The discounted price is ${discounted_price:.2f}")
 
