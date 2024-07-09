@@ -21,7 +21,7 @@ int main() {
     vector<string> lst;
     int n;
     string str, s;
-    std::getline(cin, str);
+    cin >> str;
     n = stoi(str);
     for(int i=0; i<n; ++i++){
         getline(cin, s);
