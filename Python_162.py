@@ -4,7 +4,7 @@ def string_to_md5(text):
     if text:
         return hashlib.md5(text.encode()).hexdigest()
 
-for _ in range(3):
+for _ in range(3):  # Try 3 times to get valid input
     try:
         text = input("Enter a string: ")
         if text.strip():
