@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
 
-bool issame(string s1, string s2) {
-    return s1 == s2;
+bool issame(char a, char b) {
+    return a == b;
 }
 
 vector<string> odd_count(vector<string> lst) {
@@ -14,12 +14,8 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        string output = "the number of odd elements " + to_string(count) + " in the string " + s + " of the input.";
+        string output = "The number of odd elements " + to_string(count) + " in the string " + s + " of the input.";
         res.push_back(output);
     }
     return res;
-}
-
-int main() {
-    assert(issame("abc", "abc"));
 }
