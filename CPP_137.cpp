@@ -1,7 +1,6 @@
-#include <variant>
-#include <string>
+#include <boost/variant.hpp>
 
-using namespace std;
+using namespace boost;
 
 variant<string, int, double, float> compare_one(variant<string, int, double, float> a, variant<string, int, double, float> b) {
     if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
@@ -9,42 +8,27 @@ variant<string, int, double, float> compare_one(variant<string, int, double, flo
         string strB = get<string>(b);
         return strA > strB ? a : b;
     }
-    else if ((holds_alternation<int>(a) && holds_alternation<string>(b)) || (holds_alternation<string>(a) && holds_alternation<int>(b))) {
-        int val1 = get<int>(a), val2 = get<string>(b);
-        return val1 > 0 ? a : b;
+    else if ((holds_alternative<string>(a) && holds_alternation<int>(b)) || (holds_alternation<string>(b) && holds_alternation<int>(a))) {
+        int val1 = get_or_else(get<string>(a), "None", [](auto& v) { return boost::none; });
+        string str2 = get_or_else(b, "None", [](auto& v) { return boost::none; });
+        return get(val1) > 0 ? a : b;
     }
-    else if ((holds_alternation<string>(a) && holds_alternation<int>(b)) || (holds_alternation<string>(a) && holds_alternation<int>(b))) {
-        string strA = get<string>(a), intB = get<int>(b);
-        return strA > to_string(intB) ? a : b;
-    }
-    else if (holds_alternation<int>(a) && holds_alternation<int>(b)) {
-        int val1 = get<int>(a), val2 = get<int>(b);
+    else if ((holds_alternation<int>(a) && holds_alternation<string>(b)) || (holds_alternation<int>(b) && holds_alternation<string>(a))) {
+        int val1 = get<int>(a), val2 = get_or_else(b, "None", [](auto& v) { return boost::none; });
         return val1 > val2 ? a : b;
     }
-    else if (holds_alternation<double>(a) && holds_alternation<double>(b)) {
-        double val1 = get<double>(a), val2 = get<double>(b);
+    else if ((holds_alternation<double>(a) && holds_alternation<string>(b)) || (holds_alternation<string>(a) && holds_alternation<double>(b))) {
+        double val1 = get<double>(a), val2 = get_or_else(b, "None", [](auto& v) { return boost::none; });
         return val1 > val2 ? a : b;
     }
-    else if (holds_alternation<float>(a) && holds_alternation<float>(b)) {
-        float val1 = get<float>(a), val2 = get<float>(b);
+    else if ((holds_alternation<float>(a) && holds_alternation<string>(b)) || (holds_alternation<string>(a) && holds_alternation<float>(b))) {
+        float val1 = get<float>(a), val2 = get_or_else(b, "None", [](auto& v) { return boost::none; });
         return val1 > val2 ? a : b;
     }
-    // Add more conditions as needed.
+    else
+        return boost::none;
 }
 
 int main() {
-    variant<string, int, double, float> result = compare_one("abc", 100);
-    if (holds_alternation<string>(result)) {
-        cout << "The string is: " << get<string>(result) << endl;
-    }
-    else if (holds_alternation<int>(result)) {
-        cout << "The integer is: " << get<int>(result) << endl;
-    }
-    else if (holds_alternation<double>(result)) {
-        cout << "The double is: " << get<double>(result) << endl;
-    }
-    else if (holds_alternation<float>(result)) {
-        cout << "The float is: " << get<float>(result) << endl;
-    }
     return 0;
 }
