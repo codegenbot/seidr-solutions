@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <utility>
+#include <cstddef>
 
 bool equal_vectors(const std::vector<std::string>& a, const std::vector<std::string>& b){
     if(a.size() != b.size())
