@@ -1,3 +1,4 @@
+```
 from typing import List
 import math
 
@@ -5,7 +6,7 @@ import math
 def factorize(n: int) -> List[int]:
     factors = []
     i = n
-    while i * i <= n:
+    while i * i >= n:
         if n % i:
             i -= 1
         else:
