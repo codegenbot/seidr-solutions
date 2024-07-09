@@ -5,8 +5,15 @@ std::string middleCharacter(std::string s) {
     if(len == 0)
         return "";
     
-    int start = len / 2;
-    std::string result = (len % 2 == 0) ? s.substr(start-1, 2) : s.substr(start, 1);
+    int start;
+    std::string result;
+    if(len % 2 == 0) { 
+        start = len / 2 - 1; 
+        result = s.substr(start, 2);
+    } else {
+        start = len / 2;
+        result = s.substr(start, 1);
+    }
     
     return result;
 }

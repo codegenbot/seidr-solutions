@@ -1,8 +1,6 @@
-#include <string>
-#include <algorithm>
-#include <vector>
+```cpp
 #include <iostream>
-#include <iomanip>
+#include <string>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> tokens;
