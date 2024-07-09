@@ -19,10 +19,6 @@ vector<int> make_a_pile(int n) {
 
 int main() {
     assert(isSame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    vector<int> pile1 = make_a_pile(6); 
-    for (int i : pile1) {
-        std::cout << i << " ";
-    }
-    std::cout << "\n";
+    // Your code here
     return 0;
 }
