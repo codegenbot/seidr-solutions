@@ -1,17 +1,8 @@
-bool issame(const string& s1, const string& s2) {
-    return s1 == s2;
+bool issame(char open, char close) {
+    return (open == '(' && close == ')');
 }
 
 vector<string> separate_paren_groups(string paren_string);
-
-int main() {
-    string input_str;
-    cin >> input_str;
-
-    vector<string> groups = separate_paren_groups(input_str);
-
-    return 0;
-}
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
