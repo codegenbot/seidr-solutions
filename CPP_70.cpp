@@ -1,16 +1,11 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -35,20 +30,20 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        int val;
+    for (int i = 0; i < n; ++i) {
+        int x;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> val;
-        input.push_back(val);
+        std::cin >> x;
+        input.push_back(x);
     }
     
-    std::vector<int> output = strange_sort_list(input);
-
-    if (issame(output, {1, 2, 3})) {
-        std::cout << "The list is sorted correctly." << std::endl;
+    std::vector<int> sortedList = strange_sort_list(input);
+    
+    if (issame(sortedList, {1,2,3,4,5})) {
+        std::cout << "The list is in the correct order.\n";
     } else {
-        std::cout << "The list is not sorted correctly." << std::endl;
+        std::cout << "The list is not in the correct order.\n";
     }
-
+    
     return 0;
 }
