@@ -1,4 +1,5 @@
 def modp(n: int, p: int):
-    if gcd(n, p) > 1:
-        return pow(n, -1, p)
-    return None
+    for i in range(2, p):
+        if (n * i) % p == 1:
+            return i
+    return -1
