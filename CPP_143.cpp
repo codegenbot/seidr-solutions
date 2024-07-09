@@ -34,13 +34,12 @@ std::vector<int> words_in_sentence(std::string sentence) {
             }
 
             if (isPrime) {
-                result += word + " ";
                 wordLengths.push_back(length);
             }
         }
     }
 
-    return wordLengths; // Return the actual vector
+    return wordLengths;
 }
 
 int main() {
