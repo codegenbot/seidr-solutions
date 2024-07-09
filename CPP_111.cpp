@@ -1,7 +1,8 @@
+```cpp
 #include <map>
 #include <string>
 
-std::map<char, int> characterFrequencyHistogram(const std::string& s) {
+std::map<char, int> histogram(const std::string& s) {
     std::map<char, int> result;
     for (char c : s) {
         if (result.find(c) == result.end()) {
@@ -13,10 +14,11 @@ std::map<char, int> characterFrequencyHistogram(const std::string& s) {
     return result;
 }
 
-bool areEqualHistograms(std::map<char, int> a, std::map<char, int> b) {
+bool equalHistograms(std::map<char, int> a, std::map<char, int> b) {
     return a == b;
 }
 
 int main() {
-    assert(areEqualHistograms(characterFrequencyHistogram("aa"), characterFrequencyHistogram("a")));
+    assert(equalHistograms(histogram("a"), std::map<char, int>{{'a', 1}}));
     return 0;
+}
