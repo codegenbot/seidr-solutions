@@ -1,24 +1,29 @@
 #include <boost/any.hpp>
+#include <vector>
+#include <list>
+#include <algorithm>
 
-bool is_same(const boost::any& value1, const boost::any& value2) {
-    return value1.type() == value2.type();
+bool isSame(const boost::any& value1, const boost::any& value2) {
+    if (!value1 || !value2)
+        return false;
+
+    try {
+        int val1 = boost::any_cast<int>(value1);
+        int val2 = boost::any_cast<int>(value2);
+
+        if (val1 == val2)
+            return true;
+    }
+    catch(const boost::bad_any_cast& e) {}
+
+    return false;
 }
 
-vector<int> filter_integers(list<any> values) {
+vector<int> filter_integers(list<boost::any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            int v = boost::any_cast<int>(value);
-            bool good = true; // assume int is always good
-            for (const auto& other : values) {
-                if (is_same(value, other)) {
-                    good = false;
-                    break;
-                }
-            }
-            if (good) {
-                result.push_back(v);
-            }
+        if (boost::any_cast<int>(value).good() && isSame(value, boost::any(int(1)))) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
