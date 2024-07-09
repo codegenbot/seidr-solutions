@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <assert.h>
 
 bool issame(vector<int> a,vector<int>b){
     if(a.size() != b.size())
@@ -24,8 +22,4 @@ vector<int> get_odd_collatz(int n) {
         }
     }
     return result; // stop storing numbers when n becomes 1
-}
-
-int main() {
-    assert(issame(get_odd_collatz(1) , {1}));
 }
