@@ -11,7 +11,7 @@ int main() {
     std::vector<std::string> extensions;
     extensions.push_back("671235");
     extensions.push_back("Bb");
-    assert(Strongest_Extension("Student", extensions) == "Sp.671235");
+    assert(Strongest_Extension("MyClass", extensions) == "Sp.671235");
     return 0;
 }
 
