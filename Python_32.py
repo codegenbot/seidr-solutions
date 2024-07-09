@@ -10,4 +10,4 @@ def find_zero(xs: list):
             break
     if max_coeff_idx is None:
         raise ValueError("xs must have at least one non-zero coefficient")
-    return -xs[max_coeff_idx] / xs[(max_coeff_idx + 1) % n]
+    return -xs[max_coeff_idx] / xs[(max_coeff_idx+1) % n]
