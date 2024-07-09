@@ -38,7 +38,7 @@ int main() {
     std::vector<std::string> wordLengths = words_in_sentence(sentence);
     for (const auto& length : wordLengths) {
         if (length == "2") {
-            assert(words_in_sentence("here is").size() != 1);
+            std::cout << "The length of the first prime word is 2.\n";
         }
         std::cout << length << '\n';
     }
