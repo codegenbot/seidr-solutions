@@ -25,18 +25,20 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         }
     }
     vector<int> res(k);
-    int cur = INT_MAX;
-    for (int i = 0; i < n; i++) {
+    for(int i=0; i<k;i++){
+        int cur = INT_MAX;
         for (int j = 0; j < n; j++) {
-            if (dp[i][j] == cur) {
-                for(int m=0;m<k;m++){
-                    res[m]=grid[i][j];
-                }
-                return res;
+            if (dp[n-1][j] == cur) {
+                res[i]=grid[n-1][j];
+                break;
+            }
+            if (dp[j][n-1] == cur) {
+                res[i]=grid[j][n-1];
+                break;
             }
         }
     }
-    return {};
+    return res;
 }
 
 int main(){
