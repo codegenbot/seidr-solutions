@@ -15,9 +15,9 @@ double vectorDistance(int n) {
 
     double distance = 0.0;
     for (int i = 0; i < n; i++) {
-        distance += pow(v2[i] - v1[i], 2);
+        distance += sqrt(pow(v2[i] - v1[i], 2));
     }
-    return sqrt(distance);
+    return distance;
 }
 
 int main() {
