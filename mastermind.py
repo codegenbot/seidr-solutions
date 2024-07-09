@@ -1,5 +1,6 @@
 from collections import Counter
 
+
 def mastermind(code, guess):
     code_count = Counter(code)
     guess_count = Counter(guess)
