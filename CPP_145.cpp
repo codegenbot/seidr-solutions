@@ -1,15 +1,12 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-vector<int> order_by_points(vector<int> values){
-    // add implementation for ordering values
-    return values;
-}
-
-vector<int> is_same(vector<int> a, vector<int> b){
-    sort(a.begin(), a.end(), [](int x, int y){
+bool issame(std::vector<int> a, std::vector<int> b){
+    std::sort(a.begin(), a.end(), [](int x, int y){
         int sum_x = 0, sum_y = 0;
-        int temp_x = abs(x), temp_y = abs(y);
+        int temp_x = std::abs(x), temp_y = std::abs(y);
         while(temp_x > 0){
             sum_x += temp_x % 10;
             temp_x /= 10;
@@ -19,14 +16,14 @@ vector<int> is_same(vector<int> a, vector<int> b){
             temp_y /= 10;
         }
         if(sum_x == sum_y){
-            // find index logic here
+            return std::find(a.begin(), a.end(), x) < std::find(a.begin(), a.end(), y);
         }
         return sum_x < sum_y;
     });
-    return a;
+    return a == b;
 }
 
 int main(){
-    assert(is_same(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame(std::vector<int>{0,6,6,-76,-21,23,4}, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
