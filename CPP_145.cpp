@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 std::vector<int> order_by_points(const std::vector<int>& nums) {
     std::vector<int> sorted_nums = nums;
