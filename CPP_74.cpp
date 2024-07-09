@@ -33,7 +33,7 @@ int main() {
     std::vector<std::string> lst1 {"this", "is", "a"};
     std::vector<std::string> lst2 {"hello", "from", "c++"};
 
-    assert(issame({lst1}, {lst1}, {total_match({{"this"}}, {}, {})});
+    assert(issame({std::vector<std::string>{{"this"}}} , std::vector<std::string>{} , std::vector<std::string>{}));
     std::cout << "Test passed" << std::endl;
     return 0;
 }

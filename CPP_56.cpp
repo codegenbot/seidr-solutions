@@ -1,13 +1,13 @@
 ```cpp
-#include <cassert>
 #include <string>
+#include <cassert>
 
 bool correct_bracketing(const char* str) {
     int count = 0;
-    for (int i = 0; str[i]; i++) {
-        if (str[i] == '<') count++;
-        else if (str[i] == '>') {
-            if (count <= 0) return false;
+    for(int i = 0; str[i]; i++) {
+        if(str[i] == '<') count++;
+        else if(str[i] == '>') {
+            if(count <= 0) return false;
             count--;
         }
     }
