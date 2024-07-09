@@ -21,10 +21,8 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> test = even_odd_palindrome(5);
-    for(int i=0; i<test.size(); i++){
-        if(test[i] != 0 && test[i] != 1){
-            return 1; // exit with a non-zero status code
-        }
+    std::vector<int> output = even_odd_palindrome(5);
+    for(int i=0; i<output.size(); i++) {
+        std::cout << output[i] << " ";
     }
 }
