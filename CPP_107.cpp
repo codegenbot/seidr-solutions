@@ -1,8 +1,4 @@
-```cpp
 using namespace std;
-
-#include <vector>
-#include <string>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -37,9 +33,3 @@ vector<int> even_odd_palindrome(int n) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(even_odd_palindrome(1), vector<int>{0, 1}));
-    return 0;
-}
