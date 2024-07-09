@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 
-bool isSimplePower(int base, int power); 
-bool isSimplePower(int num); 
+bool isSimplePower(int base, int power);
+bool isSimplePower(int num);
 
 int simplePowerCheckerMain() {
     std::string input;
@@ -18,20 +18,18 @@ int simplePowerCheckerMain() {
 }
 
 bool isSimplePower(int num) {
-    int base = 2;
-    while (base * base <= num) {
-        if ((base * base) == num) {
-            return true;
-        }
-        for (int power = 1; ; ++power) {
-            if ((base * power) == num) {
+    for(int base = 2; base * base <= num; ++base) {
+        int power = 1;
+        while (power * base <= num) {
+            if ((power * base) == num) {
                 return true;
             }
-            if ((base * power) > num) {
-                break;
-            }
+            ++power;
         }
-        ++base;
     }
     return false;
+}
+
+bool isSimplePower(int base, int power) {
+    return (int)pow(base, power) == num;
 }
