@@ -1,6 +1,2 @@
-```
-def count_vowels_and_consonants(input_string: str) -> (int, int):
-    vowels = 'aeiouAEIOU'
-    vowel_count = sum(1 for char in input_string if char in vowels)
-    consonant_count = len(input_string) - vowel_count
-    return vowel_count, consonant_count
+def sum_odd_numbers(numbers: List[int]) -> int:
+    return sum(num for num in numbers if num % 2 != 0)
