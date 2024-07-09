@@ -31,16 +31,14 @@ int main() {
     std::cin >> n;
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
+        int temp;
+        std::cin >> temp;
         if(i == 0) {
-            int temp;
-            std::cin >> temp;
             game.push_back(temp);
-            guess.push_back(temp);
+            guess.push_back(temp); 
         } else {
-            int temp;
-            std::cin >> temp;
             game.push_back(temp);
-            guess[i] = temp;  // Read input only once and store it in both game and guess
+            guess.push_back(temp); 
         }
     }
     if(issame(game, guess)){
