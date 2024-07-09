@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 int next_smallest(const std::vector<int>& lst) {
     if (lst.size() < 2) {
@@ -17,7 +18,7 @@ int next_smallest(const std::vector<int>& lst) {
 }
 
 int main() {
-    std::vector<int> lst = {3, 1, 4, 1, 5, 9, 2, 6};
+    std::vector<int> lst = {5, 3, 8, 1, 6};
     std::cout << next_smallest(lst) << std::endl;
     
     return 0;
