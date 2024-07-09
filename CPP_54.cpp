@@ -1,8 +1,7 @@
 #include <cassert>
 #include <string>
-#include <iostream>
 #include <algorithm>
-
+#include <iostream> // Include this header for 'cout'
 using namespace std;
 
 bool same_chars(string s0, string s1) {
@@ -10,11 +9,14 @@ bool same_chars(string s0, string s1) {
         return false;
     }
     for(int i = 0; i < s0.length(); i++) {
-        if(std::count(s0.begin(), s0.end(), s1[i]) != 1) {
+        if(count(s0.begin(), s0.end(), s1[i]) != 1) {
             return false;
         }
     }
     return s0 == s1;
 }
 
-cout << same_chars("aabb", "aaccc");
+int main() {
+    cout << same_chars("aabb", "aaccc");
+    return 0;
+}
