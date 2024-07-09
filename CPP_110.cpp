@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -19,8 +18,9 @@ string exchange(vector<int> lst1, vector<int> lst2) {
     return "YES";
 }
 
-void main() {
+int main() {
     vector<int> lst1 = {1, 3, 4};
     vector<int> lst2 = {2, 4, 6, 8};
-    exchange(lst1, lst2);
-    cout << "YES";
+    cout << exchange(lst1, lst2);
+    return 0;
+}
