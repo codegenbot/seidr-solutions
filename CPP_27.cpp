@@ -1,12 +1,12 @@
 ```cpp
 #include <string>
-#include <cassert>
+#include <cctype>
 
 std::string flip_case(const std::string& s) {
     std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            c = (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+            c = (islower(c)) ? toupper(c) : tolower(c);
         }
         result += c;
     }
@@ -14,7 +14,5 @@ std::string flip_case(const std::string& s) {
 }
 
 int main() {
-    std::string s = "These violent delights have violent ends";
-    assert(flip_case(s) == "tHESE vIOLENT dELIGHTS hAVE vIOLENT eNDS");
-    return 0;
+    assert(flip_case("These violent delights have violent ends") == "tHESE vIOLENT dELIGHTS hAVE vIOLENT eNDS");
 }
