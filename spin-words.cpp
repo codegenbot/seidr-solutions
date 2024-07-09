@@ -32,15 +32,10 @@ std::string join(const std::vector<std::string>& words, char delimiter) {
 std::string spinWords(std::string str) {
     std::vector<std::string> words = split(str, ' ');
     for (int i = 0; i < words.size(); i++) {
+        std::string temp = words[i];
         if (words[i].length() >= 5) {
-            std::string temp = "";
-            for (char c : words[i]) {
-                if (isalpha(c)) {
-                    temp += c;
-                }
-            }
             std::reverse(temp.begin(), temp.end());
-            words[i] = temp + words[i].erase(words[i].find_first_not_isalpha()); 
+            words[i] = temp;
         }
     }
     return join(words, ' ');
