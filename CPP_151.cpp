@@ -18,4 +18,3 @@ int main() {
     std::vector<float> lst = {1.5f, 2.0f, 3.5f}; 
     assert(double_the_difference(lst) == 14);
     return 0;
-}
