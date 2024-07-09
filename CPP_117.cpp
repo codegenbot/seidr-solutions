@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -25,9 +26,9 @@ vector<pair<int, string>> select_words(string s, int n) {
                 size_t vowelCount = std::count(word.begin(), word.end(), 'a') + std::count(word.begin(), word.end(), 'e') +
                     std::count(word.begin(), word.end(), 'i') + std::count(word.begin(), word.end(), 'o') + std::count(word.begin(), word.end(), 'u');
                 if (vowelCount <= n) {
-                    result.push_back({{vowelCount, word}});
-                    word = "";
+                    result.push_back({{static_cast<size_t>(vowelCount), word}});
                 }
+                word = "";
             }
             wordCount++;
         } else {
@@ -38,7 +39,7 @@ vector<pair<int, string>> select_words(string s, int n) {
         size_t vowelCount = std::count(word.begin(), word.end(), 'a') + std::count(word.begin(), word.end(), 'e') +
             std::count(word.begin(), word.end(), 'i') + std::count(word.begin(), word.end(), 'o') + std::count(word.begin(), word.end(), 'u');
         if (vowelCount <= n) {
-            result.push_back({{vowelCount, word}});
+            result.push_back({{static_cast<size_t>(vowelCount), word}});
         }
     }
     return result;
