@@ -10,19 +10,32 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<int> a; a.resize(n); 
-    std::vector<int> b; b.resize(n);
+    std::vector<int> a; std::vector<int> b;
     
     for(int i = 0; i < n; ++i)
-        std::cin >> a[i];
+        std::cin >> a.push_back(i);
 
     for(int i = 0; i < n; ++i)
-        std::cin >> b[i];
+        std::cin >> b.push_back(i);
 
-    if(filter_integers(a, b))
+    int* a_array = new int[n];
+    int* b_array = new int[n];
+
+    for(int i = 0; i < n; ++i) {
+        std::cin >> a_array[i];
+    }
+
+    for(int i = 0; i < n; ++i) {
+        std::cin >> b_array[i];
+    }
+
+    if(filter_integers(std::vector<int>(a_array, a_array + n), std::vector<int>(b_array, b_array + n)))
         std::cout << "The two vectors are the same." << std::endl;
     else
         std::cout << "The two vectors are not the same." << std::endl;
+
+    delete[] a_array;
+    delete[] b_array;
 
     return 0;
 }
