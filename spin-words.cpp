@@ -12,7 +12,7 @@ int main() {
     std::string result = "";
     while (ss >> word) {
         if (word.size() >= 5) {
-            std::reverse(word.begin(), word.end());
+            word = std::string(word.rbegin(), word.rend());
         }
         result += word + " ";
     }
