@@ -1,29 +1,20 @@
-bool correct_bracketing(const std::string& str); // Function signature
-
-int main()
-{
-    assert(!correct_bracketing("()()(()())()))"));
-    std::cout << "Correct bracketing test passed." << std::endl;
-    return 0;
-}
-
-bool correct_bracketing(const std::string& str)
-{
-    bool result = true;
-    int count = 0;
-
-    for (char c : str) {
+```cpp
+#include <cassert>
+bool correct_bracketing(const std::string& s) {
+    std::stack<char> stack;
+    for (char c : s) {
         if (c == '(') {
-            count++;
-        }
-        else if (c == ')') {
-            if (count <= 0) {
-                result = false;
-                break;
-            }
-            count--;
+            stack.push(c);
+        } else if (c == ')') {
+            if (stack.empty()) return false;
+            stack.pop();
         }
     }
+    return stack.empty();
+}
 
-    return !result;
+int main() {
+    assert(correct_bracketing("()()(()())"));
+    std::cout << "Correct bracketing test passed." << std::endl;
+    return 0;
 }
