@@ -1,8 +1,13 @@
 #include <vector>
 using namespace std;
 
-bool issame(const vector<float>& a,const vector<float>& b){
-    return a == b;
+bool issame(const vector<float>& a,const vector<float>&b){
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<float> sort_even(vector<float> l){
@@ -17,4 +22,3 @@ vector<float> sort_even(vector<float> l){
         }
     }
     return l_prime;
-}
