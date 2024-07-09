@@ -20,3 +20,4 @@ int main() {
     cin >> s;
     cout << (solveBoolean(s) ? "True" : "False") << endl;
     return 0;
+}
