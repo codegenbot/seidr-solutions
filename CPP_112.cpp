@@ -30,10 +30,13 @@ std::pair<std::string, bool> reverse_delete(std::string s, std::string c) {
             temp += s[i];
         }
     }
+    
     string rev = "";
     for(int i = temp.length()-1; i >= 0; i--) {
         rev += temp[i];
     }
-    bool same = (temp == rev);
-    return {rev, same};
+    
+    bool isSame = (temp == rev);
+    
+    return std::make_pair(rev, isSame);
 }
