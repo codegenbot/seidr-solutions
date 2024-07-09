@@ -17,10 +17,10 @@ vector<int> sort_third(vector<int> l) {
             for (int k = 0; k < temp.size(); k++) {
                 result.push_back(temp[k]);
             }
-            i += 2;
+            i += 3;
         } else {
             result.push_back(l[i]);
-            i++;
+            i += 3;
         }
     }
     return result;
