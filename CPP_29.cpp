@@ -1,4 +1,7 @@
 ```cpp
+#include <vector>
+#include <string>
+
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
         return false;
@@ -17,13 +20,14 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     }
     return result;
 }
-int main() {
+
+int driver() {
     vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAAC", "xxx"};
     string prefix = "xxx";
-    vector<string> result = filter_by_prefix(strings, prefix);
-    if (!issame(result, {"xxx", "xxxAAA", "xxx"})) {
-        cout << "Test failed\n";
-    } else {
-        cout << "Test passed\n";
-    }
+    assert(issame(filter_by_prefix(strings,prefix) , {"xxx", "xxxAAA", "xxx"}));
+    return 0;
+}
+
+int main() {
+    driver();
 }
