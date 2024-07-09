@@ -1,7 +1,6 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -14,7 +13,11 @@ bool has_close_elements(vector<float> a, float threshold) {
 }
 
 int main() {
-    vector<float> a({1.1f, 2.2f, 3.1f, 4.1f, 5.1f});
-    float threshold = 0.5f;
-    assert(has_close_elements(a, threshold) == true);
+    vector<float> a({0.5f, 0.6f, 0.7f, 0.8f, 0.9f});
+    float threshold = 0.1f;
+    if(has_close_elements(a, threshold)) {
+        cout << "There are consecutive elements with difference less than or equal to the threshold." << endl;
+    } else {
+        cout << "No consecutive elements have a difference less than or equal to the threshold." << endl;
+    }
 }
