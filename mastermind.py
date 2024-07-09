@@ -1,4 +1,3 @@
-```
 from collections import Counter
 
 def mastermind(code, guess):
