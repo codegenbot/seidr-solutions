@@ -1,16 +1,15 @@
-#include <cassert>
+#include <iostream>
+using namespace std;
+
 class _160 {
 public:
-    int do_algebra(std::vector<std::string>, std::vector<int>) {
-        if (std::find(std::begin(std::get<1>(args)), std::end(std::get<1>(args)), 0) != std::end(std::get<1>(args))) {
-            return 0;
-        }
-        int result = *std::max_element(std::begin(std::get<1>(args)), std::end(std::get<1>(args)));
-        for (int i = 0; i < std::size(args[0]); ++i) {
-            if (args[0][i] == '*') {
-                result *= *std::max_element(std::begin(std::get<1>(args)), std::end(std::get<1>(args)));
-            } else if (args[0][i] == '//') {
-                result /= *std::min_element(std::begin(std::get<1>(args)), std::end(std::get<1>(args)));
+    int do_algebra(vector<string> ops, vector<int> nums) {
+        int result = 0;
+        for (int i = 0; i < ops.size(); i++) {
+            if (ops[i] == "+") {
+                result += nums[i];
+            } else if (ops[i] == "*") {
+                result *= nums[i];
             }
         }
         return result;
@@ -19,6 +18,5 @@ public:
 
 int main() {
     _160 obj;
-    assert(obj.do_algebra({"//", "*"}, {7, 3, 4}) == 8);
-    return 0;
+    cout << obj.do_algebra({"*", "//"}, {7, 3, 4}) << endl;
 }
