@@ -26,9 +26,9 @@ int main() {
         std::vector<std::unique_ptr<float>> numbers;
         for(int i=0; i<n;i++){
             std::cout << "Enter element " << i+1 << ": ";
-            float num;
-            std::cin >> num;
-            numbers.push_back(std::make_unique<float>(num));
+            float num = 0.f; // Initialize num
+            std::cin >> *num; // Fix the error here
+            numbers.push_back(std::make_unique<float>(*num));
         }
 
         auto positive_numbers = get_positive(numbers);
