@@ -1,16 +1,13 @@
-Here is the modified code:
-
 ```cpp
 #include <string>
 #include <map>
-#include <utility>
 
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    map<char, int> codeCount;
-    map<char, int> guessCount;
+    std::map<char, int> codeCount;
+    std::map<char, int> guessCount;
     for (int i = 0; i < 4; ++i) {
         codeCount[code[i]]++;
         guessCount[guess[i]]++;
@@ -29,5 +26,13 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
         }
     }
 
-    return make_pair(white, black);
+    return std::make_pair(white, black);
+}
+
+int main() {
+    std::string code = "XXXX";
+    std::string guess = "XXXX"; 
+    std::pair<int, int> result = mastermind(code, guess);
+    std::cout << "White pegs: " << result.first << ", Black pegs: " << result.second << std::endl;
+    return 0;
 }
