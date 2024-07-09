@@ -1,7 +1,5 @@
-```
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::vector<std::string> all_prefixes(const std::string& str) {
     std::vector<std::string> prefixes;
@@ -11,7 +9,7 @@ std::vector<std::string> all_prefixes(const std::string& str) {
     return prefixes;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<char>& a, const std::vector<char>& b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); ++i) {
         if(a[i] != b[i]) return false;
@@ -21,6 +19,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    std::vector<std::string> b = all_prefixes("WWW");
-    assert(issame(b, {"W", "WW", "WWW"}));
+    std::vector<char> b = {'W', 'W', 'W'}; 
+    assert(issame(b, all_prefixes("WWW")));
 }
