@@ -1,4 +1,3 @@
-```cpp
 int hex_key(std::string num) {
     int count = 0;
     for (char c : num) {
