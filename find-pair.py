@@ -1,10 +1,14 @@
 ```
-def find_pair(n):
-    a = [int(i) for i in input().split()]
-    target = int(input())
-    for i in range(len(a)):
-        for j in range(i+1, len(a)):
-            if a[i] + a[j] == target:
-                return str(a[i]) + '\n' + str(a[j])
+def find_pair(target, numbers):
+    num_dict = {}
+    for num in numbers:
+        complement = target - num
+        if complement in num_dict:
+            return str(complement) + "\n" + str(num)
+        num_dict[num] = True
+    return "No pair found"
 
-print(find_pair(int(input())))
+
+target = int(input())
+numbers = [int(x) for x in input().split()]
+print(find_pair(target, numbers))
