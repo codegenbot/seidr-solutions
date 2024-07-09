@@ -1,30 +1,17 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+vector<vector<int>> cutVector(vector<int> nums) {
     int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
-
-    for (int i = 1; i < vec.size(); i++) {
-        int diff = abs((int)vec[0] - (int)vec[i]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            result.first.clear();
-            result.second.clear();
-
-            if ((int)vec[0] == (int)vec[i]) {
-                result.first.push_back(vec[0]);
-                result.second.push_back(vec[i]);
-            } else {
-                for (int j = 0; j < i; j++) {
-                    result.first.push_back(vec[j]);
-                }
-                for (int j = i; j < vec.size(); j++) {
-                    result.second.push_back(vec[j]);
-                }
-            }
+    int cut_index = 0;
+    for (int i = 1; i < nums.size(); ++i) {
+        if (nums[i] - nums[i-1] <= min_diff) {
+            min_diff = nums[i] - nums[i-1];
+            cut_index = i;
         }
     }
-
+    vector<vector<int>> result(2);
+    result[0].insert(result[0].end(), nums.begin(), nums.begin() + cut_index);
+    result[1].insert(result[1].begin(), nums.begin() + cut_index, nums.end());
     return result;
 }
