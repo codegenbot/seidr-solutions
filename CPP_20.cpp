@@ -1,5 +1,6 @@
+```cpp
 #include <algorithm>
-#include <limits>
+#include <numeric>
 
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
@@ -12,9 +13,5 @@ vector<float> find_closest_elements(vector<float> numbers) {
             closest_pair = make_pair(numbers[i], numbers[i + 1]);
         }
     }
-    vector<float> result({closest_pair.first, closest_pair.second});
-    return result;
-}
-bool issame(vector<float> a,vector<float>b){
-    return a.size() == b.size() && a == b;
+    return {closest_pair.first, closest_pair.second};
 }
