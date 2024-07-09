@@ -1,5 +1,8 @@
-#include <vector>
+```cpp
+#include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string>b){
     return a==b;
@@ -8,4 +11,13 @@ bool issame(vector<string> a, vector<string>b){
 int main(){
     assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,vector<string>({"grunt", "prune"})));
     return 0;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for(auto s : strings){
+        if(s.find(substring) != string::npos)
+            result.push_back(s);
+    }
+    return result;
 }
