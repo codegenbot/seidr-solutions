@@ -1,10 +1,3 @@
-def check_numbers(numbers, threshold):
-    numbers.sort()
-    for i in range(len(numbers) - 1):
-        if abs(numbers[i] - numbers[i + 1]) < threshold:
-            return True
-    return False
-
-numbers = [10, 15, 20, 25, 30]
-threshold = 5
-print(check_numbers(numbers, threshold))
+numbers = [5, 8, 2, 10, 15]
+threshold = 3
+check_numbers(numbers, threshold)
