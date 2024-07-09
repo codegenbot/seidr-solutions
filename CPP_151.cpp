@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -16,15 +17,15 @@ int main() {
     std::vector<float> lst; 
     float odd_sum = 0; 
     int n;
-    std::cout << "Enter number of elements: ";
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    for(int i=0;i<n;i++){
+    for (int i = 0; i < n; i++) {
         float num;
-        std::cout << "Enter element " << i+1 << ": ";
+        std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
         lst.push_back(num);
     }
     odd_sum = double_the_difference(lst);
-    std::cout << "Sum of squares of the positive integers: " << odd_sum << std::endl;
+    std::cout << "Sum of squares: " << odd_sum << std::endl;
     return 0;
 }
