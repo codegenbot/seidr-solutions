@@ -1,11 +1,13 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 #include <cmath>
+
 using namespace std;
 
 float triangle_area(float a, float b, float c);
 
-int main() {
+int main_cpp() {
     float a, b, c;
     cout << "Enter three sides of the triangle: ";
     cin >> a >> b >> c;
@@ -15,8 +17,7 @@ int main() {
     } else {
         float result = triangle_area(a, b, c);
         cout << "The area of the triangle is: ";
-        cout << fixed << setprecision(2);
-        cout << result;
+        cout << fixed << setprecision(2) << result;
     }
 
     return 0;
