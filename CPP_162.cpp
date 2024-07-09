@@ -14,10 +14,10 @@ string string_to_md5(const string& text) {
     }
 
     return string(mdString, 32);
-};
+}
 
 int main() {
-    string text = "Hello, World!";
-    string md5_hash = string_to_md5(text);
+    string input_text = "Hello, World!";
+    string md5_hash = string_to_md5(input_text);
     return 0;
 }
