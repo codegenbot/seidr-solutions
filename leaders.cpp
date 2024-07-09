@@ -1,4 +1,4 @@
-```cpp
+#include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -19,6 +19,10 @@ int main() {
     vector<int> arr = {5, 2, 3, 4};
     vector<int> result;
     for (int i : leaders(arr)) {
+        result.push_back(i);
+    }
+    for (int i : result) {
         cout << i << endl;
     }
+    return 0;
 }
