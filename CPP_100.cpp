@@ -8,14 +8,15 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> stones;
-    stones.push_back(n);
+    int currentValue = n;
+    stones.push_back(currentValue);
     for (int i = 1; i < n; ++i) {
-        if (n % 2 == 0) {
-            n += 2;
+        if (currentValue % 2 == 0) {
+            currentValue += 2;
         } else {
-            n += 1;
+            currentValue += 1;
         }
-        stones.push_back(n);
+        stones.push_back(currentValue);
     }
     return stones;
 }
