@@ -1,7 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
-#include <ostream>
 #include <iostream>
 
 using namespace std;
@@ -24,7 +22,7 @@ vector<int> count_up_to(int n) {
 
 }
 
-int main() {
+int originalMain() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
@@ -34,4 +32,8 @@ int main() {
         cout << prime << " ";
     }
     cout << endl;
+}
+
+int main() {
+    originalMain();
 }
