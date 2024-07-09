@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <initializer_list>
 
 bool has_close_elements(std::vector<std::vector<float>> numbers, float tol) {
     for (int i = 0; i < numbers.size() - 1; i++) {
@@ -29,18 +28,18 @@ bool has_close_elements(std::vector<std::vector<float>> numbers, float tol) {
 
 int main() {
     std::vector<std::vector<float>> numbers;
-    numbers.resize(7);
     for (int i = 0; i < 7; i++) {
-        numbers[i].reserve(2);
+        std::vector<float> row;
         for (int j = 0; j < 2; j++) {
-            if (i == 0) numbers[i].push_back((float)i);
-            else if (i == 1) numbers[i].push_back((float)(i-1));
-            else if (i == 2) numbers[i].push_back(2.0f);
-            else if (i == 3) numbers[i].push_back(4.0f);
-            else if (i == 4) numbers[i].push_back(5.0f);
-            else if (i == 5) numbers[i].push_back(2.2f);
-            else numbers[i].push_back(0.0f);
+            if (i == 0) row.push_back((float)i);
+            else if (i == 1) row.push_back((float)(i-1));
+            else if (i == 2) row.push_back(2.0f);
+            else if (i == 3) row.push_back(4.0f);
+            else if (i == 4) row.push_back(5.0f);
+            else if (i == 5) row.push_back(2.2f);
+            else row.push_back(0.0f);
         }
+        numbers.push_back(row);
     }
     assert(has_close_elements(numbers, 0.5) == false);
     
