@@ -1,4 +1,4 @@
-```cpp
+```
 #include <cmath>
 #include <vector>
 using namespace std;
