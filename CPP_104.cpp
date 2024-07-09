@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -7,18 +6,29 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    int n1,n2;
-    std::cin>>n1>>n2;
-    if(issame({0}, {0})) {
-        std::cout << "The numbers are same." << std::endl;
-    } else {
-        std::vector<int> x = {n1, n2};
-        std::vector<int> y = unique_digits(x);
-        for (int i : y) {
-            std::cout << i << ' ';
-        }
-        std::cout << std::endl;
+    std::vector<int> x;
+    // Read input from user
+    int n;
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        int num;
+        std::cin >> num;
+        x.push_back(num);
     }
+
+    std::vector<int> result = unique_digits(x);
+
+    // Print the output
+    bool issameToResult = true;
+    for (int num : x) {
+        if (std::find(result.begin(), result.end(), num) == result.end()) {
+            issameToResult = false;
+            break;
+        }
+    }
+
+    std::cout << issameToResult;
+
     return 0;
 }
 
@@ -39,6 +49,6 @@ std::vector<int> unique_digits(std::vector<int> x) {
             result.push_back(num);
         }
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
 }
