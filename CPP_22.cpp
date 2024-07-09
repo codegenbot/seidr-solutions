@@ -23,6 +23,6 @@ vector<int> filter_integers(list<any> values) {
 
 int main_func() {
     vector<any> values = {3, any(3), 3, 'a', 'b'};
-    assert(is_same(filter_integers({any(3), 'c', 3, 3, 'a', 'b'}), vector<int>{3, 3, 3}));
+    assert(is_same(filter_integers(vector<any>({any(3), 'c', 3, 3, 'a', 'b'})), vector<int>({3, 3, 3})));
     return 0;
 }
