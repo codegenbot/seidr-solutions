@@ -4,10 +4,9 @@ def file_name_check(file_name):
         return 'No'
     if file_name.count('.') != 1:
         return 'No'
-    prefix, suffix = file_name.rsplit('.', 1)
-    if not prefix or not prefix[0].isalpha():
+    parts = file_name.split('.')
+    if not parts[0][0].isalpha():
         return 'No'
-    allowed_suffixes = ['txt', 'exe', 'dll']
-    if suffix not in allowed_suffixes:
+    if parts[1] not in ['txt', 'exe', 'dll']:
         return 'No'
     return 'Yes'
