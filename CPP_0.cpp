@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <cmath> // for abs()
+#include <cmath>
 
 bool has_close_elements(std::vector<float> numbers, float threshold) {
     for (int i = 0; i < numbers.size(); ++i) {
