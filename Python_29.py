@@ -1,3 +1,5 @@
 def filter_strings(strings, prefix):
     return [s for s in strings if s.startswith(prefix)]
-filtered_strings = filter_strings(["apple", "banana", "orange"], "a")
+
+# Call the function with appropriate arguments
+filtered_strings = filter_strings(["apple", "banana", "cherry"], "b")
