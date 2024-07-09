@@ -1,8 +1,22 @@
+```
+#include <initializer_list>
 #include <vector>
 #include <cassert>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+int main() {
+    vector<int> input = {7, 9, 7, 1};
+    vector<int> output = pluck(input);
+    assert(issame(output, vector<int>{}));
+    std::cout << "Output: ";
+    for (int i : output) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -10,10 +24,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> pluck(std::vector<int> arr); // Declare the function before using it
-
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     if (arr.empty()) return result;
 
     uint64_t minEven = UINT64_MAX;
@@ -32,14 +44,5 @@ std::vector<int> pluck(std::vector<int> arr) {
     return result;
 }
 
-int main() {
-    std::vector<int> input = {7, 9, 7, 1};
-    std::vector<int> output = pluck(input);
-    assert(issame(output, std::vector<int>{}));
-    std::cout << "Output: ";
-    for (int i : output) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-    return 0;
-}
+vector<int> pluck(vector<int> a); // Function prototype
+bool issame(vector<int> a, vector<int> b); // Function prototype
