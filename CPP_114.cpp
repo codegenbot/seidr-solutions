@@ -1,6 +1,6 @@
 #include <vector>
 #include <climits>
-#include <assert>
+#include <cassert>
 #include <limits>
 
 long long minSubArray(std::vector<long long> nums) {
@@ -10,8 +10,8 @@ long long minSubArray(std::vector<long long> nums) {
         if (sum < min_sum) {
             min_sum = sum;
         }
-        while(sum > 0 && i < nums.size()) {
-            sum -= nums[i++];
+        if (sum > 0) {
+            sum = 0;
         }
     }
     return min_sum;
