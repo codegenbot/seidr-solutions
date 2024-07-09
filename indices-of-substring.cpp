@@ -17,9 +17,6 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (found) {
             result.push_back(i);
-            i += m - 1; // Start searching from the end of the found target
-        } else {
-            i -= m - 1; // Backtrack to correctly re-start search
         }
     }
 
@@ -29,7 +26,7 @@ vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     string text;
     getline(cin, text);
-    while (getline(cin, text) && !text.empty()) cin.ignore();
+    cin.ignore();
     string target;
     getline(cin, target);
 
@@ -41,3 +38,4 @@ int main() {
     cout << endl;
 
     return 0;
+}
