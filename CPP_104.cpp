@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 #include <initializer_list>
 
 namespace std {
@@ -10,17 +11,16 @@ namespace std {
         }
         return std::equal(a.begin(), a.end(), b.begin());
     }
-
-    bool unique_digits(std::vector<int> vec){
-        std::vector<int> digits(10, 0);
-        for (int num : vec) {
-            while (num > 0) {
-                if (digits[num % 10] > 0) {
-                    return false;
-                }
-                digits[num % 10]++;
-                num /= 10;
+    
+    bool unique_digits(int n) {
+        std::vector<int> digits;
+        while (n > 0) {
+            int digit = n % 10;
+            if (std::find(digits.begin(), digits.end(), digit) != digits.end()) {
+                return false;
             }
+            digits.push_back(digit);
+            n /= 10;
         }
         return true;
     }
