@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <initializer_list>
 
 bool issame(vector<int> a, vector<int> b) {
