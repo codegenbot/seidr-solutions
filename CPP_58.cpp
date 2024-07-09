@@ -17,39 +17,16 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    assert(common({4, 3, 2, 8}, {}) == {});
-    // Ask the user for input
-    int n1, m1, n2, m2;
-    
-    cout << "Enter size of list 1: ";
-    cin >> n1;
-    
-    vector<int> l1(n1);
-    
-    cout << "Enter elements of list 1: ";
-    for (int i = 0; i < n1; i++) {
-        cin >> l1[i];
-    }
-    
-    cout << "Enter size of list 2: ";
-    cin >> m2;
-    
-    vector<int> l2(m2);
-    
-    cout << "Enter elements of list 2: ";
-    for (int i = 0; i < m2; i++) {
-        cin >> l2[i];
-    }
-    
-    // Get the common elements
-    vector<int> result = common(l1, l2);
-    
-    // Print the results
-    cout << "Common elements are: ";
-    for (int x : result) {
-        cout << x << " ";
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    cout << "Enter two lists of integers (space separated):" << endl;
+    int n1, n2;
+    cin >> n1 >> n2;
+    vector<int> l1(l1, n1);
+    vector<int> l2(l2, n2);
+    vector<int> res = common(l1, l2);
+    cout << "Common elements: ";
+    for(int i = 0; i < res.size(); i++) {
+        cout << res[i] << " ";
     }
     cout << endl;
-    
-    return 0;
 }
