@@ -1,36 +1,21 @@
+```
 from typing import List
-
-
-def get_integer_input(prompt: str) -> int:
-    while True:
-        try:
-            return int(input(prompt))
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-
-
-def main():
-    num = get_integer_input("Enter a number to factorize: ")
-    factors = factorize(num)
-    print(f"The prime factors of {num} are: {factors}")
+import math
 
 
 def factorize(n: int) -> List[int]:
     factors = []
-    while n % 2 == 0:
-        factors.append(2)
-        n //= 2
-    i = 3
-    while i * i <= n:
-        if n % i == 0:
-            factors.extend([i] * (n // i - 1))
-            n //= i
+    i = n
+    while i * i >= n:
+        if n % i:
+            i -= 1
         else:
-            i += 2
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.append(i) * count
+            i = n
     if n > 1:
         factors.append(n)
-    return factors
-
-
-if __name__ == "__main__":
-    main()
+    return [int(factor) for factor in set(factors)]
