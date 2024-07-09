@@ -1,23 +1,14 @@
 #include <map>
 #include <string>
-#include <algorithm>
 
 bool check_dict_case(const std::map<std::string, std::string>& dict) {
-    bool lower = true;
-    bool upper = true;
-
     for (const auto& pair : dict) {
-        if (!pair.first.empty()) {
-            if (std::any_of(pair.first.begin(), pair.first.end(), ::isupper)) {
-                upper = false;
-            }
-            if (std::any_of(pair.first.begin(), pair.first.end(), ::islower)) {
-                lower = false;
-            }
+        if (!std::all_of(pair.second.begin(), pair.second.end(),
+                         [&pair](char c){ return std::tolower(c) == c; })) {
+            return false;
         }
     }
-
-    return lower && upper;
+    return true;
 }
 
 int main() {
@@ -27,9 +18,11 @@ int main() {
     std::cout << "Enter a dictionary of word-meanings (format: word meaning, each pair on a new line). Type 'stop' to finish input." << std::endl;
 
     while(true){
-        std::cin >> key >> std::string();
+        std::cin >> key;
+        string temp;
+        std::cin >> temp;
         if(key == "stop") break;
-        dict.insert({key,""});
+        dict.insert({key,temp});
     }
 
     if(check_dict_case(dict)){
