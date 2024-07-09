@@ -1,7 +1,9 @@
+```c++
 #include <cassert>
-#include <bitset>
+#include <string>
+#include <stdexcept>
 
-int solve(int n) {
+long long solve(int n) {
     std::string binary = "";
     while(n > 0) {
         if(n % 2 == 0)
@@ -11,9 +13,4 @@ int solve(int n) {
         n /= 2;
     }
     return binary.length() == 0 ? -1 : std::stoi(binary, 0, 2);
-}
-
-int main() {
-    assert(solve(963) == 18); 
-    return 0;
 }
