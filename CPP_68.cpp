@@ -8,7 +8,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     if (arr.empty()) return result;
     
     int minEvenIndex = -1;
-    int minValue = INT_MAX;  // Use INT_MAX from climits
+    int minValue = INT_MAX; 
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0 && arr[i] < minValue) {
             minEvenIndex = i;
