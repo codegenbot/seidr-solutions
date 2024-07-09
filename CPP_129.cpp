@@ -1,18 +1,16 @@
-```
 #include <iostream>
 #include <vector>
-#include <queue>
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>>(n, vector<bool>(n, false)) visited;
-    priority_queue<pair<int, pair<int, int>>> pq;
+    priority_queue<pair<int, pair<int,int>>, vector<pair<int, pair<int,int>>>, greater<pair<int, pair<int,int>>>> pq;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
-                pq.push({grid[i][j], {i, j}});
+                pq.push(make_pair(grid[i][j], make_pair(i, j)));
                 visited[i][j] = true;
             }
         }
@@ -35,9 +33,9 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
                     int nx = x + dx;
                     int ny = y + dy;
 
-                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                    if(nx>=0&&nx<n&&ny>=0&&ny<n&&!visited[nx][ny]){
                         visited[nx][ny] = true;
-                        pq.push({grid[nx][ny], {nx, ny}});
+                        pq.push(make_pair(grid[nx][ny], make_pair(nx, ny)));
                     }
                 }
             }

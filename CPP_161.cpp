@@ -1,6 +1,6 @@
-```cpp
+```c++
 #include <string>
-#include <cctype>
+#include <algorithm>
 
 std::string solve(std::string s) {
     std::string result = "";
@@ -11,10 +11,4 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? std::string(s).reverse() : result;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    return 0;
-}
+    return result.empty() ? std::string(s).substr(0, s.size()) + std::string(s.rbegin(), s.rend()) : result;
