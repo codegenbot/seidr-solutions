@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 using namespace std;
 
@@ -41,3 +42,4 @@ int main() {
     }
     assert(abs(poly(coeffs, solution))< 1e-3);
     return 0;
+}
