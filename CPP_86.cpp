@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -17,10 +18,13 @@ string anti_shuffle(string s) {
                 word += s[j];
                 j++;
             }
-            char temp = word[0];
-            for(int k = 1; k < word.length(); k++){
-                if(word[k] > temp){
-                    temp = word[k];
+            char temp;
+            for (int k = 0; k < word.length(); k++) {
+                temp = word[k];
+                for (int l = 0; l < word.length() - k - 1; l++) {
+                    if (temp > word[l]) {
+                        temp = word[l];
+                    }
                 }
             }
             for(int i = 0; i < word.length(); i++){
@@ -35,6 +39,10 @@ int main() {
     string str;
     cout << "Enter a sentence: ";
     getline(cin, str);
-    cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
+    if(str.empty()) {
+        cout << "Error: Please enter a valid sentence." << endl;
+    } else {
+        cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
+    }
     return 0;
 }
