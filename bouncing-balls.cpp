@@ -13,9 +13,10 @@ int main() {
     double bouncinessIndex = static_cast<double>(firstBounce) / static_cast<double>(startHeight);
 
     std::cout << bouncinessIndex << " ";
+    double height = startHeight;
     for (int i = 1; i <= numBounces; ++i) {
-        firstBounce *= 0.5;
-        std::cout << static_cast<double>(firstBounce) << " ";
+        height *= 0.5;
+        std::cout << height << " ";
     }
     return 0;
 }
