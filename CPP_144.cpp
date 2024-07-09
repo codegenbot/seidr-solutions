@@ -1,21 +1,27 @@
+Here is the completed code:
+
+```cpp
 #include<string>
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = 1, b = 1, c = 1, d = 1;
-    int pos = 0;
-    while (pos < x.size()) {
-        if (x[pos] == '/') break;
-        pos++;
-    }
-    for (int i = 0; i < pos; i++) a *= stoi(x.substr(0, i)) - 1;
-    for (int i = pos + 1; i < x.size(); i++) b *= stoi(x.substr(pos + 1, i));
-    pos = 0;
-    while (pos < n.size()) {
-        if (n[pos] == '/') break;
-        pos++;
-    }
-    for (int i = 0; i < pos; i++) c *= stoi(n.substr(0, i)) - 1;
-    for (int i = pos + 1; n.size() > i; i++) d *= stoi(n.substr(pos + 1, i));
-    return a*d == b*c;
+    long long int num1 = 0, denom1 = 0, num2 = 0, denom2 = 0;
+    int numeratorPos = x.find("/");
+    int denominatorPos = x.find("/");
+    num1 = stol(x.substr(0, numeratorPos));
+    denom1 = stol(x.substr(numeratorPos + 1, denominatorPos - numeratorPos - 1));
+    num2 = stol(n.substr(0, n.find("/")));
+    denom2 = stol(n.substr(n.find("/") + 1));
+
+    long long int commonDivisor = gcd(abs(num1 * denom2), abs(denom1 * num2));
+    
+    return (abs(num1 * denom2) / commonDivisor == abs(num2 * denom1)) && (commonDivisor != 0);
+
+}
+
+long long int gcd(long long int a, long long int b){
+    if(b==0)
+        return a;
+    else
+        return gcd(b,a%b);
 }
