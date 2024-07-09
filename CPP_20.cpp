@@ -1,8 +1,5 @@
-```cpp
 #include <algorithm>
 #include <limits>
-#include <vector>
-#include <utility>
 
 using namespace std;
 
