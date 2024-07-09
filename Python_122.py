@@ -1,3 +1,2 @@
-```
 def add_elements(arr, k):
-    return sum(i for i in arr[:k] if 10 > len(str(i)) or len(str(i)) == 2)
+    return sum(x for x in arr[:k] if abs(x) < 10 or (10 <= abs(x) < 100))
