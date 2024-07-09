@@ -1,12 +1,23 @@
+#include <map>
+#include <string>
+
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
-    bool allLower = true, allUpper = true;
-    for (const auto& pair : dict) {
+
+    bool all_lower = true;
+    bool all_upper = true;
+
+    for (auto& pair : dict) {
         if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            allLower = false; allUpper = false; break;
+            return false;
         }
-        allLower &= islower(pair.first[0]);
-        allUpper &= isupper(pair.first[0]);
+        if (!all_lower || !all_upper)
+            continue;
+        if (islower(pair.first[0]))
+            all_upper = false;
+        else
+            all_lower = false;
     }
-    return (allLower || allUpper);
+
+    return all_lower || all_upper;
 }
