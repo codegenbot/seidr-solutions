@@ -1,6 +1,8 @@
 #include <vector>
 #include <string>
-using namespace std;
+
+using std::vector;
+using std::string;
 
 vector<int> parse_music(string music_string) {
     vector<int> result;
@@ -16,4 +18,7 @@ vector<int> parse_music(string music_string) {
         }
     }
     return result;
+
+int main() {
+    // use the parse_music function
 }
