@@ -1,4 +1,5 @@
 #include <string>
+#include <cctype>
 
 std::string solve(std::string s) {
     std::string result = "";
@@ -10,3 +11,4 @@ std::string solve(std::string s) {
         }
     }
     return result.empty() ? std::string(s).reverse() : result;
+}
