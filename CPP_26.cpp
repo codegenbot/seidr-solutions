@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool isSame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()) return false;
@@ -20,9 +20,7 @@ std::vector<int> remove_duplicates(std::vector<int> numbers){
         }
     }
     return result;
-}
 
 int main() {
     std::vector<int> numbers = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
     assert(isSame(numbers, {1, 2, 3, 4, 5}));
-}
