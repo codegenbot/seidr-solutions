@@ -48,34 +48,34 @@ int main() {
     std::getline(std::cin, user_input1);
     std::getline(std::cin, user_input2);
 
-    std::istringstream iss(user_input1);
     std::vector<std::string> lst5;
-    for (std::string s; std::getline(iss, s, ',');) {
+    std::stringstream iss(user_input1);
+    std::string s;
+    while (std::getline(iss, s, ',')) {
         lst5.push_back(s);
     }
 
-    std::istringstream iis(user_input2);
     std::vector<std::string> lst6;
-    for (std::string s; std::getline(iis, s, ',');) {
+    std::stringstream iis(user_input2);
+    while (std::getline(iis, s, ',')) {
         lst6.push_back(s);
     }
 
-    if (!lst1.empty() && !lst2.empty()) {
-        if (total_sum(lst1) < total_sum(lst2)) {
-            std::cout << "List 1 has a lower sum." << std::endl;
-        } else if (total_sum(lst1) > total_sum(lst2)) {
-            std::cout << "List 2 has a higher sum." << std::endl;
-        } else {
-            std::cout << "The sums are equal." << std::endl;
-        }
+    if (total_sum(lst1) < total_sum(lst2)) {
+        std::cout << "List 1 has a lower sum." << std::endl;
+    }
+    else if (total_sum(lst1) > total_sum(lst2)) {
+        std::cout << "List 2 has a higher sum." << std::endl;
+    }
+    else {
+        std::cout << "The sums are equal." << std::endl;
     }
 
-    if (!lst5.empty() && !lst6.empty()) {
-        if (issame(lst5, lst6)) {
-            std::cout << "The lists are the same." << std::endl;
-        } else {
-            std::cout << "The lists are different." << std::endl;
-        }
+    if (issame(lst5, lst6)) {
+        std::cout << "The lists are the same." << std::endl;
+    }
+    else {
+        std::cout << "The lists are different." << std::endl;
     }
 
     return 0;
