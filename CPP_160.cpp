@@ -1,8 +1,8 @@
-```cpp
 #include <cstdlib>
 #include <vector>
 #include <string>
 #include <sstream>
+#include <cassert>
 
 std::vector<std::string> ops = { "//", "*" }; 
 
@@ -18,10 +18,6 @@ int do_algebra(std::vector<std::string> operators, std::vector<int> operands) {
     
     return result;
 }
-
-#include <sstream>
-
-std::string to_string(int i) { return std::to_string(i); }
 
 int eval(const std::string& s) {
     int result = 0;
@@ -39,7 +35,7 @@ int eval(const std::string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * std::stoi(s.substr(start, i - start + 1));
+            result += sign * std::stoi(std::string(1, s[i]).c_str());
         }
     }
     
