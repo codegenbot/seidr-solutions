@@ -1,14 +1,12 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <string>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(string name1, string name2) {
+    return name1 == name2;
 }
 
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr);
+
+vector<string> by_length(vector<int> arr){
     vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
 
     vector<int> filtered;
@@ -18,7 +16,9 @@ vector<string> by_length(vector<int> arr) {
         }
     }
 
-    sort(filtered.begin(), filtered.end(), greater<int>());
+    sort(filtered.begin(), filtered.end());
+
+    reverse(filtered.begin(), filtered.end());
 
     vector<string> result;
     for (int num : filtered) {
