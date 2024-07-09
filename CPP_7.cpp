@@ -25,6 +25,6 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
 }
 
 int main() {
-    // Your main function code here
+    // Your main function logic here
     return 0;
 }
