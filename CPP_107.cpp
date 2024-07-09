@@ -12,7 +12,7 @@ std::vector<int> even_odd_palindrome(int n){
     for(int i = 1; i <= n; ++i){
         std::string s = to_string(i);
         std::string rev_s = s;
-        std::reverse(rev_s.begin(), rev_s.end());
+        reverse(rev_s.begin(), rev_s.end());
         if(s == rev_s){
             if(i % 2 == 0){
                 result[0]++;
@@ -22,9 +22,4 @@ std::vector<int> even_odd_palindrome(int n){
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));
-    return 0;
 }
