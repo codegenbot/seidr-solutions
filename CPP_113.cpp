@@ -34,8 +34,8 @@ int main() {
     cin >> n;
     
     vector<string> lst;
-    lst.reserve(n);
-    
+    lst.reserve(n);  // Modify this line
+
     for(int i = 0; i < n; i++) {
         cin >> lst[i];
     }
