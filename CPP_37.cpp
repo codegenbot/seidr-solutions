@@ -16,22 +16,26 @@ std::vector<float> sort_even(const std::vector<float>& l) {
     return evenVals;
 }
 
-std::vector<float> mainResult(const std::vector<float>& l) {
-    std::vector<float> result(l.size());
-    std::vector<float> evenVals = sort_even(l);
-    for (int i = 0; i < l.size(); i++) {
+int main() {
+    std::vector<float> vec = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    std::vector<float> result(vec.size());
+    for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
-            result[i] = evenVals[0];
-            evenVals.erase(evenVals.begin());
+            result[i] = sort_even(vec)[0];
         } else {
-            result[i] = l[i];
+            result[i] = vec[i];
         }
     }
-    return result;
-}
-
-int main() {
-    std::vector<float> l = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    std::vector<float> result = mainResult(l);
+    
+    std::vector<float> sortedEven = sort_even(vec);
+    for (int i = 0; i < vec.size(); i++) {
+        if (i % 2 == 0) {
+            result[i] = sortedEven[0];
+            sortedEven.erase(sortedEven.begin());
+        } else {
+            result[i] = vec[i];
+        }
+    }
+    
     return 0;
 }
