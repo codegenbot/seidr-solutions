@@ -14,7 +14,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
     std::vector<std::vector<bool>> visited(n, std::vector<bool>(n));
     std::vector<std::vector<int>> directions({{-1, 0}, {1, 0}, {0, -1}, {0, 1}});
-    std::priority_queue<std::pair<int, std::pair<int, int>>, std::vector<std::pair<int, std::pair<int, int>>>, std::greater<std::pair<int, std::pair<int, int>>>> queue;
+    std::priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> queue;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
@@ -26,7 +26,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     std::vector<int> path;
     while (k--) {
         int value, x, y;
-        std::tie(value, std::ignore) = queue.top();
+        tie(value, pair<int, int>) = queue.top();
         queue.pop();
         path.push_back(value);
         for (auto& dir : directions) {
@@ -39,4 +39,8 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
         }
     }
     return path;
+}
+
+int main() {
+    assert(issame({1, 3, 1, 3, 1, 3, 1, 3}, minPath({{1, 3}, {3, 2}}, 10)));
 }
