@@ -1,23 +1,17 @@
-#include <string>
-#include <stack>
+using namespace std;
 
 std::string solveBoolean(std::string s) {
-    std::stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return "False";
-            else st.pop();
+    int result = (s[0] == 'T') ? 1 : 0;
+    for(int i = 1; i < s.length(); i++) {
+        if(s[i] == '&') {
+            if(result == 1 && s[i+1] == 'T') result = 1;
+            else if(result == 1 || s[i+1] == 'F') result = 0;
         } 
-        else if (s[i] == '|') {
-            while (!st.empty()) st.pop();
-            st.push(s[i]);
+        else if(s[i] == '|') {
+            if(result == 1) result = 1;
+            else if(result == 0 && s[i+1] == 'T') result = 1;
+            else if(result == 0 || s[i+1] == 'F') result = 0;
         } 
-        else {
-            st.push(s[i]);
-        }
     }
-    return st.top() == 'T' ? "True" : "False";
+    return (result) ? "True" : "False";
 }
