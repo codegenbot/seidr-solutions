@@ -1,5 +1,5 @@
-```c
 #include <string>
+#include <iostream>
 
 int* pairedDigits(std::string s) {
     int sum = 0;
@@ -9,7 +9,6 @@ int* pairedDigits(std::string s) {
             if(sum > 9) return new int(-1);
         }
     }
-    delete result; // Don't forget to clean up the memory!
     return new int(sum);
 
 }
@@ -24,6 +23,6 @@ int main() {
     } else {
         std::cout << "Sum of paired digits: " << *result << std::endl;
     }
-    delete result; // Don't forget to clean up the memory!
+    delete result; 
     return 0;
 }
