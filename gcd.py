@@ -1,33 +1,20 @@
 ```
-a = None
-b = None
+a = int(input("Enter the first integer: "))
+b = int(input("Enter the second integer: "))
 
-while True:
-    try:
-        a = int(input("Enter the first integer: "))
-        b = int(input("Enter the second integer: "))
-        break
-    except ValueError:
-        print("Invalid input! Please enter integers.")
 
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return a
 
+
 print(gcd(a, b))
 
 
-text = None
-target = None
+text = input("Enter the text string: ")
+target = input("Enter the target string: ")
 
-while True:
-    try:
-        text = input("Enter the text string: ")
-        target = input("Enter the target string: ")
-        break
-    except ValueError:
-        print("Invalid input! Please enter strings.")
 
 def indices_of_substring(text, target):
     index = 0
@@ -40,5 +27,6 @@ def indices_of_substring(text, target):
         index = pos + 1
 
     return indices
+
 
 print(indices_of_substring(text, target))
