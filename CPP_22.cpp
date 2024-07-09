@@ -1,13 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <variant>
 #include <algorithm>
 
-bool issame(const std::variant<int>& v1, const std::variant<int>& v2) {
-    if (v1.index() != v2.index()) return false;
-    if (v1.index() == 0) return std::get<int>(v1) == std::get<int>(v2);
-    return false;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<int> filter_integers(initializer_list<std::variant<int>> values) {
@@ -24,7 +25,9 @@ std::vector<int> filter_integers(initializer_list<std::variant<int>> values) {
     return result;
 }
 
-std::vector<std::variant<int>> values = {3, 'c', 3, 3, 'a', 'b'};
-std::vector<int> result = filter_integers(values);
-assert (std::equal(result.begin(), result.end(), std::vector<int>({3, 3, 3}).begin()));
-return 0;
+int main() {
+    std::vector<std::variant<int>> values = {3, 'c', 3, 3, 'a', 'b'};
+    auto result = filter_integers(values);
+    assert (std::equal(result.begin(), result.end(), std::vector<int>({3, 3, 3}).begin()));
+    return 0;
+}
