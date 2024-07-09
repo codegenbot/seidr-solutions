@@ -36,8 +36,6 @@ int main() {
         cin >> nums[i];
     }
     vector<int> res = order_by_points(nums);
-    for(auto num : res) {
-        cout << num << " ";
-    }
+    for(auto x:res) cout << x<< " ";
     return 0;
 }
