@@ -10,7 +10,7 @@ bool issame(vector<string> a, vector<string> b) {
 std::string separate_paren_groups(std::string s) {
     int count = 0;
     std::string current_group = "";
-    std::string result = "";
+    std::string result;
 
     for (char c : s) {
         if (c == '(') {
@@ -20,7 +20,9 @@ std::string separate_paren_groups(std::string s) {
             count--;
             current_group += c;
             if (count == 0) {
-                result += current_group; // append the entire group string
+                for (auto& d : current_group) {
+                    result.push_back(d);
+                }
                 current_group = "";
             }
         } else {
