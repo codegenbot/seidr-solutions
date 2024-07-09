@@ -8,13 +8,14 @@ std::string string_to_md5(std::string text) {
     
     unsigned char md5[16];
     EVP_MD_CTX ctx;
-    EVP_MD_CTX_init(&ctx);
-    const unsigned char* p = text.c_str();
+    EVP_MD_CONTEXT_init(&ctx);
+    const std::string& str = text;
+    const unsigned char* p = str.c_str();
     while (*p) {
-        EVP_DigestUpdate(&ctx, &(*p), 1);
+        EVP_DigestUpdate(&ctx, p, 1);
         p++;
     }
-    EVP_DigestFinal(ctx, md5, nullptr);
+    EVP_DigestFinal_ctx(&ctx, md5, nullptr);
 
     std::string result(32, '0');
     for (int i = 0; i < 16; ++i) {
