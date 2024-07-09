@@ -1,10 +1,12 @@
-def add(x: int, y: int) -> int:
+import sys
+
+def add(x: int, y: int):
     return x + y
 
-try:
-    x = int(input("Enter first integer: "))
-    y = int(input("Enter second integer: "))
+if len(sys.argv) < 3:
+    print("Please provide two integers as command line arguments.")
+else:
+    x = int(sys.argv[1])
+    y = int(sys.argv[2])
     result = add(x, y)
     print(result)
-except ValueError:
-    print("Please enter valid integers.")
