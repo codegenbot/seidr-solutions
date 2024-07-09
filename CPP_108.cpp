@@ -1,34 +1,26 @@
-int count_nums(vector<int> n) {
+#include <iostream>
+#include <vector>
+
+int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
-        if (num >= 0) {
-            int sum = 0;
-            int temp = num;
-            while (temp > 0) {
-                sum += temp % 10;
-                temp /= 10;
-            }
-            if (sum > 0) {
-                count++;
-            }
-        } else {
-            int sum = 0;
-            int temp = -num;
-            bool isNegative = true;
-            while (temp > 0) {
-                sum += temp % 10;
-                temp /= 10;
-            }
-            if (isNegative && sum > 0 || !isNegative && sum >= 0) {
-                count++;
-            }
+        if (num < 0) {
+            num = -num;
+        }
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        if (sum > 0) {
+            count++;
         }
     }
     return count;
 }
 
 int main() {
-    vector<int> nums = {1};
-    assert(count_nums(nums) == 1);
+    std::vector<int> n = {1};
+    assert(count_nums(n) == 1);
     return 0;
 }
