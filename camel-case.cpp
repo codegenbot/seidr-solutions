@@ -1,37 +1,28 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& input) {
-    std::vector<std::string> words;
-    size_t pos = 0;
-    while ((pos = input.find '-') != std::string::npos) {
-        words.push_back(input.substr(0, pos));
-        input.erase(0, pos + 1);
-    }
-    words.push_back(input);
+std::string camelCase(const std::string& str) {
+    std::string result = "";
+    bool capitalizeNext = true;
 
-    std::string output;
-    for (const auto& word : words) {
-        if (!output.empty()) {
-            output += char(std::toupper(word[0]));
+    for (char c : str) {
+        if (c == '-') {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
         } else {
-            output = word;
-        }
-        for (size_t i = 1; i < word.size(); ++i) {
-            output += char(std::tolower(word[i]));
+            result += tolower(c);
         }
     }
-    return output;
+
+    return result;
 }
 
 int main() {
-    std::string input;
-    while (true) {
-        std::cout << "Enter a string in kebab-case: ";
-        std::getline(std::cin, input);
-        if (input == "nospaceordash") break; // stop when user enters specific input
-        std::cout << camelCase(input) << std::endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
     }
     return 0;
 }
