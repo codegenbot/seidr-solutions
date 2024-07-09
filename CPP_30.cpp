@@ -1,16 +1,14 @@
-```cpp
 #include <vector>
 #include <cmath>
 
-bool issame(float x, float y) {
-    if (x == y) 
-        return true;
-    else 
-        return false;
+namespace util {
+    bool issame(float a, float b) {
+        return abs(a - b) < 0.00001;
+    }
 }
 
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
+vector<float> get_positive(vector<float> l) {
+    vector<float> result;
     for (float x : l) {
         if (x > 0) {
             result.push_back(x);
