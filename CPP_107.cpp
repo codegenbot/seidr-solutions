@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 std::vector<int> even_odd_palindrome(int n) {
@@ -11,7 +12,7 @@ std::vector<int> even_odd_palindrome(int n) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[std::abs(i - (a.size() - 1))]) return false;
@@ -20,9 +21,17 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    if (issame(even_odd_palindrome(5), std::vector<int>())) {
-        assert(true);
-    } else {
-        assert(false);
+    std::vector<int> result = even_odd_palindrome(5);
+    int n;
+    std::cout << "Enter the number of terms: ";
+    std::cin >> n;
+    for(int i = 0; i < n; ++i) {
+        if(i % 2 == 0)
+            result.push_back(0);
+        else
+            result.push_back(1);
     }
+    bool same = isSame(result, even_odd_palindrome(n));
+    std::cout << "The numbers are " << (same ? "" : "not ");
+    std::cout << "a palindrome.\n";
 }
