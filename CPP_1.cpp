@@ -6,11 +6,13 @@ vector<string> separate_paren_groups(string paren_string);
 
 int main() {
     string input;
-    cin >> input;
+    getline(cin, input);
     vector<string> groups = separate_paren_groups(input);
+
     for (const string& group : groups) {
         cout << group << endl;
     }
+
     return 0;
 }
 
