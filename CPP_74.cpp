@@ -1,6 +1,8 @@
 #include <string>
 
-bool issame(vector<string> lst1, vector<string> lst2);
+bool issame(vector<string> lst1, vector<string> lst2) {
+    return sum_chars(lst1) == sum_chars(lst2);
+}
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
