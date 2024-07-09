@@ -1,52 +1,24 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
-bool checkSame(const std::vector<float>& v1, const std::vector<float>& v2) {
-    if (v1.size() != v2.size()) {
+bool checkSame(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < v1.size(); i++) {
-        if (std::abs(v1[i] - v2[i]) > 0.00001f) {
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i] - b[i]) > 1e-9) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<float> get_positive(const std::vector<float>& numbers) {
-    std::vector<float> positiveNumbers = std::vector<float>();
-    for (float num : numbers) {
-        if (num >= 0) {
-            positiveNumbers.push_back(num);
+std::vector<float> get_positive(const std::vector<float>& v) {
+    std::vector<float> result;
+    for (float x : v) {
+        if (x >= 0.0f) {
+            result.push_back(x);
         }
     }
-    return positiveNumbers;
-}
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return checkSame(a, get_positive(a)) && checkSame(get_positive(b), b);
-}
-
-int main() {
-    int n;
-    while (!(std::cin >> n) || n < 1)
-{
-        std::cout << "Enter element number: ";
-}
-    std::vector<float> numbers;
-    for(int i=0; i<n; i++)
-{
-        std::cout << "Enter element " << i + 1 << ": ";
-        float num;
-        if (!(std::cin >> num)) {
-            break;
-        }
-        numbers.push_back(num);
-}
-
-    if (issame(numbers, get_positive(numbers))) {
-        std::cout << "The input vector and the positive vector are the same." << std::endl;
-    } else {
-        std::cout << "The input vector and the positive vector are not the same." << std::endl;
-    }
+    return result;
 }
