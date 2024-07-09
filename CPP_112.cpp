@@ -1,19 +1,28 @@
-Here is the completed code:
-
 vector<string> reverse_delete(string s, string c) {
     string result = "";
-    for (char ch : s) {
-        bool found = false;
-        for (char cc : c) {
-            if (ch == cc) {
-                found = true;
+    for (char& ch : s) {
+        bool deleteChar = false;
+        for (char& charC : c) {
+            if (ch == charC) {
+                deleteChar = true;
                 break;
             }
         }
-        if (!found) {
+        if (!deleteChar)
             result += ch;
-        }
     }
-    string palindromCheck = result;
-    reverse_copy(result.begin(), result.end(), result.begin());
-    return {result, palindromCheck == result ? "True" : "False"};
+
+    string reverseResult = "";
+    for (int i = result.length() - 1; i >= 0; --i) {
+        reverseResult += result[i];
+    }
+
+    vector<string> output;
+    output.push_back(result);
+    if (result == reverseResult)
+        output.push_back("True");
+    else
+        output.push_back("False");
+
+    return output;
+}
