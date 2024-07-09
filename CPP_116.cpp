@@ -1,10 +1,15 @@
-```cpp
 #include <vector>
-#include <bitset>
+#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a != b)
+    if (a.size() != b.size()) 
         return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (std::bitset<32>(a[i]).count() != std::bitset<32>(b[i]).count())
+            return false;
+        else if (std::bitset<32>(a[i]).count() < std::bitset<32>(b[i]).count()) 
+            return false;
+    }
     return true;
 }
 
