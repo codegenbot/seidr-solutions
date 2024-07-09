@@ -1,13 +1,13 @@
 #include <vector>
 #include <algorithm>
-#include <cctype>
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if(a.size() != b.size()) 
+        return false;
+    for(int i=0; i<a.size(); i++) 
+        if(a[i] != b[i]) 
+            return false;
     return true;
 }
 
@@ -16,7 +16,8 @@ vector<string> select_words(string s, int n) {
     string word = "";
     for (char c : s) {
         if (c == ' ') {
-            if (!word.empty() && count(word.begin(), word.end(), tolower()) <= n) {
+            if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+                count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
                 result.push_back(word);
             }
             word = "";
@@ -24,12 +25,15 @@ vector<string> select_words(string s, int n) {
             word += c;
         }
     }
-    if (!word.empty() && count(word.begin(), word.end(), tolower()) <= n) {
+    if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+        count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
         result.push_back(word);
     }
+    if(result.empty()) return vector<string>(); // Return empty vector if input string is empty.
     return result;
 }
 
 int main() {
     assert(issame(vector<string>(select_words("a b c d e f", 1)), vector<string>("b", "c", "d", "f")));
     return 0;
+}
