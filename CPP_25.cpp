@@ -32,7 +32,7 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main(){
-    // Add your main function code here
+int main() {
+    // Your main function code here
     return 0;
 }
