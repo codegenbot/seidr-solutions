@@ -1,7 +1,7 @@
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <string>
-#include <cstddef>
 
 using namespace std;
 
@@ -41,3 +41,4 @@ int main(){
         cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
     }
     return 0;
+}
