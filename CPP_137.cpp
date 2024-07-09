@@ -1,10 +1,13 @@
 #include <variant>
 #include <string>
-#include <cassert> // Include the <cassert> header for using assert
+#include <cassert>
+#include <iostream>
+#include <boost/any.hpp>
 
 using namespace std;
+using namespace boost;
 
-auto compare_one(const variant<int, float, string>& a, const variant<int, float, string>& b) {
+variant<int, float, string> compare_one(const variant<int, float, string>& a, const variant<int, float, string>& b) {
     if (holds_alternative<int>(a) && holds_alternative<int>(b)) {
         if (get<int>(a) > get<int>(b))
             return a;
@@ -23,13 +26,13 @@ auto compare_one(const variant<int, float, string>& a, const variant<int, float,
         else if (stof(get<string>(a)) < stof(get<string>(b)))
             return b;
     }
-    return std::variant<int, float, std::string>();
+    return {};
 }
 
 int main() {
-    assert(get<std::string>(compare_one(std::string("1"), std::string("2"))) == "2"); // Test case for comparing two strings
-    assert(get<int>(compare_one(10, 5)) == 10); // Test case for comparing two integers
-    assert(get<float>(compare_one(3.14f, 2.718f)) == 3.14f); // Test case for comparing two floats
+    assert(compare_one(string("1"), string("2")) == string("2"));
+    assert(compare_one(10, 5) == 10);
+    assert (get<string>(compare_one(string("1"), 1)) == "None");
 
     return 0;
 }
