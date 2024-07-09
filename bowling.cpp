@@ -1,14 +1,14 @@
-#include <string>
-#include <iostream>
-
 int bowlingScore(std::string s) {
     int score = 0;
     std::string::iterator it = s.begin();
     while (it != s.end()) {
         if (*it == 'X') {
             score += 10;
-            if (it + 1 != s.end()) { 
-                score += std::stoi(std::string(1, *++it)); 
+            if (it + 1 != s.end() && *(it+1) == 'X') { 
+                score += 10; 
+                it++; 
+            } else if (it + 2 != s.end()) { 
+                score += std::stoi(std::string(1, *++it)) + 10; 
             }
             it += 2;
         } else if (*it == '/') {
@@ -22,17 +22,13 @@ int bowlingScore(std::string s) {
             }
             if (*it == '/') {
                 score += roll + 10;
-                it++; // Update it here
+            } else if (it + 1 != s.end() && *(it+1) == 'X') { 
+                score += roll + 10; 
+                it++; 
             } else {
-                int roll2 = *it - '0';
-                score += 10 + roll;
-                it++; // Update it here
+                score += roll;
             }
         }
     }
     return score;
-}
-
-int main() {
-    return 0;
 }
