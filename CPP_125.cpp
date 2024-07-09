@@ -4,9 +4,6 @@
 vector<string> split_words(string txt){
     vector<string> words;
     string word = "";
-    if(txt.empty()){
-        return words;
-    }
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
