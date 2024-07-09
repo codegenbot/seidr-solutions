@@ -1,4 +1,3 @@
-```c++
 #include <algorithm>
 #include <string>
 #include <sstream>
@@ -15,7 +14,11 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     return tokens;
 }
 
-std::string spinWords(const std::string& str) {
+int main() {
+    std::string str;
+    std::cout << "Enter a string of one or more words (separated by spaces): ";
+    std::cin >> str;
+    
     std::vector<std::string> words = split(str, ' ');
     std::string result;
 
@@ -29,10 +32,7 @@ std::string spinWords(const std::string& str) {
         }
     }
 
-    return result.substr(0, result.size() - 1);
-}
-
-int main() {
-    std::cout << spinWords("Hello World") << std::endl;
+    std::cout << "The resulting string is: " << result.substr(0, result.size() - 1) << std::endl;
+    
     return 0;
 }
