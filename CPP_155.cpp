@@ -1,16 +1,9 @@
-```cpp
-#include <iostream>
+```
 #include <vector>
-#include <initializer_list>
-
+#include <iostream>
+#pragma GCC link -std=c++11
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
+    return (a == b);
 }
 
 std::vector<int> even_odd_count(int num) {
