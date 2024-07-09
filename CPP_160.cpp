@@ -1,9 +1,3 @@
-#include <cstdlib>
-#include <string>
-#include <vector>
-
-using namespace std;
-
 int do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
@@ -25,10 +19,10 @@ int eval(const string& s) {
     
     int start = 0, sign = 1;
     for (int i = 0; i < s.size(); i++) {
-        if (!ispunct(s[i])) {
-            if (s[start + i - 1] == '+') {
+        if (!std::isalnum(s[i]) || s[i] == '.') {
+            if (s[i] == '+') {
                 sign = 1;
-            } else if (s[start + i - 1] == '-') {
+            } else if (s[i] == '-') {
                 sign = -1;
             }
             start = i + 1;
@@ -39,4 +33,3 @@ int eval(const string& s) {
     }
     
     return result;
-}
