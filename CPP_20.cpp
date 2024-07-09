@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <vector>
 #include <limits>
-#include <cassert>
 
 using namespace std;
 
@@ -26,5 +25,5 @@ vector<float> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    assert(isSame({1.1, 2.2, 3.1, 4.1, 5.1}, vector<float>({2.2, 3.1})));
+    assert(isSame({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, vector<float>({2.2f, 3.1f})));
 }
