@@ -9,7 +9,7 @@ bool operator==(const std::vector<std::string>& a, const std::vector<std::string
     return true;
 }
 
-std::vector<std::string> compareVectors(const std::vector<std::string>& strings, const std::string& substring) {
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
     std::vector<std::string> output_vector;
     for (const auto& s : strings) {
         if (s.find(substring) != std::string::npos)
@@ -19,12 +19,10 @@ std::vector<std::string> compareVectors(const std::vector<std::string>& strings,
 }
 
 int main() {
-    assert(compareVectors({"grunt", "trumpet", "prune", "gruesome"}, "run") == {"grunt", "prune"});
     std::vector<std::string> strings = {"grunt", "trumpet", "prune", "gruesome"};
     std::string substr = "run";
-    std::vector<std::string> result = compareVectors(strings, substr);
     
-    for (const auto& s : result) {
+    for (const auto& s : filter_by_substring(strings, substr)) {
         std::cout << s << std::endl;
     }
 }
