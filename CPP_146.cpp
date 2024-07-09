@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -15,6 +14,7 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    vector<int> nums = {11, 12, 13, 14, 15, 16};
-    cout << specialFilter(nums);
+    vector<int> numbers = {11, 12, 13, 14, 15};
+    cout << "Number of special filter: " << specialFilter(numbers) << endl;
+    return 0;
 }
