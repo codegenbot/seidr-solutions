@@ -3,7 +3,7 @@
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> filter_integers(std::list<int, int> values){
+std::vector<int> filter_integers(std::list<int> values){
     std::vector<int> result;
     for (auto val : values) {
         if (typeid(val) == typeid(int)) {
