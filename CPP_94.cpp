@@ -1,7 +1,7 @@
-```
+```cpp
 #include <vector>
 #include <iostream>
-
+#include <initializer_list>
 using namespace std;
 
 bool isPrime(int n) {
@@ -30,17 +30,7 @@ int maxPrime(vector<int> lst){
 }
 
 int main() {
-    vector<int> lst;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "Enter the elements: ";
-    for(int i=0; i<n; i++){
-        int x;
-        cin >> x;
-        lst.push_back(x);
-    }
-    cout << "Maximum Prime is: " << maxPrime(lst) << endl;
-    
+    vector<int> lst = {127, 97, 8192};
+    cout << maxPrime(lst) << endl;
     return 0;
 }
