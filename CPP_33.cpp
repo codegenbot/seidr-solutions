@@ -15,8 +15,9 @@ vector<int> sort_third(vector<int> l) {
                 block.push_back(l[i + j]);
             }
             sort(block.begin(), block.end());
-            for (int k : block) {
-                result.push_back(k);
+            while (!block.empty()) {
+                result.push_back(block.back());
+                block.pop_back();
             }
             i += 3;
         } else {
