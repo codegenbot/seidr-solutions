@@ -16,9 +16,9 @@ bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::sort(numbers.begin(), numbers.end()); // sort the vector in ascending order
-    auto it = std::unique(numbers.begin(), numbers.end()); // find the end of the consecutive sequence of equal elements
-    numbers.erase(it, numbers.end()); // remove duplicates
+    std::sort(numbers.begin(), numbers.end()); 
+    auto it = std::unique(numbers.begin(), numbers.end()); 
+    numbers.erase(it, numbers.end()); 
     return numbers;
 }
 
