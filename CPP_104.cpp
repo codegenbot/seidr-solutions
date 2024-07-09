@@ -26,8 +26,9 @@ vector<int> unique_digits(vector<int> x) {
 }
 
 int main() {
-    vector<int> x = {1, 2, 3};
-    for (int num : unique_digits(x)) {
+    vector<int> x = {15, 33, 1422, 1};
+    vector<int> result = unique_digits(x);
+    for (int num : result) {
         cout << num << " ";
     }
     cout << endl;
