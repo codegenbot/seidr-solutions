@@ -1,4 +1,5 @@
 ```cpp
+#include <initializer_list>
 #include <vector>
 #include <string>
 
@@ -22,10 +23,6 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main_test() {
-    std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"};
+    assert (equal_vectors(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     std::vector<std::string> b = {"asd", "xxy", "john doe", "xAAs"};
-    std::vector<std::string> c = {"xxx", "xxxAAA", "xxx"};
-    if(!equal_vectors(b, c))
-        return 1;
-    return 0;
 }
