@@ -1,9 +1,8 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(vector<std::string> a, vector<std::string> b) {
+bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -15,10 +14,10 @@ bool issame(vector<std::string> a, vector<std::string> b) {
     return true;
 }
 
-vector<string> resultVector(vector<std::string> strings, string prefix) {
-    vector<string> result;
+std::vector<std::string> filterByPrefix(std::vector<std::string> strings, std::string prefix){
+    std::vector<std::string> resultVector;
     for(string s : strings){
         if(s.find(prefix) == 0)
-            result.push_back(s);
+            resultVector.push_back(s);
     }
-    return result;
+    return resultVector;
