@@ -14,10 +14,11 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        string temp = to_string(count);
-        temp += " strings in the input have ";
+        string temp = "the number of odd elements ";
         temp += to_string(count);
-        temp += " odd characters.";
+        temp += " in the str";
+        temp += to_string(i + 1);
+        temp += " of the input.";
         result.push_back(temp);
     }
     return result;
