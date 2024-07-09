@@ -1,22 +1,19 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-int sumDigits(int n) {
+int skjkasdkd(const std::vector<int>& lst) {
     int sum = 0;
-    while (n > 0) {
-        sum += n % 10;
-        n /= 10;
+    for (int num : lst) {
+        if(num<0){
+            cout<<"Error: The input should be non-negative numbers."<<endl;
+            return -1;
+        }
+        while(num!=0){
+            sum+=num%10;
+            num/=10;
+        }
     }
     return sum;
-}
-
-int skjkasdkd(std::vector<int> lst) {
-    int result = 0;
-    for (int num : lst) {
-        result += sumDigits(num);
-    }
-    return result;
 }
 
 int main() {
