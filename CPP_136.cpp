@@ -1,11 +1,21 @@
-vector<int> largest_smallest_integers(vector<int> lst){
-    int max_neg = 0, min_pos = 0;
-    for (int num : lst) {
-        if (num < 0 && num < max_neg) {
-            max_neg = num;
-        } else if (num > 0 && (num < min_pos || min_pos == 0)) {
-            min_pos = num;
+#include <vector>
+
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> largest_smallest_integers(std::vector<int> lst){
+    int largest_negative = 0;
+    int smallest_positive = 0;
+    
+    for(int num : lst){
+        if(num < 0 && num < largest_negative){
+            largest_negative = num;
+        }
+        if(num > 0 && (num < smallest_positive || smallest_positive == 0)){
+            smallest_positive = num;
         }
     }
-    return {max_neg, min_pos};
+    
+    return {largest_negative, smallest_positive};
 }
+
+largest_smallest_integers({-6, -4, -4, -3, -100, 1});
