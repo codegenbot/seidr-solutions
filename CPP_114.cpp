@@ -24,14 +24,7 @@ long long minSubArraySum(vector<long long> nums) {
 }
 
 int main() {
-    vector<long long> nums;
-    long long n;
-    cin >> n;
-    for(int i=0; i<n; i++){
-        long long num;
-        cin >> num;
-        nums.push_back(num);
-    }
+    vector<long long> nums = {10, 1, 2, -7, --5, -3, 4};
     cout << minSubArraySum(nums) << endl;
     return 0;
 }
