@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,7 +16,7 @@ bool issame(string planet1, string planet2) {
 
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    sort(planets.begin(), planets.end());
+    
     int index1 = -1;
     int index2 = -1;
 
@@ -40,7 +41,6 @@ vector<string> bf(string planet1, string planet2) {
         }
     }
 
-    result.erase(unique(result.begin(), result.end()), result.end());
     sort(result.begin(), result.end());
 
     return result;
@@ -62,7 +62,11 @@ int main() {
         }
         cout << endl;
     } else {
-        cout << "The planets " << planet1 << " and " << planet2 << " are the same." << endl;
+        if (issame(planet1, planet2)) {
+            cout << "The planets " << planet1 << " and " << planet2 << " are the same." << endl;
+        } else {
+            cout << "One or both of the planets are not found in the solar system." << endl;
+        }
     }
 
     return 0;
