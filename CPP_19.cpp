@@ -1,26 +1,29 @@
-map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                           {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                           {"eight", 8}, {"nine", 9}};
-
 string sort_numbers(string numbers) {
-    vector<string> numVec;
-    string temp;
-    for (int i = 0; i < numbers.size(); i++) {
+    map<string, int> numberMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                   {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                   {"eight", 8}, {"nine", 9}};
+    vector<string> numberVector;
+    string num;
+    for (int i = 0; i < numbers.length(); i++) {
         if (numbers[i] == ' ') {
-            numVec.push_back(temp);
-            temp = "";
+            continue;
+        } else if (numbers[i] >= '0' && numbers[i] <= '9') {
+            num += numbers[i];
         } else {
-            temp += numbers[i];
+            numberVector.push_back(num);
+            num = "";
         }
     }
-    numVec.push_back(temp);
+    numberVector.push_back(num);
 
-    sort(numVec.begin(), numVec.end());
+    sort(numberVector.begin(), numberVector.end(),
+         [](const string& a, const string& b) {
+             return numberMap.at(a) < numberMap.at(b);
+         });
 
     string result;
-    for (const auto &num : numVec) {
+    for (auto num : numberVector) {
         result += num + " ";
     }
-
-    return result.substr(0, result.size() - 1);
+    return result.substr(0, result.length() - 1);
 }
