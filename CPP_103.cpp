@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-#include <cassert> // Include cassert for assert function
+#include <cassert>
 
 std::string calculateBinary(int n, int m) {
     if (n > m) {
@@ -27,5 +27,5 @@ std::string calculateBinary(int n, int m) {
 }
 
 int main() {
-    assert(calculateBinary(5, 5) == "101"); // Fix assert statement to use calculateBinary instead of rounded_avg
+    assert(calculateBinary(5, 5) == "101");
 }
