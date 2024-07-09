@@ -1,5 +1,10 @@
+```cpp
 #include <vector>
-#include <cassert>
+#include <iostream>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return (a == b);
+}
 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result(2, 0);
@@ -15,17 +20,6 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    int inputNum;
-    std::cout << "Enter a number: ";
-    std::cin >> inputNum;
-
-    std::vector<int> result = even_odd_count(inputNum);
-
-    if (result[0] == 0) {
-        std::cout << "Odd numbers are counted.\n";
-    } else {
-        std::cout << "Even numbers are counted.\n";
-    }
-
+    assert(issame(even_odd_count(0), {1, 0}));
     return 0;
 }
