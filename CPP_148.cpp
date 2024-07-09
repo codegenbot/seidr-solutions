@@ -1,31 +1,31 @@
-#include <string>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+using namespace std;
 
-vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+vector<string> find_planets_in_between(const vector<string>& planets, const string& planet1, const string& planet2) {
     vector<string> result;
+    int idx1 = -1, idx2 = -1;
     
-    int start = -1, end = -1;
     for (int i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
-            start = i;
-        } else if (planets[i] == planet2) {
-            end = i;
+            idx1 = i;
+        }
+        if (planets[i] == planet2) {
+            idx2 = i;
         }
     }
     
-    if (start == -1 || end == -1) {
-        return {};
+    if (idx1 == -1 || idx2 == -1) {
+        return result;
     }
     
-    if (start > end) {
-        swap(start, end);
-    }
+    int start = min(idx1, idx2) + 1;
+    int end = max(idx1, idx2);
     
-    for (int i = start + 1; i < end; ++i) {
+    for (int i = start; i < end; ++i) {
         result.push_back(planets[i]);
     }
     
@@ -33,5 +33,6 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
+    assert(issame(make_pair("Jupiter", "Makemake"), make_pair("", "")));
+    return 0;
 }
