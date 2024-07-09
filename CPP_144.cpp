@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <sstream>
 #include <cctype>
@@ -18,17 +17,16 @@ bool simplify(string x, string n) {
     return (atoi(arr1) * (slash - '0') == atoi(std::string(1, arr2[0]).data()) * (slash - '0'));
 }
 
-int mainFunction() {
-    std::string x, n;
-    std::cout << "Enter the numerator: ";
-    std::cin >> x;
-    std::cout << "Enter the denominator: ";
-    std::cin >> n;
+int main() {
+    string x, n;
+    cout << "Enter the numerator: ";
+    cin >> x;
+    cout << "Enter the denominator: ";
+    cin >> n;
 
-    if(simplify(x, n))
-        std::cout << "The fraction is simplified." << std::endl;
-    else
-        std::cout << "The fraction cannot be simplified." << std::endl;
-
-    return 0;
+    if (simplify(x, n)) {
+        cout << "The fraction is simplified." << endl;
+    } else {
+        cout << "The fraction cannot be simplified." << endl;
+    }
 }
