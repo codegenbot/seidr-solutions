@@ -26,6 +26,6 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    test = vector<int>(get_odd_collatz(1)); 
-    assert(issame(test , vector<int>(get_odd_collatz(1))));
+    test = vector<int>(get_odd_collatz(1));
+    assert(issame(test , vector<int>{1}));
 }
