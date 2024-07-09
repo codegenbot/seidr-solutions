@@ -11,15 +11,19 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b, std::vector<
     return true;
 }
 
+int total_sum(std::vector<std::string> lst) {
+    int sum = 0;
+    for (const auto& s : lst) {
+        for (char c : s) {
+            sum += static_cast<int>(c);
+        }
+    }
+    return sum;
+}
+
 std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
-    int sum1 = 0;
-    for (const auto& s : lst1) {
-        sum1 += std::stol(s); 
-    }
-    int sum2 = 0;
-    for (const auto& s : lst2) {
-        sum2 += std::stol(s); 
-    }
+    int sum1 = total_sum(lst1);
+    int sum2 = total_sum(lst2);
     if (sum1 < sum2) return lst1;
     else if (sum1 > sum2) return lst2;
     else return lst1;
@@ -27,15 +31,11 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 
 int main() {
     std::vector<std::string> lst1 = {"this"};
-    std::vector<std::string> lst2 = {};
-    if (lst2.size() > 0) {
-        if (!issame(lst1, lst1, total_match(lst1, lst2))) {
-            std::cout << "Test failed" << std::endl;
-        } else {
-            std::cout << "Test passed" << std::endl;
-        }
+    std::vector<std::string> lst2 = {"hello"};
+    if (!issame(lst1, lst1, total_match(lst1, lst2))) {
+        std::cout << "Test failed" << std::endl;
     } else {
-        // Handle the case when lst2 is empty
+        std::cout << "Test passed" << std::endl;
     }
     return 0;
 }
