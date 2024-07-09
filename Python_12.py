@@ -1,1 +1,1 @@
-input_strings = input("Enter a list of strings separated by commas: ").split(',')
+input_strings = input("Enter a list of strings separated by spaces: ").split()
