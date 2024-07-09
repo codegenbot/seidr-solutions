@@ -10,7 +10,7 @@ bool isvowel(char c) {
 
 char get_next_vowel(const std::string& word, char prev) {
     for (int i = 0; i < word.size(); ++i) {
-        if (isvowel(word[i])) {
+        if (isvowl(word[i])) {
             return word[i];
         }
     }
@@ -26,7 +26,4 @@ std::string get_closest_vowel(const std::string& word) {
     return "";
 }
 
-int main() {
-    assert(get_closest_vowel("Above") == "o");
-    // ...
-}
+assert(get_closest_vowel("Above") == "o");
