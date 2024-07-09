@@ -24,3 +24,4 @@ bool solveBoolean(string s) {
         st.pop();
     }
     return st.empty();
+}
