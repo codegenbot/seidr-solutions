@@ -1,6 +1,7 @@
-if (n == 1 && x == 1) return true;
-    if (n == 1 || x == 1) return false;
+if (x <= 0 || n <= 0) {
+        return false;
+    }
     
-    double power = log(x) / log(n);
-    return power == (int)power;
+    double root = pow(x, 1.0 / n);
+    return (fmod(root, 1) == 0);
 }
