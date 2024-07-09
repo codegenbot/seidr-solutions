@@ -25,4 +25,3 @@ string spinWords(string s) {
     result += tempWord;
     
     return result;
-}
