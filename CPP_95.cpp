@@ -3,7 +3,7 @@
 #include <string>
 #include <cctype>
 
-bool check_dict_case(map<pair<string, string>, bool> dict) {
+bool check_dict_case(std::map<std::pair<std::string, std::string>, bool> dict) {
     if (dict.empty()) return false;
 
     bool allLower = true;
