@@ -1,8 +1,17 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
 #include <cassert>
 using namespace std;
+
+class MyInitializerList {
+public:
+    vector<double> data;
+
+    // Constructor for creating an initializer list from a vector
+    MyInitializerList(const vector<double>& vec) : data(vec) {}
+};
 
 double poly(vector<double> coeffs, double solution) {
     double result = 0;
@@ -15,11 +24,11 @@ double poly(vector<double> coeffs, double solution) {
 double find_zero(vector<double> xs){
     double sum = 0;
     double coeff = xs[0];
-    vector<vector<double>> temp;
+    vector<MyInitializerList> temp;
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
             sum += xs[i] / coeff;
-            temp.push_back(vector<double>{coeff});
+            temp.push_back(MyInitializerList({coeff}));
         }
         else{
             coeff = xs[i];
@@ -27,8 +36,8 @@ double find_zero(vector<double> xs){
     }
     vector<double> coeffs;
     for(int i=0; i<temp.size(); i++){
-        for(int j=0; j<temp[i].size(); j++){
-            coeffs.push_back(temp[i][j]);
+        for(int j=0; j<temp[i].data.size(); j++){
+            coeffs.push_back(temp[i].data[j]);
         }
     }
     return -sum / coeff;
