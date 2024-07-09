@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 
@@ -7,7 +8,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     if (is_any_of<a>(int.class)) {
         int ai = any_cast<int>(a);
         int bi = any_cast<int>(b);
-        return a.convert_to<int>() < bi ? b : (ai < bi ? a : b);
+        return ai < bi ? b : (ai < bi ? a : boost::any("None"));
     }
     else if (is_any_of<a>(double.class)) {
         double ad = any_cast<double>(a);
