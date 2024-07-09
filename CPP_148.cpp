@@ -10,7 +10,7 @@ bool isPlanet(string planet) {
     return false;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool isSame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
@@ -39,7 +39,7 @@ int main() {
         }
         cout << "\n";
         vector<string> temp = {planet1, planet2};
-        if(issame(result, temp)) {
+        if(isSame(result, temp)) {
             cout << "The planets are the same.\n";
         } else {
             cout << "The planets are different.\n";
