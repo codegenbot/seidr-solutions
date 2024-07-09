@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 
 bool isCube(int n) {
@@ -11,6 +12,7 @@ bool isCube(int n) {
 }
 
 int main() {
+    assert(isCube(1728) == true);
     assert(isCube(1729) == false);
     return 0;
 }
