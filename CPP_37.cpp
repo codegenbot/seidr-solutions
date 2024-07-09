@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <vector>
 
-bool _issame(vector<float> a, vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -29,20 +29,8 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
-    
-    for (float num : input) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    vector<float> result = sort_even(input);
-    if (_issame(result, {5, 8, -12, 4, 23, 2, 3, 11, 12, -10})) {
-        for (float num : result) {
-            cout << num << " ";
-        }
-        cout << endl;
-    } else {
-        cout << "Test failed" << endl;
-    }
+    vector<float> arr = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    vector<float> res = sort_even(arr);
+    for(auto x:res) cout<<x<<" ";
+    return 0;
 }
