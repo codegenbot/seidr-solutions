@@ -3,7 +3,6 @@ using namespace std;
 
 int solve(int n) {
     string binary = "";
-    binary = ""; 
     while(n > 0) {
         if(n % 2 == 0)
             binary = "0" + binary;
@@ -15,6 +14,7 @@ int solve(int n) {
 }
 
 int main() {
-    assert (solve(963) == 10010); 
+    int expected = std::stoi("10010", 0, 2);
+    assert(solve(963) == expected); 
     return 0;
 }
