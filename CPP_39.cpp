@@ -1,24 +1,25 @@
-```
 #include <iostream>
 using namespace std;
 
 int prime_fib(int n) {
     int a = 0, b = 1;
-    for (int i = 2; ; i++) {
-        int fib = a + b;
-        if (fib > n) return i;
+    int count = 0;
+    while (true) {
+        string str = to_string(a + b);
+        if (stoll(str) > n) break;
         a = b;
-        b = fib;
+        b = a + b;
         bool isPrime = true;
-        for (int j = 2; j * j <= fib; j++) {
-            if (fib % j == 0) {
+        for (int j = 2; stoll(str) % j == 0 || j * j <= stoll(str); j++) {
+            if (stoll(str) % j == 0) {
                 isPrime = false;
                 break;
             }
         }
-        if (!isPrime) continue;
-        return i;
+        if (isPrime) count++;
+        if (count == n) return stoi(str);
     }
+    return 0;
 }
 
 int main() {

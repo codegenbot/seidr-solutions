@@ -4,14 +4,15 @@
 
 using namespace std;
 
-int how_many_times(const string& str, const string& substring) {
+int how_many_times(string& str, const string& substring) {
     int count = 0;
     size_t pos = 0;
+    size_t original_len = str.length();
+    
     while ((pos = str.find(substring)) != string::npos) {
         count++;
-        if (pos < str.length()) {
-            str.erase(pos, str.find(substring) != pos ? substring.length() : 0);
-        }
+        str.erase(0, pos + substring.length());
+        original_len -= (pos + substring.length());
     }
     return count;
 
@@ -25,7 +26,7 @@ int main() {
     cin >> substring;
     
     if (str.find(substring) == string::npos) {
-        cout << "Error: The substring is not found in the string.\n";
+        cout << "The substring is not found in the string.\n";
     } else {
         int result = how_many_times(str, substring);
         cout << "The substring appears " << result << " times.\n";
