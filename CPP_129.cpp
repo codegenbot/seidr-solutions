@@ -58,6 +58,4 @@ int main() {
         cout << val << " ";
     }
     cout << endl;
-
-    return 0;
 }
