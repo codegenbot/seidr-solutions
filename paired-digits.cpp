@@ -1,13 +1,9 @@
-#include <string>
-
-int sum = 0;
-std::string s;
-std::cin >> s;
-
-for (int i = 0; i < s.length() - 1; i++) {
-    if (s[i] == s[i+1]) {
-        sum += s[i] - '0';
+string s; 
+int sum = 0; 
+for (char c : s) {
+    if (!s.empty() && s[s.length()-1] != c) {
+        continue;
     }
+    sum += c - '0'; 
 }
-
 return sum;
