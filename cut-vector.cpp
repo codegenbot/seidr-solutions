@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -10,8 +11,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int cut_index = 0;
     
     for (int i = 1; i < n; i++) {
-        if (abs(v[i] - v[0]) <= min_diff) {
-            min_diff = abs(v[i] - v[0]);
+        if (v[i] - v[0] <= min_diff) {
+            min_diff = v[i] - v[0];
             cut_index = i;
         }
     }
@@ -30,14 +31,14 @@ int main() {
     }
     
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "First Vector: ";
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i] << " ";
+    cout << "Left side: ";
+    for (auto num : result.first) {
+        cout << num << " ";
     }
     cout << endl;
-    cout << "Second Vector: ";
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i] << " ";
+    cout << "Right side: ";
+    for (auto num : result.second) {
+        cout << num << " ";
     }
     cout << endl;
     
