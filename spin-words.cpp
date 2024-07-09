@@ -1,6 +1,6 @@
+```c++
 #include <string>
 #include <algorithm>
-#include <iostream>
 
 using namespace std;
 
@@ -33,12 +33,11 @@ string spinWords(string str) {
     }
 
     return result;
+
 }
 
 int main() {
-    string input;
-    cout << "Enter a sentence: ";
-    getline(cin, input);
+    string input = "Hello World";
     cout << spinWords(input) << endl;
     return 0;
 }
