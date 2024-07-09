@@ -1,7 +1,4 @@
-```
-#include <cassert>
-#include <string>
-
+```cpp
 int myStringLen(const char* str) {
     return std::string(str).length();
 }
