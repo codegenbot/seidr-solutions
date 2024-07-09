@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -24,12 +23,7 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    std::vector<std::string> a, b;
-    // get the input for a and b
-    if (issame(a, b)) {
-        std::cout << "Match Found" << std::endl;
-        std::cout << "Total Match is: " << total_match(a, b)[0] << std::endl;
-    } else {
-        std::cout << "No Match Found" << std::endl;
-    }
+    assert(issame(total_match({"this"}, {}), {}));
+    // ... rest of your code ...
+    return 0;
 }
