@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<string> separate_paren_groups(const string& paren_string) {
+vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string group;
     int open_count = 0;
@@ -30,15 +30,14 @@ vector<string> separate_paren_groups(const string& paren_string) {
 }
 
 int main() {
-    string input_string;
-    cout << "Enter a string with parentheses:";
-    cin >> input_string;
+    string input;
+    cout << "Enter a string with parentheses: ";
+    cin >> input;
 
-    vector<string> separated_groups = separate_paren_groups(input_string);
+    vector<string> groups = separate_paren_groups(input);
 
-    cout << "Separated groups are: ";
-    for (const auto& group : separated_groups) {
-        cout << group << " ";
+    for (const string& group : groups) {
+        cout << group << endl;
     }
 
     return 0;
