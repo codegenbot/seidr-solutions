@@ -27,7 +27,7 @@ int main() {
         totalSnow -= initialSnow * proportionOfSnowMeltingPerHour;
     }
     
-    cout << "The amount of snow on the ground after " << hours << " hours is: " << fixed << setprecision(2) << totalSnow << " ft" << endl;
+    cout << fixed << setprecision(6) << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << " ft" << endl;
 
     return 0;
 }
