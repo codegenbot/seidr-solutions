@@ -1,26 +1,49 @@
+#include <iostream>
 #include <vector>
 #include <list>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+using namespace std;
+
+bool issame(const vector<any>& a, const vector<any>& b) {
     if (a.size() != b.size())
         return false;
     for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+        any a_val = a[i];
+        any b_val = b[i];
+        
+        if (!(holds_alternative<int>(a_val) && holds_alternative<int>(b_val)))
+            continue;
+
+        int a_int = get<int>(a_val);
+        int b_int = get<int>(b_val);
+
+        if (a_int != b_int)
             return false;
     }
     return true;
 }
 
-std::vector<int> filter_integers(const std::list<std::any>& values) {
-    std::vector<int> result;
+vector<int> filter_integers(const list<any>& values) {
+    vector<int> result;
     for (const auto& value : values) {
-        any_to_integer(value, result);
+        if (holds_alternative<int>(value)) {
+            int value_int = get<int>(value);
+            result.push_back(value_int);
+        }
     }
     return result;
 }
 
-void any_to_integer(any &value, vector<int>& result) {
-    if (holds_alternative<int>(value)) {
-        result.push_back(get<int>(value));
-    }
+int main() {
+    list<any> inputs = {3, 67, 'c', 45, 34.5, true};
+    vector<int> integers = filter_integers(inputs);
+
+    bool same = issame({any(3), any(67), any(45), any(34)}, {any(3), any(67), any(45), any(34)});
+
+    if (same)
+        cout << "Inputs are the same" << endl;
+    else
+        cout << "Inputs are different" << endl;
+
+    return 0;
 }
