@@ -5,16 +5,16 @@ double poly(const vector<double>& coeffs, double x);
 
 double find_zero(const vector<double>& coeffs);
 
-double find_zero(const vector<double>& xs){
-    double a = poly(xs, 0);
-    double b = poly(xs, 1);
-    return -b/a;
+int main() {
+    // Main function content here
+
+    return 0;
 }
 
-double poly(const vector<double>& coeffs, double x){
-    double result = 0.0;
-    for(int i = 0; i < coeffs.size(); i++){
-        result += coeffs[i] * pow(x, i);
-    }
-    return result;
+double poly(const vector<double>& coeffs, double x) {
+    // Function definition for poly here
+}
+
+double find_zero(const vector<double>& coeffs) {
+    // Function definition for find_zero here
 }
