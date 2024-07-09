@@ -8,10 +8,10 @@ vector<int> sort_third(vector<int> l) {
     vector<int> result;
     int groupCount = 0;
 
-    for (int i : l) {
+    for (int i = 0; i < l.size(); i++) {
         if(groupCount % 3 == 0 || groupCount >= l.size()) { 
             if(groupCount < l.size())
-                result.push_back(l[groupCount]);
+                result.push_back(l[i]);
             groupCount++;
         } else {
             groupCount++;
@@ -22,8 +22,8 @@ vector<int> sort_third(vector<int> l) {
 }
 
 int main() {
-    vector<int> l1 = {1, 2, 3};
-    vector<int> l2 = {5, 6, 3, 4, 8, 9, 2};
+    vector<int> l1 = vector<int>({1, 2, 3});
+    vector<int> l2 = vector<int>({5, 6, 3, 4, 8, 9, 2});
 
     cout << "l1: ";
     for (int i : l1) {
