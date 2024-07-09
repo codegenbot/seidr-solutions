@@ -24,7 +24,7 @@ std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
     }
     numbers.erase(last + 1, numbers.end());  // Remove duplicates
 
-    std::vector<int> result(numbers.begin(), numbers.end()); 
+    std::vector<int> result;
     for (int i : numbers) {  // Create a new vector with unique elements
         if (std::find(result.begin(), result.end(), i) == result.end())
             result.push_back(i);
