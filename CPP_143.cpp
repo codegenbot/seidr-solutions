@@ -1,4 +1,23 @@
-void words_in_sentence(string sentence) {
+```cpp
+#include <iostream>
+#include <sstream>
+#include <vector>
+
+using namespace std;
+
+void splitSentence(string sentence);
+
+int main() {
+    string sentence;
+    cout << "Enter a sentence: ";
+    getline(cin, sentence);
+    
+    splitSentence(sentence);
+    cout << endl;
+    return 0;
+}
+
+void splitSentence(string sentence) {
     vector<string> words;
     string word;
     bool isWord = false;
@@ -19,9 +38,9 @@ void words_in_sentence(string sentence) {
         }
     }
 
-    words.push_back(word);
-    cout << "The words in the sentence are: ";
-    for (string w : words) {
-        cout << w << endl;
+    if (isWord) {
+        cout << word;
+    } else {
+        cout << sentence; // handle case when input only contains spaces
     }
 }
