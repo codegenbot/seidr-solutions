@@ -9,11 +9,11 @@ def bf(planet1, planet2):
         "Uranus",
         "Neptune",
     ]
+    if planet1 not in planets or planet2 not in planets:
+        return ()
     index1 = planets.index(planet1)
     index2 = planets.index(planet2)
-
-    if index1 > 7 or index2 > 7:
-        return ()
-
-    result = tuple(planets[i] for i in range(index1 + 1, min(index2, 8)))
+    result = tuple(
+        [p for p in planets[index1 : index2 + 1] if p != planet1 and p != planet2]
+    )
     return result
