@@ -1,20 +1,16 @@
-#include <iostream>
 #include <string>
 
-using namespace std;
+bool is_palindrome(string text) {
+    int start = 0;
+    int end = text.length() - 1;
 
-bool is_palindrome(string text){
-    int i = 0, j = text.size() - 1;
-    while (i < j) {
-        if (text[i] != text[j])
+    while (start < end) {
+        if (text[start] != text[end]) {
             return false;
-        i++;
-        j--;
+        }
+        start++;
+        end--;
     }
-    return true;
-}
 
-int main() {
-    assert(is_palindrome("xywzx") == false);
-    return 0;
+    return true;
 }
