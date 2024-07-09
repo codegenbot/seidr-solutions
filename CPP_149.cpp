@@ -1,24 +1,23 @@
-Here is the completed code:
+#include <algorithm>
+#include <vector>
+#include <string>
+
+using namespace std;
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-
-    // Remove strings with odd lengths
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
-    }
-
+    // Remove words with odd lengths from the vector
+    lst.erase(remove_if(lst.begin(), lst.end(),
+        [](const string& s) { return s.size() % 2 != 0; }), lst.end());
+    
     // Sort the remaining strings by length and then alphabetically
-    std::sort(result.begin(), result.end(),
+    sort(lst.begin(), lst.end(),
         [](const string& a, const string& b) {
-            if (a.length() != b.length()) {
-                return a.length() < b.length();
-            } else {
+            if (a.length() == b.length()) {
                 return a < b;
+            } else {
+                return a.length() < b.length();
             }
         });
-
-    return result;
+    
+    return lst;
 }
