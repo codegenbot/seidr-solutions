@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -23,7 +23,7 @@ double poly(std::vector<double> coeffs, double x) {
     return result;
 }
 
-{ 
+int main(){
     std::vector<double> coeffs(4, 0.0); 
     coeffs[0] = 1.0; coeffs[1] = -7.0; coeffs[2] = 12.0; coeffs[3] = -6.0;
     double solution = find_zero(coeffs);
