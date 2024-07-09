@@ -1,5 +1,5 @@
-# Read space-separated strings from input
-strings = input().strip().split()
+def find_longest_string():
+    strings = input().splitlines()
+    return max(strings, key=len)
 
-# Find and print the longest string
-print(max(strings, key=len))
+print(find_longest_string())
