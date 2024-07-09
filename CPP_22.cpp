@@ -10,16 +10,22 @@ int main() {
     int n;
     std::cin >> n;
 
-    // Read integers directly into a and b
-    for(int i = 0; i < n; ++i)
-        a[i] = b[i];
+    std::vector<int> a;
+    std::vector<int> b;
 
-    if(a.size() != b.size())
-        std::cout << "The two arrays are not the same." << std::endl;
-    else if(a == b)
-        std::cout << "The two arrays are the same." << std::endl;
+    for(int i = 0; i < n; ++i)
+        std::cin >> a[i];
+
+    for(int i = 0; i < n; ++i)
+        std::cin >> b[i];
+
+    a.resize(n);
+    b.resize(n);
+
+    if(filter_integers(a, b))
+        std::cout << "The two vectors are the same." << std::endl;
     else
-        std::cout << "The two arrays are not the same." << std::endl;
+        std::cout << "The two vectors are not the same." << std::endl;
 
     return 0;
 }
