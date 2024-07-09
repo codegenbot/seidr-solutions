@@ -23,11 +23,11 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
             cut_index = i;
         }
     }
-    vector<int> left = {vec[0]};
-    for (int i = 1; i < cut_index; i++) {
+    vector<int> left;
+    for (int i = 0; i < cut_index; i++) {
         left.push_back(vec[i]);
     }
-    vector<int> right = {};
+    vector<int> right;
     for (int i = cut_index; i < vec.size(); i++) {
         right.push_back(vec[i]);
     }
