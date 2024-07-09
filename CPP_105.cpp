@@ -70,6 +70,8 @@ int main() {
         for (string str : output) {
             cout << str << endl;
         }
+    } else {
+        cout << "The output is incorrect." << endl;
     }
     return 0;
 }
