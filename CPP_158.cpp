@@ -1,23 +1,20 @@
-#include <vector>
-#include <algorithm>
+#include <string>
 
-using namespace std;
-
-struct Str {
-    string val;
-};
-
-Str find_max(vector<Str> words){
-    Str max_word = *max_element(words.begin(), words.end(),
-        [](const Str& a, const Str& b) {
-            if (a.val.length() == b.val.length())
-                return a.val < b.val;
-            return a.val.length() > b.val.length();
+string find_max(vector<string> words){
+    string max_word = *max_element(words.begin(), words.end(),
+        [](const string& a, const string& b) {
+            if (a.size() == b.size()) {
+                return a < b;
+            }
+            return a.size() > b.size();
         });
+    for (string word : words) {
+        if (word.size() > max_word.size() || 
+            (word.size() == max_word.size() && 
+             count(word.begin(), word.end(), word[0]) > 
+             count(unique_copy(max_word.begin(), max_word.end()), max_word.begin(), max_word.end()))) {
+            max_word = word;
+        }
+    }
     return max_word;
-}
-
-int main() {
-    assert ((find_max({"play", "play", "play"}) == (Str){{"play"}}));
-    return 0;
 }
