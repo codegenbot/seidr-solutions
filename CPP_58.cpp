@@ -1,9 +1,10 @@
+#include <assert.h>
 #include <vector>
-#include <set>
-#include <algorithm>
-#include <cassert>
-
 using namespace std;
+
+bool issame(vector<int> a,vector<int> b){
+    return a == b;
+}
 
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s1(l1.begin(), l1.end());
@@ -14,8 +15,4 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     vector<int> result(intersection.begin(), intersection.end());
     sort(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
 }
