@@ -1,14 +1,12 @@
-```cpp
+```
 #include <vector>
 #include <string>
 #include <iostream>
 
-using namespace std;
-
-int add_elements(vector<int> arr, int k) {
+int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
     for (int i = 0; i < k; i++) {
-        if (to_string(arr[i]).size() <= 2) {
+        if (std::to_string(arr[i]).size() <= 2) {
             sum += arr[i];
         }
     }
@@ -17,15 +15,15 @@ int add_elements(vector<int> arr, int k) {
 
 int main() {
     int n, k;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    vector<int> arr(n);
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> arr[i];
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i];
     }
-    cout << "Enter the number of elements to sum: ";
-    cin >> k;
+    std::cout << "Enter the number of elements to sum: ";
+    std::cin >> k;
     int result = add_elements(arr, k);
-    cout << "Sum of elements: " << result << endl;
+    std::cout << "Sum of elements: " << result << std::endl;
 }
