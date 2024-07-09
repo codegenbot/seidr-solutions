@@ -1,3 +1,4 @@
+```
 def fix_spaces(text):
     return "-".join(
         c if c != " " or text.startswith(" ") else "-"
