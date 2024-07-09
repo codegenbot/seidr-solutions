@@ -1,3 +1,4 @@
+```cpp
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
@@ -35,7 +36,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (num1 < num2)
             return b;
         else
-            return boost::any(string("None"));
+            return boost::any("None");
     }
     else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
         string str = boost::any_cast<string>(a);
@@ -58,7 +59,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (num1 < num2)
             return b;
         else
-            return boost::any(string("None"));
+            return boost::any("None");
     }
     else {
         float f1 = boost::any_cast<float>(a);
@@ -69,6 +70,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (f1 < f2)
             return b;
         else
-            return boost::any(string("None"));
+            return boost::any("None");
     }
 }
