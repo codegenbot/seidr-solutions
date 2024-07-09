@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <sstream>
 using namespace std;
 
 int starts_one_ends(int n);
@@ -11,21 +10,16 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     int result = starts_one_ends(n);
-    string output = "The count of the numbers of " + to_string(n) + "-digit positive integers that start or end with 1 is: " + std::to_string(result);
+    string output = to_string(result) + " numbers of " + to_string(n) + "-digit positive integers that start or end with 1";
     cout << output << endl;
     return 0;
 }
 
 int starts_one_ends(int n) {
     int count = 0;
-    for (int i = 1; i <= 9; i++) {
-        if (i == 1 || i % 10 == 1) {
+    for (int i = 1; i <= pow(10, n-1); i++) {
+        if ((i / pow(10, n-1)) % 10 == 1 || i % 10 == 1) {
             count++;
-        }
-        for (int j = 1; j < i; j++) {
-            if (j % 10 != 1 && j / 10 != 1) {
-                break;
-            }
         }
     }
     return count;
