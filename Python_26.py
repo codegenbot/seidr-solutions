@@ -11,11 +11,7 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
     return result
 
 
-def main():
+if __name__ == "__main__":
     numbers = input("Enter a list of space-separated integers: ")
     numbers = [int(num) for num in numbers.split()]
     print(remove_duplicates(numbers))
-
-
-if __name__ == "__main__":
-    main()
