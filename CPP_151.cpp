@@ -1,11 +1,19 @@
-Here is the completed code:
+#include <vector>
+#include <cmath>
 
-long long double_the_difference(vector<float> lst) {
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
-    for (float x : lst) {
-        if (std::abs(x) > 0.5 && std::floor(x) == x) {
-            sum += x * x;
+    for (float num : lst) {
+        if (num > 0 && modf(num, &num) == 0) { 
+            sum += pow(num, 2);
         }
     }
     return sum;
+}
+
+int main() {
+    std::vector<float> input; 
+    // process the input and calculate odd_sum
+    assert(double_the_difference(input) == 0); 
+    return 0;
 }
