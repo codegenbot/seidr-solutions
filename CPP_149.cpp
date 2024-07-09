@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -33,4 +34,5 @@ int main() {
         cout << "The sorted list is not what was expected." << endl;
     }
     
+    assert(issame(sorted, {"apple", "banana"}));
 }
