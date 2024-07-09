@@ -1,6 +1,6 @@
 using namespace std;
 
-string flip_case(string str){
+string flipCase(string str) {
     string result = "";
     for(char c : str){
         if(islower(c))
