@@ -3,6 +3,7 @@ using namespace std;
 
 bool solveBoolean(const string& s, size_t& i) {
     bool result = true;
+    stack<bool> exprStack;
 
     while (i < s.size()) {
         switch (s[i]) {
@@ -12,13 +13,22 @@ bool solveBoolean(const string& s, size_t& i) {
                 return false;
             case '&': {
                 i++; // skip &
-                if (!solveBoolean(s, i)) return false;  // short-circuit
+                bool leftExprValid = exprStack.top() && solveBoolean(s, ++i);
+                exprStack.pop();
+                if (!leftExprValid) {
+                    result = false;
+                    break;
+                }
                 break;
             }
             case '|': {
                 i++; // skip |
-                result = result || solveBoolean(s, i);
-                if (result) return true;  // short-circuit
+                bool leftExprValid = exprStack.top() || solveBoolean(s, ++i);
+                exprStack.pop();
+                if (!leftExprValid) {
+                    result = false;
+                    break;
+                }
                 break;
             }
         }
@@ -42,4 +52,3 @@ int main() {
     }
 
     return 0;
-}
