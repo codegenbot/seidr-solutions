@@ -1,4 +1,3 @@
-```
 a = int(input("Enter the first integer: "))
 b = int(input("Enter the second integer: "))
 
@@ -14,7 +13,6 @@ print(gcd(a, b))
 
 text = input("Enter the text string: ")
 target = input("Enter the target string: ")
-
 
 def indices_of_substring(text, target):
     index = 0
