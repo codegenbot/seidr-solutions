@@ -4,9 +4,8 @@ string get_closest_vowel(string word) {
         if (!isalpha(word[i])) continue;
         if (ispunct(word[i]) || isdigit(word[i])) continue;
         if (word[i] == 'Y' && i > 1 && isupper(word[i-1])) continue;
-        if (word[i] == 'y' && i > 1 && isupper(word[i-1])) continue;
-        if (ispunct(word[i-1]) || isdigit(word[i-1])) return "";
-        if (isalpha(word[i-1])) return word.substr(i - 1, 1);
+        if (islower(word[i])) return string(1, word[i]);
+        if (isupper(word[i])) return string(1, tolower(word[i]));
     }
     return "";
 }
