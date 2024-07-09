@@ -14,7 +14,7 @@ bool will_it_fly(vector<int> q, int w) {
     vector<int> reversed_q = q;
     reverse(reversed_q.begin(), reversed_q.end());
 
-    return q == reversed_q;    
+    return q == reversed_q;
 }
 
 int main() {
