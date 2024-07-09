@@ -1,8 +1,8 @@
-```c++
 #include <string>
+#include <cctype>
 
-string flip_case(string str) {
-    string result = "";
+std::string flip_case(std::string str) {
+    std::string result = "";
     for (char c : str) {
         if (isupper(c)) {
             result += tolower(c);
