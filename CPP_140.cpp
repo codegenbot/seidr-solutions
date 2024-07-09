@@ -1,16 +1,18 @@
-```cpp
-string fix_spaces(string text) {
+string fix_spaces(string text){
     string result = "";
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == ' ') {
-            if (i > 0 && result[result.length() - 1] == ' ' && result.length() >= 2) {
-                result += "-";
-            } else {
-                result += '_';
+    bool prevSpace = false;
+
+    for(char c : text){
+        if(c == ' '){
+            if(!prevSpace || !result.empty()){
+                result += (prevSpace) ? "-" : "_";
             }
-        } else {
-            result += text[i];
+            prevSpace = true;
+        }else{
+            result += c;
+            prevSpace = false;
         }
     }
+
     return result;
 }
