@@ -1,8 +1,7 @@
 #include <vector>
-#include <string>
 #include <algorithm>
+#include <string>
 
-// Define issame function here...
 bool issame(vector<string> a, vector<string> b) {
     return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
