@@ -1,38 +1,27 @@
-#include <vector>
-#include <algorithm>
-
-string words_in_sentence(string sentence) {
-    vector<int> wordLengths;
+string words_in_sentence(string sentence){
     string result = "";
-    
-    for (const auto& word : split(sentence, ' ')) {
-        int length = word.length();
-        bool isPrime = true;
-        
-        if (length > 1) {
-            for (int i = 2; i * i <= length; ++i) {
-                if (length % i == 0) {
-                    isPrime = false;
-                    break;
-                }
+    for(int i=0; i<sentence.length(); i++){
+        if(i == 0 || sentence[i-1] == ' '){
+            string word = "";
+            int j=i;
+            while(j < sentence.length() && sentence[j] != ' '){
+                word += sentence[j];
+                j++;
             }
-            
-            if (isPrime) {
+            if(is_prime(word.length())){
                 result += word + " ";
-                wordLengths.push_back(length);
             }
         }
     }
-    
-    return result.substr(0, result.length() - 1);
+    return result.substr(0, result.length()-1);
 }
 
-vector<string> split(const string& s, char delim) {
-    vector<string> result;
-    stringstream ss(s);
-    string item;
-    while (getline(ss, item, delim)) {
-        result.push_back(item);
+bool is_prime(int n) {
+    if(n <= 1)
+        return false;
+    for(int i=2; i*i<=n; i++){
+        if(n%i == 0)
+            return false;
     }
-    return result;
+    return true;
 }
