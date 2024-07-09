@@ -1,3 +1,5 @@
+using namespace std;
+
 vector<int> pluck(vector<int> arr) {
     vector<int> result;
     if(arr.empty()) return {};
