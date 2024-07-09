@@ -2,23 +2,25 @@
 #include <vector>
 #include <string>
 
-std::vector<std::vector<std::string>> ops = { {"//" }, {"*" } }; 
+std::vector<std::vector<std::string>> ops = { {"//" , "*"} }; 
 
-int do_algebra(std::vector<vector<string>> operators, vector<int> operands) {
-    string expression = "";
+int do_algebra(std::vector<std::vector<std::string>> operators, std::vector<int> operands) {
+    std::string expression = "";
     for (int i = 0; i < operators.size(); i++) {
-        expression += to_string(operands[i]);
-        expression += operators[i][0];
-        expression += "//";
+        for (int j = 0; j < operators[i].size(); j++) {
+            expression += to_string(operands[i]);
+            expression += operators[i][j];
+        }
+        if(i != operators.size() - 1) {
+            expression += "+";
+        }
     }
-    expression += to_string(operands.back());
-    
     int result = eval(expression);
     
     return result;
 }
 
-int eval(const string& s) {
+int eval(const std::string& s) {
     int result = 0;
     if (s.empty()) {
         return result;
@@ -26,7 +28,7 @@ int eval(const string& s) {
     
     int start = 0, sign = 1;
     for (int i = 0; i < s.size(); i++) {
-        if (!isdigit(s[i]) && s[i] != '.') {
+        if (!isdigit(s[i])) {
             if (s[i] == '+') {
                 sign = 1;
             } else if (s[i] == '-') {
@@ -34,7 +36,7 @@ int eval(const string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * (int)(s[i] - '0');
+            result += sign * std::atoi(std::string(1, s[i]).c_str());
         }
     }
     
