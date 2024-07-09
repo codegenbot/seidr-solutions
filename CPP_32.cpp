@@ -1,37 +1,19 @@
-```cpp
 #include <iostream>
-#include <vector>
-#include <cmath>
+#include <pmr/vector>
 
-double poly(std::vector<double> coeffs, double x) {
+double poly(std::pmr::vector<double> xs, double x) {
     double res = 0;
-    for (int i = 0; i <= coeffs.size() - 1; i++) {
-        res += coeffs[i] * pow(x, coeffs.size() - 1 - i);
+    for (int i = 0; i <= xs.size() - 1; i++) {
+        res += xs[i] * pow(x, xs.size() - 1 - i);
     }
     return res;
 }
 
-double find_zero(std::vector<double> coeffs) {
+double find_zero(std::pmr::vector<double> coeffs) {
     int n = coeffs.size();
     if (n % 2 != 0)
         return -1;
 
     double root = -coeffs[1]/(2*coeffs[0]); 
     return std::round(root);
-}
-
-int main() {
-    std::vector<double> coeffs;
-    for (double i = 0; i < 5; ++i) {
-        coeffs.push_back(i);
-    }
-    double x = 2.0; 
-    double result = poly(coeffs, x);
-    std::cout << "The polynomial at x = " << x << " is: " << result << "\n";
-    
-    int ncoeff = coeffs.size();
-    double solution = find_zero(coeffs);
-    std::cout << "The zero of the polynomial is: " << solution << "\n";
-
-    return 0;
 }
