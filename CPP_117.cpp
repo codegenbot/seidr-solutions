@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
 
-bool issame(vector<pair<string, int>> a, vector<pair<string, int>> b) {
+bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
     return a == b;
 }
 
@@ -40,8 +39,6 @@ vector<pair<int, string>> select_words(string s, int n) {
 }
 
 int main() {
-    vector<pair<string, int>> expected = {"{1, \"b\"}", "{1, \"c\"}", "{1, \"d\"}", "{1, \"f\"}"};
-    vector<pair<string, int>> output = select_words("a b c d e f", 1);
-    assert(issame(expected, output));
+    assert(issame(select_words("a b c d e f", 1), vector<pair<int, string>>({{1, "b"}, {1, "c"}, {1, "d"}, {1, "f"}})));
     return 0;
 }
