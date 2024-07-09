@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <cmath>
@@ -9,5 +8,5 @@ double max_fill(std::vector<std::vector<int>> grid, int capacity) {
     for (const auto& row : grid) {
         total_water += std::accumulate(row.begin(), row.end(), 0);
     }
-    return std::ceil((total_water + static_cast<double>(capacity - 1)) / static_cast<double>(capacity));
+    return std::ceil((total_water + capacity - 1.0) / static_cast<double>(capacity));
 }
