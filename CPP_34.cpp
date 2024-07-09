@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -25,8 +26,8 @@ int solution() {
         }
         it = nextIt;
     }
-    std::vector<int> unique({*(uniqueVec.begin()), *(uniqueVec.end()-1)});
-    assert(issame(unique, uniqueVec));
+    std::vector<int> result({*(uniqueVec.begin()), *(uniqueVec.end()-1)});
+    assert(issame(result, uniqueVec));
     return 0;
 }
 
