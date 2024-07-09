@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string>& a, vector<string>& b) {
+bool issame(vector<std::string> a, vector<std::string> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -15,7 +15,7 @@ bool issame(vector<string>& a, vector<string>& b) {
     return true;
 }
 
-vector<string> filter_by_prefix(vector<std::string> strings, string prefix){
+vector<string> resultVector(vector<std::string> strings, string prefix) {
     vector<string> result;
     for(string s : strings){
         if(s.find(prefix) == 0)
