@@ -1,6 +1,8 @@
 #include <string>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
