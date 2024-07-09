@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -16,10 +17,12 @@ int main() {
     cout << "Enter a number: ";
     cin >> n;
     if (n < 1) {
-        cout << "Invalid input. Please enter a positive integer.\n";
+        string output = "Invalid input. Please enter a positive integer.\n";
+        cout << output; 
     } else {
         int result = fizz_buzz(n);
-        cout << "Result for " << n << ": " << result << endl; 
+        string output = "Result for " + to_string(n) + ": " + to_string(result) + "\n";
+        cout << output;
     }
     return 0;
 }
