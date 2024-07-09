@@ -1,3 +1,17 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool checkSame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 vector<string> by_length(vector<int> arr) {
     vector<int> nums;
     for (int num : arr) {
@@ -45,4 +59,17 @@ vector<string> by_length(vector<int> arr) {
     }
 
     return result;
+}
+
+int main_real() {
+    vector<int> arr = {9, 4, 8};
+    vector<string> result = by_length(arr);
+
+    for (int i = 0; i < result.size(); i++) {
+        if (result[i] != "Nine" && result[i] != "Eight" && result[i] != "Four") {
+            cout << "Difference found: " << result[i] << endl;
+        }
+    }
+
+    return 0;
 }
