@@ -1,11 +1,10 @@
-```c++
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
 int luhn(const vector<int>& digits) {
-    int sum = digits[0]; 
+    int sum = digits[0]; // Initialize sum with the first digit
     bool doubleNext = false;
     
     for (int i = 1; i < digits.size(); i++) {
