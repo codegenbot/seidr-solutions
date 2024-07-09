@@ -2,11 +2,11 @@
 #include<cstring>
 
 int my_strlen(string str){
-    int count = 0;
-    for(int i=0;str[i];i++){
-        count++;
-    }
-    return count;
+    int len = 0;
+    for(char c : str)
+        if(c != '\0')
+            len++;
+    return len;
 }
 
 int main(){
