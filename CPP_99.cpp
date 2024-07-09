@@ -1,4 +1,10 @@
-double num = stod(value);
-    int closestInt = (num > 0) ? floor(num + 0.5) : ceil(num - 0.5);
-    return closestInt;
+float num = stof(value);
+    int lower = floor(num);
+    int upper = ceil(num);
+
+    if (abs(num - lower) < abs(num - upper)) {
+        return lower;
+    } else {
+        return upper;
+    }
 }
