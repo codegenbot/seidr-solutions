@@ -1,5 +1,10 @@
+```cpp
 #include <vector>
 #include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    // Your logic here to compare vectors 'a' and 'b'
+}
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
