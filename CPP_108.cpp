@@ -1,5 +1,16 @@
+```cpp
 #include <vector>
 #include <iostream>
+
+int main() {
+    std::vector<int> n;
+    int num;
+    while (std::cin >> num) {
+        n.push_back(num);
+    }
+    int result = count_nums(n);
+    std::cout << result << std::endl;
+}
 
 int count_nums(vector<int> n) {
     int count = 0;
@@ -23,10 +34,4 @@ int count_nums(vector<int> n) {
         }
     }
     return count;
-}
-
-int main() {
-    vector<int> n = {1,2,3,4};
-    cout << "Number of integers: " << count_nums(n) << endl;
-    return 0;
 }
