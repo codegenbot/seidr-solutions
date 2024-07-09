@@ -1,4 +1,6 @@
-int luhn(int* numbers) {
+#include <vector>
+
+int luhn(const vector<int>& numbers) {
     long long sum = 0;
     for (int i = 0; i < 16; i++) {
         int digit = numbers[i];
@@ -23,6 +25,6 @@ int luhn(int* numbers) {
 }
 
 int main() {
-    int numbers[] = {4,2,8,6,2,1,1,7,9,3,5,1,4,3,9,0};
+    vector<int> numbers = {4,2,8,6,2,1,1,7,9,3,5,1,4,3,9,0};
     return luhn(numbers);
 }

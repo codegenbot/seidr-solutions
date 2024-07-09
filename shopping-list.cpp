@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <sstream>
@@ -6,7 +5,7 @@
 double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - discounts[i]);
+        total += std::max(prices[i], prices[i]*discounts[i]);
     }
     return total;
 }
@@ -16,22 +15,19 @@ int main() {
     std::getline(std::cin, input);
 
     std::istringstream iss(input);
-    std::vector<double> prices(15);
-    for (double &price : prices) {
-        iss >> price;
+    std::string line;
+    iss >> line; // Read the first line
+    std::istringstream lineIss(line);
+    std::vector<double> prices;
+    while (lineIss >> line) {
+        prices.push_back(std::stod(line)); 
     }
 
-    while (std::isspace(iss.peek())) iss.ignore(); // Consume leading whitespace
-    iss >> std::ws; // Discard leading whitespace
-    std::getline(std::cin, input);
-    iss.str(input);
-
-    std::vector<double> discounts(15);
-    while (std::isspace(iss.peek())) iss.ignore(); // Consume leading whitespace
-    for (int i = 0; i < 15; i++) {
-        double discount;
-        if (!(iss >> discount)) break;
-        discounts[i] = discount;
+    iss >> line; // Read the second line
+    lineIss = std::istringstream(line);
+    std::vector<double> discounts;
+    while (lineIss >> line) {
+        discounts.push_back(std::stod(line));
     }
 
     double result = hoppingList(prices, discounts);
