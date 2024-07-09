@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -24,17 +24,16 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     return result;
 }
 
-int main() {
+void startGame() {
     int n;
     std::cout << "Enter the number of elements: ";
-    while (!(std::cin >> n)) { 
+    if (!(std::cin >> n)) { 
         std::cerr << "Error: Please enter a non-negative integer." << std::endl;
-        std::cin.clear(); // Clear the error flag
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the rest of the line
+        return; 
     }
     if(n < 0) {
         std::cerr << "Error: Number of elements should be non-negative." << std::endl;
-        return -1; 
+        return; 
     }
 
     // Create a new vector and fill space
@@ -44,21 +43,18 @@ int main() {
         while(true) {
             std::cout << "Enter element " << i+1 << ": ";
             if (!(std::cin >> temp)) { 
-                // Clear the error flag and ignore the rest of the line
-                std::cin.clear(); 
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                
-                // Ask user to enter a number again
-                std::cout << "Invalid input. Please enter a non-negative integer: ";
-            } else {
-                if(temp < 0) {
-                    std::cerr << "Error: Number of elements should be non-negative." << std::endl;
-                    return -1; 
-                }
-                break;
+                std::cerr << "Error: Please enter a non-negative integer." << std::endl;
+                std::cin.clear(); // Clear the error flag
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the rest of the line
+                return; 
             }
+            if(temp < 0) {
+                std::cerr << "Error: Number of elements should be non-negative." << std::endl;
+                return; 
+            }
+            game.push_back(temp);
+            break;
         }
-        game.push_back(temp);
     }
     
     // Create a new vector and fill space
@@ -68,21 +64,18 @@ int main() {
         while(true) {
             std::cout << "Enter element " << i+1 << ": ";
             if (!(std::cin >> temp)) { 
-                // Clear the error flag and ignore the rest of the line
-                std::cin.clear(); 
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                
-                // Ask user to enter a number again
-                std::cout << "Invalid input. Please enter a non-negative integer: ";
-            } else {
-                if(temp < 0) {
-                    std::cerr << "Error: Number of elements should be non-negative." << std::endl;
-                    return -1; 
-                }
-                break;
+                std::cerr << "Error: Please enter a non-negative integer." << std::endl;
+                std::cin.clear(); // Clear the error flag
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the rest of the line
+                return; 
             }
+            if(temp < 0) {
+                std::cerr << "Error: Number of elements should be non-negative." << std::endl;
+                return; 
+            }
+            guess.push_back(temp);
+            break;
         }
-        guess.push_back(temp);
     }
     
     if(issame(game, guess)) {
@@ -93,4 +86,8 @@ int main() {
             std::cout << "Element " << i+1 << ": " << result[i] << std::endl;
         }
     }
+}
+
+int main() {
+    startGame();
 }
