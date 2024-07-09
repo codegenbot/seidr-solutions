@@ -1,5 +1,3 @@
-import sys
-
 def check_numbers(numbers, threshold):
     numbers.sort()
     for i in range(len(numbers) - 1):
@@ -7,14 +5,8 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
-input_numbers = raw_input("Enter numbers separated by space: ") if sys.version_info[0] < 3 else input("Enter numbers separated by space: ")
-try:
-    numbers = [int(x) for x in input_numbers.split()]
-except ValueError:
-    print("Invalid input format. Please provide space-separated numbers.")
-    exit()
-
-threshold = int(input("Enter threshold value: "))
+numbers = list(map(int, input().split()))
+threshold = int(input())
 
 result = check_numbers(numbers, threshold)
 print(result)
