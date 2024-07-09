@@ -6,6 +6,5 @@ def process_numbers(numbers, delimeter):
         else []
     )
 
-# Call the function with appropriate arguments
 result = process_numbers(numbers, delimiter)
 print(result)
