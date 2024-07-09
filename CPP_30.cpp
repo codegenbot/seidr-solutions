@@ -14,4 +14,4 @@ bool issame(std::vector<float> vector1, std::vector<float> vector2) {
     return vector1 == vector2;
 }
 
-assert(is_same(get_positive({}), {}) || exit(1);
+assert(is_same(get_positive({}), {}) || return 1;);
