@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,19 +15,22 @@ std::vector<std::string> words_string(std::string s){
     std::string word = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
-            if(word.length() <= 30 || word.length() > 0){ 
+            if(word.size() <= 30){ 
                 result.push_back(word);
                 word = "";
             }
         }else{
-            word += s[i];
+            if((s[i] != ' ') && (s[i] != ',')){
+                word += s[i];
+            }
         }
     }
-    if(word.length() <= 30 || word.length() > 0) 
+    if(word.size() <= 30)  
         result.push_back(word);
     return result;
 }
 
 int main(){
-    assert (issame(words_string("ahmed     , gamal") , std::vector<std::string> {"ahmed", "gamal"}));
+    assert(issame(words_string("ahmed     , gamal"), std::vector<std::string>{"ahmed", "gamal"}));
+    return 0;
 }
