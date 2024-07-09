@@ -1,3 +1,8 @@
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     int ans = 0;
@@ -16,4 +21,11 @@ int max_fill(vector<vector<int>> grid, int capacity) {
         }
     }
     return ans;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1, 0, 0}, {1, 0, 1}, {1, 0, 1}};
+    int capacity = 2;
+    cout << max_fill(grid, capacity) << endl;
+    return 0;
 }
