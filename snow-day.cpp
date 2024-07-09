@@ -1,6 +1,5 @@
-```cpp
 #include <iostream>
-#include <iomanip>
+#include <iomanip> 
 using namespace std;
 
 int main() {
@@ -23,8 +22,9 @@ int main() {
     double totalSnow = initialSnow;
     
     for (int i = 0; i < hours; i++) {
+        double currentSnow = totalSnow - (proportionOfSnowMeltingPerHour * totalSnow);
         totalSnow += rateOfSnowFall;
-        totalSnow -= initialSnow * proportionOfSnowMeltingPerHour;
+        totalSnow = currentSnow;  
     }
     
     cout << fixed << std::setprecision(2);
