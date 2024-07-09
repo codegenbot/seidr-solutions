@@ -1,2 +1,2 @@
-if 'path' is not defined or passed as an argument:
-    return None
+if path:
+    path.pop()  # Backtrack before returning None in dfs function
