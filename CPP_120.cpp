@@ -1,11 +1,18 @@
-Here is the completed code:
+Here is the solution:
 
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
-    for (int i = 0; i < k; ++i) {
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
+    priority_queue<int> pq;
+    for (int i : arr) {
+        pq.push(i);
+        if (pq.size() > k) {
+            pq.pop();
+        }
     }
+    vector<int> result(k);
+    while (!pq.empty()) {
+        result[k - 1] = pq.top();
+        pq.pop();
+        k--;
+    }
+    reverse(result.begin(), result.end());
     return result;
-}
