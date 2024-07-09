@@ -17,7 +17,7 @@ string prime_fib(int num) {
         a = b;
         b = fibNum;
         if (isPrime(fibNum)) {
-            if (fibNum > num) return std::to_string(fibNum).c_str();
+            if (fibNum > num) return to_string(fibNum);
         }
     }
 }
