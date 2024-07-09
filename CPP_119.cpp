@@ -21,6 +21,7 @@ int main() {
     vector<string> lst;
     int n;
     cin >> n;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     for(int i=0; i<n; ++i){
         string s;
         getline(cin, s);
