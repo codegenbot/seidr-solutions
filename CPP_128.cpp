@@ -1,26 +1,15 @@
-Here is the completed code:
+int prod_signs(vector<int> arr) {
+    int sign_product = 1;
+    long sum_magnitude = 0;
 
-```cpp
-#include<stdio.h>
-#include<math.h>
-#include<vector>
-using namespace std;
-
-int prod_signs(vector<int> arr){
-    int signProduct = 1;
-    long long sumMagnitude = 0;
-
-    if(arr.empty())
-        return -32768;
-
-    for(int num : arr){
-        if(num < 0)
-            signProduct *= -1;
-        else if(num > 0)
-            signProduct *= 1;
-        
-        sumMagnitude += abs(num);
+    for (int num : arr) {
+        if (num == 0) {
+            return 0; // short-circuit
+        }
+        int sign = num / abs(num);
+        sign_product *= sign;
+        sum_magnitude += abs(num);
     }
 
-    return signProduct * sumMagnitude;
+    return sign_product * sum_magnitude > INT_MAX ? -32768 : static_cast<int>(sign_product * sum_magnitude);
 }
