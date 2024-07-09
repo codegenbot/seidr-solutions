@@ -1,10 +1,11 @@
-```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
 
-bool areSame(const std::vector<std::string>& a) {
-    return (a.size() == 1);
+bool sameStrings(const std::vector<std::string>& strings) {
+    return std::all_of(strings.begin(), strings.end(), [&strings](const auto& str) {
+        return std::any_of(strings.begin(), strings.end(), [&](auto x) { return x == str; });
+    });
 }
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
@@ -18,7 +19,7 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 }
 
 int main() {
-    assert(areSame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx")) 
+    assert(sameStrings(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx")) 
            == std::vector<std::string>({"xxx", "xxxA", "xxx"}));
     return 0;
 }
