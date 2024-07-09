@@ -1,20 +1,17 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <utility>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> nodes;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0) {
-            nodes.push_back({arr[i], i});
+            result.push_back(arr[i]);
         }
     }
-    if (nodes.empty()) {
-        return {};
-    }
-    sort(nodes.begin(), nodes.end());
-    return {nodes[0].first, nodes[0].second};
+    return result;
 }
