@@ -1,7 +1,9 @@
-```cpp
-int bowlingScore(std::string s) {
+#include <sstream>
+using namespace std;
+
+int bowlingScore(string s) {
     int score = 0;
-    std::istringstream iss(s);
+    istringstream iss(s);
     char c;
 
     int currentRoll1 = 0;
@@ -53,7 +55,7 @@ int bowlingScore(std::string s) {
 }
 
 int main() {
-    std::string s = "X/X/5-4/10/-9/-8/X/X/6+3/7-2";
+    string s = "X/X/5-4/10/-9/-8/X/X/6+3/7-2";
     int result = bowlingScore(s);
     return result;
 }
