@@ -9,7 +9,7 @@ std::vector<float> get_positive(std::vector<float> v) {
     return result;
 }
 
-bool is_vector_same(std::vector<float> vec1, std::vector<float> vec2) {
+bool is_same(std::vector<float> vec1, std::vector<float> vec2) {
     return vec1 == vec2;
 }
 
@@ -29,14 +29,16 @@ int main() {
         }
     }
 
-    bool same = true;
+    bool issame = true;
 
     for (const auto &vec : input) {
-        if (!is_vector_same(get_positive(vec), { })) {
-            same = false;
+        if (!is_same(get_positive(vec), get_positive({}))) {
+            issame = false;
             break;
         }
     }
+
+    assert(issame);
 
     return 0;
 }
