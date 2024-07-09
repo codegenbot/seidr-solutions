@@ -1,15 +1,6 @@
-```
+```cpp
 #include <iostream>
 using namespace std;
-
-int fizz_buzz(int n);
-
-int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    cout << "The result is: " << fizz_buzz(n);
-}
 
 int fizz_buzz(int n) {
     int count = 0;
@@ -18,4 +9,12 @@ int fizz_buzz(int n) {
             count++;
     }
     return count;
+}
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    cout << "The result is: " << fizz_buzz(n);
+    return 0;
 }
