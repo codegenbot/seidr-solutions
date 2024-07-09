@@ -1,14 +1,15 @@
-def decipher_cipher(cipher_map, message):
+def decipher_cipher(map_to, original, message):
     result = ""
     for char in message:
-        if char in cipher_map[0]:
-            index = cipher_map[0].index(char)
-            result += cipher_map[1][index]
+        if char in original:
+            index = original.index(char)
+            result += map_to[index]
         else:
             result += char
     return result
 
 
-cipher_map = [input(), input()]
+map_to = input()
+original = input()
 message = input()
-print(decipher_cipher((cipher_map,), message))
+print(decipher_cipher(original, map_to, message))
