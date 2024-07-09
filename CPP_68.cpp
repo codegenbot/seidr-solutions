@@ -33,3 +33,7 @@ vector<vector<int>> pluck(vector<int> arr) {
 
     return result;
 }
+
+int main() {
+    return 0;
+}
