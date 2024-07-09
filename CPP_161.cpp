@@ -1,4 +1,3 @@
-#include <string>
 std::string solve(std::string s) {
     std::string result = "";
     for (char c : s) {
@@ -8,4 +7,5 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? s.substr(0, s.size()) : result;
+    return result.empty() ? std::string(s).rbegin() : result;
+}
