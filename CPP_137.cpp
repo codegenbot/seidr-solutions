@@ -1,16 +1,34 @@
-Here is the completed code:
-```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <iostream>
 
 int main() {
-    boost::any a = "hello";
-    boost::any b = "hi";
+    std::string a;
+    int i;
+    std::cout << "Enter an integer or string: ";
+    std::cin >> a;
 
-    boost::any result = compare_one(a, b);
+    try {
+        i = stoi(a);
+    }
+    catch (std::invalid_argument) {
+        boost::any b = a;
+        boost::any c = "hi";
 
-    std::cout << boost::any_cast<std::string>(result) << std::endl;
+        boost::any result = compare_one(b, c);
+
+        std::cout << boost::any_cast<std::string>(result) << std::endl;
+
+        return 0;
+    }
+
+    int j = i;
+    boost::any d = i;
+    boost::any e = j;
+
+    boost::any result2 = compare_two(d, e);
+
+    std::cout << boost::any_cast<int>(result2) << std::endl;
 
     return 0;
 }
@@ -32,37 +50,19 @@ boost::any compare_one(boost::any a, boost::any b) {
         else
             return "Equal";
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int iA = boost::any_cast<int>(a);
-        int iB = boost::any_cast<int>(b);
-        if (iA > iB)
-            return a;
-        else if (iA < iB)
-            return b;
-        else
-            return "Equal";
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        int iA = boost::any_cast<int>(a);
-        double dB = boost::any_cast<double>(b);
-        if (iA > dB)
-            return a;
-        else if (iA < dB)
-            return b;
-        else
-            return "Equal";
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        double dA = boost::any_cast<double>(a);
-        int iB = boost::any_cast<int>(b);
-        if (dA > iB)
-            return a;
-        else if (dA < iB)
-            return b;
-        else
-            return "Equal";
-    }
     else {
         return "Not comparable";
     }
+}
+
+boost::any compare_two(boost::any a, boost::any b) {
+    int i = boost::any_cast<int>(a);
+    int j = boost::any_cast<int>(b);
+
+    if (i > j)
+        return a;
+    else if (i < j)
+        return b;
+    else
+        return "Equal";
 }
