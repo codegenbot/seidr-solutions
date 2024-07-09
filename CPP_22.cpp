@@ -1,4 +1,3 @@
-```cpp
 #include <boost/any.hpp>
 #include <boost/any_cast.hpp>
 
