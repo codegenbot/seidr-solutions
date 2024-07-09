@@ -1,13 +1,9 @@
+```cpp
 #include <string>
 #include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
-            return false;
-    return true;
+    return a == b;
 }
 
 std::vector<int> sort_array(std::vector<int> arr) {
@@ -19,5 +15,5 @@ std::vector<int> sort_array(std::vector<int> arr) {
         }
     };
     std::sort(arr.begin(), arr.end(), comp);
-    return arr;
+    return arr;  // Return the sorted array instead of calling sort_array
 }
