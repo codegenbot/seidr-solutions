@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -23,23 +22,22 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        string temp = to_string(i + 1);
-        temp += ": " + to_string(count) + " character(s) are odd.";
+        string temp = "The number of odd elements is ";
+        temp += to_string(count);
+        temp += " in the string";
+        temp += to_string(i + 1);
+        temp += ".";
         result.push_back(temp);
     }
     return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<string> strVec(n);
-    for (int i = 0; i < n; i++) {
-        getline(cin, strVec[i]);
-    }
-    
-    vector<string> output = odd_count(strVec);
+    vector<string> lst;
+    string temp;
+    while(getline(cin,temp))
+        lst.push_back(temp);
+    vector<string> output = odd_count(lst);
     displayOutput(output);
-
     return 0;
 }
