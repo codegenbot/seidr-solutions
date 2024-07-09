@@ -4,18 +4,18 @@ bool operator==(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
-    std::pair<float, float> closest;
-    float min_diff = std::numeric_limits<float>::max();
-
+    std::vector<std::pair<float, float>> result;
+    double min_diff = std::numeric_limits<double>::max();
+    
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = numbers[j] - numbers[i];
+            double diff = numbers[j] - numbers[i];
             if (std::abs(diff) < min_diff) {
                 min_diff = std::abs(diff);
-                closest = std::make_pair(numbers[i], numbers[j]);
+                result.push_back({numbers[i], numbers[j]});
             }
         }
     }
-
-    return {closest};
+    
+    return result;
 }
