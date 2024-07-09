@@ -1,20 +1,21 @@
 using namespace std;
-
-string solveBoolean(string s) {
+string solveBoolean(std::string s) {
     stack<char> st;
-    bool temp = false;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'T' || s[i] == 'F') {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) return "False";
+            else st.pop();
+        } 
+        else if (s[i] == '|') {
             while (!st.empty()) st.pop();
             st.push(s[i]);
-        } else if (s[i] == '|') {
-            temp = (st.top() == 'T');
-            st.pop();
-        } else if (s[i] == '&') {
-            while (!st.empty() && st.top() != '&') st.pop();
-            if (st.empty()) return "False";
-            st.pop();
+        } 
+        else {
+            st.push(s[i]);
         }
     }
-    return temp ? "True" : "False";
+    return st.top() == 'T' ? "True" : "False";
 }
