@@ -1,4 +1,3 @@
-```
 def spin_words(sentence):
     words = sentence.split()
     short_words = [word for word in words if len(word) < 5]
