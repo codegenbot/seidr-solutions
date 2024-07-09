@@ -1,15 +1,20 @@
-```cpp
+#include <vector>
+#include <iostream>
+#include <string>
+
 std::string kebabToCamel(const std::string& s) {
     std::string result;
     bool capitalize = true;
 
     for (char c : s) {
         if (c == '-') {
-            result += ' '; // Add a space after each '-'
-            capitalize = true; // Start the next group with capitalization
+            result += ' ';
+            capitalize = true;
+        } else if (capitalize) {
+            result += std::toupper(c);
+            capitalize = false;
         } else {
-            result += capitalize ? std::toupper(c) : std::tolower(c);
-            capitalize = false; // Turn off capitalization within groups
+            result += std::tolower(c);
         }
     }
 
