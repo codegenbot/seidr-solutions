@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 bool isSame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -17,8 +18,8 @@ bool isSame(vector<int> a, vector<int> b) {
 vector<int> remove_duplicates(vector<int> numbers) {
     std::vector<int> newVector;
     for(int i:numbers){
-        if(std::find(newVector.begin(), newVector.end(), i) == newVector.end()){
-            newVector.push_back(i);
+        if(std::find(newVector.begin(), newVector.end(), stoi(to_string(i))) == newVector.end()){
+            newVector.push_back(stoi(to_string(i)));
         }
     }
     return newVector;
