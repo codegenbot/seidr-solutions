@@ -2,44 +2,51 @@
 #include <algorithm>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    vector<string> temp;
+    std::vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            switch(i) {
-                case 1:
-                    temp.push_back("One");
-                    break;
-                case 2:
-                    temp.push_back("Two");
-                    break;
-                case 3:
-                    temp.push_back("Three");
-                    break;
-                case 4:
-                    temp.push_back("Four");
-                    break;
-                case 5:
-                    temp.push_back("Five");
-                    break;
-                case 6:
-                    temp.push_back("Six");
-                    break;
-                case 7:
-                    temp.push_back("Seven");
-                    break;
-                case 8:
-                    temp.push_back("Eight");
-                    break;
-                case 9:
-                    temp.push_back("Nine");
-                    break;
-            }
+            temp.push_back(i);
         }
     }
     
     sort(temp.begin(), temp.end());
     
-    reverse(temp.begin(), temp.end());
+    std::vector<std::string> result;
+    for (int i : temp) {
+        std::string s = "";
+        switch (i) {
+            case 1:
+                s = "One";
+                break;
+            case 2:
+                s = "Two";
+                break;
+            case 3:
+                s = "Three";
+                break;
+            case 4:
+                s = "Four";
+                break;
+            case 5:
+                s = "Five";
+                break;
+            case 6:
+                s = "Six";
+                break;
+            case 7:
+                s = "Seven";
+                break;
+            case 8:
+                s = "Eight";
+                break;
+            case 9:
+                s = "Nine";
+                break;
+        }
+        result.push_back(s);
+    }
     
-    return temp;
+    std::reverse(result.begin(), result.end());
+    
+    return result;
 }
