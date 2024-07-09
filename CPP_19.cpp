@@ -1,5 +1,7 @@
-#include <vector>
-#include <algorithm>
+#include<string>
+#include<map>
+#include<vector>
+#include<algorithm>
 using namespace std;
 
 string sort_numbers(string numbers){
