@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -22,19 +21,25 @@ int count_nums(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums;
-    int num;
+    int n;
     
-    while (true) {
-        std::cout << "Enter a number (-1 to finish): ";
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        int num;
+        std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        
-        if (num == -1)
-            break;
-            
         nums.push_back(num);
     }
     
-    std::cout << "Count of positive sums: " << count_nums(nums) << std::endl;
-
+    int result = count_nums(nums);
+    
+    if(result > 0) {
+        std::cout << "There are " << result << " numbers with a sum greater than zero.\n";
+    } else {
+        std::cout << "No number has a sum greater than zero.\n";
+    }
+    
     return 0;
 }
