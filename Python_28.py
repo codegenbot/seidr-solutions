@@ -5,7 +5,6 @@ def concatenate(strings: List[str]) -> str:
     return "".join(strings)
 
 
-strings = input("Enter strings (separated by space): ") # print the prompt before reading the user's input
-print("Enter strings (separated by space): ", end='') 
-strings = input().split()
-print(concatenate(strings))
+strings = input("Enter strings (separated by space): ")
+print(f"Please enter the following and I will concatenate them for you: {strings}")
+print(concatenate(map(str, strings.split())))
