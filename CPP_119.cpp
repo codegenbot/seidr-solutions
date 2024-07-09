@@ -10,10 +10,7 @@ int match_parens(vector<string> lst) {
         }
     }
 
-    if (countOpen == countClose && !lst.empty())
-        return "Yes";
-    else if (!lst.empty())
-        return "No matching parenthesis found";
+    if (countOpen == countClose)
+        return "All parentheses are balanced.\n";
     else
-        return "Input string is empty";
-}
+        return "The parentheses do not match.\n";
