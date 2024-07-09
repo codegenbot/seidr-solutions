@@ -1,40 +1,22 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+sort(nums.begin(), nums.end(), [](int a, int b) {
+        int sum_digits_a = 0, sum_digits_b = 0;
+        int num_a = abs(a), num_b = abs(b);
+        
+        while (num_a > 0) {
+            sum_digits_a += num_a % 10;
+            num_a /= 10;
+        }
+        
+        while (num_b > 0) {
+            sum_digits_b += num_b % 10;
+            num_b /= 10;
+        }
+      
+        if (sum_digits_a == sum_digits_b) {
+            return a < b;
+        }
+        
+        return sum_digits_a < sum_digits_b;
+    });
 
-bool compare(int a, int b) {
-    int sumA = 0, sumB = 0;
-    int tempA = abs(a), tempB = abs(b);
-    
-    while(tempA > 0) {
-        sumA += tempA % 10;
-        tempA /= 10;
-    }
-    
-    while(tempB > 0) {
-        sumB += tempB % 10;
-        tempB /= 10;
-    }
-    
-    if (sumA == sumB) {
-        return a < b;
-    }
-    
-    return sumA < sumB;
-}
-
-vector<int> order_by_points(vector<int> nums){
-    sort(nums.begin(), nums.end(), compare);
     return nums;
-}
-
-int main() {
-    vector<int> input = {1, 11, -1, -11, -12};
-    vector<int> result = order_by_points(input);
-    
-    for (int num : result) {
-        cout << num << " ";
-    }
-    
-    return 0;
-}
