@@ -20,6 +20,6 @@ std::string int_to_roman(int number) {
 }
 
 int main() {
-    std::cout << int_to_roman(1000) << std::endl;
+    std::cout << int_to_roman(1000).c_str() << std::endl;
     return 0;
 }

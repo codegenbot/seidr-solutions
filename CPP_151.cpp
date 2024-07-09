@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-int newMain() {
+int main() {
     int n;
     std::vector<size_t> input;
     std::cout << "Enter the number of elements: ";
