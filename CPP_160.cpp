@@ -1,12 +1,14 @@
+#include <iostream>
 #include <vector>
-#include <utility>
+#include <pair>
+#include <cmath>
 
 int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
     if (operators_and_operands.size() == 0) {
         return 0;
     }
     
-    int result = operators_and_operands[0].second;
+    double result = static_cast<double>(operators_and_operands[0].second);
     for (const auto& pair : operators_and_operands) {
         if (pair.first == '+') {
             result += pair.second;
@@ -15,16 +17,14 @@ int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
         } else if (pair.first == '*') {
             result *= pair.second;
         } else if (pair.first == '/') {
-            if (pair.second != 0) {
+            if(pair.second != 0) {
                 result /= pair.second;
             }
         } else if (pair.first == '**') {
-            long long temp = 1; 
-            for(int i=0;i<pair.second;i++){
-                temp*=result;
+            for(int i = 1; i < pair.second; i++) {
+                result *= operators_and_operands[operators_and_operands.size()-1].second;
             }
-            result = temp;
         }
     }
-    return result;
+    return static_cast<int>(result);
 }
