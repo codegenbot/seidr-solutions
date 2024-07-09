@@ -1,11 +1,8 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
-    bool canMakeEven = true;
-    for (int num : lst1) {
-        if (num % 2 != 0) {
-            canMakeEven = false;
-            break;
-        }
+    int oddCount = 0;
+    for (int i : lst1) {
+        if (i % 2 != 0)
+            oddCount++;
     }
-    if (!canMakeEven) return "NO";
-    return "YES";
+    return oddCount > 0 ? "NO" : "YES";
 }
