@@ -1,3 +1,3 @@
-strings = input().split(' ')
-result = max(strings, key=len)
+strings = input().split()
+result = longest(strings)
 print(result)
