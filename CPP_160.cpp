@@ -1,4 +1,3 @@
-```cpp
 #include <sstream>
 #include <vector>
 #include <utility>
@@ -39,7 +38,7 @@ int main() {
     std::string str = "++7*3+4";
     std::istringstream iss(str);
     
-    char op;
+    char op = '+';
     int operand = 0; // initialize operand variable
     std::vector<pair> operators_and_operands;
     std::string token;
