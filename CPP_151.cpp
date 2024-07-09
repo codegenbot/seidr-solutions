@@ -15,16 +15,10 @@ int main() {
     vector<float> lst; 
     float odd_sum = 0.0f; 
 
-    int n; // number of elements in the list
-    cin >> n;
-
-    for(int i=0; i<n; i++){
-        float x; 
-        cin >> x;
-        if(x > 0 && floor(x) == x){
-            odd_sum += pow(x, 2);
+    for(float i : std::cin >> i) {
+        if(i > 0 && floor(i) == i) { 
+            odd_sum += pow(i, 2);
         }
-        lst.push_back(x);
     }
 
     assert(double_the_difference(lst) == odd_sum); 
