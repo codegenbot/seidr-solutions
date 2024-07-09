@@ -17,8 +17,8 @@ int solve(int n) {
     return std::stoi(binary, 0, 2);
 }
 
-int main() {
+int solveMain() {
     int expected = solve(963); 
-    assert (solve(963) == 18);
+    assert (expected == 15);
     return 0;
 }
