@@ -1,38 +1,31 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    string word = "";
-    
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (word.length() >= 5) {
-                for (int j = word.length() - 1; j >= 0; j--)
-                    result += word[j];
-            } else
-                result += word;
-            word = "";
-        } else
-            word += str[i];
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::size_t pos = 0;
+    while ((pos = str.find(" ")) != std::string::npos) {
+        std::size_t nextPos = str.find(" ", pos + 1);
+        if (nextPos == std::string::npos) {
+            nextPos = str.length();
+        }
+        std::string word = str.substr(pos, nextPos - pos);
+        if (word.length() >= 5) {
+            std::reverse(word.begin(), word.end());
+        }
+        result += word + " ";
+        pos = nextPos;
     }
-    
-    if (word.length() >= 5)
-        for (int i = word.length() - 1; i >= 0; i--)
-            result += word[i];
-    else
-        result += word;
-    
     return result;
 }
 
 int main() {
-    string s;
-    cout << "Enter a sentence: ";
-    getline(cin, s);
-    cout << spinWords(s) << endl;
+    // You can test your function here
+    std::cout << spinWords("a") << std::endl; 
+    std::cout << spinWords("this is a test") << std::endl; 
+    std::cout << spinWords("this is another test") << std::endl; 
+    std::cout << spinWords("hi") << std::endl; 
     return 0;
 }
