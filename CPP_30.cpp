@@ -28,15 +28,15 @@ int main() {
     int n;
     while (!(std::cin >> n) || n < 1)
 {
-        std::cout << "Enter element number: ";
+    std::cout << "Enter element number: ";
 }
-    std::vector<float> numbers;
-    for(int i=0; i<n; i++)
+for(int i=0; i<n; i++)
 {
-        std::cout << "Enter element " << i + 1 << ": ";
-        float num;
-        std::cin >> num;
-        numbers.push_back(num);
+    std::cout << "Enter element " << i + 1 << ": ";
+    float num;
+    std::cin >> num;
+    std::vector<float> numbers = std::vector<float>();
+    numbers.push_back(num);
 }
 
     std::vector<float> positiveNumbers = getPositive(numbers);
