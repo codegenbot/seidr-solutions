@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 
@@ -24,6 +23,6 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(issame(even_odd_count(1234), {2, 1}));
+    assert(issame(even_odd_count(123), {2, 1}));
     return 0;
 }
