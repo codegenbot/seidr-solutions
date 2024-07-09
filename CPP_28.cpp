@@ -1,9 +1,11 @@
-Here is the completed code:
+#include <vector>
+#include <string>
+using namespace std;
 
-string concatenate(vector<string> strings){
+string concatenate(vector<string> strings) {
     string result = "";
-    for (const auto& str : strings) {
-        result += str;
+    for (const auto& s : strings) {
+        result += s;
     }
     return result;
 }
