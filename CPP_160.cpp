@@ -1,16 +1,15 @@
+```cpp
 #include <cstdlib>
-#include <string>
 #include <vector>
+#include <string>
 
-using namespace std;
-
-int do_algebra(vector<string> operator_, vector<int> operand) {
+int do_algebra(vector<int> operand_, vector<string> operator_) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
-        expression += to_string(operand[i]);
+        expression += to_string(operand_[i]);
         expression += operator_[i];
     }
-    expression += to_string(operand.back());
+    expression += to_string(operand_.back());
     
     int result = eval(expression);
     
@@ -25,17 +24,24 @@ int eval(const string& s) {
     
     int start = 0, sign = 1;
     for (int i = 0; i < s.size(); i++) {
-        if (!ispunct(s[i])) {
-            if (s[start + i - 1] == '+') {
+        if (!isdigit(s[i])) {
+            if (s[i] == '+') {
                 sign = 1;
-            } else if (s[start + i - 1] == '-') {
+            } else if (s[i] == '-') {
                 sign = -1;
             }
             start = i + 1;
         } else {
-            result += sign * stoi(s.substr(start, 1));
-            start = i + 1;
+            result += sign * std::atoi(std::string(1, s[i]).c_str());
         }
     }
     
     return result;
+}
+
+int main() {
+    vector<int> oper = {7, 3, 4};
+    vector<string> op = {"//", "*"};
+    int result = do_algebra(oper, op);
+    return 0;
+}
