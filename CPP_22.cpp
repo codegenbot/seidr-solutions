@@ -1,29 +1,26 @@
 #include <vector>
 #include <list>
+#include <optional>
 
-bool issame(const std::vector<std::any>& a, const std::vector<std::any>& b) {
+bool issame(const std::vector<std::any> &a, const std::vector<std::any> &b) {
     if (a.size() != b.size())
         return false;
     for (size_t i = 0; i < a.size(); i++) {
-        bool a_bool = a[i].cast<bool>();
-        bool b_bool = b[i].cast<bool>();
-        if (!a_bool || !b_bool)
+        auto bool_val_a = std::any_cast<bool>(a[i]);
+        auto bool_val_b = std::any_cast<bool>(b[i]);
+        if (!bool_val_a || !bool_val_b)
             continue;
-        int a_int = a[i].cast<int>();
-        int b_int = b[i].cast<int>();
-        if (a_int != b_int)
+        if (std::any_cast<int>(a[i]) != std::any_cast<int>(b[i]))
             return false;
     }
     return true;
 }
 
-std::vector<int> filter_integers(const std::list<std::any>& values) {
+std::vector<int> filter_integers(const std::list<std::any> &values) {
     std::vector<int> result;
-    for (const auto& value : values) {
-        bool value_bool = value.cast<bool>();
-        if (value_bool) {
-            int value_int = value.cast<int>();
-            result.push_back(value_int);
+    for (const auto &value : values) {
+        if (std::any_cast<bool>(value)) {
+            result.push_back(std::any_cast<int>(value));
         }
     }
     return result;
