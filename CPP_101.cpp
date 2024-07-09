@@ -35,7 +35,7 @@ bool isSameVectors(vector<string> a, vector<string> b) {
 
 int testMain() {
     vector<string> v1 = splitString("ahmed     , gamal");
-    sort(v1.begin(), v1.end()); 
+    sort(v1.begin(), v1.end()); // Sort the vectors to compare correctly
     assert(isSameVectors(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
