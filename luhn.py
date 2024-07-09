@@ -11,6 +11,6 @@ def luhn():
                 total += doubled
         else:
             total += num
-    return total
+    return "Invalid" if (total + card_number[-1]) % 10 != 0 else "Valid"
 
 print(luhn())
