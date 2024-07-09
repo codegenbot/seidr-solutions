@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 #include <cmath>
@@ -20,7 +21,19 @@ int prod_signs(const std::vector<int>& arr) {
         sumMagnitudes += std::abs(num);
     }
     
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
-    
     return signProduct * sumMagnitudes;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> arr[i];
+    }
+    
+    std::cout << prod_signs(arr) << std::endl;
+    
+    return 0;
 }
