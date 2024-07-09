@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 
+using namespace std;
+
 string find_max(vector<string> words){
     string max_word = *max_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
@@ -13,8 +15,6 @@ string find_max(vector<string> words){
     return max_word;
 }
 
-int main() {
-    vector<string> words = {"play", "play", "play"};
-    assert(find_max(words) == "play");
-    return 0;
+int main(){
+    assert ((find_max({"play", "play", "play"}) == "play"));
 }
