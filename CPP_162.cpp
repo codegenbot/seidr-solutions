@@ -1,24 +1,21 @@
+```cpp
 #include <string>
-#include <openssl/ssl.h>
-#include <openssl/x509v3.h>
-#include <openssl/evp.h>
+#include <openssl/md5.h>
 
 using namespace std;
+
+extern "C" {
+    #include <openssl/md5.h>
+}
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md5[16];
-    EVP_MD_CTX* ctx = EVP_MD_CTX_create();
-    EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
-    EVP_DigestUpdate(ctx, text.c_str(), text.size());
-    unsigned char *digest;
-    int len;
-    EVP_DigestFinal_ex(ctx, &md5, &len);
-    EVP_MD_CTX_destroy(ctx);
+    MD5((const unsigned char*)text.c_str(), text.size(), md5);
 
     string result;
-    for (int i = 0; i < len; ++i) {
+    for (int i = 0; i < 16; ++i) {
         char buffer[3];
         sprintf(buffer, "%02x", md5[i]);
         result += buffer;
