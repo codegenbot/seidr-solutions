@@ -1,10 +1,13 @@
-string solve(int N) {
+#include <iostream>
+#include <string>
+
+std::string solve(int N) {
     int sum = 0;
     while (N > 0) {
         sum += N % 2;
         N /= 2;
     }
-    string result = "";
+    std::string result = "";
     while (sum > 0) {
         if (sum & 1)
             result.push_back('1');
@@ -12,6 +15,6 @@ string solve(int N) {
             result.push_back('0');
         sum >>= 1;
     }
-    reverse(result.begin(), result.end());
+    std::reverse(result.begin(), result.end());
     return result;
 }
