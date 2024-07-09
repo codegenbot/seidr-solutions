@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -10,8 +9,7 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     int result = starts_one_ends(n);
-    string output = "";
-    output += to_string(result) + " numbers of " + to_string(n) + "-digit positive integers that start or end with 1";
+    string output = to_string(result) + " numbers of " + to_string(n) + "-digit positive integers that start or end with 1";
     cout << output << endl;
     return 0;
 }
