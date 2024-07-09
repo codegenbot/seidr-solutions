@@ -1,26 +1,23 @@
 ```cpp
-#include <iostream>
-#include <string>
 #include <cassert>
+#include <iostream>
 
-using namespace std;
+bool is_palindrome(const std::string& s) {
+    int left = 0;
+    int right = s.length() - 1;
 
-bool is_palindrome(string text){
-    int start = 0;
-    int end = text.length() - 1;
-
-    while(start < end){
-        if(text[start] != text[end])
+    while (left < right) {
+        if (s[left] != s[right])
             return false;
-        start++;
-        end--;
+        left++;
+        right--;
     }
 
     return true;
 }
 
-int main(){
+int main() {
     assert(is_palindrome("xywzx") == false);
-    cout << "Test passed.\n";
+    std::cout << "Test passed.\n";
     return 0;
 }
