@@ -1,12 +1,14 @@
+```cpp
 #include <iostream>
 #include <string>
 
 bool is_bored(std::string S) {
     int count = 0;
     std::string boredom = "I";
-    for (int i = 0; i < S.size(); i++) {
-        if (S[i] == 'I') {
+    for (int i = 0; i + boredom.size() <= S.size(); i++) {
+        if (S.substr(i, boredom.size()).compare(boredom) == 0) {
             count++;
+            i += boredom.size();
         }
     }
 
