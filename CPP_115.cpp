@@ -1,7 +1,18 @@
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int total_water = 0;
-    for (const auto& row : grid) {
-        total_water += std::accumulate(row.begin(), row.end(), 0);
+    int count = 0;
+    for (int i = 0; i < grid.size(); i++) {
+        for (int j = 0; j < grid[0].size(); j++) {
+            if (grid[i][j] == 1) {
+                int remain = capacity;
+                while (remain > 0 && j < grid[0].size()) {
+                    if (grid[i][j] == 1) {
+                        remain--;
+                    }
+                    j++;
+                }
+                count += (capacity - remain);
+            }
+        }
     }
-    return total_water / capacity + (total_water % capacity != 0);
+    return count;
 }
