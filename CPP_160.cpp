@@ -1,8 +1,5 @@
-#include <string>
-#include <vector>
-#include <cmath>
-
-int std::do_algebra(std::vector<std::string> operators, std::vector<int> operands) {
+```
+int doAlgebra(std::vector<std::string> operators, std::vector<int> operands) {
     int result = 0;
     for (int i = 0; i < operators.size(); i++) {
         if (operators[i] == "+") {
@@ -42,9 +39,4 @@ int std::do_algebra(std::vector<std::string> operators, std::vector<int> operand
         }
     }
     return result;
-}
-
-int main() {
-    assert(std::do_algebra({"//", "*"}, {7, 3, 4}) == 8);
-    // ...
 }
