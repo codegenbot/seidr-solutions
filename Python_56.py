@@ -1,8 +1,11 @@
-def get_largest_number():
-    n = int(input("Enter the number of elements in the array: "))
-    largest_num = -1
-    for _ in range(n):
-        num = float(input(f"Enter {i+1}th element: "))
-        if num > largest_num:
-            largest_num = num
-    return largest_num
+# Your comments here if needed
+
+def correct_bracketing(brackets: str):
+    stack = []
+    for bracket in brackets:
+        if bracket == "<":
+            stack.append("<")
+        elif bracket == ">":
+            if len(stack) == 0 or stack.pop() != "<":
+                return False
+    return len(stack) == 0
