@@ -1,18 +1,11 @@
-```cpp
 #include <iostream>
 #include <set>
 #include <vector>
 
 using namespace std;
 
-bool issame(vector<int> v1, vector<int> v2) {
-    set<int> setA;
-    setA.insert(v1.begin(), v1.end());
-
-    set<int> setB;
-    setB.insert(v2.begin(), v2.end());
-
-    return setA == setB;
+bool isSame(set<int> s1, set<int> s2) {
+    return s1 == s2;
 }
 
 int main() {
@@ -24,7 +17,7 @@ int main() {
     vector<int> v;
     for (int i : {n1, n2, n3, n4, n5, n6, n7}) v.push_back(i);
 
-    bool result = issame({n1, n2, n3}, vector<int>(v.begin() + 3, v.end()));
+    bool result = isSame(set<int>({n1, n2, n3}), set<int>(v.begin() + 3, v.end()));
     if(result) {
         cout << "The sets are same." << endl;
     } else {
