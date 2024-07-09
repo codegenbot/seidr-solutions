@@ -4,4 +4,4 @@ def rolling_max(numbers):
 
 numbers = list(map(int, input().split()))
 result = rolling_max(numbers)
-print(result)
+print(*result)
