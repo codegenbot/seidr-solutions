@@ -7,11 +7,11 @@ string intToMiniRoman(int number) {
     for (const auto& p : roman) {
         while (number >= p.first) {
             number -= p.first;
-            result += p.second;
+            result += tolower(p.second);
         }
     }
 
-    return tolower(result);
+    return result;
 }
 
 int main() {
