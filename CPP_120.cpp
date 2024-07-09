@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -17,7 +16,7 @@ vector<int> maximum(vector<int> arr, int k) {
     return result;
 }
 
-int main() {
+int original_main() {
     assert(maximum({1, 2, 3, -23, 243, -400, 0}, 7) == vector<int>({0, 2, 3}));
     return 0;
 }
