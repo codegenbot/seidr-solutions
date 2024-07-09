@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -18,6 +19,7 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
         }
     }
     return result;
+
 }
 
 int main() {
@@ -25,3 +27,4 @@ int main() {
     vector<string> actual = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
     assert(issame(actual, expected));
     return 0;
+}
