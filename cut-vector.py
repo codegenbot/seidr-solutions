@@ -19,4 +19,4 @@ subvector1 = arr[: cut_index + 1]
 subvector2 = arr[cut_index + 1 :]
 
 print("\n".join(map(str, subvector1)))
-print("\n".join(map(str, subvector2)))
+print("\n".join(map(str, subvector2)))-1
