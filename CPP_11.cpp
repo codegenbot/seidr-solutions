@@ -21,15 +21,17 @@ int main() {
         std::string str1, str2;
         std::cout << "Enter the first string: ";
         std::getline(std::cin, str1);
-
+        
         std::cout << "Enter the second string: ";
         std::getline(std::cin, str2);
-        
-        std::string str1_copy = str1;  // Make a copy of str1
-        std::string str2_copy = str2;  // Make a copy of str2
+
+        str1.erase(str1.begin(), str1.end() - 1);
+        str2.erase(str2.begin(), str2.end() - 1);
+        str1.resize(str1.length());
+        str2.resize(str2.length());
 
         try {
-            std::string result = string_xor(str1_copy, str2_copy);
+            std::string result = string_xor(str1, str2);
             std::cout << "XOR of the two strings is: " << result << std::endl;
         } catch (const std::invalid_argument& e) {
             std::cout << "Error: " << e.what() << std::endl;
