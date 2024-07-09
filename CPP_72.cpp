@@ -3,12 +3,14 @@ int sum = 0;
         sum += q[i];
     }
     
-    if (sum > w) {
-        return false;
+    if (sum <= w) {
+        vector<int> rev_q = q;
+        reverse(rev_q.begin(), rev_q.end());
+        
+        if (q == rev_q) {
+            return true;
+        }
     }
     
-    vector<int> reversed = q;
-    reverse(reversed.begin(), reversed.end());
-    
-    return q == reversed;
+    return false;
 }
