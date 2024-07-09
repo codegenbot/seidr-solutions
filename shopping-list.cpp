@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <sstream>
@@ -12,18 +11,18 @@ double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
     return total;
 }
 
-double std::stream_string_to_vector(std::string s) {
-    std::istringstream iss(s);
-    std::vector<std::string> strVec;
-    std::string line;
-    while (std::getline(iss, line, ' ')) {
+double stream_string_to_vector(string s) {
+    istringstream iss(s);
+    vector<string> strVec;
+    string line;
+    while (getline(iss, line, ' ')) {
         strVec.push_back(line);
     }
-    std::vector<double> vec;
+    vector<double> vec;
     for (const auto& str : strVec) {
-        vec.push_back(std::stod(str));
+        vec.push_back(stod(str));
     }
-    return 0.0; // Return type changed to double
+    return vec;
 }
 
 int main() {
@@ -32,6 +31,9 @@ int main() {
 
     std::istringstream iss(input);
     std::string line;
+    iss >> line; // Read the first line
+    std::vector<double> prices;
+    std::vector<double> discounts;
     while (std::getline(iss, line)) {
         if (!prices.empty()) {
             std::istringstream lineIss(line);
@@ -39,7 +41,7 @@ int main() {
                 prices.push_back(std::stod(line)); 
             }
         } else {
-            discounts = std::stream_string_to_vector(line);
+            discounts = stream_string_to_vector(line);
         }
     }
 
