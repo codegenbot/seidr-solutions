@@ -1,14 +1,9 @@
-Here is the solution:
+def find_pair(n, numbers):
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            if abs(sum((numbers[i], numbers[j])) - n) < 0.001:
+                return str(numbers[i]) + "\n" + str(numbers[j])
 
-def find_pair(input_list):
-    target_sum = int(input())
-    for i in range(len(input_list)):
-        for j in range(i+1, len(input_list)):
-            if input_list[i] + input_list[j] == target_sum:
-                return '{}\n{}'.format(input_list[i], input_list[j])
-    return 'No pair found'
 
-if __name__ == '__main__':
-    n = int(input())
-    nums = [int(x) for x in input().split()]
-    print(find_pair(nums))
+n = int(input())
+print(find_pair(n, [int(x) for x in input().split("\n")[1:-1]]))
