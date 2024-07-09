@@ -1,31 +1,19 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
+#include <openssl/md5.h>
 
-std::string string_to_md5(const std::string& str) {
-    // Include necessary library for MD5 calculation
-    #include <md5.h>
+std::string string_to_md5(const std::string& input) {
+    unsigned char buffer[MD5_DIGEST_LENGTH];
+    MD5((const unsigned char*)input.c_str(), input.size(), buffer);
+    char hash[33]; 
+    for(int i = 0 ;i<MD5_DIGEST_LENGTH;i++) 
+       sprintf("%02hhx", &buffer[i]);
+    return std::string(hash); 
+}
 
-    MD5_CTX ctx;
-    unsigned char hash[16];
-    int len = strlen(str.c_str());
-    
-    // Update the context based on input string
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, str.c_str(), len);
-
-    // Calculate and store MD5 hash in hash array
-    MD5_Final(hash,&ctx);
-
-    std::stringstream ss;
-    for(int i = 0; i < 16; i++){
-        char c = ((char*)&hash[i])[0];
-        if(c >= 'a' && c <= 'f')
-            ss << 'f';
-        else if (c >= '0' && c <= '9')
-            ss << c;
-        else
-            ss << '%', c;
-    }
-
-    return ss.str();
+int main() {
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    return 0;
 }
