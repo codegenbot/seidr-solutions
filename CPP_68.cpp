@@ -1,23 +1,13 @@
-Here is the completed code:
-
 vector<int> pluck(vector<int> arr) {
-    vector<int> result;
-    if (arr.empty()) return result;
-
-    int minEven = INT_MAX;
-    int minIndex = -1;
-
+    vector<pair<int, int>> evens;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
-            minIndex = i;
+        if (arr[i] % 2 == 0) {
+            evens.push_back({arr[i], i});
         }
     }
-
-    if (minIndex != -1) {
-        result.push_back(minEven);
-        result.push_back(minIndex);
+    if (evens.empty()) {
+        return {};
     }
-
-    return result;
+    sort(evens.begin(), evens.end());
+    return {{evens[0].first, evens[0].second}};
 }
