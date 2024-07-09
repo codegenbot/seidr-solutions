@@ -1,45 +1,27 @@
-#include <vector>
 #include <algorithm>
-using namespace std;
+#include <vector>
+#include <string>
 
-bool isSame(vector<string> v1, vector<string> v2) {
-    if(v1.size() != v2.size()) return false;
-    for(auto str : v1) {
-        auto it = find(v2.begin(), v2.end(), str);
-        if(it == v2.end()) return false;
-    }
-    return true;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
-    }
-    sort(result.begin(), result.end(), 
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
+std::vector<string> sorted_list_sum(vector<string> lst) {
+    auto it = remove_if(lst.begin(), lst.end(), 
+                        [](const string& str){ return str.length() % 2; });
+    lst.erase(it, lst.end());
+    sort(lst.begin(), lst.end(),
+         [](const string& a, const string& b){
+             if (a.length() == b.length()) {
                  return a < b;
+             } else {
+                 return a.length() < b.length();
              }
          });
-    return result;
+    return lst;
 }
 
 int main() {
-    vector<string> v1 = {"apple", "banana", "orange"};
-    vector<string> v2 = {"banana", "apple", "orange"};
-    
-    if(isSame(v1, v2)) {
-        vector<string> v3 = sorted_list_sum(v1);
-        for(auto str : v3) {
-            cout << str << endl;
-        }
-    } else {
-        cout << "Lists are not the same!" << endl;
-    }
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == {"cc", "dd", "aaaa", "bbbb"});
     return 0;
 }
