@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -18,6 +17,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     return result;
 }
 
+// Function to calculate the GCD of two numbers
 int gcd(int a, int b) {
     if (b == 0)
         return a;
@@ -29,14 +29,13 @@ int main() {
     int num1, num2;
     cin >> num1 >> num2;
 
+    // Calculate the GCD of two numbers
     cout << gcd(num1, num2) << endl;
 
-    string text;
-    cin >> text;
+    string text, target;
+    cin >> text >> target;
 
-    string target;
-    cin >> target;
-
+    // Find indices of substring in the given text
     vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices) {
         cout << i << " ";
