@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
 
 std::pair<int, std::string> romanMap[] = {{1000, "M"}, {900, "CM"}, {500, "D"},
                                            {400, "CD"}, {100, "C"}, {90, "XC"},
@@ -19,3 +21,4 @@ std::string int_to_roman(int number) {
 int main() {
     std::cout << int_to_roman(1000);
     return 0;
+}
