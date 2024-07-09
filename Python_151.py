@@ -1,2 +1,2 @@
 def check(func, lst):
-    print(func(lst))
+    return func(lst)
