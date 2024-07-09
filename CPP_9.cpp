@@ -1,8 +1,6 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cassert>
-
-using namespace std;
 
 vector<int> rolling_max(const vector<int>& numbers);
 
@@ -33,22 +31,17 @@ vector<int> rolling_max(const vector<int>& numbers) {
 }
 
 int main() {
+    // Test cases
     vector<int> test1 = {1, 2, 3, 4, 5};
-    vector<int> test2 = {1, 2, 3, 4, 5};
+    vector<int> test2 = {5, 4, 3, 2, 1};
     
-    cout << "Rolling max of test1: ";
-    vector<int> result = rolling_max(test1);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
+    vector<int> result1 = rolling_max(test1);
+    vector<int> result2 = rolling_max(test2);
     
-    cout << "Are test1 and test2 the same: ";
-    if (issame(test1, test2)) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
+    assert(issame(result1, {1, 2, 3, 4, 5}));
+    assert(issame(result2, {5, 5, 5, 5, 5}));
+    
+    std::cout << "All test cases passed." << std::endl;
     
     return 0;
 }
