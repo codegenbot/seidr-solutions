@@ -1,33 +1,28 @@
-from collections import deque
-
-
-def minPath(grid):
+def minPath(grid, k):
     n = len(grid)
+    m = [[i * n + j for j in range(n)] for i in range(n)]
 
-    def bfs(i, j, path):
-        if grid[i][j] == "1":
-            return False
-        grid[i][j] = str(1)
+    def dfs(i, j, path, visited):
+        if len(path) == k:
+            return path
 
+        visited.add((i, j))
+
+        min_path = path[:]
         for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = i + di, j + dj
-            if 0 <= ni < n and 0 <= nj < n:
-                new_path = path + [(i, j), (ni, nj)]
-                if bfs(ni, nj, new_path):
-                    return True
+            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
+                new_path = dfs(ni, nj, path + [m[ni][nj]], visited.copy())
+                if new_path and (not min_path or new_path < min_path):
+                    min_path = new_path
 
-        return False
+        return min_path
+
+    for i in range(n):
+        for j in range(n):
+            grid[i][j] = str(grid[i][j])
 
     start = [i for i, row in enumerate(grid) if "1" in "".join(row)][0]
+    path = dfs(start, 0, [grid[start][0]], set())
 
-    min_length = float("inf")
-    min_path = []
-
-    for j in range(len(grid[0])):
-        path = [(start, 0), (start, j)]
-        if bfs(start, j, path):
-            if len(path) < min_length:
-                min_length = len(path)
-                min_path = path
-
-    return min_path
+    return path
