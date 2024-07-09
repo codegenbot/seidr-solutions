@@ -1,12 +1,26 @@
-Here is the solution:
+#include <map>
+using namespace std;
 
-string find_max(vector<string> words){
-    string result = *max_element(words.begin(), words.end(), 
-        [](const string &a, const string &b) {
-            if (a.length() == b.length()) {
-                return a < b;
+string find_max(vector<string> words) {
+    string max_word = "";
+    int max_unique_chars = 0;
+    
+    for (const auto& word : words) {
+        map<char, bool> unique_chars;
+        
+        int count = 0;
+        for (char c : word) {
+            if (!unique_chars[c]) {
+                unique_chars[c] = true;
+                count++;
             }
-            return a.size() > b.size();
-        });
-    return result;
+        }
+        
+        if (count > max_unique_chars || (count == max_unique_chars && word < max_word)) {
+            max_word = word;
+            max_unique_chars = count;
+        }
+    }
+    
+    return max_word;
 }
