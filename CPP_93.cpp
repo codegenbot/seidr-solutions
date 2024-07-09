@@ -1,23 +1,23 @@
 string encode(string message){
-    string encodedMessage = "";
-    for(char c : message){
-        if(isalpha(c)){
-            if(islower(c)){
-                if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                    encodedMessage += char(tolower((c + 2 - 'a') % 26 + 'a'));
-                } else {
-                    encodedMessage += toupper(c);
+    for(int i=0; i<message.length(); i++){
+        if(isalpha(message[i])){
+            if(tolower(message[i]) == 'a' || tolower(message[i]) == 'e' || tolower(message[i]) == 'i' || tolower(message[i]) == 'o' || tolower(message[i]) == 'u'){
+                if(isupper(message[i])){
+                    message[i] = toupper((char)(((int)message[i] + 2 - 65) % 26 + 65));
                 }
-            } else if(isupper(c)){
-                if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
-                    encodedMessage += char(toupper((c + 2 - 'A') % 26 + 'A'));
-                } else {
-                    encodedMessage += tolower(c);
+                else{
+                    message[i] = tolower((char)(((int)message[i] + 2 - 97) % 26 + 97));
                 }
             }
-        } else {
-            encodedMessage += c;
+            else{
+                if(isupper(message[i])){
+                    message[i] = tolower(message[i]);
+                }
+                else{
+                    message[i] = toupper(message[i]);
+                }
+            }
         }
     }
-    return encodedMessage;
+    return message;
 }
