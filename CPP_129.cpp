@@ -9,14 +9,15 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             if (res.size() < k) {
                 res.push_back(grid[i][j]);
             } else {
+                int val = grid[(i + 1) % n][j];
                 if (res.size() < k) {
-                    if (grid[(i + 1) % n][j] > res[0]) {
+                    if (val > res[0]) {
                         res.pop_back();
-                        res.insert(res.begin(), grid[(i + 1) % n][j]);
+                        res.insert(res.begin(), val);
                     }
-                } else if (grid[(i + 1) % n][j] > res[0]) {
+                } else if (val > res[0]) {
                     res.pop_back();
-                    res.insert(res.begin(), grid[(i + 1) % n][j]);
+                    res.insert(res.begin(), val);
                 }
             }
         }
