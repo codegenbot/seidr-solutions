@@ -1,5 +1,8 @@
+Here is the modified code:
+
 ```cpp
 #include <vector>
+#include <string>
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result;
@@ -21,5 +24,5 @@ bool is_same(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(is_same(even_odd_palindrome(3), {0, 1, 0, 1}));
+    assert(is_same(even_odd_palindrome(5), {0, 1, 0, 1, 0}));
 }
