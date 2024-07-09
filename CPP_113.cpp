@@ -1,12 +1,10 @@
-#include<vector>
+#include <vector>
+#include <string>
+
 using namespace std;
 
-bool issame(vector<string> a, vector<string>b){
-    if(a.size()!=b.size())return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i] != b[i])return false;
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> odd_count(vector<string> lst) {
@@ -18,8 +16,13 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        string temp = "The number of odd elements " + to_string(count) + " in the string " + to_string(i+1) + " of the input.";
+        string temp = "the number of odd elements " + to_string(count) + " in the str" + to_string(i+1) + " of the input.";
         result.push_back(temp);
     }
     return result;
+}
+
+int main() {
+    assert(issame(odd_count({"271", "137", "314"}) , {"the number of odd elements 2 in the str1 of the input.", "the number of odd elements 1 in the str2 of the input.", "the number of odd elements 1 in the str3 of the input."}) );
+    return 0;
 }
