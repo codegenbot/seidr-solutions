@@ -1,6 +1,4 @@
-```cpp
 #include <string>
-using namespace std;
 
 std::string int_to_mini_roman(int num) {
     string roman[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
