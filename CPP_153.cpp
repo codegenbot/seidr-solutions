@@ -13,5 +13,6 @@ int Strongest_Extension(std::string className, const std::vector<std::string>& e
 }
 
 int main() {
-    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
+    int result = Strongest_Extension("Sp", {"671235", "Bb"});
+    std::cout << (std::string("Sp.") + result) << std::endl;
 }
