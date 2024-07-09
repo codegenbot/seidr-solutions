@@ -1,9 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <assert.h>
 
-bool areVectorsEqual(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -38,11 +38,12 @@ int mainFunction() {
 
     vector<int> result = remove_duplicates(numbers);
 
-    if (areVectorsEqual(result, numbers)) {
+    if (issame(result, numbers)) {
         std::cout << "The resulting vector is the same as the original." << std::endl;
     } else {
         std::cout << "The resulting vector is different from the original." << std::endl;
     }
 
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
 }
