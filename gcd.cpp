@@ -1,7 +1,7 @@
-```
 #include <vector>
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -42,12 +42,11 @@ int main() {
 
     cout << gcd(a, b) << endl;
 
-    string text, target;
-    while (!(cin >> text >> target)) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Invalid input. Please enter valid strings: ";
-    }
+    string text;
+    getline(cin, text);
+    
+    string target;
+    getline(cin, target);
 
     vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices)
