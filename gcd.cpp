@@ -1,22 +1,19 @@
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int n = text.length();
-    int m = target.length();
-    
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
-            result.push_back(i);
+vector<int> find_indices(string text, string target) {
+    vector<int> indices;
+    int index = 0;
+    while (index < text.length()) {
+        index = text.find(target, index);
+        if (index == string::npos) {
+            break;
         }
+        indices.push_back(index);
+        index += target.length();
     }
-    
-    return result;
+    return indices;
 }
 
-long long gcd(long long a, long long b) {
-    while (b != 0) {
-        long long temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+int gcd(int a, int b) {
+    if(b == 0)
+        return a;
+    return gcd(b, a % b);
 }
