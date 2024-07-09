@@ -13,8 +13,8 @@ string string_to_md5(string text) {
     MD5((const unsigned char*)text.c_str(), text.size(), md5);
     
     string result;
+    ostringstream ss;
     for(int i = 0; i < 16; ++i){
-        ostringstream ss;
         ss << hex << (int)md5[i];
         result += ss.str();
     }
