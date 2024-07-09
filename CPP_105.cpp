@@ -1,15 +1,16 @@
-```cpp
+```
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <initializer_list>
 
-bool is_same(vector<string> a, vector<vector<string>> b) {
-    if (a.size() != b[0].size()) {
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
     
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[1][i]) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -31,9 +32,8 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {9, 4, 8};
-    vector<string> output = by_length(arr);
-    bool test = is_same(output, {{"Nine", "Eight", "Four"}});
-    assert(test);
+    vector<int> input = {9, 4, 8};
+    vector<string> output = by_length(input);
+    assert(issame(output, {"Nine", "Eight", "Four"}));
     return 0;
 }
