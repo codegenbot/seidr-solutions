@@ -1,24 +1,12 @@
-```cpp
-string anti_shuffle(string s) {
-    vector<string> words;
-    string word = "";
-    for (const auto& c : s) {
-        if (c == ' ') {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += c;
-        }
+```
+string split(const string& str, char sep) {
+    vector<string> tokens;
+    size_t pos = 0;
+    while ((pos = str.find(sep)) != string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        tokens.push_back(str.substr(pos + 1));
+        str = "";
     }
-    words.push_back(word);
-
-    string result = "";
-    for (const auto& word : words) {
-        string w = word;
-        sort(w.begin(), w.end());
-        if (!result.empty()) {
-            result += " ";
-        }
-        result += w;
-    }
-    return result;
+    tokens.push_back(str);
+    return join(tokens, " ");
+}
