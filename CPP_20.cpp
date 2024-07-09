@@ -1,19 +1,20 @@
 #include <algorithm>
-#include <vector>
 #include <limits>
 
-bool issame(float a, float b) {
-    if (std::abs(a - b) < std::numeric_limits<float>::epsilon()) {
-        return true;
-    }
-    return false;
+using namespace std;
+
+pair<bool, bool> issame(float a, float b) {
+    if (abs(a - b) < 1e-6)
+        return {true, true};
+    else
+        return {false, false};
 }
 
-std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
-    float min_diff = std::numeric_limits<float>::max();
-    std::pair<float, float> closest_pair;
-
+vector<float> find_closest_elements(vector<float> numbers) {
+    sort(numbers.begin(), numbers.end());
+    float min_diff = numeric_limits<float>::max();
+    pair<float, float> closest_pair;
+    
     for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < min_diff) {
@@ -21,6 +22,6 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
             closest_pair = {numbers[i], numbers[i + 1]};
         }
     }
-
-    return std::vector<float>(closest_pair.begin(), closest_pair.end());
+    
+    return vector<float>(closest_pair.begin(), closest_pair.end());
 }
