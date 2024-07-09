@@ -13,8 +13,21 @@ std::vector<int> maxKItems(std::vector<int>& arr, int k) {
 }
 
 int main() {
-    std::vector<int> test = maxKItems({1, 2, 3, -23, 243, -400, 0}, 3);
-    for (int i : test) {
+    int n, k;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+    std::cout << "Enter k: ";
+    std::cin >> k;
+
+    std::vector<int> test(n);
+    for(int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> test[i];
+    }
+
+    auto result = maxKItems(test, k);
+
+    for (int i : result) {
         std::cout << i << " ";
     }
     return 0;
