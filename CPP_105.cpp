@@ -4,11 +4,12 @@
 #include <string>
 
 bool issame(vector<string> a) {
-    if (a.size() != 3) {
+    if (a.size() != 1) {
         return false;
     }
+    string str = "Nine Eight Four";
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != "Nine" && a[i] != "Eight" && a[i] != "Four") {
+        if (a[i] != str.substr(i, 1)) {
             return false;
         }
     }
@@ -64,7 +65,7 @@ vector<string> by_length(vector<int> arr) {
 
 int main() {
     vector<int> input = {9, 4, 8};
-    std::vector<string> output = by_length(input);
+    vector<string> output = by_length(input);
     
     if (issame(output)) {
         for (string str : output) {
