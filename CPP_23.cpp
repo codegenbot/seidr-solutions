@@ -3,5 +3,5 @@
 int main() {
     assert(strlen("asdasnakj") == 9);
 
-    return strlen("asdasnakj");
+    return 0;
 }
