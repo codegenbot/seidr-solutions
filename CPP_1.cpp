@@ -5,9 +5,9 @@
 
 using namespace std;
 
-bool issame(const string& s) {
+bool issame(string& a) {
     bool found = false;
-    if (s == "( ) (( ") || s == "(())") {
+    if (a == "( ) (( ") || a == "(())") {
         found = true;
     }
     return found;
