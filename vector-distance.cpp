@@ -2,6 +2,8 @@
 #include <cmath>
 #include <stdexcept>
 #include <iostream>
+#include <ostream>
+
 using namespace std;
 
 double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
@@ -17,11 +19,13 @@ double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
 }
 
 int main() {
-    vector<float> v1(3);
-    v1[0] = 1; v1[1] = 2; v1[2] = 3;
+    vector<float> v1(7);
+    v1[0] = -86.80820063639328; v1[1] = 49.39001787236995; v1[2] = -9.04626373259616; 
+    v1[3] = 30.85217526435315; v1[4] = 18.859089027230567; v1[5] = -12.41290367707073; v1[6] = -68.43208469951546;
 
-    vector<float> v2(3);
-    v2[0] = 4; v2[1] = 5; v2[2] = 6;
+    vector<float> v2(7);
+    v2[0] = 7; v2[1] = -22.49169637440194; v2[2] = -20.63240923843938; v2[3] = 91.53731468378169; 
+    v2[4] = -82.06258787920879; v2[5] = 86.81659756261391; v2[6] = -71.6197776939278;
     
     double distance = vectorDistance(v1, v2);
     cout << "Distance: " << distance << endl;
