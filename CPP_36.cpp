@@ -2,17 +2,6 @@
 #include <iostream>
 using namespace std;
 
-int fizz_buzz(int n) {
-    int count = 0;
-    for (int i = 1; i <= n; i++) {
-        if (i % 133 == 0 || (i % 110 == 0 && i % 10 == 7))
-            count++;
-    }
-    if (count == 0)
-        cout << "No numbers meet the condition.\n";
-    return count;
-}
-
 int main() {
     int n;
     cout << "Enter a number: ";
@@ -23,4 +12,14 @@ int main() {
         cout << "The result is: " << fizz_buzz(n);
     }
     return 0;
+
+int fizz_buzz(int n) {
+    int count = 0;
+    for (int i = 1; i <= n; i++) {
+        if ((i % 11 == 0 || i % 13 == 0) && to_string(i).find("7") != string::npos)
+            count++;
+    }
+    if (count == 0)
+        cout << "No numbers meet the condition.\n";
+    return count;
 }
