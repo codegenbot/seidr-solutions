@@ -1,5 +1,6 @@
 def cut_vector(vector):
-    if len(vector) == 1: return [vector]
+    if len(vector) == 1: 
+        return [vector]
     min_diff = float('inf')
     cut_index = -1  
     for i in range(len(vector)):

@@ -6,10 +6,10 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res(2);
+    vector<vector<int>> res;
     
     for (int i = 0; i < 2; i++) {
-        res[i].clear(); // initialize each inner vector by clearing any existing elements
+        res.push_back({}); // initialize each inner vector by clearing any existing elements
     }
     int minDiff = INT_MAX;
     for (int i = 0; i < n; i++) {
