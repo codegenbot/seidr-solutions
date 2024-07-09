@@ -1,9 +1,8 @@
 bool is_sorted(vector<int> lst){
-    bool result = true;
+    if(lst.size() <= 1) return true;
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
-            result = false;
-            break;
+            return false;
         }
     }
     vector<int>::iterator it;
@@ -11,5 +10,5 @@ bool is_sorted(vector<int> lst){
         if(std::distance(it, lst.end()) > 1)
             return false;
     }
-    return result;
+    return true;
 }
