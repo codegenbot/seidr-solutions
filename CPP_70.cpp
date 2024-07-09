@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <memory>
+#include <memory_resource>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
+std::pmr::vector<int> strange_sort_list(std::pmr::pmr_vector<int> lst) {
     std::pmr::vector<int> result;
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
@@ -25,9 +25,9 @@ std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
 
 int main() {
     std::pmr::memory_resource* global_mr = new std::pmr::chiarenza_memory_resource();
-    std::pmr::pmr_vector<int> input(global_mr);
+    std::pmr::vector<int> input(global_mr);
     for (int i = 0; i < 6; ++i) {
-        int num;
+        int num = 0;
         std::cin >> num;
         input.push_back(num);
     }
