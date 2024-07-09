@@ -1,4 +1,3 @@
-```
 vector<float> get_positive(vector<float> l){
     vector<float> result;
     for(float i : l){
@@ -9,41 +8,38 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-bool issame(vector<float> v1, vector<float> v2){
-    if(v1.size() != v2.size())
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
         return false;
-
-    for(int i = 0; i < v1.size(); i++){
-        if(abs(v1[i] - v2[i]) > 1e-6)
-            return false;
     }
-
+    for (int i = 0; i < a.size(); i++) {
+        if (abs(a[i] - b[i]) > 1e-9) {
+            return false;
+        }
+    }
     return true;
 }
 
-int main(){
-    vector<float> a, b;
-    
-    cin >> a.size();
-    for(float &i : a) 
-        cin >> i;
-
-    cin >> b.size();
-    for(float &i : b) 
-        cin >> i; 
-
-    if(issame(a, b))
-        cout << "Same\n";
-    else
-        cout << "Not Same\n";
-
-    vector<float> pos_a = get_positive(a);
-    vector<float> pos_b = get_positive(b);
-
-    cout << "Positive: ";
-    for(float &i : pos_a) 
-        cout << i << " ";
-
-    cout << endl;
+int main() {
+    vector<float> l;
+    float num;
+    cout << "Enter numbers (enter 'stop' when done): ";
+    while (cin >> num && num != 'stop') {
+        l.push_back(num);
+    }
+    if (l.size() < 2) {
+        cout << "Not enough numbers" << endl;
+    } else {
+        vector<float> pos = get_positive(l);
+        if (!issame(pos, l)) {
+            cout << "The positive numbers are: ";
+            for (float i : pos) {
+                cout << i << " ";
+            }
+            cout << endl;
+        } else {
+            cout << "All numbers were non-positive" << endl;
+        }
+    }
     return 0;
 }
