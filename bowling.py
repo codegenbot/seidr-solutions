@@ -1,16 +1,9 @@
 def bowling_score(frames):
     score = 0
-    frames = [list(map(int, frame.split())) for frame in frames.split('/')]
-    for i, frame in enumerate(frames):
-        if len(frame) == 1:
-            score += 10
-        elif len(frame) == 2:
-            score += sum(frame)
+    frame_values = [10 if len(frame) == 1 else sum(map(int, frame)) for frame in frames.split('/')]
+    for i, value in enumerate(frame_values):
+        if i < 9 and value < 10:
+            score += value + frame_values[i+1]
         else:
-            first_two = sum(frame[:2])
-            last_roll = frame[2]
-            if first_two == 10:
-                score += 10 + last_roll
-            else:
-                score += first_two + last_roll
+            score += value
     return score
