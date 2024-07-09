@@ -1,5 +1,17 @@
-bool is_palindrome(string text){
-    string temp = text;
-    reverse(temp.begin(), temp.end());
-    return (temp == text);
+```cpp
+#include <string>
+
+bool is_palindrome(std::string text) {
+    int start = 0;
+    int end = text.size() - 1;
+
+    while (start < end) {
+        if (text[start] != text[end]) {
+            return false;
+        }
+        start++;
+        end--;
+    }
+
+    return true;
 }
