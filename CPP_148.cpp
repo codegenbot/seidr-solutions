@@ -1,5 +1,8 @@
 #include <vector>
 #include <string>
+#include <cassert>
+#include <sstream>
+#include <iostream>
 
 using namespace std;
 
@@ -17,15 +20,8 @@ bool compareVectors(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> bf(string a, string b) {
-    if(a.length() != b.length()) {
-        return {};
-    }
-    vector<string> result = {a, b};
-    return result;
-}
-
 int main() {
-    cout << (compareVectors(bf("Jupiter", "Makemake"), {"Jupiter", "Makemake"}) ? "True" : "False") << endl;
+    vector<string> result = bf("Jupiter", "Makemake");
+    assert(compareVectors(result, {"Jupiter", "Makemake"}));
     return 0;
 }
