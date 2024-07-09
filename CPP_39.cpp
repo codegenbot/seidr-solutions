@@ -11,13 +11,17 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
-    int a = 0, b = 1, fib = 0;
-    for (int i = 1; ; i++) {
-        fib = a + b;
-        a = b;
-        b = fib;
-        if (isPrime(fib) && ++i == n)
-            return fib;
+    int fibNum = 0, prevFib = 1, count = 0;
+    while (true) {
+        int nextFib = fibNum + prevFib;
+        if (isPrime(nextFib)) {
+            if (++count == n)
+                return nextFib;
+            fibNum = prevFib;
+            prevFib = nextFib;
+        }
+        else
+            prevFib = nextFib;
     }
 }
 
@@ -25,6 +29,6 @@ int main() {
     int n;
     cout << "Enter the number: ";
     cin >> n;
-    cout << "The " << n << "-th prime Fibonacci number is: " << prime_fib(n) << endl;
+    cout << "The " << n << "th prime Fibonacci number is " << prime_fib(n) << endl;
     return 0;
 }
