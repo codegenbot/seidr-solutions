@@ -1,4 +1,3 @@
-
 bool issame(const vector<string>& a, const vector<string>& b) {
     return total_chars(a) == total_chars(b);
 }
