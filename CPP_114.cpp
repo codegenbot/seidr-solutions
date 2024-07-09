@@ -1,8 +1,16 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <climits>
 
-long long minSubArraySum(std::vector<long long> nums) {
-    long long min_sum = INT_MAX; // Initialize minimum sum as maximum possible value
+int main() {
+    std::vector<long long> nums = {1};
+    std::cout << minSubArraySum(nums) << std::endl;
+    return 0;
+}
+
+long long minSubArraySum(std::vector<long long> nums){
+    long long min_sum = LLONG_MAX; // Initialize minimum sum as maximum possible value
     long long current_sum = 0;
     
     for(long long num : nums){ 
@@ -16,17 +24,4 @@ long long minSubArraySum(std::vector<long long> nums) {
     }
     
     return min_sum;
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<long long> nums(n);
-    for(int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
-    }
-    
-    std::cout << minSubArraySum(nums) << std::endl;
-    
-    return 0;
 }
