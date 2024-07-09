@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <algorithm>
 
@@ -16,7 +17,7 @@ vector<int> order_by_points(vector<int> nums) {
             sumOfDigits += num % 10;
             num /= 10;
         }
-        pairs.push_back({-sumOfDigits, i});
+        pairs.push_back({sumOfDigits, i});
     }
 
     sort(pairs.begin(), pairs.end());
