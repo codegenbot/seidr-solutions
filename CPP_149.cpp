@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <cctype>
@@ -19,8 +20,4 @@ int sorted_list_sum(const std::vector<std::string>& vec) {
         }
     }
     return sum;
-}
-
-int main() {
-    return 0;
 }
