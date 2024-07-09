@@ -1,3 +1,5 @@
+```
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -17,4 +19,14 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
                  return a < b;
          });
     return lst;
+}
+
+int main() {
+    std::vector<std::string> strings = {"apple", "banana", "apricot"};
+    auto result = sorted_list_sum(strings);
+    for (const auto& str : result) {
+        std::cout << str << " ";
+    }
+    std::cout << std::endl;
+    return 0;
 }
