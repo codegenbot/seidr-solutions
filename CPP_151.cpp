@@ -1,20 +1,9 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 
 int main() {
-    std::vector<float> lst;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i<n; i++) {
-        float num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
-        lst.push_back(num);
-    }
+    vector<float> lst = {1.0f, -2.5f, 3.0f, 4.5f};
     long long result = double_the_difference(lst);
-    std::cout << "The sum of squares of positive integers is: " << result << std::endl;
     return 0;
 }
 
