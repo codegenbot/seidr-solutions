@@ -7,5 +7,5 @@ int strLength(string str){
 }
 
 int mainFunction() {
-    assert(strLength("asdasnakj") == 13); 
+    assert(strLength("asdasnakj") == 11); 
 }
