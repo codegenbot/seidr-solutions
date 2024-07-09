@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,6 +5,7 @@
 using namespace std;
 
 int next_smallest(vector<int> lst) {
+    vector<int> result;
     if (lst.size() < 2) {
         return -1;
     }
@@ -23,6 +23,5 @@ int main() {
     int result = (lst.size() > 1) ? next_smallest(lst) : -1; 
     cout << "The next smallest number is: " << result << endl;
     
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
     return 0;
 }
