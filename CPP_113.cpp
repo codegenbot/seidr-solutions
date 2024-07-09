@@ -1,7 +1,7 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -17,8 +17,7 @@ vector<string> odd_count(vector<string> lst) {
     vector<string> result;
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
-        string str = lst[i];
-        for (char c : str) {
+        for (char c : lst[i]) {
             if ((int(c) % 2 != 0)) {
                 count++;
             }
@@ -33,17 +32,15 @@ vector<string> odd_count(vector<string> lst) {
 int main() {
     int n;
     cin >> n;
-    
+
     vector<string> lst(n);
-    
+
     for(int i = 0; i < n; i++) {
-        string temp;
-        cin >> temp;
-        lst[i] = temp; 
+        cin >> lst[i];
     }
-    
+
     vector<string> output = odd_count(lst);
     displayOutput(output);
-    
+
     return 0;
 }
