@@ -1,8 +1,9 @@
 int sum = 0;
-    for(int elem : q)
-        sum += elem;
-    
-    if (sum <= w && equal(q.begin(), q.begin() + q.size()/2, q.rbegin()))
-        return true;
-    return false;
+    for (int i = 0, j = q.size() - 1; i <= j; i++, j--) {
+        if (q[i] != q[j]) {
+            return false;
+        }
+        sum += q[i];
+    }
+    return sum <= w;
 }
