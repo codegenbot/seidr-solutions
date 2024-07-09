@@ -31,6 +31,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
              }
          });
     return result;
+
 }
 
 int main() {
