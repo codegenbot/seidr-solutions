@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 
 int maxPrimeSum(std::vector<int> lst) {
     int maxPrime = 0;
@@ -27,6 +28,7 @@ bool isPrime(int n) {
         }
     }
     return true;
+}
 
 int main() {
     assert(maxPrimeSum({127, 97, 8192}) == 10);
