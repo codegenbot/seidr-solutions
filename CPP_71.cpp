@@ -1,8 +1,6 @@
 #include <iostream>
 #include <cmath>
 
-using namespace std;
-
 float triangle_area(float a, float b, float c) {
     float s = (a + b + c) / 2;
     float area = sqrt(s * (s - a) * (s - b) * (s - c));
@@ -15,6 +13,5 @@ float triangle_area(float a, float b, float c) {
 
 int main() {
     assert (abs(triangle_area(2, 2, 10) + 1) < 0.01);
-    
     return 0;
 }

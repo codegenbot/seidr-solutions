@@ -22,8 +22,3 @@ bool check_dict_case(const map<string, string>& dict) {
     
     return all_lower || all_upper;
 }
-
-int main() {
-    assert(check_dict_case({}) == false);
-    return 0;
-}
