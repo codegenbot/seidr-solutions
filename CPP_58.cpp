@@ -4,19 +4,16 @@
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    return common(a, b);
+    return (a == b);
 }
 
-vector<int> common(vector<int> l1, vector<int> l2) {
-    set<int> s1(l1.begin(), l1.end());
-    set<int> s2(l2.begin(), l2.end());
+int main() {
+    vector<int> l1 = {1, 2, 3};
+    vector<int> l2 = {2, 3, 4};
     
-    set<int> result;
-    for (int i : s1) {
-        if (s2.count(i)) {
-            result.insert(i);
-        }
+    if (!issame(l1, l2)) {
+        common(l1, l2);
     }
     
-    return vector<int>(result.begin(), result.end());
+    return 0;
 }
