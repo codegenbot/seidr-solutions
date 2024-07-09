@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -20,8 +21,17 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {1, -2, 3, -4};
+    std::vector<int> nums;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << (i+1) << ": ";
+        int num;
+        std::cin >> num;
+        nums.push_back(num);
+    }
     int result = count_nums(nums);
-    std::cout << "The number of numbers with odd sum is: " << result << std::endl;
+    std::cout << "The number of elements with odd sum of digits is: " << result << std::endl;
     return 0;
 }
