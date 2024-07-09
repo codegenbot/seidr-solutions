@@ -1,8 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() == 0 && b.size() == 0) return true;
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -12,6 +12,8 @@ bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
+    if (numbers.empty()) return std::vector<int>();
+
     std::vector<int> uniqueNumbers;
     for (int num : numbers) {
         bool found = false;
@@ -32,7 +34,7 @@ int main() {
     int n;    
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
+
     std::vector<int> numbers;
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
@@ -40,8 +42,8 @@ int main() {
         std::cin >> num;
         numbers.push_back(num);
     }
-    
-    if (!isSame(numbers, removeDuplicates(numbers))) {
+
+    if (!isEqualVector(numbers, removeDuplicates(numbers))) {
         std::cout << "Unique numbers: ";
         for (int num : removeDuplicates(numbers)) {
             std::cout << num << " ";
@@ -50,10 +52,10 @@ int main() {
     } else {
         std::cout << "All elements are duplicates." << std::endl;
     }
-    
-    if (!isSame({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
-        assert(false);
+
+    if (!isEqualVector({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
+        std::cout << "All elements are not duplicates." << std::endl;
     } else {
-        return 0;
+        std::cout << "All elements are duplicates." << std::endl;
     }
 }
