@@ -1,6 +1,5 @@
 #include <vector>
 #include <cmath>
-#include <initializer_list>
 
 std::vector<double> coeffs;
 double coeff;
@@ -38,3 +37,5 @@ double poly(std::vector<double> coeffs, double solution) {
         result += coeffs[i] * pow(solution, i);
     }
     return result;
+}
+#include <cmath>
