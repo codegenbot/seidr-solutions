@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-bool issame(int x, int int y) {
+bool compare(int x, int y) {
     if (x > y) {
         return false;
     } else if (y > x) {
