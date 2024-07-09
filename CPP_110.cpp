@@ -1,8 +1,7 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
-std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2) {
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     int oddCount = 0;
     for (int num : lst1) {
         if (num % 2 != 0) {
@@ -10,13 +9,4 @@ std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2)
         }
     }
     return oddCount == 0 ? "YES" : "NO";
-}
-
-int main() {
-    std::vector<int> list1 = {2,4};
-    std::vector<int> list2 = {1,3};
-
-    std::cout << exchange(list1, list2) << std::endl;
-    
-    return 0;
 }

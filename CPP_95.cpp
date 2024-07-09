@@ -1,30 +1,24 @@
-#include <string>
+```cpp
 #include <map>
-#include <cctype>
-#include <cassert>
+#include <string>
 
 bool check_dict_case(map<string, string> dict) {
-    if (dict.empty())
-        return false;
+    if (dict.empty()) return false;
 
-    bool allLower = true;
     bool allUpper = true;
+    bool allLower = true;
 
-    for (auto &pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            allLower = false;
-            allUpper = false;
-            break;
-        } else if (islower(pair.first[0]))
-            allUpper = false;
-        else
-            allLower = false;
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        if (!allUpper && !allLower) break;
+        if (allUpper) allUpper = tolower(it->first).find((char)0) == string::npos;
+        if (allLower) allLower = toupper(it->first).find((char)0) == string::npos;
     }
 
-    return allLower || allUpper;
+    return allUpper && allLower;
 }
 
 int main() {
-    assert(check_dict_case({}) == false);
+    map<string, string> dict = {{"key", "value"}};
+    cout << check_dict_case(dict);
     return 0;
 }
