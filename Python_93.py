@@ -1,9 +1,11 @@
-```def encode(message):
+def encode(message):
     result = ""
     for char in message:
-        if char.isalnum():
+        if char.isalpha():
             ascii_offset = 65 if char.isupper() else 97
-            result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
+            result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset - 1 if char.isupper() else (ord(char) - ascii_offset + 3) % 26 + ascii_offset)
+        elif char.isdigit():  
+            result += char
         elif not char.isalnum() and char != ' ':  
             result += '*'
         else:
