@@ -1,9 +1,11 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <string>
 #include <cmath>
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b){
+    return a[0] == b[0] && a[1] == b[1];
+}
 
 vector<int> even_odd_count(int num){
     vector<int> result = {0, 0};
@@ -18,19 +20,12 @@ vector<int> even_odd_count(int num){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-int main() {
+int main(){
     int num;
-    std::cin >> num;
-
+    cin >> num;
     vector<int> result = even_odd_count(num);
-
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
     }
-
     return 0;
 }
