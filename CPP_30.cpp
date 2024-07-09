@@ -1,22 +1,59 @@
 ```cpp
-int main {
-    std::vector<float> numbers;
+#include <iostream>
+#include <vector>
+
+int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
+    std::vector<float> l;
     for (int i = 0; i < n; i++) {
         float num;
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
-        numbers.push_back(num);
+        l.push_back(num);
     }
 
-    std::vector<float> positiveNumbers = getPositive(numbers);
+    std::vector<float> positive = getPositive(l);
 
-    if (same(getPositive(numbers), positiveNumbers)) {
-        std::cout << "The input vector and the positive vector are the same." << std::endl;
+    if (positive.empty()) {
+        std::cout << "No positive numbers found." << std::endl;
     } else {
-        std::cout << "The input vector and the positive vector are not the same." << std::endl;
+        std::cout << "Positive numbers: ";
+        for (float num : positive) {
+            std::cout << num << " ";
+        }
+        std::cout << std::endl;
+
+        if (same(l, getPositive(l))) {
+            std::cout << "All elements are positive." << std::endl;
+        } else {
+            std::cout << "Not all elements are positive." << std::endl;
+        }
     }
+
+    return 0;
+}
+
+bool same(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<float> getPositive(const std::vector<float>& l) {
+    std::vector<float> result;
+    for (float num : l) {
+        if (num > 0) {
+            result.push_back(num);
+        }
+    }
+    return result;
 }
