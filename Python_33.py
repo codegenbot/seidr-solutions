@@ -1,4 +1,3 @@
-```
 def sort_third(l: list):
     result = []
     for i, val in enumerate(l):
