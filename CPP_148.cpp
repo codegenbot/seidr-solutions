@@ -4,7 +4,7 @@
 #include <algorithm>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
@@ -45,13 +45,8 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 
 int main() {
     std::vector<std::string> output = bf("Jupiter", "Makemake");
-    if (issame(output, {})) {
-        std::cout << "The result is an empty set." << std::endl;
-    } else {
-        for (auto planet : output) {
-            std::cout << planet << std::endl;
-        }
+    for (const auto& planet : output) {
+        std::cout << planet << std::endl;
     }
-    
     return 0;
 }
