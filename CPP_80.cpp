@@ -20,7 +20,8 @@ bool is_happy(const std::string& s) {
     return true;
 }
 
-int main() {
+int main 
+{
     assert(is_happy("iopaxioi") == false);
     std::string s;
     std::cout << "Enter a string: ";
