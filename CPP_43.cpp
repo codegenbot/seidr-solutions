@@ -1,13 +1,12 @@
+#include <cassert>
 #include <vector>
 #include <set>
-#include <initializer_list>
-#include <cassert>
 
 bool pairs_sum_to_zero(std::vector<std::vector<int>> l) {
     std::set<int> s;
     for (const auto& v : l) {
         if(v.size() != 2)
-            return false;
+            throw std::runtime_error("Each pair must have exactly two elements.");
         int i = v[0];
         int j = v[1];
         s.insert(i);
@@ -19,17 +18,11 @@ bool pairs_sum_to_zero(std::vector<std::vector<int>> l) {
             return true;
         }
     }
-    return false;
+    throw std::runtime_error("No pairs sum to zero.");
 }
 
 int main() {
-    std::vector<std::vector<int>> input;
-    input.push_back({-3, 0});
-    input.push_back({9, -9});
-    input.push_back({-1, 1});
-    input.push_back({4, -4});
-    input.push_back({2, -2});
-    input.push_back({31, -31});
-    assert(pairs_sum_to_zero(input) == true);
+    std::vector<std::vector<int>> input = {{-3, 0}, {9, -9}, {-1, 1}, {4, -4}, {2, -2}, {31, -31}};
+    assert(pairs_sum_to_zero(input));
     return 0;
 }
