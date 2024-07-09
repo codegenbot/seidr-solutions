@@ -1,19 +1,26 @@
 #include <vector>
-#include <iostream>
 
-int solution(std::vector<int> lst) {
+int main() {
+    std::vector<int> lst;
     int sum = 0;
+
+    // Read input from user
+    int n;
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        int num;
+        cin >> num;
+        lst.push_back(num);
+    }
+
+    // Calculate the sum as per the problem description
     for (int i = 1; i < lst.size(); i++) {
         if (i % 2 == 0 && lst[i] % 2 != 0) {
             sum += lst[i];
         }
     }
-    return sum;
-}
 
-int main() {
-    std::vector<int> lst = {1, 2, 3, 4, 5};
-    int result = solution(lst);
-    std::cout << "The output is: " << result << std::endl;
+    cout << "Sum: " << sum << endl;
+
     return 0;
 }
