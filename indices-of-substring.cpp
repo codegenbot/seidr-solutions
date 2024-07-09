@@ -17,6 +17,9 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (found) {
             result.push_back(i);
+            i += m - 1; // Start searching from the end of the found target
+        } else {
+            i -= 1; // Backtrack if the target is not found at this position
         }
     }
 
