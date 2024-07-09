@@ -1,4 +1,3 @@
-
 // Include necessary headers
 #include <iostream>
 #include <string>
