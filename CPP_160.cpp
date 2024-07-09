@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cmath>
 
-int do_algebra(vector<string> operator_, vector<int> operand) {
+int do_algebra(std::vector<std::string> operator_, std::vector<int> operand) {
     int result = operand[0];
     for (int i = 0; i < operator_.size(); i++) {
         if (operator_[i] == "+") {
@@ -13,9 +14,9 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
         } else if (operator_[i] == "*") {
             result *= operand[i + 1];
         } else if (operator_[i] == "//") {
-            result = result / static_cast<int>(operand[i + 1]);
+            result = result / operand[i + 1];
         } else if (operator_[i] == "**") {
-            result = pow(result, static_cast<double>(operand[i + 1]));
+            result = pow(result, operand[i + 1]);
         }
     }
     return result;
