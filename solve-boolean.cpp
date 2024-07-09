@@ -9,10 +9,10 @@ bool solveBoolean(string s) {
             break;
         }
         else if (c == '&') {
-            res &= !s.substr(0, s.find(c)).find('T') != string::npos;
+            res &= !res;
         }
         else if (c == '|') {
-            res |= s.find('T') != string::npos;
+            res |= !res;
         }
     }
     return res;
