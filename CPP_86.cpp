@@ -1,4 +1,6 @@
 #include <algorithm>
+#include <string>
+#include <vector>
 using namespace std;
 
 string anti_shuffle(string s) {
@@ -19,7 +21,7 @@ string split(const string& str, char sep) {
         str.erase(0, pos + 1);
     }
     tokens.push_back(str);
-    return tokens.size() > 1 ? join(tokens, " ") : tokens[0];
+    return join(tokens, " ");
 }
 
 string join(const vector<string>& vec, const string& sep) {
