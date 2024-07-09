@@ -13,15 +13,14 @@ int solution(vector<int> lst) {
 
 int main() {
     vector<int> lst;
-    cout << "Enter numbers separated by space: ";
-    int num;
-    while (cin >> num) {
-        lst.push_back(num);
-        if (cin.peek() == ' ') {
-            cin.ignore();
-        } else if (cin.peek() != '\n') {
-            break;
-        }
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        int temp;
+        cin >> temp;
+        lst.push_back(temp);
     }
     cout << "Sum of odd numbers is: " << solution(lst) << endl;
     return 0;
