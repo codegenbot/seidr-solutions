@@ -1,4 +1,6 @@
-```cpp
+#include <iostream>
+#include <string>
+
 int prod_signs(std::string str1, std::string str2, std::string str3) {
     for (auto& s : {str1, str2, str3}) {
         for (char &c : s) {
@@ -23,5 +25,5 @@ int prod_signs(std::string str1, std::string str2, std::string str3) {
 }
 
 int main() {
-    std::cout << prod_signs("-1", "1", "1") << std::endl; 
+    std::cout << prod_signs("-1", "1", "1") << std::endl;
 }
