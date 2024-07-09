@@ -1,9 +1,13 @@
-// Change function signature of issame
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
 bool issame(vector<float> a, vector<float> b) {
     // Your comparison logic here
-    return a == b;
 }
 
+// Define the function rescale_to_unit with proper logic
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_num = *min_element(numbers.begin(), numbers.end());
     float max_num = *max_element(numbers.begin(), numbers.end());
