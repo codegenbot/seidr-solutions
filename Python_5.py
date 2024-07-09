@@ -1,6 +1,5 @@
-result = []
-for i in range(len(numbers)):
-    result.append(numbers[i])
-    if i != len(numbers) - 1:
-        result.append(delimeter)
-return result
+return [
+    item
+    for sublist in [[num, delimeter] for num in numbers[:-1]] + [numbers[-1:]]
+    for item in sublist
+]
