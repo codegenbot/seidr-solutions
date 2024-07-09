@@ -1,15 +1,19 @@
-```c
-int main() {
-    std::string input = "These violent delights have violent ends";
-    std::string output;
-    for (char c : input) {
-        if (isupper(c)) {
-            output += tolower(c);
-        } else if (islower(c)) {
-            output += toupper(c);
+#include <iostream>
+#include <string>
+
+std::string flip_case(const std::string& str) {
+    std::string result;
+    for (char c : str) {
+        if (isalpha(c)) {
+            result += (isupper(c)) ? tolower(c) : toupper(c);
         } else {
-            output += c;
+            result += c;
         }
     }
-    assert(output == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return result;
+}
+
+int main() {
+    assert(flip_case("These violent delights have violent ends") == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
 }
