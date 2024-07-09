@@ -1,3 +1,2 @@
-import sys 
-strings = input().split() 
+strings = input().split()
 print(max(strings, key=len))
