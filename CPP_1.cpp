@@ -1,19 +1,11 @@
-bool issame(char a, char b) {
-    return a == b;
+bool issame(const string& str) {
+    return all_of(str.begin(), str.end(), [=] (char c) { return c == str[0]; });
 }
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    string input;
-    cin >> input;
-
-    vector<string> result = separate_paren_groups(input);
-    for (string group : result) {
-        cout << group << endl;
-    }
-
-    return 0;
+    // main function implementation
 }
 
 vector<string> separate_paren_groups(string paren_string) {
