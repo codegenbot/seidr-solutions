@@ -1,3 +1,4 @@
+```python
 def fizz_buzz(n: int):
     count = 0
     for i in range(n):
