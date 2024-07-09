@@ -3,16 +3,14 @@ def double_the_difference(lst):
     return 2 * odd_sum - sum(lst)
 
 
-test_cases = [[4, [1, 3, 5]]]
-
-
 def check(func):
+    test_cases = [[(4,), [1, 3, 5]]]
     for expected_output, input_list in test_cases:
         result = func(input_list)
-        if result == expected_output:
+        if result == expected_output[0]:
             print(f"Test passed")
         else:
-            print(f"Test failed. Expected: {expected_output}, Got: {result}")
+            print(f"Test failed. Expected: {expected_output[0]}, Got: {result}")
 
 
 check(double_the_difference([1, 3, 5]))
