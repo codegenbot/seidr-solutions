@@ -1,3 +1,5 @@
+Here is the solution:
+
 string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
     for (int num : lst1) {
@@ -5,5 +7,9 @@ string exchange(vector<int> lst1, vector<int> lst2) {
             oddCount++;
         }
     }
-    return oddCount == 0 ? "YES" : "NO";
+    if (oddCount > (lst2.size() - oddCount)) {
+        return "NO";
+    } else {
+        return "YES";
+    }
 }
