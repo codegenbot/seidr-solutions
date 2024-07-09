@@ -1,4 +1,3 @@
-```
 def main():
     n = int(input())
     prices = list(map(float, input().split()))
