@@ -1,4 +1,2 @@
-from itertools import pairwise
-
 def paired_digits(s):
-    return sum(int(a) for a, b in pairwise([*s, '']))
+    return sum(int(a) for a, b in zip(s, s[1:] + '0') if a == b)
