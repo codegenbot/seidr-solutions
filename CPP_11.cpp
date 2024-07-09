@@ -1,23 +1,5 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <cassert>
-
-using namespace std;
-
-string string_xor(string a, string b) {
-    string result = "";
-    for (int i = 0; i < a.length(); i++) {
-        if ((a[i] - '0') ^ (b[i] - '0')) {
-            result += "1";
-        } else {
-            result += "0";
-        }
-    }
-    return result;
+string result = "";
+for (int i = 0; i < a.length(); i++) {
+    result += (a[i] - '0') ^ (b[i] - '0') ? "1" : "0";
 }
-
-int main() {
-    assert(string_xor("0101", "0000") == "0101");
-    return 0;
-}
+return result;
