@@ -4,12 +4,10 @@
 using namespace std;
 
 string squareDigits(string input) {
-    long long num = stoull(input);
-    string output = "";
-    while (num > 0) {
-        int digit = static_cast<int>(num % 10);
-        output = to_string(digit * digit) + output;
-        num /= 10;
+    string output;
+    for (char c : input) {
+        int digit = c - '0';
+        output += to_string(digit * digit);
     }
     return output;
 }
@@ -17,8 +15,7 @@ string squareDigits(string input) {
 int main() {
     string input;
     cout << "Enter a positive integer: ";
-    cin >> input; 
+    getline(cin, input); 
     string output = squareDigits(input);
     cout << "Squared digits: " << output << endl;
     return 0;
-}
