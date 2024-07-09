@@ -7,4 +7,5 @@ def prime_length(string):
             if n % i == 0:
                 return False
         return True
-    return 'Prime' if is_prime(len(string)) else 'Not Prime'
+
+    return is_prime(len(string))
