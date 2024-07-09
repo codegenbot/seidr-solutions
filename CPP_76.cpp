@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -15,13 +16,17 @@ bool isSimplePower(int num) {
     return false;
 }
 
-int main() {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
+int main() { 
+    int num; 
+    std::cout << "Enter a number: "; 
+    if (!(std::cin >> num)) { 
+        std::cerr << "Invalid input. Exiting.\n"; 
+        return 1; 
+    } 
     if (isSimplePower(num)) {  
-        std::cout << num << " is a simple power.\n";
+        std::cout << std::to_string(num) << " is a simple power.\n";
     } else {
-        std::cout << num << " is not a simple power.\n";
+        std::cout << std::to_string(num) << " is not a simple power.\n";
     }
     return 0;
+}
