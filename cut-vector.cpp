@@ -1,30 +1,43 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
     int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> result;
-
-    for (int i = 1; i < vec.size(); i++) {
-        int diff = abs((int)vec[0] - (int)vec[i]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            result.first.clear();
-            result.second.clear();
-
-            if ((int)vec[0] == (int)vec[i]) {
-                result.first.push_back(vec[0]);
-                result.second.push_back(vec[i]);
-            } else {
-                for (int j = 0; j < i; j++) {
-                    result.first.push_back(vec[j]);
-                }
-                for (int j = i; j < vec.size(); j++) {
-                    result.second.push_back(vec[j]);
-                }
-            }
+    int cut_index = 0;
+    
+    for (int i = 1; i < n; i++) {
+        if (v[i] - v[0] <= min_diff) {
+            min_diff = v[i] - v[0];
+            cut_index = i;
         }
     }
+    
+    vector<int> left(v.begin(), v.begin() + cut_index);
+    vector<int> right(v.begin() + cut_index, v.end());
+    return {left, right};
+}
 
-    return result;
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n+1);
+    for (int i = 0; i <= n; i++) {
+        cin >> v[i];
+    }
+    
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    cout << "Left side: ";
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i] << " ";
+    }
+    cout << endl;
+    cout << "Right side: ";
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i] << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
