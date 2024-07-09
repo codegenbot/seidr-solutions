@@ -1,4 +1,5 @@
 #include <string>
+#include <cstdio>
 using namespace std;
 
 bool valid_date(string date) {
