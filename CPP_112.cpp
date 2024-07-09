@@ -1,7 +1,3 @@
-```cpp
-#include <string>
-using namespace std;
-
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
@@ -16,16 +12,20 @@ vector<string> reverse_delete(string s, string c) {
         if (!found) {
             temp += s[i];
         }
-   }
-    
-    string reverse_temp = temp;
-    reverse(reverse_temp.begin(), reverse_temp.end());
-    
+    }
     result.push_back(temp);
-    if (temp == reverse_temp)
-        result.push_back("True");
-    else
-        result.push_back("False");
     
+    string palindromCheck = temp;
+    reverse(palindromCheck.begin(), palindromCheck.end());
+    
+    bool isPalindrome = (palindromCheck == temp);
+    
+    result.push_back(std::to_string(isPalindrome));
+    
+    for (char ch : s) {
+        if (find(c.begin(), c.end(), ch) == c.end()) {
+            result.push_back(std::string(1, ch));
+        }
+    }
     return result;
 }
