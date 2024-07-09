@@ -16,11 +16,11 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
 
 int main() {
     assert(issame({{"grunt", "trumpet", "prune", "gruesome"}, {"run"}}, {{"grunt", "prune"}}));
-    std::vector<std::string> strings = {"grunt", "trumpet", "prune", "gruesome"};
-    std::string substring = "run";
-    std::vector<std::string> result = filter_by_substring(strings, substring);
+    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
+    string substring = "run";
+    vector<string> result = filter_by_substring(strings, substring);
     
-    for (const auto& s : result) {
-        std::cout << s << std::endl;
+    for(string s : result) {
+        cout << s << endl;
     }
 }
