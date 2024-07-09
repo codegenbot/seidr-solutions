@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <cmath>
-#include <initializer_list>
 #include <iostream>
 
 int getMax(int n) {
@@ -15,11 +14,5 @@ int getMax(int n) {
         l.push_back(x);
     }
 
-    int max = l[0];
-    for (int i : l) {
-        if (i > max) {
-            max = i;
-        }
-    }
-    return max;
+    return *std::max_element(l.begin(), l.end());
 }
