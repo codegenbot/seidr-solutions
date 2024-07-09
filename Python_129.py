@@ -24,6 +24,6 @@ def minPath(grid, k):
             grid[i][j] = str(grid[i][j])
 
     start = [i for i, row in enumerate(grid) if "1" in "".join(row)][0]
-    path = dfs(start, 0, [grid[start][0]], set())
+    path = dfs(start, 0, [m[start][0]], set())
 
     return path
