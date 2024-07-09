@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 def factorize(n: int) -> List[int]:
@@ -12,7 +13,7 @@ def factorize(n: int) -> List[int]:
     return factors
 
 try:
-    n = int(input("Enter an integer: "))
+    n = int(sys.stdin.readline())
     result = factorize(n)
     print(result)
 except ValueError:
