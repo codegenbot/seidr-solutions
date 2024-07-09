@@ -11,14 +11,15 @@ def prime_fib(n: int):
         return 2
     if n == 2:
         return 3
-
+    
     fib = [1, 1]
     while len(fib) < n:
         fib.append(fib[-1] + fib[-2])
-
-    primes_found = 0
+    
     for num in fib:
         if is_prime(num):
-            primes_found += 1
-            if primes_found == n:
+            n -= 1
+            if n == 0:
                 return num
+
+    return fib[-1]
