@@ -1,7 +1,9 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <string>
+
 using namespace std;
 
 int do_algebra(vector<string> ops, vector<int> nums) {
@@ -16,9 +18,9 @@ int do_algebra(vector<string> ops, vector<int> nums) {
         } else if (ops[i] == "*") {
             temp *= nums[i];
         } else if (ops[i] == "/") {
-            temp /= stoll(to_string(nums[i]));
+            temp /= stoi(to_string(nums[i]));
         } else if (ops[i] == "^") {
-            temp = pow(temp, stoll(to_string(nums[i])));
+            temp = pow(temp, stoi(to_string(nums[i])));
         }
     }
 
@@ -29,23 +31,29 @@ int main() {
     vector<string> ops;
     vector<int> nums;
 
-    int num_ops, num_nums;
-
-    cin >> num_ops >> num_nums;
-
-    for (int i = 0; i < num_ops; i++) {
+    cout << "Enter number of operations: ";
+    int n;
+    cin >> n;
+    
+    for (int i = 0; i < n; i++) {
         string op;
+        string strNum;
+
+        cout << "Enter operation (+, -, *, /, ^): ";
         cin >> op;
-        ops.push_back(op);
+        cout << "Enter number: ";
+        cin >> strNum;
+        
+        try {
+            int num = stoi(strNum);
+            ops.push_back(op);
+            nums.push_back(num);
+        } catch (invalid_argument e) {
+            // Handle non-integer values
+        }
     }
 
-    for (int i = 0; i < num_nums; i++) {
-        int num;
-        cin >> num;
-        nums.push_back(num);
-    }
-
-    cout << do_algebra(ops, nums) << endl;
+    cout << "Result: " << do_algebra(ops, nums) << endl;
 
     return 0;
 }
