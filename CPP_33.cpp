@@ -9,9 +9,11 @@ vector<int> sort_third(vector<int> l) {
     vector<int> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0 && i != 0) {
-            int j = i - 1;
             vector<int> temp;
-            while (j >= 0 && (j % 3 > 0 || j % 3 == 1)) {
+            int j = i - 1;
+            while (j >= 0 && j % 3 != 0) {
+                if(j <= 0)
+                    break;
                 temp.push_back(l[j]);
                 j--;
             }
