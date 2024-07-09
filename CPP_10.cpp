@@ -1,25 +1,19 @@
-#include<iostream>
-#include<string>
-#include<cassert>
+#include <string>
+#include <cassert> // Include for assert
 
-using namespace std;
-
-bool is_palindrome(const string &str) {
-    return str == string(str.rbegin(), str.rend());
-}
-
-string make_palindrome(const string &str){
-    string rev_str(str.rbegin(), str.rend());
-    for (int i = str.size(); i >= 0; i--) {
-        if (is_palindrome(str.substr(i))) {
-            return str + rev_str.substr(0, str.size() - i);
+std::string make_palindrome(std::string str){
+    std::string rev_str(str.rbegin(), str.rend());
+    std::string palindrome = str;
+    for (int i = 0; i < str.length(); ++i) {
+        if (str.substr(0, str.length() - i) == rev_str.substr(i)) {
+            palindrome = str + rev_str.substr(0, i);
+            break;
         }
     }
-    return "";
+    return palindrome;
 }
 
-int main() {
+int main(){
     assert(make_palindrome("jerry") == "jerryrrej");
-    
     return 0;
 }
