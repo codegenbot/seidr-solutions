@@ -25,3 +25,4 @@ int main() {
         std::cout << num << " is not a simple power.\n";
     }
     return 0;
+}
