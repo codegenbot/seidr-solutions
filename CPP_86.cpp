@@ -1,7 +1,8 @@
-```
 #include <algorithm>
 #include <string>
 using namespace std;
+
+void process_string(string s);
 
 string anti_shuffle(string s) {
     string result = "";
@@ -11,21 +12,7 @@ string anti_shuffle(string s) {
         } else {
             char temp = s[i];
             while (temp != ' ') {
-                char c = temp;
-                bool changed = false;
-                for (char j = 'a'; j <= 'z'; j++) {
-                    if (j < c) {
-                        c = j;
-                        changed = true;
-                    }
-                }
-                for (char j = 'A'; j <= 'Z'; j++) {
-                    if (j < c) {
-                        c = j;
-                        changed = true;
-                    }
-                }
-                temp = c;
+                temp = (temp >= 'a' && temp <= 'z') ? temp : ((temp >= 'A' && temp <= 'Z') ? (char)((temp - 1) + 'A') : (char)((temp - 1) + 'a'));
             }
             result += temp;
         }
@@ -34,7 +21,8 @@ string anti_shuffle(string s) {
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << anti_shuffle(s);
+    string str = "Hello World";
+    process_string(str);
+    cout << anti_shuffle(str) << endl;
+    return 0;
 }
