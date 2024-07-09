@@ -20,4 +20,4 @@ int main() {
     }
     std::cout << basement(nums) << std::endl;
     return 0;
-}  
+}
