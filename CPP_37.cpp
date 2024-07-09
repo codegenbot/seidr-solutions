@@ -1,8 +1,9 @@
 ```
 #include <algorithm>
 #include <vector>
+#include <iostream>
 
-bool isSame(vector<float> a, vector<float> b) {
+bool same(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -10,7 +11,7 @@ bool isSame(vector<float> a, vector<float> b) {
     return true;
 }
 
-vector<float> sortEven(vector<float> l) {
+vector<float> sort_even(vector<float> l) {
     vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -33,12 +34,12 @@ int main() {
     vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
     vector<float> expected({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
 
-    if(!isSame(sortEven(input), expected)) {
+    if(!same(sort_even(input), expected)) {
         return 1;
     }
 
-    for (float num : sortEven(input)) {
-        cout << num << " ";
+    for (float num : sort_even(input)) {
+        std::cout << num << " ";
     }
-    cout << endl;
+    std::cout << endl;
 }
