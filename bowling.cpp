@@ -8,10 +8,10 @@ int bowlingScore(std::string s) {
             score += 30;
             frame++;
         } else if (c == '/') {
-            score += 10 - (stoi(string(1, c) + string(1, c)) / 2);
+            score += 10 - (stoi(c + c) / 2);
             frame++;
         } else {
-            int pins = stoi(string(1, c) + string(1, c));
+            int pins = stoi(c + c);
             if (frame < 9 && pins < 10) {
                 score += pins;
                 frame++;
@@ -21,7 +21,7 @@ int bowlingScore(std::string s) {
                     c = s.back();
                     s.pop_back();
                 }
-                int bonus = stoi(string(1, c) + string(1, c));
+                int bonus = stoi(c + c);
                 if (bonus > 10) {
                     score += 10;
                 } else {
