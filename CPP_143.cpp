@@ -1,26 +1,17 @@
-#include <string>
-using namespace std;
-
-string words_in_sentence(string sentence) {
+string words_in_sentence(string sentence){
     string result = "";
-    int length = 0;
-    for (int i = 0; i < sentence.size(); i++) {
-        if (sentence[i] == ' ') {
-            if (is_prime(length)) {
-                result += sentence.substr(length - i, i - length + 1) + " ";
-            }
-            length = 0;
-        } else {
-            length++;
+    size_t pos = 0;
+    while((pos = sentence.find(" ")) != string::npos){
+        string word = sentence.substr(0, pos);
+        if(isPrime(word.length())){
+            result += word + " ";
         }
-    }
-    if (is_prime(length)) {
-        result += sentence.substr(0, length);
+        sentence.erase(0, pos+1);
     }
     return result;
 }
 
-bool is_prime(int n) {
+bool isPrime(int n) {
     if (n <= 1)
         return false;
     for (int i = 2; i * i <= n; i++)
