@@ -1,8 +1,5 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <cassert>
-
 using namespace std;
 
 int count_nums(vector<int> nums) {
