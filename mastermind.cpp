@@ -1,13 +1,11 @@
-#include <string>
-#include <map>
-#include <utility>
-
-pair<int, int> mastermind(string code, string guess) {
+```c++
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    map<char, int> codeCount;
-    map<char, int> guessCount;
+    // Count the number of correct colors in incorrect positions
+    std::map<char, int> codeCount;
+    std::map<char, int> guessCount;
     for (int i = 0; i < 4; ++i) {
         codeCount[code[i]]++;
         guessCount[guess[i]]++;
@@ -18,6 +16,7 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
+    // Count the number of correct colors in correct positions
     int codeIndex = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
@@ -26,5 +25,5 @@ pair<int, int> mastermind(string code, string guess) {
         }
     }
 
-    return make_pair(white, black);
+    return white + black;
 }
