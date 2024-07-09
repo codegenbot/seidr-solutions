@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
@@ -15,4 +14,3 @@ int main() {
 
     double result = hoppingList(prices, discounts);
     return 0;
-}
