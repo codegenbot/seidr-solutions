@@ -1,2 +1,2 @@
-def probability(p, c):
-    return 1 - (p + c - 2) / (p * c)
+def dice_game(n, m):
+    return (n - 1) / n
