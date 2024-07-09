@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```
 def fix_spaces(text):
     new_text = ""
