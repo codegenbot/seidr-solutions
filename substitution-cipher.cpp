@@ -1,28 +1,12 @@
-#include <string>
-using namespace std;
-
-string substituteCipher(string key1, string key2, string input) {
+string decipher(const string& cipher1, const string& cipher2, const string& message) {
     string result = "";
-    for(int i=0; i<input.length(); i++) {
-        if(i >= key1.length()) {
-            result += input[i];
+    for (char c : message) {
+        int idx = cipher1.find(c);
+        if (idx != string::npos) {
+            result += cipher2[idx];
         } else {
-            int index = 0;
-            for(int j=0; j<key1.length(); j++) {
-                if(key1[j] == input[i]) {
-                    index = j;
-                    break;
-                }
-            }
-            result += key2[index];
+            result += c; // keep non-mapped characters as is
         }
     }
     return result;
-}
-
-int main() {
-    string s1, s2, s3;
-    cin >> s1 >> s2 >> s3;
-    cout << substituteCipher(s1, s2, s3);
-    return 0;
 }
