@@ -13,11 +13,10 @@ std::string special_factorial(int n) {
         for (int j = 2; j <= i; j++)
             mul_result *= j;
 
-        if(i > 1) {
+        if(i > 1) 
             result += " * " + std::to_string(mul_result);
-        } else {
+        else
             result = std::to_string(mul_result);
-        }
     }
     return "n! = " + result;
 }
