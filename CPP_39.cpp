@@ -26,7 +26,7 @@ int prime_fib(int n) {
             }
             count++;
         }
-        int temp = a + b;
+        int temp = std::stoi(std::to_string(a) + std::to_string(b));
         a = b;
         b = temp;
     }
@@ -35,9 +35,7 @@ int prime_fib(int n) {
 int main() {
     int n;
     std::cout << "Enter the number: ";
-    char input[100];
-    std::cin >> input;
-    n = std::stoi(input);
+    std::cin >> n;
     if (n > 0) {
         std::cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << std::endl;
     } else {
