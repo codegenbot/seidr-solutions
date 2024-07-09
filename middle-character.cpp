@@ -1,13 +1,8 @@
-Here is the completed code:
-
-#include <string>
-using namespace std;
-
 string middleCharacter(string s) {
-    int n = s.length();
-    if (n % 2 == 0) {
-        return s.substr(n / 2 - 1, 2);
+    int len = s.length();
+    if (len % 2 != 0) {
+        return s.substr(len / 2, 1);
     } else {
-        return string(1, s[n / 2]);
+        return s.substr((len / 2) - 1, 2);
     }
 }
