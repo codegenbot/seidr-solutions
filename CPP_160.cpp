@@ -1,16 +1,19 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
-    int result = operand[0];
-    for (int i = 0; i < operator_.size(); i++) {
-        if (operator_[i] == "+") {
-            result += operand[i + 1];
-        } else if (operator_[i] == "-") {
-            result -= operand[i + 1];
-        } else if (operator_[i] == "*") {
-            result *= operand[i + 1];
-        } else if (operator_[i] == "//") {
-            result = result / operand[i + 1];
-        } else if (operator_[i] == "**") {
-            result = pow(result, operand[i + 1]);
+#include <vector>
+#include <cmath>
+
+int do_algebra(vector<pair<char, int>> operators_and_operands) {
+    int result = operators_and_operands[0].second;
+    for (const auto& pair : operators_and_operands) {
+        if (pair.first == '+') {
+            result += pair.second;
+        } else if (pair.first == '-') {
+            result -= pair.second;
+        } else if (pair.first == '*') {
+            result *= pair.second;
+        } else if (pair.first == '//') {
+            result = result / pair.second;
+        } else if (pair.first == '**') {
+            result = pow(result, pair.second);
         }
     }
     return result;
