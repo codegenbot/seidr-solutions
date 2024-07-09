@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 bool issame(const std::string& a, const std::string& b);
 
