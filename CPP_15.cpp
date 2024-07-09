@@ -1,5 +1,6 @@
-string result = "";
-for (int i = 0; i <= n; i++) {
-    result += to_string(i) + " ";
+string result;
+    for(int i = 0; i <= n; i++){
+        result += to_string(i) + " ";
+    }
+    return result;
 }
-return result.substr(0, result.length() - 1);
