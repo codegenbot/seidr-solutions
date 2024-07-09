@@ -6,6 +6,8 @@ bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
+#include <cmath>
+
 std::vector<int> count_up_to(int n);
 
 int main() {
