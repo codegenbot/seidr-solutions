@@ -1,11 +1,11 @@
 Here is the completed code:
 
 bool will_it_fly(vector<int> q, int w) {
-    string s = "";
+    string str = "";
     for (int i : q) {
-        s += to_string(i);
+        str += to_string(i);
     }
-    if (s != tostring(reverse(s))) {
+    if (!is_palindrome(str)) {
         return false;
     }
     int sum = 0;
@@ -13,4 +13,10 @@ bool will_it_fly(vector<int> q, int w) {
         sum += i;
     }
     return sum <= w;
+}
+
+bool is_palindrome(string s) {
+    string rev = s;
+    reverse(rev.begin(), rev.end());
+    return s == rev;
 }
