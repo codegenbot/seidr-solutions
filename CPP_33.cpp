@@ -10,17 +10,16 @@ vector<int> sort_third(vector<int> l) {
     int i = 0;
     while (i < l.size()) {
         if (i + 2 < l.size()) {
-            vector<int> block(3);
-            for (int j = 0; j < 3; j++) {
-                block[j] = l[i + j];
+            for (int j = 0; j <= 2 && i + j < l.size(); j++) {
+                result.push_back(l[i + j]);
             }
-            sort(block.begin(), block.end());
-            result.insert(result.end(), block.begin(), block.end());
+            sort(result.begin(), result.end());
+            for (int j = 0; j <= 2 && i + j < l.size(); j++) {
+                result[j] = l[i + j];
+            }
             i += 3;
-        } else {
-            if (i < l.size()) {
-                result.push_back(l[i]);
-            }
+        } else if (i + 1 < l.size()) {
+            result.push_back(l[i]);
             i++;
         }
     }
