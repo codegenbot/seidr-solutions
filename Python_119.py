@@ -1,6 +1,6 @@
 ```
 def match_parens(lst):
-    """stack = []
+    stack = []
     for s in lst:
         for char in s:
             if char == '(':
@@ -13,4 +13,4 @@ def match_parens(lst):
     if len(stack) == 0:
         return 'Yes'
     else:
-        return 'No'''"
+        return 'No'
