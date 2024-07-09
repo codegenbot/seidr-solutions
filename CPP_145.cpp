@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -32,12 +31,11 @@ int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    for(int i=0; i<n; i++) {
+    for(int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    vector<int> res = order_by_points(nums);
-    for(auto x:res) {
-        cout << x << " ";
-    }
+    
+    // Check the result
+    assert(issame(order_by_points(nums), {1,3,2}));
     return 0;
 }
