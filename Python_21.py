@@ -1,20 +1,26 @@
 from typing import List
 
 
-def rescale_to_unit():
+def rescale_to_unit() -> List[float]:
+    numbers = input("Please enter space-separated floating point numbers: ")
+
     try:
-        numbers = list(
-            map(float, input("Enter space-separated float numbers: ").split())
-        )
-        if len(numbers) == 0:
-            print("Please enter at least one number.")
-            return
-        min_val = min(numbers)
-        max_val = max(numbers)
+        numbers_list = [float(x) for x in numbers.split()]
+        if len(numbers_list) == 0:
+            return []
+
+        if len(set(numbers_list)) == 1:
+            return [1 for _ in numbers_list]
+
+        min_val = min(numbers_list)
+        max_val = max(numbers_list)
 
         if max_val - min_val == 0:
-            return [str(0.0)] * len(numbers)
+            return [0 for _ in numbers_list]
 
-        return ["{:.4f}".format((x - min_val) / (max_val - min_val)) for x in numbers]
+        return [(x - min_val) / (max_val - min_val) for x in numbers_list]
     except ValueError:
-        print("Program did not receive expected input. Please enter float numbers.")
+        return ["Invalid input. Please enter only floating point numbers."]
+
+
+print(rescale_to_unit())
