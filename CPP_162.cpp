@@ -7,7 +7,7 @@
 
 using namespace std;
 
-const int MD5_DIGEST_LENGTH = 16; 
+const int MD5_DIGEST_LENGTH = 16; // Defined constant for MD5 digest length
 
 string string_to_md5(string text) {
     if (text.empty()) return "None";
