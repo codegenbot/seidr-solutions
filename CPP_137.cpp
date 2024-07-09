@@ -17,7 +17,7 @@
         if (stod(a.convert_to<string>()) > stod(b.convert_to<string>())) {
             return a;
         }
-        # elif (stod(a.convert_to<string>()) < stod(b.convert_to<string>())) {
+        # else if (stod(a.convert_to<string>()) < stod(b.convert_to<string>())) {
             return b;
         }
         # else {
@@ -30,7 +30,7 @@
         if (a_num > b_num) {
             return a;
         }
-        # elif (a_num < b_num) {
+        # else if (a_num < b_num) {
             return b;
         }
         # else {
@@ -43,7 +43,7 @@
         if (a_int > b_int) {
             return a;
         }
-        # elif (a_int < b_int) {
+        # else if (a_int < b_int) {
             return b;
         }
         # else {
@@ -56,7 +56,7 @@
         if (a_num > b_int) {
             return a;
         }
-        # elif (a_num < b_int) {
+        # else if (a_num < b_int) {
             return b;
         }
         # else {
@@ -69,7 +69,7 @@
         if (a_num > b_num) {
             return a;
         }
-        # elif (a_num < b_num) {
+        # else if (a_num < b_num) {
             return b;
         }
         # else {
