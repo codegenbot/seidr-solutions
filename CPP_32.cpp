@@ -2,16 +2,22 @@
 #include <cmath>
 #include <iostream> 
 #include <cassert>
+#include <initializer_list>
 
-using std::cout;
-using std::cin;
-using std::vector;
+using namespace std;
 
 vector<double> coeffs;
 double coeff;
 int n;
 
-void readCoefficients() {
+double find_zero(vector<double> coeffs);
+double poly(vector<double> coeffs, double solution);
+
+void solve() {
+    vector<double> coeffs;
+    double coeff;
+    int n;
+
     cout << "Enter the number of coefficients: ";
     cin >> n;
 
@@ -20,6 +26,9 @@ void readCoefficients() {
         cin >> coeff;
         coeffs.push_back(coeff);
     }
+
+    double solution = find_zero(coeffs); 
+    assert(abs(poly(coeffs, solution)) < 1e-3);
 }
 
 double find_zero(vector<double> coeffs) {
@@ -39,8 +48,6 @@ double poly(vector<double> coeffs, double solution) {
 }
 
 int main() {
-    readCoefficients();
-    double solution = find_zero(coeffs); 
-    assert(abs(poly(coeffs, solution)) < 1e-3);
+    solve();
     return 0;
 }
