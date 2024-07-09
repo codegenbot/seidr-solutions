@@ -6,7 +6,7 @@ using namespace std;
 int digitSum(string s){
     int sum = 0;
     for(char c : s){
-        if(islower(c)){
+        if(isalpha(c) && islower(c)){
             sum += (c - 'a' + 1);
         }
     }
@@ -14,9 +14,6 @@ int digitSum(string s){
 }
 
 int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << "Digit Sum: " << digitSum(str) << endl;
+    cout << digitSum("you are very smart") << endl;
     return 0;
 }
