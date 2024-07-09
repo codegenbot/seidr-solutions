@@ -1,4 +1,4 @@
-string sort_numbers(const string& numbers) {
+string sort_numbers(const vector<string>& numbers) {
     #include <algorithm>
 
     map<string, int> number_map = {
