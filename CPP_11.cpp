@@ -1,7 +1,7 @@
 #include <cassert>
 #include <string>
 
-std::string string_xor(std::string a, std::string b);
+std::string string_xor(std::string a, std::string b); 
 
 std::string string_xor(std::string a, std::string b) {
     std::string result;
