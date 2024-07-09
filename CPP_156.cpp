@@ -1,3 +1,4 @@
+```cpp
 string int_to_mini_roman(int num) {
     string roman[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
                       "", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
@@ -43,17 +44,14 @@ string int_to_mini_roman(int num) {
         } else if (num >= 40) {
             num -= 40;
             result += "XL";
-        } else if (num >= 10) {
+        } else {
             for(int i = 0; i < (num / 10); ++i) {
                 num -= 10;
                 result += "X";
+                for(int j = 0; j < i; ++j) {
+                    result += "I";
+                }
             }
-        } else if (num >= 9) {
-            num -= 9;
-            result += "IX";
-        } else {
-            num -= 1;
-            result += "I";
         }
     }
 
