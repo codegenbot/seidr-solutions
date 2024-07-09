@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -20,27 +21,33 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> words, std::s
 }
 
 int main() {
-    int n; 
+    std::vector<std::string> words;
+    std::cout << "Enter the number of words: ";
+    int n;
     std::cin >> n;
-
-    std::vector<std::string> words(n);
-    for (auto &word : words) {
+    for (int i = 0; i < n; i++) {
+        std::string word;
+        std::cout << "Enter word " << i + 1 << ": ";
         std::cin >> word;
+        words.push_back(word);
     }
-
+    
+    std::cout << "Enter the prefix: ";
     std::string prefix;
     std::cin >> prefix;
-
-    auto filtered = filter_by_prefix(words, prefix);
-
-    if (!areEqual(words, filtered)) {
-        for (const auto& word : filtered) {
-            std::cout << word << " ";
+    
+    std::vector<std::string> filteredWords = filter_by_prefix(words, prefix);
+    
+    if (words.size() == filteredWords.size()) {
+        bool areEqual = areEqual(words, filteredWords);
+        if (areEqual) {
+            std::cout << "The original and filtered lists of words are equal." << std::endl;
+        } else {
+            std::cout << "The original and filtered lists of words are not equal." << std::endl;
         }
-        std::cout << "\n";
     } else {
-        std::cout << "No words match the given prefix.\n";
+        std::cout << "The original and filtered lists of words have different sizes." << std::endl;
     }
-
+    
     return 0;
 }
