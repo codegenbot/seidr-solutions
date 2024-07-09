@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -31,7 +32,6 @@ vector<string> reverse_delete(string s, string c) {
     string res_str = "";
     for (string str : result)
         res_str += str;
-
     bool is_palindrome = false;
     int start = 0, end = res_str.length() - 1;
     while (start < end) {
