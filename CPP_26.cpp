@@ -1,3 +1,5 @@
+#define _SOFARuntimeChecks 0
+#include <memory>
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,14 +24,5 @@ std::vector<int> remove_duplicates(std::vector<int> v) {
 
 int main2() {
     std::vector<int> numbers = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
-    for(int i : numbers) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-    
-    if(!isSame(numbers, {1, 2, 3, 4, 5})) {
-        std::cout << "assert failed" << std::endl;
-    } else {
-        std::cout << "assert passed" << std::endl;
-    }
+    assert(isSame(numbers, {1, 2, 3, 4, 5}));
 }
