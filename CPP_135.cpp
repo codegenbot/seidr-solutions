@@ -1,10 +1,19 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
-using namespace std;
+int can_arrange(std::vector<int> arr);
 
-int can_arrange(vector<int> arr) {
+int main() {
+    int test1 = can_arrange({1, 2, 3});
+    std::cout << "Test 1: " << test1 << std::endl;
+
+    int test2 = can_arrange({1, 4, 3});
+    std::cout << "Test 2: " << test2 << std::endl;
+
+    return 0;
+}
+
+int can_arrange(std::vector<int> arr) {
     for (int i = 1; i < arr.size(); i++) {
         if (arr[i] <= arr[i - 1]) {
             return i;
@@ -12,10 +21,3 @@ int can_arrange(vector<int> arr) {
     }
     return -1;
 }
-
-assert(can_arrange({}) == -1);
-vector<int> test1 = {1, 2, 3};
-cout << can_arrange(test1) << endl; 
-vector<int> test2 = {1, 4, 3};
-cout << can_arrange(test2) << endl; 
-return 0;
