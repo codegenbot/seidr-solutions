@@ -1,35 +1,38 @@
 #include <algorithm>
 #include <string>
-
+#include <map>
 using namespace std;
 
 string sort_numbers(string numbers) {
-    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                {"eight", 8}, {"nine", 9}};
+    map<string, int> numMap;
+    numMap["zero"] = 0; numMap["one"] = 1; numMap["two"] = 2;
+    numMap["three"] = 3; numMap["four"] = 4; numMap["five"] = 5;
+    numMap["six"] = 6; numMap["seven"] = 7; numMap["eight"] = 8;
+    numMap["nine"] = 9;
 
-    vector<string> numVec;
+    vector<string> nums;
     string temp;
-
-    for (int i = 0; i < numbers.length(); i++) {
+    for (int i = 0; i < numbers.size(); i++) {
         if (numbers[i] == ' ') {
-            continue;
+            nums.push_back(temp);
+            temp = "";
+        } else {
+            temp += numbers[i];
         }
-        for (auto it = numMap.begin(); it != numMap.end(); it++) {
-            if (it->first.find(string(1, numbers[i])) != string::npos) {
-                temp = it->first;
-                break;
-            }
-        }
-        numVec.push_back(temp);
+    }
+    nums.push_back(temp);
+
+    sort(nums.begin(), nums.end(), [&numMap](string a, string b) {
+        return numMap[a] < numMap[b];
+    });
+
+    string result;
+    for (int i = 0; i < nums.size(); i++) {
+        if (i == nums.size() - 1)
+            result += nums[i];
+        else
+            result += nums[i] + " ";
     }
 
-    sort(numVec.begin(), numVec.end());
-
-    string result = "";
-    for (auto it = numVec.begin(); it != numVec.end(); it++) {
-        result += *it + " ";
-    }
-
-    return result.substr(0, result.length() - 1);
+    return result;
 }
