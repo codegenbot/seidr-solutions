@@ -11,4 +11,3 @@ std::string fizzBuzz(int x) {
     else
         result = std::to_string(x);
     return result;
-}
