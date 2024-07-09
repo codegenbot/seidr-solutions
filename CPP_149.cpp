@@ -2,6 +2,10 @@
 #include <vector>
 #include <string>
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
 std::vector<string> sorted_list_sum(vector<string> lst) {
     auto it = remove_if(lst.begin(), lst.end(), 
                         [](const string& str){ return str.length() % 2; });
