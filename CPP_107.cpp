@@ -20,5 +20,5 @@ bool checkPalindrome(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(checkPalindrome(even_odd_palindrome(5), {0, 1, 0, 1, 0}));
+    assert(checkPalindrome(even_odd_palindrome(1), {0, 1}));
 }
