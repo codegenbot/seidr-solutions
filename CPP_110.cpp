@@ -1,20 +1,9 @@
-Here's the solution:
-
 string exchange(vector<int> lst1, vector<int> lst2) {
-    bool hasOdd = false;
+    int oddCount = 0;
     for (int num : lst1) {
         if (num % 2 != 0) {
-            hasOdd = true;
-            break;
+            oddCount++;
         }
     }
-    if (!hasOdd) {
-        return "YES";
-    }
-    for (int num : lst2) {
-        if (num % 2 != 0) {
-            return "NO";
-        }
-    }
-    return "YES";
+    return oddCount == 0 ? "YES" : "NO";
 }
