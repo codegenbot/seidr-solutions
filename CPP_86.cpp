@@ -1,8 +1,6 @@
-```cpp
 #include <algorithm>
 #include <iostream>
 #include <string>
-#include <memory> // Include memory header for size_type
 
 using namespace std;
 
@@ -31,4 +29,3 @@ int main() {
     getline(cin, str);
     cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
     return 0;
-}
