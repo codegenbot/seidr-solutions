@@ -1,20 +1,10 @@
-#include <sstream>
-#include <string>
-
-int do_algebra(std::string input) {
-    std::stringstream ss(input);
+int main() {
     std::vector<std::pair<char, int>> operators_and_operands;
-
     char op;
     int operand;
 
-    while (ss >> op >> operand) {
-        if (op == '+' || op == '-' || op == '*' || op == '/' || op == '**') {
-            operators_and_operands.push_back(std::make_pair(op, operand));
-        } else {
-            // Invalid input
-            return -1;
-        }
+    while (std::cin >> op >> operand) {
+        operators_and_operands.push_back({op, operand});
     }
 
     int result = operators_and_operands[0].second;
@@ -29,12 +19,8 @@ int do_algebra(std::string input) {
             if (pair.second != 0) {
                 result /= pair.second;
             }
-        } else if (pair.first == '**') {
-            long long temp = 1; 
-            for(int i=0;i<pair.second;i++){
-                temp*=result;
-            }
-            result = temp;
+        } else if (pair.first == '^') { 
+            result = std::pow(result, pair.second);
         }
     }
     return result;
