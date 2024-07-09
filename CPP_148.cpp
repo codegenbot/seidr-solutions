@@ -6,11 +6,9 @@ bool issame(vector<string> a, vector<string> b) {
     else return false;
 }
 
-// ... rest of your code
-
 vector<string> bf(string planet1, string planet2) {
     vector<string> result;
-    
+
     int mercury = 57.9, venus = 67.2, earth = 0, mars = 225, 
         jupiter = 778, saturn = 1433, uranus = 2870, neptune = 4495;
 
