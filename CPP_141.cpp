@@ -1,23 +1,27 @@
-Here is the completed code:
-
-string file_name_check(string file_name){
+int count_digits(const string& str) {
     int count = 0;
-    bool has_dot = false;
-    for(int i=0; i<file_name.length();i++){
-        if(isdigit(file_name[i])){
+    for (char c : str) {
+        if (isdigit(c)) {
             count++;
-            if(count>3) return "No";
         }
-        else if(file_name[i] == '.'){
-            has_dot = true;
-        }
-        else if(!has_dot && !isalpha(file_name[i])) return "No";
     }
-    if(!has_dot || file_name.find('.') == string::npos) return "No";
-    size_t pos = file_name.find('.');
-    string ext = file_name.substr(pos+1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    if(find(valid_extensions.begin(), valid_extensions.end(), ext) == valid_extensions.end()) 
+    return count;
+}
+
+string file_name_check(string file_name) {
+    int digit_count = count_digits(file_name);
+    size_t dot_pos = file_name.find('.');
+    if (dot_pos == string::npos || file_name.substr(0, dot_pos).empty() ||
+        !isalpha(file_name[0])) {
         return "No";
+    }
+    if (digit_count > 3) {
+        return "No";
+    }
+    string ext = file_name.substr(dot_pos + 1);
+    vector<string> valid_exts = {"txt", "exe", "dll"};
+    if (find(valid_exts.begin(), valid_exts.end(), ext) == valid_exts.end()) {
+        return "No";
+    }
     return "Yes";
 }
