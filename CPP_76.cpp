@@ -1,22 +1,5 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <cmath>
-
-bool isSimplePower(int num) {
-    for(int base = 2; base * base <= num; ++base) {
-        int power = 1;
-        while (power * base <= num) {
-            if ((power * base) == num) {
-                return true;
-            }
-            ++power;
-        }
-    }
-    return false;
-}
-
-int main() {
+int main
+{
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
