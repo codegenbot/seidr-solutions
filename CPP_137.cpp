@@ -14,10 +14,16 @@ int main() {
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return a;
+        if ((boost::any_cast<int>(a) > 0) && (boost::any_cast<float>(b) < 0))
+            return a;
+        else
+            return b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        return "Float is greater";
+        if ((boost::any_cast<float>(a) > 0.0f) && !boost::any_cast<std::string>(b).compare("hi"))
+            return a;
+        else
+            return b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
@@ -27,7 +33,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (strA < strB)
             return b;
         else
-            return "Equal";
+            return "None";
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int iA = boost::any_cast<int>(a);
@@ -37,7 +43,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (iA < iB)
             return b;
         else
-            return "Equal";
+            return "None";
     }
     else {
         return "None";
