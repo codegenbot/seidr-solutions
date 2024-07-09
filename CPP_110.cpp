@@ -1,10 +1,28 @@
-Here's the solution:
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
 
-string exchange(vector<int> lst1, vector<int> lst2) {
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
+    bool hasOdd = false;
     for (int num : lst1) {
-        if (num % 2 != 0 && find(lst2.begin(), lst2.end(), num) == lst2.end()) {
+        if (num % 2 != 0) {
+            hasOdd = true;
+            break;
+        }
+    }
+    if (!hasOdd) {
+        return "YES";
+    }
+    for (int num : lst2) {
+        if (num % 2 != 0) {
             return "NO";
         }
     }
     return "YES";
+}
+
+int main() {
+    std::cout << exchange({1, 4}, {3, 5}) << std::endl;
+    return 0;
 }
