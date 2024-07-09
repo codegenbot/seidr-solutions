@@ -1,5 +1,6 @@
 def bowling_score(bowls):
     score = 0
+    bowls = bowls.replace("-", "0")
     frames = list(bowls)
 
     for i in range(min(10, len(frames) - 1)):
