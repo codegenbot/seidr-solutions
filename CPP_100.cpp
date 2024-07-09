@@ -19,6 +19,6 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(issame(make_a_pile(8), {8,7,6,5,4,3,2,1}));
+    assert(issame(make_a_pile(8), {8, 7, 6, 5, 4, 3, 2, 1}));
     return 0;
 }
