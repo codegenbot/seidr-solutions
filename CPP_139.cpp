@@ -1,6 +1,4 @@
-```
-#include<iostream>
-using namespace std;
+#include <iostream>
 
 long long special_factorial(int n){
     long long result = 1;
@@ -16,8 +14,9 @@ long long special_factorial(int n){
 
 int main(){
     int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    assert(special_factorial(n)>0);
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    long long res = special_factorial(n);
+    std::cout << "The special factorial of " << n << " is: " << res << std::endl;
     return 0;
 }
