@@ -14,14 +14,13 @@ bool isSame(vector<int> a, vector<int> b) {
 }
 
 vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    int stones = 1;
-    while (stones <= INT_MAX / 2) { 
-        pile.push_back(stones);
-        if ((n - stones) % 2 == 0) {
-            stones += 1;
+    vector<int> pile = {0}; // Initialize the vector
+    for (int i = 1; i <= n; ++i) {
+        if ((n - i) % 2 == 0) {
+            pile.push_back(i);
+            pile.push_back(i + 1);
         } else {
-            stones += 2;
+            pile.push_back(i * 2);
         }
     }
     return pile;
