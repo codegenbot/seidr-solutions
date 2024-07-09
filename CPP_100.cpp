@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 bool vectorSame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -12,6 +13,6 @@ std::vector<int> makeApile(int n) {
 }
 
 int main() {
-    assert(vectorSame(makeApile(8), {8, 6, 4, 2}));
+    assert(vectorSame(makeApile(4), {2, 4, 6, 8}));
     return 0;
 }
