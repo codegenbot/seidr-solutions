@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -57,7 +56,7 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
     return {};
 }
 
-int mainTest() {  
+void solveProblem() {  
     vector<string> lst1;
     lst1.push_back("apple");
     lst1.push_back("banana");
