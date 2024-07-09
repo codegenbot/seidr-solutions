@@ -1,15 +1,15 @@
-#include <algorithm>
-using namespace std;
-
-string solve(string s) {
+string solve(string s){
     string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            c = (c >= 'a' && c <= 'z') ? c + ('A' - 'a') : c + ('a' - 'A');
+    bool has_letter = false;
+
+    for(int i = 0; i < s.length(); i++){
+        if(isalpha(s[i])){
+            has_letter = true;
+            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
         } else {
-            result += c;
+            result += s[i];
         }
     }
-    reverse(result.begin(), result.end());
-    return result;
+
+    return has_letter ? result : string(reverse(result));
 }
