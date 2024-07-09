@@ -16,3 +16,13 @@ vector<int> even_odd_palindrome(int n) {
     }
     return res;
 }
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> result = even_odd_palindrome(n);
+    for (int i = 0; i < result.size(); ++i) {
+        cout << result[i] << " ";
+    }
+    return 0;
+}
