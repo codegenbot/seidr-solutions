@@ -1,11 +1,17 @@
-int prod_signs(vector<int> arr){
+#include <vector>
+
+using namespace std;
+
+int prod_signs(vector<int> arr) {
+    int product = 1;
+    long long sum = 0; // Use long long to avoid overflow for large inputs
+    
     if(arr.empty()) return -32768;
-    int sign = 1;
-    long long sum = 0;
-    for(int i: arr){
-        if(i == 0) continue;
-        sign *= (i > 0 ? 1 : -1);
-        sum += abs(i);
+    
+    for(int num : arr){
+        product *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
+        sum += abs(num);
     }
-    return sign * sum;
+    
+    return product * sum;
 }
