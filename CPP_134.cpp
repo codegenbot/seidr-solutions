@@ -1,19 +1,8 @@
-if(txt.empty()){
-        return false;
+bool check_if_last_char_is_a_letter(const std::string &txt) {
+    if(txt.empty()) return false;
+    char last_char = txt.back();
+    if(isalpha(last_char)){
+        if(txt.find_last_of(" ") == txt.size() - 1) return true;
     }
-    
-    char lastChar = txt.back();
-    
-    if(isalpha(lastChar)){
-        int i = txt.size() - 2;
-        while(i >= 0 && txt[i] != ' '){
-            if(isalpha(txt[i])){
-                return false;
-            }
-            i--;
-        }
-        return true;
-    }
-    
     return false;
 }
