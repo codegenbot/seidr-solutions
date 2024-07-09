@@ -40,7 +40,7 @@ int main() {
             lst.emplace_back(std::in_place_type_t<std::variant<float, long long>>, input);
         }
         n++;
-   }
+    }
     
     long long odd_sum = double_the_difference(lst);
     return 0;
