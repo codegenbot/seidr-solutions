@@ -1,7 +1,8 @@
 #include <algorithm>
+#include <vector>
 
 bool issame(vector<string> a, vector<string> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), [](const string& x, const string& y){return x == y;});
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
