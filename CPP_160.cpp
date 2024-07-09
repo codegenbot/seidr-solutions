@@ -1,20 +1,25 @@
 #include <vector>
 #include <string>
+#include <cmath>
 
-int do_algebra(vector<string> operator_, vector<int> operand) {
-    int result = operand[0];
-    for (int i = 0; i < operator_.size(); i++) {
-        if (operator_[i] == "+") {
-            result += operand[i + 1];
-        } else if (operator_[i] == "-") {
-            result -= operand[i + 1];
-        } else if (operator_[i] == "*") {
-            result *= operand[i + 1];
-        } else if (operator_[i] == "//") {
-            result = result / operand[i + 1];
-        } else if (operator_[i] == "**") {
-            result = pow(result, operand[i + 1]);
+int do_algebra(vector<string> operations, vector<int> operand){
+    int result = 0;
+    int num1 = operand[0];
+    for(int i=0; i<operations.size(); i++){
+        if(operations[i] == "+"){
+            result += num1 + operand[i+1];
+        } else if(operations[i] == "-"){
+            result -= num1 - operand[i+1];
+        } else if(operations[i] == "*"){
+            result *= num1 * operand[i+1];
+        } else if(operations[i] == "//" || operations[i] == "**"){
+            if(operations[i] == "//") {
+                result = num1 / (int)round((double)operand[i+1]);
+            } else {
+                result = pow(num1, operand[i+1]);
+            }
         }
+        num1 = operand[i+1];
     }
     return result;
 }
