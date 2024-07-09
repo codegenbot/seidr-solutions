@@ -19,28 +19,21 @@ std::string string_xor(std::string a, std::string b) {
 
 int main() { 
     assert(string_xor("0101", "0000") == "0101");
-    std::string str1, str2;
+    std::string str1;
+    std::string str2;
     std::cout << "Enter the first string: ";
     char c1;
     while(std::cin >> c1) {
-        if(c1 != ' ') {
-            str1 += c1;
-        }
+        str1 += c1;
     }
     std::cout << "Enter the second string: ";
     char c2;
     while(std::cin >> c2) {
-        if(c2 != ' ') {
-            str2 += c2;
-        }
+        str2 += c2;
     }
     try {
-        if(str1.length() > 0 && str2.length() > 0) {
-            std::string result = string_xor(str1, str2);
-            std::cout << "XOR of the two strings is: " << result << std::endl;
-        } else {
-            std::cerr << "Error: Input strings are empty." << std::endl;
-        }
+        std::string result = string_xor(str1, str2);
+        std::cout << "XOR of the two strings is: " << result << std::endl;
     } catch (const std::invalid_argument& e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
