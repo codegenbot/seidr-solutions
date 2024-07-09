@@ -1,4 +1,6 @@
-```cpp
+#include <iostream>
+#include <string>
+
 bool correct_bracketing(std::string brackets) {
     int count = 0;
     for(char c : brackets){
@@ -9,3 +11,10 @@ bool correct_bracketing(std::string brackets) {
         }
     }
     return count == 0;
+}
+
+int main() {
+    assert(not (correct_bracketing("()()(()())()))")));
+    std::cout << "Correct bracketing test passed." << std::endl;
+    return 0;
+}
