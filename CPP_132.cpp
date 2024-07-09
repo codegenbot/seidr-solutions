@@ -14,3 +14,4 @@ bool is_nested(string str) {
         }
     }
     return count > 0;
+}
