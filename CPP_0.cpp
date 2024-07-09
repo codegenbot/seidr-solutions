@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -10,6 +11,7 @@ bool has_close_elements(float numbers[], int size, float threshold){
         }
     }
     return false;
+
 }
 
 int main() {
