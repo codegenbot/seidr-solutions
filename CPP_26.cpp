@@ -18,7 +18,7 @@ bool isSame(vector<int> a, vector<int> b) {
 vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> result;
     for(int num : numbers){
-        if(find(result.begin(), result.end(), num) != result.end()){
+        if(std::find(std::begin(result), std::end(result), num) == std::end(result)){
             result.push_back(num);
         }
     }
