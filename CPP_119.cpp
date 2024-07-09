@@ -19,6 +19,6 @@ std::string match_parens(vector<string> lst) {
 }
 
 int main() {
-    assert(match_parens({{"(", ")"}) == "Yes");
+    cout << match_parens({{"(", ")"}) << endl;
     return 0;
 }
