@@ -1,8 +1,8 @@
 sort(lst.begin(), lst.end());
-    auto it = unique(lst.begin(), lst.end());
-    if (distance(lst.begin(), it) >= 2) {
-        return *next(lst.begin(), 1);
-    } else {
-        return -1;
+int count = 1;
+for (int i = 0; i < lst.size(); ++i) {
+    if (lst[i] < lst[count - 1]) {
+        return lst[i];
     }
 }
+return None;
