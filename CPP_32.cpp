@@ -1,23 +1,15 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 
-double find_zero(std::vector<double> coeffs){
-    int n = coeffs.size();
-    double a = coeffs[n/2];
-    double b = 0;
-    std::vector<double> zero_coeffs; 
-    for (int i = 0; i < n/2; i++) {
-        b -= coeffs[i] / a * pow(a, 2*i);
+double poly(vector<double> coeffs, double x) {
+    double result = 0;
+    for (int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(x, i);
     }
-    double solution = -b / (2*a); 
-
-    return solution;
+    return result;
 }
 
-int main() {
-    std::vector<double> input_coeffs; 
-    double output_solution = find_zero(input_coeffs); 
-
-    return 0;
+double find_zero(vector<double> xs){
+    double x = -xs[1]/(2*abs(xs[1]));
+    return poly(xs,x);
 }
