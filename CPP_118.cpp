@@ -23,7 +23,3 @@ string get_closest_vowel(string word) {
 
     return "";
 }
-
-int main() {
-    // Use the get_closest_vowel function here...
-}
