@@ -25,9 +25,7 @@ int main() {
     int target;
     cin >> target;
     pair<int, int> result = findPair(nums, target);
-    if(result.first == {} && result.second == {})
-        cout << "No pair found." << endl;
-    else
-        cout << result.first << " and " << result.second << " are the pair that sum up to " << target << "." << endl;
+    cout << result.first << endl;
+    cout << result.second << endl;
     return 0;
 }
