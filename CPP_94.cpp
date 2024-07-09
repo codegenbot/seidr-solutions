@@ -31,6 +31,6 @@ bool isPrime(int num) {
 }
 
 int main() {
-    assert(skkasdkd({127, 97, 8192}) == 10);
+    assert(skkkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
