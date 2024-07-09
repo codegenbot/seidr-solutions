@@ -1,17 +1,15 @@
-```cpp
-#include <string>
-#include <vector>
+using namespace std;
 
-std::string findLongestString(const std::vector<std::string>& strings){
+string longest(vector<string> strings){
     if(strings.empty()) return "";
-    std::string longest = strings[0];
+    string res = strings[0];
     for(auto str : strings){
-        if(str.length() > longest.length()){
-            longest = str;
+        if(str.length() > res.length()){
+            res = str;
         }
-        else if(str.length() == longest.length()){
-            longest = str;
+        else if(str.length() == res.length()){
+            res = str;
         }
     }
-    return longest;
+    return res;
 }
