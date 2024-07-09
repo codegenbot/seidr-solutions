@@ -1,4 +1,4 @@
-def find_zero(xs):
+def find_zero(xs: list):
     n = len(xs)
     a = xs[n // 2]
     return -a / xs[0] if a != 0 else 0
