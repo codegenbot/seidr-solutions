@@ -17,7 +17,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         return a;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        return "Equal";
+        return "Float is greater";
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
