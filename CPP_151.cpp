@@ -4,7 +4,7 @@
 
 long long double_the_difference(const std::vector<float>& lst) {
     long long sum = 0;
-    for (float x : lst) {
+    for (const float& x : lst) {
         if (x > 0 && std::floor(x) == x) {
             sum += pow(x, 2);
         }
@@ -19,7 +19,10 @@ int main() {
         lst.push_back(input);
 
     long long odd_sum = double_the_difference(lst); 
-    std::cout << "The sum of squares is: " << odd_sum << std::endl;
-    
+    if (lst.size() % 2 == 0) {
+        std::cout << "The difference is: " << odd_sum << std::endl;
+    } else {
+        std::cout << "The difference is: " << odd_sum - lst[0] << std::endl;
+    }
     return 0;
 }
