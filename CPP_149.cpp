@@ -1,4 +1,4 @@
-```cpp
+```
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -35,5 +35,18 @@ vector<string> sorted_list_sum(vector<string> lst) {
                  return a < b;
              }
          });
-    return result;
+    vector<string> sorted_result;
+    for(const auto& str : result) {
+        bool found = false;
+        for(auto it = sorted_result.begin(); it != sorted_result.end(); ++it) {
+            if (*it == str) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) {
+            sorted_result.push_back(str);
+        }
+    }
+    return sorted_result;
 }
