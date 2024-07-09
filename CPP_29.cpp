@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-bool areEqual(std::vector<std::string> a, std::vector<std::string> b) {
+bool areEqual(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -10,9 +10,9 @@ bool areEqual(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> words, std::string prefix) {
-    std::vector<std::string> result;
-    for (std::string word : words) {
+vector<string> filter_by_prefix(vector<string> words, string prefix) {
+    vector<string> result;
+    for (string word : words) {
         if (word.find(prefix) == 0) {
             result.push_back(word);
         }
