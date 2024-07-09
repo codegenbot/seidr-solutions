@@ -15,6 +15,6 @@ int main() {
     ios_base::fmtflags flags = cout.flags();
     cout << fixed << setprecision(10);
     cout << snowDay(h, s, r, m) << endl;
-    cout.flags(flags);  
+    cout.flags(flags);  // restore original format
     return 0;
 }
