@@ -2,9 +2,9 @@
 #include <iostream>
 
 double probability(int n, int m) {
-    double total = 1; // total outcomes: n*m
-    for (int i = 1; i <= std::min(n, m); i++) {
-        total -= (i / (double)n) * (m - i + 1) / (double)m;
+    double total = 0;
+    for(int i = 1; i < std::min(n, m); i++) {
+        total += (i/(double)n) * (m-i)/(double)m;
     }
     return total;
 }
