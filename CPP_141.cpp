@@ -1,21 +1,26 @@
-Here is the completed code:
+#include <string>
 
-string file_name_check(string file_name){
+std::string file_name_check(std::string s) {
+    int i;
     int digitCount = 0;
     bool foundDot = false;
-    for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
+    for(i=0; i<s.length(); i++){
+        char c = s[i];
         if(c >= '0' && c <= '9'){
             digitCount++;
         }else if(c == '.'){
             foundDot = true;
         }else if(foundDot){
-            string extension = file_name.substr(i);
-            if(extension != "txt" && extension != "exe" && extension != "dll"){
+            if(s.length() < 4) {
+                return "No";
+            }
+            std::string extension = s.substr(i, s.find_last_of('.') - i);
+            if(s.length() < i+extension.length() || extension != "txt" && extension != "exe" && extension != "dll"){
                 return "No";
             }
         }
     }
     if(digitCount > 3 || !foundDot) return "No";
-    if(file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z') return "No";
+    if(s[0] < 'a' || s[0] > 'z' && s[0] < 'A' || s[0] > 'Z') return "No";
     return "Yes";
+}
