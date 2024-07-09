@@ -1,13 +1,10 @@
 #include <climits>
-#include <vector>
 
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if (arr.empty()) {
-        return vector<pair<int, int>>(); // Correct way to initialize an empty vector
-    }
+    if (arr.empty()) return vector<pair<int, int>>(); 
 
     int minEvenValue = INT_MAX;
     int minIndex = -1;
