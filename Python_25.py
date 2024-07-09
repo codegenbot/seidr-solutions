@@ -1,7 +1,16 @@
-def main():
-    n = int(input("Enter a number to factorize: "))
-    result = factorize(n)
-    print(result)
+from typing import List
 
-if __name__ == "__main__":
-    main()
+def factorize(n: int) -> List[int]:
+    factors = []
+    divisor = 2
+    while n > 1:
+        if n % divisor == 0:
+            factors.append(divisor)
+            n //= divisor
+        else:
+            divisor += 1
+    return factors
+
+number = int(input("Enter a number to factorize: "))
+result = factorize(number)
+print(result)
