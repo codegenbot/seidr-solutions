@@ -9,4 +9,4 @@ def concatenate(strings: List[str]) -> str:
     return result
 
 strings = ["hello", "world"]
-print(concatenate(strings))
+print(concatenate(strings))  # This will print "helloworld"
