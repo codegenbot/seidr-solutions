@@ -3,11 +3,11 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<string> a, vector<string>b){
-    if(a.size() != b.size())
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size())
         return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
             return false;
     }
     return true;
@@ -39,16 +39,14 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3, 4};
-    std::vector<std::string> result = by_length(arr);
-    
-    if(result.size() == 0) {
-        std::cout << "No numbers in the range [1-9]" << std::endl;
-    } else {
-        for (const auto &str : result) {
+    std::vector<int> arr = {1, 2, 3, 4, 5};
+    std::vector<std::string> output = by_length(arr);
+    if (issame(output, {"One", "Two", "Three", "Four", "Five"})) {
+        for (const auto& str : output) {
             std::cout << str << std::endl;
         }
+    } else {
+        std::cout << "Output is not as expected." << std::endl;
     }
-    
     return 0;
 }
