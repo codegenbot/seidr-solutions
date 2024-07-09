@@ -17,7 +17,7 @@ vector<vector<string>> filter_by_substring(vector<vector<string>> input, string 
     for(auto &v : input) {
         bool same = true;
         for(auto &s : v) {
-            if(!issame({s}, {sub})) {
+            if(s.find(sub.c_str()) == std::string::npos) {
                 same = false;
                 break;
             }
@@ -36,5 +36,4 @@ int main() {
         }
         std::cout << std::endl;
     }
-    return 0;
 }
