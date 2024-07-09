@@ -1,22 +1,32 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
 }
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result = {n};
-    while (n != 1) {
-        if (n % 2) n = 3 * n + 1;
-        else n /= 2;
-        result.push_back(n);
+int get_odd_collatz(int n) {
+    int sequence[50] = {0};
+    int i = 0;
+    
+    while(n != 1 && i < 49) {
+        if(n % 2)
+            n = 3*n + 1;
+        else
+            n /= 2;
+        
+        sequence[i++] = n;
     }
-    return result;
+    
+    for(int j = 0; j < i; j++) {
+        std::cout << sequence[j] << " ";
+    }
+    
+    std::cout << std::endl;
 }
 
-int main() {
-    assert(issame(get_odd_collatz(1), {1}));
-    return 0;
+int solver() {
+    int num;
+    std::cin >> num;
+    get_odd_collatz(num);
 }
