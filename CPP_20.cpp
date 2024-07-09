@@ -1,4 +1,3 @@
-```cpp
 #include <numeric>
 #include <algorithm>
 #include <cmath>
@@ -12,10 +11,10 @@ bool issame(vector<float> a, vector<float> b) {
 
 vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     vector<pair<float, float>> closestPair;
-    float minDiff = numeric_limits<float>::max();
+    float minDiff = std::numeric_limits<float>::max();
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = abs(numbers[i] - numbers[j]);
+            float diff = std::abs(numbers[i] - numbers[j]);
             if (diff < minDiff) {
                 minDiff = diff;
                 closestPair = {{numbers[i], numbers[j]}};
