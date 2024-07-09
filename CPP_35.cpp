@@ -4,6 +4,31 @@
 
 using namespace std;
 
+int main() {
+    vector<float> l;
+    float max = 0.0;
+    
+    cout << "Enter the elements of the vector (enter 'q' to quit):" << endl;
+    
+    while(true) {
+        string s;
+        cin >> s;
+        
+        if(s == "q") break;
+        
+        float f;
+        cin >> f;
+        
+        l.push_back(f);
+        
+        max = max_element(l);
+        
+        cout << "Maximum element so far: " << max << endl;
+    }
+    
+    return 0;
+}
+
 float max_element(vector<float> l){
     float max = l[0];
     for(int i=1; i<l.size(); i++){
@@ -11,11 +36,4 @@ float max_element(vector<float> l){
             max = l[i];
     }
     return max;
-}
-
-int main() {
-    vector<float> numbers = {10.5, -20.3, 30.2, -15.9};
-    float result = max_element(numbers);
-    cout << "The maximum element is: " << abs(result) << endl;
-    return 0;
 }
