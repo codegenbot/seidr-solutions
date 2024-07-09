@@ -1,12 +1,31 @@
-string get_closest_vowel(string word) {
-    int n = word.size();
-    for (int i = n - 1; i > 0; --i) {
-        if (!isalpha(word[i])) continue;
-        if (ispunct(word[i]) || isdigit(word[i])) continue;
-        if (word[i] == 'Y' && i > 1 && isupper(word[i-1]) && islower(word[i-2]))
-            return "Y";
-        if (ispunct(word[i]) || isdigit(word[i])) break;
-        if (isvowel(word[i])) return word.substr(i);
+#include <iostream>
+#include <string>
+#include <cctype>
+#include <cassert>
+
+bool isvowel(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+char get_next_vowel(const std::string& word, char prev) {
+    for (int i = 0; i < word.size(); ++i) {
+        if (isvowel(word[i])) {
+            return word[i];
+        }
+    }
+    return '\0';
+}
+
+std::string get_closest_vowel(const std::string& word) {
+    for (char c : word) {
+        if (!isvowel(c)) {
+            char closest = get_next_vowel(word, c);
+            if (closest == '\0') {
+                throw std::runtime_error("No vowel found in the string");
+            }
+            return std::string(1, closest);
+        }
     }
     return "";
 }
