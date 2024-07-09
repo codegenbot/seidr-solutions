@@ -9,6 +9,5 @@ def encode(message):
             encoded_message += char.swapcase()
     return encoded_message
 
-# Test the function with the given example
 result = encode("I DoNt KnOw WhAt tO WrItE")
 print(result)
