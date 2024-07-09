@@ -1,9 +1,8 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<int> make_a_pile(int n) {
