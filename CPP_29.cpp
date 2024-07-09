@@ -1,5 +1,3 @@
-Write a program to filter strings that start with a given prefix.
-
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for (const auto& str : strings) {
