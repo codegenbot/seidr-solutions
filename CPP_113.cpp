@@ -1,8 +1,27 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
+
+vector<string> odd_count(vector<string> lst);
+
+void displayOutput(vector<string> output) {
+    for (string s : output) {
+        cout << s << endl;
+    }
+}
+
+int main() {
+    vector<string> lst;
+    string temp;
+    while(getline(cin,temp) && !temp.empty())
+        lst.push_back(temp);
+    vector<string> output = odd_count(lst);
+    displayOutput(output);
+    return 0;
+}
 
 vector<string> odd_count(vector<string> lst) {
     vector<string> result;
@@ -13,37 +32,12 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        string temp = "the number of odd elements ";
+        string temp = "the number of odd elements is ";
         temp += to_string(count);
-        temp += " in the string ";
+        temp += " in the string";
         temp += to_string(i + 1);
+        temp += ".";
         result.push_back(temp);
     }
-    for (string s : lst) {
-        cout << s << endl;
-    }
     return result;
-}
-
-int main() {
-    vector<string> lst;
-    string s;
-
-    cout << "Enter strings (enter 'stop' to stop):" << endl;
-    while (true) {
-        cin >> s;
-        if (s == "stop") break;
-        lst.push_back(s);
-    }
-
-    for (string str : lst) {
-        cout << str << endl;
-    }
-
-    vector<string> output = odd_count(lst);
-    for (string o : output) {
-        cout << o << endl;
-    }
-    
-    return 0;
 }
