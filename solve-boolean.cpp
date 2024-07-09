@@ -1,19 +1,15 @@
-```
+```c++
 case '|': 
-    processBar(s, i, result); 
-    break; 
-
-void processBar(string s, int& i, bool& result) {
-    while (i < s.size()) {
-        switch (s[i]) {
+    while (i < s.size()) { 
+        switch (s[i]) { 
             case 'T':
-                return;
+                result = true;
+                break;
             case 'F':
                 i++;  
                 result = false;
-                return;
+                return result; 
         }
         i++;
-    }
-    result = true; 
-}
+    } 
+    return result;
