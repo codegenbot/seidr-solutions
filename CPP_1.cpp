@@ -1,20 +1,27 @@
-vector<string> result;
-    string group;
-    int open_count = 0;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> separate_paren_groups(string paren_string);
+
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string current_group;
+    int open_braces = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            open_count++;
-            if (open_count > 1) {
-                group += c;
+            if (open_braces > 0) {
+                current_group += c;
             }
+            open_braces++;
         } else if (c == ')') {
-            open_count--;
-            if (open_count == 0) {
-                result.push_back(group);
-                group = "";
-            } else {
-                group += c;
+            open_braces--;
+            if (open_braces > 0) {
+                current_group += c;
+            } else if (open_braces == 0 && !current_group.empty()) {
+                result.push_back(current_group);
+                current_group.clear();
             }
         }
     }
