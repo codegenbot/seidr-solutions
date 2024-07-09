@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -16,7 +17,7 @@ int bowlingScore(std::string s) {
             rolls[0] = 10;
             roll = 0;
         }
-        rolls[9-roll] = std::max(roll, 1);
+        rolls[9-roll] = max(roll, 1);
     }
     
     for (int i = 0; i < 10; i++) {
