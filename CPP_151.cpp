@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 long long double_the_difference(std::vector<double> lst) {
     long long sum = 0;
     for (double num : lst) {
         if (num > 0 && modf(num, &num) == 0) { 
-            sum += pow((double)num, 2); 
+            sum += pow(num, 2); 
         }
     }
     return sum;
@@ -15,7 +14,6 @@ long long double_the_difference(std::vector<double> lst) {
 int main() {
     std::vector<double> lst = {1.5, 3.6, -4.7, 8.9};
     long long odd_sum = double_the_difference(lst);
-    long long result = double_the_difference(lst);
-    std::cout << "The result is: " << result << std::endl;
+    std::cout << "The result is: " << odd_sum << std::endl;
     return 0;
 }
