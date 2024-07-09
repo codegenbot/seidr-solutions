@@ -1,14 +1,10 @@
-```c
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <initializer_list>
-#include <iostream>
-using namespace std;
+#include <ostream>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+using namespace std;
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> evenLengthStrings;
