@@ -15,6 +15,16 @@ def max_fill():
 
         capacity = int(input("Enter the water tank capacity: "))
 
+        if not isinstance(grid, list) or not all(isinstance(row, list) for row in grid):
+            raise ValueError("Invalid grid format")
+
+        for row in grid:
+            if any(not isinstance(val, int) for val in row):
+                raise ValueError("Grid should only contain integers")
+
+        if capacity < 1:
+            raise ValueError("Capacity should be a positive integer")
+
         total_water = 0
         for row in grid:
             water_per_row = min(capacity, sum(row))
