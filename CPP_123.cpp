@@ -1,4 +1,5 @@
 #include <vector>
+
 std::vector<int> solve(int n) {
     std::vector<int> result;
     while (n != 1) {
