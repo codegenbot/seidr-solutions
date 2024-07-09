@@ -1,16 +1,21 @@
 #include <vector>
-#include <algorithm>
-#include <limits>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
+bool is_same(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
-    int largest_negative = -std::numeric_limits<int>::max();
+    int largest_negative = 0;
     int smallest_positive = 0;
     
-    auto min_max = std::minmax_element(lst.begin(), lst.end());
+    for(int num : lst){
+        if(num < 0 && num < largest_negative){
+            largest_negative = num;
+        }
+        if(num > 0 && (num < smallest_positive || smallest_positive == 0)){
+            smallest_positive = num;
+        }
+    }
     
-    return {*min_max.first, *min_max.second};
+    return {largest_negative, smallest_positive};
 }
+
+std::vector<int> result = largest_smallest_integers({-6, -4, -4, -3, -100, 1});
