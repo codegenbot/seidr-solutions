@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -24,6 +25,7 @@ int main_test() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"};
     std::vector<std::string> b = filter_by_prefix(a, "xxx");
     std::vector<std::string> c = {"xxx", "xxxAAA", "xxx"};
-    assert(equal_vectors(b, c));
+    if(!equal_vectors(b, c))
+        return 1;
     return 0;
 }
