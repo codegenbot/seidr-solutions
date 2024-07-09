@@ -1,8 +1,19 @@
+```cpp
 #include <iostream>
 #include <set>
 #include <vector>
 
 using namespace std;
+
+bool issame(vector<int> v1, vector<int> v2) {
+    set<int> setA;
+    setA.insert(v1.begin(), v1.end());
+
+    set<int> setB;
+    setB.insert(v2.begin(), v2.end());
+
+    return setA == setB;
+}
 
 int main() {
     int n1, n2, n3, n4, n5, n6, n7;
