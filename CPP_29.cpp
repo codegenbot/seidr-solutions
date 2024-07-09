@@ -21,10 +21,14 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
         }
     }
     return result;
-
 }
 
 int original_main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAffAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
+    std::vector<std::string> input = {"xxx", "asd", "xxy", "john doe", "xxxAffAA", "xxx"};
+    std::string prefix = "xxx";
+    std::vector<std::string> expected = {"xxx", "xxxAAA", "xxx"};
+    if (!issame(filter_by_prefix(input, prefix), expected)) {
+        return 1;
+    }
     return 0;
 }
