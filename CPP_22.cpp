@@ -1,13 +1,14 @@
-#include <list>
 #include <vector>
+#include <list>
+#include <assert.h>
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> filter_integers(std::list<int> values){
+std::vector<int> filter_integers(std::list<char> values){
     std::vector<int> result;
     for (auto val : values) {
-        if (typeid(val) == typeid(int)) {
-            result.push_back(val);
+        if (std::isdigit(val)) {
+            result.push_back(val - '0');
         }
     }
     return result;
@@ -18,6 +19,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 int main(){
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(issame(filter_integers({'3', 'c', '3', '3', 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
