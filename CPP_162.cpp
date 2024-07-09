@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <sstream>
 #include <iomanip>
@@ -11,19 +10,12 @@ std::string stringToMd5(const std::string& str) {
 
 int main() {
     int i = 0;
-    std::vector<std::string> strings;
+    std::vector<std::string> input;
 
-    for (i = 0; i < 10; ++i) {
-        std::cout << "Enter a string: ";
-        std::string s;
-        std::cin >> s;
-        strings.push_back(s);
-    }
+    // add your code to populate the 'input' vector
 
-    for (const auto& s : strings) {
-        std::stringstream ss;
-        ss << std::setw(2) << std::hex << (int)s.size();
-        std::cout << ss.str() << "\n";
+    for (const auto& s : input) {
+        std::cout << std::setw(2) << std::hex << (int)s.size();
     }
     return 0;
 }
