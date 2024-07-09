@@ -1,6 +1,7 @@
-```
-#include <vector>
+```c++
+#include <algorithm>
 #include <string>
+#include <vector>
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
     std::vector<std::string> result;
@@ -10,11 +11,4 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
         }
     }
     return result;
-}
-
-int main() {
-    std::vector<std::string> expected = {"xxx", "xxxAAA", "xxx"};
-    std::vector<std::string> result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx");
-    assert(std::equal(expected.begin(), expected.end(), result.begin()));
-    return 0;
 }
