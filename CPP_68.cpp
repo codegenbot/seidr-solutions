@@ -1,11 +1,12 @@
 #include <vector>
+#include <limits>
 using namespace std;
 
 vector<int> pluck(vector<int> arr) {
     vector<int> result;
     if (arr.empty()) return result;
     
-    int minEven = INT_MAX;
+    int minEven = numeric_limits<int>::max();
     int indexMinEven = -1;
     
     for (int i = 0; i < arr.size(); i++) {
@@ -15,7 +16,7 @@ vector<int> pluck(vector<int> arr) {
         }
     }
     
-    if (minEven == INT_MAX) return {};
+    if (minEven == numeric_limits<int>::max()) return {};
     
     result.push_back(minEven);
     result.push_back(indexMinEven);
