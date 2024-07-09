@@ -1,27 +1,25 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
-    bool hasOdd = false;
+    bool has_odd = false;
     for (int num : lst1) {
         if (num % 2 != 0) {
-            hasOdd = true;
+            has_odd = true;
             break;
         }
     }
-    if (!hasOdd) {
-        return "YES";
-    }
+    if (!has_odd) return "YES";
     for (int num : lst2) {
-        if (num % 2 != 0) {
-            return "NO";
+        if (num % 2 == 0) {
+            int found = false;
+            for (int x : lst1) {
+                if (x == num) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) return "NO";
         }
     }
     return "YES";
-}
-
-int main() {
-    std::cout << exchange({1, 2}, {3, 4}) << std::endl;
-    return 0;
-}

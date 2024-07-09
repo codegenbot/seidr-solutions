@@ -1,11 +1,6 @@
-```cpp
-#include <iostream>
-#include <vector>
-using namespace std;
-
-string match_parens(vector<string> lst) {
+int match_parens(vector<string> lst) {
     int countOpen = 0, countClose = 0;
-    
+
     for (auto str : lst) {
         for (char c : str) {
             if (c == '(')
@@ -14,16 +9,8 @@ string match_parens(vector<string> lst) {
                 countClose++;
         }
     }
-    
-    if (countOpen == countClose)
-        return "Yes";
-    else
-        return "No";
-}
 
-int main() {
-    vector<string> lst = {")", "("};
-    assert(match_parens({")", "("}) == "Yes" );
-    cout << match_parens({"((()))", "())("}) << endl;
-    return 0;
-}
+    if (countOpen == countClose)
+        return "All parentheses are balanced.\n";
+    else
+        return "The parentheses do not match.\n";
