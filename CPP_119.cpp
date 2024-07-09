@@ -1,15 +1,13 @@
-int count = 0;
+int cnt = 0;
     for (string s : lst) {
         for (char c : s) {
             if (c == '(') {
-                count++;
+                cnt++;
             } else {
-                if (count == 0) {
-                    return "No";
-                }
-                count--;
+                if (cnt == 0) return "No";
+                cnt--;
             }
         }
     }
-    return count == 0 ? "Yes" : "No";
+    return (cnt == 0) ? "Yes" : "No";
 }
