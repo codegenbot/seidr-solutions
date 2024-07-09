@@ -11,11 +11,15 @@ bool issame(vector<string> a,vector<string> b) {
 }
 
 vector<vector<string>> total_match(vector<string> a, vector<vector<string>> b){
-    vector<vector<string>> result;
-    for(auto &i : b){
-        if(issame(i, {a})){
-            result.push_back(i);
+    int count = 0;
+    for(int i = 0; i < b.size(); i++){
+        if(issame(b[i], {a})){
+            count++;
         }
+    }
+    vector<vector<string>> result;
+    for(int i = 0; i < count; i++){
+        result.push_back({a});
     }
     return result;
 }
