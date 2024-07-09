@@ -10,17 +10,16 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
+std::vector<std::string> by_length;
+
 int main() {
     int numArray[] = {9, 4, 8};
-    std::vector<int> intArray(numArray, numArray + sizeof(numArray) / sizeof(numArray[0]));
-    std::vector<std::string> stringArray;
+    std::vector<std::string> stringArray = {"Nine", "Four", "Eight"};
 
-    for (auto i : intArray) {
-        if (i == 9) stringArray.push_back("Nine");
-        else if (i == 4) stringArray.push_back("Four");
-        else if (i == 8) stringArray.push_back("Eight");
+    for (int i : numArray) {
+        by_length.push_back(std::to_string(i));
     }
 
-    assert(issame({std::to_string(i) for i in intArray}, stringArray));
+    assert(issame(by_length, stringArray));
     return 0;
 }
