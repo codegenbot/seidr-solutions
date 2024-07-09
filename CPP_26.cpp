@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <memory>
 
 bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() == 0 && b.size() == 0) return true;
@@ -42,7 +41,7 @@ int main() {
         int num;
         std::cin >> num;
         if (numbers.size() == numbers.capacity()) {
-            numbers.reserve(numbers.capacity() * 2); 
+            numbers.reserve(n); 
         }
         numbers.push_back(num);
     }
