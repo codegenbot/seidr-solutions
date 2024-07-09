@@ -1,4 +1,4 @@
-def mean_absolute_deviation(y_true, y_pred):
-    return np.mean(np.abs((y_true - y_pred)))
-
-check(mean_absolute_deviation([1, 2, 3], [0, 1, 4]))
+```
+y_true_list = list(map(float, input("Enter the true values (space separated): ").split()))
+y_pred_list = list(map(float, input("Enter the predicted values (space separated): ").split()))
+print(mean_absolute_deviation(y_true_list, y_pred_list))
