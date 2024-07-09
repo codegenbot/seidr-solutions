@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 int findGCD(int a, int b) {
     if (b == 0) return abs(a);
@@ -13,9 +12,9 @@ int findGCD(int a, int b) {
 
 int main() {
     int a, b;
-    cout << "Enter two integers: ";
-    cin >> a >> b;
+    std::cout << "Enter two integers: ";
+    std::cin >> a >> b;
     int result = findGCD(a, b);
-    cout << "GCD: " << result << endl;
+    std::cout << "GCD: " << result << std::endl;
     return 0;
 }
