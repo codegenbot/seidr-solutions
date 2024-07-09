@@ -1,32 +1,25 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <set>
 #include <algorithm>
 
 int main() {
     std::set<std::string> s1;
     std::set<std::string> s2;
-    int n1, m1, n2, m2;
+    size_t n1, m1, n2, m2;
     std::cin >> n1 >> m1 >> n2 >> m2;
 
-    std::vector<std::string> s1Vec;
     for(int i = 0; i < n1; i++) {
         std::string x;
         std::cin >> x;
-        s1Vec.push_back(x);
+        s1.insert(x);
     }
 
-    s1.insert(s1Vec.begin(), s1Vec.end());
-
-    std::vector<std::string> s2Vec;
     for(int i = 0; i < m1; i++) {
         std::string y;
         std::cin >> y;
-        s2Vec.push_back(y);
+        s2.insert(y);
     }
-
-    s2.insert(s2Vec.begin(), s2Vec.end());
 
     std::vector<std::string> diff(s1.begin(), s1.end());
     set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(),
