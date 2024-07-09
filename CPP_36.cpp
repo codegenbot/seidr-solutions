@@ -1,5 +1,4 @@
-#include <sstream>
-using namespace std;
+#include <string>
 
 int fizz_buzz(int n) {
     int count = 0;
