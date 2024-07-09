@@ -1,13 +1,14 @@
-#include <cctype>
-
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            int shift = (int)(c - base);
-            c = (char)((base + ((shift + 4*2)%26)));
-            result += c;
+        if (c >= 'a' && c <= 'z') {
+            int pos = (int)c - 97; // Convert to 0-based index
+            pos = (pos + 2 * 2) % 26; // Shift down by 4 places
+            result += ((char)(pos + 97)); // Convert back to character and add to result
+        } else if (c >= 'A' && c <= 'Z') {
+            int pos = (int)c - 65; // Convert to 0-based index
+            pos = (pos + 2 * 2) % 26; // Shift down by 4 places
+            result += ((char)(pos + 65)); // Convert back to character and add to result
         } else {
             result += c;
         }
