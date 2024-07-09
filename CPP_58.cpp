@@ -17,7 +17,7 @@ int main() {
     vector<int> v2;
     v2.assign({4, 5, 6, 7});
 
-    bool result = issame(l1, l1);
+    bool result = issame(l1, v2);
     if(result) {
         cout << "The sets are same." << endl;
     } else {
