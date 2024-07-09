@@ -1,10 +1,8 @@
-int vowels_count(string s){
+int vowels_count(string s) {
     int count = 0;
-    for(char c : s){
-        if((c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') &&
-           (find(s.rbegin(), s.rend(), c) == s.rend())) {
-            count++;
-        } else if(c == 'y' && find(s.rbegin(), s.rend(), c) == s.rend()) {
+    for (char c : s) {
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+            (c == 'y' && !s.substr(s.find(c)+1).empty())) {
             count++;
         }
     }
