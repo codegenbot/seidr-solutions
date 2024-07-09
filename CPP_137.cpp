@@ -1,5 +1,4 @@
-```cpp
-#include "/usr/include/boost/any.hpp"
+#include <boost/any.hpp>
 #include <string>
 #include <algorithm>
 
