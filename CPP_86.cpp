@@ -1,6 +1,8 @@
+```
 #include <algorithm>
 #include <string>
 #include <vector>
+
 using namespace std;
 
 string join(const vector<string>& vec, const string& sep) {
@@ -11,7 +13,7 @@ string join(const vector<string>& vec, const string& sep) {
     return result.substr(0, result.size() - 1);
 }
 
-string split(const string& str, char sep) -> string {
+string split(const string& str, char sep) {
     vector<string> tokens;
     size_t pos = 0;
     while ((pos = str.find(sep)) != string::npos) {
@@ -23,11 +25,22 @@ string split(const string& str, char sep) -> string {
 }
 
 string anti_shuffle(string s) {
+    vector<string> words;
+    string word = "";
+    for (const auto& c : s) {
+        if (c == ' ') {
+            words.push_back(word);
+            word = "";
+        } else {
+            word += c;
+        }
+    }
+    words.push_back(word);
+
     string result = "";
-    for (const auto& word : split(s, ' ')) {
-        string temp = word + ""; // Fix
-        sort(temp.begin(), temp.end());
-        result += temp + " ";
+    for (const auto& word : words) {
+        sort(word.begin(), word.end());
+        result += word + " ";
     }
     return result.substr(0, result.size() - 1);
 }
