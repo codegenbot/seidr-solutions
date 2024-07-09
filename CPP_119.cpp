@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -33,7 +32,7 @@ int main() {
                 lst.push_back("No");
             }
         } else {
-            lst.push_back("No");
+            lst.push_back("No");  // Changed from empty string
         }
     }
     for (const auto& str : lst) {
