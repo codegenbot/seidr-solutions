@@ -1,19 +1,29 @@
-```cpp
+#include <string>
+
 bool solveBoolean(std::string s) {
-    int i = 0, n = s.length();
-    bool res = true;
-    while(i < n){
-        if(s[i] == '&') {
+    bool result = true;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'F') {
+            return false;
+        } else if (s[i] == '|') {
+            if (i == s.size() - 1 || (s[i + 1] == '&' && s.find('T', i + 2) != std::string::npos)) {
+                return true;
+            } else if (i == s.size() - 1 || s[i + 1] == 'F') {
+                return false;
+            }
             i++;
-            char c1 = (s[i-1] == 'T'? true : false);
-            char c2 = (s[i] == 'T'? true : false);
-            res &= (c1 && c2);
-        } else if(s[i] == '|') {
-            i++;
-            char c1 = (s[i-1] == 'T'? true : false);
-            char c2 = (s[i] == 'T'? true : false);
-            res |= (c1 || c2);
+        } else if (s[i] == '&') {
+            bool foundT = false;
+            for (int j = i; j < s.size(); j++) {
+                if (s[j] == 'T') {
+                    foundT = true;
+                    break;
+                } else if (s[j] == 'F') {
+                    return false;
+                }
+            }
+            result = foundT;
         }
     }
-    return res;
+    return result;
 }
