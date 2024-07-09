@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -22,7 +21,13 @@ int main() {
         std::cout << "Invalid input. Please enter a numeric value.\n";
     } else {
         bool isValidInput = true;
-        std::string numStr = std::itoa(num);
+        std::string numStr;
+        numStr += (num >= 0 ? "" : "-");
+        while (num > 0) {
+            int digit = num % 10;
+            numStr.append(1, '0' + digit);
+            num /= 10;
+        }
         
         for (char c : numStr) { 
             if (!std::isdigit(c)) {
@@ -32,7 +37,7 @@ int main() {
         }
 
         if (isValidInput) {
-            if (isSimplePower(num)) {
+            if (isSimplePower(stoi(numStr))) {
                 std::cout << num << " is a simple power.\n";
             } else {
                 std::cout << num << " is not a simple power.\n";
