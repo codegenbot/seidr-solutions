@@ -25,7 +25,7 @@ int main() {
         cout << i << " ";
     }
     
-    assert(std::equal({5, 3, 5, 2, 3, 3, 9, 0, 123}.begin(), {5, 3, 5, 2, 3, 3, 9, 0, 123}.end(), {0, 2, 3, 5, 9, 123}.begin(), {0, 2, 3, 5, 9, 123}.end()));
+    assert(std::issame(std::vector<int>({0, 2, 3, 5, 9, 123}), std::vector<int>(output.begin(), output.end())));
     
     return 0;
 }
