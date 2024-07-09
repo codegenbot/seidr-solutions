@@ -1,11 +1,9 @@
-```cpp
-#include <string>
 #include <vector>
 
-int luhn(const char* ccNum) {
+int luhn(std::vector<int> ccNum) {
     long long sum = 0;
-    for (int i = 0; i < strlen(ccNum); i++) {
-        int digit = (ccNum[i] - '0');
+    for (int i = 0; i < 16; i++) {
+        int digit = ccNum[i];
         if ((i % 2 == 1)) {
             digit *= 2;
             if (digit > 9)
@@ -17,10 +15,15 @@ int luhn(const char* ccNum) {
 }
 
 int main() {
-    std::string ccNum;
+    std::vector<int> ccNum;
+    ccNum.resize(16); 
     std::cout << "Enter a credit card number: ";
-    std::cin >> ccNum;
-    int result = luhn(ccNum.c_str());
+    for (int i = 0; i < 16; ++i) {
+        int num;
+        std::cin >> num;
+        ccNum[i] = num;
+    }
+    int result = luhn(ccNum);
     std::cout << "The Luhn check value is: " << result << std::endl;
     return 0;
 }
