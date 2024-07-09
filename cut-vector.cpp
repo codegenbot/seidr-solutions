@@ -34,4 +34,3 @@ int main() {
     }
     cout << std::endl;
     return 0;
-}
