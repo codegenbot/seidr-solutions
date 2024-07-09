@@ -9,7 +9,7 @@ vector<int> indicesOfSubstring(std::string text, std::string target) {
     int n = text.size();
     int m = target.size();
 
-    for(int i=0; i<=n-m; i++){
+    for(int i=0; i<n-m+1; i++){
         if(text.substr(i,m).compare(target) == 0){
             result.push_back(i);
         }
