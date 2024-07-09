@@ -1,3 +1,10 @@
+#include <iostream>
+#include <string>
+#include <boost/any.hpp>
+
+using namespace std;
+using namespace boost;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
@@ -61,13 +68,23 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
     }
     else {
-        float f1 = boost::any_cast<float>(a), f2 = boost::any_cast<float>(b);
-
-        if (f1 > f2)
+        if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
             return a;
-        else if (f1 < f2)
+        else if (boost::any_cast<float>(a) < boost::any_cast<float>(b))
             return b;
         else
             return boost::any("None");
     }
+}
+
+int main() {
+    boost::any a = 10.5;
+    boost::any b = "12";
+    boost::any result = compare_one(a, b);
+    if (boost::any_cast<string>(result) == "None") {
+        cout << "Equal" << endl;
+    } else {
+        cout << "Not Equal" << endl;
+    }
+    return 0;
 }
