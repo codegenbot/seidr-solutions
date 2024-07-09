@@ -24,7 +24,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         temp += ")"
         result.append(temp)
 
-    if not stack and temp:
-        result.append(temp)
-
     return [x for x in result]
