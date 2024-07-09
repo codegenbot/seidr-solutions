@@ -1,18 +1,15 @@
-vector<int> result;
-    for (int num : x) {
-        int temp = num;
-        bool hasEvenDigit = false;
-        while (temp > 0) {
-            if ((temp % 10) % 2 == 0) {
-                hasEvenDigit = true;
-                break;
-            }
-            temp /= 10;
-        }
-        if (!hasEvenDigit) {
-            result.push_back(num);
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    sort(result.begin(), result.end());
-    return result;
+    return true;
 }
