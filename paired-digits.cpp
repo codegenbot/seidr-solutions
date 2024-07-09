@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 int main() {
     std::string digits;
@@ -11,7 +12,7 @@ int main() {
         }
     }
     
-    std::cout << sum << std::endl;
+    std::cout << sum;
     
     return 0;
 }
