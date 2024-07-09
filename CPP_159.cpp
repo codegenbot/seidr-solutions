@@ -1,6 +1,6 @@
 #include <algorithm>
-#include <vector>
 #include <cassert>
+#include <vector>
 
 using namespace std;
 
@@ -11,12 +11,12 @@ int eat(int number, int need, int remaining) {
     return eaten + left;
 }
 
-bool issame(int result, vector<int> expected) {
-    return result == expected[0] && result == expected[1];
+bool issame(vector<int> v1, vector<int> v2) {
+    return v1 == v2;
 }
 
 int main() {
-    assert (issame(eat(4, 5, 1) , {5, 0}));
-    
+    assert(issame({eat(4, 5, 1)}, {5, 0}));
+
     return 0;
 }
