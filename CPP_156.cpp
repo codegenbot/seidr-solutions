@@ -32,55 +32,54 @@ string int_to_mini_roman(int num) {
             num -= 400;
             result += "CD";
         } else if (num >= 100) {
-            while(num >= 100) {
-                if(num >= 900) {
-                    num -= 900;
-                    result += "CM";
-                } else if(num >= 500) {
-                    num -= 500;
-                    result += "D";
-                } else {
-                    num -= 100;
-                    result += "C";
-                }
-            }
+            for(int i=0; i<num/100; ++i)
+                result += "C";
+            num %= 100;
         } else if (num >= 90) {
-            num -= 90;
-            result += "XC";
+            while(num>=90) {
+                num -= 90;
+                result += "XC";
+            }
         } else if (num >= 50) {
-            while(num >= 50) {
-                if(num >= 40) {
-                    num -= 40;
-                    result += "XL";
-                } else {
-                    num -= 50;
-                    result += "L";
-                }
+            for(int i=0; i<num/50; ++i)
+                result += "L";
+            num %= 50;
+        } else if (num >= 40) {
+            while(num>=40) {
+                num -= 40;
+                result += "XL";
             }
+        } else if (num >= 10) {
+            for(int i=0; i<num/10; ++i)
+                result += "X";
+            num %= 10;
         } else if (num >= 9) {
-            num -= 9;
-            result += "IX";
+            while(num>=9) {
+                num -= 9;
+                result += "IX";
+            }
         } else if (num >= 5) {
-            while(num >= 5) {
-                if(num >= 4) {
-                    num -= 4;
-                    result += "IV";
-                } else {
-                    num -= 5;
-                    result += "V";
-                }
-            }
-        } else if (num >= 3) {
-            while(num > 2) {
-                num--;
-                result += "I";
-            }
-            if(num == 2) {
-                return "II";
+            for(int i=0; i<num/5; ++i)
+                result += "V";
+            num %= 5;
+        } else if (num >= 4) {
+            while(num>=4) {
+                num -= 4;
+                result += "IV";
             }
         } else {
-            num--;
-            result += "I";
+            while(num>0) {
+                if(num>=3) {
+                    num -= 3;
+                    result += "III";
+                } else if (num == 2) {
+                    result += "II";
+                    return result;
+                } else {
+                    num--;
+                    result += "I";
+                }
+            }
         }
     }
 
