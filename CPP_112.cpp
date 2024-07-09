@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -40,5 +41,4 @@ int main() {
     vector<string> res = reverse_delete(s, c);
     cout << "Result string: " << res[0] << endl;
     cout << "Palindrome check: " << res[1] << endl;
-    return 0;
 }
