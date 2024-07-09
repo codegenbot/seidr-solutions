@@ -22,7 +22,7 @@ Pair find_closest_elements(std::vector<float> numbers) {
     float minDiff = std::numeric_limits<float>::max();
     Pair closestPair;
     
-    for (int i = 0; i < numbers.size() - 1; ++i) {
+    for (int i = 0; i < numbers.size() - 2; ++i) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < minDiff) {
             minDiff = diff;
@@ -35,7 +35,7 @@ Pair find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() { 
-    std::vector<float> testVec;
+    std::vector<float> testVec = std::vector<float>(10);
     for (int i = 0; i < 10; ++i) {
         testVec.push_back(i + 1.1f);
     }
