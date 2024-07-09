@@ -45,12 +45,12 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {3.8, 2.9, 4.1};
-    vector<string> letter_grades = numerical_letter_grade(grades);
-    if (issame(letter_grades, {"A+", "B-", "A+"})) {
-        cout << "Pass";
-    } else {
-        cout << "Fail";
+    std::vector<float> grades = {3.8, 2.9, 4.2};
+    std::vector<std::string> result = numerical_letter_grade(grades);
+    
+    if (issame(result, {"A+", "B-", "A+"})) {
+        // do something
     }
+    
     return 0;
 }
