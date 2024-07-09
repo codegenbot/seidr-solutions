@@ -1,11 +1,6 @@
 ```c++
-#pragma GCC version 11
-#include <initializer_list>
-
-#include <vector>
-#include <utility>
+#include <iostream>
 #include <unordered_map>
-#include <stdexcept>
 
 std::pair<int,int> find_pair(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numMap;
