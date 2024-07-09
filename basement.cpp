@@ -8,11 +8,12 @@ int basement(std::vector<int>& v) {
             return i;
     }
     return -1;
+
 }
 
 int main() {
-    std::vector<int> input = {-2, 3, 4};
-    int result = basement(input);
-    // use the result
+    std::vector<int> v = {-2, 1, 3};
+    int result = basement(v);
+    // do something with the result
     return 0;
 }
