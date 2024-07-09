@@ -20,12 +20,10 @@ int main() {
     std::cin >> n;
 
     std::vector<int> lst;
-    std::fill_n(lst.begin(), n, 0); // Initialize all new elements with a default value
-
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
-        std::cin >> num; // Take input as integer
+        std::cin >> num; 
 
         if (num == 0) {
             // Ask user to enter a different value
@@ -33,7 +31,7 @@ int main() {
             continue;
         }
 
-        lst[i] = num; // Store the valid input into vector
+        lst.push_back(num); 
     }
 
     int result = search(lst);
