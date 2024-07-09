@@ -1,10 +1,5 @@
-```cpp
 long long minSubArraySum(vector<long long> nums) {
-    if (nums.empty()) {
-        throw invalid_argument("Input vector is empty");
-    }
-
-    long long min_sum = LONG_LONG_MAX;
+    long long min_sum = LLONG_MAX;
     long long current_sum = 0;
 
     for (int i = 0; i < nums.size(); i++) {
@@ -19,5 +14,9 @@ long long minSubArraySum(vector<long long> nums) {
         }
     }
 
-    return min_sum;
+    if(min_sum == LLONG_MAX) {
+        return -1; // Input array contains all zeros
+    } else {
+        return min_sum;
+    }
 }
