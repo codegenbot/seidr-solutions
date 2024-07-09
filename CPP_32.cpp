@@ -1,26 +1,24 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
+double absolute(double x){
+    return x < 0 ? -x : x;
+}
 
-double poly(const std::vector<double>& coeffs, double x){
+double poly_diff(vector<double> coeffs, double x){
     double result = 0;
-    for(int i = 0; i < coeffs.size(); i++){
-        result += coeffs[i] * std::pow(x, i);
+    for(int i = 1; i < coeffs.size(); i++){
+        result += i * coeffs[i] * pow(x, i - 1);
     }
     return result;
 }
 
-double find_zero(const std::vector<double>& xs){
-    double a = xs[0];
-    double b = xs[1];
-    return -b/a;
+double find_zero(vector<double> coeffs){
+    double x = 0;
+    while(absolute(poly(coeffs, x)) > 1e-9){
+        x -= poly(coeffs, x) / poly_diff(coeffs, x);
+    }
+    return x;
 }
 
-int main(){
-    std::vector<double> coeffs = {2, -3, 1}; // Example coefficients
-    double solution = find_zero(coeffs);
-    
-    assert(std::abs(poly(coeffs, solution)) < 1e-3);
-    
-    return 0;
-}
+// Example Usage
+vector<double> coeffs = {1, -3, 2}; // Coefficients for x^2 - 3x + 2
+double zero = find_zero(coeffs);
+cout << "Zero found at: " << zero << endl;
