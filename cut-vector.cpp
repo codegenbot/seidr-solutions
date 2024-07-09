@@ -7,7 +7,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     vector<vector<int>> res(2);
     res[0].push_back(v[0]);
     for (int i = 1; i < n; ++i) {
-        if (abs(res[0].back() - v[i]) <= abs(res[0].back() - v[0])) {
+        if (v[i] - v[0] <= 0) {
             res[0].push_back(v[i]);
         } else {
             res[0].pop_back();
