@@ -3,37 +3,30 @@
 #include <algorithm>
 
 int main() {
-    int n;
-    std::cout << "Enter number of elements: ";
-    std::cin >> n;
-
     std::vector<int> lst;
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        lst.push_back(num);
+    int n;
+
+    // Read input from user
+    while (std::cin >> n) {
+        lst.push_back(n);
     }
 
-    int result = next_smallest(lst);
-
-    if(result == -1) {
-        std::cout << "No smaller number found.\n";
-    } else {
-        std::cout << "The next smallest number is: " << result << "\n";
+    if (lst.empty()) {
+        return 0; // No elements in the list
     }
 
-    return 0;
-}
+    std::vector<int> sorted_lst = lst;
+    std::sort(sorted_lst.begin(), sorted_lst.end());
 
-int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; 
-    vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
     for (int i = 0; i < sorted_lst.size() - 1; i++) {
         if (sorted_lst[i] != sorted_lst[i + 1]) {
-            return sorted_lst[i + 1];
+            std::cout << "The next smallest number is: " << sorted_lst[i + 1] << std::endl;
+            return 0;
         }
     }
-    return -1; 
+
+    // If no smaller element found
+    std::cout << "No smaller element found." << std::endl;
+
+    return 0;
 }
