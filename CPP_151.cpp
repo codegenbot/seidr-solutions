@@ -1,19 +1,22 @@
-```cpp
+#include <cmath>
 #include <vector>
-#include <assert.h>
+using namespace std;
 
-int double_the_difference(std::vector<float> lst) {
-    int odd_sum = 0;
+long long double_the_difference(vector<float> lst) {
+    double sum = 0.0;
     for (float num : lst) {
-        if ((int)num % 2 != 0)
-            odd_sum += (int)num * 2;
+        if (num > 0 && floor(num) == num) { 
+            if (fmod(num, 2.0) != 0.0) { 
+                sum += pow(num, 2);
+            }
+        }
     }
-    return odd_sum;
+    return (long long)sum; 
 }
 
 int main() {
-    std::vector<float> lst = {1.5, 2.0, 3.5};
-    int result = double_the_difference(lst);
-    // assert(result == 7); 
+    vector<float> lst = {1.5, 2.0, 3.5};
+    long long odd_sum = double_the_difference(lst);
+    cout << "The sum of squares is: " << odd_sum << endl;
     return 0;
 }
