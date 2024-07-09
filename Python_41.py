@@ -1,4 +1,5 @@
 def car_race_collision():
-    car = int(input("Enter number of cars: "))
-    speed = int(input("Enter speed of the car: "))
-    return car * (car - 1) // 2
+    cars = int(input("How many cars are in a row? "))
+    speed = int(input("What is the speed of each car (in mph)? "))
+    collisions = cars * (cars - 1) // 2
+    return collisions
