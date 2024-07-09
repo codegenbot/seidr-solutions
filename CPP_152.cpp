@@ -12,5 +12,3 @@ std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& g
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
-
-```
