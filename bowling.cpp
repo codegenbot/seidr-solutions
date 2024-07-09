@@ -1,4 +1,6 @@
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 int bowlingScore(string input) {
@@ -7,19 +9,30 @@ int bowlingScore(string input) {
         if (input[i] == 'X') {
             score += 30;
         } else if (input[i] == '/') {
-            int nextTwo = stoi(input.substr(i + 1, 2));
-            score += 10 + nextTwo;
-            i++;
+            string nextTwoStr = input.substr(i + 1, 2);
+            int nextTwo = stoi(nextTwoStr);
+            if (nextTwo == 10) {
+                score += 20;
+            } else {
+                score += 10 + nextTwo;
+            }
         } else {
-            int currentRoll = stoi(input.substr(i, 2));
+            string currentRollStr = input.substr(i, 2);
+            int currentRoll = stoi(currentRollStr);
             if (currentRoll < 10) {
                 score += currentRoll;
-                i++;
             } else {
-                int first = stoi(input.substr(i, 1));
-                int second = stoi(input.substr(i + 1, 1));
-                score += first + second;
+                int first = stoi(currentRollStr.substr(0,1));
+                int second = stoi(currentRollStr.substr(1,1));
+                if (first == 10) {
+                    score += 10 + second;
+                } else if (second == 10) {
+                    score += first + 10;
+                } else {
+                    score += first + second;
+                }
             }
         }
     }
     return score;
+}
