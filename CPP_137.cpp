@@ -1,45 +1,63 @@
 #include <boost/any.hpp>
 #include <string>
+#include <iostream>
+#include <stdexcept>
 
 using namespace boost;
+using namespace std;
 
 any compareOne(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int x = boost::any_cast<int>(a);
         int y = boost::any_cast<int>(b);
-        return (x > y) ? a : ((y > x) ? b : typeid(void));
+        if (x > y)
+            return a;
+        else if (y > x)
+            return b;
+        else
+            return any(typeid(string) == "None");
     } 
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         float x = boost::any_cast<float>(a);
         float y = boost::any_cast<float>(b);
-        return (x > y) ? a : ((y > x) ? b : typeid(void));
+        if (x > y)
+            return a;
+        else if (y > x)
+            return b;
+        else
+            return any(typeid(string) == "None");
     } 
-    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string x = boost::any_cast<std::string>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        return (x > y) ? a : ((y > x) ? b : typeid(void));
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string x = boost::any_cast<string>(a);
+        string y = boost::any_cast<string>(b);
+        if (x > y)
+            return a;
+        else if (y > x)
+            return b;
+        else
+            return any(typeid(string) == "None");
     } 
-    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        std::string x = boost::any_cast<std::string>(a);
-        int y = boost::any_cast<int>(b);
-        return (std::stod(x) > y) ? a : ((y > std::stod(x)) ? b : typeid(void));
+    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
+        string x = boost::any_cast<string>(a);
+        double y = boost::any_cast<double>(b);
+        if (stod(x) > y)
+            return a;
+        else if (y > stod(x))
+            return b;
+        else
+            return any(typeid(string) == "None");
     } 
-    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
-        std::string x = boost::any_cast<std::string>(a);
-        float y = boost::any_cast<float>(b);
-        return (std::stod(x) > y) ? a : ((y > std::stod(x)) ? b : typeid(void));
-    } 
-    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int x = boost::any_cast<int>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        return (x > std::stod(y)) ? a : ((std::stod(y) > x) ? b : typeid(void));
-    } 
-    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        float x = boost::any_cast<float>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        return (x > std::stod(y)) ? a : ((std::stod(y) > x) ? b : typeid(void));
+    else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(string)) {
+        double x = boost::any_cast<double>(a);
+        string y = boost::any_cast<string>(b);
+        if (x > stod(y))
+            return a;
+        else if (stod(y) > x)
+            return b;
+        else
+            return any(typeid(string) == "None");
     } 
     else {
-        return typeid(void);
+        throw runtime_error("Invalid type combination for comparison");
     }
 }
