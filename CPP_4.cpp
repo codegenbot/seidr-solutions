@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -14,7 +15,8 @@ float mean(vector<float> numbers) {
 }
 
 int main() {
-    vector<float> numbers = {1,2,3,4,5};
-    cout << "Mean Absolute Deviation: " << mean_absolute_deviation(numbers) << endl;
+    vector<float> numbers = {1, 2, 3, 4};
+    float result = mean_absolute_deviation(numbers);
+    cout << "Mean absolute deviation: " << result << endl;
     return 0;
 }
