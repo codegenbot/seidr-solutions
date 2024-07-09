@@ -2,15 +2,6 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> words_string(std::string s, std::vector<std::string> split_chars);
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
-
-int main(){
-    std::vector<std::string> split_chars = {" ", ","};
-    assert(issame(words_string("ahmed     , gamal", split_chars), std::vector<std::string>{"ahmed","gamal"}));
-    return 0;
-}
-
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++){
@@ -19,22 +10,26 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return true;
 }
 
-std::vector<std::string> words_string(std::string s, std::vector<std::string> split_chars){
-    std::vector<std::string> result;
+std::vector<std::string>(std::allocator<std::string>()) result;
+
+std::vector<std::string> words_string(std::string s, std::vector<std::string> result){
     std::string word = "";
     for(int i=0; i<s.length(); i++){
-        if(std::find(split_chars.begin(), split_chars.end(), s[i]) != split_chars.end()){
-            if(word.size() <= 30){ 
+        if(s[i] == ' ' || s[i] == ','){
+            if(word.size() > 0){ 
                 result.push_back(word);
                 word = "";
             }
         }else{
-            if((s[i] != ' ') && (s[i] != ',')){
-                word += s[i];
-            }
+            word += s[i];
         }
     }
-    if(word.size() <= 30)  
+    if(word.size() > 0)  
         result.push_back(word);
     return result;
+}
+
+int main(){
+    assert(issame(words_string("ahmed     , gamal", result), std::vector<std::string>{"ahmed", "gamal"}));
+    return 0;
 }
