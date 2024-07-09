@@ -1,6 +1,6 @@
-#include<vector>
+#include <vector>
 
-vector<float> get_positive(vector<float> l){
+vector<float> get_positive(vector<float> l) {
     vector<float> result;
     for (float num : l) {
         if (num > 0) {
@@ -10,7 +10,7 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-bool issame(float a, float b){
+bool is_same(float a, float b) {
     return a == b;
 }
 
