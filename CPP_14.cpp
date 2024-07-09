@@ -1,18 +1,20 @@
+```cpp
 #include <vector>
 #include <string>
 
-std::vector<std::string> all_prefixes(std::string str) {
-    std::vector<std::string> result;
-    for (int i = 1; i <= str.length(); i++) {
-        result.push_back(str.substr(0, i));
+std::vector<std::string> all_prefixes(const std::string& s) {
+    std::vector<std::string> prefixes;
+    for (int i = 0; i <= s.size(); ++i) {
+        prefixes.push_back(s.substr(0, i));
     }
-    return result;
+    return prefixes;
+}
+
+bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
 int main() {
-    if (all_prefixes("WWW") == std::vector<std::string>({"W", "WW", "WWW"})) {
-        return 0;
-    } else {
-        return 1;
-    }
+    assert(isSame(all_prefixes("WWW") , {"W", "WW", "WWW"}));
+    return 0;
 }
