@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -16,7 +15,10 @@ int fuelCost(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> testVector = {12, 15, 18};
+    std::vector<int> testVector(3);
+    for (int i = 0; i < testVector.size(); i++) {
+        testVector[i] = i + 1;
+    }
     int result = fuelCost(testVector);
     std::cout << "The total fuel cost is: " << result << std::endl;
     return 0;
