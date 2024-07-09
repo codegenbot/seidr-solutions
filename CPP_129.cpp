@@ -9,7 +9,6 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
         for (int j = 0; j < n; ++j) {
             if (grid[i][j] == 1) {
                 pq.push({k, {i, j}});
-                break;
             }
         }
     }
@@ -35,14 +34,4 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
     }
 
     return res;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
 }
