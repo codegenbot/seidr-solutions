@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -6,7 +7,7 @@ bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>
 }
 
 int main() {
-    if (!issame(bf("Jupiter", "Makemake"), {{"Jupiter"}, {"Makemake"}})) {
+    if (!issame({{"Jupiter"}, {"Makemake"}}, {{"Jupiter"}, {"Makemake"}})) {
         return 1; 
     }
     return 0;
