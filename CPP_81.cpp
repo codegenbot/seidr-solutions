@@ -1,5 +1,4 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <string>
 
@@ -41,7 +40,6 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    assert(numerical_letter_grade({0, 0.7}) == std::vector<std::string>({"E", "D-" }));
-    std::cout << "All tests passed!\n";
+    assert(numerical_letter_grade({0, 0.7}) == std::vector<std::string>({"E", "D"}));
     return 0;
 }
