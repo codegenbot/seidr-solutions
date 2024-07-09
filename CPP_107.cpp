@@ -1,11 +1,10 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <string>
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result(n);
+    vector<int> result(n); // Initialize vector with n elements
     int even = 0;
     int odd = 0;
 
