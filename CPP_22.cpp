@@ -1,9 +1,10 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <boost/any.hpp>
 
 using namespace std;
+
+boost::any list_any;
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -15,19 +16,20 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-typedef boost::any list_any;
-
 vector<int> filter_integers(list_any values) {
     vector<int> result;
-    for (const auto& value : values) {
-        if (boost::any_cast<int>(value).good()) {
-            result.push_back(boost::any_cast<int>(value));
+    for (const auto& value : boost::any_cast<vector<list_any>>(values)) {
+        for (const auto& item : boost::any_cast<vector<any>>(value)) {
+            if (boost::any_cast<any>(item).type() == typeid(int)) {
+                result.push_back(boost::any_cast<int>(item));
+            }
         }
     }
     return result;
 }
 
 int main() {
-    assert(issame(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}), {3, 3, 3}));
+    vector<list_any> values = {3, any('c'), 3, 3, any('a'), any('b')};
+    assert(issame(filter_integers(values), {3, 3, 3}));
     return 0;
 }
