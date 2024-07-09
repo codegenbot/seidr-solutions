@@ -1,7 +1,21 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <map>
+
+int search(std::vector<int> lst) {
+    std::map<int, int> freq;
+    for (int i : lst) {
+        freq[i]++;
+    }
+    int prev = -1; 
+    for (auto p = freq.begin(); p != freq.end(); ++p) {
+        if (p->second >= p->first && p->first > prev) { 
+            return p->first;
+        }
+        prev = p->first; 
+    }
+    return -1;
+}
 
 int main() {
     int n; 
@@ -18,19 +32,4 @@ int main() {
     std::cout << "Result: " << result << std::endl;
     
     return 0;
-}
-
-int search(std::vector<int> lst) {
-    std::map<int, int> freq;
-    for (int i : lst) {
-        freq[i]++;
-    }
-    int prev = -1; 
-    for (auto p = freq.begin(); p != freq.end(); ++p) {
-        if (p->second >= p->first && p->first > prev) { 
-            return p->first;
-        }
-        prev = p->first; 
-    }
-    return -1;
 }
