@@ -23,22 +23,19 @@ std::vector<int> findIndices(const std::string& text, const std::string& target)
 
 int main() {
     int a, b;
-    while(std::cin >> a >> b) { 
-        int result = findGCD(a, b);
-        std::cout << "The GCD is: " << result << std::endl;
+    std::cout << "Enter two numbers: ";
+    std::cin >> a >> b;
+    int result = findGCD(a, b);
+    std::cout << "The GCD is: " << result << std::endl;
 
-        std::string text, target;
-        std::cout << "Enter the text: ";
-        std::getline(std::cin, text);
-        std::cout << "Enter the target string: ";
-        std::getline(std::cin, target);
+    std::string text, target;
+    std::cout << "Enter the text: ";
+    std::getline(std::cin, text);
+    std::cout << "Enter the target string: ";
+    std::cin >> target;
 
-        std::vector<int> indices = findIndices(text, target);
-        for (int i : indices) {
-            std::cout << i << " ";
-        }
-        std::cout << std::endl;
-    } else { 
-        std::cout << "Invalid input. Please enter two integers." << std::endl;
+    std::vector<int> indices = findIndices(text, target);
+    for (int i : indices) {
+        std::cout << i << " ";
     }
-}
+    std::cout << std::endl;
