@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -33,47 +34,48 @@ std::vector<std::string> total_match(const std::vector<std::string>& lst1, const
 }
 
 int main() {
-    std::vector<std::string> my_lst1 = {"apple", "banana", "cherry"};
+    std::vector<std::string> lst1 = {"apple", "banana", "cherry"};
 
-    std::vector<std::string> my_lst2 = {"date", "elderberry", "fig"};
+    std::vector<std::string> lst2 = {"date", "elderberry", "fig"};
 
-    std::vector<std::string> my_lst3 = {"grape", "honeydew", "ice cream"};
+    std::vector<std::string> lst3 = {"grape", "honeydew", "ice cream"};
 
-    std::vector<std::string> my_lst4 = {"jackfruit", "kiwi", "lemon"};
+    std::vector<std::string> lst4 = {"jackfruit", "kiwi", "lemon"};
 
     // User input
     std::cout << "Enter 2 lists of fruits separated by commas: ";
     std::string user_input1, user_input2;
-    getline(cin, user_input1);
-    getline(cin, user_input2);
+    std::getline(std::cin, user_input1);
+    std::getline(std::cin, user_input2);
 
     std::istringstream iss(user_input1);
-    std::vector<std::string> my_lst5;
+    std::vector<std::string> lst5;
     for (std::string s; std::getline(iss, s, ',');) {
-        my_lst5.push_back(s);
+        lst5.push_back(s);
     }
 
     std::istringstream iis(user_input2);
-    std::vector<std::string> my_lst6;
+    std::vector<std::string> lst6;
     for (std::string s; std::getline(iis, s, ',');) {
-        my_lst6.push_back(s);
+        lst6.push_back(s);
     }
 
-    if (total_sum(my_lst1) < total_sum(my_lst2)) {
-        std::cout << "List 1 has a lower sum." << std::endl;
-    }
-    else if (total_sum(my_lst1) > total_sum(my_lst2)) {
-        std::cout << "List 2 has a higher sum." << std::endl;
-    }
-    else {
-        std::cout << "The sums are equal." << std::endl;
+    if (!lst1.empty() && !lst2.empty()) {
+        if (total_sum(lst1) < total_sum(lst2)) {
+            std::cout << "List 1 has a lower sum." << std::endl;
+        } else if (total_sum(lst1) > total_sum(lst2)) {
+            std::cout << "List 2 has a higher sum." << std::endl;
+        } else {
+            std::cout << "The sums are equal." << std::endl;
+        }
     }
 
-    if (issame(my_lst5, my_lst6)) {
-        std::cout << "The lists are the same." << std::endl;
-    }
-    else {
-        std::cout << "The lists are different." << std::endl;
+    if (!lst5.empty() && !lst6.empty()) {
+        if (issame(lst5, lst6)) {
+            std::cout << "The lists are the same." << std::endl;
+        } else {
+            std::cout << "The lists are different." << std::endl;
+        }
     }
 
     return 0;
