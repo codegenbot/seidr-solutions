@@ -13,17 +13,22 @@ float triangle_area(float a, float b, float c) {
 }
 
 int main() {
-    std::string input;
+    float a, b, c;
     std::cout << "Enter three sides of the triangle: ";
-    std::getline(std::cin, input);
-    float a = std::stof(input), b = std::stof(input), c = std::stof(input);
+    std::string temp;
+    std::cin >> temp;
+    a = std::stof(temp);
+    b = std::stof(temp);
+    c = std::stof(temp);
 
     float result = triangle_area(a, b, c);
 
     if(result == -1.0f) {
         std::cout << "The given values do not form a valid triangle.";
     } else {
-        std::cout << "The area of the triangle is: " << result;
+        std::cout << "The area of the triangle is: ";
+        std::cout << std::fixed << std::setprecision(2);
+        std::cout << result;
     }
 
     return 0;
