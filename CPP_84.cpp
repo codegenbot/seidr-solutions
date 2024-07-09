@@ -1,8 +1,9 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <cassert>
+#include <iostream>
+#include <string>
 
 int solve(int n) {
-    string binary = "";
+    std::string binary = "";
     while(n > 0) {
         if(n % 2 == 0)
             binary = "0" + binary;
@@ -11,14 +12,14 @@ int solve(int n) {
         n /= 2;
     }
     if (binary.length() == 0) {
-        cout << "Error: Input is not a positive integer." << endl;
+        std::cout << "Error: Input is not a positive integer." << std::endl;
         return -1;
     }
-    return stoi(binary, 0, 2);
+    return std::stoi(binary, 0, 2);
 }
 
 int main() {
     int expected = solve(963); 
-    assert(expected == 10 || cout << "Expected: " << expected << " got " << expected<< endl;);
+    assert (solve(963) == 18); 
     return 0;
 }
