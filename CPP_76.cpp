@@ -24,7 +24,7 @@ int main() {
     } else {
         bool isValidInput = true;
         std::ostringstream oss;
-        oss << num;
+        oss << num; // Insert the number here
         std::string numStr = oss.str();
         
         for (char c : numStr) { 
@@ -36,9 +36,9 @@ int main() {
 
         if (isValidInput) {
             if (isSimplePower(num)) {
-                std::cout << num << " is a simple power.\n";
+                std::cout << "The number is a simple power.\n";
             } else {
-                std::cout << num << " is not a simple power.\n";
+                std::cout << "The number is not a simple power.\n";
             }
         } else {
             std::cout << "Invalid input. Please enter a numeric value.\n";
