@@ -1,13 +1,17 @@
+#include <iostream>
 #include <vector>
 
-vector<int> factorize(int n);
+using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
+vector<int> factorize(int n);
+bool issame(vector<int> a, vector<int> b);
+
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -28,7 +32,12 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main(){
-    // Your main function code here
+int main() {
+    int num;
+    cin >> num;
+    vector<int> factors = factorize(num);
+    for(int factor : factors) {
+        cout << factor << " ";
+    }
     return 0;
 }
