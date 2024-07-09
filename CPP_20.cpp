@@ -1,4 +1,6 @@
 ```
+#include <initializer_list>
+
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
     if (numbers.size() < 2) {
         throw std::runtime_error("Vector must contain at least two elements");
