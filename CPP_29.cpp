@@ -21,7 +21,8 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
-    std::vector<std::string> a = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx");
+    std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"};
+    std::vector<std::string> a = filter_by_prefix(strings, "xxx");
     std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
     assert(operator==(a, b));
     return 0;
