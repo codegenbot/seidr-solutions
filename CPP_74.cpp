@@ -1,6 +1,8 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
@@ -23,6 +25,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    // Main function code here
+    // Place your code here as needed
     return 0;
 }
