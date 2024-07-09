@@ -1,7 +1,7 @@
 ```
 #include <vector>
 #include <cmath>
-#include <vector> // Include vector for size_type
+#include <initializer_list>
 #include <iostream>
 
 bool isPrime(int n) {
