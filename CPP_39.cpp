@@ -4,9 +4,10 @@ using namespace std;
 
 int prime_fib(int n) {
     int a = 0, b = 1;
-    for (int i = 2; ; i++) {
+    int count = 0;
+    while (true) {
         int fib = a + b;
-        if (fib > n) return i;
+        if (fib > n) break;
         a = b;
         b = fib;
         bool isPrime = true;
@@ -16,15 +17,15 @@ int prime_fib(int n) {
                 break;
             }
         }
-        if (!isPrime) continue;
-        return i;
+        if (isPrime) count++;
+        if (count == n) return fib;
     }
 }
 
-int main() {
+void main() {
     int n;
     cout << "Enter the number: ";
     cin >> n;
     cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << endl;
-    return 0;
+    return;
 }
