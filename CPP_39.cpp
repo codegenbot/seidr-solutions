@@ -1,10 +1,10 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-bool isPrime(int num); 
+bool isPrime(int num); // Declare isPrime before using it
 
 int prime_fib(int n);
 
@@ -21,7 +21,7 @@ int main() {
 
 int prime_fib(int n) {
     if (n <= 0)
-        return -1; 
+        return -1; // Return -1 for invalid input
     int a = 1, b = 1, count = 2;
     while (true) {
         if (isPrime(b))
@@ -35,7 +35,7 @@ int prime_fib(int n) {
 
 bool isPrime(int num) {
     if (num <= 1)
-        return false; 
+        return false; // Prime numbers are greater than 1
     for (int i = 2; i * i <= num; i++)
         if (num % i == 0)
             return false;
