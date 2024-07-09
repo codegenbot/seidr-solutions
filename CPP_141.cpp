@@ -1,21 +1,36 @@
-int count_digits = 0;
+#include <iostream>
+#include <cassert>
+#include <string>
+
+using namespace std;
+
+string file_name_check(string file_name) {
+
+    int digit_count = 0;
+    int dot_count = 0;
+    string before_dot, after_dot;
+    
     for (char c : file_name) {
-        if (isdigit(c)) {
-            count_digits++;
+        if (c >= '0' && c <= '9') {
+            digit_count++;
+        } else if (c == '.') {
+            dot_count++;
+        } else if (dot_count == 0) {
+            before_dot += c;
+        } else {
+            after_dot += c;
         }
     }
-
-    size_t dot_pos = file_name.find(".");
-    if (count_digits > 3 || dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
+    
+    if (digit_count > 3 || dot_count != 1 || before_dot.empty() || !isalpha(before_dot[0]) || (after_dot != "txt" && after_dot != "exe" && after_dot != "dll")) {
         return "No";
     }
-
-    string before_dot = file_name.substr(0, dot_pos);
-    string after_dot = file_name.substr(dot_pos + 1);
-
-    if (!isalpha(before_dot[0]) || after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
-        return "No";
-    }
-
+    
     return "Yes";
+}
+
+int main() {
+    assert(file_name_check("s.") == "No");
+    
+    return 0;
 }
