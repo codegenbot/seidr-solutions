@@ -1,26 +1,18 @@
-#include <stack>
+#include<stdio.h>
+#include<vector>
+#include<string>
+using namespace std;
 
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
-    stack<int> nesting_levels;
-    int current_level = 0;
-
+    int current_depth = 0;
     for (char c : paren_string) {
         if (c == '(') {
-            current_level++;
-            nesting_levels.push(current_level);
+            current_depth++;
         } else if (c == ')') {
-            nesting_levels.pop();
-            current_level--;
+            current_depth--;
         }
+        result.push_back(current_depth);
     }
-
-    while (!nesting_levels.empty()) {
-        result.push_back(nesting_levels.top());
-        nesting_levels.pop();
-    }
-
-    reverse(result.begin(), result.end());
-
     return result;
 }
