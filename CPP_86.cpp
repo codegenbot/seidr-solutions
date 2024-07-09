@@ -1,7 +1,7 @@
-```
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -30,4 +30,3 @@ int main() {
     getline(cin, str);
     cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
     return 0;
-}
