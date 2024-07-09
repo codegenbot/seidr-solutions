@@ -1,16 +1,16 @@
 ```cpp
 #include <iostream>
-#include <vector>
 
-int prod_signs(std::vector<int> signs) {
-    int result = 1;
-    for (int sign : signs) {
-        if (sign < 0) return -1;
-        if (sign == 0) return 0;
+int prod_signs(int arr[]) {
+    int sign = 1;
+    for (int num : arr) {
+        if (num < 0)
+            sign *= -1;
     }
-    return 1;
+    return sign;
 }
 
 int main() {
-    std::cout << prod_signs({-1, 1, 1, 0}) << std::endl;
+    int result = prod_signs({-1, 1, 1, 0});
+    std::cout << result << std::endl;
 }
