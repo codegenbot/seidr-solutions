@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <climits>
 #include <cmath>
@@ -46,5 +45,3 @@ int main() {
     cout << "], [";
     for (const auto& x : result.second) cout << x << " ";
     cout << "]";
-    return 0;
-}
