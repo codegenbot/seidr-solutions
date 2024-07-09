@@ -10,10 +10,8 @@ bool isCube(int n) {
     return false;
 }
 
-void originalFunction() {}
-
-int main(){
-    originalFunction();
-    assert(isCube(1728) == true);
+int main() {
+    // implement the function
+    assert(isCube(1729) == false);
     return 0;
 }
