@@ -1,23 +1,15 @@
-Here's the modified code with the `using namespace std;` directive added at the beginning:
+#include <string>
 
-```c++
-using namespace std;
-
-string solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
+std::string solveBoolean(std::string s) {
+    int res = s[0] == 'T' ? 1 : 0;
+    for (int i = 1; i < s.length(); i++) {
         if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return "False";
-            else st.pop();
+            res &= s[i + 1] == 'T';
+            i++;
         } else if (s[i] == '|') {
-            while (!st.empty()) st.pop();
-            st.push(s[i]);
-        } else {
-            st.push((s[i] == 'T') ? '1' : '0');
+            res |= s[i + 1] == 'T';
+            i++;
         }
     }
-    return ((char)st.top() == '1') ? "True" : "False";
+    return res ? "True" : "False";
 }
