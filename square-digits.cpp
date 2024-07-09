@@ -19,15 +19,12 @@ int main() {
     std::string input;
     std::cout << "Enter a number: ";
     std::getline(std::cin, input);
-    if(input.empty()) {
-        std::cout << "Error: Input cannot be empty." << std::endl;
+    std::string output = squareDigits(input);
+    if(output.empty()) {
+        std::cout << "Error: Input contains a number greater than or equal to 100." << std::endl;
     } else {
-        std::string output = squareDigits(input);
-        if(output.empty()) {
-            std::cout << "Error: Input contains a number greater than or equal to 100." << std::endl;
-        } else {
-            std::cout << "Squared digits: " << output << std::endl;
-        }
+        std::string temp = "Squared digits: " + output;
+        std::cout << temp << std::endl;
     }
     return 0;
 }
