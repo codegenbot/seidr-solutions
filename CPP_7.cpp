@@ -2,49 +2,53 @@
 #include <vector>
 #include <string>
 
-bool isSame(const std::vector<std::string>& strings) {
-    if (strings.size() == 0) {
+bool issame(const std::vector<std::string>& strings) {
+    if (strings.size() == 1)
         return true;
-    }
-    for (int i = 1; i < strings.size(); i++) {
-        if (strings[i] != strings[0]) {
-            return false;
+    for (const auto& str : strings) {
+        bool found = false;
+        for (const auto& s2 : strings) {
+            if (s2 != str && s2.find(str) != std::string::npos) {
+                found = true;
+                break;
+            }
         }
+        if (!found)
+            return false;
     }
     return true;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
-    std::vector<std::string> result;
-    for (const auto& str : strings) {
-        if (str.find(substring) != std::string::npos) {
-            result.push_back(str);
-        }
-    }
-    return result;
-}
-
 int main() {
-    std::vector<std::string> strings = {"apple", "banana", "orange"};
-    std::string substring = "an";
+    int n, m;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> n;
+    std::vector<std::string> strvec(n);
     
-    std::cout << "Original vector: ";
-    for (const auto& str : strings) {
-        std::cout << str << " ";
+    for (auto &str : strvec) {
+        std::cout << "Enter string " << strvec.begin() - strvec.end() + 1 << ":";
+        std::cin.ignore();
+        std::getline(std::cin, str);
     }
-    std::cout << "\n";
-
-    std::vector<std::string> filtered_strings = filter_by_substring(strings, substring);
-    std::cout << "Filtered vector: ";
-    for (const auto& str : filtered_strings) {
-        std::cout << str << " ";
+    
+    int k;
+    std::cout << "Enter the number of substrings: ";
+    std::cin >> k;
+    std::vector<std::string> subvec(k);
+    
+    for (auto &sub : subvec) {
+        std::cout << "Enter substring " << subvec.begin() - subvec.end() + 1 << ":";
+        std::cin.ignore();
+        std::getline(std::cin, sub);
     }
-    std::cout << "\n";
-
-    if(isSame(filtered_strings)) {
-        std::cout << "All strings in the filtered vector are the same.\n";
+    
+    if (issame(strvec)) {
+        std::vector<std::string> filtered = filter_by_substring(strvec, subvec[0]);
+        for (const auto& str : filtered) {
+            std::cout << "String: " << str << std::endl;
+        }
     } else {
-        std::cout << "Strings in the filtered vector are not all the same.\n";
+        std::cout << "Strings are not same." << std::endl;
     }
 
     return 0;
