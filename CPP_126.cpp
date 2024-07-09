@@ -1,11 +1,4 @@
-#include <vector>
-using namespace std;
-
-bool is_sorted(vector<int> lst);
-
-int main(){
-    assert (is_sorted({1, 2, 3, 4}) == true);
-}
+Here is the modified code:
 
 bool is_sorted(vector<int> lst){
     if(lst.size() <= 1) return true;
@@ -27,4 +20,3 @@ bool is_sorted(vector<int> lst){
         }
     }
     return true;
-}
