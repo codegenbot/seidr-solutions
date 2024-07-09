@@ -3,6 +3,8 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
+    bool upperCaseNext = false;
+
     for (char c : s) {
         if (c == '-') {
             result += ' ';
@@ -10,14 +12,15 @@ string camelCase(string s) {
         }
 
         if (c == ' ') {
-            result += toupper(result.back());
+            upperCaseNext = true;
             continue;
         }
 
-        if (!result.empty()) {
+        if (!upperCaseNext) {
             result += tolower(c);
         } else {
             result += toupper(c);
+            upperCaseNext = false;
         }
     }
 
