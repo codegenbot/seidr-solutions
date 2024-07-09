@@ -1,5 +1,8 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 int solve(int n) {
-    string binary;
+    string binary = "";
     while(n > 0) {
         if(n % 2 == 0)
             binary = "0" + binary;
@@ -9,5 +12,9 @@ int solve(int n) {
     }
     return binary.length() ? stoi(binary, 0, 2) : 0;
 }
-#include <string>
-#include <cstdlib>
+
+int main() {
+    int expected = std::stoi("10010", 0, 2);
+    assert(solve(963) == expected); 
+    return 0;
+}
