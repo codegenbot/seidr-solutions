@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -65,3 +66,4 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
+}
