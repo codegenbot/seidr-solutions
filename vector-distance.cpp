@@ -1,13 +1,11 @@
-#include <iostream>
 #include <vector>
-#include <cmath>
-
 using namespace std;
 
 double vectorDistance(int n) {
     float v1[n];
     float v2[n];
 
+    // Read input vectors
     for (int i = 0; i < n; i++) {
         cin >> v1[i] >> v2[i];
     }
@@ -18,6 +16,9 @@ double vectorDistance(int n) {
     }
     return sqrt(distance);
 }
+
+#include <iostream>
+#include <iomanip>
 
 int main() {
     int n;
