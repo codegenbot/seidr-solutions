@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include <cctype>
 
 std::string kebabToCamel(const std::string& s) {
     std::string result;
