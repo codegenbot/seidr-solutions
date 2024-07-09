@@ -23,7 +23,25 @@ double vectorDistance() {
 }
 
 int main() {
+    std::cout << "Enter the dimension of vectors: ";
+    int n;
+    std::cin >> n;
+
+    float v1[n];
+    float v2[n];
+
+    std::cout << "Enter vector 1 coordinates (space separated): ";
+    for (int i = 0; i < n; i++) {
+        std::cin >> v1[i];
+    }
+
+    std::cout << "Enter vector 2 coordinates (space separated): ";
+    for (int i = 0; i < n; i++) {
+        std::cin >> v2[i];
+    }
+
     double result = vectorDistance();
-    std::cout << "Euclidean Distance: " << result << std::endl;
-    return (0);
+    std::cout << "Euclidean distance: " << result << std::endl;
+
+    return 0;
 }
