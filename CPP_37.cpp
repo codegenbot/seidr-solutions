@@ -18,7 +18,6 @@ std::vector<float> sort_even(const std::vector<float>& l) {
 }
 
 int main() {
-    #pragma GCC diagnostic ignored "-Werror"
     std::vector<float> vec = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     std::vector<float> result(vec.size());
     for (int i = 0; i < vec.size(); i++) {
@@ -29,7 +28,7 @@ int main() {
         }
     }
     
-    std::vector<float> sortedEven = sort_even(vec);
+    std::vector<float> sortedEven = std::vector<float>(sort_even(vec));
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
             result[i] = sortedEven[0];
