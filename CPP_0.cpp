@@ -17,11 +17,12 @@ int main() {
     float threshold;
 
     cout << "Enter the elements of the vector (space-separated): ";
-    float x;
-    while (cin >> x) { 
+    for(int i = 0; ;i++) {
+        float x;
+        cin >> x;
+        if(cin.peek() == EOF) break;
         a.push_back(x);
     }
-    cin.ignore(); 
 
     cout << "Enter the threshold: ";
     cin >> threshold;
