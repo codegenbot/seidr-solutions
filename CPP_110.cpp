@@ -1,9 +1,22 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
+    bool hasOdd = false;
     for (int num : lst1) {
         if (num % 2 != 0) {
-            oddCount++;
+            hasOdd = true;
+            break;
         }
     }
-    return (oddCount > 0) ? "NO" : "YES";
+    
+    if (!hasOdd) return "YES";
+    
+    for (int num : lst1) {
+        if (find(lst2.begin(), lst2.end(), num) != lst2.end()) {
+            lst2.erase(remove(lst2.begin(), lst2.end(), num), lst2.end());
+        } else {
+            hasOdd = false;
+            break;
+        }
+    }
+    
+    return hasOdd ? "NO" : "YES";
 }
