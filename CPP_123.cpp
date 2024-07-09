@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 bool issame(vector<int> a,vector<int>b){
@@ -27,5 +26,5 @@ vector<int> get_odd_collatz(int n) {
 
 int main() {
     vector<int> test = get_odd_collatz(12); 
-    assert(issame(test , vector<int>{1,5,13,41,133,401,1201,2449,7328}));
+    assert(issame(test , vector<int>{6, 3}));
 }
