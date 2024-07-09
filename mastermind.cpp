@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -24,4 +24,10 @@ int mastermind(std::string code, std::string guess) {
     return black - white;
 }
 
-int main() { return mastermind("XXXX", "XXXX"); }
+int main() {
+    std::string code = "ABCX";
+    std::string guess = "ABXX";
+    int result = mastermind(code, guess);
+    std::cout << "Number of black pegs: " << result << std::endl;
+    return 0;
+}
