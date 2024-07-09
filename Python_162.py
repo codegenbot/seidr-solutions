@@ -7,7 +7,7 @@ def string_to_md5(text):
     else:
         return None
 
-text = sys.argv[1]
+text = input()
 if text:
     print(string_to_md5(text))
 else:
