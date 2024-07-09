@@ -1,3 +1,4 @@
+```
 N = int(input("Enter number of rows (columns will be same): "))
 grid = [[int(input(f"Enter element for row {i}, column {j}: ")) for j in range(N)] for i in range(N)]
 k = int(input("Enter k value: "))
