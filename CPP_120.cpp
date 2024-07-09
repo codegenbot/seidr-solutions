@@ -39,9 +39,13 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         }
     }
 
-    arr.erase(std::remove(arr.begin(), arr.end(), -1), arr.end()); // Erase the marked indices
-
-    return arr;
+    std::vector<int> result;
+    for(int i : arr) {
+        if(i != -1) {
+            result.push_back(i);
+        }
+    }
+    return result;
 }
 
 int main() {
@@ -55,26 +59,20 @@ int main() {
     std::vector<int> arr;
     std::cout << "Enter elements: ";
     for (int i = 0; i < n; i++) {
-        if (!arr.empty()) { 
-            arr.push_back(0); // initialize with some value, not necessary for this problem
-        }
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
-        if (!arr.empty()) { 
-            arr.pop_back(); // remove the initial 0 before storing the actual value
-        }
         if (!arr.empty()) { 
             arr.push_back(val);
         }
     }
 
     std::vector<int> result = maximum(arr, k);
-    std::cout << "Maximum elements: ";
-    for (int i : result) {
+    
+    // Print the final array
+    for (auto i : result) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
-
     return 0;
 }
