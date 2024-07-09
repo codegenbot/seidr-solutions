@@ -1,13 +1,13 @@
 ```cpp
-#include <iostream>
 #include <vector>
+#include <iostream>
 
-bool same(const std::vector<float>& v1, const std::vector<float>& v2) {
-    if (v1.size() != v2.size()) {
+bool same(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < v1.size(); i++) {
-        if (std::abs(v1[i] - v2[i]) > 0.00001f) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -17,7 +17,7 @@ bool same(const std::vector<float>& v1, const std::vector<float>& v2) {
 std::vector<float> getPositive(const std::vector<float>& numbers) {
     std::vector<float> positiveNumbers;
     for (float num : numbers) {
-        if (num >= 0) {
+        if (num > 0) {
             positiveNumbers.push_back(num);
         }
     }
@@ -39,7 +39,7 @@ int main() {
 
     std::vector<float> positiveNumbers = getPositive(numbers);
 
-    if (same(getPositive(numbers), positiveNumbers)) {
+    if (same(positiveNumbers, numbers)) { 
         std::cout << "The input vector and the positive vector are the same." << std::endl;
     } else {
         std::cout << "The input vector and the positive vector are not the same." << std::endl;
