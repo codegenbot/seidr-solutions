@@ -17,12 +17,17 @@ bool is_happy(int n) {
     return n == 1;
 }
 
-int num;
-std::cout << "Enter a number: ";
-std::cin >> num;  
-if (is_happy(num)) {
-    std::cout << num << " is a happy number.\n";
-} else {
-    std::cout << num << " is not a happy number.\n";
-}
-return 0;
+bool is_happy(int num) {
+    if(num < 10)
+        return num % 10 == 1 && num != 1;
+    int sum = 0, remainder;
+    do{
+        while (num != 0){
+            remainder = num % 10;
+            sum += remainder * remainder;
+            num /= 10;
+        }
+        num = sum;
+        sum = 0;
+    }while(num > 9);
+    return num == 1;
