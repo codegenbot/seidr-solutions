@@ -1,5 +1,11 @@
+#include <iostream>
+using namespace std;
+
 int car_race_collision(int n) {
-    return n * (n - 1) / 2;
+    int collisions = 1;
+    for (int i = 2; i <= n; ++i)
+        collisions += i * (n - i + 1);
+    return collisions;
 }
 
 int main() {
