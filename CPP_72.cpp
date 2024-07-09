@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -12,3 +13,4 @@ bool will_it_fly(std::vector<int> q, int w) {
         sum += i;
     }
     return sum <= w;
+}
