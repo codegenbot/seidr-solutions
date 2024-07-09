@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -11,6 +12,7 @@ int digitSum(string s){
         }
     }
     return sum;
+
 }
 
 int main() {
