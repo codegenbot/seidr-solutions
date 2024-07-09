@@ -1,4 +1,3 @@
-
 int search(const std::vector<int>& lst) {
     int result = -1;
     for (int num : lst) {
