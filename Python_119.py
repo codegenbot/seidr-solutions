@@ -5,6 +5,8 @@ def match_parens(lst):
             count += 1
         elif char == ')' and count > 0:
             count -= 1
+        elif char == ')' and count == 0:
+            return 'No'
         else:
             return 'No'
     return 'Yes' if count == 0 else 'No'
