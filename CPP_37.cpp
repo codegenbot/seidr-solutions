@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-bool isSame(const vector<float>& a,const vector<float>&b){
+bool issame(const vector<float>& a,const vector<float>&b){
     for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
@@ -11,7 +11,7 @@ bool isSame(const vector<float>& a,const vector<float>&b){
     return true;
 }
 
-vector<float> sortEven(vector<float> l){
+vector<float> sort_even(vector<float> l){
     vector<float> l_prime;
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){
