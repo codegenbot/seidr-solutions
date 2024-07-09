@@ -18,7 +18,7 @@ std::string kebabToCamel(const std::string& s) {
         }
     }
 
-    return result.substr(1); // Remove leading space
+    return result.substr(1); 
 }
 
 int main() {
