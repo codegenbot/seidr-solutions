@@ -15,6 +15,13 @@ def valid_date(date):
         return False
     if (int_month in [1,3,5,7,8,10,12] and int_day > 31) or \
        (int_month in [4,6,9,11] and int_day > 30) or \
-       (int_month == 2 and (int_year % 4 != 0 or (int_year % 100 == 0 and int_year % 400 != 0))):
+       (int_month == 2 and int_day > 29):
         return False
-    return True
+    if year[0:2].zfill(4).isdigit() and month.isdigit() and day.isdigit():
+        return True
+    else:
+        return False
+
+# Example usage:
+date_str = input("Enter a date in the format YYYY-MM-DD: ")
+print(valid_date(date_str))
