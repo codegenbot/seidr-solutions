@@ -35,12 +35,15 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    vector<string> lst;
+    for (string s : {"aaaa", "bbbb", "dd", "cc"}) {
+        lst.push_back(s);
+    }
     vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
     if (!issame(sorted_list_sum(lst), expected)) {
-        std::cout << "Test failed" << std::endl;
+        cout << "Test failed" << endl;
     } else {
-        std::cout << "Test passed" << std::endl;
+        cout << "Test passed" << endl;
     }
     return 0;
 }
