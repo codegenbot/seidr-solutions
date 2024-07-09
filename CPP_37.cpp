@@ -31,14 +31,14 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> input = {9.0, 5.2, 2.3, 7.8, 4.1};
-    vector<float> expected_result = {2.3, 5.2, 4.1, 7.8, 9.0};
-
+    vector<float> input = {3.0, 1.5, 2.0, 4.0, 6.0};
+    vector<float> expected_result = {1.5, 3.0, 2.0, 4.0, 6.0};
+    
     vector<float> result = sort_even(input);
 
     assert(equal(result.begin(), result.end(), expected_result.begin()));
 
-    cout << "Test passed successfully!" << endl;
+    cout << "Test Passed" << endl;
 
     return 0;
 }
