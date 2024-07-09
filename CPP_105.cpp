@@ -2,10 +2,10 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) 
-        if(to_string(a[i]).size() != b[i]) 
+        if(a[i].size() != b[i].size()) 
             return false;
     return true;
 }
@@ -17,7 +17,6 @@ std::vector<int> by_length(const std::vector<int>& arr) {
         result.push_back(length);
     }
     return result;
-
 }
 
 int main() {
@@ -30,6 +29,6 @@ int main() {
     
     std::vector<int> lengthArr = by_length(intArray);
     // Test assertion
-    assert(issame(lengthArr, {to_string(9).size(), to_string(4).size(), to_string(8).size()}));
+    assert(issame({to_string(9).size(), to_string(4).size(), to_string(8).size()}, vector<string>(lengthArr.begin(), lengthArr.end())));
     return 0;
 }
