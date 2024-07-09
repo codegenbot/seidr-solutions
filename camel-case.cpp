@@ -6,7 +6,10 @@ std::string camelCase(const std::string& str) {
 
     for (char c : str) {
         if (c == '-' || c == ' ') { 
-            capitalize = true; 
+            if (!capitalize) {
+                result += c;
+            }
+            capitalize = (c == ' ');
         } else if (capitalize) {
             result += toupper(c);
             capitalize = false; 
