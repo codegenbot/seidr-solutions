@@ -1,4 +1,4 @@
-#include <vector>
+#include<vector>
 
 vector<float> get_positive(vector<float> l){
     vector<float> result;
@@ -10,7 +10,7 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-bool is_same(float a, float b){
+bool is_same(float a, float b) {
     return a == b;
 }
 
