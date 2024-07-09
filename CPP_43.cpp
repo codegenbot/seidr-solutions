@@ -1,15 +1,20 @@
-#include <vector>
 #include <set>
+#include <vector>
 
 using namespace std;
 
 bool pairs_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end()); 
-    for (int i = 0; i < s.size(); i++) { 
+    set<int> s(l.begin(), l.end());
+    for (int i = 0; i < s.size(); i++) {
         int complement = -s[i];
         if (find(s.begin() + i + 1, s.end(), complement) != s.end()) {
             return true;
         }
     }
     return false;
+}
+
+int main() {
+    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
+    return 0;
 }
