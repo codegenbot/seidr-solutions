@@ -1,4 +1,13 @@
-```cpp
+bool issame(vector<int> a,vector<int>b){
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
+}
+
+int main(){
+    vector<int> common = common({4, 3, 2, 8}, {});
+    assert(issame(common,{},{});
+    return 0;
+}
+
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s1(l1.begin(), l1.end());
     set<int> s2(l2.begin(), l2.end());
@@ -10,14 +19,4 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     vector<int> result(common.begin(), common.end());
     sort(result.begin(), result.end());
     return result;
-}
-
-bool issame(vector<int> a,vector<int>b){
-    if(a.size() != b.size())
-        return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
 }
