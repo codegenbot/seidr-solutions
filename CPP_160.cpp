@@ -4,13 +4,13 @@
 
 std::vector<std::string> ops = {"//", "*"}; 
 
-int do_algorithm(std::vector<std::string> operators, std::vector<int> operands) {
+int do_algebra(std::vector<std::string> operator_, std::vector<int> operand) {
     std::string expression = "";
-    for (int i = 0; i < operators.size() - 1; i++) {
-        expression += to_string(operands[i]);
-        expression += operators[i];
+    for (int i = 0; i < operator_.size(); i++) {
+        expression += to_string(operand[i]);
+        expression += operator_[i];
     }
-    expression += to_string(operands.back());
+    expression += to_string(operand.back());
     
     int result = eval(expression);
     
@@ -33,7 +33,7 @@ int eval(const std::string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * std::atoi(std::string(1, s[i]).c_str());
+            result += sign * std::stoi(std::string(1, s[i]).c_str());
         }
     }
     
@@ -41,6 +41,6 @@ int eval(const std::string& s) {
 }
 
 int main() {
-    int result = do_algorithm(ops, {7, 3, 4});
+    int result = do_algebra(ops, {7, 3, 4});
     return 0;
 }
