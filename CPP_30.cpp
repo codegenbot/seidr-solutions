@@ -1,15 +1,27 @@
 #include <vector>
-#include <algorithm>
+#include <iostream>
 
-bool issame(float x, float y) {
-    return abs(x - y) < 0.0001;
+bool issame(vector<float> a, vector<float> b) {
+    if(a.size() != b.size())
+        return false;
+    
+    for(size_t i = 0; i < a.size(); i++)
+        if(a[i] != b[i])
+            return false;
+    
+    return true;
 }
 
-vector<float> get_positive(vector<float> l) {
+vector<float> get_positive(vector<float> l){
     vector<float> result;
-    for (float num : l) {
-        if (num > 0)
+    for(float num : l){
+        if(num > 0)
             result.push_back(num);
     }
     return result;
+}
+
+int main() {
+    assert(issame(get_positive({}), {}));
+    // your other code here
 }
