@@ -1,4 +1,6 @@
-using namespace std;
+```c++
+#include <iostream>
+#include <string>
 
 string squareDigits(string input) {
     string output = "";
@@ -11,8 +13,8 @@ string squareDigits(string input) {
 
 int main() {
     string input;
-    cout << "Enter a positive integer: ";
-    getline(cin, input);
-    cout << squareDigits(input) << std::endl;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> input;
+    std::cout << squareDigits(input) << std::endl;
     return 0;
 }
