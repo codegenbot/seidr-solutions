@@ -1,16 +1,14 @@
-```
-def solve_boolean(expression):
-    if expression == 'T':
+def solve(input_str):
+    if input_str == "T":
         return True
-    elif expression == 'F':
+    elif input_str == "F":
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
+    elif len(input_str) == 1 and set(input_str).issubset({"|", "&"}):
+        return {"|": lambda t, f: t or f, "&": lambda t, f: t and f}[input_str[0]](
+            True, False
+        )
+    elif len(input_str) >= 3:
+        left, op, right = input_str[:2], input_str[2], input_str[-1]
+        return solve(left + (op if op in {"|", "&"} else "") + right)
     else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result = result and (expression[expression.index(char) + 1] == 'T')
-            elif char == '|':
-                result = result or (expression[expression.index(char) + 1] == 'T')
-        return result
+        raise ValueError("Invalid input")
