@@ -1,8 +1,7 @@
-```
 #include <iostream>
 #include <vector>
 
-bool same(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -29,7 +28,7 @@ int main() {
     std::cout << "Enter the second number: ";
     std::cin >> num2;
 
-    if (same(std::vector<float>{num1}, std::vector<float>{num2})) {
+    if (issame({num1}, {num2})) {
         float result = get_positive(num1);
         std::cout << "The positive of the numbers is: " << result << std::endl;
     } else {
