@@ -28,7 +28,7 @@ int main() {
             std::cout << "Enter element " << i+1 << ": ";
             float num;
             std::cin >> num;
-            numbers.push_back(std::make_unique<float>(std::to_string(num)));
+            numbers.push_back(std::make_unique<float>(num));
         }
 
         auto positive_numbers = get_positive(numbers);
@@ -36,7 +36,7 @@ int main() {
         if(positive_numbers == numbers) {
             std::cout << "The list of positive numbers is: ";
             for (auto& num : positive_numbers) {
-                std::cout << *num << " "; 
+                std::cout << std::to_string(*num) << " "; 
             }
             std::cout << std::endl;
         } else {
