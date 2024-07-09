@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -30,8 +31,8 @@ boost::any compare_one(boost::any a, boost::any b) {
 
 int main() {
     cout << boost::any_cast<string>(compare_one(1, 2.5f)) << endl;
-    cout << boost::any_cast<string>(compare_one(1, "2.3")) << endl;
-    cout << boost::any_cast<string>(compare_one("5.1", "6.0")) << endl;
-    cout << boost::any_cast<string>(compare_one("1.0", 1)) << endl;
+    cout << boost::any_cast<string>(compare_one(1, "2,3")) << endl;
+    cout << boost::any_cast<string>(compare_one("5,1", "6")) << endl;
+    cout << boost::any_cast<string>(compare_one("1", 1.0f)) << endl;
     return 0;
 }
