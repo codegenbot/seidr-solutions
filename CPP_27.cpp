@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <cctype>
 #include <string>
+#include <cassert>
 
 std::string flip_case(const std::string& s) {
     std::string result;
