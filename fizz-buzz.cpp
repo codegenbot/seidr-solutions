@@ -1,3 +1,5 @@
+#include <string>
+
 std::string fizzBuzz(int x) {
     if (x % 3 == 0 && x % 5 == 0)
         return "FizzBuzz";
