@@ -1,9 +1,11 @@
 #include <string>
 
 bool solveBoolean(std::string s) {
-    stack<char> st;
+    bool res = true;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
+        if (s[i] == 'T') res = true;
+        else if (s[i] == 'F') res = false;
+        else if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
@@ -22,4 +24,4 @@ bool solveBoolean(std::string s) {
     while (!st.empty()) {
         st.pop();
     }
-    return st.empty();
+    return res;
