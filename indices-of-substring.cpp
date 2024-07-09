@@ -17,9 +17,9 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (found) {
             result.push_back(i);
-            i = i + 1; // Start searching from the next character
+            i += m - 1; // Start searching from the end of the found target
         } else {
-            i = i + 1; // Start searching from the next character
+            i -= m - 1; // Backtrack to correctly re-start search
         }
     }
 
@@ -27,6 +27,7 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
+    cin.ignore();  // Flush the input stream before reading the text from user
     string text;
     getline(cin, text);
     while (getline(cin, text) && !text.empty()) cin.ignore();
