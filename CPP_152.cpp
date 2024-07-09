@@ -1,52 +1,52 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
-bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
-        return false;
+bool issame(vector<int> game, vector<int> guess) {
+    for (int i = 0; i < game.size(); i++) {
+        if (game[i] != guess[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    std::vector<int> result;
+vector<int> compare(vector<int> game, vector<int> guess) {
+    vector<int> result;
     for (int i = 0; i < game.size(); i++) {
-        if (issame(game[i], guess[i])) {
+        if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
-            int diff = abs(guess[i] - game[i]);
-            result.push_back(diff);
+            result.push_back(abs(guess[i] - game[i]));
         }
     }
     return result;
 }
 
 int main() {
-    std::vector<int> game, guess;
-
-    // Read the game and guess from user
     int n;
-    std::cout << "Enter the number of rounds: ";
-    std::cin >> n;
+    cin >> n;
+    
+    vector<int> game(n), guess(n);
+    
     for (int i = 0; i < n; i++) {
-        int temp1, temp2;
-        std::cout << "Enter the score for round " << i + 1 << ": ";
-        std::cin >> temp1 >> temp2;
-        game.push_back(temp1);
-        guess.push_back(temp2);
+        cin >> game[i];
     }
-
-    // Call the compare function
-    std::vector<int> result = compare(game, guess);
-
-    // Print the result
+    
     for (int i = 0; i < n; i++) {
-        std::cout << "Round " << i + 1 << ": ";
-        if (result[i] == 0)
-            std::cout << "Match\n";
-        else
-            std::cout << "Difference: " << result[i] << "\n";
+        cin >> guess[i];
     }
-
+    
+    if (issame(game, guess)) {
+        cout << "Game and Guess are the same" << endl;
+    } else {
+        vector<int> res = compare(game, guess);
+        
+        for (int i : res) {
+            cout << i << " ";
+        }
+        
+        cout << endl;
+    }
+    
     return 0;
 }
