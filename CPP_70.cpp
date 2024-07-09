@@ -1,6 +1,6 @@
+```cpp
 #include <algorithm>
 #include <vector>
-#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -14,12 +14,12 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
-    sort(lst.begin(), lst.end());
+    std::sort(lst.begin(), lst.end());
     while (!lst.empty()) {
         result.push_back(*lst.begin());
         lst.erase(lst.begin());
         if (!lst.empty())
-            sort(lst.begin(), lst.end());
+            std::sort(lst.begin(), lst.end());
     }
 
     return result;
