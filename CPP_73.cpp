@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
 int smallest_change(std::vector<int> numbers) {
     int n = numbers.size();
     std::string str = "";
