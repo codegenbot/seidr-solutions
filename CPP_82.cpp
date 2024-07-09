@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -12,7 +11,6 @@ bool prime_length(string str){
             return false;
     }
     return true;
-
 }
 
 int main(){
