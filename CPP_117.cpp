@@ -29,8 +29,12 @@ vector<string> select_words(string s, int n) {
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
 int main() {
-    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
+    assert (issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
     
     cout << "All test cases passed successfully!";
     
