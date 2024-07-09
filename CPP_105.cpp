@@ -1,21 +1,64 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+std::vector<std::string> by_length(const std::vector<int>& numbers) {
+    std::vector<std::string> words;
+    
+    for (int number : numbers) {
+        switch (number) {
+            case 0:
+                words.push_back("Zero");
+                break;
+            case 1:
+                words.push_back("One");
+                break;
+            case 2:
+                words.push_back("Two");
+                break;
+            case 3:
+                words.push_back("Three");
+                break;
+            case 4:
+                words.push_back("Four");
+                break;
+            case 5:
+                words.push_back("Five");
+                break;
+            case 6:
+                words.push_back("Six");
+                break;
+            case 7:
+                words.push_back("Seven");
+                break;
+            case 8:
+                words.push_back("Eight");
+                break;
+            case 9:
+                words.push_back("Nine");
+                break;
+        }
+    }
+    
+    return words;
 }
 
-std::vector<int> by_length(const std::vector<int>& arr) {
-    std::vector<int> result;
-    for (int num : arr) {
-        int length = to_string(num).size();
-        result.push_back(length);
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    return result;
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 int main() {
     std::vector<int> intArray = {9, 4, 8};
-    assert(issame(by_length(intArray), {std::to_string(9).size(), std::to_string(4).size(), std::to_string(8).size()}));
+    assert(issame(by_length(intArray), {"Nine", "Four", "Eight"}));
+    
     return 0;
 }
