@@ -1,34 +1,33 @@
+```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
+#include <map>
 
-bool issame(vector<string> a,vector<string> b){
-    return (a == b);
+bool issame(vector<string> a, vector<string> b) -> bool {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
+    map<int, string> numMap = {{1,"One"}, {2,"Two"}, {3,"Three"}, {4,"Four"}, {5,"Five"}, {6,"Six"}, {7,"Seven"}, {8,"Eight"}, {9,"Nine"}};
+    
     for (int i : arr) {
-        string num = "";
-        switch (i) {
-            case 1: num = "One"; break;
-            case 2: num = "Two"; break;
-            case 3: num = "Three"; break;
-            case 4: num = "Four"; break;
-            case 5: num = "Five"; break;
-            case 6: num = "Six"; break;
-            case 7: num = "Seven"; break;
-            case 8: num = "Eight"; break;
-            case 9: num = "Nine"; break;
-        }
-        result.push_back(num);
+        if (i >= 1 && i <= 9)
+            result.push_back(numMap[i]);
     }
+    
     sort(result.begin(), result.end());
     reverse(result.begin(), result.end());
+    
     return result;
-}
-
-int main() {
-    assert(issame(vector<string>(by_length({9, 4, 8})), vector<string>({"Nine", "Eight", "Four"})));
-    return 0;
 }
