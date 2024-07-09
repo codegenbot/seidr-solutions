@@ -17,7 +17,9 @@ def bowling_score(frames):
         else:
             first_roll = int(frame[0])
             second_roll = int(frame[1])
-            third_roll = int(frame[2].replace('/', ''))
+            third_roll = int(frame[2])
+            if third_roll == '/':
+                third_roll = 10 - (first_roll + second_roll)
             score += first_roll + second_roll + third_roll
             frame_count += 1
     return score
