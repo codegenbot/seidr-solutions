@@ -1,25 +1,25 @@
 #include <iostream>
 using namespace std;
 
-bool isPrime(int num) {
-    if (num <= 1)
+bool isPrime(int n) {
+    if (n <= 1)
         return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0)
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
             return false;
     }
     return true;
 }
 
 int prime_fib(int n) {
-    int fib_num = 0, fib_prev = 1, count = 0;
-    while (true) {
-        int fib_new = fib_prev + fib_num;
-        if (isPrime(fib_new)) {
-            if (++count == n)
-                return fib_new;
-            fib_num = fib_new;
-            fib_prev = fib_num - fib_prev;
-        }
+    int a = 0, b = 1;
+    for (int i = 0; ; i++) {
+        if (isPrime(b)) {
+            if (i == n - 1)
+                return b;
+            a = b;
+            b = a + b;
+        } else
+            b = a + b;
     }
 }
