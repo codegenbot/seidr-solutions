@@ -28,11 +28,6 @@ std::string file_name_check(std::string file_name) {
 }
 
 int main() {
-    std::cout << "Enter a file name: ";
-    std::string file_name;
-    std::cin >> file_name;
-
-    std::cout << "Is it valid? " << file_name_check(file_name) << std::endl;
-
+    assert(file_name_check("s.") == "No");
     return 0;
 }
