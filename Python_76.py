@@ -1,0 +1,1 @@
+return x == n ** int(x ** (1 / n))
