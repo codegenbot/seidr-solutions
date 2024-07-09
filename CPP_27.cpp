@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-std::string filp_case(const std::string& str) {
+std::string filp_case(std::string str) {
     std::string result = str;
     for (char &c : result) {
         if (std::islower(c)) {
