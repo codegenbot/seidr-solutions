@@ -1,5 +1,7 @@
 #include <cassert>
 #include <string>
+#include <algorithm>
+#include <iostream> // Include this header for 'cout'
 using namespace std;
 
 bool same_chars(string s0, string s1) {
