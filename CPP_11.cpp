@@ -18,12 +18,16 @@ std::string string_xor(std::string a, std::string b) {
 int main() {
     assert(string_xor("0101", "0000") == "0101");
     try {
-        std::string str1, str2;
+        char c1, c2;
         std::cout << "Enter the first string: ";
-        std::getline(std::cin, str1);
+        while(std::cin >> c1) {
+            str1 += c1;
+        }
         
         std::cout << "Enter the second string: ";
-        std::getline(std::cin, str2);
+        while(std::cin >> c2) {
+            str2 += c2;
+        }
 
         if (!str1.empty() && !str2.empty()) {  
             try {
@@ -32,19 +36,8 @@ int main() {
             } catch (const std::invalid_argument& e) {
                 std::cout << "Error: " << e.what() << std::endl;
             }
-        } else if (!str1.empty()) { 
-            try {
-                for (char c : str1) {
-                    if (c != '0' && c != '1') {
-                        throw std::invalid_argument("Input strings must contain only 0's and 1's.");
-                    }
-                }
-                std::cout << "Error: No second input string provided." << std::endl;
-            } catch (const std::invalid_argument& e) {
-                std::cout << "Error: " << e.what() << std::endl;
-            }
-        } else { 
-            std::cout << "No input strings provided." << std::endl;
+        } else {
+            std::cout << "An error occurred." << std::endl;
         }
     } catch (...) { 
         std::cout << "An error occurred." << std::endl;
