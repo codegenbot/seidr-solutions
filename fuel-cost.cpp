@@ -8,7 +8,6 @@ int fuelCost(vector<int> v) {
     for (int x : v) {
         int y = std::floor((double)x/3);
         y -= 2;
-        if(y<0)y=0;
         sum += y;
     }
     return sum;
