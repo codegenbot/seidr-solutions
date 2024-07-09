@@ -53,7 +53,9 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {  
-    vector<string> result = totalMatch({"this"}, {});
+    vector<string> lst1(lst1.begin(), lst1.end());
+    vector<string> lst2;
+    vector<string> result = totalMatch(lst1, lst2);
     cout << "Result: ";
     for (const string& s : result) {
         cout << s << " ";
