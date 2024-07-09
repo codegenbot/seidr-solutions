@@ -4,7 +4,7 @@
 using namespace std;
 
 int luhn(const vector<int>& digits) {
-    int sum = digits[0]; // Initialize sum with the first digit
+    int sum = 0;
     bool doubleNext = false;
     
     for (int i = 1; i < digits.size(); i++) {
