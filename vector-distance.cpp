@@ -23,6 +23,5 @@ double vectorDistance() {
 }
 
 int main() {
-    vectorDistance();
-    return 0;
+    return vectorDistance();
 }
