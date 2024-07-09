@@ -20,7 +20,9 @@ int main() {
         lst.push_back(input);
 
     long long odd_sum = double_the_difference(lst); 
+
     assert(odd_sum == (std::abs(double_the_difference(lst)) + 2*double_the_difference({1.0}) - double_the_difference({0})));
+
     std::cout << "The difference is: " << odd_sum << std::endl;
     return 0;
 }
