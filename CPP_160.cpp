@@ -24,6 +24,7 @@ public:
 };
 
 int main() {
-    int output = cpp_160().do_algebra({"*", "//"}, {7, 3, 4});
+    cpp_160 obj;
+    int output = obj.do_algebra({"*", "//"}, {4, 7, 3});
     std::cout << output << std::endl;
 }
