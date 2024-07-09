@@ -18,7 +18,7 @@ bool areVectorsEqual(vector<int> a, vector<int> b) {
 vector<int> remove_duplicates(vector<int> numbers) {
     std::vector<int> newVector;
     for(int i:numbers){
-        if(std::find(newVector.begin(), newVector.end(), i) == newVector.end()){
+        if(std::find_if(newVector.begin(), newVector.end(), [&](int x){return std::to_string(x) != std::to_string(i);}) == newVector.end()){
             newVector.push_back(i);
         }
     }

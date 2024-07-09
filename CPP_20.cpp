@@ -13,7 +13,7 @@ bool findSame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> findClosestElements(std::vector<float> numbers) {
+std::vector<float> findSame(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
     float minDiff = std::numeric_limits<float>::max();
     std::pair<float, float> closestPair;
@@ -29,7 +29,7 @@ std::vector<float> findClosestElements(std::vector<float> numbers) {
     return std::vector<float>{closestPair.first, closestPair.second};
 }
 
-int testMain() {
-    assert(findSame({2.2f, 3.1f}, findClosestElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f})));
+int main() {
+    assert(findSame({2.2f, 3.1f}, findSame({1.1f, 2.2f, 3.1f, 4.1f, 5.1f})));
     return 0;
 }
