@@ -9,7 +9,7 @@ def minPath(grid, k):
 
         if curr_sum >= k:
             return path
-
+    
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
             if 0 <= nx < n and 0 <= ny < n:
