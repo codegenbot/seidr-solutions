@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool compareStrings(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -30,6 +30,6 @@ vector<string> bf(string a, string b) {
 }
 
 int main() {
-    assert (issame(bf("Jupiter", "Makemake"), {"Jupiter", "Makemake"}));
+    assert (compareStrings(bf("Jupiter", "Makemake"), {"Jupiter", "Makemake"}));
     return 0;
 }
