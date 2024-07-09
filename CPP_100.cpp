@@ -1,5 +1,6 @@
-```
 #include <vector>
+#include <cassert>
+#pragma GCC require -std=c++0x
 
 bool same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -9,14 +10,16 @@ bool same(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> make_a_pile(std::vector<int> pile, int n) {
-    while (pile.back() <= n) {
-        pile.push_back(pile.back() + 2);
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
+    int stones = 1;
+    while (stones <= n) {
+        pile.push_back(stones);
+        stones += 2;
     }
     return pile;
 }
 
 int main() {
-    assert(same(make_a_pile({}, 8), {8,10,12,14,16,18,20,22}));
-    return 0;
+    assert(same(make_a_pile(8), {8,10,12,14,16,18,20,22}));
 }
