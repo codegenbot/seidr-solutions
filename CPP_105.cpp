@@ -13,41 +13,37 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
     vector<string> result;
     for (string str : numbers) {
+        string result_str = "";
         switch (stoi(str)) {
             case 1:
-                str = "One";
+                result_str = "One";
                 break;
             case 2:
-                str = "Two";
+                result_str = "Two";
                 break;
             case 3:
-                str = "Three";
+                result_str = "Three";
                 break;
             case 4:
-                str = "Four";
+                result_str = "Four";
                 break;
             case 5:
-                str = "Five";
+                result_str = "Five";
                 break;
             case 6:
-                str = "Six";
+                result_str = "Six";
                 break;
             case 7:
-                str = "Seven";
+                result_str = "Seven";
                 break;
             case 8:
-                str = "Eight";
+                result_str = "Eight";
                 break;
             case 9:
-                str = "Nine";
+                result_str = "Nine";
                 break;
         }
-        result.push_back(str);
+        result.push_back(result_str);
     }
     return result;
-}
-
-int main() {
-    assert(by_length({9, 4, 8}) == vector<string>({"Nine", "Eight", "Four"}));
-    return 0;
 }
