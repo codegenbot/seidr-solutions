@@ -1,17 +1,14 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i]) return false;
-    }
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
+    if (k > arr.size()) {
+        throw std::invalid_argument("k is greater than the size of the array");
+    }
     std::vector<int> result;
     for (int i = 0; i < k; i++) {
         auto it = std::max_element(arr.begin(), arr.end());
@@ -22,28 +19,6 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 }
 
 int main() {
-    int n, k;
-    std::cout << "Enter the size of array: ";
-    std::cin >> n;
-    std::vector<int> arr(n);
-    
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> arr[i];
-    }
-    
-    std::cout << "Enter the value of k: ";
-    std::cin >> k;
-    
-    std::vector<int> res = maximum(arr, k);
-    for(int i = 0; i < k; i++) {
-        if(issame(res, arr)) break;
-        res = maximum(arr, k);
-    }
-    
-    std::cout << "The maximum vector is: ";
-    for(auto x : res) std::cout << x << " ";
-    std::cout << std::endl;
-    
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 5) , {243, 243, 3, 2, 1}));
     return 0;
 }
