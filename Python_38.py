@@ -1,5 +1,6 @@
+def decode_cyclic(s):
+    return s[-1] + s[:-1]
+
 s = input().strip()
-result = ""
-for i in range(len(s)):
-    result += chr((ord(s[i]) - i) % 26 + ord('A'))
+result = decode_cyclic(s)
 print(result)
