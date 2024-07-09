@@ -1,10 +1,9 @@
-```cpp
 #include <string>
 #include <unordered_map>
 
 int main() {
     std::string code = "abcd";
-    std::string guess = "bcde"; // fill in with valid inputs
+    std::string guess = "abcd"; // fill in with valid inputs
 
     std::pair<int, int> result = mastermind(code, guess);
 
