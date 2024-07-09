@@ -31,8 +31,8 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "ABCD";
-    std::string guess = "BCDE";
+    std::string code = "XXXX";
+    std::string guess = "XXXX";
 
     auto result = mastermind(code, guess);
 
