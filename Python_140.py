@@ -2,6 +2,6 @@ def fix_spaces(text):
     return "".join(
         [
             "_" if c == " " else "-" if c == " " * 2 else c
-            for c in text.replace("  ", " ").replace(" ", "_")
+            for c in text.replace("  ", " ")
         ]
-    )
+    ).replace("  ", "_")
