@@ -15,17 +15,19 @@ int main() {
     std::getline(std::cin, input);
 
     std::istringstream iss(input);
-    std::vector<double> prices(15);
-    for (int i = 0; i < prices.size(); i++) {
-        iss >> prices[i];
+    std::string line;
+    iss >> line; // Read the first line
+    std::istringstream lineIss(line);
+    std::vector<double> prices;
+    while (lineIss >> line) {
+        prices.push_back(std::stod(line)); 
     }
 
-    std::getline(std::cin, input);
-    iss.clear();
-    iss.str(input);
-    std::vector<double> discounts(15);
-    for (int i = 0; i < discounts.size(); i++) {
-        iss >> discounts[i];
+    iss >> line; // Read the second line
+    lineIss = std::istringstream(line);
+    std::vector<double> discounts;
+    while (lineIss >> line) {
+        discounts.push_back(std::stod(line));
     }
 
     double result = hoppingList(prices, discounts);
