@@ -3,6 +3,8 @@
 #include <climits>
 #include <iostream>
 
+using namespace std;
+
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
     int n = nums.size();
@@ -21,14 +23,14 @@ std::vector<int> findLeaders(std::vector<int> nums) {
 }
 
 int main() {
-    using namespace std;
-
     std::vector<int> nums = {16, 17, 4, 3, 5, 2};
     std::vector<int> result = findLeaders(nums);
     
     for (int num : result) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
+    
+    std::cout << std::endl;
     
     return 0;
 }
