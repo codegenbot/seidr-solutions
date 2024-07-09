@@ -1,5 +1,6 @@
 #include <vector>
 #include <initializer_list>
+#include <utility>
 
 using namespace std;
 
@@ -19,17 +20,7 @@ vector<int> make_a_pile(int n) {
     return pile;
 }
 
-vector<int> initializer_to_vector(initializer_list<int> il) {
-    vector<int> result(il.size());
-    copy(il.begin(), il.end(), result.begin());
-    return result;
-}
-
 int main() {
     assert(make_a_pile(8) == vector<int>({8, 10, 12, 14, 16, 18, 20, 22}));
-    
-    initializer_list<int> il = {1, 2, 3};
-    vector<int> v = initializer_to_vector(il);
-    
     return 0;
 }
