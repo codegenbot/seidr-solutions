@@ -17,10 +17,9 @@ std::vector<std::unique_ptr<float>> get_positive(const std::vector<std::unique_p
 }
 
 int main() {
-    std::string line;
+    float n;
     std::cout << "Enter the number of elements: ";
-    std::cin >> line;
-    float n = stof(line);
+    std::cin >> n;
 
     if(n > 0) {
         std::vector<std::unique_ptr<float>> numbers;
