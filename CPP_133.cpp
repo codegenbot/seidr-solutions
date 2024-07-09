@@ -1,8 +1,8 @@
 int sum_squares(vector<float> lst){
-    int sum = 0;
-    for(float x : lst){
-        int rounded = ceil(x);
-        sum += pow(rounded,2);
+    int total = 0;
+    for(float num : lst){
+        int ceil_num = (int)ceil(num);
+        total += pow(ceil_num,2);
     }
-    return sum;
+    return total;
 }
