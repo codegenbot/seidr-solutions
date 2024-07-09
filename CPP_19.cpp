@@ -14,7 +14,7 @@ std::string sort_numbers(std::string numbers) {
     numVec.push_back(numbers);
 
     // Sort the vector of strings based on their corresponding integer values
-    sort(numVec.begin(), numVec.end(), [&](const std::string& a, const std::string& b) {
+    std::sort(numVec.begin(), numVec.end(), [&](const std::string& a, const std::string& b) {
         return std::to_string(numMap.at(a)) < std::to_string(numMap.at(b));
     });
 
