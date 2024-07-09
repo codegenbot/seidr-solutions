@@ -1,4 +1,3 @@
-```cpp
 string fix_spaces(string text) {
     string result = "";
     for (int i = 0; i < text.length(); i++) {
