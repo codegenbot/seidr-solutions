@@ -1,5 +1,5 @@
+```
 #include <vector>
-#include <cmath>
 
 bool isPalindrome(int n) {
     int reversed = 0;
