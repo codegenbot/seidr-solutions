@@ -25,21 +25,20 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    if (issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"})) {
-        assert(true);
-    }
-    
+    std::vector<std::string> inputStrings;
     int n;
     std::cout << "Enter the number of strings: ";
     std::cin >> n;
     
-    std::vector<std::string> inputStrings;
     for(int i = 0; i < n; i++) {
         std::string str;
         std::cout << "Enter string " << (i+1) << ": ";
         std::getline(std::cin, str);
         inputStrings.push_back(str);
     }
+    
+    bool same = issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"});
+    assert(same);
     
     std::vector<std::string> output = sorted_list_sum(inputStrings);
     
