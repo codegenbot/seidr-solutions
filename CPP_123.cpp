@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int> &v1, const std::vector<int> &v2) {
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     return v1 == v2;
 }
 
@@ -19,4 +19,6 @@ std::vector<int> cpp123(int n) {
     return result;
 }
 
-assert(issame(cpp123(1), {1}));
+int main() {
+    assert(issame(cpp123(1), {1}));
+}
