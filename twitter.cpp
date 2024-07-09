@@ -17,6 +17,5 @@ int main() {
     string tweet;
     std::cout << "Enter a tweet: ";
     std::getline(std::cin, tweet);
-    std::cout << validateTweet(tweet) << endl;
+    std::cout << validateTweet(tweet) << std::endl;
     return 0;
-}
