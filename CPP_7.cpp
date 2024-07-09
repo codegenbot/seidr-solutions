@@ -2,12 +2,18 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
-        if(stoi(a[i]) != stoi(b[i])) return false;
+        bool same = true;
+        for(int j = 0; j < a[i].size(); j++) {
+            if(a[i][j] != b[i][j]) {
+                same = false;
+                break;
+            }
+        }
+        if(!same) return false;
     }
     return true;
 }
