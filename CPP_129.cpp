@@ -1,15 +1,12 @@
-```
-#include <iostream>
-#include <vector>
-#include <queue>
+```cpp
+const int N = 50; 
 using namespace std;
 
 priority_queue<pair<int, pair<int, int>>> pq;
-vector<vector<bool>> visited(1000, vector<bool>(1000, false));
+vector<vector<bool>> visited(N, vector<bool>(N, false));
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
@@ -36,7 +33,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
                     int nx = x + dx;
                     int ny = y + dy;
 
-                    if(nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
                         visited[nx][ny] = true;
                         pq.push({grid[nx][ny], {nx, ny}});
                     }
@@ -48,16 +45,4 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     }
 
     return res;
-}
-
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-
-    vector<int> result = minPath(grid, k);
-
-    for (auto val : result) {
-        cout << val << " ";
-    }
-    cout << endl;
 }
