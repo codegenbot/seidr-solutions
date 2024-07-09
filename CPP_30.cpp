@@ -1,7 +1,10 @@
 #include <vector>
 
 bool issame(float a, float b) {
-    return (a == b);
+    if (a == b)
+        return true;
+    else
+        return false;
 }
 
 vector<float> get_positive(vector<float> l) {
