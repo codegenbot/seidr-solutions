@@ -1,2 +1,2 @@
-def swap_string_case(string):
-    return string.swapcase()
+def swap_case(string):
+    return "".join(char.lower() if char.isupper() else char.upper() for char in string)
