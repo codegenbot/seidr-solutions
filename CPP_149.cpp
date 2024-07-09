@@ -3,6 +3,7 @@
 #include <algorithm>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if(b.size() != a.size()) return false;
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -20,16 +21,16 @@ int main() {
     std::vector<std::string> lst;
     
     for(int i = 0; i < n; i++) {
-        lst.push_back(std::to_string(i+1));
+        std::cin >> lst.push_back(std::to_string(i+1));
     }
     
     std::vector<std::string> result = sorted_list_sum(lst);
     
-    std::cout << "Sorted List Sum: ";
+    cout << "Sorted List Sum: ";
     for(auto str : result) {
-        std::cout << str << " ";
+        cout << str << " ";
     }
-    std::cout << endl;
+    cout << endl;
     
     return 0;
 }
