@@ -1,10 +1,3 @@
-bool issame(vector<int> a,vector<int> b){
-    if(a==b)
-        return true;
-    else 
-        return false;
-}
-
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
@@ -25,4 +18,11 @@ vector<int> order_by_points(vector<int> nums) {
     }
     
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if(a==b)
+        return true;
+    else 
+        return false;
 }
