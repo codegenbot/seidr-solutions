@@ -1,24 +1,11 @@
 #include <vector>
-#include <iostream>
+#include <cmath>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(int x, int y) {
+    return x == y;
 }
 
 std::vector<int> count_up_to(int n);
-
-int main() {
-    int n;
-    std::cin >> n;
-    
-    std::vector<int> primes = count_up_to(n);
-    
-    for (int prime : primes) {
-        std::cout << prime << " ";
-    }
-    
-    return 0;
-}
 
 std::vector<int> count_up_to(int n) {
     std::vector<int> result;
