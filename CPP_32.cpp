@@ -35,7 +35,7 @@ double find_zero(vector<double> xs){
     return -sum / coeff;
 }
 
-int main() {
+int originalMain() {
     vector<double> xs; 
     cout << "Enter coefficients (space separated): ";
     for(double x; cin >> x; ) {
@@ -49,5 +49,10 @@ int main() {
         }
     }
     assert(abs(poly(coeffs, solution))< 1e-3);
+    return 0;
+}
+
+int main() {
+    originalMain();
     return 0;
 }
