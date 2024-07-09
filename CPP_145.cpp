@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <utility>
@@ -10,8 +11,8 @@ std::vector<int> order_by_points(std::vector<int> nums) {
         while (num > 0) {
             sum += num % 10;
             num /= 10;
-            return nums[i]; // Add this line
         }
+        return nums[i]; 
     }
 
     std::sort(pairs.begin(), pairs.end());
@@ -24,10 +25,10 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) { // Define the function
-    if(a.size() != b.size()) return false; // Check sizes
+bool issame(std::vector<int> a, std::vector<int> b) { 
+    if(a.size() != b.size()) return false; 
     for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false; // Check elements
+        if(a[i] != b[i]) return false; 
     }
     return true;
 }
