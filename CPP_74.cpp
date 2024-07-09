@@ -10,7 +10,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-bool total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int sum1 = 0, sum2 = 0;
     for (const auto& s : lst1) {
         sum1 += s.length();
@@ -18,17 +18,18 @@ bool total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     for (const auto& s : lst2) {
         sum2 += s.length();
     }
-    if (issame(lst1, lst2)) return true;
-    else if (sum1 < sum2) return 1;
-    else if (sum1 > sum2) return -1;
-    else return 0;
+    if (sum1 < sum2) return lst1;
+    else if (sum1 > sum2) return lst2;
+    else return lst1;
 }
 
 int main() {
-    vector<string> lst1 = {"apple", "banana", "orange"};
-    vector<string> lst2 = {"hello", "world", "python"};
-    
-    cout << total_match(lst1, lst2) << endl;
-
-    return 0;
+    std::vector<std::string> a, b;
+    // get the input for a and b
+    if (issame(a, b)) {
+        std::cout << "Match Found" << std::endl;
+        std::cout << "Total Match is: " << total_match(a, b)[0] << std::endl;
+    } else {
+        std::cout << "No Match Found" << std::endl;
+    }
 }
