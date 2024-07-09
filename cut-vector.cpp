@@ -1,24 +1,52 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<int> cutVector(vector<int>& nums) {
+std::vector<int> cutVector(const std::vector<int>& vec) {
     int minDiff = INT_MAX;
-    vector<int> left, right;
-    for (int i = 1; i <= nums.size(); i++) {
-        int sumLeft = 0, sumRight = 0;
-        for (int j = 0; j < i; j++) {
-            sumLeft += nums[j];
+    int pos = -1;
+
+    for (int i = 0; i < vec.size() - 1; i++) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j <= i; j++) {
+            leftSum += vec[j];
         }
-        for (int j = i; j < nums.size(); j++) {
-            sumRight += nums[j];
+        for (int j = i + 1; j < vec.size(); j++) {
+            rightSum += vec[j];
         }
-        if (sumLeft == sumRight) {
-            return {vector<int>(nums.begin(), nums.begin() + i), vector<int>(nums.begin() + i, nums.end())};
-        } else if (abs(sumLeft - sumRight) < minDiff) {
-            minDiff = abs(sumLeft - sumRight);
-            left = vector<int>(nums.begin(), nums.begin() + i);
-            right = vector<int>(nums.begin() + i, nums.end());
+
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            pos = i;
         }
     }
-    return {left, right};
+
+    return {std::vector<int>(vec.begin(), vec.begin() + pos),
+            std::vector<int>(vec.begin() + pos, vec.end())};
+}
+
+int main() {
+    int num;
+    std::cin >> num;
+    std::vector<int> vec(1, num);
+    for (int i = 0; i < 5; i++) {
+        cin >> num;
+        vec.push_back(num);
+    }
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(vec);
+
+    cout << "First part: ";
+    for (int i : result.first) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    cout << "Second part: ";
+    for (int i : result.second) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
 }

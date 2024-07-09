@@ -1,3 +1,4 @@
+```
 def coin_sums():
     amount = int(input())
     coins = [25, 10, 5, 1]  
