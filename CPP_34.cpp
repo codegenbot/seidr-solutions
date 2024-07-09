@@ -9,9 +9,10 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 vector<int> removeDuplicates(vector<int>& l) {
-    sort(l.begin(), l.end());
-    l.erase(unique(l.begin(), l.end()), l.end());
-    return l;
+    vector<int> copy = l;
+    sort(copy.begin(), copy.end());
+    copy.erase(unique(copy.begin(), copy.end()), copy.end());
+    return copy;
 }
 
 int main() {
