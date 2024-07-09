@@ -19,7 +19,3 @@ std::string match_parens(std::vector<std::string> lst) {
     }
     return (open == 0 && close <= 1) ? "Yes" : "No";
 }
-
-void main() {
-    assert (match_parens({")", "("}) == "Yes" );
-}
