@@ -1,4 +1,3 @@
-#include <string>
 #include <iostream>
 using namespace std;
 
@@ -34,6 +33,6 @@ int main() {
     const string input = "TF|";  
     size_t i = 0;
     bool result = solveBoolean(input, i);
-    cout << (result ? "True" : "False");  
+    std::cout << (result ? "True" : "False");  
     return 0;
 }
