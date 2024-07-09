@@ -1,3 +1,8 @@
+Here is the modified code:
+
+```cpp
+#include <sstream>
+#include <stack>
 #include <string>
 
 std::string solveBoolean(std::string s) {
