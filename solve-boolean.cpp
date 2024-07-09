@@ -1,23 +1,37 @@
 #include <string>
 
-bool solveBoolean(std::string s) {
-    bool result = true;
-    for (int i = 0; i < s.size(); i++) {
+void processBar(string s, int& i, bool& result) {
+    while (i < s.size()) {
         switch (s[i]) {
             case 'T':
-                break;
+                return;
             case 'F':
-                if (result)
-                    result = false;
-                else
-                    return false;
-                break;
+                i++;  
+                result = false;
+                return;
             case '|':
-                result = true;
+                if (s[i+1] == '&') {
+                    i++;
+                    while (i < s.size() && s[i] != '&' && s[i] != '|') i++;
+                    i++;
+                } else {
+                    while (i < s.size() && s[i] != '|' && s[i] != '&') i++;
+                }
                 break;
             case '&':
-                return result;
+                if (s[i+1] == 'T') {
+                    i++;
+                    while (i < s.size() && s[i] != 'T' && s[i] != 'F' && s[i] != '&') i++;
+                    result = true;
+                } else if (s[i+1] == 'F') {
+                    i++;
+                    while (i < s.size() && s[i] != 'T' && s[i] != 'F' && s[i] != '&') i++;
+                    result = false;
+                }
+                break;
+            default:
+                return true;
         }
     }
-    return result;
+    return true;
 }
