@@ -1,5 +1,6 @@
-#include<stdio.h>
-#include<string>
+#include <iostream>
+#include <string>
+
 using namespace std;
 
 bool is_palindrome(string str){
@@ -13,5 +14,6 @@ string make_palindrome(string str){
         i--;
     if(i<0)
         return str+str;
-    return str.substr(0,i)+str.substr(i-1,1).reverse()+str.substr(i);
+    else
+        return str.substr(0,i)+str.substr(i);
 }
