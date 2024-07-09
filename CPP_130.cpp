@@ -9,14 +9,14 @@ std::vector<int> tri(int n) {
             if (i % 2 == 0) {
                 result.push_back(1 + i / 2);
             } else {
-                result.push_back(result[i - 1] + result[i - 2] + result[i - 1]);
+                result.push_back(result[i - 1] + result[i - 2] + result[i - 3]);
             }
         }
     }
     return result;
 }
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+bool issame(std::vector<int> v1, std::vector<int> v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
