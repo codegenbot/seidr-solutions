@@ -1,7 +1,5 @@
-#include <string>
-#include <algorithm>
-
-using namespace std;
+#include <openssl/ssl.h>
+#include <openssl/err.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
@@ -11,7 +9,7 @@ string string_to_md5(string text) {
 
     stringstream ss;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << hex << setfill('0') << fixed << setw(2) << (int(result[i]));
+        ss << hex << setfill(0) << setw(2) << static_cast<int>(result[i]);
     }
 
     return ss.str();
