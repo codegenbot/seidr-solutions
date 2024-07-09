@@ -30,19 +30,21 @@ int mainFunction() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> numbers(n); // declare with size n
+    vector<int> numbers;
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> numbers[i];
+        int num;
+        std::cin >> num;
+        numbers.push_back(num);
     }
 
-    std::vector<int> result = remove_duplicates(numbers);
+    vector<int> result = remove_duplicates(numbers);
 
     numbers.clear(); 
     if (areVectorsEqual(result, numbers)) {
-        std::cout << "The resulting vector is the same as the original." << std::endl;
+        std::cout << "The resulting vector is the same as the original." << endl;
     } else {
-        std::cout << "The resulting vector is different from the original." << std::endl;
+        std::cout << "The resulting vector is different from the original." << endl;
     }
 
     return 0;
