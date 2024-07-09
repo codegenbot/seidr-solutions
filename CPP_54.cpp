@@ -1,4 +1,4 @@
-```
+``` 
 #include <iostream>
 using namespace std;
 
@@ -19,8 +19,7 @@ bool same_chars(string s1, string s2) {
 
 }
 
-int main 
-{
+int main() {
     string s1, s2;
     cout << "Enter the first string: ";
     cin >> s1;
@@ -31,5 +30,4 @@ int main
     } else {
         cout << "False";
     }
-    return 0;
 }
