@@ -1,3 +1,4 @@
+```cpp
 #include <cstdlib>
 #include <vector>
 #include <string>
@@ -33,7 +34,11 @@ int eval(const std::string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * std::stoi(s.substr(start, i - start));
+            result += sign * std::atoi(&s[start]);
+            while (i < s.size() && isdigit(s[i])) {
+                start++;
+                i--;
+            }
         }
     }
     
