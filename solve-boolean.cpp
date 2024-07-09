@@ -1,19 +1,14 @@
-Here is the modified code:
-
 ```cpp
-#include <string>
-#include <iostream>
-
 bool solveBoolean(std::string s) {
     bool result = true;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'F') {
             return false;
         } else if (s[i] == '|') {
-            if (i == s.size() - 1 || (s[i + 1] == '&' && s.find('T', i + 2) != std::string::npos)) {
+            if (i == s.size() - 1 || s[i + 1] == '&') {
                 return true;
-            } else if (i == s.size() - 1 || s[i + 1] == 'F') {
-                return false;
+            } else if (s[i + 1] == 'F' || s.find('T', i + 2) != std::string::npos) {
+                return true;
             }
             i++;
         } else if (s[i] == '&') {
