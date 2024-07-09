@@ -5,7 +5,11 @@
 std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
     std::vector<std::string> letter_grades;
     for (float grade : grades) {
-        // Convert grade to letter grade and add to letter_grades vector
+        if (grade >= 0.0f && grade < 1.0f)
+            letter_grades.push_back("E");
+        else if (grade >= 1.0f && grade < 2.0f)
+            letter_grades.push_back("D-");
+        // Add more conditions for other letter grades as needed
     }
     return letter_grades;
 }
@@ -15,6 +19,6 @@ bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    assert(isSame(numerical_letter_grade(std::vector<float>{0.0f, 0.7f}), std::vector<std::string>{"E", "D-"}));
+    assert(isSame(numerical_letter_grade({0.0f, 0.7f}), std::vector<std::string>{"E", "D-"}));
     return 0;
 }
