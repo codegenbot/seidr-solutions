@@ -30,16 +30,18 @@ vector<string> odd_count(vector<string> lst) {
 }
 
 int main() {
+    vector<string> input;
+    cout << "Enter the number of strings: ";
     int n;
     cin >> n;
-
-    vector<string> lst(n);
-
-    for(int i = 0; i < n; i++) {
-        cin >> lst[i];
+    
+    for (int i = 0; i < n; i++) {
+        string s;
+        cin >> s;
+        input.push_back(s);
     }
-
-    vector<string> output = odd_count(lst);
+    
+    vector<string> output = odd_count(input);
     displayOutput(output);
 
     return 0;
