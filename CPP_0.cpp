@@ -17,4 +17,3 @@ int main
     cout << "Result: " << (result ? "true" : "false") << endl;
     
     return 0;
-}
