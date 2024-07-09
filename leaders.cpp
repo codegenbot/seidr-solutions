@@ -1,15 +1,10 @@
-#include <vector>
-#include <algorithm>
-
-std::vector<int> leaders(std::vector<int>& numbers) {
-    std::vector<int> result;
-    int n = numbers.size();
-    if(n == 0) return result; // handle empty vector
-    
-    for(int i = n-1; i >= 0; i--) {
-        while(i > 0 && numbers[i] <= numbers[i-1]) i--;
-        if(i == 0) result.push_back(numbers[0]);
-        else result.push_back(numbers[i]);
+using namespace std;
+int leaders(vector<int>& arr) {
+    int n = arr.size();
+    vector<int> result;
+    for (int i = 0; i < n; i++) {
+        if (i == n - 1 || arr[i] >= arr[i + 1])
+            result.push_back(arr[i]);
     }
-    return result;
+    return result.size() ? result[0] : -1;
 }
