@@ -50,19 +50,23 @@ int main() {
             }
             if (token[0] == '+' || token[0] == '-' || token[0] == '*' || token[0] == '/' || token[0] == '^') {
                 op = token[0];
-                operand = std::stoi(token.substr(1));
+                if (op != '+') {
+                    operand = std::stoi(token.substr(1));
+                } else {
+                    operand = std::stoi(token);
+                }
             } else {
                 operand = std::stoi(token);
                 op = '+';
             }
         }
     }
-    
+
     // add the last operator and operand to vector
     if (op != '+') {
         operators_and_operands.push_back({op, operand});
     }
-    
+
     int result = do_algebra(operators_and_operands);
     return 0;
 }
