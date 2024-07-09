@@ -1,6 +1,8 @@
-bool issame(float a, float b){
-    if(a - b < 0.0001 && a - b > -0.0001) return true;
-    else return false;
+bool issame(float a, float b) {
+    if(abs(a-b)<0.0001)
+        return true;
+    else
+        return false;
 }
 
 vector<float> sort_even(vector<float> l){
@@ -14,16 +16,17 @@ vector<float> sort_even(vector<float> l){
             sort(temp.begin(), temp.end());
             result[i] = temp[0];
         }else{
-            bool found = false;
-            float val = l[i];
-            for(int j = 0; j < l.size(); j++){
-                if(j % 2 == 0 && issame(val, l[j])){
-                    found = true;
-                    break;
+            for(auto &x : l) {
+                bool found = false;
+                for(int k = 0; k < i; k++) {
+                    if(issame(x, result[k])) {
+                        found = true;
+                        break;
+                    }
                 }
+                if(!found)
+                    result[i] = x;
             }
-            if(found) result[i] = temp[0];
-            else result[i] = val;
         }
     }
     return result;
