@@ -1,7 +1,5 @@
 ```cpp
 #include <iostream>
-#include <cmath>
-#include <iomanip>
 #include <sstream>
 
 int main() {
