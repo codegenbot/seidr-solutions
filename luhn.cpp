@@ -1,13 +1,6 @@
-#include <vector>
-#include <iostream>
+#include <numeric>
 
-int luhn() {
-    std::vector<int> digits;
-    for (int i = 0; i < 16; i++) {
-        int digit;
-        std::cin >> digit;
-        digits.push_back(digit);
-    }
+int luhn(std::vector<int> digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {
         int digit = digits[i] * ((i % 2) + 1);
@@ -17,4 +10,3 @@ int luhn() {
         sum += digit;
     }
     return sum;
-}
