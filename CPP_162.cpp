@@ -1,5 +1,16 @@
-```
+#include <openssl/ssl.h>
 #include <string>
+
+int main() {
+    string text;
+    cout << "Enter your input: ";
+    getline(cin, text);
+    
+    string md5_hash = string_to_md5(text);
+    cout << "MD5 Hash: " << md5_hash << endl;
+    
+    return 0;
+}
 
 string string_to_md5(string text) {
     if (text.empty()) return "";

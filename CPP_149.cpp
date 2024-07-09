@@ -1,6 +1,7 @@
+```
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 
 bool issame(const std::string& s1, const std::string& s2) {
     if (s1.length() != s2.length()) {
@@ -30,4 +31,9 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
              }
          });
     return result;
+}
+
+int main() {
+    // Your code here
+    return 0;
 }
