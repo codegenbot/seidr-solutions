@@ -1,4 +1,11 @@
-vector<string>::iterator it = max_if(strings.begin(), strings.end(), [](const string& a, const string& b){return a.size() < b.size();});
-if(it == strings.end())
-    return "";
-return *it;
+#include <string>
+
+string longest(vector<string> strings){
+    if(strings.empty()) return "";
+    string result = strings[0];
+    for(auto str : strings){
+        if(str.length() > result.length()){
+            result = str;
+        }
+    }
+    return result;
