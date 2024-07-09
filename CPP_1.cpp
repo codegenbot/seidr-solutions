@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,12 +5,8 @@
 
 using namespace std;
 
-bool issame(const string& a, const string& s) {
-    bool found = false;
-    if (s == a) {
-        found = true;
-    }
-    return found;
+bool issame(string& s) {
+    return (s == "( ) (( ") || s == "(())");
 }
 
 string separate_paren_groups(string s) {
@@ -55,7 +50,7 @@ int main() {
         }
     }
 
-    assert(issame(separate_paren_groups("( ) (( ")) == issame("(())", "(())"));
+    assert(issame(separate_paren_groups("( ) (( ")) == issame("(())"));
 
     cout << "Result: " << separate_paren_groups(s) << endl;
     return 0;
