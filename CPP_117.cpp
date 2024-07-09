@@ -2,14 +2,17 @@
 #include <algorithm>
 #include <string>
 #include <cctype>
+#include <initializer_list>
 
-using namespace std;
+using std::vector;
+using std::pair;
+using std::string;
 
 bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
     if (a.size() != b.size()) return false;
     for(int i = 0; i<a.size(); i++){
-        pair<int, string> p1 = a[i];
-        pair<int, string> p2 = b[i];
+        auto p1 = a[i];
+        auto p2 = b[i];
         if(p1.first != p2.first || p1.second != p2.second) return false;
     }
     return true;
@@ -22,10 +25,10 @@ vector<pair<int, string>> select_words(string s, int n) {
     for (char c : s) {
         if (c == ' ') {
             if (!word.empty()) {
-                size_t vowelCount = std::count(word.begin(), word.end(), 'a') + std::count(word.begin(), word.end(), 'e') +
-                    std::count(word.begin(), word.end(), 'i') + std::count(word.begin(), word.end(), 'o') + std::count(word.begin(), word.end(), 'u');
+                size_t vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+                    count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
                 if (vowelCount <= n) {
-                    result.push_back({{static_cast<size_t>(vowelCount), word}});
+                    result.push_back({{vowelCount, word}});
                 }
                 word = "";
             }
@@ -35,10 +38,10 @@ vector<pair<int, string>> select_words(string s, int n) {
         }
     }
     if (!word.empty()) {
-        size_t vowelCount = std::count(word.begin(), word.end(), 'a') + std::count(word.begin(), word.end(), 'e') +
-            std::count(word.begin(), word.end(), 'i') + std::count(word.begin(), word.end(), 'o') + std::count(word.begin(), word.end(), 'u');
+        size_t vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+            count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
         if (vowelCount <= n) {
-            result.push_back({{static_cast<size_t>(vowelCount), word}});
+            result.push_back({{vowelCount, word}});
         }
     }
     return result;
