@@ -10,21 +10,24 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<int> a(n);
-    std::vector<int> b(n);
+    std::vector<int> a;
+    std::vector<int> b;
+
+    std::vector<int>().swap(a);
+    std::vector<int>().swap(b);
 
     for(int i = 0; i < n; ++i)
         {
             int x;
             std::cin >> x;
-            a[i] = x;
+            a.push_back(x);
         }
 
     for(int i = 0; i < n; ++i)
         {
             int x;
             std::cin >> x;
-            b[i] = x;
+            b.push_back(x);
         }
 
     if(a == b)
