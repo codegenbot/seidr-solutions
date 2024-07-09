@@ -1,17 +1,14 @@
+#include <iostream>
 #include <vector>
-#include <cmath>
 
-double poly(vector<double> coeffs, double x) {
-    double result = 0;
-    for(int i=0; i<coeffs.size(); i++) {
-        result += coeffs[i] * pow(x, i);
-    }
-    return result;
+std::vector<double> poly(std::vector<double> xs) {
+    std::vector<double> coeffs;
+    // your logic here to calculate polynomial coefficients from input vector
+    return coeffs;
 }
 
-double find_zero(vector<double> xs){
+double find_zero(const std::vector<double>& xs){
     if(xs.size() % 2 != 0) return -1; 
-    vector<double> coeffs(xs.size(), 0);
-    double root = -xs[1]/(2*xs[0]);
-    return std::round(poly(coeffs, root));
+    double root = -xs[1]/(2*xs[0]); 
+    return std::round(root);
 }
