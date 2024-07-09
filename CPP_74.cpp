@@ -9,9 +9,5 @@ bool issame(vector<string> a, vector<string> b) {
         totalChars2 += str.size();
     }
     
-    if (totalChars1 < totalChars2) {
-        return true;
-    } else {
-        return false;
-    }
+    return totalChars1 == totalChars2;
 }
