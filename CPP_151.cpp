@@ -1,23 +1,18 @@
-#include <cmath>
 #include <vector>
+#include <cmath>
 
-float double_the_difference(const std::vector<float>& lst) {
-    float even_sum = 0;
+double double_the_difference(const std::vector<float>& lst) {
+    double sum = 0;
     for (float num : lst) {
-        if (num > 0 && modf(num, &int_part) == 0) {
-            even_sum += pow(int_part, 2);
+        if (fmod(num, 1) > 0.5) {
+            sum += pow(fmod(num, 1), 2);
         }
     }
-    return even_sum - static_cast<float>(lst.size());
+    return sum;
 }
 
 int main() {
-    std::vector<float> lst = {0.5f, 1.2f, -3.7f, 4.0f, 5.5f};
-    float odd_sum = 0;
-    for (float num : lst) {
-        if (num > 0 && modf(num, &int_part) == 0) {
-            odd_sum += pow(int_part, 2);
-        }
-    }
-    std::cout << double_the_difference(lst) << std::endl;
+    std::vector<float> lst = {1.2f, -3.4f, 5.6f, 0.7f, -8.9f};
+    float odd_sum = double_the_difference(lst);
+    assert(pow(fmod(1.2, 1), 2) + pow(fmod(-3.4, 1), 2) + pow(fmod(5.6, 1), 2) == odd_sum);
 }
