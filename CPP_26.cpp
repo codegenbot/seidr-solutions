@@ -33,7 +33,7 @@ int mainFunction() {
         std::cout << "Enter element " << i+1 << ": ";
         int num;
         std::cin >> num;
-        numbers[i] = num;
+        numbers.push_back(num);
     }
 
     std::vector<int> uniqueNumbers = remove_duplicates(numbers);
