@@ -25,6 +25,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 int main() {
     int index = pluck({7, 9, 7, 1});
-    assert(issame({}, {(index == -1) ? -1 : (index % 2 == 0) ? 0 : 1})); 
+    assert(issame({}, {(index % 2 == 0) ? 0 : 1})); 
     return 0;
 }
