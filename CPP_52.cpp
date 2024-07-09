@@ -1,19 +1,19 @@
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
-bool below_threshold(vector<int> l, int t) {
-    for (int num : l) {
-        if (num >= t) {
+bool below_threshold(vector<int>, int) {
+    for (int num : ...) {
+        if (num >= ...) {
             return false;
         }
     }
     return true;
+}
 
 int main() {
-    vector<int> numbers(5);  // Initialize the vector with size 5
+    vector<int> numbers;
     int threshold;
     
     cout << "Enter the threshold: ";
@@ -23,7 +23,7 @@ int main() {
     for(int i=0; i<5; i++) {
         int num; 
         cin >> num;
-        numbers[i] = num;  // Assign values to the vector elements
+        numbers.push_back(num);
     }
     
     if(below_threshold(numbers, threshold)) {
