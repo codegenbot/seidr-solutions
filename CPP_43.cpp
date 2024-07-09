@@ -1,20 +1,15 @@
-#include <set>
-#include <vector>
-
-using namespace std;
-
-bool pairs_sum_to_zero(vector<int> l) {
+bool pairs_sum_to_zero(vector<vector<int>> l) {
     set<int> s;
-    for (int i : l) {
-        s.insert(i);
+    for (const auto& v : l) {
+        for (int i : v) {
+            s.insert(i);
+        }
     }
-    auto it = s.begin();
-    while (it != s.end()) { 
-        int complement = -*it;
-        if (find(it, s.end(), complement) != it) {
+    for (auto it = s.begin(); it != s.end(); ++it) { 
+        int complement = -(*it);
+        if (s.find(complement) != s.end()) {
             return true;
         }
-        ++it;
     }
     return false;
 }
