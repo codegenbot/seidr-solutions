@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <assert.h>
 
@@ -18,5 +18,19 @@ bool monotonic(const std::vector<float>& l) {
 }
 
 int main() {
-    assert(monotonic({9, 9, 9, 9}) == true);
+    int n;
+    std::vector<float> l;
+
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        float x;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> x;
+        l.push_back(x);
+    }
+
+    assert(monotonic(l) == true);
+
+    return 0;
 }
