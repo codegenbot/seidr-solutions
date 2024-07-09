@@ -24,5 +24,6 @@ bool issame(const std::string& a, const std::string& b) {
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia")[0], "") && issame(reverse_delete("mamma", "mia")[1], "True"));
+    assert (issame(reverse_delete("mamma", "mia")[0], "") && 
+            issame(reverse_delete("mamma", "mia")[1], "True"));
 }
