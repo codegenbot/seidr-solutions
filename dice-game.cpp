@@ -1,8 +1,17 @@
 #include <cmath>
 #include <iostream>
 
-double probability(int n, int m) {
-    return (n-m)/(n*m);
+long double probability(int n, int m) {
+    long double total = 0; 
+    int count = 0;
+    for (int i = 1; i <= m; i++) {
+        for (int j = i + 1; j <= n; j++) {
+            if (j > i) {
+                ++count;
+            }
+        }
+    }
+    return static_cast<long double>(count) / ((long double)(n * m));
 }
 
 int main() {
