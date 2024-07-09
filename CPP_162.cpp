@@ -1,3 +1,1 @@
-
 char mdString[33] = {};
-```
