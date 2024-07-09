@@ -1,9 +1,8 @@
-```cpp
 #include <string>
 #include <iostream>
 using namespace std;
 
-int main() {
+void mainFunc() {
     string text;
     cout << "Enter a string: ";
     getline(cin, text);
@@ -15,10 +14,5 @@ int main() {
             new_result += c;
         }
     }
-    if (!new_result.empty()) {
-        cout << "String after removing vowels: " << new_result << endl;
-    } else {
-        cout << "No non-vowel characters found in the input string." << endl;
-    }
-    return 0;
+    cout << "String after removing vowels: " << new_result << endl;
 }
