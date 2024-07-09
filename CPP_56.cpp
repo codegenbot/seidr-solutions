@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <cstring>
 #include <iostream>
@@ -21,9 +22,9 @@ bool correct_bracketing(const char* brackets){
         return false;
     }
     return true;
+}
 
 int main() {
-    assert(not correct_bracketing("<><><<><>><>>><>"));
     char brackets[] = "<<>";
     if(correct_bracketing((char*)brackets)) std::cout << "Correct" << std::endl;
     else std::cout << "Incorrect" << std::endl;
