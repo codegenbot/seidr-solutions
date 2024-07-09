@@ -3,7 +3,11 @@
 #include <vector>
 #include <algorithm>
 
-std::pair<std::set<std::string>, std::set<std::string>> findSets() {
+bool isSame(const std::set<std::string>& s1, const std::set<std::string>& s2) {
+    return s1 == s2;
+}
+
+int main() {
     std::set<std::string> s1;
     std::set<std::string> s2;
     int n1, m1, n2, m2;
@@ -43,26 +47,22 @@ std::pair<std::set<std::string>, std::set<std::string>> findSets() {
     std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
                            std::back_inserter(intersect));
 
-    return {std::move(s1), std::move(s2)};
-}
-
-int main() {
-    auto [s1, s2] = findSets();
-    
     std::cout << "Difference: ";
-    for (const auto& i : s1) {
-        if (s2.find(i) == s2.end()) {
-            std::cout << i << " ";
-        }
+    for (const auto& i : diff) {
+        std::cout << i << " ";
     }
     std::cout << "\n";
     std::cout << "Intersection: ";
-    for (const auto& i : s1) {
-        if (s2.find(i) != s2.end()) {
-            std::cout << i << " ";
-        }
+    for (const auto& i : intersect) {
+        std::cout << i << " ";
     }
     std::cout << "\n";
+
+    if(isSame(s1, s2)) {
+        std::cout << "Sets are same.\n";
+    } else {
+        std::cout << "Sets are not same.\n";
+    }
 
     return 0;
 }
