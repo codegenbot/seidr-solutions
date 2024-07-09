@@ -8,7 +8,7 @@ pair<int, int> eat(int number, int need, int remaining) {
     int total = number + need;
     int eaten = min(total, remaining);
     int left = max(0, total - remaining);
-    return {eaten, left};
+    return make_pair(eaten, left);
 }
 
 bool is_same(pair<int, int> p1, pair<int, int> p2) {
