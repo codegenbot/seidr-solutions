@@ -8,9 +8,16 @@ def minPath(grid, k):
         x, y, path = queue.pop(0)
 
         if grid[x][y] == 3:
-            if not res or len(path) - 1 > k or (len(path) - 1 == k and tuple(sorted(path)) < tuple(sorted(res))):
+            if (
+                not res
+                or len(path) - 1 > k
+                or (
+                    len(path) - 1 == k
+                    and tuple(sorted(set(path))) < tuple(sorted(set(res)))
+                )
+            ):
                 res = list(path[:-1])
-            
+
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nx, ny = x + dx, y + dy
 
@@ -24,7 +31,3 @@ def minPath(grid, k):
                 queue.append((nx, ny, path + [grid[nx][ny]]))
 
     return res
-
-grid = [[0,0,1], [0,0,0], [0,3,0]]
-k = 4
-print(minPath(grid, k))
