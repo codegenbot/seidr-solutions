@@ -1,5 +1,6 @@
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 string get_closest_vowel(string word) {
@@ -11,4 +12,11 @@ string get_closest_vowel(string word) {
     }
     return "";
 }
-return 0;
+
+int main() {
+    string word = "example";
+    string result = get_closest_vowel(word);
+    assert(result == "e");
+    
+    return 0;
+}
