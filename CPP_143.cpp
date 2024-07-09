@@ -1,9 +1,10 @@
+#include <string>
 #include <vector>
 #include <algorithm>
 
-string words_in_sentence(string sentence) {
-    vector<int> wordLengths;
-    string result = "";
+std::string words_in_sentence(std::string sentence) {
+    std::vector<int> wordLengths;
+    std::string result = "";
     
     for (const auto& word : split(sentence, ' ')) {
         int length = word.length();
@@ -27,12 +28,12 @@ string words_in_sentence(string sentence) {
     return result.substr(0, result.size() - 1);
 }
 
-vector<string> split(const string& str, char delimiter) {
-    vector<string> tokens;
+std::vector<std::string> split(const std::string& str, char delimiter) {
+    std::vector<std::string> tokens;
     size_t pos = 0;
     size_t prev = 0;
     
-    while ((pos = str.find(delimiter, prev)) != string::npos) {
+    while ((pos = str.find(delimiter, prev)) != std::string::npos) {
         tokens.push_back(str.substr(prev, pos - prev));
         prev = pos + 1;
     }
