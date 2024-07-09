@@ -1,11 +1,12 @@
-vector<string> select_words(string s, int n){
-    vector<string> result;
+vector<string> select_words(string s, int n) {
+    vector<string> words;
     string word = "";
     int count = 0;
+    
     for (char c : s) {
         if (c == ' ') {
             if (count == n) {
-                result.push_back(word);
+                words.push_back(word);
             }
             word = "";
             count = 0;
@@ -16,8 +17,10 @@ vector<string> select_words(string s, int n){
             word += c;
         }
     }
+    
     if (count == n) {
-        result.push_back(word);
+        words.push_back(word);
     }
-    return result;
+    
+    return words;
 }
