@@ -1,15 +1,10 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[b.size() - i - 1]) {
-            return false;
-        }
+        if (a[i] != b[b.size() - 1 - i]) return false;
     }
     return true;
 }
