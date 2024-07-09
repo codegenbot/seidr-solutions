@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
@@ -20,8 +20,10 @@ std::string separate_paren_groups(std::string s) {
             count--;
             current_group += c;
             if (count == 0) {
-                result += current_group; // append the entire group string
-                current_group = "";
+                if (count == 0) {
+                    result += current_group; 
+                    current_group = "";
+                }
             }
         } else {
             if (count > 0) {
