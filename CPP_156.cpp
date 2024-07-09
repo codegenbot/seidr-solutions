@@ -4,32 +4,28 @@ const char* roman[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V
 
 int int_to_mini_roman(int n) {
     if(n >= 1000){
-        return strlen("M");
+        return strlen(roman[0]);
     } else if (n >= 900) {
-        return strlen("CM");
+        return strlen(roman[1]);
     } else if (n >= 500) {
-        return strlen("D");
+        return strlen(roman[2]);
     } else if (n >= 400) {
-        return strlen("CD");
+        return strlen(roman[3]);
     } else if (n >= 100) {
-        return strlen("C");
+        return strlen(roman[4]);
     } else if (n >= 90) {
-        return strlen("XC");
+        return strlen(roman[5]);
     } else if (n >= 50) {
-        return strlen("L");
+        return strlen(roman[6]);
     } else if (n >= 40) {
-        return strlen("XL");
+        return strlen(roman[7]);
     } else if (n >= 10) {
-        return strlen("X");
-    } else if (n >= 9) {
-        return strlen("IX");
-    } else if (n >= 5) {
-        return strlen("V");
-    } else if (n >= 4) {
-        return strlen("IV");
-    } else{
-        return strlen("I");
+        if(n == 9) return strlen(roman[8]);
+        else if(n == 5) return strlen(roman[9]);
+        else if(n > 4 && n < 10) return strlen(roman[10]);
+        else if(n > 4) return strlen(roman[11]);
     }
+    return strlen("I");
 }
 
 int main() {
