@@ -43,11 +43,11 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
     std::vector<std::string> final_result;
     final_result.push_back(res_str);
-    final_result.push_back(std::to_string(is_palindrome));
+    final_result.push_back((is_palindrome ? "True" : "False"));
     return final_result;
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "1"}));
+    assert(std::issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
