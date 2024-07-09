@@ -8,5 +8,6 @@ bool is_simple_power(int x, int n) {
 
 int main() {
     assert(is_simple_power(1, 12)==true);
+    // Add your code here
     return 0;
 }
