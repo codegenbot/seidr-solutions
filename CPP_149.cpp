@@ -1,29 +1,29 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-bool issame(int x, int y) {
-    if (x > y)
+bool isSame(int x, int y) {
+    if (x > y) {
         return false;
-    else if (y > x)
+    } else if (y > x) {
         return true;
-    else 
-        return (x == y);
+    } else {
+        return true; // Corrected the condition to return true for equal values
+    }
 }
 
 int main() {
     vector<string> lst = {"cat", "dog", "elephant", "a", "b"};
     
     // Sort the list by length and then alphabetically
-    std::sort(lst.begin(), lst.end(),
+    sort(lst.begin(), lst.end(),
         [](const string& a, const string& b) {
-            if (a.length() == b.length())
+            if (a.length() == b.length()) {
                 return a < b;
-            else 
-                return a.length() < b.length();
+            }
+            return a.length() < b.length();
         });
 
     for (auto i : lst)
