@@ -1,16 +1,10 @@
+````
 #include <algorithm>
 #include <vector>
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
-}
-
-int main() {
-    vector<string> lst = {"aa", "bb", "cc", "dd"};
-    vector<string> result = sorted_list_sum(lst);
-    bool same = issame(sorted_list_sum({{"a", "b"}, {"c", "d"}}), {{"c", "d"}, {"a", "b"}});
-    return 0;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
@@ -30,3 +24,16 @@ vector<string> sorted_list_sum(vector<string> lst) {
          });
     return result;
 }
+
+int main() {
+    vector<string> list = {"apple", "banana", "cherry", "date", "elderberry"};
+    vector<string> sorted = sorted_list_sum(list);
+    if (issame(sorted, {"apple", "banana"})) {
+        cout << "The sorted list is the same as expected." << endl;
+    } else {
+        cout << "The sorted list is not what was expected." << endl;
+    }
+    
+    return 0;
+}
+```
