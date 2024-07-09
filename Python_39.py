@@ -1,1 +1,2 @@
-n = int(input("Enter a number: "))
+print("Enter the value for n:")
+n = int(input())
