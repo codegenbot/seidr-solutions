@@ -4,6 +4,7 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
+
 def indices_of_substring(text, target):
     result = []
     index = 0
@@ -14,6 +15,7 @@ def indices_of_substring(text, target):
         else:
             index += 1
     return result
+
 
 print(gcd(1, 1))
 print(indices_of_substring("abcdef", "bcd"))
