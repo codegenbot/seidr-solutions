@@ -2,15 +2,15 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<std::vector<int>> strange_sort_list(std::vector<int> lst) {
-    std::vector<std::vector<int>> result;
+std::vector<int> strange_sort_list(std::vector<int>& lst) {
+    std::vector<int> result;
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
-        result.push_back({min_val});
+        result.push_back(min_val);
         
         auto it = lst.begin();
         while (it != lst.end()) {
@@ -24,7 +24,7 @@ std::vector<std::vector<int>> strange_sort_list(std::vector<int> lst) {
 
         if (!lst.empty()) {
             int max_val = *std::max_element(lst.begin(), lst.end());
-            result.push_back({max_val});
+            result.push_back(max_val);
 
             it = lst.begin();
             while (it != lst.end()) {
