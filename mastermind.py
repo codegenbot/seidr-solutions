@@ -1,14 +1,6 @@
-Here is the completed code:
+Here is a possible solution:
 
 def mastermind(code, guess):
-    code = list(code)
-    guess = list(guess)
-    white_pegs = 0
-    black_pegs = 0
-    for i in range(4):
-        if code[i] == guess[i]:
-            black_pegs += 1
-        elif guess.count(code[i]) > 0:
-            white_pegs += 1
-            guess.remove(code[i])
-    return str(black_pegs) + "\n" + str(white_pegs)
+    white_pegs = sum(1 for a, b in zip(guess, code) if a == b)
+    black_pegs = len([a for a, b in zip(guess, code) if a == b and guess.index(a) == code.index(b)])
+    return str(black_pegs) + "\n" + str(4 - black_pegs)
