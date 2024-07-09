@@ -1,6 +1,16 @@
-```c++
+#include <vector>
 #include <iostream>
 #include <string>
+
+string squareDigits(string);
+
+int main() {
+    string input;
+    cout << "Enter a positive integer: ";
+    cin >> input;
+    cout << squareDigits(input) << std::endl;
+    return 0;
+}
 
 string squareDigits(string input) {
     string output = "";
@@ -9,12 +19,4 @@ string squareDigits(string input) {
         output += to_string(digit * digit);
     }
     return output;
-}
-
-int main() {
-    string input;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> input;
-    std::cout << squareDigits(input) << std::endl;
-    return 0;
 }
