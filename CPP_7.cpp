@@ -1,12 +1,13 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& a, const std::string& b) {
     std::vector<std::string> result;
-    for (const auto &s : a) {
-        if (s.find(b) != std::string::npos) {
-            result.push_back(s);
+    for (const auto& str : a) {
+        if (str.find(b) != std::string::npos) {
+            result.push_back(str);
         }
     }
     return result;
