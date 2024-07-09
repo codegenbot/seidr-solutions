@@ -41,3 +41,4 @@ int main() {
     cout << "Number of odd palindromes: " << res[1] << endl;
 
     return 0;
+}
