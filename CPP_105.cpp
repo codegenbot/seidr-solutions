@@ -1,7 +1,5 @@
 #include <string>
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
     map<int, string> digitName = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
@@ -10,10 +8,11 @@ vector<string> by_length(vector<int> arr) {
         if (num >= 1 && num <= 9) {
             result.push_back(digitName[num]);
         }
-        else {
-            throw runtime_error("Error: Input must be a number between 1 and 9.");
-        }
     }
+    
+    sort(result.begin(), result.end());
+    
+    reverse(result.begin(), result.end());
     
     return result;
 }
