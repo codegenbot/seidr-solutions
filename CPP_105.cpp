@@ -1,10 +1,11 @@
-```cpp
+```
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> a) {
-    std::vector<std::string> b = {"hello", "world"};
+    std::vector<std::string> b = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
     return a == b;
 }
 
