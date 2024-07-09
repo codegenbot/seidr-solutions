@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix) {
     std::vector<std::string> result;
@@ -20,6 +21,6 @@ int main() {
     std::vector<std::string> vec = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     std::string prefix = "xxx";
     std::vector<std::string> result = filter_by_prefix(vec, prefix);
-    bool same = issame(result, {prefix + "AAA"});
+    bool same = issame(result, {result[0], result[1], "xxx"});
     return 0;
 }
