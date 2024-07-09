@@ -13,6 +13,8 @@ vector<int> parse_music(string music_string) {
             } else {
                 result.push_back(3);
             }
+        } else if (music_string[i] == '.') {
+            result.push_back(2);
         }
     }
     return result;
