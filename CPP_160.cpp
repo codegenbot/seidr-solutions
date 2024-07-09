@@ -1,5 +1,7 @@
+#include <iostream>
 #include <vector>
-#include <utility>
+#include <pair>
+#include <cmath>
 
 int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
     if (operators_and_operands.size() == 0) {
@@ -19,11 +21,7 @@ int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
                 result /= pair.second;
             }
         } else if (pair.first == '**') {
-            long long temp = 1; 
-            for(int i=0;i<pair.second;i++){
-                temp*=result;
-            }
-            result = temp;
+            result = std::pow(result, pair.second);
         }
     }
     return result;
