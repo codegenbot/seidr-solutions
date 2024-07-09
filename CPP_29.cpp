@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -25,7 +24,6 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
-    std::vector<std::string> b = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAffAA", "xxx"}, "xxx");
-    assert(issame(b, {"xxx", "xxxAAA", "xxx"}));
+    std::vector<std::string> input = {"xxx", "asd", "xxy", "john doe", "xxxAffAA", "xxx"};
+    assert(issame(filter_by_prefix(input, "xxx") , {"xxx", "xxxAAA", "xxx"}));
     return 0;
-}
