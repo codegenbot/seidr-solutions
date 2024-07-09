@@ -4,7 +4,7 @@ def process_numbers(numbers, delimeter):
         + numbers[-1:]
         if numbers
         else []
-    )
+   )
 
 # Call the function with appropriate arguments
 result = process_numbers(numbers, delimiter)
