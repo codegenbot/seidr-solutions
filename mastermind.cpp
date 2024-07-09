@@ -7,14 +7,14 @@ int mastermind(std::string code, std::string guess) {
     int blackPegs = 0;
 
     for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
+        if(guess.at(i) == code.at(i)) { 
             blackPegs++;
         } else {
-            bool found = false;
-            for(int j=i+1; j<4; j++) {
-                if(guess[j] == code[i] && !found) {
-                    whitePegs++;
-                    found = true;
+            for(size_t j=0; j<4; j++) {
+                if(guess.at(j) == code[i]) {
+                    if(i==j) blackPegs++; 
+                    else whitePegs++;      
+                    break;
                 }
             }
         }
