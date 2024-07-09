@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <limits>
 
@@ -6,9 +5,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return (a.size() == 0 && b.size() == 0);
 }
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
-    if (arr.empty()) return result;
+int pluckSame(const std::vector<int>& arr) {
+    if (arr.empty()) return -1;
 
     int minEven = INT_MAX;
     int minIndex = -1;
@@ -20,12 +18,5 @@ std::vector<int> pluck(std::vector<int> arr) {
         }
     }
 
-    result.push_back(minEven);
-    result.push_back(minIndex);
-
-    return result;
-}
-
-int main() {
-    assert(std::vector<int>().size() == pluck({7, 9, 7, 1}).size());
+    return minIndex;
 }
