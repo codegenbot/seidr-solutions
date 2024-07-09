@@ -1,7 +1,6 @@
-```cpp
-#pragma GCC diagnostic ignored "-Wsuggest=explicit"
 #include <vector>
 #include <string>
+#pragma GCC diagnostic ignored "-Wsuggest=explicit"
 
 bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
