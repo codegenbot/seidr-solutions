@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -24,16 +23,14 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    int num, n = 0;
+    int num, n = 1;
     std::vector<int> lst;
     std::cout << "Enter numbers (terminate with 0): ";
-    int count = 0;
-    while (count < 100 && std::cin >> num && num != 0) {
-        if(count > 0)
+    while (std::cin >> num && num != 0) {
+        if(num != 0)
             lst.push_back(num); 
         else
-            lst.push_back(num);
-        count++;
+            break;
     }
     int result = solutions(lst);
     if(result == 25)
