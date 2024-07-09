@@ -1,17 +1,19 @@
-```cpp
 #include <vector>
 #include <cassert>
 
-float double_the_difference(std::vector<float>& lst) {
+float doubleTheDifference(std::vector<float> lst) {
     float odd_sum = 0;
-    for (float num : lst) {
-        if (num % 2 != 0)
-            odd_sum += num * 2;
+    for (int i = 0; i < lst.size(); ++i) {
+        if (i % 2 != 0) {
+            odd_sum += lst[i];
+        }
     }
-    return odd_sum;
+    return odd_sum * 2;
 }
 
 int main() {
     std::vector<float> lst = {1.0f, 2.5f, -3.5f, 4.0f};
-    assert(double_the_difference(lst) == 0);
+    float result = doubleTheDifference(lst);
+    assert(result == 0); 
+    return 0;
 }
