@@ -1,19 +1,24 @@
 def bowling_score(frames):
-    if not isinstance(frames, str) or len(frames) != 20:
-        return 
     score = 0
+    frame_scores = []
+    frames = [int(x) for x in frames.replace('/', '+')]
     for i in range(0, len(frames), 2):
-        if frames[i] == 'X':
-            score += 30
-        elif frames[i] == '/':
-            first_roll = int(frames[i-1])
-            second_roll = 10 - int(frames[i+1])
-            score += first_roll + second_roll
+        if i + 1 < len(frames):
+            roll1, roll2 = frames[i], frames[i+1]
         else:
-            first_roll = int(frames[i])
-            second_roll = int(frames[i+1])
-            if first_roll + second_roll >= 10:
-                score += first_roll + second_roll
-            else:
-                score += first_roll
-    return
+            roll1, = frames[i],
+        if roll1 + roll2 == 10:
+            frame_scores.append(roll1 + roll2)
+        elif roll1 == 10:
+            frame_scores.append(roll1 + rolls[i+1])
+        else:
+            frame_scores.append(roll1)
+            frame_scores.append(roll2)
+    for i, score in enumerate(frame_scores):
+        if i < 9 and sum(frame_scores[:i+1]) < 10:
+            if frame_scores[i] + frames[i+1] < 11:
+                frame_scores[i+1] += frame_scores[i]
+        elif i == 9 and sum(frame_scores) < 10:
+            if frame_scores[-1] + frames[-1] < 11:
+                frame_scores[-1] += frames[-1]
+    return sum(frame_scores)
