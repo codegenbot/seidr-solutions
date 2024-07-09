@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 using namespace std;
 
 string solve(int N) {
-    string binary = "";
+    string binary = "";  
     while (N > 0) {
         if (N % 2 == 0)
             binary = "0" + binary;
@@ -11,7 +10,7 @@ string solve(int N) {
             binary = "1" + binary;
         N /= 2;
     }
-    std::string result = binary; return result;
+    return binary;
 }
 
 int main() {
