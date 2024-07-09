@@ -46,7 +46,9 @@ int main() {
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
-        arr.push_back(val);
+        if (!arr.empty()) { 
+            arr.push_back(val);
+        }
     }
 
     std::vector<int> result = maximum(arr, k);
