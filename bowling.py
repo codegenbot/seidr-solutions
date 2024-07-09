@@ -1,4 +1,3 @@
-```
 def bowling_score(game):
     score = 0
     roll = 0
@@ -15,12 +14,7 @@ def bowling_score(game):
             score += first + second
             if first + second == 10:
                 roll += 1
-                next_frame = game[game.index(frame) + len(frame)+1:].split('/')[0]
-                if len(next_frame) == 1:
-                    score += int(next_frame)
-                else:
-                    score += 10
-                roll += 1
+                score += int(game[3:].split('/')[0].strip()) or 10
             else:
                 third = int(frame[2])
                 score += third
