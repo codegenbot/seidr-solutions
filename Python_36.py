@@ -9,4 +9,4 @@ def fizz_buzz(n: int):
             result.append("Buzz")
         else:
             result.append(str(i))
-    return "\n".join(result)
+    return '\n'.join(result)
