@@ -10,12 +10,12 @@ vector<int> sort_third(vector<int> l) {
     int i = 0;
     for (i = 0; i < l.size(); ) {
         if (i % 3 == 0 && i + 3 <= l.size()) {
+            int block_size = min(3, l.size() - i);
             vector<int> temp;
-            for (int j = i; j < i + 3 && j < l.size(); j++) {
+            for (int j = i; j < i + block_size; j++) {
                 temp.push_back(l[j]);
             }
             sort(temp.begin(), temp.end());
-            int k = 0;
             for (int t : temp) {
                 result.push_back(t); 
                 i++;
