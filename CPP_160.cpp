@@ -1,3 +1,7 @@
+#include <cstdlib>
+#include <vector>
+#include <string>
+
 int do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
@@ -19,7 +23,7 @@ int eval(const string& s) {
     
     int start = 0, sign = 1;
     for (int i = 0; i < s.size(); i++) {
-        if (!std::isalnum(s[i]) || s[i] == '.') {
+        if (!isdigit(s[i])) {
             if (s[i] == '+') {
                 sign = 1;
             } else if (s[i] == '-') {
@@ -27,9 +31,15 @@ int eval(const string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * std::stoi(s.substr(start, 1).c_str());
-            start = i + 1;
+            result += sign * std::atoi(std::string(1, s[i]).c_str());
         }
     }
     
     return result;
+}
+
+int main() {
+    vector<string> ops = {"//", "*"};
+    int result = do_algebra(ops, {7, 3, 4});
+    return 0;
+}
