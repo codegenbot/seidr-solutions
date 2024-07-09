@@ -1,6 +1,7 @@
 from typing import List
 import math
 
+
 def max_fill(grid: List[List[int]], capacity: int) -> int:
     total_water = 0
     for i in range(len(grid)):
