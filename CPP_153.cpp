@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <cctype>
@@ -32,3 +31,4 @@ int main() {
     assert(Strongest_Extension("Student", extensions) == "Student.671235");
     return 0;
 }
+#include <initializer_list>
