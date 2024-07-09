@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -27,4 +26,3 @@ vector<int> maximum(vector<int> arr, int k) {
         arr.erase(it);
     }
     return result;
-}

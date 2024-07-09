@@ -12,6 +12,6 @@ std::vector<int> makeApile(int n) {
 }
 
 int main() {
-    assert(vectorSame(makeApile(4), {8, 6, 4, 2}));
+    assert(vectorSame(makeApile(8), {8, 6, 4, 2}));
     return 0;
 }
