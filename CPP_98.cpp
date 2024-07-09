@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include<cctype>
+#include <cctype>
 using namespace std;
 
 int count_upper(string s);
