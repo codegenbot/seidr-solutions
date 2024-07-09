@@ -1,16 +1,27 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
+    if not paren_string or paren_string[0] != '(' or paren_string[-1] != ')':
+        return ["Invalid Input"]
+
     result = []
-    temp = ""
-    count = 0
+    stack, temp = [], ""
+
     for char in paren_string:
-        temp += char
         if char == "(":
-            count += 1
+            if temp and stack:
+                temp += char
+            stack.append(char)
         elif char == ")":
-            count -= 1
-            if count == 0:
+            if not stack:
+                return ["Invalid Input"]
+            stack.pop()
+            temp += char
+            if not stack:
                 result.append(temp)
+            if not stack:
                 temp = ""
+
+    if stack:
+        return ["Invalid Input"]
     return result
