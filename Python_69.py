@@ -1,7 +1,7 @@
-def search():
-    lst = input("Enter a list of numbers (space separated): ").split()
+```
+def search(lst):
     freq_dict = {}
-    for num in [int(n) for n in lst]:
+    for num in lst:
         if num > 0:
             if num in freq_dict:
                 freq_dict[num] += 1
@@ -11,5 +11,3 @@ def search():
         return -1
     max_num = max(freq_dict.keys())
     return max_num if max_num > 0 else -1
-
-print(search())
