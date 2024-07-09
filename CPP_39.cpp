@@ -1,4 +1,4 @@
-```c++
+```
 #include <iostream>
 #include <cassert>
 
@@ -36,5 +36,9 @@ int main() {
     int n;
     std::cout << "Enter the number: ";
     std::cin >> n;
-    std::cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << std::endl;
+    if (n > 0) {
+        std::cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << std::endl;
+    } else {
+        std::cout << "Invalid input. Please enter a positive integer." << std::endl;
+    }
 }
