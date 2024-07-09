@@ -19,25 +19,24 @@ int main() {
     std::vector<long long> lst;
 
     while (1) {
-        long long temp;
         std::cout << "Enter a number (negative to stop): ";
-        std::cin >> temp;        
-        if (temp < 0) break;
-        input = static_cast<float>(temp);
+        std::cin >> n;
+        if (n < 0) break;
+        std::cin >> input;
+        
         if (input > 0 && std::floor(input) == input) {
             if (static_cast<long long>(input) % 2 != 0) { 
-                lst.push_back(temp); 
+                lst.push_back(static_cast<long long>(n * static_cast<long double>(input * input))); 
             }
             else {
-                lst.push_back(temp);
+                lst.push_back(static_cast<long long>(n * input));
             }
         }
         else {
-            lst.push_back(temp);
+            lst.push_back(static_cast<long long>(n * input));
         }
-        n++;
     }
-
+    
     long long odd_sum = double_the_difference(lst);
     return 0;
 }
