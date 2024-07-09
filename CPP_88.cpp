@@ -19,6 +19,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-int main() {
+void main() {
     assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
 }
