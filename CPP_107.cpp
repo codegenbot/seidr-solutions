@@ -1,8 +1,10 @@
+```cpp
+using namespace std;
+
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,10 +16,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> even_odd_palindrome(int n) {
-    std::vector<int> result(2);
+vector<int> even_odd_palindrome(int n) {
+    vector<int> result(2);
     for (int i = 1; i <= n; i++) {
-        std::string str = to_string(i);
+        string str = to_string(i);
         bool isPalindrome = true;
         int start = 0, end = str.length() - 1;
         while (start < end) {
@@ -38,6 +40,6 @@ std::vector<int> even_odd_palindrome(int n) {
 }
 
 int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));
+    assert(issame(even_odd_palindrome(1), vector<int>{0, 1}));
     return 0;
 }
