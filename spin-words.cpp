@@ -1,15 +1,14 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <vector>
 #include <sstream>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::istringstream ss(str);
+    std::stringstream ss(str);
     std::string token;
     std::vector<std::string> tokens;
 
-    while (std::getline(ss, token, delimiter)) {
+    while (std::getline(ss, token, ' ')) {
         tokens.push_back(token);
     }
 
