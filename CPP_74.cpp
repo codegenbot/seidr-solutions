@@ -48,25 +48,15 @@ int main() {
     std::getline(std::cin, user_input1);
     std::getline(std::cin, user_input2);
 
-    size_t i = 0;
-    for (const auto& str : user_input1) {
-        if (str == ' ') {
-            lst1.push_back(user_input1.substr(0, ++i));
-            i++;
-        } else if (i > 0) {
-            i++;
-        }
+    std::istringstream iss1(user_input1);
+    std::string temp;
+    while (std::getline(iss1, temp, ' ')) {
+        lst1.push_back(temp);
     }
 
-    i = 0;
-    for (const auto& str : user_input2) {
-        if (str == ' ') {
-            i++;
-            lst2.push_back(user_input2.substr(0, i));
-            i++;
-        } else if (i > 0) {
-            i++;
-        }
+    std::istringstream iss2(user_input2);
+    while (std::getline(iss2, temp, ' ')) {
+        lst2.push_back(temp);
     }
 
     if (!lst1.empty() && !lst2.empty()) {
