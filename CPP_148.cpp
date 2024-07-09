@@ -1,7 +1,9 @@
-Here is the updated code:
-```cpp
 #include <vector>
 #include <algorithm>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -32,9 +34,10 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     sort(result.begin(), result.end());
     
     return result;
+
 }
 
-bool isSame(vector<string> a, vector<string> b) {
-    return a == b;
+int main() {
+    assert(bf("Jupiter", "Makemake").empty());
+    return 0;
 }
-assert(isSame(bf("Jupiter", "Makemake"), std::vector<std::string>{}));
