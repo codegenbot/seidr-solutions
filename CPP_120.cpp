@@ -2,6 +2,11 @@
 #include <vector>
 #include <algorithm>
 
+bool issame(vector<int> a,vector<int>b) {
+    if(a != b) return false;
+    return true;
+}
+
 vector<int> maximum(vector<int> arr, int k) {
     if(k > arr.size()) {
         cout << "Invalid value of k. It must be less than or equal to the size of array." << endl;
