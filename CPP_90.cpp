@@ -19,7 +19,7 @@ int next_smallest(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {34, 12, -35, -45}; 
+    vector<int> lst = {34, 12, -35, -45}; // test input
     int result = (lst.size() > 1) ? next_smallest(lst) : -1; 
     cout << "The next smallest number is: " << result << endl;
     
