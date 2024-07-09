@@ -21,6 +21,10 @@ int main() {
     for(int i = 0; i < n; i++){
         std::cin >> lst[i];
     }
-    std::cout << next_smallest(lst) << std::endl;
+    if (n > 0) {
+        std::cout << next_smallest(lst) << std::endl;
+    } else {
+        std::cout << -1 << std::endl;
+    }
     return 0;
 }
