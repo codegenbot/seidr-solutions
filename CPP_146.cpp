@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,16 +15,20 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    vector<int> input;
+    assert(specialFilter({}) == 0); 
     int n;
-    cout << "Enter the number of elements: ";
+    cout << "Enter the number of integers: ";
     cin >> n;
-    for(int i = 1; i <= n; i++){
-        cout << "Enter element " << i << ": ";
-        int num;
-        cin >> num;
-        input.push_back(num);
+
+    vector<int> nums(n);
+    for(int i = 0; i < n; i++){
+        cout << "Enter integer #"<<(i+1)<<":";
+        cin >> nums[i];
     }
-    cout << "Special Filter count: " << specialFilter(input) << endl;
+
+    int output = specialFilter(nums);
+
+    cout << "The number of integers that satisfy the condition is: "<<output<<endl;
+    
     return 0;
 }
