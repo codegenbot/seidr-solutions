@@ -1,5 +1,7 @@
-#include <string>
 #include <iostream>
+#include <string>
+#include <vector>
+
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -28,6 +30,6 @@ int main() {
     cin >> target;
 
     vector<int> result = findIndices(text, target);
-    for(int i: result) cout << i << " ";
+    for(int i : result) cout << i << " ";
     return 0;
 }
