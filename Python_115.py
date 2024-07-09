@@ -1,7 +1,6 @@
-````
+```
 from typing import List
 import math
-
 
 def max_fill(grid: List[List[int]], capacity: int) -> int:
     try:
