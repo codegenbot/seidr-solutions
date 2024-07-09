@@ -1,5 +1,5 @@
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring) {
@@ -13,8 +13,9 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "grape", "orange"};
-    vector<string> filtered = filter_by_substring(strings, "an");
+    vector<string> input_strings = {"apple", "banana", "cherry", "date"};
+    string input_substring = "an";
+    vector<string> result = filter_by_substring(input_strings, input_substring);
 
     return 0;
 }
