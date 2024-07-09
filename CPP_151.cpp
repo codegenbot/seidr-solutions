@@ -1,4 +1,4 @@
-```
+```cpp
 int double_the_difference(vector<float> numbers) {
     float odd_sum = 0;
     for (float num : numbers) {
