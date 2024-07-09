@@ -23,6 +23,19 @@ int main() {
         std::cin >> num;
         size++;
     }
-    assert(solution(lst) == 16);
+    assert(solution(lst) == 16); 
+    return 0;
+}
+
+void runTest() {
+    int num, size = 0;
+    std::cin >> num;
+    std::vector<int> lst;
+    while (num != -1) {
+        lst.push_back(num);
+        std::cin >> num;
+        size++;
+    }
+    assert(solution(lst) == 16); 
     return 0;
 }
