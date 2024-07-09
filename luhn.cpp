@@ -1,4 +1,3 @@
-```c
 #include <iostream>
 #include <vector>
 
@@ -6,6 +5,7 @@ using namespace std;
 
 int luhn(const vector<int>& digits) {
     int sum = 0;
+    bool doubleNext = false;
     
     for (int i = 0; i < digits.size() - 1; i++) {
         if ((digits.size() - 1 - i) % 2 == 0) { 
