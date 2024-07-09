@@ -1,10 +1,13 @@
 ```
-from typing import List
+from typing import Any, List
 
-def filter_integers(values: List) -> None:
+def filter_integers(values: List[Any]) -> None:
     print("Please enter a comma-separated list of values (separated by commas):")
     user_input = input()
-    
+
+    if values is None:
+        return 
+
     try:
         user_values = [val.strip() for val in user_input.split(',')]
         
