@@ -1,9 +1,9 @@
-int choose_num(int x, int y) {
-    if (x % 2 != 0) {
-        x++;
+int max_even = -1;
+    for (int i = y; i >= x; i--) {
+        if (i % 2 == 0) {
+            max_even = i;
+            break;
+        }
     }
-    if (x > y) {
-        return -1;
-    }
-    return y % 2 == 0 ? y : y - 1;
+    return max_even;
 }
