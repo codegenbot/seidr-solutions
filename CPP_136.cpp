@@ -7,11 +7,9 @@ vector<int> largest_smallest_integers(vector<int> lst) {
     vector<int> result;
     
     if (!lst.empty()) {
-        auto max_negative = *max_element(lst.begin(), lst.end(), 
-            [](int a, int b){ return abs(a) > abs(b); });
+        auto max_negative = *max_element(lst.begin(), lst.end(), [](int a, int b){ return a > b; });
         
-        auto min_positive = *min_element(lst.begin(), lst.end(), 
-            [](int a, int b){ return a < 0 && b >= 0; } || [](int a, int b){ return a >= 0 && b < 0; });
+        auto min_positive = *min_element(lst.begin(), lst.end(), [](int a, int b){ return a < 0 && b >= 0 || a >= 0 && b < 0; });
         
         result.push_back(max_negative);
         if (max_negative > 0) {
