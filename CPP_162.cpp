@@ -1,7 +1,9 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-#include <openssl/evp.h>
+#include <iomanip>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
 
 using namespace std;
 
@@ -9,11 +11,10 @@ string string_to_md5(string text) {
     if (text.empty()) return "None";
     
     unsigned char result[16];
-    EVP_MD_CTX md_ctx;
-    EVP_MD_CTX_init(&md_ctx);
-    EVP_DigestInit_ex(&md_ctx, EVP_sha1(), NULL);
-    EVP_DigestUpdate(&md_ctx, (const unsigned char*)text.c_str(), text.size());
-    EVP_DigestFinal_ex(&md_ctx, result, &md_ctx);
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    MD5_Update_CTX(&ctx, (const unsigned char*)text.c_str(), text.size());
+    MD5_Final_CTX(&ctx, result);
     
     string md5_hash;
     for (int i = 0; i < 16; ++i) {
