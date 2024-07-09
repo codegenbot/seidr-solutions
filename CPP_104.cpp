@@ -2,6 +2,26 @@
 #include <algorithm>
 #include <cassert>
 
+std::vector<int> unique_digits(std::vector<int> x){
+    std::vector<int> result;
+    for (int num : x) {
+        bool hasEvenDigit = false;
+        int temp = num;
+        while (temp > 0) {
+            if (temp % 10 % 2 == 0) {
+                hasEvenDigit = true;
+                break;
+            }
+            temp /= 10;
+        }
+        if (!hasEvenDigit) {
+            result.push_back(num);
+        }
+    }
+    std::sort(result.begin(), result.end());
+    return result;
+}
+
 bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
@@ -12,27 +32,4 @@ bool issame(std::vector<int> a, std::vector<int> b){
         }
     }
     return true;
-}
-
-std::vector<int> unique_digits(std::vector<int> numbers) {
-    std::vector<int> uniqueDigits;
-    std::vector<bool> seen(10, false); 
-    for (int num : numbers) {
-        while (num > 0) {
-            int digit = num % 10;
-            if (!seen[digit]) {
-                uniqueDigits.push_back(digit);
-                seen[digit] = true;
-            }
-            num /= 10;
-        }
-    }
-    std::sort(uniqueDigits.begin(), uniqueDigits.end());
-    return uniqueDigits;
-}
-
-int main() {
-    assert(issame(unique_digits({135, 103, 31}), {1, 3, 5}));
-    // Add more test cases as needed
-    return 0;
 }
