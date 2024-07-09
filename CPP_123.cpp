@@ -1,4 +1,13 @@
-vector<int> result;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
     while (n != 1) {
         result.push_back(n);
         if (n % 2 == 0) {
