@@ -1,15 +1,9 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
+    std::string temp = "";
     for (char ch : s) {
         bool found = false;
         for (char cc : c) {
@@ -23,8 +17,8 @@ vector<string> reverse_delete(string s, string c) {
         }
     }
     result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
+    std::string rev = temp;
+    std::reverse(rev.begin(), rev.end());
     result.push_back((temp == rev) ? "True" : "False");
     return result;
 }
