@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
@@ -12,7 +11,7 @@ string join(const vector<string>& vec, const string& sep) {
     return result.substr(0, result.size() - 1);
 }
 
-string split(const string& str, char sep) {
+string split(const string& str, char sep) -> string {
     vector<string> tokens;
     size_t pos = 0;
     while ((pos = str.find(sep)) != string::npos) {
@@ -26,7 +25,7 @@ string split(const string& str, char sep) {
 string anti_shuffle(string s) {
     string result = "";
     for (const auto& word : split(s, ' ')) {
-        string temp = word;
+        string temp = word + ""; // Fix
         sort(temp.begin(), temp.end());
         result += temp + " ";
     }
