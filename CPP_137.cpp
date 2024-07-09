@@ -1,45 +1,53 @@
 #include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b);
+        return (int)b > a.convert_to<int>() ? b : a;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        int num = std::stoi(b.convert_to<std::string>());
+        return num > a.convert_to<int>() ? b : a;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return boost::any_cast<float>(a);
+        return (float)a > b.convert_to<int>() ? a : b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-
-        istringstream iss(strA);
-        float numA;
-        if (!(iss >> numA)) {
-            numA = stof(strA.substr(0, strA.find(',')));
-        }
-
-        istringstream iss2(strB);
-        float numB;
-        if (!(iss2 >> numB)) {
-            numB = stof(strB.substr(0, strB.find(',')));
-        }
-
-        return (numA > numB) ? a : b;
+    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        int num = b.convert_to<int>();
+        std::string strA = a.convert_to<std::string>();
+        if (strA.find('.') != std::string::npos || strA.find(',') != std::string::npos)
+            return a > to_string(num) ? a : b;
+        else
+            return strA > to_string(num) ? a : b;
     }
-    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
-        string strA = boost::any_cast<string>(a);
-        istringstream iss(strA);
-        float numA;
-        if (!(iss >> numA)) {
-            numA = stof(strA.substr(0, strA.find(',')));
-        }
-
-        return (boost::any_cast<float>(b) > numA) ? b : a;
+    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        float num = b.convert_to<float>();
+        std::string strA = a.convert_to<std::string>();
+        if (strA.find('.') != std::string::npos || strA.find(',') != std::string::npos)
+            return a > to_string(num) ? a : b;
+        else
+            return strA > to_string(num) ? a : b;
     }
-    else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(string)) {
-        boost::any temp = a;
-        a = b;
-        b = temp;
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        if (strtol(b.convert_to<std::string>().c_str(), nullptr, 10) <
+            strtod(a.convert_to<std::string>().c_str(), nullptr))
+            return a;
+        else
+            return b;
     }
-
-    return "None";
+    else if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)b > a ? boost::any(b) : boost::any(a);
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        int num = std::stoi(b.convert_to<std::string>());
+        return num > a ? boost::any(b) : boost::any(a);
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > b ? boost::any(a) : boost::any(b);
+    }
+    else
+        return boost::any("None");
 }
