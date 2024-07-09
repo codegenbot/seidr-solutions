@@ -1,9 +1,9 @@
-int max_even = -1;
+int maxEven = -1;
     for (int i = y; i >= x; i--) {
         if (i % 2 == 0) {
-            max_even = i;
+            maxEven = i;
             break;
         }
     }
-    return max_even;
+    return maxEven;
 }
