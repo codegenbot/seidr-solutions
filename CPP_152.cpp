@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm>
+#include <string>
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
@@ -11,3 +11,4 @@ vector<int> compare(vector<int> game, vector<int> guess) {
         }
     }
     return result;
+}
