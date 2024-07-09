@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <boost/any.hpp>
+#include <boost/lexical_cast.hpp>
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -31,12 +32,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
 
         if (isNum1Valid && isNum2Valid) {
-            num1 = stoi(str1);
-            num2 = stoi(str2);
+            num1 = boost::lexical_cast<int>(str1);
+            num2 = boost::lexical_cast<int>(str2);
 
             return (num1 > num2) ? str1 : ((num1 < num2) ? str2 : boost::any("None"));
         } else {
-            return max(a, b);
+            return a;
         }
     }
 
