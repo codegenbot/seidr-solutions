@@ -1,24 +1,28 @@
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return false;
-            st.push('&');
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) return true;
-            st.push('|');
-        } else {
-            st.push(s[i]);
+Here is the solution:
+
+string solveBoolean(string booleanExp) {
+    stack<char> operationStack;
+    stack<bool> valueStack;
+
+    for (char c : booleanExp) {
+        if (c == 'T' || c == 't') {
+            valueStack.push(true);
+        } else if (c == 'F' || c == 'f') {
+            valueStack.push(false);
+        } else if (c == '&') {
+            bool right = valueStack.top();
+            valueStack.pop();
+            bool left = valueStack.top();
+            valueStack.pop();
+            valueStack.push(left && right);
+        } else if (c == '|') {
+            bool right = valueStack.top();
+            valueStack.pop();
+            bool left = valueStack.top();
+            valueStack.pop();
+            valueStack.push(left || right);
         }
     }
-    while (!st.empty()) {
-        st.pop();
-    }
-    return st.empty();
+
+    return valueStack.top() ? "True" : "False";
 }
