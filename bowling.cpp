@@ -4,7 +4,7 @@ int calculateBowlingScore(string input) {
     int score = 0;
     int frame = 0;
     int ball = 0;
-    vector<int> frames(10, 0);
+    std::vector<int> frames(10, 0);
 
     for (char c : input) {
         if (c == 'X') {
@@ -35,8 +35,8 @@ int calculateBowlingScore(string input) {
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << calculateBowlingScore(input) << endl;
+    std::string input;
+    std::cin >> input;
+    std::cout << calculateBowlingScore(input) << std::endl;
     return 0;
 }
