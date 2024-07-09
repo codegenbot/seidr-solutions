@@ -1,5 +1,7 @@
+```
 #include <iostream>
 #include <vector>
+#include <set>
 
 // Function to check if two vectors are same
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -13,11 +15,7 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::set<int> s2(l2.begin(), l2.end());
 
     // Find the common elements by performing set intersection
-    std::set<int> result = s1; // Intersection of two sets does not work in standard c++ 
-    for(auto i : s2) {
-        if(s1.find(i) != s1.end()) 
-            result.insert(i);
-    }
+    std::set<int> result = s1.intersection(s2);
 
     // Convert the resulting set back into a vector and return it
     std::vector<int> final_result(result.begin(), result.end());
