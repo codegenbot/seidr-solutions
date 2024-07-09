@@ -1,3 +1,8 @@
+#include <string>
+#include <cassert>
+
+using namespace std;
+
 string encrypt(string s){
     string result = "";
     int shift = 2 * 2;
