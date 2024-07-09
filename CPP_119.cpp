@@ -24,7 +24,7 @@ std::string match_parens(std::vector<std::string> lst) {
 int main() {
     std::vector<std::string> input;
     std::string str;
-
+    
     while (std::cin >> str) {
         input.push_back(str);
     }
