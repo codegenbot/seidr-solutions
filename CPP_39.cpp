@@ -3,24 +3,15 @@
 
 using namespace std;
 
-bool isPrime(int num);  
+bool isPrime(int num); // Declare isPrime before using it
 
-int prime_fib(int n);  
+int prime_fib(int n);
 
 int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
     cout << "The " << to_string(n) << "th prime Fibonacci number is: " << to_string(prime_fib(n)) << endl;
-}
-
-bool isPrime(int num) {
-    if (num <= 1)
-        return false; // Prime numbers are greater than 1
-    for (int i = 2; i * i <= num; i++)
-        if (num % i == 0)
-            return false;
-    return true;
 }
 
 int prime_fib(int n) {
@@ -35,4 +26,13 @@ int prime_fib(int n) {
         a = b;
         b = temp;
     }
+}
+
+bool isPrime(int num) {
+    if (num <= 1)
+        return false; // Prime numbers are greater than 1
+    for (int i = 2; i * i <= num; i++)
+        if (num % i == 0)
+            return false;
+    return true;
 }
