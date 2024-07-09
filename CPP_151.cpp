@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -15,7 +16,7 @@ long long double_the_difference(const std::vector<float>& lst) {
 int main() {
     std::vector<float> lst;
     float input;
-    std::cin >> std::fixed >> std::setprecision(6);
+    std::cin >> std::fixed >> std::setprecision(6); 
     while(std::cin >> input)
         lst.push_back(input);
 
