@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 
@@ -13,7 +14,10 @@ bool monotonic(const std::vector<float>& l) {
         }
     }
 
-    return increasing || decreasing;
+    if (!increasing && !decreasing) {
+        return false;
+    }
+    return true;
 }
 
 int main() {
