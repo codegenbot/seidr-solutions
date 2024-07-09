@@ -11,4 +11,9 @@ string get_closest_vowel(string word) {
     }
     return "";
 }
-return 0;
+
+int main() {
+    assert(get_closest_vowel("Hello") == "o");
+    assert(get_closest_vowel("world") == "");
+    return 0;
+}
