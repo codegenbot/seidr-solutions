@@ -1,7 +1,7 @@
 #include <string>
 #include <cassert>
 
-string fix_spaces(string text) {
+string fix_spaces(string text){
     for(int i=0; i<text.length(); i++){
         if(text[i] == ' '){
             text[i] = '_';
@@ -15,10 +15,8 @@ string fix_spaces(string text) {
 }
 
 int main() {
-    string input_text;
-    getline(cin, input_text);
-    string result = fix_spaces(input_text);
-    cout << result << endl;
-
+    assert(fix_spaces("hello  world  !") == "hello__world_-!");
+    assert(fix_spaces("   this   is   a   test   ") == "---this---is---a---test---");
+    
     return 0;
 }
