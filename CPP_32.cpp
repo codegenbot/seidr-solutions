@@ -1,5 +1,9 @@
 using namespace std;
 
+#include <iostream>
+#include <vector>
+#include <cmath>
+
 std::vector<double> coeffs;
 double poly(std::vector<double>, double);
 
