@@ -21,13 +21,7 @@ int main() {
         std::cout << "Invalid input. Please enter a numeric value.\n";
     } else {
         bool isValidInput = true;
-        std::string numStr;
-        numStr += (num >= 0 ? "" : "-");
-        while (num > 0) {
-            int digit = num % 10;
-            numStr.append(1, '0' + digit);
-            num /= 10;
-        }
+        std::string numStr = std::to_string(num);
         
         for (char c : numStr) { 
             if (!std::isdigit(c)) {
@@ -37,7 +31,7 @@ int main() {
         }
 
         if (isValidInput) {
-            if (isSimplePower(stoi(numStr))) {
+            if (isSimplePower(num)) {
                 std::cout << num << " is a simple power.\n";
             } else {
                 std::cout << num << " is not a simple power.\n";
