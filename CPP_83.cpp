@@ -1,17 +1,12 @@
-```cpp
 #include <iostream>
 #include <string>
 
-bool starts_one_ends(int n) {
+int starts_one_ends(int n) {
     int count = 0;
-    if (n <= 19) {
-        for (int i = 1; i <= n; ++i) {
-            std::string str = std::to_string(i);
-            if (str.find("1") != std::string::npos || str.back() == '1')
-                ++count;
-        }
-    } else {
-        std::cout << "Input number should be less than or equal to 19." << std::endl;
+    for (int i = 1; i <= n; ++i) {
+        std::string str = std::to_string(i);
+        if (str.find("1") != std::string::npos || str.back() == '1')
+            ++count;
     }
     return count;
 }
@@ -20,7 +15,11 @@ int main() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
-    int result = starts_one_ends(int(n));
-    std::cout << "The count of the numbers of " << std::to_string(n) << "-digit positive integers that start or end with 1 is: " << result << std::endl;
+    if (n > 19) {
+        std::cout << "Input number should be less than or equal to 19." << std::endl;
+        return 1; 
+    }
+    int count = starts_one_ends(n);
+    std::cout << "The count of the numbers that start or end with 1 is: " << count << std::endl;
     return 0;
 }
