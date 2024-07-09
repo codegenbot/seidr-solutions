@@ -1,11 +1,12 @@
 #include <vector>
 #include <cmath>
-#include <math.h>
 using namespace std;
+
+int do_algebra(vector<string>, vector<int>);
 
 int do_algebra(vector<string> ops, vector<int> nums) {
     int result = 0;
-    double temp = 1;
+    int temp = 1;
 
     for (int i = 0; i < ops.size(); i++) {
         if (ops[i] == "+") {
@@ -23,3 +24,4 @@ int do_algebra(vector<string> ops, vector<int> nums) {
 
     return result;
 }
+#include <math.h>
