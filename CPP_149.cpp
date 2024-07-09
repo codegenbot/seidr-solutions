@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -33,8 +32,4 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
               });
 
     return result;
-}
-
-int main() {
-    // your code here
 }
