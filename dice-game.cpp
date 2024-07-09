@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -6,7 +7,7 @@ using namespace std;
 double probability(int n, int m) {
     double sum = 0;
     for (int i = m + 1; i <= n; i++) {
-        sum += 1.0 / n;
+        sum += (n - m) * (1.0 / (n * m));
     }
     return sum;
 }
