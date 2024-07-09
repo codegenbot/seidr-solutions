@@ -1,17 +1,6 @@
-```cpp
+```
 #include <iostream>
 #include <cassert>
-
-bool isPrime(int num); // forward declaration
-
-int prime_fib(int n); // forward declaration
-
-int main() {
-    int n;
-    std::cout << "Enter the number: ";
-    std::cin >> n;
-    std::cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << std::endl;
-}
 
 bool isPrime(int num) {
     if (num <= 1) {
@@ -23,6 +12,15 @@ bool isPrime(int num) {
         }
     }
     return true;
+}
+
+int prime_fib(int n); // forward declaration
+
+int main() {
+    int n;
+    std::cout << "Enter the number: ";
+    std::cin >> n;
+    std::cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << std::endl;
 }
 
 int prime_fib(int n) {
