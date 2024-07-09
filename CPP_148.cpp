@@ -4,17 +4,31 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int bf(string a, string b) {
-    if(a.length() != b.length()) {
-        return 0;
+    if(a.size() != b.size()) {
+        return false;
     }
-    for(int i = 0; i < a.length(); i++) {
-        if(tolower(a[i]) != tolower(b[i])) {
-            return 0;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
         }
     }
-    return 1;
+    return true;
+}
+
+vector<string> bf(string a, string b) {
+    if(a.length() != b.length()) {
+        return {};
+    }
+    vector<string> result;
+    for(int i = 0; i < a.length(); i++) {
+        if(tolower(a[i]) != tolower(b[i])) {
+            return {};
+        }
+    }
+    return {a, b};
+}
+
+int main() {
+    assert (issame(bf("Jupiter", "Makemake"), {"Jupiter", "Makemake"}));
+    return 0;
 }
