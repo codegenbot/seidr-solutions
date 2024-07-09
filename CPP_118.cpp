@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cctype>
 
@@ -14,7 +13,7 @@ std::string get_closest_vowel(std::string word) {
         if (!isalpha(word[i])) continue;
         if (ispunct(word[i]) || isdigit(word[i])) continue;
         if (word[i] == 'Y' && i > 1 && isupper(word[i-1]) && islower(word[i-2]))
-            return "Y";
+            return std::string(1, word[i]);
         if (ispunct(word[i]) || isdigit(word[i])) break;
         if (isvowel(word[i])) return std::string(1, word[i]);
     }

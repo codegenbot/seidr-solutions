@@ -7,12 +7,12 @@
 bool is_happy(const std::string& s) {
     if (s.length() < 3)
         return false;
-    for (int i = 0; i <= s.length() - 3; i++) {
+    for (int i = 0; i <= s.length(); i++) {
         bool unique = true;
         std::string subStr = s.substr(i, 3); 
         size_t pos = s.find(subStr);
         while (pos != std::string::npos) {
-            if (s.length() < i + 3) return false;
+            if (i + 3 > s.length()) return false;
             pos = s.find(subStr, pos + 1);
         }
     }
