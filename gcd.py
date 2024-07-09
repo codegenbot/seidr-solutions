@@ -1,29 +1,11 @@
-```
-def gcd(m, n):
-    while n != 0:
-        m, n = n, m % n
-    return abs(m)
+```Python
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return abs(a)
 
-def indices_of_substring(text, target):
-    result = []
-    last_index = -1
-    for i in range(len(text)):
-        if text[i:].startswith(target):
-            start = i
-            end = start + len(target) - 1
-            while True:
-                if start == 0 and end == len(text) - 1:
-                    break
-                if text[start-1:end+2].endswith(target):
-                    last_index = i
-                    result.append(i)
-                    break
-    return result
-
-m = int(input())
-n = int(input())
-print(gcd(m, n))
-
-text = input()
-target = input()
-print(indices_of_substring(text, target))
+print(gcd(1, 1))
+print(gcd(4, 400000))
+print(gcd(54, 24))
+print(gcd(4200, 3528))
+print(gcd(820000, 63550))
