@@ -1,4 +1,3 @@
-````
 key1 = input("Enter the first key string: ")
 key2 = input("Enter the second key string: ")
 
@@ -15,4 +14,3 @@ for char in message:
         result += char
 
 print(result)
-```
