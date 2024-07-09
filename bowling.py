@@ -13,4 +13,3 @@ def bowling_score(frames):
                 score += frame_score + int(frames[i + 1])
             elif i < 10 and frames[i + 1] == "-":
                 score += frame_score
-    return score
