@@ -1,9 +1,5 @@
-#include <iostream>
-#include <string>
-#include <cassert>
-
-bool valid_date(std::string date) {
-    if(date.empty()) return false;
+bool valid_date(const string& date) {
+    if(date.empty() || date.size() != 10) return false;
     
     int month = stoi(date.substr(0, 2));
     int day = stoi(date.substr(3, 2));
@@ -23,11 +19,5 @@ bool valid_date(std::string date) {
         }
     }
     
-    return (date[2] == '-' && date[5] == '-' && date.size() == 10);
-}
-
-int main() {
-    assert (valid_date("04-2003") == false);
-
-    return 0;
+    return (date[2] == '-' && date[5] == '-');
 }

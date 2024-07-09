@@ -1,30 +1,18 @@
 #include <string>
+#include <cassert>
 
-string get_closest_vowel(string word);
-
-string get_closest_vowel(string word) {
-    string vowels = "aeiouAEIOU";
-    int closest_distance = word.size();
-    char closest_vowel = ' ';
-
-    for (int i = word.size() - 2; i > 0; i--) {
-        if (vowels.find(word[i]) != string::npos) {
-            for (int j = i + 1; j < word.size(); j++) {
-                if (vowels.find(word[j]) == string::npos) {
-                    int distance = j - i;
-                    if (distance < closest_distance) {
-                        closest_distance = distance;
-                        closest_vowel = word[i];
-                    }
-                    break;
-                }
-            }
+std::string get_closest_vowel(const std::string& word) {
+    std::string vowels = "aeiouAEIOU";
+    int n = word.size();
+    for (int i = n - 2; i >= 0; --i) {
+        if (vowels.find(word[i]) != std::string::npos && !isalpha(word[i - 1]) && !isalpha(word[i + 1])) {
+            return std::string(1, word[i]);
         }
     }
+    return "";
+}
 
-    if (closest_vowel == ' ') {
-        return "";
-    } else {
-        return string(1, closest_vowel);
-    }
+int main() {
+    assert(get_closest_vowel("Above") == "o");
+    return 0;
 }
