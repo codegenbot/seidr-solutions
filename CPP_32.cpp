@@ -1,25 +1,19 @@
 double poly(vector<double> coeffs, double x){
-    double result = 0;
-    for(int i = 0; i < coeffs.size(); i++){
-        result += coeffs[i] * pow(x, i);
+    double result = 0.0;
+    int power = coeffs.size() - 1;
+    for(double coeff : coeffs){
+        result += coeff * pow(x, power);
+        power--;
     }
     return result;
 }
 
 double abs(double x){
-    return x < 0 ? -x : x;
+    return x >= 0 ? x : -x;
 }
-
-vector<double> coeffs = {1, -3, 2}; // Example coefficients for x^2 - 3x + 2
 
 double find_zero(vector<double> coeffs){
-    double x = 0;
-    while(abs(poly(coeffs, x)) > 1e-9){
-        x -= poly(coeffs, x) / poly_diff(coeffs, x);
-    }
-    return x;
+    double a = coeffs[0];
+    double b = coeffs[1];
+    return -b/a;
 }
-
-// Example Usage
-double zero = find_zero(coeffs);
-cout << "Zero found at: " << zero << endl;
