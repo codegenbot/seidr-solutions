@@ -22,6 +22,7 @@ int pairedDigits(std::string s) {
 int main() {
     std::string input;
     std::cout << "Enter a string of digits: ";
+    std::cin.ignore(); // Add this line to ignore any remaining characters.
     std::cin >> input;
     int result = pairedDigits(input);
     if (result == -1) {

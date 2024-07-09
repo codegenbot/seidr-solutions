@@ -1,16 +1,34 @@
-```cpp
 #include <iostream>
 #include <string>
 
 std::string middleCharacter(std::string s) {
     int len = s.length();
-    return len % 2 == 0 ? s.substr(len/2 - 1, 2) : std::string{1, s[len/2]};
+    if(len == 0)
+        return "";
+    
+    std::string result;
+    if(len % 2 == 0) {
+        result = s.substr(len/2-1, 2);
+    } else {
+        result = s.substr(len/2, 1);
+    }
+    return result;
 }
 
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    std::cout << middleCharacter(input) << std::endl;
+
+    if(input.find('\0') != std::string::npos) { 
+        std::cout << "Invalid Input. Null character not allowed." << std::endl;
+        return 1; 
+    }
+    
+    if(input.empty()) {
+        std::cout << "Enter a non-empty string" << std::endl;
+    } else {
+        std::cout << middleCharacter(input) << std::endl;
+    }
     return 0;
 }
