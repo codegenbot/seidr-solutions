@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -45,9 +45,8 @@ int main() {
     // User input
     std::cout << "Enter 2 lists of fruits separated by commas: ";
     std::string user_input1, user_input2;
-    std::cin >> user_input1;
-    std::cin.ignore();
-    std::getline(std::cin, user_input2);
+    getline(cin, user_input1);
+    getline(cin, user_input2);
 
     std::istringstream iss(user_input1);
     std::vector<std::string> lst5;
