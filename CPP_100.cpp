@@ -1,10 +1,10 @@
-```cpp
 #include <vector>
+#include <cassert>
 
 bool is_same(std::vector<int> a, std::vector<int> b);
 std::vector<int> make_a_pile(int n);
 
-int main(int argc, char const *argv[]) {
+int main(int argc, const char* argv[]) {
     assert(is_same(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
 }
 
