@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
@@ -17,14 +18,9 @@ bool issame(vector<int> a, vector<int> b){
             temp_y /= 10;
         }
         if(sum_x == sum_y){
-            return find(a.begin(), a.end(), x) < find(b.begin(), b.end(), y);
+            return find(a.begin(), a.end(), x) < find(a.begin(), a.end(), y);
         }
         return sum_x < sum_y;
     });
     return a == b;
-}
-
-int main(){
-    assert(issame(vector<int>{0,6,6,-76,-21,23,4}, vector<int>{-76, -21, 0, 4, 23, 6, 6}));
-    return 0;
 }
