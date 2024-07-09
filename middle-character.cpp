@@ -1,13 +1,15 @@
+#include <iostream>
+#include <string>
+
 std::string middleCharacter(std::string s) {
     int len = s.length();
     if(len == 0)
         return "";
     
+    int middleIndex = (len - 1) / 2; 
     if (len % 2 == 0) {
-        int middleIndex = len / 2;
-        return s.substr(middleIndex, 2);
+        return s.substr(middleIndex, 2); 
     } else {
-        int middleIndex = len / 2;
         return s.substr(middleIndex, 1);
     }
 }
