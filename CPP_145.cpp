@@ -1,6 +1,6 @@
 bool issame(const vector<int>& a, const vector<int>& b);
 
-bool order_by_points(const vector<int>& nums) {
+vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         if (a < 0) a *= -1;

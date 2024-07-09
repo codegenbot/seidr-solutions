@@ -1,17 +1,18 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-bool cycpattern_check(std::string a, std::string b) {
+bool cycpattern_check(string a, string b) {
     int n = a.size(), m = b.size();
     if (n != m) return false;
     
-    std::string temp = a + a;
+    string temp = a + a;
     
-    return (temp.find(b) != std::string::npos);
+    return (temp.find(b) != string::npos);
 }
 
 int main() {
-    std::cout << std::boolalpha << cycpattern_check("abcd", "cdab") << std::endl;
+    assert(cycpattern_check("winemtt", "tinem") == true);
     
     return 0;
 }
