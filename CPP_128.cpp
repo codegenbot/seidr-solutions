@@ -1,11 +1,16 @@
 ```cpp
-int prod_signs(int sign1, int sign2, int sign3) {
+#include <iostream>
+#include <vector>
+
+int prod_signs(std::vector<int> signs) {
     int result = 1;
-    if (sign1 < 0 || sign2 < 0 || sign3 < 0) return -1;
-    if (sign1 == 0 || sign2 == 0 || sign3 == 0) return 0;
+    for (int sign : signs) {
+        if (sign < 0) return -1;
+        if (sign == 0) return 0;
+    }
     return 1;
 }
 
 int main() {
-    std::cout << prod_signs(-1, 1, 1) << std::endl; 
+    std::cout << prod_signs(std::vector<int>{-1, 1, 1, 0}) << std::endl;
 }
