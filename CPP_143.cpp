@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <sstream>
+#include <vector>
 
 using namespace std;
 
@@ -17,15 +17,29 @@ int main() {
 }
 
 void words_in_sentence(string sentence) {
-    stringstream ss(sentence);
+    vector<string> words;
     string word;
-    int count = 0;
+    bool isWord = false;
 
-    while (getline(ss, word, ' ')) {
-        if (count > 0) {
-            cout << ", ";
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (!isWord) {
+                continue; // skip multiple spaces
+            }
+            isWord = false;
+        } else {
+            if (!isWord) {
+                word += c;
+                isWord = true;
+            } else {
+                word += c;
+            }
         }
+    }
+
+    if (isWord) {
         cout << word;
-        count++;
+    } else {
+        cout << sentence; // handle case when input only contains spaces
     }
 }
