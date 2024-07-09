@@ -1,5 +1,6 @@
 from typing import List, Tuple
 
+
 def rolling_max(numbers: List[Tuple[int, int]]) -> List[int]:
     result = []
     max_num = float("-inf")
