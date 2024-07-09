@@ -1,7 +1,4 @@
-#include <vector>
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
 
 double probability(int n, int m) {
@@ -22,6 +19,7 @@ double probability(int n, int m) {
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(6);
-    cout << probability(n, m) << endl;
+    std::cout << fixed << setprecision(6);
+    std::cout << probability(n, m) << endl;
     return 0;
+}
