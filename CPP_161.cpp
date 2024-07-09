@@ -1,11 +1,19 @@
 string solve(string s) {
     string result = "";
+    bool foundLetter = false;
+
     for (char c : s) {
         if (isalpha(c)) {
+            foundLetter = true;
             result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
             result += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+
+    if (!foundLetter) {
+        reverse(result.begin(), result.end());
+    }
+
+    return result;
 }
