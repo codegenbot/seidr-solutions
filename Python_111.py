@@ -4,16 +4,15 @@ def histogram(test):
         return {}
     
     words = test.split()
-    count_dict = {}
+    max_count = 0
+    most_common = {}
     
-    for word in words:
-        if word in count_dict:
-            count_dict[word] += 1
-        else:
-            count_dict[word] = 1
+    for word in set(words):
+        count = words.count(word)
+        if count > max_count:
+            max_count = count
+            most_common = {word: count}
+        elif count == max_count:
+            most_common[word] = count
     
-    max_count = max(count_dict.values())
-    
-    result = {k: v for k, v in count_dict.items() if v == max_count}
-    
-    return result
+    return most_common
