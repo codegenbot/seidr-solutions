@@ -1,6 +1,7 @@
+#include <cassert>
 #include <variant>
 #include <string>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -31,8 +32,8 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
 
 int main() {
     assert(get<int>(compare_one(10, 5)) == 10);
-    assert(get<string>(compare_one(string("one"), string("two"))) == "two");
-    assert(get<string>(compare_one(string("None"), string("None"))) == "None");
+    assert(get<string>(compare_one("one", "two")) == "two");
+    assert(get<string>(compare_one("None", "None")) == "None");
 
     return 0;
 }
