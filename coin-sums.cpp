@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
@@ -39,10 +40,10 @@ int main() {
         cents -= 5;
     }
 
-    cout << quarters << endl;
-    cout << std::to_string(dimes) << endl;
-    cout << std::to_string(nickles) << endl;
-    cout << std::to_string(pennies) << endl;
+    cout << to_string(quarters) << endl;
+    cout << to_string(dimes) << endl;
+    cout << to_string(nickles) << endl;
+    cout << to_string(pennies) << endl;
 
     return 0;
 }
