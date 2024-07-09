@@ -18,6 +18,6 @@ int solve(int n) {
 }
 
 int main() {
-    int expected = solve(963); 
+    assert(solve(15) == 16); 
     return 0;
 }
