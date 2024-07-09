@@ -15,11 +15,11 @@ int do_algebra(vector<string> ops, vector<int> nums) {
         } else if (ops[i] == "*") {
             temp *= nums[i];
         } else if (ops[i] == "/") {
-            if(nums[i] == 0) return -1; 
+            if(nums[i] == 0) return -1; // handle division by zero
             temp /= nums[i];
         } else if (ops[i] == "^") {
             double x = static_cast<double>(temp);
-            temp = pow(x, static_cast<double>(nums[i])); 
+            temp = pow(x, static_cast<double>(nums[i])); // use long double for power operation
         }
     }
 
