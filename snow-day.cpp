@@ -10,9 +10,12 @@ int main() {
     float calculatedSnow = groundSnow;
 
     for(int i = 1; i <= hours; i++) {
-        calculatedSnow = std::round(calculatedSnow * 100) / 100;
-        calculatedSnow += rateOfSnowFall;
-        calculatedSnow -= calculatedSnow * proportionMelting / 100.0f;
+        float newSnow = calculatedSnow + rateOfSnowFall;
+        while(std::abs(newSnow - calculatedSnow) > 0.00001f) {
+            calculatedSnow = newSnow;
+            newSnow = calculatedSnow + rateOfSnowFall;
+            calculatedSnow -= calculatedSnow * proportionMelting / 100.0f;
+        }
     }
 
     std::cout << std::fixed << std::setprecision(2) << calculatedSnow << std::endl;
