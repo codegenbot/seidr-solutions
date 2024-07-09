@@ -1,2 +1,4 @@
-def leaders(a):
-    return [max(a[i:]) for i in range(len(a) - 1, -1, -1)]
+def leaders(input):
+    max_so_far = max(input)
+    leaders = [x for x in reversed(input) if x >= max_so_far]
+    return leaders
