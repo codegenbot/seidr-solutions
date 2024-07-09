@@ -3,8 +3,26 @@ from decimal import Decimal, getcontext
 
 getcontext().prec = 28 
 
-initial_snow = Decimal(float(input("Enter initial amount of snow on the ground: ")))
-rate_of_snowfall = Decimal(float(input("Enter rate of snow fall per hour: ")))
+while True:
+    try:
+        initial_snow = Decimal(float(input("Enter initial amount of snow on the ground: ")))
+        if initial_snow > 0:
+            break
+        else:
+            print("Please enter a positive value for initial snow.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+while True:
+    try:
+        rate_of_snowfall = Decimal(float(input("Enter rate of snow fall per hour: ")))
+        if rate_of_snowfall > 0:
+            break
+        else:
+            print("Please enter a positive value for snowfall rate.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
 while True:
     try:
         melting_rate = float(input("Enter proportion of snow melting per hour: "))
