@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <cassert>
@@ -20,9 +19,4 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     }
     return result;
 
-}
-
-int main() {
-    assert (sameVectors(filter_by_prefix(vector<string>({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}), "xxx"), vector<string>({"xxx", "xxxAAA", "xxx"})));
-    return 0;
 }
