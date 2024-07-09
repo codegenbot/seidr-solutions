@@ -1,11 +1,9 @@
-```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> result;
-    std::string planets[] = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+std::vector<std::string> bfs(string planet1, string planet2) {
+    std::vector<string> result;
+    string planets[] = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int i = 0;
     while (i < 8) {
         if (planet1 == planets[i]) {
