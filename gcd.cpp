@@ -33,21 +33,16 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
-    // Test the gcd function
-    int a = 24, b = 36;
-    int result = gcd(a, b);
-    cout << "GCD of " << a << " and " << b << " is: " << result << endl;
+    int a, b;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
     
-    // Test the findIndicesOfSubstring function
-    string text = "abracadabra";
-    string target = "abra";
-    vector<int> indices = findIndicesOfSubstring(text, target);
+    string text, target;
+    cin >> text >> target;
+    vector<int> result = findIndicesOfSubstring(text, target);
     
-    cout << "Indices where '" << target << "' appears in '" << text << "': ";
-    for (int index : indices) {
-        cout << index << " ";
+    for (int i = 0; i < result.size(); ++i) {
+        cout << result[i] << " ";
     }
-    cout << endl;
-
     return 0;
 }
