@@ -1,8 +1,9 @@
-long long total = 0;
-    for (const auto &num : lst) {
-        if (num > 0 && num == floor(num) && static_cast<int>(num) % 2 != 0) {
-            total += static_cast<long long>(pow(num, 2));
+long long double_the_difference(vector<float> lst){
+    long long sum = 0;
+    for(float num : lst){
+        if(num > 0 && floor(num) == num && static_cast<int>(num) % 2 != 0){
+            sum += static_cast<long long>(pow(num, 2));
         }
     }
-    return total;
+    return sum;
 }
