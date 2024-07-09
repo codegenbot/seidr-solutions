@@ -1,26 +1,32 @@
+#include <iostream>
 #include <string>
 #include <cctype>
+#include <cassert>
 
 bool isvowel(char c) {
-    return std::tolower(c) == 'a' || std::tolower(c) == 'e' ||
-           std::tolower(c) == 'i' || std::tolower(c) == 'o' ||
-           std::tolower(c) == 'u';
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
 
-std::string get_closest_vowel(std::string word) {
-    int n = word.size();
-    for (int i = 0; i < n; ++i) {
-        if (!isalpha(word[i])) continue;
-        if (ispunct(word[i]) || isdigit(word[i])) continue;
-        if (word[i] == 'Y' && i > 1 && isupper(word[i-1]) && islower(word[i-2]))
-            return std::string(1, word[i]);
-        if (ispunct(word[i]) || isdigit(word[i])) break;
-        if (isvowel(word[i])) return std::string(1, word[i]);
+char get_next_vowel(const std::string& word, char prev) {
+    for (int i = 0; i < word.size(); ++i) {
+        if (isvowel(word[i])) {
+            return word[i];
+        }
+    }
+    return '\0';
+}
+
+std::string get_closest_vowel(const std::string& word) {
+    for (char c : word) {
+        if (!isvowel(c)) {
+            return std::string(1, get_next_vowel(word, c));
+        }
     }
     return "";
 }
 
 int main() {
     assert(get_closest_vowel("Above") == "o");
-    return 0;
+    // ...
 }

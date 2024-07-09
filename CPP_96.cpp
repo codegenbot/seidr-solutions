@@ -22,7 +22,7 @@ vector<int> count_up_to(int n) {
 
 }
 
-int originalMain() {
+int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
@@ -32,8 +32,4 @@ int originalMain() {
         cout << prime << " ";
     }
     cout << endl;
-}
-
-int main() {
-    originalMain();
 }
