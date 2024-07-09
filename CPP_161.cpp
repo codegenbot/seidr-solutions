@@ -12,4 +12,3 @@ string solve(string s) {
             result += c;
     }
     return result;
-}
