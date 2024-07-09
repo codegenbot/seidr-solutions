@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int prod_signs(vector<int> arr){
@@ -7,7 +6,7 @@ int prod_signs(vector<int> arr){
 
     for (int num : arr) {
         if (num == 0) {
-            return -32768; 
+            return -32768; // return -32768 for empty arr
         }
         int sign = (num > 0) ? 1 : ((num < 0) ? -1 : 0);
         sum_of_magnitudes += abs(num);
