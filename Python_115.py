@@ -1,11 +1,6 @@
 from typing import List
 import math
 
-
-def max_fill(grid: List[List[int]], capacity: int) -> int:
-    total_water = 0
-    for i in range(len(grid[0])):
-        water_per_row = min(capacity, sum([row[i] for row in grid]))
-        total_water += water_per_row
-        capacity -= water_per_row if water_per_row > 0 else 0
-    return math.ceil(total_water / max(1, capacity))
+def max_fill(grid: list, capacity: int) -> float:
+    total_water = sum(min(capacity, row.count(0)) for row in grid)
+    return math.ceil(total_water / len(grid))
