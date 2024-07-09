@@ -1,11 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2);
+    vector<int> result = {0, 0};
     int even = 0;
     int odd = 0;
 
@@ -35,8 +34,7 @@ vector<int> even_odd_palindrome(int n) {
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> res = even_odd_palindrome(n);
-    cout << "(" << res[0] << ", " << res[1] << ")" << endl;
+    cin >> n; 
+    cout << "(" << even_odd_palindrome(n)[0] << ", " << even_odd_palindrome(n)[1] << ")" << endl; 
     return 0;
 }
