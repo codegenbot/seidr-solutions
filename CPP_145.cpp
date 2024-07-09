@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <initializer_list>
 
 bool issame(vector<int> a, vector<int> b) {
@@ -25,3 +24,4 @@ vector<int> order_by_points(vector<int> nums) {
     }
 
     return result;
+}
