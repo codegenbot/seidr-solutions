@@ -17,7 +17,7 @@ double median(std::vector<int> l) {
 // Example usage in main function
 int main() {
     // Test case with assert
-    assert(abs(median({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4);
+    assert( abs(median({8, 1, 3, 9, 9, 2, 7}) - 7 ) < 1e-4 );
     
     return 0;
 }
