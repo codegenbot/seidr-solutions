@@ -1,9 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 #include <sstream>
-#include <algorithm>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::stringstream ss(str);
