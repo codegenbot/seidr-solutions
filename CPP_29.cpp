@@ -1,9 +1,11 @@
+#include <vector>
+#include <string>
+
 bool issame(vector<string> a,vector<string> b, vector<string> c){
-    for(auto s : a | b | c) {
-        if(find(c.begin(), c.end(), s) == c.end()) 
-            return false;
-    }
-    return true;
+    if((a==b) && (c==a))
+        return true;
+    else
+        return false;
 }
 
 int main() {
