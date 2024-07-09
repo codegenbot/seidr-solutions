@@ -1,7 +1,21 @@
+```
 #include <iostream>
 #include <string>
 
 bool is_happy(int n);
+
+int main() {
+    std::cout << "Enter a happy number: ";
+    std::string num_str;
+    std::cin >> num_str;  
+    int num = std::stoi(num_str);  
+    if (is_happy(num)) {
+        std::cout << num << " is a happy number.\n";
+    } else {
+        std::cout << num << " is not a happy number.\n";
+    }
+    return 0;
+}
 
 bool is_happy(int n) {
     if (n < 1) return false;
@@ -15,23 +29,4 @@ bool is_happy(int n) {
         n = sum;
     }
     return n == 1;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a number: ";
-    std::cin >> input;
-
-    if (input.find_first_not_of("0123456789") != std::string::npos) {
-        std::cerr << "Invalid input. Please enter an integer." << std::endl;
-        return 1; 
-    }
-
-    int num = std::stoi(input);
-    if (is_happy(num)) {
-        std::cout << num << " is a happy number.\n";
-    } else {
-        std::cout << num << " is not a happy number.\n";
-    }
-    return 0;
 }
