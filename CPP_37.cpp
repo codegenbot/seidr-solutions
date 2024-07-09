@@ -5,8 +5,8 @@ bool issame(vector<float> a,vector<float>b){
     return a == b;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result(l.size());
+vector<float> sort_even(vector<float> l){
+    vector<float> result(l.size());
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){
             vector<float> temp;
