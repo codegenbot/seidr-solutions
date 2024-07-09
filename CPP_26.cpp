@@ -15,17 +15,9 @@ bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
-    std::vector<int> sortedNumbers = numbers; 
-    std::sort(sortedNumbers.begin(), sortedNumbers.end()); 
-
-    for (auto it = sortedNumbers.begin(); it != sortedNumbers.end() - 1; ++it) {
-        if (*it == *(it + 1)) {
-            it = sortedNumbers.erase(it);
-            --it;
-        }
-    }
-
-    return sortedNumbers;
+    std::vector<int> uniqueNumbers(numbers.begin(), numbers.end());
+    uniqueNumbers.erase(std::unique(uniqueNumbers.begin(), uniqueNumbers.end()), uniqueNumbers.end());
+    return uniqueNumbers;
 }
 
 int mainFunction() {
@@ -33,7 +25,7 @@ int mainFunction() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> numbers;  
+    std::vector<int> numbers;  // Declare and initialize the vector
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int num;
