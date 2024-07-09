@@ -27,12 +27,15 @@ int main() {
     return 0;
 }
 
-int testMain() { 
-    int result = solution({3, 13, 2, 9});
-    if (result != 3) {
-        std::cerr << "Test failed: expected 3 but got " << result << std::endl;
-    } else {
-        std::cout << "Test passed!" << std::endl;
+void runTest() {
+    int num, size = 0;
+    std::cin >> num;
+    std::vector<int> lst;
+    while (num != -1) {
+        lst.push_back(num);
+        std::cin >> num;
+        size++;
     }
+    assert(solution(lst) == 16); 
     return 0;
 }
