@@ -9,4 +9,4 @@ string get_closest_vowel(const string& word) {
         }
     }
     return "";
-}
+}  
