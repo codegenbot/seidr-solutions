@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -14,7 +15,6 @@ int digitSum(string s){
         }
     }
     return sum;
-
 }
 
 string ssplit(const string& s, const char& sep) {
@@ -27,18 +27,11 @@ string ssplit(const string& s, const char& sep) {
     }
 
     v.push_back(s.substr(prev));
-    return join(v, " ");
-}
-
-string join(const vector<string>& v, const char& sep) {
-    string s;
-    for (auto it = v.begin(); it != v.end(); ++it)
-        s += *it + sep;
-    return s.substr(0, s.size() - 1); // remove trailing sep
+    return string(v.begin(), v.end());
 }
 
 int main() {
-    assert(digitSum("you are very smart") == 7);
+    assert(digitSum("you are very smart") == 10);
     cout << digitSum("you are very smart") << endl;
     return 0;
 }
