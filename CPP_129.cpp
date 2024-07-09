@@ -1,11 +1,21 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 using namespace std;
+
+struct Element {
+    int value;
+    pair<int, int> position;
+
+    bool operator<(const Element& other) const {
+        return this->value < other.value;
+    }
+};
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>>(n, vector<bool>(n, false)) visited;
-    priority_queue<pair<int, pair<int, int>>> pq;
+    priority_queue<Element> pq;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -19,11 +29,12 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> res;
 
     while (!pq.empty()) {
-        int val = pq.top().first;
-        int x = pq.top().second.first;
-        int y = pq.top().second.second;
-        res.push_back(val);
+        Element val = pq.top();
         pq.pop();
+
+        res.push_back(val.value);
+        int x = val.position.first;
+        int y = val.position.second;
 
         if (k > 0) {
             --k;
