@@ -7,14 +7,19 @@ int bowlingScore(std::string s) {
     while (it != s.end()) {
         if (*it == 'X') {
             score += 10;
-            if (it + 1 != s.end()) { 
-                score += std::stoi(std::string(1, *++it)); 
+            for (; it + 1 != s.end(); ++it) {
+                if (*it == 'X' || *it == '/') {
+                    break;
+                }
+                score += *it - '0';
             }
-            it += 2;
         } else if (*it == '/') {
             int spare = 10 + std::stoi(std::string(1, *++it));
             score += spare;
-            it++; // increment here
+            while (it + 1 != s.end() && *it == '/') {
+                score += 10;
+                ++it; 
+            }
         } else {
             int roll = 0;
             while (it != s.end() && !(*it == '/' || *it == 'X')) {
@@ -23,7 +28,7 @@ int bowlingScore(std::string s) {
             }
             if (*it == '/') {
                 score += roll + 10;
-                it++; // Update it here
+                it++; 
                 while (it != s.end() && *it == '/') {
                     score += 10; // handle multiple spare rows
                     it++; 
