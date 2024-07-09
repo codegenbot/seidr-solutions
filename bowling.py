@@ -2,40 +2,27 @@
 def bowling_score(game):
     score = 0
     roll = 0
-    frames = [int(frame) for frame in game.split('/')]
-    i = 0
-    while i < len(frames):
-        if roll < 10:
-            if frames[i] == 10:
-                score += frames[i]
-                roll += 1
-                i += 1
-            elif frames[i] + frames[i+1] == 10:
-                score += frames[i] + frames[i+1]
-                roll += 2
-                i += 2
-            else:
-                if frames[i] != 0 and frames[i+1] != 0:
-                    score += frames[i]
-                    roll += 1
-                    i += 1
-                    if frames[i+1] == 10 or (frames[i+1] + frames[i+2]) == 10:
-                        score += frames[i+1] + frames[i+2]
-                        roll += 2
-                        i += 2
-                    else:
-                        score += frames[i+1]
-                        roll += 1
-                        i += 1
-                else:
-                    if frames[i] != 0 and frames[i+1] == 0:
-                        score += frames[i]
-                        roll += 1
-                        i += 1
-                    elif frames[i] == 0 and frames[i+1] != 0:
-                        score += frames[i+1]
-                        roll += 1
-                        i += 1
+    frames = game.split('/')
+    for frame in frames:
+        if len(frame) == 1:
+            score += int(frame)
+            roll += 1
+        elif len(frame) == 2:
+            first, second = map(int, frame)
+            score += first + second
+            roll += 1
         else:
-            break
+            first, second = map(int, frame[:2])
+            score += first + second
+            if first + second == 10:
+                if roll < 9:
+                    if len(frames) > 1 and frames[0] in '12':
+                        score += int(frames.pop(0))
+                    else:
+                        score += 10
+                else:
+                    score += 10
+            elif len(frames) >= 2 and frames[0][0] == str(first + second + 1):
+                score += int(frames.pop(0)) + first + second
+            roll += 1
     return score
