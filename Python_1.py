@@ -9,7 +9,19 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     for char in paren_string:
         if char == " ":
             continue
-        if char == "(":
+        if not stack and (char == "(" or char == ")"):
+            if char == "(":
+                stack.append(char)
+                temp += char
+            else:
+                if temp:
+                    result.append(temp)
+                    temp = ""
+                stack.append(char)
+                while stack[-1] != "(":
+                    temp += stack.pop()
+                stack.pop()
+        elif char == "(":
             stack.append(char)
             temp += char
         elif char == ")":
