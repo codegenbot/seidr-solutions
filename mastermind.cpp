@@ -1,6 +1,3 @@
-Here's the modified code with the necessary `#include` directive:
-
-```cpp
 #include <string>
 
 int mastermind(string code, string guess) {
