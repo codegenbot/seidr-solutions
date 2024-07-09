@@ -1,1 +1,3 @@
-operations = list(map(int, input("Enter a list of integers separated by space: ").split()))
+operations = []
+for _ in range(5):
+    operations.append(int(input()))
