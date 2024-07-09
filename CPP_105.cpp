@@ -1,46 +1,58 @@
-vector<string> by_length(vector<int> arr) {
-    vector<string> result;
+````
+#include <vector>
+#include <string>
 
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] >= 1 && arr[i] <= 9) {
-            int num = arr[i];
-            sort(arr.begin() + i, arr.end());
-            reverse(arr.begin(), arr.end());
-            while (!arr.empty()) {
-                switch(num) {
-                    case 1:
-                        result.push_back("One");
-                        break;
-                    case 2:
-                        result.push_back("Two");
-                        break;
-                    case 3:
-                        result.push_back("Three");
-                        break;
-                    case 4:
-                        result.push_back("Four");
-                        break;
-                    case 5:
-                        result.push_back("Five");
-                        break;
-                    case 6:
-                        result.push_back("Six");
-                        break;
-                    case 7:
-                        result.push_back("Seven");
-                        break;
-                    case 8:
-                        result.push_back("Eight");
-                        break;
-                    case 9:
-                        result.push_back("Nine");
-                }
-                num--;
-                arr.pop_back();
-            }
-        } else {
-            continue;
+bool issame(vector<string> a, vector<string>b) {
+    return a == b;
+}
+
+vector<string> by_length(vector<int> arr) {
+    vector<int> temp;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9) {
+            temp.push_back(i);
         }
     }
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
+    vector<string> result;
+    for (int i : temp) {
+        string s = "";
+        switch (i) {
+            case 1:
+                s = "One";
+                break;
+            case 2:
+                s = "Two";
+                break;
+            case 3:
+                s = "Three";
+                break;
+            case 4:
+                s = "Four";
+                break;
+            case 5:
+                s = "Five";
+                break;
+            case 6:
+                s = "Six";
+                break;
+            case 7:
+                s = "Seven";
+                break;
+            case 8:
+                s = "Eight";
+                break;
+            case 9:
+                s = "Nine";
+                break;
+        }
+        result.push_back(s);
+    }
     return result;
+}
+
+int main() {
+    assert (issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
+    // ...
 }
