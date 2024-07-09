@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -17,7 +17,7 @@ int main() {
     return 0;
 }
 
-string words_in_sentence(string sentence) {
+std::string words_in_sentence(string sentence) {
     std::string result = "";
     size_t start = 0;
     while (start < sentence.size()) {
