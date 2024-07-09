@@ -14,13 +14,8 @@ std::map<char, int> histogram(std::string str) {
 }
 
 int main() {
-    std::string str1 = "hello";
-    std::string str2 = "world";
+    assert(issame(histogram("hello"), histogram("ohlle")));
+    assert(!issame(histogram("world"), histogram("dlrow")));
     
-    std::map<char, int> hist1 = histogram(str1);
-    std::map<char, int> hist2 = histogram(str2);
-
-    assert(!issame(hist1, hist2));
-
     return 0;
 }
