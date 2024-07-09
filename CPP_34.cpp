@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```cpp
+```c++
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
