@@ -1,12 +1,9 @@
-```cpp
+```
 #include <algorithm>
-#include <vector>
 #include <limits>
 
-using namespace std;
-
-bool issame(vector<float> a,vector<float>b){
-    return a==b;
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
 }
 
 vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
