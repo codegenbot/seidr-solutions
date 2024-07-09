@@ -1,8 +1,6 @@
 int count = 0;
-    size_t pos = 0;
-    while ((pos = str.find(substring, pos)) != string::npos) {
-        ++count;
-        pos += 1;
+    for(size_t i = 0; (i = str.find(substring, i)) != string::npos; i += substring.length()) {
+        count++;
     }
     return count;
 }
