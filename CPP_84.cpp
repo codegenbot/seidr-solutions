@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <string>
+using namespace std;
 
 string solve(int N) {
     int sum = 0;
@@ -7,4 +8,9 @@ string solve(int N) {
         N /= 2;
     }
     return to_string(sum);
+}
+
+int main() {
+    assert(solve(963) == "10010");
+    return 0;
 }
