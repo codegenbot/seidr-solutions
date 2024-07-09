@@ -1,18 +1,21 @@
 #include <iostream>
 #include <vector>
 
-bool has_close_elements(std::vector<std::pair<float*, float*>> numbers, float tol) {
+bool has_close_elements(std::vector<std::vector<float>> numbers, float tol) {
     for (int i = 0; i < numbers.size() - 1; i++) {
         for (int j = i + 1; j < numbers.size(); j++) {
             bool closeFound = false;
-            size_t k = 0;
-            while (k < numbers[i].first->size() && k < numbers[j].second->size()) {
-                float diff = std::abs((*numbers[i].first)[k] - (*numbers[j].second)[k]);
-                if (diff <= tol) {
+            for (size_t k = 0; k < numbers[i].size(); k++) {
+                if (k < numbers[j].size()) {
+                    float diff = std::abs(numbers[i][k] - numbers[j][k]);
+                    if (diff <= tol) {
+                        closeFound = true;
+                        break;
+                    }
+                } else {
                     closeFound = true;
                     break;
                 }
-                k++;
             }
             if (closeFound) {
                 return true;
@@ -23,57 +26,19 @@ bool has_close_elements(std::vector<std::pair<float*, float*>> numbers, float to
 }
 
 int main() {
-    std::vector<std::pair<float*, float*>> numbers(7);
+    std::vector<std::vector<float>> numbers(7, std::vector<float>(2, 0.0f)); 
     for (int i = 0; i < 7; i++) {
-        numbers[i].first = new float[2];
-        numbers[i].second = new float[2];
-        if (i == 0) {
-            numbers[i].first[0] = (float)i;
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = (float)(i-1);
-            numbers[i].second[1] = 0.0f;
-        }
-        else if (i == 1) {
-            numbers[i].first[0] = (float)(i-1);
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = (float)i;
-            numbers[i].second[1] = 0.0f;
-        }
-        else if (i == 2) {
-            numbers[i].first[0] = 2.0f;
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = 2.0f;
-            numbers[i].second[1] = 0.0f;
-        }
-        else if (i == 3) {
-            numbers[i].first[0] = 4.0f;
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = 4.0f;
-            numbers[i].second[1] = 0.0f;
-        }
-        else if (i == 4) {
-            numbers[i].first[0] = 5.0f;
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = 5.0f;
-            numbers[i].second[1] = 0.0f;
-        }
-        else if (i == 5) {
-            numbers[i].first[0] = 2.2f;
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = 2.2f;
-            numbers[i].second[1] = 0.0f;
-        }
-        else {
-            numbers[i].first[0] = 0.0f;
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = 0.0f;
-            numbers[i].second[1] = 0.0f;
-        }
+        if (i == 0) numbers[i][0] = (float)i;
+        else if (i == 1) numbers[i][0] = (float)(i-1);
+        else if (i == 2) numbers[i][0] = 2.0f;
+        else if (i == 3) numbers[i][0] = 4.0f;
+        else if (i == 4) numbers[i][0] = 5.0f;
+        else if (i == 5) numbers[i][0] = 2.2f;
+        else numbers[i][0] = 0.0f;
+        numbers[i][1] = 0.0f;
     }
     assert(has_close_elements(numbers, 0.5) == false);
     
-    std::vector<std::pair<float*, float*>> numbers2 = {{new float[]{1.1f}, new float[]{1.1f}}, {new float[]{2.2f}, new float[]{2.2f}},
-         {new float[]{3.1f}, new float[]{3.1f}}, {new float[]{4.1f}, new float[]}, 
-         {new float[]{5.1f}, new float[]}, {new float[], new float[]}};
+    std::vector<std::vector<float>> numbers2 = {{1.1f},{1.1f}, {2.2f},{2.2f}, {3.1f},{3.1f}, {4.1f},{4.1f}, {5.1f},{5.1f}};
     assert(has_close_elements(numbers2, 0.5) == false);
 }

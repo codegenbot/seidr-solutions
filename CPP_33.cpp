@@ -7,7 +7,7 @@ using namespace std;
 
 vector<int> sort_third(vector<int> l) {
     vector<int> result; 
-    int initialCapacity = l.size();
+    int initialCapacity = 0;
     int i = 0;
     for (i = 0; i < l.size(); ) {
         if (i % 3 == 0 && i + 3 <= l.size()) {
@@ -19,10 +19,12 @@ vector<int> sort_third(vector<int> l) {
             sort(temp.begin(), temp.end());
             for (int t : temp) {
                 result.push_back(t); 
+                initialCapacity++;
                 i++;
             }
         } else {
             result.push_back(l[i]); 
+            initialCapacity++;
             i++;
         }
     }
