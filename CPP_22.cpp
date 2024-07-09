@@ -2,11 +2,10 @@
 #include <vector>
 #include <variant>
 
-bool issame(const std::vector<std::variant<int>>& v1, const std::vector<std::variant<int>>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (!std::holds_alternative<int>(v1[i]) || !std::holds_alternative<int>(v2[i])) return false;
-        if (std::get<int>(v1[i]) != std::get<int>(v2[i])) return false;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -35,8 +34,11 @@ std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int
 }
 
 int main() {
-    std::vector<std::variant<int>> values = {1, 2, 3};
-    std::vector<std::variant<int>> integers = filter_integers({1, 2, 3});
-    bool same = issame(integers, {1, 2, 3});
+    std::vector<int> integers = filter_integers({3, 123i, 3, 3, 1, 2});
+    if (issame({1, 2}, integers)) {
+        std::cout << "The two vectors are the same." << std::endl;
+    } else {
+        std::cout << "The two vectors are not the same." << std::endl;
+    }
     return 0;
 }
