@@ -1,12 +1,13 @@
-double poly(vector<double> xs, int n){
-    double sum = xs[0];
-    for(int i = 1; i < n; i++){
-        sum += xs[i] * pow(-1, i) / fact(i);
+double poly(double x, vector<double> xs){
+    double res = 0;
+    for(int i=0; i<xs.size(); i++){
+        res += xs[i]*pow(x, i);
     }
-    return sum;
+    return -res/xs[1];
 }
 
-int fact(int n){
-    if(n > 1) return n * fact(n-1);
-    else return 1;
+double find_zero(vector<double> xs){
+    if(xs.size() % 2 != 0) return -1; 
+    double root = poly(-xs[1]/(2*xs[0]), xs);
+    return std::round(root);
 }
