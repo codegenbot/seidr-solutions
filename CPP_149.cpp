@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <initializer_list>
@@ -26,4 +25,3 @@ int main() {
     vector<string> b={"aaaa", "bbbb", "dd", "cc"};
     assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
-}
