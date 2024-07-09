@@ -1,14 +1,17 @@
-int count_nums(vector<int> nums) {
+int count_nums(vector<int> n) {
     int count = 0;
-    for (int num : nums) {
-        int sign = abs(num) / pow(10, floor(log10(abs(num)))) * -1 + 1;
-        int sum_digits = 0;
-        while (abs(num)) {
-            sum_digits += abs(num) % 10;
-            num /= 10;
+    for (int i : n) {
+        if (i < 0) {
+            i *= -1; // make positive to check sum of digits later
         }
-        if (sign == 1 && sum_digits > 0 || sign == -1 && sum_digits < 0)
+        int sum_of_digits = 0;
+        while (i > 0) {
+            sum_of_digits += i % 10;
+            i /= 10;
+        }
+        if (sum_of_digits > 0) {
             count++;
+        }
     }
     return count;
 }
