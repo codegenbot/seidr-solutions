@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -18,5 +18,4 @@ int main() {
     std::getline(std::cin, str);  
     std::string res = anti_shuffle(str);
     std::cout << "Anti-Shuffled String: " << res << std::endl;
-    return 0;
 }
