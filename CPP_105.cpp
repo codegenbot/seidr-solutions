@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -16,7 +17,24 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     reverse(temp.begin(), temp.end());
     vector<string> result;
     for (string s : temp) {
-        result.push_back(s);
+        if (s == "1") 
+            result.push_back("One");
+        else if (s == "2")
+            result.push_back("Two");
+        else if (s == "3")
+            result.push_back("Three");
+        else if (s == "4")
+            result.push_back("Four");
+        else if (s == "5")
+            result.push_back("Five");
+        else if (s == "6")
+            result.push_back("Six");
+        else if (s == "7")
+            result.push_back("Seven");
+        else if (s == "8")
+            result.push_back("Eight");
+        else
+            result.push_back("Nine");
     }
     return result;
 }
