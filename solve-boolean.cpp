@@ -1,17 +1,15 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <cctype>
+#include <bits/stdc++.h>
+using namespace std;
 
-bool solveBoolean(const std::string& s, size_t& i) {
+bool solveBoolean(const string& s, size_t& i) {
     bool result = true;
 
     while (i < s.size()) {
-        switch (std::tolower(s[i])) {
-            case 't':
+        switch (s[i]) {
+            case 'T':
                 i++;  // skip T
                 return true;
-            case 'f':
+            case 'F':
                 i++;  // skip F
                 return false;
             case '&': {
@@ -32,17 +30,21 @@ bool solveBoolean(const std::string& s, size_t& i) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a Boolean expression: ";
-    std::getline(std::cin, input);
+    string input;
+    cout << "Enter a Boolean expression: ";
+    getline(cin, input);
 
     size_t i = 0;
     bool result = solveBoolean(input, i);
 
+    if (i < input.size()) { 
+        result = false; // invalid input
+    }
+
     if (result) {
-        std::cout << "The result is True." << std::endl;
+        cout << "The result is True." << endl;
     } else {
-        std::cout << "The result is False." << std::endl;
+        cout << "The result is False." << endl;
     }
 
     return 0;
