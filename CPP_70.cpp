@@ -1,29 +1,40 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-bool isSame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> strangeSortList(vector<int> lst) {
-    vector<int> result;
+std::vector<int> strange_sort_list(std::vector<int> lst) {
+    std::vector<int> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
         result.push_back(min_val);
-        lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
+        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
         if (!lst.empty()) {
             int max_val = *max_element(lst.begin(), lst.end());
             result.push_back(max_val);
-            lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
+            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
         }
     }
     return result;
 }
 
 int main() {
-    assert(isSame(strangeSortList({111111}), vector<int>({111111})));
+    std::vector<int> input;
+    for (int i = 0; i < 6; ++i) {
+        int num;
+        std::cin >> num;
+        input.push_back(num);
+    }
+    
+    std::vector<int> output = strange_sort_list(input);
+    
+    if (issame(output, {1,2,3,4,5,6})) {
+        std::cout << "True" << std::endl;
+    } else {
+        std::cout << "False" << std::endl;
+    }
+    
     return 0;
 }
