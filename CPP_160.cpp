@@ -19,7 +19,7 @@ int eval(const string& s) {
     
     int start = 0, sign = 1;
     for (int i = 0; i < s.size(); i++) {
-        if (!isdigit(s[i])) {
+        if (!ispunct(s[i])) {
             if (s[i] == '+') {
                 sign = 1;
             } else if (s[i] == '-') {
@@ -27,7 +27,8 @@ int eval(const string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * std::atoi(s.substr(i, 1).c_str());
+            result += sign * std::atoi(s.substr(start, 1).c_str());
+            start = i + 1;
         }
     }
     
