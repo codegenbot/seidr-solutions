@@ -33,10 +33,6 @@ vector<int> rolling_max(const vector<int>& numbers) {
 }
 
 int main() {
-    vector<int> test1 = {1, 2, 3, 4, 5};
-    vector<int> test2 = {1, 2, 3, 4, 5};
-    
-    assert(issame(test1, test2));
-    
+    // test code if needed
     return 0;
 }
