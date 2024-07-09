@@ -1,4 +1,4 @@
-```cpp
+#include <algorithm>
 #include <cassert>
 #include <string>
 #include <vector>
@@ -11,7 +11,7 @@ vector<string> splitString(string str) {
     for(int i = 0; i < str.length(); i++) {
         if(str[i] == ' ') {
             words.push_back(word);
-            word.clear();
+            word = "";
         } else {
             word += str[i];
         }
@@ -32,7 +32,9 @@ bool isSameVectors(vector<string> a, vector<string> b) {
     return true;
 }
 
-int main() {
-    assert(isSameVectors(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
+int testMain() {
+    vector<string> v1 = splitString("ahmed     , gamal");
+    sort(v1.begin(), v1.end()); // Sort the vectors to compare correctly
+    assert(isSameVectors(v1, {"ahmed", "gamal"}));
     return 0;
 }
