@@ -11,11 +11,10 @@ def parse_music(music_string: str) -> List[int]:
             note = ''
         elif char != note:
             if note:
-                beats.append(notes[note] / 2)
+                beats.append(notes[note])
             note = char
         else:
             note += char
-    
     if note:
         beats.append(notes[note])
     
