@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <iostream>
 
 int luhn(std::vector<int> ccNum) {
     long long sum = 0;
