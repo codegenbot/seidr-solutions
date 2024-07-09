@@ -7,9 +7,8 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
-    
     for (int i = 0; i < 2; i++) {
-        res[i].clear(); // initialize each inner vector by clearing any existing elements
+        res[i].resize(0); // initialize each inner vector with zero elements
     }
     int minDiff = INT_MAX;
     for (int i = 0; i < n; i++) {
