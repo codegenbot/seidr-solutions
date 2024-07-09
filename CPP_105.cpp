@@ -19,7 +19,7 @@ vector<string> by_length(vector<int> arr) {
     vector<string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            temp.push_back(std::to_string(i)); // Convert int to string
+            temp.push_back(std::to_string(i)); 
         }
     }
 
