@@ -1,4 +1,7 @@
-Here is the solution:
+#include <vector>
+#include <string>
+
+using namespace std;
 
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> result;
@@ -8,3 +11,4 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
         }
     }
     return result;
+}
