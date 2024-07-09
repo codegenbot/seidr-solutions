@@ -16,7 +16,7 @@ vector<int> filter_integers(initializer_list<variant<int>> values) {
     vector<int> result; 
     for (const auto& value : values) {
         try {
-            int val = any_cast<int>(value);
+            int val = any_cast<int>(std::visit(std::overload<int>([](auto v){ return std::get<int>(v); }), value));
             if(find(result.begin(), result.end(), val) == result.end())
                 result.push_back(val);
         } catch (...) {
@@ -27,7 +27,7 @@ vector<int> filter_integers(initializer_list<variant<int>> values) {
 }
 
 int mainTest() {
-    vector<variant<int>> values = {{1}, {2}, {3}};
-    assert(assertEqual(filter_integers(initializer_list<variant<int>>(values.begin(), values.end())), vector<int>({1, 2, 3})));
+    vector<variant<int>> values({1}, {2}, {3});
+    assert(assertEqual(filter_integers(values), vector<int>({1, 2, 3})));
     return 0;
 }
