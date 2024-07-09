@@ -1,17 +1,6 @@
 #include <string>
 #include <unordered_map>
 
-int main() {
-    std::string code = "abcd";
-    std::string guess = "abcd"; // fill in with valid inputs
-
-    std::pair<int, int> result = mastermind(code, guess);
-
-    // print or use the result as needed
-
-    return 0;
-}
-
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -36,4 +25,12 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
     }
 
     return std::make_pair(white, black);
+}
+
+int main() {
+    std::string code = "AAAA";
+    std::string guess = "ABCD";
+    auto result = mastermind(code, guess);
+    std::cout << "White pegs: " << result.first << ", Black pegs: " << result.second << std::endl;
+    return 0;
 }
