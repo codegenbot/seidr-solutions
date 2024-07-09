@@ -16,7 +16,7 @@ std::string filp_case(const std::string& str) {
 
 int main() {
     std::string input;
-    input = std::string(std::istreambuf_iterator<char>(std::cin), {});
+    std::getline(std::cin, input);
     std::cout << filp_case(input) << std::endl;
     return 0;
 }
