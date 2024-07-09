@@ -1,14 +1,15 @@
-#include <algorithm>
-#include <iterator>
+using namespace std;
 
-int main() {
+int next_smallest(vector<int> lst) {
     if (lst.size() < 2) return -1;
-    
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    
-    auto it = prev(end(sorted));
-    int res = *it;
-    
-    return res;
+    vector<int> v(lst);
+    sort(v.begin(), v.end());
+    for (int i = 0; i < v.size()-1; i++) {
+        if (v[i] != v[i+1]) {
+            for (int j = i+1; j < v.size(); j++) {
+                if (v[j] > v[i]) return v[i];
+            }
+        }
+    }
+    return -1;
 }

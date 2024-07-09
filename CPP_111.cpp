@@ -1,8 +1,7 @@
 #include <iostream>
-#include <map>
 #include <vector>
-#include <algorithm>
 #include <sstream>
+#include <map>
 
 using namespace std;
 
@@ -42,12 +41,15 @@ vector<string> split(string str, char delimiter) {
     return tokens;
 }
 
-bool issame(map<char,int> a, map<char,int> b) {
-   return a == b;
+bool issame(map<char,int> a,map<char,int> b) {
+    if(a.size() != b.size()) return false;
+    for(auto it = a.begin();it!=a.end();++it){
+        if(b.find(it->first)==b.end() || b[it->first] != it->second) return false;
+    }
+    return true;
 }
 
 int main() {
-   assert(issame(histogram("a"), {{'a', 1}}));
-   // Your test case code here
-   return 0;
+    assert(issame(histogram("a"), {{'a', 1}}));
+    return 0;
 }
