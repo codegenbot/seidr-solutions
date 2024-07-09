@@ -22,7 +22,7 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
     else if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
         if (stof(get<string>(a)) > stof(get<string>(b)))
             return a;
-        else if (stof(get<string>(a)) < stof(get<string>(b)))
+        else if (stof(get<string>(a)) < stof(get<string>(b))) 
             return b;
     }
     return {};
