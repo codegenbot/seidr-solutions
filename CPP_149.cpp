@@ -36,22 +36,22 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    std::vector<std::string> input;
     int n;
     std::cout << "Enter the number of strings: ";
     std::cin >> n;
-    
+
+    std::vector<std::string> lst;
     for (int i = 0; i < n; ++i) {
         std::string str;
         std::cout << "Enter string " << i + 1 << ": ";
         std::getline(std::cin, str);
-        input.push_back(str);
+        lst.push_back(str);
     }
-    
-    std::vector<std::string> output = sorted_list_sum(input);
-    
-    for (const auto& str : output) {
+
+    std::vector<std::string> result = sorted_list_sum(lst);
+
+    std::cout << "Sorted list of strings with even length: \n";
+    for (const auto& str : result) {
         std::cout << str << "\n";
     }
-    return 0;
 }
