@@ -1,17 +1,19 @@
 #include <vector>
 #include <string>
-#include <cctype>
 #include <cassert>
+#include <cctype>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    if(a.size() != b.size()){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(size_t i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
@@ -34,7 +36,7 @@ std::vector<std::string> split_words(std::string txt){
     if(words.size() == 0){
         int oddCount = 0;
         for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
+            if(std::islower(c) && (c - 'a') % 2 == 1){
                 oddCount++;
             }
         }
