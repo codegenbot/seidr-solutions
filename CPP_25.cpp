@@ -14,10 +14,10 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main(){
-    vector<int> result = factorize(30);
-    for(int i=0; i<result.size(); i++){
-        cout << result[i] << " ";
+int main() {
+    vector<int> result = factorize(60);
+    for(int num : result) {
+        cout << num << " ";
     }
     return 0;
 }
