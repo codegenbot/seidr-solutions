@@ -1,3 +1,4 @@
+```
 def find_zero():
     xs = list(map(int, input("Enter coefficients (space separated): ").split()))
     n = len(xs)
