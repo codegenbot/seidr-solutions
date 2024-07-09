@@ -28,18 +28,15 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    int n; 
+    int n;
     cin >> n;
     vector<int> nums(n);
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    
-    sort(nums.begin(),nums.end());
-    
-    for(auto num : nums){
+    vector<int> output = order_by_points(nums);
+    for (int num : output) {
         cout << num << " ";
     }
-    
     return 0;
 }
