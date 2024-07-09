@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -40,7 +39,8 @@ int main() {
     while (!(cin >> a >> b) || a < 1 || b < 1) {
         cin.clear();
         cout << "Invalid input. Please enter two positive integers: ";
-        cin.ignore(1000000, '\n'); // added this line
+        cin.ignore();
+        cin >> ws; // ignore any remaining characters in the input stream
         cin >> a >> b;
     }
 
