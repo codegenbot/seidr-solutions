@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -40,8 +39,7 @@ int main() {
     for (string s : {"aaaa", "bbbb", "dd", "cc"}) {
         lst.push_back(s);
     }
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    if (!issame(sorted_list_sum(lst), expected)) {
+    if (!issame(sorted_list_sum(lst), {"cc", "dd", "aaaa", "bbbb"})) {
         cout << "Test failed" << endl;
     } else {
         cout << "Test passed" << endl;
