@@ -1,9 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <cmath>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result(2, 0);
@@ -16,4 +12,20 @@ std::vector<int> even_odd_count(int num) {
         num /= 10;
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a.size() == b.size() && a == b;
+}
+
+int main() {
+    assert(even_odd_count(0).size() == 2);
+    int expected = 1; 
+    int actual = even_odd_count(expected).size();
+    if (actual == expected) {
+        std::cout << "Test passed." << std::endl;
+    } else {
+        std::cout << "Test failed. Expected: " << expected << ", Actual: " << actual << std::endl;
+    }
+    return 0;
 }
