@@ -1,12 +1,12 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
     result = ""
-    for char1, char2 in zip(cipher1, cipher2):
-        if char1.isalpha():
-            if char1.isupper():
-                result += char2.upper()
+    for char in message:
+        if char.isalpha():
+            if char.isupper():
+                index = ord(char) - ord("A")
             else:
-                result += char2.lower()
+                index = ord(char) - ord("a") + 26
+            result += cipher2[index]
         else:
-            result += char1
+            result += char
     return result
