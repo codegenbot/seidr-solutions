@@ -11,7 +11,7 @@ def solve_boolean(expression):
                 return left and right
             else:
                 return left or right
-        else:  
+        else:  # expression is enclosed in parentheses
             i = expression.find("(")
             j = expression.find(")")
             return eval_expr(expression[i+1:j])
