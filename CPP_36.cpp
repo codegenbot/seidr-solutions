@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 using namespace std;
 
@@ -21,4 +22,6 @@ int main() {
     } else {
         cout << "The result is: " << fizz_buzz(n);
     }
-    return 0;
+}
+
+#include <string>
