@@ -15,18 +15,16 @@ long long double_the_difference(std::vector<float> lst){
 int main() {
     std::vector<float> lst; 
     float odd_sum = 0; 
-    // read input
     int n;
     cin >> n;
-    for (int i = 0; i < n; i++) {
-        float num;
-        cin >> num;
-        lst.push_back(num);
+    for(int i=0;i<n;i++){
+        float x;
+        cin>>x;
+        if(x > 0 && floor(x) == x){
+            lst.push_back(x);
+        }
     }
-    
-    // calculate and print the result
     long long result = double_the_difference(lst);
-    cout << "Result: " << result << endl;
-    
+    cout<<result<<endl;
     return 0;
 }
