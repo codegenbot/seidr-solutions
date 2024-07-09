@@ -7,7 +7,8 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
+    EVP_MD_CTX *mdctx;
+    mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
 
@@ -20,8 +21,6 @@ std::string string_to_md5(const std::string& text) {
     for (unsigned int i = 0; i < digest_len; i++) {
         sprintf(&mdString[i * 2], "%02x", digest[i]);
     }
-
-    mdString[32] = '\0'; // Add null terminator at the end
 
     return std::string(mdString);
 }
