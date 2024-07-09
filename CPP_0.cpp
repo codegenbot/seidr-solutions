@@ -43,16 +43,12 @@ int main() {
     arr2_[0] = &arr2[0]; 
     arr2_[1] = &arr2[1]; 
 
-    FloatArrayPair* p1_pair = new FloatArrayPair{&arr1_, &arr2_};
-    FloatArrayPair* p2_pair = new FloatArrayPair{&arr2_, &arr3_}; // add more as needed
-    std::vector<FloatArrayPair*> input;
-    input.push_back(p1_pair);
+    auto p1_pair = std::make_unique<FloatArrayPair>(&arr1_, &arr2_);
+    std::vector<FloatArrayPair*> input = {p1_pair.get()};
 
     if (!has_close_elements(input, 0.5)) {
         std::cout << "No close elements found." << std::endl;
     } else {
         std::cout << "Close elements found." << std::endl;
     }
-    delete p1_pair;
-    return 0;
 }
