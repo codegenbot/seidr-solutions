@@ -1,15 +1,11 @@
-#include <vector>
-#include <set>
-#include <string>
-
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
     
     // Create a set of characters in string c for O(1) lookup
-    std::set<char> c_set(c.begin(), c.end());
+    set<char> c_set(c.begin(), c.end());
     
     // Initialize an empty string to store the result
-    std::string temp = "";
+    string temp = "";
     
     // Iterate over each character in string s
     for (char ch : s) {
@@ -38,7 +34,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a.size() == 1 && a[0] == b[0];
 }
 
