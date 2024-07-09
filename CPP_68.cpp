@@ -11,9 +11,8 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
-
+vector<vector<int>> pluck(vector<int> arr) {
+    vector<vector<int>> result;
     if (arr.empty()) return result;
 
     int smallest_even = INT_MAX;
@@ -26,12 +25,11 @@ vector<int> pluck(vector<int> arr) {
         }
     }
 
-    result.push_back(smallest_even);
-    result.push_back(index);
+    vector<int> output;
+    output.push_back(smallest_even);
+    output.push_back(index);
+
+    result.push_back(output);
 
     return result;
-}
-
-int main() {
-    return 0;
 }
