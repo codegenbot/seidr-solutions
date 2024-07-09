@@ -13,8 +13,6 @@ int digitSum(string s){
     return sum;
 }
 
-int main() {
-    assert(digitSum("You arE Very Smart") == 327);
-    cout << "Program ended successfully" << endl;
-    return 0;
-}
+assert(digitSum("You arE Very Smart") == 327);
+cout << "Program ended successfully" << endl;
+return 0;
