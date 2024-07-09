@@ -1,5 +1,5 @@
 #include <vector>
-#include <string>  
+#include <string>
 using namespace std;
 
 std::string int_to_mini_roman(int number) {
@@ -17,3 +17,4 @@ std::string int_to_mini_roman(int number) {
     if(number > 0)
         result.append(to_string(number)); 
     return result;
+}
