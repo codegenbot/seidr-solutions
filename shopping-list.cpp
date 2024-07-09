@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 
-double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
+double shoppingList(std::vector<double> prices, std::vector<float> discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
         total += prices[i] * (1 - (discounts[i] / 100.0));
@@ -12,14 +12,14 @@ double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
 }
 
 int main() {
-    std::vector<float> prices;
+    std::vector<double> prices;
     std::vector<float> discounts;
 
     // Read prices
     std::string temp;
     std::getline(std::cin, temp);
     std::istringstream iss(temp);
-    float price;
+    double price;
     while (iss >> price) {
         prices.push_back(price);
     }
@@ -28,8 +28,9 @@ int main() {
     std::getline(std::cin, temp);
     iss.clear();
     iss.str(temp);
-    while (iss >> price) {
-        discounts.push_back(price);
+    float discount;
+    while (iss >> discount) {
+        discounts.push_back((discount / 100.0)); 
     }
 
     double total = shoppingList(prices, discounts);
