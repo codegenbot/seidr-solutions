@@ -18,13 +18,10 @@ vector<string> all_prefixes(const string& str) {
 }
 
 int main() {
-    string str = "WWW";
-    vector<vector<string>> a = {{"W"}, {"W", "W"}, {"W", "W", "W"}};
-    vector<vector<string>> b = {{"W"}, {"W", "W"}, {"W", "W", "W"}};
-    assert(issame(a, b));
-    vector<string> prefixes = all_prefixes(str);
-    for (const string& prefix : prefixes) {
-        cout << prefix << endl;
-    }
+    vector<vector<string>> v1({{"W"}, {"W", "W"}, {"W", "W", "W"}});
+    vector<vector<string>> v2({{"W"}, {"W", "W"}, {"W", "W", "W"}});
+
+    assert(issame(v1, v2));
+    
     return 0;
 }
