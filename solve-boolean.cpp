@@ -1,4 +1,3 @@
-```cpp
 #include <stack>
 #include <string>
 
@@ -6,43 +5,25 @@ using namespace std;
 
 bool solveBoolean(string s) {
     stack<char> st;
-    bool result = false, lastOp = true;
+    bool result = false, prevResult = false;
 
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'T') {
-            while (!st.empty() && st.top() != '|') {
-                st.pop();
-            }
-            if (st.empty()) {
-                result = true;
-            } else {
-                lastOp = (st.top() == '|');
-            }
+            prevResult = true;
         } else if (s[i] == 'F') {
-            while (!st.empty() && st.top() != '|') {
-                st.pop();
-            }
-            if (st.empty()) {
-                result = false;
-            } else {
-                lastOp = (st.top() == '|');
-            }
+            prevResult = false;
         } else if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (!st.empty() && st.top() == '|') {
-                st.pop();
-                result = lastOp;
-            } else {
-                result = false;
-            }
+            st.push(s[i]);
         } else if (s[i] == '|') {
             while (!st.empty()) {
+                char op = st.top();
                 st.pop();
+                if (op == '&') {
+                    result = prevResult && result;
+                } else if (op == '|') {
+                    result = prevResult || result;
+                }
             }
-            st.push(s[i]);
-            lastOp = true;
         }
     }
 
