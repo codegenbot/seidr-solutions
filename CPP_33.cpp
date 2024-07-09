@@ -5,14 +5,15 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result;
     int groupCount = 0;
+    vector<int> result(l.size(), 0); // Initialize all elements to 0
 
     for (int i : l) {
         if(groupCount % 3 == 0 || groupCount >= l.size()) { 
-            result.push_back(i);
+            if(groupCount < l.size())
+                result[groupCount] = i; // assign elements to their correct position
+            groupCount++;
         } else {
-            result.push_back(i);
             groupCount++;
         }
     }
