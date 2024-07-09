@@ -1,25 +1,19 @@
-```Python
 from typing import List
 import math
 
 
 def factorize(n: int) -> List[int]:
     factors = []
-    i = 2
+    while n % 2 == 0:
+        factors.append(2)
+        n //= 2
+    i = 3
     while i * i <= n:
-        if n % i:
-            i += 1
-        else:
+        if n % i == 0:
+            factors.extend([i] * (n // i - 1))
             n //= i
-            count = 0
-            while n % i == 0:
-                n //= i
-                count += 1
-            factors.append([i] * count)
+        else:
+            i += 2
     if n > 1:
-        factors.append([n])
-    return [factor for factor in factors]
-
-
-num = int(input("Enter a number to find its prime factors: "))
-print(factorize(num))
+        factors.append(n)
+    return factors
