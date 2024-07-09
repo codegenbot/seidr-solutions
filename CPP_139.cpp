@@ -1,8 +1,7 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
-const char* special_factorial(int n) {
+std::string special_factorial(int n) {
     if (n <= 1)
         return "1";
 
@@ -12,12 +11,12 @@ const char* special_factorial(int n) {
         for (int j = 2; j <= i; j++)
             mul_result *= j;
 
+        result += std::to_string(mul_result);
+
         if(i > 1) 
-            result += std::to_string(mul_result);
-        else
-            result = std::to_string(mul_result);
+            result = " * " + result;
     }
-    return ("n! = " + result).c_str();
+    return "n! = " + result;
 }
 
 int main() {
@@ -26,4 +25,3 @@ int main() {
     std::cin >> n;
     std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
     return 0;
-}
