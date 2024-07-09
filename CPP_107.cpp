@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 
 bool isPalindrome(int n) {
     int reversed = 0;
@@ -11,8 +12,8 @@ bool isPalindrome(int n) {
     return original == reversed;
 }
 
-vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2);
+std::vector<int> even_odd_palindrome(int n) {
+    std::vector<int> result(2);
     int even = 0;
     int odd = 0;
 
