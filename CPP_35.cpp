@@ -9,7 +9,3 @@ float max_element(std::vector<float> l){
     }
     return result;
 }
-
-int main() {
-    // your test case code here
-}
