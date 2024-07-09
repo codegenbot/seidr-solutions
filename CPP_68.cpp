@@ -1,9 +1,25 @@
-```
-#include <iostream>
+```cpp
 #include <vector>
+#include <iostream>
 
-std::vector<std::vector<int>> pluck(const std::vector<int>& arr) {
-    if (arr.empty()) return {};
+int main() {
+    std::vector<int> arr = {4, 2, 7, 10};
+    std::vector<std::vector<int>> result = pluck(arr);
+
+    if (result.size()) {
+        for (const auto &elem : result[0]) {
+            std::cout << elem << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "No even numbers found." << std::endl;
+    }
+
+    return 0;
+}
+
+std::vector<std::vector<int>> pluck(std::vector<int> arr) {
+    if (arr.empty()) return {{-1, -1}};
 
     int smallest_even = INT_MAX;
     int index = -1;
@@ -15,26 +31,12 @@ std::vector<std::vector<int>> pluck(const std::vector<int>& arr) {
         }
     }
 
-    std::vector<int> output = {smallest_even, index};
+    std::vector<int> output;
+    output.push_back(smallest_even);
+    output.push_back(index);
 
-    return {{output}};
-}
+    std::vector<std::vector<int>> result;
+    result.push_back(output);
 
-int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<int> arr(n);
-    for (auto& x : arr) std::cin >> x;
-
-    auto result = pluck(arr);
-
-    if (!result.empty()) {
-        std::cout << "Smallest even: " << result[0][0] << "\n";
-        std::cout << "Index of the smallest even: " << result[0][1] << "\n";
-    } else {
-        std::cout << "Array is empty." << "\n";
-    }
-
-    return 0;
+    return result;
 }
