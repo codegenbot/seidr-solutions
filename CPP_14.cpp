@@ -1,12 +1,8 @@
-```c
-#include <string>
 #include <vector>
+#include <string>
 
-std::string isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if(a == b)
-        return "True";
-    else
-        return "False";
+bool areSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 std::vector<std::string> all_prefixes(std::string str) {
@@ -18,5 +14,6 @@ std::vector<std::string> all_prefixes(std::string str) {
 }
 
 int main() {
-    assert(isSame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    assert(areSame(all_prefixes("WWW"), {"W", "WW", "WWW"}) && "Failed");
+    return 0;
 }
