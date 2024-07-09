@@ -15,7 +15,7 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
     vector<string> result;
     for (int num : numbers) {
-        std::string str = "";
+        string str = "";
         switch (num) {
             case 1: str = "One"; break;
             case 2: str = "Two"; break;
