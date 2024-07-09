@@ -1,26 +1,27 @@
-int sumOfDivisors(int n) {
-    int count = 0;
-    for (int i = 1; i <= sqrt(n); i++) {
-        if (n % i == 0) {
-            if (n / i == i)
-                count++;
-            else
-                count += 2;
+int calculateSumOfDigitPrimes(vector<int> numbers) {
+    int maxPrime = 0;
+    for (int num : numbers) {
+        if (isPrime(num)) {
+            maxPrime = num;
+            break;
         }
     }
-    return count;
+    int sumOfDigits = 0;
+    while (maxPrime > 0) {
+        sumOfDigits += maxPrime % 10;
+        maxPrime /= 10;
+    }
+    return sumOfDigits;
 }
 
-int sumOfDivisors(int n) {
-    int count = 1; // Include 1 in the count
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            if (n / i == i)
-                count++;
-            else
-                count += 2;
+bool isPrime(int number) {
+    if (number <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= number; i++) {
+        if (number % i == 0) {
+            return false;
         }
     }
-    if (sqrt(n) == floor(sqrt(n))) // Check for perfect squares
-        return count - 1;
-    return count;
+    return true;
+}
