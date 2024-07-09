@@ -6,7 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-void sort(std::vector<int>& arr) {
+void sort_array(std::vector<int>& arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
         int count_b = __builtin_popcount(b);
@@ -18,6 +18,6 @@ void sort(std::vector<int>& arr) {
 }
 
 int main() {
-    assert(issame(sort({2, 4, 8, 16, 32}), {2, 4, 8, 16, 32}));
+    assert(issame(sort({2,4,8,16,32}), {2, 4, 8, 16, 32}));
     return 0;
 }
