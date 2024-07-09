@@ -5,7 +5,7 @@ def fibfib(n: int):
     elif n == 2:
         return 1
     else:
-        a, b = 0, 1
-        for _ in range(2, n+1):
-            a, b = b, a+b
-        return b
+        a, b, c = 0, 0, 1
+        for _ in range(3, n+1):
+            c, a, b = a+b+c, c, a+b
+        return c
