@@ -1,13 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
+#include <algorithm>
 
-using namespace std;
-
-int max_fill(vector<vector<int>> grid, int capacity) {
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int total_water = 0;
-    for (vector<int> well : grid) {
-        total_water += accumulate(well.begin(), well.end(), 0);
+    for (std::vector<int> well : grid) {
+        total_water += std::accumulate(well.begin(), well.end(), 0);
     }
     
     int steps = 0;
@@ -32,11 +30,9 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 }
 
 int main() {
-    vector<vector<int>> grid = {{0, 0, 0, 0}, {1, 1, 0, 0}, {0, 1, 0, 1}};
-    int capacity = 3;
-
+    std::vector<std::vector<int>> grid = {{0, 0, 0}, {1, 1, 0}, {0, 1, 0}};
+    int capacity = 2;
     int result = max_fill(grid, capacity);
-    cout << "The maximum number of steps needed is: " << result << endl;
-    
+    std::cout << "The maximum number of steps to fill the wells is: " << result << std::endl;
     return 0;
 }
