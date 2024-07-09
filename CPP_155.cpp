@@ -24,7 +24,7 @@ std::vector<int> even_odd_count(int num) {
 
 int main() {
     std::vector<int> expected = even_odd_count(123);
-    bool check = compareVectors(even_odd_count(expected[0]), std::vector<int>{1,2});
+    bool check = compareVectors(even_odd_count(expected[0]), std::vector<int>{1, 2});
     if(check) std::cout << "Test passed\n";
     else std::cout << "Test failed\n";
     return 0;
