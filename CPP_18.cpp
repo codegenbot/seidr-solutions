@@ -1,13 +1,32 @@
-int how_many_times(const string& str, const string& substring) {
+#include <string>
+#include <cassert>
+#include <iostream>
+
+using namespace std;
+
+int how_many_times(string& str, string& substring) {
     int count = 0;
     size_t pos = 0;
     
-    string local_str = str; // create a local copy of the string
-    
-    while ((pos = local_str.find(substring)) != string::npos) {
+    while ((pos = str.find(substring)) != string::npos) {
         count++;
-        local_str.erase(0, pos + substring.length()); // modify the local copy
+        str.erase(0, pos + substring.length());
     }
     return count;
 
+}
+
+int main() {
+    string str, substring;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    cout << "Enter a substring: ";
+    getline(cin, substring);
+    
+    if (str.find(substring) == string::npos) {
+        cout << "The substring is not found in the string.\n";
+    } else {
+        cout << "The substring appears " << how_many_times(str, substring) << " times.\n";
+    }
+    return 0;
 }
