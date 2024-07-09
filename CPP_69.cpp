@@ -12,9 +12,11 @@ int search(std::vector<int> lst) {
             freq[num]++;
         }
     }
-    for (auto it = freq.begin(); it != freq.end(); ++it) {
-        if (it->second >= it->first && it->first > 0) {
-            return it->first * it->second;
+
+    // Check if the first occurrence of each number is less than its frequency
+    for (const auto& pair : freq) {
+        if (pair.second >= pair.first && pair.first > 0) {
+            return pair.first * pair.second;
         }
     }
     return -1;
@@ -25,7 +27,9 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> lst(n);
+    std::vector<int> lst;
+    lst.resize(n, 0); // Initialize all new elements with a default value
+
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> lst[i];
