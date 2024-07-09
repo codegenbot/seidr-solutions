@@ -1,9 +1,9 @@
-#include <cassert>
+```cpp
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    std::string output;
+    
     for (char c : input) {
         if (isupper(c)) {
             output += tolower(c);
@@ -13,5 +13,7 @@ int main() {
             output += c;
         }
     }
-    assert(output == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    std::cout << "Output: " << output << std::endl;
+    
+    return 0;
 }

@@ -1,7 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-
-bool same(const std::vector<float>& a, const std::vector<float>& b);
 
 std::vector<float> get_positive(const std::vector<float>& numbers) {
     std::vector<float> positive_numbers;
@@ -13,7 +12,7 @@ std::vector<float> get_positive(const std::vector<float>& numbers) {
     return positive_numbers;
 }
 
-bool same(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -30,7 +29,7 @@ int main() {
 
     std::vector<float> positive_numbers = get_positive(numbers);
 
-    if(same(get_positive(numbers), positive_numbers)) {
+    if(issame(get_positive(numbers), positive_numbers)) {
         std::cout << "The list of positive numbers is: ";
         for (float num : positive_numbers) {
             std::cout << num << " ";
