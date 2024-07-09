@@ -1,3 +1,1 @@
-result = input().split()
-output = ' '.join([word[::-1] if len(word) >= 5 else word for word in result])[::-1]
-print(output)
+`result = ' '.join([word[::-1] if len(word.strip()) >= 5 else word for word in input().split()])`
