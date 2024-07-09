@@ -17,18 +17,18 @@ std::vector<float> sortEven(const std::vector<float>& l) {
     return evenVals;
 }
 
-int program() {
+int main() {
     std::vector<float> vec = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     std::vector<float> result(vec.size()); 
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
-            result[i] = sort_even(vec)[0];
+            result[i] = sortEven(vec)[0];
         } else {
             result[i] = vec[i];
         }
    }
     
-    std::vector<float> sortedEven = sort_even(vec);
+    std::vector<float> sortedEven = sortEven(vec);
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
             result[i] = sortedEven[0];
