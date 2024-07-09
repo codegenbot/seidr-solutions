@@ -6,7 +6,7 @@
 bool issame(std::vector<int> a, std::vector<int> b){
     std::sort(a.begin(), a.end(), [](int x, int y){
         int sum_x = 0, sum_y = 0;
-        int temp_x = abs(x), temp_y = abs(y);
+        int temp_x = std::abs(x), temp_y = std::abs(y);
         while(temp_x > 0){
             sum_x += temp_x % 10;
             temp_x /= 10;
