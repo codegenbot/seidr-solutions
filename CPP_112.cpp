@@ -20,5 +20,5 @@ std::pair<std::string, std::string> reverse_delete(const std::string& s, const s
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), std::make_pair("", "True"));
+    assert(issame(reverse_delete("mamma", "mia"), std::make_pair("", "True")));
 }
