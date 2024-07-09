@@ -50,6 +50,7 @@ int main() {
             break; 
         }
     }
-    std::cout << separate_paren_groups(s) << std::endl;
+    assert(separate_paren_groups("( ) (( )) (( )( ") == "(()())");
+    std::cout << "Result: " << separate_paren_groups(s) << std::endl;
     return 0;
 }
