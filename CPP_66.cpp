@@ -18,4 +18,3 @@ int digitSum(string s){
 int main() {
     cout << digitSum("you are very smart") << endl;
     return 0;
-}
