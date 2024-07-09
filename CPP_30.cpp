@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -25,9 +25,11 @@ int main() {
     if(n > 0) {
         std::vector<std::unique_ptr<float>> numbers;
         for(int i=0; i<n;i++){
-            float num = 0.0f; // Declare here
             std::cout << "Enter element " << i+1 << ": ";
-            std::cin >> num; 
+            float num;
+            std::string str;
+            std::cin >> str;
+            num = std::stof(str);
             numbers.push_back(std::make_unique<float>(num));
         }
 
