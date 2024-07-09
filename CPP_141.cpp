@@ -1,38 +1,33 @@
-Here is the completed code:
-
-```cpp
-#include <cctype>
-string file_name_check(string file_name) {
-    int dot_count = 0, digit_count = 0;
-    bool valid = true;
-
-    for (char c : file_name) {
-        if (c == '.') {
-            dot_count++;
-            if (dot_count > 1) {
-                valid = false;
-                break;
-            }
-        } else if (!std::isalnum(c)) {
-            valid = false;
-            break;
-        } else if (std::isdigit(c)) {
-            digit_count++;
-            if (digit_count > 3) {
-                valid = false;
-                break;
-            }
+string file_name_check(string file_name){
+    int count = 0;
+    bool foundDot = false;
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] >= '0' && file_name[i] <= '9'){
+            count++;
+            if(count > 3) return "No";
+        }
+        else if(file_name[i] == '.'){
+            foundDot = true;
+        }
+        else if(foundDot && (file_name[i] == 't' || file_name[i] == 'x' || file_name[i] == 'd' || 
+                              file_name[i] == 'l' || file_name[i] == 'e')){
+            return "Yes";
         }
     }
-
-    string extension;
-    for (int i = file_name.find('.') + 1; i < file_name.size(); i++) {
-        extension += file_name[i];
+    if(!foundDot) return "No";
+    string beforeDot = "";
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] == '.'){
+            break;
+        }
+        else{
+            beforeDot += file_name[i];
+        }
     }
-
-    if (!valid || extension != "txt" && extension != "exe" && extension != "dll") {
-        return "No";
-    } else {
-        return "Yes";
+    if(beforeDot.empty()) return "No";
+    for(int i=0; i<beforeDot.length(); i++){
+        if(!(beforeDot[i] >= 'a' && beforeDot[i] <= 'z') && 
+           !(beforeDot[i] >= 'A' && beforeDot[i] <= 'Z')) return "No";
     }
+    return "Yes";
 }
