@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,33 +12,34 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         int min_val = *std::min_element(lst.begin(), lst.end());
         result.push_back(min_val);
 
-        auto temp_lst = lst; 
-        auto it = temp_lst.begin();
-        while (it != temp_lst.end()) {
+        auto it = lst.begin();
+        bool found = false;
+        for (; it != lst.end(); ++it) {
             if (*it == min_val) {
-                it = temp_lst.erase(it);
-                if (it != temp_lst.end())
-                    ++it;
+                found = true;
                 break;
-            } else {
-                ++it;
             }
         }
 
-        if (!temp_lst.empty()) {
-            int max_val = *std::max_element(temp_lst.begin(), temp_lst.end());
+        if (found) {
+            lst.erase(it);
+        }
+
+        if (!lst.empty()) {
+            int max_val = *std::max_element(lst.begin(), lst.end());
             result.push_back(max_val);
 
-            auto it2 = temp_lst.begin();
-            while (it2 != temp_lst.end()) {
-                if (*it2 == max_val) {
-                    it2 = temp_lst.erase(it2);
-                    if (it2 != temp_lst.end())
-                        ++it2;
+            it = lst.begin();
+            found = false;
+            for (; it != lst.end(); ++it) {
+                if (*it == max_val) {
+                    found = true;
                     break;
-                } else {
-                    ++it2;
                 }
+            }
+
+            if (found) {
+                lst.erase(it);
             }
         }
     }
