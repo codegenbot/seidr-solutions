@@ -1,1 +1,1 @@
-return " ".join(str(num_dict[int(i)]) for i in sorted(map(int, numbers.split())))
+return " ".join(str(num_dict[i]) for i in sorted(map(int, numbers.split())))
