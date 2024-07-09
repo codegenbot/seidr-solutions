@@ -1,13 +1,10 @@
-string circular_shift(int x, int shift) {
-    string num_str = to_string(x);
-    int n = num_str.size();
+std::string circular_shift(int x, int shift) {
+    std::string s = std::to_string(x);
+    int n = s.size();
     shift %= n;
     if (shift == 0) {
-        return num_str;
+        return s;
+    } else {
+        return s.substr(n - shift) + s.substr(0, n - shift);
     }
-    if (shift > n) {
-        reverse(num_str.begin(), num_str.end());
-        return num_str;
-    }
-    return num_str.substr(n - shift, shift) + num_str.substr(0, n - shift);
 }
