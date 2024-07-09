@@ -1,10 +1,21 @@
-```
 def solve_boolean(expression):
+    if expression == "T":
+        return True
+    elif expression == "F":
+        return False
+
+    stack = []
     while "&" in expression or "|" in expression:
         expression = expression.replace(
-            "&(.*?)&", r"(True if \1==\"T\" else False) and stack.pop()"
+            "&(.*?)&", r"((\1==False) and (stack.pop()==True))"
         )
         expression = expression.replace(
-            "|(.*?)|", r"(True if \1==\"T\" else False) or stack.pop()"
+            "|(.*?)|", r"((\1==False) or (stack.pop()==True))"
         )
-    return eval("stack.pop()")
+
+    result = eval(expression)
+
+    if stack:
+        return False
+
+    return result

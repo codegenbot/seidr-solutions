@@ -1,4 +1,6 @@
+```
 #include <vector>
+#include <iostream>
 
 std::vector<int> leaders(std::vector<int>& inputVector) {
     std::vector<int> result;
@@ -19,4 +21,3 @@ int main() {
     }
     return 0;
 }
-#include <initializer_list>
