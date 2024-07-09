@@ -1,31 +1,16 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-string solve(int N) {
+string solve(int N){
     int sum = 0;
-    string binary = "";
-    
-    while (N > 0) {
-        if (N % 2 == 1)
-            sum++;
+    while(N > 0) {
+        int remainder = N % 2;
+        sum += remainder;
         N /= 2;
     }
-    
-    for (int i = sum; i > 0; i--) {
-        if (i >= 1)
-            binary += '1';
-        else
-            binary += '0';
+    string result = "";
+    if(sum == 0) return "0";
+    while(sum > 0) {
+        int temp = sum % 2;
+        if(temp == 1) result = to_string(temp) + result;
+        sum /= 2;
     }
-    
-    return binary;
-}
-
-int main() {
-    int N;
-    cin >> N;
-    cout << solve(N) << endl;
-    return 0;
+    return result;
 }
