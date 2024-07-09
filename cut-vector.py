@@ -20,6 +20,6 @@ subvector2 = arr[cut_index + 1:]
 if cut_index >= n - 2:
     subvector1 = arr
     subvector2 = []
-    
+
 print(*subvector1)
 print(*subvector2)
