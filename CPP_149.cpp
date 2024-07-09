@@ -39,7 +39,11 @@ int main_entry() {
     for(int i = 1; i <= n; i++) {
         std::string str;
         std::cout << "Enter string " << i << ": ";
-        std::getline(std::cin, str);
+        for(int j = 0; ; j++) {
+            if(std::cin.get() == '\n') break;
+            if(j < i) str += std::cin.get();
+            else std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
         inputStrings.push_back(str);
     }
     
