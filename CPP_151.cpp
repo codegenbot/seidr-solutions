@@ -1,6 +1,7 @@
+```cpp
 #include <vector>
-#include <initializer_list>
 #include <cassert>
+#include <initializer_list>
 
 float double_the_difference(std::vector<float>& lst) {
     float odd_sum = 0;
@@ -12,6 +13,6 @@ float double_the_difference(std::vector<float>& lst) {
 }
 
 int main() {
-    std::vector<float> lst({1.0f, 2.5f, -3.5f, 4.0f});
+    std::vector<float> lst = {1.0f, 2.5f, -3.5f, 4.0f};
     assert(double_the_difference(lst) == 0);
 }
