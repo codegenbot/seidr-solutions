@@ -1,6 +1,10 @@
 #include <vector>
 #include <algorithm>
 
+bool issame(vector<float> a, vector<float> b) {
+    return a.size() == b.size();
+}
+
 vector<float> get_positive(vector<float> l){
     vector<float> result;
     for(float num : l) {
@@ -9,8 +13,4 @@ vector<float> get_positive(vector<float> l){
         }
     }
     return result;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    return a.size() == b.size();
 }
