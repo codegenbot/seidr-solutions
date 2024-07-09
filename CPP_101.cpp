@@ -1,4 +1,9 @@
-Here is the completed code:
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a,vector<string>b){
+    return (a==b);
+}
 
 vector<string> words_string(string s){
     vector<string> result;
@@ -16,4 +21,9 @@ vector<string> words_string(string s){
     if(!word.empty())
         result.push_back(word);
     return result;
+}
+
+int main(){
+    assert (issame(words_string("ahmed     , gamal") , vector<string>{{"ahmed"}, {"gamal"}}));
+    return 0;
 }
