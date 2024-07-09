@@ -1,8 +1,7 @@
-int n = a.size();
-    int m = b.size();
-    if(n != m) return false;
+if (a.length() != b.length()) {
+        return false;
+    }
     
-    string temp = a + a;
-    
-    return temp.find(b) != string::npos;
+    string combined = a + a;
+    return combined.find(b) != string::npos;
 }

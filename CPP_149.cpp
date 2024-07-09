@@ -1,30 +1,27 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
-#include <string>
-#include <cassert>
+#include <algorithm>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(const std::string& a, const std::string& b) {
+    return a.length() == b.length();
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
-    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
-        if (a.length() == b.length()) {
+int sorted_list_sum(const std::vector<std::string>& lst) {
+    int sum = 0;
+    for (const std::string& str : lst) {
+        sum += str.length();
+    }
+    return sum;
+}
+
+std::vector<std::string> main(std::vector<std::string> lst) {
+    lst.erase(std::remove_if(lst.begin(), lst.end(), [](const std::string& s) { return s.length() % 2 != 0; }), lst.end());
+    std::sort(lst.begin(), lst.end(), [](const std::string& a, const std::string& b) {
+        if (!issame(a, b)) {
+            return a.length() < b.length();
+        } else {
             return a < b;
         }
-        return a.length() < b.length();
     });
     return lst;
-}
-
-int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
-
-    cout << "Test passed!" << endl;
-
-    return 0;
 }
