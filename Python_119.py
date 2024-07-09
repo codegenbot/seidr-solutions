@@ -8,8 +8,9 @@ def match_parens(lst):
             elif char == ')':
                 if len(stack) == 0:
                     return 'No'
-                stack.pop()
-    if not stack:
+                else:
+                    stack.pop()
+    if len(stack) == 0:
         return 'Yes'
     else:
         return 'No'
