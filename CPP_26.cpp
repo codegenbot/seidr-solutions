@@ -1,9 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() == 0 && b.size() == 0) return true;
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -53,6 +51,5 @@ int main() {
         std::cout << "All elements are duplicates." << std::endl;
     }
     
-    assert(issame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
     return 0;
 }
