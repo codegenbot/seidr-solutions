@@ -1,17 +1,21 @@
 ```cpp
 #include <vector>
+#include <cmath>
+#include <algorithm>
+#include <numeric>
+
 using namespace std;
 
-double max_fill(vector<vector<int>> grid, int capacity) {
+int max_fill(vector<vector<int>> grid, int capacity) {
+    int n = grid.size();
     double total_water = 0;
-    for (const auto& row : grid) {
-        total_water += accumulate(row.begin(), row.end(), 0);
+    for (int i = 0; i < n; i++) {
+        total_water += accumulate(grid[i].begin(), grid[i].end(), 0);
     }
-    return ceil((total_water + capacity - 1.0) / capacity);
+    return static_cast<int>(ceil((double)total_water / capacity));
 }
 
 int main() {
-    double result = max_fill({{1,1,1,1}, {1,1,1,1}}, 9);
-    cout << "Result: " << result << endl;
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
     return 0;
 }
