@@ -3,8 +3,7 @@ def encode(message):
     vowels = "aeiou"
     for char in message:
         if char.lower() in vowels:
-            shift = 2 if char.islower() else -2 if char.isupper() else 0
-            encoded_char = chr((ord(char) + shift - ord("a") if char.islower() else ord(char) + shift - ord("A")) % 26 + ord("a") if char.islower() else ord("A"))
+            encoded_char = chr((ord(char.lower()) + 2 - ord("a")) % 26 + ord("a"))
             encoded_message += encoded_char
         else:
             encoded_message += char.swapcase()
