@@ -32,6 +32,6 @@ int skjkasdkd(std::vector<int> lst){
 }
 
 int main() {
-    assert(std::skjkasdkd({127, 97, 8192}) == 10);
+    assert(skjkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
