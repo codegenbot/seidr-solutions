@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool std::issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
@@ -25,7 +25,7 @@ int main() {
     std::vector<int> expected = {1, 6, 1, 5, 2, 4, 3, 7};
     std::vector<int> result = strange_sort_list(input);
     
-    assert(std::issame(result, expected));
+    assert(issame(result, expected));
     
     return 0;
 }
