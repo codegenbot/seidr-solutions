@@ -1,6 +1,2 @@
-result = []
-for num in numbers[:-1]:
-    result.extend([num, delimeter])
-if numbers:
-    result.append(numbers[-1])
-return result
+def complete_code(numbers, delimiter):
+    return [x for sublist in [[num, delimiter] for num in numbers] for x in sublist[:-1]]  
