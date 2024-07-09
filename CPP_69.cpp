@@ -22,7 +22,7 @@ int main() {
     std::vector<int> lst;
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
-        int num; 
+        int num;
         std::cin >> num; 
 
         if (num == 0) {
