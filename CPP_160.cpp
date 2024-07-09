@@ -1,49 +1,66 @@
 #include <vector>
 #include <cmath>
 #include <utility>
+#include <stack>
 #include <string>
 
 int do_algebra(std::string expression) {
+    std::stack<int> operands;
     int result = 0;
-    int num = 0;
-    char op = '+';
+
     for (char c : expression) {
-        if (isdigit(c)) {
-            num = num * 10 + (c - '0');
-        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
-            switch (op) {
-                case '+':
-                    result += num;
-                    break;
-                case '-':
-                    result -= num;
-                    break;
-                case '*':
-                    result *= num;
-                    break;
-                case '/':
-                    result /= num;
-                    break;
+        if (std::isdigit(c)) {
+            int val = c - '0';
+            while (expression[expression.size() - 1] == '0' || expression[expression.size() - 1] == '1') {
+                val = val * 10 + (expression.back() - '0');
+                expression.pop_back();
             }
-            op = c;
-            num = 0;
+            operands.push(val);
+        } else if (c == '(') {
+            expression.push_back(')');
+        } else if (c == ')') {
+            while (expression.back() != '(') {
+                char op = expression.back();
+                int operand;
+                expression.pop_back();
+                if (std::isdigit(expression.back())) {
+                    operand = 0;
+                    while (std::isdigit(expression.back())) {
+                        operand = operand * 10 + (expression.back() - '0');
+                        expression.pop_back();
+                    }
+                    expression.push_back(')');
+                } else {
+                    operand = operands.top(); operands.pop();
+                }
+                if (op == '+') result += operand;
+                else if (op == '-') result -= operand;
+                else if (op == '*') result *= operand;
+                else if (op == '/') result /= operand;
+            }
+            expression.pop_back();
         } else {
-            // skip non-alphanumeric characters
+            while (!expression.empty() && expression.back() != ')') {
+                char op = expression.back();
+                int operand;
+                expression.pop_back();
+                if (std::isdigit(expression.back())) {
+                    operand = 0;
+                    while (std::isdigit(expression.back())) {
+                        operand = operand * 10 + (expression.back() - '0');
+                        expression.pop_back();
+                    }
+                    expression.push_back(')');
+                } else {
+                    operand = operands.top(); operands.pop();
+                }
+                if (op == '+') result += operand;
+                else if (op == '-') result -= operand;
+                else if (op == '*') result *= operand;
+                else if (op == '/') result /= operand;
+            }
+            expression.pop_back();
         }
-    }
-    switch (op) {
-        case '+':
-            result += num;
-            break;
-        case '-':
-            result -= num;
-            break;
-        case '*':
-            result *= num;
-            break;
-        case '/':
-            result /= num;
-            break;
     }
     return result;
 }
