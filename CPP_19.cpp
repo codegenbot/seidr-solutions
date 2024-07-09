@@ -1,6 +1,6 @@
 #include <iostream>
 #include <map>
-#include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -16,12 +16,6 @@ map<string, int> number_map = {
     {"eight", 8},
     {"nine", 9}
 };
-
-string sort_numbers(string numbers);
-
-int main() {
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-}
 
 string sort_numbers(string numbers){
     string result = "";
@@ -39,6 +33,11 @@ string sort_numbers(string numbers){
         result += pair.second + " ";
     }
     
-    result.pop_back();
+    result.pop_back(); // Remove extra space at the end
     return result;
+}
+
+int main() {
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
 }
