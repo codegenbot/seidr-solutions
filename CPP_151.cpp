@@ -12,16 +12,8 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5, 2.5, -3.5, 4.5, 5.5};
-    float odd_sum = 0;
-    
-    for (float num : lst) {
-        if (num > 0 && modf(num, &num) == 0) {
-            odd_sum += num * num;
-        }
-    }
-    
-    assert(double_the_difference(lst) == odd_sum);
-    
+    std::vector<float> lst = {1.5, 3.8, 4.2, 6.7};
+    float odd_sum = double_the_difference(lst);
+    assert(odd_sum == 29); // Check if the sum of squares is correct
     return 0;
 }
