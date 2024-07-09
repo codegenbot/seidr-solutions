@@ -1,14 +1,13 @@
 string encode(string message){
-    for (int i = 0; i < message.length(); i++) {
-        if (isalpha(message[i])) {
-            message[i] = toupper(message[i]);
-            if (message[i] == 'A' || message[i] == 'E' || message[i] == 'I' || message[i] == 'O' || message[i] == 'U') {
-                message[i] = char(int(message[i]) + 2);
+    for(char& c : message){
+        if(isalpha(c)){
+            if(islower(c)){
+                c = toupper(c);
+            } else {
+                c = tolower(c);
             }
-            if (message[i] == 'Z') {
-                message[i] = 'B';
-            } else if (isalpha(message[i])) {
-                message[i] = char(int(message[i]) + 1);
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+                c = c + 2;
             }
         }
     }
