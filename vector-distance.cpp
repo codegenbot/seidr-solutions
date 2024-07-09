@@ -1,3 +1,4 @@
+```c
 double vectorDistance() {
     int n;
     cin >> n;
