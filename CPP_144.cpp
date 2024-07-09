@@ -1,11 +1,21 @@
-#include<string>
+#include <string>
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(strtok((x.substr(1,x.find('/'))).c_str(),"/")[0]);
-    int b = stoi(strtok("", "/")[0]);
-    int c = stoi(strtok((n.substr(1,n.find('/'))).c_str(),"/")[0]);
-    int d = stoi(strtok("", "/")[0]);
-
-    return (a*d) == (b*c);
+    int a = 0, b = 0, c = 0, d = 0;
+    for (int i = 1; i < x.size(); i++) {
+        if (x[i] == '/') {
+            a = stoi(x.substr(0, i));
+            b = stoi(x.substr(i + 1));
+            break;
+        }
+    }
+    for (int i = 1; i < n.size(); i++) {
+        if (n[i] == '/') {
+            c = stoi(n.substr(0, i));
+            d = stoi(n.substr(i + 1));
+            break;
+        }
+    }
+    return a * d == b * c;
 }
