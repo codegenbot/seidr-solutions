@@ -1,12 +1,14 @@
-from typing import Tuple
-
-def find_closest_elements(numbers: list[float]) -> Tuple[float, float]:
+def find_min_difference(numbers):
     numbers.sort()
     min_diff = float("inf")
-    result = (0.0, 0.0)
+    result = ()
     for i in range(len(numbers) - 1):
-        diff = abs(numbers[i] - numbers[i + 1])
+        diff = numbers[i + 1] - numbers[i]
         if diff < min_diff:
             min_diff = diff
             result = (numbers[i], numbers[i + 1])
     return result
+
+# Call the function
+numbers = [4, 2, 8, 10, 7]
+print(find_min_difference(numbers))
