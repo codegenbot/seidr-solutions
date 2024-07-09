@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include <cassert>
 
 std::string string_xor(std::string a, std::string b) {
     if (a.length() != b.length())
@@ -9,15 +9,13 @@ std::string string_xor(std::string a, std::string b) {
 
     std::string result = "";
     for (int i = 0; i < a.length(); i++) {
-        int x = a[i] - '0';
-        int y = b[i] - '0';
-        int res = x ^ y;
-        result += (res > 0) ? "1" : "0";
+        char c = (a[i] - '0' ^ b[i] - '0') + '0';
+        result += c;
     }
     return result;
 }
 
-int main() { 
+int main() {
     assert(string_xor("0101", "0000") == "0101");
     try {
         std::string str1, str2;
@@ -30,11 +28,13 @@ int main() {
         
         try {
             std::string result = string_xor(str1, str2);
-            std::cout << "XOR of the two strings is: " << result << std::endl;
+            if (!result.empty()) {
+                std::cout << "XOR of the two strings is: " << result << std::endl;
+            }
         } catch (const std::invalid_argument& e) {
             std::cout << "Error: " << e.what() << std::endl;
         }
     } catch (...) { 
         std::cout << "An error occurred." << std::endl;
     }
-    return 0;
+}
