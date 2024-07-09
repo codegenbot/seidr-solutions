@@ -11,7 +11,7 @@ string int_to_mini_roman(int num) {
                       "", "CXXI", "CXXII", "CXXIII", "CXXIV", "CXXV", "CXXVI", "CXXVII", "CXXVIII", "CXXIX", "CXXX",
                       "", "CXXXI", "CXXXII", "CXXXIII", "CXXXIV", "CXXXV", "CXXXVI", "CXXXVII", "CXXXVIII", "CXXXIX", "CXL",
                       "", "CXLI", "CXLII", "CXLIII", "CXLIV", "CXLV", "CXLVI", "CXLVII", "CXLVIII", "CXlix", "CL",
-                      "", "CLI", "CII", "CC", "CCI", "CCC", "CCCI", "CCCII", "CCCIII", "CCCIV", "CCCV", "CCCVI", "CCCvii", "CCCIX", "CCCX"};
+                      "", "CLI", "CII", "CC", "CCI", "CCC", "CCCI", "CCCII", "CCCIII", "CCCIV", "CCCV", "CCCVI", "CCCvii", "CCcviii", "CCXCIX", "CCCC"};
 
     string result = "";
 
@@ -31,9 +31,9 @@ string int_to_mini_roman(int num) {
         } else if (num >= 100) {
             int count = num / 100;
             for (int i = 0; i < count; i++) {
-                num -= 100;
                 result += "C";
             }
+            num %= 100;
         } else if (num >= 90) {
             num -= 90;
             result += "XC";
@@ -43,25 +43,27 @@ string int_to_mini_roman(int num) {
         } else if (num >= 40) {
             num -= 40;
             result += "XL";
-        } else {
-            while (num > 0) {
-                if (num >= 10) {
-                    num -= 10;
-                    result += "X";
-                } else if (num == 9) {
-                    result += "IX";
-                    return result;
-                } else if (num >= 5) {
-                    num -= 5;
-                    result += "V";
-                } else if (num == 4) {
-                    result += "IV";
-                    return result;
-                } else {
-                    num--;
-                    result += "I";
-                }
+        } else if (num >= 10) {
+            int count = num / 10;
+            for (int i = 0; i < count; i++) {
+                result += "X";
             }
+            num %= 10;
+        } else if (num >= 9) {
+            num -= 9;
+            result += "IX";
+        } else if (num >= 5) {
+            int count = num / 5;
+            for (int i = 0; i < count; i++) {
+                result += "V";
+            }
+            num %= 5;
+        } else if (num >= 4) {
+            num -= 4;
+            result += "IV";
+        } else {
+            num--;
+            result += "I";
         }
     }
 
