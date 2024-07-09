@@ -3,18 +3,18 @@
 
 using namespace std;
 
-string encrypt(string s){
+string encrypt(string s) {
     string result = "";
     int shift = 2 * 2;
-    for(char c : s){
-        if(isalpha(c)){
+    for (char c : s) {
+        if (isalpha(c)) {
             char encrypted = c + shift;
-            if(islower(c)){
-                if(encrypted > 'z'){
+            if (islower(c)) {
+                if (encrypted > 'z') {
                     encrypted = 'a' + (encrypted - 'z' - 1);
                 }
             } else {
-                if(encrypted > 'Z'){
+                if (encrypted > 'Z') {
                     encrypted = 'A' + (encrypted - 'Z' - 1);
                 }
             }
@@ -27,6 +27,6 @@ string encrypt(string s){
 }
 
 int main(){
-    assert (encrypt("a")=="e");
+    assert(encrypt("a") == "e");
     return 0;
 }
