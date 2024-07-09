@@ -12,7 +12,7 @@ bool isCube(int a) {
     return false;
 }
 
-int originalMain(){
+int main(){
     int n;
     std::cout << "Enter an integer: ";
     std::cin >> n;
@@ -20,10 +20,8 @@ int originalMain(){
         std::cout << n << " is a perfect cube.\n";
     else
         std::cout << n << " is not a perfect cube.\n";
-}
-
-int main(){
-    originalMain();
-    // You can put your assertions here if needed
-    assert (isCube(1729) == false);
+    if(isCube(1728)) 
+        std::cout << 1728 << " is a perfect cube.\n";
+    else
+        std::cout << 1728 << " is not a perfect cube.\n";
 }
