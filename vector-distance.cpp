@@ -1,4 +1,7 @@
 #include <vector>
+#include <cmath>
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
 double vectorDistance(int n) {
@@ -16,9 +19,6 @@ double vectorDistance(int n) {
     }
     return sqrt(distance);
 }
-
-#include <iostream>
-#include <iomanip>
 
 int main() {
     int n;
