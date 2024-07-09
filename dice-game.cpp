@@ -7,7 +7,7 @@ double getProbability(int n, int m) {
     double peterWins = 0.0;
 
     for (int i = 1; i <= m; i++) {
-        peterWins += (double)(n - i) / total;
+        peterWins += (double)(n - i + 1) / total;
     }
 
     return peterWins;
