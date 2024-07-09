@@ -32,5 +32,5 @@ bool isSimplePower(int num) {
 }
 
 bool isSimplePower(int base, int power) {
-    return (int)pow(base, power) == num; 
+    return (int)pow(base, power) == base; 
 }
