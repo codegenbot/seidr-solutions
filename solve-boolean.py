@@ -14,16 +14,10 @@ def solve_boolean(expression):
                 elif char == "|":
                     stack.append(left or right)
             else:
-                stack.append(char == "T")
+                if char == "T":
+                    stack.append(True)
+                else:
+                    stack.append(False)
         return stack[0]
 
-
-def evaluate(expression):
-    while "&" in expression or "|" in expression:
-        expression = expression.replace(
-            "&(.*?)&", r"((\1==False) and (stack.pop()==True))"
-        )
-        expression = expression.replace(
-            "|(.*?)|", r"((\1==False) or (stack.pop()==True))"
-        )
-    return stack[0]
+print(solve_boolean("f&t&f&f|f|t|f|f|f"))

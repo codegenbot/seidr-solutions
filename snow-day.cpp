@@ -1,13 +1,13 @@
 ```c++
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
-    double totalSnow = initialSnow;
-    totalSnow += rateOfSnowFall * hours - totalSnow * proportionOfSnowMeltingPerHour;
-    for (int i = 0; i < hours - 1; i++) {
-        totalSnow += -totalSnow * proportionOfSnowMeltingPerHour + rateOfSnowFall;
+    double totalSnow = static_cast<double>(initialSnow);
+    for (double i = 0; i < static_cast<double>(hours); i++) {
+        totalSnow += rateOfSnowFall - totalSnow * proportionOfSnowMeltingPerHour;
     }
     return totalSnow;
 }
