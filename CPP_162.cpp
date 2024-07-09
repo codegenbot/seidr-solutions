@@ -2,13 +2,12 @@
 #include <string>
 
 int main() {
-    string text;
-    cout << "Enter your input: ";
-    cin >> text;
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
     
-    string result = string_to_md5(text);
-    cout << "The MD5 of the entered string is: " << result << endl;
-    
+    string result = string_to_md5(str);
+    cout << "MD5 of the input string: " << result << endl;
+
     return 0;
 }
-```
