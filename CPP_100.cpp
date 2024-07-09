@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <assert.h>
+#include <iostream>
 
 bool issame(vector<int> a, vector<int> b);
 
@@ -30,6 +30,6 @@ vector<int> make_a_pile(int n) {
 
 int main() {
     vector<int> a = make_a_pile(8);
-    assert (issame(a, vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
+    assert (issame(a, vector<int>({8, 10, 12, 14, 16, 18, 20, 22})));
     return 0;
 }
