@@ -1,4 +1,3 @@
-```
 #include <sstream>
 #include <vector>
 #include <utility>
@@ -39,34 +38,38 @@ int main() {
     std::string str = "++7*3+4";
     std::istringstream iss(str);
     
-    std::vector<std::pair<char, int>> operators_and_operands;
     char op = '+';
     int operand = 0; // initialize operand variable
-    while (std::getline(iss, str, ' ")) {
-        if (!str.empty()) {
+    std::vector<std::pair<char, int>> operators_and_operands;
+    std::string token;
+    while (iss >> token) {
+        if (!token.empty()) {
             if (op != '+') {
-                pair p(op, operand); 
-                operators_and_operands.push_back(p);
+                operators_and_operands.push_back({op, operand});
                 op = '+';
                 operand = 0;
             }
-            if (str[0] == '+' || str[0] == '-' || str[0] == '*' || str[0] == '/' || str[0] == '^') {
-                op = str[0];
-                operand = 0;
-                for (int i = 1; i < str.size(); ++i) {
-                    if (!std::isdigit(str[i])) {
-                        break;
-                    }
-                    operand = operand * 10 + (str[i] - '0');
-                }
+            if (token[0] == '+') {
+                op = '+';
+                operand = std::stoi(token.substr(1));
+            } else if (token[0] == '-') {
+                op = '-';
+                operand = std::stoi(token.substr(1));
+            } else if (token[0] == '*') {
+                op = '*';
+                operand = std::stoi(token.substr(1));
+            } else if (token[0] == '/') {
+                op = '/';
+                operand = std::stoi(token.substr(1));
+            } else if (token[0] == '^') {
+                op = '^';
+                operand = std::stoi(token.substr(1));
             }
         }
     }
-    
     // add the last operator and operand to vector
     if (op != '+') {
-        pair p(op, operand);
-        operators_and_operands.push_back(p);
+        operators_and_operands.push_back({op, operand});
     }
     
     int result = do_algebra(operators_and_operands);
