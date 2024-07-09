@@ -1,10 +1,9 @@
-```cpp
 #include <boost/any.hpp>
 #include <boost/type_index.hpp>
 
+using namespace boost;
+
 boost::any compare_one(boost::any a, boost::any b) {
-    using namespace boost;
-    
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
         return (int) a > (double) b ? a : b;
     }
@@ -29,14 +28,14 @@ boost::any compare_one(boost::any a, boost::any b) {
         double n2 = stod(s2);
         return n1 > n2 ? a : b;
     }
-    else if (a.type() == typeid(int) && boost::any_cast<int>(a) == boost::any_cast<int>(a)) {
-        return typeid(int);
+    else if (a.type() == typeid(int) && boost::any_cast<int>(a) == boost::any_cast<double>(a)) {
+        return boost::any("None");
     }
     else if (a.type() == typeid(double) && boost::any_cast<double>(a) == boost::any_cast<int>(a)) {
-        return typeid(int);
+        return boost::any("None");
     }
     else if (a.type() == typeid(string) && any_cast<string>(a).find('.') == std::string::npos) {
-        return typeid(int);
+        return boost::any("None");
     }
     return a;
 }
