@@ -1,12 +1,17 @@
 #include <cmath>
 #include <iostream>
 
-double probability(int n, int m) {
-    double total = 0; 
-    for (int i = 1; i <= m - 1; i++) {
-        total += (n - i);
+long double probability(int n, int m) {
+    long double total = 0; 
+    int count = 0;
+    for (int i = 1; i <= m; i++) {
+        for (int j = i + 1; j <= n; j++) {
+            if (j > i) {
+                ++count;
+            }
+        }
     }
-    return static_cast<double>(total) / ((double)(n * m));
+    return count / ((long double)(n * m));
 }
 
 int main() {
