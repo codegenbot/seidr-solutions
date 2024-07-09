@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(vector<std::basic_string<char>> a, vector<std::basic_string<char>> b) {
+bool issame(std::vector<std::basic_string<char>> a, std::vector<std::basic_string<char>> b) {
     return a == b;
 }
 
