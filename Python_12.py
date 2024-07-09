@@ -4,8 +4,7 @@ def longest(strings):
     return max(strings, key=lambda x: (len(x), strings.index(x)))
 
 # Read input from the user
-print("Please enter strings separated by spaces:")
-strings = input().split()
+strings = input("Enter strings separated by spaces: ").split()
 
 # Call the function with user input
 result = longest(strings)
