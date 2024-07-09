@@ -1,1 +1,1 @@
-return [value for value in values if isinstance(value, int)]
+return [val for val in values if isinstance(val, int)]
