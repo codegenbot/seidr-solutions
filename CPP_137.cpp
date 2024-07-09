@@ -1,9 +1,9 @@
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
+        return boost::any(b.convert_to<int>());
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return a;
+        return boost::any(a.convert_to<float>());
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str1 = boost::any_cast<string>(a);
