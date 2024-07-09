@@ -13,25 +13,20 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
                 return a < b;
             }
         });
-    int sum = 0;
-    for(auto str : lst) {
-        sum += str.length();
-    }
-    cout << "Sum: " << sum << endl;
     return lst;
 }
 
 int main() {
     int n; 
-    cin >> n;
+    std::cin >> n;
     
-    vector<string> lst(n);
+    std::vector<std::string> lst(n);
     
     for(int i = 0; i < n; i++) {
-        cin >> lst[i];
+        std::cin >> lst[i];
     }
     
-    vector<string> result = sorted_list_sum(lst);
+    std::vector<std::string> result = sorted_list_sum(lst);
     
     cout << "Sorted List Sum: ";
     for(auto str : result) {
