@@ -12,14 +12,15 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 int main() {
     int numArray[] = {9, 4, 8};
-    std::vector<std::string> stringArray = {"Nine", "Four", "Eight"};
-    std::vector<std::string> by_length;
-    for (int i = 0; i < sizeof(numArray) / sizeof(numArray[0]); i++) {
-        if (numArray[i] == 9) by_length.push_back("Nine");
-        else if (numArray[i] == 4) by_length.push_back("Four");
-        else by_length.push_back("Eight");
+    std::vector<int> intArray(numArray, numArray + sizeof(numArray) / sizeof(numArray[0]));
+    std::vector<std::string> stringArray;
+
+    for (auto i : intArray) {
+        if (i == 9) stringArray.push_back("Nine");
+        else if (i == 4) stringArray.push_back("Four");
+        else if (i == 8) stringArray.push_back("Eight");
     }
 
-    assert(issame(std::vector<std::string>(by_length.begin(), by_length.end()), stringArray));
+    assert(issame({std::to_string(i) for i in intArray}, stringArray));
     return 0;
 }
