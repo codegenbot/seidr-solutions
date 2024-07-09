@@ -9,4 +9,4 @@ def string_to_md5(text):
 if __name__ == "__main__":
     with open('input.txt', 'r') as file:
         text = file.read().strip()
-    print(string_to_md5(text))
+        print(string_to_md5(text))
