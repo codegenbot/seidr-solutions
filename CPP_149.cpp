@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -27,6 +28,6 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return result;
 }
 
-bool issame(vector<string>, vector<string>) {
+bool issame(vector<string> v1, vector<string> v2) {
     // Define the function body here
 }
