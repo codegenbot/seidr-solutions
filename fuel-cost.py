@@ -1,4 +1,3 @@
-```
 from math import floor
 
 def fuel_cost(input_vector):
