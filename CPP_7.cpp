@@ -1,14 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size())
-        return false;
-
-    for (int i = 0; i < a.size(); ++i)
-        if (a[i] != b[i])
-            return false;
-    return true;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
@@ -21,6 +16,7 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
 }
 
 int main() {
+    assert(issame({{"grunt", "trumpet", "prune", "gruesome"}, {"run"}}, {{"grunt", "prune"}}));
     std::vector<std::string> strings = {"grunt", "trumpet", "prune", "gruesome"};
     std::string substring = "run";
     std::vector<std::string> result = filter_by_substring(strings, substring);
