@@ -45,6 +45,7 @@ int main_entry() {
     for(int i = 0; i < n; i++) {
         string str;
         cout << "Enter string " << (i+1) << ": ";
+        cin.ignore();  
         getline(cin, str);
         inputStrings.push_back(str);
     }
