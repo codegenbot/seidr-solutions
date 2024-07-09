@@ -1,9 +1,12 @@
-#include <vector>
-
-bool below_threshold(std::vector<int> l, int t) {
-    for (int num : l) {
-        if (num >= t) {
-            return false;
-        }
+int main() {
+    vector<int> l;
+    int t;
+    cin >> t; 
+    l.resize(t);
+    for(int i=0; i<t; i++) {
+        cin >> l[i];
     }
-    return true;
+    bool result = below_threshold(l, t);
+    cout << (result ? "True" : "False"); 
+    return 0;
+}
