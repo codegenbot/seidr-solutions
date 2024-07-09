@@ -1,13 +1,13 @@
-#include <vector>
-#include <algorithm>
-
-bool areSame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
-    if (vec1.size() != vec2.size()) return false;
-    
-    for (const auto& str : vec1) {
-        if (std::find(vec2.begin(), vec2.end(), str) == vec2.end())
-            return false;
+vector<string> filter_strings(vector<string> strings, string substring){
+    vector<string> result;
+    for(string s : strings){
+        if(s.find(substring) != string::npos)
+            result.push_back(s);
     }
-    
-    return true;
+    return result;
+}
+
+int main(){
+    assert(sort(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run")) == {"grunt", "prune"});
+    return 0;
 }
