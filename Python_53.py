@@ -1,3 +1,4 @@
+```
 def add(a=0, b=0):
     i = 1
     x = float(input(f"Enter the {a if i==1 else 'second'} number: ")) if input() else a
