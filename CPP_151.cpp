@@ -11,7 +11,7 @@ int main() {
         int num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        if(num > 0) {
+        if(num > 0) { 
             input.push_back(num);
         }
     }
