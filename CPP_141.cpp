@@ -1,18 +1,30 @@
+Here is the completed code:
+
+```cpp
 string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
+    int dot_count = 0;
+    bool has_digit = false;
+    string before_dot;
+
     for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-            if(digit_count > 3) return "No";
+        if(file_name[i] == '.'){
+            dot_count++;
+        } else if(isdigit(file_name[i])){
+            has_digit = true;
+        } else {
+            if(i > 0){
+                before_dot += file_name[i];
+            }
         }
-        else if(file_name[i] == '.'){
-            found_dot = true;
-        }
-        else if(!found_dot && !isalpha(file_name[i])) return "No";
     }
-    if(!found_dot || file_name.find('.') == string::npos) return "No";
-    string extension = file_name.substr(file_name.find('.') + 1);
-    if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
-    return "Yes";
+
+    if(dot_count != 1 || has_digit > 3 || before_dot.empty() || !isalpha(before_dot[0])){
+        return "No";
+    } else if(file_name.substr(file_name.find('.')+1).compare("txt") == 0 ||
+             file_name.substr(file_name.find('.')+1).compare("exe") == 0 ||
+             file_name.substr(file_name.find('.')+1).compare("dll") == 0){
+        return "Yes";
+    } else {
+        return "No";
+    }
 }
