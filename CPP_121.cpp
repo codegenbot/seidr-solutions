@@ -1,4 +1,3 @@
-```cpp
 int main() {
     int solution(vector<int> lst) {
         int sum = 0;
