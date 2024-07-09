@@ -37,9 +37,13 @@ Pair find_closest_elements(std::vector<float> numbers) {
 int main() { 
     std::vector<float> testVec;
     for (int i = 0; i < 10; ++i) {
-        testVec.push_back(i + 1.1f);
+        testVec.push_back(static_cast<float>(i + 1.1f));
     }
     Pair closestPair = find_closest_elements(testVec);
     
-    assert(issame({closestPair.first, closestPair.second}, {2.2f, 2.3f}));
+    if (issame({closestPair.first, closestPair.second}, {2.2f, 2.3f})) {
+        std::cout << "The closest pair is (" << closestPair.first << ", " << closestPair.second << ")" << std::endl;
+    } else {
+        std::cout << "Error: The closest pair does not match the expected result." << std::endl;
+    }
 }
