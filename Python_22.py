@@ -1,9 +1,11 @@
 ```
 def filter_integers(values):
     try:
-        return [int(value) for value in values]
+        for value in values:
+            int(value)
+        return "success"
     except ValueError:
-        return "Error: Non-integer values entered."
+        return "failure"
 
 numbers = input("Enter numbers separated by commas: ")
 values = [value.strip() for value in numbers.split(",")]
