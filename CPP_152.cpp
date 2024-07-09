@@ -1,20 +1,21 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
 std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b) {
-    std::vector<int> result(a.size());
+    std::vector<int> result(4);
     for (size_t i = 0; i < a.size(); ++i) {
-        result[i] = a[i] == b[i] ? 0 : a[i] < b[i] ? -1 : 1;
+        if (a[i] == b[i]) {
+            ++result[0];
+        } else if (a[i] > b[i]) {
+            ++result[1];
+        } else {
+            ++result[3];
+        }
     }
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
+    assert(compare({1, 2, 3, 5}, {-1, 2, 3, 4}) == std::vector<int>{2, 0, 0, 1});
     return 0;
 }
