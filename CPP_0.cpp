@@ -11,12 +11,12 @@ bool has_close_elements(const std::vector<float>& vec, float threshold) {
 }
 
 int main() {
-    std::vector<float> a;
+    std::vector<float> a(5); // Initialize the vector with 5 elements
     float num;
 
-    std::cout << "Enter the elements of the vector: ";
-    while(std::cin >> num) {
-        a.push_back(num);
+    for(int i = 0; i < 5; ++i) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> a[i];
     }
 
     if (has_close_elements(a, 0.1f)) {
