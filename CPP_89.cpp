@@ -1,7 +1,9 @@
-string encrypted = "";
+string encrypt(string s){
+    string encrypted = "";
     for(char c : s){
-        if(c >= 'a' && c <= 'z'){
-            encrypted += (char)((((c - 'a') + 2) * 2 + 'a') % 26 + 'a');
+        if(isalpha(c)){
+            char encrypted_char = 'a' + (c - 'a' + 2 * 2) % 26;
+            encrypted += encrypted_char;
         } else {
             encrypted += c;
         }
