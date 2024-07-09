@@ -1,5 +1,3 @@
-Here is the completed code:
-
 int next_smallest(vector<int> lst) {
     vector<int> copy = lst;
     sort(copy.begin(), copy.end());
@@ -9,5 +7,4 @@ int next_smallest(vector<int> lst) {
 
 int main() {
     assert(next_smallest({-35, 34, 12, -45}) == -35);
-    //... rest of your code ...
 }
