@@ -1,15 +1,15 @@
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <cmath>
+#include <string>
 
-string rounded_avg(int n, int m) {
+std::string rounded_avg(int n, int m) {
     if (n > m) return "-1";
     double sum = 0;
     for (int i = n; i <= m; i++) {
         sum += i;
     }
     double avg = round(sum / (m - n + 1));
-    string res = "";
+    std::string res = "";
     while (avg > 0) {
         if (avg >= 2) {
             res += "1";
@@ -24,13 +24,8 @@ string rounded_avg(int n, int m) {
 
 int main() {
     int n, m;
-    cout << "Enter the values of n and m: ";
-    cin >> n >> m;
-    string result = rounded_avg(n, m);
-    if (result == "-1") {
-        cout << "Invalid input." << endl;
-    } else {
-        cout << "The rounded average is: " << result << endl;
-    }
+    std::cout << "Enter the range [n, m]: ";
+    std::cin >> n >> m;
+    std::cout << "Rounded average: " << rounded_avg(n, m) << std::endl;
     return 0;
 }
