@@ -1,3 +1,4 @@
+```
 def cut_vector(vector):
     min_diff = 0
     split_index = 0
