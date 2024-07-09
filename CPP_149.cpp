@@ -18,8 +18,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    int n; 
-    cin >> n;
+    int n; cin >> n;
     
     vector<string> lst(n);
     
