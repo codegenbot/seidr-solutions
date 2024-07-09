@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <string>
 
 bool solveBoolean(std::string s) {
@@ -8,20 +9,18 @@ bool solveBoolean(std::string s) {
             return false;
         } else if (s[i] == '|') {
             if (i == s.size() - 1 || (s[i + 1] == '&' && s.find('T', i + 2) != std::string::npos)) {
-                result = true;
+                return true;
             } else if (i == s.size() - 1 || s[i + 1] == 'F') {
-                result = false;
+                return false;
             }
-            while (s[i] == '|') {
-                i++;
-            }
+            i++;
         } else if (s[i] == '&') {
             bool foundT = false;
-            for (; i < s.size(); i++) {
-                if (s[i] == 'T') {
+            for (int j = i; j < s.size(); j++) {
+                if (s[j] == 'T') {
                     foundT = true;
                     break;
-                } else if (s[i] == 'F') {
+                } else if (s[j] == 'F') {
                     return false;
                 }
             }
@@ -35,8 +34,8 @@ int main() {
     std::string input;
     std::cout << "Enter a Boolean expression: ";
     std::getline(std::cin, input);
-    bool output = solveBoolean(input);
-    if (output) {
+    bool result = solveBoolean(input);
+    if (result) {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
