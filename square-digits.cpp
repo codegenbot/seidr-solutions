@@ -1,16 +1,19 @@
+```cpp
 #include <string>
 #include <iostream>
 
 std::string squareDigits(std::string input) {
-    long num = std::stol(input); 
     std::string output = "";
-    while (num > 0) {
-        int digit = num % 10; 
+    for (char c : input) { 
+        int digit = c - '0'; 
         digit *= digit; 
-        output += std::to_string(digit);
-        num /= 10;
+        if(digit >= 10){
+            std::cout << "Error: Input contains a number greater than or equal to 100." << std::endl;
+            return "";
+        }
+        output += std::to_string(digit); 
     }
-    return std::string(output.rbegin(), output.rend()); 
+    return output;
 }
 
 int main() { 
