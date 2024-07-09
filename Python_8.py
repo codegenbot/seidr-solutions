@@ -7,5 +7,4 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     )
 
 numbers = list(map(int, input().split()))
-
 print(sum_product(numbers))
