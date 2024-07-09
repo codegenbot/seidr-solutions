@@ -12,6 +12,12 @@ std::string solve(int N) {
 }
 
 int main() {
-    std::cout << (solve(963) == "10010" ? "Test Passed" : "Test Failed") << std::endl;
+    std::string result = solve(963);
+    if (result == "10010") {
+        std::cout << "Test Passed!" << std::endl;
+    } else {
+        std::cout << "Test Failed!" << std::endl;
+    }
+
     return 0;
 }
