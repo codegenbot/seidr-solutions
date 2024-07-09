@@ -1,37 +1,41 @@
-#include<string>
-using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
 
-string file_name_check(string file_name) {
-    bool hasDigit = false;
-    int dotCount = 0;
+std::string file_name_check(std::string file_name){
+    int digit_count = 0;
+    bool found_dot = false;
+    std::string before_dot;
 
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            if (!hasDigit) hasDigit = true; 
-            else return "No";
-        } else if (c == '.') {
-            dotCount++;
-            if (dotCount > 1) return "No"; 
-        } else if (c == ' ' || c < 'a' || c > 'z' && c < 'A' || c > 'Z') {
-            return "No"; 
+    for(int i=0; i<file_name.length(); i++){
+        char c = file_name[i];
+        if(isdigit(c)){
+            digit_count++;
+            if(digit_count > 3)
+                return "No";
+        }else if(c == '.'){
+            found_dot = true;
+        }else{
+            before_dot += c;
+            if(found_dot)
+                break;
         }
     }
 
-    string suffix;
-    int i = 0;
-    while (i < file_name.size()) {
-        if (file_name[i] == '.') break;
-        i++;
-    }
-    suffix = file_name.substr(i + 1);
+    if(!found_dot || before_dot.empty() || !isalpha(before_dot[0]))
+        return "No";
 
-    if (suffix != "txt" && suffix != "exe" && suffix != "dll") return "No";
+    int start = file_name.find('.');
+    std::string after_dot = file_name.substr(start+1);
+    std::vector<std::string> valid_extensions = {"txt", "exe", "dll"};
+    if(find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end())
+        return "No";
 
-    return hasDigit ? "No" : "Yes";
+    return "Yes";
 }
 
 int main() {
-    assert(file_name_check("s.") == "No");
-    // your test cases
+    std::cout << (file_name_check("s.") == "No") << std::endl; 
     return 0;
 }
