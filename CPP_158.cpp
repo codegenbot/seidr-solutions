@@ -1,18 +1,8 @@
 string find_max(vector<string> words){
-    string result = "";
-    int maxUniqueChars = 0;
-    
-    for(string word : words){
-        set<char> uniqueChars(word.begin(), word.end());
-        if(uniqueChars.size() > maxUniqueChars){
-            maxUniqueChars = uniqueChars.size();
-            result = word;
-        } else if(uniqueChars.size() == maxUniqueChars) {
-            if(result > word) {
-                result = word;
-            }
-        }
-    }
-    
-    return result;
+    string res = *max_element(words.begin(), words.end(),
+        [](const string& a, const string& b) {
+            return std::tie(a.size(), count(a.begin(), a.end, ' ')) <
+                   std::tie(b.size(), count(b.begin(), b.end, ' '));
+        });
+    return res;
 }
