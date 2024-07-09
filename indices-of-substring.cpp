@@ -8,12 +8,12 @@ vector<int> findIndices(string text, string target) {
     int n = text.size();
     int m = target.size();
 
-    for (int i = 0; i <= n - m + 1; i++) {
+    for (int i = 0; i <= n - m; i++) {
         bool found = true;
         for (int j = 0; j < m; j++) {
-            if (j > 0 && text[i + j - 1] != target[j - 1]) {
+            if (text[i + j] != target[j]) {
                 found = false;
-                break;
+                return;
             }
         }
         if (found) indices.push_back(i);
