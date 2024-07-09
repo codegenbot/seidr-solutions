@@ -1,14 +1,10 @@
-```cpp
-int count = 0;
-
+int stack_size = 0;
 for (char bracket : brackets) {
     if (bracket == '<') {
-        count++;
+        stack_size++;
     } else if (bracket == '>') {
-        if (count <= 0)
-            return false;
-        count--;
+        if (stack_size <= 0) return false;
+        stack_size--;
     }
 }
-
-return count == 0;
+return stack_size == 0;
