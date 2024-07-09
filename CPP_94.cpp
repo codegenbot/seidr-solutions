@@ -1,6 +1,6 @@
-int sumOfUniqueDigits(vector<int> numbers) {
+int sumOfDigits(vector<int> lst) {
     int maxPrime = 0;
-    for (int num : numbers) {
+    for (int num : lst) {
         if (isPrime(num)) {
             maxPrime = num;
             break;
@@ -11,7 +11,7 @@ int sumOfUniqueDigits(vector<int> numbers) {
         sumOfDigits += maxPrime % 10;
         maxPrime /= 10;
     }
-    return sumOfUniqueDigits(numbers);
+    return sumOfDigits;
 }
 
 bool isPrime(int num) {
