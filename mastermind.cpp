@@ -1,3 +1,6 @@
+#include <string>
+#include <map>
+
 int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
@@ -21,12 +24,8 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    // Check for remaining counts in the code string that were not correctly placed
-    for (auto& pair : code_count) {
-        while(pair.second > 0) {
-            white++;
-            pair.second--;
-        }
+    for (const auto& pair : code_count) {
+        white += pair.second;
     }
 
     return black + white;
