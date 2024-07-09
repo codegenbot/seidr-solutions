@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <climits>
 using namespace std;
