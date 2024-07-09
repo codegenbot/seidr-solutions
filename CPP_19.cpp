@@ -1,33 +1,24 @@
 #include <algorithm>
+#include <vector>
+#include <sstream>
 
 using namespace std;
 
 string sort_numbers(string numbers) {
-    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                 {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                 {"eight", 8}, {"nine", 9}};
-
     vector<string> numVec;
-    string temp;
-
-    for (int i = 0; i < numbers.length(); i++) {
-        if (numbers[i] == ' ') {
-            continue;
-        } else if (i == 0 || numbers[i - 1] != ' ') {
-            temp += numbers[i];
-        } else {
-            numVec.push_back(temp);
-            temp = "";
-        }
+    istringstream iss(numbers);
+    string numStr;
+    while (getline(iss, numStr, ' ')) {
+        numVec.push_back(numStr);
     }
-    numVec.push_back(temp);
-
     sort(numVec.begin(), numVec.end());
+    return join(numVec, " ");
+}
 
-    string result;
-    for (const auto &num : numVec) {
-        result += num + " ";
+string join(vector<string>& vec, const string& sep) {
+    ostringstream oss;
+    for (const auto& str : vec) {
+        oss << str << sep;
     }
-
-    return result.substr(0, result.length() - 1);
+    return oss.str();
 }
