@@ -10,19 +10,15 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int& num : nums) {
-        cin >> num;
-    }
-    vector<int> result = order_by_points(nums);
-    if(issame(result, {1,2,3})) {
-        cout << "Correct" << endl;
-    } else {
-        cout << "Incorrect" << endl;
-    }
+int main()
+{
+    vector<int> result = order_by_points({123, 45, 67, 89});
+    vector<int> correct = {89, 67, 45, 123};
+    if (issame(result, correct))
+        cout << "The output is as expected." << endl;
+    else
+        cout << "The output does not match the expected result." << endl;
+
     return 0;
 }
 
