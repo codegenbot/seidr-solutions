@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-using namespace std;
+#include <iomanip>
 
 double probability(int n, int m) {
     double total = (double)(n*m);
@@ -8,5 +8,7 @@ double probability(int n, int m) {
 }
 
 int main() {
-    cout << "The probability that Peter rolls strictly higher than Colin is: " << fixed << setprecision(5) << probability(34, 24) << endl;
+    std::cout << "The probability that Peter rolls strictly higher than Colin is: "
+              << std::fixed << setprecision(5) << (long long)probability(34, 24)
+              << std::endl;
 }
