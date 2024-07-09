@@ -1,5 +1,5 @@
 using namespace std;
-string rounded_avg(int n, int m) {
+string-rounded_avg(int n, int m) {
     if (n > m) return "-1";
     long sum = 0;
     for (int i = n; i <= m; i++) {
