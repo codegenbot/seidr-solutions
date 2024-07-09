@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -7,7 +8,7 @@ std::string decipher(const std::string& cipher_map, const std::string& message) 
     for (char c : message) {
         for (int i = 0; i < cipher_map.size(); ++i) {
             if (cipher_map[i] == c) {
-                result += 'a' + (i - 'a'); // Replace with the corresponding character from map1
+                result += 'a' + (i - 'a'); 
                 break;
             }
         }
