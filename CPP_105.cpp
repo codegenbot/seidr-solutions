@@ -1,10 +1,10 @@
-```
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
 
 bool issame(std::vector<std::string> a) {
-    std::vector<std::string> b = a;
+    std::vector<std::string> b = {"hello", "world"};
     return a == b;
 }
 
@@ -16,8 +16,8 @@ std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
         }
     }
 
-    sort(num.begin(), num.end());
-    reverse(num.begin(), num.end());
+    std::sort(num.begin(), num.end());
+    std::reverse(num.begin(), num.end());
 
     std::vector<std::vector<std::string>> result;
     for (int n : num) {
@@ -53,4 +53,3 @@ std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
     }
 
     return result;
-}
