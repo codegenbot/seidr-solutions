@@ -3,7 +3,7 @@ def bowling_score(frames):
     score = 0
     frame_count = 0
     frames_list = frames.split("/")
-
+    
     for frame in frames_list:
         if len(frame) == 1: 
             score += int(frame)
