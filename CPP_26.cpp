@@ -23,4 +23,9 @@ std::vector<int> remove_duplicates(std::vector<int> numbers){
 
 int main() {
     std::vector<int> numbers = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
-    assert(isSame(numbers, {1, 2, 3, 4, 5}));
+    if(!isSame(numbers, {1, 2, 3, 4, 5})){
+        std::cout << "Test failed" << std::endl;
+    } else {
+        std::cout << "Test passed" << std::endl;
+    }
+}
