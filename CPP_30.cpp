@@ -1,22 +1,21 @@
-```cpp
 #include <vector>
 #include <numeric>
 
-std::vector<float> get_positive(const std::vector<float>& l) {
+std::vector<float> std::get_positive(std::vector<float> l) {
     std::vector<float> result;
-    for (float num : l) {
-        if (num > 0) {
+    for(float num : l) {
+        if(num > 0) {
             result.push_back(num);
         }
     }
     return result;
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+bool is_same(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert(std::issame({}, get_positive({})) );
-    // other code
+    assert(is_same(get_positive({}), {}));
+    return 0;
 }
