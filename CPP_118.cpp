@@ -18,6 +18,5 @@ std::string get_closest_vowel(const std::string& word) {
 }
 
 bool isvowel(char c) {
-    c = std::tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+    return std::tolower(c) == 'a' || std::tolower(c) == 'e' || std::tolower(c) == 'i' || std::tolower(c) == 'o' || std::tolower(c) == 'u';
 }
