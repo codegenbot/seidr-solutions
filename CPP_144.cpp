@@ -1,37 +1,11 @@
-int getXNumerator(string x);
-    int getXDenominator(string x);
-    int getNNumerator(string n);
-    int getNDenominator(string n);
-    int gcd(int a, int b);
-    bool simplify(string x, string n) {
-        int numeratorX = getXNumerator(x);
-        int denominatorX = getXDenominator(x);
-        int numeratorN = getNNumerator(n);
-        int denominatorN = getNDenominator(n);
+#include <string>
 
-        int numeratorResult = numeratorX * numeratorN;
-        int denominatorResult = denominatorX * denominatorN;
+bool simplify(std::string x, std::string n_str) {
+    int x_num = std::stoi(x.substr(0, x.find('/')));
+    int x_denom = std::stoi(x.substr(x.find('/') + 1));
 
-        return (denominatorResult % gcd(numeratorResult, denominatorResult) == 0);
-    }
+    int n_num = std::stoi(n_str.substr(0, n_str.find('/')));
+    int n_denom = std::stoi(n_str.substr(n_str.find('/') + 1));
 
-    int getXNumerator(string x) {
-        return stoi(x.substr(0, x.find('/')));
-    }
-
-    int getXDenominator(string x) {
-        return stoi(x.substr(x.find('/') + 1));
-    }
-
-    int getNNumerator(string n) {
-        return stoi(n.substr(0, n.find('/')));
-    }
-
-    int getNDenominator(string n) {
-        return stoi(n.substr(n.find('/') + 1));
-    }
-
-    int gcd(int a, int b) {
-        if (b == 0) return a;
-        return gcd(b, a % b);
-    }
+    return (x_num * n_num) % (x_denom * n_denom) == 0;
+}
