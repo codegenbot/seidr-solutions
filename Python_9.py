@@ -1,12 +1,12 @@
-def calculate_discounted_price(price, discount_rate):
+def calculate_total_cost(price, quantity):
     """
-    Returns the discounted price given a price and a discount rate.
+    Calculate total cost given price and quantity.
 
-    Parameters:
-    price (float): The original price of the item
-    discount_rate (float): The percentage of the discount
+    Args:
+        price (float): The price of one item.
+        quantity (int): The number of items.
 
     Returns:
-    float: The discounted price of the item
+        float: Total cost.
     """
-    return price * (1 - discount_rate / 100)
+    return price * quantity
