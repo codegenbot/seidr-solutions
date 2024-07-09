@@ -14,7 +14,13 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    vector<int> numbers = {11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25};
-    cout << specialFilter(numbers) << endl;
-    return 0;
+    vector<int> input;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        int num;
+        cin >> num;
+        input.push_back(num);
+    }
+    cout << specialFilter(input) << endl;
 }
