@@ -1,17 +1,12 @@
 ```cpp
-#include <vector>
-#include <algorithm>  
-using namespace std;
-
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
-    if (str != string(str.rbegin(), str.rend()).s) return false;
+    if (str != std::string(str).reverse().s) return false;
     int sum = 0;
     for (int i : q) {
         sum += i;
     }
     return sum <= w;
-}
