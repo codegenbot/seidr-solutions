@@ -1,15 +1,17 @@
-Here is the completed code:
-
 vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> evens;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0) {
-            evens.push_back({arr[i], i});
+    if(arr.empty()) return {};
+    vector<int> result = {};
+    int minEvenValueIndex = -1;
+    int minValue = INT_MAX;
+    for(int i=0; i<arr.size(); i++) {
+        if(arr[i] % 2 == 0 && arr[i] < minValue) {
+            minValue = arr[i];
+            minEvenValueIndex = i;
         }
     }
-    if (evens.empty()) {
-        return {};
+    if(minValue != INT_MAX) {
+        result.push_back(minValue);
+        result.push_back(minEvenValueIndex);
     }
-    sort(evens.begin(), evens.end());
-    return {{evens[0].first, evens[0].second}};
+    return result;
 }
