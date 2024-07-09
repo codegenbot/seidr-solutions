@@ -11,4 +11,4 @@ def encode(message):
         else:
             encoded_message += char
 
-    return encoded_message
+    return encoded_message.lower()
