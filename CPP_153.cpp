@@ -1,10 +1,19 @@
-#include <vector>
+```cpp
 #include <string>
+#include <vector>
+#include <cctype>
 
-int Strongest_Extension(string class_name, vector<string> extensions) {
+int main() {
+    string class_name = "Class";
+    vector<string> extensions = {"abc", "DEF", "ghi", "JKL"};
+    
+    cout << Strongest_Extension(class_name, extensions) << endl;
+}
+
+string Strongest_Extension(string class_name, vector<string> extensions){
     int max_strength = 0;
     string strongest_extension;
-
+    
     for(auto extension : extensions){
         int cap = 0, sm = 0;
         for(int i = 0; i < extension.length(); ++i){
