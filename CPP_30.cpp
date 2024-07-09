@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm>
+#include <assert.h>
 
 std::vector<float> get_positive(std::vector<float> l){
     std::vector<float> result;
@@ -11,11 +11,10 @@ std::vector<float> get_positive(std::vector<float> l){
     return result;
 }
 
-bool isEqual(vector<float> a,vector<float>b){
+bool same(vector<float> a,vector<float>b){
     return std::equal(a.begin(),a.end(),b.begin());
 }
 
 int main() {
-    assert(isEqual(get_positive({}),{}));
+    assert(same(get_positive({}),{}));
     return 0;
-}
