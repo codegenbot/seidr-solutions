@@ -1,8 +1,18 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    return -xs[-2] / xs[-1]
+    a = xs[-1]
+    b = xs[-2]
 
+    if n == 2:
+        return -b / a
+    else:
+        return 1.0
 
-import doctest
+# Read input from the user
+input_list = list(map(float, input().split()))
 
-doctest.testmod()
+# Call the function with the input
+result = find_zero(input_list)
+
+# Print the result
+print(result)
