@@ -29,7 +29,7 @@ std::vector<std::string> select_words(std::string s, int n){
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return std::equal(a.begin(), a.end(), b.begin());
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int main(){
