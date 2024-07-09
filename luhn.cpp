@@ -8,7 +8,7 @@ int luhn(const vector<int>& digits) {
     bool doubleNext = false;
     
     for (int i = 0; i < digits.size() - 1; i++) {
-        if ((digits.size() - 1 - i) % 2 == 0) { 
+        if ((digits.size() - 2 - i) % 2 == 0) { 
             int doubled = digits[i] * 2;
             if (doubled > 9) {
                 sum += doubled - 9;
