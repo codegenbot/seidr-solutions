@@ -1,7 +1,7 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if not paren_string or paren_string[0]!="(" or paren_string[-1]!=")":
+    if "(" not in paren_string or ")" not in paren_string:
         return ["Invalid Input"]
     
     result = []
