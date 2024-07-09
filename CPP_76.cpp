@@ -1,12 +1,6 @@
-Here is the completed code:
+Here's the solution:
 
 bool is_simple_power(int x, int n) {
-    double log_x = log(x);
-    double log_n = log(n);
-
-    if (fmod(log_x, log_n) == 0) {
-        return true;
-    } else {
-        return false;
-    }
+    double y = pow(n, log(x) / log(n));
+    return (y == int(y)) && (abs(y - x) < 1e-9);
 }
