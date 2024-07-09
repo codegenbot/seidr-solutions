@@ -1,23 +1,28 @@
+#include <boost/any_cast.hpp>
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = boost::get<int>(a);
-        int y = boost::get<int>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float x = boost::get<float>(a);
-        float y = boost::get<float>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string x = boost::get<string>(a);
-        string y = boost::get<string>(b);
-        return (stof(x) > stof(y)) ? a : ((stof(x) < stof(y)) ? b : boost::any("None"));
-    } else if (a.type() == typeid(string) && b.type() != typeid(string)) {
-        string x = boost::get<string>(a);
-        return (stof(x) > boost::get<float>(b)) ? a : ((stof(x) < boost::get<float>(b)) ? b : boost::any("None"));
-    } else if (b.type() == typeid(string) && a.type() != typeid(string)) {
-        string y = boost::get<string>(b);
-        return (stof(y) > boost::get<float>(a)) ? b : ((stof(y) < boost::get<float>(a)) ? a : boost::any("None"));
-    } else {
-        return boost::any("None");
+    float fa;
+    double da;
+    long la;
+    int ia;
+    bool fba = boost::any_cast<float>(&fa);
+    bool dba = boost::any_cast<double>(&da);
+    bool laba = boost::any_cast<long>(&la);
+    bool iaba = boost::any_cast<int>(&ia);
+
+    if (fba && dba) {
+        return (fa > da) ? a : b;
+    } else if (laba && iaba) {
+        return (la > ia) ? a : b;
+    } else if (fba || laba) {
+        return (fa > la) ? a : b;
+    } else if (dba) {
+        return (da > 0.0) ? a : b;
     }
+
+    string sa, sb;
+    boost::any_cast<string>(&sa);
+    boost::any_cast<string>(&sb);
+
+    return (sa > sb) ? a : b;
 }
