@@ -2,17 +2,10 @@ Here is the completed code:
 
 ```cpp
 bool is_nested(string str) {
-    int nesting = 0;
+    int open = 0, close = 0;
     for (char c : str) {
-        if (c == '[') {
-            nesting++;
-        } else if (c == ']') {
-            if (nesting > 0) {
-                nesting--;
-            } else {
-                return false;
-            }
-        }
+        if (c == '[') open++;
+        else if (c == ']') close++;
     }
-    return nesting > 0;
+    return open > 1 || (open >= 1 && close > 0);
 }
