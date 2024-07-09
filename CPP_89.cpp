@@ -1,13 +1,20 @@
-string encrypt(string s) {
+string encrypt(string s){
+    string alphabet = "abcdefghijklmnopqrstuvwxyz";
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        char c = s[i];
-        if (c >= 'a' && c <= 'z') {
-            c = ('a' + ((c - 'a' + 4 * 2) % 26));
-        } else if (c >= 'A' && c <= 'Z') {
-            c = ('A' + ((c - 'A' + 4 * 2) % 26));
+    
+    for(int i=0; i<s.length(); i++){
+        char c = tolower(s[i]);
+        
+        if(c < 'a' + 2 || c > 'z'){
+            result += c;
+            continue;
         }
-        result += c;
+        
+        int pos = (c - 'a') % 26;
+        pos = (pos + 2 * 2) % 26; // shift down by two multiplied to two places
+        
+        result += alphabet[pos];
     }
+    
     return result;
 }
