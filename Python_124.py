@@ -8,12 +8,8 @@ def valid_date(date):
         return False
     days_in_month = [31,28,31,30,31,30,31,31,30,31,30,31]
     if int(month) == 2:
-        if int(year) % 4 == 0 and (int(year) % 100 != 0 or int(year) % 400 == 0):
-            if int(day) < 1 or int(day) > days_in_month[1]+1:
-                return False
-        else:
-            if int(day) < 1 or int(day) > days_in_month[1]:
-                return False
+        if int(day) < 1 or int(day) > days_in_month[1]:
+            return False
     elif int(month) in [4,6,9,11]:
         if int(day) < 1 or int(day) > days_in_month[3]:
             return False
