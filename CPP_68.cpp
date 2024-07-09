@@ -1,7 +1,4 @@
 ```cpp
-#include <iostream>
-#include <vector>
-
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -11,18 +8,18 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    std::vector<int> arr = {7, 9, 7, 1};
+    vector<int> arr = {7, 9, 7, 1};
     int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::vector<int> vec;
+    cout << "Enter a number: ";
+    cin >> num;
+    vector<int> vec;
     if (num % 2 == 0 && num < INT_MAX) {
         vec.push_back(num);
     }
     if (num != -1) {
         assert(issame(vec, arr));
     } else {
-        assert(issame(std::vector<int>(), arr));
+        assert(issame(vector<int>(), arr));
     }
     return 0;
 }
