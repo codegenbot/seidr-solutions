@@ -1,11 +1,14 @@
 def histogram(test):
-    if not test:
-        return {}
-    letters = test.split()
-    max_count = max(len(letter) for letter in set(letters))
-    result = {
-        letter: len(list(group))
-        for letter, group in itertools.groupby(sorted(letters), key=lambda x: x[0])
-        if len(list(group)) == max_count
-    }
-    return result
+    test += " "
+    max_count = 0
+    most_repeated = {}
+
+    for letter in set(test.lower().split()):
+        count = test.count(letter)
+        if count > max_count:
+            max_count = count
+            most_repeated = {letter: count}
+        elif count == max_count:
+            most_repeated[letter] = count
+
+    return most_repeated
