@@ -1,8 +1,7 @@
-```
 #include <algorithm>
 #include <vector>
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -10,17 +9,17 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> result(l.size());
+std::vector<float> sort_even(const std::vector<float>& l) {
+    std::vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            vector<float> evens;
+            std::vector<float> evens;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     evens.push_back(l[j]);
                 }
             }
-            sort(evens.begin(), evens.end());
+            std::sort(evens.begin(), evens.end());
             result[i] = evens[0];
         } else {
             result[i] = l[i];
@@ -30,20 +29,19 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> arr = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    vector<float> evens;
-    for (auto x : arr) {
-        if(x % 2 == 0) evens.push_back(x);
+    std::vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
+    std::vector<float> expected({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
+
+    if(!issame(sort_even(input), expected)) {
+        return 1;
     }
-    sort(evens.begin(), evens.end());
-    cout<< "Evens: ";
-    for(auto x:evens) cout<<x<<" ";
-    vector<float> odds;
-    for (auto x : arr) {
-        if(x % 2 != 0) odds.push_back(x);
+
+    for (float num : sort_even(input)) {
+        std::cout << num << " ";
     }
-    sort(odds.begin(), odds.end());
-    cout<< "\nOdds: ";
-    for(auto x:odds) cout<<x<<" ";
-    
+    std::cout << std::endl;
+
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-
+12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    return 0;
 }
