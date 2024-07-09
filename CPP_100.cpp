@@ -1,9 +1,18 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b);
+std::vector<int> make_a_pile(int n);
 
-bool issame(vector<int> a, vector<int> b) {
+int main() {
+    if (!issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22})) {
+        std::cout << "Test failed";
+    } else {
+        std::cout << "Test passed";
+    }
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -11,8 +20,8 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
     int stones = n;
     while (stones > 0) {
         pile.push_back(stones);
@@ -25,14 +34,4 @@ vector<int> make_a_pile(int n) {
         }
     }
     return pile;
-}
-
-int main() {
-    vector<int> a = make_a_pile(8);
-    std::cout << "a: ";
-    for (auto i : a) std::cout << i << " ";
-    std::cout << std::endl;
-    
-    assert (issame(a, vector<int>({8, 10, 12, 14, 16, 18, 20, 22})));
-    return 0;
 }
