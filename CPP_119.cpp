@@ -20,15 +20,8 @@ int main() {
     vector<string> lst;
     int n;
     cin >> n;
-    for(int i = 0; i < n; i++) {
-        string s;
-        if(getline(cin, s)) { 
-            cin.ignore(10000, '\n');  
-            lst.push_back(s);
-        } else {
-            while (cin.peek() == '\n') cin.ignore();
-            break; 
-        }
+    while (getline(cin, string s)) {
+        lst.push_back(s);
     }
     if(match_parens(lst))
         cout << "Yes" << endl;
