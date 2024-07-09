@@ -1,30 +1,22 @@
 #include <iostream>
 #include <string>
-#include <cassert>
+#include <cctype>
 
-std::string encrypt(std::string s){
-    std::string result = "";
+std::string encrypt(std::string s) {
+    std::string encrypted = "";
     for(char c : s){
         if(std::isalpha(c)){
-            char encrypted = c + 4; // changed to c + 2 * 2 to c + 4
-            if(std::isupper(c)){
-                if(encrypted > 'Z'){
-                    encrypted = 'A' + (encrypted - 'Z' - 1);
-                }
-            } else {
-                if(encrypted > 'z'){
-                    encrypted = 'a' + (encrypted - 'z' - 1);
-                }
-            }
-            result += encrypted;
+            char base = std::islower(c) ? 'a' : 'A';
+            char encrypted_char = base + (c - base + 2 * 2) % 26;
+            encrypted += encrypted_char;
         } else {
-            result += c;
+            encrypted += c;
         }
     }
-    return result;
+    return encrypted;
 }
 
-int main(){
+int main() {
     assert (encrypt("a")=="e");
     return 0;
 }
