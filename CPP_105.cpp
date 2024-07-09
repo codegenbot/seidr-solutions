@@ -1,13 +1,27 @@
-#include <iostream>
+#include <string>
 #include <vector>
+#include <algorithm>
+#include <iostream>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(int a, int b) {
     return a == b;
 }
 
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr);
+
+int main() {
+    vector<int> nums = {2, 5, 4, 1, 9, 8, 3};
+    
+    vector<string> result = by_length(nums);
+
+    for (const auto& str : result) {
+        cout << str << " ";
+    }
+
+    return 0;
+}
+
+vector<string> by_length(vector<int> arr){
     vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
 
     vector<int> filtered;
@@ -17,7 +31,7 @@ vector<string> by_length(vector<int> arr) {
         }
     }
 
-    sort(filtered.begin(), filtered.end());
+    sort(filtered.begin(), filtered.end(), issame);
 
     reverse(filtered.begin(), filtered.end());
 
