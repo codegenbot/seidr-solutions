@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```c++
 #include <vector>
 #include <climits>
 #include <cmath>
@@ -38,13 +35,13 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     return {left, right};
 }
 
-int main() {
+pair<vector<int>, vector<int>> main() {
     int n;
     std::cin >> n;
     vector<int> vec(n);
     for (auto& x : vec) std::cin >> x;
     pair<vector<int>, vector<int>> result = cutVector(vec);
-    std::cout << "[";
+    cout << "[";
     for (const auto& x : result.first) std::cout << x << " ";
     std::cout << "], [";
     for (const auto& x : result.second) std::cout << x << " ";
