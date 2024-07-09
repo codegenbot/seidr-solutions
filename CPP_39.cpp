@@ -26,6 +26,6 @@ int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    cout << "The first prime Fibonacci number greater than " << num << " is " << prime_fib(num) << std::endl;
+    cout << "The first prime Fibonacci number greater than " << num << " is " << std::to_string(prime_fib(num)) << endl;
     return 0;
 }
