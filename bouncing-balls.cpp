@@ -2,9 +2,6 @@
 #include <iostream>
 #include <cmath>
 
-namespace std {
-}
-
 int main() {
     double startHeight, firstBounce;
     int numBounces;
