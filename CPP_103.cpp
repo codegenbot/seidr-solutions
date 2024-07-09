@@ -3,7 +3,7 @@
 #include <cassert>
 
 std::string calculateBinary(int a, int b) {
-    return std::bitset<3>(a + b).to_string();
+    return std::bitset<4>(a + b).to_string();
 }
 
 int main() {
