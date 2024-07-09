@@ -14,7 +14,7 @@ bool is_same(std::vector<float> vec1, std::vector<float> vec2) {
         return false; 
     } else {
         for (int i = 0; i < vec1.size(); i++) {
-            if (std::abs(vec1[i] - vec2[i]) > 1e-9) { 
+            if (std::abs(vec1[i] - vec2[i]) > 1e-9) { // For floating point comparison, add a small tolerance
                 return false;
             }
         }
