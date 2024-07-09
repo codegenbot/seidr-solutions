@@ -8,6 +8,7 @@ bool is_nested(std::string str) {
         if (open > 0 && close > open) return true;
     }
     return false;
+}
 
 int main() {
     assert(is_nested("]]]]]]]]") == false);
