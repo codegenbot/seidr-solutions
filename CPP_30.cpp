@@ -1,40 +1,33 @@
-```
-#include <iostream>
+```cpp
 #include <vector>
+#include <stdexcept>
 
-bool same(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) {
-        return false;
+        throw std::runtime_error("Vectors are not the same size");
     }
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i]) != std::abs(b[i])) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-float get_positive(float num) {
-    if (num > 0) {
-        return num;
-    } else {
-        return 0.0f;
+float get_positive(std::vector<float> v) {
+    for (auto &num : v) {
+        num = std::abs(num);
     }
+    return 1.0f; // Return value is not used in the main function
 }
 
 int main() {
-    float num1, num2;
-    std::cout << "Enter the first number: ";
-    std::cin >> num1;
-    std::cout << "Enter the second number: ";
-    std::cin >> num2;
-
-    if (same(std::vector<float>{num1}, std::vector<float>{num2})) {
-        float result = get_positive(num1);
-        std::cout << "The positive of the numbers is: " << result << std::endl;
-    } else {
-        std::cout << "The numbers are not same." << std::endl;
+    try {
+        std::vector<float> v1 = get_positive({-1, -2, -3});
+        std::vector<float> v2 = {1, 2, 3};
+        assert(issame(v1, v2));
+    } catch (const std::exception &e) {
+        std::cerr << "Error: " << e.what() << '\n';
+        return 1;
     }
-
-    return 0;
 }
