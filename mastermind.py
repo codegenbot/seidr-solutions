@@ -1,4 +1,4 @@
-```python
+```
 code = input("Enter Mastermind code: ")
 guess = input("Enter guess: ")
 
