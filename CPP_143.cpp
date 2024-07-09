@@ -17,8 +17,11 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     return tokens;
 }
 
-std::vector<int> words_in_sentence(std::string sentence) {
-    std::vector<int> wordLengths; // Initialize here
+std::vector<std::string> words_in_sentence(std::string sentence) {
+    if (sentence.empty()) {
+        return {};
+    }
+    std::vector<std::string> wordLengths; // Initialize here
     std::string result = "";
 
     for (const auto& word : split(sentence, ' ')) {
@@ -35,7 +38,7 @@ std::vector<int> words_in_sentence(std::string sentence) {
 
             if (isPrime) {
                 result += word + " ";
-                wordLengths.push_back(length);
+                wordLengths.push_back(std::to_string(length));
             }
         }
     }
@@ -48,11 +51,15 @@ int main() {
     std::cout << "Enter a sentence: ";
     std::getline(std::cin, sentence);
 
-    std::cout << "Words with prime lengths are: ";
-    for (const auto& length : words_in_sentence(sentence)) {
-        std::cout << length << " ";
+    if (sentence.empty()) {
+        std::cout << "Empty sentence. Please enter a valid sentence." << std::endl;
+    } else {
+        std::cout << "Words with prime lengths are: ";
+        for (const auto& length : words_in_sentence(sentence)) {
+            std::cout << length << " ";
+        }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
 
     return 0;
 }
