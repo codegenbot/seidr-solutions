@@ -10,7 +10,7 @@ def bowling_score(frames):
         elif '/' in frame:
             first_roll, second_roll = map(int, frame[:-1].split('/'))
             score += first_roll + second_roll
-            if second_roll == 0:  # spare
+            if second_roll == 0:  
                 score += 10 - second_roll
         else:
             score += int(frame[0]) + int(frame[1])
