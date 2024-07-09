@@ -27,21 +27,11 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> lst;
-    lst.resize(n, 0); // Initialize all new elements with a default value
+    std::vector<int> lst(n, 0); // Initialize all new elements with a default value
 
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
-        int num;
-        std::cin >> num; // Take input as integer
-
-        if (num == 0) {
-            // Ask user to enter a different value
-            std::cout << "Invalid input. Please enter a non-zero number.\n";
-            continue;
-        }
-
-        lst[i] = num; // Store the valid input into vector
+        std::cin >> lst[i];
     }
 
     int result = search(lst);
