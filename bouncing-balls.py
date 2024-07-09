@@ -8,4 +8,4 @@ bounce_height = float(input())
 num_bounces = int(input())
 
 result = calculate_total_distance(starting_height, bounce_height, num_bounces)
-print(result)  
+print(result)
