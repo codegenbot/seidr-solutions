@@ -1,3 +1,5 @@
+#include <string>
+
 std::string encrypt(std::string s) {
     std::string result = "";
     for(int i=0; i<s.length(); i++){
@@ -9,5 +11,11 @@ std::string encrypt(std::string s) {
         }
         result += c;
     }
-    return s; 
+    return result; 
+}
+
+int main() {
+    assert (encrypt("a")=="d");
+    // Add more test cases here
+    return 0;
 }
