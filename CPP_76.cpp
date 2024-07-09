@@ -1,9 +1,7 @@
-```c++
-#include <cmath>
-#include <iostream>
+#include <bits/stdc++.h>
 
 bool isSimplePower(int x) {
-    for (int i = 2; i <= sqrt(x); ++i) {
+    for (int i = 2; i * i <= x; ++i) {
         int n = 0;
         while (pow(i, n) <= x) {
             if (pow(i, n) == x) {
@@ -25,4 +23,3 @@ int main() {
         std::cout << x << " is not a simple power.\n";
     }
     return 0;
-}
