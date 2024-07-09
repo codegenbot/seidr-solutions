@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -10,7 +9,7 @@ int sum_squares(const std::vector<float>& inputVector) {
     return result;
 }
 
-int main() {
+int calculate_sum_of_squares() {
     std::vector<float> inputVector;
 
     int size;

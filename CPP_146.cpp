@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <initializer_list>
 using namespace std;
 
 int specialFilter(vector<int> nums) {
@@ -11,7 +11,7 @@ int specialFilter(vector<int> nums) {
     }
     return count;
 
-void main() 
+int main() 
 {
     vector<int> nums;
     for(int i = 123; i <= 789; i++) {
