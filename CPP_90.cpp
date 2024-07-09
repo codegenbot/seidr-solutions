@@ -4,18 +4,10 @@
 
 using namespace std;
 
-int main() {
-    vector<int> lst = {34, 12, -35, -45}; 
-    int result = (lst.size() > 1) ? (next_smallest(lst)) : -1; 
-    cout << "The next smallest number is: " << result << endl;
-    
-    return 0;
-}
-
 int next_smallest(vector<int> lst) {
     vector<int> result;
     if (lst.size() < 2) {
-        return -1;
+        return -1; // No smallest number to find.
     }
     sort(lst.begin(), lst.end());
     for (int i = 1; i < lst.size(); i++) {
@@ -25,4 +17,12 @@ int next_smallest(vector<int> lst) {
         }
     }
     return result.empty() ? -1 : lst[0];
+}
+
+int main() {
+    vector<int> lst = {34, 12, -35, -45}; 
+    int result = (lst.size() > 1) ? (next_smallest(lst)) : -1; 
+    cout << "The next smallest number is: " << result << endl;
+    
+    return 0;
 }
