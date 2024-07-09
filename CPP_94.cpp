@@ -1,15 +1,22 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-int skjkasdkd(std::vector<int> lst) {
+int sumDigits(int n) {
     int sum = 0;
-    for (int i : lst) {
-        while (i > 0) {
-            sum += i % 10;
-            i /= 10;
-        }
+    while (n > 0) {
+        sum += n % 10;
+        n /= 10;
     }
     return sum;
+}
+
+int skjkasdkd(std::vector<int> lst) {
+    int result = 0;
+    for (int num : lst) {
+        result += sumDigits(num);
+    }
+    return result;
 }
 
 int main() {
