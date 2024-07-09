@@ -1,17 +1,33 @@
-string anti_shuffle(string s){
+#include <algorithm>
+#include <string>
+#include <vector>
+using namespace std;
+
+string anti_shuffle(string s) {
     string result = "";
-    for(size_t i=0; i<s.size(); i++){
-        if(s[i] == ' '){
-            result += ' ';
-            continue;
-        }
-        string word = "";
-        for(size_t j=i; j<s.size() && s[j] != ' '; j++){
-            word += s[j];
-        }
-        i = j - 1;
-        sort(word.begin(), word.end());
-        result += word;
+    for (const auto& word : split(s, ' ')) {
+        string temp = word;
+        sort(temp.begin(), temp.end());
+        result += temp + " ";
     }
-    return result;
+    return result.substr(0, result.size() - 1);
+}
+
+string split(const string& str, char sep) {
+    vector<string> tokens;
+    size_t pos = 0;
+    while ((pos = str.find(sep)) != string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
+    }
+    tokens.push_back(str);
+    return join(tokens, " ");
+}
+
+string join(const vector<string>& vec, const string& sep) {
+    string result;
+    for (const auto& s : vec) {
+        result += s + sep;
+    }
+    return result.substr(0, result.size() - 1);
 }
