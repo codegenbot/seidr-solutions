@@ -17,7 +17,7 @@ bool correct_bracketing(const char* str) {
 int main() {
     assert(!correct_bracketing("<><><<><>><>>><"));
     std::string brackets = "<<>";
-    if(correct_bracketing(brackets)) std::cout << "Correct" << std::endl;
+    if(correct_bracketing(brackets.c_str())) std::cout << "Correct" << std::endl;
     else std::cout << "Incorrect" << std::endl;
     return 0;
 }
