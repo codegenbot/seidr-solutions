@@ -1,7 +1,6 @@
 #include <vector>
 
-vector<int> tri(int n)
-{
+vector<int> tri(int n) {
     vector<int> result;
     if (n >= 0) {
         result.push_back(3);
@@ -17,23 +16,10 @@ vector<int> tri(int n)
 }
 
 bool issame(vector<int>& a, vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    // Check if vectors a and b are the same
+    return a == b;
 }
 
 int main() {
-    vector<int> a = tri(1);
-    if (issame(a, {1, 3})) {
-        cout << "Vectors are the same" << endl;
-    } else {
-        cout << "Vectors are different" << endl;
-    }
-    return 0;
+    issame(tri(1), {1, 3});
 }
