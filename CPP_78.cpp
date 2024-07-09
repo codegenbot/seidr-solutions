@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 
@@ -15,11 +16,8 @@ int hex_key(std::string num) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    std::cin >> input;
 
     int output = hex_key(input);
-    std::cout << output << std::endl;
-
-    return 0;
+    std::cout << output << "\n";
 }
