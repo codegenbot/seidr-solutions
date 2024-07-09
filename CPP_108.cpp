@@ -1,6 +1,5 @@
-```cpp
 #include <vector>
-#include <iostream>
+#include <initializer_list>
 
 int count_nums(std::vector<int> nums) {
     int count = 0;
@@ -37,21 +36,3 @@ int count_nums(std::vector<int> nums) {
         }
     }
     return count;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    std::vector<int> nums(n);
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> nums[i];
-    }
-    
-    int result = count_nums(nums);
-    std::cout << "The number of positive sums is: " << result << std::endl;
-    
-    return 0;
-}
