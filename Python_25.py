@@ -1,8 +1,6 @@
-from typing import List
-import math
-
-
 def factorize(n: int) -> List[int]:
+    if n < 2:
+        return [1]
     factors = []
     for i in range(2, n + 1):
         if n % i == 0:
