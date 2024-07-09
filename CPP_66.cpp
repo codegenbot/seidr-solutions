@@ -39,6 +39,7 @@ string ssplit(const string& s, const char& sep) {
 }
 
 int main() {
-    assert(digitSum("you are very smart") == 342);
+    assert(digitSum("you are very smart") == 12);
     cout << digitSum("you are very smart") << endl;
     return 0;
+}
