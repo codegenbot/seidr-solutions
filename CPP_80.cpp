@@ -1,24 +1,16 @@
-bool is_happy(string s) {
-    if (s.length() < 3)
-        return false;
+#include <string>
 
-    for (int i = 0; i <= s.length() - 3; i++) {
-        string sub = s.substr(i, 3);
-        bool distinct = true;
-        for (char c : sub) {
-            int count = 0;
-            for (int j = 0; j < sub.length(); j++) {
-                if (sub[j] == c)
-                    count++;
-            }
-            if (count > 1) {
-                distinct = false;
+bool is_happy(string s){
+    if(s.length() < 3) return false;
+    for(int i = 0; i <= s.length()-3; i++){
+        string substr = s.substr(i, 3);
+        bool unique = true;
+        for(char c : substr){
+            if(count(substr.begin(), substr.end(), c) > 1){
+                unique = false;
                 break;
             }
         }
-        if (!distinct)
-            return false;
+        if(!unique) return false;
     }
-
     return true;
-}
