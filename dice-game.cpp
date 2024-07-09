@@ -1,4 +1,3 @@
-```c++
 #include <cmath>
 #include <iostream>
 #include <iomanip>
@@ -13,4 +12,3 @@ int main() {
               << std::fixed << std::setprecision(5) << probability(34, 24)
               << '\n';
     return 0;
-}
