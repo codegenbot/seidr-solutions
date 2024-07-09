@@ -3,11 +3,6 @@
 #include <algorithm>
 #include <numeric>
 
-bool issame(const std::vector<float>&, const std::vector<float>&) {
-    // This function checks if two vectors are the same.
-    return std::equal(std::begin(), std::end(), std::begin());
-}
-
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
     if (numbers.size() < 2) {
         throw std::runtime_error("Vector must contain at least two elements");
@@ -19,7 +14,7 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
     for (int i = 0; i < numbers.size(); ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
             float diff = std::abs(numbers[i] - numbers[j]);
-            if (diff < min_diff && !issame({numbers[i]}, {numbers[j]})) {
+            if (diff < min_diff) {
                 min_diff = diff;
                 closest_pair = {numbers[i], numbers[j]};
             }
