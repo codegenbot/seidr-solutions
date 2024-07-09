@@ -1,9 +1,20 @@
-```
 def solve_boolean():
     user_expression = input("Enter your Boolean expression: ")
     return evaluate_expression(user_expression)
 
+
 def evaluate_expression(expression):
+    if "(" in expression and ")" in expression:
+        start = expression.index("(")
+        end = expression.index(")")
+        return eval(
+            "("
+            + str(evaluate_expression(expression[:start]))
+            + ") and ("
+            + str(evaluate_expression(expression[start + 1 : end]))
+            + ")"
+        )
+
     if "&" not in expression and "|" not in expression:
         if "T" in expression or "True" in expression:
             return True
@@ -30,17 +41,12 @@ def evaluate_expression(expression):
     if "&" in expression and "|" in expression:
         left, right = expression.split("&")
         return eval(
-            "(("
+            "( ("
             + str(evaluate_expression(left))
             + ") and ("
             + evaluate_expression(right)
             + "))"
         )
-
-    if "(" in expression:
-        end = expression.index(")")
-        result = evaluate_expression("(" + expression[:end+1])
-        return result
 
     if "T" in expression or "True" in expression:
         return True
