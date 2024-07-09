@@ -19,5 +19,6 @@ def get_value(char):
     else:
         return int(char)
 
+
 bowls = input()
 print(bowling_score(bowls))
