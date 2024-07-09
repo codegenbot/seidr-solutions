@@ -1,20 +1,28 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-#include<boost/lexical_cast.hpp>
-
-using namespace std;
-using namespace boost;
-
+```
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_numeric(a) && is_numeric(b)) {
-        double da = boost::any_cast<double>(a);
-        double db = boost::any_cast<double>(b);
-        return (da > db) ? a : ((da < db) ? b : boost::any("None")));
-    } else {
-        string sa = boost::any_cast<string>(a);
-        string sb = boost::any_cast<string>(b);
-        return (sa > sb) ? a : ((sa < sb) ? b : boost::any("None")));
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)b > a.convert_to<int>() ? b : a;
     }
+    else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)b > a.convert_to<int>() ? b : a;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(double)) {
+        return (float)b > a.convert_to<float>() ? b : a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return boost::any_cast<string>(b) > boost::any_cast<string>(a) ? b : a;
+    }
+    else if ((a.type() == typeid(int) || a.type() == typeid(float)) &&
+             (b.type() == typeid(int) || b.type() == typeid(float))) {
+        return boost::any_cast<double>(a) > boost::any_cast<double>(b) ? a : b;
+    }
+    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
+        return "None";
+    }
+    else if ((a.type() == typeid(int) || a.type() == typeid(float)) &&
+             b.type() == typeid(string)) {
+        return "None";
+    }
+    else
+        throw boost::bad_any_cast();
 }
