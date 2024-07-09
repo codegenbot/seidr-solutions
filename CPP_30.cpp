@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <memory>
-using namespace std;
 
-bool issame(const vector<float>& a, const vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,8 +14,8 @@ bool issame(const vector<float>& a, const vector<float>& b) {
     return true;
 }
 
-vector<float> getPositive(const vector<float>& l) {
-    vector<float> result(allocator<float>());
+std::vector<float> getPositive(const std::vector<float>& l) {
+    std::vector<float> result(std::vector<float>());
     for (float num : l) {
         if (num > 0) {
             result.push_back(num);
