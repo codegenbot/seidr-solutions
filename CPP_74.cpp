@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <sstream>
 
-bool same(const std::vector<std::string>& s1, const std::vector<std::string>& s2) {
+bool issame(const std::vector<std::string>& s1, const std::vector<std::string>& s2) {
     return s1.size() == 3 && s2.size() == 3 && s1[0] == s2[0] && s1[1] == s2[1] && s1[2] == s2[2];
 }
 
