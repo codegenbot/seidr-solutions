@@ -1,7 +1,7 @@
 #include <boost/any.hpp>
 #include <vector>
-#include <list>
 #include <algorithm>
+#include <list>
 
 bool issame(std::vector<boost::any> a, std::vector<boost::any> b) {
     if (a.size() != b.size())
@@ -15,7 +15,7 @@ bool issame(std::vector<boost::any> a, std::vector<boost::any> b) {
     return true;
 }
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
+std::vector<int> filter_integers(std::list<boost::any> values){
     std::vector<int> result;
     for (const auto& value : values) {
         if (boost::any_cast<bool>(value)) {
