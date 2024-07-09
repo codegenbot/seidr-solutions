@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -15,8 +14,8 @@ vector<vector<int>> cutVector(vector<int> v) {
         for (int j = i + 1; j < n; j++) {
             rightSum += v[j];
         }
-        if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
+        if (leftSum == rightSum || abs(leftSum - rightSum) < minDiff) {
+            minDiff = leftSum == rightSum ? 0 : abs(leftSum - rightSum);
             res[0] = vector<int>(v.begin(), v.begin() + i + 1);
             res[1] = vector<int>(v.begin() + i, v.end());
         }
