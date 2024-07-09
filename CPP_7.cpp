@@ -2,16 +2,6 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) 
-        return false;
-    for(string s : a) {
-        if(std::find(b.begin(), b.end(), s) == b.end())
-            return false;    
-    }
-    return true;
-}
-
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
     std::vector<std::string> result;
     for(string s : strings) {
@@ -20,6 +10,12 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
         }
     }
     return result;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    bool b_;
+    b_ = (a == b);
+    return b_;
 }
 
 int main() {
