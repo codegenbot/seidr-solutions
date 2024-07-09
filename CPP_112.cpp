@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -16,7 +15,7 @@ vector<string> reverse_delete(string s, string c) {
     vector<string> result;
 
     // Delete all characters in s that are equal to any character in c
-    for (char& ch : s) {
+    for (char ch : s) {
         bool found = false;
         for (char cc : c) {
             if (ch == cc) {
@@ -46,17 +45,11 @@ vector<string> reverse_delete(string s, string c) {
     // Return the result
     vector<string> final_result;
     final_result.push_back(res_str);
-    final_result.push_back(to_string(is_palindrome));
+    if(is_palindrome)final_result.push_back("True");
+    else final_result.push_back("False");
     return final_result;
 }
 
 int main() {
-    vector<string> output = reverse_delete("mamma", "mia");
-    if (!issame(output, {"", "True"})) {
-        for (const string& str : output) {
-            cout << str << endl;
-        }
-        assert(false);
-    }
-    return 0;
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
 }
