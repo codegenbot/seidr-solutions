@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -14,13 +15,5 @@ int next_smallest(std::vector<int> lst) {
     return -1; 
 }
 
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> lst(n);
-    for(int i = 0; i < n; i++){
-        std::cin >> lst[i];
-    }
-    std::cout << next_smallest(lst) << std::endl;
-    return 0;
-}
+std::cout << next_smallest(lst) << std::endl;
+return 0;
