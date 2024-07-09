@@ -19,14 +19,7 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    std::vector<int> digits;
-    for (int i = 0; i < 16; i++) {
-        int value = (i % 2 == 0) ? (i + 1) : ((i + 1) * 2 - 9);
-        if (value > 9) {
-            value -= 9;
-        }
-        digits.push_back(value);
-    }
+    std::vector<int> digits({0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15});
     int result = luhn(digits);
     std::cout << "The Luhn check digit is: " << result << std::endl;
     return 0;
