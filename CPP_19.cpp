@@ -1,4 +1,4 @@
-map<string, int> number_map = {
+map<string, int> num_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -11,25 +11,23 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers) {
-    string result = "";
-    map<int, string> reverse_map;
-    string temp = "";
+string sort_numbers(string numbers){
+    vector<string> num_list;
+    stringstream ss(numbers);
+    string token;
     
-    for (char c : numbers) {
-        if (c != ' ') {
-            temp += c;
-        } else {
-            reverse_map[number_map[temp]] = temp;
-            temp = "";
-        }
+    while (ss >> token) {
+        num_list.push_back(token);
     }
-    reverse_map[number_map[temp]] = temp;
-
-    for (auto it = reverse_map.begin(); it != reverse_map.end(); ++it) {
-        result += it->second + " ";
+    
+    sort(num_list.begin(), num_list.end(), [&](const string &a, const string &b){
+        return num_map[a] < num_map[b];
+    });
+    
+    string result;
+    for (const auto &num : num_list) {
+        result += num + " ";
     }
-
-    result.pop_back(); // Remove the extra space at the end
+    
     return result;
 }
