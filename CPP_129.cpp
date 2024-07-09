@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
@@ -12,4 +12,9 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
         path.push_back(grid[i % grid.size()][i % grid[0].size()]);
     }
     return path;
+}
+
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), std::vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
 }
