@@ -1,5 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
+#include <iostream>
 
 int main() {
     boost::any a = "hello";
@@ -18,6 +19,12 @@ boost::any compare_one(boost::any a, boost::any b) {
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         if (((float)a).cast_to<int>() > std::stoi(boost::any_cast<std::string>(b))))
+            return a;
+        else
+            return b;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        if (((float)a).cast_to<int>() > (int)b))
             return a;
         else
             return b;
