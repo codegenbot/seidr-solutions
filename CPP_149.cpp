@@ -17,7 +17,8 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
-    for (const auto& s : lst) {
+    for (int i = 0; i < lst.size(); i++) {
+        string s = lst[i];
         if (s.length() % 2 == 0) {
             result.push_back(s);
         }
@@ -38,11 +39,10 @@ int main() {
     for (string s : {"aaaa", "bbbb", "dd", "cc"}) {
         lst.push_back(s);
     }
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    if (!issame(sorted_list_sum(lst), expected)) {
-        std::cout << "Test failed" << std::endl;
+    if (!issame(sorted_list_sum(lst), {"cc", "dd", "aaaa", "bbbb"})) {
+        cout << "Test failed" << endl;
     } else {
-        std::cout << "Test passed" << std::endl;
+        cout << "Test passed" << endl;
     }
     return 0;
 }
