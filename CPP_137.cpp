@@ -1,4 +1,3 @@
-#include <boost/any.hpp>
 namespace boost {}
 
 boost::any compare_one(boost::any a, boost::any b) {
