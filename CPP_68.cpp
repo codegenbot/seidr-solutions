@@ -1,33 +1,15 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+Here is the completed code:
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    
-    if(arr.empty()) return {};
-    
-    pair<int, int> smallestEven = {INT_MAX, -1};
-    
-    for(int i = 0; i < arr.size(); i++) {
-        if(arr[i] % 2 == 0 && arr[i] < smallestEven.first) {
-            smallestEven.first = arr[i];
-            smallestEven.second = i;
+vector<int> pluck(vector<int> arr){
+    vector<pair<int, int>> nodes;
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] % 2 == 0) {
+            nodes.push_back({arr[i], i});
         }
     }
-    
-    result.push_back(smallestEven);
-    
-    return result;
-}
 
-int main() {
-    vector<int> arr1 = {4, 2, 3};
-    vector<pair<int, int>> result1 = pluck(arr1);
+    if(nodes.empty()) return {};
     
-    for(auto pair : result1) {
-        cout << "Plucked node: {" << pair.first << ", " << pair.second << "}" << endl;
-    }
-    
-    return 0;
+    sort(nodes.begin(), nodes.end());
+    return {nodes[0].first, nodes[0].second};
 }
