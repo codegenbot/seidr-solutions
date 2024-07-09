@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <map>
 #include <string>
 
-bool check_dict_case(map<string, string> dict) {
-    for (auto it = dict.begin(); it != dict.end(); ++it) {
-        if (std::toupper(it->first[0]) != std::toupper(first_key[0])) {
+bool check_dict_case(const std::map<std::string, std::string>& dict) {
+    for (const auto& pair : dict) {
+        if (std::toupper(pair.first[0]) != std::toupper(first_key[0])) {
             return false;
         }
     }
@@ -12,18 +13,18 @@ bool check_dict_case(map<string, string> dict) {
 }
 
 int main() {
-    map<string, string> dict;
-    string first_key;
+    std::map<std::string, std::string> dict;
+    std::string first_key;
 
-    cout << "Enter a series of key-value pairs (e.g., 'name:John'): ";
+    std::cout << "Enter a series of key-value pairs (e.g., 'name:John'): ";
     while (true) {
-        string line, key, value;
-        cin >> line;
+        std::string line, key, value;
+        std::cin >> line;
         if (line.empty()) break;  // End of input
 
         size_t colon = line.find(':');
-        if (colon == string::npos || line.size() < 2) {
-            cout << "Invalid format. Please use 'key:value'." << endl;
+        if (colon == std::string::npos || line.size() < 2) {
+            std::cout << "Invalid format. Please use 'key:value'." << std::endl;
             continue;
         }
 
@@ -34,14 +35,16 @@ int main() {
         if (dict.empty()) {
             first_key = key;
         } else if (std::toupper(first_key[0]) != std::toupper(key[0])) {
-            cout << "Error: Dictionary case mismatch." << endl;
+            std::cout << "Error: Dictionary case mismatch." << std::endl;
             return 1;  // Exit with error code
         }
     }
 
     if (!check_dict_case(dict)) {
-        cout << "Error: Dictionary is not in the same case." << endl;
+        std::cout << "Error: Dictionary is not in the same case." << std::endl;
     } else {
-        cout << "Dictionary is consistent in case." << endl;
+        std::cout << "Dictionary is consistent in case." << std::endl;
     }
+
+    return 0;
 }
