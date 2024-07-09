@@ -26,16 +26,7 @@ int skjkasdkd(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> lst;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> num;
-        lst.push_back(num);
-    }
-    std::cout << "Sum of digits in the largest prime number is: " << skjkasdkd(lst) << std::endl;
+    std::vector<int> lst = {2,3,4,5,6};
+    std::cout << skjkasdkd(lst);
     return 0;
 }
