@@ -13,9 +13,9 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-vector<std::string> words_string(string s){
+vector<string> words_string(string s){
     vector<string> result;
-    std::string word = "";
+    std::string word = "";  // Corrected type from 'string' to 'std::string'
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
             if(!word.empty()){
