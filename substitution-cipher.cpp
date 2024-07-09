@@ -12,7 +12,7 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
         if (substitutions.count(c)) {
             result += substitutions.at(c);
         } else {
-            result += c;  // Add the character to the result string if it is not in the substitution map
+            result += c;  
         }
     }
     
