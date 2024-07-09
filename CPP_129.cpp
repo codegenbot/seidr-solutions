@@ -5,11 +5,9 @@ using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k){
     vector<int> minPath;
-    for(int i = 0; i < k; ++i){
-        for(int j = 0; j < grid.size(); ++j){
-            for(int m = 0; m < grid[j].size(); ++m){
-                minPath.push_back(grid[j][m]);
-            }
+    for (int i = 0; i < k; ++i) {
+        for (const auto& row : grid) {
+            minPath.insert(minPath.end(), row.begin(), row.end());
         }
     }
     return minPath;
