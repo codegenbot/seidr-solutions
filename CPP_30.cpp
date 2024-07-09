@@ -1,56 +1,25 @@
-```cpp
-#include <initializer_list>
-#include <vector>
-#include <algorithm>
-#include <iostream>
-
-bool same(std::vector<float> a, std::vector<float> b) {
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size();i++){
-        if(a[i] != b[i])return false;
-    }
-    return true;
-}
-
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
-    for (float num : l) {
-        if (num > 0) {
-            result.push_back(num);
-        }
-    }
-    return result;
-}
-
 int main() {
     int n;
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    std::vector<float> vec;
-    for(int i=0; i<n; i++) {
-        float num;
-        std::cin >> num;
-        vec.push_back(num);
-    }
-
-    std::cout << "Original Vector: ";
-    for(float x : vec) {
-        std::cout << x << " ";
-    }
-    std::cout << std::endl;
-
-    std::vector<float> pos = get_positive(vec);
     
-    std::cout << "Vector with positive numbers: ";
-    for(float x : pos) {
-        std::cout << x << " ";
+    std::vector<float> numbers(n);
+    for(int i=0; i<n;i++){
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> numbers[i];
     }
-    std::cout << std::endl;
-
-    if(same(vec, pos)) {
-        std::cout << "Both vectors are the same." << std::endl;
+    
+    std::vector<float> positive_numbers = get_positive(numbers);
+    
+    if(same(get_positive(numbers), positive_numbers)) {
+        std::cout << "The list of positive numbers is: ";
+        for (float num : positive_numbers) {
+            std::cout << num << " ";
+        }
+        std::cout << std::endl;
     } else {
-        std::cout << "Vectors are not the same." << std::endl;
+        std::cout << "No positive numbers found." << std::endl;
     }
-
+    
     return 0;
 }
