@@ -1,4 +1,4 @@
-```
+````
 from typing import List
 
 
@@ -18,4 +18,6 @@ def rescale_to_unit() -> List[float]:
     return [(x - min_val) / (max_val - min_val) for x in numbers]
 
 
+print('''''')
 print(rescale_to_unit())
+```
