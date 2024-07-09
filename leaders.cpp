@@ -1,6 +1,3 @@
-#include <vector>
-#include <iostream>
-
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
@@ -13,16 +10,4 @@ std::vector<int> leaders(std::vector<int>& arr) {
     }
     
     return res;
-}
-
-int main() {
-    int n;
-    std::vector<int> input;
-    while(std::cin >> n) {
-        input.push_back(n);
-    }
-    std::vector<int> result = leaders(input);
-    for(int i: result)
-        std::cout << i << " ";
-    return 0;
 }
