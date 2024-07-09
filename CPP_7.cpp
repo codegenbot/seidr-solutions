@@ -3,9 +3,6 @@
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
-vector<vector<string>> filter_by_substring(vector<vector<string>> input, string sub);
-
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
@@ -31,7 +28,9 @@ vector<vector<string>> filter_by_substring(vector<vector<string>> input, string 
 }
 
 int main() {
-    vector<vector<string>> result = filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, "gru");
+    vector<vector<string>> input = {{"grunt", "trumpet", "prune", "gruesome"}};
+    string sub = "gru";
+    vector<vector<string>> result = filter_by_substring(input, sub);
     for(auto &v : result) {
         for(auto &s : v) {
             std::cout << s << " ";
