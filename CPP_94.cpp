@@ -25,8 +25,8 @@ bool isPrime(int n){
     return true;
 
 int main() {
-    std::vector<int> lst = {1,2,3,4,5};
+    std::vector<int> lst = {11, 13, 15};
     int result = skjkasdkd(lst);
-    std::cout << "The sum of the digits is: " << result << std::endl;
+    std::cout << "The sum of digits is: " << result << std::endl;
     return 0;
 }
