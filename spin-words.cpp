@@ -12,7 +12,7 @@ std::vector<std::string> split(const std::string& str, char c) {
             if (i < str.length()) {
                 word += str[i];
             }
-            if (!word.empty()) {
+            if (!word.empty() && i < str.length()) {
                 words.push_back(word);
                 word.clear();
             }
