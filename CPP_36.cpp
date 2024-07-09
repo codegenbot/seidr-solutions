@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int fizz_buzz(int n) {
@@ -7,3 +8,4 @@ int fizz_buzz(int n) {
             count++;
     }
     return count;
+}
