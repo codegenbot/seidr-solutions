@@ -1,5 +1,6 @@
-#include <string>
+```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
 int mastermind(string code, string guess) {
@@ -26,9 +27,10 @@ int mastermind(string code, string guess) {
 int main() {
     string code, guess;
     cout << "Enter the Mastermind code: ";
-    cin >> code;
+    getline(cin, code);
     cout << "Enter your guess: ";
-    cin >> guess;
+    getline(cin, guess);
     int pegs = mastermind(code, guess);
-    cout << "Number of pegs: " << pegs << endl;
+    std::cout << "Number of pegs: " << pegs << std::endl;
     return 0;
+}
