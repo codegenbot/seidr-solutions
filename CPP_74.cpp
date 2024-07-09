@@ -4,6 +4,20 @@
 bool issame(vector<string> a, vector<string> b);
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0;
     for (const string& s : lst1) {
@@ -15,11 +29,16 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         sum2 += s.length();
     }
 
-    if (sum1 < sum2) {
+    if (sum1 < sum2 && !issame(lst1, lst2)) {
         return lst1;
-    } else if (issame(lst1, lst2)) {
-        return lst1;
-    } else {
+    } else if (sum1 > sum2 && !issame(lst1, lst2)) {
         return lst2;
+    } else if (!issame(lst1, lst2)) {
+        if (lst1.size() < lst2.size()) {
+            return lst1;
+        }
+        return lst2;
+    } else {
+        return lst1;
     }
 }
