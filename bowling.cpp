@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 int bowlingScore(std::string s) {
@@ -14,12 +13,11 @@ int bowlingScore(std::string s) {
         } else {
             int roll = c - '0';
             currentRoll += roll;
-            if (s[1] == '/' || s[2] == 'X') {
-                score += roll * 2;
+            if (s[s.size() - 2] == '/' || s[s.size() - 1] == 'X') {
+                score += currentRoll * 2;
             } else {
-                score += roll;
+                score += currentRoll;
             }
         }
     }
     return score;
-}
