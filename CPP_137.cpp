@@ -1,4 +1,3 @@
-```
 #include <boost/variant.hpp>
 #include <iostream>
 #include <string>
@@ -26,6 +25,6 @@ boost::variant<int, float, double, std::string> compare_one(boost::any a, boost:
         double num = boost::any_cast<double>(b);
         return (std::stod(str) > num) ? static_cast<boost::variant<int, float, double, std::string>>(a) : static_cast<boost::variant<int, float, double, std::string>>(b);
     } else {
-        return boost::blank;
+        return 0; 
     }
 }
