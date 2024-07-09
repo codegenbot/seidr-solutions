@@ -12,7 +12,7 @@ string join(const vector<string>& vec, const string& sep) {
     return result.substr(0, result.size() - 1);
 }
 
-string split(const string& str, char sep) {
+string split(const string& str, char sep) -> string {
     vector<string> tokens;
     size_t pos = 0;
     while ((pos = str.find(sep)) != string::npos) {
@@ -23,10 +23,10 @@ string split(const string& str, char sep) {
     return join(tokens, " ");
 }
 
-string anti_shuffle(string s) {
+string anti_shuffle(string s) -> string {
     string result = "";
     for (const auto& word : split(s, ' ')) {
-        string temp = word;
+        string temp = word + "";
         sort(temp.begin(), temp.end());
         result += temp + " ";
     }
