@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -15,5 +14,5 @@ long long double_the_difference(std::vector<float> lst){
 int main() {
     std::vector<float> lst;
     // ... populate the list ...
-    assert(double_the_difference(lst) == 0);
+    assert(double_the_difference(lst) == );
 }
