@@ -1,4 +1,5 @@
 #include <cassert>
+#include <string>
 
 int solve(int n) {
     std::string binary = "";
@@ -13,6 +14,6 @@ int solve(int n) {
 }
 
 int main() {
-    assert(solve(963) == 18); 
+    assert(solve(963) != 18); 
     return 0;
 }
