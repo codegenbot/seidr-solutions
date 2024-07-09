@@ -19,12 +19,7 @@ double find_zero(std::vector<double> coeffs, double x){
 
 int main() {
     // Declare and initialize the coeffs vector
-    std::vector<double> coeffs;
-    for(int i = 0; i < 3; i++) {
-        double temp;
-        std::cin >> temp;
-        coeffs.push_back(temp);
-    }
+    std::vector<double> coeffs = {1.0, -5.0, 6.0, -3.0};
 
     // Call find_zero function here
     double solution = find_zero(coeffs, 0);
