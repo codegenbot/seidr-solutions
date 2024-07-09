@@ -1,23 +1,13 @@
 ```
-def bowling_score(frames):
+def bowling_score(s):
     score = 0
-    frame = 0
-    for i in range(len(frames)):
-        if frames[i].isdigit():
-            if len(frames[i]) == 1:
-                score += int(frames[i])
-            else:
-                while i < len(frames) and not frames[i+1].isdigit():
-                    i += 1
-                score += int(frames[i:i+2])
-                frame += 1
-        elif frames[i] == 'X':
-            score += 10 + (10 - (frame % 2))
-            frame += 1
+    frames = [list(map(int, list(frame))) for frame in re.findall('([0-9X]{1,3})', s)]
+    
+    for i, frame in enumerate(frames):
+        if len(frame) == 1:  # strike
+            score += 10 + (10 * (len(frames) - i))
+        elif sum(frame) == 10:  # spare
+            score += 10 + frames[i+1][0] if i < 9 else 10
         else:
-            if frames[i] in ['/', '-']:
-                i += 1
-            while i < len(frames) and not frames[i].isdigit():
-                i += 1
-            score += int(frames[i])
+            score += sum(frame)
     return score
