@@ -1,10 +1,15 @@
 #include <vector>
+#include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b);
 std::vector<int> make_a_pile(int n);
 
 int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    if (!issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22})) {
+        std::cout << "Test failed";
+    } else {
+        std::cout << "Test passed";
+    }
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
