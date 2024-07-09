@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -32,14 +31,9 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 
     // Keep popping elements from the priority queue until k elements are popped
     while (!pq.empty() && k--) {
-        int idx = pq.top().second;
+        arr.erase(std::remove(arr.begin(), arr.end(), pq.top().first), arr.end());
         pq.pop();
-        if (idx < arr.size()) {
-            arr[idx] = -1;  // Mark this index as processed, don't pop it directly
-        }
     }
-
-    arr.erase(std::remove(arr.begin(), arr.end(), -1), arr.end()); // Erase the marked indices
 
     return arr;
 }
