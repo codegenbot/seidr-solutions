@@ -3,20 +3,20 @@
 #include <vector>
 #include <algorithm>
 
-int findMax(std::vector<int> numbers) {
-    int maxNum = (numbers.empty()) ? -1 : *std::max_element(numbers.begin(), numbers.end());
-    if (maxNum != -1)
-        std::cout << maxNum << std::endl;
-    return 0;
-}
-
 int main() {
     std::vector<int> numbers;
-    for(int i=0; i<5; i++){
-        int num;
-        std::cin >> num;
+    int num;
+    
+    while (std::cin >> num) {
         numbers.push_back(num);
     }
-    findMax(numbers);
+    
+    if (!numbers.empty()) {
+        int maxNum = *std::max_element(numbers.begin(), numbers.end());
+        std::cout << maxNum << std::endl;
+    } else {
+        std::cout << -1 << std::endl;
+    }
+    
     return 0;
 }
