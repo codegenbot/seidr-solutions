@@ -12,17 +12,19 @@ bool _issame(vector<float> a, vector<float> b) {
 vector<float> sort_even(vector<float> l) {
     vector<float> result(l.size());
     vector<float> evens;
+    int count = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             evens.push_back(l[i]);
+            count++;
+        } else {
+            result[i] = l[i];
         }
     }
     sort(evens.begin(), evens.end());
-    int idx = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            result[i] = evens[idx];
-            idx++;
+            result[i] = evens[i/2];
         } else {
             result[i] = l[i];
         }
