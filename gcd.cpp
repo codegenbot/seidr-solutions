@@ -1,20 +1,24 @@
-```cpp
 #include <iostream>
-int a, b;
+#include <vector>
 
-int main() {
-    std::cout << "Enter two integers: ";
-    std::cin >> a >> b;
-    std::cout << "GCD: " << gcd() << std::endl;
-    return 0;
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result;
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        result.push_back(pos);
+        pos += target.size();
+    }
+    return result;
 }
 
-int gcd() {
-    int temp = b;
+int main() {
+    int a, b;
+    std::cout << "Enter two integers: ";
+    std::cin >> a >> b;
     while (b != 0) {
         int temp = b;
         b = a % b;
         a = temp;
     }
-    return a;
+    return 0;
 }
