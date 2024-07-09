@@ -14,6 +14,3 @@ def solve_boolean(input_str):
         else:
             if stack and stack[-1] == '&':
                 stack.pop()
-    if not stack:
-        return True
-    return False
