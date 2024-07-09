@@ -1,12 +1,12 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> compareVector(const std::vector<std::string>& a, const std::vector<std::string>& b){
-    if(a.size() != b.size()) return {};
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return {};
+        if(a[i] != b[i]) return false;
     }
-    return a;
+    return true;
 }
 
 std::vector<string> numerical_letter_grade(vector<float> grades){
