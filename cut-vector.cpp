@@ -14,5 +14,5 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
             splitIndex = i;
         }
     }
-    return make_pair(vector<int>(nums.begin(), nums.begin() + splitIndex), vector<int>(nums.begin() + splitIndex, nums.end()));
+    return make_pair({nums.begin(), nums.begin() + splitIndex}, {nums.begin() + splitIndex, nums.end()});
 }
