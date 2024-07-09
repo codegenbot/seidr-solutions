@@ -1,16 +1,8 @@
-sort(l.begin(), l.end());
-    int left = 0;
-    int right = l.size() - 1;
-    
-    while (left < right) {
-        if (l[left] + l[right] == 0) {
-            return true;
-        } else if (l[left] + l[right] < 0) {
-            left++;
-        } else {
-            right--;
-        }
+unordered_set<int> seen_values;
+for (int num : l) {
+    if (seen_values.count(-num) > 0) {
+        return true;
     }
-    
-    return false;
+    seen_values.insert(num);
 }
+return false;
