@@ -1,9 +1,9 @@
 #include <string>
 using namespace std;
 
-bool check_if_last_char_is_a_letter(const char* str) {
-    if(*str == '\0') return false;
-    int c = *--str; 
+bool check_if_last_char_is_a_letter(const string& str) {
+    if(str.empty()) return false;
+    int c = str[str.length() - 1]; 
     return ::isalpha(c);  
 }
 
