@@ -5,7 +5,9 @@ double probability(int n, int m) {
     double total = (double)n * m;
     double p = 0;
 
-    p += (m-1) / total;
+    for (int i = 1; i <= m && i <= n; ++i) {
+        p += (double)(n - i) / total;
+    }
 
     return p;
 }
