@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -17,6 +18,5 @@ int main() {
         cout << "Invalid input. Please enter a positive integer.\n";
     } else {
         fizz_buzz(n);
-        return 0;
     }
 }
