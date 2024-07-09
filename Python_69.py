@@ -1,4 +1,4 @@
-````
+```
 def search():
     lst = input("Enter a list of numbers (space separated): ").split()
     freq_dict = {}
