@@ -19,11 +19,16 @@ boost::any compare_one(boost::any a, boost::any b) {
             std::replace(str_b.begin(), str_b.end(), ',', '.');
         }
         
-        double val_a = std::stod(str_a);
-        double val_b = std::stod(str_b);
+        double num_a = 0.0, num_b = 0.0;
+        try {
+            num_a = std::stod(str_a);
+            num_b = std::stod(str_b);
+        } catch (const std::invalid_argument& e) {
+            return boost::any(); // Return default-constructed boost::any on error
+        }
         
-        return val_a > val_b ? a : (val_a < val_b ? b : boost::any());
+        return num_a > num_b ? a : b;
     }
     
-    return boost::any();
+    return boost::any(); // Return default-constructed boost::any if types don't match
 }
