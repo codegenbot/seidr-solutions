@@ -1,2 +1,8 @@
 def paired_digits(s):
-    return sum(int(a) for a, b in zip(s, s[1:]) if a == b)
+    total = 0
+    prev_digit = None
+    for digit in s:
+        if digit == prev_digit:
+            total += int(digit)
+        prev_digit = digit
+    return total
