@@ -2,7 +2,12 @@
 #include <iostream>
 #include <vector>
 
-bool has_close_elements(std::vector<std::pair<float*, float*>> numbers, float tol) {
+struct FloatArrayPair {
+    float* first;
+    float* second;
+};
+
+bool has_close_elements(std::vector<FloatArrayPair> numbers, float tol) {
     for (int i = 0; i < numbers.size() - 1; i++) {
         for (int j = i + 1; j < numbers.size(); j++) {
             bool closeFound = false;
@@ -29,8 +34,16 @@ int main() {
     float* p1 = &arr1[0];
     float* p2 = &arr2[0];
 
-    std::vector<std::pair<float*, float*>> input;
-    input.push_back({{&arr1[0], &arr1[0]}, {&arr2[0], &arr2[0]}});
+    float* arr1_[2];
+    float* arr2_[2];
+
+    arr1_[0] = &arr1[0]; 
+    arr1_[1] = &arr1[1]; 
+
+    arr2_[0] = &arr2[0]; 
+    arr2_[1] = &arr2[1]; 
+
+    std::vector<FloatArrayPair> input = {{&arr1_[0], &arr2_[0]}};
     
     if (!has_close_elements(input, 0.5)) {
         std::cout << "No close elements found." << std::endl;
