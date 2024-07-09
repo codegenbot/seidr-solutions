@@ -1,21 +1,20 @@
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        int sum = 0;
-        bool has_negative = false;
-        string str_num = to_string(num);
+        int sum_of_digits = 0;
+        bool first_digit_negative = false;
         if (num < 0) {
-            has_negative = true;
+            first_digit_negative = true;
+            num = -num;
         }
-        for (char c : str_num) {
-            int digit = c - '0';
-            if (has_negative && digit == 1 || digit > 0) {
-                sum += digit;
-            } else if (!has_negative && digit > 0) {
-                sum += digit;
+        while (num > 0) {
+            int digit = num % 10;
+            if (!first_digit_negative || digit != 0) {
+                sum_of_digits += digit;
             }
+            num /= 10;
         }
-        if (sum > 0) {
+        if (sum_of_digits > 0) {
             count++;
         }
     }
