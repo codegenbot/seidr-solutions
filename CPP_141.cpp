@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 std::string file_name_check(std::string file_name) {
@@ -30,6 +31,6 @@ std::string file_name_check(std::string file_name) {
 }
 
 int main() {
-    assert (file_name_check("s.") == "No");
+    assert(file_name_check("s.") == "No");
     return 0;
 }
