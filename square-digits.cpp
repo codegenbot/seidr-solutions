@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -18,4 +17,3 @@ int main() {
     std::string output = squareDigits(input);
     std::cout << "Squared digits: " << output << std::endl;
     return 0;
-}
