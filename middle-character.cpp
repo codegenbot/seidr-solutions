@@ -1,10 +1,20 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string middleCharacter(string s) {
+std::string middleCharacter(std::string s) {
     int n = s.length();
-    if (n % 2 == 1) {
-        return string(1, s[n / 2]);
+    std::string result = "";
+    if(n % 2 == 1) {
+        result = s.substr(n / 2, 1);
     } else {
-        return string(1, s[(n - 1) / 2]) + string(1, s[n / 2]);
+        result = s.substr((n / 2) - 1, 2);
     }
+    return result;
+}
+
+int main() {
+    std::string str;
+    std::getline(std::cin, str);
+    std::cout << middleCharacter(str) << std::endl;
+    return 0;
 }
