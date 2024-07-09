@@ -1,38 +1,27 @@
-```cpp
-#include <vector>
 #include <algorithm>
+#include <vector>
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(vector<float> a, vector<vector<float>>> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-6) return false;
+        if (abs(a[i] - b[i]) > 1e-9) return false;
     }
     return true;
 }
 
 vector<float> rescale_to_unit(vector<float> numbers) {
-    float minVal = *min_element(numbers.begin(), numbers.end());
-    float maxVal = *max_element(numbers.begin(), numbers.end());
+    float min_val = *min_element(numbers.begin(), numbers.end());
+    float max_val = *max_element(numbers.begin(), numbers.end());
 
     vector<float> result;
     for (float num : numbers) {
-        result.push_back((num - minVal) / (maxVal - minVal));
+        result.push_back((num - min_val) / (max_val - min_val));
     }
+
     return result;
 }
 
 int main() {
-    vector<float> numbers1 = {1.0, 2.0, 3.0};
-    vector<float> numbers2 = {1.0, 2.0, 3.0};
-
-    if (issame(numbers1, numbers2)) {
-        for (float num : rescale_to_unit(numbers1)) {
-            cout << num << " ";
-        }
-        cout << endl;
-    } else {
-        cout << "Vectors are not same" << endl;
-    }
-
+    assert(isame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75}));
     return 0;
 }
