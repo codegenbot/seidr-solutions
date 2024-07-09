@@ -1,6 +1,15 @@
 #include <iostream>
 #include <vector>
 
+bool has_close_elements(const std::vector<float>& vec, float threshold) {
+    for (size_t i = 1; i < vec.size(); ++i) {
+        if (std::abs(vec[i] - vec[i-1]) <= threshold) {
+            return true;
+        }
+    }
+    return false;
+}
+
 int main() {
     std::vector<float> a;
     float num;
@@ -16,14 +25,4 @@ int main() {
         std::cout << "The vector does not contain close elements." << std::endl;
     }
     return 0;
-
-}
-
-bool has_close_elements(const std::vector<float>& vec, float threshold) {
-    for (size_t i = 1; i < vec.size(); ++i) {
-        if (std::abs(vec[i] - vec[i-1]) <= threshold) {
-            return true;
-        }
-    }
-    return false;
 }
