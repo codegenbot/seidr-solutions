@@ -1,8 +1,7 @@
-float max_element(vector<float> l){
-    float m = l[0];
-    for(int i=1; i<l.size(); i++){
-        if(l[i] > m)
-            m = l[i];
-    }
-    return m;
+#include <algorithm>
+#include <cmath>
+
+int main() {
+    int l[] = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    return abs(*max_element(begin(l), end(l)) - 12);
 }
