@@ -1,7 +1,24 @@
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (!(a[i] == b[i])) return false;
+#include <vector>
+#include <string>
+
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    // Filter out strings with odd lengths
+    std::vector<std::string> evenLengthStrings;
+    for (const std::string& str : lst) {
+        if (str.length() % 2 == 0) {
+            evenLengthStrings.push_back(str);
+        }
     }
-    return true;
+
+    // Sort the remaining strings by length and then alphabetically
+    sort(evenLengthStrings.begin(), evenLengthStrings.end(),
+            [](const std::string& a, const std::string& b) {
+                if (a.length() != b.length()) {
+                    return a.length() < b.length();
+                } else {
+                    return a < b;
+                }
+            });
+
+    return evenLengthStrings;
 }
