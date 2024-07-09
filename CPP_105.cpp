@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -50,7 +51,11 @@ vector<vector<string>> by_length(const vector<int>& arr) {
         }
     }
 
+    return result;
+}
+
+int main() {
     assert(by_length({9, 4, 8}) == vector<vector<string>>{{"Nine"}, {"Eight"}, {"Four"}});
 
-    return result;
+    return 0;
 }
