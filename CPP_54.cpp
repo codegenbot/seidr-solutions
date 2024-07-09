@@ -7,8 +7,7 @@ bool same_chars(string s1, string s2) {
         return false;
     }
     for(int i = 0; i < s1.size(); i++){
-        char c = s1[i]; // store each character in a single char variable
-        if(c != s2[i]) { // compare with the corresponding character in s2
+        if(s1.at(i) != s2.at(i)) { 
             return false;
         }
     }
