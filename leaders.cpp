@@ -5,15 +5,8 @@ using namespace std;
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
-    for (int i = 0; i < n; i++) {
-        bool isLeader = true;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] >= arr[i]) {
-                isLeader = false;
-                break;
-            }
-        }
-        if (isLeader) {
+    for (int i = n - 1; i >= 0; i--) {
+        if (result.empty() || arr[i] >= result.back()) {
             result.push_back(arr[i]);
         }
     }
@@ -21,7 +14,7 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 3, 4, 2};
+    vector<int> arr = {17, 201, 505, 93, 333, 757, 604, 80, 988, 681, 249, 569, 635, 659, 692, 183, 780, 465};
     vector<int> leadersResult = leaders(arr);
     for (int leader : leadersResult) {
         cout << leader << endl;
