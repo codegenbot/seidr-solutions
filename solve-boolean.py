@@ -6,5 +6,4 @@ def solve_boolean(expression):
         .replace("&", " and ")
     )
 
-
 print(solve_boolean(input()))
