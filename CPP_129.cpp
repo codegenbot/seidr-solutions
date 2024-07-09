@@ -1,5 +1,7 @@
-```
+```cpp
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
@@ -23,7 +25,11 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
     int n = grid.size();
     if (k == 0) {
-        res.insert(res.end(), res.begin(), res.end());
+        for(int i=0; i<res.size(); i++){
+            for(int j=i+1; j<res.size(); j++){
+                if(res[i] != res[j]) return;
+            }
+        }
         return;
     }
     visited[x][y] = true;
