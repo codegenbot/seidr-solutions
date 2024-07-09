@@ -1,11 +1,12 @@
 def increment_numbers(l):
     return [num + 1 for num in l]
 
-# Example input list
+
+# Define a list to increment
 input_list = [1, 2, 3, 4, 5]
 
-# Correct way to call the function
+# Call the function with the defined list
 output_list = increment_numbers(input_list)
 
-# Output the result
+# Print the output
 print(output_list)
