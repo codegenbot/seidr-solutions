@@ -1,11 +1,11 @@
+```c++
 #include <cassert>
-#include <string>
 
 const char* roman[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
-std::string int_to_roman(int n) {
+int int_to_roman(int n) {
     if (n >= 1000) {
-        return "M";
+        return "M"\0;
     }
     else if (n >= 900) {
         return "CM" + int_to_roman(n - 900);
@@ -17,7 +17,7 @@ std::string int_to_roman(int n) {
         return "CD" + int_to_roman(n - 400);
     }
     else if (n >= 100) {
-        return n >= 90 ? "CM" : (n >= 50 ? "L" : (n >= 40 ? "XL" : (n >= 10 ? (n >= 9 ? "IX" : (n >= 5 ? "V" : (n >= 4 ? "IV" : "I"))))));
+        return n >= 90 ? "CM" : (n >= 50 ? "L" : (n >= 40 ? "XL" : (n >= 10 ? (n >= 9 ? "IX" : (n >= 5 ? "V" : (n >= 4 ? "IV" : "I"))))))) + int_to_roman((n >= 90) ? 0 : (n >= 50 ? n - 50 : 10));
     }
     else {
         return "";
@@ -25,6 +25,6 @@ std::string int_to_roman(int n) {
 }
 
 int main() {
-    assert(std::string("M") == int_to_roman(1000));
+    assert(int_to_roman(1000) == "M"\0);
     return 0;
 }
