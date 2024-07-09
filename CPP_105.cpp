@@ -1,15 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string> a) {
-    if (a.size() == 0) {
-        return true;
+bool issame(vector<string> a, vector<vector<string>> b) {
+    if (a.size() != b[0].size()) {
+        return false;
     }
-    for (int i = 1; i < a.size(); i++) {
-        if (a[i - 1] != a[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[0][i]) {
             return false;
         }
     }
@@ -67,7 +66,7 @@ int main() {
     vector<int> input = {1, 4, 8};
     vector<string> output = by_length(input);
     
-    if (issame({{"One", "Four", "Eight"}})) {
+    if (issame({{"One", "Four", "Eight"}}, {{output}})) {
         for (string str : output) {
             cout << str << endl;
         }
