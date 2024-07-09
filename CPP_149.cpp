@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -5,6 +6,8 @@ using namespace std;
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> evenLengthStrings;
+    evenLengthStrings.clear();
+    evenLengthStrings.reserve(0);
     for (const string& str : lst) {
         if (str.length() % 2 == 0) {
             evenLengthStrings.push_back(str);
