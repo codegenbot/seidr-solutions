@@ -1,12 +1,11 @@
-def complete_code(numbers, delimeter):
+def complete_code(numbers, delimiter):
     result = []
     for num in numbers:
-        result.extend([num, delimeter])
+        result.extend([num, delimiter])
     result.pop()
     return result
 
-# Call the function with appropriate arguments
 numbers = [1, 2, 3]
-delimeter = ','
-output = complete_code(numbers, delimeter)
+delimiter = ','
+output = complete_code(numbers, delimiter)
 print(output)
