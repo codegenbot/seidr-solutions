@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -24,12 +25,12 @@ int main() {
         lst1[i] = 1 + i*2;
     }
     
-    vector<int> lst2(4); 
+    vector<int> lst2(4);
     for (int i = 0; i < 4; ++i) {
         lst2[i] = 2 + i*2;
     }
     
     string result = exchange(lst1, lst2);
-    if (result == "YES") cout << result; else cout << result;
+    if (result == "YES") cout << "YES"; else cout << "NO";
     return 0;
 }
