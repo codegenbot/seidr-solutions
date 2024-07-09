@@ -1,13 +1,9 @@
-def add(a, b):
-    return a + b
-
+def add(numbers):
+    return sum(numbers)
 
 def check():
-    print("Enter numbers separated by spaces:")
-    numbers = input().split()
-    a, b = map(int, numbers)
-    result = add(a, b)
-    print("Result:", result)
-
+    numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
+    result = add(numbers)
+    print("Result of addition:", result)
 
 check()
