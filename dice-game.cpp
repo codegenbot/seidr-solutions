@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 double probability(int n, int m) {
     double total = (double)n * m;
@@ -14,11 +15,8 @@ double probability(int n, int m) {
 }
 
 int main() {
-    if (probability(6, 6) > 1 || probability(6, 6) < 0) {
-        std::cout << "Error: Probability must be between 0 and 1." << std::endl;
-    } else {
-        std::cout << "The probability that Peter rolls strictly higher than Colin is: "
-                  << probability(6, 6) << std::endl;
-    }
+    cout << setiosflags(ios_base::fixed) << setprecision(5);
+    cout << "The probability that Peter rolls strictly higher than Colin is: "
+         << probability(6, 6) << endl;
     return 0;
 }
