@@ -1,6 +1,10 @@
 Here is the completed code:
 
 bool iscuber(int a){
-    double c = pow(a, 1.0/3);
-    return floor(c + 0.5) == round(c);
+    int i = 1;
+    while (pow(i, 3) <= a) {
+        if (pow(i, 3) == a) return true;
+        i++;
+    }
+    return false;
 }
