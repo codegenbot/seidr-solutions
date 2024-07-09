@@ -1,7 +1,8 @@
+```c
 #include <vector>
 #include <string>
 
-bool sameVectors(vector<string> a, vector<string> b) {
+bool sameVectors(vector<string> a,vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
