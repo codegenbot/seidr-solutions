@@ -13,13 +13,13 @@ vector<int> incr_list(vector<int> l){
 }
 
 int main() {
-    vector<int> input = {1, 2, 3, 4};
-    vector<int> modified = incr_list(input);
+    vector<int> original = {1, 2, 3, 4, 5};
+    vector<int> modified = incr_list(original);
     
-    if (issame(input, modified)) {
-        std::cout << "The input and modified vectors are the same." << std::endl;
+    if(issame(original, modified)){
+        std::cout << "Lists are the same after incrementing." << std::endl;
     } else {
-        std::cout << "The input and modified vectors are different." << std::endl;
+        std::cout << "Lists are different after incrementing." << std::endl;
     }
     
     return 0;
