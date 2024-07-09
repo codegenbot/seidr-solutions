@@ -1,11 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
-using namespace std;
-
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
-
 int totalChars(vector<string> lst) {
     int total = 0;
     for (const string& str : lst) {
@@ -24,8 +20,3 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
     return lst2;
 }
-
-int main() {
-    assert(issame(total_match({"this"}, {}) , {}));
-    return 0;
-} 
