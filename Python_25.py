@@ -1,5 +1,7 @@
+```Python
 from typing import List
 import math
+
 
 def factorize(n: int) -> List[int]:
     factors = []
@@ -17,6 +19,7 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append([n])
     return [factor for factor in factors]
+
 
 num = int(input("Enter a number to find its prime factors: "))
 print(factorize(num))
