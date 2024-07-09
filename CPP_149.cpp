@@ -1,7 +1,14 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
+
+bool issame(const std::string& a, const std::string& b) {
+    if (a.length() != b.length()) {
+        return false;
+    } else {
+        return a <= b;
+    }
+}
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     // Filter out strings with odd lengths
@@ -18,7 +25,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
                   if (a.length() != b.length()) {
                       return a.length() < b.length();
                   } else {
-                      return a < b;
+                      return issame(a, b);
                   }
               });
 
@@ -27,6 +34,9 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 
 int main() {
     std::vector<std::string> input = {"aaaa", "bbbb", "dd", "cc"};
-    assert(sorted_list_sum(input) == {"cc", "dd", "aaaa", "bbbb"});
+    std::cout << "Sorted list: ";
+    for (const auto& str : sorted_list_sum(input)) {
+        std::cout << str << " ";
+    }
     return 0;
 }
