@@ -1,41 +1,39 @@
 ```cpp
+#include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[a.size()-i-1]) return false;
+bool issame(int x, int y) {
+    if (x == y)
+        return true;
+    else
+        return false;
+}
+
+std::vector<int> sort_array(std::vector<int> array) {
+    int sum = 0;
+    for(int i=0; i<array.size(); i++)
+        sum += array[i];
+    
+    if (sum % 2 == 0) {
+        std::sort(array.begin(), array.end(), greater<int>());
+    } else {
+        std::sort(array.begin(), array.end());
     }
-    return true;
+    return array;
 }
 
 int main() {
     int n;
-    cout << "Enter the size of array: ";
-    cin >> n;
-
-    vector<int> array(n);
-    for(int i = 0; i < n; i++){
-        cout << "Enter element at index " << i << ": ";
-        cin >> array[i];
+    std::cin >> n;
+    std::vector<int> array(n);
+    for(int i=0; i<n; i++) {
+        std::cin >> array[i];
     }
 
-    vector<int> result = sort_array(array);
+    sort_array(array);
 
-    if(issame(array, result))
-        cout << "Array is the same after sorting" << endl;
-    else
-        cout << "Array is not the same after sorting" << endl;
-
+    for(auto x:array)
+        std::cout << x << " ";
     return 0;
-}
-
-vector<vector<int>> sort_array(vector<int> array) {
-    int first = array.empty() ? 0 : array[0];
-    int last = array.empty() ? 0 : array.back();
-    if ((first + last) % 2 == 1)
-        return {{array}};
-    else
-        return {{array.rbegin(), array.rend()}};
 }
