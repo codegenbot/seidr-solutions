@@ -3,23 +3,21 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool upperCaseNext = false;
-
     for (char c : s) {
         if (c == '-') {
             result += ' ';
             continue;
         }
 
-        if (!upperCaseNext) {
+        if (c == ' ') {
+            result += toupper(result.back());
+            continue;
+        }
+
+        if (!result.empty()) {
             result += tolower(c);
         } else {
             result += toupper(c);
-            upperCaseNext = false;
-        }
-        
-        if (c != ' ') {
-            upperCaseNext = true;
         }
     }
 
