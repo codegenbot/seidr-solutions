@@ -20,6 +20,6 @@ std::pair<std::string, std::string> reverse_delete(const std::string& s, const s
 }
 
 int main() {
-    auto result = reverse_delete("mamma", "mia");
-    assert(result.first == "" && result.second == "True");
+    assert(issame(reverse_delete("mamma", "mia").first, std::vector<std::string>{""}));
+    assert(issame(reverse_delete("mamma", "mia").second, std::vector<std::string>{"True"}));
 }
