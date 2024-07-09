@@ -1,19 +1,20 @@
 #include <vector>
-#include <set>
-
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
-    return (a == b);
+    return common(a, b).size() == a.size();
 }
 
-int main() {
-    vector<int> l1 = {1, 2, 3};
-    vector<int> l2 = {2, 3, 4};
+vector<int> common(vector<int> l1, vector<int> l2) {
+    set<int> s1(l1.begin(), l1.end());
+    set<int> s2(l2.begin(), l2.end());
     
-    if (!issame(l1, l2)) {
-        common(l1, l2);
+    set<int> result;
+    for (int i : s1) {
+        if (s2.count(i)) {
+            result.insert(i);
+        }
     }
     
-    return 0;
+    return vector<int>(result.begin(), result.end());
 }
