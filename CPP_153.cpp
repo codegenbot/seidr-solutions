@@ -1,20 +1,22 @@
-Here is the solution:
-
-string Strongest_Extension(string class_name,vector<string> extensions){
-    string strongest = "";
-    int max_strength = -1;
-    for(auto& ext : extensions){
-        int cap = 0, sm = 0;
-        for(char c: ext) {
-            if(isupper(c)) ++cap;
-            else if(islower(c)) ++sm;
+string Strongest_Extension(string class_name, vector<string> extensions) {
+    string strongest_extension = "";
+    int max_strength = 0;
+    
+    for (const auto& extension : extensions) {
+        int uppercase_letters = 0, lowercase_letters = 0;
+        
+        for (char c : extension) {
+            if (isupper(c)) uppercase_letters++;
+            else if (islower(c)) lowercase_letters++;
         }
-        if(cap-sm > max_strength){
-            strongest = ext;
-            max_strength = cap - sm;
-        }else if(cap-sm == max_strength && strongest.size() < ext.size()){
-            strongest = ext;
+        
+        double strength = (double)(uppercase_letters - lowercase_letters);
+        
+        if (strength > max_strength || (strength == max_strength && strongest_extension.empty())) {
+            max_strength = strength;
+            strongest_extension = extension;
         }
     }
-    return class_name + "." + strongest;
+    
+    return class_name + "." + strongest_extension;
 }
