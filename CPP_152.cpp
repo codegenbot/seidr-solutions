@@ -29,25 +29,14 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
-    // Handle the first element separately since we need both game and guess vectors to have same size.
-    int temp1, temp2; 
-    std::cout << "Enter element 1 (Game): ";
-    std::cin >> temp1;
-    game.push_back(temp1);
-    guess.push_back(temp1); 
-
-    // Read remaining elements
-    for(int i = 1; i < n; i++){
-        std::cout << "Enter element " << i+1 << " (Game): ";
-        int temp1; 
-        std::cin >> temp1;
-        game.push_back(temp1);
-        
-        std::cout << "Enter element " << i+1 << " (Guess): ";
-        int temp2; 
-        std::cin >> temp2;
-        guess.push_back(temp2); 
+    game.resize(n);
+    guess.resize(n);
+    for(int i = 0; i < n; i++){
+        std::cout << "Enter element " << i+1 << ": ";
+        int temp;
+        std::cin >> temp;
+        game[i] = temp;
+        guess[i] = temp; 
     }
     if(issame(game, guess)){
         std::cout << "The two vectors are the same.\n";
