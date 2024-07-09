@@ -17,19 +17,16 @@ std::string camelCase(std::string s) {
                 result.push_back(std::tolower(c));
             }
         } else if (!std::isalnum(s[i])) {
+            if (i > 0 && !std::isalnum(s[i-1])) {
+                continue;
+            } 
             if (result.back() != ' ') {
-                result.push_back(std::toupper(s[i]));
-            } else {
-                result.push_back(s[i]);
-            }
-        } else {
-            if (result.back() == ' ') {
-                result.pop_back();
+                result.push_back(' ');
             }
             result.push_back(std::toupper(s[i]));
         }
     }
-    return result;
+    return std::strupr(result);
 }
 
 int main() {
