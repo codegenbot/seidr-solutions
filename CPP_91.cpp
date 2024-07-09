@@ -1,7 +1,5 @@
 #include <string>
 
-using namespace std;
-
 int is_bored(string S) {
     int count = 0;
     size_t pos = 0;
@@ -11,9 +9,3 @@ int is_bored(string S) {
         pos += 1;
     }
     return count;
-
-}
-
-int main() {
-    assert(is_bored("You and I are going for a walk") == 0);
-}
