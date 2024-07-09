@@ -7,7 +7,7 @@ int fuelCost(vector<int> vec) {
     for (int i : vec) {
         int val = i / 3;
         val = floor(val);
-        val -= 2;
+        val = val - 2;
         total += val;
     }
     return total;
