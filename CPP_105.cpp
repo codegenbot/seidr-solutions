@@ -2,40 +2,18 @@
 #include <vector>
 #include <string>
 
-bool is_same(vector<string> vec) {
-    for (int i = 1; i < vec.size(); i++) {
-        if (vec[i] != "One") {
-            return false;
-        }
-    }
-    return true;
-}
-
-bool issame(vector<string> vec) {
-    bool result = true;
-    for (int i = 0; i < vec.size() - 1; i++) {
-        if (vec[i] > vec[i + 1]) {
-            result = false;
-            break;
-        }
-    }
-    return result;
-}
-
-#include <algorithm>
-
-vector<string> by_length(vector<int> arr) {
-    vector<string> numbers;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> numbers;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            numbers.push_back(to_string(i));
+            numbers.push_back(i);
         }
     }
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
-    vector<string> result;
-    for (string s : numbers) {
-        switch (stoi(s)) {
+    std::vector<std::string> result;
+    for (int i : numbers) {
+        switch (i) {
             case 1:
                 result.push_back("One");
                 break;
@@ -68,7 +46,21 @@ vector<string> by_length(vector<int> arr) {
     return result;
 }
 
+bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
+    if (v1.size() != v2.size()) return false;
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) return false;
+    }
+    return true;
+}
+
 int main() {
-    cout << issame(by_length({9, 4, 8})) << endl;
-    return 0;
+    std::vector<int> numbers = {9, 4, 8};
+    std::vector<std::string> result = by_length(numbers);
+    
+    if (issame(result, std::vector<std::string>{ "Nine", "Eight", "Four" })) {
+        return 0;
+    } else {
+        return 1;
+    }
 }
