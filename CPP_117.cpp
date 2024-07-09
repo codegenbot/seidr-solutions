@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<string> select_words(string s, int n){
+vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
     int count = 0;
