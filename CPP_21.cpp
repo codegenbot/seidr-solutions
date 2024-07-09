@@ -1,25 +1,22 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-vector<float> rescale_to_unit(vector<float> numbers);
-
-bool issame(const vector<float>& a, const vector<float>& b);
-
-vector<float> rescale_to_unit(vector<float> numbers) {
-    float min_num = *min_element(numbers.begin(), numbers.end());
-    float max_num = *max_element(numbers.begin(), numbers.end());
+std::vector<float> rescale_to_unit(std::vector<float> numbers) {
+    float min_val = *std::min_element(numbers.begin(), numbers.end());
+    float max_val = *std::max_element(numbers.begin(), numbers.end());
     
-    for (float &num : numbers) {
-        num = (num - min_num) / (max_num - min_num);
+    std::vector<float> result;
+    for (float num : numbers) {
+        float scaled_num = (num - min_val) / (max_val - min_val);
+        result.push_back(scaled_num);
     }
     
-    return numbers;
+    return result;
 }
 
-bool issame(const vector<float>& a, const vector<float>& b){
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
