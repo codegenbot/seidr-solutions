@@ -7,9 +7,11 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> maximum(vector<int> arr, int k) {
     if(k > arr.size()) {
-        cout << "k is larger than the size of array";
-        return {};
+        cout << "Error: k cannot be greater than the size of the array." << endl;
+        vector<int> result;
+        return result;
     }
+    
     vector<int> result;
     for(int i = 0; i < k; i++) {
         auto it = std::max_element(arr.begin(), arr.end());
@@ -17,8 +19,4 @@ vector<int> maximum(vector<int> arr, int k) {
         arr.erase(it);
     }
     return result;
-}
-
-int main() {
-    
 }
