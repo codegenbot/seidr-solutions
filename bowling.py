@@ -31,6 +31,5 @@ def get_value(char):
     else:
         return 0
 
-
 bowls = input()
 print(bowling_score(bowls))
