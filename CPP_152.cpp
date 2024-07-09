@@ -1,10 +1,11 @@
 #include <vector>
+#include <cstdlib>
 #include <cassert>
-#include <cmath>
 
 std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& guess) {
     std::vector<int> result;
-    for (std::size_t i = 0; i < game.size(); ++i) {
+    size_t i;
+    for (i = 0; i < game.size(); ++i) {
         result.push_back(std::abs(game[i] - guess[i]));
     }
     return result;
@@ -15,6 +16,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1});
+    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
     return 0;
 }
