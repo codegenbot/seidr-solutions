@@ -1,8 +1,9 @@
+#include <string>
 #include <iostream>
 using namespace std;
 
 bool solveBoolean(const string& s, size_t& i) {
-    bool result = true;
+    bool result = false;
     while (i < s.size()) {
         switch (s[i]) {
             case 'T':
@@ -18,7 +19,7 @@ bool solveBoolean(const string& s, size_t& i) {
             }
             case '|': {
                 i++; // skip |
-                result = result || solveBoolean(s, i);
+                result = solveBoolean(s, i);
                 if (result) return true;  // short-circuit
                 break;
             }
@@ -33,6 +34,6 @@ int main() {
     const string input = "TF|";  
     size_t i = 0;
     bool result = solveBoolean(input, i);
-    std::cout << (result ? "True" : "False");  
+    cout << (result ? "True" : "False");  
     return 0;
 }
