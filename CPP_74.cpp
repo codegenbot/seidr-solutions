@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -18,13 +19,20 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
         sum2 += s.length();
     }
 
-    if (sum1 < sum2) return lst1;
-    else if (sum1 > sum2) return lst2;
-
-    if (same(lst1, lst2)) {
-        return lst1;
-    }
-    else if (!lst1.empty()) {
+    if (sum1 < sum2) return vector<string>(lst1);
+    else if (sum1 > sum2) return vector<string>(lst2);
+    else if (!lst1.size() && !lst2.size()) {
+        if (same(vector<string>(lst1), vector<string>(lst2))) return {lst1.begin(), lst1.end()};
+        for (const string& s : lst1) {
+            bool found = false;
+            for (const string& t : lst2) {
+                if (s == t) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) return {lst1.begin(), lst1.end()};
+        }
         for (const string& s : lst2) {
             bool found = false;
             for (const string& t : lst1) {
@@ -33,20 +41,10 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
                     break;
                 }
             }
-            if (!found) return lst1;
+            if (!found) return {lst2.begin(), lst2.end()};
         }
-    } else {
-        for (const string& s : lst2) {
-            bool found = false;
-            for (const string& t : lst1) {
-                if (s == t) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) return lst2;
-        }
-    }
+    } else if (!lst1.size()) return {lst2.begin(), lst2.end()};
+    else return {lst1.begin(), lst1.end()};
 
     return {};
 }
