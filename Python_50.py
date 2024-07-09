@@ -4,12 +4,12 @@ def decode_shift(s: str):
 
 try:
     while True:
-        input_str = input("Enter a string: ").strip()
-        if not input_str:
+        input_str = input().strip()
+        if input_str == "":
             break
         result = decode_shift(input_str)
         print(result)
 except EOFError:
-    pass
+    print("No more input. Exiting.")
 except Exception as e:
     print("Invalid input. Please enter a valid string.")
