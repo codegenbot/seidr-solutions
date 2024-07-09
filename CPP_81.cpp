@@ -1,10 +1,10 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> letter_grades;
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> letter_grades;
     for (float g : grades) {
-        std::string letter_grade;
+        string letter_grade;
         if (g >= 4.0) {
             letter_grade = "A+";
         } else if (g > 3.7) {
@@ -30,7 +30,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         } else if (g > 0.0) {
             letter_grade = "D-";
         } else {
-            letter_grade = "F";
+            letter_grade = "E";
         }
         letter_grades.push_back(letter_grade);
     }
