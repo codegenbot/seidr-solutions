@@ -1,44 +1,15 @@
-```
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> s1, std::vector<std::string> s2) {
-    if(s1.size() != s2.size()) return false;
-    for(int i = 0; i < s1.size(); i++) {
-        if(s1[i] != s2[i]) return false;
-    }
-    return true;
-}
-
-std::vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    int sum1 = 0, sum2 = 0;
-    for (const auto& s : lst1) {
-        sum1 += s.length();
-    }
-    for (const auto& s : lst2) {
-        sum2 += s.length();
-    }
-    if (sum1 < sum2) return lst1;
-    else if (sum1 > sum2) return lst2;
-    else return lst1;
-}
-
-int main() {
-    vector<string> a, b;
-    // Read input from user
-    cin >> a >> b;
-
-    bool same = issame(a, b);
-    if(same) {
-        cout << "The lists are the same." << endl;
+bool issame(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+    if (std::accumulate(lst1.begin(), lst1.end(), 0,
+                         [](int sum, const auto& s) { return sum + s.length(); })
+        < std::accumulate(lst2.begin(), lst2.end(), 0,
+                           [](int sum, const auto& s) { return sum + s.length(); })) {
+        return true;
+    } else if (std::accumulate(lst1.begin(), lst1.end(), 0,
+                                 [](int sum, const auto& s) { return sum + s.length(); })
+               > std::accumulate(lst2.begin(), lst2.end(), 0,
+                                  [](int sum, const auto& s) { return sum + s.length(); })) {
+        return false;
     } else {
-        auto winner = total_match(a, b);
-        cout << "The winner is: ";
-        for (const auto& s : winner) {
-            cout << s << " ";
-        }
-        cout << endl;
+        return true; // or false, depending on your requirement
     }
-
-    return 0;
 }
