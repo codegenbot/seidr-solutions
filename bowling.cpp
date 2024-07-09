@@ -1,8 +1,7 @@
-```cpp
-int bowlingScore(std::string input) {
+int bowlingScore(const char* input) {
     int score = 0;
     int i = 0;
-    while (i < input.length()) {
+    while (i < strlen(input)) {
         if(input[i] == 'X') { 
             score += 10;
             i++; 
@@ -11,7 +10,7 @@ int bowlingScore(std::string input) {
             i+=3; 
         } else {
             int roll = 0;
-            while(i < input.length() && input[i] != '-' && input[i] != '/' ) {
+            while(i < strlen(input) && input[i] != '-' && input[i] != '/' ) {
                 roll = roll * 10 + (input[i] - '0');  
                 i++;  
             }
@@ -23,7 +22,7 @@ int bowlingScore(std::string input) {
                 i+=2; 
             } else {
                 int nextRoll = 0;
-                while(i < input.length() && input[i] != '-' && input[i] != '/' ) {
+                while(i < strlen(input) && input[i] != '-' && input[i] != '/' ) {
                     nextRoll = nextRoll * 10 + (input[i] - '0');  
                     i++;  
                 }
