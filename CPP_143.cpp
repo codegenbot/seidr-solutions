@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <vector>
 
@@ -32,4 +31,3 @@ vector<string> split(const string& str, char c) {
     }
     tokens.push_back(str);
     return tokens;
-}
