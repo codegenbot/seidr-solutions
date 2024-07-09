@@ -6,7 +6,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     result = []
     temp = ""
-    open_count = 1
+    open_count = 0
 
     for char in paren_string:
         if char == "(":
@@ -22,3 +22,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 temp += char
 
     return result
+
+if __name__ == "__main__":
+    input_string = input("Enter a string: ")
+    result = separate_paren_groups(input_string)
+    print(result)
