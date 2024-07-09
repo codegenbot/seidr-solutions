@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
 
 bool same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
