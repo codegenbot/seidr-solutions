@@ -1,3 +1,3 @@
-def roll_dice(n, m):
-    common_rolls = sum(1 for i in range(min(n, m)))+1
-    return (n - common_rolls) / n * (m - common_rolls) / m
+```
+def roll_higher(n, m):
+    return sum((1/n) * (n-i)/(m) for i in range(1,n)) / (n*m)
