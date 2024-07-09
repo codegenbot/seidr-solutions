@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 #include <bitset>
+#include <cassert>
 
 std::string calculateBinary(int a, int b) {
     return std::bitset<8>(a + b).to_string();
