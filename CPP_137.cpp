@@ -3,8 +3,6 @@
 #include <algorithm>
 #include <string>
 
-boost::any compare_one(boost::any a, boost::any b);
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == b.type()) {
         if (a.type() == typeid(int)) {
