@@ -1,4 +1,5 @@
 ```cpp
+#pragma GCC C++11
 #include <cassert>
 #include <vector>
 #include <string>
@@ -17,7 +18,5 @@ bool will_it_fly(std::vector<int> q, int w) {
 }
 
 int main() {
-    std::vector<int> q;
-    q.push_back(5);
-    assert(will_it_fly(q, 5) == true);
+    assert(will_it_fly({5}, 5) == true);
 }
