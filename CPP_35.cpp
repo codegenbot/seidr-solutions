@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <cmath>
+#include <vector>
 
 using namespace std;
 
@@ -14,21 +14,5 @@ float max_element(vector<float> l){
 }
 
 int main() {
-    vector<float> numbers;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-
-    for (int i = 0; i < n; i++) {
-        float num;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> num;
-        numbers.push_back(num);
-    }
-
-    float max_val = max_element(numbers);
-
-    cout << "Maximum value is: " << max_val << endl;
-
-    return 0;
+    // Your test code here
 }
