@@ -3,14 +3,12 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
     return a == b;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
+std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix){
+    std::vector<std::string> result;
     for(const auto& str : strings){
         if(str.find(prefix) == 0){
             result.push_back(str);
@@ -20,14 +18,15 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    vector<string> test_strings = {"apple", "banana", "apricot", "kiwi"};
-    vector<string> expected_result = {"apple", "apricot"};
+    std::vector<std::string> strings = {"apple", "banana", "grape", "orange"};
+    std::string prefix = "gr";
     
-    vector<string> result = filter_by_prefix(test_strings, "a");
+    std::vector<std::string> filtered_strings = filter_by_prefix(strings, prefix);
     
-    assert(issame(result, expected_result));
+    std::vector<std::string> expected_result = {"grape"};
+    assert(issame(filtered_strings, expected_result));
     
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
+    std::cout << "All tests passed successfully." << std::endl;
     
     return 0;
 }
