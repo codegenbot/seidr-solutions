@@ -10,8 +10,8 @@ namespace std {
 
 std::vector<int> sort_array(std::vector<int> arr){
     std::sort(arr.begin(), arr.end(), [](int a, int b){
-        int countA = std::bitset<16>(a).count();
-        int countB = std::bitset<16>(b).count();
+        int countA = std::__builtin_popcount(a);
+        int countB = std::__builtin_popcount(b);
         if (countA == countB) {
             return a < b;
         }
