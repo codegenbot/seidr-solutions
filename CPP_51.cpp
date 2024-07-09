@@ -1,24 +1,14 @@
-```cpp
-#include <string>
-#include <iostream>
-using namespace std;
-
-void mainFunc() {
+int main() {
     string text;
     cout << "Enter a string: ";
     getline(cin, text);
-    string new_result = remove_vowels(text);  
-    cout << "String after removing vowels: " << new_result << endl;
-}
-
-string remove_vowels(string str) {
-    string new_str;  
-    for(char c : str){
+    string new_result;  
+    for(char c : text){
         if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && 
            tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && 
            tolower(c) != 'o' && tolower(c) != 'u'){
-            new_str += c;
+            new_result += c;
         }
     }
-    return new_str;
+    cout << "String after removing vowels: " << new_result << endl;
 }
