@@ -1,13 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 
 bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+    return a == b;
 }
 
 std::vector<std::string> filterBySubstring(const std::vector<std::string>& strings, const std::string& substring) {
@@ -17,7 +12,6 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& strin
             result.push_back(s);
     }
     return result;
-
 }
 
 int main() {
