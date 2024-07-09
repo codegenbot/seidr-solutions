@@ -1,11 +1,11 @@
-```cpp
+```c++
 #include <cassert>
-#include <string>
+#include <cstring>
 
-int myStrlen(string str){
+int strLength(string str){
     return str.length();
 }
 
 int main() {
-    assert(myStrlen("asdasnakj") == 9);
+    assert(strLength("asdasnakj") == 9);
 }
