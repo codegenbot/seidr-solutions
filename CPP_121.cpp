@@ -24,8 +24,8 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    int num, n = 1;
     std::vector<int> lst;
+    int num, n = 1;
     std::cout << "Enter numbers (terminate with 0): ";
     while (std::cin >> num && num != 0) {
         if(num != 0)
