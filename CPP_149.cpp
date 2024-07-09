@@ -1,16 +1,17 @@
+```
 #include <algorithm>
-using namespace std;
+#include <vector>
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
+bool issame(const std::string& a, const std::string& b) {
+    return (a.length() % 2 && b.length() % 2);
+}
+
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    auto it = unique(lst.begin(), lst.end(), 
+                      [](const string& a, const string& b) { return issame(a, b); });
+    lst.erase(it, lst.end());
     
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
-    }
-    
-    sort(result.begin(), result.end(), 
+    sort(lst.begin(), lst.end(),
          [](const string& a, const string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
@@ -19,5 +20,5 @@ vector<string> sorted_list_sum(vector<string> lst) {
              }
          });
     
-    return result;
+    return lst;
 }
