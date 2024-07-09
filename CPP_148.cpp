@@ -1,4 +1,5 @@
-cout << "Enter two planets separated by space: ";
+int main() {
+    cout << "Enter two planets separated by space: ";
     string planet1, planet2;
     cin >> planet1 >> planet2;
     vector<string> result = bf(planet1, planet2);
