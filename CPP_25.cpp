@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> factorize(int n) {
+vector<int> factors(int n) {
     vector<int> factors;
     for (int i = 2; i * i <= n; i++) {
         while (n % i == 0) {
@@ -15,9 +15,9 @@ vector<int> factorize(int n) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    // Add your comparison logic here
+    return a == b;
 }
 
 int main() {
-    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+    assert(issame(factors(3 * 2 * 3), {2, 3, 3}));
 }
