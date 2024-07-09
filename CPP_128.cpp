@@ -1,7 +1,4 @@
-#include <cassert>
-#include <vector>
-#include <cstdlib>
-
+```c++
 int productSigns(std::vector<int> inputArr) {
     int product = 1;
     long long sum = 0;
@@ -21,6 +18,6 @@ int productSigns(std::vector<int> inputArr) {
     return product * sum;
 }
 
-int testProductSigns() {
+int testMain() {
     assert(productSigns({-1, 1, 1, 0}) == 0);
 }
