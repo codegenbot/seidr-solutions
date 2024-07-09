@@ -2,12 +2,17 @@
 def histogram(test):
     if not test:
         return {}
-    counts = {}
-    for char in test.split():
-        if char in counts:
-            counts[char] += 1
-        else:
-            counts[char] = 1
-    max_count = max(counts.values())
-    most_common = {k: v for k, v in counts.items() if v == max_count}
+    
+    words = test.split()
+    max_count = 0
+    most_common = {}
+    
+    for word in set(words):
+        count = words.count(word)
+        if count > max_count:
+            max_count = count
+            most_common = {word: count}
+        elif count == max_count:
+            most_common[word] = count
+    
     return most_common
