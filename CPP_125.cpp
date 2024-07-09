@@ -3,8 +3,7 @@
 #include <string>
 #include <cctype>
 #include <cassert>
-#include <string>
-using namespace std;
+#include <cstring>
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> words;
@@ -34,13 +33,13 @@ std::vector<std::string> split_words(std::string txt) {
     return words;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
 
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+        if (a[i].compare(b[i]) != 0) {
             return false;
         }
     }
