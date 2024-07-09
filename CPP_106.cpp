@@ -1,8 +1,8 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
-    std::vector<int> result;
+std::vector<int> solve(int n) {
+	std::vector<int> result;
     for (int i = 1; i <= n; ++i) {
         if (i % 2 == 0) {
             int factorial = 1;
