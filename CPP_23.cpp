@@ -1,15 +1,11 @@
-```
-#include<iostream>
-using namespace std;
+```cpp
+#include <string>
 
-int custom_str_len(string str){
+int str_len(std::string str){
     return str.length();
 }
 
-int main(){
-    string s;
-    cout << "Enter a string: ";
-    getline(cin, s);
-    cout << "Length of the string is: " << custom_str_len(s) << endl;
+int main() {
+    assert(str_len("asdasnakj") == 13); 
     return 0;
 }
