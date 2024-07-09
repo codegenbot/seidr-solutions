@@ -1,7 +1,7 @@
 #include <vector>
 
 vector<int> make_a_pile(int n);
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
