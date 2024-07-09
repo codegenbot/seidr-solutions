@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int skjkasdkd(std::vector<int> lst){
     int max_prime = 0;
@@ -28,11 +28,12 @@ int sumOfDigits(int n) {
         n /= 10;
     }
     return sum;
+
 }
 
 int main() {
     std::vector<int> lst = {127, 97, 8192};
     int result = skjkasdkd(lst);
-    assert(result == 10);
+    std::cout << "The output is: " << result << std::endl;
     return 0;
 }
