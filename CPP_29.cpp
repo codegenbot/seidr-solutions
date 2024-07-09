@@ -1,6 +1,13 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
 bool issame(const vector<string>& a, const vector<string>& b){
     return a == b;
 }
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix);
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
