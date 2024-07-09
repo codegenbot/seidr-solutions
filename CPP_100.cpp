@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -13,13 +12,9 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-int main() {
+int main_function() {
     int n = 8;
     std::vector<int> pile = make_a_pile(n);
-    if (issame(pile, pile))
-        std::cout << "The vector is same." << std::endl;
-    else
-        std::cout << "The vector is not the same." << std::endl;
-
+    assert(issame(pile, pile));
     return 0;
 }
