@@ -1,3 +1,5 @@
+Here is the complete solution:
+
 ```
 from typing import List
 import math
@@ -11,7 +13,8 @@ def factorize(n: int) -> List[int]:
     i = 3
     while i * i <= n:
         if n % i == 0:
-            factors.extend([i] * (n // i - 1))
+            for j in range(int(math.log(n, i))):
+                factors.append(i)
             n //= i
         else:
             i += 2
