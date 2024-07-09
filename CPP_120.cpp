@@ -66,11 +66,10 @@ int main() {
 
     std::vector<std::vector<int>> arr; 
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element at index " << i << ": ";
         int val;
+        std::cout << "Enter element at index " << i << ": ";
         std::cin >> val;
-        arr.push_back({1});   // Create a new vector with one element
-        arr.back().push_back(val);  // Push back the value into it
+        int m; std::cout << "Enter the number of columns: "; std::cin >> m; arr.push_back(std::vector<int>(m, val));
     }
 
     std::vector<int> result = maximum(arr, k);
