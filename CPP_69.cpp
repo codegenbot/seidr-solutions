@@ -12,4 +12,8 @@ int search(std::initializer_list<int> lst) {
     return result;
 }
 
-assert(search({3, 10, 10, 9, 2}) == -1);
+int main() {
+    assert(search({3, 10, 10, 9, 2}) == -1);
+
+    return 0;
+}
