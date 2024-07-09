@@ -9,7 +9,7 @@ def longest(strings: list) -> Optional[str]:
     max_len = 0
     longest_str = ""
     for s in strings:
-        if len(s) > max_len and len(s) > 0:
-            max_len = len(s)
+        if len(s.strip()) > max_len and s.strip():
+            max_len = len(s.strip())
             longest_str = s
     return longest_str
