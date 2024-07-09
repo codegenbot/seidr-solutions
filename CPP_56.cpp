@@ -1,10 +1,11 @@
 #include <cassert>
 #include <cstring>
 #include <iostream>
+#include <string>
 
-bool correct_bracketing(const char* brackets, int length){
+bool correct_bracketing(const char* brackets){
     int count = 0;
-    for(int i=0; i<length; i++){
+    for(int i=0; i<strlen(brackets); i++){
         if(brackets[i] == '<'){
             count++;
         }
@@ -22,12 +23,10 @@ bool correct_bracketing(const char* brackets, int length){
     }
     return true;
 
-int main 
-{
-    int length = sizeof(char) * 22; // size of the array
-    assert(not correct_bracketing("<><><<><>><>>><>", length));
+int main() {
+    assert(not correct_bracketing("<><><<><>><>>><>"));
     char brackets[] = "<<>";
-    if(correct_bracketing((char*)brackets, sizeof(brackets)/sizeof(char))) std::cout << "Correct" << std::endl;
+    if(correct_bracketing((char*)brackets)) std::cout << "Correct" << std::endl;
     else std::cout << "Incorrect" << std::endl;
     return 0;
 }
