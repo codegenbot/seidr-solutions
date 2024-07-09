@@ -27,11 +27,7 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    std::vector<int> expectedCount = even_odd_count(0);
-    if (!isSame(expectedCount, std::vector<int>{1, 0})) {
-        std::cout << "Test failed. The count is not correct." << std::endl;
-    } else {
-        std::cout << "Test passed. The count is correct." << std::endl;
-    }
+    std::vector<int> result = even_odd_count(0);
+    assert(isSame(result, std::vector<int>{1, 0}));
     return 0;
 }
