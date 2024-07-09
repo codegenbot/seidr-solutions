@@ -7,9 +7,7 @@
 using namespace std;
 
 bool same_chars(string s0, string s1) {
-    sort(s0.rbegin(), s0.rend());
-    sort(s1.rbegin(), s1.rend());
-    return s0 == s1;
+    return s0.size() == s1.size() && equal(s0.c_str(), s0.c_str() + s0.size(), s1.c_str(), s1.c_str() + s1.size());
 }
 
 int main() {
