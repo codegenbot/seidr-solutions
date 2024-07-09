@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -67,7 +68,8 @@ int main() {
     std::vector<std::string> output = by_length(input);
     
     assert(issame({{"One", "Four", "Eight"}}, {{output}}));
-    for (std::string str : output) {
+    
+    for (const auto& str : output) {
         std::cout << str << std::endl;
     }
 }

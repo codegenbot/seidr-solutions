@@ -5,28 +5,26 @@ using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(n);
-    for(int i=0; i<n; ++i) {
-        visited[i].resize(n, false);
-    }
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, int>>> pq;
-    vector<int> res;
+    vector<vector<bool>>(n, vector<bool>(n, false)) visited;
+    vector<pair<int, pair<int, int>>> pq;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
-                pq.push({grid[i][j], {i, j}});
+                pq.push_back({grid[i][j], {i, j}});
                 visited[i][j] = true;
             }
         }
     }
 
+    vector<int> res;
+
     while (!pq.empty()) {
-        int val = pq.top().first;
-        int x = pq.top().second.first;
-        int y = pq.top().second.second;
+        int val = pq.back().first;
+        int x = pq.back().second.first;
+        int y = pq.back().second.second;
         res.push_back(val);
-        pq.pop();
+        pq.pop_back();
 
         if (k > 0) {
             --k;
@@ -38,7 +36,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 
                     if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
                         visited[nx][ny] = true;
-                        pq.push({grid[nx][ny], {nx, ny}});
+                        pq.push_back({grid[nx][ny], {nx, ny}});
                     }
                 }
             }
