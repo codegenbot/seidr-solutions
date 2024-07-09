@@ -15,9 +15,8 @@ def minPath(grid, k):
                 new_path = dfs(nx, ny, curr_sum, path)
                 if new_path:
                     return new_path
-        
-        path.pop()  # Backtrack by removing the last element from the path before returning None
-        return None
+                
+        path.pop()
 
     for i in range(n):
         for j in range(n):
