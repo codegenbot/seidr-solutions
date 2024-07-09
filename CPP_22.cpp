@@ -4,7 +4,7 @@
 #include <any>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    return (a == b);
 }
 
 std::vector<int> filter_integers(std::vector<std::any> values) {
