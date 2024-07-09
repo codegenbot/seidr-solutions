@@ -1,7 +1,8 @@
-```c++
 #include <vector>
 
-bool below_threshold(std::vector l, int t) {
+using namespace std;
+
+bool below_threshold(vector<int> l, int t) {
     for (int num : l) {
         if (num >= t) {
             return false;
