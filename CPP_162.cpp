@@ -1,7 +1,4 @@
 ```cpp
-#include <iostream>
-#include <string>
-
 std::string string_to_md5(const std::string& text) {
     const unsigned int md5Len = 16;
     unsigned char result[md5Len];
@@ -9,7 +6,8 @@ std::string string_to_md5(const std::string& text) {
         result[i] = (text[i % text.length()] + i) % 256;
 
     std::string md5Hash;
-    for (unsigned int i = 0; i < md5Len; ++i) {
+    for (unsigned int i = 0; i < md5Len; ++i)
+    {
         char buffer[3];
         sprintf(buffer, "%02x", &result[i]);
         md5Hash += std::string(buffer);
