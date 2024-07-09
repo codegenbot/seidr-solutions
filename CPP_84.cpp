@@ -19,4 +19,3 @@ int main() {
     cin >> N;
     cout << "The binary representation of the number is: " << solve(N) << endl;
     return 0;
-}
