@@ -2,65 +2,37 @@
 
 const char* roman[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
-string int_to_roman(int n) {
-    if (n >= 1000) {
-        return string("M") + int_to_roman(n - 1000);
+int int_to_mini_roman(int n) {
+    if(n >= 1000){
+        return strlen("M");
+    } else if (n >= 900) {
+        return strlen("CM");
+    } else if (n >= 500) {
+        return strlen("D");
+    } else if (n >= 400) {
+        return strlen("CD");
+    } else if (n >= 100) {
+        return strlen("C");
+    } else if (n >= 90) {
+        return strlen("XC");
+    } else if (n >= 50) {
+        return strlen("L");
+    } else if (n >= 40) {
+        return strlen("XL");
+    } else if (n >= 10) {
+        return strlen("X");
+    } else if (n >= 9) {
+        return strlen("IX");
+    } else if (n >= 5) {
+        return strlen("V");
+    } else if (n >= 4) {
+        return strlen("IV");
+    } else{
+        return strlen("I");
     }
-    else if (n >= 900) {
-        return string("CM") + int_to_roman(n - 900);
-    }
-    else if (n >= 500) {
-        return string("D") + int_to_roman(n - 500);
-    }
-    else if (n >= 400) {
-        return string("CD") + int_to_roman(n - 400);
-    }
-    else if (n >= 100) {
-        if (n >= 90) {
-            return string("XC") + int_to_roman(n - 90);
-        } 
-        else if (n >= 50) {
-            return string("L") + int_to_roman(n - 50);
-        }
-        else if (n >= 40) {
-            return string("XL") + int_to_roman(n - 40);
-        }
-        else {
-            if (n >= 9) {
-                return string("IX") + int_to_roman(n - 9);
-            } 
-            else {
-                return string("X");
-            }
-        }
-    }
-    else if (n >= 50) {
-        return string("L") + int_to_roman(n - 50);
-    }
-    else if (n >= 40) {
-        return string("XL") + int_to_roman(n - 40);
-    }
-    else if (n >= 10) {
-        if (n >= 9) {
-            return string("IX");
-        } 
-        else if (n >= 5) {
-            return string("V") + int_to_roman(n - 5);
-        }
-        else if (n >= 4) {
-            return string("IV") + int_to_roman(n - 4);
-        }
-        else {
-            return string("I");
-        }
-    } 
-    else if (n >= 5) {
-        return string("V");
-    }
-    else if (n >= 4) {
-        return string("IV");
-    }
-    else {
-        return string("I");
-    }
+}
+
+int main() {
+    assert(int_to_mini_roman(1000) == 1);
+    return 0;
 }
