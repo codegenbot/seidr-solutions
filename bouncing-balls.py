@@ -11,7 +11,5 @@ def bouncing_balls():
         if current_height > 0:
             total_distance += 2 * abs(current_height)
             current_height *= bounciness_index
-        else:
-            break
 
     print(total_distance)
