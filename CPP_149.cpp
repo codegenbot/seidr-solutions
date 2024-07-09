@@ -28,7 +28,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     return result;
 }
 
-int main() {
+int main_entry() {
     if (issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"})) {
         assert(true);
     }
