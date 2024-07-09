@@ -31,6 +31,6 @@ int main() {
     }
     
     string result = exchange(lst1, lst2);
-    if (result == "YES") cout << "YES"; else cout << "NO";
+    cout << result;
     return 0;
 }
