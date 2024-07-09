@@ -9,6 +9,9 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return sum_result, product_result
 
 
-input_numbers = list(map(int, input().split()))
-result = sum_product(input_numbers)
+# Get input from the user
+numbers = list(map(int, input().split()))
+
+# Call the sum_product function with the input numbers
+result = sum_product(numbers)
 print(result)
