@@ -1,10 +1,11 @@
 #include <iostream>
+using namespace std;
 
-bool isPrime(int n) {
+bool is_prime(int n) {
     if (n <= 1) {
         return false;
     }
-    for (int i = 2; i <= n / 2; ++i) {
+    for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) {
             return false;
         }
@@ -13,7 +14,7 @@ bool isPrime(int n) {
 }
 
 int x_or_y(int n, int x, int y) {
-    if (isPrime(n)) {
+    if (is_prime(n)) {
         return x;
     } else {
         return y;
@@ -22,7 +23,9 @@ int x_or_y(int n, int x, int y) {
 
 int main() {
     int n, x, y;
-    std::cin >> n >> x >> y;
-    std::cout << x_or_y(n, x, y) << std::endl;
+    cin >> n >> x >> y;
+    
+    cout << x_or_y(n, x, y) << endl;
+    
     return 0;
 }
