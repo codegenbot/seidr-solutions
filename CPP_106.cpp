@@ -1,13 +1,13 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    // Code for comparing vectors a and b
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
 std::vector<int> f(int n){
     std::vector<int> result(n);
-    // Code for generating result
+    // Generating result here
     return result;
 }
 
