@@ -22,9 +22,9 @@ int solutions(std::vector<int> lst) {
 
 int main() {
     std::vector<int> lst;
-    std::string str;
-    while (std::cin >> str) {
-        lst.push_back(std::stoi(str));
+    for (auto i : {"3", "13", "2", "9"}) {
+        int num = std::stoi(i);
+        lst.push_back(num);
     }
     int result = solutions(lst);
     assert(result == 25);
