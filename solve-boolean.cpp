@@ -15,8 +15,8 @@ string solveBoolean(string s) {
             st.push(s[i]);
         } 
         else {
-            st.push(s[i] == 'T' ? '1' : '0');
+            st.push((s[i] == 'T') ? '1' : '0');
         }
     }
-    return st.top() == '1' ? "True" : "False";
+    return (st.top() == '1') ? "True" : "False";
 }
