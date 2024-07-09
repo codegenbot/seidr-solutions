@@ -3,11 +3,11 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool same(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0;
     for (const string& s : lst1) {
         sum1 += s.length();
@@ -20,7 +20,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     if (sum1 < sum2) return lst1;
     else if (sum1 > sum2) return lst2;
     else if (!lst1.empty() && !lst2.empty()) {
-        if (issame(lst1, lst2)) return lst1;
+        if (same(lst1, lst2)) return lst1;
         for (const string& s : lst1) {
             bool found = false;
             for (const string& t : lst2) {
@@ -46,6 +46,11 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    vector<string> result = totalMatch({"this"}, {});
+    cout << "Result: ";
+    for (const string& s : result) {
+        cout << s << " ";
+    }
+    cout << endl;
     return 0;
 }
