@@ -1,6 +1,6 @@
-int count_nums(vector<int> nums) {
+int count_nums(vector<int> v) {
     int count = 0;
-    for (auto num : nums) {
+    for (int num : v) {
         if (num < 0) {
             num = -num;
         }
