@@ -1,11 +1,11 @@
-#include<string>
+#include <string>
+#include <sstream>
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(strtok((x.substr(1,x.find('/'))).c_str(),"/")[0]);
-    int b = stoi(strtok("", "/")[0]);
-    int c = stoi(strtok((n.substr(1,n.find('/'))).c_str(),"/")[0]);
-    int d = stoi(strtok("", "/")[0]);
-
-    return (a*d) == (b*c);
+    int a, b, c, d;
+    istringstream iss1(x), iss2(n);
+    iss1 >> a >> '/' >> b;
+    iss2 >> c >> '/' >> d;
+    return (a*d == b*c);
 }
