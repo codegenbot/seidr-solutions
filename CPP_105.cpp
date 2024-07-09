@@ -45,16 +45,21 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(str);
     }
     
-    return result;
-}
-
-bool issame(vector<string> a, vector<string>b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for(int i=0; i<a.size();i++){
-        if(a[i] != b[i]){
+    bool issame(vector<string> a, vector<string>b){
+        if (a.size() != b.size()) {
             return false;
+        }
+        for(int i=0; i<a.size();i++){
+            if(a[i] != b[i]){
+                return false;
+            }
+        }
+        return true;
     }
-    return true;
+
+    // Call the issame function
+    vector<string> output = by_length(arr);
+    bool result2 = issame(result, output);
+
+    return result;
 }
