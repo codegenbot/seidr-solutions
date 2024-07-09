@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <cassert>
@@ -19,7 +18,7 @@ vector<int> pluck(vector<int> arr) {
 
     if (arr.empty()) return result;
 
-    int minEven = SIZE_MAX;
+    int minEven = INT_MAX;
     int minIndex = -1;
 
     for (int i = 0; i < arr.size(); i++) {
@@ -39,7 +38,7 @@ vector<int> pluck(vector<int> arr) {
 int mainFunction() {
     vector<int> input = {7, 9, 7, 1};
     vector<int> output = pluck(input);
-    assert(issame(output, {}));
+    assert(issame(output, vector<int>{}));
     cout << "Output: ";
     for (int i : output) {
         cout << i << " ";
