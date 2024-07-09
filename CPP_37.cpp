@@ -17,11 +17,11 @@ std::vector<float> sortEven(const std::vector<float>& l) {
     return evenVals;
 }
 
-int originalMain() {
-    std::vector<float> vec;
+int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    std::vector<float> vec;
     for (int i = 0; i < n; i++) {
         float x;
         std::cout << "Enter element " << i + 1 << ": ";
@@ -57,10 +57,5 @@ int originalMain() {
     std::sort(expected.begin(), expected.end());
     
     assert(checkEquality(result, expected));
-    return 0;
-}
-
-int main() {
-    originalMain();
     return 0;
 }
