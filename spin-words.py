@@ -1,8 +1,7 @@
-```
 def spin_words(sentence):
     """
     Reverses all words that are 5 or more letters long in the given sentence.
-    
+
     Args:
         sentence (str): The input sentence.
 
