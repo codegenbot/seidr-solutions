@@ -1,6 +1,9 @@
-#include <map>
 #include <string>
+#include <map>
 #include <cctype>
+
+bool islower(int c) { return std::isalpha(c) && std::tolower(c) == c; }
+bool isupper(int c) { return std::isalpha(c) && std::toupper(c) == c; }
 
 bool check_dict_case(map<pair<string, string>, bool> dict) {
     if (dict.empty()) return false;
