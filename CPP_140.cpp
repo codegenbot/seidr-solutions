@@ -1,19 +1,22 @@
-string result = "";
-    int count = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-            if (count > 2) {
-                result.pop_back();
-                result.pop_back();
-                result.push_back('-');
-            } else {
-                result.push_back('_');
+#include <string>
+#include <cassert>
+
+string fix_spaces(string text){
+    for(int i=0; i<text.length(); i++){
+        if(text[i] == ' '){
+            text[i] = '_';
+            int count = 1;
+            while(i+1 < text.length() && text[i+1] == ' '){
+                text.replace(i, 2, "-");
             }
-        } else {
-            count = 0;
-            result.push_back(c);
         }
     }
-    return result;
+    return text;
+}
+
+int main() {
+    assert(fix_spaces("hello  world  !") == "hello__world_-!");
+    assert(fix_spaces("   this   is   a   test   ") == "---this---is---a---test---");
+    
+    return 0;
 }
