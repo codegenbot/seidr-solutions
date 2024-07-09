@@ -5,20 +5,27 @@ bool solveBoolean(string s) {
     for (char c : s) {
         if (c == 'F') {
             res = false;
+            break;
         }
         else if (c == '&') {
-            while(s[s.find(c)+1] != '&' && s.find(c) != string::npos){
-                c = s[s.find(c)+1];
-                s.erase(s.find(c), 1);
+            while(res && s.find('&') != string::npos){
+                size_t pos = s.find('&');
+                if(s[pos+1] == 'T'){
+                    s.replace(pos, 2, "FT");
+                }else{
+                    s.replace(pos, 2, "FF");
+                }
             }
-            if(s.find('F') != string::npos) res &= false;
         }
         else if (c == '|') {
-            while(s[s.find(c)+1] != '|' && s.find(c) != string::npos){
-                c = s[s.find(c)+1];
-                s.erase(s.find(c), 1);
+            while(res || s.find('|') != string::npos){
+                size_t pos = s.find('|');
+                if(s[pos+1] == 'T'){
+                    s.replace(pos, 2, "FT");
+                }else{
+                    s.replace(pos, 2, "FF");
+                }
             }
-            if(s.find('F') != string::npos) res |= false;
         }
     }
     return res;
