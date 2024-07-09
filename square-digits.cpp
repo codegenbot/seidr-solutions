@@ -7,7 +7,8 @@ string squareDigits(string input) {
     string output = "";
     for (char c : input) {
         int digit = c - '0';
-        output += to_string(digit * digit).padStart(to_string(digit).length(), '0');
+        string str = to_string(digit * digit);
+        output += str;
     }
     return output;
 }
