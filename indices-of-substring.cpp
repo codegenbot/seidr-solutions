@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 using namespace std;
 
 class Solution {
@@ -28,4 +28,3 @@ int main() {
     }
     cout << endl;
     return 0;
-}
