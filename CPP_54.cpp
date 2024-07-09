@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -9,6 +8,15 @@ bool same_chars(string s1, string s2) {
     for (int i = 0; i < s1.size(); i++) {
         int count = 0;
         while (i + count <= s1.size() && i + count < s1.size() && s1[i] == s1[i + count]) {
+            count++;
+        }
+        if (count > 1) {
+            return false;
+        }
+    }
+    for (int i = 0; i < s2.size(); i++) {
+        int count = 0;
+        while (i + count <= s2.size() && i + count < s2.size() && s2[i] == s2[i + count]) {
             count++;
         }
         if (count > 1) {
@@ -31,3 +39,4 @@ int main() {
         cout << "False";
     }
     return 0;
+}
