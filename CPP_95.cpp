@@ -19,6 +19,6 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
 
 int main() {
     std::map<std::string, std::string> my_dict = {{"A", "a"}, {"B", "b"}};
-    std::cout << (check_dict_case(my_dict) ? "True" : "False") << std::endl;
+    assert(check_dict_case(my_dict) == true);
     return 0;
 }
