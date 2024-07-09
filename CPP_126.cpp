@@ -1,6 +1,6 @@
-```cpp
 #include <cassert>
 #include <vector>
+#include <initializer_list>
 
 bool is_sorted(std::vector<int> lst) {
     if(lst.size() <= 1)
@@ -16,5 +16,5 @@ bool is_sorted(std::vector<int> lst) {
 }
 
 int main() {
-    assert(is_sorted(std::vector<int>({1, 2, 3, 4})) == true);
+    assert(is_sorted(std::vector<int>{1, 2, 3, 4}) == true);
 }
