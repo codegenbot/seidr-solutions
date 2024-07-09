@@ -1,7 +1,7 @@
 #include <algorithm>
 using namespace std;
 
-vector<int> strange_sort_vector(vector<int> lst) {
+vector<int> strange_sort_list(vector<int> lst) {
     if (lst.empty()) return lst;
     
     vector<int> result;
