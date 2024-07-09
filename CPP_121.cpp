@@ -22,7 +22,7 @@ int main() {
         std::cin >> num;
         size++;
     }
-    assert(size > 0);
+    assert(solution({3, 13, 2, 9}) == 16);
     std::cout << "Sum of odd numbers: " << solution(lst) << "\n"; 
     return 0;
 }
