@@ -32,13 +32,3 @@ std::vector<int> even_odd_palindrome(int n) {
 
     return result;
 }
-
-int main() {
-    int n;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> n;
-    std::vector<int> output = even_odd_palindrome(n);
-    std::cout << "Even palindrome numbers: " << output[0] << "\n";
-    std::cout << "Odd palindrome numbers: " << output[1] << "\n";
-    return 0;
-}
