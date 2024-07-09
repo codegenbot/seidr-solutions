@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -23,8 +24,8 @@ double poly(std::vector<double> coeffs, double x) {
 }
 
 int main() {
-    std::vector<double> coeffs(4);            
-    coeffs[0] = 1.0; coeffs[1] = -7.0; coeffs[2] = 12.0; coeffs[3] = -6.0;
+    std::vector<double> coeffs; 
+    coeffs.push_back(1.0); coeffs.push_back(-7.0); coeffs.push_back(12.0); coeffs.push_back(-6.0);
     double solution = find_zero(coeffs);
     if (abs(poly(coeffs, solution)) > 1e-3) {
         std::cout << "Error: The zero of the polynomial is not accurate." << std::endl;
@@ -32,3 +33,4 @@ int main() {
         std::cout << "The zero of the polynomial is: " << solution << std::endl;
     }
     return 0;
+}
