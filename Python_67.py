@@ -1,5 +1,7 @@
-```
+```python
+import re
+
 def fruit_distribution(s, n):
-    s = s.lower()
-    num_apples = int("".join(filter(str.isdigit, s)).lstrip('0') or 0) if ''.join(filter(str.isdigit, s)) else 0
-    return n - num_apples
+    s = re.sub(r' apples', '', s)
+    s = re.sub(r' oranges', '', s)
+    return n - int(re.sub(r'[a-z ]*and *([0-9]+)', r'\1', s).split()[0]) - 1
