@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -15,9 +16,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 std::vector<std::vector<int>> strange_sort_list(std::vector<int> num) {
     std::vector<std::vector<int>> result;
     while (!num.empty()) {
-        int min_val = *std::min_element(num.begin(), num.end());
+        auto min_val = std::min_element(num.begin(), num.end(), [](const auto& a, const auto& b) { return a < b; })->front();
         for (int i = 0; i < num.size(); i++) {
-            if (*std::min_element(&num[i], num.end()) == min_val) {
+            if (*std::min_element(std::begin(*num.rbegin()), std::end(*num.rbegin())) == min_val) {
                 std::vector<int> temp(num.begin(), num.end());
                 result.push_back(temp);
                 num.erase(std::remove(num.begin(), num.end(), *result.rbegin()), num.end());
