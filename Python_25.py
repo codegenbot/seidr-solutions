@@ -1,6 +1,12 @@
-n = input("Enter a number: ")
-try:
-    n = int(n)
-    print(factorize(n))
-except ValueError:
-    print("Please enter a valid integer.")
+def factorize(n):
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            factors.append(i)
+    if n > 1:
+        factors.append(n)
+    return factors
