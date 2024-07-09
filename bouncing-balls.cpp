@@ -1,9 +1,6 @@
 ```cpp
 #include <iostream>
 #include <cmath>
-#include <iomanip>
-
-using namespace std;
 
 int main() {
     double startHeight, firstBounce;
@@ -19,7 +16,8 @@ int main() {
         startHeight *= bouncinessIndex; 
     }
 
-    cout << fixed << setprecision(10);
+    cout << fixed;
+    cout << setprecision(10);
     cout << totalDistance << endl;
 
     return 0;
