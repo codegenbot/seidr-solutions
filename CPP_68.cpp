@@ -1,12 +1,6 @@
 #include <vector>
-
-using namespace std;
-
-bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
-        return false;
+bool issame(vector<int> a, vector<int> b) {
+    return a.size() == b.size();
 }
 
 vector<int> pluck(vector<int> arr) {
