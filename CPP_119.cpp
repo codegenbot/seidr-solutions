@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+
 using namespace std;
 
 std::string match_parens(vector<string> lst) {
@@ -9,4 +12,14 @@ std::string match_parens(vector<string> lst) {
         }
     }
     return (open == close) ? "Yes" : "No";
+}
+
+int main() {
+    vector<string> input;
+    cout << "Enter a string: ";
+    string str;
+    getline(cin, str);
+    input.push_back(str);
+    cout << match_parens(input) << endl;
+    return 0;
 }
