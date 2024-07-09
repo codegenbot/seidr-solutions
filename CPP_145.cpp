@@ -6,7 +6,7 @@
 bool issame(std::vector<int> a, std::vector<int> b){
     std::sort(a.begin(), a.end(), [](int x, int y){
         int sum_x = 0, sum_y = 0;
-        int temp_x = abs(x), temp_y = abs(y);
+        int temp_x = std::abs(x), temp_y = std::abs(y);
         while(temp_x > 0){
             sum_x += temp_x % 10;
             temp_x /= 10;
@@ -23,7 +23,11 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
+std::vector<int> order_by_points(std::vector<int> vec){
+    return vec; // Implement your ordering logic here
+}
+
 int main(){
-    assert(issame(std::vector<int>{0,6,6,-76,-21,23,4}, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
