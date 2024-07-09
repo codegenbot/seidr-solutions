@@ -22,7 +22,7 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     
     int length = end - start + 1;
     
-    if (isPrime(length)) {
+    if (isPrime(length) && length != 1) {
         return "YES";
     } else {
         return "NO";
