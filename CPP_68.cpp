@@ -1,8 +1,8 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <cassert>
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
@@ -19,7 +19,7 @@ vector<int> pluck(vector<int> arr) {
 
     if (arr.empty()) return result;
 
-    int minEven = SIZE_MAX;
+    int minEven = numeric_limits<int>::max();
     int minIndex = -1;
 
     for (int i = 0; i < arr.size(); i++) {
@@ -37,9 +37,13 @@ vector<int> pluck(vector<int> arr) {
 }
 
 int mainFunction() {
-    vector<int> input = {7, 9, 7, 1};
+    vector<int> input;
+    cout << "Enter numbers (space separated): ";
+    for (int i; cin >> i; ) {
+        input.push_back(i);
+    }
     vector<int> output = pluck(input);
-    assert(issame(output, {}));
+    assert(issame({0}, output));
     cout << "Output: ";
     for (int i : output) {
         cout << i << " ";
