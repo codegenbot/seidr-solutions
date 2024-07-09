@@ -29,57 +29,57 @@ std::string int_to_mini_roman(int num) {
         } else if (num >= 400) {
             num -= 400;
             result += "CD";
-        } else {
-            if (num >= 100) {
-                int count = num / 100;
-                for(int i=0; i <count ; i++) {
-                    result += "C";
-                }
-                num -= 100 * count;
+        } else if (num >= 100) {
+            int i = 1;
+            while(num >= 100 * i) {
+                num -= 100 * i;
+                result += std::string(i, 'C');
+                i++;
             }
-
-            if (num >= 90) {
-                num -= 90;
-                result += "XC";
-            } else if (num >= 50) {
-                num -= 50;
-                result += "L";
-            } else if (num >= 40) {
-                num -= 40;
-                result += "XL";
-            } else {
-                while(num > 0) {
-                    if(num >= 10) {
-                        int count = num / 10;
-                        for(int i=0; i <count ; i++) {
-                            result += "X";
-                        }
-                        num -= 10 * count;
-                    }
-
-                    if(num >= 9) {
-                        num -= 9;
-                        result += "IX";
-                    } else if (num >= 5) {
-                        num -= 5;
-                        result += "V";
-                    } else if (num >= 4) {
-                        num -= 4;
-                        result += "IV";
-                    } else {
-                        while(num > 0) {
-                            if(num >= 3) {
-                                num -= 3;
-                                result += "I";
-                            } else if (num == 2) {
-                                result += "II";
-                                return result;
-                            } else {
-                                num--;
-                                result += "I";
-                            }
-                        }
-                    }
+        } else if (num >= 90) {
+            num -= 90;
+            result += "XC";
+        } else if (num >= 50) {
+            int i = 1;
+            while(num >= 50 * i) {
+                num -= 50 * i;
+                result += std::string(i, 'L');
+                i++;
+            }
+        } else if (num >= 40) {
+            num -= 40;
+            result += "XL";
+        } else if (num >= 10) {
+            int i = 1;
+            while(num >= 10 * i) {
+                num -= 10 * i;
+                result += std::string(i, 'X');
+                i++;
+            }
+        } else if (num >= 9) {
+            num -= 9;
+            result += "IX";
+        } else if (num >= 5) {
+            int i = 1;
+            while(num >= 5 * i) {
+                num -= 5 * i;
+                result += std::string(i, 'V');
+                i++;
+            }
+        } else if (num >= 4) {
+            num -= 4;
+            result += "IV";
+        } else {
+            int i = 1;
+            while(num > 0) {
+                if(num >= 3) {
+                    num -= 3;
+                    result += "I";
+                } else if (num == 2) {
+                    return result + "II";
+                } else {
+                    num--;
+                    result += "I";
                 }
             }
         }
