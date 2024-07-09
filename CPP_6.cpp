@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,13 +13,13 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 vector<int> parse_nested_parens(string paren_string) {
-    std::vector<int> depths;
+    vector<int> depths;
     int max_depth = 0;
     int depth = 0;
     for (char c : paren_string) {
         if (c == '(') {
             depth++;
-            max_depth = std::max(max_depth, depth);
+            max_depth = max(max_depth, depth);
         } else if (c == ')') {
             depth--;
         } else if (c == ' ') {
@@ -30,4 +30,9 @@ vector<int> parse_nested_parens(string paren_string) {
     }
     depths.push_back(max_depth);
     return depths;
+}
+
+int main() {
+    // Test your functions here
+    return 0;
 }
