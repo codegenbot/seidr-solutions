@@ -1,18 +1,12 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+    vector<int> result;
     if (arr.empty()) {
         return result;
     }
@@ -30,6 +24,6 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    assert(is_same(pluck({7, 9, 7, 1}), {})); 
+    assert(issame(pluck({7, 9, 7, 1}) , std::vector<int>{0, 1}));
     return 0;
 }
