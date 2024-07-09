@@ -1,5 +1,5 @@
 string result;
-    for(const auto& str : strings){
+    for (const string& str : strings) {
         result += str;
     }
     return result;
