@@ -1,18 +1,13 @@
+```cpp
 #include <iostream>
 #include <map>
 #include <string>
 
 bool check_dict_case(map<string, string> dict) {
-    bool is_first_upper = false;
-
-    if (!dict.empty()) {
-        first_key = dict.begin()->first;
-        is_first_upper = std::toupper(first_key[0]) == std::toupper(key[0]));
-    }
-
-    for (const auto& pair : dict) {
-        if (std::toupper(pair.first[0]) != is_first_upper)
+    for (auto& p : dict) {
+        if (std::toupper(p.first[0]) != std::toupper(first_key[0])) {
             return false;
+        }
     }
     return true;
 }
