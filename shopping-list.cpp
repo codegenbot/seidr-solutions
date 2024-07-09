@@ -4,13 +4,11 @@
 #include <vector>
 
 float shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
-    float total = 0;
+    float totalPrice = 0;
     for (int i = 0; i < prices.size(); ++i) {
-        float discountAmount = prices[i] * (discounts[i] / 100);
-        float discountedPrice = prices[i] - discountAmount;
-        total += discountedPrice;
+        totalPrice += prices[i] * (1 - discounts[i] / 100.0);
     }
-    return total;
+    return totalPrice;
 }
 
 int main() {

@@ -1,3 +1,5 @@
+```cpp
+#include <iostream>
 #include <string>
 
 bool solveBoolean(std::string s) {
@@ -30,8 +32,13 @@ bool solveBoolean(std::string s) {
 
 int main() {
     std::string input;
-    std::cin >> input;
-    bool result = solveBoolean(input);
-    std::cout << (result ? "True" : "False") << std::endl;
+    std::cout << "Enter a Boolean expression: ";
+    std::getline(std::cin, input);
+    bool output = solveBoolean(input);
+    if (output) {
+        std::cout << "The result is TRUE." << std::endl;
+    } else {
+        std::cout << "The result is FALSE." << std::endl;
+    }
     return 0;
 }
