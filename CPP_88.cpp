@@ -1,13 +1,19 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
+
+void sort_array(std::vector<int>& arr) {
+    if (!arr.empty()) {
+        if ((arr.front() + arr.back()) % 2 == 0) {
+            std::sort(arr.begin(), arr.end(), std::greater<int>());
+        } else {
+            std::sort(arr.begin(), arr.end());
+        }
+    }
+}
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.empty()) return true;
-    if((a.front() + a.back()) % 2 == 0) {
-        std::sort(a.begin(), a.end(), std::greater<int>());
-    } else {
-        std::sort(a.begin(), a.end());
-    }
+    sort_array(a);
     return a == b;
 }
 
