@@ -4,11 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> solve(int n) {
+vector<int> calculateSeries(int n) {
     vector<int> result;
     if (n == 0) {
         result.push_back(0);
