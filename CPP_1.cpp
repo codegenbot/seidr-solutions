@@ -38,7 +38,13 @@ std::string separate_paren_groups(std::string s) {
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
+    std::string input;
+    if (!(std::cin >> std::ws).get()) {
+        std::cerr << "No input provided." << std::endl;
+    } else {
+        std::getline(std::cin, input);
+        s = input;
+    }
     std::cout << "Result: " << separate_paren_groups(s) << std::endl;
     return 0;
 }
