@@ -40,13 +40,15 @@ int main() {
         int temp;
         while(true) {
             std::cout << "Enter element " << i+1 << ": ";
-            std::cin >> temp;
-            if(temp >= 0)
-                break;
-            else{
-                std::cerr << "Error: Number should be non-negative." << std::endl;
+            if (!(std::cin >> temp)) { // Check for invalid input
+                std::cerr << "Error: Please enter a non-negative integer." << std::endl;
                 return -1; 
             }
+            if(temp < 0) {
+                std::cerr << "Error: Number of elements should be non-negative." << std::endl;
+                return -1; 
+            }
+            break;
         }
         game.push_back(temp);
     }
@@ -57,13 +59,15 @@ int main() {
         int temp;
         while(true) {
             std::cout << "Enter element " << i+1 << ": ";
-            std::cin >> temp;
-            if(temp >= 0)
-                break;
-            else{
-                std::cerr << "Error: Number should be non-negative." << std::endl;
+            if (!(std::cin >> temp)) { // Check for invalid input
+                std::cerr << "Error: Please enter a non-negative integer." << std::endl;
                 return -1; 
             }
+            if(temp < 0) {
+                std::cerr << "Error: Number of elements should be non-negative." << std::endl;
+                return -1; 
+            }
+            break;
         }
         guess.push_back(temp);
     }
