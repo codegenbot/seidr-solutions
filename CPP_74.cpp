@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -49,12 +48,17 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
     return {};
 }
 
-int main() {  
+int main() {
     vector<string> result = totalMatch({"this"}, {});
     cout << "Result: ";
     for (const string& s : result) {
         cout << s << " ";
     }
     cout << endl;
-    return 0; 
+    if (result == {}) {
+        cout << "No match found." << endl;
+    } else {
+        cout << "Total length of matched strings is " << accumulate(result.begin(), result.end(), 0, [](int a, const string& b) { return a + b.length(); }) << "." << endl;
+    }
+    return 0;
 }
