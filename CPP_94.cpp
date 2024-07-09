@@ -27,7 +27,15 @@ bool isPrime(int n) {
     return true;
 
 int main() {
-    vector<int> lst = {127, 97, 8192};
-    cout << skjkasdkd(lst) << endl;
+    vector<int> lst;
+    int num;
+    while (true) {
+        cout << "Enter a number (-1 to finish): ";
+        cin >> num;
+        if (num == -1)
+            break;
+        lst.push_back(num);
+    }
+    cout << "Sum of digits: " << skjkasdkd(lst) << endl;
     return 0;
 }
