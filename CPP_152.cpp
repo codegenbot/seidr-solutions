@@ -35,15 +35,13 @@ int main() {
     }
 
     // Create a new vector and fill space
-    std::vector<int> game; 
+    std::vector<int> game(n); 
     for(int i = 0; i < n; i++){
         int temp;
         while(true) {
             std::cout << "Enter element " << i+1 << ": ";
             if (!(std::cin >> temp)) { // Check for invalid input
                 std::cerr << "Error: Please enter a non-negative integer." << std::endl;
-                std::cin.clear(); // Clear the error flag
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the rest of the line
                 return -1; 
             }
             if(temp < 0) {
@@ -52,19 +50,17 @@ int main() {
             }
             break;
         }
-        game.push_back(temp);
+        game[i] = temp;
     }
     
     // Create a new vector and fill space
-    std::vector<int> guess; 
+    std::vector<int> guess(n); 
     for(int i = 0; i < n; i++){
         int temp;
         while(true) {
             std::cout << "Enter element " << i+1 << ": ";
             if (!(std::cin >> temp)) { // Check for invalid input
                 std::cerr << "Error: Please enter a non-negative integer." << std::endl;
-                std::cin.clear(); // Clear the error flag
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the rest of the line
                 return -1; 
             }
             if(temp < 0) {
@@ -73,7 +69,7 @@ int main() {
             }
             break;
         }
-        guess.push_back(temp);
+        guess[i] = temp;
     }
     
     if(issame(game, guess))
