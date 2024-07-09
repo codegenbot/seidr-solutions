@@ -15,6 +15,5 @@ std::string solve(int N) {
             result.push_back('0');
         sum >>= 1;
     }
-    std::reverse(result.begin(), result.end());
+    reverse(result.begin(), result.end());
     return result;
-}
