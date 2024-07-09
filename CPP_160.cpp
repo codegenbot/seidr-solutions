@@ -1,19 +1,40 @@
-int do_algebra(vector<string> op, vector<int> operands) {
-    int result = operands[0];
-    for (int i = 0; i < op.size(); i++) {
-        if (op[i] == "+") {
-            result += operands[i + 1];
-        } else if (op[i] == "-") {
-            result -= operands[i + 1];
-        } else if (op[i] == "*") {
-            result *= operands[i + 1];
-        } else if (op[i] == "/") {
-            if (operands[i + 1] != 0)
-                result /= operands[i + 1];
-            else
-                return -1;  // division by zero is undefined
-        } else if (op[i] == "**") {
-            result = pow(result, operands[i + 1]);
+```cpp
+#include <vector>
+#include <string>
+#include <cmath>
+
+int do_algebra(vector<string> operators, vector<int> operand) {
+    int result = operand[0];
+    for (int i = 0; i < operators.size(); i++) {
+        if (operators[i] == "+") {
+            result += operand[i + 1];
+        } else if (operators[i] == "-") {
+            result -= operand[i + 1];
+        } else if (operators[i] == "*") {
+            int temp = 0;
+            for (int j = i + 1; j < operators.size(); j++) {
+                if (operators[j] == "+")
+                    break;
+                temp += operand[j];
+            }
+            result *= temp;
+        } else if (operators[i] == "//") {
+            int temp = 0;
+            for (int j = i + 1; j < operators.size(); j++) {
+                if (operators[j] == "+")
+                    break;
+                temp += operand[j];
+            }
+            result /= temp;
+        } else if (operators[i] == "**") {
+            int base = operand[i + 1];
+            int exponent = 0;
+            for (int j = i + 2; j < operators.size(); j++) {
+                if (operators[j] == "+")
+                    break;
+                exponent += operand[j];
+            }
+            result = pow(base, exponent);
         }
     }
     return result;
