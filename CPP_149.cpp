@@ -1,9 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
-#include <memory>
+#include <limits>
 
 using namespace std;
 
@@ -41,18 +41,22 @@ int main_entry() {
     cout << "Enter the number of strings: ";
     cin >> n;
     
-    vector<string> inputStrings;
+    vector<std::string> inputStrings; 
     int totalSize = 0;
     for(int i = 0; i < n; i++) {
         string str;
         cout << "Enter string " << (i+1) << ": ";
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Add this line to ignore the newline character left in the buffer
         getline(cin, str);
-        totalSize += str.size() + 1; // Calculate the size of each string and add 1 for null character
+        totalSize += str.size() + 1; 
     }
     
     for(int i = 0; i < n; i++) {
+        string str;
         cout << "Enter string " << (i+1) << ": ";
-        getline(cin, inputStrings[i]); // Store by reference instead of by value
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Add this line to ignore the newline character left in the buffer
+        getline(cin, str);
+        inputStrings.push_back(str);
     }
     
     vector<string> output = sorted_list_sum(inputStrings);
