@@ -6,22 +6,23 @@
 using namespace std;
 
 double vectorDistance() {
-    int dim1, dim2;
-    cin >> dim1 >> dim2;
+    int n;
+    cin >> n;
 
-    float v1[dim1];
-    float v2[dim2];
+    float v1[n];
+    float v2[n];
 
-    for (int i = 0; i < dim1; i++) {
+    for (int i = 0; i < n; i++) {
         cin >> v1[i] >> v2[i];
     }
 
     double distance = 0.0;
-    for (int i = 0; i < dim1; i++) {
+    for (int i = 0; i < n; i++) {
         double diff = pow(v2[i] - v1[i], 2);
         distance += diff;
     }
     return sqrt(distance);
+
 }
 
 int main() {
