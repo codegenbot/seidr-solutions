@@ -1,4 +1,4 @@
-```c++
+```
 #include <string>
 #include <iostream>
 
@@ -31,6 +31,7 @@ bool solveBoolean(std::string s) {
 }
 
 int main() {
-    bool result = solveBoolean(std::cin.rdbuf()->in.getline(0, 256));
+    bool result = solveBoolean("");
     std::cout << (result ? "True" : "False") << std::endl;
     return 0;
+}
