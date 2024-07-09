@@ -1,19 +1,19 @@
 string decimal_to_binary(int n) {
-    string binary = "";
-    while (n > 0) {
+    string res = "";
+    while(n > 0) {
         if (n % 2 == 0)
-            binary = "0" + binary;
+            res = "0" + res;
         else
-            binary = "1" + binary;
+            res = "1" + res;
         n /= 2;
     }
-    return "db" + binary + "db";
+    return res;
 }
 
 int main() {
     int decimal;
     cout << "Enter a decimal number: ";
     cin >> decimal;
-    cout << "Binary representation of " << decimal << " is " << decimal_to_binary(decimal) << endl;
+    cout << "The binary representation is: " << decimal_to_binary(decimal) << endl;
     return 0;
 }
