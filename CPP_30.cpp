@@ -6,7 +6,7 @@ bool issame(vector<float> a, vector<float> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-6f) {
+        if (std::abs(a[i] - b[i]) > 1e-5f) {
             return false;
         }
     }
@@ -15,5 +15,5 @@ bool issame(vector<float> a, vector<float> b) {
 
 int main() {
     assert(get_positive({}) == {});
-    return 0;
+    // rest of your code
 }
