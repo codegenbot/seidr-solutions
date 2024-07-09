@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -19,8 +19,9 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
     for (int i = 0; i < k; i++) {
         auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
+        int max_val = *it;
         arr.erase(it);
+        result.push_back(max_val);
     }
     return result;
 }
