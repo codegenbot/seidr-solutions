@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() == 0 && b.size() == 0) return true;
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -42,7 +42,7 @@ int main() {
     }
     
     std::vector<int> uniqueNumbers = numbers;
-    sort(uniqueNumbers.begin(), uniqueNumbers.end());
+    std::sort(uniqueNumbers.begin(), uniqueNumbers.end());
     
     if (!issame(numbers, uniqueNumbers)) {
         std::cout << "Unique numbers: ";
