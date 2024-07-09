@@ -4,7 +4,21 @@
 
 std::vector<std::pair<int, std::string>> romanMap;
 
-std::string int_to_mini_romank(int number);
+std::string int_to_mini_romank(int number) {
+    for (const auto& pair : romanMap) {
+        while (number >= pair.first) {
+            number -= pair.first;
+            return pair.second;
+        }
+    }
+    if (number > 0) {
+        return "I";
+    } else if (number < 0) {
+        return "-";
+    } else {
+        return "";
+    }
+}
 
 int main() {
     romanMap.push_back({ 1000, "M" });
@@ -21,15 +35,4 @@ int main() {
     for(int i = 1; i <= 3999; i++) { 
         std::cout << i << ": " << int_to_mini_romank(i) << std::endl;
     }
-}
-
-std::string int_to_mini_romank(int number) {
-    std::string roman = ""; // Initialize the string
-    for (const auto& pair : romanMap) {
-        while (number >= pair.first) {
-            number -= pair.first;
-            roman += pair.second;
-        }
-    }
-    return roman;
 }
