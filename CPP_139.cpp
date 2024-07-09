@@ -1,4 +1,3 @@
-```cpp
 long long special_factorial(int n) {
     if (n == 0)
         return 1;
@@ -10,7 +9,6 @@ long long special_factorial(int n) {
         }
     }
     return result;
-
 }
 
 int main() {
