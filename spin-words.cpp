@@ -6,14 +6,14 @@
 std::vector<std::string> split(const std::string& str, char c) {
     std::vector<std::string> words;
     std::string word;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == c || i == str.length() - 1) {
-            if (i > 0) {
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == c) {
+            if (!word.empty()) {
                 words.push_back(word);
                 word.clear();
             }
-            if (i != str.length() - 1) {
-                word += str[i];
+            if (i < str.length()) {
+                word = "";
             }
         } else {
             word += str[i];
