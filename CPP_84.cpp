@@ -1,18 +1,6 @@
-int sumOfDigitsInBinary(int n) {
-    int sum = 0;
-    while (n > 0) {
-        sum += n % 2;
-        n /= 2;
+int sum = 0;
+    while (N > 0) {
+        sum += N % 2;
+        N /= 2;
     }
-    return sum;
-}
-
-string solve(int N) {
-    int sum = sumOfDigitsInBinary(N);
-    string binaryNum = "";
-    while (sum > 0) {
-        binaryNum = to_string(sum % 2) + binaryNum;
-        sum /= 2;
-    }
-    return binaryNum;
-}
+    return bitset<32>(sum).to_string().substr(32 - __builtin_clz(sum));
