@@ -1,32 +1,29 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-std::string longestString(const std::vector<std::string>& strings) {
-    if(strings.empty()) {
+std::string findLongestString(const std::vector<std::string>& inputStrings) {
+    if(inputStrings.empty()) {
         return "";
     } else {
-        string longest = *max_element(strings.begin(), strings.end(),
+        std::string longest = *max_element(inputStrings.begin(), inputStrings.end(), 
             [](const string& a, const string& b) {return a.size() < b.size();});
         return longest;
     }
 }
 
 int main() {
-    std::vector<std::string> strVec;
-    int n;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
+    int numStrings;
+    std::cin >> numStrings;
 
-    for(int i = 0; i < n; i++) {
+    std::vector<std::string> strings;
+    for(int i = 0; i < numStrings; ++i) {
         std::string s;
-        std::cout << "Enter string " << (i+1) << ": ";
-        std::getline(std::cin, s);
-        strVec.push_back(s);
+        std::cin >> s;
+        strings.push_back(s);
     }
 
-    std::cout << "The longest string is: " << longestString(strVec) << std::endl;
+    std::cout << findLongestString(strings);
 
     return 0;
 }
