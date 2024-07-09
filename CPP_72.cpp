@@ -1,8 +1,10 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
 
-bool will_it_fly(const vector<int>& q, int w) {
+bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
         str += to_string(i);
