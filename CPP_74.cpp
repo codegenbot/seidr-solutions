@@ -1,10 +1,9 @@
-Here's the modified code:
 ```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
 
-bool issame(vector<string> a,vector<string> b) {
+bool issame(std::vector<std::string> a,std::vector<std::string> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -17,19 +16,19 @@ bool issame(vector<string> a,vector<string> b) {
 }
 
 int main() {
-    assert(issame({"this"}, {})); 
+    assert(issame({{"this"}}, {}));
     return 0;
 }
 
-vector<string> total_match(vector<string>, vector<string>) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int sum1 = 0, sum2 = 0;
-    for (const string& s : {}) sum1 += s.size();
-    for (const string& s : {}) sum2 += s.size();
+    for (const std::string& s : lst1) sum1 += s.size();
+    for (const std::string& s : lst2) sum2 += s.size();
 
     if (sum1 < sum2)
-        return {};
+        return lst1;
     else if (sum1 > sum2)
-        return {};
+        return lst2;
     else
-        return issame({}, {}) ? {} : {};
+        return issame(lst1, lst2) ? lst1 : lst2;
 }
