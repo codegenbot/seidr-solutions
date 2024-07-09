@@ -11,7 +11,6 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         arr.erase(it);
     }
     return result;
-
 }
 
 int main() {
