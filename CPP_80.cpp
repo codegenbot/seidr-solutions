@@ -1,5 +1,6 @@
-```cpp
 #include <iostream>
+
+bool is_happy(int n);
 
 bool is_happy(int n) {
     if (n < 1) return false;
