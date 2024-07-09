@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 #include <string>
 
@@ -18,7 +17,8 @@ bool check_dict_case(map<string, string> dict) {
 }
 
 int main() {
-    map<string, string> dict = {{"key", "value"}};
-    cout << check_dict_case(dict);
+    // Call the function with your test map
+    assert(check_dict_case({{"key", "value"}}) == true);
+
     return 0;
 }
