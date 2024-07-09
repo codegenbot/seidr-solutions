@@ -1,6 +1,6 @@
-```c
 #include <map>
 #include <string>
+#include <initializer_list>
 
 bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     if (a.size() != b.size()) return false;
@@ -22,3 +22,4 @@ std::map<char, int> histogram(const std::string& s) {
         else hist[c] = 1;
     }
     return hist;
+}
