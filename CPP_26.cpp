@@ -27,7 +27,7 @@ int main() {
     }
     std::cout << std::endl;
     
-    if(!isSame(numbers, {1, 4, 5})) {
+    if (!isSame(numbers, {1, 2, 3, 4, 5})) {
         std::cout << "assert failed" << std::endl;
     } else {
         std::cout << "assert passed" << std::endl;
