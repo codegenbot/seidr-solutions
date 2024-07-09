@@ -22,6 +22,7 @@ int total_sum(std::vector<std::string> lst) {
 }
 
 std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+    if (lst1.empty() || lst2.empty()) return {};
     int sum1 = total_sum(lst1);
     int sum2 = total_sum(lst2);
     if (sum1 < sum2) return lst1;
@@ -30,8 +31,9 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    std::vector<std::string> lst1 = {"this is a test"};
-    std::vector<std::string> lst2 = {"hello world"};
+    std::vector<std::string> lst1 = {"this", "is", "a"};
+    std::vector<std::string> lst2 = {"hello", "from", "c++"};
+
     if (!issame({lst1}, {lst1}, {total_match(lst1, lst2)})) {
         std::cout << "Test failed" << std::endl;
     } else {
