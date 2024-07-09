@@ -1,30 +1,46 @@
+Here is the completed code:
+
+```cpp
 #include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a > (float)b ? a : b;
+        return (int)b > a.convert_to<int>() ? b : a;
     }
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a > (double)b ? a : b;
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > b.convert_to<float>() ? a : boost::any("None");
     }
-    if (a.type() == typeid(int) && b.type() == typeid(long double)) {
-        return (int)a > (long double)b ? a : b;
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return a.convert_to<string>() > b.convert_to<string>() ? a : (a.convert_to<string>() == b.convert_to<string>() ? boost::any("None") : a);
     }
-    if (a.type() == typeid(float) && b.type() == typeid(double)) {
-        return (float)a > (double)b ? a : b;
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int x = boost::any_cast<int>(a);
+        string y = boost::any_cast<string>(b);
+        return x > std::stoi(y) ? a : (x < std::stoi(y) ? b : boost::any("None"));
     }
-    if (a.type() == typeid(double) && b.type() == typeid(long double)) {
-        return (double)a > (long double)b ? a : b;
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        int x = boost::any_cast<int>(b);
+        string y = boost::any_cast<string>(a);
+        return std::stoi(y) > x ? a : (std::stoi(y) < x ? b : boost::any("None"));
     }
-    if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = any_cast<string>(a);
-        string str2 = any_cast<string>(b);
-        int num1 = std::stoi(str1.substr(0, str1.find(',')));
-        int num2 = std::stoi(str2.substr(0, str2.find(',')));
-        return (num1 > num2) ? a : b;
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        float x = boost::any_cast<float>(a);
+        string y = boost::any_cast<string>(b);
+        return x > std::stof(y) ? a : (x < std::stof(y) ? b : boost::any("None"));
     }
-    if (a.type() == typeid(string)) {
-        return "None";
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        float x = boost::any_cast<float>(b);
+        string y = boost::any_cast<string>(a);
+        return std::stof(y) > x ? a : (std::stof(y) < x ? b : boost::any("None"));
     }
-    return a > b ? a : b;
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int x = boost::any_cast<int>(a);
+        int y = boost::any_cast<int>(b);
+        return x > y ? a : (x < y ? b : boost::any("None"));
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float x = boost::any_cast<float>(a);
+        float y = boost::any_cast<float>(b);
+        return x > y ? a : (x < y ? b : boost::any("None"));
+    }
 }
