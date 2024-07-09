@@ -1,11 +1,10 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
+    
     for (char &c : message) {
         if (c == cipher1[0]) {
             c = cipher2[0];
@@ -13,8 +12,8 @@ int main() {
             c = cipher1[0];
         }
     }
-
-    cout << message << endl;
-
+    
+    std::cout << message << std::endl;
+    
     return 0;
 }
