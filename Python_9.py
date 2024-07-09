@@ -1,9 +1,11 @@
-```
-def calculate_score(student_id):
-    '''
-Return a score based on student ID.
-0: [1-99], 1: [100-199], 2: [200-299], 3: [300-399], 
-4: [400-499], 5: [500-599], 6: [600-699], 7: [700-799], 8: [800-899], 9: [900-999]
-    '''
-    score = int(input("Enter student ID: ")) % 1000 // 100
-    return score
+def rolling_max(numbers: List[int]) -> List[int]:
+    if len(numbers) == 0:
+        return []
+    elif len(numbers) == 1:
+        return [numbers[0]]
+    result = [max(num for num in numbers[:])]
+    max_so_far = numbers[0]
+    for num in numbers[1:]:
+        max_so_far = max(num, max_so_far + num)
+        result.append(max_so_far)
+    return result
