@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool checkSame(std::vector<float> v1, std::vector<float> v2) {
     if(v1.size() != v2.size()) return false;
