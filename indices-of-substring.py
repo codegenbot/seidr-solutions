@@ -1,6 +1,4 @@
-```
-def indices_of_substring(text):
-    target_string = input()
+def indices_of_substring(text, target_string):
     result = []
     index = 0
     while index < len(text):
@@ -13,4 +11,5 @@ def indices_of_substring(text):
     return result
 
 text = input()
-print(indices_of_substring(text))
+target_string = input()
+print(indices_of_substring(text, target_string))
