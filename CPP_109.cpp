@@ -1,7 +1,7 @@
 ```cpp
 #include <vector>
 
-bool move_one_ball(const std::vector<int>& arr) {
+bool move_one_ball(const vector<int>& arr) {
     int n = arr.size();
     if (n == 0)
         return true;
