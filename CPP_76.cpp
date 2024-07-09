@@ -15,13 +15,14 @@ bool isSimplePower(int x) {
 }
 
 int main() {
-    int x;
+    std::string input;
     std::cout << "Enter a number: ";
-    std::cin >> x;
-    if (isSimplePower(x)) {
-        std::cout << std::to_string(x) << " is a simple power.\n";
+    std::cin >> input;
+    int num = std::stoi(input);
+    if (isSimplePower(num)) {
+        std::cout << input << " is a simple power.\n";
     } else {
-        std::cout << std::to_string(x) << " is not a simple power.\n";
+        std::cout << input << " is not a simple power.\n";
     }
     return 0;
 }
