@@ -1,9 +1,16 @@
-```cpp
 #include <vector>
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a == b);
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    
+    return true;
 }
 
 std::vector<string> bf(string planet1, string planet2) {
@@ -44,5 +51,5 @@ std::vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(bf("Jupiter", "Mars") == {"Venus", "Earth"});  
+    assert(bf("Jupiter", "Mars") == vector<string>{"Venus", "Earth"});  // Correct the usage of bf
 }
