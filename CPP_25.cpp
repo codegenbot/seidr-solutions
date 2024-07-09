@@ -14,10 +14,11 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main() {
-    vector<int> factors = factorize(60);
-    for(int factor : factors){
-        cout << factor << " ";
-    }
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+int main(){
+    vector<int> factors = factorize(30);
     return 0;
 }
