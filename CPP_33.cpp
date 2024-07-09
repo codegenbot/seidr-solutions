@@ -6,24 +6,25 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> multiplesOfThree;
-    vector<int> others;
-
+    vector<int> result;
+    vector<vector<int>> groups;
     for (int i = 0; i < l.size(); i++) {
-        if (i % 3 == 0)
-            multiplesOfThree.push_back(l[i]);
-        else
-            others.push_back(l[i]);
+        if (i % 3 == 0) {
+            vector<int> temp;
+            for (int j = i; j < l.size() && j % 3 == 0; j++) {
+                temp.push_back(l[j]);
+            }
+            groups.push_back(temp);
+        } else {
+            result.push_back(l[i]);
+        }
     }
 
-    sort(multiplesOfThree.begin(), multiplesOfThree.end());
-
-    vector<int> result;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 3 == 0)
-            result.push_back(multiplesOfThree[0]);
-        else
-            result.push_back(others[i % others.size()]);
+    for (auto& group : groups) {
+        sort(group.begin(), group.end());
+        for (int i = 0; i < group.size(); i++) {
+            result.insert(result.begin() + i, group[i]);
+        }
     }
 
     return result;
