@@ -1,9 +1,5 @@
-bool issame(const vector<string>& planets, string planet1) {
-    for (const auto& p : planets) {
-        if (p == planet1)
-            return true;
-    }
-    return false;
+bool issame(pair<string, int> p1, pair<string, int> p2) {
+    return p1.second == p2.second;
 }
 
 vector<string> bf(string planet1, string planet2) {
