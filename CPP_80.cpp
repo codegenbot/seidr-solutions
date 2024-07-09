@@ -1,29 +1,16 @@
-```cpp
 #include <iostream>
 #include <string>
 
 bool is_happy(std::string s) {
-    int sum = 0;
-    for (int i = 0; i < s.length(); i++) {
-        sum += (s[i] - '0') * (s[i] - '0');
-    }
-    
-    if(sum == 1)
-        return true;
-    else{
-        std::string str = std::to_string(sum);
-        while(true){
-            sum = 0;
-            for(int i=0; i<str.length(); i++){
-                sum += (str[i]-'0') * (str[i]-'0');
-            }
-            if(sum == 1)
-                return true;
-            else if(sum != 1 && sum != 4) // 4 is not a happy number
-                return false;
-            str = std::to_string(sum);
+    std::string t = s;
+    while (t != "1") {
+        int sum = 0;
+        for (char c : t) {
+            sum += (c - '0') * (c - '0');
         }
+        t = std::to_string(sum);
     }
+    return true;
 }
 
 int main() {
