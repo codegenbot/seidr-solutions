@@ -16,37 +16,44 @@ boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string strA = boost::any_cast<string>(a);
         string strB = boost::any_cast<string>(b);
-        return strA > strB ? a : strB;
+        if(strA > strB) return a;
+        if(strA < strB) return b;
     }
     if ((a.type() == typeid(int) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(int))) {
         int intB = boost::any_cast<int>(b);
         string strA = boost::any_cast<string>(a);
-        return strA > to_string(intB) ? a : to_string(intB) + b;
+        if(strA > to_string(intB)) return a;
+        if(strA < to_string(intB)) return b;
     }
     if ((a.type() == typeid(float) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(float))) {
         float fltA = boost::any_cast<float>(a);
         string strB = boost::any_cast<string>(b);
-        return strB > to_string(fltA) ? b : a + b;
+        if(strB > to_string(fltA)) return b;
+        if(strB < to_string(fltA)) return a;
     }
     if ((a.type() == typeid(double) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(double))) {
         double dblA = boost::any_cast<double>(a);
         string strB = boost::any_cast<string>(b);
-        return strB > to_string(dblA) ? b : a + b;
+        if(strB > to_string(dblA)) return b;
+        if(strB < to_string(dblA)) return a;
     }
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int intA = boost::any_cast<int>(a);
         int intB = boost::any_cast<int>(b);
-        return intA > intB ? a : b;
+        if(intA > intB) return a;
+        if(intA < intB) return b;
     }
     if (a.type() == typeid(float) && b.type() == typeid(float)) {
         float fltA = boost::any_cast<float>(a);
         float fltB = boost::any_cast<float>(b);
-        return fltA > fltB ? a : b;
+        if(fltA > fltB) return a;
+        if(fltA < fltB) return b;
     }
-    if (a.type() == typeid(double) && b.type() == typeid(double)) {
+    if (a.type() == typeid(double) && b.type() ==typeid(double)) {
         double dblA = boost::any_cast<double>(a);
         double dblB = boost::any_cast<double>(b);
-        return dblA > dblB ? a : b;
+        if(dblA > dblB) return a;
+        if(dblA < dblB) return b;
     }
     return a;
 }
