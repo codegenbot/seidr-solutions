@@ -1,16 +1,15 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
     double p = 0.0;
-
+    
     for (int i = 1; i <= min(n, m); i++) {
         p += (n - i) * (m - i + 1);
     }
-
+    
     return p / total;
 }
 
