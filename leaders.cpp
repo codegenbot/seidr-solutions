@@ -1,3 +1,4 @@
+#include <vector>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -5,15 +6,15 @@ vector<int> leaders(vector<int>& arr) {
     vector<int> res;
     
     for(int i=n-1; i>=0; i--) {
-        int maxRight = arr[i];
         bool isLeader = true;
         for(int j=i+1; j<n; j++) {
-            if(arr[j] >= maxRight) {
+            if(arr[j] >= arr[i]) {
                 isLeader = false;
                 break;
             }
         }
-        if(isLeader) res.push_back(maxRight);
+        
+        if(isLeader) res.push_back(arr[i]);
     }
     
     return res;
