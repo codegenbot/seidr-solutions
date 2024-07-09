@@ -1,30 +1,26 @@
-#include <boost/any.hpp>
+#include <variant>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
-boost::any compare_one(const boost::any& a, const boost::any& b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return (boost::any_cast<int>(a) > boost::any_cast<int>(b)) ? a :
-               (boost::any_cast<int>(a) < boost::any_cast<int>(b)) ? b :
-               "None";
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return (boost::any_cast<float>(a) > boost::any_cast<float>(b)) ? a :
-               (boost::any_cast<float>(a) < boost::any_cast<float>(b)) ? b :
-               "None";
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        float a_float = stof(boost::any_cast<string>(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, ".")));
-        float b_float = stof(boost::any_cast<string>(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, ".")));
-        return (a_float > b_float) ? a :
-               (a_float < b_float) ? b :
-               "None";
-    } else {
-        return "None";
+auto compare_one(const variant<int, float, string>& a, const variant<int, float, string>& b) {
+    if (holds_alternative<int>(a) && holds_alternative<int>(b)) {
+        if (get<int>(a) > get<int>(b))
+            return a;
+        else if (get<int>(a) < get<int>(b))
+            return b;
     }
-}
-
-int main() {
-    assert(boost::any_cast<string>(compare_one(string("1"), string("1"))) == "None");
-    return 0;
+    else if (holds_alternative<float>(a) && holds_alternative<float>(b)) {
+        if (get<float>(a) > get<float>(b))
+            return a;
+        else if (get<float>(a) < get<float>(b))
+            return b;
+    }
+    else if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
+        if (stof(get<string>(a)) > stof(get<string>(b)))
+            return a;
+        else if (stof(get<string>(a)) < stof(get<string>(b)))
+            return b;
+    }
+    return variant<int, float, string>(); // Return default-constructed std::variant
 }
