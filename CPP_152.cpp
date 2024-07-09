@@ -1,46 +1,25 @@
-int main() {
-    int n;
-    cin >> n;
-    if (n < 1 || n > 1000) {
-        cout << "Error: Input number should be between 1 and 1000." << endl;
-        return 1;
-    }
-    vector<int> a(n), b(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i] >> b[i];
-    }
-    if (!issame(a, b)) {
-        cout << "Error: The two arrays are not the same." << endl;
-        return 1;
-    }
-    vector<int> result = compare(a, b);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
-    return 0;
-}
+#include <vector>
+#include <initializer_list>
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
-vector<int> compare(vector<int> a, vector<int> b) {
-    vector<int> result;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] > b[i]) {
-            result.push_back(a[i]);
-        } else if (a[i] < b[i]) {
-            result.push_back(b[i]);
-        }
+int compare(vector<int> a, vector<int> b) {
+    int countA = 0, countB = 0;
+    for(int i = 0; i < a.size() || i < b.size(); i++) {
+        if(i < a.size()) countA += a[i];
+        if(i < b.size()) countB += b[i];
     }
-    return result;
+    return (countA > countB) ? 1 : ((countA < countB) ? -1 : 0);
+}
+
+int main() {
+    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
+    return 0;
 }
