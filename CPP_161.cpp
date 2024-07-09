@@ -1,8 +1,7 @@
 #include <string>
-using namespace std;
 
-int solve(string s) {
-    string result = "";
+std::string solve(std::string s){
+    std::string result = "";
     for(int i=0; i<s.length(); i++){
         if(isalpha(s[i])){
             result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
@@ -10,5 +9,5 @@ int solve(string s) {
             result += s[i];
         }
     }
-    return (result.find_first_of("abcdefghijklmnopqrstuvwxyz") == string::npos) ? int(reverse(result).begin(), reverse(result).end()) : 0;
+    return (result.find_first_of("abcdefghijklmnopqrstuvwxyz") == std::string::npos) ? std::reverse(result) : result;
 }
