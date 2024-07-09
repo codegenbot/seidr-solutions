@@ -1,23 +1,14 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
-    // Add your implementation here
+bool issame(std::vector<int> a, std::vector<int> b){
+    // Function implementation
 }
 
-vector<int> make_a_pile(int n){
-    vector<int> result;
-    result.push_back(n);
-    for(int i = 1; i < n; ++i){
-        if(n % 2 == 0){
-            n += 2;
-        } else {
-            n += 1;
-        }
-        result.push_back(n);
+// Include function definition to avoid undefined reference error
+std::vector<int> make_a_pile(int n){
+    std::vector<int> stones;
+    for(int i = 0; i < n; i++){
+        stones.push_back(n + 2*i);
     }
-    return result;
-}
-
-int main(){
-    // Add your test cases here
+    return stones;
 }
