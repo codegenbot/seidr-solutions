@@ -1,3 +1,4 @@
+```
 def fizz_buzz(n):
     result = []
     for i in range(1, n+1):
@@ -9,4 +10,4 @@ def fizz_buzz(n):
             result.append("Buzz")
         else:
             result.append(str(i))
-    return result
+    return "".join(result)
