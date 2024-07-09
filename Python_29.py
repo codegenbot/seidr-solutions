@@ -1,2 +1,2 @@
-def filter_strings(strings, prefix):
-    return [s for s in strings if s.startswith(prefix)]  
+def filter_strings(strings: List[str], prefix: str) -> List[str]:
+    return [s for s in strings if s.startswith(prefix)]
