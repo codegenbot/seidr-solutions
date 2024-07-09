@@ -1,4 +1,3 @@
-```
 #include <string>
 
 int getBonus(int a, int b) {
@@ -8,6 +7,7 @@ int getBonus(int a, int b) {
         return a + b;
     }
 }
+
 int bowlingScore(std::string s) {
     int score = 0;
     int currentFrame = 1;
@@ -19,12 +19,17 @@ int bowlingScore(std::string s) {
             currentFrame++;
         } else if(s[i] == 'X') {
             score += 10;
+            if(currentFrame < 9) {
+                if(i + 2 < s.length() && s[i+1] != '/') {
+                    score += (s[i+1] - '0');
+                }
+            }
             currentFrame++;
         } else {
             int roll = s[i] - '0';
             score += roll;
             if(currentFrame < 10) {
-                if(i+1 < s.length() && (s[i+1] != '/' && s[i+1] != 'X')) {
+                if(i+1 < s.length() && s[i+1] != '/') {
                     score += getBonus(roll, (s[i+1] - '0'));
                     currentFrame++;
                 } else {
