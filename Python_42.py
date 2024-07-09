@@ -1,7 +1,6 @@
 def increment_numbers(l):
     return [num + 1 for num in l]
 
-
 # Define a list to increment
 input_list = [1, 2, 3, 4, 5]
 
