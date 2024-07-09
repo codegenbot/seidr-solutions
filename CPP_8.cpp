@@ -1,7 +1,8 @@
+#include <vector>
 #include <utility>
 #include <cassert>
 
-std::pair<int, int> sum_product(std::vector<int> numbers) {
+std::pair<int, int> sum_product(const std::vector<int>& numbers) {
     int sum = 0;
     int prod = 1;
     for (int num : numbers) {
@@ -13,4 +14,5 @@ std::pair<int, int> sum_product(std::vector<int> numbers) {
 
 int main() {
     assert(sum_product({10}) == std::make_pair(10, 10));
+    return 0;
 }
