@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -21,12 +22,11 @@ std::string spinWords(const std::string& str) {
     std::string result;
 
     for (int i = 0; i < words.size(); i++) {
-        std::string temp = words[i];
-        if (temp.length() >= 5) {
-            std::reverse(temp.begin(), temp.end()); 
-            result += temp + " ";
+        if (words[i].length() >= 5) {
+            std::reverse(words[i].begin(), words[i].end());
+            result += words[i] + " ";
         } else {
-            result += temp + " ";
+            result += words[i] + " ";
         }
     }
 
