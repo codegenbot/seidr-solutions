@@ -2,7 +2,7 @@ from typing import List
 
 
 def all_prefixes(string: str) -> List[str]:
-    result = []
-    for i in range(len(string)+1):
-        result.append(string[:i])
+    result = [""]
+    for char in string:
+        result += [prev + char for prev in result]
     return result
