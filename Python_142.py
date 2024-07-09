@@ -14,4 +14,4 @@ def sum_squares():
 
     return result
 
-print(sum_squares())
+result = sum_squares()
