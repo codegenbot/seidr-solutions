@@ -1,4 +1,4 @@
-```
+```c++
 #include <iostream>
 #include <string>
 
@@ -21,6 +21,11 @@ int main() {
     std::cout << "Enter a sentence: ";
     std::string S;
     std::cin >> S;
+
+    if (S.empty()) {
+        std::cerr << "Error: Input cannot be empty." << std::endl;
+        return 1;
+    }
 
     int result = is_bored(S);
     std::cout << "Count: " << result << std::endl;
