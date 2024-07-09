@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -13,9 +14,10 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    std::string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    cout << "Number of uppercase vowels at even positions is: " << count_upper(input) << endl;
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    int result = count_upper(str);
+    std::cout << "The number of upper case vowels in the entered string is " << result << "." << std::endl;
     return 0;
 }
