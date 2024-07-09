@@ -1,12 +1,22 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <map>
 
 int search(std::vector<int> lst) {
-    std::map<int, int> freq(lst.begin(), lst.end());
-    for (auto it = freq.begin(); it != freq.end(); ++it) {
-        if (it->second >= it->first && it->first > 0) {
-            return it->first * it->second;
+    std::map<int, int> freq;
+    for (int num : lst) {
+        if (freq.find(num) == freq.end()) {
+            freq[num] = 1;
+        } else {
+            freq[num]++;
+        }
+    }
+
+    // Check if the first occurrence of each number is less than its frequency
+    for (const auto& pair : freq) {
+        if (pair.second >= pair.first && pair.first > 0) {
+            return pair.first * pair.second;
         }
     }
     return -1;
@@ -18,11 +28,20 @@ int main() {
     std::cin >> n;
 
     std::vector<int> lst;
-    lst.resize(n, 0); 
+    lst.resize(n, 0); // Initialize all new elements with a default value
 
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> lst[i];
+        int num;
+        std::cin >> num; // Take input as integer
+
+        if (num == 0) {
+            // Ask user to enter a different value
+            std::cout << "Invalid input. Please enter a non-zero number.\n";
+            continue;
+        }
+
+        lst[i] = num; // Store the valid input into vector
     }
 
     int result = search(lst);
