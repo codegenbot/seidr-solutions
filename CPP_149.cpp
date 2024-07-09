@@ -1,10 +1,10 @@
 ```cpp
+using namespace std;
+
 #include <vector>
 #include <algorithm>
 #include <string>
 #include <initializer_list>
-
-using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
     return (a.size() == b.size());
@@ -36,19 +36,17 @@ int main_entry() {
     int n;
     cout << "Enter the number of strings: ";
     cin >> n;
-
+    
     vector<string> inputStrings;
     for(int i = 0; i < n; i++) {
         string str;
         cout << "Enter string " << (i+1) << ": ";
-        if (!(cin >> str)) {
-            break;
-        }
+        getline(cin, str);
         inputStrings.push_back(str);
     }
-
+    
     vector<string> output = sorted_list_sum(inputStrings);
-
+    
     for(int i = 0; i < output.size(); i++) {
         bool found = false;
         for(int j = 0; j < output.size(); j++) {
@@ -61,6 +59,6 @@ int main_entry() {
             cout << output[i] << endl;
         }
     }
-
+    
     return 0;
 }
