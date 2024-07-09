@@ -1,4 +1,3 @@
-#include <string>
 using namespace std;
 
 int main() {
@@ -17,9 +16,9 @@ int main() {
         pos++;
     }
 
-    cout << "Count: " << is_bored(S) << endl;
+    cout << "Count: " << count << endl;
 
-    return 0;
+    return is_bored(S);
 }
 
 int is_bored(string S){
@@ -34,4 +33,3 @@ int is_bored(string S){
         pos++;
     }
     return count;
-}
