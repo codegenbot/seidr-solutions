@@ -1,3 +1,4 @@
+```
 string concatenateStrings(vector<string> strings){
     string resultString = "";
     for(string s : strings) {
