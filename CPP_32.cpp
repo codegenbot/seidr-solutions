@@ -1,4 +1,6 @@
-#include <initializer_list>
+#include <vector>
+#include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -13,14 +15,20 @@ double poly(vector<double> coeffs, double solution) {
 double find_zero(vector<double> xs){
     double sum = 0;
     double coeff = xs[0];
-    vector<double> coeffs; 
+    vector<vector<double>> temp;
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
             sum += xs[i] / coeff;
-            coeffs.push_back(coeff); 
+            temp.push_back(vector<double>{coeff});
         }
         else{
             coeff = xs[i];
+        }
+    }
+    vector<double> coeffs;
+    for(int i=0; i<temp.size(); i++){
+        for(int j=0; j<temp[i].size(); j++){
+            coeffs.push_back(temp[i][j]);
         }
     }
     return -sum / coeff;
@@ -29,7 +37,9 @@ double find_zero(vector<double> xs){
 int main() {
     vector<double> xs; 
     cout << "Enter coefficients (space separated): ";
-    for(double x; cin >> x; xs.push_back(x)); 
+    for(double x; cin >> x; ) {
+        xs.push_back(x); 
+    }    
     double solution = find_zero(xs);
     vector<double> coeffs;
     for (int i = 1; i < xs.size(); i++) {
