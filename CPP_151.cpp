@@ -1,23 +1,17 @@
-```
-#include <cmath>
-#include <vector>
-using namespace std;
+#include <assert.h>
 
-long long double_the_difference(vector<long long> lst) {
-    long long sum = 0;
-    for (long long num : lst) {
-        if (num > 0 && floor((double)num) == (double)num) { 
-            if (fmod((double)num, 2.0) != 0.0) { 
-                sum += pow((double)num, 2);
-            }
-        }
+int double_the_difference(float *lst) {
+    int odd_sum = 0;
+    for (int i = 0; lst[i]; i++) {
+        if ((int)lst[i] % 2 != 0)
+            odd_sum += (int)lst[i] * 2;
     }
-    return sum;
+    return odd_sum;
 }
 
 int main() {
-    vector<long long> lst = {1.5, 2.0, 3.5};
-    long long odd_sum = double_the_difference(lst);
-    cout << "The sum of squares is: " << odd_sum << endl;
+    float lst[] = {1.5, 2.0, 3.5};
+    int result = double_the_difference(lst);
+    // assert(result == 7); 
     return 0;
 }
