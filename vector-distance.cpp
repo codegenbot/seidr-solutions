@@ -1,7 +1,4 @@
 #include <vector>
-#include <cmath>
-#include <iostream>
-#include <iomanip>
 using namespace std;
 
 double vectorDistance(int n) {
@@ -20,11 +17,14 @@ double vectorDistance(int n) {
     return sqrt(distance);
 }
 
+#include <iostream>
+#include <iomanip>
+
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
 
-    cout << fixed << setprecision(10) << vectorDistance(n);
+    std::cout << std::fixed << std::setprecision(10) << vectorDistance(n);
 
     return 0;
 }
