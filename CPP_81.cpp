@@ -1,4 +1,3 @@
-```cpp
 bool issame(vector<string> a, vector<string>b){
     if(a.size()!=b.size())
         return false;
@@ -7,6 +6,7 @@ bool issame(vector<string> a, vector<string>b){
             return false;
     return true;
 }
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float grade : grades) {
