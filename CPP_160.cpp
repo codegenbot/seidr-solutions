@@ -1,19 +1,20 @@
+```cpp
 #include <initializer_list>
 #include <cassert>
 
 class cpp_160 {
 public:
-    int do_algebra(const std::vector<std::string>& ops, const std::initializer_list<int>& nums) {
+    int do_algebra(const std::vector<std::string>& ops, const std::vector<int>& nums) {
         if (ops.size() != static_cast<size_t>(nums.size())) {
             return -1;
         }
         
-        int result = *nums.begin();
+        int result = nums[0];
         for (int i = 0; i < ops.size(); i++) {
             if (ops[i] == "*") {
-                result *= *(nums.begin() + i);
+                result *= nums[i+1];
             } else if (ops[i] == "//") {
-                result /= *(nums.begin() + i);
+                result /= nums[i+1];
             }
         }
         
@@ -22,7 +23,6 @@ public:
 };
 
 int main() {
-    cpp_160 obj; 
-    int output = obj.do_algebra({"//", "*"}, {7, 3, 4});
-    assert(output == 8); 
+    cpp_160 obj;
+    assert(obj.do_algebra({"//", "*"}, {7, 3, 4}) == 8);
 }
