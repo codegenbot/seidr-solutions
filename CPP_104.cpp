@@ -11,7 +11,7 @@ int main() {
 
     assert(issame(unique_digits, {0, 2, 4, 6, 8, 1, 3, 5, 7, 9}));
 
-    assert(issame(std::vector<int>({1, 3, 5}), std::vector<int>({3, 5, 1})); // Added an example assert statement
+    assert(issame(std::vector<int>({1, 3, 5}), std::vector<int>({3, 5, 1}));
 
     return 0;
 }
