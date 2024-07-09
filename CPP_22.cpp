@@ -19,26 +19,20 @@ int main() {
 
     for(int i = 0; i < n; ++i) {
         int x;
-        while (!(std::cin >> x)) {
-            if (std::cin.peek() == '\n') {
-                std::cerr << "Invalid input. Please enter an integer." << std::endl;
-                return 1; 
-            }
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        while (!(std::cin >> x)) { // Check for invalid input
+            std::cerr << "Invalid input. Please enter an integer." << std::endl;
+            std::cin.clear(); // Clear the error flags
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the remaining input
         }
         a.push_back(x);
     }
 
     for(int i = 0; i < n; ++i) {
         int x;
-        while (!(std::cin >> x)) {
-            if (std::cin.peek() == '\n') {
-                std::cerr << "Invalid input. Please enter an integer." << std::endl;
-                return 1; 
-            }
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        while (!(std::cin >> x)) { // Check for invalid input
+            std::cerr << "Invalid input. Please enter an integer." << std::endl;
+            std::cin.clear(); // Clear the error flags
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the remaining input
         }
         b.push_back(x);
     }

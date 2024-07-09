@@ -1,7 +1,7 @@
-```cpp
 #include <cassert>
 #include <vector>
 #include <set>
+#include <initializer_list>
 
 bool pairs_sum_to_zero(std::vector<std::pair<int, int>> l) {
     std::set<int> s;
@@ -20,13 +20,7 @@ bool pairs_sum_to_zero(std::vector<std::pair<int, int>> l) {
 }
 
 int main() {
-    std::vector<std::pair<int, int>> input;
-    input.push_back({-3, 0});
-    input.push_back({9, -9});
-    input.push_back({-1, 1});
-    input.push_back({4, -4});
-    input.push_back({2, -2});
-    input.push_back({31, -31});
+    std::vector<std::pair<int, int>> input = {{-3, 0}, {9, -9}, {-1, 1}, {4, -4}, {2, -2}, {31, -31}};
     assert(pairs_sum_to_zero(input) == false);
     return 0;
 }
