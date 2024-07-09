@@ -1,13 +1,13 @@
+````
 #include <algorithm>
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    // implement your comparison logic here
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> pairs;
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); ++i) {
         int sum = 0;
         int num = nums[i];
@@ -17,9 +17,11 @@ vector<int> order_by_points(vector<int> nums) {
         }
         pairs.push_back({sum, i});
     }
-    sort(pairs.begin(), pairs.end());
-    vector<int> result;
+    std::sort(pairs.begin(), pairs.end());
+    std::vector<int> result;
     for (const auto& pair : pairs) {
         result.push_back(nums[pair.second]);
     }
     return result;
+}
+```
