@@ -1,15 +1,20 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-std::pair<int, int> eat(int number, int need, int remaining) {
-    int totalEaten = number + std::min(need, remaining);
-    int carrotsLeft = std::max(0, remaining - need);
-    return {totalEaten, carrotsLeft};
+std::vector<int> eat(int number, int need, int remaining) {
+    int total = number + need;
+    int eaten = std::min(total, remaining);
+    return {total, std::max(0, remaining - eaten)};
 }
 
+bool isSame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+#include <iostream>
+
 int main() {
-    int number, need, remaining;
-    std::cin >> number >> need >> remaining;
-    auto result = eat(number, need, remaining);
-    std::cout << result.first << " " << result.second;
+    assert(isSame(eat(4, 5, 1), {5, 0}));
     return 0;
 }
