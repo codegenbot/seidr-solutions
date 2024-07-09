@@ -27,8 +27,7 @@ int findUnique(std::vector<int> vec) {
     return issame(uniqueVec, {vec[0], vec.back()});
 }
 
-int main() {
-    std::vector<int> vec = {0, 2, 3, 5, 9, 123};
-    int result = findUnique(vec);
-    return result;
+int main(){
+    assert(std::equal(std::unique({0, 2, 3, 5, 9, 123}), std::unique({0, 2, 3, 5, 9, 123}).base(), std::unique({0, 2, 3, 5, 9, 123}).end()));
+    return 0;
 }
