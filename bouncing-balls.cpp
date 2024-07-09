@@ -2,11 +2,13 @@
 #include <iomanip>
 #include <cmath>
 
+using namespace std;
+
 int main() {
     int startHeight, firstBounce, numBounces;
-
+    
     cin >> startHeight >> firstBounce >> numBounces;
-
+    
     if (!(cin)) {
         return 1;
     }
