@@ -6,7 +6,7 @@ std::string anti_shuffle(std::string s) {
     std::string res = ""; // Initialize res as an empty string.
     for (int i = 0; i < s.length(); i++) {
         if (i % 2 != 0) {
-            res += s[i];  
+            res += std::string(1, s[i]);  
         }
     }
     return res;
