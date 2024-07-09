@@ -9,19 +9,21 @@ bool is_happy(const std::string& s) {
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
         bool unique = true;
-        for (auto it = s.begin(); it != s.end() && it - s.begin() < 3; ++it) {
-            char c = *it;
-            int count = 0;
-            for (; it - s.begin() < 3 && it != s.end(); ++it) {
-                if (*it == c)
-                    count++;
-            }
-            if (count > 1) {
-                unique = false;
+        char c1 = s[i];
+        char c2 = s[i + 1];
+        char c3 = s[i + 2];
+        auto it = s.begin() + i;
+        for (++it; it != s.end() && it - s.begin() < 3; ++it) {
+            if (*it == c1)
+                continue;
+            else if (*it == c2)
+                continue;
+            else if (*it == c3)
+                continue;
+            else
                 break;
-            }
         }
-        if (!unique)
+        if (it != s.end())
             return false;
     }
     return true;
