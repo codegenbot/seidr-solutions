@@ -15,7 +15,7 @@ std::string string_to_md5(std::string text) {
     for (int i = 0; i < 16; ++i) {
         char buf[3];
         sprintf(buf, "%02x", buffer[i]);
-        result += std::string(buf);
+        result += buf;
     }
     return result;
 }
