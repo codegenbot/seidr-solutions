@@ -13,9 +13,9 @@ for i in range(n):
         min_diff = diff
         cut_index = i + 1
 
-if min_diff == 0:
-    subvector1 = arr[:cut_index]
-    subvector2 = arr[cut_index:]
+if cut_index == 0 or cut_index == n:
+    subvector1 = [arr[0]]
+    subvector2 = arr[1:]
 else:
     subvector1 = arr[:cut_index]
     subvector2 = arr[cut_index:]
