@@ -9,11 +9,12 @@ int main() {
     std::cin >> S;
 
     size_t pos = 0;
-    while ((pos = S.find(" ", pos)) != std::string::npos) {
-        if (S.substr(0, pos).compare(boredom) == 0 && S.size() > pos + boredom.length()) {
+    while (pos != std::string::npos) {
+        if (S.substr(0, pos).compare(boredom) == 0) {
             count++;
+            break;
         }
-        pos++;
+        pos = S.find(" ", pos);
     }
 
     std::cout << "Count: " << count << std::endl;
