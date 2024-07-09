@@ -1,7 +1,4 @@
-```
 #include <string>
-#include <iostream>
-
 using namespace std;
 
 std::string squareDigits(std::string input) {
