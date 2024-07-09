@@ -1,1 +1,1 @@
-g++ main.cpp -lssl -lcrypto -o output_file
+g++ -o output main.cpp -lssl -lcrypto
