@@ -11,10 +11,15 @@ long long double_the_difference(std::vector<std::variant<float, long long>> lst)
                 if (static_cast<long long>(f) % 2 != 0) { 
                     sum += static_cast<long long>(std::pow(f, 2)); 
                 }
+            } else {
+                sum += static_cast<long long>(f);
             }
+        } else {
+            long long ll = std::get<long long>(num);
+            sum += ll;
         }
     }
-    return static_cast<long long>(sum);
+    return sum;
 }
 
 int main() {
@@ -27,17 +32,7 @@ int main() {
         std::cin >> input;
         
         if (input < 0) break;
-        if (input > 0 && std::floor(input) == input) {
-            if (static_cast<long long>(input) % 2 != 0) { 
-                lst.push_back(static_cast<long long>(std::pow(input, 2))); 
-            }
-            else {
-                lst.push_back(input);
-            }
-        }
-        else {
-            lst.push_back(input);
-        }
+        lst.push_back(input);
         n++;
     }
     
