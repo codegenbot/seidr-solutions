@@ -1,7 +1,9 @@
 #include <initializer_list>
 #include <vector>
 
+// Function to check if two vectors have same elements
 bool issame(std::vector<float> a, std::vector<float> b) {
+    // Check if both vectors have the same size and all elements match
     if (a.size() != b.size()) 
         return false;
     for(int i = 0; i < a.size(); i++) {
@@ -26,4 +28,8 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
     }
 
     return closest_pair;
+}
+
+int main() {
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) , {2.2, 3.1}));
 }
