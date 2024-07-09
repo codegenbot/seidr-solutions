@@ -5,6 +5,7 @@ def factorize(n):
             factors.append(i)
     return sorted(factors)
 
+
 def factorize_input():
     try:
         print("Please enter an integer:")
