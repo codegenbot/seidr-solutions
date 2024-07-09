@@ -1,4 +1,3 @@
-```c++
 #include <string>
 #include <cassert>
 
@@ -27,5 +26,12 @@ bool is_happy(std::string s) {
 
 int main() {
     assert(is_happy("iopaxioi") == false);
+    std::string s; 
+    std::cin >> s;
+    if (is_happy(s)) {
+        std::cout << "The string is happy." << std::endl;
+    } else {
+        std::cout << "The string is not happy." << std::endl;
+    }
     return 0;
 }
