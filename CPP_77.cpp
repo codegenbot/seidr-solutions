@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <cmath>
 
@@ -19,5 +19,5 @@ int main(){
     if(iscuber(n))
         std::cout << n << " is a perfect cube.\n";
     else
-        std::cout << n << " is not a perfect cube.\n";
+        std::cout << "Error: Invalid input. Please enter a non-negative integer.\n";
 }
