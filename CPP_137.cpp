@@ -1,24 +1,36 @@
-#include <boost/any.hpp>
-#include <string>
-#include <algorithm>
-
-using namespace boost;
-
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_numeric(a) && is_numeric(b)) {
-        return (get<double>(a) > get<double>(b)) ? a : ((get<double>(a) == get<double>(b))) ? "None" : b;
-    } else if (!is_numeric(a) && !is_numeric(b)) {
-        return (std::string(get<string>(a)) > std::string(get<string>(b))) ? a : ((std::string(get<string>(a)) == std::string(get<string>(b)))) ? "None" : b;
-    } else {
-        return "None";
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)b < (int)a ? a : b;
     }
-}
-
-bool is_numeric(boost::any a) {
-    try {
-        get<double>(a);
-        return true;
-    } catch (...) {
-        return false;
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int num = boost::any_cast<int>(a);
+        string str = boost::any_cast<string>(b);
+        return stoi(str) > num ? b : a;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a < (int)b ? b : a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        return str2 > str1 ? b : a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        float num = boost::any_cast<float>(b);
+        string str = boost::any_cast<string>(a);
+        return stof(str) > num ? b : a;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int num = boost::any_cast<int>(a);
+        string str = boost::any_cast<string>(b);
+        return stoi(str) > num ? b : a;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        float num = boost::any_cast<float>(b);
+        string str = boost::any_cast<string>(a);
+        return stof(str) > num ? b : a;
+    }
+    else {
+        return "None";
     }
 }
