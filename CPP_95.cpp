@@ -1,20 +1,17 @@
+#include <map>
+#include <string>
+
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
 
-    bool allLower = true;
     bool allUpper = true;
+    bool allLower = true;
 
-    for (auto& pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            allLower = false;
-            allUpper = false;
-            break;
-        } else if ((pair.first[0] >= 'a' && pair.first[0] <= 'z') != (allLower)) {
-            allLower = false;
-            allUpper = false;
-            break;
-        }
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        if (!allUpper && !allLower) break;
+        if (allUpper) allUpper = tolower(it->first).find((char)0) == string::npos;
+        if (allLower) allLower = toupper(it->first).find((char)0) == string::npos;
     }
 
-    return allLower || allUpper;
+    return allUpper && allLower;
 }
