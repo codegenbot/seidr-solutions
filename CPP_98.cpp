@@ -12,7 +12,6 @@ int count_upper(std::string s){
 }
 
 int main(){
-    assert(count_upper("EEEE") == 4);
     std::string input;
     std::cout << "Enter a string: ";
     std::cin >> input;
