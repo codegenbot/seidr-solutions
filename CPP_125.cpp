@@ -1,37 +1,38 @@
-Here is the completed code:
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
 
-```cpp
 vector<string> split_words(string txt) {
     vector<string> result;
-
-    size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
+    size_t pos = 0, prev = 0;
+    
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+        if (pos == 0 || txt[pos - 1] != ' ') {
+            prev = pos;
+        }
+        
+        string word = txt.substr(prev, pos - prev);
+        result.push_back(word);
+        
+        prev = pos + 1;
     }
-
-    if (txt.empty()) {
-        return result;
-    }
-
-    size_t commaPos = txt.find(',');
-    if (commaPos == string::npos) {
-        int oddLowercaseCount = 0;
+    
+    if (prev < txt.size()) {
+        result.push_back(txt.substr(prev));
+    } else if (result.empty()) {
+        int count = 0;
         for (char c : txt) {
-            if (c >= 'a' && c <= 'z' && (int)c % 2 != 0) {
-                oddLowercaseCount++;
+            if (c >= 'a' && c <= 'z') {
+                count++;
+                if ((count - 1) % 2 == 0) {
+                    result.push_back(to_string(count));
+                    break;
+                }
             }
         }
-        result.push_back(to_string(oddLowercaseCount));
-    } else {
-        while ((pos = txt.find(' ')) != string::npos) {
-            result.push_back(txt.substr(0, pos));
-            txt.erase(0, pos + 1);
-        }
-        if (!txt.empty()) {
-            result.push_back(txt);
-        }
     }
-
+    
     return result;
 }
