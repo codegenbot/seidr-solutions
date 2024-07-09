@@ -1,19 +1,25 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <cassert>
+#include <cmath>
 
-float doubleTheDifference(std::vector<float> lst) {
-    float odd_sum = 0;
-    for (int i = 0; i < lst.size(); ++i) {
-        if (i % 2 != 0) {
-            odd_sum += lst[i];
+long long double_the_difference(std::vector<float> lst) {
+    long long sum = 0;
+    for (float num : lst) {
+        if (num > 0 && modf(num, &int_part) == 0) {
+            sum += pow(int_part, 2);
         }
     }
-    return odd_sum * 2;
+    return sum;
 }
 
 int main() {
-    std::vector<float> lst = {1.0f, 2.5f, -3.5f, 4.0f};
-    float result = doubleTheDifference(lst);
-    assert(result == 0); 
-    return 0;
+    std::vector<float> lst = {3.0f, 2.1f, 4.5f, -7.8f, 9.6f, 1.2f, 10.0f};
+    float odd_sum = 0;
+    for (float num : lst) {
+        if (num > 0 && modf(num, &int_part) == 0) {
+            odd_sum += pow(int_part, 2);
+        }
+    }
+    std::cout << "Sum: " << double_the_difference(lst) << std::endl;
 }
