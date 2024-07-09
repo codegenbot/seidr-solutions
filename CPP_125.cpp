@@ -1,13 +1,7 @@
-#include <vector>
 #include <string>
-#include <algorithm>
-#include <cassert>
+#include <vector>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return a == b;
-}
-
-vector<string> split_words(const string& txt) {
+bool issame(vector<string> a, vector<string> b) {
     vector<string> result;
     string word = "";
     for(char c : txt) {
@@ -33,8 +27,4 @@ vector<string> split_words(const string& txt) {
         result[0] = to_string(oddCount);
     }
     return result;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
 }
