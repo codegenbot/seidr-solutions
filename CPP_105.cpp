@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 
@@ -15,9 +14,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
     vector<string> result;
-
     for (int i : arr) {
         switch (i % 10) {
             case 1: result.push_back("One"); break;
@@ -31,6 +28,5 @@ vector<string> by_length(vector<int> arr) {
             case 9: result.push_back("Nine"); break;
         }
     }
-
     return result;
 }
