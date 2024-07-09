@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
 std::string middleCharacter(std::string s) {
     int len = s.length();
@@ -28,7 +29,11 @@ int main() {
     if(input.empty()) {
         std::cout << "Enter a non-empty string" << std::endl;
     } else {
-        std::cout << middleCharacter(input) << std::endl;
+        std::istringstream iss(input);
+        std::string word;
+        while (iss >> word) { 
+            std::cout << middleCharacter(word) << std::endl; 
+        }
     }
     return 0;
 }
