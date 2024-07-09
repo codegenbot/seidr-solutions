@@ -1,8 +1,6 @@
 #include <string>
 
-bool issame(string s1, string s2) {
-    return s1 == s2;
-}
+bool issame(vector<string> lst1, vector<string> lst2);
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
