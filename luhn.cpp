@@ -8,20 +8,15 @@ int luhn(const vector<int>& digits) {
     bool doubleNext = false;
     
     for (int i = 1; i < digits.size(); i++) {
-        if (i % 2 == 1) { 
+        if ((i % 2) == 0) {
             int doubled = digits[i] * 2;
             if (doubled > 9) {
                 sum += doubled - 9;
             } else {
                 sum += doubled;
             }
-        } else { // add the result of doubling the first digit
-            int doubled = digits[0] * 2;
-            if (doubled > 9) {
-                sum += doubled - 9;
-            } else {
-                sum += doubled;
-            }
+        } else {
+            sum += digits[i];
         }
     }
     
