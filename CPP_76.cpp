@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 
 bool isSimplePower(int num) {
     for (int base = 2; base * base <= num; ++base) {
@@ -15,17 +16,20 @@ bool isSimplePower(int num) {
 }
 
 int main() {
-    int num;
+    std::string input;
     std::cout << "Enter a number: ";
-    std::cin >> num; 
-    if (num) {  
-        if (isSimplePower(num)) {  
-            std::cout << num << " is a simple power.\n";
+    std::getline(std::cin, input); 
+
+    if (input.find_first_not_of("0123456789") == std::string::npos) {  
+        int num = std::stoi(input);  
+        if (isSimplePower(num)) {
+            std::cout << input << " is a simple power.\n";
         } else {
-            std::cout << num << " is not a simple power.\n";
+            std::cout << input << " is not a simple power.\n";
         }
     } else {
-        std::cout << "You entered zero. Please enter a non-zero number.\n";
+        std::cout << "Invalid input. Please enter a numeric value.\n";
     }
+
     return 0;
 }
