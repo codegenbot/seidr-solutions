@@ -1,19 +1,15 @@
-transform(message.begin(), message.end(), message.begin(), [](char c){
+transform(message.begin(), message.end(), message.begin(), ::toupper);
+    for(char& c: message){
+        if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+            c = char(c + 2);
+        }
         if(isalpha(c)){
             if(isupper(c)){
-                if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
-                    return (char)((c - 'A' + 2) % 26 + 'A');
-                }
-                return tolower(c);
-            }
-            else{
-                if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                    return (char)((c - 'a' + 2) % 26 + 'a');
-                }
-                return toupper(c);
+                c = tolower(c);
+            } else {
+                c = toupper(c);
             }
         }
-        return c;
-    });
+    }
     return message;
 }
