@@ -1,7 +1,9 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
 #include <limits>
+#include <initializer_list>
 
 std::string kebabToCamel(const std::string& s) {
     std::string result;
@@ -28,3 +30,4 @@ int main() {
     std::cout << kebabToCamel(input) << std::endl;
 
     return 0;
+}
