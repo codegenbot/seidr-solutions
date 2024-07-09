@@ -5,15 +5,15 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    std::unordered_map<char, int> codeCount;
+    std::unordered_map<char, int> codeCount; 
     std::unordered_map<char, int> guessCount;
     for (int i = 0; i < 4; ++i) {
-        codeCount[tuple({code[i], i})]++;
-        guessCount[tuple({guess[i], i})]++;
+        codeCount[code[i]]++;
+        guessCount[guess[i]]++;
     }
     for (auto& pair : codeCount) {
-        if (pair.second > 0 && pair.second != guessCount[make_pair(pair.first, 0)]) {
-            white += pair.second - guessCount[make_pair(pair.first, 0)];
+        if (pair.second > 0 && pair.second != guessCount[pair.first]) {
+            white += pair.second - guessCount[pair.first];
         }
     }
 

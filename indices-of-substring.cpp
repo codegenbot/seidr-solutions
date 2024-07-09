@@ -1,4 +1,4 @@
-```c++
+```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -9,7 +9,7 @@ vector<int> findIndices(string text, string target) {
     int n = text.size();
     int m = target.size();
 
-    for (int i = 0; i <= n - m - 1; i++) {
+    for (int i = 0; i <= n - m; i++) {
         bool found = true;
         for (int j = 0; j < m; j++) {
             if (text[i + j] != target[j]) {
@@ -17,7 +17,10 @@ vector<int> findIndices(string text, string target) {
                 break;
             }
         }
-        if (found) indices.push_back(i);
+        if (found) {
+            indices.push_back(i);
+            i += (m - 1); // to avoid duplicate matches
+        }
     }
 
     return indices;
