@@ -1,5 +1,5 @@
-```cpp
 #include <string>
+using namespace std;
 
 int main() {
     int count = 0;
@@ -17,9 +17,9 @@ int main() {
         pos++;
     }
 
-    cout << "Count: " << count << endl;
+    cout << "Count: " << is_bored(S) << endl;
 
-    return is_bored(S);
+    return 0;
 }
 
 int is_bored(string S){
