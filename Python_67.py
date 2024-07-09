@@ -1,9 +1,7 @@
+```python
+import re
+
 def fruit_distribution(s, n):
-    fruits = {"apples": 0, "oranges": 0}
-    for fruit in s.split():
-        if fruit in fruits:
-            fruits[fruit] += int(''.join(filter(str.isdigit, fruit)))
-        elif not fruit.lower() == 'and':
-            return None
-    total_fruits = sum(fruits.values())
-    return n - total_fruits - 1
+    s = re.sub(r' apples', '', s)
+    s = re.sub(r' oranges', '', s)
+    return n - int(re.sub(r'[a-z ]*and *([0-9]+)', r'\1', s).split()[0]) - 1
