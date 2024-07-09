@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
@@ -28,10 +29,10 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
 }
 
 int main() {
-    assert(compare_one(string("1"), string("2")) == string("2"));
-    assert(compare_one(10, 5) == 10);
+    assert(get<string>(compare_one(string("1"), string("2"))) == "2");
+    assert(get<int>(compare_one(10, 5)) == 10);
     
-    if (compare_one(string("1"), string("2")).index() == 0) 
+    if (holds_alternative<error>(compare_one(string("1"), 1)))
         cout << "None";
     else
         cout << "Not None";
