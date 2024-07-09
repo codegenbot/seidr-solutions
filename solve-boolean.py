@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     while '&' in expression and '|' in expression:
         start = 0
@@ -8,8 +9,8 @@ def solve_boolean(expression):
             elif char == '|':
                 end = i
                 break
-        result = eval(f"{expression[:start]} & {expression[start+1:end]}")
-        expression = f"({str(bool(result))}){expression[end:]}".replace("True", "1").replace("False", "0")
+        result = eval(f"({expression[:start]}) & ({expression[start+1:end]})")
+        expression = f"({result}){expression[end:]}".replace("True", "1").replace("False", "0")
     if '&' in expression:
         left, right = expression.split('&')
         return bool(eval(f"{left} & {right}"))
