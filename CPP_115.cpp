@@ -1,14 +1,29 @@
-#include <vector>
+```cpp
+using namespace std;
 
 int max_fill(vector<vector<int>> grid, int capacity) {
     int total_water = 0;
-    for (const auto &row : grid) {
-        total_water += accumulate(row.begin(), row.end(), 0);
+    for (vector<int> well : grid) {
+        total_water += accumulate(well.begin(), well.end(), 0);
     }
     
-    int buckets_needed = total_water / capacity;
-    if (total_water % capacity > 0) {
-        buckets_needed++;
+    int steps = 0;
+    while (total_water > 0) {
+        steps++;
+        int bucket_space = capacity;
+        
+        for (int i = 0; i < grid.size(); i++) {
+            if (bucket_space <= 0) break;
+            int water_in_well = 0;
+            for (int j = 0; j < grid[i].size(); j++) {
+                if (grid[i][j] == 1 && bucket_space >= 1) {
+                    water_in_well++;
+                    bucket_space--;
+                }
+            }
+            total_water -= water_in_well;
+        }
     }
     
-    return buckets_needed;
+    return steps - 1;
+}
