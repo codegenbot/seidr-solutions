@@ -31,8 +31,7 @@ int main() {
     char s[256];
     std::cout << "Enter a string: ";
     if(std::cin.getline(s, 255)) {
-        s[254] = '\0'; // Remove newline character
-        if (is_happy(std::string(s)))
+        if (is_happy(s))
             std::cout << "The string is happy." << std::endl;
         else
             std::cout << "The string is not happy." << std::endl;
