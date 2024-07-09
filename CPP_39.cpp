@@ -21,7 +21,7 @@ int primeFib(int num) {
     }
 }
 
-int main() {
+int run() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
