@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <assert.h>
 
@@ -9,8 +8,8 @@ int main() {
     int odd_sum = 0; 
 
     long long result = double_the_difference(lst); 
-    
-    assert(result == odd_sum);
+
+    assert(result == (long long)odd_sum);
     
     return 0;
 }
