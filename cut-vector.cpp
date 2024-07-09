@@ -1,3 +1,4 @@
+````
 #include <vector>
 #include <climits>
 #include <cmath>
@@ -37,3 +38,4 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     result = {left, right};
     return result;
 }
+```
