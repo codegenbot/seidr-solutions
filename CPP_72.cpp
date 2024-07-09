@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
-
 using namespace std;
 
 bool will_it_fly(vector<int> q, int w) {
