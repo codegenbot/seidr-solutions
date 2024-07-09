@@ -4,19 +4,24 @@
 using namespace std;
 
 int luhn(const vector<int>& digits) {
-    int sum = digits[0]; // Initialize sum with the first digit
+    int sum = 0;
     bool doubleNext = false;
     
     for (int i = 1; i < digits.size(); i++) {
-        if ((i % 2) == 0) {
+        if (i % 2 == 1) { 
             int doubled = digits[i] * 2;
             if (doubled > 9) {
                 sum += doubled - 9;
             } else {
                 sum += doubled;
             }
-        } else {
-            sum += digits[i];
+        } else { // add the result of doubling the first digit
+            int doubled = digits[0] * 2;
+            if (doubled > 9) {
+                sum += doubled - 9;
+            } else {
+                sum += doubled;
+            }
         }
     }
     
