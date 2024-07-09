@@ -12,7 +12,7 @@ def prime_fib(n: int):
             return num
         else:
             return fibonacci(num - 1) + fibonacci(num - 2)
-    
+
     count = 0
     i = 0
     while count < n:
