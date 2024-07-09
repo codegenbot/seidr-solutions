@@ -1,14 +1,14 @@
 vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> new_lst;
-    for (const auto& s : lst) {
-        if (s.length() % 2 != 0)
-            continue;
-        new_lst.push_back(s);
+    vector<string> result;
+    for (const string& str : lst) {
+        int sum = 0;
+        for (char c : str) {
+            sum += static_cast<int>(c);
+        }
+        if (sum % 2 == 0) {
+            result.push_back(str);
+        }
     }
-    sort(new_lst.begin(), new_lst.end(),
-         [](const string& a, const string& b) {
-             if (a.length() == b.length())
-                 return a < b;
-             return a.length() < b.length();
-         });
-    return new_lst;
+    sort(result.begin(), result.end());
+    return result;
+}
