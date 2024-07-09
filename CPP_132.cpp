@@ -1,15 +1,12 @@
 bool is_nested(string str) {
-    int count = 0;
-    for (int i = 0; i < str.length(); ++i) {
-        if (str[i] == '[') {
-            ++count;
-        } else if (str[i] == ']') {
-            if (count > 0) {
-                --count;
-            } else {
-                return false;
-            }
+    int nesting = 0;
+    for (char c : str) {
+        if (c == '[') {
+            nesting++;
+        } else if (c == ']') {
+            nesting--;
+            if (nesting < 0) return true; // found a nested bracket
         }
     }
-    return count >= 1;
+    return false;
 }

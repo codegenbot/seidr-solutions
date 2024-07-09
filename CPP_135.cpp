@@ -1,15 +1,8 @@
 #include <vector>
-#include <algorithm>
 
 int can_arrange(vector<int> arr){
     for(int i = 1; i < arr.size(); i++){
-        if(arr[i] <= arr[i-1]) return i - 1;
+        if(arr[i] <= arr[i-1]) return i;
     }
     return -1;
-}
-
-int main() {
-    // Your test cases here
-    assert(can_arrange({}) == -1);
-    return 0;
 }
