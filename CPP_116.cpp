@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,13 +5,11 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    // Your logic to check if two vectors are same or not.
-    return a == b;
-}
-
-int main() {
-    assert(issame({2,4,8,16,32}, sort_vector({2,4,8,16,32})));
-    return 0;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 vector<int> sort_vector(vector<int> arr) {
@@ -26,4 +23,9 @@ vector<int> sort_vector(vector<int> arr) {
         }
     );
     return result;
+}
+
+int main() {
+    assert(issame(sort_vector({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
+    return 0;
 }
