@@ -12,7 +12,7 @@ int basement(vector<int>& v) {
 }
 
 int main() {
-    vector<int> v = {-2, 3, 1, -5, 4};
+    vector<int> v = {-2, 3, 10, -4, -9, 5, 1, 2, -3, 11};
     int result = basement(v);
     return 0;
 }
