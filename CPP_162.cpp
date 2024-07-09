@@ -11,10 +11,21 @@ string string_to_md5(string text) {
     if (text.empty()) return "None";
     
     unsigned char md5[16];
-    MD5(text.c_str(), text.size(), md5);
-    
+    OpenSSL_add_all_algorithms();
+    EVP_MD_CTX mdctx;
+    unsigned char *d = NULL;
+    unsigned int len = 0;
+    EVP_MDAOParams mdoParams;
+
+    EVP_MD_CTX_init(&mdctx);
+    if (1 != EVP_DigestInit_ex(&mdctx, EVP_md5(), &mdoParams))
+        return "Error initializing md5";
+
+    EVP_DigestUpdate(&mdctx, text.c_str(), text.size());
+    EVP_DigestFinal_ex(&mdctx, md5, &len);
+
     stringstream ss;
-    for (int i = 0; i < 16; ++i)
+    for (int i = 0; i < len; ++i)
         ss << setfill(2) << setw(2) << hex << (int)md5[i];
     
     return ss.str();
