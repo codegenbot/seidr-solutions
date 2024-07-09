@@ -7,19 +7,21 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     int n;
+    std::cout << "Enter number of elements: ";
     std::cin >> n;
-    std::vector<int> vec1(n);
-    for(int i = 0; i < n; i++){
-        std::cin >> vec1[i];
-    }
-    std::vector<int> vec2(5);
-    for(int i = 0; i < 5; i++){
-        std::cin >> vec2[i];
-    }
-    if (issame(vec1,vec2))
-        std::cout << "The two vectors are the same." << std::endl;
+
+    std::vector<int> v1(n),v2(n);
+
+    for(int i=0; i<n; ++i)
+        std::cin >> v1[i];
+
+    for(int i=0; i<n; ++i)
+        std::cin >> v2[i];
+
+    if(issame(v1,v2))
+        std::cout << "Vectors are same."<<std::endl;
     else
-        std::cout << "The two vectors are not the same." << std::endl;
+        std::cout << "Vectors are not same." <<std::endl;
 
     return 0;
 }
