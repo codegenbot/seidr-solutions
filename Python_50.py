@@ -1,4 +1,4 @@
-```
+```Python
 def decode_shift():
     while True:
         try:
@@ -30,3 +30,5 @@ def decode_shift():
         else:
             decoded_s += ch
     return decoded_s
+
+print(decode_shift())
