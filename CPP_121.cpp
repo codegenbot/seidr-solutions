@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
+using namespace std;
 
-int solution(std::vector<int> lst) {
+int solution(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
@@ -12,18 +12,14 @@ int solution(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input;
+    vector<int> lst;
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    input.resize(n);
-    
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> input[i];
+    cout << "Enter number of elements in the list: ";
+    cin >> n;
+    for(int i = 1; i <= n; i++) {
+        cout << "Enter element " << i << ": ";
+        cin >> lst.push_back(i);
     }
-    
-    int result = solution(input);
-    std::cout << "Sum of odd elements: " << result << std::endl;
+    cout << "Sum of odd numbers is: " << solution(lst) << endl;
     return 0;
 }
