@@ -10,7 +10,7 @@ std::string rounded_avg(int n, int m) {
         sum += i;
     }
     double avg = static_cast<double>(sum) / (m - n + 1);
-    avg = std::nearbyint(avg);
+    avg = std::nearbyint(avg + 0.5); 
     int val = static_cast<int>(avg);
     std::string binary;
     while (val > 0) {
@@ -26,4 +26,10 @@ std::string rounded_avg(int n, int m) {
     return binary.empty() ? "0" : binary;
 }
 
-std::cin >> n >> m;
+int main() {
+    int n, m;
+    std::cout << "Enter two numbers: ";
+    std::cin >> n >> m;
+    std::cout << rounded_avg(n, m);
+    return 0;
+}
