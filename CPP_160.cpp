@@ -1,39 +1,41 @@
-#include <iostream>
-#include <vector>
-#include <utility>
-#include <cmath>
+#include <sstream>
+#include <string>
 
-using namespace std;
+int do_algebra(std::string input) {
+    std::stringstream ss(input);
+    std::vector<std::pair<char, int>> operators_and_operands;
 
-int do_algebra(vector<pair<char, char>> operators_and_operands) {
-    if (operators_and_operands.size() == 0) {
-        return 0;
+    char op;
+    int operand;
+
+    while (ss >> op >> operand) {
+        if (op == '+' || op == '-' || op == '*' || op == '/' || op == '**') {
+            operators_and_operands.push_back(std::make_pair(op, operand));
+        } else {
+            // Invalid input
+            return -1;
+        }
     }
-    
-    int result = operators_and_operands[0].second - '0'; 
+
+    int result = operators_and_operands[0].second;
     for (const auto& pair : operators_and_operands) {
-        char op = pair.first;
-        int num = pair.second - '0';
-        
-        if (op == '+') {
-            result += num;
-        } else if (op == '-') {
-            result -= num;
-        } else if (op == '*') {
-            result *= num;
-        } else if (op == '/') {
-            if (num != 0) {
-                result /= num;
+        if (pair.first == '+') {
+            result += pair.second;
+        } else if (pair.first == '-') {
+            result -= pair.second;
+        } else if (pair.first == '*') {
+            result *= pair.second;
+        } else if (pair.first == '/') {
+            if (pair.second != 0) {
+                result /= pair.second;
             }
-        } else if (op == '^') { 
-            result = pow(result, num);
+        } else if (pair.first == '**') {
+            long long temp = 1; 
+            for(int i=0;i<pair.second;i++){
+                temp*=result;
+            }
+            result = temp;
         }
     }
     return result;
-}
-
-int main() {
-    vector<pair<char, char>> operators_and_operands = {{'+', '7'}, {'*', '3'}, {'/', '4'} };
-    cout << do_algebra(operators_and_operands) << endl;
-    return 0;
 }
