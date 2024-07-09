@@ -1,24 +1,31 @@
-```
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-int do_algebra(vector<string> ops, vector<int> nums) {
+using namespace std;
+
+int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
     int temp = 1;
 
-    for (int i = 0; i < ops.size(); i++) {
-        if (ops[i] == "+") {
-            result += temp * nums[i];
-        } else if (ops[i] == "-") {
-            result -= temp * nums[i];
-        } else if (ops[i] == "*") {
-            temp *= nums[i];
-        } else if (ops[i] == "//") {
-            temp = temp / static_cast<int>(nums[i]);
-        } else if (ops[i] == "**") {
-            temp = pow(temp, static_cast<double>(nums[i]));
+    for (int i = 0; i < operator_.size(); i++) {
+        if (operator_[i] == "+") {
+            result += temp * operand[i];
+        } else if (operator_[i] == "-") {
+            result -= temp * operand[i];
+        } else if (operator_[i] == "*") {
+            temp *= operand[i];
+        } else if (operator_[i] == "//") {
+            temp = temp / operand[i];
+        } else if (operator_[i] == "**") {
+            temp = pow(temp, operand[i]);
         }
     }
 
     return result;
+}
+
+int main() {
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);  
+    return 0;
 }
