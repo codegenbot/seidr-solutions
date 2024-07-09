@@ -1,14 +1,13 @@
+```
 from collections import deque
 
-def minPath(grid):
-    if not isinstance(grid, list) or not all(isinstance(row, list) for row in grid):
-        return "Invalid input: The input should be a 2D array."
 
+def minPath(grid):
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
 
     def dfs(i, j, path):
-        if isinstance(grid[i][j], str) and grid[i][j] == "0":
+        if grid[i][j] == "0":
             return None
 
         visited.add((i, j))
@@ -28,7 +27,7 @@ def minPath(grid):
     start = None
     for i in range(n):
         for j in range(n):
-            if isinstance(grid[i][j], str) and grid[i][j] == "1":
+            if grid[i][j] == "1":
                 start = [i, j]
                 break
         if start is not None:
@@ -37,3 +36,12 @@ def minPath(grid):
     path = dfs(*start, [])
 
     return path
+
+
+n = int(input("Enter the number of rows: "))
+m = []
+for i in range(n):
+    row = list(input(f"Enter row {i+1} (separated by spaces): ").split())
+    m.append(row)
+
+print(minPath(m))
