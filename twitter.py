@@ -1,5 +1,5 @@
-```
 def validate_tweet(tweet):
+    tweet = ''.join(e for e in tweet if e.isalnum() or e == ' ')
     if len(tweet) > 140:
         return "Too many characters"
     elif len(tweet) == 0:
