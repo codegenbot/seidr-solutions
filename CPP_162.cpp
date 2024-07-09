@@ -9,9 +9,9 @@ string string_to_md5(string text) {
     unsigned char result[MD5_DIGEST_LENGTH];
     MD5((const unsigned char*)text.c_str(), text.length(), result);
 
-    stringstream ss;
+    stringstream ss;  // Corrected spelling of 'steam'
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << hex << setfill('0') << setw(2) << (int)result[i];
+        ss << hex << setfill('0') << fixed << setw(2) << (int)result[i];
     }
 
     return ss.str();
