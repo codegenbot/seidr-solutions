@@ -1,5 +1,5 @@
-```c++
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -14,8 +14,6 @@ string int_to_mini_roman(int num) {
             result += roman[i];
         }
     }
-    
+    assert(int_to_mini_roman(1000) == "M");
     return result;
 }
-
-assert (int_to_mini_roman(1000) == "M");
