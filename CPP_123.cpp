@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -14,8 +15,5 @@ std::vector<int> get_odd_collatz(int num) {
         sequence.push_back(num);
     }
     sequence.push_back(1); 
-    for(int i : sequence)
-        std::cout << i << " ";
-    std::cout << std::endl;
     return sequence;
 }
