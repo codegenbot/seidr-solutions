@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <string>
 #include <vector>
 #include <ostream>
@@ -9,7 +9,7 @@ std::vector<std::pair<int, std::string>> roman = {{1000, "M"}, {900, "CM"}, {500
                                                     {50, "L"}, {40, "XL"}, {10, "X"},
                                                     {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
 
-std::string romanToInt(int number) {
+std::string toMiniRoman(int number) {
     std::string result = "";
     for (const auto &romanNumber : roman) {
         while (number >= romanNumber.first) {
@@ -18,15 +18,24 @@ std::string romanToInt(int number) {
         }
     }
     if(number > 0)
-        return "Cannot represent in Roman numerals: " + std::to_string(number); 
-    else
-        return result;
+        result.append(std::to_string(number)); 
+    return result;
 }
 
 int main() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
-    std::cout << "Mini Roman representation of the number is: " << romanToInt(num) << std::endl;
+    std::cout << "Mini Roman representation of the number is: " << toMiniRoman(num) << std::endl;
+
+    num = 1000;
+    std::cout << "Mini Roman representation of the number is: " << toMiniRoman(num) << std::endl;
+
+    num = 4;
+    std::cout << "Mini Roman representation of the number is: " << toMiniRoman(num) << std::endl;
+
+    num = 9;
+    std::cout << "Mini Roman representation of the number is: " << toMiniRoman(num) << std::endl;
+
     return 0;
 }
