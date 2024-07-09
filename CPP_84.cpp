@@ -12,5 +12,6 @@ string solve(int N) {
             result.push_back('0');
         sum >>= 1;
     }
+    reverse(result.begin(), result.end());
     return result;
 }
