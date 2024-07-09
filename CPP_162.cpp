@@ -1,9 +1,6 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <iomanip>
 #include <openssl/evp.h>
-#include <openssl/md5.h>
+#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -12,7 +9,6 @@ const int MD5_DIGEST_LENGTH = 16;
 string string_to_md5(string text) {
     if (text.empty()) return "None";
 
-    EVP_MD_CTX md__;
     EVP_MD_CTX_init(&md__);
     unsigned char result[MD5_DIGEST_LENGTH];
 
