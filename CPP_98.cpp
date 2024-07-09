@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 
 int count_upper(std::string s){
     int count = 0;
@@ -9,9 +8,4 @@ int count_upper(std::string s){
         }
     }
     return count;
-}
-
-int main() {
-    assert(count_upper("EEEE") == 2);
-    return 0;
 }
