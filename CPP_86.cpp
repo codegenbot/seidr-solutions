@@ -1,8 +1,9 @@
+```cpp
 #include <algorithm>
 using namespace std;
 
 std::string anti_shuffle(std::string s) {
-    std::string result = "";
+    string result = "";
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == ' ') {
             result += " ";
