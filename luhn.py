@@ -8,3 +8,4 @@ def luhn():
         else:
             total += num
     return "Invalid" if sum(card_number) % 10 != total % 10 else "Valid"
+print(luhn())
