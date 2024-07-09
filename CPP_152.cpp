@@ -30,19 +30,10 @@ int main() {
     std::cin >> n;
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
-        if(i == 0) {
-            int temp;
-            std::cin >> temp;
-            game.push_back(temp);
-            std::cin.ignore();
-            std::cin.get();
-            guess.push_back(temp);
-        } else {
-            int temp;
-            std::cin >> temp;
-            game.push_back(temp);
-            guess.push_back(temp);
-        }
+        int i;
+        i = std::cin.get(); 
+        guess.push_back(i);
+        game.push_back(i); 
     }
     if(issame(game, guess)){
         std::cout << "The two vectors are the same.\n";
