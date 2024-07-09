@@ -1,4 +1,4 @@
-```
+```Python
 def decode_shift():
     while True:
         try:
@@ -11,11 +11,14 @@ def decode_shift():
             print("Invalid input! Please enter a number. Try again.")
 
     while True:
-        s = input("Enter the encoded string: ")
-        if all(c.isalpha() or c.isspace() for c in s):
-            break
-        else:
-            print("Invalid input! String should only contain alphabets and spaces. Try again.")
+        try:
+            s = input("Enter the encoded string: ")
+            if all(c.isalpha() or c.isspace() for c in s):
+                break
+            else:
+                print("Invalid input! String should only contain alphabets and spaces. Try again.")
+        except ValueError:
+            pass
 
     decoded_s = ""
     for ch in s:
@@ -27,3 +30,5 @@ def decode_shift():
         else:
             decoded_s += ch
     return decoded_s
+
+print(decode_shift())
