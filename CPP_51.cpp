@@ -1,12 +1,10 @@
-Here is the solution:
-
-```cpp
 string remove_vowels(string text){
-    string result = "";
-    for(char c : text) {
-        if(toupper(c) != 'A' && toupper(c) != 'E' && toupper(c) != 'I' && toupper(c) != 'O' && toupper(c) != 'U') {
-            result += c;
+    string noVowels = "";
+    for(int i=0; i<text.length(); i++){
+        char ch = tolower(text[i]);
+        if(ch!='a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u'){
+            noVowels += text[i];
         }
     }
-    return result;
+    return noVowels;
 }
