@@ -1,3 +1,12 @@
+```cpp
+bool isSame(vector<float> a, vector<float> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(abs(a[i] - b[i]) > 1e-9) return false;
+    }
+    return true;
+}
+
 int cpp20_main(){
     int n;
     cin >> n;
@@ -8,8 +17,4 @@ int cpp20_main(){
     if(isSame(a, b)) cout << "The vectors are the same." << endl;
     else cout << "The vectors are not the same." << endl;
     return 0;
-}
-
-bool isSame(const vector<float>& a, const vector<float>& b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
