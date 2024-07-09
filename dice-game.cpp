@@ -2,12 +2,14 @@
 #include <iostream>
 
 double probability(int n, int m) {
-    int max = std::min(n, m);
-    double total = 0;
-    for(int i = 1; i < max; i++) {
-        total += (i/(double)n) * (i/(double)m);
+    double total = (double)(n*m);
+    double favorable_outcomes = 0;
+    
+    for (int i = m; i < n; i++) {
+        favorable_outcomes += (double)(i - m + 1);
     }
-    return 1 - total;
+    
+    return favorable_outcomes / total;
 }
 
 int main() {
