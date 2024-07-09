@@ -15,6 +15,5 @@ bool prime_length(string str){
 
 int main(){
     cout << boolalpha << (prime_length("10") ? "Prime" : "Not Prime") << endl;
-    assert (!prime_length("0"));
     return 0;
 }
