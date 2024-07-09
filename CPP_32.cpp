@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <iostream>
-#include <cmath>
-#include <cassert>
+#include <cmath>  
+#include <cassert> 
 
 using namespace std;
 
@@ -30,16 +31,13 @@ double find_zero(vector<double> xs){
 }
 
 int main() {
-    vector<double> xs; // input coefficients
-    cout << "Enter coefficients (space separated): ";
-    cin >> boost::copy(xs, std::back_inserter(xs));
+    vector<double> xs; 
     double solution = find_zero(xs);
-    vector<double> coeffs;
+    vector<double> coeffs; 
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
             coeffs.push_back(xs[i] / xs[i-1]);
         }
     }
-    assert (abs(poly(coeffs, solution))< 1e-3);
-    return 0;
+    assert (abs(poly(coeffs, solution))< 1e-3); 
 }
