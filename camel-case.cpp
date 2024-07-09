@@ -2,38 +2,35 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string camelCase(const std::string& str) {
+    std::string result = "";
+    bool capitalizeNext = true;
 
-string toCamelCase(string str) {
-    string result = "";
-    int i = 0;
-    
-    while (i < str.length()) {
-        if (str[i] == '-') {
-            i++;
-            continue;
-        }
-        
-        if (i > 0 && str[i-1] == ' ') {
-            result[0] -= 32;
-            i++;
-            continue;
-        } else if (i > 0) {
-            result[result.length()-1] -= 32;
-        }
-        
-        while (i < str.length() && str[i] != ' ') {
-            result += str[i];
-            i++;
+    for (char c : str) {
+        if (c == '-') {
+            if (!result.empty()) {  
+                result += toupper(c);  
+            }
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            if (result.empty() || c != '-') {  
+                result += toupper(c);
+            } else {
+                result += tolower(c);  
+                capitalizeNext = false;
+            }
+        } else {
+            result += tolower(c);
         }
     }
-    
+
     return result;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << toCamelCase(input) << endl;
+    std::string str;
+    std::cin >> str;
+    std::cout << camelCase(str) << std::endl;
+
     return 0;
 }
