@@ -1,19 +1,15 @@
-int count_nums(vector<int> nums) {
+int count_nums(vector<int> n) {
     int count = 0;
-    for (int num : nums) {
-        int sum = 0;
-        bool negative = false;
-        if (num < 0) {
-            negative = true;
+    for (int num : n) {
+        if (num < 0)
             num = -num;
-        }
+        long sum = 0;
         while (num > 0) {
             sum += num % 10;
             num /= 10;
         }
-        if (!negative && sum > 0 || negative && sum >= 1) {
+        if (sum > 0)
             count++;
-        }
     }
     return count;
 }
