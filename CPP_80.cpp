@@ -12,7 +12,13 @@ bool is_happy(const std::string& s) {
         char c1 = s[i];
         char c2 = s[i + 1];
         char c3 = s[i + 2];
-        if (s.find(c1) != std::string::npos || s.find(c2) != std::string::npos || s.find(c3) != std::string::npos)
+        for (auto it = s.begin(); it != s.end(); ++it) {
+            if (*it == c1 || *it == c2 || *it == c3) {
+                unique = false;
+                break;
+            }
+        }
+        if (!unique)
             return false;
     }
     return true;
