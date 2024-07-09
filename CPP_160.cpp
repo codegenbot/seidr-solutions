@@ -17,20 +17,15 @@ int eval(const string& s) {
         return result;
     }
     
-    int start = 0, sign = 1;
-    for (int i = 0; i < s.size(); i++) {
-        if (!isdigit(s[i])) {
-            if (s[i] == '+') {
-                sign = 1;
-            } else if (s[i] == '-') {
-                sign = -1;
-            }
-            start = i + 1;
-        } else if (i == s.size() - 1) {
-            result += sign * (s[i] - '0');
-        } else if (!isdigit(s[i+1])) {
-            result += sign * (s[i] - '0');
-            i++;
+    int number = 0;
+    for (char c : s) {
+        if (!isdigit(c)) continue;
+        number *= 10;
+        number += c - '0';
+        if (!isdigit(c) && c != '.') {
+            result += sign * number;
+            number = 0;
+            sign = (c == '-') ? -1 : 1;
         }
     }
     
