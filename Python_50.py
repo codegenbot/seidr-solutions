@@ -10,11 +10,10 @@ def decode_shift():
         except ValueError:
             print("Invalid input! Please enter a number. Try again.")
 
-    s = ""
     while True:
         try:
             s = input("Enter the encoded string: ")
-            if any(not c.isalpha() for c in s):
+            if all(c.isalpha() for c in s):
                 break
             else:
                 print("Invalid input! String should only contain alphabets. Try again.")
