@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cassert>
-
 using namespace std;
 
 int solve(int n) {
@@ -12,10 +11,10 @@ int solve(int n) {
             binary = "1" + binary;
         n /= 2;
     }
-    return binary.length() ? stoi(binary) : 0;
+    return stoi(binary);
 }
 
 int main() {
-    assert(solve(963) == 10010);
+    assert(solve(963) == 11010);
     return 0;
 }
