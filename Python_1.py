@@ -3,10 +3,7 @@ from typing import List
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack, temp = [], ""
-
-    if paren_string == "" or paren_string[0] != "(" or paren_string[-1] != ")":
-        return ["Invalid Input"]
-
+    
     for char in paren_string:
         if char == "(":
             if temp and stack:
@@ -17,11 +14,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 return ["Invalid Input"]
             stack.pop()
             temp += char
-            if not stack:
+            if not stack and temp:
                 result.append(temp)
             if not stack:
                 temp = ""
-
+    
     if stack:
         return ["Invalid Input"]
     return result
