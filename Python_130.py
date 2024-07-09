@@ -1,13 +1,15 @@
 def tri(n):
     if n == 0:
         return [0]
-    elif n == 1:
-        return [1]
-    else:
-        result = [1, 3]
-        for i in range(2, n + 1):
-            if i % 2 == 0:
-                result.append(1 + i // 2)
-            else:
-                result.append(result[i - 1] + result[i - 2] + result[i - 3])
-        return result
+    if n == 1:
+        return [3]
+    result = [3]
+    a, b, c = 0, 0, 3
+    for _ in range(1, n):
+        if c % 2 == 0:
+            c = 1 + c // 2
+        else:
+            c = a + b + c
+            a, b = b, c
+        result.append(c)
+    return result
