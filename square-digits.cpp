@@ -1,15 +1,20 @@
+```cpp
 #include <string>
-#include <cstring>
+#include <iostream>
 
-std::string squareDigits(const char* input) {
+std::string squareDigits(std::string input) {
     std::string output = "";
-    for (int i = 0; i < strlen(input); i++) {
-        int digit = input[i] - '0';
-        output += std::to_string(digit * digit);
+    for (int i = 0; i < input.length(); i++) {
+        int digit = input[i] - '0'; 
+        output += std::to_string((int)(input[i] - '0') * (int)(input[i] - '0'));
     }
     return output;
 }
 
 int main() { 
-    printf("%s\n", squareDigits("54827")); 
+    std::string input;
+    std::cout << "Enter a number: ";
+    std::getline(std::cin, input);
+    std::cout << "Squared digits: " << squareDigits(input) << std::endl;
     return 0;
+}
