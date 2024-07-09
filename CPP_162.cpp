@@ -1,8 +1,8 @@
-#include <string>
 #include <iostream>
 #include <sstream>
 #include <iomanip>
-#include <openssl/md5.h>
+#include <string>
+#include <md5.h>
 
 using namespace std;
 
@@ -20,4 +20,9 @@ string string_to_md5(string text) {
     }
     
     return md5_hash;
+}
+
+int main() {
+    assert (string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    return 0;
 }
