@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 using namespace std;
 
@@ -7,7 +6,7 @@ bool same_chars(string s1, string s2) {
         return false;
     }
     for(int i = 0; i < s1.size(); i++){
-        if(s1.at(i) != s2.at(i)) { 
+        if((char)s1[i] != (char)s2[i]) { 
             return false;
         }
     }
@@ -21,6 +20,7 @@ int main() {
     getline(cin, s1);
     cout << "Enter the second string: ";
     getline(cin, s2);
+    
     if (same_chars(s1, s2)) {
         cout << "True";
     } else {
