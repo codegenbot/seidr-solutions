@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -12,15 +12,23 @@ bool is_sorted(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input;
+    std::vector<int> lst;
     int num;
-    while(std::cin >> num) {
-        input.push_back(num);
+    
+    // Input
+    while (true) {
+        std::cout << "Enter a number (-1 to stop): ";
+        std::cin >> num;
+        if (num == -1) break;
+        lst.push_back(num);
     }
-    if(is_sorted(input)) {
-        std::cout << "The list is sorted." << std::endl;
+    
+    // Check for sorted list
+    if (is_sorted(lst)) {
+        std::cout << "The list is sorted.\n";
     } else {
-        std::cout << "The list is not sorted." << std::endl;
+        std::cout << "The list is not sorted.\n";
     }
+    
     return 0;
 }
