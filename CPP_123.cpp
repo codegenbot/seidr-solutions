@@ -1,18 +1,15 @@
-```
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
-using namespace std;
-
-bool issame(int x, int y) {
-    if (x > y)
-        return false;
-    else
+bool issame(int n1, int n2) {
+    if (n1 == n2) 
         return true;
+    else
+        return false;
 }
 
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
             n = n / 2;
@@ -23,16 +20,17 @@ vector<int> get_odd_collatz(int n) {
             result.push_back(n);
         }
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> res = get_odd_collatz(n);
-    for(int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::vector<int> res = get_odd_collatz(num);
+    for (auto i : res) {
+        std::cout << i << " ";
     }
     return 0;
 }
