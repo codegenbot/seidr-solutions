@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 int basement(std::vector<int> nums) {
     int total_sum = 0;
@@ -13,5 +14,12 @@ int basement(std::vector<int> nums) {
 }
 
 int main() {
+    std::vector<int> test_nums = {-5, 2, -4, 3};
+    int result = basement(test_nums);
+    if (result != -1) {
+        std::cout << "Basement found at index: " << result << std::endl;
+    } else {
+        std::cout << "No basement found." << std::endl;
+    }
     return 0;
 }
