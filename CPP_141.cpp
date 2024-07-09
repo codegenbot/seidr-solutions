@@ -1,6 +1,3 @@
-```cpp
-#include <string>
-
 std::string file_name_check(std::string file_name){
     int digitCount = 0;
     bool foundDot = false;
