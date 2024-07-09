@@ -45,7 +45,3 @@ any compareOne(any a, any b) {
         return typeid(void);
     }
 }
-
-int main() {
-    // Test your function here
-}
