@@ -1,5 +1,3 @@
-Here is the modified code:
-```cpp
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
