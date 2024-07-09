@@ -1,7 +1,7 @@
 #include <vector>
 #include <initializer_list>
 
-bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
+bool areEqual(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i<a.size();i++){
         if(a[i] != b[i])return false;
@@ -25,7 +25,7 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> number;
     auto collatz_sequence = get_odd_collatz(number);
-    assert(areVectorsEqual(collatz_sequence, {1}));
+    assert(areEqual(collatz_sequence, {1})); 
     for(int i : collatz_sequence) {
         std::cout << i << " ";
     }
