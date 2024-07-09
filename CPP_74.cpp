@@ -23,13 +23,10 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    vector<string> vec1 = { "apple", "banana", "orange" };
-    vector<string> vec2 = { "pear", "grape", "kiwi" };
-
-    vector<string> result = total_match(vec1, vec2);
-
-    for (const string& str : result) {
-        cout << str << " ";
-    }
+    vector<string> v1 = {"abc", "def"};
+    vector<string> v2 = {"ghi", "jkl"};
+    
+    vector<string> result = total_match(v1, v2);
+    
     return 0;
 }
