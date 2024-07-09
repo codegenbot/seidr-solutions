@@ -1,13 +1,11 @@
 #include <iostream>
+
 using namespace std;
 
-float calculateSnow(float hours, float initialSnow, float snowFall, float meltPerHour) {
-    float snow = initialSnow;
-    for (int i = 0; i < hours; ++i) {
-        snow += snowFall;
-        if (meltPerHour > 0.0) {
-            snow -= min(snow, meltPerHour);
-        }
+double snowDay(int hours, float initialSnow, float rateOfSnowfall, float meltingRate) {
+    double snow = initialSnow;
+    for (int i = 0; i < hours; i++) {
+        snow += rateOfSnowfall - meltingRate;
     }
     return snow;
 }
@@ -15,8 +13,12 @@ float calculateSnow(float hours, float initialSnow, float snowFall, float meltPe
 int main() {
     int hours;
     cin >> hours;
-    float initialSnow, snowFall, meltPerHour;
-    cin >> initialSnow >> snowFall >> meltPerHour;
-    cout << fixed << setprecision(10) << calculateSnow(hours, initialSnow, snowFall, meltPerHour) << endl;
+    float initialSnow, rateOfSnowfall, meltingRate;
+    cin >> initialSnow >> rateOfSnowfall >> meltingRate;
+
+    double result = snowDay(hours, initialSnow, rateOfSnowfall, meltingRate);
+
+    cout << fixed << setprecision(10) << result << endl; // 10 is the number of decimal places
+
     return 0;
 }
