@@ -1,6 +1,7 @@
-#include <iostream>
-#include <string>
+```cpp
+#define BOOST_ALL_DYNAMIC_BITSET
 #include <boost/any.hpp>
+#undef BOOST_ALL_DYNAMIC_BITSET
 
 using namespace std;
 
