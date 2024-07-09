@@ -1,10 +1,5 @@
-int main() {
-    int result = 0;
-    for (int num : { -1, 1, 1, 0 }) {
-        if (num < 0) {
-            result = -1;
-            break;
-        }
-    }
-    std::cout << result << std::endl;
+```cpp
+void testMain() {
+    assert(productSigns({-1, 1, 1, 0}) == 0);
+    return;
 }
