@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size())
@@ -11,7 +11,7 @@ bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+std::vector<std::string> numerical_letter_grade(std::initializer_list<float> grades) {
     std::vector<std::string> letter_grades;
     for (float grade : grades) {
         if (grade >= 4.0)
@@ -41,7 +41,8 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     }
     return letter_grades;
 }
+
 int main() {
-    assert(numerical_letter_grade({0.0f, 0.7f}) == vector<string>({"E", "D-"}));
+    assert(issame(numerical_letter_grade({0.0f, 0.7f}), {"E", "D-"}));
     return 0;
 }
