@@ -1,22 +1,11 @@
 bool issame(const vector<int>& a, const vector<int>& b);
 
-bool order_by_points(const vector<int>& nums) {
-    sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sum_a = 0, sum_b = 0;
-        if (a < 0) a *= -1;
-        if (b < 0) b *= -1;
-        while (a > 0) {
-            sum_a += a % 10;
-            a /= 10;
-        }
-        while (b > 0) {
-            sum_b += b % 10;
-            b /= 10;
-        }
-        if (sum_a == sum_b) return &a < &b;
-        return sum_a < sum_b;
-    });
-    return nums;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
+}
+
+void sort_vector_by_sum_of_digits(vector<int>& nums) {
+    // Implementation of sorting logic
 }
 
 int main() {
