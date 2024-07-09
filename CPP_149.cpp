@@ -4,64 +4,60 @@
 #include <algorithm>
 #include <string>
 #include <limits>
-#include <ext/rope.h>
-#include <ext/new_allocator.h>
 
-namespace std { using namespace std::placeholders; }
-
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return (a == b);
 }
 
-bool issame(initializer_list<string> a, initializer_list<string> b) {
-    vector<string> v1(a), v2(b);
+bool issame(std::initializer_list<std::string> a, std::initializer_list<std::string> b) {
+    std::vector<std::string> v1(a), v2(b);
     return (v1 == v2);
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::string> result;
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
             result.push_back(str);
         }
     }
-    sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
+    std::sort(result.begin(), result.end(),
+              [](const std::string& a, const std::string& b) {
+                  if (a.length() != b.length()) {
+                      return a.length() < b.length();
+                  } else {
+                      return a < b;
+                  }
+              });
     return result;
 }
 
 int main_entry() {
-    assert(issame(vector<string>(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})), vector<string>({"cc","dd","aaaa","bbbb"})));
+    assert(issame(std::vector<std::string>(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})), std::vector<std::string>({"cc","dd","aaaa","bbbb"})));
     
     int n;
-    cout << "Enter the number of strings: ";
-    cin >> n;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> n;
     
-    vector<std::string> inputStrings; 
+    std::vector<std::string> inputStrings; 
     int totalSize = 0;
     for(int i = 0; i < n; i++) {
-        string str;
-        cout << "Enter string " << (i+1) << ": ";
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Add this line to ignore the newline character left in the buffer
-        getline(cin, str);
+        std::string str;
+        std::cout << "Enter string " << (i+1) << ": ";
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Add this line to ignore the newline character left in the buffer
+        std::getline(std::cin, str);
         totalSize += str.size() + 1; 
     }
     
     for(int i = 0; i < n; i++) {
-        string str;
-        cout << "Enter string " << (i+1) << ": ";
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Add this line to ignore the newline character left in the buffer
-        getline(cin, str);
+        std::string str;
+        std::cout << "Enter string " << (i+1) << ": ";
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Add this line to ignore the newline character left in the buffer
+        std::getline(std::cin, str);
         inputStrings.push_back(str);
     }
     
-    vector<string> output = sorted_list_sum(inputStrings);
+    std::vector<std::string> output = sorted_list_sum(inputStrings);
     
     for(int i = 0; i < output.size(); i++) {
         bool found = false;
@@ -72,7 +68,7 @@ int main_entry() {
             }
         }
         if(!found) {
-            cout << output[i] << endl;
+            std::cout << output[i] << std::endl;
         }
     }
     
