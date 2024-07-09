@@ -1,29 +1,10 @@
-#include <iostream>
+````
 #include <map>
 #include <string>
-
-int main() {
-    map<string, string> dict;
-    cout << "Enter the dictionary (keys separated by spaces): ";
-    string key;
-    while(getline(cin, key)) {
-        int pos = key.find(',');
-        if(pos != string::npos) {
-            string upperKey = key.substr(0, pos);
-            string lowerKey = key.substr(pos+1);
-            dict[upperKey] = lowerKey;
-            key.clear();
-        }
-    }
-
-    bool result = check_dict_case(dict);
-
-    cout << "Are all keys in the same case? " << (result ? "true" : "false") << endl;
-
-    return 0;
-}
+using namespace std;
 
 bool check_dict_case(map<string, string> dict) {
+    map<string, string> dict;
     if (dict.empty()) return false;
 
     bool allUpper = true;
@@ -37,3 +18,4 @@ bool check_dict_case(map<string, string> dict) {
 
     return allUpper && allLower;
 }
+```
