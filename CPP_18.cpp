@@ -11,6 +11,7 @@ int how_many_times(const string& str, const string& substring) {
     
     while ((pos = str.find(substring)) != string::npos) {
         count++;
+        str.erase(0, pos + substring.length()); 
         original_len -= (pos + substring.length());
     }
     return count;
@@ -18,9 +19,10 @@ int how_many_times(const string& str, const string& substring) {
 }
 
 int main() {
-    string str, substring;
+    string str;
     cout << "Enter a string: ";
     getline(cin, str);
+    string substring;
     cout << "Enter a substring: ";
     getline(cin, substring);
     
