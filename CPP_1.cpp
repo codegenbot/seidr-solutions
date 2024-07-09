@@ -7,7 +7,16 @@ bool issame(string s1, string s2) {
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    // Main function code remains the same
+    string input;
+    cout << "Enter a string with parentheses: ";
+    cin >> input;
+
+    vector<string> groups = separate_paren_groups(input);
+
+    for (const string& group : groups) {
+        cout << group << endl;
+    }
+
     return 0;
 }
 
