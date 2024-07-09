@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,8 +11,10 @@ int findMax(std::vector<int> numbers) {
 
 int main() {
     std::vector<int> numbers;
-    int num = 0; // initialize with a default value
-    while(std::cin >> num) { // keep reading until valid input is given
+    for(int i=0; i<4; i++){
+        int num;
+        std::cin >> num; 
+        std::cin.ignore(); 
         numbers.push_back(num);
     }
     findMax(numbers);
