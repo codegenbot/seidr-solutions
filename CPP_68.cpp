@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <climits>
 
@@ -21,10 +22,14 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     }
     
     if (minEven == INT_MAX) {
-        result.push_back({0, -1});
-    } else {
-        result.push_back({minEven, minIndex});
+        return {{}};
     }
     
+    result.push_back({minEven, minIndex});
+    
     return result;
+}
+
+int main() {
+    assert(pluck({7, 9, 7, 1}) == {{}});
 }
