@@ -9,11 +9,9 @@ int vowels_count(string s) {
             case 'u':
                 count++;
                 break;
-            case 'y':
-                if (s.back() == c) {
-                    count++;
-                }
-                break;
+            case 'y': 
+                if (s.back() == 'y') 
+                    count++; // 'y' is a vowel at the end of the word
         }
     }
     return count;
