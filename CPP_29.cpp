@@ -16,3 +16,27 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     }
     return result;
 }
+
+int main() {
+    vector<string> strings;
+    string prefix;
+
+    cin >> prefix;
+    int n;
+    cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        string str;
+        cin >> str;
+        strings.push_back(str);
+    }
+
+    vector<string> result = filter_by_prefix(strings, prefix);
+
+    if(issame(result , {"xxx", "xxxAAA", "xxx"})) 
+        cout << "The output is correct" << endl;
+    else
+        cout << "The output is incorrect" << endl;
+
+    return 0;
+}
