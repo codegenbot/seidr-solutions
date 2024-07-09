@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
 bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
 int max(int a, int b){
-    return a > b ? a : b;
+    return (a > b) ? a : b;
 }
 
 vector<int> rolling_max(vector<int> numbers);
@@ -25,7 +25,7 @@ vector<int> rolling_max(vector<int> numbers){
     return result;
 }
 
-int main() {
-    // Your main function implementation here
+int main(){
+    // Test your functions here
     return 0;
 }
