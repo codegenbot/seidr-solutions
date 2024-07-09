@@ -1,3 +1,4 @@
+```
 def double_the_difference():
     n = int(input("Enter number of elements: "))
     lst = []
