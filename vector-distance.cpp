@@ -1,16 +1,16 @@
-```
+````
 #include <iostream>
 #include <cmath>
 
 double vectorDistance() {
     int n;
-    std::cin >> n;
+    cin >> n;
 
     float v1[n];
     float v2[n];
 
     for (int i = 0; i < n; i++) {
-        std::cin >> v1[i] >> v2[i];
+        cin >> v1[i] >> v2[i];
     }
 
     double distance = 0.0; 
