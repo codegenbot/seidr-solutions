@@ -1,16 +1,16 @@
 #include <cassert>
 class _160 {
 public:
-    int do_algebra(std::vector<std::string>, std::vector<int>) {
-        if (std::find(std::begin(std::get<1>(args)), std::end(std::get<1>(args)), 0) != std::end(std::get<1>(args))) {
+    int do_algebra(const std::vector<std::string>& args, const std::vector<int>& numbers) {
+        if (std::find(std::begin(numbers), std::end(numbers), 0) != std::end(numbers)) {
             return 0;
         }
-        int result = *std::max_element(std::begin(std::get<1>(args)), std::end(std::get<1>(args)));
-        for (int i = 0; i < std::size(args[0]); ++i) {
-            if (args[0][i] == '*') {
-                result *= *std::max_element(std::begin(std::get<1>(args)), std::end(std::get<1>(args)));
-            } else if (args[0][i] == '//') {
-                result /= *std::min_element(std::begin(std::get<1>(args)), std::end(std::get<1>(args)));
+        int result = *std::max_element(std::begin(numbers), std::end(numbers));
+        for (int i = 0; i < args.size(); ++i) {
+            if (args[i] == "*") {
+                result *= *std::max_element(std::begin(numbers), std::end(numbers));
+            } else if (args[i] == "//") {
+                result /= *std::min_element(std::begin(numbers), std::end(numbers));
             }
         }
         return result;
