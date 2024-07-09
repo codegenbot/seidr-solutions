@@ -12,6 +12,7 @@ int hex_key(std::string num) {
         }
     }
     return count;
+
 }
 
 int main() {
@@ -20,4 +21,5 @@ int main() {
 
     int output = hex_key(input);
     std::cout << output << "\n";
+    return 0;
 }
