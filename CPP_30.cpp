@@ -5,14 +5,14 @@ bool issame(vector<float> a, vector<float> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (abs(a[i] - b[i]) > 1e-6) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-vector<float> get_positive(vector<float> l){
+vector<float> get_positive(vector<float> l) {
     vector<float> result;
     for (float num : l) {
         if (num > 0) {
