@@ -1,7 +1,6 @@
 #include <string>
-#include <vector>
 
-int exchange(std::vector<int> lst1, std::vector<int> lst2) {
+int exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
     for (int num : lst1) {
         if (num % 2 != 0) {
@@ -9,4 +8,3 @@ int exchange(std::vector<int> lst1, std::vector<int> lst2) {
         }
     }
     return oddCount;
-}
