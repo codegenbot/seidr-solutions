@@ -1,8 +1,16 @@
-int prod_signs(vector<int> arr){
-    long long result = 1;
-    for(int x : arr){
-        if(x != 0)
-            result *= (x > 0 ? 1 : -1);
+Here is the completed code:
+
+```cpp
+#include <vector>
+using namespace std;
+
+int prod_signs(vector<int> arr) {
+    int product = 1;
+    for (int i : arr) {
+        if (i != 0)
+            product *= (i > 0 ? 1 : -1);
+        else
+            return -32768; // Return -32768 for empty vector
     }
-    return result * abs(result) < 2e9 ? result : -32768;
+    return product * abs(arr[0]);
 }
