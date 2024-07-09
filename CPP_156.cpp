@@ -1,5 +1,3 @@
-#include <string>
-
 string int_to_mini_roman(int num) {
     string roman[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
                       "", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
@@ -32,54 +30,30 @@ string int_to_mini_roman(int num) {
             num -= 400;
             result += "CD";
         } else if (num >= 100) {
-            for(int i=0; i<num/100; ++i)
+            for(int i = 0; i < (num / 100); ++i) {
+                num -= 100;
                 result += "C";
-            num %= 100;
+            }
         } else if (num >= 90) {
-            while(num>=90) {
-                num -= 90;
-                result += "XC";
-            }
+            num -= 90;
+            result += "XC";
         } else if (num >= 50) {
-            for(int i=0; i<num/50; ++i)
-                result += "L";
-            num %= 50;
+            num -= 50;
+            result += "L";
         } else if (num >= 40) {
-            while(num>=40) {
-                num -= 40;
-                result += "XL";
-            }
+            num -= 40;
+            result += "XL";
         } else if (num >= 10) {
-            for(int i=0; i<num/10; ++i)
+            for(int i = 0; i < (num / 10); ++i) {
+                num -= 10;
                 result += "X";
-            num %= 10;
+            }
         } else if (num >= 9) {
-            while(num>=9) {
-                num -= 9;
-                result += "IX";
-            }
-        } else if (num >= 5) {
-            for(int i=0; i<num/5; ++i)
-                result += "V";
-            num %= 5;
-        } else if (num >= 4) {
-            while(num>=4) {
-                num -= 4;
-                result += "IV";
-            }
+            num -= 9;
+            result += "IX";
         } else {
-            while(num>0) {
-                if(num>=3) {
-                    num -= 3;
-                    result += "III";
-                } else if (num == 2) {
-                    result += "II";
-                    return result;
-                } else {
-                    num--;
-                    result += "I";
-                }
-            }
+            num -= 1;
+            result += "I";
         }
     }
 
