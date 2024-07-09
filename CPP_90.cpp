@@ -1,13 +1,7 @@
-Here is the completed code:
+Here is the solution:
 
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // or return None
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for (int i = 0; i < sorted.size() - 1; ++i) {
-        if (sorted[i] != sorted[i+1]) {
-            return sorted[i+1];
-        }
-    }
-    return -1; // or return None
-}
+if (lst.size() < 2) return -1; // or return None
+vector<int> sorted = lst;
+sort(sorted.begin(), sorted.end());
+int res = *next(iterate(sorted.begin()+1, sorted.end()));
+return res;
