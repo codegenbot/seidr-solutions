@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -58,4 +59,9 @@ vector<string> by_length(vector<int> arr) {
     reverse(result.begin(), result.end());
     
     return result;
+}
+
+int main() {
+    assert(isSame(by_length({9, 4, 8}), vector<string>{ "Nine", "Eight", "Four"}));
+    // Rest of your code...
 }
