@@ -1,26 +1,20 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
+#include <string>
 
-string exchange(vector<int> lst1, vector<int> lst2) {
-    bool even = false;
-    for (int i : lst1) {
-        if (i % 2 != 0) {
-            even = true;
-            break;
-        }
-    }
-    if (!even) {
-        return "YES";
-    } else {
-        int oddCount = 0;
-        for (int i : lst2) {
-            if (i % 2 != 0) {
-                oddCount++;
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
+    for (int num : lst1) {
+        if (num % 2 != 0) {
+            int found = 0;
+            for (int num2 : lst2) {
+                if (num2 % 2 == 0 && num2 != num) {
+                    std::swap(lst1[std::find(lst1.begin(), lst1.end(), num)], num2);
+                    found = 1;
+                    break;
+                }
             }
-        }
-        if (oddCount == 0 || oddCount == lst1.size()) {
-            return "NO";
-        } else {
-            return "YES";
+            if (!found) return "NO";
         }
     }
+    return "YES";
 }
