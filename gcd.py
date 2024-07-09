@@ -4,18 +4,18 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
+
 def indices_of_substring(text, target):
     result = []
     index = 0
     while index < len(text) - len(target) + 1:
         if text[index : index + len(target)] == target:
             result.append(index)
-            index += len(target)
-        else:
-            index += 1
+        index += 1
     return result
 
-print(gcd(1, 1))
+
+print(gcd(140163, 924481))
 print(indices_of_substring("abcdef", "bcd"))
 
 print(gcd(4, 400000))
