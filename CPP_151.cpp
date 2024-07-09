@@ -1,5 +1,4 @@
 #include <assert.h>
-#include <iostream>
 
 int double_the_difference(float *lst) {
     int odd_sum = 0;
@@ -10,12 +9,21 @@ int double_the_difference(float *lst) {
     return odd_sum;
 }
 
-int main(int argc, char **argv) {
-    float lst[argc];
-    for (int i = 0; i < argc; i++) {
-        std::cin >> lst[i];
+float* getFloatArray(int n) {
+    float lst[n];
+    for (int i = 0; i < n; i++) {
+        printf("Enter number %d: ", i + 1);
+        scanf("%f", &lst[i]);
     }
+    return lst;
+}
+
+int main() {
+    int n;
+    printf("Enter the size of array: ");
+    scanf("%d", &n);
+    float* lst = getFloatArray(n);
     int result = double_the_difference(lst);
-    std::cout << "Result: " << result << std::endl;
+    assert(result == 7); 
     return 0;
 }
