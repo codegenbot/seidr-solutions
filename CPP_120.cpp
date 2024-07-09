@@ -1,16 +1,16 @@
 Here is the completed code:
 
+```cpp
+#include <vector>
+#include <algorithm>
+using namespace std;
+
 vector<int> maximum(vector<int> arr, int k) {
-    priority_queue<int> maxHeap;
-
-    for (int num : arr) {
-        maxHeap.push(num);
-    }
-
-    vector<int> result;
+    vector<int> res;
     for (int i = 0; i < k; i++) {
-        result.push_back(maxHeap.top());
-        maxHeap.pop();
+        auto it = max_element(arr.begin(), arr.end());
+        res.push_back(*it);
+        arr.erase(it);
     }
-    return result;
+    return res;
 }
