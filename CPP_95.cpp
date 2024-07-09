@@ -3,19 +3,25 @@
 #include <string>
 
 bool check_dict_case(map<string, string> dict) {
-    for (auto it = dict.begin(); it != dict.end(); ++it) {
-        if (std::toupper(it->first[0]) != std::toupper(first_key[0])) {
+    bool is_first_upper = false;
+
+    if (!dict.empty()) {
+        first_key = dict.begin()->first;
+        is_first_upper = std::toupper(first_key[0]) == std::toupper(key[0]));
+    }
+
+    for (const auto& pair : dict) {
+        if (std::toupper(pair.first[0]) != is_first_upper)
             return false;
-        }
     }
     return true;
 }
 
 int main() {
     map<string, string> dict;
-    string first_key;
+    std::string first_key;
 
-    cout << "Enter a series of key-value pairs (e.g., 'name:John'): ";
+    std::cout << "Enter a series of key-value pairs (e.g., 'name:John'): ";
     while (true) {
         string line, key, value;
         cin >> line;
@@ -23,7 +29,7 @@ int main() {
 
         size_t colon = line.find(':');
         if (colon == string::npos || line.size() < 2) {
-            cout << "Invalid format. Please use 'key:value'." << endl;
+            std::cout << "Invalid format. Please use 'key:value'." << endl;
             continue;
         }
 
@@ -34,14 +40,14 @@ int main() {
         if (dict.empty()) {
             first_key = key;
         } else if (std::toupper(first_key[0]) != std::toupper(key[0])) {
-            cout << "Error: Dictionary case mismatch." << endl;
+            std::cout << "Error: Dictionary case mismatch." << endl;
             return 1;  // Exit with error code
         }
     }
 
     if (!check_dict_case(dict)) {
-        cout << "Error: Dictionary is not in the same case." << endl;
+        std::cout << "Error: Dictionary is not in the same case." << endl;
     } else {
-        cout << "Dictionary is consistent in case." << endl;
+        std::cout << "Dictionary is consistent in case." << endl;
     }
 }
