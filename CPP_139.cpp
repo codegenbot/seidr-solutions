@@ -1,17 +1,12 @@
-long long special_factorial(int n) {
-    if (n == 0)
-        return 1;
+long long special_factorial(int n){
     long long result = 1;
-    for (int i = 1; i <= n; ++i) {
-        result *= i;
-        for (int j = 2; j <= i; ++j) {
-            result *= j;
+    for(int i = 1; i <= n; ++i){
+        if(i > 1) {
+            for(int j = 2; j < i; ++j){
+                result *= j;
+            }
         }
+        result *= i;
     }
     return result;
-}
-
-int main() {
-    assert(special_factorial(1) == 1);
-    return 0;
 }
