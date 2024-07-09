@@ -1,9 +1,4 @@
+```python
 def decode_shift(s: str):
-    result = ""
-    for ch in s:
-        if ch.isalpha():
-            ascii_offset = 65 if ch.isupper() else 97
-            result += chr((ord(ch) - ascii_offset) % 26 + ascii_offset)
-        else:
-            result += ch
-    return result
+    shift = int(input("Enter the shift value: "))  
+    return "".join([chr((ord(ch.lower()) - 97 + shift) % 26 + 97) if ch.isalpha() else ch for ch in s])
