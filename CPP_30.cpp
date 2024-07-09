@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -12,7 +11,7 @@ std::vector<float> get_positive(std::vector<float> l){
     return result;
 }
 
-bool same(vector<float> a, vector<float> b){
+bool same(vector<float> a,vector<float>b){
     return std::equal(a.begin(),a.end(),b.begin());
 }
 
