@@ -1,25 +1,13 @@
 #include <boost/any.hpp>
-#include <string>
-
-int main() {
-    boost::any a = "hello";
-    boost::any b = "hi";
-
-    boost::any result = compare_one(a, b);
-
-    std::cout << boost::any_cast<std::string>(result) << std::endl;
-
-    return 0;
-}
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (boost::any_cast<bool>(a) && boost::any_cast<float>(b)) {
-        return boost::any(true);
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return boost::any((int)(float)b.get_value<float>());
     }
-    else if (!boost::any_cast<bool>(a) && boost::any_cast<std::string>(b)) {
-        return boost::any("Not True");
+    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        return boost::any("Invalid");
     }
-    else if (boost::any_cast<std::string>(a) && boost::any_cast<std::string>(b)) {
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
         std::string strB = boost::any_cast<std::string>(b);
         if (strA > strB)
@@ -27,9 +15,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (strA < strB)
             return b;
         else
-            return "Equal";
+            return boost::any("Equal");
     }
     else {
-        return boost::any(true);
+        return boost::any("Invalid");
     }
 }
