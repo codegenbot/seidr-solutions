@@ -32,7 +32,7 @@ string sort_numbers(string numbers){
     sort(numList.begin(), numList.end(), [&](const string &a, const string &b) {
         return numMap[a] < numMap[b];
     });
-    
+
     for (const string &num : numList) {
         result += num + " ";
     }
