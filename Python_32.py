@@ -9,14 +9,11 @@ def find_zero(xs: list):
     except:
         return "Please provide a valid input format"
 
-
-# Read input from user
 try:
     xs = list(map(float, input().split()))
 except ValueError:
     print("Please provide a valid input format")
     exit()
 
-# Call the function with user input
 result = find_zero(xs)
 print(result)
