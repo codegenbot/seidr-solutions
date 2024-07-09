@@ -1,20 +1,20 @@
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
-    if(arr.empty()) return result;
+Here is the completed code:
 
-    int minEvenValue = INT_MAX;
-    int minIndex = -1;
-    for(int i = 0; i < arr.size(); i++) {
-        if(arr[i] % 2 == 0 && arr[i] < minEvenValue) {
-            minEvenValue = arr[i];
-            minIndex = i;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result = {};
+    int min_even_value = INT_MAX;
+    int min_even_index = -1;
+
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && arr[i] < min_even_value) {
+            min_even_value = arr[i];
+            min_even_index = i;
         }
     }
 
-    if(minIndex != -1) {
-        result.push_back(minEvenValue);
-        result.push_back(minIndex);
+    if (min_even_value != INT_MAX) {
+        result.push_back(min_even_value);
+        result.push_back(min_even_index);
     }
 
     return result;
-}
