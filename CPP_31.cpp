@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 using namespace std;
 
@@ -19,4 +18,6 @@ int main() {
         cout << "Number is prime";
     else
         cout << "Number is not prime";
+    
+    return 0;
 }
