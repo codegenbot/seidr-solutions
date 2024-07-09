@@ -1,27 +1,25 @@
-````
-#include <vector>
-using namespace std;
-
-// Function to calculate polynomial
-double poly(vector<double> coeffs, double solution) {
-    double result = 0;
-    for (int i = 0; i < coeffs.size(); i++) {
-        result += coeffs[i] * pow(solution, i);
-    }
-    return result;
-}
-
-// Function to find zero
 double find_zero(vector<double> xs){
     double sum = 0;
-    vector<double> coeffs; 
+    double coeff = xs[0];
+    vector<double> coeffs;
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
-            coeffs.push_back(xs[i] / xs[0]);
+            sum += xs[i] / coeff;
+            coeffs.push_back(xs[i]);
         }
     }
-    double solution = -sum / xs[0]; 
-    assert(abs(poly(coeffs, solution)) < 1e-3); 
-    return solution;
+    return -sum / coeff;
 }
-```
+
+double poly(vector<double> coeffs, double x){
+    double result = 0;
+    for(int i=0; i<coeffs.size(); i++){
+        result += coeffs[i]*pow(x,i);
+    }
+    return result;
+int main() {
+    vector<double> xs = {1.0, -3.0, 2.0};
+    double solution = find_zero(xs);
+    assert (abs(poly({1.0, -3.0, 2.0}, solution))< 1e-3); 
+    return 0;
+}
