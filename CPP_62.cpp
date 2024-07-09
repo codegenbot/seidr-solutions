@@ -1,7 +1,7 @@
 vector<float> derivative(vector<float> xs) {
-    vector<float> res;
+    vector<float> result;
     for (int i = 1; i < xs.size(); i++) {
-        res.push_back(xs[i] * i);
+        result.push_back(i * xs[i]);
     }
-    return res;
+    return result;
 }
