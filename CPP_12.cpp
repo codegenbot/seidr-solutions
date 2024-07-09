@@ -1,5 +1,6 @@
+```cpp
 int main() {
-    vector<string> strings = {"apple", "banana", "cherry"};
+    vector<string> strings = {"hello", "world", "abc"};
     if(strings.empty()) {
         return "";
     } else {
