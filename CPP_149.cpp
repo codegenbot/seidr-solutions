@@ -31,9 +31,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main_entry() {
-    if (issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"})) {
-        assert(true);
-    }
+    assert(issame(vector<string>(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})), vector<string>({"cc","dd","aaaa","bbbb"})));
     
     int n;
     cout << "Enter the number of strings: ";
