@@ -1,10 +1,7 @@
+```c++
 #include <vector>
 #include <algorithm>
 #include <string>
-
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -37,7 +34,9 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     return result;
 }
 
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
 int main() {
-    assert(isSame(bf("Jupiter", "Makemake"), {})); // Corrected variable name
-    // Rest of your code...
+    assert(isSame(bf("Jupiter", "Makemake") , {})); 
 }
