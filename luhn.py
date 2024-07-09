@@ -4,7 +4,7 @@ def luhn(card_number):
 
     result = sum(
         [
-            x if i % 2 == 0 else (2 * x - 9) if 2 * x > 9 else 2 * x
+            x if i % 2 == 0 else (2 * x) // 9 + (2 * x) % 9
             for i, x in enumerate(card_number)
         ]
     )
