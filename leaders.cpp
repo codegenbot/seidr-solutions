@@ -1,13 +1,19 @@
-using namespace std;
-int leaders(vector<int>& arr) {
-    vector<int> result;
+```
+#include <vector>
+#include <iostream>
+
+std::vector<int> leaders(std::vector<int>& arr) {
+    std::vector<int> result;
     int n = arr.size();
-    int leader = arr[n - 1];
+    if (n == 0) return result;
+    int maxRight = arr.back();
     for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] >= leader) {
-            leader = arr[i];
-            result.push_back(leader);
+        if (arr[i] > maxRight) {
+            maxRight = arr[i];
+        } else {
+            result.push_back(maxRight);
         }
     }
-    reverse(result.begin(), result.end());
-    return result.size();
+    result.push_back(arr.back());
+    return result;
+}
