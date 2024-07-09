@@ -1,4 +1,8 @@
-correct_counts = {k: min(v, 1) for k, v in zip(guess, code)}
-black = sum(correct_counts.values())
-white = sum((v-1) for k, v in code_counts.items() if k in correct_counts)
-print(f"Black: {black}, White: {white}")
+def mastermind(code, guess):
+    black = sum(1 for a, b in zip(code, guess) if a == b)
+    return black, 4 - black
+
+code = input("Enter the Mastermind code: ")
+guess = input("Enter your guess: ")
+
+print(f"Black: {mastermind(code, guess)[0]}, White: {mastermind(code, guess)[1]}")
