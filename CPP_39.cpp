@@ -10,7 +10,8 @@ int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-
+    
+    // Check if input is an integer
     if (!(n >= 1 && n <= 9)) { 
         std::cout << "-1" << std::endl; 
     } else {
@@ -26,9 +27,8 @@ int main() {
         } else {
             suffix = "th";
         }
-        std::string str = std::to_string(result);
-        std::cout << "The " << str << suffix << " prime Fibonacci number is: ";
-        std::cout << result << std::endl;
+        std::cout << "The " << std::to_string(result) << suffix << " prime Fibonacci number is: ";
+        std::cout << std::to_string(result) << std::endl;
     }
 }
 
