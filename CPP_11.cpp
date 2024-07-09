@@ -1,9 +1,9 @@
 #include <cassert>
 #include <string>
 
-std::string string_xor(std::string a, std::string b); // Function declaration needed
+std::string string_xor(std::string a, std::string b);
 
-std::string string_xor(std::string a, std::string b) { // Implement function after declaration
+std::string string_xor(std::string a, std::string b) {
     std::string result;
     for(int i=0; i<a.size(); i++){
         if(a[i] == b[i]){
