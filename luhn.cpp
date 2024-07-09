@@ -1,11 +1,18 @@
 #include <vector>
+#include <algorithm>
 
-int luhn(std::vector<int> digits) {
+using namespace std;
+
+int luhn(vector<int> digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {
-        int digit = digits[i] * ((i % 2) + 1);
-        if (digit > 9) {
-            digit -= 9;
+        int digit = digits[i];
+        bool isDouble = (i % 2 != 0);
+        if (isDouble) { 
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
         }
         sum += digit;
     }
