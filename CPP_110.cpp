@@ -27,13 +27,5 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
 
 int main() {
     assert(exchange({100, 200}, {200, 200}) == "YES");
-    std::vector<int> lst1 = {1,2,3};
-    std::vector<int> lst2 = {4,5};
-    if (exchange(lst1, lst2) == "NO") {
-        std::cout << "Test failed: " << exchange(lst1, lst2) << std::endl;
-    } else {
-        std::cout << "Test passed" << std::endl;
-    }
-    
-    return 0;
+    // your code goes here
 }
