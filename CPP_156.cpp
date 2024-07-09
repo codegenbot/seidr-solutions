@@ -1,19 +1,12 @@
-Here is the solution:
-
-```cpp
-string int_to_mini_roman(int num) {
-    vector< pair<int, string> > romanNums = {{1000, "M"}, {900, "CM"}, {500, "D"},
-                                              {400, "CD"}, {100, "C"}, {90, "XC"},
-                                              {50, "L"}, {40, "XL"}, {10, "X"},
-                                              {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-
-    string miniRoman = "";
-    for (const auto &roman : romanNums) {
-        while (num >= roman.first) {
-            num -= roman.first;
-            miniRoman += roman.second;
+vector<string> roman = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+int rom[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+string int_to_mini_roman(int number) {
+    string result = "";
+    for (int i = 0; i < 13; i++) {
+        while (number >= rom[i]) {
+            number -= rom[i];
+            result += roman[i];
         }
     }
-
-    return miniRoman;
+    return result;
 }
