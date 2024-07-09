@@ -1,12 +1,6 @@
-int max_fill(vector<vector<int>> grid, int capacity) {
-    int total_water = 0;
-    for (auto row : grid) {
-        for (int water : row) {
-            if (water == 1) {
-                total_water++;
-            }
-        }
-    }
-
-    return total_water / capacity + (total_water % capacity ? 1 : 0);
+int main() {
+    vector<vector<int>> grid = {{0,1,0},{0,1,1},{0,1,0}};
+    int capacity = 2;
+    cout << max_fill(grid, capacity) << endl;
+    return 0;
 }
