@@ -19,6 +19,9 @@ vector<int> make_a_pile(int n) {
 
 int main() {
     assert(isSame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    // Your code here
+    vector<int> p1 = make_a_pile(5);
+    for (int x : p1) {
+        std::cout << x << " ";
+    }
     return 0;
 }
