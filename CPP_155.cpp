@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 
 std::vector<int> even_odd_count(int num) {
     int count_even = 0, count_odd = 0;
@@ -20,6 +19,5 @@ bool issame(std::vector<int> a,std::vector<int>b){
 
 int main(){
     assert(even_odd_count(0) == std::vector<int>{1, 0});
-    std::cout << "Test Passed!" << std::endl;
     return 0;
 }
