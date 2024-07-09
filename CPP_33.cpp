@@ -7,15 +7,15 @@ using namespace std;
 vector<int> sort_third(vector<int> l) {
     vector<int> result;
     int groupCount = 0;
+    long long sz = l.size();
 
     for (int i : l) {
-        if(groupCount % 3 == 0 || groupCount >= l.size()) { 
+        if(groupCount % 3 == 0 || groupCount >= sz) { 
             result.push_back(i);
         } else {
             if(result.empty()) {
-                result.resize(l.size());
-            } else if (!result.empty() && l.size() > result.size())
-                result.resize(l.size());
+                result.resize(sz);
+            }
             result.push_back(i);
             groupCount++;
         }
