@@ -1,16 +1,18 @@
-int count_nums(vector<int> v) {
+#include <vector>
+#include <iostream>
+
+int count_nums(std::vector<int> nums) {
     int count = 0;
-    for (int num : v) {
+    for (int num : nums) {
         if (num < 0) {
             num = -num;
         }
-        int sum = 0;
+        int sum_of_digits = 0;
         while (num > 0) {
-            int digit = num % 10;
-            sum += (digit >= 5 ? digit - 9 : digit);
+            sum_of_digits += num % 10;
             num /= 10;
         }
-        if (sum > 0) {
+        if (sum_of_digits > 0) {
             count++;
         }
     }
