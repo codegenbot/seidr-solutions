@@ -1,33 +1,33 @@
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(const std::string& input) {
-    std::vector<std::string> words;
-    size_t start = 0, end;
-    while ((end = input.find('-')) != std::string::npos) {
-        words.push_back(input.substr(start, end - start));
-        start = end + 1;
-    }
-    words.push_back(input.substr(start));
+std::string camelCase(const std::string& input) {
+    std::string output;
+    bool capitalizeNext = true;
 
-    std::string result;
-    for (const auto& word : words) {
-        if (!result.empty()) {
-            result[0] = toupper(word[0]);
+    for (char c : input) {
+        if (c == '-') {
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            output += std::toupper(c);
+            capitalizeNext = false;
         } else {
-            result += word;
+            output += c;
         }
-        result += std::string(1, towupper(word[1]));
     }
 
-    return result;
+    return output;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input);
-    std::cout << "CamelCase equivalent: " << kebabToCamel(input) << std::endl;
+    int nTests;
+    cin >> nTests;
+
+    for (int i = 0; i < nTests; ++i) {
+        std::string str;
+        cin >> str;
+        cout << camelCase(str) << endl;
+    }
 
     return 0;
 }
