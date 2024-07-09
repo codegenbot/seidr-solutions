@@ -33,27 +33,16 @@ int main() {
         for (int i = index; i < nums.size(); ++i) {
             cout << nums[i] << " ";
         }
+        cout << endl;
     } else {
-        int diff1 = abs(prefixSum - target);
-        int diff2 = abs(prefixSum - nums[index] - target);
-        
-        if (diff1 <= diff2) {
-            for (int i = 0; i < index; ++i) {
-                cout << nums[i] << " ";
-            }
-            cout << endl;
-            for (int i = index; i < nums.size(); ++i) {
-                cout << nums[i] << " ";
-            }
-        } else {
-            for (int i = 0; i <= index; ++i) {
-                cout << nums[i] << " ";
-            }
-            cout << endl;
-            for (int i = index + 1; i < nums.size(); ++i) {
-                cout << nums[i] << " ";
-            }
+        for (int i = 0; i < index; ++i) {
+            cout << nums[i] << " ";
         }
+        cout << endl;
+        for (int i = index; i < nums.size(); ++i) {
+            cout << nums[i] << " ";
+        }
+        cout << endl;
     }
 
     return 0;
