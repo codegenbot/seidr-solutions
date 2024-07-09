@@ -5,7 +5,7 @@ string fix_spaces(string text) {
     for (int i = 0; i < text.length(); i++) {
         if (text[i] == ' ') {
             if (i > 0 && result.back() != ' ') {
-                if (result.length() >= 2 && result.back() == ' ' && result[result.length()-2] == ' ')
+                if (result.length() >= 2 && result.back() == ' ' && result.back(1) == ' ')
                     result.pop_back(), result.pop_back();
                 else
                     result += '-';
