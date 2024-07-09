@@ -1,12 +1,6 @@
 #include <iostream>
 #include <vector>
 
-bool is_sorted(std::vector<int> lst);
-
-int main() {
-    // Your main function here
-}
-
 bool is_sorted(std::vector<int> lst){
     if (lst.size() <= 1) return true;
     for (int i = 1; i < lst.size(); i++) {
