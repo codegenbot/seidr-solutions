@@ -13,17 +13,10 @@ string squareDigits(string input) {
 }
 
 int main() {
-    int input;
+    string input;
     cout << "Enter a positive integer: ";
     cin >> input;
-    string output = squareDigits(to_string(input));
+    string output = squareDigits(input);
     cout << "Squared digits: " << output << endl;
-    
-    long long squaredInteger = 0; 
-    for(char c : output) {
-        int digit = c - '0';
-        squaredInteger = squaredInteger * 10 + digit * digit;
-    }
-    cout << "Squared Integer: " << squaredInteger << endl;
     return 0;
 }
