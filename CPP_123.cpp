@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,24 +5,22 @@
 bool same(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
-        if (std::find(a.begin(), a.end(), b[i]) == a.end()) return false;
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
 int main() {
+    std::cout << "Enter the number: ";
     int n;
-    std::cout << "Enter an integer: ";
     std::cin >> n;
     std::vector<int> result = get_odd_collatz(n);
-    if (same(get_odd_collatz(n), {1})) {
-        for (auto i : result) {
-            std::cout << i << " ";
-        }
-        std::cout << "\n";
-    } else {
-        std::cout << "No odd Collatz sequence.\n";
+    std::cout << "The Collatz sequence for " << n << " is: ";
+    for (int i : result) {
+        std::cout << i << " ";
     }
+    std::cout << std::endl;
+
     return 0;
 }
 
