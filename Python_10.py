@@ -1,10 +1,11 @@
+```
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
 
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
-        return string + "".join([string])
+        return string + string
     else:
-        reverse_half = string[::-1]
-        return "".join([reverse_half[:1], string, reverse_half[1:]])
+        middle_char = string[0]
+        return string + middle_char + string[::-1] + middle_char
