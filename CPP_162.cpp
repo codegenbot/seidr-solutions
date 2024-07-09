@@ -12,7 +12,7 @@ string string_to_md5(string text) {
     
     string result;
     for(int i = 0; i < 16; ++i){
-        stringstream ss;
+        ostringstream ss;
         ss << hex << (int)md5[i];
         result += ss.str();
     }
