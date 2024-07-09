@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+
 std::vector<std::string> words_in_sentence(const std::string& sentence) {
     if (sentence.empty()) {
         return {};
@@ -22,5 +27,16 @@ std::vector<std::string> words_in_sentence(const std::string& sentence) {
         }
     }
 
-    return static_cast<std::vector<std::string>>(wordLengths); 
+    return wordLengths; 
+}
+
+int main() {
+    std::string sentence;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, sentence);
+
+    std::vector<std::string> wordLengths = words_in_sentence(sentence);
+    for (const auto& length : wordLengths) {
+        std::cout << length << '\n';
+    }
 }
