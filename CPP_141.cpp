@@ -1,28 +1,36 @@
-```cpp
-int digit_count = 0;
-bool has_dot = false;
-size_t dot_pos = string::npos;
+#include <cctype>
+using namespace std;
 
-for (char c : file_name) {
-    if (isdigit(c)) {
-        digit_count++;
-    } else if (c == '.') {
-        has_dot = true;
-        dot_pos = file_name.find(c);
+string file_name_check(string file_name) {
+    int dot_index = -1;
+    int digit_count = 0;
+    bool start_with_letter = false;
+
+    for (int i = 0; i < file_name.length(); ++i) {
+        char c = file_name[i];
+        if (c == '.') {
+            dot_index = i;
+        } else if (isdigit(c)) {
+            digit_count++;
+        } else if (!start_with_letter && isalpha(c)) {
+            start_with_letter = true;
+        }
     }
-}
 
-if (digit_count > 3 || !has_dot || dot_pos == string::npos) {
-    return "No";
-}
-
-string before_dot = file_name.substr(0, dot_pos);
-string after_dot = file_name.substr(dot_pos + 1);
-
-if (!before_dot.empty() && isalpha(before_dot[0])) {
-    if (after_dot == "txt" || after_dot == "exe" || after_dot == "dll") {
-        return "Yes";
+    if (dot_index < 0 || dot_index >= file_name.length() - 1) {
+        return "No";
     }
-}
+    string before_dot = file_name.substr(0, dot_index);
+    string after_dot = file_name.substr(dot_index + 1);
 
-return "No";
+    if (!start_with_letter || digit_count > 3) {
+        return "No";
+    }
+
+    set<string> extensions = {"txt", "exe", "dll"};
+    if (find(extensions.begin(), extensions.end(), after_dot) == extensions.end()) {
+        return "No";
+    }
+
+    return "Yes";
+}
