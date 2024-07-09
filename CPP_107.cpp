@@ -11,7 +11,7 @@ vector<int> even_odd_palindrome(int n) {
 
     for (int i = 1; i <= n; i++) {
         string str = to_string(i);
-        if (str == std::to_string(stoi(str)) && !str.empty())
+        if (str == std::to_string(stoi(str)) && ispalindrome(str))
             if (stoi(str) % 2 == 0)
                 count_even++;
             else
@@ -22,3 +22,13 @@ vector<int> even_odd_palindrome(int n) {
     result[1] = count_odd;
 
     return result;
+}
+
+bool ispalindrome(string str) {
+    string temp = str;
+    reverse(temp.begin(), temp.end());
+    if (temp == str)
+        return true;
+    else
+        return false;
+}
