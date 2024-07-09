@@ -1,3 +1,5 @@
+#include <vector>
+
 bool monotonic(vector<float> l) {
     bool increasing = true;
     bool decreasing = true;
