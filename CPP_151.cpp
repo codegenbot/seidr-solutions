@@ -10,3 +10,9 @@ long long double_the_difference(std::vector<float> lst) {
     }
     return sum;
 }
+
+int main() {
+    std::vector<float> numbers = {1.0f, 2.0f, 3.0f};
+    long long result = double_the_difference(numbers);
+    return 0;
+}
