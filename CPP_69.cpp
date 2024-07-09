@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <map>
@@ -36,9 +35,8 @@ int search(std::vector<int> lst) {
         }
     }
     for (auto it = freq.begin(); it != freq.end(); ++it) {
-        auto found = freq.find(it->first);
-        if (found != freq.end() && found->second >= found->first && found->first > 0) {
-            return found->first;
+        if (it->second >= it->first && it->first > 0) {
+            return it->second; // Return the value, not the key
         }
     }
     return -1;
