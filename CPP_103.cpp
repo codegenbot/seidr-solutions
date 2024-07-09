@@ -8,7 +8,5 @@ std::string calculateBinary(int a, int b){
 
 int main() {
     int rounded_avg = std::stoi(calculateBinary(5, 5), nullptr, 2);
-    assert(std::to_string(rounded_avg) == "101");
-    
-    return 0;
+    assert(std::bitset<8>(rounded_avg).to_string() == "101");
 }
