@@ -13,8 +13,7 @@ int main() {
     std::cout << "Enter the number of coefficients: ";
     std::cin >> n;
 
-    std::vector<double> coeffs = {};
-    coeffs.resize(n);
+    std::vector<double> coeffs(n); // Modified line
 
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter coefficient " << i+1 << ": ";
