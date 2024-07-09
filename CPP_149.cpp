@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -18,7 +17,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 std::vector<string> sorted_list_sum(std::vector<std::string> lst) {
-    std::vector<string> result(0);
+    std::vector<string> result(0); // Initialize result with 0 capacity
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
