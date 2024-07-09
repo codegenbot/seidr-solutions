@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -10,7 +10,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0;
     for (const auto& s : lst1) {
         sum1 += std::stol(s); 
@@ -25,8 +25,8 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    std::vector<std::string> lst1 = {"this"};
-    std::vector<std::string> lst2 = {};
+    vector<string> lst1 = {"this"};
+    vector<string> lst2 = {};
     if (!issame(total_match(lst1, lst2), {})) {
         std::cout << "Test failed" << std::endl;
     } else {
