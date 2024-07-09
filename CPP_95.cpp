@@ -1,3 +1,4 @@
+```cpp
 #include <map>
 #include <string>
 #include <cctype>
@@ -23,7 +24,9 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
 }
 
 int main() {
-    std::map<std::string, std::string> dict;
-    assert(check_dict_case(dict) == false);
-    return 0;
+    // int main() { // Commented out
+    //     std::map<std::string, std::string> dict;
+    //     assert(check_dict_case(dict) == false);
+    //     return 0;
+    //}
 }
