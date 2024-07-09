@@ -19,29 +19,18 @@ vector<string> reverse_delete(string s, string c) {
             temp += s[i];
         }
     }
+    
     result.push_back(temp);
     
     string palindromCheck = temp;
     reverse(palindromCheck.begin(), palindromCheck.end());
     
-    for (int i = 0; i < s.length(); i++) {
-        bool found = false;
-        for (int j = 0; j < c.length(); j++) {
-            if (s[i] == c[j]) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            temp += s[i];
-        }
+    while (temp.length() > 0) {
+        result.push_back(string(1, temp[0]));
+        temp.erase(0, 1);
     }
-    result.push_back(temp);
     
-    string check = temp;
-    reverse(check.begin(), check.end());
-    
-    if (check == temp) {
+    if (palindromCheck == temp) {
         result.push_back("True");
     } else {
         result.push_back("False");
