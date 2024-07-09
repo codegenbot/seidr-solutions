@@ -1,7 +1,6 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <openssl/evp.h>
-#include <openssl/aes.h>
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
@@ -32,7 +31,8 @@ std::string string_to_md5(std::string text) {
     return result;
 }
 
-int main() {
+int main 
+{
     std::string text;
     std::cout << "Enter a string: ";
     std::getline(std::cin, text);
