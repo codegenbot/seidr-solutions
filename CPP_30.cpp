@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 
@@ -18,16 +17,4 @@ std::vector<float> get_positive(const std::vector<float>& l) {
             result.push_back(num);
     }
     return result;
-}
-
-int main() {
-    std::vector<float> input;
-    float num;
-    while(std::cin >> num) {
-        input.push_back(num);
-    }
-    std::vector<float> result = get_positive(input);
-    if (!issame(result, {0.5f, 1.0f, 2.0f}))
-        return 1;
-    return 0;
 }
