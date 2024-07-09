@@ -1,6 +1,6 @@
+```
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::vector<std::string> all_prefixes(const std::string& str) {
     std::vector<std::string> prefixes;
@@ -10,7 +10,7 @@ std::vector<std::string> all_prefixes(const std::string& str) {
     return prefixes;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
