@@ -1,7 +1,10 @@
 def add(numbers):
     return sum(numbers)
 
-print("Enter numbers separated by spaces:")
-numbers = [int(num) for num in input().strip().split()]
-result = add(numbers)
-print(result)
+def check():
+    print("Enter numbers separated by spaces:")
+    numbers = list(map(int, input().split()))
+    result = add(numbers)
+    print("Result of addition:", result)
+
+check()
