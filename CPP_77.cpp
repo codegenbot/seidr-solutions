@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -19,4 +20,12 @@ int main(){
         std::cout << n << " is a perfect cube.\n";
     else
         std::cout << n << " is not a perfect cube.\n";
-    return 0;
+    if(iscuber(n)){
+        int i = 1;
+        while (pow(i, 3) <= n) {
+            if (pow(i, 3) == n)
+                std::cout << i << " * " << i << " * " << i << " = " << n << ".\n";
+            i++;
+        }
+    }
+}
