@@ -31,17 +31,17 @@ int main() {
         int num; 
         while (!(std::cout << "Enter element " << i + 1 << ": ") || !std::cin) {
             if (!std::cin)
-                std::cout << "Invalid input. Please enter a positive integer.\n";
+                std::cout << "Invalid input. Please enter an integer.\n";
             else
-                std::cout << "Please enter a positive integer.\n";
+                std::cout << "Please enter an integer.\n";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        while (!(std::cin >> num) || (num <= 0)) {
+        while (!(std::cin >> num) || num < 1) {
             if (!std::cin)
-                std::cout << "Invalid input. Please enter a positive integer.\n";
+                std::cout << "Invalid input. Please enter a positive integer greater than 0.\n";
             else
-                std::cout << "Please enter a positive integer.\n";
+                std::cout << "Please enter a positive integer greater than 0.\n";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
