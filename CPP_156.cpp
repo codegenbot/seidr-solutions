@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 std::string int_to_mini_roman(int num) {
     std::string roman[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
                           "", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
@@ -10,63 +13,63 @@ std::string int_to_mini_roman(int num) {
                           "", "C", "CI", "CII", "CIII", "CIV", "CV", "CVI", "CVII", "CVIII", "CX", "CXI", "CXII", "CXIII", "CXIV", "CXV", "CXVI", "CXVII", "CXVIII", "CXIX", "CXX",
                           "", "CXXI", "CXXII", "CXXIII", "CXXIV", "CXXV", "CXXVI", "CXXVII", "CXXVIII", "CXXIX", "CXXX",
                           "", "CXXXI", "CXXXII", "CXXXIII", "CXXXIV", "CXXXV", "CXXXVI", "CXXXVII", "CXXXVIII", "CXXXIX", "CXL",
-                          "", "CXLI", "CXLII", "CXLIII", "CXLIV", "CXLV", "CXLVI", "CXLVII", "CXLVIII", "CXLIX", "CV"};
+                          "", "CXLI", "CXLII", "CXLIII", "CXLIV", "CXLV", "CXLVI", "CXLVII", "CXLVIII", "CXLIX", "LX",
+                          "", "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX"};
+
     std::string result = "";
-    
-    if (num >= 1000) {
-        int count = num / 1000;
-        for(int i=0; i <count; i++){
-            result += "M";
-        }
-        num %= 1000;
-    }
-    
-    if (num >= 900) {
-        result += "CM" + int_to_mini_roman(num - 900).substr(1);
-        return result;
-    } else if (num >= 500) {
-        result += "D" + int_to_mini_roman(num - 500).substr(1);
-        return result;
-    } else if (num >= 400) {
-        result += "CD" + int_to_mini_roman(num - 400).substr(1);
-        return result;
-    }
-    
+
     while (num > 0) {
-        if (num >= 100) {
-            result += roman[13];
-            num -= 100;
+        if (num >= 1000) {
+            num -= 1000;
+            result += "M";
+        } else if (num >= 900) {
+            num -= 900;
+            result += "CM";
+        } else if (num >= 500) {
+            num -= 500;
+            result += "D";
+        } else if (num >= 400) {
+            num -= 400;
+            result += "CD";
+        } else if (num >= 100) {
+            for (int i = 0; i < num / 100; ++i) {
+                result += "C";
+                num -= 100;
+            }
         } else if (num >= 90) {
-            result += "XC";
             num -= 90;
+            result += "XC";
         } else if (num >= 50) {
-            result += roman[49];
-            num -= 50;
+            for (int i = 0; i < num / 50; ++i) {
+                result += "L";
+                num -= 50;
+            }
         } else if (num >= 40) {
-            result += "XL";
             num -= 40;
+            result += "XL";
         } else if (num >= 10) {
-            for(int i=0; i <(num / 10); i++){
-                result += roman[9];
+            for (int i = 0; i < num / 10; ++i) {
+                result += "X";
+                num -= 10;
             }
-            num %= 10;
         } else if (num >= 9) {
-            result += "IX";
             num -= 9;
+            result += "IX";
         } else if (num >= 5) {
-            for(int i=0; i <(num / 5); i++){
-                result += roman[4];
+            for (int i = 0; i < num / 5; ++i) {
+                result += "V";
+                num -= 5;
             }
-            num %= 5;
         } else if (num >= 4) {
-            result += "IV";
             num -= 4;
+            result += "IV";
         } else {
-            for(int i=0; i <num; i++){
-                result += roman[1];
+            for (int i = 0; i < num; ++i) {
+                result += "I";
+                num--;
             }
         }
     }
-    
+
     return result;
 }
