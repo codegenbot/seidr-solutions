@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <string>
 
 using namespace std;
 
@@ -16,8 +17,6 @@ int do_algebra(vector<string> ops, vector<int> nums) {
         } else if (ops[i] == "*") {
             temp *= nums[i];
         } else if (ops[i] == "/") {
-            if(nums[i] == 0)
-                throw runtime_error("Cannot divide by zero");
             temp /= nums[i];
         } else if (ops[i] == "^") {
             temp = pow(temp, nums[i]);
@@ -37,23 +36,24 @@ int main() {
     
     for (int i = 0; i < n; i++) {
         string op;
-        string strNum;
-        
+        string strOp, strNum;
+
         cout << "Enter operation (+, -, *, /, ^): ";
-        cin >> op;
+        cin >> strOp;
+        
         cout << "Enter number: ";
         cin >> strNum;
-        int num = std::stoi(strNum);
         
-        ops.push_back(op);
-        nums.push_back(num);
+        try {
+            int num = stoi(strNum);
+            ops.push_back(strOp);
+            nums.push_back(num);
+        } catch (invalid_argument e) {
+            // Handle non-integer values
+        }
     }
 
-    try {
-        cout << "Result: " << do_algebra(ops, nums) << endl;
-    } catch (const runtime_error& e) {
-        cerr << e.what() << endl;
-    }
+    cout << "Result: " << do_algebra(ops, nums) << endl;
 
     return 0;
 }
