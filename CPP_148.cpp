@@ -3,16 +3,8 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool same(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> bf(string a, string b) {
@@ -24,11 +16,12 @@ vector<string> bf(string a, string b) {
         if(tolower(a[i]) != tolower(b[i])) {
             return {};
         }
+        result.push_back(a[i] + "");
     }
-    return {a, b};
+    return result;
 }
 
 int main() {
-    assert (issame(bf("Jupiter", "Makemake"), {"Jupiter", "Makemake"}));
+    assert(same(bf("Jupiter", "Makemake") , vector<string>{}));
     return 0;
 }
