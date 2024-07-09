@@ -1,29 +1,36 @@
-Here is the completed code:
+#include <cctype>
+using namespace std;
 
-string file_name_check(string file_name){
+string file_name_check(string file_name) {
+    int dot_index = -1;
     int digit_count = 0;
-    bool has_dot = false;
-    string before_dot;
+    bool start_with_letter = false;
 
-    for(int i=0; i<file_name.size(); i++){
+    for (int i = 0; i < file_name.length(); ++i) {
         char c = file_name[i];
-        if(isdigit(c)){
+        if (c == '.') {
+            dot_index = i;
+        } else if (isdigit(c)) {
             digit_count++;
-            if(digit_count > 3) return "No";
-        }else if(c == '.'){
-            has_dot = true;
-            break;
-        }else{
-            before_dot += c;
+        } else if (!start_with_letter && isalpha(c)) {
+            start_with_letter = true;
         }
     }
 
-    if(!has_dot || before_dot.empty() || !isalpha(before_dot[0])) return "No";
+    if (dot_index < 0 || dot_index >= file_name.length() - 1) {
+        return "No";
+    }
+    string before_dot = file_name.substr(0, dot_index);
+    string after_dot = file_name.substr(dot_index + 1);
 
-    string after_dot = file_name.substr(file_name.find('.') + 1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    bool is_valid_extension = find(valid_extensions.begin(), valid_extensions.end(), after_dot) != valid_extensions.end();
+    if (!start_with_letter || digit_count > 3) {
+        return "No";
+    }
 
-    if(is_valid_extension) return "Yes";
-    else return "No";
+    set<string> extensions = {"txt", "exe", "dll"};
+    if (find(extensions.begin(), extensions.end(), after_dot) == extensions.end()) {
+        return "No";
+    }
+
+    return "Yes";
 }

@@ -1,7 +1,7 @@
-```cpp
+#include <iostream>
 #include <vector>
 
-int solution(vector<int> lst) {
+int solution(std::vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
@@ -9,4 +9,25 @@ int solution(vector<int> lst) {
         }
     }
     return sum;
+}
+
+int main() {
+    std::vector<int> input;
+    int n;
+    
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    input.resize(n);
+
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        std::cin >> input[i];
+    }
+
+    int result = solution(input);
+    
+    std::cout << "The sum of odd numbers is: " << result << std::endl;
+    
+    return 0;
 }
