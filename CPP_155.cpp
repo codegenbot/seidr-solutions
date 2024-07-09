@@ -1,15 +1,20 @@
-```cpp
 #include <vector>
 #include <iostream>
 
 bool areEqual(std::vector<int> a, std::vector<int> b) {
-    return (a == b);
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < (int)a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> even_odd_count(int num) {
-    int e = 0, o = 0;
-    std::vector<int> result(2);
-    result[0] = e; result[1] = o;
+    std::vector<int> result(2, 0);
     while (num != 0) {
         int digit = num % 10;
         if (digit % 2 == 0)
