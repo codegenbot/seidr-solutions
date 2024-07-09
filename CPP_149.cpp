@@ -3,15 +3,20 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
+std::string sorted_list_sum(std::vector<std::string> strings) {
+    std::sort(strings.begin(), strings.end());
+    std::string result;
+    for (const auto& str : strings) {
+        result += str;
+    }
+    return result;
+}
 
-bool issame(vector<string> a, vector<string> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
+bool issame(std::string str1, std::string str2) {
+    return str1 == str2;
 }
 
 int main() {
-    assert(issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"}));
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), sorted_list_sum({"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
