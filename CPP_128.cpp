@@ -1,6 +1,6 @@
-```cpp
-#include <vector>
 #include <cassert>
+#include <vector>
+#include <cstdlib>
 
 int productSigns(std::vector<int> inputArr) {
     int product = 1;
