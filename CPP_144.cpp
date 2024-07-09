@@ -1,4 +1,5 @@
 #include <functional>
+#include<string>
 using namespace std;
 
 bool simplify(string x, string n) {
@@ -14,6 +15,6 @@ bool simplify(string x, string n) {
     
     if(denominator == 0) return false;
     
-    int gcd = gcd(abs(numerator), abs(denominator));
+    int gcd = std::gcd(abs(numerator), abs(denominator));
     return (numerator / gcd == denominator / gcd);
 }
