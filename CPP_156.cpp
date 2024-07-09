@@ -1,1 +1,1 @@
-int_to_mini_roman
+assert (int_to_mini_roman(1000) == "M");
