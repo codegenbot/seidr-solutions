@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <cstdio>
 
 int basement(std::vector<int> nums) {
     int sum = 0;
@@ -14,21 +14,12 @@ int basement(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        int num;
-        std::cin >> num;
-        nums.push_back(num);
-    }
+    std::vector<int> nums = {-2, 3, 4};
     int result = basement(nums);
-    if(result == -1) {
-        std::cout << "No such index exists.\n";
+    if (result != -1) {
+        printf("Basement found at index %d\n", result);
     } else {
-        std::cout << "The first index where the sum becomes negative is: " << result << "\n";
+        printf("No basement found.\n");
     }
     return 0;
 }
