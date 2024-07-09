@@ -22,5 +22,3 @@ int main() {
 
         return class_name + "." + strongest_extension;
     }
-
-}
