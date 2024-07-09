@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 bool isPrime(int n) {
