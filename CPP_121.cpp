@@ -25,6 +25,7 @@ int solutions(std::vector<int> lst) {
 int main() {
     std::vector<int> lst;
     int num;
+    lst.reserve(10); // initialize with a default size of 10
     while (std::cin >> num) {
         lst.push_back(num);
     }
