@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cmath>
 #include <cassert>
-#include <boost/algorithm/string.hpp>
 
 using namespace std;
 
@@ -33,13 +32,7 @@ double find_zero(vector<double> xs){
 int main() {
     vector<double> xs; // input coefficients
     cout << "Enter coefficients (space separated): ";
-    for(string s; getline(cin, s);) {
-        istringstream iss(s);
-        double val;
-        while(iss >> val) {
-            xs.push_back(val);
-        }
-    }
+    for(double x; cin >> x) xs.push_back(x);
     double solution = find_zero(xs);
     vector<double> coeffs;
     for (int i = 1; i < xs.size(); i++) {
@@ -47,6 +40,6 @@ int main() {
             coeffs.push_back(xs[i] / xs[i-1]);
         }
     }
-    assert (abs(poly(coeffs, solution))< 1e-3);
+    assert(abs(poly(coeffs, solution))< 1e-3);
     return 0;
 }
