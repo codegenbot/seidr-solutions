@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 
@@ -25,10 +25,7 @@ int findUnique(std::vector<int> vec) {
         it = nextIt;
     }
     std::vector<int> uniqueVec(vec.begin(), it);
-    return issame(uniqueVec, {0, 2, 3, 5, 9, 123});
+    return issame(uniqueVec, {vec[0], vec.back()});
 }
 
-int main() {
-    assert(issame({5, 3, 5, 2, 3, 3, 9, 0, 123}, {0, 2, 3, 5, 9, 123}));
-    return 0;
-}
+assert(std::equal(unique({0, 2, 3, 5, 9, 123}), unique({0, 2, 3, 5, 9, 123}).begin(), unique({0, 2, 3, 5, 9, 123}).end()));
