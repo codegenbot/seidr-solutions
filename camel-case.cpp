@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -17,18 +18,12 @@ std::string camelCase(std::string s) {
                 result.push_back(std::tolower(c));
             }
         } else if (!std::isalnum(s[i])) {
-            if (i > 0 && !std::isalnum(s[i-1])) {
-                continue;
-            }
-            if (result.back() == ' ') {
-                result.pop_back();
-            }
-            result.push_back(std::toupper(s[i]));
+            continue;
         } else {
             if (result.back() == ' ') {
                 result.pop_back();
             }
-            result.push_back(std::tolower(s[i]));
+            result.push_back(std::toupper(s[i]));
         }
     }
     return result;
@@ -37,8 +32,9 @@ std::string camelCase(std::string s) {
 int main() {
     std::string s;
     while (true) {
-        std::cout << "Enter a string in kebab-case: ";
+        std::cout << "Enter a string in kebab-case (type 'q' to quit): ";
         std::cin >> s;
+        if (s == "q") break; 
         std::cout << camelCase(s) << std::endl;
     }
     return 0;
