@@ -29,8 +29,8 @@ string spinWords(string str) {
 
 int main() {
     string str;
-    cout << "Enter a string of one or more words: ";
+    cout << "Enter a sentence: ";
     getline(cin, str);
-    cout << "Spin Words: " << spinWords(str) << endl;
+    cout << "Spin words: " << spinWords(str) << endl;
     return 0;
 }
