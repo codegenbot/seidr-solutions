@@ -13,5 +13,4 @@ int hex_key(string num) {
 
 int main() {
     assert(hex_key("") == 0);
-    
 }
