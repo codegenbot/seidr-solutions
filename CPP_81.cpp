@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool std::operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
         return false;
 
