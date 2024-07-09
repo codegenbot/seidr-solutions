@@ -1,4 +1,3 @@
-```
 import math
 
 def factorize(n: int) -> list[int]:
