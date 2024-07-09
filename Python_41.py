@@ -1,3 +1,3 @@
-def car_race_collision():
-    n = int(input("Enter the number of cars: "))
-    return n * (n - 1) if 2 <= n <= 10 else "Invalid input"
+```
+def car_race_collision(n: int):
+    return (n > 2) * n * (n - 1) // 2
