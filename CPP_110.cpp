@@ -1,5 +1,6 @@
-#include <string>
 #include <vector>
+#include <algorithm>
+#include <string>
 
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     for (int num : lst1) {
@@ -7,8 +8,7 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
             int found = 0;
             for (int num2 : lst2) {
                 if (num2 % 2 == 0 && num2 != num) {
-                    auto it = std::find(lst1.begin(), lst1.end(), num);
-                    *it = num2;
+                    std::swap(lst1[std::find(lst1.begin(), lst1.end(), num)], num2);
                     found = 1;
                     break;
                 }
@@ -17,4 +17,3 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
         }
     }
     return "YES";
-}
