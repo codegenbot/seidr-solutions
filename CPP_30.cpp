@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -11,11 +12,11 @@ std::vector<float> get_positive(std::vector<float> l){
     return result;
 }
 
-bool are_equal(vector<float> a, vector<float> b){
+bool same(vector<float> a,vector<float>b){
     return std::equal(a.begin(),a.end(),b.begin());
 }
 
 int main() {
-    assert (are_equal(get_positive({}), {}) );
+    assert(same(get_positive({}), {}) );
     return 0;
 }
