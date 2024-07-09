@@ -20,7 +20,13 @@ vector<string> filter_by_prefix(const vector<string>& strings, const string& pre
 }
 
 int main(){
-    assert(issame(filter_by_prefix({"apple", "banana", "apricot", "cherry"}, "ap"), {"apple", "apricot"}));
+    vector<string> test_strings = {"apple", "banana", "apricot", "cherry"};
+    string test_prefix = "ap";
+    vector<string> filtered_strings = filter_by_prefix(test_strings, test_prefix);
+
+    vector<string> expected_result = {"apple", "apricot"};
+    assert(issame(filtered_strings, expected_result));
+
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
 
     return 0;
