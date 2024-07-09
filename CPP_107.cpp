@@ -33,7 +33,7 @@ vector<int> even_odd_palindrome(int n) {
     return result;
 }
 
-int main() {
+void main() {
     int n;
     cin >> n;
     vector<int> res = even_odd_palindrome(n);
