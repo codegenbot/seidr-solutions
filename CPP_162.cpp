@@ -1,6 +1,7 @@
 #include <string>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
+#include <openssl/evp.h>
 #include <sstream>
 #include <iomanip>
 
