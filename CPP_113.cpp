@@ -4,22 +4,12 @@
 
 using namespace std;
 
-void main_func() {
-    int n;
-    cin >> n;
+vector<string> odd_count(vector<string> lst);
 
-    vector<string> lst(n);
-
-    for(int i = 0; i < n; i++) {
-        string str;
-        getline(cin, str);
-        lst[i] = str;
+void displayOutput(vector<string> output) {
+    for (string s : output) {
+        cout << s << endl;
     }
-
-    vector<string> output = odd_count(lst);
-    displayOutput(output);
-
-    return;
 }
 
 vector<string> odd_count(vector<string> lst) {
@@ -38,8 +28,20 @@ vector<string> odd_count(vector<string> lst) {
     return result;
 }
 
-void displayOutput(vector<string> output) {
-    for (string s : output) {
-        cout << s << endl;
+int main() {
+    int n;
+    cin >> n;
+
+    vector<string> lst(n);
+
+    for(int i = 0; i < n; i++) {
+        string str;
+        getline(cin, str);
+        lst[i] = str;
     }
+
+    vector<string> output = odd_count(lst);
+    displayOutput(output);
+
+    return 0;
 }
