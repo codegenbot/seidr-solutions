@@ -1,4 +1,3 @@
-```cpp
 double find_zero(vector<double> coeffs, double& coeff){
     int n = coeffs.size();
     double a = coeff;
