@@ -1,4 +1,5 @@
 #include <climits>
+
 vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
@@ -14,4 +15,3 @@ vector<int> largest_smallest_integers(vector<int> lst){
     
     return {largest_negative, smallest_positive};
 }
-bool issame(vector<int> a, vector<int> b);
