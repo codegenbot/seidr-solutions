@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     std::vector<std::string> result;
