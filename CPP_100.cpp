@@ -2,11 +2,10 @@
 #include <vector>
 
 int make_a_pile(int n) {
-    std::vector<int> pile;
+    vector<int> pile;
     for (int i = 2; i <= n; ++i) {
-        if (i % 2 != 0) {
+        if (i % 2 == 0)
             pile.push_back(i);
-        }
     }
     return pile.size();
 }
@@ -20,6 +19,6 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(issame(make_a_pile(8), {2, 4, 6, 8, 10, 12, 14, 16}));
     return 0;
 }
