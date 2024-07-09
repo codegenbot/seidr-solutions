@@ -1,20 +1,20 @@
-#include <vector>
-#include <string>
 #include <algorithm>
 #include <cctype>
+#include <vector>
 
-bool is_same(char c1, char c2) {
-    return tolower(c1) == tolower(c2);
+bool isvowel(char ch) {
+    ch = tolower(ch);
+    return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
 }
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word = "";
     for (char c : s) {
         if (isalpha(c)) {
             word += tolower(c);
         } else if (!word.empty()) {
-            bool has_n_consonants = count(word.begin(), word.end(), [&](unsigned char ch) { return !ispunct(ch) && !isvowel(ch); }) == n;
+            bool has_n_consonants = count(word.begin(), word.end(), [](unsigned char ch) { return !isvowel(ch); }) == n;
             if (has_n_consonants) {
                 result.push_back(word);
             }
