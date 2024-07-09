@@ -10,4 +10,4 @@ def encode(message):
             result += char
     return result
 
-print(encode("I DoNt KnOw WhAt tO WrItE"))
+print(encode("""I DoNt KnOw WhAt tO WrItE"""))
