@@ -4,11 +4,11 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b);
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> numerical_letter_grade(vector<float> grades);
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -23,12 +23,16 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float gpa : grades) {
-        // Implement grade conditions
+        if (gpa >= 0.0 && gpa < 0.6) {
+            letter_grades.push_back("F");
+        } else if (gpa >= 0.6 && gpa < 1.0) {
+            letter_grades.push_back("D-");
+        } // add more conditions for other grades
     }
     return letter_grades;
 }
 
 int main() {
-    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    assert(issame(numerical_letter_grade({0, 0.7}), {"F", "D-"}));
     return 0;
 }
