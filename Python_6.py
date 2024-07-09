@@ -1,4 +1,5 @@
 from typing import List
+
 def parse_nested_parens() -> List[int]:
     paren_string = input("Enter the nested parentheses string: ")
     return [
