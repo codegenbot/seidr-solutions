@@ -1,12 +1,9 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
-using std::cout;
-using std::endl;
-using std::vector;
-using std::string;
+using namespace std;
 
 vector<string> odd_count(vector<string> lst);
 
@@ -19,7 +16,7 @@ void displayOutput(vector<string> output) {
 int main() {
     vector<string> lst;
     string temp;
-    while(getline(cin,temp)) 
+    while(getline(cin,temp) && !temp.empty()) 
         lst.push_back(temp);
     vector<string> output = odd_count(lst);
     displayOutput(output);
@@ -37,8 +34,9 @@ vector<string> odd_count(vector<string> lst) {
         }
         string temp = "the number of odd elements is ";
         temp += to_string(count);
-        temp += " in the ";
-        temp += to_string(i) + " string.";
+        temp += " in the string";
+        temp += to_string(i + 1);
+        temp += ".";
         result.push_back(temp);
     }
     return result;
