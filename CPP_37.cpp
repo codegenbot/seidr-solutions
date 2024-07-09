@@ -1,9 +1,5 @@
-Here's the modified code with the added include statement and a few minor improvements for clarity:
-
-```cpp
 #include <algorithm>
 #include <vector>
-#include <initializer_list>
 
 namespace myspace {
     bool issame(const std::vector<float>& a, const std::vector<float>& b) {
@@ -19,11 +15,10 @@ namespace myspace {
         int evenIndex = 0;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                auto it = std::minmax_element(l.begin(), l.end(),
-                    [](float a, float b){ return a<b; });
-                result[i] = *(it.first);
+                auto it = std::max_element(l.begin(), l.end()); // Changed minmax to max_element
+                result[i] = *it;
                 for(int j = 0; j < l.size(); j++){
-                    if(j%2==0 && l[j] != *(it.first)){
+                    if(j%2==0 && l[j] != *it){ // Changed (it.first) to (*it)
                         result[evenIndex++] = l[j];
                     }
                 }
@@ -35,8 +30,8 @@ namespace myspace {
     }
 }
 
-int main() {
-    std::vector<float> input(10);
+int cpp_main() { // Renamed main to cpp_main
+    std::vector<float> input(10); 
     input.push_back(5);
     input.push_back(8);
     input.push_back(-12);
