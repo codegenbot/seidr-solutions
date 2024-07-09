@@ -10,39 +10,39 @@ vector<float> get_positive(vector<float> l){
 }
 
 bool issame(vector<float> v1, vector<float> v2) {
-    if(v1.size() != v2.size()) {
-        return false;
-    }
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i]) {
+    if(v1.size() != v2.size()) 
+        return false; 
+    for(int i = 0; i < v1.size(); i++) 
+        if(v1[i] != v2[i]) 
             return false;
-        }
-    }
     return true;
 }
 
-int main(){
-    vector<float> numbers;
+int main() {
+    vector<float> l1, l2;
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
-    
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++) {
         float x;
         cout << "Enter element " << (i+1) << ": ";
         cin >> x;
-        numbers.push_back(x);
+        l1.push_back(x);
     }
-    
-    vector<float> pos_nums = get_positive(numbers);
-    
-    if(pos_nums.size() > 0){
-        bool same = issame({pos_nums[0]}, pos_nums);
-        cout << "All positive numbers are the same: " << (same ? "Yes" : "No") << endl;
+    vector<float> pos_l1 = get_positive(l1);
+    int m;
+    cout << "Enter the number of elements: ";
+    cin >> m;
+    for(int i = 0; i < m; i++) {
+        float y;
+        cout << "Enter element " << (i+1) << ": ";
+        cin >> y;
+        l2.push_back(y);
     }
-    else{
-        cout << "No positive numbers found." << endl;
-    }
-    
+    vector<float> pos_l2 = get_positive(l2);
+    if(issame(pos_l1, pos_l2))
+        cout << "The two lists are the same." << endl;
+    else
+        cout << "The two lists are not the same." << endl;
     return 0;
 }
