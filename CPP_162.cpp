@@ -17,9 +17,8 @@ string string_to_md5(string text) {
     int ret = EVP_Digest(text.c_str(), text.size(), &d, &len, EVP_md_md5(), &md_ctx);
     
     string md5_hash;
-    char temp[3];
     for (int i = 0; i < 16; ++i) {
-        sprintf(temp, "%02x", d[i]); 
+        sprintf(temp, "%02x", d[i]); // temp is a char array of sufficient size
         md5_hash += string(temp);
     }
     
