@@ -1,4 +1,4 @@
-```c++
+```
 #include <iostream>
 #include <string>
 
@@ -16,7 +16,13 @@ bool correct_bracketing(const std::string& s) {
 }
 
 int main() {
-    assert(correct_bracketing("()()(()())")); 
-    std::cout << "Correct bracketing test passed." << std::endl;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    if (correct_bracketing(input)) {
+        std::cout << "Correct bracketing." << std::endl;
+    } else {
+        std::cout << "Incorrect bracketing." << std::endl;
+    }
     return 0;
 }
