@@ -1,7 +1,11 @@
+```cpp
 #include <vector>
 #include <utility>
+#include <unordered_map>
 
-std::pair<int, int> findPair(std::vector<int>& nums, int target) {
+#include <initializer_list>
+
+std::pair<int,int> findPair(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numMap;
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
@@ -10,5 +14,4 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    throw std::runtime_error("No pair found that sums to the target");
-}
+    return std::pair<int,int>(-1, -1);
