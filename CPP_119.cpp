@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -20,6 +21,15 @@ std::string match_parens(std::vector<std::string> lst) {
     return (open == 0 && close <= 1) ? "Yes" : "No";
 }
 
-void main() {
-    assert (match_parens({")", "("}) == "Yes" );
+int main() {
+    std::vector<std::string> input;
+    std::string str;
+
+    while (std::cin >> str) {
+        input.push_back(str);
+    }
+
+    std::cout << match_parens(input) << std::endl;
+
+    return 0;
 }
