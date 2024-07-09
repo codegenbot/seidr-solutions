@@ -14,8 +14,8 @@ int main() {
     for (const auto& str : strings) {
         std::string md5_str = string_to_md5(str);
         std::stringstream ss;
-        ss << std::setw(10) << (int)md5_str.size();
-        std::cout << ss.str() << "\n";
+        ss << std::setw(10) << md5_str.size();
+        std::cout << ss.str() << std::endl;
     }
     return 0;
 }
