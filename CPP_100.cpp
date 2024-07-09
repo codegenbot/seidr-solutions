@@ -1,12 +1,15 @@
 ```cpp
 #include <vector>
 #include <initializer_list>
-#include <string>
 
 using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
+}
+
+bool issame(const vector<int>& a, const initializer_list<int>& b) {
+    return a == vector<int>(b);
 }
 
 vector<int> make_a_pile(int n) {
