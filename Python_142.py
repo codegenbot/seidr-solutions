@@ -10,7 +10,7 @@ def sum_squares():
         except ValueError:
             print("Invalid input. Please enter numbers separated by spaces.")
 
-    result = sum(x**2 for i, x in enumerate(lst) if (i+1)%3==0 or i==len(lst)-1)
+    result = sum(x**2 for x in lst)
 
     return result
 
