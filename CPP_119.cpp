@@ -3,7 +3,10 @@
 #include <vector>
 #include <string>
 
-using namespace std;
+using std::cout;
+using std::cin;
+using std::vector;
+using std::string;
 
 bool match_parens(vector<string> lst) {
     int open = 0, close = 0;
@@ -22,7 +25,7 @@ int main() {
     cin >> n;
     for(int i = 0; i < n; i++) {
         string s;
-        getline(cin, s);
+        cin >> s;
         lst.push_back(s);
     }
     if(match_parens(lst))
