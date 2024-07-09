@@ -3,7 +3,21 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
+vector<int> factorize(int n);
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> factors = factorize(n);
+    for (int factor : factors) {
+        cout << factor << " ";
+    }
+    return 0;
+}
 
 vector<int> factorize(int n){
     vector<int> factors;
@@ -17,21 +31,4 @@ vector<int> factorize(int n){
         factors.push_back(n);
     }
     return factors;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    // Main function code here
-    return 0;
 }
