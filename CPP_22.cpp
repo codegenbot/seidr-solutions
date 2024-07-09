@@ -1,10 +1,13 @@
 #include <boost/any_cast.hpp>
 
-vector<int> filter_integers(list-any values) {
+vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value, true).has_value()) {
-            result.push_back(boost::any_cast<int>(value));
+        try {
+            int val = boost::any_cast<int>(value);
+            result.push_back(val);
+        } catch (...) {
+            // ignore non-int values
         }
     }
     return result;
