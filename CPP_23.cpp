@@ -2,5 +2,6 @@
 
 int main() {
     assert(strlen("asdasnakj") == 9);
-    return 0;
+    std::string str = "asdasnakj";
+    return str.length();
 }
