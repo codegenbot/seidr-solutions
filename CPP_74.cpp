@@ -9,7 +9,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-int total_match(vector<string> lst1, vector<string> lst2) {
+int compare(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0, sum2 = 0;
     for (const string& s : lst1) sum1 += s.size();
     for (const string& s : lst2) sum2 += s.size();
@@ -23,7 +23,7 @@ int total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    int result = total_match({"this"}, {});
+    int result = compare({"this"}, {});
     assert(result == 0);
     return 0;
 }
