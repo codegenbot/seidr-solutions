@@ -1,17 +1,25 @@
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        bool has_positive_sum = false;
-        long abs_num = labs(num);
-        while (abs_num > 0) {
-            if ((abs_num % 10) != 0) {
-                has_positive_sum = true;
-                break;
+        if (num >= 0) {
+            int sum = 0;
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
             }
-            abs_num /= 10;
-        }
-        if (has_positive_sum) {
-            count++;
+            if (sum > 0) {
+                count++;
+            }
+        } else {
+            num = -num; // make it positive
+            int sum = 0;
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+            if (sum > 0) {
+                count++;
+            }
         }
     }
     return count;
