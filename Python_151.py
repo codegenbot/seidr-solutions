@@ -1,2 +1,2 @@
 def check(lst):
-    return check(lst=lst, double_the_difference(lst))
+    return lst[0] - double_the_difference(lst)
