@@ -15,21 +15,8 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    int n;
-    vector<int> numbers;
-    cout << "Enter number of elements: ";
-    cin >> n;
-
-    for(int i=0; i<n; i++){
-        cout << "Enter element: ";
-        int num;
-        cin >> num;
-        numbers.push_back(num);
-    }
-
-    int result = specialFilter(numbers);
-
-    cout << "Number of integers that meet the condition is: " << result << endl;
-
+    assert(specialFilter({}) == 0);
+    vector<int> numbers = {12,23,34,45,56,67,78};
+    cout << specialFilter(numbers) << endl;
     return 0;
 }
