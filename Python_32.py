@@ -7,8 +7,8 @@ def find_zero(xs: list):
     return -b / a
 
 
-# Read input as string and split to create a list of floats
-xs = [float(x) for x in input().split()]
+# Read input from user
+xs = list(map(float, input().split()))
 
 # Call the function with user input
 result = find_zero(xs)
