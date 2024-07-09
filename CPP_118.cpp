@@ -1,5 +1,7 @@
 #include <string>
-string get_closest_vowel(const string& word) {
+#include <cassert>
+
+string get_closest_vowel(const string &word) {
     string vowels = "aeiouAEIOU";
     int n = word.size();
     for (int i = n - 2; i >= 0; --i) {
