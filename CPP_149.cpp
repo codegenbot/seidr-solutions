@@ -1,9 +1,12 @@
-bool issame(string s1, string s2) {
-    if (s1.length() != s2.length())
+bool issame(string a, string b) {
+    if (a.length() != b.length()) {
         return false;
-    for (int i = 0; i < s1.length(); i++) {
-        if (s1[i] != s2[i])
-            return false;
     }
-    return true;
+    else {
+        return a == b;
+    }
+}
+
+int main() {
+    // Your code here
 }
