@@ -7,7 +7,7 @@ def encode(message):
             if char.lower() in vowels:
                 encoded_message += chr((ord(char) - ord("A") + 3) % 26 + ord("A")) if char.isupper() else chr((ord(char) - ord("a") + 3) % 26 + ord("a"))
             else:
-                encoded_message += chr((ord(char) - ord("A") + 3) % 26 + ord("A")) if char.isupper() else chr((ord(char) - ord("a") + 3) % 26 + ord("a")
+                encoded_message += chr((ord(char) - ord("A") + 3) % 26 + ord("A") if char.isupper() else chr((ord(char) - ord("a") + 3) % 26 + ord("a"))
         else:
             encoded_message += char
 
