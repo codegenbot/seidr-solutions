@@ -12,5 +12,5 @@ int int_to_mini_roman(int number) {
             result += romanNumerals[i];
         }
     }
-    return tolower(result[0] == 'i' ? 0 : 1);
+    return tolower(result[0] == 'm' ? result : result.substr(1));
 }
