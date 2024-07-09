@@ -1,13 +1,23 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
 int starts_one_ends(int n) {
-    int count = 0;
-    for (int i = 1; i <= 9; i++) {
-        if (i == 1 || i % 10 == 1) count++;
-        if (n > 1) {
-            for (int j = 1; j < pow(10, n - 1); j++) {
-                long long num = i * pow(10, n - 1) + j;
-                if ((i == 1 || i % 10 == 1) || (num % 10 == 1)) count++;
-            }
-        } else count++;
+    if(n<10)
+        return 1;
+    int ans = 2;
+    for(int i=1; i<=n-1; i++) {
+        string str = to_string(i);
+        if(str[0] == '1' || str[str.length()-1] == '1')
+            ans += 9;
+        else
+            ans += (str.length()-1)*8 + 2;
     }
-    return count;
+    return ans;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    cout << starts_one_ends(n);
 }
