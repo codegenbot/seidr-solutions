@@ -1,12 +1,10 @@
 #include <map>
+#include <string>
+#include <cassert>
 
-map<char, int> histogram(string s) {
-    map<char, int> hist;
-    for (char c : s) {
-        hist[c]++;
-    }
-    return hist;
-}
+using namespace std;
+
+map<char, int> histogram(string s); // Forward declaration
 
 bool issame(map<char, int> a, map<char, int> b) {
     if (a.size() != b.size()) {
@@ -20,4 +18,17 @@ bool issame(map<char, int> a, map<char, int> b) {
     }
     
     return true;
+}
+
+map<char, int> histogram(string s) {
+    map<char, int> hist;
+    for (char c : s) {
+        hist[c]++;
+    }
+    return hist;
+}
+
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
+    return 0;
 }
