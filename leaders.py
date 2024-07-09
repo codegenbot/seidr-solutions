@@ -1,7 +1,4 @@
 ```
-def leaders(input):
-    return [
-        x
-        for i, x in enumerate(reversed(input))
-        if all(x >= y for y in input[i + 1:])
-    ]
+def leaders(vector):
+    leaders = [vector[i] for i in range(len(vector) - 1, -1, -1)]
+    return [x for x in reversed(leaders)]
