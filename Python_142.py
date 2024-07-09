@@ -1,2 +1,3 @@
-```
-print(sum_squares([1, 2, 3, 4, 5]))
+numbers = input("Enter numbers separated by space: ").split()
+numbers = [int(num) for num in numbers]
+print(sum_squares(numbers))
