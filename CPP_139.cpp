@@ -1,6 +1,5 @@
-```
 #include <cassert>
-#include <iostream>
+using namespace std;
 
 long long special_factorial(int n){
     long long result = 1;
@@ -14,10 +13,10 @@ long long special_factorial(int n){
     return result;
 }
 
-int main(){
-    int n;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-    assert(special_factorial(n) == special_factorial(n)); // Check for correct function call
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    assert(special_factorial(num) == special_factorial(num)); // assert that the function is correct
     return 0;
 }
