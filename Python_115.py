@@ -1,15 +1,10 @@
-```
-from typing import List
-import math
-
-
+```Python
 def max_fill(grid: List[List[int]], capacity: int) -> int:
     total_water = 0
-    for i in range(len(grid)):
-        row_min = min(row[i] for row in grid)
-        for j in range(len(grid[0])):
-            if row_min < grid[i][j]:
-                total_water += (grid[i][j] - row_min) * capacity
-            else:
-                break
+    for row in grid:
+        min_row_value = min(row)
+        if total_water + (capacity - min_row_value) >= min_row_value:
+            total_water += capacity - min_row_value
+        else:
+            total_water += min_row_value
     return math.ceil(total_water / capacity)
