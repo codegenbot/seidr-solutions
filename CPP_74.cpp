@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -19,8 +20,20 @@ std::vector<std::string> total_match(std::vector<std::string> a, std::vector<std
     }
     if (sum1 < sum2) return a;
     else if (sum1 > sum2) return b;
-    else {
-        if (issame(a, b)) return a;
-        else return b;
+    else return a;
+}
+
+int main() {
+    std::vector<std::string> a = {"hello", "world"};
+    std::vector<std::string> b = {"hi", "there"};
+    if (issame(a, b)) {
+        std::cout << "The vectors are the same." << std::endl;
+    } else {
+        std::cout << "total_match function: ";
+        for (const auto& s : total_match(a, b)) {
+            std::cout << s << " ";
+        }
+        std::cout << std::endl;
     }
+    return 0;
 }
