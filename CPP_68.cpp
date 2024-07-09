@@ -1,10 +1,18 @@
-Here is the corrected code:
-
-```cpp
 #include <vector>
+#include <algorithm>
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+vector<vector<int>> pluck(vector<int> arr) {
+    vector<vector<int>> result;
     if (arr.empty()) return result;
 
     int smallest_even = INT_MAX;
@@ -17,8 +25,11 @@ std::vector<int> pluck(std::vector<int> arr) {
         }
     }
 
-    result.push_back(smallest_even);
-    result.push_back(index);
+    vector<int> output;
+    output.push_back(smallest_even);
+    output.push_back(index);
+
+    result.push_back(output);
 
     return result;
 }
