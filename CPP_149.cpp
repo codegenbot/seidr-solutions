@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <initializer_list>
@@ -16,17 +17,13 @@ bool issame(vector<string> a, vector<string> b) {
 
 }
 
-int sorted_list_sum(initializer_list<string> s) {
-    int sum = 0;
-    for (const auto& str : s) {
-        sum += str.length();
-    }
-    return sum;
+vector<string> sorted_list_sum(vector<string> input) {
+    sort(input.begin(), input.end());
+    return input;
 }
 
 int main() {
-    assert(issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"}));
-    int result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
-    cout << "sorted_list_sum: " << result << endl;
+    vector<string> b={"aaaa", "bbbb", "dd", "cc"};
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
