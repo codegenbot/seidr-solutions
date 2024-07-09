@@ -1,13 +1,17 @@
-```
-def bowling_score(s):
+def bowling_score(frames):
     score = 0
-    frames = [list(map(int, list(frame))) for frame in re.findall('([0-9X]{1,3})', s)]
-    
-    for i, frame in enumerate(frames):
-        if len(frame) == 1:  # strike
-            score += 10 + (10 * (len(frames) - i))
-        elif sum(frame) == 10:  # spare
-            score += 10 + frames[i+1][0] if i < 9 else 10
+    roll = 0
+    for frame in frames.split("/"):
+        if len(frame) == 1:
+            score += int(frame)
+        elif len(frame) == 2:
+            score += int(frame[0]) + int(frame[1])
         else:
-            score += sum(frame)
+            if int(frame[0]) + int(frame[1]) < 10:
+                score += int(frame[0]) + int(frame[1])
+            else:
+                roll += int(frame[0]) + int(frame[1])
+            if roll > 0:
+                score += roll
+                roll = 0
     return score
