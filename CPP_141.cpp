@@ -20,3 +20,10 @@ int file_name_check(std::string file_name) {
     if(digit_count > 3) return 0;
     return 1;
 }
+
+int main() {
+    if(file_name_check("s.") != 1) {
+        std::cout << "No" << std::endl;
+    }
+    return 0;
+}
