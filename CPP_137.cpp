@@ -1,7 +1,7 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <boost/any.hpp>
+#include<cstdio>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp>
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -27,12 +27,12 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         int a_int = boost::any_cast<int>(a);
         string b_str = boost::any_cast<string>(b);
-        double a_num = stod(to_string(a_int));
+        double a_num = stod(boost::any_cast<string>(a));
         double b_num = stod(b_str);
-        if (a_num > b_num) {
+        if (a_int > b_num) {
             return a;
         }
-       	else if (a_num < b_num) {
+       	else if (a_int < b_num) {
             return b;
         }
 		else {
