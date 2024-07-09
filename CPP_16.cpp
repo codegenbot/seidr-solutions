@@ -1,6 +1,13 @@
+Here is the completed code:
+
+```cpp
 int count_distinct_characters(string str) {
-    string temp = str;
-    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
-    set<char> s(temp.begin(), temp.end());
-    return s.size();
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    vector<char> chars;
+    for (char c : str) {
+        if (!binary_search(chars.begin(), chars.end(), c)) {
+            chars.push_back(c);
+        }
+    }
+    return chars.size();
 }
