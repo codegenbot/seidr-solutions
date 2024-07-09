@@ -1,4 +1,6 @@
 #include <vector>
+#include <string>
+#include <iostream>
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -14,7 +16,7 @@ vector<int> findIndices(string text, string target) {
                 break;
             }
         }
-        if (found) indices.push_back(i);
+        if (found) indices.push_back(i - (m - 1));
     }
 
     return indices;
