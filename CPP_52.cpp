@@ -27,7 +27,7 @@ bool getNumbers(vector<int>& numbers, int& threshold) {
     return true;
 }
 
-int main() {
+bool main() {
     vector<int> numbers(5); 
     int threshold;
 
@@ -40,3 +40,4 @@ int main() {
     }
 
     return 0;
+}
