@@ -18,7 +18,7 @@ int main() {
     for (int i : {n1, n2, n3, n4, n5, n6, n7}) v.push_back(i);
 
     set<int> common({n1, n2, n3});
-    bool result = isSame(common, common);
+    bool result = isSame(common, set<int>(v.begin() + 3, v.end()));
     if(result) {
         cout << "The sets are same." << endl;
     } else {
