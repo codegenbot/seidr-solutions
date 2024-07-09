@@ -1,16 +1,20 @@
-#include <string> // Include the string header
+#include <string>
+#include <cassert>
+using namespace std;
 
-std::string change_base(int x, int base){ // Use std::string instead of string
-    std::string result = "";
+string change_base(int x, int base){
+    string result = "";
     while(x > 0){
-        result = std::to_string(x % base) + result; // Use std::to_string
+        result = to_string(x % base) + result;
         x /= base;
     }
     return result;
 }
 
-int main(){
-    int x = 10;
-    assert(change_base(x, x + 1) == std::to_string(x)); // Use std::to_string
+int main() {
+    assert(change_base(10, 2) == "1010");
+    assert(change_base(15, 16) == "F");
+    assert(change_base(255, 2) == "11111111");
+
     return 0;
 }
