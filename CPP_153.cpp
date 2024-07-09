@@ -1,4 +1,5 @@
-#include <initializer_list>
+#include <vector>
+#include <string>
 
 int Strongest_Extension(std::string className, const std::vector<std::string>& extensions) {
     int strongest = -1;
@@ -11,5 +12,5 @@ int Strongest_Extension(std::string className, const std::vector<std::string>& e
 }
 
 int main() {
-    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
+    std::cout << Strongest_Extension("Sp", {"671235.Sp", "Bb.Sp"}) << std::endl;
 }
