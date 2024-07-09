@@ -10,9 +10,9 @@ int count_upper(std::string s){
             count++;
         }
     }
-    return count; 
-} 
+    return count;
+}
 
 int main() {
-    assert(count_upper("EEEE") == 2); 
+    assert(count_upper("EEEE") == 2);
 }
