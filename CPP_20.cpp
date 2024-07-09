@@ -1,4 +1,11 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <limits>
+#include <algorithm>
+
+using namespace std;
+
 int main(){
     int n;
     cin >> n;
@@ -6,6 +13,7 @@ int main(){
     for (int i = 0; i < n; i++) {
         cin >> a[i] >> b[i];
     }
+    assert(sameVectors(a, b));
     if(sameVectors(a, b)) cout << "The vectors are the same." << endl;
     else cout << "The vectors are not the same." << endl;
     return 0;
