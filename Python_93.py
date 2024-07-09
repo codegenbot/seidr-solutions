@@ -3,11 +3,10 @@ def encode(message):
     vowels = 'AEIOUaeiou'
     for char in message:
         if char.isalpha():
-            if char.upper() in vowels:
-                shift = 2
+            if char in vowels:
+                encoded_message += chr((ord(char) - ord('A') + 9) % 26 + ord('A'))  # Change 2 to 9 for shifting vowels by 9 positions
             else:
-                shift = -1 if char.islower() else 1
-            encoded_message += chr(((ord(char) - ord('A') + shift) % 26) + ord('A'))
+                encoded_message += char.swapcase()
         else:
             encoded_message += char
     return encoded_message
