@@ -17,8 +17,9 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 }
 
 int main() {
-    std::vector<std::vector<int>> grid = {{0, 0, 0}, {1, 1, 1}, {0, 0, 0}};
-    int capacity = 2;
-    std::cout << "Max Fill Steps: " << max_fill(grid, capacity) << std::endl;
+    std::vector<std::vector<int>> grid = {{0, 0, 1}, {1, 1, 1}, {0, 0, 0}};
+    int capacity = 3;
+    int result = max_fill(grid, capacity);
+    std::cout << "The maximum number of steps to fill the containers is: " << result << std::endl;
     return 0;
 }
