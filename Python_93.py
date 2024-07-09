@@ -1,3 +1,5 @@
+Here is the solution for the problem:
+
 ```
 def encode(message):
     result = ""
