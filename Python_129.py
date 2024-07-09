@@ -18,3 +18,4 @@ def minPath(grid, k):
             path = dfs(i, j, [(i, j)])
             if path:
                 return [grid[x][y] for x, y in path]
+    return []
