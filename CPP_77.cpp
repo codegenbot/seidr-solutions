@@ -16,9 +16,9 @@ int originalMain(){
     std::cout << "Enter an integer: ";
     std::cin >> n;
     if(isCube(n))
-        std::string() + n + " is a perfect cube.\n";
+        std::cout << n << " is a perfect cube.\n";
     else
-        std::string() + n + " is not a perfect cube.\n";
+        std::cout << n << " is not a perfect cube.\n";
 }
 
 int main(){
