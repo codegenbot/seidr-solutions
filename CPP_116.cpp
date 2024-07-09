@@ -2,11 +2,11 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b) {
+bool issame(const std::vector<int>& a,const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> sort_vector(vector<int> arr) {
+std::vector<int> sort_vector(std::vector<int> arr) {
     auto comp = [&] (int a, int b) {
         int ones_a = __builtin_popcount(a);
         int ones_b = __builtin_popcount(b);
@@ -17,6 +17,6 @@ vector<int> sort_vector(vector<int> arr) {
             return ones_a - ones_b;
     };
 
-    sort(arr.begin(), arr.end(), comp);
+    std::sort(arr.begin(), arr.end(), comp);
     return arr;
 }
