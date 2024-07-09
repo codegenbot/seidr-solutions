@@ -11,8 +11,8 @@ bool is_prime(long long n) {
     return true;
 
 int main() {
-    std::string input;
-    std::cout << "Enter a number: ";
-    std::getline(std::cin, input);
-    std::cout << "Number is " << (is_prime(std::stoi(input)) ? "prime" : "not prime");
+    string input;
+    cout << "Enter a number: ";
+    getline(cin, input);
+    cout << "Number is " << (is_prime(stoi(input)) ? "prime" : "not prime");
     return 0;
