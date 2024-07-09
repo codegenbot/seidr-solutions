@@ -1,21 +1,11 @@
-Here is the completed code:
-
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 int next_smallest(vector<int> lst) {
-    vector<int> v(lst);
+    vector<int> v = lst;
+    if(v.size() < 2) return -1; // Return None or -1 as per problem description
     sort(v.begin(), v.end());
-    
-    if (v.size() < 2)
-        return -1;
-        
-    for(int i = 1; i < v.size(); i++) {
-        if(v[i] != v[0])
+    for(int i=1; i<v.size(); ++i){
+        if(v[i] != v[0]){
             return v[i];
+        }
     }
-    
     return -1;
 }
