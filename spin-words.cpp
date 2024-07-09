@@ -1,31 +1,37 @@
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
+std::string spinWords(std::string sentence) {
     std::string result = "";
-    std::string word = "";
-
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
+    std::string word;
+    
+    for (char c : sentence) {
+        if (c == ' ') {
             if (word.length() >= 5) {
                 std::reverse(word.begin(), word.end());
             }
             result += word + " ";
             word = "";
         } else {
-            word += str[i];
+            word += c;
         }
     }
-
+    
     if (word.length() >= 5) {
         std::reverse(word.begin(), word.end());
     }
     result += word;
-
+    
     return result;
 }
 
 int main() {
-    // Your code to test the function
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
+    
     return 0;
 }
