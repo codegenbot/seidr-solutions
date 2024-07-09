@@ -1,5 +1,7 @@
 s = input().strip()
-result = ""
-for char in s:
-    result += chr(ord(char) - 1)
+
+def decode_cyclic(s):
+    return s[::-1]
+
+result = decode_cyclic(s)
 print(result)
