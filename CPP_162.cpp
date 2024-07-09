@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -16,8 +15,10 @@ string string_to_md5(string text) {
     unsigned char result[MD5_DIGEST_LENGTH];
 
     EVP_DigestInit_ex(&md, EVP_md5(), NULL);
-    EVP_DigestUpdate(&md, text.c_str(), text.size());
-    EVP_DigestFinal_ex(&md, result, NULL);
+    EVP_DigestUpdate(&md, (unsigned char*)text.c_str(), text.size());
+    unsigned char* out = &result[0];
+    size_t outlen;
+    EVP_DigestFinal_CTX(&md, out, &outlen);
 
     stringstream ss;
     for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
