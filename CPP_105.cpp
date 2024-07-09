@@ -11,40 +11,51 @@ bool isSame(vector<string> a, vector<string> b) {
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> result;
+    vector<string> temp;
     for (int i : arr) {
-        string s = "";
-        switch (i) {
+        if (i >= 1 && i <= 9) {
+            temp.push_back(to_string(i));
+        }
+    }
+    
+    sort(temp.begin(), temp.end());
+    
+    vector<string> result;
+    for (string s : temp) {
+        string str = "";
+        switch (stoi(s)) {
             case 1:
-                s = "One";
+                str = "One";
                 break;
             case 2:
-                s = "Two";
+                str = "Two";
                 break;
             case 3:
-                s = "Three";
+                str = "Three";
                 break;
             case 4:
-                s = "Four";
+                str = "Four";
                 break;
             case 5:
-                s = "Five";
+                str = "Five";
                 break;
             case 6:
-                s = "Six";
+                str = "Six";
                 break;
             case 7:
-                s = "Seven";
+                str = "Seven";
                 break;
             case 8:
-                s = "Eight";
+                str = "Eight";
                 break;
             case 9:
-                s = "Nine";
+                str = "Nine";
                 break;
         }
-        result.push_back(s);
+        result.push_back(str);
     }
+    
+    reverse(result.begin(), result.end());
     
     return result;
 }
