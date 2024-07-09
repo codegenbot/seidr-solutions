@@ -1,6 +1,6 @@
-string exchange(vector<int> v1, vector<int> v2) {
+string exchange(vector<int> lst1, vector<int> lst2) {
     bool hasOdd = false;
-    for (int num : v1) {
+    for (int num : lst1) {
         if (num % 2 != 0) {
             hasOdd = true;
             break;
@@ -9,10 +9,9 @@ string exchange(vector<int> v1, vector<int> v2) {
     if (!hasOdd) {
         return "YES";
     }
-    for (int num : v2) {
+    for (int num : lst2) {
         if (num % 2 != 0) {
             return "NO";
         }
     }
     return "YES";
-}
