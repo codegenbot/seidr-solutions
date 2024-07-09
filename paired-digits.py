@@ -1,3 +1,4 @@
+```Python
 def paired_digits(s):
     return sum(int(d) for j, d in enumerate(s) if s[j] == s[j+1] if j < len(s)-1)
 
