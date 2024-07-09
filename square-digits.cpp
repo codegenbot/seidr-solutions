@@ -1,6 +1,6 @@
+```c++
 #include <string>
 #include <iostream>
-#include <limits>
 
 using namespace std;
 
@@ -17,7 +17,7 @@ int main() {
     string input;
     cout << "Enter a positive integer: ";
     getline(cin, input);
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');  
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
     string output = squareDigits(input);
     cout << "Squared digits: " << output << endl;
     return 0;
