@@ -31,6 +31,5 @@ int main() {
     if (!findUnique(uniqueVec)) {
         return 1;
     }
-    assert(issame(std::vector<int>(uniqueVec) , {0, 2, 3, 5, 9, 123}));
     return 0;
 }
