@@ -1,5 +1,7 @@
+```c++
 #include <iostream>
 #include <vector>
+#include <string>
 
 int findGCD(int a, int b) {
     if (b == 0) return std::abs(a);
@@ -14,7 +16,7 @@ int findGCD(int a, int b) {
 std::vector<int> findIndices(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     size_t pos = 0;
-    while ((pos = text.find(target, pos)) != stdstring::npos) {
+    while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
         pos += target.size();
     }
@@ -32,11 +34,9 @@ int main() {
     std::cout << "Enter the text: ";
     std::getline(std::cin, text);
     std::cout << "Enter the target string: ";
-    std::cin >> target;
-    std::cin.ignore();
+    std::getline(std::cin, target); // Use std::getline instead of std::cin
     std::vector<int> indices = findIndices(text, target);
     for (int i : indices) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
-}
