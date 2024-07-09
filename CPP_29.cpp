@@ -1,8 +1,4 @@
-using namespace std;
-
-#include <algorithm>
-#include <string>
-#include <vector>
+#include <cassert>
 
 bool areSame(const vector<string>& a) {
     return (a.size() == 1);
@@ -18,7 +14,7 @@ vector<string> filter_by_prefix(const vector<string>& strings, const string& pre
     return result;
 }
 
-int main() {
+int main_function() {
     assert(areSame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx")) == vector<string>({"xxx", "xxxA", "xxx"}));
     return 0;
 }
