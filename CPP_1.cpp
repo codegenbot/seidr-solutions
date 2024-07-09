@@ -1,7 +1,13 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+#include <iostream>
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> separate_paren_groups(string paren_string);
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
@@ -29,12 +35,10 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    string input;
-    cin >> input;
-
+    string input = "((group1)(group2)(group3))";
     vector<string> groups = separate_paren_groups(input);
-    
-    assert(groups == separate_paren_groups(input));
-
+    for (string group : groups) {
+        cout << group << endl;
+    }
     return 0;
 }
