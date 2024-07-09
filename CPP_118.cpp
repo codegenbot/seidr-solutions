@@ -11,9 +11,9 @@ std::string get_closest_vowel(const std::string& word) {
 }
 
 int main() {
-    std::string word;
+    std::string __str;
     std::cout << "Enter a word: ";
-    std::getline(std::cin, word); 
-    std::cout << "The closest vowel is: " << get_closest_vowel(word) << std::endl;
+    std::getline(std::cin, __str); 
+    std::cout << "The closest vowel is: " << get_closest_vowel(__str) << std::endl;
     return 0;
 }
