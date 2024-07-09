@@ -1,16 +1,30 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int luhn(vector<int> digits) {
     int sum = 0;
-    bool isSecond = false; 
     for (int i = 0; i < digits.size(); i++) {
-        int digit = digits[i];
-        if (isSecond) { 
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
+        if ((i % 2) != 0) { 
+            int temp = digits[i] * 2;
+            if (temp > 9) {
+                temp -= 9;
             }
+            sum += temp;
+        } else {
+            sum += digits[i];
         }
-        sum += digit;
-        isSecond = !isSecond; 
     }
     return sum;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> digits(n);
+    for (int i = 0; i < n; i++) {
+        cin >> digits[i];
+    }
+    cout << luhn(digits) << endl;
+    return 0;
 }
