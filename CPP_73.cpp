@@ -9,15 +9,19 @@ int smallest_change(std::vector<int> arr) {
     }
     int left = 0, right = s.length() - 1;
     int changes = 0;
-    while (left < right) {
-        if (s[left] != s[right]) {
-            changes++;
-            left++;
-            right--;
-        } else {
-            left++;
-            right--;
+    bool swapped = true;
+    while (swapped) {
+        swapped = false;
+        for (int i = left; i < right; ++i) {
+            if (s[i] != s[s.length() - 1 - i]) {
+                std::swap(s[left], s[right]);
+                changes++;
+                swapped = true;
+                break;
+            }
         }
+        left++;
+        right--;
     }
     return changes;
 }
