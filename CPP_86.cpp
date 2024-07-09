@@ -1,3 +1,18 @@
+#include <algorithm>
+#include <string>
+#include <vector>
+using namespace std;
+
+string anti_shuffle(string s) {
+    string result = "";
+    for (const auto& word : split(s, ' ')) {
+        string temp = word;
+        sort(temp.begin(), temp.end());
+        result += temp + " ";
+    }
+    return result.substr(0, result.size() - 1);
+}
+
 string split(const string& str, char sep) {
     vector<string> tokens;
     size_t pos = 0;
@@ -12,7 +27,9 @@ string split(const string& str, char sep) {
 string join(const vector<string>& vec, const string& sep) {
     string result;
     for (const auto& s : vec) {
-        result += s + sep;
+        if (!result.empty())
+            result += sep;
+        result += s;
     }
-    return result.substr(0, result.size() - 1);
+    return result;
 }
