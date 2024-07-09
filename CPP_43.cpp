@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+using namespace std;
 
 bool pairs_sum_to_zero(int a, int b) {
     if (a + b == 0) {
@@ -9,8 +9,12 @@ bool pairs_sum_to_zero(int a, int b) {
 }
 
 int main() {
-    int a = -3; 
-    int b = 9; 
+    int a, b;
+    cout << "Enter the first number: ";
+    cin >> a;
+    cout << "Enter the second number: ";
+    cin >> b;
+
     std::cout << (pairs_sum_to_zero(a, b) ? "True" : "False");
     return 0;
 }
