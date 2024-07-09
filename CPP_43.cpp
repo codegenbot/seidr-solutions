@@ -1,24 +1,17 @@
-#include <initializer_list>
-#include <set>
+#include <vector>
+#include <assert.h>
 
-bool pairs_sum_to_zero(const std::vector<std::pair<int, int>>& l) {
-    std::set<int> s;
-    for (const auto& p : l) {
-        if(p.second != -p.first)
-            return false; 
-        s.insert(p.first);
-    }
-    for (auto it = s.begin(); it != s.end(); ++it) { 
-        int complement = -(*it);
-        if (s.find(complement) == s.end()) {
-            return false;
+bool pairs_sum_to_zero(const std::vector<std::pair<int, int>>& pairs) {
+    for (const auto& pair : pairs) {
+        if (pair.first + pair.second == 0) {
+            return true;
         }
     }
-    return true; 
+    return false;
 }
 
 int main() {
-    std::vector<std::pair<int, int>> inputVector = {{-3, 9}, {-1, 4}, {-2, 2}, {31, -31}};
-    assert(pairs_sum_to_zero(inputVector) == false);
+    assert(pairs_sum_to_zero(std::vector<std::pair<int, int>>({{-3, 9}, {-1, 4}, {-2, 2}, {31, -31}})));
+    // Add more test cases as needed
     return 0;
 }
