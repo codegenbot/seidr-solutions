@@ -14,10 +14,8 @@ int car_race_collision(string s) {
 }
 
 int main() {
-    int n;
+    string s;
     cout << "Enter the number of cars: ";
-    cin >> n;  
-    string s = to_string(n);  
+    getline(cin, s);
     cout << "Number of collisions: " << car_race_collision(s) << endl;
-    return 0;
 }
