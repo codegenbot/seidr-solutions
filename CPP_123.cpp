@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <initializer_list>
 
@@ -36,4 +37,5 @@ int main() {
     int num;
     std::cin >> num;
     get_odd_collatz(num);
+    assert(isSequenceEqual(get_odd_collatz(1), {1}));
 }
