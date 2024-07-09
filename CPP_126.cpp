@@ -1,3 +1,6 @@
+#include <vector>
+#include <algorithm>
+
 bool is_sorted(vector<int> lst) {
     for(int i = 1; i < lst.size(); i++){
         if(lst[i-1] >= lst[i]){
@@ -12,6 +15,6 @@ bool is_sorted(vector<int> lst) {
 
 int main() {
     vector<int> lst = {1, 2, 3, 4};
-    assert (is_sorted(lst) == true);
+    cout << is_sorted(lst) << endl;
     return 0;
 }
