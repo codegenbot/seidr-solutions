@@ -1,7 +1,7 @@
+```cpp
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b);
-
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); ++i) {
