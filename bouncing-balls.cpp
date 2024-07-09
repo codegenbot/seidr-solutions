@@ -12,8 +12,8 @@ int main() {
     double bouncinessIndex = (firstBounceHeight / startHeight);
 
     double totalDistance = 0.0;
-    for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += startHeight * pow(bouncinessIndex, i);
+    for(int i = 1; i <= numBounces; ++i) {
+        totalDistance += pow(2, -i/2.0) * startHeight;
     }
 
     cout << fixed << setprecision(5) << showpoint << totalDistance << endl;
