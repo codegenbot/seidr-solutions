@@ -1,3 +1,4 @@
+```cpp
 bool issame(vector<int> a,vector<int> b){
     if(a.size()!=b.size())
         return false;
@@ -12,8 +13,8 @@ vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
         int val = boost::any_cast<int>(value);
-        if (!boost::any_cast<bool>(value)) continue; // Check if the value is integer
-        result.push_back(val); // If it's a boolean, skip this iteration
+        if (!boost::any_cast<bool>(value)) continue; 
+        result.push_back(val); 
     }
     return result;
 }
