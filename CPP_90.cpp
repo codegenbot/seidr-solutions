@@ -3,21 +3,19 @@
 #include <algorithm>
 
 int main() {
-    std::vector<int> lst;
     int n;
-
-    std::cout << "Enter number of elements: ";
     std::cin >> n;
-
-    for(int i = 0; i < n; i++) {
-        int x;
-        std::cout << "Enter element: ";
-        std::cin >> x;
-        lst.push_back(x);
+    std::vector<int> lst(n);
+    for (auto &i : lst) {
+        std::cin >> i;
     }
-
-    std::cout << "The next smallest number is: " << next_smallest(lst) << std::endl;
-
+    
+    int result = next_smallest(lst);
+    if (result != -1) {
+        std::cout << "Next smallest is: " << result << "\n";
+    } else {
+        std::cout << "No next smallest\n";
+    }
     return 0;
 }
 
