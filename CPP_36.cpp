@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -17,14 +18,10 @@ int main() {
     cout << "Enter a number: ";
     cin >> n;
     if (n < 1) {
-        ostringstream oss;
-        oss << "Invalid input. Please enter a positive integer.";
-        oss << endl; 
+        cout << "Invalid input. Please enter a positive integer." << endl; 
     } else {
         int result = fizz_buzz(n);
-        ostringstream oss;
-        oss << "Result for " << n << ": " << result;
-        oss << endl; 
+        cout << "Result for " << n << ": " << result << endl; 
     }
     return 0;
 }
