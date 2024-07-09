@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -21,4 +20,3 @@ int main() {
     int strongest = strongestExtension("Sp", extensions);
     assert(std::to_string(strongest) == "1");
     return 0;
-}
