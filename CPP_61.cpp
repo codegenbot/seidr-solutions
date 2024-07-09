@@ -1,15 +1,16 @@
-```cpp
-int i = 0;
-while(i < brackets.length()) {
-    if(brackets[i] == '(') {
-        i++;
-        while(i < brackets.length() && brackets[i] != ')') 
-            i++;
-        if(i >= brackets.length())
-            return false;
-        i++;
+#include <string>
+
+using namespace std;
+
+bool correct_bracketing(string brackets) {
+    int count = 0;
+    for (char bracket : brackets) {
+        if (bracket == '(') {
+            count++;
+        } else if (bracket == ')') {
+            if (count <= 0) return false;
+            count--;
+        }
     }
-    else
-        i++;
+    return count == 0;
 }
-return true;
