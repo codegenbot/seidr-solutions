@@ -1,12 +1,14 @@
+```cpp
 #include <string>
+#include <cassert>
+#include <cstring>
 
-int my_strlen(const char* str) {
-    int len = 0;
-    while (*str != '\0') {
-        len++;
-        str++;
+int my_strlen(std::string str){
+    if(str.empty()) {
+        std::cerr << "Error: Input string is empty." << std::endl;
+        return -1; // Return a negative value to indicate error.
     }
-    return len;
+    return str.length();
 }
 
 int main() {
