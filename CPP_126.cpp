@@ -1,6 +1,7 @@
 bool is_sorted(const vector<int>& lst) {
     int prev = lst[0];
     int count = 1;
+    
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] == prev) {
             count++;
@@ -12,5 +13,6 @@ bool is_sorted(const vector<int>& lst) {
         }
         prev = lst[i];
     }
+    
     return true;
 }
