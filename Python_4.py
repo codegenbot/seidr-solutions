@@ -4,7 +4,11 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     mean = sum(numbers) / len(numbers)
     return sum(abs(x - mean) for x in numbers) / len(numbers)
 
-# Test the function with a sample input
-sample_input = [1.5, 2.5, 3.5, 4.5]
-result = mean_absolute_deviation(sample_input)
+
+# Input format
+input_str = input("Enter a list of floating-point numbers separated by spaces: ")
+numbers = list(map(float, input_str.split()))
+
+# Output
+result = mean_absolute_deviation(numbers)
 print(result)
