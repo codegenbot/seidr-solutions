@@ -1,25 +1,25 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
 
 int main() {
-    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    sort(input.begin(), input.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
-    assert(issame(input));
+    vector<string> list = {"aaaa", "bbbb", "dd", "cc"};
+    string b = "";
+    for (const auto& str : list) {
+        if (str.length() % 2 == 0) {
+            b += str + " ";
+        }
+    }
+    b.pop_back();
+    bool result = issame(sorted_list_sum(list), std::vector<string>(b.begin(), b.end()));
     return 0;
 }
 
-bool issame(const vector<string>& lst) {
-    for (int i = 1; i < lst.size(); i++) {
-        if (sorted_sum({lst[i - 1], lst[i]})[0] != sorted_sum({lst[i], lst[i - 1]})[0]) {
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+
+    for (int i = 0; i < a.size(); i++) {
+        if (sorted_list_sum({a[i], b[i]})[0] != sorted_list_sum({b[i], a[i]})[0]) {
             return false;
         }
     }
@@ -27,19 +27,23 @@ bool issame(const vector<string>& lst) {
     return true;
 }
 
-vector<int> sorted_sum(const vector<string>& lst) {
-    vector<int> result;
+vector<std::string> sorted_list_sum(vector<string> lst) {
+    vector<string> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
-            int sum = 0;
-            for (char c : str) {
-                sum += static_cast<int>(c);
-            }
-            result.push_back(sum);
+            result.push_back(str);
         }
     }
 
-    sort(result.begin(), result.end());
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
+         });
+
     return result;
 }
