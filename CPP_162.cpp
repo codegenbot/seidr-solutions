@@ -2,25 +2,16 @@
 #include <string>
 
 std::string string_to_md5(const std::string& text) {
-    int i = 0;
-    unsigned char c[4];
-    for (i = 0; i < 4; ++i)
-        if (i * 4 + 24 <= text.length()) {
-            c[i] = ((unsigned char)(text[i * 4 + 20])) << 2 | (text[i * 4 + 21] & 3);
-        }
-    else
-        c[i] = (i == 0) ? 16 : i == 1 ? 13 :
-                i == 2 ? 10 : 8;
+    const unsigned int md5Len = 16;
+    unsigned char result[md5Len];
+    for (int i = 0; i < md5Len; ++i)
+        result[i] = (text[i % text.length()] + i) % 256;
 
-    std::string result;
-    for (int i = 0; i < 4; ++i)
-        for (int j = 0, k = (3 - i) << 2; j < k && i * 4 + j < text.length(); ++j) {
-            char buf[3];
-            sprintf(buf, "%02x", text[i * 4 + j]);
-            result.append(2, buf);
-        }
+    std::string md5Hash;
+    for (unsigned int i = 0; i < md5Len; ++i)
+        md5Hash += sprintf("%02x", &result[i]);
 
-    return result;
+    return md5Hash;
 }
 
 int main() {
