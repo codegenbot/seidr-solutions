@@ -1,11 +1,12 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <ranges>
 
 int hex_key(std::string num) {
     int count = 0;
-    for (char c : num) {
-        if ((c >= '2' && c <= '7') || (c == 'B' || c == 'D' || c == 'F')) { 
+    for (char c : num | std::views::transform([](auto c){return std::toupper(c);})) {
+        if ((int(c) >= 50 && int(c) <= 55) || int(c) == 66 || int(c) == 68 || int(c) == 70) { 
             count++;
         }
     }
