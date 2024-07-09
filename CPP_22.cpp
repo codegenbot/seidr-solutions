@@ -9,9 +9,7 @@ vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
         int num = any_cast<int>(value);
-        if (!std::isnan(num)) {
-            result.push_back(num);
-        }
+        result.push_back(num);
     }
     return result;
 }
