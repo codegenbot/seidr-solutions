@@ -13,5 +13,5 @@ int findMax(vector<int> l) {
 
 int main() {
     vector<int> v = {1, 2, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    assert(abs(findMax(v)) - 12) < 1e-4);
+    assert(abs(findMax(v)) == 12);
 }
