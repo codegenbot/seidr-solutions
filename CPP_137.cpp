@@ -5,8 +5,8 @@
 using namespace std;
 
 string compareOne(string a, string b) {
-    double numA = stod(a);
-    double numB = stod(b);
+    float numA = stof(a);
+    float numB = stof(b);
 
     if (numA > numB)
         return a;
