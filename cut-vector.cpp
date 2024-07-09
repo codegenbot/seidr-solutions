@@ -2,7 +2,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int minDiff = INT_MAX;  
     pair<vector<int>, vector<int>> result;
     
-    if (v.size() == 1) { 
+    if (v.size() == 1) {  
         return make_pair(v, v);
     }
     
