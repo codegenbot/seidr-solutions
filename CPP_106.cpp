@@ -1,12 +1,16 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    // Code for comparing vectors a and b
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-vector<int> f(int n);
+std::vector<int> f(int n) {
+    std::vector<int> result(n);
+    // Generate result here
+    return result;
+}
 
-int main(){
-    assert(issame(f(3), vector<int>{1, 2, 6}));
+int main() {
+    assert(issame(f(3), {1, 2, 6}));
 }
