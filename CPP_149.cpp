@@ -3,7 +3,14 @@ bool issame(vector<string> a, vector<string>b) {
         return false;
     }
     for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
+        bool flag = true;
+        for(int j = 0; j < a[i].size(); j++) {
+            if(a[i][j] != b[i][j]) {
+                flag = false;
+                break;
+            }
+        }
+        if(!flag) {
             return false;
         }
     }
