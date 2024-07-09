@@ -1,11 +1,14 @@
-```python
+```
+```
+```
 def minPath(grid, k):
     n = len(grid)
     visited = [[False]*n for _ in range(n)]
+    path = []
     
     def dfs(i, j, path_len):
         if path_len == k:
-            return ''.join(map(str, path))
+            return path
         
         for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = i + di, j + dj
@@ -16,7 +19,6 @@ def minPath(grid, k):
                 if res:
                     return res
                 visited[ni][nj] = False
-                path.pop()
         
         return []
     
