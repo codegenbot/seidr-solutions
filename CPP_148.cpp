@@ -1,15 +1,17 @@
+```cpp
 #include <vector>
 #include <string>
+#include <utility>
 
-std::vector<std::string> bf(const std::string& str1, const std::string& str2) {
-    return {{str1}, {str2}};
+std::pair<std::string, std::string> bf(const std::string& str1, const std::string& str2) {
+    return {str1, str2};
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-int check() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
+int main() {
+    assert(issame(std::vector<std::string>(bf("Jupiter", "Makemake").first), {}));
     return 0;
 }
