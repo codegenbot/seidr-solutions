@@ -19,4 +19,12 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
     return output_vector;
 }
 
-std::vector<std::string>({"grunt", "prune"})
+int main() {
+    std::vector<std::string> strings = {"grunt", "trumpet", "prune", "gruesome"};
+    std::string substr = "run";
+    std::vector<std::string> result = filter_by_substring(strings, substr);
+    
+    for (const auto& s : result) {
+        std::cout << s << std::endl;
+    }
+}
