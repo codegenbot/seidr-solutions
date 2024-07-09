@@ -1,15 +1,6 @@
-if (n == 1 && x == 1) {
+if (x == 1)
+    return true;
+else if (n == 1 || x == 0)
     return false;
-}
-if (x < n) {
-    return false;
-}
-int p = 1;
-while (p <= x) {
-    if (p == x) {
-        return true;
-    }
-    p *= n;
-}
-return false;
-}
+else
+    return pow(x, 1.0/n) == round(pow(x, 1.0/n));
