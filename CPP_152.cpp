@@ -33,22 +33,26 @@ int main() {
     std::vector<int> game;
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
-        if(i < n) {
-            int temp;
-            std::cin >> temp;
-            game.push_back(temp);
+        int temp;
+        while (!(std::cin >> temp)) {
+            std::cout << "Invalid input, please try again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
+        game.push_back(temp);
     }
     
     // Create a new vector and fill space
     std::vector<int> guess;
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
-        if(i < n) {
-            int temp;
-            std::cin >> temp;
-            guess.push_back(temp);
+        int temp;
+        while (!(std::cin >> temp)) {
+            std::cout << "Invalid input, please try again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
+        guess.push_back(temp);
     }
     
     if(issame(game, guess))
