@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -17,14 +18,14 @@ int digitSum(string s){
 
 }
 
-string join(const vector<string>& v, const string& sep) {
+string join(const vector<string>& v, const char& sep) {
     string s;
     for (auto it = v.begin(); it != v.end(); ++it)
         s += *it + sep;
     return s.substr(0, s.size() - 1); // remove trailing sep
 }
 
-string ssplit(const string& s, const string& sep) {
+string ssplit(const string& s, const char& sep) {
     vector<string> v;
     size_t pos = 0, prev = 0;
 
