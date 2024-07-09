@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <variant>
@@ -19,9 +18,9 @@ long long double_the_difference(std::vector<std::variant<float, long long>> lst)
 }
 
 int main() {
-    std::vector<std::variant<float, long long>> lst;
-    float input; 
+    float input;
     int n = 0;
+    std::vector<std::variant<float, long long>> lst;
 
     while (1) {
         std::cout << "Enter a number (negative to stop): ";
@@ -43,5 +42,6 @@ int main() {
     }
     
     long long odd_sum = double_the_difference(lst);
+    std::cout << "The sum of squares of even numbers is: " << odd_sum << std::endl;
     return 0;
 }
