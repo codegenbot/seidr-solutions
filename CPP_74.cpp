@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -20,9 +21,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         sum2 += s.size();
     }
 
-    if (issame(lst1, lst2)) {
-        return lst1;
-    } else if (sum1 < sum2) {
+    if (issame(lst1, lst2)) return lst1;  
+    else if (sum1 < sum2) {
         return lst1;
     } else if (sum1 > sum2) {
         return lst2;
