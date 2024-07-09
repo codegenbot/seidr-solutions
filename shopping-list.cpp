@@ -5,7 +5,7 @@
 double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        total += std::max(prices[i], prices[i]*discounts[i]);
+        total += prices[i] - (prices[i] * discounts[i] / 100);
     }
     return total;
 }
