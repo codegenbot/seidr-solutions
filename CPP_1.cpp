@@ -1,31 +1,19 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-bool issame(const std::string& s) {
-    bool found = false;
-    int count = 0;
+std::vector<std::string> separate_paren_groups(const std::string& s) {
+    std::vector<std::string> result;
+    std::string group;
 
     for (char c : s) {
         if (c == '(') {
-            count++;
+            group += c;
         } else if (c == ')') {
-            count--;
-            if (count < 0) {
-                found = true;
-                break;
-            }
+            group += c;
+            result.push_back(group);
+            group.clear();
         }
     }
 
-    return found;
-}
-
-int main() {
-    std::vector<std::string> separate_paren_groups({"( )", "(( ))", "(( )( ))"});
-    std::vector<std::string> expected({"()", "(())", "(()())"});
-    for (int i = 0; i < separate_paren_groups.size(); i++) {
-        assert(issame(separate_paren_groups[i]) == (issame(expected[i])));
-    }
-    return 0;
-}
+    return result;
