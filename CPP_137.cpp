@@ -1,6 +1,5 @@
 #include <boost/any.hpp>
 #include <string>
-#include <cmath>
 
 using namespace boost;
 
