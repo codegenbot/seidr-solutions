@@ -14,6 +14,15 @@ bool isPrime(int num) {
     return true;
 }
 
+int prime_fib(int n); // forward declaration
+
+int main() {
+    int n;
+    std::cout << "Enter the number: ";
+    std::cin >> n;
+    std::cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << std::endl;
+}
+
 int prime_fib(int n) {
     if (n <= 0) {
         return -1; // invalid input
@@ -30,11 +39,4 @@ int prime_fib(int n) {
         a = b;
         b = temp;
     }
-}
-
-int main() {
-    int n;
-    std::cout << "Enter the number: ";
-    std::cin >> n;
-    std::cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << std::endl;
 }
