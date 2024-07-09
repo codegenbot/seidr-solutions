@@ -3,9 +3,6 @@ import hashlib
 def string_to_md5(input_str):
     return hashlib.md5(input_str.encode('utf-8')).hexdigest()
 
-try:
-    input_str = input("Enter a string: ")
-    result = string_to_md5(input_str)
-    print(result)
-except EOFError:
-    print("No input received.")
+input_str = input("Enter a string: ").strip()
+result = string_to_md5(input_str)
+print(result)
