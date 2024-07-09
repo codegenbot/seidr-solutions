@@ -1,4 +1,3 @@
-```
 def gcd(a, b):
     while b:
         a, b = b, a % b
@@ -15,14 +14,8 @@ def find_indices(text, target):
         start = pos + 1
     return indices
 
-while True:
-    try:
-        a = int(input("Enter the first integer: "))
-        b = int(input("Enter the second integer: "))
-        print(gcd(a, b))
-        text = input("Enter the text string: ")
-        target = input("Enter the target string: ")
-        print(find_indices(text, target))
-        break
-    except ValueError:
-        print("Invalid input. Please enter integers.")
+a, b = map(int, input("Enter two space separated integers: ").split())
+print(gcd(a, b))
+text = input("Enter the text string: ")
+target = input("Enter the target string: ")
+print(find_indices(text, target))
