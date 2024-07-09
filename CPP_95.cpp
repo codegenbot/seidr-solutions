@@ -3,6 +3,7 @@
 #include <cctype>
 #include <cassert>
 #include <algorithm>
+#include <initializer_list>
 
 bool check_dict_case(std::map<std::string, std::string> dict) {
     if (dict.empty()) return false;
@@ -23,7 +24,6 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
 }
 
 int main() {
-    std::map<std::string, std::string> dict;
-    assert(check_dict_case(dict) == false);
+    assert(check_dict_case({}) == false);
     return 0;
 }
