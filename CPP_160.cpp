@@ -12,20 +12,19 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
 }
 
 int eval(const string& s) {
+    int number = 0;
     int result = 0;
     if (s.empty()) {
         return result;
     }
     
-    int number = 0;
     for (char c : s) {
         if (!isdigit(c)) continue;
         number *= 10;
         number += c - '0';
         if (!isdigit(c) && c != '.') {
-            result += sign * number;
+            result += ((c == '+') ? 1 : ((c == '-') ? -1 : 0)) * number;
             number = 0;
-            sign = (c == '-') ? -1 : 1;
         }
     }
     
