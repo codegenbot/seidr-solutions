@@ -1,6 +1,11 @@
 #include <vector>
+#include <algorithm>
+#include <iterator>
+
 bool issame(const vector<int>& a, const vector<int>& b) {
-    assert(a.size() == b.size());
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
@@ -9,7 +14,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-vector<int> common(const vector<int>& l1, const vector<int>& l2) {
+vector<int> common(vector<int>& l1, vector<int>& l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
 
@@ -19,4 +24,8 @@ vector<int> common(const vector<int>& l1, const vector<int>& l2) {
     result.erase(unique(result.begin(), result.end()), result.end());
 
     return result;
+}
+
+int main() {
+    // Main function body can be added here
 }
