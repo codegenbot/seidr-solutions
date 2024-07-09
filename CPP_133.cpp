@@ -5,11 +5,8 @@
 
 int sum_squares(double arr[], int n){
     int total = 0;
-    std::string str = "";
     for(int i=0; i<n; i++){
-        std::string str1 = std::to_string(arr[i]) + " ";
-        str += str1;
-        total += std::pow(static_cast<int>(arr[i]),2);
+        total += std::pow(arr[i],2);
     }
     return total;
 }
@@ -20,7 +17,7 @@ int main(){
     int result = sum_squares(testArray, n);
     std::cout << "Sum of squares: " << result << std::endl;
     
-    assert (sum_squares({1.0, 2.0, 3.0},3) == 14);
+    assert (sum_squares(testArray,n) == 14);
 
     return 0;
 }
