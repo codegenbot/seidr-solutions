@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -15,7 +16,12 @@ std::vector<float> sort_even(std::vector<float> l) {
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             auto it = std::stable_partition(l.begin(), l.end(), [](float x){return x % 2 != 0;});
-            result[i] = *std::min_element(it, l.end());
+            result[i] = *it;
+            ++it;
+            for (; j < i; ++j, ++it) {
+                result[j] = *it;
+            }
+            j = i + 1;
         } else {
             result[i] = l[i];
         }
