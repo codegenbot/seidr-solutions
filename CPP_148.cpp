@@ -13,7 +13,7 @@ bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>
 }
 
 int main() {
-    if (!issame(bf("Jupiter", "Makemake"), {})) {
+    if (!issame(bf("Jupiter", "Makemake"), {{}})) {
         return 1; 
     }
     return 0;
