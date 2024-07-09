@@ -1,13 +1,11 @@
 #include <vector>
 
-vector<float> derivative(vector<float> xs);
-
-bool issame(vector<float> v1, vector<float> v2){
-    if(v1.size() != v2.size()){
+bool issame(vector<float> values1, vector<float> values2){
+    if(values1.size() != values2.size()){
         return false;
     }
-    for(int i=0; i<v1.size(); i++){
-        if(v1[i] != v2[i]){
+    for(int i=0; i<values1.size(); i++){
+        if(values1[i] != values2[i]){
             return false;
         }
     }
@@ -17,13 +15,13 @@ bool issame(vector<float> v1, vector<float> v2){
 vector<float> derivative(vector<float> xs){
     vector<float> result;
     for(int i=1; i<xs.size(); i++){
-        result.push_back(xs[i] * i);
+        result.push_back(xs[i] - xs[i-1]);
     }
     return result;
 }
 
 int main(){
-    vector<float> input = {1.0, 2.0, 3.0, 4.0, 5.0};
-    vector<float> result = derivative(input);
+    vector<float> values = {1.0, 2.5, 4.3, 7.2, 11.8};
+    vector<float> d_values = derivative(values);
     return 0;
 }
