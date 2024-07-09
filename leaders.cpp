@@ -3,10 +3,10 @@
 #include <climits>
 #include <iostream>
 
-using IntVector = std::vector<int>;
+using vector = std::vector<int>;
 
-IntVector findLeaders(IntVector nums) {
-    IntVector leaders;
+std::vector<int> findLeaders(std::vector<int> nums) {
+    std::vector<int> leaders;
     int n = nums.size();
     int maxRight = INT_MIN;
     
@@ -23,8 +23,8 @@ IntVector findLeaders(IntVector nums) {
 }
 
 int main() {
-    IntVector nums = {16, 17, 4, 3, 5, 2};
-    IntVector result = findLeaders(nums);
+    std::vector<int> nums = {16, 17, 4, 3, 5, 2};
+    std::vector<int> result = findLeaders(nums);
     
     for (int num : result) {
         std::cout << num << " ";
