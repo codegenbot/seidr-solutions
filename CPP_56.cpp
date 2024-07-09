@@ -1,4 +1,8 @@
-bool correct_bracketing(const std::string &brackets) {
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+bool correct_bracketing(const std::vector<char>& brackets) {
     int count = 0;
     for (char bracket : brackets) {
         if (bracket == '<') {
@@ -14,6 +18,10 @@ bool correct_bracketing(const std::string &brackets) {
 }
 
 int main() {
-    assert(correct_bracketing("<><<<>>>")); // Example usage of function
+    assert(correct_bracketing({'<', '>', '>', '<', '>'}));
+    assert(!correct_bracketing({'>', '<', '>'}));
+    assert(correct_bracketing({'<', '>', '<', '>', '<', '>'}));
+    assert(!correct_bracketing({'<', '<', '>', '>'}));
+    
     return 0;
 }
