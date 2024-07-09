@@ -1,4 +1,7 @@
+#include <iostream>
 #include <string>
+
+using namespace std;
 
 bool is_palindrome(string text){
     int i = 0, j = text.size() - 1;
@@ -9,5 +12,9 @@ bool is_palindrome(string text){
         j--;
     }
     return true;
+}
 
+int main() {
+    assert(is_palindrome("xywzx") == false);
+    return 0;
 }
