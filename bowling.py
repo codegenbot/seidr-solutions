@@ -18,5 +18,5 @@ def get_value(char):
     else:
         return int(char)
 
-bowls = input("Enter the bowling sequence: ")
+bowls = input()
 print(bowling_score(bowls))
