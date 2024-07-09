@@ -1,6 +1,5 @@
-import re
 def validate_tweet(tweet):
-    tweet = re.sub(r'[^a-zA-Z0-9\s]', '', tweet).strip()
+    tweet = tweet.strip().replace('\x00', '').replace(',', '')
     if len(tweet) > 140:
         return "Too many characters"
     elif not tweet:
