@@ -1,6 +1,18 @@
 #include <iostream>
 #include <vector>
 
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(size_t i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 std::vector<float> get_positive(const std::vector<float>& l) {
     std::vector<float> result;
     for (float i : l) {
@@ -12,11 +24,6 @@ std::vector<float> get_positive(const std::vector<float>& l) {
 }
 
 int main() {
-    vector<float> vec = {1.0, -2.5, 3.0, -4.0};
-    vector<float> positive = get_positive(vec);
-    
-    for (float i : positive) {
-        std::cout << i << " ";
-    }
+    assert(issame(get_positive({}), {}));  
     return 0;
 }
