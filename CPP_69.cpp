@@ -22,13 +22,15 @@ int main() {
     std::vector<int> lst;
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
-        int num;
+        int num; 
         std::cin >> num; 
 
         if (num == 0) {
-            // Ask user to enter a different value
-            std::cout << "Invalid input. Please enter a non-zero number.\n";
-            continue;
+            while (num == 0) {
+                std::cout << "Invalid input. Please enter a non-zero number.\n";
+                std::cout << "Enter element " << i + 1 << ": ";
+                std::cin >> num;
+            }
         }
 
         lst.push_back(num); 
