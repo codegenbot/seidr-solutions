@@ -1,22 +1,71 @@
+#include <vector>
+using namespace std;
+
 vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    int index1 = -1, index2 = -1;
-
-    for (int i = 0; i < planets.size(); i++) {
-        if (planets[i] == planet1) {
-            index1 = i;
-        } else if (planets[i] == planet2) {
-            index2 = i;
-        }
-    }
-
-    if (index1 == -1 || index2 == -1)
-        return {};
-
     vector<string> result;
-    for (int i = 0; i < planets.size(); i++) {
-        if (i > index1 && i < index2) {
-            result.push_back(planets[i]);
+    
+    int distance1 = -1;
+    int distance2 = -1;
+
+    for (int i = 0; i < 9; i++) {
+        if (planet1 == "Mercury") {
+            distance1 = 57.9;
+        }
+        else if (planet1 == "Venus") {
+            distance1 = 67.2;
+        }
+        else if (planet1 == "Earth") {
+            distance1 = 0;
+        }
+        else if (planet1 == "Mars") {
+            distance1 = 225;
+        }
+        else if (planet1 == "Jupiter") {
+            distance1 = 778;
+        }
+        else if (planet1 == "Saturn") {
+            distance1 = 1433;
+        }
+        else if (planet1 == "Uranus") {
+            distance1 = 2870;
+        }
+        else if (planet1 == "Neptune") {
+            distance1 = 4495;
+        }
+        else if (planet1 == "Makemake") {
+            distance1 = -1; // Assume unknown for Makemake
+        }
+
+        if (planet2 == "Mercury") {
+            distance2 = 57.9;
+        }
+        else if (planet2 == "Venus") {
+            distance2 = 67.2;
+        }
+        else if (planet2 == "Earth") {
+            distance2 = 0;
+        }
+        else if (planet2 == "Mars") {
+            distance2 = 225;
+        }
+        else if (planet2 == "Jupiter") {
+            distance2 = 778;
+        }
+        else if (planet2 == "Saturn") {
+            distance2 = 1433;
+        }
+        else if (planet2 == "Uranus") {
+            distance2 = 2870;
+        }
+        else if (planet2 == "Neptune") {
+            distance2 = 4495;
+        }
+        else if (planet2 == "Makemake") {
+            distance2 = -1; // Assume unknown for Makemake
+        }
+
+        if (distance1 != -1 && distance2 != -1) {
+            result.push_back((distance1 < distance2 ? planet1 : planet2));
         }
     }
 
