@@ -1,3 +1,4 @@
+```
 #include <string>
 
 int count_upper(std::string s) {
@@ -9,3 +10,4 @@ int count_upper(std::string s) {
         }
     }
     return count;
+}
