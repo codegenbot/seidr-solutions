@@ -1,2 +1,2 @@
-def count_odd_numbers(lst):
-    return len([num for num in lst if num % 2 != 0])
+def count_odd_numbers(input_list):
+    return len([num for num in input_list if num % 2 != 0])
