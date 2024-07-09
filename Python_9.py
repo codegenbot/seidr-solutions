@@ -1,5 +1,3 @@
-def rolling_max(numbers):
-    return [max(numbers[i:i+3]) for i in range(len(numbers)-2)]
-
-numbers = [int(num) for num in input().split()]
+# Read input line by line and store it in a list of integers
+numbers = [int(input()) for _ in range(int(input()))]
 print(rolling_max(numbers))
