@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -27,7 +28,7 @@ int main() {
     }
 
     double distance = vectorDistance(n, v1, v2);
-    cout << fixed << setprecision(10) << distance << endl;
+    cout << fixed << sqrt(distance) << endl;
 
     return 0;
 }
