@@ -2,32 +2,36 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+using namespace std;
+
+bool isSame(vector<pair<string, int>> a, vector<pair<string, int>> b) {
+    return equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    auto it = std::remove_if(lst.begin(), lst.end(), [](const std::string& s){ return s.length() % 2; });
+vector<pair<string, int>> sorted_list_sum(vector<pair<string, int>> lst) {
+    auto it = remove_if(lst.begin(), lst.end(), [&](const pair<string, int>& p){ return (stoi(p.second)) % 2; });
     lst.erase(it, lst.end());
-    std::sort(lst.begin(), lst.end());
+    sort(lst.begin(), lst.end());
     return lst;
 }
 
 int main() {
     int n; 
-    std::cin >> n;
-    
-    std::vector<std::string> lst;
+    cin >> n;
+
+    vector<pair<string, int>> lst;
     
     for(int i = 0; i < n; i++) {
-        std::cin >> lst.push_back(std::to_string(i));
+        string s;
+        cin >> s;
+        int num = i + 1;
+        lst.push_back({s, to_string(num)});
     }
     
-    std::vector<std::string> result = sorted_list_sum(lst);
+    vector<pair<string, int>> result = sorted_list_sum(lst);
     
-    std::cout << "Sorted List Sum: ";
-    for(auto str : result) {
-        std::cout << str << " ";
+    cout << "Sorted List Sum: ";
+    for(auto p : result) {
+        cout << p.first << " " << p.second << endl;
     }
-    std::cout << endl;
-};
+    return 0;
