@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -36,5 +36,8 @@ int main() {
         std::cin >> num;
         lst.push_back(num);
     }
-    std::cout << "Maximum prime and sum of digits: " << find_max_prime_and_sum_digits(lst) << std::endl;
+    {
+        int maxPrimeAndSum = find_max_prime_and_sum_digits(lst);
+        std::cout << "Maximum prime and sum of digits: " << maxPrimeAndSum << std::endl;
+    }
 }
