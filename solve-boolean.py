@@ -1,20 +1,19 @@
 def solve_boolean(expression):
-    stack = []
-    for char in expression:
-        if char == 'T':
-            stack.append(True)
-        elif char == 'F':
-            stack.append(False)
-        elif char == '|':
-            while len(stack) > 0 and not isinstance(stack[-1], bool):
-                stack.pop()
-            operator_value = stack.pop()
-            result = operator_value or stack.pop()
-            stack.append(result)
-        elif char == '&':
-            while len(stack) > 0 and not isinstance(stack[-1], bool):
-                stack.pop()
-            operator_value = stack.pop()
-            result = operator_value and stack.pop()
-            stack.append(result)
-    return stack[0]
+    while '&' in expression and '|' in expression:
+        start = 0
+        end = 0
+        for i, char in enumerate(expression):
+            if char == '&':
+                start = i
+            elif char == '|':
+                end = i
+                break
+        result = eval(f"{expression[:start]} & {expression[start+1:end]}")
+        expression = f"({str(bool(result))}){expression[end:]}".replace("True", "1").replace("False", "0")
+    if '&' in expression:
+        left, right = expression.split('&')
+        return bool(eval(f"{left} & {right}"))
+    elif '|' in expression:
+        return any(solve_boolean(arg) for arg in expression.split('|'))
+    else:
+        return eval(expression.replace("True", "1").replace("False", "0"))
