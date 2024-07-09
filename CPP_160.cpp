@@ -1,4 +1,3 @@
-```
 int main() {
     std::vector<std::pair<char, int>> operators_and_operands;
     char op;
