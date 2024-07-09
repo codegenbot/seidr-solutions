@@ -30,7 +30,7 @@ string sort_numbers(string numbers) {
     for (auto const& pair : num_map) {
         rev_num_map[pair.second] = pair.first;
     }
-
+    
     vector<string> num_list;
     stringstream ss(numbers);
     string token;
