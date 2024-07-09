@@ -4,7 +4,7 @@ from collections import deque
 
 def minPath(grid):
     if not isinstance(grid, list) or not all(isinstance(row, list) for row in grid):
-        return "Invalid input: The input should be a 2D array."
+        return []
 
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
