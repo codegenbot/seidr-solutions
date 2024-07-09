@@ -1,3 +1,4 @@
+```cpp
 #include <map>
 using std::map;
 
@@ -7,12 +8,18 @@ string int_to_mini_roman(int number) {
         {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
 
     string result = "";
-    for (auto it = roman.begin(); it != roman.end(); ++it) {
-        while (number >= it->first) {
-            number -= it->first;
-            result += it->second;
+    #pragma GCC diagnostic push
+    {
+    #pragma GCC diagnostic ignored "-Werror"
+    #pragma GCC diagnostic warning "-Wc++0x-compat"
+} 
+    for (auto pair : roman) {
+        while (number >= pair.first) {
+            number -= pair.first;
+            result += pair.second;
         }
     }
+#pragma GCC diagnostic pop
     return result;
 }
 
