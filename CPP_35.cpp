@@ -1,22 +1,22 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
+int findMax(std::vector<int> numbers) {
+    int maxNum = (numbers.empty()) ? -1 : *std::max_element(numbers.begin(), numbers.end());
+    if (maxNum != -1)
+        std::cout << maxNum << std::endl;
+    return 0;
+}
+
 int main() {
     std::vector<int> numbers;
-    int num;
-    
-    while (std::cin >> num) {
+    for(int i=0; ;i++){
+        int num;
+        std::cin >> num;
         numbers.push_back(num);
+        if(i == 4) break; // exit the loop after reading 5 numbers
     }
-    
-    if (!numbers.empty()) {
-        int maxNum = *std::max_element(numbers.begin(), numbers.end());
-        std::cout << maxNum << std::endl;
-    } else {
-        std::cout << -1 << std::endl;
-    }
-    
+    findMax(numbers);
     return 0;
 }
