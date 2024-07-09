@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <cmath>
-#include <string>
 
 std::string special_factorial(int n) {
     if (n <= 1)
@@ -12,9 +12,10 @@ std::string special_factorial(int n) {
         for (int j = 2; j <= i; j++)
             mul_result *= j;
 
-        result += " * " + std::to_string(mul_result);
+        std::cout << result << " * " << mul_result << std::endl;
+        result = "1";
     }
-    return result;
+    return "";
 }
 
 int main() {
