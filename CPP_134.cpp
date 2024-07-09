@@ -1,16 +1,9 @@
-Here is the completed code:
-
-```cpp
 bool check_if_last_char_is_a_letter(string txt) {
     if (txt.empty()) return false;
-    int last_index = txt.size() - 1;
-    char last_char = txt[last_index];
-    bool is_space = false;
-    for (int i = 0; i < last_index; ++i) {
-        if (!isspace(txt[i])) {
-            is_space = true;
-            break;
-        }
+    char lastChar = txt.back();
+    if (!isalpha(lastChar)) return false;
+    for (int i = 0; i < txt.length() - 1; i++) {
+        if (!isspace(txt[i])) return true;
     }
-    return isalpha(last_char) && !is_space;
+    return false;
 }
