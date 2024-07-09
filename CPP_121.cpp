@@ -25,11 +25,11 @@ int solutions(std::vector<int> lst) {
 
 int main() {
     int num, n = 0;
-    std::vector<int> lst(100); // Reserve space for the vector
+    std::vector<int> lst; 
     std::cout << "Enter numbers (terminate with 0): ";
     int count = 0;
     while (count < 100 && std::cin >> num && num != 0) {
-        lst[count++] = num; // Assign values directly to array
+        lst.push_back(num); // Assign values directly to array
     }
     int result = solutions(lst);
     if(result == 25)

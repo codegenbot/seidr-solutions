@@ -1,6 +1,6 @@
-Here is the modified code:
-
 ```cpp
+namespace std { class initializer_list; }
+
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -46,6 +46,19 @@ int main() {
     }
     
     std::vector<std::string> output = sorted_list_sum(inputStrings);
+    
+    for(int i = 0; i < output.size(); i++) {
+        bool found = false;
+        for(int j = 0; j < output.size(); j++) {
+            if(i != j && output[i] == output[j]) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) {
+            std::cout << output[i] << std::endl;
+        }
+    }
     
     return 0;
 }
