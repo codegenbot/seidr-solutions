@@ -1,6 +1,6 @@
 #include <set>
-
-// ...
+#include<vector>
+#include<algorithm>
 
 vector<int> common(vector<int> l1,vector<int> l2){
     vector<int> result;
@@ -15,3 +15,4 @@ vector<int> common(vector<int> l1,vector<int> l2){
 
     sort(result.begin(),result.end());
     return result;
+}
