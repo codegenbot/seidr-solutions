@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <cassert>
 #include <cctype>
 
 std::vector<std::string> split_words(std::string txt);
@@ -35,7 +36,6 @@ std::vector<std::string> split_words(std::string txt){
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    bool b;
     if(a.size() != b.size()){
         return false;
     } else {
