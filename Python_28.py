@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -7,6 +6,7 @@ def concatenate(strings: List[str]) -> str:
     for s in strings:
         result += s
     return result
+
 
 strings = ["hello", "world"]
 print(concatenate(strings))
