@@ -1,5 +1,9 @@
 using namespace std;
 
+#include<string>
+#include<openssl/ssl.h>
+#include<openssl/x509v3.h>
+
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "None";
     
@@ -8,7 +12,7 @@ std::string string_to_md5(std::string text) {
     
     std::string result;
     for(int i = 0; i < 16; ++i){
-        stringstream ss;
+        std::stringstream ss;
         ss << hex << (int)md5[i];
         result += ss.str();
     }
