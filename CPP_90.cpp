@@ -1,6 +1,6 @@
 #include <cassert>
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 int next_smallest(vector<int> lst) {
     vector<int> sorted = lst;
