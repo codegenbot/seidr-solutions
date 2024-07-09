@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 bool issame(string planet1, string planet2) {
@@ -60,9 +61,9 @@ int main() {
         cout << endl;
     } else {
         if (!issame(planet1, planet2)) {
-            cout << "The planets cannot be between themselves because they're the same." << endl;
-        } else {
             cout << "The planets " << planet1 << " and " << planet2 << " are the same." << endl;
+        } else {
+            cout << "The planets cannot be between themselves because they're the same." << endl;
         }
     }
 
