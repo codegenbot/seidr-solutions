@@ -1,3 +1,5 @@
+```
+#include <string>
 #include <vector>
 #include <iostream>
 
@@ -24,15 +26,5 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> num;
     std::cout << "Mini Roman representation of the number is: " << toMiniRoman(num) << std::endl;
-
-    num = 1000;
-    std::cout << "Mini Roman representation of the number is: " << toMiniRoman(num) << std::endl;
-
-    num = 4;
-    std::cout << "Mini Roman representation of the number is: " << toMiniRoman(num) << std::endl;
-
-    num = 9;
-    std::cout << "Mini Roman representation of the number is: " << toMiniRoman(num) << std::endl;
-
     return 0;
 }
