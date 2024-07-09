@@ -25,4 +25,4 @@ std::any compare_one(std::any a, std::any b) {
     return std::any();
 }
 
-assert (std::any_cast<std::string>(compare_one(std::any(std::string("1")), std::any(int(1))) == "None");
+assert (std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
