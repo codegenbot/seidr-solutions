@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 bool issame(vector<string> v1, vector<string> v2) {
     if (v1.size() != v2.size()) {
@@ -24,21 +26,22 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
     }
 
     // Sort the resulted vector by length and then alphabetically
-    std::sort(result.begin(), result.end(),
-              [](const string& a, const string& b) {
-                  if (a.length() != b.length()) {
-                      return a.length() < b.length();
-                  } else {
-                      return a < b;
-                  }
-              });
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
+         });
 
     return result;
 }
 
 int main() {
     vector<string> lst = {"apple", "banana", "hello", "world", "foo"};
-    if (issame(lst, lst)) { // removed 'const' keyword
+    const vector<string>& lst_copy = lst;
+    if (issame(lst, lst_copy)) {
         vector<string> output = sorted_list_sum(lst);
         for (const auto& str : output) {
             cout << str << endl;
