@@ -1,8 +1,7 @@
-```c++
-#include <cstddef>
-#include <string>
+#include <bits/stdc++.h>
+using namespace std;
 
-bool solveBoolean(const std::string& s) {
+bool solveBoolean(const string& s) {
     bool result = true;
     size_t i = 0;
 
@@ -11,40 +10,6 @@ bool solveBoolean(const std::string& s) {
             result = true;
         } else if (s[i] == 'F') {
             result = false;
-        } else if (s[i] == '|') {
-            bool temp = result;
-            i++;
-            while (i < s.size() && s[i] != '|') {
-                if (s[i] == '&') {
-                    i++;
-                    while (i < s.size() && s[i] != '|') {
-                        if (s[i] == 'T') {
-                            result = temp;
-                        } else {
-                            result = !temp;
-                        }
-                        i++;
-                    }
-                } else {
-                    if (s[i] == 'T') {
-                        result = temp;
-                    } else {
-                        result = !temp;
-                    }
-                    i++;
-                }
-            }
-        } else if (s[i] == '&') {
-            bool temp = result;
-            i++;
-            while (i < s.size() && s[i] != '&') {
-                if (s[i] == 'T') {
-                    result = temp;
-                } else {
-                    result = !temp;
-                }
-                i++;
-            }
         }
         i++;
     }
@@ -52,14 +17,14 @@ bool solveBoolean(const std::string& s) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a Boolean expression: ";
-    std::getline(std::cin, input);
+    string input;
+    cout << "Enter a Boolean expression: ";
+    getline(cin, input);
     bool result = solveBoolean(input);
     if (result) {
-        std::cout << "The result is True." << std::endl;
+        cout << "The result is True." << endl;
     } else {
-        std::cout << "The result is False." << std::endl;
+        cout << "The result is False." << endl;
     }
     return 0;
 }
