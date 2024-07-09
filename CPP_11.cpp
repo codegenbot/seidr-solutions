@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -31,4 +30,3 @@ int main() {
         std::cerr << "Error: " << e.what() << std::endl;
     }
     return 0;
-}
