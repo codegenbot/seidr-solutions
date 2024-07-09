@@ -1,9 +1,6 @@
 from typing import List, Tuple
-def find_closest_elements(numbers: str) -> Tuple[float, float]:
-    numbers = list(map(float, numbers.split(',')))
-    if len(numbers) < 2:
-        return "Input must contain at least two numbers"
-    
+
+def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     numbers.sort()
     min_diff = float("inf")
     result = None
@@ -13,3 +10,10 @@ def find_closest_elements(numbers: str) -> Tuple[float, float]:
             min_diff = diff
             result = (numbers[i], numbers[i + 1])
     return result
+
+# Read input
+numbers = list(map(float, input().split()))
+
+# Call the function with input data
+output = find_closest_elements(numbers)
+print(output)
