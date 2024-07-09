@@ -1,31 +1,24 @@
+Here is the completed code:
+
 string file_name_check(string file_name){
+    bool valid = true;
     int digit_count = 0;
-    bool found_dot = false;
-    string before_dot;
 
     for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(isdigit(c)){
+        if(isdigit(file_name[i])){
             digit_count++;
-            if(digit_count > 3)
-                return "No";
-        }else if(c == '.'){
-            found_dot = true;
-        }else{
-            before_dot += c;
-            if(found_dot)
-                break;
+            if(digit_count > 3) return "No";
+        }
+        else if(file_name[i] == '.'){
+            string extension = file_name.substr(i+1);
+            if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
+            break;
         }
     }
 
-    if(!found_dot || before_dot.empty() || !isalpha(before_dot[0]))
-        return "No";
+    if(digit_count > 3 || file_name.find('.') == string::npos) return "No";
 
-    int start = file_name.find('.');
-    string after_dot = file_name.substr(start+1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    if(find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end())
-        return "No";
+    if(file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z') return "No";
 
-    return "Yes";
+    return valid ? "Yes" : "No";
 }

@@ -1,38 +1,30 @@
-#include <vector>
-#include <algorithm>
+Here is the solution:
 
-string words_in_sentence(string sentence) {
-    vector<int> lengths;
+string words_in_sentence(string sentence){
     string result = "";
-    
-    for (int i = 0; i < sentence.size(); i++) {
-        if (sentence[i] == ' ') {
-            continue;
-        }
-        
-        int j = i + 1;
-        while (j < sentence.size() && !isspace(sentence[j])) {
-            j++;
-        }
-        
-        string word = sentence.substr(i, j - i);
-        int length = word.size();
-        
-        bool isPrime = true;
-        for (int k = 2; k * k <= length; k++) {
-            if (length % k == 0) {
-                isPrime = false;
-                break;
-            }
-        }
-        
-        if (isPrime) {
+    for (const auto& word : split(sentence, ' ')) {
+        if (is_prime(word.length())) {
             result += word + " ";
-            lengths.push_back(length);
         }
-        
-        i = j;
     }
-    
     return result.substr(0, result.size() - 1);
+}
+
+vector<string> split(const string& str, char c) {
+    vector<string> tokens;
+    size_t pos = 0;
+    while ((pos = str.find(c)) != string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
+    }
+    tokens.push_back(str);
+    return tokens;
+}
+
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
 }
