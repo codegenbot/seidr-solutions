@@ -1,7 +1,8 @@
+```
 def middle_character(s):
     length = len(s)
+    mid_point = length // 2
     if length % 2 == 0:
-        return "_" + s[length//2-1 if length%2 else length//2] + "_" + s[length//2]
+        return "_" + s[mid_point - 1:mid_point + 1] + "_"
     else:
-        mid_char = s[length//2]
-        return "_" + mid_char + "_"
+        return "_" + s[mid_point] + "_"
