@@ -4,15 +4,6 @@
 
 using namespace std;
 
-int gcd(int a, int b) {
-    a = abs(a);
-    b = abs(b);
-    if (b == 0) {
-        return a;
-    }
-    return gcd(b, a % b);
-}
-
 vector<int> findIndicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
     size_t pos = text.find(target, 0);
@@ -21,6 +12,15 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
         pos = text.find(target, pos + 1);
     }
     return indices;
+}
+
+int gcd(int a, int b) {
+    a = abs(a);
+    b = abs(b);
+    if (b == 0) {
+        return a;
+    }
+    return gcd(b, a % b);
 }
 
 int main() {

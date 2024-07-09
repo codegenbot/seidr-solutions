@@ -2,18 +2,14 @@
 #include <string>
 
 int main() {
-    std::string input;
-    std::cin >> input;
-
-    if (input.empty()) {
-        std::cout << "Invalid input" << std::endl;
-        return 0;
-    }
+    int num;
+    std::cin >> num;
 
     std::string output = "";
-    for (char c : input) {
-        int digit = c - '0';
-        output += std::to_string(digit * digit);
+    while (num > 0) {
+        int digit = num % 10;
+        output = std::to_string(digit * digit) + output;
+        num /= 10;
     }
 
     std::cout << output << std::endl;
