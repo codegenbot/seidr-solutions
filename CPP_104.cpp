@@ -15,7 +15,6 @@ std::vector<int> unique_digits(std::vector<int> a) {
 
 int main() {
     std::vector<int> digits = {135, 103, 31};
-
     assert(issame(unique_digits(digits), std::vector<int>{31, 103, 135}));
 
     return 0;
