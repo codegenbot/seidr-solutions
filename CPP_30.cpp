@@ -10,7 +10,7 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-vector<std::float_> get_positive(vector<float> l){
+vector<std::float> get_positive(vector<float> l){
     vector<float> result;
     for(float num : l) {
         if(num > 0) {
