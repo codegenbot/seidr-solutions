@@ -1,25 +1,26 @@
-#include <cmath>
+```cpp
 #include <iostream>
+#include <string>
 
-bool isSimplePower(int x) {
-    for (int i = 2; i <= sqrt(x); ++i) {
-        int n = 0;
-        while (pow(i, n) <= x) {
-            if (pow(i, n) == x) {
+bool isSimplePower(int num) {
+    if (num <= 1)
+        return false;
+    for (int i = 2; i * i <= num; i++) {
+        int temp = i;
+        while (temp <= num) {
+            if (temp == num)
                 return true;
-            }
-            n++;
+            temp *= i;
         }
     }
     return false;
 }
 
-int main() {
+int simplePowerCheckerMain() {
     std::string input;
     std::cout << "Enter a number: ";
     std::cin >> input;
     int num = std::stoi(input);
-    assert(isSimplePower(num));
     if (isSimplePower(num)) {
         std::cout << input << " is a simple power.\n";
     } else {
