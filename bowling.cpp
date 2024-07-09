@@ -1,5 +1,14 @@
-```cpp
+```c++
 #include <sstream>
+
+int main() {
+    std::string input;
+    std::cout << "Enter the bowling score: ";
+    std::getline(std::cin, input);
+    int score = bowlingScore(input);
+    std::cout << "The total score is: " << score << std::endl;
+    return 0;
+}
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -52,10 +61,4 @@ int bowlingScore(std::string s) {
     }
 
     return score;
-}
-
-int main() {
-    std::string s = "X/X/5-4/10/-9/-8/X/X/6+3/7-2";
-    int result = bowlingScore(s);
-    return result;
 }
