@@ -2,9 +2,12 @@ text = input()
 target = input()
 
 indices = []
-index = 0
-while (index := text.find(target, index)) != -1:
+index = -1
+while (index := text.find(target, index + 1)) != -1:
     indices.append(index)
-    index += 1
+
+if len(indices) > 1:
+    for i in range(1, len(indices)):
+        indices[i] = indices[i] - len(target) + 1
 
 print(*indices)
