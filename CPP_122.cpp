@@ -12,10 +12,22 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> v = {5, 15, 25, 10, 100}; // Example array
-    int k = 5; // Number of elements to consider
+    int n, k;
+    std::cout << "Enter the value of k: ";
+    std::cin >> k;
 
-    std::cout << add_elements(v, k) << std::endl; // Output the result
+    std::vector<int> arr;
+    std::cout << "Enter " << k << " integers separated by spaces: ";
+
+    for (int i = 0; i < k; i++) {
+        int num;
+        std::cin >> num;
+        arr.push_back(num);
+    }
+
+    int result = add_elements(arr, k);
+
+    std::cout << "Sum of elements between 10 and 99: " << result << std::endl;
 
     return 0;
 }
