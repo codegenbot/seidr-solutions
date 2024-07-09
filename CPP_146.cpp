@@ -12,9 +12,18 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    assert(specialFilter({}) == 0);
-    std::vector<int> nums = {11, 12, 13, 14, 15};
-    int result = specialFilter(nums);
-    std::cout << "The number of integers that meet the condition is: " << result << std::endl;
+    std::vector<int> input;
+    int num;
+
+    std::cout << "Enter numbers (negative to stop):" << std::endl;
+
+    while ((std::cin >> num) && (num >= 0)) {
+        input.push_back(num);
+    }
+
+    int result = specialFilter(input);
+
+    std::cout << "Count: " << result << std::endl;
+
     return 0;
 }
