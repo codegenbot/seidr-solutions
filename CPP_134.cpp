@@ -1,15 +1,10 @@
 bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) {
-        return false;
-    }
+    if (txt.empty()) return false;
     char lastChar = txt.back();
-    if (!isalpha(lastChar)) {
-        return false;
-    }
-    for (int i = 0; i < txt.length() - 1; i++) {
-        if (isspace(txt[i]) && txt[i + 1] == lastChar) {
-            return true;
-        }
-    }
-    return false;
+    bool isLetter = isalpha(lastChar);
+    return !isSpace(txt.back()) && isLetter;
+}
+
+bool isSpace(char c) {
+    return c == ' ';
 }
