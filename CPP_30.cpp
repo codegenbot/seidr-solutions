@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -35,13 +34,13 @@ int main() {
 {
         std::cout << "Enter element " << i + 1 << ": ";
         float num;
-        std::cin >> num;
+        if (!(std::cin >> num)) {
+            break;
+        }
         numbers.push_back(num);
 }
 
-    std::vector<float> positiveNumbers = getPositive(numbers);
-
-    if (same(getPositive(numbers), positiveNumbers)) {
+    if (same(numbers, getPositive(numbers))) {
         std::cout << "The input vector and the positive vector are the same." << std::endl;
     } else {
         std::cout << "The input vector and the positive vector are not the same." << std::endl;
