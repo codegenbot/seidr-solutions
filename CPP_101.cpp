@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,7 +12,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
 
 typedef std::string custom_string;
 
-std::vector<custom_string> words_string(custom_string s){
+std::vector<custom_string> words_string(std::string s){
     std::vector<custom_string> result;
     custom_string word = "";
     for(int i=0; i<s.length(); i++){
