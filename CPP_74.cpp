@@ -43,8 +43,6 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
         }
     } else if (!lst1.empty()) return lst1;
     else return lst2;
-
-    return {};
 }
 
 int main() {
