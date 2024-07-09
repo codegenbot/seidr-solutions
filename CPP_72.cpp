@@ -1,16 +1,16 @@
-Here is the completed code:
+```cpp
+#include <vector>
+#include <string>
 
-bool will_it_fly(vector<int> q,int w){
-    string s = "";
-    for(int i=0; i<q.size();i++){
-        s += to_string(q[i]);
+bool will_it_fly(vector<int> q, int w) {
+    string str = "";
+    for (int i : q) {
+        str += to_string(i);
     }
-    if(s!=s.reverse()){
-        return false;
-    }
+    if (str != string(reverse(str).begin(), reverse(str).end())) return false;
     int sum = 0;
-    for(auto x: q){
-        sum+=x;
+    for (int i : q) {
+        sum += i;
     }
     return sum <= w;
 }
