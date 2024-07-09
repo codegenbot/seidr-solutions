@@ -1,9 +1,11 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
 
-std::string match_parens(vector<string> lst) {
+bool match_parens(vector<string> lst) {
     int open = 0, close = 0;
     for (const string& s : lst) {
         for (char c : s) {
@@ -11,15 +13,21 @@ std::string match_parens(vector<string> lst) {
             else close++;
         }
     }
-    return (open == close) ? "Yes" : "No";
+    return open == close;
 }
 
 int main() {
-    vector<string> input;
-    cout << "Enter a string: ";
-    string str;
-    getline(cin, str);
-    input.push_back(str);
-    cout << match_parens(input) << endl;
+    vector<string> lst;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        string s;
+        getline(cin, s);
+        lst.push_back(s);
+    }
+    if(match_parens(lst))
+        cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
     return 0;
 }
