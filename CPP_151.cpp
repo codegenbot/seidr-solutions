@@ -1,12 +1,18 @@
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<double> lst){
+long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
-    for(double num : lst) {
-        if(num > 0 && modf(num, &num) == 0.0) {
-            sum += pow(num, 2);
+    for(float num : lst) {
+        if(num > 0 && modf((double)num, &num) == 0.0) {
+            sum += pow((double)num, 2);
         }
     }
     return sum;
+}
+
+int main() {
+    std::vector<float> lst = {1.0, 3.5, 4.0};
+    assert(double_the_difference(lst) == 16);
+    return 0;
 }
