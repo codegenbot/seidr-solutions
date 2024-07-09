@@ -1,7 +1,7 @@
-```cpp
+```
+#pragma GCC target "c++14"
 #include <vector>
 #include <cmath>
-#pragma GCC target "c++14"
 
 bool has_close_elements(std::vector<float> numbers, float threshold) {
     for (int i = 0; i < numbers.size(); i++) {
