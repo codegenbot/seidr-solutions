@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 bool isPrime(int n) {
     if(n <= 1)
