@@ -1,16 +1,34 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <cassert>
+
+bool is_sorted(std::vector<int> lst) {
+    for (int i = 0; i < lst.size() - 1; ++i) {
+        if (lst[i] >= lst[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 int main() {
-    bool is_sorted(vector<int> lst) {
-        for (int i = 0; i < lst.size() - 1; ++i) {
-            if (lst[i] >= lst[i + 1]) {
-                return false;
-            }
-        }
-        return true;
+    std::vector<int> input;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    for(int i = 0; i < n; ++i) {
+        int element;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> element;
+        input.push_back(element);
     }
-
-    assert(is_sorted({1, 2, 3, 4}) == true);
+    
+    if(is_sorted(input)) {
+        std::cout << "The list is sorted." << std::endl;
+    } else {
+        std::cout << "The list is not sorted." << std::endl;
+    }
+    
     return 0;
 }
