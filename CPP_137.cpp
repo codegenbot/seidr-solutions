@@ -3,6 +3,12 @@
 
 using namespace std;
 
+bool compare(int a, int b) {
+    if (a > b) return true;
+    else if (b > a) return false;
+    else return false; 
+}
+
 int main() {
     int a, b;
     cout << "Enter the first number: ";
@@ -10,10 +16,10 @@ int main() {
     cout << "Enter the second number: ";
     cin >> b;
 
-    if (a > b) {
+    if (compare(a, b)) {
         cout << "The larger number is: " << a << endl;
     }
-    else if (b > a) {
+    else if (!compare(b, a)) {
         cout << "The larger number is: " << b << endl;
     }
     else {
