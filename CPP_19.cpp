@@ -1,6 +1,6 @@
 #include <string>
-#include <map>
 #include <vector>
+#include <map>
 #include <algorithm>
 
 string sort_numbers(string numbers) {
@@ -23,3 +23,4 @@ string sort_numbers(string numbers) {
         result += s + " ";
     }
     return result;
+}
