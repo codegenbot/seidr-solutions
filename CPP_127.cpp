@@ -7,17 +7,11 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 
     int length = end - start + 1;
 
-    for(int i=2; i<=length; ++i) {
-        bool isPrime = true;
-        for(int j=2; j*j <= i; ++j) {
-            if(i%j == 0) {
-                isPrime = false;
-                break;
-            }
+    for (int i = 2; i * i <= length; i++) {
+        if (length % i == 0) {
+            return "NO";
         }
-        if(isPrime)
-            return "YES";
     }
 
-    return "NO";
+    return "YES";
 }
