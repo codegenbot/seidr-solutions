@@ -1,8 +1,12 @@
-int max_fill(vector<vector<int>> grid, int capacity) {
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int n = grid.size();
     int total_water = 0;
-    for (int i = 0; i < n; i++) {
-        total_water += accumulate(grid[i].begin(), grid[i].end(), 0);
+    for (const auto& row : grid) {
+        total_water += std::accumulate(row.begin(), row.end(), 0);
     }
     
     int max_fill_times = -1;
@@ -11,14 +15,21 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     
     while (current_water < total_water) {
         for (int i = 0; i < n; i++) {
-            current_water += accumulate(grid[i].begin(), grid[i].end(), 0);
+            current_water += std::accumulate(grid[i].begin(), grid[i].end(), 0);
             if (current_water >= capacity) {
                 fill_times++;
                 current_water -= capacity;
             }
         }
-        max_fill_times = max(max_fill_times, fill_times);
+        max_fill_times = std::max(max_fill_times, fill_times);
     }
     
     return max_fill_times;
+}
+
+int main_test() {
+    std::vector<std::vector<int>> grid = {{1,1,1,1}, {1,1,1,1}};
+    int capacity = 9;
+    std::cout << max_fill(grid, capacity) << std::endl; 
+    return 0;
 }
