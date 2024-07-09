@@ -21,23 +21,23 @@ vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
 
     for (const auto& str : lst) {
-        if (stoi(str) % 2 == 0) {
-            result.push_back(std::to_string(stoi(str)));
-        } else {
+        if (str.length() % 2 == 0) {
             result.push_back(str);
         }
     }
 
-    std::sort(result.begin(), result.end(),
-              [](const string& a, const string& b) {
-                  if (stoi(a) != stoi(b)) {
-                      return stoi(a) < stoi(b);
-                  } else {
-                      return a < b;
-                  }
-              });
+    vector<string> stringsOfEvenLength;
 
-    return result;
+    // Split the strings into strings of even length
+    for (auto &str: result) {
+        if (str.length() % 2 == 0) {
+            stringsOfEvenLength.push_back(str);
+        }
+    }
+
+    std::sort(stringsOfEvenLength.begin(), stringsOfEvenLength.end());
+
+    return stringsOfEvenLength;
 }
 
 int main() {
