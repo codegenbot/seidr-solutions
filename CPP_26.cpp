@@ -1,16 +1,13 @@
-vector<int> remove_duplicates(vector<int> numbers){
+vector<int> remove_duplicates(vector<int> numbers) {
+    unordered_map<int, bool> seen;
     vector<int> result;
-    for(int i = 0; i < numbers.size(); i++){
-        bool found = false;
-        for(int j = 0; j < result.size(); j++){
-            if(result[j] == numbers[i]){
-                found = true;
-                break;
-            }
-        }
-        if(!found){
-            result.push_back(numbers[i]);
+
+    for (int num : numbers) {
+        if (!seen.count(num) || !seen[num]) {
+            seen[num] = true;
+            result.push_back(num);
         }
     }
+
     return result;
 }
