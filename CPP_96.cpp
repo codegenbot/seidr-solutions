@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 using namespace std;
 
@@ -20,3 +18,4 @@ vector<int> count_upto(int n) {
         }
     }
     return primes;
+}
