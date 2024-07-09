@@ -1,4 +1,5 @@
 from decimal import Decimal
+
 n, m = map(int, input().strip().split())
 print(
     round(
