@@ -1,12 +1,15 @@
-```cpp
-#include <cassert>
 #include <string>
 
-int my_strlen(string str){
-    return str.length();
+int my_strlen(const char* str) {
+    int len = 0;
+    while (*str != '\0') {
+        len++;
+        str++;
+    }
+    return len;
 }
 
-int new_main() {
+int main() {
     assert(my_strlen("asdasnakj") == 12); 
     return 0;
 }
