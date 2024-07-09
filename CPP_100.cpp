@@ -1,24 +1,27 @@
 #include <vector>
+#include <iostream>
 
-bool issame(vector<int> a,vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) return false;
+bool isSame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-int make_a_pile(int n){
+vector<int> make_a_pile(int n) {
     vector<int> pile;
-    int val = 2;
-    while(val <= n) {
-        pile.push_back(val);
-        val += 2;
+    for (int i = n; i > 0; --i) {
+        pile.push_back(i * 2);
     }
-    return issame(pile, {8, 10, 12, 14, 16, 18, 20, 22});
+    return pile;
 }
 
 int main() {
-    assert(make_a_pile(8));
+    assert(isSame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    vector<int> p1 = make_a_pile(5);
+    for (int x : p1) {
+        std::cout << x << " ";
+    }
     return 0;
 }
