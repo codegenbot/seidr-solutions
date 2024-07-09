@@ -11,5 +11,5 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? std::string(s).rbegin().rsuffix("").str() : result;
+    if (!result.empty()) return s;
 }
