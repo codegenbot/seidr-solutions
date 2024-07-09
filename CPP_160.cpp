@@ -3,10 +3,10 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> ops = {"//", "*"}; 
+std::vector<std::string> ops = {"//", "*"};
 
-int do_algebra(std::vector<string> operator_, vector<int> operand) {
-    string expression = "";
+int do_algebra(std::vector<std::string> operator_, std::vector<int> operand) {
+    std::string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
         expression += to_string(operand[i]);
         expression += operator_[i];
@@ -18,7 +18,7 @@ int do_algebra(std::vector<string> operator_, vector<int> operand) {
     return result;
 }
 
-int eval(const string& s) {
+int eval(const std::string& s) {
     int result = 0;
     if (s.empty()) {
         return result;
