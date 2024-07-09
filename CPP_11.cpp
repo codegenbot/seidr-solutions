@@ -19,18 +19,19 @@ std::string string_xor(std::string a, std::string b) {
 
 int main() { 
     assert(string_xor("0101", "0000") == "0101");
-    std::string str1, str2;
-    str1.reserve(100); // reserve space for input
-    str2.reserve(100);
+    std::string str1;
+    std::string str2;
     std::cout << "Enter the first string: ";
     char c1;
-    while((c1 = std::cin.get()) != '\n') {
-        str1 += (char)tolower(c1);
+    while(std::cin >> c1) {
+        str1 += c1;
     }
+    std::cin.ignore();  // Add this line
     std::cout << "Enter the second string: ";
     char c2;
-    while((c2 = std::cin.get()) != '\n') {
-        str2 += (char)tolower(c2);
+    while(std::cin.peek() != '\n') {  
+        c2 = std::cin.get();
+        str2 += c2;
     }
     try {
         std::string result = string_xor(str1, str2);
