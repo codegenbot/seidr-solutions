@@ -1,6 +1,1 @@
-def solve(a, b, c):
-    return -c / b
-
-a, b, c = map(int, input().strip().split()[:3])
-result = solve(a, b, c)
-print(result)
+a, b, c = map(int, input().strip().split()) if b < c else (a + b, b - c, a + c)
