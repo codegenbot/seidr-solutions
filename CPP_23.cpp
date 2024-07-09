@@ -7,5 +7,6 @@ int myStrlen(string str){
 }
 
 int main() {
-    assert(myStrlen("asdasnakj") == 9);
+    std::string str = "asdasnakj";
+    assert(myStrlen(str) == 9);
 }
