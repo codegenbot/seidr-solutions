@@ -1,5 +1,6 @@
 ```cpp
 #include <vector>
+#include <climits>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
@@ -26,6 +27,9 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     for (int i = 1; i < cut_index; i++) {
         left.push_back(vec[i]);
     }
-    vector<int> right = vector<int>(vec.begin() + cut_index, vec.end());
+    vector<int> right = {};
+    for (int i = cut_index; i < vec.size(); i++) {
+        right.push_back(vec[i]);
+    }
     return {left, right};
 }
