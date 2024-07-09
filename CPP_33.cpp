@@ -2,19 +2,23 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(int a, int b) {
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-void sort_third(std::vector<int>& v) {
-    for (int i = 0; i < v.size(); i += 3) {
-        std::sort(v.begin() + i, v.begin() + i + 3);
+vector<int> sort_third(vector<int> l) {
+    vector<int> res = l;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            sort(res.begin() + i, res.begin() + i + 3);
+        }
     }
+    return res;
 }
 
-std::vector<int> fix_code(std::vector<int> l)
-{
-    std::vector<int> res = l;
-    sort_third(res);
-    return res;
+int main() {
+    // Your main function code here
+    return 0;
 }
