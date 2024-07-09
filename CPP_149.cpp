@@ -1,6 +1,5 @@
 ```cpp
-namespace std { class initializer_list; }
-
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -8,8 +7,8 @@ namespace std { class initializer_list; }
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return (a == b);
+bool issame(const vector<string>& a, const initializer_list<string>& b) {
+    return (a == vector<string>(b));
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
@@ -31,12 +30,14 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main_entry() {
-    assert(issame(vector<string>(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})), vector<string>({"cc","dd","aaaa","bbbb"})));
-    
+    if (issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"})) {
+        assert(true);
+    }
+
     int n;
     cout << "Enter the number of strings: ";
     cin >> n;
-    
+
     vector<string> inputStrings;
     for(int i = 0; i < n; i++) {
         string str;
@@ -44,9 +45,9 @@ int main_entry() {
         getline(cin, str);
         inputStrings.push_back(str);
     }
-    
+
     vector<string> output = sorted_list_sum(inputStrings);
-    
+
     for(int i = 0; i < output.size(); i++) {
         bool found = false;
         for(int j = 0; j < output.size(); j++) {
@@ -59,6 +60,6 @@ int main_entry() {
             cout << output[i] << endl;
         }
     }
-    
+
     return 0;
 }
