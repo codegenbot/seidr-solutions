@@ -2,16 +2,7 @@
 #include <iostream>
 
 double probability(int n, int m) {
-    double total = 0; 
-    int count = 0;
-    for (int i = 1; i <= m; i++) {
-        for (int j = i + 1; j <= n; j++) {
-            if (j > i) {
-                ++count;
-            }
-        }
-    }
-    return static_cast<double>(count) / ((double)(n * m));
+    return (n-m)/(n*m);
 }
 
 int main() {
