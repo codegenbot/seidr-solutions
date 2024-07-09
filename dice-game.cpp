@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <iomanip>
 
@@ -15,6 +16,6 @@ int main() {
     int n, m;
     std::cin >> n >> m;
     double output = probability(n, m);
-    std::cout << std::fixed << std::setprecision(8) << output << std::endl;
+    std::cout << std::fixed << std::setprecision(9) << output << std::endl;
     return 0;
 }
