@@ -1,9 +1,7 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <string>
-
 using namespace std;
 
 int do_algebra(vector<string> ops, vector<int> nums) {
@@ -31,24 +29,23 @@ int main() {
     vector<string> ops;
     vector<int> nums;
 
-    cout << "Enter number of operations: ";
-    int n;
-    cin >> n;
-    
-    for (int i = 0; i < n; i++) {
+    int num_ops, num_nums;
+
+    cin >> num_ops >> num_nums;
+
+    for (int i = 0; i < num_ops; i++) {
         string op;
-        int num;
-        
-        cout << "Enter operation (+, -, *, /, ^): ";
         cin >> op;
-        cout << "Enter number: ";
-        cin >> num;
-        
         ops.push_back(op);
+    }
+
+    for (int i = 0; i < num_nums; i++) {
+        int num;
+        cin >> num;
         nums.push_back(num);
     }
 
-    cout << "Result: " << do_algebra(ops, nums) << endl;
+    cout << do_algebra(ops, nums) << endl;
 
     return 0;
 }
