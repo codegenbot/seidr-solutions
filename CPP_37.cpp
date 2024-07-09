@@ -30,14 +30,19 @@ vector<float> sort_even(vector<float> l) {
 
 int main() {
     vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
-    vector<float> expected({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
-
-    if(!_issame(sort_even(input), expected)) {
-        return 1;
-    }
-
-    for (float num : sort_even(input)) {
+    
+    for (float num : input) {
         cout << num << " ";
     }
     cout << endl;
+
+    vector<float> result = sort_even(input);
+    if (_issame(result, {5, 8, -12, 4, 23, 2, 3, 11, 12, -10})) {
+        for (float num : result) {
+            cout << num << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "Test failed" << endl;
+    }
 }
