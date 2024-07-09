@@ -1,4 +1,3 @@
-```
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -18,25 +17,28 @@ std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
 
 }
 
-std::cout << "Enter the number of elements: ";
-std::cin >> n;
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
     
-std::vector<int> numbers(n);
-for (int i = 0; i < n; i++) {
-    std::cout << "Enter element " << i + 1 << ": ";
-    std::cin >> numbers[i];
-}
-    
-std::vector<int> uniqueNumbers = removeDuplicates(numbers);
-    
-if (!isSameVector(numbers, uniqueNumbers)) {
-    std::cout << "Unique numbers: ";
-    for (int num : uniqueNumbers) {
-        std::cout << num << " ";
+    std::vector<int> numbers(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> numbers[i];
     }
-    std::cout << std::endl;
-} else {
-    std::cout << "All elements are duplicates." << std::endl;
-}
     
-return 0;
+    std::vector<int> uniqueNumbers = removeDuplicates(numbers);
+    
+    if (!isSameVector(numbers, uniqueNumbers)) {
+        std::cout << "Unique numbers: ";
+        for (int num : uniqueNumbers) {
+            std::cout << num << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "All elements are duplicates." << std::endl;
+    }
+    
+    return 0;
+}
