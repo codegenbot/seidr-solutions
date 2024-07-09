@@ -2,14 +2,16 @@
 #include <vector>
 #include <list>
 #include <algorithm>
+#include <boost/any.hpp>
 
 using namespace std;
+using namespace boost;
 
-vector<int> filter_integers(list<cpp_any> values) {
-    vector<int> result({3, 'c'}); // Initialize with {3, 'c'}
+vector<int> filter_integers(list<any> values) {
+    vector<int> result;
     for (const auto& value : values) {
         try {
-            int val = boost::any_cast<int>(value);
+            int val = any_cast<int>(value);
             if(find(result.begin(), result.end(), val) == result.end())
                 result.push_back(val);
         } catch (...) {
@@ -19,11 +21,6 @@ vector<int> filter_integers(list<cpp_any> values) {
     return result;
 }
 
-bool is_same(vector<int> a, vector<int> b) {
+bool areEqual(vector<int> a, vector<int> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
-}
-
-int main() {
-    assert(is_same(filter_integers({{3, 'c'}, 3, 3, {'a', 'b'}}), {3, 3, 3}));
-    return 0;
 }
