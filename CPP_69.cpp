@@ -1,30 +1,7 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <map>
-
-int search(std::vector<int> lst); // Function declaration
-
-int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> lst(n);
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> lst[i];
-    }
-
-    int result = search(lst);
-
-    if (result == -1)
-        std::cout << "No such number exists in the list.\n";
-    else
-        std::cout << "The first number that is a multiple of its frequency is: " << result << "\n";
-
-    return 0;
-}
 
 int search(std::vector<int> lst) {
     std::map<int, int> freq;
@@ -42,4 +19,27 @@ int search(std::vector<int> lst) {
         }
     }
     return -1;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> lst;
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        int val;
+        std::cin >> val;
+        lst.push_back(val);
+    }
+
+    int result = search(lst);
+
+    if (result == -1)
+        std::cout << "No such number exists in the list.\n";
+    else
+        std::cout << "The first number that is a multiple of its frequency is: " << result << "\n";
+
+    return 0;
 }
