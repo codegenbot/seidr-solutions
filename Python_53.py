@@ -3,9 +3,9 @@ def add(x, y):
 
 try:
     print("Enter two integers separated by space:")
-    x, y = map(int, raw_input().split())
+    x, y = map(int, input().split())
 
     result = add(x, y)
     print(result)
-except ValueError:
+except Exception:
     print("Invalid input. Please enter valid integers.")
