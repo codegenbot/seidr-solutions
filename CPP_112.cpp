@@ -30,19 +30,15 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             temp += s[i];
         }
     }
-    
     result.push_back(temp);
-    
     string rev = "";
     for(int i = temp.length()-1; i >= 0; i--) {
         rev += temp[i];
     }
-    
+    std::vector<std::string> output;
     if (temp == rev) {
-        result.push_back("True");
+        output.push_back("True");
     } else {
-        result.push_back("False");
+        output.push_back("False");
     }
-    
-    return result;
-}
+    return output;
