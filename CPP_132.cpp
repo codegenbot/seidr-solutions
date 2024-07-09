@@ -1,15 +1,10 @@
-bool is_nested(string str) {
-    int count = 0;
-    for (char c : str) {
-        if (c == '[') {
-            count++;
-        } else if (c == ']') {
-            if (count > 0) {
-                count--;
-            } else {
-                return false;
-            }
+#include <string>
+
+bool is_nested(std::string str) {
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '(' && str.find(')', i) != std::string::npos) {
+            return true;
         }
     }
-    return count > 0;
+    return false;
 }
