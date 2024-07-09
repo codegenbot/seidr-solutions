@@ -1,25 +1,27 @@
 #include <vector>
 #include <list>
 #include <any>
-#include <cassert>
+#include <algorithm>
 
-using namespace std;
-
-bool issame(vector<int> a,vector<int>b){
-    return a==b;
+namespace std {
+    template<typename T1, typename T2>
+    struct is_same : public integral_constant<bool, (is_same_helper<T1, T2>::value)> {};
 }
+
+template<typename T> struct is_same_helper;
+template<typename T> struct is_same_helper<T, T> { enum { value = 1 }; };
 
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value) != 0) {
-            result.push_back(any_cast<int>(value));
+        if (boost::any_cast<int>(value)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
 }
 
 int main() {
-    assert(issame(filter_integers({3, any('c'), 3, 3, any('a'), any('b')}) ,{3, 3, 3}));
-    return 0;
+    assert(is_same<decltype(filter_integers({3, 'c', 3, 3, 'a', 'b'})), vector<int>>::value);
+    // ...
 }
