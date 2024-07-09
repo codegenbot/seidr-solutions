@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <memory>
 
 int sumOdd(std::vector<int> lst) {
     int sum = 0;
@@ -29,7 +29,11 @@ int main() {
     std::cout << "Enter numbers (terminate with 0): ";
     int count = 0;
     while (count < 100 && std::cin >> num && num != 0) {
-        lst.push_back(num); // Assign values directly to array
+        if(count > 0)
+            lst.reserve(count + 1); 
+        else
+            lst.push_back(num); 
+        count++;
     }
     int result = solutions(lst);
     if(result == 25)
