@@ -1,4 +1,4 @@
-Here is the corrected code:
+Here is the modified code:
 
 ```cpp
 boost::any compare_one(boost::any a, boost::any b) {
@@ -64,9 +64,12 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
     }
     else {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
+        float f1 = boost::any_cast<float>(a);
+        float f2 = boost::any_cast<float>(b);
+
+        if (f1 > f2)
             return a;
-        else if (boost::any_cast<float>(a) < boost::any_cast<float>(b))
+        else if (f1 < f2)
             return b;
         else
             return boost::any("None");
