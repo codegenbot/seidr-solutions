@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 int next_smallest(vector<int> lst) {
@@ -10,11 +9,7 @@ int next_smallest(vector<int> lst) {
     for (int i = 1; i < v.size(); i++) {
         if (v[i] > v[0]) return v[i];
     }
-    assert(false); // A delightful error message!
     return -1; 
 }
 
-int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
-    return 0;
-}
+assert(next_smallest({-35, 34, 12, -45}) == -35);
