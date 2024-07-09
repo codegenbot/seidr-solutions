@@ -48,7 +48,11 @@ vector<string> by_length(vector<int> arr) {
     
     sort(temp.begin(), temp.end());
     
-    vector<string> result = temp;
+    vector<string> result;
+    for (int i : temp) {
+        result.push_back(i);
+    }
+    
     reverse(result.begin(), result.end());
     
     return result;
