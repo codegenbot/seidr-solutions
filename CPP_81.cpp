@@ -43,7 +43,19 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    std::vector<float> grades = {0, 0.7};
-    assert(checkIfSame(numerical_letter_grade(grades), {"E", "D-"}) );
+    std::vector<float> grades = {0.0, 0.7};
+    std::cout << "Enter the number of students: ";
+    int n; std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        float grade; std::cout << "Enter student " << i+1 << "'s grade: ";
+        std::cin >> grade;
+        grades.push_back(grade);
+    }
+    std::vector<std::string> letter_grade = numerical_letter_grade(grades);
+    if (checkIfSame({letter_grades[0], letter_grades[1]}, {"E", "D-"})) {
+        for (const auto& str : letter_grade)
+            std::cout << str << '\n';
+    } else
+        std::cout << "Test failed. Actual result: ";
     return 0;
 }
