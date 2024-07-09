@@ -6,9 +6,10 @@ int my_strlen(string str){
 }
 
 int main1() {
-    assert(my_strlen("asdasnakj") == 11); 
+    assert(my_strlen("asdasnakj") == 12); 
     return 0;
 }
 
 int main2() {
+    
 }
