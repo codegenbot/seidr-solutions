@@ -17,8 +17,10 @@ bool getNumbers(vector<int>& numbers, int& threshold) {
     cout << "Enter the threshold: ";
     cin >> threshold;
 
-    cout << "Enter the numbers separated by space: ";
+    cout.fill('0');
+    cout.width(5);
     for(int i=0; i<5; i++) {
+        cout << "Enter number #"<<i+1<<": ";
         cin >> numbers[i];
     }
     
@@ -38,4 +40,3 @@ int main() {
     }
 
     return 0;
-}
