@@ -5,10 +5,10 @@
 std::map<char, int> histogram(const std::string& s) {
     std::map<char, int> result;
     for (char c : s) {
-        if (result.find(c) == result.end()) {
-            result[c] = 1;
-        } else {
+        if (result.find(c) != result.end()) {
             result[c]++;
+        } else {
+            result[c] = 1;
         }
     }
     return result;
