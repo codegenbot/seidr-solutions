@@ -1,7 +1,7 @@
 #include <vector>
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b);
-vector<int> make_a_pile(int n);
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -25,4 +25,14 @@ vector<int> make_a_pile(int n) {
         }
     }
     return pile;
+}
+
+int main() {
+    vector<int> a = make_a_pile(8);
+    std::cout << "a: ";
+    for (auto i : a) std::cout << i << " ";
+    std::cout << std::endl;
+    
+    assert (issame(a, vector<int>({8, 10, 12, 14, 16, 18, 20, 22})));
+    return 0;
 }
