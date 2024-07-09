@@ -1,14 +1,12 @@
-Here is the solution:
-
-long long special_factorial(int n){
-    if(n <= 1)
+long long special_factorial(int n) {
+    if (n == 0)
         return 1;
     long long result = 1;
-    for(int i = n; i > 0; --i){
-        result *= (long long)i;
-        if(i > 1)
-            for(int j = i - 1; j > 0; --j)
-                result *= (long long)j;
+    for (int i = 1; i <= n; ++i) {
+        result *= i;
+        for (int j = 2; j <= i; ++j++) {
+            result *= j;
+        }
     }
     return result;
 }

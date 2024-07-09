@@ -1,13 +1,9 @@
-```cpp
 #include <string>
-using namespace std;
+#include <cctype>
 
-bool check_if_last_char_is_a_letter(const string& str) {
-    if(str.empty()) return false;
-    return isalpha(str.back());
-}
-
-int main() {
-    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
-    return 0;
-}
+bool check_if_last_char_is_a_letter(string txt) {
+    if (txt.empty()) return false; 
+    char lastChar = txt.back(); 
+    bool isLetter = isalpha(lastChar); 
+    bool isPartOfWord = txt.find(" ") == string::npos || txt.rfind(" ") != txt.size() - 1; 
+    return isLetter && !isPartOfWord;

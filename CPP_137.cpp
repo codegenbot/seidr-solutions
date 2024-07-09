@@ -1,22 +1,62 @@
 #include <boost/any.hpp>
-#include <string>
-
-using namespace boost;
+#include <boost/type_index.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<a>(int.class)) {
-        int ai = any_cast<int>(a);
-        int bi = any_cast<int>(b);
-        return a < bi ? b : (ai < bi ? a : "None");
-    }
-    else if (is_any_of<a>(double.class)) {
-        double ad = any_cast<double>(a);
-        double bd = any_cast<double>(b);
-        return ad < bd ? b : (ad < bd ? a : "None");
-    }
-    else {
-        std::string as = any_cast<std::string>(a);
-        std::string bs = any_cast<std::string>(b);
-        return as.compare(bs) < 0 ? b : (as.compare(bs) > 0 ? a : "None");
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return boost::any(b);
+    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return boost::any(b);
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return a;
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return a;
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        if (std::stod(b.convert_to<std::string>().c_str()) > a.convert_to<std::string>().c_str()) {
+            return b;
+        } else if (std::stod(b.convert_to<std::string>().c_str()) < std::stod(a.convert_to<std::string>().c_str())) {
+            return a;
+        } else {
+            return boost::any("None");
+        }
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
+        if (std::stod(b.convert_to<std::string>().c_str()) > a.convert_to<std::string>().c_str()) {
+            return b;
+        } else if (std::stod(b.convert_to<std::string>().c_str()) < std::stod(a.convert_to<std::string>().c_str())) {
+            return a;
+        } else {
+            return boost::any("None");
+        }
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        if (std::stod(b.convert_to<std::string>().c_str()) > std::stod(a.convert_to<std::string>().c_str())) {
+            return b;
+        } else if (std::stod(b.convert_to<std::string>().c_str()) < std::stod(a.convert_to<std::string>().c_str())) {
+            return a;
+        } else {
+            return boost::any("None");
+        }
+    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        if (std::stoi(b.convert_to<std::string>().c_str()) > a) {
+            return b;
+        } else if (std::stoi(b.convert_to<std::string>().c_str()) < a) {
+            return a;
+        } else {
+            return boost::any("None");
+        }
+    } else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
+        if (std::stod(b.convert_to<std::string>().c_str()) > a) {
+            return b;
+        } else if (std::stod(b.convert_to<std::string>().c_str()) < a) {
+            return a;
+        } else {
+            return boost::any("None");
+        }
+    } else {
+        if (a.convert_to<int>() > b.convert_to<int>()) {
+            return a;
+        } else if (a.convert_to<int>() < b.convert_to<int>()) {
+            return b;
+        } else {
+            return boost::any("None");
+        }
     }
 }
