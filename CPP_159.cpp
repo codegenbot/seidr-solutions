@@ -2,8 +2,6 @@
 #include <cassert>
 #include <vector>
 
-using namespace std;
-
 vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
     int eaten = min(total, remaining);
@@ -11,4 +9,7 @@ vector<int> eat(int number, int need, int remaining) {
     return {eaten, left};
 }
 
-assert(eat(4, 5, 1) == vector<int>{5, 0});
+int main() {
+    assert(eat(4, 5, 1)[0] == 5);
+    assert(eat(4, 5, 1)[1] == 0);
+}
