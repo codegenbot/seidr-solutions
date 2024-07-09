@@ -25,7 +25,6 @@ int main() {
     assert(issame(a, b));
     vector<string> prefixes = all_prefixes(str);
     for (const string& prefix : prefixes) {
-        using namespace std;
         cout << prefix << endl;
     }
     return 0;
