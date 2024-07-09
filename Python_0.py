@@ -5,4 +5,10 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
-check_numbers(numbers, threshold)
+# Read input from user
+numbers = list(map(int, input().split()))
+threshold = int(input())
+
+# Call the function with the correct parameters
+result = check_numbers(numbers, threshold)
+print(result)
