@@ -1,5 +1,5 @@
-```cpp
 #include <algorithm>
+#include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size())
@@ -8,6 +8,22 @@ bool issame(vector<int> a, vector<int> b) {
         if(a[i] != b[i])
             return false;
     return true;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int& num : nums) {
+        cin >> num;
+    }
+    vector<int> result = order_by_points(nums);
+    if(issame(result, {1,2,3})) {
+        cout << "Correct" << endl;
+    } else {
+        cout << "Incorrect" << endl;
+    }
+    return 0;
 }
 
 vector<int> order_by_points(vector<int> nums) {
@@ -27,33 +43,4 @@ vector<int> order_by_points(vector<int> nums) {
         result.push_back(nums[pair.second]);
     }
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for(int i=0; i<n; i++)
-        cin >> nums[i];
-    vector<int> output = order_by_points(nums);
-    
-    // Output the sorted numbers
-    cout << "Sorted numbers by points: ";
-    for(auto x : output)
-        cout << x << " ";
-    cout << endl;
-    
-    // Check if the output is correct
-    vector<int> correct_order;
-    cin >> n;
-    for(int i=0; i<n; i++)
-        cin >> nums[i];
-    correct_order = order_by_points(nums);
-    
-    if(issame(output, correct_order))
-        cout << "Output is correct" << endl;
-    else 
-        cout << "Incorrect output. Please check your code." << endl;
-    
-    return 0;
 }
