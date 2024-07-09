@@ -1,6 +1,6 @@
 def cut_vector(vector):
     total = sum(vector)
-
+    
     for i in range(1, len(vector)):
         left_sum = sum(vector[:i])
         right_sum = total - left_sum
