@@ -12,9 +12,8 @@ int findMax(std::vector<int> numbers) {
 
 int main() {
     std::vector<int> numbers;
-    for(int i=0; i<4; i++){
-        int num;
-        std::cin >> num;
+    int num = 0; // initialize with a default value
+    while(std::cin >> num) { // keep reading until valid input is given
         numbers.push_back(num);
     }
     findMax(numbers);
