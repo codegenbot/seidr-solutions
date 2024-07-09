@@ -1,6 +1,13 @@
 ```cpp
-#include <iostream>
+#include <vector>
 #include <string>
+
+bool isalpha(char c) {
+    if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+        return true;
+    else
+        return false;
+}
 
 std::string file_name_check(std::string file_name) {
     int digit_count = 0;
@@ -14,7 +21,7 @@ std::string file_name_check(std::string file_name) {
             found_dot = true;
         }
     }
-    if (!found_dot || file_name.find('.') == string::npos)
+    if (!found_dot || file_name.find('.') == std::string::npos)
         return "No";
     size_t pos = file_name.find('.');
     std::string before_dot = file_name.substr(0, pos);
@@ -25,9 +32,4 @@ std::string file_name_check(std::string file_name) {
     if (find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end())
         return "No";
     return "Yes";
-}
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    return 0;
 }
