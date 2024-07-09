@@ -1,13 +1,28 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 vector<int> make_a_pile(int n) {
-    vector<int> result;
-    int numStones = 1;
-    for (int i = 0; i < n; i++) {
-        if ((numStones & 1) == 0) { // even number
-            result.push_back(numStones + 2);
-        } else { // odd number
-            result.push_back(numStones + 1);
+    vector<int> pile;
+    for (int i = 1; i <= n; ++i) {
+        if (i % 2 == 0) {
+            pile.push_back(i * 2 - 1);
+        } else {
+            pile.push_back(i * 2);
         }
-        numStones += (numStones % 2 ? 1 : 2);
     }
-    return result;
+    return pile;
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of levels: ";
+    cin >> n;
+    vector<int> result = make_a_pile(n);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+    return 0;
 }
