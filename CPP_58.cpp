@@ -11,19 +11,13 @@ bool issame(vector<int> v1, vector<int> v2) {
 }
 
 int main() {
-    int n1, n2, n3, n4, n5, n6, n7;
-
-    cout << "Enter the first 3 numbers: ";
-    cin >> n1 >> n2 >> n3;
     vector<int> l1;
-    for (int i : {n1, n2, n3}) l1.push_back(i);
+    l1.assign({1, 2, 3});
 
-    cout << "Enter the next 4 numbers: ";
-    cin >> n4 >> n5 >> n6 >> n7;
     vector<int> v2;
-    for (int i : {n4, n5, n6, n7}) v2.push_back(i);
+    v2.assign({4, 5, 6, 7});
 
-    bool result = issame(l1, v2);
+    bool result = issame(l1, l1);
     if(result) {
         cout << "The sets are same." << endl;
     } else {
