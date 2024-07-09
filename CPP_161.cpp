@@ -1,7 +1,4 @@
-```c++
 #include <string>
-#include <algorithm>
-
 std::string solve(std::string s) {
     std::string result = "";
     for (char c : s) {
@@ -11,4 +8,4 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? std::string(s).substr(0, s.size()) + std::string(s.rbegin(), s.rend()) : result;
+    return result.empty() ? s.substr(0, s.size()) : result;
