@@ -21,11 +21,10 @@ std::string toMiniRoman(int number) {
     return result;
 }
 
-int miniroman() {
+int main() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
     std::cout << "Mini Roman representation of the number is: " << toMiniRoman(num) << std::endl;
-    assert(miniroman() == "M");
     return 0;
 }
