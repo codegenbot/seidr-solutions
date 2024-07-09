@@ -1,10 +1,13 @@
+```
 #include <vector>
 #include <algorithm>
 
 bool issame(const vector<float>& a, const vector<float>& b) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size())
+        return false;
     for (int i = 0; i < a.size(); i++) {
-        if (!issame(a[i], b[i])) return false;
+        if (!issame(a[i], b[i]))
+            return false;
     }
     return true;
 }
