@@ -1,11 +1,19 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
+#include <cmath>
+
+int count_nums(std::vector<int> n);
+
+int main() {
+    assert (count_nums({1}) == 1);
+    return 0;
+}
 
 int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
         int sum = 0;
-        int num_abs = abs(num);
+        int num_abs = std::abs(num);
         while (num_abs > 0) {
             sum += num_abs % 10;
             num_abs /= 10;
@@ -15,8 +23,4 @@ int count_nums(std::vector<int> n) {
         }
     }
     return count;
-}
-
-int main() {
-    assert(count_nums({1}) == 1);
 }
