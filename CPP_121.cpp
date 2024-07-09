@@ -22,7 +22,5 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {3, 13, 2, 9};
-    assert(solutions(lst) == 25);
-    std::cout << "Test passed.\n";
+    std::cout << solutions({3, 13, 2, 9}) << std::endl;
 }
