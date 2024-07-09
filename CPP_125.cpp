@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <cctype> // Include cctype header for islower function
+#include <cctype>
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> words;
@@ -32,7 +32,7 @@ std::vector<std::string> split_words(std::string txt) {
     return words;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) { // Change reference to value
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
