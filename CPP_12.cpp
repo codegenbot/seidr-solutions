@@ -1,4 +1,3 @@
-```cpp
 using namespace std;
 string longest(vector<string> strings) {
     if(strings.empty()) return "";
