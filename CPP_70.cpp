@@ -1,6 +1,6 @@
+```
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(vector<vector<int>> a, vector<vector<int>> b) {
     if (a.size() != b.size()) {
@@ -19,16 +19,26 @@ bool issame(vector<vector<int>> a, vector<vector<int>> b) {
     return true;
 }
 
-vector<int> strange_sort_vector(vector<int> lst) {
-    vector<int> result;
+vector<vector<int>> strange_sort_list(vector<vector<int>> lst) {
+    vector<vector<int>> result;
     while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
-        result.push_back(min_val);
-        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
-        if (!lst.empty()) {
-            int max_val = *max_element(lst.begin(), lst.end());
-            result.push_back(max_val);
-            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
+        int min_val = *min_element(lst.begin()->begin(), lst.end()->end());
+        for (auto &v : lst) {
+            if (*min_element(v.begin(), v.end()) == min_val) {
+                result.push_back(v);
+                lst.erase(std::remove(lst.begin(), lst.end(), v), lst.end());
+                break;
+            }
+        }
+        while (!lst.empty() && !result.back().empty()) {
+            int max_val = *max_element(result.back()->begin(), result.back()->end());
+            for (auto &v : result) {
+                if (*max_element(v->begin(), v->end()) == max_val) {
+                    v->pop_back();
+                    break;
+                }
+            }
+            result.back().pop_back();
         }
     }
     return result;
@@ -36,5 +46,5 @@ vector<int> strange_sort_vector(vector<int> lst) {
 
 int main() {
     assert(issame({{1, 2}, {3, 4}}, {{2, 1}, {4, 3}}));
-    vector<int> result = strange_sort_vector({1, 1, 1, 1});
+    vector<vector<int>> result = strange_sort_list({{1, 1, 1, 1}});
 }
