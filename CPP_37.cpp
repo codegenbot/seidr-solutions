@@ -2,7 +2,6 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-#include <initializer_list>
 
 using namespace std;
 
@@ -27,9 +26,7 @@ vector<float> sort_even(vector<float> l) {
                 result[j++] = l[k];
             }
             sort(result.begin(),result.end());
-            for(int i=0; i<4 && j<i+4;i++){
-                result[i] = 0;
-            }
+            j += 4;
         } else {
             result[i] = l[i];
         }
