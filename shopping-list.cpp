@@ -1,6 +1,8 @@
 ```c++
 #include <vector>
 #include <iostream>
+#include <string>
+#include <sstream>
 
 double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
     double total = 0;
@@ -11,8 +13,25 @@ double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
 }
 
 int main() {
-    std::vector<float> prices = {10.99f, 5.99f, 7.99f};
-    std::vector<float> discounts = {20.0f, 15.0f, 25.0f};
+    std::vector<float> prices;
+    std::vector<float> discounts;
+
+    // Read prices
+    std::string temp;
+    std::getline(std::cin, temp);
+    std::istringstream iss(temp);
+    float price;
+    while (iss >> price) {
+        prices.push_back(price);
+    }
+
+    // Read discounts
+    std::getline(std::cin, temp);
+    iss.clear();
+    iss.str(temp);
+    while (iss >> price) {
+        discounts.push_back(price);
+    }
 
     double total = shoppingList(prices, discounts);
 
