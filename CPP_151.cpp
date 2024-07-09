@@ -1,5 +1,4 @@
-#include <cmath>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 long long double_the_difference(vector<float> lst){
@@ -10,13 +9,26 @@ long long double_the_difference(vector<float> lst){
         }
     }
     return sum;
-
 }
 
 int main() {
-    vector<float> numbers = {1.0f, 2.0f, 3.0f};
-    float odd_sum = 0.0f;
-    // Do something with numbers and odd_sum
-    assert(double_the_difference(numbers) == odd_sum);  
+    vector<float> lst;
+    int odd_sum;
+
+    cout << "Enter number of elements: ";
+    int n;
+    cin >> n;
+    
+    for(int i=0; i<n; i++){
+        float num;
+        cout << "Enter number " << (i+1) << ": ";
+        cin >> num;
+        lst.push_back(num);
+    }
+
+    long long result = double_the_difference(lst);
+
+    cout << "Sum of squares of positive integers: " << result;
+
     return 0;
 }
