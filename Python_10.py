@@ -1,9 +1,6 @@
-def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
-
+```
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
-        return string + string
+        return string
     else:
-        reverse_half = string[::-1]
-        return "".join([reverse_half[:1], string, reverse_half[1:]])
+        return string + "".join([string[::-1][:1], string, string[::-1][1:]])
