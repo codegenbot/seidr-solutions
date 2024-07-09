@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,12 +15,16 @@ int main() {
     int num = 0; 
     std::cout << "Enter numbers (separated by spaces): ";
     while(std::cin >> num) { 
-        while(std::cin.get() == ' ') {
-            std::cin.ignore(); 
+        while(std::cin.peek() == ' ') {
+            std::cin.ignore();
         }
-        numbers.push_back(num);
-        while(std::cin.get() != '\n') { 
-            std::cin.ignore(); 
+        if (!std::cin.fail()) { // Check if input is valid integer
+            numbers.push_back(num);
+            while(std::cin.get() != '\n') { 
+                std::cin.ignore(); 
+            }
+        } else {
+            break; // Exit loop if input is not a valid integer
         }
     }
     findMaximum(numbers);
