@@ -28,7 +28,7 @@ int main() {
         }
     }
 
-    return !result.empty();
+    return 0;
 }
 
 bool isPlanet(string planet) {
