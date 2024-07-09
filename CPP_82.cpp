@@ -3,8 +3,12 @@
 
 bool prime_length(std::string str) {
     int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
+    try {
+        n = std::stoi(str);
+    } catch (...) {
+        return false;
+    }
+
     bool is_prime = true;
 
     if (n <= 1)

@@ -1,25 +1,39 @@
+```cpp
 #include <vector>
-#include <iostream>
+#include <algorithm>
+#include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a == b);
+bool issame(std::vector<int> a,std::vector<int> b){
+    return (a==b);
 }
 
 int main() {
     int n;
+    std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    std::vector<int> vec1(n);
-    for(int i = 0; i < n; i++){
-        std::cin >> vec1[i];
+
+    std::vector<int> first;
+    std::cout << "Enter elements for the first vector: ";
+    for(int i=0; i<n; i++){
+        int x;
+        std::cin >> x;
+        first.push_back(x);
     }
-    std::vector<int> vec2(5);
-    for(int i = 0; i < 5; i++){
-        std::cin >> vec2[i];
+
+    std::vector<int> second;
+    std::cout << "Enter elements for the second vector: ";
+    for(int i=0; i<n; i++){
+        int x;
+        std::cin >> x;
+        second.push_back(x);
     }
-    if (issame(vec1,vec2))
-        std::cout << "The two vectors are the same." << std::endl;
-    else
-        std::cout << "The two vectors are not the same." << std::endl;
+
+    if(issame(first,second)){
+        std::cout << "Both vectors are same." << std::endl;
+    }
+    else{
+        std::cout << "Both vectors are not same." << std::endl;
+    }
 
     return 0;
 }
