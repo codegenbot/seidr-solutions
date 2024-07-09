@@ -1,10 +1,15 @@
+```cpp
 #include <vector>
 #include <string>
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> result;
+bool issame(vector<string> a,vector<string>b){
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(),b.begin());
+}
+
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> result;
     for (float grade : grades) {
-        std::string letterGrade = "";
+        string letterGrade = "";
         if (grade >= 4.0) {
             letterGrade = "A+";
         } else if (grade > 3.7) {
@@ -35,4 +40,10 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         result.push_back(letterGrade);
     }
     return result;
+}
+
+int main(){
+    vector<float> grades = {0, 0.7};
+    assert(issame(numerical_letter_grade(grades), {"E", "D-"}) );
+    return 0;
 }
