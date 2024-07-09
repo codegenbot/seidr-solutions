@@ -3,7 +3,8 @@
 
 std::vector<int> pluck(std::vector<int>& arr) {
     std::vector<int> result;
-    if (arr.empty()) return result;
+    if (arr.empty()) 
+        return result;
 
     int smallest_even = INT_MAX;
     int index = -1;
@@ -20,6 +21,8 @@ std::vector<int> pluck(std::vector<int>& arr) {
 
     return result;
 
+}
+
 int main() {
-    assert(pluck({7, 9, 7, 1}) == std::vector<int>({},{});
+    assert(pluck({7, 9, 7, 1}) == std::vector<int>({0}));
 }
