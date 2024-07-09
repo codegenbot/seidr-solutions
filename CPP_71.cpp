@@ -5,18 +5,16 @@ using namespace std;
 float triangle_area(float a, float b, float c);
 
 int main() {
-    string s1, s2, s3;
+    float a, b, c;
     cout << "Enter three sides of the triangle: ";
-    cin >> s1 >> s2 >> s3;
+    cin >> a >> ' ';
+    cin >> b >> ' ';
+    cin >> c;
 
-    float a_val = stof(s1);
-    float b_val = stof(s2);
-    float c_val = stof(s3);
-
-    if(triangle_area(a_val, b_val, c_val) == -1.0f) {
+    if(triangle_area(a, b, c) == -1.0f) {
         cout << "The given values do not form a valid triangle.";
     } else {
-        float result = triangle_area(a_val, b_val, c_val);
+        float result = triangle_area(a, b, c);
         cout << "The area of the triangle is: ";
         cout << fixed << setprecision(2);
         cout << result;
@@ -26,9 +24,5 @@ int main() {
 }
 
 float triangle_area(float a, float b, float c) {
-    if (a + b <= c || a + c <= b || b + c <= a)
-        return -1.0f;
-
-    float s = (a + b + c) / 2.0f;
-    return sqrt(s * (s - a) * (s - b) * (s - c));
+    // implement your logic here
 }
