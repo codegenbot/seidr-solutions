@@ -1,10 +1,11 @@
-Here is the completed code:
+#include <cmath>
 
 bool iscuber(int a){
-    int i = 1;
-    while (i * i * i <= a) {
-        if (i * i * i == a)
+    int i = 0;
+    while (pow(i + 1, 3) <= a) {
+        if (pow(i + 1, 3) == a) {
             return true;
+        }
         i++;
     }
     return false;
