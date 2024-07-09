@@ -1,7 +1,9 @@
-#include <cassert>
 #include <string>
+#include <cassert>
 
 std::string string_xor(std::string a, std::string b);
+
+#include <iostream>
 
 std::string string_xor(std::string a, std::string b) {
     std::string result;
@@ -16,6 +18,9 @@ std::string string_xor(std::string a, std::string b) {
 }
 
 int main() {
-    assert(string_xor("0101", "0000") == "0101");
+    std::string a, b;
+    std::cin >> a >> b;
+    std::string result = string_xor(a, b);
+    std::cout << result << std::endl;
     return 0;
 }
