@@ -63,5 +63,4 @@ vector<string> by_length(vector<int> arr) {
 
 int main() {
     assert(isSame(by_length({9, 4, 8}), vector<string>{ "Nine", "Eight", "Four"}));
-    // Rest of your code...
 }
