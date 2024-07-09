@@ -11,7 +11,7 @@ long double probability(int n, int m) {
             }
         }
     }
-    return static_cast<long double>(count) / ((long double)(n * m));
+    return count / ((long double)(n * m));
 }
 
 int main() {
