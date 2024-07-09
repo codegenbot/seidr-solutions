@@ -13,3 +13,14 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& strin
     }
     return result;
 }
+
+int main() {
+    assert(isSame(filterBySubstring(std::vector<std::string>({"grunt", "trumpet", "prune", "gruesome"}), "run"), std::vector<std::string>({"grunt", "prune"})));
+    std::vector<std::string> strings = std::vector<std::string>({"grunt", "trumpet", "prune", "gruesome"});
+    std::string substr = "run";
+    std::vector<std::string> result = filterBySubstring(strings, substr);
+    
+    for (const auto& s : result) {
+        std::cout << s << std::endl;
+    }
+}
