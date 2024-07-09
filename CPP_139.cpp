@@ -1,14 +1,15 @@
-```
 #include <iostream>
+#include <cmath>
 
 long long special_factorial(int n) {
     if (n <= 1)
         return 1;
     long long result = 1;
-    for (int i = 1; i <= n; i++) {
-        result *= i;
-        for (int j = 2; j <= i; j++)
-            result *= j;
+    for (int i = 2; i <= n; i++) {
+        long long fact = 1;
+        for (int j = 1; j <= i; j++)
+            fact *= j;
+        result += fact;
     }
     return result;
 }
