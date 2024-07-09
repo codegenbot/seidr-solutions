@@ -35,8 +35,7 @@ Pair find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() { 
-    std::vector<float> testVec = {1, 2, 3, 4};
-    
+    std::vector<float> testVec; // Leave it empty or provide initial values
     Pair closestPair = find_closest_elements(testVec);
     
     if (issame({closestPair.first, closestPair.second}, {2.2f, 2.3f})) {
