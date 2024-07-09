@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -29,14 +28,12 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-int main2() {
+int main() {
     std::vector<double> input = {0.0, 0.7};
     std::vector<std::string> result1 = numerical_letter_grade(input);
     
     std::vector<std::string> result2 = {"F", "C"};
-    std::vector<std::string> b;
-    b = result2;
-    if (issame({std::string("F"), result1[1]}, b)) {
+    if (issame(result1, result2)) {
         std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
