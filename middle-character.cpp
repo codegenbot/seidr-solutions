@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 std::string middleCharacter(std::string s) {
