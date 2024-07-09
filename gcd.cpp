@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -32,7 +33,7 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a, b;
+    int a = 0, b = 0;
 
     cout << "Enter two positive integers: ";
     while (!(cin >> a >> b) || a < 1 || b < 1) {
@@ -42,12 +43,12 @@ int main() {
         cin >> a >> b;
     }
 
-    int result = gcd(a, b);
-    cout << "GCD is " << result << endl;
+    int greatest_common_divisor = gcd(a, b);
+    cout << greatest_common_divisor << endl;
 
     string text;
     getline(cin, text);
-
+    
     string target;
     getline(cin, target);
 
