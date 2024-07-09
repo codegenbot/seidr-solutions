@@ -1,3 +1,3 @@
-numbers = [1, 5, 9, 12]
-threshold = 3
+numbers = [3, 7, 10, 15]
+threshold = 4
 print(check_threshold(numbers, threshold))
