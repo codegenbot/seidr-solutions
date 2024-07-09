@@ -1,7 +1,7 @@
 def solve_boolean(expression):
-    if expression == "T":
+    if expression.strip() in ["T", "t"]:
         return True
-    elif expression == "F":
+    elif expression.strip() in ["F", "f"]:
         return False
     elif "&" in expression:
         left, right = expression.split("&")
@@ -10,6 +10,4 @@ def solve_boolean(expression):
         left, right = expression.split("|")
         return solve_boolean(left) or solve_boolean(right)
     else:
-        if not expression.strip():  
-            return False 
         raise ValueError("Invalid input")
