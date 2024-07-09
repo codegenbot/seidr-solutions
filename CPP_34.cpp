@@ -6,7 +6,10 @@ using namespace std;
 
 vector<int> unique(vector<int> l) {
     vector<int> result;
-    auto it = unique_copy(l.begin(), l.end(), back_inserter(result));
+    for (int i : l) {
+        if (find(result.begin(), result.end(), i) == result.end())
+            result.push_back(i);
+    }
     return result;
 }
 
