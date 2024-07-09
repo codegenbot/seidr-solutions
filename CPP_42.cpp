@@ -1,26 +1,28 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-vector<int> incr_list(vector<int> l){
+std::vector<int> incr_list(std::vector<int> l){
     for (int i = 0; i < l.size(); i++) {
         l[i]++;
     }
     return l;
 }
 
-int main(){
-    vector<int> input = {1, 2, 3, 4};
-    vector<int> modified = incr_list(input);
+int main() {
+    std::vector<int> vec1 = {1, 2, 3};
+    std::vector<int> vec2 = {1, 2, 4};
 
-    vector<int> same_check = {2, 3, 4, 5};
-    cout << "Are input and modified vectors the same? " << issame(input, modified) << endl;
-    cout << "Are input and same_check vectors the same? " << issame(input, same_check) << endl;
+    std::vector<int> incremented_vec = incr_list(vec1);
+
+    if (issame(vec1, incremented_vec)) {
+        std::cout << "Vectors are the same" << std::endl;
+    } else {
+        std::cout << "Vectors are different" << std::endl;
+    }
 
     return 0;
 }
