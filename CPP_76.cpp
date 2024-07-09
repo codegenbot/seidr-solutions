@@ -1,6 +1,5 @@
-```cpp
-#include <cmath>
-#include <iostream>
+#include<iostream>
+using namespace std;
 
 bool is_simple_power(int x, int n) {
     double y = pow(n, log(x) / log(n));
@@ -8,14 +7,16 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    int num1, num2;
-    std::cout << "Enter a number: ";
-    std::cin >> num1;
-    std::cout << "Enter another number: ";
-    std::cin >> num2;
-    if (is_simple_power(num1, num2))
-        std::cout << "The first number is a power of the second.\n";
+    int x, n;
+    cout << "Enter value of x: ";
+    cin >> x;
+    cout << "Enter value of n: ";
+    cin >> n;
+    
+    if(is_simple_power(x, n))
+        cout << x << " is a simple power of " << n << endl;
     else
-        std::cout << "The first number is not a power of the second.\n";
+        cout << x << " is not a simple power of " << n << endl;
+
     return 0;
 }
