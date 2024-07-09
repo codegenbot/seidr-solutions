@@ -8,12 +8,12 @@ float max_element(const std::vector<float>& l){
             max = l[i];
         }
     }
-    return abs(max);
+    return max;
 }
 
 int main() {
-    std::vector<float> numbers = {10.5, -2.8, 3.7, 9.1};
-    float result = max_element(numbers);
-    std::cout << "The maximum number is: " << result << std::endl;
+    std::vector<float> v = {4.2, 5.8, -3.7, 0.9};
+    float result = max_element(v);
+    std::cout << "Maximum element: " << result << std::endl;
     return 0;
 }
