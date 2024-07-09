@@ -1,32 +1,22 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 int count_nums(vector<int> nums) {
+    int sign = 1;
     int count = 0;
     for (int num : nums) {
-        if (num >= 0) {
-            int sum = 0;
-            bool negativeFound = false;
-            while (num > 0 || (negativeFound && num < 0)) {
-                int digit = abs(num) % 10;
-                if ((digit > 0 && !negativeFound) || (digit == 1 && negativeFound))
-                    sum += digit;
-                else
-                    negativeFound = true;
-                num /= 10;
-            }
-            if (sum > 0)
+        if(num >= 0)
+            sign = 1;
+        else
+            sign = -1;
+
+        while(abs(num) > 0) {
+            int digit = abs(num) % 10 * sign;
+            if(digit > 0 || (digit == 1 && sign == 1))
                 count++;
-        } else {
-            int sum = 0;
-            bool negativeFound = false;
-            while (num < 0 || (negativeFound && num >= 0)) {
-                int digit = abs(num) % 10 * (-1);
-                if ((digit > -1 && !negativeFound) || (digit == -1 && negativeFound))
-                    sum += digit;
-                else
-                    negativeFound = true;
-                num /= 10;
-            }
-            if (sum > 0)
-                count++;
+            num /= 10;
         }
     }
     return count;
