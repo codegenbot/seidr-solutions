@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+#include <cctype>
 
-std::vector<std::string> split_words(const std::string& txt) {
+std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> words;
     std::string word;
     for (char& c : txt) {
@@ -22,7 +22,7 @@ std::vector<std::string> split_words(const std::string& txt) {
     if (words.empty()) {
         int count = 0;
         for (char& c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
+            if (std::islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
@@ -35,10 +35,24 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
+
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
+}
+
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::vector<std::string> result = split_words(input);
+
+    for (const auto& word : result) {
+        std::cout << word << " ";
+    }
+
+    return 0;
 }
