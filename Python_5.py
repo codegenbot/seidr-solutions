@@ -6,7 +6,6 @@ def join_with_delimeter(numbers, delimeter):
         result.append(numbers[-1])
     return result
 
-# Call the function with appropriate arguments
 numbers = [1, 2, 3, 4, 5]
 delimeter = ','
 output = join_with_delimeter(numbers, delimeter)
