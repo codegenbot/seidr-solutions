@@ -17,9 +17,3 @@ string string_to_md5(string text) {
         result += buff;
     }
     return result;
-}
-
-int main() {
-    cout << string_to_md5("password") << endl;
-    return 0;
-}

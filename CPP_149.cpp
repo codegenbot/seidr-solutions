@@ -1,17 +1,13 @@
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = lst.begin();
-    while (it != lst.end()) {
-        if (stoi(it->back()) % 2 != 0) {
-            it = lst.erase(it);
-            if (it == lst.end())
-                break;
-        } else
-            ++it;
+    vector<string> result;
+    for (const auto& str : lst) {
+        int sum = 0;
+        for (char c : str) {
+            sum += (c - '0');
+        }
+        if (sum % 2 == 0) {
+            result.push_back(str);
+        }
     }
-    std::sort(lst.begin(), lst.end(),
-          [](const string& a, const string& b) {
-              if (stoi(a.back()) == stoi(b.back()))
-                  return a < b;
-              return stoi(a.back()) < stoi(b.back());
-          });
-    return lst;
+    sort(result.begin(), result.end());
+    return result;
