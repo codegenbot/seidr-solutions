@@ -1,11 +1,15 @@
+```cpp
 #include <vector>
 #include <assert.h>
 
 bool isSame(std::vector<float> a, std::vector<float> b) {
-    // implement your comparison logic here
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
@@ -21,8 +25,8 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main() {
-    std::vector<float> input = {1.0f, -2.0f, 3.0f, -4.0f};
+    std::vector<float> input = {1.0, -2.0, 3.0, -4.0};
     auto result = get_positive(input);
-    assert(isSame(result, {1.0f, 3.0f}));
+    assert(isSame(result, {1.0, 3.0}));
     return 0;
 }
