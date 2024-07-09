@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 using namespace std;
 
 string int_to_roman(int number) {
@@ -14,4 +15,3 @@ string int_to_roman(int number) {
         }
     }
     return roman;
-}
