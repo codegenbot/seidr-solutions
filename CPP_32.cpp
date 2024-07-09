@@ -1,17 +1,12 @@
-double find_zero(vector<double> coefficients) {
-    double coeffs = 1;
-    double sum = 0;
-    for (int i = 1; i < coefficients.size(); i += 2) {
-        sum -= coeffs * coefficients[i] / coefficients[0];
-        coeffs *= -1;
-    }
-    return -sum / coefficients[0];
-}
+```cpp
+vector<double> coefficients;
 
-double poly(vector<double> coefficients, int n) {
-    double result = 0.0;
-    for (int i = 0; i <= n; ++i) {
-        result += coefficients[i] * pow(2.5, i);
+double find_zero(vector<double> coeffs) {
+    double sum = 0;
+    double coeffsSign = 1;
+    for (int i = 1; i < coeffs.size(); i += 2) {
+        sum -= coeffsSign * coeffs[i] / coeffs[0];
+        coeffsSign *= -1;
     }
-    return result;
+    return -sum / coeffs[0];
 }
