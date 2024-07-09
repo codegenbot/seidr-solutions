@@ -7,36 +7,18 @@ bool solveBoolean(string s) {
             res = false;
         }
         else if (c == '&') {
-            while(res && s.find('&') != string::npos) {
-                size_t pos = s.find('&');
-                int left = 1, right = 0;
-                for(int i = 0; i < pos; i++) {
-                    if(s[i] == '(')left++;
-                    else if(s[i] == ')')right++;
-                }
-                for(int i = pos + 1; ; i++) {
-                    if(s[i] == '(')left--;
-                    else if(s[i] == ')')right--;
-                    if(left == 0 && right == 0)break;
-                }
-                s.erase(0, i);
+            while(s[s.find(c)+1] != '&' && s.find(c) != string::npos){
+                c = s[s.find(c)+1];
+                s.erase(s.find(c), 1);
             }
+            if(s.find('F') != string::npos) res &= false;
         }
         else if (c == '|') {
-            while(res || s.find('|') != string::npos) {
-                size_t pos = s.find('|');
-                int left = 1, right = 0;
-                for(int i = 0; i < pos; i++) {
-                    if(s[i] == '(')left++;
-                    else if(s[i] == ')')right++;
-                }
-                for(int i = pos + 1; ; i++) {
-                    if(s[i] == '(')left--;
-                    else if(s[i] == ')')right--;
-                    if(left == 0 && right == 0)break;
-                }
-                s.erase(0, i);
+            while(s[s.find(c)+1] != '|' && s.find(c) != string::npos){
+                c = s[s.find(c)+1];
+                s.erase(s.find(c), 1);
             }
+            if(s.find('F') != string::npos) res |= false;
         }
     }
     return res;
