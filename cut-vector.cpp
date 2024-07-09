@@ -1,6 +1,5 @@
-```cpp
 #include <vector>
-#include <cmath> 
+#include <cmath>
 using namespace std;
 
 vector<int> cutVector(vector<int>& vec) {
@@ -26,5 +25,5 @@ vector<int> cutVector(vector<int>& vec) {
         }
     }
 
-    return {vec.begin(), vec.begin() + cut_idx}, vector<int>(vec.begin() + cut_idx, vec.end());
+    return {vec.begin(), vec.begin() + cut_idx} , vector<int>(vec.begin() + cut_idx, vec.end());
 }
