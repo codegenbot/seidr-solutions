@@ -1,8 +1,8 @@
 Here is the completed code:
 
 vector<string> reverse_delete(string s, string c) {
-    string result = "";
-    for (char ch : s) {
+    vector<char> charArray(s.begin(), s.end());
+    for (char& ch : charArray) {
         bool found = false;
         for (char cc : c) {
             if (ch == cc) {
@@ -11,10 +11,10 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            result += ch;
+            s.erase(find(s.begin(), s.end(), ch) - s.begin());
         }
     }
-    string revResult = result;
-    reverse(revResult.begin(), revResult.end());
-    return {result, (result == revResult) ? "True" : "False"};
+    string result = s;
+    reverse(result.begin(), result.end());
+    return {s, (result == s ? "True" : "False")};
 }
