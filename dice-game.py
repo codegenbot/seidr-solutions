@@ -15,8 +15,3 @@ def dice_game(n, m):
                 numerator += m - 1
                 
     return numerator / denominator
-
-n = int(input("Enter the number of sides for Peter's die: "))
-m = int(input("Enter the number of sides for Colin's die: "))
-
-print(dice_game(n, m))
