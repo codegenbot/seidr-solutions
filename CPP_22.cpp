@@ -10,14 +10,8 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<int> a;
-    std::vector<int> b;
-
-    a.reserve(n);
-    a.assign(n, 0);
-
-    b.reserve(n);
-    b.assign(n, 0);
+    std::vector<int> a(n);
+    std::vector<int> b(n);
 
     for(int i = 0; i < n; ++i)
         std::cin >> a[i];
