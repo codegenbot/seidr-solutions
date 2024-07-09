@@ -11,7 +11,7 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
     std::vector<std::string> result;
     for (const auto& word : words) {
         if(word.find(sub) != std::string::npos) {
-            result.push_back(word);
+            result.emplace_back(word);
         }
     }
     return result;
@@ -20,7 +20,7 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 int main() {
     std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
     std::string sub = "run";
-    auto result = filter_by_substring(words, sub);
+    std::vector<std::string> result = filter_by_substring(words, sub);
     assert(issame(result, {"grunt", "prune"}));
     for (const auto& word : result) {
         if(word.find("run") != std::string::npos) {
