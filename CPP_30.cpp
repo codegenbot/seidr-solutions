@@ -1,14 +1,13 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <limits>
 
 bool same(const std::vector<float>& v1, const std::vector<float>& v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
     for (int i = 0; i < v1.size(); i++) {
-        if (std::abs(v1[i] - v2[i]) > std::numeric_limits<float>::epsilon()) {
+        if (std::abs(v1[i] - v2[i]) > 0.000001f) {
             return false;
         }
     }
@@ -26,21 +25,17 @@ std::vector<float> getPositive(const std::vector<float>& numbers) {
 }
 
 int main() {
-    std::vector<float> numbers;
-    int n = 0;
+    int n;
     float num = 0;
-    while(n < 1)
+    while (!(std::cin >> n) || n < 1)
 {
     std::cout << "Enter element number: ";
-    std::cin >> n;
-
-    if (n > 0)
-        break;
 }
 for(int i=0; i<n; i++)
 {
     std::cout << "Enter element " << i + 1 << ": ";
     std::cin >> num;
+    std::vector<float> numbers;
     numbers.push_back(num);
 }
 
