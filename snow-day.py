@@ -4,19 +4,10 @@ from decimal import Decimal, getcontext
 getcontext().prec = 28 
 
 initial_snow = Decimal(float(input("Enter initial amount of snow on the ground: ")))
-rate_of_snowfall = Decimal(0)
-melting_rate = Decimal(0)
-
+rate_of_snowfall = Decimal(float(input("Enter rate of snow fall per hour: ")))
 while True:
     try:
-        rate_of_snowfall = Decimal(float(input("Enter rate of snow fall per hour: ")))
-        break
-    except ValueError:
-        print("Invalid input. Please enter a number.")
-
-while True:
-    try:
-        melting_rate = Decimal(float(input("Enter proportion of snow melting per hour: ")))
+        melting_rate = float(input("Enter proportion of snow melting per hour: "))
         if 0 <= melting_rate <= 1:
             break
         else:
@@ -27,6 +18,6 @@ while True:
 total_snow = initial_snow
 for _ in range(int(input("Enter number of hours: "))): 
     total_snow += rate_of_snowfall
-    total_snow -= melting_rate * total_snow
+    total_snow -= Decimal(melting_rate) * total_snow
 
 print(float(total_snow))
