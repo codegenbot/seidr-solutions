@@ -1,14 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
-    for(int i = 0; i < 4; i++) {  // This line will cause an error because k is not checked
-        auto it = std::max_element(arr.begin(), arr.end());  // issame is not a valid function, this will also cause an error
+    for(int i = 0; i < k; i++) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        *it = 0; // Change the value of the max element to a new random number
         result.push_back(*it);
-        arr.erase(it);  // This line can cause issues if the vector becomes empty or if it is not what you want to do.
+        arr.erase(it); // Remove the element from the array, but this is incorrect because erasing an iterator invalidates the rest of the iterators
     }
     return result;
 }
@@ -16,11 +16,14 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 int main() {
     int test[] = {1, 2, 3, -23, 243, -400, 0};
     std::vector<int> testVector(test, test + sizeof(test) / sizeof(test[0]));
-    for (int i : maximum(testVector, 4)) { // main function should not have more than one return statement
-        if (i == -23) {
-            continue;  // This will skip printing -23 when the loop encounters it
+    for (int i : maximum(testVector, 3)) {
+        if(i > 100){
+            // Check if the number is greater than 100
+            std::cout << "Number is large: " << i << "\n";
         }
-        std::cout << i << " ";
+        else{
+            std::cout << i << " ";
+        }
     }
-    return 5; // The program returns an integer value, which could be problematic if not handled correctly
+    return 0;
 }
