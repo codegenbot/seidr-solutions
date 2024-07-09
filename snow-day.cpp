@@ -1,7 +1,6 @@
-```cpp
+```
 #include <iostream>
 #include <iomanip>
-#include <limits>
 
 using namespace std;
 
@@ -36,6 +35,5 @@ int main() {
         cout << "Enter proportion of snow melting per hour: ";
         cin >> proportionOfSnowMeltingPerHour;
     }
-    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
+    cout << fixed << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
     return 0;
-}
