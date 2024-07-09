@@ -1,16 +1,15 @@
-```
 #include <vector>
 
-bool checkIfSame(std::vector<int> a,std::vector<int>b){
-    if(a.size() != b.size())
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
         return false;
-    for(int i=0;i<a.size();i++)
-        if(a[i] != b[i])
+    for (int i = 0; i < a.size(); i++)
+        if (a[i] != b[i])
             return false;
     return true;
 }
 
-std::vector<int> getOddCollatz(int n) {
+std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
@@ -22,10 +21,10 @@ std::vector<int> getOddCollatz(int n) {
             result.push_back(n);
         }
     }
-    return result; // stop storing numbers when n becomes 1
+    return result; 
 }
 
 int main() {
-    std::vector<int> test = getOddCollatz(12); 
-    assert(checkIfSame(test , std::vector<int>{1}));
+    std::vector<int> test = get_odd_collatz(12); 
+    assert(issame(test , std::vector<int>{1}));
 }
