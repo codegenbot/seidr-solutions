@@ -1,30 +1,31 @@
+Here is the completed code:
+
 #include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::size_t pos = 0;
-    while ((pos = str.find(" ")) != std::string::npos) {
-        std::size_t nextPos = str.find(" ", pos + 1);
-        if (nextPos == std::string::npos) {
-            nextPos = str.length();
-        }
-        std::string word = str.substr(pos, nextPos - pos);
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-        result += word + " ";
-        pos = nextPos;
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int wordLength;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || isspace(str[i])) {
+            if ((wordLength = i - result.length()) >= 5)
+                reverse(result.rbegin(), result.rend());
+            result += ' ';
+        } else
+            result += tolower(toupper(str[i]));
     }
-    return result;
+    return result.substr(1);
 }
 
 int main() {
-    // You can test your function here
-    std::cout << spinWords("a") << std::endl; // Should print: a
-    std::cout << spinWords("this is a test") << std::endl; // Should print: this is a test
-    std::cout << spinWords("this is another test") << std::endl; // Should print: this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // Should print: hi
+    string str;
+    while (true) {
+        cout << "Enter a sentence: ";
+        cin >> str;
+        cout << "Spin Words: " << spinWords(str) << endl;
+    }
     return 0;
 }
