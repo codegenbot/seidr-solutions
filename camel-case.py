@@ -1,3 +1,4 @@
+```
 def camel_case(input_str):
     return (
         "".join(
