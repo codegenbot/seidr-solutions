@@ -1,7 +1,4 @@
 #include <vector>
-#include <iostream>
-#include <iomanip>
-
 using namespace std;
 
 float shoppingList(vector<float> prices, vector<float> discounts) {
@@ -13,6 +10,9 @@ float shoppingList(vector<float> prices, vector<float> discounts) {
     }
     return total;
 }
+
+#include <iostream>
+#include <iomanip>
 
 int main() {
     int n;
@@ -27,4 +27,3 @@ int main() {
     }
     cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
-}
