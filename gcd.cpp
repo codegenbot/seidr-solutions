@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -26,7 +27,7 @@ int gcd(int a, int b) {
 int main() {
     int num1, num2;
     cin >> num1 >> num2;
-    cout << gcd(num1, num2) << std::endl;
+    cout << gcd(num1, num2) << endl;
 
     string text, target;
     cin >> text >> target;
