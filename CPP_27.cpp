@@ -8,6 +8,7 @@ string filp_case(string str){
             result += tolower(c);
     }
     return result;
+
 }
 
 int main() {
