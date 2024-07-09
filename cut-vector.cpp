@@ -8,8 +8,8 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     
-    res[0].resize(0);
-    res[1].resize(0);
+    res[0] = vector<int>();
+    res[1] = vector<int>();
     int minDiff = INT_MAX;
     for (int i = 0; i < n; i++) {
         int leftSum = 0, rightSum = 0;
@@ -27,11 +27,7 @@ vector<vector<int>> cutVector(vector<int> v) {
             }
             res[1].clear();
             for (int j = i + 1; j < n; j++) {
-                if (i < 1) {
-                    res[1].push_back(v[j]); 
-                } else {
-                    res[1].push_back(v[j]);
-                }
+                res[1].push_back(v[j]); 
             }
         }
     }
