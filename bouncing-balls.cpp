@@ -1,17 +1,16 @@
 ```cpp
 #include <iostream>
-#include <cmath>
-#include <iomanip>
-#include <string>
+#include <sstream>
 
 int main() {
-    std::string startHeightStr, firstBounceStr;
+    double startHeight;
+    double firstBounce;
     int numBounces;
 
-    std::cin >> startHeightStr >> firstBounceStr >> numBounces;
-
-    double startHeight = stod(startHeightStr);
-    double firstBounce = stod(firstBounceStr);
+    std::string input;
+    getline(std::cin, input);
+    std::istringstream iss(input);
+    iss >> startHeight >> firstBounce >> numBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
 
