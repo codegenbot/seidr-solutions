@@ -17,6 +17,7 @@ vector<int> findIndices(string text, string target) {
             }
         }
         if (found) indices.push_back(i);
+        else continue;
     }
 
     return indices;
