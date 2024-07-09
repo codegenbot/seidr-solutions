@@ -13,8 +13,7 @@ int fizz_buzz(int n) {
     return count;
 }
 
-int main
-{
+int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
@@ -23,5 +22,6 @@ int main
     } else {
         cout << "The result is: " << fizz_buzz(n);
     }
+    cout << "\n"; 
     return 0;
 }
