@@ -22,7 +22,7 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main_test() {
-    std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"};
+    std::vector<std::string> a = std::vector<std::string>{{"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}};
     std::vector<std::string> b = filter_by_prefix(a, "xxx");
     std::vector<std::string> c = {"xxx", "xxxAAA", "xxx"};
     if(!equal_vectors(b, c))
