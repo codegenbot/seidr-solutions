@@ -1,9 +1,8 @@
-#include <iostream>
 #include <string>
 
-bool is_happy(const std::string& s){
+bool is_happy(const std::string& s) {
     if(s.length() < 3) return false;
-    for(int i = 0; i < s.length()-2; i++){
+    for(int i=0; i<s.length()-2; i++){
         if(s[i] == s[i+1] || s[i] == s[i+2] || s[i+1] == s[i+2]){
             return false;
         }
@@ -12,11 +11,15 @@ bool is_happy(const std::string& s){
 }
 
 int main() {
-    std::string test_case1 = "abcde";
-    std::string test_case2 = "abac";
-    
-    std::cout << is_happy(test_case1) << std::endl;
-    std::cout << is_happy(test_case2) << std::endl;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+
+    if(is_happy(input)){
+        std::cout << "The string is happy." << std::endl;
+    } else {
+        std::cout << "The string is not happy." << std::endl;
+    }
 
     return 0;
 }
