@@ -17,9 +17,7 @@ int main() {
         s1Vec.push_back(x);
     }
 
-    for(auto &i : s1Vec) {
-        s1.insert(i);  
-    }
+    s1 = std::set<std::string>(s1Vec.begin(), s1Vec.end());
 
     std::vector<std::string> s2Vec;
     for(int i = 0; i < m1; i++) {
@@ -28,9 +26,7 @@ int main() {
         s2Vec.push_back(y);
     }
 
-    for(auto &i : s2Vec) {
-        s2.insert(i);  
-    }
+    s2 = std::set<std::string>(s2Vec.begin(), s2Vec.end());
 
     std::vector<std::string> diff(s1.begin(), s1.end());
     std::set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(),
