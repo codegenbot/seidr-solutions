@@ -45,8 +45,8 @@ int main() {
     // User input
     std::cout << "Enter 2 lists of fruits separated by commas: ";
     std::string user_input1, user_input2;
-    getline(cin, user_input1);
-    getline(cin, user_input2);
+    std::getline(std::cin, user_input1);
+    std::getline(std::cin, user_input2);
 
     std::istringstream iss(user_input1);
     std::vector<std::string> lst5;
@@ -70,7 +70,7 @@ int main() {
         std::cout << "The sums are equal." << std::endl;
     }
 
-    if (issame({lst5}, {lst6})) {
+    if (issame(lst5, lst6)) {
         std::cout << "The lists are the same." << std::endl;
     }
     else {
