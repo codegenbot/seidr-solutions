@@ -11,7 +11,7 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     std::vector<std::string> result;
     
-    int start = -1, end = -1;
+    size_t start = -1, end = -1;
     for (size_t i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
             start = i;
@@ -28,7 +28,7 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
         std::swap(start, end);
     }
     
-    for (int i = start + 1; i < end; ++i) {
+    for (size_t i = start + 1; i < end; ++i) {
         result.push_back(planets[i]);
     }
     
