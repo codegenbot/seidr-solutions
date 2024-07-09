@@ -1,5 +1,3 @@
-Here's the modified code:
-
 #include <iostream>
 #include <string>
 
@@ -30,3 +28,4 @@ int main() {
         std::cerr << "Error: " << e.what() << std::endl;
     }
     return 0;
+}
