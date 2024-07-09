@@ -32,8 +32,12 @@ int main() {
             } catch (const std::invalid_argument& e) {
                 std::cout << "Error: " << e.what() << std::endl;
             }
+        } else if (!str1.empty()) {  
+            str1.pop_back(); 
+        } else if (!str2.empty()) {  // check if str2 is not empty
+            str2.pop_back();
         } else {
-            std::cout << "An error occurred." << std::endl;
+            std::cout << "Both strings are empty." << std::endl;
         }
     } catch (...) { 
         std::cout << "An error occurred." << std::endl;
