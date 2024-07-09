@@ -17,7 +17,7 @@ string anti_shuffle(string s) {
                 word += s[j];
                 j++;
             }
-            sort(word.begin(), word.end());
+            std::sort(word.begin(), word.end());
             result += word;
         }
     }
@@ -30,3 +30,4 @@ int main() {
     getline(cin, str);
     cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
     return 0;
+}
