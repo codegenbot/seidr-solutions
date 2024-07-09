@@ -18,6 +18,6 @@ Str find_max(vector<Str> words){
 }
 
 int main() {
-    assert ((find_max({"play", "play", "play"}) == {"play"});
+    assert ((find_max({"play", "play", "play"}) == ("play")));
     return 0;
 }
