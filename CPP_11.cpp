@@ -22,9 +22,9 @@ int main() {
     std::string str1;
     std::string str2;
     std::cout << "Enter the first string: ";
-    std::getline(std::cin, str1);
+    std::cin >> str1;
     std::cout << "Enter the second string: ";
-    std::getline(std::cin, str2);
+    std::cin >> str2;
     try {
         std::string result = string_xor(str1, str2);
         std::cout << "XOR of the two strings is: " << result << std::endl;
