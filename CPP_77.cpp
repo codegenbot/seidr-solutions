@@ -1,3 +1,4 @@
+```c
 #include <cassert>
 #include <iostream>
 
@@ -19,3 +20,4 @@ int main() {
 
     assert(isCube(num) == isCube(1729)); 
     return 0;
+}
