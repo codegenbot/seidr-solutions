@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -24,4 +23,5 @@ int main() {
         }
     }
     findMax(numbers);
+    return 0;
 }
