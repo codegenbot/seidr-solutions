@@ -1,5 +1,13 @@
-int main 
-{
+```cpp
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+int main() {
     vector<int> arr = {7, 9, 7, 1};
     int num;
     cout << "Enter a number: ";
@@ -11,7 +19,7 @@ int main
     if (num != -1) {
         assert(issame(vec, arr));
     } else {
-        assert(issame({}, arr));
+        assert(issame(vector<int>(), arr));
     }
     return 0;
 }
