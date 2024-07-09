@@ -1,9 +1,8 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool isPlanet(string planet);
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a,vector<string>b);
 vector<string> mybf(string planet1, string planet2);
 
 int main() {
@@ -20,8 +19,8 @@ int main() {
         }
         cout << "\n";
 
-        vector<string> b = {planet1, planet2};
-        if(issame(result,b)){
+        string b = planet2;
+        if(issame({planet1, planet2}, {b})){
             cout << "The planets are the same.\n";
         } else {
             cout << "The planets are different.\n";
