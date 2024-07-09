@@ -1,7 +1,11 @@
+```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
-#include <initializer_list>
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
     std::vector<std::string> result;
@@ -11,3 +15,10 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
         }
     }
     return result;
+}
+
+int main() {
+    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx") 
+           == {"xxx", "xxxAAA", "xxx"});
+    return 0;
+}
