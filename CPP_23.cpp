@@ -1,11 +1,10 @@
-#include <iostream>
+#include <string>
+#include <cassert>
 #include <cstring>
 
-int countCharacters(const std::string& str) {
-    return str.length();
-}
-
 int main() {
-    assert(strlen("asdasnakj") == 9);
-    return 0;
+    std::string str = "asdasnakj";
+    assert(strlen(str.c_str()) == 9);
+    
+    return str.length();
 }
