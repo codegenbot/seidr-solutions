@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <sstream>
 #include <cctype>
@@ -26,9 +27,9 @@ int mainFunction() {
     cin >> n;
 
     if(simplify(x, n))
-        cout << "The fraction is simplified." << endl;
+        cout << "The fraction is simplified." << std::endl;
     else
-        cout << "The fraction cannot be simplified." << endl;
+        cout << "The fraction cannot be simplified." << std::endl;
 
     return 0;
 }
