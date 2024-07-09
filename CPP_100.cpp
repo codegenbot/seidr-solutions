@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b);
@@ -25,7 +24,6 @@ bool issame(vector<int> a, vector<int> b) {
         if (a[i] != b[i]) return false;
     }
     return true;
-
 }
 
 int main() {
