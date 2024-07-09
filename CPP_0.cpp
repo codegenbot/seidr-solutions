@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,7 +13,21 @@ bool has_close_elements(vector<float> numbers, float threshold) {
 }
 
 int main() {
-    vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    cout << (has_close_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5) ? "true" : "false") << endl;
+    vector<float> a;
+    cout << "Enter the number of elements: ";
+    int n;
+    cin >> n;
+    a.resize(n);
+    
+    cout << "Enter the elements: ";
+    for (float &num : a) {
+        cin >> num;
+    }
+    
+    float threshold;
+    cout << "Enter the threshold value: ";
+    cin >> threshold;
+    
+    cout << (has_close_elements(a, threshold) ? "True" : "False") << endl;
     return 0;
 }
