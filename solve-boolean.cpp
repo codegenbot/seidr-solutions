@@ -1,31 +1,36 @@
+
 #include <iostream>
 #include <string>
 
-bool evaluate(char op, bool operand1, bool operand2) {
-    if (op == '|') {
-        return operand1 || operand2;
-    } else { 
-        return operand1 && operand2;
+bool evaluateBooleanExpression(const std::string& expression) {
+    bool result = false;
+    bool operand = false;
+    char operation = ' ';
+
+    for (char c : expression) {
+        if (c == 'T') {
+            operand = true;
+        } else if (c == 'F') {
+            operand = false;
+        } else if (c == '|' || c == '&') {
+            operation = c;
+        } else {
+            if (operation == '|') {
+                result = result || operand;
+            } else if (operation == '&') {
+                result = result && operand;
+            }
+        }
     }
+
+    return result;
 }
 
 int main() {
-    std::string s;
-    std::cin >> s;
+    std::string expression;
+    std::cin >> expression;
 
-    bool result = true;
-    char op = '&'; 
-    bool operand = true;
-    
-    for (char c : s) {
-        if (c == 'T' || c == 'F') {
-            operand = (c == 'T');
-        } else if (c == '|' || c == '&') {
-            op = c;
-        } else {
-            result = evaluate(op, result, operand);
-        }
-    }
+    bool result = evaluateBooleanExpression(expression);
 
     if (result) {
         std::cout << "True" << std::endl;
