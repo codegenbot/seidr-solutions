@@ -1,8 +1,5 @@
-```
 #include <vector>
-#include <utility>
-#include <cassert>
-
+#include <initializer_list>
 using namespace std;
 
 bool operator==(const vector<int>& a, initializer_list<int> b) {
@@ -23,4 +20,11 @@ vector<int> make_a_pile(int n) {
     return pile;
 }
 
-assert(make_a_pile(8) == vector<int>({0, 1, 3, 6, 10, 15, 21, 28}));
+vector<int> make_a_pile(int n) {
+    vector<int> pile = {0, 1};
+    for (int i = 2; i <= n; ++i) {
+        vector<int> temp = {pile.back() + i}; 
+        while (!temp.empty()) pile.insert(pile.begin(), temp.back());
+    }
+    return pile;
+}
