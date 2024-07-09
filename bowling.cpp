@@ -1,36 +1,36 @@
-```
-#include <iostream>
-using namespace std;
+#include <string>
 
-int main() {
+int bowlingScore(std::string s) {
     int score = 0;
-    int frame = 1;
-    string line;
-    cin.ignore();
-    
-    while (frame <= 10) {
-        getline(cin, line);
-        if (line[0] == 'X') {
-            score += 30;
-            frame++;
-        } else if (line[2] == '/') {
-            score += 10 + (line[0] - '0' * 2);
-            frame++;
-        } else {
-            int first = line[0] - '0';
-            int second = line[1] - '0';
-            score += first + second;
-            if (second == 0) {
-                frame++;
+    bool lastRollWasStrike = false;
+    bool lastRollWasSpare = false;
+
+    for (char c : s) {
+        if (c == 'X') {
+            score += 10 + (lastRollWasStrike ? 10 : (lastRollWasSpare ? 5 : 0));
+            lastRollWasStrike = true;
+            lastRollWasSpare = false;
+        } else if (c == '/') {
+            size_t pos = s.find('/');
+            if (pos != std::string::npos) {
+                int nextOneRoll =stoi(s.substr(pos+1)); 
+                score += nextOneRoll;
             } else {
-                frame++;
-                if (line[3] != '/') {
-                    score += line[2] - '0' * 10;
-                }
+                int nextTwoRolls =stoi(s); 
+                score += nextTwoRolls / 2;
             }
+            lastRollWasStrike = false;
+            if (score < 10) {
+                lastRollWasSpare = true;
+            } else {
+                lastRollWasSpare = false;
+            }
+        } else {
+            int roll = c - '0';
+            if (c == '9') lastRollWasSpare = true;
+            else lastRollWasStrike = true;
+            score += roll;
         }
     }
-    
-    cout << "The total score is: " << score << endl;
-    return 0;
-}
+
+    return score;
