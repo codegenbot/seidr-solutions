@@ -1,19 +1,23 @@
 #include <iostream>
 #include <string>
 
-std::string middleCharacter(std::string input) {
-    int len = input.length();
+std::string middleCharacter(std::string s) {
+    int len = s.length();
     if(len == 0)
         return "";
     
-    int middleIndex = len / 2;
-    std::string result;
-    if(len % 2 == 0) {
-        result = input.substr(middleIndex - 1, 2);
+    if (len == 1) {
+        return "";
     } else {
-        result = input.substr(middleIndex, 1);
+        int middleIndex = len / 2;
+        std::string result;
+        if(len % 2 == 0) {
+            result = s.substr(middleIndex - 1, 2);
+        } else {
+            result = s.substr(middleIndex, 1);
+        }
+        return result;
     }
-    return result;
 }
 
 int main() {
