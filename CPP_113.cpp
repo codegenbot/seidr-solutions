@@ -1,11 +1,9 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
-
-vector<string> odd_count(vector<string> lst);
 
 void displayOutput(vector<string> output) {
     for (string s : output) {
@@ -13,25 +11,12 @@ void displayOutput(vector<string> output) {
     }
 }
 
-int main() {
-    vector<string> lst;
-    string temp;
-    while (true) {
-        cin >> temp;
-        lst.push_back(temp);
-        if (temp == "stop") break;
-    }
-    vector<string> output = odd_count(lst);
-    displayOutput(output);
-    return 0;
-}
-
 vector<string> odd_count(vector<string> lst) {
     vector<string> result;
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
         for (char c : lst[i]) {
-            if (c % 2 != 0) {
+            if ((c - '0') % 2 != 0) {
                 count++;
             }
         }
@@ -43,4 +28,19 @@ vector<string> odd_count(vector<string> lst) {
         result.push_back(temp);
     }
     return result;
+}
+
+int main() {
+    vector<string> lst;
+    string str;
+    while (true) {
+        cout << "Enter a string (or 'stop' to finish): ";
+        cin >> str;
+        if (str == "stop")
+            break;
+        lst.push_back(str);
+    }
+    vector<string> output = odd_count(lst);
+    displayOutput(output);
+    return 0;
 }
