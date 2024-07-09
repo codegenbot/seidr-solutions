@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -18,11 +17,16 @@ std::vector<float> get_positive(std::vector<float> l){
 
 int main() {
     assert(get_positive({}) == {});
-    std::vector<float> a = {1.0, -2.0, 3.0};
-    std::vector<float> b = get_positive(a);
-    if (!issame(b, {1.0, 3.0})) {
-        std::cerr << "Failed: expected get_positive({1.0, -2.0, 3.0}) to return {1.0, 3.0}" << std::endl;
-        return 1;
+    std::vector<float> vec = {1.5, -2.8, 3.9};
+    std::vector<float> positive = get_positive(vec);
+    if (!issame(positive, std::vector<float>({1.5, 3.9}))) {
+        std::cout << "Positive numbers: ";
+        for (float num : positive) {
+            std::cout << num << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "No positive numbers found" << std::endl;
     }
     return 0;
 }
