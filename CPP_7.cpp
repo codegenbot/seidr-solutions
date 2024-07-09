@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -22,8 +23,6 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 int main() {
     vector<string> expected = {"grunt", "prune"};
     vector<string> actual = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    if (!issame(actual, expected)) {
-        // add your error handling or logging code here
-    }
+    assert(issame(actual, expected));
     return 0;
 }
