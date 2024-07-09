@@ -10,22 +10,14 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<int> a;
-    std::vector<int> b;
+    std::vector<int> a(n);  
+    std::vector<int> b(n);
 
     for(int i = 0; i < n; ++i)
-        {
-            int x;
-            std::cin >> x;
-            a.push_back(x);
-        }
+        std::cin >> a[i];
 
     for(int i = 0; i < n; ++i)
-        {
-            int x;
-            std::cin >> x;
-            b.push_back(x);
-        }
+        std::cin >> b[i];
 
     if(filter_integers(a, b))
         std::cout << "The two vectors are the same." << std::endl;
