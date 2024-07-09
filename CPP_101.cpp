@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -16,24 +18,20 @@ std::vector<std::string> words_string(std::string s){
     std::string word = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
-            if(word.size() <= 100){ // Limit string size
+            if(word.size() <= 30){ 
                 result.push_back(word);
                 word = "";
-            }else{
-                word.resize(100); // Resize the word to fit in vector
-                result.push_back(word);
-                word.resize(0); // Reset the word for next iteration
             }
         }else{
-            if(word.size() < 100) // Limit string size while adding characters
-                word += s[i];
+            word += s[i];
         }
     }
-    if(word.size() <= 100)
+    if(word.size() <= 30)  
         result.push_back(word);
     return result;
 }
 
-std::vector<std::string> b = words_string("ahmed     , gamal");
-assert (issame(b, std::vector<std::string> {"ahmed", "gamal"}));
-return 0;
+int main(){
+    assert(issame(words_string("ahmed     , gamal"), std::vector<std::string>{"ahmed", "gamal"}));
+    return 0;
+}
