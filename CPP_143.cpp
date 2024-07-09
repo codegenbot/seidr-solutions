@@ -1,8 +1,21 @@
-```c++
+```
 #include <string>
+using namespace std;
 
-std::string words_in_sentence(std::string sentence){
-    std::string result = "";
+bool is_prime(int n){
+    if (n <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+string words_in_sentence(string sentence){
+    string result = "";
     int len = 0;
     for (int i = 0; i < sentence.size(); i++) {
         if (sentence[i] == ' ') {
@@ -17,14 +30,10 @@ std::string words_in_sentence(std::string sentence){
     return result;
 }
 
-bool is_prime(int n){
-    if (n <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-    return true;
+int main() {
+    string s;
+    cout << "Enter a sentence: ";
+    getline(cin, s);
+    cout << "The words with prime length are: " << words_in_sentence(s) << endl;
+    return 0;
 }
