@@ -15,7 +15,7 @@ romanMap.push_back({50, 'L'});
 romanMap.push_back({40, 'XL'});
 romanMap.emplace_back(1, 'I');
 
-string int_to_roman(int number) {
+string int_to_mini_roman(int number) {
     string roman = "";
     for (const auto& pair : romanMap) {
         while (number >= pair.first) {
@@ -33,7 +33,7 @@ string int_to_roman(int number) {
 
 int main() {
     for(int i = 1; i <= 3999; i++) { 
-        cout << i << ": " << int_to_roman(i) << endl;
+        cout << i << ": " << int_to_mini_roman(i) << endl;
     }
     return 0;
 }
