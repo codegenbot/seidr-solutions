@@ -1,3 +1,6 @@
+```
+#include <initializer_list>
+
 #include <vector>
 #include <string>
 #include <cctype>
@@ -21,12 +24,4 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
     }
 
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    std::vector<std::string> extensions;
-    extensions.push_back("671235");
-    extensions.push_back("Bb");
-    assert(Strongest_Extension("Student", extensions) == "Student.671235");
-    return 0;
 }
