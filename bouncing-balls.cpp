@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include <cmath>
+#include <cmath> //Added header file
 using namespace std;
 
 int main() {
@@ -14,3 +14,4 @@ int main() {
     cout << fixed << setprecision(9) << (2 * startHeight) * (1 - pow(bouncinessIndex, numBounces)) << endl;
 
     return 0;
+}
