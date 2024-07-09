@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cassert>
 
@@ -18,4 +19,13 @@ bool monotonic(const std::vector<float>& l) {
 
 int main() {
     assert(monotonic({9.0, 9.0, 9.0, 9.0}) == true);
+    std::vector<float> v = {1.5, 2.3, 4.7, 6.8};
+    for (float f : v) {
+        std::cin >> f;
+    }
+    if (!monotonic(v)) {
+        std::cout << "The sequence is not monotonic." << std::endl;
+    } else {
+        std::cout << "The sequence is monotonic." << std::endl;
+    }
 }
