@@ -1,9 +1,5 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> factors(int n) {
     vector<int> factors;
     for (int i = 2; i * i <= n; i++) {
@@ -18,7 +14,10 @@ vector<int> factors(int n) {
     return factors;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
     assert(issame(factors(3 * 2 * 3), {2, 3, 3}));
-    return 0;
 }
