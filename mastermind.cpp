@@ -3,8 +3,8 @@
 #include <string>
 
 int main() {
-    std::string code = "XXXX"; 
-    std::string guess("XXXX", 4); 
+    std::string code = "ABCD"; 
+    std::string guess = "XXXX"; 
     int result = mastermind(code, guess);
     return 0;
 }
