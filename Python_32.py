@@ -6,12 +6,9 @@ def find_zero(xs: list):
     b = xs[-2]
     return -b / a
 
-try:
-    xs = list(map(float, input().split()))
-    if len(xs) < 2:
-        raise ValueError("Input list should have at least 2 elements")
-except ValueError as e:
-    print(e)
-else:
-    result = find_zero(xs)
-    print(result)
+# Read input as string and split to create a list of floats
+xs = [float(x) for x in input().split()]
+
+# Call the function with user input
+result = find_zero(xs)
+print(result)
