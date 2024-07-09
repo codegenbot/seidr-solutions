@@ -1,11 +1,8 @@
-```cpp
 #include <cstdlib>
 #include <vector>
 #include <string>
 
-std::vector<std::string> ops = {"//", "*"}; 
-
-int do_algebra(std::vector<string> operator_, vector<int> operand) {
+int do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
         expression += to_string(operand[i]);
@@ -42,6 +39,7 @@ int eval(const string& s) {
 }
 
 int main() {
+    vector<string> ops = {"//", "*"};
     int result = do_algebra(ops, {7, 3, 4});
     return 0;
 }
