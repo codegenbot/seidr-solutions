@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<string>
+#include <stdio.h>
+#include <string>
 using namespace std;
 string encode_cyclic(string s){ 
     // returns encoded string by cycling groups of three characters.  
@@ -18,12 +18,15 @@ string encode_cyclic(string s){
     return output;
 }
 
+
 string decode_cyclic(string s){ 
     /*
     takes as input string encoded with encode_cyclic function. Returns decoded string. 
     */
+    string output;
     int l=s.length();
-    string x,output;
+    int num=(l+2)/3;
+    string x;
     int i;
     for (i=0;i*3<l;i++)
     {
