@@ -8,10 +8,12 @@ int do_algebra(vector<string> op, vector<int> operands) {
         } else if (op[i] == "*") {
             result *= operands[i + 1];
         } else if (op[i] == "/") {
-            if(operands[i+1] != 0) 
+            if (operands[i + 1] != 0)
                 result /= operands[i + 1];
             else
-                return -1; // Dividing by zero is not allowed.
+                return -1;  // division by zero is undefined
+        } else if (op[i] == "**") {
+            result = pow(result, operands[i + 1]);
         }
     }
     return result;
