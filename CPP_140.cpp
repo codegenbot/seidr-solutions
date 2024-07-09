@@ -1,21 +1,19 @@
-int consecutive_spaces = 0;
-    string result = "";
-    
+string result;
+    bool hasSpace = false;
     for (char c : text) {
         if (c == ' ') {
-            consecutive_spaces++;
-            if (consecutive_spaces > 2) {
-                result.pop_back(); // remove the last space
-                result.pop_back(); // remove the second last space
-                result += '-';
-            } else {
+            if (!hasSpace) {
                 result += '_';
+                hasSpace = true;
+            } else {
+                if (result.back() != '-') {
+                    result += '-';
+                }
             }
         } else {
             result += c;
-            consecutive_spaces = 0;
+            hasSpace = false;
         }
     }
-    
     return result;
 }
