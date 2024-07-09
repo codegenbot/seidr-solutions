@@ -1,13 +1,14 @@
-#include<string>
+#include <iostream>
+#include <vector>
+#include <string>
+
 using namespace std;
 
-bool issame(string s1,string s2){
-    if(s1.size()!=s2.size())
-        return false;
-    for(int i=0;i<s1.size();i++)
-        if(s1[i]!=s2[i])
-            return false;
-    return true;
+bool issame(const vector<string>& v, const string& target) {
+    for (const auto& s : v) {
+        if (s == target) return true;
+    }
+    return false;
 }
 
 vector<string> bf(string planet1, string planet2) {
