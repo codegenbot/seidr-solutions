@@ -1,10 +1,8 @@
-long long result = 0;
-    
-    for (auto num : lst) {
-        if (num > 0 && fmod(num, 1) == 0 && num % 2 != 0) {
-            result += num * num;
+long long total = 0;
+    for (const auto &num : lst) {
+        if (num > 0 && num == floor(num) && static_cast<int>(num) % 2 != 0) {
+            total += static_cast<long long>(pow(num, 2));
         }
     }
-    
-    return result;
+    return total;
 }
