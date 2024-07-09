@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -19,5 +18,6 @@ int main() {
         if (i != 2) cout << ",";
         cout << endl;
     }
+    
     return 0;
 }
