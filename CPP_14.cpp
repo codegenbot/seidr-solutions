@@ -1,4 +1,4 @@
-#include <initializer_list>
+```cpp
 #include <vector>
 #include <string>
 #include <cassert>
@@ -19,6 +19,7 @@ vector<string> all_prefixes(const string& str) {
 
 int main() {
     string str = "WWW";
-    assert(issame(vector<vector<string>>({{"W"}, {"W", "W"}, {"W", "W", "W"}}), vector<vector<string>>({{"W"}, {"W", "W"}, {"W", "W", "W"}})));
+    vector<vector<string>> myVec = {vector<string>({"W"}), vector<string>({"W", "W"}), vector<string>({"W", "W", "W"})};
+    assert(issame(myVec, vector<vector<string>>(myVec)));
     return 0;
 }
