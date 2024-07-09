@@ -4,12 +4,8 @@ string flip_case(string str){
         char c = str[i];
         if(c >= 'a' && c <= 'z'){
             result += toupper(c);
-        }
-        else if(c >= 'A' && c <= 'Z'){
+        } else {
             result += tolower(c);
-        }
-        else{
-            result += c;
         }
     }
     return result;
