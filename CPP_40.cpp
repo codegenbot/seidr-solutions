@@ -4,6 +4,12 @@
 using namespace std;
 
 bool triples_sum_to_zero(vector<int> l) {
+    for (auto it = l.begin(); it != l.end();){
+        if(std::find(it+1, l.end(), *it) != l.end())
+            it = l.erase(it);
+        else
+            ++it;
+    }
     sort(l.begin(), l.end());
     for (int i = 0; i < l.size() - 2; i++) {
         int left = i + 1;
