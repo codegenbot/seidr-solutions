@@ -33,7 +33,6 @@ int main() {
         lengthArr.push_back(to_string(length));
     }
     // Test assertion
-    std::vector<std::string> expected = {to_string(9).size(), to_string(4).size(), to_string(8).size()};
-    assert(issame(expected, lengthArr));
+    assert(issame({to_string(9).size(), to_string(4).size(), to_string(8).size()}, std::vector<std::string>(lengthArr.begin(), lengthArr.end())));
     return 0;
 }
