@@ -22,3 +22,5 @@ def prime_fib(n: int):
             count += 1
         num += 1
     return num - 1
+
+print(prime_fib(n))
