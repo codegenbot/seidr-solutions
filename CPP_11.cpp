@@ -24,7 +24,6 @@ int main() {
     std::getline(std::cin, str1);
 
     std::cout << "Enter the second string: ";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\0');
     std::getline(std::cin, str2);
     
     try {
