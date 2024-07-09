@@ -1,4 +1,3 @@
-// Add includes
 #include <string>
 #include <cassert>
 
@@ -15,7 +14,6 @@ string string_xor(const string& a, const string& b) {
         }
     }
     return result;
-
 }
 
 int main() {
