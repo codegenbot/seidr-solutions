@@ -11,10 +11,10 @@ std::string squareDigits(std::string input) {
     return output;
 }
 
-int main() {
-    string input;
-    cin >> input;
-    string result = squareDigits(input);
-    cout << result << endl;
-    return 0;
+int main() { 
+    std::string input; 
+    cin >> input; 
+    string result = squareDigits(input); 
+    cout << result << endl; 
+    return 0; 
 }
