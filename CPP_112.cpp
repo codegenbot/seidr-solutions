@@ -3,21 +3,21 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> reverse_delete(string s, string c);
+std::vector<std::string> reverse_delete(std::string s, std::string c);
 
-vector<string> reverse_delete(string s, string c){
-    string result = "";
+std::vector<std::string> reverse_delete(std::string s, std::string c){
+    std::string result = "";
     for(char ch : s){
-        if(c.find(ch) == string::npos){
+        if(c.find(ch) == std::string::npos){
             result += ch;
         }
     }
-    string result_reversed = result;
-    reverse(result_reversed.begin(), result_reversed.end());
+    std::string result_reversed = result;
+    std::reverse(result_reversed.begin(), result_reversed.end());
     return {result, issame({result, result_reversed}) ? "True" : "False"};
 }
 
