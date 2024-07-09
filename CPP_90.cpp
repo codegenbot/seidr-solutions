@@ -1,14 +1,27 @@
-sort(lst.begin(), lst.end());
+#include <vector>
+
+int next_smallest(vector<int>& lst) {
+    if (lst.size() < 2) {
+        return -1;
+    }
+    
+    sort(lst.begin(), lst.end());
     int count = 0;
     int prev = lst[0];
-    for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] != prev) {
+    for (int num : lst) {
+        if (num != prev) {
             count++;
-            if (count == 1) {
-                return lst[i];
+            if (count == 2) {
+                return num;
             }
+            prev = num;
         }
-        prev = lst[i];
     }
     return -1;
+}
+
+int main() {
+    vector<int> lst = { -35, 34, 12, -45 };
+    int result = next_smallest(lst);
+    return result;
 }
