@@ -20,7 +20,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (i != -1)
             strB[i] = '.';
 
-        return (stod(strA) > stod(strB)) ? a : b;
+        return (stod(strA) > stold(strB)) ? a : b;
     }
     else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
         string strA = any_cast<string>(a);
