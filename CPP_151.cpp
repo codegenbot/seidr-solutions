@@ -3,12 +3,13 @@ using namespace std;
 
 int main() {
     vector<float> lst;
-    cout << "Enter numbers (enter 'stop' to finish): ";
-    while(true) {
-        string s;
-        cin >> s;
-        if(s == "stop") break;
-        float num = stof(s);
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i = 0; i<n; i++) {
+        float num;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> num;
         lst.push_back(num);
     }
     long long sum = 0;
