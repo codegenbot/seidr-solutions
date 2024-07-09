@@ -2,8 +2,8 @@ from typing import List
 
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    if len(numbers) == 1 or not all(isinstance(i, int) for i in numbers):
-        return [delimiter]
+    if len(numbers) == 1:
+        return numbers
     result = [numbers[0]]
     for i in range(1, len(numbers)):
         result.extend([delimiter, numbers[i]])
