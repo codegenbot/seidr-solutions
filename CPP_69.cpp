@@ -19,7 +19,7 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> lst;
+    std::vector<int> lst(n, 0);
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
@@ -31,7 +31,7 @@ int main() {
             continue;
         }
 
-        lst.push_back(num); 
+        lst[i] = num; 
     }
 
     int result = search(lst);
