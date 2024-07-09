@@ -1,10 +1,8 @@
-```c++
 #include <iostream>
 #include <string>
-#include <cmath>
 
 bool isSimplePower(int num) {
-    for(int base = 2; base * base <= num; ++base) {
+    for (int base = 2; base * base <= num; ++base) {
         int power = 1;
         while (power * base <= num) {
             if ((power * base) == num) {
@@ -19,7 +17,7 @@ bool isSimplePower(int num) {
 int main() {
     std::string input;
     std::cout << "Enter a number: ";
-    std::cin >> input; 
+    std::getline(std::cin, input); 
     int num = std::stoi(input); 
     if (isSimplePower(num)) {  
         std::cout << num << " is a simple power.\n";
