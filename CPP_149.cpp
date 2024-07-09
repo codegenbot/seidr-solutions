@@ -4,10 +4,8 @@
 #include <algorithm>
 #include <string>
 #include <limits>
-#include <ext/rope.h>
-#include <ext/new_allocator.h>
 
-namespace std { using namespace std::placeholders; }
+using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
     return (a == b);
@@ -50,15 +48,10 @@ int main_entry() {
         cout << "Enter string " << (i+1) << ": ";
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Add this line to ignore the newline character left in the buffer
         getline(cin, str);
-        totalSize += str.size() + 1; 
-    }
-    
-    for(int i = 0; i < n; i++) {
-        string str;
-        cout << "Enter string " << (i+1) << ": ";
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Add this line to ignore the newline character left in the buffer
-        getline(cin, str);
-        inputStrings.push_back(str);
+        if (!str.empty()) { 
+            totalSize += str.size() + 1; 
+            inputStrings.push_back(str);
+        }
     }
     
     vector<string> output = sorted_list_sum(inputStrings);
