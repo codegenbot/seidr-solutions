@@ -29,8 +29,8 @@ double find_zero(vector<double> xs){
     }
     vector<double> coeffs;
     for(int i=0; i<temp.size(); i++){
-        for(double x : temp[i]){
-            coeffs.push_back(x);
+        for(int j = 0; j < temp[i].size(); j++) {
+            coeffs.push_back(temp[i][j]);
         }
     }
     return -sum / coeff;
