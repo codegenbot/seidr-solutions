@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,6 +14,6 @@ bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     return true;
 }
 
-std::vector<int> pluck(const std::vector<std::vector<int>>& arr, int index) {
-    return arr[index];
+std::vector<int> pluck(const std::vector<int>& arr, int index) { 
+    return arr;
 }
