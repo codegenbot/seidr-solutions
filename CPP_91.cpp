@@ -17,7 +17,8 @@ bool is_bored(std::string S) {
     return count;
 }
 
-int main() {
+int main 
+{
     std::cout << "Enter a sentence: ";
     std::string S;
     std::cin >> S;
