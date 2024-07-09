@@ -1,8 +1,6 @@
 #include <cmath>
 #include <iomanip>
 
-using namespace std;
-
 int main() {
     double startHeight, firstBounceHeight;
     int numBounces;
@@ -13,7 +11,7 @@ int main() {
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += pow(startHeight * (1 - 0.5), i);
+        totalDistance += startHeight * pow(bouncinessIndex, i);
     }
 
     cout << fixed << setprecision(4);
