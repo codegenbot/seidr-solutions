@@ -1,7 +1,3 @@
-#include <string>
-#include <iostream>
-using namespace std;
-
 int mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -11,7 +7,7 @@ int mastermind(string code, string guess) {
             blackPegs++;
         } else {
             bool found = false;
-            for(int j=0; j<4; j++) {
+            for(int j=i+1; j<4; j++) {
                 if(guess[j] == code[i] && !found) {
                     whitePegs++;
                     found = true;
@@ -26,9 +22,10 @@ int mastermind(string code, string guess) {
 int main() {
     string code, guess;
     cout << "Enter the Mastermind code: ";
-    cin >> code;
+    getline(cin, code);
     cout << "Enter your guess: ";
-    cin >> guess;
+    getline(cin, guess);
     int pegs = mastermind(code, guess);
-    cout << "Number of pegs: " << pegs << endl;
+    std::cout << "Number of pegs: " << pegs << std::endl;
     return 0;
+}
