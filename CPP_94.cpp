@@ -28,15 +28,10 @@ bool isPrime(int n) {
 
 int main() {
     vector<int> lst;
-    int n;
-    cout<<"Enter the number of elements: ";
-    cin>>n;
-    for(int i=0;i<n;i++){
-        int num;
-        cout<<"Enter element "<<i+1<<":";
-        cin>>num;
+    int num;
+    while (cin >> num) {
         lst.push_back(num);
     }
-    cout<<"The sum of digits is : "<<skjkasdkd(lst)<<endl;
+    cout << skjkasdkd(lst) << endl;
     return 0;
 }
