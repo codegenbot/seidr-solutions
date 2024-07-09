@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-bool areVectorsEqual(vector<int> a, vector<int> b) {
+bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,21 +15,20 @@ bool areVectorsEqual(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> newVector;
-    newVector.reserve(numbers.size());  
-    sort(newVector.begin(), newVector.end()); 
-    auto it = unique(newVector.begin(), newVector.end()); 
-    newVector.erase(it, newVector.end()); 
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::vector<int> newVector(numbers); // make a copy of the input vector
+    sort(newVector.begin(), newVector.end()); // sort the vector in ascending order
+    auto it = unique(newVector.begin(), newVector.end()); // find the end of the consecutive sequence of equal elements
+    newVector.erase(it, newVector.end()); // remove duplicates
     return newVector;
 }
 
-int mainFunction() { 
+int mainFunction() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    vector<int> numbers; // declare without size
+    std::vector<int> numbers; // declare without size
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int num;
@@ -37,7 +36,7 @@ int mainFunction() {
         numbers.push_back(num);
     }
 
-    vector<int> result = remove_duplicates(numbers);
+    std::vector<int> result = remove_duplicates(numbers);
 
     if (areVectorsEqual(result, numbers)) {
         std::cout << "The resulting vector is the same as the original." << std::endl;
