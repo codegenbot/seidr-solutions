@@ -1,4 +1,11 @@
 ```cpp
+#include <iostream>
+#include <string>
+
+bool isPrime(int num); 
+
+int prime_fib(int n);
+
 int main() {
     int n;
     std::cout << "Enter a number: ";
@@ -19,7 +26,7 @@ int main() {
         } else {
             suffix = "th";
         }
-        std::cout << "The " << result << suffix << " prime Fibonacci number is: ";
+        std::cout << "The " << num << suffix << " prime Fibonacci number is: ";
         std::cout << result << std::endl;
     }
 }
