@@ -1,10 +1,20 @@
 ```cpp
+#include <string>
+#include <cassert> 
+using namespace std;
+
 int how_many_times(const string& str, const string& substring) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring)) != string::npos) {
+    string s = str; 
+    while ((pos = s.find(substring)) != string::npos) {
         count++;
-        str.erase(pos, substring.length());
+        s.erase(pos, substring.length());
     }
     return count;
+
+}
+
+int main() {
+    assert(how_many_times("john doe", "john") == 1);
 }
