@@ -1,4 +1,6 @@
+```cpp
 #include <string>
+#include <cassert>
 
 int hex_key(std::string num) {
     int count = 0;
@@ -10,14 +12,13 @@ int hex_key(std::string num) {
         }
     }
     return count;
+
 }
 
-int main() {
-    std::string input;
-    std::cin >> input;
-
-    int output = hex_key(input);
-    printf("%d\n", output);
-
-    return 0;
+int main() { 
+    std::string num;
+    std::cout << "Enter a string: ";
+    std::cin >> num;
+    int result = hex_key(num);
+    std::cout << "Count: " << result << std::endl;
 }
