@@ -1,9 +1,9 @@
 string fix_spaces(string text){
     string result = "";
     for(int i = 0; i < text.length(); i++){
-        if(text[i] == ' ' && (i == 0 || text[i-1] != ' ') && (i == text.length() - 1 || text[i+1] != ' ')){
+        if(text[i] == ' ' && (result.empty() || (i > 0 && result.back() != ' ') || count(result.begin(), result.end(), '-') == 0)){
             result += '_';
-        } else {
+        }else{
             result += text[i];
         }
     }
