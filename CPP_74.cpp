@@ -1,3 +1,8 @@
+```cpp
+bool issame(vector<string> a,vector<string> b){
+    // implement your comparison logic here
+}
+
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     vector<string> result;
     if (lst1.size() <= lst2.size()) {
@@ -18,7 +23,4 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         }
     }
     return result;
-}
-bool issame(vector<string> a,vector<string> b){
-    return (a==b);
 }
