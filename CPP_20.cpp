@@ -7,9 +7,9 @@
 using namespace std;
 
 int main(){
-    int n;
+    long long n;
     cin >> n;
-    vector<float> a(n, 0.0f), b(n, 0.0f);
+    vector<float> a(n), b(n);
     for (int i = 0; i < n; i++) {
         cin >> a[i] >> b[i];
     }
