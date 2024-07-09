@@ -1,2 +1,2 @@
-```c
-double bouncinessIndex = 2.0 * (firstBounceHeight / startHeight);
+```
+cout << fixed << setprecision(9) << showpoint << totalDistance << endl;
