@@ -1,9 +1,8 @@
-for (size_t i = 0; i < l.size(); ++i) {
-        for (size_t j = i + 1; j < l.size(); ++j) {
-            if (l[i] + l[j] == 0) {
-                return true;
-            }
-        }
+unordered_set<int> seen_values;
+for (int num : l) {
+    if (seen_values.count(-num) > 0) {
+        return true;
     }
-    return false;
+    seen_values.insert(num);
 }
+return false;
