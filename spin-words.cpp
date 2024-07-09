@@ -7,7 +7,7 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             if (word.length() >= 5) {
                 result += word;
-                string revWord = word; // Create a copy of the word
+                string revWord = word; 
                 std::reverse(revWord.begin(), revWord.end());
                 result += " ";
                 word = "";
@@ -23,7 +23,7 @@ string spinWords(string str) {
 
     if (word.length() >= 5) {
         result += word;
-        string revWord = word; // Create a copy of the word
+        string revWord = word; 
         std::reverse(revWord.begin(), revWord.end());
         result += " ";
         word = "";
