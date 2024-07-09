@@ -21,5 +21,6 @@ std::vector<int> cpp123(int n) {
 
 int main() {
     assert(issame(cpp123(1), {1}));
+
     return 0;
 }
