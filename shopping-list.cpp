@@ -1,6 +1,4 @@
 #include <vector>
-#include <iostream>
-#include <iomanip>
 
 using namespace std;
 
@@ -15,16 +13,8 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<float> prices(n);
-    for (float &price : prices) {
-        cin >> price;
-    }
-    vector<float> discounts(n);
-    for (float &discount : discounts) {
-        cin >> discount;
-    }
-    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
+    vector<float> prices = {10, 20, 30};
+    vector<float> discounts = {5, 10, 15};
+    cout << "Total cost of shopping trip: $" << shoppingList(prices, discounts) << endl;
     return 0;
 }
