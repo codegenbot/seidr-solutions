@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 
@@ -30,7 +31,19 @@ vector<float> sort_even(vector<float> l) {
 
 int main() {
     vector<float> arr = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    vector<float> res = sort_even(arr);
-    for(auto x:res) cout<<x<<" ";
-    return 0;
+    vector<float> evens;
+    for (auto x : arr) {
+        if(x % 2 == 0) evens.push_back(x);
+    }
+    sort(evens.begin(), evens.end());
+    cout<< "Evens: ";
+    for(auto x:evens) cout<<x<<" ";
+    vector<float> odds;
+    for (auto x : arr) {
+        if(x % 2 != 0) odds.push_back(x);
+    }
+    sort(odds.begin(), odds.end());
+    cout<< "\nOdds: ";
+    for(auto x:odds) cout<<x<<" ";
+    
 }
