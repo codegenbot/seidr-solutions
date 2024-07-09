@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <algorithm>
+#include <cstdlib>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -25,7 +26,7 @@ int solution() {
         }
         it = nextIt;
     }
-    std::vector<int> unique(std::vector<int>(uniqueVec.begin(), it));
+    std::vector<int> unique(uniqueVec.begin(), it);
     assert(issame(unique, uniqueVec));
     return 0;
 }
