@@ -1,3 +1,4 @@
+#include <string>
 #include <iostream>
 #include <cctype>
 
@@ -7,7 +8,7 @@ int main() {
     std::getline(std::cin, input);
 
     std::string output = "";
-    
+
     for (char c : input) {
         if (isupper(c)) {
             output += tolower(c);
@@ -17,6 +18,8 @@ int main() {
             output += c;
         }
     }
+
     std::cout << "Output: " << output << std::endl;
 
+    return 0;
 }
