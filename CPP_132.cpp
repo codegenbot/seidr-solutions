@@ -1,8 +1,10 @@
-```
-int stack = 0;
+int count_open = 0, count_close = 0;
+
 for (char c : str) {
-    if (c == '[') stack++;
-    else if (c == ']') stack--;
-    if (stack < 0) return true;
+    if (c == '[') count_open++;
+    else if (c == ']') count_close++;
+
+    if (count_open < count_close) return true;
 }
+
 return false;
