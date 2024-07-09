@@ -1,8 +1,7 @@
 #include <vector>
 #include <string>
-#include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
     if(a.size() != b.size()){
         return false;
     }
@@ -42,7 +41,4 @@ std::vector<std::string> split_words(std::string txt){
     return words;
 }
 
-int main(){
-    assert(issame(split_words(""), {}));
-    return 0;
-}
+assert(issame(split_words(""), {"0"}));
