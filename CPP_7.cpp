@@ -15,7 +15,7 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
     return result;
 }
 
-void assert_equal(const vector<string>& a, const vector<string>& b) {
+void assert_equal(const vector<string>& a, const vector<string>& b){
     assert(a.size() == b.size() && equal(a.begin(), a.end(), b.begin()));
 }
 
