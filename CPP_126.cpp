@@ -1,35 +1,11 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-bool is_sorted(std::vector<int> lst);
+bool is_sorted(vector<int> lst);
 
-int main() {
-    std::vector<int> lst;
-    int n;
-
-    // Input number of elements
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    // Input elements
-    for (int i = 0; i < n; i++) {
-        int x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        lst.push_back(x);
-    }
-
-    if (is_sorted(lst))
-        std::cout << "The list is sorted.\n";
-    else
-        std::cout << "The list is not sorted.\n";
-
-    return 0;
-}
-
-bool is_sorted(std::vector<int> lst){
+bool is_sorted(vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
             return false;
@@ -41,4 +17,18 @@ bool is_sorted(std::vector<int> lst){
             return false;
     }
     return true;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> lst(n);
+    for(int i = 0; i < n; i++){
+        cin >> lst[i];
+    }
+    if(is_sorted(lst))
+        cout << "YES" << endl;
+    else
+        cout << "NO" << endl;
+    return 0;
 }
