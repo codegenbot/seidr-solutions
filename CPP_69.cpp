@@ -22,7 +22,7 @@ int search(std::vector<int> lst) {
 }
 
 int main() {
-    assert(search({3, 10, 10, 9, 2}) == 1);
+    assert(search({3, 10, 10, 9, 2}) == -1);
     std::vector<int> lst = {3, 10, 10, 9, 2};
     int result = search(lst);
     std::cout << "The result is: " << result << std::endl;
