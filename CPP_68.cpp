@@ -32,11 +32,5 @@ vector<int> pluck(vector<int> arr) {
 }
 
 int main() {
-    // You can test your pluck function here
-    vector<int> arr = {1, 2, 3, 4};
-    cout << "Output: ";
-    for (auto num : pluck(arr)) {
-        cout << num << " ";
-    }
     return 0;
 }
