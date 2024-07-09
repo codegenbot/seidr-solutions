@@ -2,7 +2,7 @@
 #include <algorithm>
 
 std::vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+    std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0)
             n /= 2;
@@ -13,6 +13,6 @@ std::vector<int> get_odd_collatz(int n) {
         if (i % 2 != 0)
             result.push_back(i);
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
 }
