@@ -1,4 +1,6 @@
-string file_name_check(string file_name){
+#include <string>
+
+std::string file_name_check(std::string file_name) {
     int digitCount = 0;
     bool foundDot = false;
     for(int i=0; i<file_name.length(); i++){
