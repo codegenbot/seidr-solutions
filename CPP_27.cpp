@@ -1,8 +1,12 @@
-int main 
-{
+#include <iostream>
+#include <cctype>
+
+int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
+
+    std::string output = "";
     
     for (char c : input) {
         if (isupper(c)) {
@@ -14,6 +18,5 @@ int main
         }
     }
     std::cout << "Output: " << output << std::endl;
-    
-    return 0;
+
 }
