@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
+using namespace std;
 
-double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
+double shoppingList(vector<float> prices, vector<float> discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
         double price = prices[i];
@@ -8,4 +10,11 @@ double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
         total += price - discount;
     }
     return total;
+}
+
+int main() {
+    vector<float> prices = {10, 20, 30};
+    vector<float> discounts = {5, 10, 15};
+    cout << "Total cost of shopping trip: $" << shoppingList(prices, discounts) << endl;
+    return 0;
 }
