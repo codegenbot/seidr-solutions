@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 
 int main() {
     int hours;
@@ -7,8 +6,8 @@ int main() {
     std::cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
     
     for (int i = 0; i < hours; ++i) {
-        snow_on_ground += snow_fall_rate;
-        snow_on_ground = std::max(snow_on_ground - snow_melt_rate, 0.0f);
+        float snow_melt_amount = snow_on_ground * snow_melt_rate;
+        snow_on_ground = snow_on_ground + snow_fall_rate - snow_melt_amount;
     }
     
     std::cout << snow_on_ground << std::endl;
