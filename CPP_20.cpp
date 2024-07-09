@@ -1,11 +1,11 @@
 #include <vector>
+#include <numeric>
 #include <limits>
-#include <utility>
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
     float min_diff = std::numeric_limits<float>::max();
     std::pair<float, float> closest_pair;
-
+    
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
             float diff = std::abs(numbers[i] - numbers[j]);
@@ -15,6 +15,10 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
             }
         }
     }
-
+    
     return {{closest_pair.first, closest_pair.second}};
+}
+
+int main() {
+    // Use find_closest_elements after defining it
 }
