@@ -1,19 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+vector<string> by_length(vector<int> arr) {
+    vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
         }
     }
 
-    std::sort(numbers.begin(), numbers.end());
-    std::reverse(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
+    reverse(numbers.begin(), numbers.end());
 
-    std::vector<std::string> result;
+    vector<string> result;
     for (int num : numbers) {
         switch (num) {
             case 1:
@@ -47,15 +43,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
 
     return result;
-}
-
-int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
-    std::vector<std::string> result = by_length(numbers);
-    
-    for (const auto& str : result) {
-        std::cout << str << std::endl;
-    }
-    
-    return 0;
 }
