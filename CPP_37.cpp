@@ -1,7 +1,8 @@
-#include <vector>
+#include <iostream>
 #include <algorithm>
+using namespace std;
 
-bool isSame(std::vector<float> v1, std::vector<float> v2) {
+bool isSame(vector<float> v1, vector<float> v2) {
     if(v1.size() != v2.size()) return false;
     for(int i = 0; i < v1.size(); i++) {
         if(v1[i] != v2[i]) return false;
@@ -14,8 +15,8 @@ std::vector<float> sortEven(std::vector<float> l) {
     int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            auto it = std::stable_partition(l.begin(), l.end(), [](float x){return x % 2 != 0;});
-            result[i] = *std::min_element(it, l.end());
+            auto it = stable_partition(l.begin(), l.end(), [](float x){return x % 2 != 0;});
+            result[i] = *min_element(it, l.end());
         } else {
             result[i] = l[i];
         }
@@ -27,12 +28,12 @@ int main()
 {
     std::vector<float> input;
     float num;
-    while(std::cin >> num) {
+    while(cin >> num) {
         input.push_back(num);
     }
     std::vector<float> output = sortEven(input);
     for(float f : output) {
-        std::cout << f << " ";
+        cout << f << " ";
     }
     return 0;
 }
