@@ -25,5 +25,5 @@ std::string fix_spaces(std::string text) {
 }
 
 int main() {
-    // your test cases here
+   // your test cases here
 }
