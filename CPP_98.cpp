@@ -1,5 +1,6 @@
-```cpp
 #include <string>
+
+using namespace std;
 
 int count_upper(string s) {
     int count = 0;
@@ -9,13 +10,4 @@ int count_upper(string s) {
         }
     }
     return count;
-}
-
-int main() {
-    string str;
-    cout << "Enter a string: ";
-    cin >> str;
-    int result = count_upper(str);
-    cout << "Number of uppercase letters at even positions: " << result << endl;
-    return 0;
 }
