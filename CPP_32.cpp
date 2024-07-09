@@ -1,14 +1,10 @@
-double find_zero(vector<double> xs){
-    double coeffs;
-    vector<double> poly;
-    int n = xs.size();
-    coeffs = xs[0];
-    for (int i = 1; i < n; i++) {
-        if ((i & 1) == 0) {
-            polys.insert(poly.begin(), -coeffs*xs[i]);
-        } else {
-            coeffs = xs[i];
-        }
+```cpp
+double find_zero(vector<double> coefficients) {
+    double sum = 0;
+    int coeff = 1;
+    for (int i = 1; i < coefficients.size(); i += 2) {
+        sum -= coeff * coefficients[i] / coefficients[0];
+        coeff *= -1;
     }
-    return -coeffs / coeffs;
+    return -sum / coefficients[0];
 }
