@@ -1,14 +1,28 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <set>
-#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+int issame(vector<int> v) {
+    int count = 0;
+    for (int i : v) {
+        if (i % 2 == 0)
+            count++;
     }
-    return true;
+    return count;
+}
+
+int main() {
+    vector<int> l1, l2;
+    cout << "Enter the elements of list 1: ";
+    while (cin >> l1.back()) {}
+    
+    cout << "Enter the elements of list 2: ";
+    while (cin >> l2.back()) {}
+
+    vector<int> result = common(l1, l2);
+    int same = issame(result);
+
+    return 0;
 }
 
 vector<int> common(vector<int> l1, vector<int> l2) {
@@ -21,10 +35,4 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
     vector<int> result(intersection.begin(), intersection.end());
     return result;
-}
-
-int main() {
-    // Use the common function
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
-    return 0;
 }
