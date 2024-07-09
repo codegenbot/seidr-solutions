@@ -7,18 +7,16 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-    
     return true;
 }
 
 int main() {
-    // Include the necessary header file where separate_paren_groups function is declared
-    
+    // Include necessary header file where separate_paren_groups function is declared
+
     return 0;
 }
