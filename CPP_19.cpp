@@ -24,19 +24,19 @@ string sort_numbers(string numbers){
     vector<string> numList;
     stringstream ss(numbers);
     string token;
-
+    
     while (ss >> token) {
         numList.push_back(token);
     }
-
+    
     sort(numList.begin(), numList.end(), [&](const string &a, const string &b) {
         return numMap[a] < numMap[b];
     });
-
+    
     for (const string &num : numList) {
         result += num + " ";
     }
-
+    
     return result;
 }
 
