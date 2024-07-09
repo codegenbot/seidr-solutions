@@ -1,7 +1,11 @@
 Here is the completed code:
 
 bool any_int(float a, float b, float c) {
-    if (fmod(a + b - c, 1) == 0 || fmod(a + c - b, 1) == 0 || fmod(b + c - a, 1) == 0)
+    if (abs(a - b - c) < 1e-9) {
         return true;
-    return false;
+    }
+    if (a == static_cast<int>(a) && b == static_cast<int>(b) && c == static_cast<int>(c)) {
+        return false;
+    }
+    return true;
 }
