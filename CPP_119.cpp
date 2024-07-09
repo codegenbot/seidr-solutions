@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -11,7 +10,7 @@ bool match_parens(vector<string> lst) {
     for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') open++;
-            else close++;
+            else if (c == ')') close++;
         }
     }
     return open == close;
@@ -21,8 +20,7 @@ int main() {
     vector<string> lst;
     int n;
     cin >> n;
-    for(int i=0; i<n; i++){
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    for(int i=0; i<n; ++i++){
         string s;
         getline(cin, s);
         if (!s.empty()) {
