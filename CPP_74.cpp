@@ -53,7 +53,13 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {  
-    vector<string> lst1(lst1.begin(), lst1.end());
+    vector<string> lst1;
+    string str;
+    cout << "Enter strings (enter 'done' when finished): ";
+    while (!(str == "done")) {
+        cin >> str;
+        lst1.push_back(str);
+    }
     vector<string> lst2;
     vector<string> result = totalMatch(lst1, lst2);
     cout << "Result: ";
