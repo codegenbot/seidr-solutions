@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool assertSame(std::vector<std::string> a, std::vector<std::string> b) {
+bool checkIfSame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
