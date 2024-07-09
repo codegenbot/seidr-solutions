@@ -1,18 +1,11 @@
-Here is the completed code:
+#include<string>
+using namespace std;
 
-```cpp
 bool cycpattern_check(string a, string b) {
-    for (int i = 0; i < a.length(); i++) {
-        string temp = a.substr(i);
-        if (temp.size() >= b.size()) {
-            for (int j = 0; j <= temp.size() - b.size(); j++) {
-                if (temp.substr(j, b.size()).compare(b) == 0) {
-                    return true;
-                }
-            }
-        } else {
-            break;
-        }
+    for(int i = 0; i < a.length() - b.length() + 1; i++) {
+        string temp = a.substr(i, b.length());
+        if(temp == b || temp.find(b) != string::npos)
+            return true;
     }
     return false;
 }
