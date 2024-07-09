@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <iostream>
 
@@ -6,8 +7,15 @@ bool is_palindrome(const std::string& s) {
     int right = s.length() - 1;
 
     while (left < right) {
-        if (s[left] != s[right])
-            return false;
+        if (!std::isspace(s[left]) && !std::isspace(s[right])) { 
+            if (s[left] != s[right])
+                return false;
+        } else { 
+            if (std::isspace(s[left]))
+                left++;
+            if (std::isspace(s[right]))
+                right--;
+        }
         left++;
         right--;
     }
@@ -17,11 +25,6 @@ bool is_palindrome(const std::string& s) {
 
 int main() {
     assert(is_palindrome("xywzx") == false);
-    std::string input;
-    int num;
-    std::cout << "Enter an integer: ";
-    std::cin >> num;
-    input = std::to_string(num); 
     std::cout << "Test passed.\n";
     return 0;
 }
