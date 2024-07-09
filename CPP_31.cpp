@@ -10,13 +10,13 @@ int cpp_main() {
     std::cin >> num;
 
     if(is_prime(num)) {
-        std::cout << num << " is a prime number." << std::endl;
+        std::cout << std::to_string(num) << " is a prime number." << std::endl;
         
         for(int i = 2; i <= num; i++) {
             if(is_prime(i))
-                std::cout << std::to_string(i) << " is a prime number." << std::endl;
+                std::cout << std::to_string(i) << " is a prime number" << std::endl;
             else
-                std::cout << std::to_string(i) << (is_prime(i) ? " is a prime number." : " is not a prime number.") << std::endl;
+                std::cout << std::to_string(i) << (is_prime(i) ? " is a prime number" : "") << std::endl;
         }
     }
     
