@@ -1,7 +1,7 @@
-#include <cctype>
 #include <string>
+#include <cctype>
 
-bool flip_case(const std::string& input) {
+bool filp_case(const std::string& input) {
     std::string output = "";
     
     for (char c : input) {
@@ -17,6 +17,6 @@ bool flip_case(const std::string& input) {
 }
 
 int main() {
-    assert(flip_case("These violent delights have violent ends") == "theSE Violent Delights Have Violent Ends");
+    assert(filp_case("These violent delights have violent ends") == "tHEse ViOlEnT dElIgHts HaVe ViOlEnt EnDs");
     return 0;
 }
