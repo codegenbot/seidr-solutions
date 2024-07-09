@@ -1,5 +1,7 @@
+```c++
 #include <cmath>
 #include <iostream>
+#include <iomanip>
 
 long double probability(int n, int m) {
     long double total = 0; 
@@ -14,7 +16,9 @@ long double probability(int n, int m) {
 }
 
 int main() {
-    std::cout << "The probability that Peter rolls strictly higher than Colin is: " 
-              << std::fixed << std::setprecision(9) << probability(34, 24);
+    std::ostringstream oss;  
+    oss << "The probability that Peter rolls strictly higher than Colin is: " 
+        << std::fixed << std::setprecision(9) << probability(34, 24);
+    std::cout << oss.str(); 
     return 0;
 }
