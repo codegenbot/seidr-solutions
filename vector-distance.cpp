@@ -1,8 +1,6 @@
-```c++
 #include <vector>
 #include <cmath>
 #include <stdexcept>
-#include <iostream>
 
 using namespace std;
 
@@ -19,9 +17,14 @@ double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
 }
 
 int main() {
-    vector<float> v1({1, 2, 3});
-    vector<float> v2({4, 5, 6});
-    double distance = vectorDistance(v1, v2);
-    cout << "Distance: " << distance << endl;
+    vector<float> v1 = {1.0, 2.0, 3.0};
+    vector<float> v2 = {4.0, 5.0, 6.0};
+    try {
+        double distance = vectorDistance(v1, v2);
+        cout << "The Euclidean distance is: " << distance << endl;
+    } catch (const runtime_error& e) {
+        cerr << "Error: " << e.what() << endl;
+        return 1; 
+    }
     return 0;
 }
