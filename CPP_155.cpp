@@ -5,7 +5,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return (a == b);
 }
 
-vector<int> even_odd_count(int num) {
+vector<int> evenCount(int num) { 
     int evens = 0, odds = 0;
     string str = to_string(abs(num));
     for (char c : str) {
@@ -18,6 +18,6 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert (issame(even_odd_count(0), vector<int>({1, 0})));
+    assert (issame(evenCount(0), vector<int>({1, 0})));
     return 0;
 }
