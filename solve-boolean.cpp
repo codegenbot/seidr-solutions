@@ -1,6 +1,5 @@
-```cpp
-#include <iostream>
 #include <string>
+#include <iostream>
 
 bool solveBoolean(std::string s) {
     bool result = true;
@@ -32,13 +31,7 @@ bool solveBoolean(std::string s) {
 
 int main() {
     std::string input;
-    // Read input from user or initialize with a test string
-    std::cout << "Enter the Boolean expression: ";
     std::cin >> input;
-    if (solveBoolean(input)) {
-        std::cout << "The Boolean expression evaluates to true.\n";
-    } else {
-        std::cout << "The Boolean expression evaluates to false.\n";
-    }
+    bool result = solveBoolean(input);
+    std::cout << (result ? "True" : "False") << std::endl;
     return 0;
-}
