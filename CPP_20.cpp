@@ -3,12 +3,12 @@
 #include <vector>
 #include <limits>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float>& a, std::vector<float>& b) {
     if (a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+        if (std::abs(a[i] - b[i]) > 1e-9) return false;
     }
     return true;
 }
@@ -17,12 +17,12 @@ struct Pair {
     float first, second;
 };
 
-Pair find_closest_elements(std::vector<float> numbers) {
+Pair find_closest_elements(std::vector<float>& numbers) {
     std::sort(numbers.begin(), numbers.end());
     float minDiff = std::numeric_limits<float>::max();
     Pair closestPair;
-    
-    for (int i = 0; i < numbers.size() - 2; ++i) {
+
+    for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < minDiff) {
             minDiff = diff;
@@ -30,14 +30,20 @@ Pair find_closest_elements(std::vector<float> numbers) {
             closestPair.second = numbers[i + 1];
         }
     }
-    
+
     return closestPair;
 }
 
 int main() { 
-    std::vector<float> testVec; // Leave it empty or provide initial values
+    std::vector<float> testVec({1.2, 2.3}); 
+
+    if (testVec.size() < 2) {
+        std::cout << "Error: Input vector must have at least two elements." << std::endl;
+        return 1;
+    }
+
     Pair closestPair = find_closest_elements(testVec);
-    
+
     if (issame({closestPair.first, closestPair.second}, {2.2f, 2.3f})) {
         std::cout << "The closest pair is (" << closestPair.first << ", " << closestPair.second << ")" << std::endl;
     } else {
