@@ -5,8 +5,8 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.size()); // Reserve memory for the result vector
-    auto it = unique_copy(l.begin(), l.end(), result.begin());
+    vector<int> result;
+    auto it = unique_copy(l.begin(), l.end(), back_inserter(result));
     return result;
 }
 
