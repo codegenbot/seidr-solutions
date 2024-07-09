@@ -10,4 +10,3 @@ string flip_case(string str) {
         }
     }
     return result;
-}
