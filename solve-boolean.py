@@ -1,17 +1,15 @@
+```
 def solve_boolean(expression):
-    if "&" not in expression:
-        if "|" not in expression:
-            return expression == "T"
+    if "&" in expression:
+        return eval(f"{expression.replace('&', 'and').replace('|', 'or')}")
+    elif "|" in expression:
+        parts = expression.split("|")
+        if "&" in parts[0] or "&" in parts[1]:
+            return eval(f"( {solve_boolean(parts[0])} and {solve_boolean(parts[1])} )")
         else:
-            parts = expression.split("|")
-            return eval(f"{parts[0]} or {parts[1]}")
-    else:
-        parts = expression.split("&")
-        result = True
-        for part in parts:
-            if "|" in part:
-                sub_parts = part.split("|")
-                result = result and (eval(f"{sub_parts[0]} or {sub_parts[1]}"))
-            elif part != "T":
-                return False
-        return result
+            result = (solve_boolean(parts[0]) or solve_boolean(parts[1]))
+            return f"({result})"
+    elif "T" in expression.upper():
+        return True
+    elif "F" in expression.upper():
+        return False
