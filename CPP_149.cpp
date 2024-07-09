@@ -1,37 +1,58 @@
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
+bool issame(const string& a, const string& b) {
+    vector<string> list1;
+    vector<string> list2;
+
+    for (const auto& str : a) {
+        if (str.length() % 2 == 0) {
+            list1.push_back(str);
         }
     }
-    return true;
+
+    for (const auto& str : b) {
+        if (str.length() % 2 == 0) {
+            list2.push_back(str);
+        }
+    }
+
+    sort(list1.begin(), list1.end());
+    sort(list2.begin(), list2.end());
+
+    return list1 == list2;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> evens, odds;
+vector<string> sorted_list_sum(vector<vector<string>>& lst) {
+    vector<string> result;
 
-    for (const auto& str : lst) {
+    for (const auto& str : lst[0]) {
         if (str.length() % 2 == 0) {
-            evens.push_back(str);
-        } else {
-            odds.push_back(str);
+            result.push_back(str);
         }
     }
 
-    sort(evens.begin(), evens.end());
-    sort(odds.begin(), odds.end());
+    for (int i = 1; i < lst.size(); ++i) {
+        bool same = false;
+        for (const auto& str : lst[i]) {
+            if (issame(result, vector<string>(1, str))) {
+                same = true;
+                break;
+            }
+        }
 
-    vector<string> result;
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(evens.front());
-            evens.pop_front();
-        } else {
-            result.push_back(odds.front());
-            odds.pop_front();
+        if (!same) {
+            result.clear();
+            for (const auto& str : lst[i]) {
+                if (str.length() % 2 == 0) {
+                    result.push_back(str);
+                }
+            }
+            sort(result.begin(), result.end(),
+                 [](const string& a, const string& b) {
+                     if (a.length() != b.length()) {
+                         return a.length() < b.length();
+                     } else {
+                         return a < b;
+                     }
+                 });
         }
     }
 
