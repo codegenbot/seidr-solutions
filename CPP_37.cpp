@@ -1,39 +1,27 @@
-```c++
-#include <algorithm>
-#include <vector>
-
-namespace myspace {
-    bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-        if(a.size() != b.size()) return false;
-        for(int i = 0; i < a.size(); i++) {
-            if(a[i] != b[i]) return false;
-        }
-        return true;
+```cpp
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i]) % 2 == 1 && std::abs(b[i]) % 2 == 1)
+            return false;
     }
-
-    std::vector<float> sort_even(const std::vector<float>& l) {
-        std::vector<float> result(l.size());
-        int evenIndex = 0;
-        for (int i = 0; i < l.size(); i++) {
-            if (i % 2 == 0) {
-                auto it = std::minmax_element(l.begin(), l.end(),
-                    [](float a, float b){ return a<b; });
-                result[i] = *(it.first);
-                for(int j = evenIndex; j < l.size(); j++){
-                    if(j%2==0 && l[j] != *(it.first)){
-                        result[evenIndex++] = l[j];
-                    }
-                }
-            } else {
-                result[i] = l[i];
-            }
-        }
-        return result;
-    }
+    return true;
 }
 
-int main() 
-{
+namespace myspace {
+    std::vector<float> sort_even(std::vector<float>& input) {
+        std::sort(input.begin(), input.end());
+        std::vector<float> even;
+        for (float num : input) {
+            if (std::abs(num) % 2 == 0) {
+                even.push_back(num);
+            }
+        }
+        return even;
+    }
+};
+
+int main() {
     std::vector<float> input(10);
     input.push_back(5.0f);
     input.push_back(8.0f);
