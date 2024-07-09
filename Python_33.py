@@ -1,4 +1,3 @@
-```
 def sort_third():
     n = int(input("Enter the number of elements: "))
     l = []
