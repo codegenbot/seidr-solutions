@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -27,7 +26,4 @@ std::vector<int> same(std::vector<int> x) {
     return result;
 }
 
-int main() {
-    assert(same({135, 103, 31}) == {31, 135});
-    return 0;
-}
+assert(same({135, 103, 31}) == {31, 135});
