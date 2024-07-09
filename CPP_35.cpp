@@ -14,8 +14,8 @@ int main() {
     int num = 0; 
     std::cout << "Enter numbers (separated by spaces): ";
     while(std::cin >> num) { 
-        while(std::cin.peek() == ' ') {
-            std::cin.ignore();
+        while(std::cin.get() == ' ') {
+            std::cin.ignore(); 
         }
         numbers.push_back(num);
         while(std::cin.get() != '\n') { 
