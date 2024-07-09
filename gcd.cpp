@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -23,14 +22,23 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    cout << "GCD of 10 and 15 is: " << gcd(10, 15) << endl;
-
-    string text = "Hello world, hello world!";
-    string target = "hello";
-    vector<int> indices = findIndices(text, target);
-    for(int i : indices) {
-        cout << "Target found at index: " << i << endl;
-    }
-
+    int a; // input from user
+    cin >> a;
+    
+    int b; // input from user
+    cin >> b;
+    
+    cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << endl;
+    
+    string text; // input from user
+    getline(cin, text);
+    
+    string target; // input from user
+    getline(cin, target);
+    
+    vector<int> result = findIndices(text, target);
+    for(int i : result)
+        cout << i << " ";  // output the indices
+    
     return 0;
 }
