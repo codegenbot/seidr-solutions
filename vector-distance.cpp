@@ -1,27 +1,20 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
 double vectorDistance(int n) {
-    float v1[n];
-    float v2[n];
-
-    // Read input vectors
+    double sum = 0;
     for (int i = 0; i < n; i++) {
-        cin >> v1[i] >> v2[i];
+        double x1, x2;
+        cin >> x1 >> x2;
+        sum += pow(x2 - x1, 2);
     }
-
-    double distance = 0.0;
-    for (int i = 0; i < n; i++) {
-        distance += pow(v1[i] - v2[i], 2);
-    }
-    return sqrt(distance);
+    return sqrt(sum);
 }
 
 int main() {
     int n;
     cin >> n;
-
-    cout << fixed << setprecision(10) << vectorDistance(n);
-
+    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
     return 0;
 }
