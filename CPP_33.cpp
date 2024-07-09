@@ -6,33 +6,30 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result;
+    vector<vector<int>> grouped;
     int groupCount = 0;
 
     for (int i : l) {
         if(groupCount % 3 == 0) { 
             if(groupCount != 0) { 
-                // Sort and reverse the current group
-                sort(result.begin(), result.end());
-                for (int j = result.size() - 1; j >= 0; j--) {
-                    result.push_back(result[j]);
-                    result.pop_back(); // Remove the last element to avoid duplicates
-                }
+                sort(grouped[groupCount/3-1].begin(), grouped[groupCount/3-1].end());
+                reverse(grouped[groupCount/3-1].begin(), grouped[groupCount/3-1].end());
             }
-            result.clear(); 
+            grouped.clear(); 
         }
-        result.push_back(i);
+        grouped.push_back({i});
         groupCount++;
     }
 
     if(groupCount % 3 == 0) {
-        sort(result.begin(), result.end());
-        for (int j = result.size() - 1; j >= 0; j--) {
-            result.push_back(result[j]);
-            result.pop_back(); // Remove the last element to avoid duplicates
-        }
+        sort(grouped[groupCount/3-1].begin(), grouped[groupCount/3-1].end());
+        reverse(grouped[groupCount/3-1].begin(), grouped[groupCount/3-1].end());
     }
 
+    vector<int> result;
+    for (const auto& group : grouped) {
+        result.insert(result.end(), group.begin(), group.end());
+    }
     return result;
 }
 
