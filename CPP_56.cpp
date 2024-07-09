@@ -1,23 +1,23 @@
 #include <cassert>
 #include <cstring>
 #include <iostream>
-#include <string>
 
-bool correct_bracketing(const std::string& bracket_string) {
+bool correct_bracketing(const char* bracket_string){
     int count = 0;
-    for (int i = 0; i < bracket_string.length(); i++) {
-        if (bracket_string[i] == '<') {
+    for(int i=0; ; i++){
+        if(bracket_string[i] == '<'){
             count++;
         }
-        else if (bracket_string[i] == '>') {
-            if (count <= 0) {
+        else if(bracket_string[i] == '>'){
+            if(count <= 0) {
                 std::cout << "Incorrect: Unbalanced closing bracket at position " << i+1 << "." << std::endl;
                 return false;
             }
             count--;
         }
+        if (bracket_string[i] == '\0') break;
     }
-    if (count > 0) {
+    if(count > 0) {
         std::cout << "Incorrect: Unbalanced opening brackets." << std::endl;
         return false;
     }
@@ -25,9 +25,9 @@ bool correct_bracketing(const std::string& bracket_string) {
 
 int main() {
     std::string bracket_string = "<><><<><>><>>><>";
-    assert(!correct_bracketing(bracket_string));
+    assert(!correct_bracketing(bracket_string.c_str()));
     std::string brackets = "<<>";
-    if (correct_bracketing(brackets)) std::cout << "Correct" << std::endl;
+    if(correct_bracketing(brackets.c_str())) std::cout << "Correct" << std::endl;
     else std::cout << "Incorrect" << std::endl;
     return 0;
 }
