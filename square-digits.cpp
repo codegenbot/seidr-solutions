@@ -3,7 +3,7 @@
 using namespace std;
 
 std::string squareDigits(std::string input) {
-    string output = "";
+    std::string output = "";
     for (char c : input) {
         int digit = c - '0';
         int squared = digit * digit;
