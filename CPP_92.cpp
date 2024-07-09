@@ -1,8 +1,8 @@
 Here is the completed code:
 
 bool any_int(float a, float b, float c) {
-    if (a == static_cast<int>(a) && b == static_cast<int>(b) && c == static_cast<int>(c)) {
-        return a == b + c || a == c + b || b == a + c || b == c + a || c == a + b || c == b + a;
-    }
+    if (floor(a) + floor(b) == floor(c)) return true;
+    if (floor(a) + floor(b) == floor(a)) return true;
+    if (floor(a) + floor(c) == floor(b)) return true;
+    if (floor(b) + floor(c) == floor(a)) return true;
     return false;
-}
