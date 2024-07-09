@@ -1,4 +1,5 @@
 #include <sstream>
+#include <stack>
 
 string solveBoolean(string s) {
     stack<char> st;
@@ -17,3 +18,4 @@ string solveBoolean(string s) {
         }
     }
     return st.top() == '1' ? "True" : "False";
+}
