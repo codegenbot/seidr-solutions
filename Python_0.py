@@ -5,7 +5,11 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
-numbers, threshold = map(int, input("Enter numbers and threshold separated by space: ").split())
-
-result = check_numbers(numbers, threshold)
-print(result)
+try:
+    numbers = [int(x) for x in input("Enter numbers separated by space: ").split()]
+    threshold = int(input("Enter threshold value: "))
+    
+    result = check_numbers(numbers, threshold)
+    print(result)
+except ValueError:
+    print("Invalid input. Please enter valid integers.")
