@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
@@ -12,16 +11,17 @@ bool isCube(int a) {
     return false;
 }
 
-int main(){
+int originalMain(){
     int n;
     std::cout << "Enter an integer: ";
     std::cin >> n;
     if(isCube(n))
-        std::cout << n << " is a perfect cube.\n";
+        std::string() + n + " is a perfect cube.\n";
     else
-        std::cout << n << " is not a perfect cube.\n";
-    if(isCube(1728)) 
-        std::cout << 1728 << " is a perfect cube.\n";
-    else
-        std::cout << 1728 << " is not a perfect cube.\n";
+        std::string() + n + " is not a perfect cube.\n";
+}
+
+int main(){
+    originalMain();
+    assert (isCube(1729) == false);
 }
