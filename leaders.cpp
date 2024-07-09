@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
@@ -16,7 +16,6 @@ std::vector<int> leaders(std::vector<int>& arr) {
 }
 
 int main() {
-    // Example usage
     std::vector<int> arr = {16, 17, 4, 3, 5, 2};
     std::vector<int> leadersResult = leaders(arr);
     for (int leader : leadersResult) {
