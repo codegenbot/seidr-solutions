@@ -1,14 +1,18 @@
-Str longest(vector<Str> strings){
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+std::string longest(const std::vector<std::string>& strings) {
     if(strings.empty()) {
         return "";
+    } else {
+        string longest = *max_element(strings.begin(), strings.end(), 
+            [](const string& a, const string& b) {return a.size() < b.size();});
+        return longest;
     }
-    Str result = strings[0];
-    for(auto str : strings) {
-        if(str.length() > result.length()) {
-            result = str;
-        } else if(str.length() == result.length()) {
-            result = str;
-        }
-    }
-    return result;
+}
+
+int main() {
+    std::cout << longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) << std::endl;
+    return 0;
 }
