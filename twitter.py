@@ -1,9 +1,10 @@
+```
+import re
+
 def validate_tweet(tweet):
-    if len(filter(str.isalnum, tweet)) > 140:
+    if len(re.sub(r'\W+', '', tweet)) > 140:
         return "Too many characters"
-    elif len(tweet) == 0:
+    elif tweet == "":
         return "You didn't type anything"
     else:
-        return f"Your tweet has {len(tweet)} characters"
-
-print(validate_tweet(""))
+        return f"Your tweet has {len(re.sub(r'\W+', '', tweet))} characters"
