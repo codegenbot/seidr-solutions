@@ -1,8 +1,9 @@
+```
 #include <iostream>
 #include <boost/any.hpp>
-#include <string>
+#include <boost/convert.hpp>
 
-bool compare_one(boost::any a, boost::any b) {
+bool compareOne(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
         return boost::any_cast<int>(a) > boost::any_cast<double>(b);
     }
@@ -12,9 +13,7 @@ bool compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string s1 = boost::any_cast<std::string>(a);
         std::string s2 = boost::any_cast<std::string>(b);
-        double n1 = std::stod(s1);
-        double n2 = std::stod(s2);
-        return n1 > n2;
+        return std::stod(s1) > std::stod(s2);
     }
     else if (a.type() == typeid(std::string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
         std::string s = boost::any_cast<std::string>(a);
@@ -24,8 +23,7 @@ bool compare_one(boost::any a, boost::any b) {
     else if ((a.type() == typeid(int) || a.type() == typeid(double)) && b.type() == typeid(std::string)) {
         double n1 = boost::any_cast<double>(a);
         std::string s2 = boost::any_cast<std::string>(b);
-        double n2 = std::stod(s2);
-        return n1 > n2;
+        return n1 > std::stod(s2);
     }
     else if (a.type() == typeid(int) && a.convert_to<int>() == a.convert_to<double>()) {
         return false;
