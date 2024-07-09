@@ -1,4 +1,4 @@
-```cpp
+```
 std::string int_to_mini_roman(int num) {
     std::string roman[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
                           "", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
@@ -11,8 +11,8 @@ std::string int_to_mini_roman(int num) {
                           "", "C", "CI", "CII", "CIII", "CIV", "CV", "CVI", "CVII", "CVIII", "CX", "CXI", "CXII", "CXIII", "CXIV", "CXV", "CXVI", "CXVII", "CXVIII", "CXIX", "CXX",
                           "", "CXXI", "CXXII", "CXXIII", "CXXIV", "CXXV", "CXXVI", "CXXVII", "CXXVIII", "CXXIX", "CXXX",
                           "", "CXXXI", "CXXXII", "CXXXIII", "CXXXIV", "CXXXV", "CXXXVI", "CXXXVII", "CXXXVIII", "CXXXIX", "CXL",
-                          "", "CXLI", "CXLII", "CXLIII", "CXLIV", "CXLV", "CXLVI", "CXLVII", "CXLVIII", "CXlix", "CL",
-                          "", "CLI", "CII", "CC", "CCI", "CCC", "CCCI", "CCCII", "CCCIII", "CCCIV", "CCCV", "CCCVI", "CCCvii", "CCCIX", "CCCX"};
+                          "", "CXLI", "CXLII", "CXLIII", "CXLIV", "CXLV", "CXLVI", "CXLVII", "CXLVIII", "Clix", "CL",
+                          "", "CLI", "CII", "CC", "CCI", "CCC", "CCCI", "CCCII", "CCCIII", "CCCIV", "CCCV", "CCCvi", "CCCIX", "CCCX"};
 
     std::string result = "";
 
@@ -41,15 +41,14 @@ std::string int_to_mini_roman(int num) {
         } else if (num >= 50) {
             num -= 50;
             result += "L";
-        } else if (num == 4) {
-            result += "IV";
-            return result;
-        } else if (num == 1) {
-            result += "I";
-            return result;
+        } else if (num >= 40) {
+            num -= 40;
+            result += "XL";
         } else {
-            num--;
-            result += "I";
+            while (num > 0) {
+                num--;
+                result += "I";
+            }
         }
     }
 
