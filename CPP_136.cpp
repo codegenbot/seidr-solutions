@@ -1,12 +1,18 @@
+#include<vector>
+using namespace std;
 vector<int> largest_smallest_integers(vector<int> lst){
-    int largestNegative = 0, smallestPositive = 0;
-    for(auto num : lst){
-        if(num < 0 && num < largestNegative){
-            largestNegative = num;
+    int largest_negative = 0, smallest_positive = 0;
+    for(int num : lst){
+        if(num < 0){
+            if(num < largest_negative){
+                largest_negative = num;
+            }
         }
-        if(num > 0 && (num < smallestPositive || smallestPositive == 0)){
-            smallestPositive = num;
+        else if(num > 0){
+            if(num < smallest_positive || smallest_positive == 0){
+                smallest_positive = num;
+            }
         }
     }
-    return {largestNegative, smallestPositive};
+    return {largest_negative, smallest_positive};
 }
