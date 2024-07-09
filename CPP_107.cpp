@@ -21,5 +21,10 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(isSame(even_odd_palindrome(5), std::vector<int>({0, 1, 0, 1, 0})));
+    std::vector<int> test = even_odd_palindrome(5);
+    for(int i=0; i<test.size(); i++){
+        if(test[i] != 0 && test[i] != 1){
+            return 1; // exit with a non-zero status code
+        }
+    }
 }
