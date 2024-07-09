@@ -16,7 +16,7 @@ bool is_prime(int n) {
 
 int main() {
     int num;
-    std::cout << "Enter a prime number: ";
+    std::cout << "Enter a number: ";
     std::cin >> num;
     
     if(is_prime(num)) {
