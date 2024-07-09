@@ -1,4 +1,9 @@
 #include <vector>
+#include <stack>
+
+bool issame(char a, char b) {
+    return a == b;
+}
 
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
