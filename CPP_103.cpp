@@ -1,20 +1,15 @@
-#include <string>
-
-using namespace std;
-
-string rounded_avg(int n, int m) {
-    if (n > m)
-        return "-1";
-    double sum = 0;
-    for (int i = n; i <= m; i++)
-        sum += i;
-    double avg = round(sum / (m - n + 1));
-    string binary = "";
-    while (avg > 0) {
-        if (avg >= 2)
-            avg -= 2, binary = "1" + binary;
-        else
-            avg++, binary = "0" + binary;
+string rounded_avg(int n,int m){
+    if(n > m) return "-1";
+    int sum = 0;
+    for(int i=n; i<=m; i++) sum += i;
+    double avg = (double)sum / (m-n+1);
+    int rounded = floor(avg + 0.5);
+    string result = "";
+    while(rounded > 0){
+        if(rounded & 1) result.push_back('1');
+        else result.push_back('0');
+        rounded >>= 1;
     }
-    return binary;
+    reverse(result.begin(), result.end());
+    return result;
 }
