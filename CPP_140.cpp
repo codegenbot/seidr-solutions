@@ -1,25 +1,19 @@
-for (int i = 0; i < text.length(); ++i) {
-        if (text[i] == ' ') {
-            text[i] = '_';
-            int count = 1;
-            for (int j = i + 1; j < text.length(); ++j) {
-                if (text[j] == ' ') {
-                    count++;
-                    text[j] = '-';
-                } else {
-                    break;
-                }
-            }
+string result = "";
+    int count = 0;
+    for (char c : text) {
+        if (c == ' ') {
+            count++;
             if (count > 2) {
-                for (int k = i + 1; k < text.length(); ++k) {
-                    if (text[k] == '-') {
-                        text[k] = '_';
-                    } else {
-                        break;
-                    }
-                }
+                result.pop_back();
+                result.pop_back();
+                result += "-";
+            } else {
+                result += '_';
             }
+        } else {
+            count = 0;
+            result += c;
         }
     }
-    return text;
+    return result;
 }
