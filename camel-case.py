@@ -1,8 +1,6 @@
-```python
 def camel_case(s):
-    return "".join(word.capitalize() if i > 0 else word for i,word in enumerate(s.replace("-", " ").split()))
-
-print(camel_case("nospaceordash"))
-print(camel_case("two-words"))
-print(camel_case("two words"))
-print(camel_case("all separate words"))
+    return (
+        s[0].upper() + "".join(word.capitalize() for word in s.lstrip("-").split("-"))
+        if s.startswith("-")
+        else s.upper()
+    )
