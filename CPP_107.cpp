@@ -32,4 +32,7 @@ vector<int> even_odd_palindrome(int n) {
     return result;
 }
 
-assert(std::vector<int>({0, 1}) == even_odd_palindrome(1));
+int main() {
+    assert(std::vector<int>({0, 1}) == even_odd_palindrome(1));
+    return 0;
+}
