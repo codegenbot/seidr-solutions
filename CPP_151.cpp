@@ -3,10 +3,10 @@
 
 long long double_the_difference(const std::vector<long long>& lst) {
     long long sum = 0;
-    for (auto &num : lst) {
+    for (const auto &num : lst) {
         if (num > 0 && num == static_cast<long long>(std::floor(num))) { 
             if (num % 2 != 0) { 
-                sum += std::pow(num, 2); 
+                sum += num; 
             }
         }
     }
@@ -14,28 +14,30 @@ long long double_the_difference(const std::vector<long long>& lst) {
 }
 
 int main() {
+    float input; 
     int n = 0;
     std::vector<long long> lst;
 
     while (1) {
-        double input; 
+        long long temp;
         std::cout << "Enter a number (negative to stop): ";
-        std::cin >> input;
+        std::cin >> temp;
         
-        if (input < 0) break;
-        if (input > 0 && input == static_cast<double>(std::floor(input))) {
-            if (static_cast<long long>(input) % 2 != 0) { 
-                lst.push_back(static_cast<long long>(std::pow(input, 2))); 
+        if (temp < 0) break;
+        if (temp > 0 && static_cast<long double>(temp) == static_cast<long double>(std::floor(temp))) {
+            if (static_cast<long long>(temp) % 2 != 0) { 
+                lst.push_back(temp);
             }
             else {
-                lst.push_back(static_cast<long long>(input));
+                lst.push_back(temp);
             }
         }
         else {
-            lst.push_back(static_cast<long long>(input));
+            lst.push_back(temp);
         }
         n++;
-    }    
+   }
+    
     long long odd_sum = double_the_difference(lst);
     return 0;
 }
