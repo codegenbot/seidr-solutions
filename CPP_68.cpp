@@ -13,6 +13,7 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> pluck(vector<int> arr) {
     vector<int> result;
+
     if (arr.empty()) return result;
 
     int smallest_even = INT_MAX;
@@ -32,5 +33,6 @@ vector<int> pluck(vector<int> arr) {
 }
 
 int main() {
+    // You can test your pluck function here
     return 0;
 }
