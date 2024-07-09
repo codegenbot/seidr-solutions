@@ -1,7 +1,9 @@
-def longest(strings: List[str]) -> Optional[str]:
-    if not strings:
-        return None
-    for s in strings:
-        if len(s) == 0:
-            raise ValueError("Each string must have at least one character")
-    return max(map(str, strings), key=len)
+```
+from typing import List, Optional
+
+
+def longest() -> Optional[str]:
+    strings = input("Enter a list of strings (comma-separated): ").split(',')
+    if not all(isinstance(s, str) for s in strings):
+        raise ValueError("Input must contain only strings")
+    return max(map(str.strip, strings), key=len)
