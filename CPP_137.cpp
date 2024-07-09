@@ -1,32 +1,45 @@
+#include <boost/any.hpp>
+
+using namespace boost;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b) > boost::any_cast<int>(a) ? b : a;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b) > boost::any_cast<float>(a) ? b : a;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return boost::any_cast<string>(b) > boost::any_cast<string>(a) ? b : a;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string s = boost::any_cast<string>(b);
-        int i = boost::any_cast<int>(a);
-        return stof(s) > i ? b : a;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string s = boost::any_cast<string>(a);
-        int i = boost::any_cast<int>(b);
-        return stof(s) > i ? a : b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string s = boost::any_cast<string>(b);
-        float f = boost::any_cast<float>(a);
-        return f > stof(s) ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string s = boost::any_cast<string>(a);
-        float f = boost::any_cast<float>(b);
-        return stof(s) > f ? a : b;
+        int ai = boost::any_cast<int>(a);
+        float bf = boost::any_cast<float>(b);
+        return b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        int ai = boost::any_cast<int>(a);
+        double bd = boost::any_cast<double>(b);
+        return b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(double)) {
+        float af = boost::any_cast<float>(a);
+        double bd = boost::any_cast<double>(b);
+        return (af > bd) ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string as = boost::any_cast<string>(a);
+        float bf = boost::any_cast<float>(b);
+        istringstream iss(as);
+        float af;
+        iss >> af;
+        return (af > bf) ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        string as = boost::any_cast<string>(a);
+        double bd = boost::any_cast<double>(b);
+        istringstream iss(as);
+        double af;
+        iss >> af;
+        return (af > bd) ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string as = boost::any_cast<string>(a);
+        int bi = boost::any_cast<int>(b);
+        istringstream iss(as);
+        int af;
+        iss >> af;
+        return ((af > bi) ? a : (bi > af) ? b : boost::any("None"));
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string as = boost::any_cast<string>(a);
+        string bs = boost::any_cast<string>(b);
+        return (as > bs) ? a : b;
     }
     return boost::any("None");
 }
