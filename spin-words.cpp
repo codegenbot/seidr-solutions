@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -8,20 +7,20 @@ std::vector<std::string> split(const std::string& str, char c) {
     std::vector<std::string> words;
     std::string word;
     for (int i = 0; i < str.length(); i++) {
-        if (i == str.length() || str[i] == c) {
-            if (i < str.length()) {
-                word += str[i];
-            }
-            if (!word.empty()) {
+        if (str[i] == c || i == str.length() - 1) {
+            if (i > 0) {
                 words.push_back(word);
                 word.clear();
             }
-            if (i < str.length()) {
-                word = "";
+            if (i != str.length() - 1) {
+                word += str[i];
             }
         } else {
             word += str[i];
         }
+    }
+    if (!word.empty()) {
+        words.push_back(word);
     }
     return words;
 }
