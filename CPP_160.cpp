@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-int cpp_160::doAlgebra(std::vector<std::string> operators, std::vector<int> operands) {
+int doAlgebra(std::vector<std::string> operators, std::vector<int> operands) {
     int result = operands[0];
     for (int i = 1; i < operands.size(); i++) {
         if (operators[i-1] == "+") {
