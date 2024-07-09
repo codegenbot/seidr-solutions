@@ -14,35 +14,40 @@ int main() {
         return 1; 
     }
 
-    std::vector<int> a;
-    std::vector<int> b;
+    std::vector<int> a, b;
 
     for(int i = 0; i < n; ++i) {
         int x;
-        while(!(std::cin >> x)) {
+        while (!(std::cin >> x)) {
             if (std::cin.fail()) {
                 std::cerr << "Invalid input. Please enter an integer." << std::endl;
                 std::cin.clear(); 
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                while(std::cin.get() != '\n') {  // Read and discard rest of the line
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                }
+                std::cin >> x;  // Re-try to read an integer
             } else {
-                break; 
+                a.push_back(x);
+                break;
             }
         }
-        a.push_back(x);
     }
 
     for(int i = 0; i < n; ++i) {
         int x;
-        while(!(std::cin >> x)) {
+        while (!(std::cin >> x)) {
             if (std::cin.fail()) {
                 std::cerr << "Invalid input. Please enter an integer." << std::endl;
                 std::cin.clear(); 
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                while(std::cin.get() != '\n') {  // Read and discard rest of the line
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                }
+                std::cin >> x;  // Re-try to read an integer
             } else {
-                break; 
+                b.push_back(x);
+                break;
             }
         }
-        b.push_back(x);
     }
 
     if (filter_integers(a, b))
