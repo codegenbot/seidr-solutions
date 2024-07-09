@@ -1,35 +1,33 @@
+#include <vector>
 #include <algorithm>
-#include<string>
-
 using namespace std;
 
 string sort_numbers(string numbers) {
-    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                {"eight", 8}, {"nine", 9}};
+    vector<string> numVector;
+    string temp;
 
-    vector<string> nums;
-    string num;
-
-    for (auto& c : numbers) {
-        if (!isdigit(c)) {
-            num += c;
-        } else {
-            nums.push_back(num);
-            num = "";
+    for (int i = 0; i < numbers.length(); i++) {
+        if (numbers[i] == ' ') {
+            continue;
+        }
+        else if (numbers[i] >= 'a' && numbers[i] <= 'z') {
+            temp += numbers[i];
+            if ((i + 1) == numbers.length() || !isalpha(numbers[i + 1])) {
+                numVector.push_back(temp);
+                temp = "";
+            }
         }
     }
 
-    nums.push_back(num);
+    sort(numVector.begin(), numVector.end());
+    string result = "";
 
-    sort(nums.begin(), nums.end(), [&numMap](string a, string b) {
-        return to_string(numMap.at(a)) < to_string(numMap.at(b));
-    });
-
-    string result;
-    for (auto& n : nums) {
-        result += n + " ";
+    for (int i = 0; i < numVector.size(); i++) {
+        result += numVector[i];
+        if (i != numVector.size() - 1) {
+            result += " ";
+        }
     }
 
-    return result.substr(0, result.size() - 1);
+    return result;
 }
