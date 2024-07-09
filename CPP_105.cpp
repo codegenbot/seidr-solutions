@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string> a) {
+bool issame(std::vector<std::string> a) {
     if (a.size() == 0) {
         return true;
     }
@@ -16,59 +16,62 @@ bool issame(vector<string> a) {
     return true;
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<string> temp;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<std::string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            switch (i) {
-                case 1:
-                    temp.push_back("One");
-                    break;
-                case 2:
-                    temp.push_back("Two");
-                    break;
-                case 3:
-                    temp.push_back("Three");
-                    break;
-                case 4:
-                    temp.push_back("Four");
-                    break;
-                case 5:
-                    temp.push_back("Five");
-                    break;
-                case 6:
-                    temp.push_back("Six");
-                    break;
-                case 7:
-                    temp.push_back("Seven");
-                    break;
-                case 8:
-                    temp.push_back("Eight");
-                    break;
-                case 9:
-                    temp.push_back("Nine");
-                    break;
-            }
+            temp.push_back(std::to_string(i)); // Convert int to string here
         }
     }
 
-    sort(temp.begin(), temp.end());
-    reverse(temp.begin(), temp.end());
+    std::sort(temp.begin(), temp.end());
+    std::reverse(temp.begin(), temp.end());
 
-    vector<string> result = temp;
+    std::vector<std::string> result;
+    for (const std::string& str : temp) {
+        switch (std::stoi(str)) {
+            case 1:
+                result.push_back("One");
+                break;
+            case 2:
+                result.push_back("Two");
+                break;
+            case 3:
+                result.push_back("Three");
+                break;
+            case 4:
+                result.push_back("Four");
+                break;
+            case 5:
+                result.push_back("Five");
+                break;
+            case 6:
+                result.push_back("Six");
+                break;
+            case 7:
+                result.push_back("Seven");
+                break;
+            case 8:
+                result.push_back("Eight");
+                break;
+            case 9:
+                result.push_back("Nine");
+                break;
+        }
+    }
 
     return result;
 }
 
 int main() {
-    vector<int> input = {1, 4, 8};
-    vector<string> output = by_length(input);
+    std::vector<int> input = {1, 4, 8};
+    std::vector<std::string> output = by_length(input);
     
     if (issame({{"One", "Four", "Eight"}})) {
-        for (string str : output) {
-            cout << str << endl;
+        for (const std::string& str : output) {
+            std::cout << str << std::endl;
         }
     } else {
-        cout << "Output is incorrect." << endl;
+        std::cout << "Output is incorrect." << std::endl;
     }
 }
