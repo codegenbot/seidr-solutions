@@ -1,5 +1,6 @@
 #include <vector>
 
+vector<string> issame(vector<string> paren_string);
 vector<string> issame(vector<string> paren_string) {
     vector<string> result;
     string group;
