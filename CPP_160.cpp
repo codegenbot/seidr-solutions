@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-#include <cassert>
 
 class cpp_160 {
 public:
@@ -18,7 +16,7 @@ public:
     }
 };
 
-int main() {
+int mainTest() {
     cpp_160 obj;
     assert(obj.doAlgebra({"//", "*"}, {7, 3, 4}) == 8);
 }
