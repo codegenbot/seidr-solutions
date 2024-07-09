@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -13,20 +12,26 @@ namespace myspace {
 
     std::vector<float> sort_even(const std::vector<float>& l) {
         std::vector<float> result(l.size());
-        int evenIndex = 0;
+        std::vector<float> evens;
+        
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                auto it = std::minmax_element(l.begin(), l.end());
-                result[i] = *(it.first);
-                for(int j = 0; j < l.size(); j++){
-                    if(j%2==0 && l[j] != *(it.first)){
-                        result[evenIndex++] = l[j];
-                    }
-                }
+                evens.push_back(l[i]);
+            }
+        }
+
+        std::sort(evens.begin(), evens.end());
+
+        int index = 0;
+        for (int i = 0; i < l.size(); i++) {
+            if (i % 2 == 0) {
+                result[i] = evens[index];
+                index++;
             } else {
                 result[i] = l[i];
             }
         }
+        
         return result;
     }
 }
