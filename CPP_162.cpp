@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -7,7 +8,7 @@
 
 using namespace std;
 
-const int MD5_DIGEST_LENGTH = 16; // Defined constant for MD5 digest length
+const int MD5_DIGEST_LENGTH = 16; 
 
 string string_to_md5(string text) {
     if (text.empty()) return "None";
@@ -18,7 +19,7 @@ string string_to_md5(string text) {
     EVP_DigestUpdate(md, (unsigned char*)text.c_str(), text.size());
     EVP_DigestFinal_ex(md, result, NULL);
 
-    EVP_MD_CTX_destroy(md); // Don't forget to destroy the context!
+    EVP_MD_CTX_destroy(md); 
 
     stringstream ss;
     for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
