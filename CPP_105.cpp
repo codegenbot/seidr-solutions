@@ -3,12 +3,12 @@
 #include <algorithm>
 #include <string>
 
-bool issame(vector<vector<string>> a, vector<vector<string>> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (!issame(a[i], b[i])) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -66,7 +66,7 @@ int main() {
     vector<int> input = {1, 4, 8};
     vector<string> output = by_length(input);
     
-    if (issame({{output[0]}}, {{output[0], output[1], output[2]}})) {
+    if (issame({{"One", "Four"}}, {(string)"One Four"})) {
         for (const auto& str : output) {
             cout << str << endl;
         }
