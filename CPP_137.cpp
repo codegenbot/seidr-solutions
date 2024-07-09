@@ -14,7 +14,7 @@ int main() {
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return a;
+        return "Int is greater";
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         return "Float is greater";
