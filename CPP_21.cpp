@@ -4,7 +4,7 @@ bool issame(vector<float> a, vector<float> b) {
     }
     
     for (size_t i = 0; i < a.size(); ++i) {
-        if (abs(a[i] - b[i]) > 0.0001) { // considering floating-point precision
+        if (abs(a[i] - b[i]) > 0.0001) {
             return false;
         }
     }
