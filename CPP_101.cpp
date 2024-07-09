@@ -30,7 +30,6 @@ std::vector<std::string> words_string(std::string s){
 }
 
 int main(){
-    assert (issame(words_string("ahmed     , gamal") , std::vector<std::string> {"ahmed", "gamal"}));
-    std::cout << "Hello, CPP/101!" << std::endl;
+    assert(issame(words_string("ahmed     , gamal"), std::vector<std::string> {"ahmed", "gamal"}));
     return 0;
 }
