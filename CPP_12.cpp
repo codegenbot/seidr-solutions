@@ -1,7 +1,8 @@
-vector<string>::iterator it = max_if(strings.begin(), strings.end(),
-    [](const string& a, const string& b){return a.size() < b.size();});
-if(it == strings.end()){
-    return "";
-} else {
-    return *it;
-}
+if(strings.empty()) return "";
+string result = *min_element(strings.begin(), strings.end(),
+    [](const string &a, const string &b) {
+        if(a.size() == b.size())
+            return &a < &b;
+        return a.size() < b.size();
+});
+return result;
