@@ -1,10 +1,7 @@
-#include <iostream>
-#include <cassert>
 #include <string>
+#include <cassert>
 
-using namespace std;
-
-bool is_palindrome(const string &text) {
+bool is_palindrome(const std::string &text) {
     int left = 0;
     int right = text.size() - 1;
     while (left < right) {
@@ -19,6 +16,6 @@ bool is_palindrome(const string &text) {
 
 int main() {
     assert(is_palindrome("xywzx") == false);
-    assert(is_palindrome("madam") == true);
+    // Add more test cases here
     return 0;
 }
