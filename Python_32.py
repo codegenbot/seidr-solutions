@@ -1,14 +1,7 @@
+xs = list(map(int, input().split()))
 def find_zero(xs: list):
-    n = len(xs) - 1
-    if n % 2 != 0:
-        return None
-    a = xs[-1]
-    b = xs[-2]
-    return -a / b
-
-# Input list from the user
-xs = list(map(float, input().split()))
-
-# Call the function
-result = find_zero(xs)
-print(result)
+    assert len(xs) % 2 == 0
+    assert any(xs)
+    for i in range(len(xs) - 1, -1, -1):
+        if xs[i] != 0:
+            return -xs[i - 1] / xs[i]
