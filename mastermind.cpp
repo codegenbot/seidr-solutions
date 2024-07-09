@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```c++
 #include <string>
 #include <map>
 #include <utility>
