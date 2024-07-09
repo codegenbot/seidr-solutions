@@ -17,12 +17,14 @@ int main_test(){
     int result = sum_squares(testArray, n);
     std::cout << "Sum of squares: " << result << std::endl;
     
-    int result1 = sum_squares(new double[] {1.0, 2.0, 3.0}, 3);
+    double arr[] = {1.0, 2.0, 3.0};
+    int n1 = sizeof(arr)/sizeof(arr[0]);
+    int result1 = sum_squares(arr, n1);
     assert (result1 == 14);
-
-    double testArray1[] = {-1, 1, 0};
-    int n1 = sizeof(testArray1)/sizeof(testArray1[0]);
-    int result2 = sum_squares(new double[] {-1, 1, 0}, 3);
+    
+    double arr1[] = {-1, 1, 0};
+    int n2 = sizeof(arr1)/sizeof(arr1[0]);
+    int result2 = sum_squares(arr1, n2);
     assert (result2 == 2);
     
     return 0;
