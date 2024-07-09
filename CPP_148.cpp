@@ -3,6 +3,6 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame({"Jupiter", "Makemake"}, {})); // Correct function call syntax
+    assert(issame({"Jupiter", "Makemake"}, {}));
     return 0;
 }
