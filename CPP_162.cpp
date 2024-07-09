@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <functional>
 #include <algorithm>
-#include <cassert>
 #include <openssl/md5.h>
+#include <cassert>
 
 std::string string_to_md5(const std::string& input) {
     unsigned char md5[MD5_DIGEST_LENGTH];
@@ -22,6 +21,6 @@ std::string string_to_md5(const std::string& input) {
 }
 
 int main() {
-    assert(string_to_md5("password") == "5d41402abc4ec9a8fc1c77fdee176df");
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882c99");
     return 0;
 }
