@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 
-std::string get_closest_vowel(std::string word) {
-    std::string result = "";
+std::string get_closest_vowel(string word) {
+    string result = "";
     for (int i = word.length() - 1; i > 0; --i) {
         if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || 
             word[i] == 'o' || word[i] == 'u' || word[i] == 'A' || 
