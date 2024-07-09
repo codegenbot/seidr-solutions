@@ -1,3 +1,4 @@
+```cpp
 #include <sstream>
 #include <vector>
 #include <utility>
@@ -37,17 +38,14 @@ int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
 int main() {
     std::string str = "++7*3+4";
     std::istringstream iss(str);
-
-    char op = '+';
+    
+    char op;
     int operand = 0; // initialize operand variable
     std::vector<std::pair<char, int>> operators_and_operands;
-
     while (iss >> op >> operand) {
         operators_and_operands.push_back({op, operand});
-        op = '+';
-        operand = 0;
     }
-
-    int result = do_algebra(operators_and_opernds);
+    
+    int result = do_algebra(operators_and_operands);
     return 0;
 }
