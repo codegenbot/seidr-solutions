@@ -20,6 +20,7 @@ vector<string> bf(string planet1, string planet2) {
 
     vector<string> result;
 
+    // fix: handle the case where index1 > index2
     int start = min(index1, index2);
     int end = max(index1, index2);
 
