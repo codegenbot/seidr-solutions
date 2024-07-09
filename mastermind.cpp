@@ -1,4 +1,3 @@
-```c++
 #include <string>
 using namespace std;
 
@@ -29,7 +28,8 @@ int main() {
     cin >> code;
     cout << "Enter your guess: ";
     cin >> guess;
-    int pegs = mastermind(code, guess);
-    cout << "Number of pegs: " << pegs << endl;
+    int result = mastermind(code, guess);
+    cout << "Black pegs: " << result - (result/4) << endl;
+    cout << "White pegs: " << result/4 << endl;
     return 0;
 }
