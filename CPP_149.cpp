@@ -1,25 +1,21 @@
-```cpp
+```
 #include <algorithm>
 #include <vector>
 #include <string>
 
 int main() {
-    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    sort(input.begin(), input.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
-    assert(issame(input));
+    std::vector<std::string> list = {"aaaa", "bbbb", "dd", "cc"};
+    std::vector<std::string> sortedListSum = sorted_list_sum(list);
+    bool isSame = issame(sortedListSum, sortedListSum);
+
     return 0;
 }
 
-bool issame(const vector<string>& lst) {
-    for (int i = 1; i < lst.size(); i++) {
-        if (sorted_sum({lst[i - 1], lst[i]})[0] != sorted_sum({lst[i], lst[i - 1]})[0]) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+
+    for (int i = 0; i < a.size(); i++) {
+        if (sorted_list_sum({a[i], b[i]})[0] != sorted_list_sum({b[i], a[i]})[0]) {
             return false;
         }
     }
@@ -27,19 +23,23 @@ bool issame(const vector<string>& lst) {
     return true;
 }
 
-vector<int> sorted_sum(const vector<string>& lst) {
-    vector<int> result;
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::string> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
-            int sum = 0;
-            for (char c : str) {
-                sum += static_cast<int>(c);
-            }
-            result.push_back(sum);
+            result.push_back(str);
         }
     }
 
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end(),
+         [](const std::string& a, const std::string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
+         });
+
     return result;
 }
