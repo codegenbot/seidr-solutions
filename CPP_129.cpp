@@ -2,15 +2,19 @@
 #include <queue>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
     std::vector<std::vector<bool>> visited(n, std::vector<bool>(n));
     std::vector<std::vector<int>> directions({{-1, 0}, {1, 0}, {0, -1}, {0, 1}});
-    std::priority_queue<std::pair<int, std::pair<int, int>>, std::vector<std::pair<int, std::pair<int, int>>>, greater<std::pair<int, std::pair<int, int>>>> queue;
+    std::priority_queue<std::pair<int, std::pair<int, int>>, std::vector<std::pair<int, std::pair<int, int>>>, std::greater<std::pair<int, std::pair<int, int>>>> queue;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
