@@ -1,11 +1,6 @@
-def filter_integers(values):
-    try:
-        for value in values:
-            int(value)
-        return "success"
-    except ValueError:
-        return "failure"
+from typing import List, Any
 
-numbers = input("Enter numbers separated by commas: ")
-values = [value.strip() for value in numbers.split(",")]
-print(filter_integers(values))
+def filter_integers(values: List[Any]) -> List[int]:
+    print("Enter your input (space-separated numbers): ")
+    user_input = list(map(int, input().split()))
+    return [value for value in values if isinstance(value, int)] + user_input
