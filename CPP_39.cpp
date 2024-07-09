@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -6,19 +5,19 @@ int prime_fib(int n) {
     int a = 0, b = 1;
     int count = 0;
     while (true) {
-        int fib = a + b;
-        if (fib > n) break;
+        string str = to_string(a + b);
+        if (stoll(str) > n) break;
         a = b;
-        b = fib;
+        b = a + b;
         bool isPrime = true;
-        for (int j = 2; j * j <= fib; j++) {
-            if (fib % j == 0) {
+        for (int j = 2; stoll(str) % j == 0 || j * j <= stoll(str); j++) {
+            if (stoll(str) % j == 0) {
                 isPrime = false;
                 break;
             }
         }
         if (isPrime) count++;
-        if (count == n) return fib;
+        if (count == n) return stoi(str);
     }
     return 0;
 }
