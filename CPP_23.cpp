@@ -1,10 +1,4 @@
-#include <cassert>
-#include <string>
-
-int strLength(string str){
-    return str.length();
-}
-
-int main() {
-    assert(strLength("asdasnakj") == 13);
+int strLength(const char* str){
+    size_t length = strlen(str);
+    return length;
 }
