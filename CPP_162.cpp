@@ -1,9 +1,10 @@
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <iomanip>
-#include <openssl/err.h>
-#include <openssl/ec.h>
 #include <openssl/evp.h>
 #include <openssl/md5.h>
 
@@ -13,6 +14,9 @@ const int MD5_DIGEST_LENGTH = 16;
 
 string string_to_md5(string text) {
     if (text.empty()) return "None";
+
+    SSL_library_init();
+    OpenSSL_add_all_algorithms();
 
     EVP_MD_CTX md;
     EVP_MD_CTX_init(&md);
