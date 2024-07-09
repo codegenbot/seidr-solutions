@@ -8,7 +8,7 @@ int doAlgo(std::vector<std::string> operators, std::vector<int> operands) {
     std::string expression = "";
     for (int i = 0; i < operators.size() - 1; i++) {
         expression += to_string(operands[i]);
-        expression += ops[0]; // assuming first operator is '//'
+        expression += ops[i];
     }
     expression += to_string(operands.back());
     
@@ -33,7 +33,7 @@ int eval(const std::string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * std::atoi(std::string(1, s[i]).c_str());
+            result += sign * std::stoi(std::string(1, s[i]).c_str());
         }
     }
     
