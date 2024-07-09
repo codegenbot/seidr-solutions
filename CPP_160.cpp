@@ -1,4 +1,3 @@
-```
 int do_algebra(std::vector<pair> operators_and_operands) {
     if (operators_and_operands.size() == 0) {
         return 0;
