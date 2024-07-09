@@ -26,20 +26,17 @@ vector<string> sorted_list_sum(vector<string> lst) {
 
 int main() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-
-    vector<string> actual = sorted_list_sum(input);
-    if (actual == expected) {
+    vector<string> output = sorted_list_sum(input);
+    
+    cout << "The lists are: ";
+    for (const string& str : output) {
+        cout << str << " ";
+    }
+    cout << endl;
+    
+    if (output == vector<string>({"cc", "dd", "aaaa", "bbbb"})) {
         cout << "The lists are the same." << endl;
     } else {
-        cout << "The lists are not the same: actual - ";
-        for (const string& str : actual) {
-            cout << str << " ";
-        }
-        cout << ", expected - ";
-        for (const string& str : expected) {
-            cout << str << " ";
-        }
-        cout << endl;
+        cout << "The lists are not the same: actual - " << output << ", expected - {" << "cc" << ", " << "dd" << ", " << "aaaa" << ", " << "bbbb" << "}" << endl;
     }
 }
