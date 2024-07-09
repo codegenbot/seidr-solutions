@@ -1,57 +1,23 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <sstream>
-
-using namespace std;
-
-struct Expression {
-    char op;
-    int operand;
-};
-
-int main() {
-    vector<Expression> operators_and_operands;
-
-    string token;
-    char op = '+';
-    int operand = 0;
-    stringstream iss;
-    iss << "+1-2*3+4/5^6";
-
-    while (iss >> token) {
-        if (!token.empty()) {
-            if (op != '+') {
-                operators_and_operands.push_back({op, operand});
-                op = '+';
-                operand = 0;
+int do_algebra(const std::vector<std::pair<char, int>>& operators_and_operands) {
+    if (operators_and_operands.size() == 0) {
+        return 0;
+    }
+    
+    int result = operators_and_operands[0].second;
+    for (const auto& pair : operators_and_operands) {
+        if (pair.first == '+') {
+            result += pair.second;
+        } else if (pair.first == '-') {
+            result -= pair.second;
+        } else if (pair.first == '*') {
+            result *= pair.second;
+        } else if (pair.first == '/') {
+            if (pair.second != 0) {
+                result /= pair.second;
             }
-            if (token[0] == '+') {
-                op = '+';
-                operand = stoi(token.substr(1));
-            } else if (token[0] == '-') {
-                op = '-';
-                operand = stoll(token.substr(1));
-            } else if (token[0] == '*') {
-                op = '*';
-                operand = stoll(token.substr(1));
-            } else if (token[0] == '/') {
-                op = '/';
-                operand = stoll(token.substr(1));
-            } else if (token[0] == '^') {
-                op = '^';
-                operand = stoi(token.substr(1));
-            }
+        } else if (pair.first == '^') { 
+            result = std::pow(result, pair.second);
         }
     }
-
-    // add the last operator and operand to vector
-    if (op != '+') {
-        operators_and_operands.push_back({op, operand});
-    }
-
-    for (const auto &expr : operators_and_operands) {
-        cout << "Operator: " << expr.op;
-        cout << ", Operand: " << expr.operand << endl;
-    }
+    return result;
 }
