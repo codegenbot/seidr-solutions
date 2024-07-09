@@ -1,3 +1,3 @@
 ```
 def solution(lst):
-    return sum(i for i in lst if i % 3 != 1)
+    return sum(i for i in lst)
