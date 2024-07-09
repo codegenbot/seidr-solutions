@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-#include <algorithm>
 
 bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a != b)
