@@ -1,8 +1,7 @@
-```c++
 #include <string>
-#include <cctype>
+#include <assert.h>
 
-std::string flip_case(std::string str) {
+std::string flip_case(const std::string& str) {
     std::string result;
     for (char c : str) {
         if (isupper(c)) {
@@ -14,3 +13,8 @@ std::string flip_case(std::string str) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(std::string(flip_case("These violent delights have violent ends")) == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+}
