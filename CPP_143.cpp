@@ -34,7 +34,5 @@ int main() {
     std::getline(std::cin, sentence);
 
     std::vector<std::string> wordLengths = words_in_sentence(sentence);
-    for (const auto& length : wordLengths) {
-        std::cout << length << '\n';
-    }
+    assert(wordLengths == std::vector<std::string>({"is"}));
 }
