@@ -9,6 +9,7 @@ def gcd(a, b):
 
 print(gcd(a, b))
 
+
 text = input("Enter the text string: ")
 target = input("Enter the target string: ")
 
