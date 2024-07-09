@@ -1,24 +1,23 @@
 #include <iostream>
 #include <set>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
-bool original_issame(vector<int> a, vector<int> b) {
-    set<int> setA(a.begin(), a.end());
-    set<int> setB(b.begin(), b.end());
+bool issame(vector<int> v1, vector<int> v2) {
+    set<int> setA(v1.begin(), v1.end());
+    set<int> setB(v2.begin(), v2.end());
     return setA == setB;
 }
 
-int main2() {
+int main() {
     vector<int> l1;
     l1.assign({1, 2, 3});
 
     vector<int> v2;
     v2.assign({4, 5, 6, 7});
 
-    bool result = original_issame(l1, v2);
+    bool result = issame(l1, l1);
     if(result) {
         cout << "The sets are same." << endl;
     } else {
