@@ -29,12 +29,10 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "abcde"; 
-    std::string guess = "abcd";
+    std::string code = "abcde"; // or any other 4-character string consisting of 6 possible characters
+    std::string guess = "abcd"; // or any other 4-character string consisting of 6 possible characters
     auto result = mastermind(code, guess);
     int white = result.first;
     int black = result.second;
-    // you can use the white and black variables here to print or store the result as needed
-
-    return 0; 
+    return 0;
 }
