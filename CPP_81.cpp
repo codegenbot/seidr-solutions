@@ -28,24 +28,29 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         else if (grade > 0.7)
             letter_grades.push_back("D");
         else
-            letter_grades.push_back("F");
+            letter_grades.push_back("E");
     }
     return letter_grades;
 }
 
 int main() {
-    float grades[5];
-    for(int i = 0; i < 5; i++) {
-        std::cout << "Enter grade: ";
-        std::cin >> grades[i];
+    int n;
+    std::cout << "Enter the number of grades: ";
+    std::cin >> n;
+    
+    std::vector<float> grades;
+    
+    for(int i = 0; i < n; i++) {
+        float grade;
+        std::cout << "Enter grade " << (i+1) << ": ";
+        std::cin >> grade;
+        grades.push_back(grade);
     }
     
-    std::vector<float> myGrades(grades, grades+5);
+    std::vector<std::string> letter_grades = numerical_letter_grade(grades);
     
-    std::vector<std::string> result = numerical_letter_grade(myGrades);
-    
-    for(int i=0; i<result.size(); i++) {
-        std::cout << "Grade: " << result[i] << std::endl;
+    for(std::string s : letter_grades) {
+        std::cout << s << "\n";
     }
     
     return 0;
