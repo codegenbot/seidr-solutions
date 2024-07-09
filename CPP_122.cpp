@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <iostream>
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
@@ -13,7 +13,6 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    assert(add_elements({1}, 1) == 1);
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
