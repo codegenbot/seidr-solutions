@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
-std::string file_name_check(std::string file_name){
+std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     bool found_dot = false;
     std::string before_dot;
@@ -35,6 +36,6 @@ std::string file_name_check(std::string file_name){
 }
 
 int main() {
-    std::cout << (file_name_check("s.") == "No") << std::endl; 
+    std::cout << (file_name_check("s.") == "No") << std::endl; // Print if the condition is true or not
     return 0;
 }
