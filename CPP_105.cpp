@@ -1,14 +1,10 @@
-```cpp
 #include <vector>
 #include <map>
 #include <algorithm>
 
 int main() {
     vector<int> arr = {9, 4, 8};
-    bool test = issame(by_length(arr), {"Nine", "Eight", "Four"});
-    assert(test);
-    return 0;
-
+    
     bool issame(vector<string> a, vector<string> b) {
         if (a.size() != b.size()) {
             return false;
@@ -35,4 +31,9 @@ int main() {
         reverse(result.begin(), result.end());
         return result;
     }
+
+    vector<string> output = by_length(arr);
+    bool test = issame(output, {"Nine", "Eight", "Four"});
+    assert(test);
+    return 0;
 }
