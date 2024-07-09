@@ -1,8 +1,6 @@
-#include <boost/any.hpp>
 #include <variant>
 #include <string>
-#include <cassert>
-#include <iostream>
+#include <boost/any.hpp>
 
 using namespace std;
 
@@ -29,9 +27,9 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
 }
 
 int main() {
-    assert(boost::any_cast<string>(&compare_one(string("1"), string("2")))->compare("2") == 0);
-    assert(boost::any_cast<int>(&compare_one(10, 5)) == 10);
-    assert(boost::any_cast<float>(&compare_one(3.14f, 2.718f) == 3.14f);
+    assert(compare_one(string("1"), string("2")) == string("2"));
+    assert(compare_one(10, 5) == 10);
+    assert(compare_one(3.14f, 2.718f) == 3.14f);
 
     return 0;
 }
