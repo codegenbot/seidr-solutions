@@ -1,19 +1,20 @@
+```cpp
 #include <cassert>
 #include <string>
+#include <cctype>
 
-int flip_case(char* str) {
-    std::string s(str);
-    for (char & c : s) {
-        if (c >= 'a' && c <= 'z') {
-            c = c - ('a' - 'A');
-        } else if (c >= 'A' && c <= 'Z') {
-            c = c - ('A' - 'a');
-        }
+std::string flip_case(const std::string& str) {
+    std::string result = "";
+    for (char c : str) {
+        if (isalpha(c)) {
+            if (isupper(c))
+                result += tolower(c);
+            else
+                result += toupper(c);
+        } else
+            result += c;
     }
-    return std::string(s).c_str();
+    return result;
 }
 
-int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    return 0;
-}
+assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
