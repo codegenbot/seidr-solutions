@@ -1,21 +1,11 @@
-```c++
+```
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 std::vector<std::pair<int, std::string>> romanMap;
 
-std::string int_to_mini_romank(int number) {
-    std::string roman = ""; // Initialize the string
-    for (const auto& pair : romanMap) {
-        while (number >= pair.first) {
-            number -= pair.first;
-            roman += pair.second;
-        }
-    }
-    return roman;
-}
+std::string int_to_mini_romank(int number);
 
 int main() {
     romanMap.push_back({ 1000, "M" });
@@ -27,7 +17,6 @@ int main() {
     romanMap.push_back({ 50, "L" });
     romanMap.push_back({ 40, "XL" });
     romanMap.push_back({ 10, "X" });
-    romanMap.push_back({ 9, "IX" });
     romanMap.emplace_back(1, "I");
 
     for(int i = 1; i <= 3999; i++) { 
