@@ -3,8 +3,8 @@
 #include <vector>
 #include <algorithm>
 
-bool sameSets(const std::set<int>& s1, const std::set<int>& s2) {
-    return s1 == s2;
+bool issame(const std::set<int>& a, const std::set<int>& b) {
+    return a == b;
 }
 
 void solveProblem() {
@@ -45,7 +45,7 @@ void solveProblem() {
     }
     std::cout << "\n";
 
-    if(sameSets(s1, s2)) {
+    if(issame(s1, s2)) {
         std::cout << "Sets are same.\n";
     } else {
         std::cout << "Sets are not same.\n";
