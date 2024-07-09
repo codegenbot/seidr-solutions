@@ -2,7 +2,6 @@
 #include <cassert>
 #include <vector>
 #include <initializer_list>
-#include <iterator>
 using namespace std;
 
 int findMax(vector<int> l) {
