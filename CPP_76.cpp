@@ -1,20 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
 
-bool isSimplePower(int num) {
-    if (num <= 1)
-        return false;
-    for (int i = 2; i * i <= num; i++) {
-        int temp = i;
-        while (temp <= num) {
-            if (temp == num)
-                return true;
-            temp *= i;
-        }
-    }
-    return false;
-}
+bool isSimplePower(int num); // Function declaration
 
 int simplePowerCheckerMain() {
     std::string input;
@@ -27,4 +14,15 @@ int simplePowerCheckerMain() {
         std::cout << input << " is not a simple power.\n";
     }
     return 0;
+}
+
+bool isSimplePower(int num) {
+    int root = 1;
+    while (root * root <= num) {
+        if ((root * root) == num) {
+            return true;
+        }
+        root++;
+    }
+    return false;
 }
