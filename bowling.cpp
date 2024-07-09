@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 
 int bowlingScore(const std::vector<char>& input) {
     int score = 0;
@@ -8,8 +9,8 @@ int bowlingScore(const std::vector<char>& input) {
             score += 10;
             i++; 
         } else if(input[i] == '/') { 
-            score += 10 - (input[i+1] - '0' + input[i+2] - '0');
-            i+=3; 
+            int next = 10 - (input[i+1] - '0' + input[i+2] - '0');
+            score += roll + next; i+=3; 
         } else {
             int roll = 0;
             while(i < input.size() && input[i] != '-' && input[i] != '/' ) {
