@@ -1,7 +1,6 @@
+```python
 def basement(input):
-    total = 0
     for i in range(len(input)):
-        total += input[i]
-        if total < 0:
-            return i + 1
+        if sum(input[:i+1]) < 0:
+            return i
     return -1

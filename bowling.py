@@ -1,29 +1,27 @@
-```
 def bowling_score(game):
     score = 0
-    roll = 0
-    game = game.replace('/-', '/0')
-    for frame in game.split('/'):
-        if len(frame) == 1:
-            score += int(frame)
+    roll = 1
+    game += '/X'  
+    while '/' in game:
+        if game[0] == 'X':
+            score += 10
+            game = game[2:]
+        elif game[0] == '/':
+            score += 10
+            game = game[1:]
             roll += 1
-        elif len(frame) == 2:
-            first, second = map(int, frame)
-            if first + second < 10:
-                score += first + second
-                roll += 1
-            else:
-                score += first + 10
-                roll += 1
         else:
-            first, second, third = map(int, frame[:3])
+            first, second = map(int, game[:2])
             if first + second == 10:
                 score += first + second
-                roll += 1
-            elif first + second < 10:
-                score += first + second
-                roll += 1
+                game = game[2:]
+            elif first >= 10:
+                score += 10
+                game = game[1:]
             else:
-                score += 10 + third
-                roll += 2
+                score += first + second
+                game = game[2:]
+        roll += 1
+    if len(game) > 0 and game[0] == 'X':
+        score += 10
     return score
