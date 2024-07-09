@@ -1,3 +1,4 @@
+```cpp
 int bowlingScore(std::string s) {
     int score = 0;
     bool lastRollWasStrike = false;
@@ -9,27 +10,23 @@ int bowlingScore(std::string s) {
             lastRollWasStrike = true;
             lastRollWasSpare = false;
         } else if (c == '/') {
-            size_t pos = s.find('/');
-            if (pos != std::string::npos) {
-                int nextOneRoll =stoi(s.substr(pos+1)); 
-                score += nextOneRoll;
-            } else {
-                int nextTwoRolls =stoi(s); 
-                score += nextTwoRolls / 2;
-            }
+            int nextOneRoll = c - '0';
+            score += nextOneRoll + (c-1) / 2;
             lastRollWasStrike = false;
-            if (score < 10) {
-                lastRollWasSpare = true;
-            } else {
-                lastRollWasSpare = false;
-            }
+            lastRollWasSpare = true;
         } else {
             int roll = c - '0';
-            if (c == '9') lastRollWasSpare = true;
+            if (roll == 9) lastRollWasSpare = true;
             else lastRollWasStrike = true;
             score += roll;
         }
     }
 
     return score;
+}
+
+int main() {
+    std::string s = "XXXXX/6/5/X-8/X/X-4/X/X/9/-7/-5";
+    int score = bowlingScore(s);
+    std::cout << score << std::endl;
 }
