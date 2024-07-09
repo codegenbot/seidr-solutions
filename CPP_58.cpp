@@ -1,12 +1,6 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
-#include <set>
-
-// Function to check if two vectors are same
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
 
 // Function to find the common elements of two lists
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
@@ -15,7 +9,8 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     std::set<int> s2(l2.begin(), l2.end());
 
     // Find the common elements by performing set intersection
-    std::set<int> result = s1.intersection(s2);
+    std::set<int> result = s1;
+    result.intersection(s2);
 
     // Convert the resulting set back into a vector and return it
     std::vector<int> final_result(result.begin(), result.end());
@@ -23,13 +18,13 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
 }
 
 int main() {
-    std::vector<int> l1 = {4, 3, 2, 8};
-    std::vector<int> l2 = {4, 5, 6};
+    vector<int> l1 = {4, 3, 2, 8};
+    vector<int> l2 = {4, 5, 6};
 
-    std::vector<int> result = common(l1, l2);
+    vector<int> result = common(l1, l2);
     
     for (auto i : result) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
     
     return 0;
