@@ -1,10 +1,10 @@
 int main() {
-    vector<string> strings = {"hello", "world", "this", "is", "a", "test"};  
+    vector<string> strings = {"apple", "banana", "cherry"};
     if(strings.empty()) {
-        return 0;
+        return "";
     } else {
         string longest = *max_element(strings.begin(), strings.end(),
             [](const string& a, const string& b) {return a.size() < b.size();});
-        return longest.size();
+        return longest;
     }
 }
