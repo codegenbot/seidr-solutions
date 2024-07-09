@@ -4,7 +4,9 @@
 
 int main() {
     map<string, string> dict;
+
     bool result = check_dict_case(dict);
+
     return 0;
 }
 
