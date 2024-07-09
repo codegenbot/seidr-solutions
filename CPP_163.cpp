@@ -11,8 +11,8 @@ std::vector<int> generate_integers(int start, int end) {
     return result;
 }
 
-bool is_same(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool is_same(std::vector<int> vec1, std::vector<int> vec2) {
+    return vec1 == vec2;
 }
 
 int main() {
