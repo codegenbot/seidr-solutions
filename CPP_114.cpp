@@ -4,7 +4,7 @@
 #include <limits>
 
 long long minSubArraySum(std::vector<long long> nums) {
-    long long min_sum = std::numeric_limits<long long>::max();
+    long long min_sum = LLONG_MAX;
     long long current_sum = 0;
 
     for (int i = 0; i < nums.size(); i++) {
