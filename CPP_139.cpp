@@ -1,4 +1,4 @@
-Here is the completed code:
+#include <cassert>
 
 long long special_factorial(int n) {
     if (n <= 1)
@@ -10,4 +10,11 @@ long long special_factorial(int n) {
             result *= j;
     }
     return result;
+
+}
+
+int main() {
+    assert(special_factorial(1) == 1);
+    // Add your test cases here
+    return 0;
 }
