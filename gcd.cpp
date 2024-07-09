@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <initializer_list>
+#include <limits>
 
 using namespace std;
 
@@ -43,7 +44,7 @@ int main() {
         } else {
             cout << "Invalid input. Please enter two positive integers: ";
             cin.clear();
-            cin.ignore(1000, '\n');
+            cin.ignore((numeric_limits<streamsize>::max()), '\n');
         }
     }
 
@@ -58,7 +59,7 @@ int main() {
         } else {
             cout << "Invalid input. Please enter valid strings: ";
             cin.clear();
-            cin.ignore(1000, '\n');
+            cin.ignore((numeric_limits<streamsize>::max()), '\n');
         }
     }
 
