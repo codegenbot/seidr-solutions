@@ -3,12 +3,15 @@
 #include <string>
 
 int main() {
-    boost::any a = "hello";
-    boost::any b = "hi";
+    boost::any a = "apple";
+    boost::any b = "banana";
 
     boost::any result = compare_one(a, b);
 
-    return 0;
+    // Now you can retrieve the result using any_cast
+    if (result.type() == typeid(std::string)) {
+        std::cout << boost::any_cast<std::string>(result) << std::endl;
+    }
 }
 
 boost::any compare_one(boost::any a, boost::any b) {
