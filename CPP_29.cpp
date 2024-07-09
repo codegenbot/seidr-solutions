@@ -1,8 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool areEqual(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool equal_vectors(const std::vector<std::string>& a, const std::vector<std::string>& b){
     if(a.size() != b.size())
         return false;
     for(size_t i = 0; i < a.size(); ++i)
@@ -21,10 +21,11 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 
 }
 
-int main() {
+int main_test() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"};
     std::vector<std::string> b = filter_by_prefix(a, "xxx");
     std::vector<std::string> c = {"xxx", "xxxAAA", "xxx"};
-    assert(areEqual(b, c));
+    if(!equal_vectors(b, c))
+        return 1;
     return 0;
 }
