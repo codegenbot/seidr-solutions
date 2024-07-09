@@ -1,9 +1,5 @@
 Here is the completed code:
 
 bool any_int(float a, float b, float c) {
-    int ai = (int)a;
-    int bi = (int)b;
-    int ci = (int)c;
-
-    return (a == ai + bi || a == bi + ci || a == ci + bi);
+    return (a == b + c || a == b - c || a == c + b || a == c - b);
 }
