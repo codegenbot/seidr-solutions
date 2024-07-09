@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> even_odd_palindrome(int n) {
+    vector<int> result(2, 0);
+    
+    for (int i = 1; i <= n; ++i) {
+        int num = i;
+        bool isPalindrome = true;
+        
+        while (num > 9) {
+            int rev = 0;
+            while (num > 0) {
+                int digit = num % 10;
+                rev = rev * 10 + digit;
+                num /= 10;
+            }
+            if (rev != num) {
+                isPalindrome = false;
+                break;
+            }
+            num = rev;
+        }
+        
+        if (isPalindrome) {
+            if (i % 2 == 0) {
+                ++result[0];
+            } else {
+                ++result[1];
+            }
+        }
+    }
+    
+    return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> res = even_odd_palindrome(n);
+    cout << "Even: " << res[0] << ", Odd: " << res[1] << endl;
+    return 0;
+}
