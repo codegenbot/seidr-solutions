@@ -10,16 +10,19 @@ vector<int> sort_third(vector<int> l) {
     int i = 0;
     while (i < l.size()) {
         if (i + 2 < l.size()) {
-            for (int j = 0; j <= 2 && i + j < l.size(); j++) {
-                result.push_back(l[i + j]);
+            vector<int> block(3);
+            for (int j = 0; j < 3; j++) {
+                block[j] = l[i + j];
             }
-            sort(result.begin(), result.end());
-            for (int j = 0; j <= 2 && i + j < l.size(); j++) {
-                result[j] = l[i + j];
+            sort(block.begin(), block.end());
+            for (int k : block) {
+                result.push_back(k);
             }
             i += 3;
-        } else if (i + 1 < l.size()) {
-            result.push_back(l[i]);
+        } else {
+            if (i < l.size()) {
+                result.push_back(l[i]);
+            }
             i++;
         }
     }
@@ -42,17 +45,9 @@ int main() {
     }
     cout << endl;
 
-    vector<int> result1 = sort_third(l1);
-    vector<int> result2 = sort_third(l2);
-
-    cout << "result1: ";
-    for (int i : result1) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    cout << "result2: ";
-    for (int i : result2) {
+    vector<int> result = sort_third(l1);
+    cout << "result: ";
+    for (int i : result) {
         cout << i << " ";
     }
     cout << endl;
