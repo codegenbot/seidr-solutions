@@ -21,7 +21,7 @@ int luhn(const std::vector<int>& card) {
 }
 
 int main() {
-    std::vector<int> card = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 9, 8, 7, 6, 5, 4};
+    std::vector<int> card = {4,3,2,1,8,7,6,5,4,3,2,1,6};
     int result = luhn(card);
     std::cout << "The Luhn checksum is: " << result << std::endl;
     return 0;
