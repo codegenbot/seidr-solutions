@@ -13,13 +13,4 @@ string anti_shuffle(string s) {
     return res;
 }
 
-int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str); 
-    if (!str.empty()) {
-        string res = anti_shuffle(str);
-        cout << "Anti-Shuffled String: " << res << endl;
-    }
-    return 0;
-}
+return 0;
