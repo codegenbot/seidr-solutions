@@ -1,5 +1,3 @@
-#include <stack>
-#include <string>
 using namespace std;
 
 string solveBoolean(string s) {
@@ -19,4 +17,3 @@ string solveBoolean(string s) {
         }
     }
     return st.top() == 'T' ? "True" : "False";
-}
