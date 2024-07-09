@@ -1,4 +1,4 @@
-```
+```c
 #include <iostream>
 using namespace std;
 
@@ -10,8 +10,8 @@ bool is_prime(long long n) {
         if (n % i == 0) return false;
     }
     return true;
-
 }
+
 int main() {
     int N;
     cin >> N;
@@ -19,4 +19,3 @@ int main() {
         cout << "Is " << i << " a prime number: " << is_prime(i) << endl;
     }
     return 0;
-}
