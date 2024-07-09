@@ -1,6 +1,8 @@
+#include <iostream>
 #include <string>
+#include <cassert>
 
-int hex_key(string num) {
+int hex_key(std::string num) {
     int count = 0;
     for (char c : num) {
         if (c >= '2' && c <= '7') {
@@ -10,3 +12,9 @@ int hex_key(string num) {
         }
     }
     return count;
+}
+
+int main() {
+    assert(hex_key("") == 0);
+    // rest of your code
+}
