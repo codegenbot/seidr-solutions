@@ -1,18 +1,13 @@
 ```python
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    stack = []
+    temp = 0
     for char in paren_string:
         if char == '(':
-            stack.append(1)
+            temp += 1
         elif char == ')':
-            if stack:
-                stack.pop()
-            else:
-                result.append(0)
-        else:
-            if stack:
-                result.append(stack[-1])
-            else:
-                result.append(0)
-    return result
+            temp -= 1
+        if temp == 0:
+            result.append(paren_string[:paren_string.index(char)+1].count('('))
+            paren_string = paren_string[paren_string.index(char)+1:]
+    return [temp] + result
