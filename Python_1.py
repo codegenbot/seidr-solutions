@@ -6,7 +6,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     count = 0
     for char in paren_string:
         if char == "(":
-            count += 1
+           count += 1
         elif char == ")":
             count -= 1
         temp += char
