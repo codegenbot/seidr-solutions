@@ -1,41 +1,32 @@
 #include <vector>
 #include <cassert>
 
-bool issame(int a, int b) {
-    return abs(a - b) == 1;
+bool issame(int i, int j, int ii, int jj){
+    return i == ii && j == jj;
 }
 
-int minPathHelper(vector<vector<int>>& grid, int row, int col, int k, vector<vector<int>>& memo) {
-    if (row >= grid.size() || col >= grid[0].size()) {
-        return INT_MAX;
-    }
+int minPathUtil(vector<vector<int>>& grid, int i, int j, int k, vector<vector<int>>& dp){
+    if (i >= grid.size() || j >= grid[0].size()) return INT_MAX;
     
-    if (row == grid.size() - 1 && col == grid[0].size() - 1) {
-        return grid[row][col];
-    }
+    if (issame(i, j, grid.size() - 1, grid[0].size() - 1) && k == 0) return grid[i][j];
     
-    if (memo[row][col] != -1) {
-        return memo[row][col];
-    }
+    if (dp[i][j] != -1) return dp[i][j];
     
-    int cost = grid[row][col];
+    int right = minPathUtil(grid, i + 1, j, k - 1, dp);
+    int down = minPathUtil(grid, i, j + 1, k - 1, dp);
     
-    int right = minPathHelper(grid, row, col + 1, k, memo);
-    int down = minPathHelper(grid, row + 1, col, k, memo);
+    dp[i][j] = grid[i][j] + std::min(right, down);
     
-    if (issame(cost, right) && issame(cost, down)) {
-        return memo[row][col] = min(right, down);
-    }
-    
-    return memo[row][col] = cost + min(right, down);
+    return dp[i][j];
 }
 
-int minPath(vector<vector<int>> grid, int k) {
-    if (grid.empty()) {
-        return 0;
-    }
+int minPath(vector<vector<int>> grid, int k){
+    int m = grid.size();
+    int n = grid[0].size();
     
-    vector<vector<int>> memo(grid.size(), vector<int>(grid[0].size(), -1));
+    vector<vector<int>> dp(m, vector<int>(n, -1));
     
-    return minPathHelper(grid, 0, 0, k, memo);
+    int result = minPathUtil(grid, 0, 0, k, dp);
+    
+    return (result == INT_MAX) ? -1 : result;
 }
