@@ -1,4 +1,5 @@
-def spin_words(sentence): 
+```
+def spin_words(sentence):
     words = sentence.split()
     result = []
 
