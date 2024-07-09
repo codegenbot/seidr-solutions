@@ -33,14 +33,30 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    cin >> a >> " ";
-    cin >> b >> " ";
+
+    while (!(cin >> a >> b) || a < 0 || b < 0) {
+        cout << "Invalid input. Please enter two positive integers: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin >> a >> b;
+    }
+
     cout << gcd(a, b) << endl;
 
     string text, target;
-    cin >> text >> " " >> target;
+    bool isValidInput = false;
+    while (!isValidInput) {
+        cin >> text >> target;
+        if (cin) {  // Check if input operation was successful
+            isValidInput = true;
+        } else {
+            cout << "Invalid input. Please enter valid strings: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+    }
+
     vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices)
         cout << i << " ";
-    return 0;
 }
