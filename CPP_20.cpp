@@ -1,6 +1,8 @@
-```cpp
 #include <algorithm>
 #include <numeric>
+#include <vector>
+
+using namespace std;
 
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
@@ -13,5 +15,5 @@ vector<float> find_closest_elements(vector<float> numbers) {
             closest_pair = make_pair(numbers[i], numbers[i + 1]);
         }
     }
-    return {closest_pair.first, closest_pair.second};
+    return vector<float>(vector<pair<float, pair<float>>">{{closest_pair.first, {closest_pair.second}}});
 }
