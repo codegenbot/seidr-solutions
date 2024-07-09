@@ -9,8 +9,8 @@ def minPath(grid, k):
         x, y, path = queue.pop(0)
         
         if len(path) == k + 1:
-            if not res or tuple(sorted(path)) < tuple(sorted(res)):
-                res = list(path[:-1])
+            if not res or tuple(sorted(set(path))) < tuple(sorted(set(res))):
+                res = list(set(path[:-1]))
             continue
         
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
@@ -21,9 +21,3 @@ def minPath(grid, k):
                 queue.append((nx, ny, path + [grid[nx][ny]]))
     
     return res
-
-N = int(input("Enter number of rows (columns will be same): "))
-grid = [[int(input(f"Enter element for row {i}, column {j}: ")) for j in range(N)] for i in range(N)]
-k = int(input("Enter k value: "))
-
-print(minPath(grid, k))
