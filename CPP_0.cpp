@@ -1,13 +1,12 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-struct FloatArrayPair {
+struct FloatArray {
     float* first;
     float* second;
 };
 
-bool has_close_elements(std::vector<FloatArrayPair> numbers, float tol) {
+bool has_close_elements(std::vector<FloatArray> numbers, float tol) {
     for (int i = 0; i < numbers.size() - 1; i++) {
         for (int j = i + 1; j < numbers.size(); j++) {
             bool closeFound = false;
@@ -31,21 +30,12 @@ bool has_close_elements(std::vector<FloatArrayPair> numbers, float tol) {
 int main() {
     float arr1[2] = {1.0f, 2.0f};
     float arr2[2] = {1.5f, 3.0f}; 
-    float* p1 = &arr1[0];
-    float* p2 = &arr2[0];
+    FloatArray input = {{&arr1[0], &arr2[0]}};
 
-    float* arr1_[2];
-    float* arr2_[2];
+    std::vector<FloatArray> numbers;
+    numbers.push_back(input);
 
-    arr1_[0] = &arr1[0]; 
-    arr1_[1] = &arr1[1]; 
-
-    arr2_[0] = &arr2[0]; 
-    arr2_[1] = &arr2[1]; 
-
-    std::vector<FloatArrayPair> input = {{&arr1_[0], &arr2_[0]}};
-    
-    if (!has_close_elements(input, 0.5)) {
+    if (!has_close_elements(numbers, 0.5)) {
         std::cout << "No close elements found." << std::endl;
     } else {
         std::cout << "Close elements found." << std::endl;
