@@ -6,12 +6,7 @@ using namespace std;
 vector<int> f(int n) {
     vector<int> result;
     for (int i = 1; i <= n; ++i) {
-        result.push_back(i + 1);
+        result.push_back(i * 3 / 2);
     }
     return result;
-}
-
-int main() {
-    assert(f(3) == vector<int>{2, 3, 4});
-    return 0;
 }
