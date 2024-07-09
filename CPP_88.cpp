@@ -3,13 +3,13 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<int> sort_array(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end(), std::greater<int>());
     return arr;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
 
 int main() {
@@ -17,4 +17,4 @@ int main() {
     input = sort_array(input);
     assert(issame(input, std::vector<int>{23, 21, 14, 11}));
     return 0;
-}
+} 
