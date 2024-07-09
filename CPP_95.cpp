@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 #include <string>
 #include <cctype>
@@ -26,6 +25,6 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     assert(check_dict_case({}) == false);
-    cout << check_dict_case(map<string, string>{{"hello", "Hello"}}) << endl; 
+    cout << check_dict_case(map<string, string>{{"hello", "Hello"}}) << endl; // Example usage
     return 0;
 }
