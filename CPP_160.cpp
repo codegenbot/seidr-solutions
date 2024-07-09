@@ -1,49 +1,28 @@
+#include <iostream>
 #include <vector>
+#include <pair>
 #include <cmath>
-#include <utility>
-#include <string>
 
-int do_algebra(std::string expression) {
-    int result = 0;
-    int num = 0;
-    char op = '+';
-    for (char c : expression) {
-        if (isdigit(c)) {
-            num = num * 10 + (c - '0');
-        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
-            switch (op) {
-                case '+':
-                    result += num;
-                    break;
-                case '-':
-                    result -= num;
-                    break;
-                case '*':
-                    result *= num;
-                    break;
-                case '/':
-                    result /= num;
-                    break;
-            }
-            op = c;
-            num = 0;
-        } else {
-            // skip non-alphanumeric characters
-        }
+int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
+    if (operators_and_operands.size() == 0) {
+        return 0;
     }
-    switch (op) {
-        case '+':
-            result += num;
-            break;
-        case '-':
-            result -= num;
-            break;
-        case '*':
-            result *= num;
-            break;
-        case '/':
-            result /= num;
-            break;
+    
+    int result = operators_and_operands[0].second;
+    for (const auto& pair : operators_and_operands) {
+        if (pair.first == '+') {
+            result += pair.second;
+        } else if (pair.first == '-') {
+            result -= pair.second;
+        } else if (pair.first == '*') {
+            result *= pair.second;
+        } else if (pair.first == '/') {
+            if (pair.second != 0) {
+                result /= pair.second;
+            }
+        } else if (pair.first == '**') {
+            result = std::pow(result, pair.second);
+        }
     }
     return result;
 }
