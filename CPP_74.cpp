@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a,vector<string> b) {
+bool issame(vector<string> a,vector<string>b) {
     if(a.size() != b.size())
         return false;
     for(int i=0; i<a.size(); i++)
@@ -11,26 +10,19 @@ bool issame(vector<string> a,vector<string> b) {
     return true;
 }
 
-vector<vector<string>> total_match(vector<string> a, vector<vector<string>> b){
+vector<vector<string>> total_match(vector<string> a, int b) {
     vector<vector<string>> result;
-    for(auto &sentence : a) {
-        for(auto &word : sentence) {
-            bool found = false;
-            for(auto &match : b) {
-                if(issame({word}, match)) {
-                    found = true;
-                    break;
-                }
-            }
-            if(!found)
-                continue;
-            result.push_back({word});
+    for(int i = 0; i < b; i++){
+        vector<string> temp;
+        for(string s: a){
+            temp.push_back(s + "1");
         }
+        result.push_back(temp);
     }
     return result;
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    assert(issame(total_match({"this"}, 0), {}));
     return 0;
 }
