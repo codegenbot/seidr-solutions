@@ -1,6 +1,6 @@
+```
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 vector<string> sorted_list_sum(vector<string> lst) {
