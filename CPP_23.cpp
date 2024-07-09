@@ -7,5 +7,5 @@ int strLength(std::string str){
 }
 
 int main() {
-    assert(strLength(string("asdasnakj")) == 13);
+    assert(strLength("asdasnakj") == 13);
 }
