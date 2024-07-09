@@ -1,8 +1,5 @@
-```cpp
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
+#include <iostream>
+#include <boost/any.hpp>
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -13,23 +10,27 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (stod(a.convert_to<string>()) > stod(b.convert_to<string>())) {
+        string str1 = a.convert_to<string>();
+        string str2 = b.convert_to<string>();
+        int compare_result = str1.compare(str2);
+        if (compare_result > 0) {
             return a;
         }
-       	else if (stod(a.convert_to<string>()) < stod(b.convert_to<string>())) {
+        else if (compare_result < 0) {
             return b;
         }
-		else {
+       	else {
             return boost::any("None");
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         double a_num = stod(a.convert_to<string>());
-        double b_num = stod(b.convert_to<string>());
-        if (a_num > b_num) {
+        string str = b.convert_to<string>();
+        int compare_result = str.compare(to_string(a_num));
+        if (compare_result > 0) {
             return a;
         }
-		else if (a_num < b_num) {
+       	else if (compare_result < 0) {
             return b;
         }
 		else {
