@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -18,8 +18,5 @@ int main() {
     string tweet;
     std::cout << "Enter a tweet: ";
     std::getline(std::cin, tweet);
-    tweet.erase(std::remove(tweet.begin(), tweet.end(), '\r'), tweet.end()); 
-    tweet.erase(std::remove(tweet.begin(), tweet.end(), ' '), tweet.end()); 
-    cout << validateTweet(tweet) << endl;
-    return 0;
-}
+    std::cout << validateTweet(tweet) << std::endl;
+    return 0}
