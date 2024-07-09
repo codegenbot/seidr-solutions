@@ -1,8 +1,11 @@
-```
+```c++
 #include <vector>
 
 int main() {
-    std::vector<int> v = {1, 2, 3};
+    std::vector<int> v;
+    for (int i : {1, 2, 3}) {
+        v.push_back(i);
+    }
     int result = fuelCost(v);
     return 0;
 }
