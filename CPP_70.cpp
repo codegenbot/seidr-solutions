@@ -14,13 +14,15 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> strange_sort_list(std::initializer_list<int> lst) {
     std::vector<int> result;
-    if (lst.size() == 0) return result;
+    if (lst.empty()) return result;
 
-    std::vector<int> temp(lst);
-    std::sort(temp.begin(), temp.end());
-    
-    for(auto i : lst){
-        result.push_back(i);
+    std::vector<int> vec(lst);
+    sort(vec.begin(), vec.end());
+    while (!vec.empty()) {
+        result.push_back(*vec.begin());
+        vec.erase(vec.begin());
+        if (!vec.empty())
+            sort(vec.begin(), vec.end());
     }
 
     return result;
