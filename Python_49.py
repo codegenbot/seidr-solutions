@@ -23,4 +23,4 @@ def extended_euclidean_algorithm(a: int, b: int):
         old_s, s = s, temp_s - quotient * s
         temp_t = old_t
         old_t, t = t, temp_t - quotient * t
-    return old_s, old_t
+    return old_s % p, old_t
