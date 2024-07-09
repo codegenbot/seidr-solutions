@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <algorithm>
 #include <boost/any.hpp>
