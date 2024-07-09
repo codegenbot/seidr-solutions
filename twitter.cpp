@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-std::string validateTweet(std::string& tweet) {
+std::string validateTweet(const std::string& tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
