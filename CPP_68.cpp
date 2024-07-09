@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <utility>
@@ -14,5 +13,6 @@ std::vector<int> pluck(std::vector<int> arr) {
             result.push_back(arr[i]);
         }
     }
+    sort(result.begin(), result.end());
     return result;
 }
