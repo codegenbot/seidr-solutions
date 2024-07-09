@@ -1,6 +1,23 @@
+#include <iostream>
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b);
+using namespace std;
+
+vector<int> factorize(int n);
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> factors = factorize(n);
+    for (int factor : factors) {
+        cout << factor << " ";
+    }
+    return 0;
+}
 
 vector<int> factorize(int n){
     vector<int> factors;
