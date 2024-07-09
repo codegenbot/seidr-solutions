@@ -1,10 +1,16 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool issame(vector<string> a,vector<string>b){
-    return a==b;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    
+    return true;
 }
 
 vector<string> by_length(vector<int> arr) {
@@ -27,6 +33,5 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    assert(by_length({9, 4, 8}) == vector<string> {"Nine", "Eight", "Four"});
-    return 0;
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
 }
