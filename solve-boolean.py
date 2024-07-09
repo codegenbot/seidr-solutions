@@ -1,11 +1,14 @@
+```
 def solve_boolean(expression):
-    while "&" in expression or "|" in expression:
-        if "&" in expression:
-            a, b = expression.split("&")
-            expression = str(bool(a)) + "&"
-        elif "|" in expression:
-            a, b = expression.split("|")
-            expression = str(bool(a)) + "|"
+    if expression == "t":
+        return True
+    elif expression == "f":
+        return False
+    stack = []
+    for char in expression:
+        if char in "&|":
+            b, a = stack.pop(), stack.pop()
+            stack.append(str(eval(f"bool({a}) {char} bool({b})")))
         else:
-            break
-    return expression == "t"
+            stack.append(char)
+    return eval(stack[0])
