@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -25,10 +26,11 @@ vector<string> sorted_list_sum(vector<string> lst) {
 
 int main() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> result = sorted_list_sum(input);
-    if (result == vector<string>{"cc", "dd", "aaaa", "bbbb"}) {
+    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
+
+    if (sorted_list_sum(input) == expected) {
         cout << "The lists are the same." << endl;
     } else {
-        cout << "The lists are not the same: actual - " << result << ", expected - " << {"cc", "dd", "aaaa", "bbbb"} << endl;
+        cout << "The lists are not the same: actual - " << sorted_list_sum(input) << ", expected - " << expected << endl;
     }
 }
