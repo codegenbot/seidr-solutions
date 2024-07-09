@@ -6,9 +6,9 @@
 size_t double_the_difference(std::vector<unsigned long> input) {
     size_t sum = 0;
     for (unsigned long num : input) {
-        if (num > 0 && floor((double)num) == num) { 
-            if (fmod((double)num, 2.0) != 0.0) { 
-                sum += pow((double)num, 2);
+        if (num > 0 && std::floor((double)num) == num) { 
+            if (std::fmod((double)num, 2.0) != 0.0) { 
+                sum += std::pow((double)num, 2);
             }
         }
     }

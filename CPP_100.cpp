@@ -12,9 +12,9 @@ bool isSame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<unsigned int> make_a_pile(int n) {
-    vector<unsigned int> pile;
-    unsigned int stones = 1;
+vector<int> make_a_pile(long long n) {
+    vector<int> pile;
+    long long stones = 1;
     while (pile.size() < n) { 
         pile.push_back(stones);
         if ((n - stones) % 2 == 0) {
@@ -27,11 +27,11 @@ vector<unsigned int> make_a_pile(int n) {
 }
 
 int main() {
-    int n;
+    long long n;
     cout << "Enter the number of stones: ";
     cin >> n;
-    vector<unsigned int> pile = make_a_pile(n);
-    for (unsigned int i : pile) {
+    vector<int> pile = make_a_pile(n);
+    for (long long i : pile) {
         cout << i << " ";
     }
     if(isSame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22})) {
