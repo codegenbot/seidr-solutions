@@ -1,8 +1,11 @@
+#include <set>
+#include <algorithm>
 #include <vector>
+
 using namespace std;
 
-bool issame(vector<int> a,vector<int> b){
-    return a == b;
+bool issame(vector<int> a,vector<int>b){
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
 vector<int> common(vector<int> l1, vector<int> l2) {
@@ -17,6 +20,6 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
-    // Your code here
+    assert (issame(common({4, 3, 2, 8}, {}), {}));
+    return 0;
 }
