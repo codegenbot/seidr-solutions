@@ -3,9 +3,8 @@
 
 double probability(int n, int m) {
     double total = 0; 
-    for (int i = 1; i < n - 1; i++) {
-        if (i <= m) continue;
-        total += (n - i) * 1.0 / (n * m);
+    for (int i = m; i < n; i++) {
+        total += 1.0 / m - 1.0 / n;
     }
     return total;
 }
