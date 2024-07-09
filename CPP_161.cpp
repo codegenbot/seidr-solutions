@@ -1,11 +1,9 @@
-#include <iostream>
 #include <string>
 #include <algorithm>
+#include <cctype>
 #include <cassert>
 
-using namespace std;
-
-string solve(string s) {
+std::string solve(std::string s) {
     bool hasLetter = false;
     for (char &c : s) {
         if (isalpha(c)) {
