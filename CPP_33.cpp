@@ -10,28 +10,14 @@ vector<int> sort_third(vector<int> l) {
     int groupCount = 0;
 
     for (int i : l) {
-        if(groupCount % 3 == 0) { 
-            vector<int> temp;
-            while(!result.empty()) {
-                temp.push_back(result.back());
-                result.pop_back();
+        if(groupCount % 3 != 0) { 
+            if(groupCount % 3 == 0) { 
+                reverse(result.begin(), result.end());
             }
-            for(int i:temp)
-                result.push_back(i);
-        } else {
             result.push_back(i);
+        } else {
             groupCount++;
         }
-    }
-
-    if(groupCount % 3 != 0) {
-        vector<int> temp;
-        while(!result.empty()) {
-            temp.push_back(result.back());
-            result.pop_back();
-        }
-        for(int i:temp)
-            result.push_back(i);
     }
 
     return result;
