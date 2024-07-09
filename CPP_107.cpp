@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 bool isPalindrome(int n) {
