@@ -29,5 +29,5 @@ int smallest_change(std::vector<int> arr) {
 int main() {
     std::vector<int> input = {0, 1};
     int output = smallest_change(input);
-    return 0;
+    return output;
 }
