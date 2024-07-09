@@ -1,26 +1,27 @@
-```cpp
 #include <algorithm>
 #include <numeric>
 #include <vector>
 #include <limits>
 
-bool issame(vector<float> a,vector<float>b){
+bool issame(vector<float> a, vector<float> b) {
     return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
-vector<float> find_closest_elements(vector<float> numbers) {
-    sort(numbers.begin(), numbers.end());
-    float min_diff = numeric_limits<float>::max();
-    pair<float, float> closest_pair;
+vector<vector<float>> group_similar_elements(vector<vector<float>> numbers) {
+    sort(numbers.begin(), numbers.end(), [](const auto &a, const auto &b) {
+        if (issame(a, b)) {
+            return a < b;
+        }
+        return a[0] < b[0];
+    });
 
-    for (int i = 0; i < numbers.size() - 1; ++i) {
-        float diff = numbers[i + 1] - numbers[i];
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest_pair.first = numbers[i];
-            closest_pair.second = numbers[i + 1];
+    vector<vector<float>> result;
+
+    for (int i = 0; i < numbers.size(); ++i) {
+        if (i == 0 || !issame(numbers[i], numbers[i - 1])) {
+            result.push_back({numbers[i][0], numbers[i][1]});
         }
     }
 
-    return vector<float>{closest_pair.first, closest_pair.second};
+    return result;
 }
