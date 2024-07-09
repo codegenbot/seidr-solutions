@@ -1,13 +1,11 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a,std::vector<std::string>, std::vector<std::string> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(b[i].find(a[i]) == std::string::npos) return false;
-    }
-    return true;
+bool issame(vector<string> a,vector<string> b, vector<string> c){
+    if((a==b) && (c==a))
+        return true;
+    else
+        return false;
 }
 
 int main() {
