@@ -1,20 +1,33 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
-using namespace std;
-
-// Function to check if two vectors are same
-bool issame(vector<string> a,vector<string>b) {
-    return a == b;
+std::vector<std::string> issame(const std::vector<std::string>& v) {
+    // your implementation here...
 }
 
-// Function to sort the list and calculate its sum
-vector<string> sorted_list_sum(vector<string> lst) {
-    // Sort the list in ascending order based on their lengths
-    sort(lst.begin(), lst.end(), [](string a, string b) { 
-        return a.length() < b.length(); 
-    });
+int main() 
+{
+    int n; 
+    std::cin >> n;
     
-    return lst;
+    std::vector<std::string> lst;
+    
+    for(int i = 0; i < n; i++) {
+        std::cin >> lst.push_back(std::string);
+    }
+    
+    std::vector<std::string> result = issame(lst);
+    
+    std::cout << "Sorted List Sum: ";
+    for(auto str : result) {
+        std::cout << str << " ";
+    }
+    std::cout << endl;
+    
+    return 0;
+}
+
+std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
+    // your implementation here...
 }
