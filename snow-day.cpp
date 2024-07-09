@@ -1,5 +1,7 @@
+```c++
 #include <iostream>
 #include <iomanip>
+#include <limits>
 
 using namespace std;
 
@@ -22,7 +24,16 @@ int main() {
     cin >> hours;
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
     
-    if (!(cin >> initialSnow) || !(cin >> rateOfSnowFall) || !(cin >> proportionOfSnowMeltingPerHour)) {
+    while (!(cin >> initialSnow) || !(cin >> rateOfSnowFall) || !(cin >> proportionOfSnowMeltingPerHour)) {
+        cout << "Invalid input. Please enter valid numbers.\n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Enter hours, initial snow, rate of snow fall and proportion of snow melting per hour: ";
+        cin >> hours;
+        cin >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
+    }
+    
+    if (!initialSnow || !rateOfSnowFall || !proportionOfSnowMeltingPerHour) {
         cout << "Invalid input. Please enter valid numbers.\n";
         return 1; 
     }
