@@ -21,14 +21,3 @@ vector<int> findLeaders(vector<int> nums) {
 
     return leaders;
 }
-
-int main() {
-    vector<int> nums = {16, 17, 4, 3, 5, 2};
-    vector<int> result = findLeaders(nums);
-
-    for (int num : result) {
-        cout << num << " ";
-    }
-
-    return 0;
-}
