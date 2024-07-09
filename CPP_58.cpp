@@ -11,6 +11,7 @@ int main() {
     std::cin >> n1 >> m1 >> n2 >> m2;
 
     std::vector<std::string> s1Vec;
+    s1Vec.reserve(n1);
     for(int i = 0; i < n1; i++) {
         std::string x;
         std::cin >> x;
@@ -22,6 +23,7 @@ int main() {
     }
 
     std::vector<std::string> s2Vec;
+    s2Vec.reserve(m1);
     for(int i = 0; i < m1; i++) {
         std::string y;
         std::cin >> y;
