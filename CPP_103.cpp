@@ -20,5 +20,5 @@ int rounded_avg(int n, int m) {
         }
     }
     reverse(binary.begin(), binary.end());
-    return atoi(binary.c_str());
+    return stoi(binary);
 }
