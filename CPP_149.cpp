@@ -1,25 +1,15 @@
-bool issame(const string& a, const string& b) {
-    if (a.length() != b.length()) {
-        return false;
-    }
-    for(int i = 0; i < a.length(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-
-    for (const auto& str : lst) {
-        if (issame(str, str)) {
-            result.push_back(str);
-        }
+    auto it = lst.begin();
+    while (it != lst.end()) {
+        if (stoi(*it) % 2 != 0) {
+            it = lst.erase(it);
+            if (it == lst.end())
+                break;
+        } else
+            ++it;
     }
-
-    sort(result.begin(), result.end());
-    
-    return result;
-}
+    std::sort(lst.begin(), lst.end(),
+          [](const string& a, const string& b) {
+              return to_string(stoi(a)) + to_string(stoi(b)) > to_string(stoi(b)) + to_string(stoi(a));
+          });
+    return lst;
