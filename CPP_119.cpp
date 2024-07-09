@@ -1,16 +1,17 @@
 Here is the completed code:
 
-string match_parens(vector<string> lst) {
-    stack<char> s;
-    for (auto& str : lst) {
-        for (char c : str) {
-            if (c == '(') {
-                s.push(c);
-            } else if (c == ')') {
-                if (s.empty()) return "No";
-                s.pop();
-            }
+```cpp
+int stack_size = 0;
+for (auto &s : lst) {
+    int size = s.size();
+    for (int i = 0; i < size; i++) {
+        if (s[i] == '(') {
+            stack_size++;
+        } else if (s[i] == ')') {
+            if (stack_size <= 0) return "No";
+            stack_size--;
         }
     }
-    return s.empty() ? "Yes" : "No";
 }
+if (stack_size > 0) return "No";
+return "Yes";
