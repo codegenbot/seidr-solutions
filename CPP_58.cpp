@@ -11,11 +11,17 @@ bool issame(vector<int> v1, vector<int> v2) {
 }
 
 int main() {
-    vector<int> l1;
-    l1.assign({1, 2, 3});
+    int n1, n2, n3, n4, n5, n6, n7;
 
+    cout << "Enter the first 3 numbers: ";
+    cin >> n1 >> n2 >> n3;
+    vector<int> l1;
+    for (int i : {n1, n2, n3}) l1.push_back(i);
+
+    cout << "Enter the next 4 numbers: ";
+    cin >> n4 >> n5 >> n6 >> n7;
     vector<int> v2;
-    v2.assign({4, 5, 6, 7});
+    for (int i : {n4, n5, n6, n7}) v2.push_back(i);
 
     bool result = issame(l1, v2);
     if(result) {
