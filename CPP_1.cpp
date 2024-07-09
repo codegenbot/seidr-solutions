@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
@@ -38,13 +38,7 @@ std::string separate_paren_groups(std::string s) {
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
-    std::string input;
-    if (!(std::cin >> std::ws).get()) {
-        std::cerr << "No input provided." << std::endl;
-    } else {
-        std::getline(std::cin, input);
-        s = input;
-    }
+    std::getline(std::cin, s);
     std::cout << "Result: " << separate_paren_groups(s) << std::endl;
     return 0;
 }
