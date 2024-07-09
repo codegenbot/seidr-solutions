@@ -1,7 +1,6 @@
+#include <iostream>
 #include <string>
 #include <vector>
-#include <ostream>
-#include <iostream>
 
 using namespace std;
 
@@ -28,4 +27,3 @@ int main() {
     cin >> num;
     cout << "Mini Roman representation of the number is: " << int_to_mini_roman(num) << endl;
     return 0;
-}
