@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -49,6 +50,6 @@ int main() {
             break; 
         }
     }
-    std::cout << "Result: " << separate_paren_groups(s) << std::endl;
+    std::cout << separate_paren_groups(s) << std::endl;
     return 0;
 }
