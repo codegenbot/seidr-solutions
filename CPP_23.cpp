@@ -1,13 +1,12 @@
-```cpp
 #include <string>
 #include <cassert>
 #include <cstring>
 
-int my_strlen(std::string str){
+int stringLength(const std::string& str){
     return str.length();
 }
 
 int main() {
-    assert(my_strlen("asdasnakj") == 12); 
+    assert(stringLength("asdasnakj") == 12); 
     return 0;
 }
