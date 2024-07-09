@@ -11,6 +11,12 @@ bool has_close_elements(std::vector<float> numbers, float threshold) {
 }
 
 int main() {
-    std::vector<float> numbers = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
+    std::vector<float> numbers;
+    numbers.push_back(1.0f);
+    numbers.push_back(2.0f);
+    numbers.push_back(3.9f);
+    numbers.push_back(4.0f);
+    numbers.push_back(5.0f);
+    numbers.push_back(2.2f);
     assert(has_close_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5) == false);
 }
