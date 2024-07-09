@@ -1,3 +1,4 @@
+```python
 def bouncing_balls():
     starting_height = float(input())
     first_bounce_height = float(input())
@@ -13,9 +14,7 @@ def bouncing_balls():
         else:
             break
 
-    while True:
-        if current_height <= 0:
-            break
+    while current_height > 0 and first_bounce_height > current_height:
         total_distance += 2 * abs(current_height)
         current_height *= bounciness_index
 
