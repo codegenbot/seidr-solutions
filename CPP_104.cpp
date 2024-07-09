@@ -15,18 +15,20 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> unique_digits(std::vector<int> numbers) {
-    std::vector<int> unique_digits;
+    std::vector<int> uniqueDigits;
+    std::vector<bool> seen(10, false); 
     for (int num : numbers) {
-        while (num != 0) {
+        while (num > 0) {
             int digit = num % 10;
-            if (std::find(unique_digits.begin(), unique_digits.end(), digit) == unique_digits.end()) {
-                unique_digits.push_back(digit);
+            if (!seen[digit]) {
+                uniqueDigits.push_back(digit);
+                seen[digit] = true;
             }
             num /= 10;
         }
     }
-    std::sort(unique_digits.begin(), unique_digits.end());
-    return unique_digits;
+    std::sort(uniqueDigits.begin(), uniqueDigits.end());
+    return uniqueDigits;
 }
 
 int main() {
