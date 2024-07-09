@@ -1,19 +1,18 @@
-```cpp
 #include <string>
+using namespace std;
 
-std::string squareDigits(std::string input) {
-    std::string output = "";
+string& squareDigits(string& input) {
+    string output = "";
     for (char c : input) {
-        int digit = c - '0';
-        output += std::to_string(digit * digit);
+        int digit = c - '0'; // Convert character to integer
+        output += to_string(digit * digit); // Square and concatenate
     }
     return output;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> input;
-    std::cout << squareDigits(input) << std::endl;
+    string input; 
+    cin >> input;
+    cout << squareDigits(input) << endl;
     return 0;
 }
