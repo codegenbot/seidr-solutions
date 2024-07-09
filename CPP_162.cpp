@@ -1,4 +1,3 @@
-```cpp
 #include <openssl/md5.h>
 #include <iostream>
 #include <string>
@@ -6,7 +5,7 @@
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
-
+    
     unsigned char md5[16];
     MD5_CTX ctx;
     MD5_Init(&ctx);
@@ -21,10 +20,8 @@ std::string string_to_md5(std::string text) {
     for (int i = 0; i < 16; ++i) {
         char buf[3];
         sprintf(buf, "%02x", md5[i]);
-        result.replace(i * 2, 2, buf);
+        result.replace(i*2, 2, buf);
     }
-
+    
     return result;
 }
-
-g++ -o a.cpp -lssl
