@@ -23,8 +23,10 @@ int main() {
     std::cout << "Enter the first string: ";
     std::getline(std::cin, str1);
 
-    std::cout << "Enter the second string: ";
+    // Clear the buffer
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::cout << "Enter the second string: ";
     std::getline(std::cin, str2);
     
     try {
