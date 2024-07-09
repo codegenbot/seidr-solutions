@@ -1,4 +1,3 @@
-```cpp
 int cpp20_main(){
     int n;
     cin >> n;
@@ -9,15 +8,6 @@ int cpp20_main(){
     if(isSame(a, b)) cout << "The vectors are the same." << endl;
     else cout << "The vectors are not the same." << endl;
     return 0;
-}
-
-float find_closest_elements(vector<float> vec) {
-    float min_diff = numeric_limits<float>::max();
-    for(int i=1; i<vec.size(); i++){
-        if(abs(vec[i] - vec[i-1]) < min_diff)
-            min_diff = abs(vec[i] - vec[i-1]);
-    }
-    return min_diff;
 }
 
 bool isSame(vector<float>& a, vector<float>& b) {
