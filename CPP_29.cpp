@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string>b);
+bool issame(vector<string>, vector<string>);
 
 int main() {
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaaA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
