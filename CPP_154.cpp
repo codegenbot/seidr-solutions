@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 
 bool cycpattern_check(std::string a, std::string b) {
     int n = a.size();
@@ -8,10 +9,10 @@ bool cycpattern_check(std::string a, std::string b) {
     return temp.find(b) != std::string::npos;
 }
 
-// Test function
 int main() {
-    assert(cycpattern_check("abcde", "deabc"));
-    assert(!cycpattern_check("abcde", "edcba"));
+    assert(cycpattern_check("abcd", "cdab") == true);
+    assert(cycpattern_check("abcde", "deabc") == true);
+    assert(cycpattern_check("abc", "ac") == false);
 
     return 0;
 }
