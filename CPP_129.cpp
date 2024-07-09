@@ -1,30 +1,36 @@
-vector<int> minPath(vector<vector<int>> grid, int k) {
-        int n = grid.size();
-        int row = 0, col = 0;
+vector<int> minPath(vector<vector<int>>& grid, int k) {
         vector<int> path;
-        
-        for (int i = 0; i < k; ++i) {
-            path.push_back(grid[row][col]);
-            if ((row + col) % 2 == 0) {
-                if (col == n - 1) {
-                    ++row;
-                } else if (row == 0) {
-                    ++col;
-                } else {
-                    --row;
-                    ++col;
-                }
-            } else {
-                if (row == n - 1) {
-                    ++col;
-                } else if (col == 0) {
-                    ++row;
-                } else {
-                    ++row;
-                    --col;
+        int n = grid.size();
+        vector<vector<bool>> visited(n, vector<bool>(n, false));
+
+        function<bool(int, int, int)> dfs = [&](int i, int j, int len) {
+            if (i < 0 || i >= n || j < 0 || j >= n || visited[i][j]) {
+                return false;
+            }
+
+            visited[i][j] = true;
+            path.push_back(grid[i][j]);
+
+            if (len == k) {
+                return true;
+            }
+
+            if (dfs(i, j + 1, len + 1) || dfs(i + 1, j, len + 1) || dfs(i, j - 1, len + 1) || dfs(i - 1, j, len + 1)) {
+                return true;
+            }
+
+            visited[i][j] = false;
+            path.pop_back();
+            return false;
+        };
+
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (dfs(i, j, 1)) {
+                    return path;
                 }
             }
         }
-        
+
         return path;
     }
