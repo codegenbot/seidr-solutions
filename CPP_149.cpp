@@ -33,12 +33,11 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
               });
 
     return result;
+
 }
 
 int main() {
     std::vector<std::string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    if (!issame(sorted_list_sum(lst), {"cc", "dd", "aaaa", "bbbb"})) {
-        return 1; // or any other number you like
-    }
+    assert(issame(sorted_list_sum(lst), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
