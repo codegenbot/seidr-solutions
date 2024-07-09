@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 long long double_the_difference(const std::vector<long long>& lst) {
     long long sum = 0;
@@ -37,7 +36,7 @@ int main() {
         }
         n++;
     }
-
-    long long sum = double_the_difference(lst);
+    
+    long long odd_sum = double_the_difference(lst);
     return 0;
 }
