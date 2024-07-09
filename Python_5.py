@@ -1,5 +1,6 @@
-result = []
-for num in numbers:
-    result.extend([num, delimeter])
-result.pop() if result else None
-return result
+def join_with_delimeter(numbers, delimeter):
+    result = []
+    for num in numbers:
+        result.extend([num, delimeter])
+    result.pop()
+    return result
