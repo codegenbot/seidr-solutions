@@ -36,7 +36,7 @@ int main() {
         if(positive_numbers == numbers) {
             std::cout << "The list of positive numbers is: ";
             for (auto& num : positive_numbers) {
-                std::cout << std::to_string(*num) << " "; // Convert float to string
+                std::cout << *num << " ";
             }
             std::cout << std::endl;
         } else {
