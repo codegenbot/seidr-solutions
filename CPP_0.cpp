@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -14,12 +13,12 @@ bool has_close_elements(std::vector<float> numbers, float threshold) {
 }
 
 int main() {
-    std::vector<float> numbers = {10.0f, 20.0f, 30.0f};
-    float threshold = 5.0f;
+    std::vector<float> numbers = {2.0, 3.0, 4.0, 1.5};
+    float threshold = 0.5;
     if (has_close_elements(numbers, threshold)) {
-        std::cout << "The elements are close.\n";
+        std::cout << "There exist two elements in the vector that are within the given threshold." << std::endl;
     } else {
-        std::cout << "The elements are not close.\n";
+        std::cout << "No two elements in the vector are within the given threshold." << std::endl;
     }
     return 0;
 }
