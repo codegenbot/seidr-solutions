@@ -16,7 +16,7 @@ std::vector<float> sort_even(const std::vector<float>& l) {
     return evenVals;
 }
 
-int mainFunc() {
+int main() {
     std::vector<float> vec = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     std::vector<float> result(vec.size());
     for (int i = 0; i < vec.size(); i++) {
