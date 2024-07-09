@@ -1,9 +1,11 @@
 def mastermind(code, guess):
     black = sum(1 for a, b in zip(code, guess) if a == b)
-    white_count = {char: min(code.count(char), guess.count(char)) 
-                   for char in set(guess) if code.count(char) > 0}
     
-    white = sum(white_count.values())
+    white = 0
+    for char in set(guess):
+        white += min(code.count(char), guess.count(char))
+    black -= sum(min(code.count(char), guess.count(char)) for char in set(guess) if code.count(char) > guess.count(char))
+
     return black, white
 
 code = input("Enter the Mastermind code: ")
