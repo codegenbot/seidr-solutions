@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 
 double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
