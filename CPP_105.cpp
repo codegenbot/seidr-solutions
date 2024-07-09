@@ -1,29 +1,41 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <map>
+#include <string>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(int a, int b) {
     return a == b;
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+vector<string> b(vector<int> arr);
 
-    vector<int> filtered;
+vector<string> by_length(vector<int> arr){
+    vector<string> result;
+    vector<int> sorted_arr;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            filtered.push_back(num);
+            sorted_arr.push_back(num);
         }
     }
 
-    sort(filtered.begin(), filtered.end());
+    sort(sorted_arr.begin(), sorted_arr.end());
 
-    reverse(filtered.begin(), filtered.end());
+    reverse(sorted_arr.begin(), sorted_arr.end());
 
-    vector<string> result;
-    for (int num : filtered) {
-        result.push_back(names[num - 1]);
+    map<int, string> num_to_word = {
+        {1, "One"},
+        {2, "Two"},
+        {3, "Three"},
+        {4, "Four"},
+        {5, "Five"},
+        {6, "Six"},
+        {7, "Seven"},
+        {8, "Eight"},
+        {9, "Nine"}
+    };
+
+    for (int num : sorted_arr) {
+        result.push_back(num_to_word[num]);
     }
 
     return result;
