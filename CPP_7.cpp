@@ -18,7 +18,15 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 }
 
 int main() {
-    std::vector<std::string> result = filter_by_substring(std::vector<std::string>{"grunt", "trumpet", "prune", "gruesome"}, "run");
-    assert(issame(std::vector<std::string>(result.begin(), result.end()), {"grunt", "prune"}));
+    try {
+        std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
+        std::vector<std::string> result = filter_by_substring(words, "run");
+        if (!issame(std::vector<std::string>(result.begin(), result.end()), {"grunt", "prune"})) {
+            throw std::runtime_error("Error: Filtered words do not match expected output.");
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << '\n';
+        return 1;
+    }
     return 0;
 }
