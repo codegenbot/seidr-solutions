@@ -1,38 +1,23 @@
-#include <vector>
-#include <algorithm>
-
-string words_in_sentence(string sentence) {
-    vector<int> lengths;
+string words_in_sentence(string sentence){
     string result = "";
-    
-    for (int i = 0; i < sentence.size(); i++) {
-        if (sentence[i] == ' ') {
+    for(int i=0; i<sentence.size();i++){
+        if(sentence[i] == ' '){
             continue;
         }
-        
-        int j = i + 1;
-        while (j < sentence.size() && !isspace(sentence[j])) {
-            j++;
+        int length = 0;
+        while(i < sentence.size() && sentence[i] != ' '){
+            i++;
+            length++;
         }
-        
-        string word = sentence.substr(i, j - i);
-        int length = word.size();
-        
-        bool isPrime = true;
-        for (int k = 2; k * k <= length; k++) {
-            if (length % k == 0) {
-                isPrime = false;
+        string word = sentence.substr(0, length);
+        bool is_prime = true;
+        for(int j=2; j*j <= length; j++){
+            if(length % j == 0){
+                is_prime = false;
                 break;
             }
         }
-        
-        if (isPrime) {
-            result += word + " ";
-            lengths.push_back(length);
-        }
-        
-        i = j;
+        if(is_prime) result += word + " ";
     }
-    
-    return result.substr(0, result.size() - 1);
+    return result.substr(0, result.size()-1);
 }
