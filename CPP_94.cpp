@@ -20,19 +20,15 @@ bool isPrime(int n) {
     for (int i = 2; i * i <= n; i++) 
         if (n % i == 0) return false;
     return true;
-
 }
+
 int main() {
     std::vector<int> lst;
     int num;
-    std::cout << "Enter numbers, each on a new line: ";
-    while(std::cin >> num) {
+    std::cout << "Enter the numbers separated by space: ";
+    while(std::cin >> num)
         lst.push_back(num);
-    }
-    if(lst.empty())
-        std::cout << "No primes found." << std::endl;
-    else
-        std::cout << "Sum of digits in the largest prime number is: " << skjkasdkd(lst) << std::endl;
-    
+    int result = skjkasdkd(lst);
+    std::cout << "Sum of digits of largest prime is: " << result << std::endl;
     return 0;
 }
