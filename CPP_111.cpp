@@ -1,8 +1,7 @@
+#include <iostream>
 #include <map>
 #include <vector>
-#include <string>
 #include <sstream>
-
 using namespace std;
 
 bool issame(map<char,int> a,map<char,int> b) {
@@ -47,7 +46,6 @@ vector<string> split(string str, char delimiter) {
         tokens.push_back(token);
     }
     return tokens;
-
 }
 
 int main() {
