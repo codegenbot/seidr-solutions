@@ -6,8 +6,8 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result;
-    int initialCapacity = l.size(); // adjust based on your expected output size
+    vector<int> result(l.size()); 
+    int initialCapacity = l.size();
     result.reserve(initialCapacity);
     int i = 0;
     for (i = 0; i < l.size(); ) {
