@@ -1,8 +1,9 @@
+```
 def paired_digits(s):
-    total = 0
-    prev_digit = None
-    for digit in s:
-        if digit == prev_digit:
-            total += int(digit)
-        prev_digit = digit
-    return total
+    return sum(int(d) for d1, d2 in zip(s, s[1:]) if d1 == d2)
+
+print(paired_digits("99"))
+print(paired_digits("88"))
+print(paired_digits("77"))
+print(paired_digits("55"))
+print(paired_digits("44"))
