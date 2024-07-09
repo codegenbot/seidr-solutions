@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -12,10 +13,8 @@ bool is_palindrome(const std::string &text) {
         left++;
         right--;
     }
-
     assert(is_palindrome("xywzx") == false);
     assert(is_palindrome("radar") == true);
     assert(is_palindrome("racecar") == true);
-
     return true;
 }
