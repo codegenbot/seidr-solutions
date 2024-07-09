@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <array> 
+#include <string>
+#include <cctype> 
 using namespace std;
 
 bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
