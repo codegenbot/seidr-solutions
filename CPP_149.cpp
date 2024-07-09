@@ -1,34 +1,44 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
 
-bool assertEqual(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
-    }
-    sort(result.begin(), result.end(), 
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
-    return result;
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    auto it = std::remove_if(lst.begin(), lst.end(), [](const std::string& s){ return s.length() % 2; });
+    lst.erase(it, lst.end());
+    std::sort(lst.begin(), lst.end(), 
+        [](const std::string& a, const std::string& b){
+            if(a.length() != b.length()) {
+                return a.length() < b.length();
+            } else {
+                return a < b;
+            }
+        });
+    return lst;
 }
 
 int main() {
-    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> expected = {"cc","dd","aaaa","bbbb"};
-    if (!assertEqual(sorted_list_sum(lst), expected)) {
-        return 1;
+    // Read input from user
+    int n; 
+    cin >> n;
+    
+    vector<string> lst(n);
+    
+    for(int i = 0; i < n; i++) {
+        cin >> lst[i];
     }
+    
+    std::vector<std::string> result = sorted_list_sum(lst);
+    
+    // Return output
+    cout << "Sorted List Sum: ";
+    for(auto str : result) {
+        cout << str << " ";
+    }
+    cout << endl;
+    
     return 0;
 }

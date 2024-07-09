@@ -1,25 +1,24 @@
-```
+```c++
 #include <map>
 #include <string>
-#include <initializer_list>
 
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
-    if (a.size() != b.size()) return false;
-    for (const auto& p : a) {
-        if (!b.count(p.first) || b.at(p.first) != p.second) return false;
+std::map<char, int> histogram(const std::string& s) {
+    std::map<char, int> result;
+    for (char c : s) {
+        if (result.find(c) != result.end()) {
+            result[c]++;
+        } else {
+            result[c] = 1;
+        }
     }
-    return true;
+    return result;
+}
+
+bool issame(std::map<char, int> a, std::map<char, int> b) {
+    return a == b;
 }
 
 int main() {
-    assert(issame(histogram("a"), std::map<char, int>{{'a', 1}}));
+    assert(issame(histogram("a"), {{'a', 1}}));
     return 0;
 }
-
-std::map<char, int> histogram(const std::string& s) {
-    std::map<char, int> hist;
-    for (char c : s) {
-        if (hist.count(c)) hist[c]++;
-        else hist[c] = 1;
-    }
-    return hist;
