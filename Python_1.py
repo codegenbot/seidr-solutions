@@ -1,22 +1,22 @@
 from typing import List
 
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     temp = ""
-    for char in paren_string:
-        if char == "(" and temp:
-            result.append(temp)
-            temp = "("
-        elif char == "(":
-            temp += "("
-        elif char == ")":
-            temp += ")"
-            result.append(temp)
-            temp = ""
-        else:
-            temp += char
+    open_count = 0
 
-    if temp:
-        result.append(temp)
-        
+    for char in paren_string:
+        if char == "(":
+            open_count += 1
+            if open_count == 1:
+                temp = ""
+        elif char == ")":
+            open_count -= 1
+            if open_count == 0:
+                result.append(temp)
+        else:
+            if open_count > 0:
+                temp += char
+
     return result
