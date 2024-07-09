@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 #include <vector>
-#include <initializer_list>
+#include <array>
 using namespace std;
 
 int findMax(vector<int> l) {
@@ -15,6 +15,6 @@ int main() {
     vector<int> v = {1, 2, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
     assert(abs(findMax(v)) < 1e-4);
 
-    vector<int> v({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
+    vector<int> v = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
     int maximum = *max_element(v.begin(), v.end());
 }
