@@ -8,7 +8,7 @@ string change_base(int x, int base) {
     while (x > 0) {
         int remainder = x % base;
         if (remainder > 9)
-            res.insert(0, to_string(remainder + 10).c_str()); 
+            res.insert(0, to_string(remainder + 10).c_str()); // convert to string and then c_str()
         else
             res.insert(0, to_string(remainder).c_str());
         x /= base;
