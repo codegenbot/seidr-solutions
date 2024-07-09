@@ -1,10 +1,9 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int>b){
+bool issame(vector<int> a, vector<int> b){
     return (a == b);
 }
 
@@ -18,11 +17,15 @@ int main() {
         input.push_back(x);
     }
     
-    auto unique_end = unique(input.begin(), input.end());
+    auto unique_end = std::unique(input.begin(), input.end());
     vector<int> output(input.begin(), unique_end);
     sort(output.begin(), output.end());
     
     for (int i : output) {
         cout << i << " ";
     }
+    
+    assert(std::issame({5, 3, 5, 2, 3, 3, 9, 0, 123}, {0, 2, 3, 5, 9, 123}));
+    
+    return 0;
 }
