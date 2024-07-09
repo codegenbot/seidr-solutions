@@ -15,10 +15,10 @@ string validateTweet(string tweet) {
 }
 
 int main() {
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     cout << validateTweet(tweet) << endl;
     return 0;
 }
