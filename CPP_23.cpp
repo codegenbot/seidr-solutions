@@ -1,6 +1,6 @@
-#include <cassert>
 #include <string>
 #include <cstring>
+#include <cassert>
 
 int myStringLen(const char* str) {
     return std::string(str).length();
