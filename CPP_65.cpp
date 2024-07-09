@@ -1,13 +1,14 @@
-string numStr = to_string(x);
-    int n = numStr.size();
+string circular_shift(int x, int shift) {
+    string str = to_string(x);
+    int n = str.size();
     shift %= n;
     if (shift == 0) {
-        return numStr;
+        return str;
     }
-    if (shift > n) {
-        reverse(numStr.begin(), numStr.end());
-        return numStr;
+    if (shift > n / 2) {
+        reverse(str.begin(), str.end());
+    } else {
+        rotate(str.rbegin(), str.rbegin() + shift, str.rend());
     }
-    rotate(numStr.rbegin(), numStr.rbegin() + shift, numStr.rend());
-    return numStr;
+    return str;
 }
