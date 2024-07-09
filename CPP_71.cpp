@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-#include <iomanip>
 #include <cmath>
 
 using namespace std;
@@ -17,7 +15,8 @@ int main_cpp() {
     } else {
         float result = triangle_area(a, b, c);
         cout << "The area of the triangle is: ";
-        cout << std::fixed << std::setprecision(2) << result;
+        cout << fixed;
+        cout << setprecision(2) << result;
     }
 
     return 0;
