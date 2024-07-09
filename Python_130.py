@@ -1,16 +1,12 @@
-Here is the completed code:
-
 def tri(n):
     if n == 0:
         return [3]
     elif n == 1:
         return [3]
+    elif n == 2:
+        return [3, 2]
     else:
-        sequence = [3, 2]
+        t = [3, 2]
         for i in range(2, n):
-            if i % 2 == 0:
-                sequence.append(i // 2 + 1)
-            else:
-                last_three = sequence[-3:]
-                sequence.append(sum(last_three))
-        return sequence
+            t.append(t[i - 1] + t[i - 2] + (t[i - 3] if i > 2 else 0))
+        return t
