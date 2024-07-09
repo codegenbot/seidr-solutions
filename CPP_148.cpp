@@ -1,12 +1,12 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> bf(string planet1, string planet2) {
+std::vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     
     int index1 = -1;
@@ -30,7 +30,12 @@ vector<string> bf(string planet1, string planet2) {
 
     for (int i = 0; i < planets.size(); i++) {
         if (i >= index1 && i <= index2) {
-            result.push_back(planets[i]);
+            for (int j = 0; j < planets.size(); j++) {
+                if (planets[j] == planets[i]) {
+                    result.push_back(planets[j]);
+                    break;
+                }
+            }
         }
     }
 
