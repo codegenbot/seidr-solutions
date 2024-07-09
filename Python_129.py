@@ -27,6 +27,6 @@ def minFallingRainWater(grid):
             grid[i][j] = str(grid[i][j])
 
     start = [i for i, row in enumerate(map(str,grid)) if "1" in "".join(row)][0]
-    path = dfs(start, 0, [grid[start][0]], set())
+    path = dfs(start, 0, [str(grid[start][0])], set())
 
     return path
