@@ -27,15 +27,6 @@ bool isPrime(int n) {
     return true;
 
 int main() {
-    vector<int> lst;
-    int num;
-    while(true) {
-        cout << "Enter a number (-1 to stop): ";
-        cin >> num;
-        if(num == -1)
-            break;
-        lst.push_back(num);
-    }
-    cout << "Sum of digits of max prime in the list: " << skjkasdkd(lst) << endl;
+    assert (skjkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
