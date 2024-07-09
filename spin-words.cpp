@@ -32,8 +32,8 @@ std::string join(const std::vector<std::string>& words, char delimiter) {
 std::string spinWords(std::string str) {
     std::vector<std::string> words = split(str, ' ');
     for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() > 4) {
-            std::string temp = words[i];
+        std::string temp = words[i];
+        if (words[i].length() >= 5) {
             std::reverse(temp.begin(), temp.end());
             words[i] = temp;
         }
