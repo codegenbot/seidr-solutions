@@ -1,6 +1,6 @@
-```
 import hashlib
 import sys
+
 
 def string_to_md5():
     try:
