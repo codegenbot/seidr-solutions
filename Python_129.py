@@ -1,10 +1,12 @@
 def minPath(grid, k):
     n = len(grid)
+    min_path = float('inf')
 
-    def dfs(i, j, visited, cur_path, cur_sum):
+    def dfs(i, j, visited, current_path):
+        nonlocal min_path
         if len(visited) == k:
-            return cur_path
-
+            min_path = min(min_path, current_path)
+            return
         visited.add((i, j))
         neighbors = [(i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1)]
         neighbors = [
@@ -12,19 +14,12 @@ def minPath(grid, k):
             for x, y in neighbors
             if 0 <= x < n and 0 <= y < n and (x, y) not in visited
         ]
-        neighbors.sort(key=lambda x: (grid[x[0]][x[1]], x))
-        
-        min_path = None
+        neighbors.sort(key=lambda x: grid[x[0]][x[1]])
         for x, y in neighbors:
-            res = dfs(x, y, visited.copy(), cur_path + [grid[i][j]], cur_sum + grid[i][j])
-            if res:
-                if min_path is None or sum(res) < sum(min_path):
-                    min_path = res
-        return min_path
+            dfs(x, y, visited.copy(), current_path + grid[x][y])
 
     for i in range(n):
         for j in range(n):
-            path = dfs(i, j, set(), [], 0)
-            if path:
-                return path
-           
+            dfs(i, j, set(), grid[i][j])
+
+    return min_path
