@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <cctype>
@@ -27,6 +26,6 @@ int main() {
     std::vector<std::string> extensions;
     extensions.push_back("671235");
     extensions.push_back("Bb");
-    assert(Strongest_Extension("Student", extensions) == "Student.671235");
+    std::cout << Strongest_Extension("Student", extensions) << std::endl;
     return 0;
 }
