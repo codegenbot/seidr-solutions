@@ -1,5 +1,9 @@
+```cpp
 #include <vector>
-#include <algorithm>
+
+bool issame(int a, int b) {
+    return (a == b);
+}
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> result;
