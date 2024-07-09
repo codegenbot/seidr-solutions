@@ -1,6 +1,6 @@
 vector<float> even_values;
-    vector<float> result;
-
+    vector<float> result = l;
+    
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             even_values.push_back(l[i]);
@@ -12,10 +12,8 @@ vector<float> even_values;
     int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            result.push_back(even_values[even_index]);
+            result[i] = even_values[even_index];
             even_index++;
-        } else {
-            result.push_back(l[i]);
         }
     }
 
