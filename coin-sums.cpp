@@ -1,12 +1,11 @@
 #include <iostream>
-using namespace std;
 
 int main() {
     int n;
-    cin >> n;
-    cout << n % 5 << endl;
-    cout << (n / 5) % 5 << endl;
-    cout << (n / 5) / 5 << endl;
-    cout << 0 << endl;
+    std::cin >> n;
+    std::cout << n % 5 << std::endl;
+    std::cout << n / 5 << std::endl;
+    std::cout << 0 << std::endl;
+    std::cout << 0 << std::endl;
     return 0;
 }
