@@ -4,18 +4,6 @@ bool issame(vector<int> a, vector<int> b);
 
 vector<int> intersperse(vector<int> numbers, int delimeter);
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 vector<int> intersperse(vector<int> numbers, int delimeter){
     vector<int> result;
     if(numbers.empty()){
@@ -29,7 +17,7 @@ vector<int> intersperse(vector<int> numbers, int delimeter){
     return result;
 }
 
-int main(){
-    // Main function code here
+int main() {
+    // Your main program logic here
     return 0;
 }
