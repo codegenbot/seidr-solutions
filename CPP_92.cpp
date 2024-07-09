@@ -1,7 +1,5 @@
-Here is the completed code:
-
-bool any_int(float a, float b, float c) {
-    if (abs(a - (b + c)) < 1e-6 && abs(b - (a + c)) < 1e-6 && abs(c - (a + b)) < 1e-6) {
+bool any_int(float a, float b, float c){
+    if(int(a) + int(b) == int(c) || int(a) + int(c) == int(b) || int(b) + int(c) == int(a)){
         return true;
     }
     return false;
