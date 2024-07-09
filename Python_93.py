@@ -1,15 +1,15 @@
-```
+import re
+
+
 def encode(message):
     result = ""
-    for char in message:
-        if char.isalpha():
-            if char.lower() in 'aeiou':
-                if char == char.lower():
-                    result += chr((ord(char) - 97 + 2) % 26 + 97)
-                else:
-                    result += char.swapcase()
-            else:
-                result += chr((ord(char.lower()) - 96 + 1) % 26 + 96).upper() if char.isupper() else chr((ord(char.lower()) - 96 + 1) % 26 + 96)
+    words = re.findall(r"\w+|[^\w\s]", message)
+    for word in words:
+        if word.lower() in "aeiou":
+            result += "".join(
+                chr((ord(c) - 97 + 2) % 26 + 97) if c.isalpha() else c for c in word
+            )
         else:
-            result += char
-    return result
+            result += word.swapcase()
+        result += " "
+    return result.strip().lower()
