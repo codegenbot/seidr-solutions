@@ -4,7 +4,7 @@ def add(x, y):
 
 try:
     print("Enter two integers separated by space:")
-    x, y = map(int, raw_input().strip().split())
+    x, y = map(int, input("Enter two integers separated by space: ").strip().split())
 
     result = add(x, y)
     print(result)
