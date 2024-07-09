@@ -22,8 +22,6 @@ bool same(std::vector<int> a, std::vector<int> b){
 }
 
 int main() {
-    int nums[] = {1, 2, 3, 2, 4, 3, 5};
-    std::vector<int> numbers(nums, nums + sizeof(nums)/sizeof(nums[0]));
-    assert(same(remove_duplicates(numbers) , {1, 4, 5}));
+    assert(same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
     return 0;
 }
