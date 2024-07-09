@@ -1,16 +1,25 @@
 #include <vector>
 #include <string>
 
-int smallest_change(std::vector<int> arr) {
-    int n = arr.size();
+int main() {
+    int n;
+    std::cout << "Enter number of integers: ";
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter integer " << i + 1 << ": ";
+        std::cin >> arr[i];
+    }
+
+    int changes = 0;
     std::string s = "";
     for (int i : arr) {
         s += std::to_string(i);
     }
     int left = 0, right = s.length() - 1;
-    int changes = 0;
-    bool swapped;
-    do {
+    bool swapped = true;
+    while (swapped) {
         swapped = false;
         for (int i = left; i < right; ++i) {
             if (s[i] != s[s.length() - 1 - i]) {
@@ -22,11 +31,7 @@ int smallest_change(std::vector<int> arr) {
         }
         left++;
         right--;
-    } while (swapped);
+    }
+    
     return changes;
-}
-
-int main() {
-    int smallestChanges = smallest_change({5, 6, 3, 4});
-    return 0;
 }
