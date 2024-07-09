@@ -4,19 +4,14 @@
 
 using namespace std;
 
-string compare_one(string a, string b) {
-    float num1 = stof(a);
-    float num2 = stof(b);
+string compareOne(string a, string b) {
+    float numA = stof(a);
+    float numB = stof(b);
 
-    if(num1 > num2)
+    if (numA > numB)
         return a;
-    else if(num1 < num2)
+    else if (numA < numB)
         return b;
     else
         return "None";
-}
-
-int main() {
-    cout << compare_one("123.45", "234.56") << endl;
-    return 0;
 }
