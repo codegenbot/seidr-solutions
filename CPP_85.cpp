@@ -1,12 +1,8 @@
-#include <vector>
-#include <numeric>
-
-using namespace std;
-
-int add(vector<int> lst) {
-    return accumulate(ist.begin(), ist.end(), 0,
-        [this](int acc, int val){ 
-            if ((val % 2 == 0) && (find(ist.begin(), ist.end(), val) - ist.begin() & 1)) 
-                return acc + val; 
-            return acc; } );
+int add(vector<int> lst){
+    int result = 0;
+    for(int i = 1; i < lst.size(); i++){
+        if(i % 2 != 0 && lst[i] % 2 == 0)
+            result += lst[i];
+    }
+    return result;
 }
