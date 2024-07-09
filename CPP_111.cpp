@@ -1,29 +1,39 @@
+#include <string>
+#include <map>
+using namespace std;
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string str = test;
-    for (char c : str) {
-        if (result.find(c) == result.end())
-            result[c] = 1;
-        else
-            result[c]++;
-    }
-
     int maxCount = 0;
-    vector<pair<char, int>> maxLetters;
-    for (auto& p : result) {
-        if (p.second > maxCount) {
-            maxCount = p.second;
-            maxLetters.clear();
-            maxLetters.push_back(p);
-        } else if (p.second == maxCount)
-            maxLetters.push_back(p);
+    char mostRepeatedChar = '\0';
+
+    string lettersOnly = test;
+    for (char& c : lettersOnly) {
+        c = tolower(c);
     }
 
-    map<char, int> finalResult;
-    for (auto& p : maxLetters)
-        finalResult[p.first] = p.second;
+    for (const auto& pair : unique(lettersOnly)) {
+        int count = 0;
+        for (const auto& letter : lettersOnly) {
+            if (letter == pair.second) {
+                count++;
+            }
+        }
+        if (count > maxCount) {
+            maxCount = count;
+            mostRepeatedChar = pair.second;
+        } else if (count == maxCount) {
+            result[mostRepeatedChar] = maxCount;
+        }
+    }
 
-    return finalResult;
+    for (const auto& letter : lettersOnly) {
+        if (letter == mostRepeatedChar) {
+            result[letter] = maxCount;
+        }
+    }
+
+    return result;
 }
