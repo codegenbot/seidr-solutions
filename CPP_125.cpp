@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cctype>
 #include <cassert>
-
-using namespace std;
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> words;
@@ -24,7 +23,7 @@ std::vector<std::string> split_words(std::string txt) {
     if (words.empty()) {
         int count = 0;
         for (char& c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
+            if (std::islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
