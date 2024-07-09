@@ -1,6 +1,6 @@
-#include <algorithm>
-
 string sort_numbers(const string& numbers) {
+    #include <algorithm>
+
     map<string, int> number_map = {
         {"zero", 0},
         {"one", 1},
@@ -14,22 +14,13 @@ string sort_numbers(const string& numbers) {
         {"nine", 9}
     };
 
-    vector<string> numbers_vec;
-
-    stringstream ss(numbers);
-    string num;
-    while (ss >> num) {
-        numbers_vec.push_back(num);
-    }
-
-    sort(numbers_vec.begin(), numbers_vec.end(), [&](const string &a, const string &b) {
+    sort(numbers.begin(), numbers.end(), [&](const string &a, const string &b) {
         return number_map[a] < number_map[b];
     });
 
     string result;
-    for (const string& num : numbers_vec) {
+    for (const string& num : numbers) {
         result += num + " ";
     }
-
     return result;
 }
