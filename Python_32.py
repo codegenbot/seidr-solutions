@@ -1,5 +1,3 @@
-Here is the complete solution:
-
 ```python
 import math
 
