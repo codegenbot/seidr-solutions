@@ -1,6 +1,9 @@
+Here is the corrected code:
+
+```cpp
 #include <vector>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a != b)
         return false;
     return true;
