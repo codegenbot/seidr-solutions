@@ -1,5 +1,4 @@
-int main 
-{
+int main() {
     float a, b, c;
     std::cout << "Enter three sides of the triangle: ";
     std::cin >> a >> b >> c;
