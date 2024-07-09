@@ -1,7 +1,5 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <initializer_list>
-#include <string>
 
 using namespace std;
 
