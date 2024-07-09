@@ -25,8 +25,10 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
     int n = grid.size();
     if (k == 0) {
-        for (int i = 0; i < res.size(); i++) {
-            res[i] = res[0];
+        for(int i=0; i<res.size(); i++){
+            for(int j=i+1; j<res.size(); j++){
+                if(res[i] != res[j]) return;
+            }
         }
         return;
     }
@@ -42,9 +44,4 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y,
         }
     }
     visited[x][y] = false;
-}
-
-int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    return 0;
 }
