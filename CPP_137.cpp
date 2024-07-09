@@ -12,7 +12,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (boost::any_cast<std::string>(a) > boost::any_cast<std::string>(b))
             return a;
         else
-            return boost::any(std::string("None"));
+            return boost::any();
     } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int x = boost::any_cast<int>(a);
         int y = boost::any_cast<int>(b);
@@ -21,7 +21,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (x < y)
             return b;
         else
-            return boost::any(std::string("None"));
+            return boost::any();
     } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
         double x = boost::any_cast<double>(a);
         double y = boost::any_cast<double>(b);
@@ -30,6 +30,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (x < y)
             return b;
         else
-            return boost::any(std::string("None"));
+            return boost::any();
     }
 }
