@@ -1,7 +1,7 @@
-if (x <= 0 || n <= 0) {
-        return false;
+if (x == 1) return true;
+    int power = 0;
+    while (pow(n, power) < x) {
+        power++;
     }
-
-    double result = pow(x, 1.0 / n);
-    return (result == floor(result));
+    return pow(n, power) == x;
 }
