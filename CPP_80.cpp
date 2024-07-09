@@ -12,9 +12,11 @@ bool is_happy(const std::string& s) {
 }
 
 int main() {
-    std::cout << is_happy("abc") << std::endl;  // Test case 1
-    std::cout << is_happy("aba") << std::endl;  // Test case 2
-    std::cout << is_happy("aaab") << std::endl; // Test case 3
-
+    std::string test_case1 = "abc";
+    std::string test_case2 = "aab";
+    
+    std::cout << is_happy(test_case1) << std::endl; // Output: 1 (true)
+    std::cout << is_happy(test_case2) << std::endl; // Output: 0 (false)
+    
     return 0;
 }
