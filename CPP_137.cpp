@@ -1,38 +1,25 @@
-```cpp
-#include <iostream>
-#include <string>
 #include <boost/any.hpp>
 
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = boost::any_cast<int>(a);
-        int y = boost::any_cast<int>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float x = boost::any_cast<float>(a);
-        float y = boost::any_cast<float>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string x = boost::any_cast<string>(a);
-        string y = boost::any_cast<string>(b);
-        return (stof(x) > stof(y)) ? a : ((stof(x) < stof(y)) ? b : boost::any("None"));
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string x = boost::any_cast<string>(a);
-        return (stof(x) > b) ? a : ((stof(x) < b) ? b : boost::any("None"));
-    } else if (b.type() == typeid(string) && a.type() == typeid(float)) {
-        string y = boost::any_cast<string>(b);
-        return (stof(y) > a) ? b : ((stof(y) < a) ? a : boost::any("None"));
-    } else {
-        return boost::any("None");
-    }
-}
-
-int main() {
-    cout << boost::any_cast<string>(compare_one(1, 2.5)) << endl;
-    cout << boost::any_cast<string>(compare_one(1, "2.5")) << endl;
-    cout << boost::any_cast<string>(compare_one("5", "6")) << endl;
-    cout << boost::any_cast<string>(compare_one("1", 1)) << endl;
-    return 0;
+    if (is_none(a) || is_none(b)) return none;
+    
+    int i1 = any_cast<int>(a);
+    float f1 = any_cast<float>(a);
+    std::string s1 = any_cast<std::string>(a);
+    
+    int i2 = any_cast<int>(b);
+    float f2 = any_cast<float>(b);
+    std::string s2 = any_cast<std::string>(b);
+    
+    if (i1 > i2) return a;
+    else if (f1 > f2) return a;
+    else if (s1 > s2) return a;
+    
+    if (i2 > i1) return b;
+    else if (f2 > f2) return b;
+    else if (s2 > s1) return b;
+    
+    return none;
 }
