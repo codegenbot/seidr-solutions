@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -9,17 +10,28 @@ std::string rounded_avg(int n, int m) {
         sum += i;
     }
     double avg = static_cast<double>(sum) / (m - n + 1);
-    avg = std::nearbyintf(avg); 
+    avg = std::nearbyint(avg + 0.5); 
     int val = static_cast<int>(avg);
     std::string binary;
     while (val > 0) {
         if(val % 2 == 0) {
-            binary.push_back('0');
+            std::string temp = '0';
+            binary += temp;
         } else {
-            binary.push_back('1');
+            std::string temp = '1';
+            binary += temp;
         }
         val /= 2;
     }
 
     std::reverse(binary.begin(), binary.end());
     return binary.empty() ? "0" : binary;
+}
+
+int main() {
+    int n, m;
+    std::cout << "Enter two numbers: ";
+    std::cin >> n >> m;
+    std::cout << rounded_avg(n, m);
+    return 0;
+}
