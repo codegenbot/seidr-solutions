@@ -1,8 +1,12 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), [&] (int a, int b) {
+    sort(nums.begin(), nums.end(), [&] (int a, int b) {
         if (getSumOfDigits(a) == getSumOfDigits(b)) {
             return a > b;
         }
@@ -19,5 +23,4 @@ int getSumOfDigits(int num) {
         num /= 10;
     }
     return sum;
-
 }
