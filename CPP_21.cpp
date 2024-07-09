@@ -1,7 +1,16 @@
-float min_val = *min_element(numbers.begin(), numbers.end());
-    float max_val = *max_element(numbers.begin(), numbers.end());
-    for (size_t i = 0; i < numbers.size(); ++i) {
-        numbers[i] = (numbers[i] - min_val) / (max_val - min_val);
+float min_num = numbers[0], max_num = numbers[0];
+    
+    for (float num : numbers) {
+        if (num < min_num) min_num = num;
+        if (num > max_num) max_num = num;
     }
-    return numbers;
+    
+    float diff = max_num - min_num;
+    vector<float> result;
+    
+    for (float num : numbers) {
+        result.push_back((num - min_num) / diff);
+    }
+    
+    return result;
 }
