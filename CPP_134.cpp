@@ -1,21 +1,14 @@
-int start() {
-    char ch;
-    std::cout << "Enter a character: ";
-    std::cin >> ch;
+```cpp
+#include <string>
+using namespace std;
 
-    if(ch == 'z' || ch == 'Z') {
-        std::cout << "The last character is Z." << std::endl;
-    }
-    else if(isalpha(ch)) {
-        std::cout << "The last character is a letter." << std::endl;
-    }
-    else {
-        std::cout << "The last character is not a letter." << std::endl;
-    }
-
-    return 0;
+bool check_if_last_char_is_a_letter(const string& str) {
+    if(str.empty()) return false;
+    int c = str.back(); 
+    return ::isalpha(c);  
 }
 
 int main() {
-    start();
+    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
+    return 0;
 }
