@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <limits.h>
 using namespace std;
 
 bool isSame(vector<int> a, vector<int> b) {
@@ -14,13 +13,13 @@ bool isSame(vector<int> a, vector<int> b) {
 vector<int> make_a_pile(int n) {
     vector<int> pile;
     int stones = n;
-    while (stones > 0 && n <= INT_MAX / 2) { 
+    while (stones > 0) {
         pile.push_back(stones);
-        if (n % 2 == 1) {
+        if (n % 2 != 0) {
             n++;
             stones = n;
         } else {
-            n++;
+            n += 2; 
             stones = n;
         }
     }
