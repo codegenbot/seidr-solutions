@@ -30,7 +30,7 @@ int main() {
     std::cin >> n;
 
     // Create a new vector and fill space
-    std::vector<int> game;
+    std::vector<int> game; 
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
@@ -39,7 +39,7 @@ int main() {
     }
     
     // Create a new vector and fill space
-    std::vector<int> guess;
+    std::vector<int> guess; 
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;

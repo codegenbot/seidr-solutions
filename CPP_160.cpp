@@ -1,31 +1,24 @@
-```c++
-#include <initializer_list>
-#include <vector>
 #include <cassert>
-#include <iostream>
-
 class _160 {
 public:
-    int do_algebra(const std::vector<std::string>& ops, const std::initializer_list<int>& nums) {
-        if (ops.size() != static_cast<size_t>(nums.size())) {
-            return -1;
+    int do_algebra(std::vector<std::string>, std::vector<int>) {
+        if (std::find(std::begin(std::get<1>(args)), std::end(std::get<1>(args)), 0) != std::end(std::get<1>(args))) {
+            return 0;
         }
-        
-        int result = *nums.begin();
-        for (int i = 0; i < ops.size(); i++) {
-            if (ops[i] == "*") {
-                result *= *(nums.begin() + i);
-            } else if (ops[i] == "//") {
-                result /= *(nums.begin() + i);
+        int result = *std::max_element(std::begin(std::get<1>(args)), std::end(std::get<1>(args)));
+        for (int i = 0; i < std::size(args[0]); ++i) {
+            if (args[0][i] == '*') {
+                result *= *std::max_element(std::begin(std::get<1>(args)), std::end(std::get<1>(args)));
+            } else if (args[0][i] == '//') {
+                result /= *std::min_element(std::begin(std::get<1>(args)), std::end(std::get<1>(args)));
             }
         }
-        
         return result;
     }
 };
 
 int main() {
     _160 obj;
-    int output = obj.do_algebra({"*","//"}, {7, 3, 4});
-    std::cout << output << std::endl;
+    assert(obj.do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    return 0;
 }
