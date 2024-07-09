@@ -21,8 +21,7 @@ string split(const string& str, char sep) {
     size_t pos = 0;
     while ((pos = str.find(sep)) != string::npos) {
         tokens.push_back(str.substr(0, pos));
-        tokens.push_back(str.substr(pos + 1));
-        str = "";
+        str = str.substr(pos + 1);
     }
     tokens.push_back(str);
     return join(tokens, " ");
@@ -43,12 +42,15 @@ string anti_shuffle(string s) {
 
     string result = "";
     for (const auto& word : words) {
-        string w = word;
-        sort(w.begin(), w.end());
-        if (!result.empty()) {
-            result += " ";
-        }
-        result += w;
+        result += word + " ";
+        sort(word.begin(), word.end());
     }
-    return result;
+    return result.substr(0, result.size() - 1);
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << anti_shuffle(s) << endl;
+    return 0;
 }
