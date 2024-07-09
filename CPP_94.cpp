@@ -1,8 +1,7 @@
-```cpp
+```
 #include <vector>
 #include <cmath>
 #include <iostream>
-#include <initializer_list>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -28,16 +27,15 @@ int find_max_prime_and_sum_digits(std::vector<int> lst){
 
 int main() {
     std::vector<int> lst;
-    int n;
+    int n, num, maxPrimeAndSum;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for(int i = 0; i < n; i++){
-        int num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
         lst.push_back(num);
     }
-    int maxPrimeAndSum = find_max_prime_and_sum_digits(lst);
+    maxPrimeAndSum = find_max_prime_and_sum_digits(lst);
     if(maxPrimeAndSum == 10) {
         std::cout << "The sum of digits is equal to 10." << std::endl;
     } else {
