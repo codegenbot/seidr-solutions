@@ -1,8 +1,6 @@
-```
 #include <iostream>
 #include <vector>
 #include <iomanip>
-#include <sstream>
 
 float shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
     float totalPrice = 0;
