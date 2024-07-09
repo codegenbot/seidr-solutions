@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <string>
 #include <iostream>
 
 bool issame(vector<string> v1, vector<string> v2) {
@@ -40,7 +39,8 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
 
 int main() {
     vector<string> lst = {"apple", "banana", "hello", "world", "foo"};
-    if (issame(lst, lst)) {
+    const vector<string>& lst_copy = lst;
+    if (issame(lst, lst_copy)) {
         vector<string> output = sorted_list_sum(lst);
         for (const auto& str : output) {
             std::cout << str << std::endl;
