@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -22,10 +23,9 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 }
 
 int main() {
-    // example usage
-    std::vector<std::vector<int>> grid = {{1, 0, 1}, {1, 1, 1}};
+    std::vector<std::vector<int>> grid = {{1, 0, 1}, {1, 1, 0}};
     int capacity = 2;
-    std::cout << max_fill(grid, capacity) << std::endl;
-
+    int result = max_fill(grid, capacity);
+    std::cout << "Maximum number of buckets needed: " << result << std::endl;
     return 0;
 }
