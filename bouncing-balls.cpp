@@ -22,5 +22,4 @@ int main() {
     ss << std::to_string(numBounces);
 
     std::cout << ss.str();
-    return 0;
 }
