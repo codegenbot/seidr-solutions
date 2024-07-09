@@ -1,10 +1,10 @@
 using namespace std;
 
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
+vector<vector<float>> get_positive(vector<vector<float>> l){
+    vector<vector<float>> result;
     for(float num : l) {
         if(num > 0) {
-            result.push_back(num);
+            result.push_back({num});
         }
     }
     return result;
