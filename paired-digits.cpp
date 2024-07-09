@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 int pairedDigits(string s) {
     int sum = 0;
