@@ -5,26 +5,19 @@ using namespace std;
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
-    int maxRightSoFar = arr[n - 1];
     for (int i = n - 1; i >= 0; i--) {
-        if (arr[i] >= maxRightSoFar) {
+        bool isLeader = true;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
+        }
+        if (isLeader) {
             result.push_back(arr[i]);
-            maxRightSoFar = arr[i];
         }
     }
-    return result;
-}
-
-vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> result;
-    int maxRightSoFar = arr[n - 1];
-    for (int i = n - 1; i >= 0; i--) {
-        if (arr[i] >= maxRightSoFar) {
-            result.push_back(arr[i]);
-            maxRightSoFar = arr[i];
-        }
-    }
+    reverse(result.begin(), result.end());
     return result;
 }
 
@@ -35,4 +28,3 @@ int main() {
         cout << i << endl;
     }
     return 0;
-}
