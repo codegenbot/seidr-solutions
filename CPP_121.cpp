@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <cassert>
 
@@ -12,16 +11,4 @@ int sumOdd(std::vector<int> lst) {
     return sum;
 }
 
-int solutions(std::vector<int> lst) { 
-    int sum = sumOdd(lst);
-    for (int i : lst) {
-        if (i % 2 == 0 && i > 0)
-            sum -= i; 
-    }
-    return sum;
-}
-
-int main() {
-    assert(solutions({3, 13, 2, 9}) == 25);
-    std::cout << "Test passed.\n";
-}
+assert(sumOdd({3, 13, 2, 9}) == 25) << "Expected sum of odd numbers to be 25 but got " << sumOdd({3, 13, 2, 9});
