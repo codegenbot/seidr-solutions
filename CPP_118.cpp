@@ -4,19 +4,21 @@ using namespace std;
 
 string get_closest_vowel(string word) {
     int n = word.size();
-    for(int i = n - 1; i > 0; i--) {
+    string closestVowel = "";
+    
+    for(int i = 0; i < n; i++) {
         if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || 
            word[i] == 'o' || word[i] == 'u' || word[i] == 'A' || 
            word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || 
            word[i] == 'U') {
-            int j = i - 1;
-            while(j > 0 && !ispunct(word[j]) && (word[j] < 'a' || word[j] > 'z')) {
-                j--;
-            }
-            if(j >= 0) {
-                return string(1, word[i]);
-            }
+            closestVowel = string(1, tolower(word[i]));
+            break;
         }
     }
-    return "";
+    
+    if(closestVowel.empty()) {
+        return "No vowel found";
+    }
+    
+    return closestVowel;
 }
