@@ -3,6 +3,7 @@
 #include <vector>
 #include <limits>
 #include <utility>
+#include <initializer_list>
 
 bool issame(vector<float> a,vector<float>b){
     return a==b;
