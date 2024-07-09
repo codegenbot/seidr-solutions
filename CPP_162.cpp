@@ -1,4 +1,3 @@
-```c++
 #include <openssl/ssl.h>
 #include <string>
 
@@ -21,7 +20,6 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    string text = "password";
-    cout << "MD5 of '" << text << "' is: " << string_to_md5(text) << endl;
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cfa99");
     return 0;
 }
