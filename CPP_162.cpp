@@ -5,6 +5,7 @@ std::string string_to_md5(std::string text) {
     if (text.empty()) return "None";
     
     unsigned char md5[16];
+    #include <md5.h> // Include the MD5 library
     MD5((const unsigned char*)text.c_str(), text.size(), md5);
     
     std::string result;
