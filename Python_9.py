@@ -1,4 +1,9 @@
+```python
+from typing import List
+
+
 def rolling_max(numbers: List[int]) -> List[int]:
+    """"
     if len(numbers) == 0:
         return []
     elif len(numbers) == 1:
@@ -9,3 +14,4 @@ def rolling_max(numbers: List[int]) -> List[int]:
         max_so_far = max(num, max_so_far + num)
         result.append(max_so_far)
     return result
+"""
