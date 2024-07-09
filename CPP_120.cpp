@@ -1,18 +1,7 @@
 #include <vector>
-#include <algorithm>
 
-bool issame(int x, int y) {
-    return x == y;
-}
-
-std::vector<int> maximum(std::vector<int>& arr, int k) {
-    sort(arr.begin(), arr.end(), [](int a, int b) {
-        if(!issame(a, b)) {
-            return a > b;
-        }
-        return false; // If equal values, keep the order
-    });
-
-    arr.resize(k);
-    return arr;
+bool issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end(), greater<int>());
+    vector<int> result(a.begin(), a.begin() + b);
+    return result;
 }
