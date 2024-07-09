@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(const vector<int>& a, const vector<int>& b) {
     return (a == b);
@@ -14,5 +15,7 @@ vector<int> even_odd_count(int num) {
         else
             odds++;
     }
-    return std::vector<int>(2) = {evens, odds};
+    return {evens, odds};
 }
+
+assert(issame(even_odd_count(0), vector<int>({0,1}));
