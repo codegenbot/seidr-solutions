@@ -20,14 +20,12 @@ int main() {
     if (n < 1) {
         ostringstream oss;
         oss << "Invalid input. Please enter a positive integer.";
-        string output = oss.str();
-        cout << output << endl; 
+        cout << oss.str() << endl; 
     } else {
         int result = fizz_buzz(n);
         ostringstream oss;
         oss << "Result for " << n << ": " << result;
-        string output = oss.str();
-        cout << output << endl; 
+        cout << oss.str() << endl; 
     }
     return 0;
 }
