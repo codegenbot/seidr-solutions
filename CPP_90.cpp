@@ -1,16 +1,15 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 int next_smallest(vector<int> lst) {
     vector<int> v = lst;
     sort(v.begin(), v.end());
-    for (int i = 0; i < v.size() - 1; i++) {
-        if (v[i] > v[0]) return v[i+1];
+    for (int i = 1; i < v.size(); i++) {
+        if (v[i] > v[0]) return v[i];
     }
-    return v[0]; 
+    return -1; 
 }
 
 int main() {
