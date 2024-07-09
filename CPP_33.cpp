@@ -7,12 +7,14 @@ using namespace std;
 
 vector<int> sort_third(vector<int> l) {
     vector<int> result;
+    int initialCapacity = l.size() * 3 / 3; // adjust based on your expected output size
+    result.reserve(initialCapacity);
     int i = 0;
     for (i = 0; i < l.size(); ) {
         if (i % 3 == 0 && i + 3 <= l.size()) {
-            int block_size = min((l.size() - i)/3*3, l.size() - i);
+            int block_size = min(3, l.size() - i);
             vector<int> temp;
-            for (int j = i; j < i + block_size; j++) {
+            for (int j = i; j < min(i + 3, l.size()); j++) {
                 temp.push_back(l[j]);
             }
             sort(temp.begin(), temp.end());
