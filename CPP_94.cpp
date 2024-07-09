@@ -25,5 +25,8 @@ bool isPrime(int n) {
     return true;
 }
 
-std::vector<int> lst = {1, 2, 3, 4, 5};
-std::cout << find_max_prime_and_sum_digits(lst);
+int main() {
+    std::vector<int> lst = {1, 2, 3, 4, 5};
+    std::cout << find_max_prime_and_sum_digits(lst);
+    return 0;
+}
