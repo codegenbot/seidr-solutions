@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -27,7 +27,7 @@ bool getNumbers(vector<int>& numbers, int& threshold) {
     return true;
 }
 
-bool main() {
+int main() {
     vector<int> numbers(5); 
     int threshold;
 
