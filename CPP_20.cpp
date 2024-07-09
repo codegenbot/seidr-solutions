@@ -1,4 +1,12 @@
 #include <algorithm>
+#include <vector>
+#include <limits>
+
+using namespace std;
+
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
 
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
@@ -14,4 +22,8 @@ vector<float> find_closest_elements(vector<float> numbers) {
     }
     
     return vector<float>(closest_pair.begin(), closest_pair.end());
+}
+
+int main() {
+    assert(isSame({1.1, 2.2, 3.1, 4.1, 5.1}, {2.2, 3.1}));
 }
