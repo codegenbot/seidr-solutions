@@ -8,14 +8,9 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    int num1, num2;
+    int x, n;
     std::cout << "Enter a number: ";
-    std::cin >> num1;
-    std::cout << "Enter another number: ";
-    std::cin >> num2;
-    if (is_simple_power(num1, num2))
-        std::cout << "The first number is a power of the second.\n";
-    else
-        std::cout << "The first number is not a power of the second.\n";
+    std::cin >> x;
+    std::cout << "Is it simple power? " << std::boolalpha << is_simple_power(x, 2) << std::endl;
     return 0;
 }
