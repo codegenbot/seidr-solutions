@@ -1,8 +1,11 @@
-const char* intersection(std::vector<int> interval1, std::vector<int> interval2) {
-    int start = std::max(interval1[0], interval2[0]);
-    int end = std::min(interval1[1], interval2[1]);
+#include <iostream>
+#include <vector>
 
-    if (start > end) return "NO";
+int intersection(std::pair<int, int> interval1, std::pair<int, int> interval2) {
+    int start = std::max(interval1.first, interval2.first);
+    int end = std::min(interval1.second, interval2.second);
+
+    if (start > end) return 0;
 
     int length = end - start + 1;
 
@@ -14,4 +17,5 @@ const char* intersection(std::vector<int> interval1, std::vector<int> interval2)
         }
     }
 
-    return isPrime ? "YES" : "NO";
+    return isPrime ? 1 : 0;
+}
