@@ -1,4 +1,3 @@
-#include <string>
 #include <map>
 #include <cctype>
 
@@ -13,17 +12,10 @@ bool check_dict_case(map<string, string> dict) {
             allLower = false;
             allUpper = false;
             break;
-        }
-        else if (!allLower && !allUpper) continue;
-        else if (!allLower) {
-            for (char& c : pair.first) {
-                if (isupper(c)) return false;
-            }
-        }
-        else if (!allUpper) {
-            for (char& c : pair.first) {
-                if (islower(c)) return false;
-            }
+        } else if ((allLower && isupper(pair.first[0])) || (allUpper && islower(pair.first[0]))) {
+            allLower = false;
+            allUpper = false;
+            break;
         }
     }
 
