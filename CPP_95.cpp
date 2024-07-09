@@ -1,31 +1,32 @@
-```cpp
-#include <map>
-#include <cctype>
-#include <string>
-#include <algorithm>
+map<string,string> dict;
+string first_key;
 
-bool check_dict_case(std::map<std::string, std::string> dict) {
-    if (dict.empty()) return false;
+cout << "Enter a series of key-value pairs (e.g., 'name:John'): ";
+while (true) {
+    string line, key, value;
+    cin >> line;
+    if (line.empty()) break;  // End of input
 
-    bool allLower = true;
-    bool allUpper = true;
-
-    for (auto& pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            allLower = false;
-            allUpper = false;
-            break;
-        } else if (!allLower && !allUpper) continue;
-        else if (!allLower) allUpper = true;
-        else allLower &= islower(pair.first[0]);
+    size_t colon = line.find(':');
+    if (colon == string::npos || line.size() < 2) {
+        cout << "Invalid format. Please use 'key:value'." << endl;
+        continue;
     }
 
-    return allLower || allUpper;
+    key = line.substr(0, colon);
+    value = line.substr(colon + 1);
+    dict[key] = value;
+
+    if (dict.empty()) {
+        first_key = key;
+    } else if (std::toupper(first_key[0]) != std::toupper(key[0])) {
+        cout << "Error: Dictionary case mismatch." << endl;
+        return 1;  // Exit with error code
+    }
 }
 
-int main() {
-    std::map<std::string, std::string> dict;
-    // perform operations on the dictionary
-    assert(check_dict_case(dict) == false);
-    return 0;
+if (!check_dict_case(dict)) {
+    cout << "Error: Dictionary is not in the same case." << endl;
+} else {
+    cout << "Dictionary is consistent in case." << endl;
 }
