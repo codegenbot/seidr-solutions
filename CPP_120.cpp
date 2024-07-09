@@ -1,14 +1,25 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-int maximum(vector<int>& arr, int k) {
-    sort(arr.begin(), arr.end(), greater<int>());
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    sort(arr.begin(), arr.end(), std::greater<int>());
     arr.resize(k);
     return arr;
 }
 
-int main() {
-    vector<int> arr = {3, 1, 4, 1, 5, 9, 2, 6};
-    assert(maximum(arr, 3) == {9, 6, 5});
-    return 0;
-}
+// Main function or any other additional code is not provided as it was not necessary for the requested modification.
