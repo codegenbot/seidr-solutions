@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -53,28 +52,16 @@ int main() {
     cout << "Enter the second planet: ";
     cin >> planet2;
 
-    if (issame(planet1, planet2)) {
-        vector<string> result = bf(planet1, planet2);
-        if (!result.empty()) {
-            cout << "The planets between " << planet1 << " and " << planet2 << " are: ";
-            for (string planet : result) {
-                cout << planet << " ";
-            }
-            cout << endl;
-        } else {
-            cout << "The planets " << planet1 << " and " << planet2 << " are the same." << endl;
+    vector<string> result = bf(planet1, planet2);
+
+    if (!result.empty()) {
+        cout << "The planets between " << planet1 << " and " << planet2 << " are: ";
+        for (string planet : result) {
+            cout << planet << " ";
         }
+        cout << endl;
     } else {
-        vector<string> result = bf(planet1, planet2);
-        if (!result.empty()) {
-            cout << "The planets between " << planet1 << " and " << planet2 << " are: ";
-            for (string planet : result) {
-                cout << planet << " ";
-            }
-            cout << endl;
-        } else {
-            cout << "The planets " << planet1 << " and " << planet2 << " are the same." << endl;
-        }
+        cout << "The planets " << planet1 << " and " << planet2 << " are the same." << endl;
     }
 
     return 0;
