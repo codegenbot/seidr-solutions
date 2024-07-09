@@ -1,6 +1,8 @@
-#include <string>;
+#include <iostream>
+#include <string>
+#include <openssl/md5.h>
 
-string string_to_md5(const string& text) {
+std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "None";
     }
@@ -13,12 +15,11 @@ string string_to_md5(const string& text) {
         sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
     }
 
-    return string(mdString, 32);
+    return std::string(mdString);
 }
 
 int main() {
-    string input = "Hello, World!";
-    string hash = string_to_md5(input);
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
 
     return 0;
 }

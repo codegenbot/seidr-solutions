@@ -1,13 +1,21 @@
-string solve(string s){
-    bool hasLetter = false;
+#include <iostream>
+#include <algorithm>
+
+std::string solve(std::string s) {
     for(char &c : s){
         if(isalpha(c)){
-            hasLetter = true;
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if(!hasLetter){
+    if(all_of(s.begin(), s.end(), [](char c){ return !isalpha(c); })){
         reverse(s.begin(), s.end());
     }
     return s;
+}
+
+int main() {
+    std::string input;
+    std::cin >> input;
+    std::cout << solve(input) << std::endl;
+    return 0;
 }
