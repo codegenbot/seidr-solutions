@@ -13,24 +13,24 @@ std::vector<int> get_odd_collatz(int n) {
             result.push_back(n);
         }
     }
-    return result;
+    return result; // stop storing numbers when n becomes 1
 }
 
 int main() {
     int num;
-    std::cout << "Enter a positive integer: ";
+    std::cout << "Enter a number: ";
     std::cin >> num;
-    
-    auto output = get_odd_collatz(num);
 
-    if (!output.empty()) {
-        std::cout << "The sequence for the input number is: ";
-        for (int i : output) {
+    std::vector<int> sequence = get_odd_collatz(num);
+
+    if (sequence.size() == 0) {
+        std::cout << "The chain ending in 1 has no odd terms." << std::endl;
+    } else {
+        std::cout << "The odd Collatz sequence for " << num << " is: ";
+        for (int i : sequence) {
             std::cout << i << " ";
         }
         std::cout << std::endl;
-    } else {
-        std::cout << "No odd Collatz sequence found for this number." << std::endl;
     }
 
     return 0;
