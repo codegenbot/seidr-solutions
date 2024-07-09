@@ -1,11 +1,12 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b);
-
-vector<string> sorted_list_sum(const vector<string>& lst);
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
 
 vector<string> sorted_list_sum(const vector<string>& lst) {
     vector<string> sorted_lst = lst;
@@ -19,11 +20,12 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
     return sorted_lst;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
 int main() {
-    // main function logic
+    vector<string> lst = {"apple", "banana", "carrot", "date", "elephant"};
+    vector<string> result = sorted_list_sum(lst);
+    for (const auto& s : result) {
+        cout << s << " ";
+    }
+    cout << endl;
     return 0;
 }
