@@ -22,4 +22,3 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
     }
 
     return std::make_pair(white, black);
-}
