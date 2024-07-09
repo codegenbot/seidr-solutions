@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <climits> 
@@ -6,11 +6,12 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res(2);
+    vector<vector<int>> res;
+    
+    res.resize(2);
     
     for (int i = 0; i < 2; i++) {
         res[i].clear(); // initialize each inner vector by clearing any existing elements
-        res[i].reserve(n); // initialize res[0] with the size of v
     }
     int minDiff = INT_MAX;
     for (int i = 0; i < n; i++) {
