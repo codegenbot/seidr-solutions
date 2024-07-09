@@ -1,2 +1,8 @@
 def paired_digits(s):
-    return sum(int(digit) * 2 for p in set(map(''.join, zip(s, s[1:]))) if p[0] == p[1])
+    s = str(s)
+    total = 0
+    prev = None
+    for c in s:
+        total += int(c) if c.isdigit() and (prev is None or c == prev): 
+        prev = c
+    return total
