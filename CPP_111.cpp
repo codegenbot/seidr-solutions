@@ -2,7 +2,7 @@
 #include <map>
 #include <sstream>
 
-bool issame(std::map<char, int> a, std::map<char, int> b) {
+bool issamse(std::map<char, int> a, std::map<char, int> b) {
     return a == b;
 }
 
@@ -29,4 +29,4 @@ std::map<char, int> histogram(std::string test) {
     }
     
     return maxChars;
-}   
+}
