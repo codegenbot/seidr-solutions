@@ -1,2 +1,9 @@
 def sort_even(l: list):
-    return [x if i % 2 != 0 else y for (i, x), (j, y) in zip(enumerate(l), sorted(list(zip(enumerate(l), l))))[::2]]
+    return [
+        (
+            val
+            if i % 2 == 1
+            else sorted([x for x in l if (i // 2) * 2 <= j < ((i + 1) // 2) * 2])[0]
+        )
+        for i, val in enumerate(l)
+    ]
