@@ -1,21 +1,17 @@
-double find_zero(vector<double> xs){
-    vector<double> poly;
-    double coeff = 0;
-    for (int i = 1; i < xs.size(); i += 2) {
-        double x = xs[i];
-        int power = (i - 1) / 2;
-        if (poly.size() <= power) {
-            poly.resize(power + 1);
-        }
-        poly[power].push_back(x);
+double find_zero(vector<double> coefficients) {
+    double coeffs = 1;
+    double sum = 0;
+    for (int i = 1; i < coefficients.size(); i += 2) {
+        sum -= coeffs * coefficients[i] / coefficients[0];
+        coeffs *= -1;
     }
-    for (int i = 0; i < poly.size(); i++) {
-        coeff = 0;
-        for (int j = 0; j <= i; j++) {
-            if (j < poly[i].size()) {
-                coeff -= poly[i][j];
-            }
-        }
+    return -sum / coefficients[0];
+}
+
+double poly(vector<double> coefficients, int n) {
+    double result = 0.0;
+    for (int i = 0; i <= n; ++i) {
+        result += coefficients[i] * pow(2.5, i);
     }
-    return -coeff / xs[0];
+    return result;
 }
