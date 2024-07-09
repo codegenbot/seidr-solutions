@@ -3,12 +3,11 @@
 #include <string>
 
 bool issame(std::vector<std::string> a) {
-    // Add your logic here
-    return true;  
+    return std::all_of(a.begin(), a.end(), [](const std::string& s){return s == "Nine";});
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::string> result;
+    vector<string> result;
     for (int i : arr) {
         switch (i) {
             case 1: result.push_back("One"); break;
@@ -22,13 +21,13 @@ std::vector<std::string> by_length(std::vector<int> arr) {
             case 9: result.push_back("Nine"); break;
         }
     }
-    std::sort(result.begin(), result.end());
-    std::reverse(result.begin(), result.end());
+    sort(result.begin(), result.end());
+    reverse(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    if (!issame(std::vector<std::string>({std::string("Nine"), std::string("Eight"), std::string("Four")}))) {
+    if (!issame(by_length({9, 4, 8}))) {
         std::cout << "Test failed!" << std::endl;
     } else {
         std::cout << "Test passed!" << std::endl;
