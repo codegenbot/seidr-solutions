@@ -19,7 +19,7 @@ bool solveBoolean(const string& s, size_t& i) {
             }
             case '|': {
                 i++; // skip |
-                result = solveBoolean(s, i);
+                result = result || solveBoolean(s, i);
                 if (result) return true;  // short-circuit
                 break;
             }
