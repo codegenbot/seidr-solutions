@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -10,7 +9,7 @@ vector<int> even_odd_count(int num) {
     int evens = 0, odds = 0;
     string str = to_string(abs(num));
     for (char c : str) {
-        if (stoi(string(1,c)) % 2 == 0)
+        if (stoi(c) % 2 == 0)
             evens++;
         else
             odds++;
@@ -18,4 +17,4 @@ vector<int> even_odd_count(int num) {
     return {evens, odds};
 }
 
-assert(issame(even_odd_count(0), vector<int>({0,1}));
+assert(issame(even_odd_count(0), vector<int>({-1,0})));
