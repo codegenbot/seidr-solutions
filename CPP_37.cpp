@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
@@ -12,7 +13,7 @@ bool issame(vector<float> a, vector<float> b) {
 
 int main() {
     vector<float> l = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    vector<float> result(l.size());
+    vector<std::string> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             vector<float> evenVals;
@@ -22,11 +23,11 @@ int main() {
                 }
             }
             sort(evenVals.begin(), evenVals.end());
-            result[i] = evenVals[0];
+            result[i] = std::to_string(evenVals[0]); 
         } else {
-            result[i] = l[i];
+            result[i] = std::to_string(l[i]); 
         }
     }
-    assert(issame({-12, 4, 2, -10}, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    assert(issame({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}, result));
     return 0;
 }
