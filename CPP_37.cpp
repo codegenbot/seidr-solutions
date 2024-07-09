@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <vector>
-#include <initializer_list>
 
 namespace myspace {
     bool issame(const std::vector<float>& a, const std::vector<float>& b) {
@@ -16,11 +15,10 @@ namespace myspace {
         int evenIndex = 0;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                auto it = std::minmax_element(l.begin(), l.end(),
-                    [](float a, float b){ return a<b; });
-                result[i] = *(it.first);
+                auto it = std::max_element(l.begin(), l.end()); // Changed minmax to max_element
+                result[i] = *it;
                 for(int j = 0; j < l.size(); j++){
-                    if(j%2==0 && l[j] != *(it.first)){
+                    if(j%2==0 && l[j] != *it){ // Changed (it.first) to (*it)
                         result[evenIndex++] = l[j];
                     }
                 }
@@ -32,18 +30,18 @@ namespace myspace {
     }
 }
 
-int main() {
-    std::vector<float> input(10);
-    input.push_back(5.0f);
-    input.push_back(8.0f);
-    input.push_back(-12.0f);
-    input.push_back(4.0f);
-    input.push_back(23.0f);
-    input.push_back(2.0f);
-    input.push_back(3.0f);
-    input.push_back(11.0f);
-    input.push_back(12.0f);
-    input.push_back(-10.0f);
+int cpp_main() { // Renamed main to cpp_main
+    std::vector<float> input(10); 
+    input.push_back(5);
+    input.push_back(8);
+    input.push_back(-12);
+    input.push_back(4);
+    input.push_back(23);
+    input.push_back(2);
+    input.push_back(3);
+    input.push_back(11);
+    input.push_back(12);
+    input.push_back(-10);
 
     std::cout << "Original array: ";
     for (float num : input) {
