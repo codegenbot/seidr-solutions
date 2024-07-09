@@ -1,12 +1,12 @@
-Here is the solution:
+Here is the completed code:
 
 ```cpp
-string longest(vector<string> strings){
-    if(strings.empty()) return "";
-    string max = strings[0];
-    for(auto str : strings) {
-        if(str.length() > max.length())
-            max = str;
+string longest(vector<string> strings) {
+    if (strings.empty()) return "";
+    string result = strings[0];
+    for (const auto& s : strings) {
+        if (s.length() > result.length())
+            result = s;
     }
-    return max;
+    return result;
 }
