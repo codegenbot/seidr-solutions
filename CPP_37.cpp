@@ -1,12 +1,11 @@
-```c++
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<float> a,vector<float>b){
+bool issame(std::vector<float> a, std::vector<float>b){
     return a == b;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
+std::vector<float> sort_even(std::vector<float> l){
     std::vector<float> result(l.size());
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){
