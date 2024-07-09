@@ -1,17 +1,23 @@
-int do_algebra(vector<string> operator_, vector<int> operands) {
+#include <vector>
+#include <string>
+using namespace std;
+
+int do_algebra(vector<string> operators, vector<int> operands) {
     int result = operands[0];
-    for (int i = 0; i < operator_.size(); i++) {
-        if (operator_[i] == "+") {
+    for (int i = 0; i < operators.size(); i++) {
+        if (operators[i] == "+") {
             result += operands[i + 1];
-        } else if (operator_[i] == "-") {
+        } else if (operators[i] == "-") {
             result -= operands[i + 1];
-        } else if (operator_[i] == "*") {
+        } else if (operators[i] == "*") {
             result *= operands[i + 1];
-        } else if (operator_[i] == "/") {
-            result /= operands[i + 1];
-        } else if (operator_[i] == "**") {
-            result = pow(result, operands[i + 1]);
-        }
+        } else if (operators[i] == "/") {
+            if(operands[i+1] != 0) {
+                result /= operands[i + 1];
+            } else {
+                return -1;
+            }
+        } 
     }
     return result;
 }
