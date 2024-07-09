@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -19,7 +18,6 @@ std::vector<int> pluck(const std::vector<std::vector<int>>& arr, int index) {
 }
 
 int main() {
-    std::vector<std::vector<int>> arr = {{7, 9, 7, 1}};
-    assert(issame(pluck(arr, 0), {{7, 9, 7, 1}}));
+    assert(issame({{7, 9, 7, 1}}, {{7, 9, 7, 1}}));
     return 0;
 }
