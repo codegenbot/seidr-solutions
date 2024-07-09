@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -10,13 +11,6 @@ bool check_numbers(std::vector<float> a, std::vector<float> b) {
 
 float get_positive(float num) {
     return (num > 0.0f) ? num : -num;
-}
-
-bool same(std::vector<float> a, std::vector<float> b) { 
-    if (a.size() != 1 || b.size() != 1) {
-        return false;
-    }
-    return a[0] == b[0];
 }
 
 int main() {
