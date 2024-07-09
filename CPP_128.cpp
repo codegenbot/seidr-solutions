@@ -1,4 +1,8 @@
 #include <vector>
+#include <cmath>
+#include <cassert>
+
+using namespace std;
 
 int prod_signs(vector<int> arr) {
     int product = 1;
@@ -17,4 +21,8 @@ int prod_signs(vector<int> arr) {
     }
 
     return product * sum;
+}
+
+int main() {
+    assert (prod_signs({-1, 1, 1, 0}) == 0);
 }
