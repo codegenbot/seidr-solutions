@@ -1,12 +1,21 @@
+#include <vector>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 vector<int> get_odd_collatz(int n) {
-    vector<int> res;
-    while (n > 1) {
-        if (n % 2 == 0)
+    vector<int> result;
+    while (n != 1) {
+        if (n % 2 == 0) {
             n /= 2;
-        else
+        } else {
             n = 3 * n + 1;
-        res.push_back(n);
+        }
+        if (n % 2 != 0) {
+            result.push_back(n);
+        }
     }
-    sort(res.begin(), res.end());
-    return res;
+    sort(result.begin(), result.end());
+    return result;
 }
