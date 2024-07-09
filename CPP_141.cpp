@@ -1,21 +1,35 @@
-```cpp
-int digitCount = 0;
-bool foundDot = false;
+#include <string>
 
-for(char c : file_name){
-    if(c == '.'){
-        foundDot = true;
-    } else if(isdigit(c)){
-        digitCount++;
+std::string file_name_check(std::string file_name) {
+    bool hasDigit = false;
+    int dotCount = 0;
+
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            if (!hasDigit) hasDigit = true; 
+            else return "No";
+        } else if (c == '.') {
+            dotCount++;
+            if (dotCount > 1) return "No"; 
+        } else if (c == ' ' || c < 'a' || c > 'z' && c < 'A' || c > 'Z') {
+            return "No"; 
+        }
     }
+
+    std::string suffix;
+    int i = 0;
+    while (i < file_name.size()) {
+        if (file_name[i] == '.') break;
+        i++;
+    }
+    suffix = file_name.substr(i + 1);
+
+    if (suffix != "txt" && suffix != "exe" && suffix != "dll") return "No";
+
+    return hasDigit ? "No" : "Yes";
 }
 
-if(digitCount > 3 || !foundDot) return "No";
-else if(file_name.find('.') != string::npos && file_name.substr(0, file_name.find('.')).find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos){
-    string extension = file_name.substr(file_name.find('.'), file_name.size()).substr(1);
-    string validExtensions[] = {"txt", "exe", "dll"};
-    for(string s : validExtensions){
-        if(s == extension) return "Yes";
-    }
+int main() {
+    assert (file_name_check("s.") == "No");
+    return 0;
 }
-return "No";
