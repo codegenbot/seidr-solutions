@@ -1,7 +1,7 @@
 #include <vector>
 
-vector<int> solve(int n) {
-    vector<int> result;
+std::vector<int> updateResult(int n) {
+    std::vector<int> result;
     int factorial = 1;
     int sum = 0;
     for (int i = 1; i <= n; ++i) {
