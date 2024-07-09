@@ -23,8 +23,8 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    std::vector<int> expected = even_odd_count(0);
-    bool check = areEqual(expected, std::vector<int>{1, 0});
+    std::vector<int> expected = even_odd_count(248);
+    bool check = areEqual(expected, std::vector<int>{1, 1});
     if(check) std::cout << "Test passed\n";
     else std::cout << "Test failed\n";
     return 0;
