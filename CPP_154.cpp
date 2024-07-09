@@ -1,11 +1,10 @@
-#include <iostream>
 #include <string>
 #include <cassert>
 
-bool cycpattern_check(std::string a, std::string b) {
+bool cycpattern_check(const string& a, const string& b) {
     if(a.length() != b.length()) return false;
-    std::string temp = b + b;
-    return (temp.find(a) != std::string::npos);
+    string temp = b + b;
+    return (temp.find(a) != string::npos);
 }
 
 int main() {
