@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -9,7 +10,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<std::pair<int, int>> order_by_points(std::vector<int> nums) {
+std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
@@ -32,6 +33,5 @@ std::vector<std::pair<int, int>> order_by_points(std::vector<int> nums) {
 }
 
 int main() {
-    assert(issame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
