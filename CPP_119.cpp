@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <limits>
 
 using namespace std;
 
@@ -23,6 +24,7 @@ int main() {
     string s;
     for(int i=0; i<n; ++i){
         getline(cin, s);
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         lst.push_back(s);
     }
     cout << (match_parens(lst) ? "Yes" : "No") << endl;
