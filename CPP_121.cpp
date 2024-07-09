@@ -1,6 +1,5 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <cassert>
 using namespace std;
 
 int solution(vector<int> lst) {
@@ -14,6 +13,13 @@ int solution(vector<int> lst) {
 }
 
 int main() {
-    assert(solution({3, 13, 2, 9}) == 16);
+    vector<int> input;
+    int num;
+    cout << "Enter the numbers of the list (separated by space): ";
+    while (cin >> num) {
+        input.push_back(num);
+    }
+    cin.ignore();  
+    cout << "The result is: " << solution(input) << endl;
     return 0;
 }

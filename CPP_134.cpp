@@ -1,9 +1,25 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if(txt.empty()) return false;
-    string lastChar = txt.substr(txt.length()-1, 1);
-    for(int i=0; i<txt.length()-1; i++) {
-        if(txt[i] == ' ') break;
-        if(txt.substr(i, 1) == lastChar) return false;
+```cpp
+#include <iostream>
+using namespace std;
+
+bool check_if_last_char_is_a_letter(string str);
+
+int main() {
+    string s = "apple pi e ";
+    bool result = check_if_last_char_is_a_letter(s);
+    if (result == true) {
+        cout << "Last character of the string is a letter." << endl;
+    } else {
+        cout << "Last character of the string is not a letter." << endl;
     }
-    return isalpha(lastChar[0]);
+    return 0;
+}
+
+bool check_if_last_char_is_a_letter(string str) {
+    char lastChar = str.back();
+    if (isalpha(lastChar)) { // Check if the last character is an alphabet
+        return true;
+    } else {
+        return false;
+    }
 }
