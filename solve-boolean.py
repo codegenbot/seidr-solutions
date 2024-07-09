@@ -1,24 +1,14 @@
-```
 def solve_boolean(expression):
-    expression = expression.replace("T", "True").replace("F", "False")
-    if "&" not in expression and "|" not in expression:
-        return eval(expression)
-    for char in ["&", "|"]:
-        if char not in expression:
-            continue
-        start = 0
-        end = len(expression) - 1
-        while end > start and expression[end] != char:
-            end -= 1
-        expression = expression[:start+1] + " (" + expression[start+2:end] + ") )"
-    if "&" in expression and "&" not in expression[1:-1]:
-        return solve_boolean(expression.replace("&", " &("))
-    elif "|" in expression and "|" not in expression[1:-1]:
-        return solve_boolean(expression.replace("|", " |("))
-    else:
-        left = solve_boolean(expression[:expression.index(")")])
-        right = solve_boolean(expression[expression.index("(")+1:expression.rindex(")")])
-        if "&" in expression:
-            return left and solve_boolean(right)
-        else:
-            return solve_boolean(left) or solve_boolean(right)
+    if "(" in expression:
+        end = expression.index(")")
+        return solve_boolean("(" + expression[:end+1])
+
+    if "&" in expression:
+        left, right = expression.split("&")
+        return eval(left) and solve_boolean(right)
+
+    if "|" in expression:
+        left, right = expression.split("|")
+        return eval(left) or solve_boolean(right)
+
+    return eval(expression)
