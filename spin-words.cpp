@@ -1,40 +1,18 @@
 Here is the solution:
 
-string spinWords(string str) {
-    vector<string> words;
-    string word = "";
-    
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += str[i];
-        }
-    }
-    words.push_back(word);
-    
-    for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() >= 5) {
-            words[i] = reverse(words[i]);
-        }
-    }
-    
+string spinWords(string s) {
     string result = "";
-    for (int i = 0; i < words.size(); i++) {
-        result += words[i];
-        if (i != words.size() - 1) {
-            result += " ";
+    int start = 0;
+    for (int i = 0; i <= s.length(); i++) {
+        if (i == s.length() || s[i] == ' ') {
+            string word = s.substr(start, i - start);
+            if (word.length() >= 5) {
+                result += string(word.rbegin(), word.rend()) + " ";
+            } else {
+                result += word + " ";
+            }
+            start = i + 1;
         }
     }
-    
-    return result;
-}
-
-string reverse(string str) {
-    string rev = "";
-    for (int i = str.length() - 1; i >= 0; i--) {
-        rev += str[i];
-    }
-    return rev;
+    return result.substr(0, result.length() - 1);
 }
