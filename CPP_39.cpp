@@ -26,7 +26,7 @@ int prime_fib(int n) {
             }
             count++;
         }
-        int temp = std::stoi(std::to_string(a) + std::to_string(b));
+        int temp = a + b;
         a = b;
         b = temp;
     }
