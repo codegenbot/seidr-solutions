@@ -16,8 +16,8 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
     return nums_copy;
 }
 
-bool issame(const std::vector<int>& nums1, const std::vector<int>& nums2) {
-    return nums1 == nums2;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
