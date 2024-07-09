@@ -1,15 +1,16 @@
 ```cpp
-#include <string>
 #include <iostream>
+#include <string>
+#include <cstdlib>
+
 using namespace std;
 
-int main() {
+void mainFunc() {
     string text;
     cout << "Enter a string: ";
     getline(cin, text);
     string new_result = remove_vowels(text);  
     cout << "String after removing vowels: " << new_result << endl;
-    return 0;
 }
 
 string remove_vowels(string str) {
