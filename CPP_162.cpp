@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <limits>
 #include <string>
 #include <iomanip>
 #include <sstream>
-#include <openssl/evp.h>
 #include <openssl/ssl.h>
+#include <openssl/evp.h>
 
 using namespace std;
 
@@ -15,16 +16,28 @@ string string_to_md5(string text) {
     EVP_MD_CTX md_ctx;
     unsigned char* d = nullptr;
     size_t len = 0;
-    int ret = EVP_Digest(text.c_str(), text.size(), &d, &len, EVP_sha1(), &md_ctx);
+    EVP_PassphraseCallback callback = NULL;
+    const EVP_MD *md = EVP_sha256();
     
+    int ret = EVP_DigestInit_ex(&md_ctx, md, NULL);
+    if (ret != 1) {
+        // error handling
+    }
+    ret = EVP_DigestUpdate(&md_ctx, text.c_str(), text.size());
+    if (ret != 1) {
+        // error handling
+    }
+    
+    unsigned char* out = new unsigned char[EVP_MAX_DIGEST_SIZE];
+    len = EVP_DigestFinal_ex(&md_ctx, out, nullptr);
     string md5_hash;
-    for (int i = 0; i < 16; ++i) {
+    for (int i = 0; i < len; ++i) {
         ostringstream oss;
-        oss << hex << setfill('0') << setw(2) << static_cast<unsigned int>(d[i]);
+        oss << hex << setfill('0') << setw(2) << static_cast<unsigned int>(out[i]);
         md5_hash += oss.str();
     }
     
-    free(d);
+    delete[] out;
     EVP_MD_CTX_free(&md_ctx);
     
     return md5_hash;
@@ -45,3 +58,4 @@ int main() {
     
     cout << "MD5 Hash: " << md5_hash << endl;
     return 0;
+}
