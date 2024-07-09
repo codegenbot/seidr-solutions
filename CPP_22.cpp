@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,6 +12,9 @@ int main() {
 
     std::vector<int> a;
     std::vector<int> b;
+
+    a.resize(n);
+    b.resize(n);
 
     for(int i = 0; i < n; ++i)
         {
@@ -26,7 +30,7 @@ int main() {
             b.push_back(x);
         }
 
-    if(filter_integers(a, b))
+    if(a == b)
         std::cout << "The two vectors are the same." << std::endl;
     else
         std::cout << "The two vectors are not the same." << std::endl;
