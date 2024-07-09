@@ -1,8 +1,5 @@
 ```cpp
-#include <vector>
-#include <iostream>
-
-int count_nums(vector<int> n) {
+int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
         if (num > 0) {
@@ -24,11 +21,4 @@ int count_nums(vector<int> n) {
         }
     }
     return count;
-}
-
-int main() {
-    vector<int> numbers = {123, 456, 789};
-    int result = count_nums(numbers);
-    cout << "The number of positive integers with sum greater than zero is: " << result << endl;
-    return 0;
 }
