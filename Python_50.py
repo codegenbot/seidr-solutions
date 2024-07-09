@@ -4,11 +4,14 @@ def decode_shift(s: str):
 try:
     while True:
         input_str = input("Enter a string: ").strip()
+        if input_str == "":
+            print("Please press 'Enter' before breaking the loop")
         if not input_str:
             break
-        result = decode_shift(input_str)
-        print(result)
+        else:
+            result = decode_shift(input_str)
+            print(result)
 except EOFError:
     pass
-except:
-    pass
+except Exception as e:
+    print("Invalid input. Please enter a valid string.")
