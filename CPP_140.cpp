@@ -1,5 +1,4 @@
 #include <string>
-#include <iostream>
 
 std::string fix_spaces(std::string text) {
     std::string result = "";
@@ -8,7 +7,7 @@ std::string fix_spaces(std::string text) {
             result += '_';
         } else if(text[i] == ' '){
             bool is_consecutive = true;
-            for(int j = i + 1; j < text.length() && j > 0; j++){
+            for(int j = i + 1; j < text.length(); j++){
                 if(text[j] != ' ') {
                     is_consecutive = false;
                     break;
