@@ -1,5 +1,4 @@
 #include <string>
-
 int getBonus(int a, int b) {
     if(a + b == 10) {
         return 10;
@@ -7,7 +6,6 @@ int getBonus(int a, int b) {
         return a + b;
     }
 }
-
 int bowlingScore(std::string s) {
     int score = 0;
     int currentFrame = 1;
@@ -19,11 +17,6 @@ int bowlingScore(std::string s) {
             currentFrame++;
         } else if(s[i] == 'X') {
             score += 10;
-            if(currentFrame < 9) {
-                if(i + 2 < s.length() && s[i+1] != '/') {
-                    score += (s[i+1] - '0');
-                }
-            }
             currentFrame++;
         } else {
             int roll = s[i] - '0';
