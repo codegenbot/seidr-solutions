@@ -1,7 +1,57 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
+}
+
+int main() {
+    std::string planet1, planet2;
+    std::cin >> planet1 >> planet2;
+
+    std::vector<std::string> result = bf(planet1, planet2);
+
+    if (!isSame({}, result)) {
+        for (const auto& planet : result) {
+            std::cout << planet << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "Invalid Input" << std::endl;
+    }
+
+    return 0;
+}
+
+std::vector<std::string> bf(std::string planet1, std::string planet2) {
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    int index1 = -1, index2 = -1;
+    
+    for (int i = 0; i < planets.size(); ++i) {
+        if (planet1 == planets[i]) {
+            index1 = i;
+        }
+        else if (planet2 == planets[i]) {
+            index2 = i;
+        }
+        
+        if (index1 != -1 && index2 != -1)
+            break;
+    }
+    
+    if (index1 == -1 || index2 == -1) {
+        return {};
+    }
+    
+    std::vector<std::string> result;
+    for (int i = 0; i < planets.size(); ++i) {
+        if (index1 < i && i < index2)
+            result.push_back(planets[i]);
+    }
+    
+    std::sort(result.begin(), result.end());
+    
+    return result;
 }
