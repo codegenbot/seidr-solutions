@@ -8,9 +8,6 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-# Read the list of integers from the user input
 operations = list(map(int, input().split()))
-
-# Call the below_zero function with the input list
 result = below_zero(operations)
 print(result)
