@@ -1,5 +1,6 @@
+#include <iostream>
 #include <vector>
-#include <initializer_list>
+#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -11,4 +12,3 @@ std::vector<int> make_a_pile(int n) {
         pile.insert(pile.begin(), i);
     return pile;
 }
-#include <initializer_list>
