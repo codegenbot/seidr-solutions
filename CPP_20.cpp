@@ -1,7 +1,7 @@
+```
 #include <algorithm>
 #include <vector>
 #include <limits>
-#include <cassert>
 
 using namespace std;
 
@@ -26,5 +26,11 @@ vector<float> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    assert(isSame({1.1, 2.2, 3.1, 4.1, 5.1}, vector<float>({2.2, 3.1})));
+    vector<float> numbers = {1.1, 2.2, 3.1, 4.1, 5.1};
+    vector<float> result = find_closest_elements(numbers);
+    cout << "The closest pair of elements is: ";
+    for (float num : result) {
+        cout << num << " ";
+    }
+    cout << endl;
 }
