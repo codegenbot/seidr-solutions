@@ -1,4 +1,4 @@
-```
+'''
 def middle_character(s):
     s = ''.join(filter(str.isalnum, s))
     length = len(s)
@@ -8,3 +8,4 @@ def middle_character(s):
         return s[mid_point-1:mid_point+1]
     else:
         return s[mid_point]
+'''
