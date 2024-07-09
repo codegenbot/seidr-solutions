@@ -1,4 +1,7 @@
 ```cpp
+#include <iostream>
+#include <vector>
+
 int sumOdd(std::vector<int> lst) {
     int sum = 0;
     for (int i : lst) {
@@ -32,5 +35,6 @@ int main() {
     }
     int result = solutions(lst);
     assert(result == 25);
-    std::cout << "Test passed.\n";
+    if(result == 25)
+        std::cout << "Test passed.\n";
 }
