@@ -1,20 +1,23 @@
-Here is the completed code:
+#include <vector>
 
-long long minSubArraySum(vector<long long> nums){
-    long long sum = 0;
-    long long min_sum = LLONG_MAX;
+using namespace std;
+
+long long minSubArraySum(vector<long long> nums) {
+    if (nums.empty()) return 0;
     
-    for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
-        
-        if (sum < min_sum) {
-            min_sum = sum;
-        }
-        
-        if (sum > 0) {
-            sum = 0;
+    int n = nums.size();
+    vector<long long> prefixSum(n + 1);
+    for (int i = 0; i < n; i++) {
+        prefixSum[i + 1] = prefixSum[i] + nums[i];
+    }
+    
+    long long minSum = LLONG_MAX;
+    for (int i = 0; i < n; i++) {
+        for (int j = i; j < n; j++) {
+            long long sum = prefixSum[j + 1] - prefixSum[i];
+            if (sum < minSum) minSum = sum;
         }
     }
     
-    return min_sum;
+    return minSum;
 }
