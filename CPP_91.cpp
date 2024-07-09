@@ -1,5 +1,5 @@
+```
 #include <string>
-#include <cassert>
 
 int is_bored(string S){
     int count = 0;
