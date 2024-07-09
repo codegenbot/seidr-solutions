@@ -4,22 +4,6 @@
 
 using namespace std;
 
-int main() {
-    int n;
-    cin >> n;
-
-    vector<float> l(n);
-    for(int i=0; i<n; i++){
-        float x;
-        cin >> x;
-        l[i] = abs(x); 
-    }
-
-    cout << "Max element is: " << max_element(l) << endl;
-    
-    return 0;
-}
-
 float max_element(vector<float> l){
     float max = l[0];
     for(int i=1; i<l.size(); i++){
@@ -27,4 +11,16 @@ float max_element(vector<float> l){
             max = l[i];
     }
     return max;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<float> v(n);
+    for (float &val : v) 
+        val = abs(val); // Read input here
+    float result = max_element(v);
+    cout << fixed << showpoint << setprecision(6) << result << endl;
+    
+    return 0;
 }
