@@ -1,5 +1,8 @@
 ```cpp
-bool issame(std::vector<std::string>, std::vector<std::string>) {
+#include <vector>
+#include <string>
+
+bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
     std::vector<std::string> total_match(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
         int sum1 = 0, sum2 = 0;
         for (const auto& s : lst1) {
@@ -12,4 +15,6 @@ bool issame(std::vector<std::string>, std::vector<std::string>) {
         else if (sum1 > sum2) return lst2;
         else return lst1;
     }
+    
+    return total_match(v1, v2);
 }
