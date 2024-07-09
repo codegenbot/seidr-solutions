@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -6,7 +7,7 @@ int how_many_times(const std::string& str, const std::string& substring) {
     size_t pos = 0;
     while ((pos = str.find(substring)) != std::string::npos) {
         count++;
-        str = str.substr(size_t(pos), size_t(substring.length()));
+        str = std::string(str.begin() + pos, str.end());
     }
     return count;
 }
