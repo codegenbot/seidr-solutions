@@ -1,6 +1,8 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cassert>
+
+using namespace std;
 
 vector<int> rolling_max(const vector<int>& numbers);
 
@@ -31,6 +33,8 @@ vector<int> rolling_max(const vector<int>& numbers) {
 }
 
 int main() {
-    // Main function implementation
+    assert(issame({1, 2, 3}, {1, 2, 3}));
+    assert(!issame({1, 2, 3}, {1, 2, 4}));
+    
     return 0;
 }
