@@ -1,4 +1,5 @@
 #include <string>;
+
 string string_to_md5(const string& text) {
     if (text.empty()) {
         return "None";
@@ -14,9 +15,10 @@ string string_to_md5(const string& text) {
 
     return string(mdString, 32);
 }
-```
+
 int main() {
-    string text = "Hello, World!";
-    string md5_hash = string_to_md5(text);
+    string input = "Hello, World!";
+    string hash = string_to_md5(input);
+
     return 0;
 }
