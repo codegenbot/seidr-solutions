@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,39 +15,35 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
         if (issame(game[i], guess[i])) {
             result.push_back(0);
         } else {
-            int diff = abs(guess[i] - game[i]);
-            result.push_back(diff);
+            result.push_back(abs(guess[i] - game[i]));
         }
     }
     return result;
 }
 
 int main() {
-    std::vector<int> game, guess;
+    int n, m;
+    std::cout << "Enter the number of elements in your game and guess vectors: ";
+    std::cin >> n >> m;
 
-    // Read the game and guess from user
-    int n;
-    std::cout << "Enter the number of rounds: ";
-    std::cin >> n;
+    std::vector<int> game(n);
+    std::vector<int> guess(m);
+
+    std::cout << "Enter the elements for your game vector: ";
     for (int i = 0; i < n; i++) {
-        int temp1, temp2;
-        std::cout << "Enter the score for round " << i + 1 << ": ";
-        std::cin >> temp1 >> temp2;
-        game.push_back(temp1);
-        guess.push_back(temp2);
+        std::cin >> game[i];
     }
 
-    // Call the compare function
-    std::vector<int> result = compare(game, guess);
-
-    // Print the result
-    for (int i = 0; i < n; i++) {
-        std::cout << "Round " << i + 1 << ": ";
-        if (result[i] == 0)
-            std::cout << "Match\n";
-        else
-            std::cout << "Difference: " << result[i] << "\n";
+    std::cout << "Enter the elements for your guess vector: ";
+    for (int i = 0; i < m; i++) {
+        std::cin >> guess[i];
     }
 
+    std::vector<int> res = compare(game, guess);
+
+    std::cout << "The result is: ";
+    for (int i = 0; i < res.size(); i++) {
+        std::cout << res[i] << " ";
+    }
     return 0;
 }
