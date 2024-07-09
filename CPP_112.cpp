@@ -1,7 +1,7 @@
 #include <algorithm>
-#include <cassert>
 #include <string>
 #include <vector>
+#include <cassert>
 
 std::pair<std::string, std::string> processString(const std::string& s, const std::string& c) {
     std::string result = "";
