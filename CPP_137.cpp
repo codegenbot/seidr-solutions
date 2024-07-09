@@ -13,11 +13,11 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return any_cast<float>(b) > any_cast<int>(a)
             ? b
-            : boost::any(any_cast<int>(a));
+            : boost::any((double)any_cast<int>(a));
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         return any_cast<int>(a) > any_cast<float>(b)
             ? a
-            : boost::any(any_cast<int>(a));
+            : boost::any((double)any_cast<int>(a));
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string a_str = any_cast<string>(a);
         string b_str = any_cast<string>(b);
