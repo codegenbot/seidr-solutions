@@ -1,6 +1,18 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
-std::vector<int> sort_vector(const std::vector<int>& arr) {
-    return std::vector<int>(arr.begin(), arr.end());
+using namespace std;
+
+vector<int> sort_array(vector<int> arr) {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
+        int ones_a = __builtin_popcount(a);
+        int ones_b = __builtin_popcount(b);
+
+        if (ones_a != ones_b) {
+            return ones_a < ones_b;
+        } else {
+            return a < b;
+        }
+    });
+    return arr;
 }
