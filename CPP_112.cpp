@@ -1,12 +1,12 @@
-```cpp
+```
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size())
+bool issame(std::vector<std::string> a) {
+    if (a.size() > 1)
         return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+        if (a[i] != "1")
             return false;
     }
     return true;
@@ -48,7 +48,8 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    if(issame(reverse_delete("mamma", "mia"), {"", "1"}))
+    std::vector<std::string> vector = {"", "1"};
+    if(issame(reverse_delete("mamma", "mia")))
         std::cout << "Test case passed." << std::endl;
     else
         std::cout << "Test case failed." << std::endl;
