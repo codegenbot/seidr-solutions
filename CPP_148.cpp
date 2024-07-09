@@ -36,3 +36,9 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 bool bf(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
+int main() {
+    bool isSame(vector<string> a,vector<string>b){
+        return bf(a,b);
+    }
+    //assert(issame({},{})); // using the corrected function
+}
