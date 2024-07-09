@@ -2,7 +2,7 @@
 #include <cstring>
 
 int main() {
-    std::string str = "asdasnakj";
-    assert(strlen(str.c_str()) == 9);
-    return str.length();
+    const char* str = "asdasnakj";
+    assert(strlen(str) == 9);
+    return strlen(str);
 }
