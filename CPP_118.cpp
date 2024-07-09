@@ -10,7 +10,7 @@ bool isvowel(char c) {
 
 std::string get_closest_vowel(std::string word) {
     int n = word.size();
-    for (int i = n - 1; i > 0; --i) {
+    for (int i = 0; i < n; ++i) {
         if (!isalpha(word[i])) continue;
         if (ispunct(word[i]) || isdigit(word[i])) continue;
         if (word[i] == 'Y' && i > 1 && isupper(word[i-1]) && islower(word[i-2]))
