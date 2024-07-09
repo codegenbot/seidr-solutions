@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -32,25 +33,26 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     
-    std::vector<int> numbers;
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        int num;
-        std::cin >> num;
-        numbers.push_back(num);
-    }
-    
-    std::vector<int> uniqueNumbers = numbers;
-    sort(uniqueNumbers.begin(), uniqueNumbers.end());
-    
-    if (!issame(numbers, uniqueNumbers)) {
-        std::cout << "Unique numbers: ";
-        for (int num : uniqueNumbers) {
-            std::cout << num << " ";
+    if(n > 0) {
+        std::vector<int> numbers;
+        for (int i = 0; i < n; i++) {
+            std::cout << "Enter element " << i + 1 << ": ";
+            int num;
+            std::cin >> num;
+            numbers.push_back(num);
         }
-        std::cout << std::endl;
-    } else {
-        std::cout << "All elements are duplicates." << std::endl;
+        
+        std::vector<int> uniqueNumbers = removeDuplicates(numbers);
+        
+        if (!issame(numbers, uniqueNumbers)) {
+            std::cout << "Unique numbers: ";
+            for (int num : uniqueNumbers) {
+                std::cout << num << " ";
+            }
+            std::cout << std::endl;
+        } else {
+            std::cout << "All elements are duplicates." << std::endl;
+        }
     }
     
     assert(issame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
