@@ -1,6 +1,4 @@
-#include <iostream>
-using namespace std;
-
+```cpp
 int car_race_collision(int n) {
     int collision = 0;
     for (int i = 1; i <= n; i++) {
