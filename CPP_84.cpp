@@ -1,10 +1,9 @@
-#include <iostream>
-#include <cassert>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int solve(int n) {
     string binary = "";
+    binary = ""; 
     while(n > 0) {
         if(n % 2 == 0)
             binary = "0" + binary;
@@ -12,6 +11,10 @@ int solve(int n) {
             binary = "1" + binary;
         n /= 2;
     }
-    assert(solve(963) == stoi("10010"));
-    return binary.length() ? stoi(binary) : 0;
+    return binary.length() ? stoi(binary, 0, 2) : 0;
+}
+
+int main() {
+    assert (solve(963) == 10010); 
+    return 0;
 }
