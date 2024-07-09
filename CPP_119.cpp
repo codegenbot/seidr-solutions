@@ -1,8 +1,9 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
-int main() {
-    std::vector<std::string> lst;
+int match_parens(const std::vector<std::string>& lst) {
     int open = 0, close = 0;
     for (const auto& s : lst) {
         for (char c : s) {
@@ -10,5 +11,12 @@ int main() {
             else close++;
         }
     }
-    return (open == close);
+    return (open == close) ? 1 : 0;
+}
+
+int main() {
+    std::vector<std::string> lst = {"(())", "((()))", "()"};
+    int result = match_parens(lst);
+    std::cout << result << std::endl;
+    return 0;
 }
