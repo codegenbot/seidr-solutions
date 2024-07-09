@@ -1,7 +1,8 @@
+```cpp
 #include <cassert>
 #include <string>
 
-int strLength(const std::string& str) {
+int strLength(const std::string& str){
     return str.length();
 }
 
