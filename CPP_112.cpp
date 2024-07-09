@@ -7,16 +7,16 @@ bool issame(const std::string& a, const std::string& b) {
     return a == b;
 }
 
-std::vector<std::string> reverse_delete(const std::string& s, char c) {
-    std::string temp = s;
-    temp.erase(std::remove(temp.begin(), temp.end(), c), temp.end());
-    std::reverse(temp.begin(), temp.end());
-    return {temp, issame(temp, s) ? "True" : "False"};
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
+    std::string result_str = s;
+    result_str.erase(std::remove(result_str.begin(), result_str.end(), c[0]), result_str.end());
+    std::reverse(result_str.begin(), result_str.end());
+    return {result_str, issame(result_str, s) ? "True" : "False"};
 }
 
 int main() {
     std::string input_str;
-    char char_to_delete;
+    std::string char_to_delete;
 
     std::cout << "Enter the input string: ";
     std::cin >> input_str;
