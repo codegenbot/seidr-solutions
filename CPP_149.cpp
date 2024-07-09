@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <algorithm>
+#include <string>
 using namespace std;
 
 vector<string> sorted_list_sum(vector<string> lst) {
