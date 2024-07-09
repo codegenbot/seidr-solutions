@@ -1,6 +1,6 @@
-def solve(a, b, c):
-    return -c / b
+def solve():
+    a, b, c = map(int, input().split())
+    return (-c - a) / b
 
-a, b, c = map(int, input().split())
-result = solve(a, b, c)
+result = solve()
 print(result)
