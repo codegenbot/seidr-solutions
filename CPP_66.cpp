@@ -4,11 +4,9 @@
 
 using namespace std;
 
-string getUserInput() {
-    string s;
-    cin >> s;
-    return s;
-}
+int digitSum(string s);
+
+string input();
 
 int digitSum(string s){
     int sum = 0;
@@ -21,7 +19,13 @@ int digitSum(string s){
 
 }
 
+string input() {
+    string s;
+    cin >> s;
+    return s;
+}
+
 int main() {
     assert(digitSum("you are very smart") == 21);
-    cout << digitSum(getUserInput()) << endl;
+    cout << digitSum(input()) << endl;
 }
