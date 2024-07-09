@@ -6,7 +6,7 @@ std::string anti_shuffle(std::string s) {
     std::string res;
     for (int i = 0; i < s.length(); i++) {
         if (i % 2 == 1) {
-            res += s[i];  // Add the character at index i to the end of res
+            res.insert(0, 1, s.substr(i, 1));
         }
     }
     return res;
