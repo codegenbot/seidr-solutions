@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -17,4 +18,18 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
             result.push_back(*it);
     }
     return result;
+}
+
+int main(){
+    std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
+    std::string prefix = "xxx";
+    std::cout << "[";
+    for(auto it = filter_by_prefix(strings, prefix).begin(); it != filter_by_prefix(strings, prefix).end(); ++it){
+        if(it == filter_by_prefix(strings, prefix).begin())
+            std::cout << "\"" << *it << "\"";
+        else
+            std::cout << ", \"" << *it << "\"";
+    }
+    std::cout << "]\n";
+    return 0;
 }
