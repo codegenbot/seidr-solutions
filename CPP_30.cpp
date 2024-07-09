@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 
@@ -14,15 +15,11 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<float> get_positive(const std::vector<float>& v) {
-    std::vector<float> result;
+    std::vector<float> result = std::vector<float>();
     for (float x : v) {
         if (x >= 0.0f) {
             result.push_back(x);
         }
     }
     return result;
-
-int main() {
-    assert(issame(get_positive({}), {}) == true);
-    return 0;
 }
