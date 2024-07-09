@@ -1,4 +1,4 @@
-from typing import Set
+from typing import List
 
-def remove_duplicates(numbers: Set[int]) -> Set[int]:
-    return {num for num in numbers if numbers.count(num) == 1}
+def remove_duplicates(nums: List[int]) -> List[int]:
+    return list(set([num for num in nums if nums.count(num) == 1]))
