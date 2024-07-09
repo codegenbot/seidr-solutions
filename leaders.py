@@ -1,5 +1,7 @@
-for i in range(len(input)-1):
-    if input[i] >= max(input[i+1:]):
-        leaders.append(input[i])
-leaders.append(input[-1])
+```python
+input = list(map(int, input().split()))
+leaders = [max(input)]
+for num in input[:-1]:
+    if num >= leaders[-1]:
+        leaders.append(num)
 print(leaders)
