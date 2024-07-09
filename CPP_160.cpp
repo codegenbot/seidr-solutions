@@ -1,31 +1,24 @@
 #include <cassert>
-#include <iterator>
 #include <vector>
-#include <algorithm>
 
 class _160 {
 public:
-    int do_algebra(const std::vector<std::string>& args, const std::vector<int>& numbers);
-
+    int do_algebra(std::vector<std::string> ops, std::vector<int> nums) {
+        if (ops.size() != nums.size() - 1)
+            return -1;
+        int result = nums[0];
+        for (int i = 0; i < ops.size(); i++) {
+            if (ops[i] == "*")
+                result *= nums[i + 1];
+            else
+                result /= nums[i + 1];
+        }
+        return result;
+    }
 };
 
 int main() {
     _160 obj;
     assert(obj.do_algebra({"//", "*"}, {7, 3, 4}) == 8);
     return 0;
-}
-
-int _160::do_algebra(const std::vector<std::string>& args, const std::vector<int>& numbers) {
-    if (std::find(std::begin(numbers), std::end(numbers), 0) != std::end(numbers)) {
-        return 0;
-    }
-    int result = *std::max_element(std::begin(numbers), std::end(numbers));
-    for (int i = 0; i < args.size(); ++i) {
-        if (args[i] == "*") {
-            result *= *std::max_element(std::begin(numbers), std::end(numbers));
-        } else if (args[i] == "//") {
-            result /= *std::min_element(std::begin(numbers), std::end(numbers));
-        }
-    }
-    return result;
 }
