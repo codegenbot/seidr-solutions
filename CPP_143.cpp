@@ -2,8 +2,8 @@ string words_in_sentence(string sentence){
     string result = "";
     string word = "";
     for(char c : sentence){
-        if (c == ' '){
-            if (is_prime(word.size())){
+        if(c == ' '){
+            if(is_prime(word.size())){
                 result += word + " ";
             }
             word = "";
@@ -11,7 +11,7 @@ string words_in_sentence(string sentence){
             word += c;
         }
     }
-    if (is_prime(word.size())){
+    if(is_prime(word.size())){
         result += word;
     }
     return result;
