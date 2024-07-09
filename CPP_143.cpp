@@ -1,20 +1,8 @@
-```c++
+```cpp
 #include <iostream>
 #include <sstream>
 
 using namespace std;
-
-string words_in_sentence(string sentence);
-
-int main() {
-    string sentence;
-    cout << "Enter a sentence: ";
-    getline(cin, sentence);
-    
-    string result = words_in_sentence(sentence);
-    cout << "The output is: " << result << endl;
-    return 0;
-}
 
 string words_in_sentence(string sentence) {
     stringstream ss(sentence);
@@ -28,5 +16,17 @@ string words_in_sentence(string sentence) {
         cout << word;
         count++;
     }
+
     return "";
+}
+
+int main() {
+    string sentence;
+    cout << "Enter a sentence: ";
+    getline(cin, sentence);
+    
+    words_in_sentence(sentence);
+    cout << endl;
+
+    return 0;
 }
