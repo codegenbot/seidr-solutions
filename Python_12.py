@@ -1,5 +1,5 @@
-# Read separate lines of strings
-strings = [input() for _ in range(3)]
+def find_longest_string():
+    strings = input().split()
+    return max(strings, key=len)
 
-# Find and print the longest string
-print(max(strings, key=len))
+print(find_longest_string())
