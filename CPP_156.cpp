@@ -16,7 +16,6 @@ int main() {
     romanMap.push_back({ 10, "X" });
     romanMap.push_back({ 9, "IX" });
     romanMap.push_back({ 5, "V" });
-    romanMap.push_back({ 4, "IV" });
     romanMap.emplace_back(1, "I");
 
     for(int i = 1; i <= 3999; i++) { 
