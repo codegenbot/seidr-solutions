@@ -14,6 +14,15 @@ bool below_zero(const std::vector<int>& operations) {
 }
 
 int main() {
-    assert(below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
+    std::vector<int> operations;
+    int n;
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int op;
+        std::cin >> op;
+        operations.push_back(op);
+    }
+
+    std::cout << (below_zero(operations) ? "true" : "false") << std::endl;
     return 0;
 }
