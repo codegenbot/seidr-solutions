@@ -1,35 +1,24 @@
-#include <string>
-#include <boost/any.hpp>
-
-using namespace std;
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b);
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return boost::any_cast<string>(b);
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        return a;
+        return boost::any_cast<float>(b) > boost::any_cast<int>(a) ? b : a;
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return boost::any_cast<float>(a) > boost::any_cast<int>(b) ? a : b;
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (boost::any_cast<string>(a) >= boost::any_cast<string>(b))
-            return a;
-        else
-            return b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = boost::any_cast<int>(a);
-        int y = boost::any_cast<int>(b);
-        if (x >= y)
-            return a;
-        else
-            return b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float x = boost::any_cast<float>(a);
-        float y = boost::any_cast<float>(b);
-        if (x >= y)
-            return a;
-        else
-            return b;
-    } else {
-        return boost::any("None");
+        string str_a = boost::any_cast<string>(a);
+        string str_b = boost::any_cast<string>(b);
+        return str_b > str_a ? b : a;
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string str_a = boost::any_cast<string>(a);
+        float f_b = boost::any_cast<float>(b);
+        if (str_a == "0" || str_a == ".") {
+            return f_b > 0.0f ? b : a;
+        } else {
+            return f_b > std::stof(str_a) ? b : a;
+        }
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        float f_a = boost::any_cast<float>(a);
+        string str_b = boost::any_cast<string>(b);
+        return f_a > std::stof(str_b) ? a : b;
     }
+    return "None";
 }
