@@ -1,7 +1,7 @@
-#include <vector> // Add this include statement for vector
-#include <cassert> // Include for assert
+#include <vector>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){ // Fix the function signature
+bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i){
        if (a[i] != b[i]) return false;
@@ -9,7 +9,7 @@ bool issame(std::vector<int> a, std::vector<int> b){ // Fix the function signatu
     return true;
 }
 
-std::vector<int> intersperse(std::vector<int> numbers, int delimeter){ // Fix the function signature
+std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
     std::vector<int> result;
     for(int i = 0; i < numbers.size(); ++i){
         result.push_back(numbers[i]);
@@ -21,6 +21,6 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimeter){ // Fix th
 }
 
 int main(){
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2})); // Use correct assert format
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
     return 0;
 }
