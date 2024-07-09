@@ -1,43 +1,63 @@
-#include <algorithm>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
-    
+    vector<int> res;
     for (int i = 0; i < n; i++) {
-        dp[0][i] = grid[0][i];
-    }
-    for (int i = 1; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            if (j == 0) {
-                dp[i][j] = min({grid[i][j], grid[i-1][j], grid[i][j+1]});
-            } else if (j == n - 1) {
-                dp[i][j] = min({grid[i][j], grid[i-1][j], grid[i][j-1]});
-            } else {
-                dp[i][j] = min({grid[i][j], grid[i-1][j], grid[i][j+1], grid[i][j-1]});
+            if (grid[i][j] > 1) {
+                // Start from the cell with value 1
+                int curr_val = 1;
+                vector<int> path;
+                for (int l = 0; l < k; l++) {
+                    int di[] = {-1, 0, 1, 0};
+                    int dj[] = {0, -1, 0, 1};
+                    bool found = false;
+                    for (int d = 0; d < 4; d++) {
+                        int ni = i + di[d];
+                        int nj = j + dj[d];
+                        if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
+                            if (grid[ni][nj] == curr_val) {
+                                path.push_back(curr_val);
+                                i = ni;
+                                j = nj;
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!found) {
+                        // If no such neighbor cell is found, move to the next cell
+                        for (int d = 0; d < 4; d++) {
+                            int ni = i + di[d];
+                            int nj = j + dj[d];
+                            if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
+                                path.push_back(grid[ni][nj]);
+                                i = ni;
+                                j = nj;
+                                break;
+                            }
+                        }
+                    }
+                }
+                // Add the last cell to the result
+                res = path;
+                return res;
             }
         }
     }
-
-    vector<int> res;
-    int x = 0, y = 0;
-    for (int i = 0; i < k; i++) {
-        res.push_back(dp[x][y]);
-        if (x == 0) {
-            if (y == 0 || grid[x][y] > grid[x][y-1]) y--;
-            else if (y == n - 1 || grid[x][y] > grid[x][y+1]) y++;
-        } else if (x == n - 1) {
-            if (y == 0 || grid[x][y] > grid[x-1][y]) x--;
-            else if (y == n - 1 || grid[x][y] > grid[x-1][y]) x--;
-            else if (y == 0 || grid[x][y] > grid[x][y+1]) y++;
-        } else {
-            if (grid[x][y] > grid[x-1][y]) x--;
-            else if (grid[x][y] > grid[x+1][y]) x++;
-            else if (grid[x][y] > grid[x][y-1]) y--;
-            else if (grid[x][y] > grid[x][y+1]) y++;
-        }
-    }
-
     return res;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
+    vector<int> res = minPath(grid, k);
+    for (auto val : res) {
+        cout << val << " ";
+    }
+    cout << endl;
+    return 0;
 }
