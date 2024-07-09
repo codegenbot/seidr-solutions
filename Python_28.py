@@ -1,15 +1,14 @@
-from typing import List
+def main():
+    num_strings = int(input("Enter the number of strings: "))
+    strings = []
+
+    for i in range(num_strings):
+        string = input(f"Enter string {i+1}: ")
+        strings.append(string)
+
+    result = concatenate(strings)
+    print(result)
 
 
 def concatenate(strings: List[str]) -> str:
     return "".join(strings)
-
-
-def main():
-    user_input = input("Enter a list of strings (separated by commas): ")
-    input_strings = [s.strip() for s in user_input.split(",")]
-    print(concatenate(input_strings))
-
-
-if __name__ == "__main__":
-    main()
