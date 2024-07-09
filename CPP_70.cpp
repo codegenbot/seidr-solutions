@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool same(const std::vector<int>& a, const std::vector<int>& b) {
+bool compareVectors(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -50,7 +50,7 @@ int main() {
 
     std::vector<int> output = strange_sort_list(input);
 
-    if (same(output, {1,2,3,4,5,6})) {
+    if (compareVectors(output, {1,2,3,4,5,6})) {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
