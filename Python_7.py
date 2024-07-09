@@ -1,7 +1,6 @@
 def filter_strings(strings, substring):
     return [s for s in strings if substring in s]
 
-
-strings = raw_input("Enter a list of strings separated by space: ").split()
-substring = raw_input("Enter a substring to filter by: ")
+strings = input("Enter a list of strings separated by space: ").split()
+substring = input("Enter a substring to filter by: ").strip()
 print(filter_strings(strings, substring))
