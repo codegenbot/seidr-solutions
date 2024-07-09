@@ -1,3 +1,5 @@
+import math
+
 n = int(input())
 vec1 = list(map(float, input().split()))
 n = int(input())
