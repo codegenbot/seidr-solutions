@@ -7,22 +7,19 @@ def is_prime(num):
     return True
 
 def prime_fib(n: int):
-    def fibonacci(n):
-        if n <= 1:
-            return n
-        return fibonacci(n - 1) + fibonacci(n - 2)
+    def fibonacci(num):
+        if num == 0:
+            return 0
+        elif num == 1:
+            return 1
+        else:
+            return fibonacci(num - 1) + fibonacci(num - 2)
 
     count = 0
-    num = 1
+    i = 0
     while count < n:
-        num += 1
-        if is_prime(fibonacci(num)):
+        if is_prime(fibonacci(i)):
             count += 1
-    return fibonacci(num) 
+        i += 1
 
-# Test cases
-print(prime_fib(1))
-print(prime_fib(2))
-print(prime_fib(3))
-print(prime_fib(4))
-print(prime_fib(5))
+    return fibonacci(i - 1)
