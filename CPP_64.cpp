@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
 
@@ -15,7 +15,8 @@ int vowels_count(std::string s) {
     return count;
 }
 
-int main {
+int main
+{
     std::string input;
     try {
         std::cout << "Enter a string: ";
