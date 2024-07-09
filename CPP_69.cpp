@@ -26,9 +26,9 @@ int main() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
-    std::vector<int> lst(n);
+    std::vector<int> lst;
     for (int i = 0; i < n; ++i) {
-        int num;
+        int num; 
         while (!(std::cout << "Enter element " << i + 1 << ": ")) {
             if (!std::cin)
                 std::cout << "Invalid input. Please enter a positive integer.\n";
@@ -45,7 +45,8 @@ int main() {
             std::cin.clear();
             while (std::cin.get() != '\n') {}
         }
-        lst.push_back(num); 
+        lst.resize(lst.size() + 1);
+        lst[lst.size()-1] = num; 
     }
 
     if(lst.empty()) {
