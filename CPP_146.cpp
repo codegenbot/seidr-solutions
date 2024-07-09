@@ -15,17 +15,7 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    int input; 
-    vector<int> numbers; 
-
-    cout << "Enter number of integers to filter: ";
-    cin >> input;
-
-    for(int i = 0 ; i < input ; i++){
-        cout << "Enter integer: ";
-        cin >> numbers.push_back(i);
-    }
-
-    cout << "Special filtered count is: " << specialFilter(numbers) << endl;
-    
+    vector<int> nums = {11, 23, 12, 34, 45};
+    cout << "Number of integers in the range satisfying the condition: " << specialFilter(nums) << endl;
+    return 0;
 }
