@@ -6,8 +6,6 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     
-    res[0].resize(0);
-    res[1].resize(0);
     long long totalSum = 0;
     for (int i = 0; i < n; i++) {
         totalSum += v[i];
