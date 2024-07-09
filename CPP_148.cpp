@@ -41,5 +41,6 @@ vector<string> bf(string planet1, string planet2) {
 
 int main() {
     assert(issame(bf("Jupiter", "Makemake"), {}));
+    // Additional test cases can be added here
     return 0;
 }
