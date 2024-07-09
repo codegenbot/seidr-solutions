@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,10 +18,7 @@ bool match_parens(const std::string& s) {
     return count == 0;
 }
 
-int main() {
-    int n;
-    std::cin >> n;
-
+void processInput(int n) {
     for(int i=0; i<n; ++i){
         std::string s;
         std::getline(std::cin, s);
@@ -35,9 +33,14 @@ int main() {
             lst.push_back("No");
         }
     }
+}
 
-    for (const auto& str : lst)
-        std::cout << str << '\n';
-
+int main() {
+    int n;
+    std::cin >> n;
+    processInput(n);
+    for (const auto& str : lst) {
+        std::cout << str << std::endl;
+    }
     return 0;
 }
