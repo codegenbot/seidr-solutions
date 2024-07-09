@@ -24,8 +24,8 @@ std::string rounded_avg(int n, int m) {
 
 int main() {
     int n, m;
-    std::cout << "Enter the start and end of the range: ";
+    std::cout << "Enter the range: ";
     std::cin >> n >> m;
-    std::cout << "The rounded average is: " << rounded_avg(n, m) << std::endl;
+    std::cout << "Rounded average is: " << rounded_avg(n, m) << std::endl;
     return 0;
 }
