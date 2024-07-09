@@ -1,19 +1,15 @@
-if(lst.size() < 2) {
-        return None;
+sort(lst.begin(), lst.end());
+int count = 1, res = -1;
+for(int i = 1; i <lst.size(); i++) {
+    if(lst[i] != lst[i-1]) {
+        count++;
     }
-    
-    vector<int> unique_lst(lst.begin(), lst.end());
-    sort(unique_lst.begin(), unique_lst.end());
-    
-    int count = 0;
-    for(int i = 0; i < unique_lst.size(); ++i) {
-        if(unique_lst[i] != unique_lst[0]) {
-            count++;
-        }
-        if(count == 1) {
-            return unique_lst[i];
-        }
+    if(count == 2) {
+        res = lst[i];
+        break;
     }
-    
-    return None;
+}
+if(count < 2) 
+    return -1;
+return res;
 }
