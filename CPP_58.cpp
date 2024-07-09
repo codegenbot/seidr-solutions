@@ -4,12 +4,6 @@
 
 using namespace std;
 
-bool issame(vector<int> v1, vector<int> v2) {
-    set<int> setA(v1);
-    set<int> setB(v2);
-    return setA == setB;
-}
-
 int main() {
     int n1, n2, n3, n4, n5, n6, n7;
 
