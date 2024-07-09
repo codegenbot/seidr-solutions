@@ -1,12 +1,16 @@
-Here is the completed code:
+int ai = static_cast<int>(a);
+    int bi = static_cast<int>(b);
+    int ci = static_cast<int>(c);
 
-bool any_int(float a, float b, float c) {
-    int ai = (int)a;
-    int bi = (int)b;
-    int ci = (int)c;
-
-    if (ai == bi + ci || ai == bi - ci || ai == ci + bi || ai == bi + ci)
+    if (ai == bi + ci || ai == bi - ci || ai == ci + bi || ai == ci - bi) {
         return true;
-    else
+    }
+
+    if (bi == ai + ci || bi == ai - ci || bi == ci + ai || bi == ci - ai) {
+        return true;
+    }
+
+    if (ci == ai + bi || ci == ai - bi || ci == bi + ai || ci == bi - ai) {
         return false;
+    }
 }
