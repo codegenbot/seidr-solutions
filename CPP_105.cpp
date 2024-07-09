@@ -1,12 +1,21 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<std::vector<std::string>> by_length(std::vector<int> arr) {
-    std::vector<int> num;
+vector<vector<string>> by_length(vector<int> arr) {
+    vector<int> num;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
             num.push_back(i);
@@ -16,7 +25,7 @@ std::vector<std::vector<std::string>> by_length(std::vector<int> arr) {
     sort(num.begin(), num.end());
     reverse(num.begin(), num.end());
 
-    std::vector<std::string> result;
+    vector<string> result;
     for (int n : num) {
         switch (n) {
             case 1:
@@ -50,4 +59,21 @@ std::vector<std::vector<std::string>> by_length(std::vector<int> arr) {
     }
 
     return {result};
+}
+
+int main() {
+    int n; 
+    cin >> n;
+    
+    vector<int> input(n);
+    for(int i = 0; i < n; i++) {
+        cin >> input[i];
+    }
+    
+    vector<vector<string>> output = by_length(input);
+
+    // Check if the input vectors are equal
+    assert(issame({{"One"}}, output[0]));
+
+    return 0;
 }
