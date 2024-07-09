@@ -2,13 +2,16 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include <string>
 
 int main() {
-    double startHeight;
-    double firstBounce;
-    int numBounces;
+    std::string startHeightStr, firstBounceStr;
+    double numBounces;
 
-    std::cin >> startHeight >> std::endl >> firstBounce >> std::endl >> numBounces >> std::endl;
+    std::cin >> startHeightStr >> firstBounceStr >> numBounces;
+
+    double startHeight = std::stod(startHeightStr);
+    double firstBounce = std::stod(firstBounceStr);
 
     double bouncinessIndex = firstBounce / startHeight;
 
