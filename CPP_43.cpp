@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <vector>
 #include <set>
@@ -6,7 +7,7 @@ bool pairs_sum_to_zero(std::vector<std::vector<int>> l) {
     std::set<int> s;
     for (const auto& v : l) {
         if(v.size() != 2)
-            throw std::runtime_error("Each pair must have exactly two elements.");
+            return false;
         int i = v[0];
         int j = v[1];
         s.insert(i);
@@ -18,11 +19,11 @@ bool pairs_sum_to_zero(std::vector<std::vector<int>> l) {
             return true;
         }
     }
-    throw std::runtime_error("No pairs sum to zero.");
+    return false;
 }
 
 int main() {
     std::vector<std::vector<int>> input = {{-3, 0}, {9, -9}, {-1, 1}, {4, -4}, {2, -2}, {31, -31}};
-    assert(pairs_sum_to_zero(input));
+    assert(pairs_sum_to_zero(input) == true);
     return 0;
 }
