@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 bool cycpattern_check(string a, string b) {
     for(int i = 0; i < a.length(); i++) {
         string temp = a.substr(i);
@@ -8,11 +11,15 @@ bool cycpattern_check(string a, string b) {
                     flag = false;
                     break;
                 }
-                if(j < temp.length())temp = temp.substr(1) + temp[0];
-                else temp += temp;
+                temp = temp.substr(1) + temp[0];
             }
             if(flag) return true;
         }
     }
     return false;
+}
+
+int main() {
+    assert(cycpattern_check("winemtt","tinem") == true );
+    return 0;
 }
