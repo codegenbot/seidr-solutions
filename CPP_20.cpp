@@ -7,3 +7,15 @@ bool isSame(vector<float> a, vector<float> b){
         if(abs(a[i] - b[i]) > 1e-6) return false;
     }
     return true;
+
+int main() {
+    int n;
+    cin >> n;
+    vector<float> a(n), b(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i] >> b[i];
+    }
+    if(isSame(a, b)) cout << "The vectors are the same." << endl;
+    else cout << "The vectors are not the same." << endl;
+    return 0;
+}
