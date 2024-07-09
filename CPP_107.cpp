@@ -31,9 +31,9 @@ vector<int> even_odd_palindrome(int n) {
     result[1] = odd;
 
     return result;
+
 }
 
 cin >> n;
 vector<int> res = even_odd_palindrome(n);
 cout << "(" << res[0] << ", " << res[1] << ")" << endl;
-return 0;
