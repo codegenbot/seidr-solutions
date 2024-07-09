@@ -1,8 +1,7 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <cmath>
 
-double poly(const std::vector<double>& coeffs, double x) {
+double poly(std::vector<double> coeffs, double x) {
     double sum = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         sum += coeffs[i] * pow(x, i);
@@ -10,29 +9,29 @@ double poly(const std::vector<double>& coeffs, double x) {
     return sum;
 }
 
-double find_zero(const std::vector<double>& coeffs) {
+double find_zero(std::vector<double> coeffs) {
     double x = 1.0;
     while (true) {
         double y = poly(coeffs, x);
         if (std::abs(y) < 1e-6) {
             return x;
         }
-        x -= y / poly({coeffs[1], -coeffs[0]}, x);
+        x -= y / poly(std::vector<double>(coeffs.begin() + 1, coeffs.end()), x);
     }
 }
 
 int main() {
-    int n; // Number of terms in the polynomial
+    int n; 
     std::cin >> n;
 
-    std::vector<double> coeffs(n); // Read coefficients
+    std::vector<double> coeffs(n); 
     for (int i = 0; i < n; i++) {
         double coeff;
         std::cin >> coeff;
         coeffs[i] = coeff;
     }
 
-    double x; // Input value
+    double x; 
     std::cin >> x;
     
     // Call poly function with input values
