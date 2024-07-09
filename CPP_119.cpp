@@ -1,16 +1,13 @@
-bool match_parens(const string& s1, const string& s2) {
-    int balance = 0;
-    for (char c : s1) {
-        if (c == '(') balance++;
-        else balance--;
+string match_parens(vector<string> lst){
+    int left = 0, right = 0;
+    for (const string& str : lst) {
+        for (char c : str) {
+            if (c == '(') left++;
+            else if (c == ')') {
+                if (left > 0) left--;
+                else right++;
+            }
+        }
     }
-    for (char c : s2) {
-        if (c == '(') balance++;
-        else balance--;
-    }
-    return balance == 0;
-}
-
-string match_parens(vector<string> lst) {
-    return match_parens(lst[0], lst[1]) ? "Yes" : "No";
+    return (left == 0 && right <= 1) ? "Yes" : "No";
 }
