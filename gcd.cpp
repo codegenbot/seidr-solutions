@@ -1,4 +1,6 @@
-```
+Here's the modified code:
+
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -33,7 +35,8 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a = 0, b = 0;
+    int a, b;
+    string text, target;
 
     cout << "Enter two positive integers: ";
     while (!(cin >> a >> b) || a < 1 || b < 1) {
@@ -43,14 +46,19 @@ int main() {
         cin >> a >> b;
     }
 
-    int greatest_common_divisor = gcd(a, b);
-    cout << greatest_common_divisor << endl;
+    cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
 
-    string text;
-    getline(cin, text);
-    
-    string target;
-    getline(cin, target);
+    while(true) {
+        cout << "Enter the text: ";
+        getline(cin, text);
+        if(text.empty()) continue;
+        break;
+
+        cout << "Enter the target substring: ";
+        getline(cin, target);
+        if(target.empty()) continue;
+        break;
+    }
 
     vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices)
