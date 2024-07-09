@@ -1,1 +1,1 @@
-`result = ' '.join([word[::-1] if len(word.strip()) >= 5 else word for word in input().split()])`
+result = ' '.join([word[::-1] if len(word.strip()) >= 5 else word for word in input().split()])
