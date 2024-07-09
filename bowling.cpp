@@ -6,8 +6,6 @@ int getBonus(int a, int b) {
     }
 }
 
-#include <string>
-
 int bowlingScore(std::string s) {
     int score = 0;
     int currentFrame = 1;
