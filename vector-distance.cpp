@@ -1,6 +1,7 @@
-#include <cmath>
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <cmath>
+#include <ostream>
 
 double vectorDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
     if(v1.size() != v2.size()) {
