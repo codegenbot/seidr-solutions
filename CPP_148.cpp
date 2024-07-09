@@ -1,10 +1,6 @@
 #include <vector>
 #include <string>
 
-bool isPlanet(string planet);
-bool issame(vector<string> a, vector<string> b);
-
-// Function definitions
 bool isPlanet(string planet) {
     string planets[] = {"Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     for (const string& p : planets) {
@@ -43,7 +39,7 @@ int main() {
         }
         cout << "\n";
         vector<string> temp = {planet1, planet2};
-        if(issame(result, temp)) {
+        if(issame(result,temp)) {
             cout << "The planets are the same.\n";
         } else {
             cout << "The planets are different.\n";
