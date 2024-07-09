@@ -1,9 +1,9 @@
 #include <vector>
 #include <climits>
-#include <cmath>
+#include <cmath> 
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> &v) {
+pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int minDiff = INT_MAX;
     pair<vector<int>, vector<int>> result;
     
@@ -27,3 +27,4 @@ pair<vector<int>, vector<int>> cutVector(vector<int> &v) {
     }
     
     return result;
+}
