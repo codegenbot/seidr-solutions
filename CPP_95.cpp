@@ -6,10 +6,10 @@ using namespace std;
 
 bool check_dict_case(const map<string, string>& dict) {
     if (dict.empty()) return false;
-
+    
     bool all_lower = true;
     bool all_upper = true;
-
+    
     for (const auto& pair : dict) {
         for (char c : pair.first) {
             if (islower(c)) {
@@ -19,6 +19,6 @@ bool check_dict_case(const map<string, string>& dict) {
             }
         }
     }
-
+    
     return all_lower || all_upper;
 }
