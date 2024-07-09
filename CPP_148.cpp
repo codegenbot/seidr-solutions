@@ -32,7 +32,7 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
         result.push_back(planets[i]);
     }
     
-    return result; 
+    return result;
 }
 
 int main() {
