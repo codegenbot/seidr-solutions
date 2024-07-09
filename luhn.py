@@ -6,9 +6,9 @@ def luhn(card_number):
         if i % 2 == 0:
             sum += card_number[i]
         else:
-            doubled = card_number[i] * 2
-            if doubled > 9:
-                sum += doubled - 9
+            temp = card_number[i] * 2
+            if temp > 9:
+                sum += temp - 9
             else:
-                sum += doubled
+                sum += temp
     return sum
