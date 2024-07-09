@@ -7,10 +7,10 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-string separate_paren_groups(string s) {
+std::string separate_paren_groups(std::string s) {
     int count = 0;
-    string current_group = "";
-    string result = "";
+    std::string current_group = "";
+    std::string result = "";
 
     for (char c : s) {
         if (c == '(') {
@@ -20,7 +20,7 @@ string separate_paren_groups(string s) {
             count--;
             current_group += c;
             if (count == 0) {
-                result += current_group;
+                result += current_group; // append the entire group string
                 current_group = "";
             }
         } else {
@@ -36,7 +36,7 @@ string separate_paren_groups(string s) {
 }
 
 int main() {
-    string s;
+    std::string s;
     std::cout << "Enter a string: ";
     std::getline(std::cin, s);
     std::cout << "Result: " << separate_paren_groups(s) << std::endl;
