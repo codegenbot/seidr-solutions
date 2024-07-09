@@ -1,64 +1,30 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> by_length(const std::vector<int>& numbers) {
-    std::vector<std::string> words;
-    
-    for (int number : numbers) {
-        switch (number) {
-            case 0:
-                words.push_back("Zero");
-                break;
-            case 1:
-                words.push_back("One");
-                break;
-            case 2:
-                words.push_back("Two");
-                break;
-            case 3:
-                words.push_back("Three");
-                break;
-            case 4:
-                words.push_back("Four");
-                break;
-            case 5:
-                words.push_back("Five");
-                break;
-            case 6:
-                words.push_back("Six");
-                break;
-            case 7:
-                words.push_back("Seven");
-                break;
-            case 8:
-                words.push_back("Eight");
-                break;
-            case 9:
-                words.push_back("Nine");
-                break;
-        }
-    }
-    
-    return words;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
+std::vector<int> by_length(const std::vector<int>& arr) {
+    std::vector<int> result;
+    for (int num : arr) {
+        int length = to_string(num).size();
+        result.push_back(length);
     }
-    
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    return result;
 }
 
 int main() {
-    std::vector<int> intArray = {9, 4, 8};
-    assert(issame(by_length(intArray), {"Nine", "Four", "Eight"}));
+    // User input
+    std::vector<int> intArray = {};
+    std::cout << "Enter the numbers separated by space: ";
+    for (std::string str; std::getline(std::cin, str); ) {
+        intArray.push_back(stoi(str));
+    }
     
+    std::vector<int> result = by_length(intArray);
+    // Test assertion
+    assert(issame(by_length(intArray), {std::to_string(9).size(), std::to_string(4).size(), std::to_string(8).size()}));
+
     return 0;
 }
