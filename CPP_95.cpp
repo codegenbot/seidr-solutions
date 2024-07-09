@@ -1,19 +1,17 @@
+```cpp
 #include <iostream>
 #include <map>
 #include <string>
 
 bool check_dict_case(const std::map<std::string, std::string>& dict) {
-    if (dict.empty()) return true;
-
-    bool caseMatched = true;
-    std::string firstKeyUpper = std::toupper(first_key);
+    std::string case_key = first_key;
     for (const auto& pair : dict) {
-        if (!caseMatched && std::toupper(pair.first[0]) == firstKeyUpper[0])
-            caseMatched = true;
-        if (!caseMatched)
+        if (std::toupper(case_key[0]) != std::toupper(pair.first[0])) {
             return false;
+        }
+        case_key = pair.first;
     }
-    return caseMatched;
+    return true;
 }
 
 int main() {
