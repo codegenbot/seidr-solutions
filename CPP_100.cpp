@@ -1,9 +1,6 @@
-```
+```cpp
 #include <vector>
-#include <utility>
-#include <cassert>
-
-using namespace std;
+#include <initializer_list>
 
 bool operator==(const vector<int>& a, initializer_list<int> b) {
     if (a.size() != distance(b.begin(), distance(b.end(), back_inserter(vector<int>(b))))) 
@@ -23,4 +20,4 @@ vector<int> make_a_pile(int n) {
     return pile;
 }
 
-assert(make_a_pile(8) == vector<int>({0, 1, 3, 6, 10, 15, 21, 28}));
+assert(make_a_pile(8) == vector<int>({0, 1, 3, 5, 8, 10, 12, 14, 16, 18, 20, 22}));
