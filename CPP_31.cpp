@@ -1,8 +1,5 @@
-```c++
 #include <iostream>
-using namespace std;
-
-bool is_prime(long long n);
+#include <string>
 
 bool is_prime(long long n) {
     if (n <= 1) return false;
@@ -14,9 +11,8 @@ bool is_prime(long long n) {
     return true;
 
 int main() {
-    string input;
-    cout << "Enter a number: ";
-    getline(cin, input);
-    cout << "Number is " << (is_prime(stol(input)) ? "prime" : "not prime");
+    std::string input;
+    std::cout << "Enter a number: ";
+    std::getline(std::cin, input);
+    std::cout << "Number is " << (is_prime(std::stoi(input)) ? "prime" : "not prime");
     return 0;
-}
