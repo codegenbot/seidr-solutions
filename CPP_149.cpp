@@ -1,22 +1,29 @@
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
+int issame(string a) {
+    int sum = 0;
+    for(int i=0; i<a.length(); i++) {
+        if(a[i] == '1') 
+            sum++;
+    }
+    return sum;
+}
 
-    // Remove strings with odd lengths
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
+int main() {
+    vector<string> lst;
+    string temp;
+
+    cout << "Enter words (end with -1):" << endl;
+    while(true) {
+        cin >> temp;
+        if(temp == "-1")
+            break;
+        lst.push_back(temp);
     }
 
-    // Sort the resulted vector by length and then alphabetically
-    sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
+    vector<string> result = sorted_list_sum(lst);
 
-    return result;
+    cout << "Sorted list: ";
+    for(const auto& str : result)
+        cout << str << " ";
+
+    return 0;
 }
