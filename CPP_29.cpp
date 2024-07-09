@@ -2,20 +2,20 @@
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if(a.size() != b.size()) {
-        std::cout << "Vectors are not the same size.\n";
+    if (a.size() != b.size()) {
+        std::cout << "Error: Vectors are not the same size.\n";
         return false;
     }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            std::cout << "Vectors do not have the same elements.\n";
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            std::cout << "Error: Strings at position " << i << " do not match.\n";
             return false;
         }
     }
     return true;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
+std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
     std::vector<std::string> result;
     for (const auto& s : strings) {
         if (s.find(prefix) == 0) {
