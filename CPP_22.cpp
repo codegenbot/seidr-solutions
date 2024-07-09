@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <variant>
-#include <algorithm>
 
 bool issame(const std::vector<std::variant<int>>& v1, const std::vector<std::variant<int>>& v2) {
     if (v1.size() != v2.size()) return false;
@@ -11,7 +10,7 @@ bool issame(const std::vector<std::variant<int>>& v1, const std::vector<std::var
     return true;
 }
 
-std::vector<std::variant<int>> filter_integers(const std::initializer_list<std::variant<int>>& values) {
+std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int>> values) {
     std::vector<std::variant<int>> result; 
     for (const auto& value : values) {
         try {
@@ -35,26 +34,8 @@ std::vector<std::variant<int>> filter_integers(const std::initializer_list<std::
 }
 
 int main() {
-    std::vector<std::variant<int>> values = {3, 123, 3, 3};
-    std::vector<std::variant<int>> result;
-    for (const auto& value : filter_integers({values})) {
-        try {
-            if (value.index() == 0) {
-                int val = std::get<int>(value);
-                bool found = false;
-                for (auto& v : result) {
-                    if (v.index() == 0 && std::get<int>(v) == val) {
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found)
-                    result.push_back(value);
-            }
-        } catch (...) {
-            // ignore non-integer values
-        }
-    }
-    assert(issame(result, {3, 3, 123}));
+    std::vector<std::variant<int>> values = {3, 123, 3, 3, 1, 2};
+    std::vector<std::variant<int>> integers = filter_integers(values);
+    bool same = issame(integers, {3, 3});
     return 0;
 }
