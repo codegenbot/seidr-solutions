@@ -11,3 +11,4 @@ bool prime_length(string str){
     }
 
     return is_prime;
+}
