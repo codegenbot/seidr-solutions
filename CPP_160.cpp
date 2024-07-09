@@ -1,8 +1,13 @@
-```
-#include <utility>
 #include <vector>
+#include <utility>
+#include <cmath>
 
-int do_algebra(std::vector<std::pair<char, int>>& operators_and_operands) {
+struct pair {
+    char first;
+    int second;
+};
+
+int do_algebra(std::vector<pair> operators_and_operands) {
     if (operators_and_operands.size() == 0) {
         return 0;
     }
@@ -19,9 +24,15 @@ int do_algebra(std::vector<std::pair<char, int>>& operators_and_operands) {
             if (pair.second != 0) {
                 result /= pair.second;
             }
-        } else if (pair.first == '**') {
-            result = pow(result, pair.second);
+        } else if (pair.first == '^') { 
+            result = std::pow(result, pair.second);
         }
     }
     return result;
+}
+
+int main() {
+    assert(do_algebra({{'+', 7}, {'*', 3}, {'+', 4}}) == 14);
+    // You can add more test cases here.
+    return 0;
 }
