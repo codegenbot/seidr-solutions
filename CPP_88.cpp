@@ -1,4 +1,4 @@
-#include <vector> 
+#include <vector>
 
 std::vector<int> sort_array(std::vector<int> array) {
     if (array.empty()) return array;
