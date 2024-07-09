@@ -1,14 +1,12 @@
 #include <boost/any.hpp>
-#include <string>
-#include <stdexcept>
+#include <boost/convert.hpp>
+#include <boost/algorithm/string.hpp>
 
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (is_same<any_tag, get_type(a)>() && is_same<any_tag, get_type(b)>()) {
-        int val1 = any_cast<int>(a);
-        int val2 = any_cast<int>(b);
-        return val1 > val2 ? a : b;
+        return a > b ? a : b;
     } else if (is_same<string_any_tag, get_type(a)>() && is_same<string_any_tag, get_type(b)>()) {
         std::string str1 = any_cast<std::string>(a);
         std::string str2 = any_cast<std::string>(b);
@@ -24,6 +22,6 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
     } else {
-        throw std::invalid_argument("Invalid types");
+        throw invalid_argument("Invalid types");
     }
 }
