@@ -1,6 +1,3 @@
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<string> a,vector<string>b){
     if(a.size()!=b.size())
         return false;
@@ -11,15 +8,8 @@ bool issame(vector<string> a,vector<string>b){
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            temp.push_back(i);
-    }
-    sort(temp.begin(), temp.end());
-    reverse(temp.begin(), temp.end());
     vector<string> result;
-    for (int i : temp) {
+    for (int i : arr) {
         switch (i) {
             case 1: result.push_back("One"); break;
             case 2: result.push_back("Two"); break;
@@ -32,5 +22,7 @@ vector<string> by_length(vector<int> arr) {
             case 9: result.push_back("Nine"); break;
         }
     }
+    sort(result.begin(), result.end());
+    reverse(result.begin(), result.end());
     return result;
 }
