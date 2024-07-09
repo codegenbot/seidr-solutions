@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cmath>
 #include <iostream> 
@@ -29,15 +30,14 @@ double poly(vector<double> coeffs, double solution) {
     return result;
 }
 
-int main() {
-    cout << "Enter the number of coefficients: ";
-    cin >> n;
+cout << "Enter the number of coefficients: ";
+cin >> n;
 
-    for (int i = 0; i < n; ++i) {
-        cout << "Enter coefficient " << i+1 << ": ";
-        cin >> coeff;
-        coeffs.push_back(coeff);
-    }
+for (int i = 0; i < n; ++i) {
+    cout << "Enter coefficient " << i+1 << ": ";
+    cin >> coeff;
+    coeffs.push_back(coeff);
+}
 
-    double solution = find_zero(coeffs); 
-    assert(abs(poly(coeffs, solution)) < 1e-3);
+double solution = find_zero(coeffs); 
+assert(abs(poly(coeffs, solution)) < 1e-3);
