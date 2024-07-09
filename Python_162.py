@@ -1,5 +1,4 @@
 import hashlib
-import sys
 
 def string_to_md5(text):
     if text is not None:
@@ -7,8 +6,7 @@ def string_to_md5(text):
     else:
         return None
 
-if len(sys.argv) == 2:
-    text = sys.argv[1]
+if __name__ == "__main__":
+    with open('input.txt', 'r') as file:
+        text = file.read().strip()
     print(string_to_md5(text))
-else:
-    print("Please provide a string as an argument.")
