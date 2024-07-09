@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     frames = [int(x) for x in frames.replace('/', '+')]
     score = 0
@@ -8,15 +7,15 @@ def bowling_score(frames):
         else:
             roll1, = frames[i],
         
-        if roll1 + roll2 == 10:  
+        if roll1 + roll2 == 10:  # spare
             score += 10
             if i < 8:
                 score += frames[i+2]
-        elif roll1 == 10:  
+        elif roll1 == 10:  # strike
             score += 10
             if i < 8:
                 score += frames[i+1] + frames[i+2]
-        else:  
+        else:  # regular frame
             score += roll1 + roll2
     
     return score
