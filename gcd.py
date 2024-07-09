@@ -9,5 +9,8 @@ target = input()
 
 indices = [i for i in range(len(text)) if text.startswith(target, i)]
 
-print(gcd(int(input()), int(input())))
+num1 = int(input())
+num2 = int(input())
+
+print(gcd(num1, num2))
 print(indices)
