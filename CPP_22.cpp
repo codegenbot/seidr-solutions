@@ -2,14 +2,16 @@
 #include <vector>
 #include <list>
 
-bool issame(vector<int> a, vector<int> b) {
+bool boost::core::algorithm::is_same(const boost::any& a, const boost::any& b) {
+    if (!boost::any_cast<bool>(a) || !boost::any_cast<bool>(b))
+        return false;
     // your comparison logic here
 }
 
-vector<int> filter_integers(list<boost::any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value).type() == typeid(int)) {
+        if (value.type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
@@ -17,5 +19,5 @@ vector<int> filter_integers(list<boost::any> values) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}), {3, 3, 3}));
+    assert(is_same(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}), {3, 3, 3}));
 }
