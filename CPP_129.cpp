@@ -1,7 +1,5 @@
-#include <vector>
-#include <limits>
-
-std::vector<int> minPath(std::vector<std::vector<int>>& grid, int k) {
+```cpp
+std::vector<int> minPath(std::vector<stdvector<int>>& grid, int k) {
     int n = grid.size();
     std::vector<std::vector<int>> dp(n, std::vector<int>(n));
     for (int i = 0; i < n; i++) {
@@ -39,37 +37,4 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-int main() {
-    // Your code here
-    int n, k;
-    std::cin >> n >> k;
-
-    std::vector<std::vector<int>> grid(n, std::vector<int>(n));
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            std::cin >> grid[i][j];
-        }
-    }
-
-    std::vector<int> result = minPath(grid, k);
-    if(result.size() == k) {
-        // Check if the results are the same
-        bool isSame = true;
-        for(int i=0; i<k; i++) {
-            if(!issame({result[i]}, {k})) {
-                isSame = false;
-                break;
-            }
-        }
-
-        if(isSame) {
-            std::cout << "The result is " << k << " and same\n";
-        } else {
-            std::cout << "The result is not " << k << "\n";
-        }
-    } else {
-        std::cout << "The result size is less than " << k << "\n";
-    }
-
-    return 0;
-}
+assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
