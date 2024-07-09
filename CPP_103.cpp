@@ -1,5 +1,5 @@
-#include <cmath>
-#include <string>
+#include <bits/stdc++.h>
+using namespace std;
 
 string rounded_avg(int n, int m) {
     if (n > m) return "-1";
@@ -12,11 +12,16 @@ string rounded_avg(int n, int m) {
     while (avg > 0) {
         if (avg >= 2) {
             avg /= 2;
-            binary.insert(0, "1");
+            binary = "1" + binary;
         } else {
             avg *= 2;
-            binary.insert(0, "0");
+            binary = "0" + binary;
         }
     }
     return binary;
+}
+
+int main() {
+    assert(rounded_avg(5, 5) == "101");
+    return 0;
 }
