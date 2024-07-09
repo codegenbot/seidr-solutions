@@ -21,7 +21,7 @@ std::string int_to_roman(int number) {
     return roman;
 }
 
-int main() {
+int testMain() {
     try {
         std::cout << int_to_roman(1000) << std::endl;
     } catch (const std::exception& e) {
