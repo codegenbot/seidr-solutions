@@ -1,18 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
-    std::sort(input.begin(), input.end());
-    return input;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), sorted_list_sum({"cc", "dd", "aaaa", "bbbb"}));
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), sorted_list_sum({"cc", "dd", "aaaa", "bbbb"})));
     return 0;
 }
