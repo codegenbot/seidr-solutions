@@ -1,7 +1,7 @@
 #include <iostream>
-#include <string>
-
 using namespace std;
+
+string middleCharacter(string s);
 
 string middleCharacter(string s) {
     int n = s.size();
@@ -14,7 +14,7 @@ string middleCharacter(string s) {
 
 int main() {
     string s;
-    cin >> s;
-    cout << middleCharacter(s) << endl;
+    std::cin >> s;
+    std::cout << middleCharacter(s) << std::endl;
     return 0;
 }
