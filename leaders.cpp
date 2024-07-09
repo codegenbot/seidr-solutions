@@ -3,10 +3,10 @@
 #include <climits>
 #include <iostream>
 
-using vector = std::vector<_Tp, polymorphic_allocator<_Tp>>;
+using namespace std;
 
-std::vector<int> findLeaders(std::vector<int> nums) {
-    std::vector<int> leaders;
+vector<int> findLeaders(vector<int> nums) {
+    vector<int> leaders;
     int n = nums.size();
     int maxRight = INT_MIN;
     
@@ -17,17 +17,17 @@ std::vector<int> findLeaders(std::vector<int> nums) {
         }
     }
     
-    std::reverse(leaders.begin(), leaders.end());
+    reverse(leaders.begin(), leaders.end());
     
     return leaders;
 }
 
 int main() {
-    std::vector<int> nums = {16, 17, 4, 3, 5, 2};
-    std::vector<int> result = findLeaders(nums);
+    vector<int> nums = {16, 17, 4, 3, 5, 2};
+    vector<int> result = findLeaders(nums);
     
     for (int num : result) {
-        std::cout << num << " ";
+        cout << num << " ";
     }
     
     return 0;
