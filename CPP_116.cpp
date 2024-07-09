@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <bitset>
@@ -6,12 +7,12 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> sort_array(vector<int> arr) {
-    vector<int> result = arr;
-    sort(result.begin(), result.end(),
+std::vector<int> sort_array(std::vector<int> arr) {
+    std::vector<int> result = arr;
+    std::sort(result.begin(), result.end(),
          [](int a, int b) {
-             return bitset<32>(a).count() < bitset<32>(b).count()
-                 || (bitset<32>(a).count() == bitset<32>(b).count() && a < b);
+             return (bitset<32>(a).count() < bitset<32>(b).count())
+                 || ((bitset<32>(a).count() == bitset<32>(b).count()) && (a < b));
          });
     return result;
 }
