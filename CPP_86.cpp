@@ -1,5 +1,4 @@
-Here is the corrected code:
-
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -19,7 +18,9 @@ string anti_shuffle(string s) {
                 j++;
             }
             sort(word.begin(), word.end());
-            result += word;
+            for (char c : word) {
+                result += c;
+            }
         }
     }
     return result;
@@ -31,3 +32,4 @@ int main() {
     getline(cin, str);
     cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
     return 0;
+}
