@@ -3,25 +3,26 @@
 using namespace std;
 
 int fruit_distribution(string s, int n) {
-    size_t pos = 0;
-    int total_apples = 0, total_oranges = 0;
-    
-    while ((pos = s.find(" apples", pos)) != string::npos) {
-        int start = pos + 8;
-        for (int i = start; i < s.length(); i++) {
-            if (!isdigit(s[i])) break;
+    int apples = 0, oranges = 0;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'a' || s[i] == 'A') {
+            int j = i + 1;
+            while (j < s.length() && !isdigit(s[j])) {
+                j++;
+            }
+            apples = stoi(s.substr(i, j - i));
+            break;
         }
-        total_apples = stoi(s.substr(start, i - start));
-        break;
     }
-
-    while ((pos = s.find(" oranges", pos)) != string::npos) {
-        int start = pos + 8;
-        for (int i = start; i < s.length(); i++) {
-            if (!isdigit(s[i])) break;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'o' || s[i] == 'O') {
+            int j = i + 1;
+            while (j < s.length() && !isdigit(s[j])) {
+                j++;
+            }
+            oranges = stoi(s.substr(i, j - i));
+            break;
         }
-        total_oranges = stoi(s.substr(start, i - start));
     }
-
-    return n - total_apples - total_oranges;
+    return n - apples - oranges;
 }
