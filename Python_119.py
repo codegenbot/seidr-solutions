@@ -15,4 +15,4 @@ def match_parens(lst):
         elif char == ")":
             close_count -= 1
 
-    return "Yes" if open_count == 0 else "No"
+    return "Yes" if open_count == close_count else "No"
