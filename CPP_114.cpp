@@ -1,35 +1,23 @@
-```cpp
-#include <iostream>
-using namespace std;
-
 long long minSubArraySum(vector<long long> nums) {
-    long long min_sum = INT_MAX;
-    long long current_sum = 0;
-    int left = 0;
+    int n = nums.size();
+    long long res = INT_MAX;
+    long long left = 0, curr_sum = 0;
 
-    for (int i = 0; i < nums.size(); i++) {
-        current_sum += nums[i];
-        if (current_sum > min_sum)
-            return min_sum;
-        if (current_sum < min_sum) {
-            min_sum = current_sum;
-            left = i;
-        }
+    for (int right = 0; right < n; right++) {
+        curr_sum += nums[right];
+
+        while (curr_sum > res)
+            curr_sum -= nums[left++];
+
+        if (curr_sum < res)
+            res = curr_sum;
     }
 
-    return min_sum;
+    return res;
 }
 
 int main() {
-    int n;
-    cin >> n;
-
-    vector<long long> nums(n);
-    for(int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-
+    vector<long long> nums = {1,2};
     cout << minSubArraySum(nums) << endl;
-    
     return 0;
 }
