@@ -1,22 +1,30 @@
 ```cpp
 #include <iostream>
-using namespace std;
 
-bool is_happy(const string& str) {
-    int n = str.length();
-    for(int i=0;i<n-1;++i){
-        if(str[i] == '3' && (str[i+1] == '4' || str[i+1] == '7')) return false;
+bool is_happy(int n);
+
+bool is_happy(int n) {
+    if (n < 1) return false;
+    while (n > 1) {
+        int sum = 0;
+        while (n) {
+            n %= 10;
+            sum += n * n;
+            n /= 10;
+        }
+        n = sum;
     }
-    return true;
+    return n == 1;
 }
 
 int main() {
-    string s;
-    cout << "Enter a string: ";
-    getline(cin, s);
-    if(is_happy(s)) 
-        cout << "The input string is happy.\n";
-    else
-        cout << "The input string is not happy.\n";
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    if (is_happy(num)) {
+        std::cout << num << " is a happy number.\n";
+    } else {
+        std::cout << num << " is not a happy number.\n";
+    }
     return 0;
 }
