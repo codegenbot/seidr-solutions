@@ -1,8 +1,7 @@
-```cpp
 #include <algorithm>
 #include <cmath>
-#include <iostream>
 #include <initializer_list>
+#include <iostream>
 
 int getMax(int n) {
     std::vector<int> l;
