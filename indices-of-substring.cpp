@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <pair>
@@ -10,14 +11,16 @@ vector< pair<int,int> > indicesOfSubstring(string text, string target) {
 
     for(int i = 0; i <= n - m; i++) {
         bool match = true;
-        for(int j = 0; j < m; j++) {
+        int j = 0;
+        while(match && j < m) {
             if(text[i + j] != target[j]) {
                 match = false;
-                break;
             }
+            j++;
         }
         if(match) {
             result.push_back(make_pair(i,1));
+            i += m - 1; // skip the remaining characters in current string
         }
     }
 
@@ -29,7 +32,7 @@ int main() {
     string target = "world";
     vector< pair<int,int> > result = indicesOfSubstring(text, target);
     for (auto it : result) {
-        cout << it.first << endl; 
+        cout << it.first << endl; // or use it.second to print the number of occurrences
     }
     return 0;
 }
