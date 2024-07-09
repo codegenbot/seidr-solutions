@@ -1,14 +1,21 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-int maximum(vector<int>& arr, int k) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> maximum(vector<int> arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
     arr.resize(k);
     return arr;
 }
 
 int main() {
-    vector<int> arr = {3, 1, 4, 1, 5, 9, 2, 6};
-    assert(maximum(arr, 3) == {9, 6, 5});
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
     return 0;
 }
