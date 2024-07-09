@@ -33,19 +33,22 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
+    string text, target;
 
+    cout << "Enter two positive integers: ";
     while (!(cin >> a >> b) || a < 1 || b < 1) {
         cin.clear();
-        cin.ignore();
         cout << "Invalid input. Please enter two positive integers: ";
+        cin.ignore();
+        cin >> a >> b;
     }
 
-    cout << gcd(a, b) << endl;
+    cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
 
-    string text;
+    cout << "Enter the text: ";
     getline(cin, text);
-    
-    string target;
+
+    cout << "Enter the target substring: ";
     getline(cin, target);
 
     vector<int> indices = indicesOfSubstring(text, target);
