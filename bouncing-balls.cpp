@@ -1,6 +1,6 @@
 #include <iostream>
-#include <iomanip> // For setprecision
-#include <cmath>   // For pow
+#include <iomanip> 
+#include <cmath>
 
 int main() {
     double startHeight, firstBounceHeight;
