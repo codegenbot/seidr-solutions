@@ -1,5 +1,6 @@
 #include <string>
 #include <map>
+#include <utility>
 
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
