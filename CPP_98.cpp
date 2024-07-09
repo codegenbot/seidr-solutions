@@ -1,12 +1,11 @@
-#include <iostream>
-#include <cctype>
-#include <string>
+#include <bits/stdc++.h>
 
-int count_upper(std::string s) {
+using namespace std;
+
+int count_upper(string s) {
     int count = 0;
-    for (int i = 0; i < s.length(); i++) {
-        if ((i % 2 == 0 && std::isupper(s[i])) &&
-            (s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U')) {
+    for(int i = 0; i < s.length(); i++) {
+        if(i % 2 == 0 && (s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U')) {
             count++;
         }
     }
@@ -15,5 +14,5 @@ int count_upper(std::string s) {
 
 int main() {
     assert(count_upper("EEEE") == 2);
-    // your code here
+    return 0;
 }
