@@ -1,18 +1,23 @@
 #include <boost/any.hpp>
-#include <string>
-#include <algorithm>
 
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return max(a.convert_to<int>(), b.convert_to<int>());
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return max(a.convert_to<float>(), b.convert_to<float>());
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (max(a.convert_to<string>(), b.convert_to<string>()) == a ? a : "None");
-    } else if ((a.type() == typeid(int) && b.type() != typeid(int)) ||
-               (a.type() != typeid(int) && b.type() == typeid(int))) {
-        return "None";
+    if (is_pointer(&a)) {
+        int *ia = &a.get<int>();
+        int *ib = &b.get<int>();
+        return (ia > ib) ? a : ((ia < ib) ? b : boost::any("None")));
+    } else if (is_pointer(&b)) {
+        int *ib = &b.get<int>();
+        int *ia = &a.get<int>();
+        return (ia > ib) ? a : ((ia < ib) ? b : boost::any("None")));
+    } else if (is_float(a) || is_float(b)) {
+        float fa = a.get<float>();
+        float fb = b.get<float>();
+        return (fa > fb) ? a : ((fa < fb) ? b : boost::any("None")));
+    } else {
+        string sa = a.get<string>();
+        string sb = b.get<string>();
+        return (sa > sb) ? a : ((sa < sb) ? b : boost::any("None")));
     }
 }
