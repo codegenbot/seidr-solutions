@@ -1,14 +1,14 @@
-int max_fill(vector<vector<int>> grid, int capacity) {
-    int count = 0;
-    for (int j = 0; j < grid[0].size(); ++j) {
-        int sum = 0;
-        for (int i = 0; i < grid.size(); ++i) {
-            sum += grid[i][j];
+#include <vector>
+using namespace std;
+
+int total_fill(vector<vector<int>>& grid, int capacity) {
+    int total_fill = 0;
+    for (int i = 0; i < grid.size(); i++) {
+        int well_fill = 0;
+        for (int j = 0; j < grid[0].size(); j++) {
+            well_fill += grid[i][j];
         }
-        while (sum > 0) {
-            sum -= capacity;
-            count++;
-        }
+        total_fill += well_fill;
     }
-    return count;
+    return (total_fill + capacity - 1) / capacity;
 }
