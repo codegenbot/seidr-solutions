@@ -12,22 +12,22 @@ bool is_sorted(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst;
+    std::vector<int> vec;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     
-    for(int i = 0; i < n; ++i) {
+    for(int i=0; i<n; ++i) {
         int x;
-        std::cout << "Enter element " << i + 1 << ": ";
+        std::cout << "Enter element " << (i+1) << ": ";
         std::cin >> x;
-        lst.push_back(x);
+        vec.push_back(x);
     }
     
-    if(is_sorted(lst)) {
-        std::cout << "The list is sorted." << std::endl;
+    if(is_sorted(vec)) {
+        std::cout << "The vector is sorted." << std::endl;
     } else {
-        std::cout << "The list is not sorted." << std::endl;
+        std::cout << "The vector is not sorted." << std::endl;
     }
     
     return 0;
