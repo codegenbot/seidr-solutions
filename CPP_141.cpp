@@ -1,24 +1,30 @@
-int countDigits(string s) {
-    int count = 0;
-    for(char c : s) {
-        if(isdigit(c)) {
-            count++;
+string file_name_check(string file_name) {
+    int digits_count = 0;
+    int dot_count = 0;
+    int dot_pos;
+    
+    for(int i = 0; i < file_name.size(); ++i) {
+        if(isdigit(file_name[i])) {
+            digits_count++;
+        } else if(file_name[i] == '.') {
+            dot_count++;
+            dot_pos = i;
         }
     }
-    return count;
-}
-
-string file_name_check(string file_name) {
-    if(file_name.find('.') == string::npos) return "No";
-    int dotPos = file_name.find('.');
-    string nameBeforeDot = file_name.substr(0, dotPos);
-    string nameAfterDot = file_name.substr(dotPos + 1);
-
-    if(countDigits(nameBeforeDot) > 3) return "No";
-
-    if(nameBeforeDot.empty() || !isalpha(nameBeforeDot[0])) return "No";
-
-    if(nameAfterDot != "txt" && nameAfterDot != "exe" && nameAfterDot != "dll") return "No";
-
+    
+    if (digits_count > 3 || dot_count != 1 || dot_pos == 0 || dot_pos == file_name.size() - 1) {
+        return "No";
+    }
+    
+    string extension = file_name.substr(dot_pos + 1);
+    
+    if (extension != "txt" && extension != "exe" && extension != "dll") {
+        return "No";
+    }
+    
+    if (!isalpha(file_name[0])) {
+        return "No";
+    }
+    
     return "Yes";
 }
