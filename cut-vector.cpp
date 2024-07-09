@@ -25,7 +25,7 @@ int main() {
         prefixSum += nums[index];
         ++index;
     }
-
+    
     if (prefixSum == target) {
         for (int i = 0; i < index; ++i) {
             cout << nums[i] << endl;
