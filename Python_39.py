@@ -1,1 +1,1 @@
-n = int(input())
+n = int(input("Enter a number: "))  # Ensure the input is provided before proceeding with the code
