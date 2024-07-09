@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -16,7 +17,7 @@ int smallest_change(std::vector<int> arr) {
             if (arr[start] == arr[end]) {
                 dp[start][end] = dp[start + 1][end - 1];
             } else {
-                dp[start][end] = 1 + min({dp[start + 1][end], dp[start][end - 1], dp[start + 1][end - 1]});
+                dp[start][end] = 1 + std::min({dp[start + 1][end], dp[start][end - 1], dp[start + 1][end - 1]});
             }
         }
     }
