@@ -1,8 +1,9 @@
 ```
 from decimal import Decimal, getcontext
 
+getcontext().prec = 28 
+
 def snow_day():
-    getcontext().prec = 28 
     while True:
         try:
             hours = float(input("Enter number of hours: "))
