@@ -1,31 +1,23 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
 int digitSum(string s){
     int sum = 0;
-    vector<string> words = ssplit(s, " ");
-    for(auto& word : words){
+    for(auto& word : split(s, " ")){
         for(char c : word){
             if(isdigit(c))
-                sum += (c - '0');
+                sum += c - '0';
         }
     }
     return sum;
 
 }
 
-string join(const vector<string>& v, const char& sep) {
-    string s;
-    for (auto it = v.begin(); it != v.end(); ++it)
-        s += *it + sep;
-    return s.substr(0, s.size() - 1); // remove trailing sep
-}
-
-string ssplit(const string& s, const char& sep) {
+string split(const string& s, const char& sep) {
     vector<string> v;
     size_t pos = 0, prev = 0;
 
@@ -35,7 +27,14 @@ string ssplit(const string& s, const char& sep) {
     }
 
     v.push_back(s.substr(prev));
-    return join(v, sep);
+    return join(v, " ");
+}
+
+string join(const vector<string>& v, const char& sep) {
+    string s;
+    for (auto it = v.begin(); it != v.end(); ++it)
+        s += *it + sep;
+    return s.substr(0, s.size() - 1); 
 }
 
 int main() {
