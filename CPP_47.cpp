@@ -13,28 +13,38 @@ float median(std::vector<float> numbers) {
         return numbers[size / 2];
 }
 
-std::vector<float> numbers;
-std::cout << "Enter the numbers (enter 'stop' to finish): ";
-std::string input;
-while (true) {
-    std::cin >> input;
-    if (input == "stop") break;
-    try {
-        float num = std::stof(input);
-        numbers.push_back(num);
-    } catch(const std::invalid_argument& e) {
-        std::cout << "Invalid number. Please enter a valid floating point number." << std::endl;
-        while (!(std::cin >> input)) {  
-            std::cout << "Invalid input. Please try again: ";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+int main() {
+    std::vector<float> numbers;
+    std::string input;
+    while (true) {
+        std::cin >> input;
+        if (input == "stop") break;
+        bool isValid = true;
+        try {
+            float num = std::stof(input);
+            numbers.push_back(num);
+        } catch(const std::invalid_argument& e) {
+            isValid = false;
+            std::cout << "Invalid number. Please enter a valid floating point number." << std::endl;
+            while (std::cin.fail()) {  
+                std::cout << "Invalid input. Please try again: ";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                if (!(std::cin >> input)) {
+                    std::cout << "Invalid input. Please enter a valid floating point number." << std::endl;
+                    break;
+                }
+            }
+        }
+        if (!isValid) {
+            numbers.pop_back(); // remove the invalid entry from the vector
         }
     }
+    if (numbers.size() == 0) {
+        std::cout << "The median of the given numbers is: No numbers entered." << std::endl;
+    } else {
+        float result = median(numbers);
+        std::cout << "The median of the given numbers is: " << result << std::endl;
+    }
+    return 0;
 }
-if (numbers.size() == 0) {
-    std::cout << "The median of the given numbers is: No numbers entered." << std::endl;
-} else {
-    float result = median(numbers);
-    std::cout << "The median of the given numbers is: " << result << std::endl;
-}
-return 0;
