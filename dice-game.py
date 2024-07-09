@@ -1,2 +1,3 @@
 def roll_dice(n, m):
-    return (min(n, m) - 1) / (n * m) + sum(1/m for _ in range(min(n, m)) if _ == min(n, m)) + sum(1/n for _ in range(m, n) if True)
+    p_win_count = sum((i - j) * 1 for i in range(1, n + 1) for j in range(1, min(m, i)))
+    return p_win_count / (n * m)
