@@ -1,6 +1,10 @@
-Here is the completed code:
+#include <cmath>
+
+using namespace std;
 
 bool right_angle_triangle(float a, float b, float c) {
-    float max = fmax(fmax(a, b), c);
-    return (max * max == (a * a + b * b));
+    if (a * a + b * b == c * c || a * a + c * c == b * b || b * b + c * c == a * a)
+        return true;
+    else
+        return false;
 }
