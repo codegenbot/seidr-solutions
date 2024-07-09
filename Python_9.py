@@ -3,18 +3,11 @@ from typing import List
 def rolling_max(numbers: List[int]) -> List[int]:
     if not numbers:
         return []
-    max_sum = current_max = sum(numbers[:1])
-    result = [current_max]
+    max_sum = current_sum = sum(numbers[:1])
+    result = [current_sum]
     
-    for i in range(1, len(numbers)):
-        if numbers[i] > current_max:
-            current_max = numbers[i]
-        else:
-            current_max += numbers[i]
+    for num in numbers[1:]:
+        current_sum = max(num, current_sum + num)
+        result.append(current_sum)
         
-        if current_max > max_sum:
-            max_sum = current_max
-        
-        result.append(max(current_max, max_sum))
-    
     return result
