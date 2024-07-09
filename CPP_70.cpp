@@ -1,13 +1,15 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <memory_resource>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
+std::pmr::vector<int> strange_sort_list(std::pmr::pmr_vector<int> lst) {
+    std::pmr::vector<int> result;
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
         result.push_back(min_val);
@@ -23,15 +25,15 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::pmr::memory_resource* global_mr = new std::pmr::chiarenza_memory_resource();
-    std::vector<int> input(global_mr);
+    std::pmr::polymorphic_allocator<int> global_mr;
+    std::pmr::vector<int> input(global_mr);
     for (int i = 0; i < 6; ++i) {
-        int num = 0;
+        int num;
         std::cin >> num;
         input.push_back(num);
     }
 
-    std::vector<int> output = strange_sort_list(input);
+    std::pmr::vector<int> output = strange_sort_list(input);
 
     if (issame(output, {1,2,3,4,5,6})) {
         std::cout << "True" << std::endl;
@@ -39,6 +41,5 @@ int main() {
         std::cout << "False" << std::endl;
     }
 
-    delete global_mr;
     return 0;
 }
