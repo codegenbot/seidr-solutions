@@ -20,21 +20,18 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for (int i = 0; i < n; i++) {
-        int num;
+        int val;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        lst.push_back(num);
+        std::cin >> val;
+        lst.push_back(val);
     }
     std::vector<int> result = strange_sort_list(lst);
-    if (issame({1, 3}, result)) {
-        std::cout << "The sorted list is: ";
-        for (int i = 0; i < result.size(); i++) {
-            std::cout << result[i] << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "The list is not in the required format." << std::endl;
+    std::cout << "The sorted list is: ";
+    for (int val : result) {
+        std::cout << val << " ";
     }
+    std::cout << std::endl;
+
     return 0;
 }
 
