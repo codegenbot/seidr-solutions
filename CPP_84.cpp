@@ -1,22 +1,21 @@
-```cpp
 #include <iostream>
-#include <string>
+#include <cassert>
 
-int solve(int);
+using namespace std;
 
-int main() {
-    assert(solve(963) == "10010");
-    return 0;
-}
-
-std::string solve(int n) {
-    std::string result = "";
+int solve(int n) {
+    string binary = "";
     while(n > 0) {
-        if(n % 2 == 1)
-            result += "1";
+        if(n % 2 == 0)
+            binary = "0" + binary;
         else
-            result += "0";
+            binary = "1" + binary;
         n /= 2;
     }
-    return result;
+    return binary.length() ? stoi(binary) : 0;
+}
+
+int main() {
+    assert(solve(963) == 10010);
+    return 0;
 }
