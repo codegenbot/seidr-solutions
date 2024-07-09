@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+#include <string>
 
 bool is_prime(long long n) {
     if (n <= 1) return false;
@@ -14,5 +14,5 @@ int main() {
     string input;
     cout << "Enter a number: ";
     getline(cin, input);
-    cout << "Number is " << (is_prime(stol(input)) ? "prime" : "not prime");
-}
+    cout << "Number is " << (is_prime(stoi(input)) ? "prime" : "not prime");
+    return 0;
