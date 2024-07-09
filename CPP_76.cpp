@@ -3,6 +3,7 @@
 #include <string>
 #include <cmath>
 
+bool isSimplePower(int base, int power);
 bool isSimplePower(int num);
 
 int main() {
@@ -31,6 +32,6 @@ bool isSimplePower(int num) {
     return false;
 }
 
-bool isPowerOfSimpleInt(int base, int power) {
+bool isSimplePower(int base, int power) {
     return (int)pow(base, power) == base * power;
 }
