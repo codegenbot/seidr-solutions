@@ -1,9 +1,17 @@
-int totalChars(const vector<string>& lst) {
+#include <vector>
+#include <string>
+
+vector<string> total_match(vector<string> lst1, vector<string> lst2);
+int totalChars(vector<string> lst) {
     int total = 0;
     for (const string& str : lst) {
         total += str.size();
     }
     return total;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
