@@ -32,18 +32,21 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    cout << "Enter two planets separated by space: ";
     string planet1, planet2;
-    cin >> planet1 >> planet2;
+    cout << "Enter the first planet: ";
+    cin >> planet1;
+    cout << "Enter the second planet: ";
+    cin >> planet2;
     vector<string> result = bf(planet1, planet2);
-    if (result.empty()) {
-        cout << "Planets not found.\n";
-    } else {
-        cout << "Planets in order are: ";
-        for (const string& planet : result) {
-            cout << planet << " ";
+    if (result.size() > 0) {
+        cout << "The planets between " << planet1 << " and " << planet2 << " are: ";
+        for (string s : result) {
+            cout << s << " ";
         }
-        cout << "\n";
+        cout << endl;
+    } else {
+        cout << "No planets found between " << planet1 << " and " << planet2 << "." << endl;
     }
+    
     return 0;
 }
