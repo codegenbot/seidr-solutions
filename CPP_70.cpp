@@ -61,6 +61,8 @@ int main() {
     } else {
         std::cout << "False" << std::endl;
     }
-    
+
+    assert(same({111111}, strange_sort_list({111111})));
+
     return 0;
 }
