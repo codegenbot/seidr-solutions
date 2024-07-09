@@ -1,4 +1,4 @@
-#include <vector>
+Here is the solution:
 
 long long minSubArraySum(vector<long long> nums) {
     long long min_sum = INT_MAX, current_sum = 0;
@@ -10,4 +10,9 @@ long long minSubArraySum(vector<long long> nums) {
             current_sum = 0;
     }
     return min_sum;
+}
+
+int main() {
+    assert(minSubArraySum({1, -1}) == -1);
+    return 0;
 }
