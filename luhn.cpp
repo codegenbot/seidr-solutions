@@ -5,18 +5,18 @@ using namespace std;
 
 int luhn(const vector<int>& digits) {
     int sum = 0;
-    bool doubleNext = false;
     
-    for (int i = 1; i < digits.size(); i++) {
-        if ((i % 2) == 0) {
-            int doubled = digits[i - 1] * 2;
-            if (doubled > 9) {
-                sum += doubled - 9;
+    for (int i = 0; i < digits.size(); i++) {
+        int digit = digits[i];
+        if ((i % 2) == 1) { 
+            digit *= 2;
+            if (digit > 9) {
+                sum += digit - 9;
             } else {
-                sum += doubled;
+                sum += digit;
             }
         } else {
-            sum += digits[i - 1];
+            sum += digit;
         }
     }
     

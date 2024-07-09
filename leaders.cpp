@@ -1,15 +1,19 @@
 ```cpp
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
+    int maxRight = arr.back();
     for (int i = n - 1; i >= 0; i--) {
-        if (i == n - 1 || arr[i] >= max(arr.begin() + i + 1, arr.end())) {
+        if (arr[i] >= maxRight) {
             result.push_back(arr[i]);
+            maxRight = arr[i];
         }
     }
+    reverse(result.begin(), result.end());
     return result;
 }
 
