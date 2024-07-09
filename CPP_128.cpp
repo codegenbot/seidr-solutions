@@ -9,8 +9,7 @@ int prod_signs(vector<int> arr){
         if(i == 0)product *= 1;
         else product *= (i > 0 ? 1 : -1);
         
-        sum += std::abs(i);
+        sum += abs(i);
     }
     
-    return product * sum == 0 ? -32768 : product * sum;
-}
+    return product * sum;
