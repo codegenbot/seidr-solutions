@@ -5,7 +5,7 @@ double absolute_value(double x){
 double poly_diff(vector<double> coeffs, double x){
     double result = 0;
     for(int i = 1; i < coeffs.size(); i++){
-        result += coeffs[i] * i * pow(x, i - 1);
+        result += i * coeffs[i] * pow(x, i - 1);
     }
     return result;
 }
