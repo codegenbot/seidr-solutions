@@ -14,7 +14,15 @@ std::map<char, int> createHistogram(const std::string& s) {
 }
 
 bool sameHistograms(const std::map<char, int>& a, const std::map<char, int>& b) {
-    return a == b;
+    if(a.size()!=b.size())
+        return false;
+
+    for(auto& pair:a){
+        auto iter = b.find(pair.first);
+        if(iter==b.end() || iter->second!=pair.second)
+            return false;
+    }
+    return true;
 }
 
 int main() {
