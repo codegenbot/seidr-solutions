@@ -43,8 +43,8 @@ int main() {
     std::vector<int> arr; 
     std::cout << "Enter elements: ";
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element at index " << i << ": ";
         int val;
+        std::cout << "Enter element at index " << i << ": ";
         std::cin >> val;
         arr.push_back(val);
     }
