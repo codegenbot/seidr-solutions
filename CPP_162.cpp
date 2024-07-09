@@ -22,7 +22,3 @@ string string_to_md5(string text) {
     }
     return output;
 }
-
-int main() {
-    string_to_md5("password");
-}
