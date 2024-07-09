@@ -1,12 +1,12 @@
-def join_with_delimeter(numbers, delimeter):
+def process_numbers(numbers, delimiter):
     result = []
     for num in numbers[:-1]:
-        result.extend([num, delimeter])
+        result.extend([num, delimiter])
     if numbers:
         result.append(numbers[-1])
     return result
 
 numbers = [1, 2, 3, 4, 5]
-delimeter = ','
-output = join_with_delimeter(numbers, delimeter)
+delimiter = ","
+output = process_numbers(numbers, delimiter)
 print(output)
