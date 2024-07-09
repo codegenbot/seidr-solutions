@@ -1,5 +1,4 @@
 #include <vector>
-#include <cmath>
 
 int maxPrimeSum(std::vector<int> lst) {
     int maxPrime = 0;
