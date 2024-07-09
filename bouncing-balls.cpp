@@ -1,22 +1,19 @@
-#include <iostream>
-using namespace std;
-
 int main() {
     int startHeight, firstBounce, numBounces;
+
+    std::cin >> startHeight >> firstBounce >> numBounces;
     
-    cin >> startHeight >> firstBounce >> numBounces;
-    
-    if (!(cin)) {
+    if (!(std::cin)) {
         return 1;
     }
 
     double bouncinessIndex = static_cast<double>(firstBounce) / static_cast<double>(startHeight);
 
-    cout << fixed << setprecision(2);
+    std::cout << std::fixed << std::setprecision(2);
     for (int i = 0; i <= numBounces; ++i) {
-        int height = static_cast<int>(firstBounce * pow(0.5, i));
-        firstBounce = height;
-        cout << height << " ";
+        startHeight = firstBounce;
+        firstBounce *= 0.5;
+        std::cout << static_cast<double>(startHeight + firstBounce) << " ";
     }
     return 0;
 }
