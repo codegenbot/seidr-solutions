@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 bool same(std::vector<int> a, std::vector<int> b);
@@ -25,4 +24,3 @@ std::vector<int> make_a_pile(int n) {
         stones *= 2;
     }
     return pile;
-}
