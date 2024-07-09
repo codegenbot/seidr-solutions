@@ -4,15 +4,13 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-def indices(text, target):
-    return [i for i in range(len(text)) if text.startswith(target, i)]
-
-a = int(input())
-b = int(input())
-
-print(gcd(a, b))
-
 text = input()
 target = input()
 
-print(indices(text, target))
+indices = [i for i in range(len(text)) if text.startswith(target, i)]
+
+num1 = int(input())
+num2 = int(input())
+
+print(gcd(num1, num2))
+print(indices)
