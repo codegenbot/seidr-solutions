@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -16,8 +17,8 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     return tokens;
 }
 
-std::string words_in_sentence(std::string sentence) {
-    int primeCount = 0;
+std::vector<int> words_in_sentence(std::string sentence) {
+    std::vector<int> wordLengths{}; 
     std::string result = "";
 
     for (const auto& word : split(sentence, ' ')) {
@@ -34,12 +35,12 @@ std::string words_in_sentence(std::string sentence) {
 
             if (isPrime) {
                 result += word + " ";
-                primeCount++;
+                wordLengths.push_back(1); 
             }
         }
     }
 
-    return result.substr(0, result.size() - 1);
+    return wordLengths; 
 }
 
 int main() {
@@ -47,7 +48,11 @@ int main() {
     std::cout << "Enter a sentence: ";
     std::getline(std::cin, sentence);
 
-    std::cout << "Words with prime lengths are: " << words_in_sentence(sentence) << std::endl;
+    std::cout << "Words with prime lengths are: ";
+    for (const auto& length : words_in_sentence(sentence)) {
+        std::cout << length << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }
