@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -16,7 +15,7 @@ bool has_close_elements(vector<float> a, float tol) {
 }
 
 int main() {
-    vector<float> numbers = {static_cast<float>(1), static_cast<float>(2), static_cast<float>(3.9), static_cast<float>(4), static_cast<float>(5), static_cast<float>(2.2), 0};
+    vector<float> numbers = {static_cast<float>(1), static_cast<float>(2), static_cast<float>(3.9), static_cast<float>(4), static_cast<float>(5), static_cast<float>(2.2), static_cast<float>(0)};
     assert(has_close_elements(numbers, 0.5) == false);
     
     vector<float> numbers2 = {static_cast<float>(1.1), static_cast<float>(2.2), static_cast<float>(3.1), static_cast<float>(4.1), static_cast<float>(5.1)};
