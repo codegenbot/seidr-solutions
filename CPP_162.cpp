@@ -1,12 +1,13 @@
-#include <string>
 #include <openssl/ssl.h>
 #include <openssl/sha.h>
-#include <openssl/md5.h>
 
 using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
+
+    SSL_library_init();
+    OpenSSL_add_all_algorithms();
 
     unsigned char result[16];
     MD5((const unsigned char*)text.c_str(), text.size(), result);
