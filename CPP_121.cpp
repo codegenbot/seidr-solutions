@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -28,7 +27,7 @@ int main() {
     std::vector<int> lst;
     int num, n = 1;
     std::cout << "Enter numbers (terminate with 0): ";
-    while (std::cin >> num && num != 0) {
+    while (std::cin >> num) {
         if(num != 0)
             lst.push_back(num); 
         else
@@ -37,3 +36,4 @@ int main() {
     int result = solutions(lst);
     if(result == 25)
         std::cout << "Test passed.\n";
+}
