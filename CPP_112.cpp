@@ -11,8 +11,8 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
 
     // Delete all characters in s that are equal to any character in c
     for (char ch : s) {
@@ -24,12 +24,12 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found)
-            result.push_back(string(1, ch));
+            result.push_back(std::to_string(ch));
     }
 
     // Check if the result string is palindrome
-    string res_str = "";
-    for (string str : result)
+    std::string res_str = "";
+    for (std::string str : result)
         res_str += str;
     bool is_palindrome = false;
     int start = 0, end = res_str.length() - 1;
@@ -43,10 +43,9 @@ vector<string> reverse_delete(string s, string c) {
         is_palindrome = true;
 
     // Return the result
-    vector<string> final_result;
+    std::vector<std::string> final_result;
     final_result.push_back(res_str);
-    if(is_palindrome)final_result.push_back("True");
-    else final_result.push_back("False");
+    final_result.push_back(std::to_string(is_palindrome));
     return final_result;
 }
 
