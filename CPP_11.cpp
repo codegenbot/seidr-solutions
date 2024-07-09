@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <bitset>
@@ -11,7 +11,4 @@ std::string string_xor(const std::string &a, const std::string &b) {
     return std::bitset<8>(result).to_string();
 }
 
-int main() {
-    std::cout << string_xor("0101", "0000") << std::endl;
-    return 0; 
-}
+std::cout << string_xor("0101", "0000") << std::endl;
