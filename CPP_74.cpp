@@ -1,3 +1,6 @@
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<string> a, vector<string> b) {
     return (a == b);
 }
@@ -18,16 +21,5 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else if (sum1 > sum2)
         return lst2;
 
-    vector<string> result = lst1;
-    for (string str : lst2) {
-        if (!issame(result, {str})) {
-            if (sum1 <= sum2) {
-                return {str};
-            } else {
-                return lst2;
-            }
-        }
-    }
-    
-    return result;
+    return lst1;
 }
