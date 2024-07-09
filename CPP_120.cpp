@@ -1,12 +1,10 @@
+Here is the completed code:
+
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
-    if (k >= arr.size()) {
-        return sort(arr.begin(), arr.end()); // Return entire array if k is equal to or more than the size of the array.
-    } else {
-        sort(arr.begin(), arr.end());  // Sort the given array
-        for (int i = 0; i < k; i++) { 
-            result.push_back(arr[arr.size() - i - 1]); // Add the last element to the result which will be the maximum in this case.
-        }
+    vector<int> res(k);
+    for (int i = 0; i < k; ++i) {
+        res[i] = *std::max_element(arr.begin(), arr.end());
+        arr.erase(std::remove(arr.begin(), arr.end(), *std::max_element(arr.begin(), arr.end())), arr.end());
     }
-    return result;
+    return res;
 }
