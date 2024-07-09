@@ -36,12 +36,7 @@ int count_nums(std::vector<int> nums) {
             }
         }
     }
+    if (count == 0) {
+        return -1; // No numbers with positive digit sums
+    }
     return count;
-}
-
-int main() {
-    std::vector<int> numbers = {12, -34, 45, -67, 89};
-    int result = count_nums(numbers);
-    std::cout << "Number of positive sums: " << result << std::endl;
-    return 0;
-}
