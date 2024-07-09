@@ -1,4 +1,6 @@
-Here is the Python solution for the problem:
-
 def camel_case(input_str):
-    return ''.join(word.capitalize() if idx > 0 else word for idx, word in enumerate(input_str.replace('-', ' ').split()))
+    return (
+        "".join(word.capitalize() for word in input_str.split())
+        if " " in input_str
+        else input_str.replace("-", "").capitalize()
+    )
