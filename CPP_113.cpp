@@ -28,9 +28,8 @@ vector<string> odd_count(vector<string> lst) {
     return result;
 }
 
-vector<string> output(vector<int n, vector<string>& lst) {
+vector<string> odd_count(vector<string> lst) {
     vector<string> result;
-
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
         for (char c : lst[i]) {
