@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+#include <limits>
 
 using namespace std;
 
-bool issame(const string& a, const vector<string>& b, const string& s) {
-    for (const auto& str : b) {
-        if (!issame(a, vector<string>{str}, s)) return false;
+bool issame(const string& a, const vector<string>& b) {
+    for (const auto& s : b) {
+        if (!issame(a, s)) return false;
     }
     return true;
 }
@@ -25,7 +25,7 @@ string separate_paren_groups(string s) {
             count--;
             current_group += c;
             if (count == 0) {
-                result += current_group; // append the entire group string
+                result += current_group; 
                 current_group = "";
             }
         } else {
@@ -43,14 +43,11 @@ string separate_paren_groups(string s) {
 int main() {
     string s;
 
-    while (true) {
-        cout << "Enter a string: ";
-        if (!(cin >> s)) { 
-            cin.clear(); 
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-            break; 
-        }
-    }
+    cout << "Enter a string: ";
+    cin >> s;
+
     assert(issame(separate_paren_groups("( ) (( )) (( )( )"), {"", "(())", "(()())"}));
+
     cout << "Result: " << separate_paren_groups(s) << endl;
     return 0;
+}
