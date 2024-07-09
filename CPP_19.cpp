@@ -1,10 +1,11 @@
 ```cpp
 #include <algorithm>
 #include <vector>
+#include <string>
 
 using namespace std;
 
-int sortNumbers(string& numbers) {
+string sortNumbers(string numbers) {
     vector<string> numVec;
     string temp;
 
@@ -29,5 +30,5 @@ int sortNumbers(string& numbers) {
         }
     }
 
-    return 0; // Assuming this function is meant to be void
+    return result;
 }
