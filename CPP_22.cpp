@@ -1,4 +1,3 @@
-```c
 #include <vector>
 #include <list>
 #include <any>
