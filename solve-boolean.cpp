@@ -1,4 +1,3 @@
-```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,10 +7,10 @@ bool solveBoolean(const string& s, size_t& i) {
     while (i < s.size()) {
         switch (s[i]) {
             case 'T':
-                i++;  // skip T
+                i++;
                 return true;
             case 'F':
-                i++;  // skip F
+                i++;
                 return false;
             case '&': {
                 i++; // skip &
