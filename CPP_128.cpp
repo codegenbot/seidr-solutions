@@ -9,7 +9,7 @@ int prod_signs(vector<int> arr) {
         if (num == 0) {
             return 0;
         }
-        int sign = (num > 0 ? 1 : -1);
+        int sign = num / abs(num);
         sum_of_magnitudes += abs(num);
         sign_product *= sign;
     }
