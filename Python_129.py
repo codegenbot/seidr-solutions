@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     n = len(grid)
     m = [[i * j for j in range(1, n + 1)] for i in range(1, n + 1)]
@@ -18,9 +17,12 @@ def minPath(grid, k):
             if 1 <= ni < n and 1 <= nj < n and (ni, nj) not in memo:
                 res.append(dfs(ni, nj, path + [m[ni][nj]], cnt + 1))
         
-        res.sort()
-        memo[(i, j)] = res[0]
-        return memo[(i, j)]
+        if len(res) > 0:
+            res.sort()
+            memo[(i, j)] = res[0]
+            return memo[(i, j)]
+        else:
+            return []
     
     min_path = []
     for i in range(1, n):
@@ -32,4 +34,4 @@ def minPath(grid, k):
             continue
         break
     
-    return min_path```
+    return min_path
