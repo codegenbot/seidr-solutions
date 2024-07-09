@@ -21,23 +21,23 @@ int main() {
         s2.insert(y);
     }
 
-    std::vector<std::string> diff(s1.size() + s2.size());
+    std::vector<std::string> diff(s1.begin(), s1.end());
     set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(),
-        std::back_inserter(diff));
+                    std::back_inserter(diff));
 
     auto intersection = s1;
     s1.clear();
-    std::vector<std::string> intersect(s1.size() + s2.size());
-    std::set_intersection(s2.begin(), s2.end(), intersection.begin(), intersection.end(),
-        std::back_inserter(intersect));
+    std::vector<std::string> intersect(s2.begin(), s2.end());
+    set_intersection(intersection.begin(), intersection.end(), s2.begin(), s2.end(),
+                     std::back_inserter(intersect));
 
     std::cout << "Difference: ";
-    for (auto& i : diff) {
+    for (const auto& i : diff) {
         std::cout << i << " ";
     }
     std::cout << "\n";
     std::cout << "Intersection: ";
-    for (auto& i : intersect) {
+    for (const auto& i : intersect) {
         std::cout << i << " ";
     }
     std::cout << "\n";
