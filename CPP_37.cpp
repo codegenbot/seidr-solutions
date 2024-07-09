@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 
@@ -15,10 +16,11 @@ namespace myspace {
         int evenIndex = 0;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                auto it = std::max_element(l.begin(), l.end()); // Changed minmax to max_element
-                result[i] = *it;
+                auto it = std::minmax_element(l.begin(), l.end(), 
+                                              [](float a, float b){return a>b;} );
+                result[i] = *(it.first);
                 for(int j = 0; j < l.size(); j++){
-                    if(j%2==0 && l[j] != *it){ // Changed (it.first) to (*it)
+                    if(j%2==0 && l[j] != *(it.first)){
                         result[evenIndex++] = l[j];
                     }
                 }
@@ -28,33 +30,33 @@ namespace myspace {
         }
         return result;
     }
-}
 
-int cpp_main() { // Renamed main to cpp_main
-    std::vector<float> input(10); 
-    input.push_back(5);
-    input.push_back(8);
-    input.push_back(-12);
-    input.push_back(4);
-    input.push_back(23);
-    input.push_back(2);
-    input.push_back(3);
-    input.push_back(11);
-    input.push_back(12);
-    input.push_back(-10);
+    int mymain() {
+        std::vector<float> input(10); // or any other size that suits your needs
+        input.push_back(5);
+        input.push_back(8);
+        input.push_back(-12);
+        input.push_back(4);
+        input.push_back(23);
+        input.push_back(2);
+        input.push_back(3);
+        input.push_back(11);
+        input.push_back(12);
+        input.push_back(-10);
 
-    std::cout << "Original array: ";
-    for (float num : input) {
-        std::cout << num << " ";
+        std::cout << "Original array: ";
+        for (float num : input) {
+            std::cout << num << " ";
+        }
+        std::cout << std::endl;
+
+        std::vector<float> sortedEven = sort_even(input);
+        std::cout << "Sorted even array: ";
+        for (float num : sortedEven) {
+            std::cout << num << " ";
+        }
+        std::cout << std::endl;
+
+        return 0;
     }
-    std::cout << std::endl;
-
-    std::vector<float> sortedEven = myspace::sort_even(input);
-    std::cout << "Sorted even array: ";
-    for (float num : sortedEven) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
 }
