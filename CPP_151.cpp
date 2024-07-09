@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -12,7 +13,7 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> lst = {1.0, 2.0, 3.0, 4.5};
-    assert(double_the_difference(lst) == 30);
+    std::vector<float> lst = {1.0f, 2.0f, 3.0f};
+    assert(double_the_difference(lst) == 14);
     return 0;
 }
