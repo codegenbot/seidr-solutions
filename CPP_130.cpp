@@ -8,7 +8,7 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> solve(int n) {
+vector<int> contestProblem(int n) {
     vector<int> result;
     if (n == 0) {
         result.push_back(0);
