@@ -4,17 +4,10 @@
 
 using namespace std;
 
-bool below_threshold(vector<int> l, int t) {
-    for (int num : l) {
-        if (num >= t) {
-            return false;
-        }
-    }
-    return true;
-}
+bool below_threshold(vector<int> l, int t); // Add a semicolon
 
-int main() {
-    vector<int> numbers(5);  
+int main {
+    vector<int> numbers(5);  // Initialize the vector with size 5
     int threshold;
     
     cout << "Enter the threshold: ";
@@ -24,7 +17,7 @@ int main() {
     for(int i=0; i<5; i++) {
         int num; 
         cin >> num;
-        numbers[i] = num;  
+        numbers[i] = num;  // Assign values to the vector elements
     }
     
     if(below_threshold(numbers, threshold)) {
