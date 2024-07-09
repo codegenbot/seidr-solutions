@@ -16,11 +16,9 @@ vector<int> sort_third(vector<int> l) {
             if(groupCount % 3 != 0) { 
                 // Sort and reverse the current group
                 sort(result.begin() + groupCount - (groupCount % 3), result.begin() + groupCount);
-                vector<int> temp = result;
-                result.clear(); 
-                l.reserve(l.size()); 
-                for (int j = temp.size() - 1; j >= 0; j--) {
-                    result.push_back(temp[j]);
+                for (int j = result.size() - 1; j >= 0; j--) {
+                    result.push_back(result[j]);
+                    result.erase(result.begin() + j);
                 }
             }
         } else {
