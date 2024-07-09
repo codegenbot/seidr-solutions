@@ -1,11 +1,4 @@
-```cpp
 #include <string>
-
-int main() {
-    std::string s = "test"; // input string
-    std::cout << middleCharacter(s) << std::endl; 
-    return 0;
-}
 
 std::string middleCharacter(std::string s) {
     int len = s.length();
@@ -16,4 +9,9 @@ std::string middleCharacter(std::string s) {
     std::string result = (len % 2 == 0) ? s.substr(start-1, 2) : s.substr(start, 1);
     
     return result;
+}
+
+int main() {
+    std::cout << middleCharacter("hello") << std::endl;
+    return 0;
 }
