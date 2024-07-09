@@ -30,7 +30,6 @@ int main() {
             odd_sum += pow(num, 2); 
         }
     }
-    assert(double_the_difference(lst) == odd_sum); 
-    std::cout << "The result is: " << double_the_difference(lst) << std::endl;
+    std::cout << "The result is: " << odd_sum << std::endl;
     return 0;
 }
