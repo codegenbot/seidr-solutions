@@ -1,6 +1,3 @@
-Here's the corrected code:
-
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -8,26 +5,24 @@ Here's the corrected code:
 
 using namespace std;
 
-struct Pair {
-    vector<int> vec;
-    pair<int, int> pos;
+struct MyPair {
+    vector<int> v;
+    pair<int, int> p;
 };
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
-    priority_queue<struct Pair, vector<struct Pair>, 
-        function<bool(const struct Pair &, const struct Pair &)>> pq(
-        [](const auto& p1, const auto& p2) { return p1.vec[0] > p2.vec[0]; });
-    pq.push({{grid[0][0], {0, 0}}, {0, 0}});
+    priority_queue<MyPair, vector<MyPair>, function<bool(const MyPair &, const MyPair &)>> pq([=](const auto& a, const auto& b) { return a.v[0] + a.p.first > b.v[0] + b.p.first; });
+    pq.push({{grid[0][0], {grid[0][0]}}, {0, 0}});
     vector<int> res;
     
     while (!pq.empty()) {
         auto [val, path] = pq.top();
         pq.pop();
         
-        if (path.second.first == k) {
-            return path.second.second;
+        if (path.second.size() == k) {
+            return path.first;
         }
         
         int r = path.second.first / n, c = path.second.second % n;
@@ -40,7 +35,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
                 
                 if (nr >= 0 && nr < n && nc >= 0 && nc < n && !visited[nr][nc]) {
                     visited[nr][nc] = true;
-                    pq.push({{val, {path.second.first, path.second.second + 1}}, {nr, nc}});
+                    pq.push({{val, path.second + 1}, {path.first, path.second + 1}});
                 }
             }
         }
