@@ -24,9 +24,7 @@ std::vector<int> unique_digits(std::vector<int> values) {
         }
     }
     
-    std::vector<int> uniqueDigits(uniqueSet.begin(), uniqueSet.end());
-    
-    return uniqueDigits;
+    return std::vector<int>(uniqueSet.begin(), uniqueSet.end());
 }
 
 int main() {
