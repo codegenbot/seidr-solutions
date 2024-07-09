@@ -2,17 +2,46 @@
 using namespace std;
 
 string int_to_mini_roman(int n) {
-    string roman[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-    int val[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    
-    string result = "";
-    for (int i = 0; i < 13; ++i) {
-        while (n >= val[i]) {
-            n -= val[i];
-            result += roman[i];
+    if(n > 3999) {
+        return "This number is too large";
+    }
+    string roman = "";
+    int thousands = n / 1000;
+    for(int i = 0; i < thousands; i++) {
+        roman += "M";
+    }
+    n %= 1000;
+    int hundreds = n / 100;
+    if(hundreds > 3) {
+        roman += string(4-hundreds) + "CM"; 
+    } else {
+        for(int i = 0; i < hundreds; i++) {
+            roman += "C";
         }
     }
-    return result;
+    n %= 100;
+    int tens = n / 10;
+    if(tens == 9) {
+        roman += "XCIX";
+    } else {
+        if(tens > 3) {
+            roman += string(4-tens) + "XL"; 
+        } else {
+            for(int i = 0; i < tens; i++) {
+                roman += "X";
+            }
+        }
+    }
+    n %= 10;
+    int ones = n;
+    if(ones > 3) {
+        roman += string(4-ones) + "IX"; 
+    } else {
+        for(int i = 0; i < ones; i++) {
+            roman += "I";
+        }
+    }
+    return roman;
 }
 
 int main() {
