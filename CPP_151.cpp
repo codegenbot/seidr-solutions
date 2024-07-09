@@ -7,7 +7,7 @@ long long double_the_difference(std::vector<float> lst) {
     size_t sum = 0;
     for(float num : lst) {
         if(num > 0 && modf(num, &num) == 0.0) {
-            sum += pow(num, 2);
+            sum += std::pow(num, 2);
         }
     }
     return sum;
@@ -29,7 +29,7 @@ int main() {
         lst.push_back(val);
     }
 
-    size_t odd_sum = double_the_difference(lst);
+    long long odd_sum = double_the_difference(lst);
     
     // Check the sum
     assert(double_the_difference(lst) == odd_sum );
