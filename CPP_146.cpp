@@ -11,13 +11,14 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> test1 = {11, -12, 13, -14};
-    int result1 = specialFilter(test1);
-    assert(result1 == 3);
+    std::vector<int> test1 = {-11, -12, -13};
+    assert(specialFilter(test1) == 3);
 
-    std::vector<int> test2 = {-15, 16, -17, 18};
-    int result2 = specialFilter(test2);
-    assert(result2 == 4);
+    std::vector<int> test2 = {14, 15, 16};
+    assert(specialFilter(test2) == 0);
+
+    std::vector<int> test3 = {17, 18, 19};
+    assert(specialFilter(test3) == 3);
 
     return 0;
 }
