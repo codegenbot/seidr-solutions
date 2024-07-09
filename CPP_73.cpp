@@ -1,6 +1,6 @@
-#include <vector>
+#include <utility>
 
-int smallest_change(vector<int> arr) {
+int smallestChange(vector<int> arr) {
     int n = arr.size();
     vector<vector<int>> dp(n, vector<int>(n));
     
