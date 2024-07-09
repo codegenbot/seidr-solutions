@@ -1,22 +1,7 @@
-#include <stdio.h>
-#include <string>
-#include <sstream>
-#include <iostream>
-using namespace std;
+int num1 = stoi(x.substr(0, x.find("/")));
+    int den1 = stoi(x.substr(x.find("/") + 1));
+    int num2 = stoi(n.substr(0, n.find("/")));
+    int den2 = stoi(n.substr(n.find("/") + 1));
 
-bool simplify(string x, string n) {
-    int num1, den1, num2, den2;
-    char slash;
-    stringstream ss1(x), ss2(n);
-    ss1 >> num1 >> slash >> den1;
-    ss2 >> num2 >> slash >> den2;
-
-    return (num1 * num2) % (den1 * den2) == 0;
-}
-
-int main() {
-    string x, n;
-    cin >> x >> n;
-    cout << (simplify(x, n) ? "true" : "false") << endl;
-    return 0;
+    return (num1 * den2 == num2 * den1);
 }
