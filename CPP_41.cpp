@@ -14,7 +14,7 @@ int car_race_collision(int n) {
 
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n; // Read the input integer
     cout << "Number of collisions: " << car_race_collision(n) << endl;
     return 0;
 }
