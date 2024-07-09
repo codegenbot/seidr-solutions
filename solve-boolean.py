@@ -1,4 +1,3 @@
-```
 def solveBoolean(expression):
     if expression == 'T':
         return True
@@ -22,4 +21,4 @@ def parseBoolean(expression):
     else:
         return solveBoolean(expression)
 
-print(parseBoolean('f&t|t&f|f&f&t|f&f'))  # Output: False
+print(parseBoolean('f&t|t&f|f&f&t|f&f'))
