@@ -1,10 +1,14 @@
-bool is_sorted(vector<int> lst){
-    for(int i = 1; i < lst.size(); i++){
-        if(lst[i] <= lst[i-1]){
-            vector<int>::iterator it = unique(lst.begin(), lst.end());
-            lst.erase(it, lst.end());
+#include <vector>
+#include <algorithm>
+
+bool is_sorted(std::vector<int> lst) {
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] <= lst[i - 1]) return false;
+    }
+    std::vector<int>::iterator it;
+    for (it = std::unique(lst.begin(), lst.end()); it != lst.end(); ++it) {
+        if (*it > 0 && std::count(lst.begin(), it, *it) > 1)
             return false;
-        }
     }
     return true;
 }
