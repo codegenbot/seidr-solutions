@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -22,7 +23,7 @@ std::string match_parens(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> lst = {"())(", "(())"};
-    cout << match_parens(lst);
+    std::vector<std::string> lst = {"())((("}; // define the input
+    std::cout << match_parens(lst) << std::endl; // use the corrected function
     return 0;
 }
