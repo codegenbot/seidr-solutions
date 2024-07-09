@@ -13,7 +13,7 @@ def factorize(n: int) -> List[int]:
 
 while True:
     try:
-        n = int(input().strip())
+        n = int(input("Enter an integer: ").strip())
         result = factorize(n)
         print(result)
         break
