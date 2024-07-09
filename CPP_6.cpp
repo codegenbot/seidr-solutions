@@ -1,39 +1,27 @@
-#include <iostream>
-#include <stack>
+```cpp
 #include <vector>
-#include <string>
+#include <stack>
 
-using namespace std;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
     stack<int> nesting_levels;
-    int max_nesting = 0;
-
     for (char c : paren_string) {
         if (c == '(') {
             nesting_levels.push(1);
-            max_nesting = max(max_nesting, 1);
         } else if (c == ')') {
+            int level = nesting_levels.top();
             nesting_levels.pop();
-            if (nesting_levels.empty()) {
-                result.push_back(max_nesting);
-                max_nesting = 0;
-            }
+            result.push_back(level);
         }
     }
-
     return result;
 }
 
 int main() {
-    string paren_string = "(()()) ((())) () ((())()())";
-    vector<int> result = parse_nested_parens(paren_string);
-
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
-
+    assert(parse_nested_parens("(()(())((()))") == vector<int>({4}));
     return 0;
 }
