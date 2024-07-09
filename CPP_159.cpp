@@ -1,7 +1,9 @@
-Here is the solution:
+#include <iostream>
+#include <vector>
+using namespace std;
 
 vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
-    int left = min(remaining, total - number);
-    return {(total), (remaining - left)};
+    int left = min(remaining, need);
+    return {total, remaining - left};
 }
