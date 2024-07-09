@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -18,9 +17,9 @@ int do_algebra(vector<string> ops, vector<int> nums) {
         } else if (ops[i] == "*") {
             temp *= nums[i];
         } else if (ops[i] == "/") {
-            temp /= nums[i];
+            temp /= stoi(to_string(nums[i]));
         } else if (ops[i] == "^") {
-            temp = pow(temp, nums[i]);
+            temp = pow(temp, stoi(to_string(nums[i])));
         }
     }
 
@@ -28,7 +27,7 @@ int do_algebra(vector<string> ops, vector<int> nums) {
 }
 
 int main() {
-    vector<string> ops;
+    vector<string> ops(string());
     vector<int> nums;
 
     cout << "Enter number of operations: ";
@@ -36,11 +35,11 @@ int main() {
     cin >> n;
     
     for (int i = 0; i < n; i++) {
-        string op, strOp, strNum;
+        string op;
+        string strNum;
 
         cout << "Enter operation (+, -, *, /, ^): ";
         cin >> op;
-        
         cout << "Enter number: ";
         cin >> strNum;
         
