@@ -1,7 +1,6 @@
-```cpp
+```c
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 long double_the_difference(const std::vector<int>& input);
 
@@ -35,6 +34,8 @@ int main() {
     } else {
         std::cout << "No positive numbers entered." << std::endl;
     }
+    
+    return 0;
 }
 
 long double_the_difference(const std::vector<int>& input) {
