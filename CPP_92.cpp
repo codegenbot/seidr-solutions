@@ -1,6 +1,4 @@
-Here is the completed code:
-
-bool any_int(float a, float b, float c) {
-    int ai = a; int bi = b; int ci = c;
-    return (ai == bi + ci) || (bi == ai + ci) || (ci == ai + bi);
+bool any_int(float a, float b, float c){
+    int ia = (int) a, ib = (int) b, ic = (int) c;
+    return a == b + c || a == c + b || b == a + c || b == c + a || c == a + b || c == b + a;
 }
