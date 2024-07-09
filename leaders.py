@@ -1,6 +1,7 @@
-def leaders(vector):
-    return [
-        vector[i]
-        for i in range(len(vector) - 1, -1, -1)
-        if all(x <= vector[i] for x in vector[i + 1 :])
-    ]
+def leaders(arr):
+    result = [arr[-1]]
+    for i in range(len(arr) - 2, -1, -1):
+        if arr[i] >= arr[-1]:
+            result.append(arr[i])
+            arr.pop()
+    return list(reversed(result))
