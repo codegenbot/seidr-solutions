@@ -4,13 +4,13 @@ using namespace std;
 
 vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
-    int max = INT_MIN;
+    int current_max = INT_MIN;
     
     for (int num : numbers) {
-        if (num > max) {
-            max = num;
+        if (num > current_max) {
+            current_max = num;
         }
-        result.push_back(max);
+        result.push_back(current_max);
     }
     
     return result;
@@ -18,6 +18,10 @@ vector<int> rolling_max(vector<int> numbers) {
 
 int main() {
     vector<int> numbers = {1, 2, 3, 2, 3, 4, 2};
-    for(int i: rolling_max(numbers)) cout << i << " ";
+    vector<int> output = rolling_max(numbers);
+    
+    for (int num : output) {
+        cout << num << " ";
+    }
     return 0;
 }
