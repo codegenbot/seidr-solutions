@@ -1,10 +1,9 @@
-```cpp
 #include <boost/any.hpp>
 #include <string>
 
 int main() {
-    boost::any a = "hello";
-    boost::any b = "hi";
+    std::string a = "hello";
+    std::string b = "hi";
 
     boost::any result = compare_one(a, b);
 
@@ -15,7 +14,7 @@ int main() {
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any(1.5f);
+        return boost::any(1.5);
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         return boost::any("equal");
@@ -31,6 +30,6 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("Equal");
     }
     else {
-        return boost::any(1.0f);
+        return boost::any(1.0);
     }
 }
