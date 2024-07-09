@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
@@ -24,29 +24,12 @@ std::vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    vector<string> lst1, lst2;
-    //input
-    int n1, n2;
-    cin >> n1 >> n2;
-    for(int i = 0; i < n1; i++) {
-        string s;
-        cin >> s;
-        lst1.push_back(s);
-    }
-    for(int i = 0; i < n2; i++) {
-        string s;
-        cin >> s;
-        lst2.push_back(s);
-    }
+    vector<string> s1 = {"a", "bb"};
+    vector<string> s2 = {"c", "d"};
     
-    //output
-    if(issame(lst1, lst2)) {
-        if (total_match(lst1, lst2) == lst1)
-            cout << "List 1 has the maximum total character count." << endl;
-        else
-            cout << "List 2 has the maximum total character count." << endl;
-    } else
-        cout << "The lists are not same." << endl;
-
+    // Call the functions
+    bool b = issame(s1, s2);
+    vector<string> v = total_match(s1, s2);
+    
     return 0;
 }
