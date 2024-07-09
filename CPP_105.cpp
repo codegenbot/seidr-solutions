@@ -1,49 +1,56 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> numbers;
+    vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            numbers.push_back(to_string(num));
+            numbers.push_back(num);
         }
     }
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
     vector<string> result;
-    for (string str : numbers) {
-        string output = "";
-        switch (stoi(str)) {
+    for (int num : numbers) {
+        string str = "";
+        switch (num) {
             case 1:
-                output = "One";
+                str = "One";
                 break;
             case 2:
-                output = "Two";
+                str = "Two";
                 break;
             case 3:
-                output = "Three";
+                str = "Three";
                 break;
             case 4:
-                output = "Four";
+                str = "Four";
                 break;
             case 5:
-                output = "Five";
+                str = "Five";
                 break;
             case 6:
-                output = "Six";
+                str = "Six";
                 break;
             case 7:
-                output = "Seven";
+                str = "Seven";
                 break;
             case 8:
-                output = "Eight";
+                str = "Eight";
                 break;
             case 9:
-                output = "Nine";
+                str = "Nine";
                 break;
         }
-        result.push_back(output);
+        result.push_back(str);
     }
     return result;
+}
+
+int main() {
+    vector<string> test = by_length({9, 4, 8});
+    assert(test == vector<string>({"Nine", "Eight", "Four"}));
+    return 0;
 }
