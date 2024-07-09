@@ -6,7 +6,7 @@ bool issame(const std::vector<int> &v1, const std::vector<int> &v2) {
     return v1 == v2;
 }
 
-std::vector<int> get_odd_collatz(int n) {
+std::vector<int> cpp123(int n) {
     std::vector<int> result;
     while (n != 1) {
         if (n % 2 != 0) {
@@ -20,5 +20,5 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1), {1}));
+    assert(issame(cpp123(1), {1}));
 }

@@ -1,44 +1,29 @@
-#include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
-}
+bool issame(const std::string& a, const std::string& b);
 
-std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
-    std::string reversed_s = s;
-    std::reverse(reversed_s.begin(), reversed_s.end());
-    
-    std::string filtered_s;
-    for (const char& ch : reversed_s) {
-        if (c.find(ch) == std::string::npos) {
-            filtered_s += ch;
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& c);
+
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& c){
+    std::string result = "";
+    for(char ch : s){
+        if(c.find(ch) == std::string::npos){
+            result += ch;
         }
     }
-    
-    return {filtered_s};
+    std::string result_reversed = result;
+    std::reverse(result_reversed.begin(), result_reversed.end());
+    return {result, issame(result, result_reversed) ? "True" : "False"};
+}
+
+bool issame(const std::string& a, const std::string& b) {
+    return a == b;
 }
 
 int main() {
-    std::string input_s;
-    std::string input_c;
-
-    std::cout << "Enter string s: ";
-    std::cin >> input_s;
-
-    std::cout << "Enter characters to remove c: ";
-    std::cin >> input_c;
-
-    std::vector<std::string> result = reverse_delete(input_s, input_c);
-
-    assert(issame(result, std::vector<std::string>{"", "True"}));
-
-    for (const auto& str : result) {
-        std::cout << str << " ";
-    }
-
-    return 0;
+    assert (issame(reverse_delete("mamma", "mia")[0], "") && 
+            issame(reverse_delete("mamma", "mia")[1], "True"));
 }
