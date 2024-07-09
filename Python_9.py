@@ -1,15 +1,15 @@
 ```
-from typing import List
-
-
-def rolling_max(numbers: List[int]) -> List[int]:
-    if len(numbers) == 0:
-        return []
-    elif len(numbers) == 1:
-        return [numbers[0]]
-    result = [max(numbers)]
-    max_so_far = max(numbers)
-    for num in numbers[1:]:
-        max_so_far = max(num, max_so_far)
-        result.append(max_so_far)
-    return result
+def calculate_total_expenses(expenses):
+    """
+    Calculate total expenses.
+    
+    Args:
+        expenses (list): A list of tuples, where each tuple contains the category and amount of expenses.
+        
+    Returns:
+        float: The total amount of expenses.
+    """
+    total = 0
+    for expense in expenses:
+        total += expense[1]
+    return total
