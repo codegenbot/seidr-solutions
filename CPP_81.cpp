@@ -37,13 +37,13 @@ std::vector<char*> numerical_letter_grade(std::vector<float> grades) {
         else if (grade > 0.7)
             letter_grades.push_back((char*)"D");
         else
-            letter_grades.push_back((char*)"F");
+            letter_grades.push_back((char *)"F");
     }
     return letter_grades;
 }
 
 int main() {
     std::vector<float> grades = {0, 0.7};
-    assert(checkIfSame(numerical_letter_grade(grades), (std::vector<char*>){("E"), ("D-")}) );
+    assert(checkIfSame(numerical_letter_grade(grades), {"E", "D-"}) );
     return 0;
 }
