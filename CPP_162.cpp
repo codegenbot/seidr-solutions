@@ -10,11 +10,11 @@ string string_to_md5(string text) {
     if (text.empty()) return "None";
     
     unsigned char md5[16];
-    EVP_MD_CTX md_ctx;
+    EVP_MD_CTX *md_ctx = EVP_MD_CTX_new();
     EVP_MD *md = EVP_md_md5();
-    EVP_DigestInit_ex(&md_ctx, md, NULL);
-    EVP_DigestUpdate(&md_ctx, text.c_str(), text.size());
-    EVP_DigestFinal_ex(&md_ctx, md5, NULL);
+    EVP_DigestInit_ex(md_ctx, md, NULL);
+    EVP_DigestUpdate(md_ctx, text.c_str(), text.size());
+    EVP_DigestFinal_ex(md_ctx, md5, NULL);
 
     string result;
     for(int i = 0; i < 16; ++i){
@@ -23,5 +23,6 @@ string string_to_md5(string text) {
         result += ss.str();
     }
     
+    EVP_MD_CTX_free(md_ctx);
     return result;
 }
