@@ -12,7 +12,8 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    vector<int> numbers = {3, 1, 2, 3, 4, 2};
+    vector<int> numbers = {5, 2, 8, 5, 1, 2, 8, 9};
     numbers = remove_duplicates(numbers);
+    // Further processing or output as needed
     return 0;
 }
