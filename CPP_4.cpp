@@ -1,3 +1,4 @@
+```cpp
 #include <numeric>
 using namespace std;
 
