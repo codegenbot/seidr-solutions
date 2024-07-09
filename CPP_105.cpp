@@ -8,7 +8,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    vector<string> result;
+    std::vector<string> result;
     for (int i : arr) {
         switch (i) {
             case 1: result.push_back("One"); break;
