@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -11,12 +10,11 @@ bool isPrime(int n) {
     return true;
 }
 
-int find_max_prime_and_sum_digits(int n, int num, int maxPrimeAndSum){
+int find_max_prime_and_sum_digits(std::vector<int> lst){
     int maxPrime = 0;
-    for(int i = 0; i < n; i++){
-        if(isPrime(num) && num > maxPrime)
-            maxPrime = num;
-        num++;
+    for(int i = 0; i < lst.size(); i++){
+        if(isPrime(lst[i]) && lst[i] > maxPrime)
+            maxPrime = lst[i];
     }
     int sum = 0;
     while(maxPrime > 0){
@@ -27,17 +25,19 @@ int find_max_prime_and_sum_digits(int n, int num, int maxPrimeAndSum){
 }
 
 int main() {
+    std::vector<int> lst;
     int n, num, maxPrimeAndSum;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        if(maxPrimeAndSum == 10) {
-            std::cout << "The sum of digits is equal to 10." << std::endl;
-        } else {
-            maxPrimeAndSum = find_max_prime_and_sum_digits(n, num, maxPrimeAndSum);
-            std::cout << "Maximum prime and sum of digits: " << maxPrimeAndSum << std::endl;
-        }
+        lst.push_back(num);
+    }
+    maxPrimeAndSum = find_max_prime_and_sum_digits(lst);
+    if(maxPrimeAndSum == 10) {
+        std::cout << "The sum of digits is equal to 10." << std::endl;
+    } else {
+        std::cout << "Maximum prime and sum of digits: " << maxPrimeAndSum << std::endl;
     }
 }
