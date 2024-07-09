@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -28,7 +27,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    int num = 0;
-    std::vector<int> expected = {1, 0};
+    int num = 12345;
+    std::vector<int> expected = even_odd_count(num);
     assert(issame(even_odd_count(num), expected));
+    // Other code...
 }
