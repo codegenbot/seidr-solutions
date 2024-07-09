@@ -1,8 +1,3 @@
-bool issame(vector<string> a) {
-    vector<int> input = {1, 2, 3};
-    return by_length(input) == a;
-}
-
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
     map<int, string> numberNames = {{1, "One"}, {2, "Two"}, {3, "Three"}, 
@@ -20,4 +15,8 @@ vector<string> by_length(vector<int> arr) {
     reverse(result.begin(), result.end());
     
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return (a == b);
 }
