@@ -14,7 +14,7 @@ int prod_signs(std::vector<int> arr){
         sign_product *= sign;
     }
 
-    return sum_of_magnitudes * sign_product;
+    return static_cast<int>(sum_of_magnitudes) * sign_product;
 }
 
 int main() {
