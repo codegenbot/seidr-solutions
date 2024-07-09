@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 using namespace std;
 
@@ -21,7 +21,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> &v) {
         
         if(diff < minDiff) {
             minDiff = diff;
-            result = {vector<int>(v.begin(), v.begin() + i), vector<int>(v.begin() + i, v.end())};
+            result.first = vector<int>(v.begin(), v.begin() + i);
+            result.second = vector<int>(v.begin() + i, v.end());
         }
     }
     

@@ -1,3 +1,4 @@
+```python
 def basement(input):
     for i in range(len(input)):
         if sum(input[:i+1]) < 0:
