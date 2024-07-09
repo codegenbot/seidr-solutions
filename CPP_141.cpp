@@ -1,4 +1,6 @@
-string file_name_check(string file_name){
+using namespace std;
+
+string isValidFileName(string file_name){
     int digit_count = 0;
     bool found_dot = false;
     for(int i=0; i<file_name.length(); i++){
@@ -9,7 +11,7 @@ string file_name_check(string file_name){
         else if(file_name[i] == '.'){
             found_dot = true;
         }
-        else if(found_dot && (i != file_name.length()-4 || !string(file_name.substr(i)).compare("txt") && !string(file_name.substr(i)).compare("exe") && !string(file_name.substr(i)).compare("dll"))){
+        else if(found_dot && (i != file_name.length()-4 || !file_name.substr(i).compare("txt") || !file_name.substr(i).compare("exe") || !file_name.substr(i).compare("dll"))){
             return "No";
         }
     }
