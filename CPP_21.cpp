@@ -1,8 +1,9 @@
+```cpp
 #include <algorithm>
 #include <vector>
+#include <cmath>
 
 namespace std {
-
 }
 
 bool issame(vector<float> a, vector<float> b) {
