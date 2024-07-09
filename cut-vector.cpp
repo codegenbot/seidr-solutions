@@ -1,43 +1,42 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <numeric>
+#include <cmath>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
     int num;
-
+    
     while (cin >> num) {
         nums.push_back(num);
     }
     
-    if (nums.size() > 1) {
-        int sum = accumulate(nums.begin(), nums.end(), 0);
-        int target = sum / 2;
-        int prefixSum = 0;
-        int index = 0;
-
-        for (int i = 0; i < nums.size(); ++i) {
-            prefixSum += nums[i];
-            if (prefixSum >= target) {
-                int diff1 = prefixSum - target;
-                int diff2 = target - (prefixSum - nums[i]);
-                if (diff1 < diff2) {
-                    index = i;
-                    break;
-                }
-            }
+    int bestCut = 0;
+    int minDiff = INT_MAX;
+    
+    for (int i = 1; i < nums.size(); ++i) {
+        int sum1 = 0, sum2 = 0;
+        for (int j = 0; j < i; ++j) {
+            sum1 += nums[j];
         }
-
-        for (int i = 0; i <= index; ++i) {
-            cout << nums[i] << endl;
+        for (int j = i; j < nums.size(); ++j) {
+            sum2 += nums[j];
         }
-        cout << "---" << endl;
-        for (int i = index + 1; i < nums.size(); ++i) {
-            cout << nums[i] << endl;
+        
+        int diff = abs(sum1 - sum2);
+        if (diff < minDiff) {
+            minDiff = diff;
+            bestCut = i;
         }
+    }
+    
+    for (int i = 0; i < bestCut; ++i) {
+        cout << nums[i] << endl;
+    }
+    cout << "---" << endl;
+    for (int i = bestCut; i < nums.size(); ++i) {
+        cout << nums[i] << endl;
     }
 
     return 0;
