@@ -1,4 +1,3 @@
-```
 #include <boost/any.hpp>
 #include <string>
 #include <cmath>
@@ -39,7 +38,7 @@ any compareOne(any a, any b) {
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         float x = boost::any_cast<float>(a);
         string y = boost::any_cast<string>(b);
-        return (x > stof(y)) ? a : ((stof(y) > x) ? b : any(typeid(void)));
+        return (x > stod(y)) ? a : ((stod(y) > x) ? b : any(typeid(void)));
     }
     else {
         return any(typeid(void));
