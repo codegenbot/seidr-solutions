@@ -19,8 +19,11 @@ int main() {
             std::cin.ignore();
         }
         numbers.push_back(num);
-        // Add this loop to consume any trailing spaces
-        while(std::cin.get() != '\n' && std::cin.get() != ' ');
+        char ch;
+        // ignore the rest of the line
+        do {
+            std::cin.get(ch);
+        } while (ch != '\n');
     }
     findMax(numbers);
     return 0;
