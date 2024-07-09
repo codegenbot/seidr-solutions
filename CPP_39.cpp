@@ -15,19 +15,18 @@ int main() {
     if (!(n >= 1 && n <= 9)) { 
         std::cout << "-1" << std::endl; 
     } else {
-        int num = n; // store n as an integer
-        int result = prime_fib(num);
+        int result = prime_fib(n);
         std::string suffix;
-        if (num == 1) {
+        if (n == 1) {
             suffix = "st";
-        } else if (num == 2) {
+        } else if (n == 2) {
             suffix = "nd";
-        } else if (num == 3) {
+        } else if (n == 3) {
             suffix = "rd";
         } else {
             suffix = "th";
         }
-        std::string str = std::to_string(result);
+        std::string str = (result > 0) ? std::to_string(result) : "-1"; 
         std::cout << "The " << str << suffix << " prime Fibonacci number is: ";
         std::cout << result << std::endl;
     }
