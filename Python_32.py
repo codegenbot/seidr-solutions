@@ -1,11 +1,2 @@
-def find_zero(xs: list):
-    n = len(xs)
-    if n < 2:
-        return "Input list should have at least 2 elements"
-    a = xs[-1]
-    b = xs[-2]
+def find_zero(a: float, b: float):
     return -b / a
-
-xs = list(map(int, input().split()))
-result = find_zero(xs)
-print(result)
