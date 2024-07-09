@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <string>
 
 std::string encrypt(std::string s) {
@@ -13,15 +11,11 @@ std::string encrypt(std::string s) {
         }
         result += c;
     }
-    return result;
+    return result; 
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::string dummy;
-    std::getline(std::cin, dummy);  
-    std::getline(std::cin, str);
-    std::cout << "Encrypted string: " << encrypt(str) << std::endl;
+    assert (encrypt("a")=="d");
+    // Add more test cases here
     return 0;
 }
