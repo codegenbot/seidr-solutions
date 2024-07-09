@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <vector>
 #include <set>
@@ -24,5 +23,6 @@ bool pairs_sum_to_zero(std::vector<std::vector<int>> l) {
 
 int main() {
     std::vector<std::vector<int>> input = {{-3, 0}, {9, -9}, {-1, 1}, {4, -4}, {2, -2}, {31, -31}};
-    return pairs_sum_to_zero(input);
+    assert(pairs_sum_to_zero(input));
+    return 0;
 }
