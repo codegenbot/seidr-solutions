@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <string>
 using namespace std;
@@ -16,6 +15,7 @@ string int_to_mini_roman(int number) {
         }
     }
     return roman;
+
 }
 
 int main() {
