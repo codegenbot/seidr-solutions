@@ -1,8 +1,13 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 
-std::vector<std::string> all_prefixes(std::string str) {
-    std::vector<std::string> result;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+}
+
+std::vector<std::string> all_prefixes(string str) {
+    vector<string> result;
     for (int i = 1; i <= str.length(); i++) {
         result.push_back(str.substr(0, i));
     }
