@@ -12,7 +12,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
         result.push_back(min_val);
-        
+
         auto it = lst.begin();
         while (it != lst.end()) {
             if (*it == min_val) {
