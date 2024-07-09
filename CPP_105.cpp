@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -21,7 +22,7 @@ int main() {
         else if (i == 8) stringArray.push_back("Eight");
     }
 
-    std::vector<std::string> strArr = {std::to_string(i) for i in intArray};
-    assert(issame(stringArray, strArr));
+    std::vector<std::string> strArr = {"Nine", "Eight", "Four"};
+    assert(issame(strArr, stringArray));
     return 0;
 }
