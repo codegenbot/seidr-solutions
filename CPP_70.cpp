@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <initializer_list>
@@ -12,17 +11,16 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> strange_sort_list(std::initializer_list<int> lst) {
+std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
-    std::vector<int> vec(lst);
-    sort(vec.begin(), vec.end());
-    while (!vec.empty()) {
-        result.push_back(*vec.begin());
-        vec.erase(vec.begin());
-        if (!vec.empty())
-            sort(vec.begin(), vec.end());
+    sort(lst.begin(), lst.end());
+    while (!lst.empty()) {
+        result.push_back(*lst.begin());
+        lst.erase(lst.begin());
+        if (!lst.empty())
+            sort(lst.begin(), lst.end());
     }
 
     return result;
