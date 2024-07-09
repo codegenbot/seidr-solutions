@@ -1,6 +1,7 @@
 ```cpp
 #include <string>
 #include <map>
+#include <utility>
 
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -30,9 +31,16 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "XXXX";
-    std::string guess = "XXXX"; 
-    std::pair<int, int> result = mastermind(code, guess);
-    std::cout << "White pegs: " << result.first << ", Black pegs: " << result.second << std::endl;
+    std::string code = "ABCD";
+    std::string guess = "BCDE";
+
+    auto result = mastermind(code, guess);
+
+    int white = result.first;
+    int black = result.second;
+
+    std::cout << "White pegs: " << white << "\n";
+    std::cout << "Black pegs: " << black << "\n";
+
     return 0;
 }
