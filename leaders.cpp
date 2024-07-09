@@ -1,7 +1,4 @@
-#include <vector>
-#include <algorithm>
-#include <iostream>
-
+```cpp
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -14,14 +11,14 @@ vector<int> leaders(vector<int>& arr) {
             maxRight = arr[i];
         }
     }
+    reverse(result.begin(), result.end());
     return result;
 }
 
 int main() {
     vector<int> arr = {5, 2, 3, 4};
-    vector<int> result = leaders(arr);
-    for (int i : result) {
+    vector<int> result;
+    for (int i : leaders(arr)) {
         cout << i << endl;
     }
-    return 0;
 }
