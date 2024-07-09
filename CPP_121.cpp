@@ -13,19 +13,20 @@ int solution(std::vector<int> lst) {
 
 int main() {
     std::vector<int> input;
-    int num;
+    int n;
     
-    // Read the numbers from the user
-    while (true) {
-        std::cout << "Enter a number (-1 to stop): ";
-        std::cin >> num;
-        
-        if (num == -1) break;
-        
-        input.push_back(num);
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    input.resize(n);
+
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        std::cin >> input[i];
     }
-    
+
     int result = solution(input);
+    
     std::cout << "The sum of odd numbers is: " << result << std::endl;
     
     return 0;
