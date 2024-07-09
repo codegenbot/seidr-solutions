@@ -1,27 +1,18 @@
-#include <string>
+using namespace std;
 
-std::string fix_spaces(std::string text) {
-    std::string result = "";
-    for(int i = 0; i < text.length(); i++){
-        if(text[i] == ' ' && (i == 0 || text[i-1] != ' ') && (i == text.length() - 1 || text[i+1] != ' ')){
-            result += '_';
-        } else if(text[i] == ' '){
-            bool is_consecutive = true;
-            for(int j = i + 1; j < text.length(); j++){
-                if(text[j] != ' ') {
-                    is_consecutive = false;
-                    break;
-                }
-            }
-            if(is_consecutive) {
-                result += '-';
-                i = j - 1;
-            } else {
+string fix_spaces(string text) {
+    string result = "";
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == ' ') {
+            if (i > 0 && result.back() != ' ') {
+                if (result.length() >= 2 && result[result.length()-1] == ' ' && result[result.length()-2] == ' ')
+                    result.pop_back(), result.pop_back();
+                else
+                    result += '-';
+            } else
                 result += '_';
-            }
-        } else {
+        } else
             result += text[i];
-        }
     }
     return result;
 }
