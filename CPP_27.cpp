@@ -1,15 +1,13 @@
-Here is the completed code:
-
-```cpp
 string flip_case(string str){
     string result = "";
-    for(int i=0; i<str.length();i++){
-        if(str[i] >= 'a' && str[i] <= 'z')
-            result += (char)(str[i] - 32);
-        else if(str[i] >= 'A' && str[i] <= 'Z')
-            result += (char)(str[i] + 32);
+    for(int i = 0; i < str.length(); i++){
+        char ch = str[i];
+        if(ch >= 'a' && ch <= 'z')
+            result += toupper(ch);
+        else if(ch >= 'A' && ch <= 'Z')
+            result += tolower(ch);
         else
-            result += str[i];
+            result += ch;
     }
     return result;
 }
