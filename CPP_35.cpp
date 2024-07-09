@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-float findMaxElement(vector<float> l){
+float find_max_element(vector<float> l){
     return *max_element(l.begin(), l.end());
 }
