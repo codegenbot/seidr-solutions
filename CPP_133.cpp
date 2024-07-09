@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+#include <cmath>
+
 int sum_squares(double arr[], int n){
     int total = 0;
     for(int i=0; i<n; i++){
@@ -12,13 +16,18 @@ int main_test(){
     int result = sum_squares(testArray, n);
     std::cout << "Sum of squares: " << result << std::endl;
     
-    int n1 = 3; 
-    double* testArray1 = new double[n1];
-    testArray1[0] = -1; testArray1[1] = 1; testArray1[2] = 0;
+    double* testArray1 = new double[] {-1, 1, 0};
+    int n1 = sizeof(testArray1)/sizeof(testArray1[0]);
     int result2 = sum_squares(testArray1, n1);
     delete [] testArray1; 
     assert (result == 14);
     assert (result2 == 2);
     
+    double* testArray2 = new double[] {-4.5, 3.7, -2.8};
+    int n2 = sizeof(testArray2)/sizeof(testArray2[0]);
+    int result3 = sum_squares(testArray2, n2);
+    delete [] testArray2; 
+    assert (result3 == 43.45);
+
     return 0;
 }
