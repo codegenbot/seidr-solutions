@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool isSame(int a, int b) {
+bool issame(int a, int b) {
     if (a == b)
         return true;
     else
