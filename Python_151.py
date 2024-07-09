@@ -1,2 +1,3 @@
-def check(func):
-    return func([1, 2, 3])
+```
+def double_the_difference(numbers):
+    return sum(i ** 2 for i in numbers if isinstance(i, int) and i > 0)
