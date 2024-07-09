@@ -1,5 +1,8 @@
+```cpp
 #include <iostream>
-#include "MY_CPP_H"
+
+#ifndef MY_CPP_H
+#define MY_CPP_H
 
 long long special_factorial(int n) {
     if (n <= 1)
@@ -12,6 +15,8 @@ long long special_factorial(int n) {
     }
     return result;
 }
+
+#endif
 
 int main() {
     int n;
