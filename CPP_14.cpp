@@ -1,7 +1,6 @@
 #include <set>
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     return set<string>(a.begin(), a.end()) == set<string>(b.begin(), b.end());
