@@ -25,12 +25,12 @@ long long double_the_difference(std::vector<std::variant<float, long long>> lst)
 }
 
 int main() {
+    float input; 
     int n = 0;
     std::vector<std::variant<float, long long>> lst;
 
     while (1) {
         std::cout << "Enter a number (negative to stop): ";
-        float input; 
         std::cin >> input;
         
         if (input < 0) break;
