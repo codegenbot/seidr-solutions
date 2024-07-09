@@ -1,8 +1,7 @@
 #include <cassert>
-#include <string>
-#include <stdexcept>
+#include <bitset>
 
-long long solve(int n) {
+int solve(int n) {
     std::string binary = "";
     while(n > 0) {
         if(n % 2 == 0)
