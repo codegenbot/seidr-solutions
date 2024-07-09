@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 bool sameVectors(std::vector<float> a, std::vector<float> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
@@ -28,7 +28,7 @@ int main() {
         }
     }
     
-    std::vector<float> sortedEven = std::vector<float>(sort_even(vec));
+    std::vector<float> sortedEven = sort_even(vec);
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
             result[i] = sortedEven[0];
