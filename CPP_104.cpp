@@ -1,11 +1,13 @@
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
 vector<int> unique_digits(vector<int> x) {
     vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
-        int digit = 0;
+        int digit;
         while (num > 0) {
             digit = num % 10;
             if (digit % 2 == 0) {
