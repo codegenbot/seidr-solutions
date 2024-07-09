@@ -10,8 +10,8 @@ def coin_sums(cents):
             result[i] += count
 
     return (
-        [f"{count} quarter{'s' if count > 1 else ''}" for count in [result[0]]],
-        [f"{count} dime{'s' if count > 1 else ''}" for count in [result[1]]],
-        [f"{count} nickel{'s' if count > 1 else ''}" for count in [result[2]]],
+        [f"{count} quarter{'s' if count > 1 else ''}" for count in [result[0]]] + 
+        [f"{count} dime{'s' if count > 1 else ''}" for count in [result[1]]] + 
+        [f"{count} nickel{'s' if count > 1 else ''}" for count in [result[2]]] + 
         [f"{count} penny{'s' if count > 1 else ''}" for count in [result[3]]]
     )
