@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <cmath> // for std::nearbyint or std::lround
+#include <cmath>
 
 std::string rounded_avg(int n, int m) {
     if (n > m) return "-1";
@@ -25,6 +25,6 @@ int main() {
     int n, m;
     std::cout << "Enter two numbers: ";
     std::cin >> n >> m;
-    std::cout << rounded_avg(n, m) << std::endl;
+    std::cout << rounded_avg(n, m);
     return 0;
 }
