@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -10,7 +9,7 @@ int digitSum(string s){
     for(auto& word : split(s, " ")){
         for(char c : word){
             if(isdigit(c))
-                sum += c - '0';
+                sum += (c - '0');
         }
     }
     return sum;
@@ -22,11 +21,11 @@ string split(const string& s, const char& sep) {
     size_t pos = 0, prev = 0;
 
     while ((pos = s.find(sep, prev)) != string::npos) {
-        v.push_back(s.substr(prev, pos - prev));
+        v.push_back(s.substr(prev, pos - prev)).erase();
         prev = pos + 1;
     }
 
-    v.push_back(s.substr(prev));
+    v.push_back(s.substr(prev)).erase();
     return join(v, " ");
 }
 
