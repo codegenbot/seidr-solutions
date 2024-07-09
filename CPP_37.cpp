@@ -46,7 +46,6 @@ int main() {
     l.push_back(11);
     l.push_back(12);
     l.push_back(-10);
-
     assert(issame(sort_even(l), {-12, 8, 4, 2, 5, 3, 11, 12, 23, -10}));
     return 0;
 }
