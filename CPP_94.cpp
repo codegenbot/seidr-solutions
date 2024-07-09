@@ -1,4 +1,7 @@
-int skjkasdkd(vector<int> lst){
+#include <vector>
+#include <assert.h>
+
+int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
     for(int num : lst){
         if(isPrime(num) && num > maxPrime)
