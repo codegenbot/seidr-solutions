@@ -1,1 +1,1 @@
-std::make_pair(black, white);
+{white, black};
