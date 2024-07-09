@@ -8,10 +8,13 @@ int main() {
     vector<float> prices(n);
     vector<float> discounts(n);
 
-    float total_price = 0.0;
     for (int i = 0; i < n; ++i) {
         cin >> prices[i] >> discounts[i];
-        prices[i] = prices[i] * (100 - discounts[i]) / 100;
+        prices[i] = prices[i] - prices[i] * discounts[i] / 100;
+    }
+
+    float total_price = 0.0;
+    for (int i = 0; i < n; ++i) {
         total_price += prices[i];
     }
 
