@@ -14,10 +14,10 @@ for i in range(n-1):
         min_diff = diff
         cut_index = i + 1
 
-subvector1 = arr[:cut_index]
-subvector2 = arr[cut_index:]
+subvector1 = arr[:cut_index + 1]
+subvector2 = arr[cut_index + 1:]
 
-if cut_index == n:
+if cut_index == n - 1:
     subvector1 = arr
     subvector2 = []
 
