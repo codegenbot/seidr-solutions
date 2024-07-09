@@ -2,19 +2,21 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 bool isPrime(int num); 
 
 int prime_fib(int n);
 
 int main() {
     int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
+    cout << "Enter a number: ";
+    cin >> n;
     if (n <= 0) {
-        std::cout << "-1" << std::endl;
+        cout << "-1" << endl;
     } else {
-        std::string str = "The " + std::to_string(n) + "th prime Fibonacci number is: ";
-        std::cout << str << prime_fib(n) << std::endl;
+        string str = (n == 1 ? "The first" : (n == 2 ? "The second" : "The " + to_string(n) + "th")) + " prime Fibonacci number is: ";
+        cout << str << prime_fib(n) << endl;
     }
 }
 
