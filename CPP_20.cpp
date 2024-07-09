@@ -1,4 +1,4 @@
-int main(){
+int cpp20_main(){
     int n;
     cin >> n;
     vector<float> a(n), b(n);
@@ -10,6 +10,6 @@ int main(){
     return 0;
 }
 
-bool isSame(const vector<float>& a, const vector<float>& b) {
+bool isSame(vector<float>& a, vector<float>& b) {
     return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
