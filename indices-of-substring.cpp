@@ -18,13 +18,13 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text;
-    cin >> text >> ' ';
+    getline(cin, text);
     string target;
-    cin >> target >> ' ';
+    getline(cin, target);
 
-    vector<char> indices = indicesOfSubstring(text, target);
+    vector<int> indices = indicesOfSubstring(text, target);
 
-    for (char i : indices) {
+    for (int i : indices) {
         cout << i << " ";
     }
     cout << endl;
