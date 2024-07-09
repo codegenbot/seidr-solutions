@@ -3,12 +3,23 @@ def cut_vector(vector):
     split_index = 0
     
     for i in range(1, len(vector)):
+        left_sum = sum(vector[:i])
+        right_sum = sum(vector[i:])
+        
         if left_sum == right_sum:
             return vector[:i], vector[i:]
         
         diff = abs(left_sum - right_sum)
-        if diff < min_diff:
+        if diff < min_diff and (left_sum <= right_sum or i > 1):
             min_diff = diff
             split_index = i
     
-    return vector[:split_index], vector[split_index:]
+    left_sum = sum(vector[:split_index])
+    right_sum = sum(vector[split_index:])
+    
+    if left_sum == right_sum:
+        return vector[:split_index], vector[split_index:]
+    elif left_sum <= right_sum and len(vector) > 2:
+        return vector[:split_index+1], vector[split_index:]
+    else:
+        return vector[:split_index], vector[split_index:]
