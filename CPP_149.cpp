@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool same(int x, int y) {
+bool isSame(int x, int y) {
     if (x > y) {
         return false;
     } else if (y > x) {
@@ -18,7 +18,7 @@ int main() {
     vector<string> lst = {"cat", "dog", "elephant", "a", "b"};
     
     // Sort the list by length and then alphabetically
-    std::sort(lst.begin(), lst.end(),
+    sort(lst.begin(), lst.end(),
         [](const string& a, const string& b) {
             if (a.length() == b.length()) {
                 return a < b;
