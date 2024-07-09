@@ -1,14 +1,14 @@
-int sum = 0;
-for(int i=0; i<lst.size(); i++){
-    for(int j=0; j<lst[i].size(); j++){
-        if(lst[i][j] == '('){
-            sum++;
-        }
-        else{
-            sum--;
+string match_parens(vector<string> lst) {
+    int open = 0;
+    for (const string& s : lst) {
+        for (char c : s) {
+            if (c == '(') {
+                open++;
+            } else if (c == ')') {
+                if (open <= 0) return "No";
+                open--;
+            }
         }
     }
-    if(sum != 0) return "No";
+    return open == 0 ? "Yes" : "No";
 }
-if(sum == 0) return "Yes";
-return "No";
