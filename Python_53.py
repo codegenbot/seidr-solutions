@@ -1,4 +1,2 @@
-def max_value_in_list(lst):
-    if len(lst) == 0:
-        return None
-    return max(lst)
+def sum_odd_numbers(lst):
+    return sum([i for i in lst if i % 2 != 0])
