@@ -26,16 +26,19 @@ int main() {
 
     std::vector<int> lst;
     for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
         int num; 
-        std::cin >> num; 
+        while(true) {
+            std::cout << "Enter element " << i + 1 << ": ";
+            std::cin >> num; 
 
-        if(num <= 0) {
-            std::cout << "Invalid input. Please enter a positive number.\n";
-            continue;
+            if(num > 0) {
+                lst.push_back(num); 
+                break;
+            }
+            else {
+                std::cout << "Invalid input. Please enter a positive number.\n";
+            }
         }
-
-        lst.push_back(num); 
     }
 
     if(lst.empty()) {
