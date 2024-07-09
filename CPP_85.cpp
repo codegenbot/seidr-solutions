@@ -1,4 +1,4 @@
-#include<vector>
+#include <vector>
 
 int add(std::vector<int> lst){
     int sum = 0;
@@ -7,9 +7,4 @@ int add(std::vector<int> lst){
             sum += lst[i];
     }
     return sum;
-
-}
-
-int main() {
-    assert (add({4, 4, 6, 8}) == 12);
 }
