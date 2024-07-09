@@ -1,11 +1,10 @@
-```cpp
 #include <string>
 #include <iostream>
 
 using namespace std;
 
 string squareDigits(string input) {
-    string output;
+    string output = "";
     for (char c : input) {
         int digit = c - '0';
         output += to_string(digit * digit);
@@ -18,6 +17,5 @@ int main() {
     cout << "Enter a positive integer: ";
     getline(cin, input);
     string output = squareDigits(input);
-    cout << "Squared digits: " << output << endl;
+    cout << "Squared digits: " << output.c_str() << endl;
     return 0;
-}
