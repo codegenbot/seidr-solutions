@@ -1,10 +1,7 @@
 ```cpp
-namespace std { class initializer_list; }
-
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return (a.size() == b.size());
@@ -46,19 +43,6 @@ int main() {
     }
     
     std::vector<std::string> output = sorted_list_sum(inputStrings);
-    
-    for(int i = 0; i < output.size(); i++) {
-        bool found = false;
-        for(int j = 0; j < output.size(); j++) {
-            if(i != j && output[i] == output[j]) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) {
-            std::cout << output[i] << std::endl;
-        }
-    }
     
     return 0;
 }
