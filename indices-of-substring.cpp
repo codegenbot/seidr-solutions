@@ -13,7 +13,7 @@ vector<int> findIndices(string text, string target) {
         for (int j = 0; j < m; j++) {
             if (text[i + j] != target[j]) {
                 found = false;
-                break;
+                continue;
             }
         }
         if (found) indices.push_back(i);
