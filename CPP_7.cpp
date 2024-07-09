@@ -13,7 +13,7 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "orange", "grape"};
+    vector<string> strings = {"apple", "banana", "grape", "orange"};
     string substring = "an";
     vector<string> result = filter_by_substring(strings, substring);
     for (const string &str : result) {
