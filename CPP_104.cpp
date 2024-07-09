@@ -28,12 +28,3 @@ vector<int> unique_digits(vector<int> x) {
     sort(result.begin(), result.end());
     return result;
 }
-
-int main(){
-    vector<int> x = {12,23,34,35};
-    vector<int> res = unique_digits(x);
-    for(int i=0; i<res.size();i++){
-        cout<<res[i]<<" ";
-    }
-    cout<<endl;
-}
