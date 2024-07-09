@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <variant>
+using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -10,15 +11,15 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<std::variant<int>> filter_integers(std::initializer_list<std::variant<int>> values) {
-    std::vector<std::variant<int>> result;
+vector<variant<int>> filter_integers(initializer_list<variant<int>> values) {
+    vector<variant<int>> result;
     for (const auto& value : values) {
         try {
             if (value.index() == 0) { 
-                int val = std::get<int>(value);
+                int val = get<int>(value);
                 bool found = false;
                 for (auto& v : result) {
-                    if (v.index() == 0 && std::get<int>(v) == val) {
+                    if (v.index() == 0 && get<int>(v) == val) {
                         found = true;
                         break;
                     }
@@ -34,10 +35,10 @@ std::vector<std::variant<int>> filter_integers(std::initializer_list<std::varian
 }
 
 int main() {
-    auto integers = filter_integers({1, 2, 3});
-    if (issame({1, 2}, std::vector<int>(integers | std::views::filter([](auto v) { return v.index() == 0; }))) ) {
-        std::cout << "The two vectors are the same." << std::endl;
+    vector<variant<int>> integers = filter_integers({{1}, {2}, {3}});
+    if (issame({1, 2}, integers | views::filter([](auto v) { return v.index() == 0; })) ) {
+        cout << "The two vectors are the same." << endl;
     } else {
-        std::cout << "The two vectors are not the same." << std::endl;
+        cout << "The two vectors are not the same." << endl;
     }
 }
