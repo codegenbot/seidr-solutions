@@ -12,4 +12,4 @@ def count_up_to(n):
     for i in range(2, n):
         if is_prime(i):
             result.append(i)
-    return result
+    print(result)
