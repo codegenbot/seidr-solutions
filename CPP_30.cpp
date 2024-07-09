@@ -1,34 +1,29 @@
-```
 #include <iostream>
 #include <vector>
 
 bool check_numbers(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
+    if (a.size() != 1 || b.size() != 1) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i]) != std::abs(b[i])) {
-            return false;
-        }
-    }
-    return true;
+    return a[0] == b[0];
 }
 
 float get_positive(float num) {
-    if (num > 0) {
-        return num;
-    } else {
-        return 0.0f;
-    }
+    return (num > 0.0f) ? num : -num;
 }
 
-int main 
-{
+int main() {
     float num1, num2;
     std::cout << "Enter the first number: ";
-    std::cin >> num1;
+    if (!(std::cin >> num1)) {
+        std::cout << "Invalid input for the first number." << std::endl;
+        return 1;
+    }
     std::cout << "Enter the second number: ";
-    std::cin >> num2;
+    if (!(std::cin >> num2)) {
+        std::cout << "Invalid input for the second number." << std::endl;
+        return 1;
+    }
 
     if (check_numbers({num1}, {num2})) {
         float result = get_positive(num1);
