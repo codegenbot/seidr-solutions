@@ -1,27 +1,14 @@
 #include <iostream>
-#include <string>
 #include <vector>
-
-std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::vector<std::string> tokens;
-    size_t pos = 0;
-    size_t prev = 0;
-
-    while ((pos = str.find(delimiter, prev)) != std::string::npos) {
-        tokens.push_back(str.substr(prev, pos - prev));
-        prev = pos + 1;
-    }
-
-    tokens.push_back(str.substr(prev));
-    return tokens;
-}
+#include <sstream>
+using namespace std;
 
 std::vector<std::string> words_in_sentence(std::string sentence) {
     if (sentence.empty()) {
         return {};
     }
-    std::vector<std::string> wordLengths; 
-    std::string result = "";
+    vector<string> wordLengths; 
+    string result = "";
 
     for (const auto& word : split(sentence, ' ')) {
         int length = word.length();
@@ -37,7 +24,7 @@ std::vector<std::string> words_in_sentence(std::string sentence) {
 
             if (isPrime) {
                 result += word + " ";
-                wordLengths.push_back(std::to_string(length));
+                wordLengths.push_back(to_string(length));
             }
         }
     }
@@ -45,20 +32,14 @@ std::vector<std::string> words_in_sentence(std::string sentence) {
     return wordLengths; 
 }
 
-int main() {
-    std::string sentence;
-    std::cout << "Enter a sentence: ";
-    std::getline(std::cin, sentence);
+vector<string> split(const string& str, char delimiter) {
+    vector<string> tokens;
+    stringstream ss(str);
+    string token;
 
-    if (sentence.empty()) {
-        std::cout << "Empty sentence. Please enter a valid sentence." << std::endl;
-    } else {
-        std::cout << "Words with prime lengths are: ";
-        for (const auto& length : words_in_sentence(sentence)) {
-            std::cout << length << " ";
-        }
-        std::cout << std::endl;
+    while (getline(ss, token, delimiter)) {
+        tokens.push_back(token);
     }
 
-    return 0;
+    return tokens;
 }
