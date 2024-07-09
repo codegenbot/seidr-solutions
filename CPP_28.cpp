@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <cassert>
@@ -11,7 +10,7 @@ std::string concatenate(std::vector<std::string> strings) {
     return myString;
 }
 
-int main() {
+int main_function() {
     assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
     return 0;
 }
