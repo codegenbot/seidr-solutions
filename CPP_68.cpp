@@ -6,16 +6,17 @@ std::vector<int> pluck(std::vector<int>& arr) {
     if (arr.empty()) return result;
 
     int smallest_even = INT_MAX;
+    int index = -1;
+
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0 && arr[i] < smallest_even) {
             smallest_even = arr[i];
+            index = i;
         }
     }
 
-    if(smallest_even==INT_MAX)
-        result.push_back(-1);
-    else
-        result.push_back(smallest_even);
+    result.push_back(smallest_even);
+    result.push_back(index);
 
     return result;
 }
