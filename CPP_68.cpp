@@ -1,17 +1,5 @@
 #include <vector>
 
-std::vector<int> pluck(std::vector<int> arr) {
-    if (arr.empty()) return {};
-
-    int minEven = INT_MAX;
-    int index = 0;
-
-    for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
-            index = i;
-        }
-    }
-
-    return {minEven, index};
+bool issame(vector<int> v1, vector<int> v2) {
+    return (v1.size() == v2.size()) && std::equal(v1.begin(), v1.end(), v2.begin());
 }
