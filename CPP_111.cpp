@@ -1,20 +1,18 @@
-#include <string>
 #include <map>
 #include <cassert>
+#include <string>
 
-std::map<char, int> histogram(std::string s);
+using namespace std;
 
-bool issame(std::map<char, int> a, std::map<char, int> b);
-
-std::map<char, int> histogram(std::string s) {
-    std::map<char, int> hist;
+map<char, int> histogram(string s) {
+    map<char, int> hist;
     for (char c : s) {
         hist[c]++;
     }
     return hist;
 }
 
-bool issame(std::map<char, int> a, std::map<char, int> b) {
+bool issame(map<char, int> a, map<char, int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -29,7 +27,6 @@ bool issame(std::map<char, int> a, std::map<char, int> b) {
 }
 
 int main() {
-    assert(issame(histogram("a"), std::map<char, int>({{'a', 1}})));
-    
+    assert(issame(histogram("a"), {{'a', 1}}));
     return 0;
 }
