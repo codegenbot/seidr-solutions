@@ -1,8 +1,6 @@
-bool is_sorted(const std::vector<int>& lst) {
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] <= lst[i - 1]) {
-            return false;
-        }
-    }
-    return true;
+#include <algorithm> 
+using namespace std;
+
+int main() {
+    return is_sorted(lst.begin(), lst.end());
 }
