@@ -1,10 +1,7 @@
-#include <iostream>
-#include <vector>
-
-int smallest_change(std::vector<int> arr) {
-    int n = arr.size();
-    std::string str;
-    for (int i : arr) {
+int smallest_change(vector<int> numbers) {
+    int n = numbers.size();
+    string str = "";
+    for (int i : numbers) {
         str += to_string(i);
     }
     int left = 0, right = n - 1;
@@ -13,10 +10,10 @@ int smallest_change(std::vector<int> arr) {
         if (str[left] != str[right]) {
             changes++;
             if (str[left] == str[right-1]) {
-                std::swap(str[left], str[right]);
+                swap(str[left], str[right]);
                 right--;
             } else {
-                std::swap(str[left], str[right]);
+                swap(str[left], str[right]);
                 left++;
             }
         } else {
