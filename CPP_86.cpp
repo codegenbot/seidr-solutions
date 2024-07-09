@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -11,12 +12,13 @@ string anti_shuffle(string s) {
             result += " ";
         } else {
             string word;
-            for (string::iterator it = s.begin() + i; it != s.end() && *it != ' '; ++it) {
-                word += *it;
+            int j = i;
+            while (j < s.length() && s[j] != ' ') {
+                word += s[j];
+                j++;
             }
             sort(word.begin(), word.end());
             result += word;
-            i--;
         }
     }
     return result;
