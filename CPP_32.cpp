@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cmath>
 #include <cassert>
-#include <initializer_list>
+#include <vector> 
 using namespace std;
 
 double poly(vector<double> coeffs, double solution) {
