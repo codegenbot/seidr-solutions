@@ -7,19 +7,24 @@ std::string kebabToCamel(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            result += ' ';  // Replace '-' with a space
-            nextWordIsUpper = true;  // Reset the flag when a '-' is encountered
+            nextWordIsUpper = true;
         } else if (c == ' ') {
-            if (!nextWordIsUpper) {  // If the previous word was lowercase, add ' to capitalize it
+            if (!nextWordIsUpper) {
                 result += ' ';
             }
             nextWordIsUpper = false;
         } else {
             if (nextWordIsUpper) {
-                result += toupper(c);
-            } else {
                 result += tolower(c);
-                nextWordIsUpper = true;  // Set the flag for the next word
+                nextWordIsUpper = false;
+            } else {
+                if (c >= 'A' && c <= 'Z') {
+                    result += '-';
+                    result += tolower(c);
+                    nextWordIsUpper = true;
+                } else {
+                    result += c;
+                }
             }
         }
     }
