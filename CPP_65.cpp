@@ -1,12 +1,14 @@
-string num_str = to_string(x);
-    int n = num_str.size();
-    shift %= n;
+string str = to_string(x);
+    int n = str.size();
+    shift = shift % n;
+    
     if (shift == 0) {
-        return num_str;
+        return str;
     }
-    if (shift > n / 2) {
-        reverse(num_str.begin(), num_str.end());
-        return num_str;
+    
+    string result;
+    for (int i = 0; i < n; i++) {
+        result += str[(n - shift + i) % n];
     }
-    return num_str.substr(n - shift) + num_str.substr(0, n - shift);
+    return result;
 }
