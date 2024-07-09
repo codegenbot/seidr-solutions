@@ -16,7 +16,7 @@ long long minSubArray(std::vector<long long> nums) {
     return min_sum;
 }
 
-int main() {
+int testMain() {
     assert(minSubArray({1, -1}) == -1);
     return 0;
 }
