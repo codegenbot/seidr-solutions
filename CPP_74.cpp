@@ -27,10 +27,10 @@ std::vector<std::string> total_match(const std::vector<std::string>& lst1, const
 }
 
 int main() {
-    std::vector<std::string> lst1 = {"apple", "banana", "cherry"};
-    std::vector<std::string> lst2 = {"date", "elderberry", "fig"};
-    std::vector<std::string> lst3 = {"grape", "honeydew", "ice cream"};
-    std::vector<std::string> lst4 = {"jackfruit", "kiwi", "lemon"};
+    std::vector<std::string> lst1 = {"one", "", ""};
+    std::vector<std::string> lst2 = {"d", "e", "f"};
+    std::vector<std::string> lst3 = {"g", "h", "i"};
+    std::vector<std::string> lst4 = {"j", "k", "l"};
 
     assert(issame({"this"}, {"this", "", ""}));
     std::cout << "Test passed" << std::endl;
