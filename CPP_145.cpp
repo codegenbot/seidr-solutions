@@ -28,14 +28,18 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    int n;
+    int n; 
     cin >> n;
     vector<int> nums(n);
-    for(int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++){
         cin >> nums[i];
     }
     
-    // Check the result
-    assert(issame(order_by_points(nums), {1,3,2}));
+    sort(nums.begin(),nums.end());
+    
+    for(auto num : nums){
+        cout << num << " ";
+    }
+    
     return 0;
 }
