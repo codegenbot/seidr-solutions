@@ -1,32 +1,23 @@
-#include <iostream>
-#include <limits>
+#include <vector>
+#include <algorithm>
 
-bool isSame(std::vector<float>& a, std::vector<float>& b) {
-    if (a.size() != b.size()) {
-        return false;
+std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
+    if (numbers.size() < 2) {
+        throw std::runtime_error("Vector must contain at least two elements");
     }
-    
-    for (int i = 0; i < a.size(); ++i) {
-        if (std::abs(a[i] - b[i]) > std::numeric_limits<float>::epsilon()) {
-            return false;
+
+    float min_diff = numeric_limits<float>::max();
+    std::pair<float, float> closest_pair;
+
+    for (int i = 0; i < numbers.size(); ++i) {
+        for (int j = i + 1; j < numbers.size(); ++j) {
+            float diff = std::abs(numbers[i] - numbers[j]);
+            if (diff < min_diff) {
+                min_diff = diff;
+                closest_pair = {numbers[i], numbers[j]};
+            }
         }
     }
-    
-    return true;
-}
 
-int main() {
-    float arr1[3] = {1.0, 2.0, 3.0};
-    float arr2[3] = {1.01, 2.02, 3.03};
-    
-    std::vector<float> vec1(arr1, arr1 + 3);
-    std::vector<float> vec2(arr2, arr2 + 3);
-    
-    if (isSame(vec1, vec2)) {
-        std::cout << "Arrays are the same." << std::endl;
-    } else {
-        std::cout << "Arrays are different." << std::endl;
-    }
-    
-    return 0;
+    return closest_pair;
 }
