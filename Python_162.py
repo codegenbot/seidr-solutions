@@ -8,5 +8,4 @@ def string_to_md5(text):
         return None
 
 user_input = input("Enter a string: ")
-
 print(string_to_md5(user_input))
