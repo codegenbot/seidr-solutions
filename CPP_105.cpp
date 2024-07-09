@@ -3,14 +3,11 @@
 vector<string> by_length(vector<int> arr) {
     vector<int> nums;
     for (int num : arr) {
-        if (num >= 1 && num <= 9) {
+        if (num >= 1 && num <= 9)
             nums.push_back(num);
-        }
     }
-
     sort(nums.begin(), nums.end());
     reverse(nums.begin(), nums.end());
-
     vector<string> result;
     for (int num : nums) {
         string str = "";
@@ -45,6 +42,5 @@ vector<string> by_length(vector<int> arr) {
         }
         result.push_back(str);
     }
-
     return result;
 }
