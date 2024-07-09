@@ -26,11 +26,19 @@ bool has_close_elements(std::vector<std::vector<float>> numbers, float tol) {
 }
 
 int main() {
-    std::vector<std::vector<float>> numbers = {{1.0f}, {2.0f}, {3.0f}, {4.0f}, {5.0f},
-                                                 {2.2f, 2.2f}, {2.2f, 2.2f},
-                                                 {4.1f, 4.1f}, {5.1f, 5.1f}, {6.1f, 6.1f}};
-
-    std::cout << (has_close_elements(numbers, 0.5) ? "True" : "False") << std::endl;
-
-    return 0;
+    std::vector<std::vector<float>> numbers(7, std::vector<float>(2, 0.0f)); 
+    for (int i = 0; i < 7; i++) {
+        if (i == 0) numbers[i][0] = (float)i;
+        else if (i == 1) numbers[i][0] = (float)(i-1);
+        else if (i == 2) numbers[i][0] = 2.0f;
+        else if (i == 3) numbers[i][0] = 4.0f;
+        else if (i == 4) numbers[i][0] = 5.0f;
+        else if (i == 5) numbers[i][0] = 2.2f;
+        else numbers[i][0] = 0.0f;
+        numbers[i][1] = 0.0f;
+    }
+    assert(has_close_elements(numbers, 0.5) == false);
+    
+    std::vector<std::vector<float>> numbers2 = {{1.1f},{1.1f}, {2.2f},{2.2f}, {3.1f},{3.1f}, {4.1f},{4.1f}, {5.1f},{5.1f}};
+    assert(has_close_elements(numbers2, 0.5) == false);
 }
