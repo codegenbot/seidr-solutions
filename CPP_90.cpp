@@ -1,12 +1,14 @@
-Here is the completed code:
+Here is the solution:
 
-int next_smallest(vector<int> lst) {
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    
-    if (sorted.size() < 2) return -1; // or any other value that indicates "None"
-    
-    for (int i = 0; i < sorted.size(); i++) {
-        if (i > 0) return sorted[i];
+vector<int> result = {None};
+if (lst.size() < 2) {
+    return None;
+}
+sort(lst.begin(), lst.end());
+for (int i = 1; i < lst.size(); i++) {
+    if (lst[i] != lst[0]) {
+        result.push_back(lst[i]);
+        break;
     }
 }
+return result.empty() ? None : result[0];
