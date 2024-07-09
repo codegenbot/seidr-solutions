@@ -26,8 +26,5 @@ int main() {
     int n;
     cout << "Enter the number: ";
     cin >> n;
-    std::ostringstream oss;
-    oss << "The " << n << "th prime Fibonacci number is: " << prime_fib(n);
-    std::string str = oss.str();
-    cout << str << endl;
+    cout << "The " << prime_fib(n) << "th prime Fibonacci number is: " << prime_fib(n) << endl;
 }
