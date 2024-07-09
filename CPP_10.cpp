@@ -1,14 +1,21 @@
+#include <iostream>
 #include <string>
 
-string make_palindrome(string str);
+using namespace std;
 
 string make_palindrome(string str){
-    string palindrome = str;
-    for (int i = str.size() - 1; i >= 0 ; --i){
-        if (is_palindrome(str.substr(i))) {
-            palindrome += string(str.rbegin(), str.rbegin() + i);
-            break;
+    string rev_str(str.rbegin(), str.rend());
+    int n = str.length();
+    for (int i = 0; i < n; i++) {
+        if (str.substr(0, n - i) == rev_str.substr(i)) {
+            return str + rev_str.substr(0, i);
         }
     }
-    return palindrome;
+    return str;
+}
+
+int main() {
+    assert(make_palindrome("jerry") == "jerryrrej");
+
+    return 0;
 }
