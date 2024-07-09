@@ -13,7 +13,12 @@ bool has_close_elements(vector<float> a, float threshold) {
 }
 
 int main() {
-    vector<float> a = {1.1f, 2.2f, 3.1f, 4.1f, 5.1f};
+    vector<float> numbers = {1.1f, 2.2f, 3.1f, 4.1f, 5.1f};
     float threshold = 0.5f;
-    assert(has_close_elements(a, threshold) == false);
+    if(has_close_elements(numbers, threshold)) {
+        cout << "The array contains close elements." << endl;
+    } else {
+        cout << "The array does not contain close elements." << endl;
+    }
+    return 0;
 }
