@@ -1,7 +1,11 @@
 Here is the completed code:
 
 bool any_int(float a, float b, float c) {
-    if (abs(a - (b + c)) < 0.0001 && abs(b - (a + c)) < 0.0001 && abs(c - (a + b)) < 0.0001)
+    int ai = (int)a;
+    int bi = (int)b;
+    int ci = (int)c;
+
+    if(ai + bi == ci || ai + ci == bi || bi + ci == ai)
         return true;
     else
         return false;
