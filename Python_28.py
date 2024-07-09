@@ -7,6 +7,5 @@ def concatenate(strings: List[str]) -> str:
         result += s
     return result
 
-
 strings = ["hello", "world"]
 print(concatenate(strings))
