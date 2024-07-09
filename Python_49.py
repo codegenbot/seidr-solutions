@@ -5,9 +5,9 @@ def modp(n: int, p: int):
             return b, 0, 1
         else:
             gcd, y, x = extended_gcd(b % a, a)
-            return gcd, x - (b // a) * y, y
+            return gcd, y - (b // a) * x, x
 
-    gcd, _, _ = extended_gcd(n, p)
+    gcd, x, _ = extended_gcd(n, p)
     if gcd != 1:
         raise ValueError("n and p are not coprime")
-    return pow(n, p-2, p) * _ % p
+    return pow(n, p-2, p) * x % p
