@@ -1,14 +1,14 @@
-#include <iostream>
 #include <string>
 #include <algorithm>
 #include <boost/any.hpp>
-#include <boost/convert.hpp>
+#include <boost/conversion.hpp>
+#include <sstream>
 
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max(a, b);
+        return boost::any(max(static_cast<int>(a), static_cast<float>(b)));
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         istringstream iss(static_cast<string>(b));
@@ -22,7 +22,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (static_cast<string>(a) < static_cast<string>(b))
             return b;
         else
-            return any("None");
+            return boost::any("None");
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         istringstream iss(static_cast<string>(b));
@@ -34,12 +34,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         istringstream iss(static_cast<string>(a));
         float a_float;
         iss >> a_float;
-        return a_float > boost::any_to_any(b) ? a : b;
+        return a_float > static_cast<float>(b) ? a : b;
     }
     else
-        return any("None");
-}
-
-int main() {
-    // Your code here.
+        return boost::any("None");
 }
