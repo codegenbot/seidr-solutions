@@ -4,23 +4,32 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    if(a.size() != b.size()){
+        return false;
+    }
+
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
+
     return true;
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k){
     vector<int> path;
-    for (int i = 0; i < k; ++i) {
-        for (int j = 0; j < grid.size(); ++j) {
-            for (int l = 0; l < grid[j].size(); ++l) {
-                path.push_back(grid[j][l]);
+    int rows = grid.size();
+    int cols = grid[0].size();
+
+    for(int i = 0; i < rows; i++){
+        for(int j = 0; j < cols; j++){
+            for(int l = 0; l < k; l++){
+                path.push_back(grid[i][j]);
             }
         }
     }
+
     return path;
 }
 
