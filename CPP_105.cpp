@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -33,11 +34,5 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 
 int main() {
     std::vector<std::string> b = by_length({9, 4, 8});
-    if (!same(by_length({9, 4, 8}), b)) {
-        for (std::string s : b)
-            std::cout << s << " ";
-        std::cout << std::endl;
-        return 1;
-    }
-    return 0;
+    assert(same(by_length({9, 4, 8}), b));
 }
