@@ -1,4 +1,4 @@
-Here is the modified code:
+Here is the corrected code:
 
 #include <iostream>
 #include <cmath>
@@ -7,8 +7,10 @@ long long special_factorial(int n) {
     if (n <= 1)
         return 1;
     long long result = 1;
-    for (int i = 2; i <= n; i++) {
-        result *= i * (i - 1 + 1);
+    for (int i = 1; i <= n; i++) {
+        result *= i;
+        for (int j = 2; j <= i; j++)
+            result *= j;
     }
     return result;
 }
