@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -9,4 +8,4 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     for i in range(1, len(numbers)):
         result.extend([delimiter])
         result.append(numbers[i])
-    return result
+    return [result[0]] + result[2:]
