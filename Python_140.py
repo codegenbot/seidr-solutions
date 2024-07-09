@@ -1,7 +1,5 @@
 import re
 
-def fix_spaces(text):
+def fix_spaces():
+    text = input().strip()
     return re.sub(r"\s{2,}", "-", text.replace(" ", "_"))
-
-text = input().strip()
-print(fix_spaces(text))
