@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -27,9 +28,9 @@ bool is_prime(int num) {
     return true;
 }
 
-std::vector<std::string> split(const std::string& sentence, char delimiter) {
-    std::vector<std::string> words;
-    std::string word;
+vector<string> split(const string& sentence, char delimiter) {
+    vector<string> words;
+    string word;
     
     for (char c : sentence) {
         if (c != delimiter) {
@@ -43,3 +44,4 @@ std::vector<std::string> split(const std::string& sentence, char delimiter) {
     words.push_back(word);
     
     return words;
+}
