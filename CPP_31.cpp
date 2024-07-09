@@ -1,4 +1,7 @@
-bool is_prime(long long n){
+#include <iostream>
+#include <cassert>
+
+bool is_prime(long long n) {
     if(n <= 1) return false;
     if(n <= 3) return true;
     if(n % 2 == 0 || n % 3 == 0) return false;
@@ -8,7 +11,7 @@ bool is_prime(long long n){
     return true;
 }
 
-int main(){
-    assert (is_prime(13441 * 19) == false);
+int main() {
+    assert(is_prime(13441 * 19) == false);
     return 0;
 }
