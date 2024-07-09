@@ -1,19 +1,13 @@
-Here is the solution:
-
-```cpp
 string find_max(vector<string> words){
-    string res = words[0];
-    for(int i=1;i<words.size();i++){
-        int count1 = 0;
-        int count2 = 0;
-        set<char> s1(res.begin(),res.end());
-        set<char> s2(words[i].begin(),words[i].end());
-
-        if(s1.size() > s2.size()){
-            res = words[i];
-        }else if(s1.size() == s2.size()){
-            res = (s1 < s2) ? res : words[i];
+    string result;
+    int max_count = 0;
+    for(string word : words){
+        int count = 0;
+        set<char> s(word.begin(),word.end());
+        if(s.size() > max_count){
+            max_count = s.size();
+            result = word;
         }
     }
-    return res;
+    return result;
 }
