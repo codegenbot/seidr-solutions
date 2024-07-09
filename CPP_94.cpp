@@ -1,6 +1,5 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <assert.h>
 
 int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
@@ -22,7 +21,6 @@ bool isPrime(int n){
         if(n % i == 0)
             return false;
     return true;
-}
 
 int main(){
     assert (skjkasdkd({127, 97, 8192}) == 10);
