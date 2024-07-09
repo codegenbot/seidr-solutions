@@ -20,11 +20,14 @@ int main() {
     vector<string> lst;
     int n;
     cin >> n;
-    cin.ignore();
     for(int i = 0; i < n; i++) {
         string s;
-        getline(cin, s);
-        lst.push_back(s);
+        if(getline(cin, s)) { 
+            lst.push_back(s);
+        } else {
+            while (cin.peek() == '\n') cin.ignore();
+            break; 
+        }
     }
     if(match_parens(lst))
         cout << "Yes" << endl;
