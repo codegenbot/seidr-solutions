@@ -1,4 +1,6 @@
-```cpp
+#include<iostream>
+using namespace std;
+
 int solutions(vector<int> lst){
     int sum = 0;
     for(int i=1; i<lst.size(); i+=2){
@@ -6,7 +8,6 @@ int solutions(vector<int> lst){
             sum += lst[i];
     }
     return sum;
-
 }
 
 int main() {
