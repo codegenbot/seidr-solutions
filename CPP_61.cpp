@@ -1,14 +1,15 @@
-bool correct_bracketing(string brackets){
-    int count = 0;
-    for(int i=0; i<brackets.length(); i++){
-        if(brackets[i] == '(') {
-            count++;
-        }
-        else if(brackets[i] == ')') {
-            if(count <= 0)
-                return false;
-            count--;
-        }
+```cpp
+int i = 0;
+while(i < brackets.length()) {
+    if(brackets[i] == '(') {
+        i++;
+        while(i < brackets.length() && brackets[i] != ')') 
+            i++;
+        if(i >= brackets.length())
+            return false;
+        i++;
     }
-    return count == 0;
+    else
+        i++;
 }
+return true;
