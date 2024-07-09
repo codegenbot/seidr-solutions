@@ -1,28 +1,13 @@
-#include <iostream>
+#include <algorithm>
 #include <vector>
-#include <cassert>
 
-bool move_one_ball(std::vector<int> arr) {
+bool move_one_ball(const std::vector<int>& arr) {
     int n = arr.size();
-    int minIdx = -1;
-    for (int i = 0; i < n; i++) {
-        if (arr[i] == 1) {
-            minIdx = i;
-            break;
+    for (int i = 0; i < n; ++i) {
+        if (std::is_sorted(arr.begin(), arr.end())) {
+            return true;
         }
+        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
-    if (minIdx == -1) {
-        return true;
-    }
-    for (int i = 0; i < n; i++) {
-        if (arr[(minIdx + i) % n] != i + 1) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    assert(move_one_ball({}) == true);
-    return 0;
+    return false;
 }
