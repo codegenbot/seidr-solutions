@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 int sum_squares(std::vector<double> lst){
     int sum = 0;
