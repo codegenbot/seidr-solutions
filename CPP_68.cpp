@@ -20,8 +20,6 @@ std::vector<int> pluck(std::vector<int>& arr) {
 
     return result;
 
-}
-
 int main() {
-    assert(pluck({7, 9, 7, 1}) == std::vector<int>({}));
+    assert(pluck({7, 9, 7, 1}) == std::vector<int>({},{});
 }
