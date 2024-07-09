@@ -11,7 +11,7 @@ int eat(int number, int need, int remaining) {
     return eaten + left;
 }
 
-bool issame(vector<int> v1, vector<int> v2) {
+bool issame(const vector<int>& v1, const vector<int>& v2) {
     return v1 == v2;
 }
 
