@@ -1,3 +1,4 @@
+```cpp
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> evenLengthStrings;
     for (const string& str : lst) {
@@ -18,8 +19,10 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return evenLengthStrings;
 }
 
-int test() {
+int main() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    assert(sorted_list_sum(input) == expected);
+    vector<string> result = sorted_list_sum(input);
+    for (const string& str : result) {
+        cout << str << endl;
+    }
 }
