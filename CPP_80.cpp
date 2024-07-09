@@ -1,9 +1,8 @@
-```cpp
-#include <cassert>
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <cassert>
 
 bool is_happy(const std::string& s) {
     if (s.length() < 3)
@@ -20,7 +19,7 @@ bool is_happy(const std::string& s) {
     return true;
 }
 
-int main() {
+bool originalMain() {
     assert(is_happy("iopaxioi") == false);
     std::string s;
     std::cout << "Enter a string: ";
@@ -29,4 +28,9 @@ int main() {
         std::cout << "The string is happy." << std::endl;
     else
         std::cout << "The string is not happy." << std::endl;
+}
+
+int main() {
+    originalMain();
+    return 0;
 }
