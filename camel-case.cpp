@@ -12,13 +12,14 @@ std::string camelCase(const std::string& str) {
             if (capitalize) {
                 result += toupper(c);
                 capitalize = false;
-                result.push_back(' '); 
+                result.push_back(' '); // add space after capitalizing first char of each group
             } else {
                 result += tolower(c);
             }
         }
     }
 
+    // remove the trailing space and lowercase the first character
     if (!result.empty()) {
         result.erase(result.find_last_not_of(' ') + 1, 0);
         result[0] = toupper(result[0]);
