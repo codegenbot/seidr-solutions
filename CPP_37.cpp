@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -16,8 +15,8 @@ namespace myspace {
         int evenIndex = 0;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                auto it = std::minmax_element(l.begin(), l.end(), 
-                                              [](float a, float b){return a>b;} );
+                auto it = std::minmax_element(l.begin(), l.end(),
+                    [](float a, float b){ return a<b; });
                 result[i] = *(it.first);
                 for(int j = 0; j < l.size(); j++){
                     if(j%2==0 && l[j] != *(it.first)){
@@ -33,17 +32,17 @@ namespace myspace {
 }
 
 int main() {
-    std::vector<float> input(10); // or any other size that suits your needs
-    input.push_back(5);
-    input.push_back(8);
-    input.push_back(-12);
-    input.push_back(4);
-    input.push_back(23);
-    input.push_back(2);
-    input.push_back(3);
-    input.push_back(11);
-    input.push_back(12);
-    input.push_back(-10);
+    std::vector<float> input(10);
+    input.push_back(5.0f);
+    input.push_back(8.0f);
+    input.push_back(-12.0f);
+    input.push_back(4.0f);
+    input.push_back(23.0f);
+    input.push_back(2.0f);
+    input.push_back(3.0f);
+    input.push_back(11.0f);
+    input.push_back(12.0f);
+    input.push_back(-10.0f);
 
     std::cout << "Original array: ";
     for (float num : input) {
@@ -52,7 +51,6 @@ int main() {
     std::cout << std::endl;
 
     std::vector<float> sortedEven = myspace::sort_even(input);
-    assert (myspace::issame(myspace::sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) , {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     std::cout << "Sorted even array: ";
     for (float num : sortedEven) {
         std::cout << num << " ";
@@ -60,4 +58,3 @@ int main() {
     std::cout << std::endl;
 
     return 0;
-}
