@@ -18,10 +18,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if not stack:
                 result.append(temp)
                 temp = ""
-    if stack:
-        while stack:
-            stack.pop()
-        temp += ")"
+    if not stack and temp:  # Check for remaining chars
         result.append(temp)
 
     return [x for x in result]
