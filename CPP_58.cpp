@@ -1,12 +1,19 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <set>
+#include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+    if (a.size() != b.size()) {
+        return false;
     }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
     return true;
 }
 
@@ -21,4 +28,16 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     vector<int> result(intersection.begin(), intersection.end());
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    vector<int> l1 = {1, 2, 3, 4, 5};
+    vector<int> l2 = {4, 5, 6, 7, 8};
+    
+    vector<int> output = common(l1, l2);
+    
+    for (int i : output) {
+        std::cout << i << " ";
+    }
+    return 0;
 }
