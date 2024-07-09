@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -16,27 +15,15 @@ bool isSimplePower(int num) {
 }
 
 int main() {
-    std::string input;
+    char input[256];
     std::cout << "Enter a number: ";
-    std::getline(std::cin, input); 
+    std::cin >> input; 
 
-    bool isValidInput = true;
-    for (char c : input) {
-        if (!std::isdigit(c)) {
-            isValidInput = false;
-            break;
-        }
-    }
-
-    if (isValidInput) {
-        int num = std::stoi(input);  
-        if (isSimplePower(num)) {
-            std::cout << input << " is a simple power.\n";
-        } else {
-            std::cout << input << " is not a simple power.\n";
-        }
+    int num = std::stoi(input);  
+    if (isSimplePower(num)) {
+        std::cout << input << " is a simple power.\n";
     } else {
-        std::cout << "Invalid input. Please enter a numeric value.\n";
+        std::cout << input << " is not a simple power.\n";
     }
 
     return 0;
