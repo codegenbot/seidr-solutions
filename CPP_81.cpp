@@ -1,12 +1,12 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <iostream>
 
-std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades);
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades);
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
 
-std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
     for (float gpa : grades) {
         if (gpa == 4.0) {
@@ -41,10 +41,12 @@ std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades
 }
 
 int main() {
-    std::vector<float> grades {3.8, 2.5, 4.0, 1.9, 3.5};
+    std::vector<float> grades = {3.8, 2.5, 4.0, 1.7, 3.2};
     std::vector<std::string> result = numerical_letter_grade(grades);
-    for (const std::string& grade : result) {
-        std::cout << grade << std::endl;
+
+    for (const auto& grade : result) {
+        std::cout << grade << " ";
     }
+    
     return 0;
 }
