@@ -26,7 +26,8 @@ vector<int> sort_third(vector<int> l) {
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0 && !multiplesOfThree.empty()) {
             result.push_back(multiplesOfThree[0]);
-            multiplesOfThree.erase(multiplesOfThree.begin());
+            if (!multiplesOfThree.empty())
+                multiplesOfThree.erase(multiplesOfThree.begin());
         } else
             result.push_back(others[i % others.size()]);
 
