@@ -18,3 +18,7 @@ vector<int> count_up_to(int n) {
     
     return result;
 }
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
