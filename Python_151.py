@@ -1,3 +1,4 @@
+```
 def check(func):
     lst = [1, 3, 5]
     if func(lst) == 9:
