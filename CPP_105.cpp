@@ -1,74 +1,45 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            temp.push_back(i);
+std::vector<std::string> by_length(const std::vector<int>& input) {
+    vector<string> output;
+
+    for (int num : input) {
+        if (num >= 1 && num <= 9) {
+            string str = to_string(num);
+            int len = str.length();
+            while (output.size() <= len) {
+                output.resize(output.size() + 1);
+            }
+            output[len - 1] += str;
         }
     }
 
-    sort(temp.begin(), temp.end());
-    reverse(temp.begin(), temp.end());
-
-    vector<string> result;
-    for (int i : temp) {
-        switch (i) {
-            case 1:
-                result.push_back("One");
-                break;
-            case 2:
-                result.push_back("Two");
-                break;
-            case 3:
-                result.push_back("Three");
-                break;
-            case 4:
-                result.push_back("Four");
-                break;
-            case 5:
-                result.push_back("Five");
-                break;
-            case 6:
-                result.push_back("Six");
-                break;
-            case 7:
-                result.push_back("Seven");
-                break;
-            case 8:
-                result.push_back("Eight");
-                break;
-            case 9:
-                result.push_back("Nine");
-                break;
-        }
-    }
-
-    return result;
+    return output;
 }
 
 int main() {
-    vector<int> input = {9, 4, 8};
+    vector<int> input;
+    cout << "Enter the numbers: ";
+    int num;
+    while (cin >> num) {
+        if (num >= 1 && num <= 9) {
+            input.push_back(num);
+        }
+        else {
+            break;
+        }
+    }
     vector<string> output = by_length(input);
-    
-    if (issame({{"Nine", "Eight", "Four"}}, vector<string>(output.begin(), output.end()))) {
+
+    if (issame({"Nine", "Eight", "Four"}, output)) {
         for (string str : output) {
             cout << str << endl;
         }
     }
+    return 0;
 }
