@@ -1,24 +1,21 @@
-bool issame(vector<float> a, vector<float> b) {
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
 
-void sort_even(vector<float>& l) {
-    vector<float> even_indices;
-    for (int i = 0; i < l.size(); i += 2) {
-        even_indices.push_back(l[i]);
-    }
-    sort(even_indices.begin(), even_indices.end());
-
-    vector<float> result;
-    int even_index = 0;
+std::vector<float> sort_even(std::vector<float> l) {
     for (int i = 0; i < l.size(); i++) {
-        if (i % 2 != 0) {
-            result.push_back(l[i]);
-        } else {
-            result.push_back(even_indices[even_index]);
-            even_index++;
-        }
+        if (i % 2 == 0) continue;
+        l[i] = l[i - 1];
     }
+    std::sort(l.begin(), l.end());
+    return l;
+}
 
-    l = result;
+int main() {
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    return 0;
 }
