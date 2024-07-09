@@ -1,28 +1,26 @@
-```
+#include <iostream>
 #include <string>
-#include <sstream>
+#include <digest.h>
 
 using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    MD5_CTX md5Context;
-    unsigned char md5Digest[16];
-    const EVP_MD* evpMd = EVP_md5();
-    EVP_MD_CTX_init(&md5Context);
+    unsigned char md[16];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char* str = text.c_str();
+    size_t len = text.size();
+    MD5_Update(&ctx, str, len);
+    MD5_Final(md, &ctx);
 
-    const void *data = reinterpret_cast<const void*>(text.c_str());
-    size_t dataLen = text.length();
-
-    EVP_DigestInit_ex(&md5Context, evpMd, 0);
-    EVP_DigestUpdate(&md5Context, data, dataLen);
-    EVP_DigestFinal_ex(&md5Context, md5Digest, nullptr);
-
-    stringstream ss;
-    for (size_t i = 0; i < sizeof(md5Digest); ++i) {
-        ss << setfill('0') << setw(2) << hex << static_cast<int>(md5Digest[i]);
+    string result;
+    for (int i = 0; i < 16; ++i) {
+        char buf[3];
+        sprintf(buf, "%02x", md[i]);
+        result += buf;
     }
 
-    return ss.str();
+    return result;
 }
