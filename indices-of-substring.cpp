@@ -3,30 +3,26 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    int n = text.length(), m = target.length();
-    
-    for(int i = 0; i <= n - m; i++){
-        if(text.substr(i, m) == target){
-            indices.push_back(i);
-        }
+    int pos = -1; // initialize position to -1
+
+    while ((pos = text.find(target)) != string::npos) {
+        indices.push_back(pos);
+        text.erase(0, pos + target.length()); // erase the found substring
     }
+
     return indices;
 }
 
 int main() {
     string text;
-    cout << "Enter the text: ";
-    getline(cin, text);
-    
-    string target;
-    cout << "Enter the target string: ";
-    cin >> target;
-    
-    vector<int> result = findIndices(text, target);
-    
-    for(int i = 0; i < result.size(); i++){
-        cout << result[i] << endl;
+    cin >> text;
+    int n;
+    cin >> n;
+    vector<int> indices = findIndices(text, to_string(n));
+    for (int i : indices) {
+        cout << i << " ";
     }
-    
+    cout << endl;
+
     return 0;
 }
