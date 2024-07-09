@@ -1,23 +1,22 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& s1, const std::vector<std::string>& s2) {
-    return s1.size() == 3 && s2.size() == 3 && s1[0] == s2[0] && s1[1] == s2[1] && s1[2] == s2[2];
+bool issame(const std::string& s1, const std::string& s2) {
+    return s1 == s2;
 }
 
-int total_sum(const std::vector<std::string>& lst) {
+int total_sum(std::vector<std::string> lst) {
     int sum = 0;
     for (const auto& s : lst) {
-        for (char c : std::string(s)) {
+        for (char c : s) {
             sum += static_cast<int>(c);
         }
     }
     return sum;
 }
 
-std::vector<std::string> total_match(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     if (lst1.empty() || lst2.empty()) return {};
     int sum1 = total_sum(lst1);
     int sum2 = total_sum(lst2);
@@ -30,7 +29,7 @@ int main() {
     std::vector<std::string> lst1 = {"a", "b", "c"};
     std::vector<std::string> lst2 = {"d", "e", "f"};
 
-    assert(issame({"this"}, {"this", "", ""}));
+    assert(issame("this", "this"));
     std::cout << "Test passed" << std::endl;
     
     if (total_sum(lst1) < total_sum(lst2)) {
