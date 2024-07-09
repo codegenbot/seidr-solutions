@@ -1,5 +1,6 @@
 def paired_digits(s):
-    return sum(int(d) for i, d in enumerate(s) if i < len(s) - 1 and (d == s[i+1] or d * 2 == int(s[i+1])))
+    s = s.zfill(len(s) * 2)
+    return sum(int(d1) for i, d1 in enumerate(s) if i % 2 == 0 and d1 == s[i+1])
 
 print(paired_digits("0011111")) 
 print(paired_digits("99")) 
