@@ -1,4 +1,5 @@
-int main() {
+int main 
+{
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
@@ -14,4 +15,5 @@ int main() {
     }
     std::cout << "Output: " << output << std::endl;
     
+    return 0;
 }
