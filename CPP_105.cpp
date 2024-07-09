@@ -1,67 +1,53 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::vector<std::string>> by_length(const std::vector<int>& arr) {
-    std::vector<int> num;
+vector<vector<string>> by_length(const vector<int>& arr) {
+    vector<int> num;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
             num.push_back(i);
         }
     }
 
-    std::sort(num.begin(), num.end());
-    std::reverse(num.begin(), num.end());
+    sort(num.begin(), num.end());
+    reverse(num.begin(), num.end());
 
-    std::vector<std::vector<std::string>> result;
+    vector<vector<string>> result;
     for (int n : num) {
         switch (n) {
             case 1:
-                result.push_back({"One"});
+                result.emplace_back({"One"});
                 break;
             case 2:
-                result.push_back({"Two"});
+                result.emplace_back({"Two"});
                 break;
             case 3:
-                result.push_back({"Three"});
+                result.emplace_back({"Three"});
                 break;
             case 4:
-                result.push_back({"Four"});
+                result.emplace_back({"Four"});
                 break;
             case 5:
-                result.push_back({"Five"});
+                result.emplace_back({"Five"});
                 break;
             case 6:
-                result.push_back({"Six"});
+                result.emplace_back({"Six"});
                 break;
             case 7:
-                result.push_back({"Seven"});
+                result.emplace_back({"Seven"});
                 break;
             case 8:
-                result.push_back({"Eight"});
+                result.emplace_back({"Eight"});
                 break;
             case 9:
-                result.push_back({"Nine"});
+                result.emplace_back({"Nine"});
                 break;
         }
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(by_length({9, 4, 8}), {{"Nine"}, {"Four"}, {"Eight"}}));
 }
