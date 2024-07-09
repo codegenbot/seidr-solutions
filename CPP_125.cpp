@@ -1,3 +1,6 @@
+Here is the completed code:
+
+```cpp
 vector<string> split_words(string txt) {
     vector<string> result;
 
@@ -11,19 +14,17 @@ vector<string> split_words(string txt) {
         return result;
     }
 
-    if (txt.find(',') == string::npos) {
-        int oddLowercase = 0;
+    size_t commaPos = txt.find(',');
+    if (commaPos == string::npos) {
+        int oddLowercaseCount = 0;
         for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                if ((int)c % 2 != 0) {
-                    oddLowercase++;
-                }
+            if (c >= 'a' && c <= 'z' && (int)c % 2 != 0) {
+                oddLowercaseCount++;
             }
         }
-        result.push_back(to_string(oddLowercase));
+        result.push_back(to_string(oddLowercaseCount));
     } else {
-        size_t pos = 0;
-        while ((pos = txt.find(',')) != string::npos) {
+        while ((pos = txt.find(' ')) != string::npos) {
             result.push_back(txt.substr(0, pos));
             txt.erase(0, pos + 1);
         }
