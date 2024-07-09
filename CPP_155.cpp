@@ -1,15 +1,23 @@
 #include <vector>
 
 std::vector<int> even_odd_count(int num) {
-    int even = 0;
-    int odd = 0;
+    std::vector<int> result(2);
+    int countEven = 0;
+    int countOdd = 0;
+    
     while (num != 0) {
         int digit = num % 10;
+        
         if (digit % 2 == 0)
-            even++;
+            countEven++;
         else
-            odd++;
+            countOdd++;
+            
         num /= 10;
     }
-    return {even, odd};
+    
+    result[0] = countEven;
+    result[1] = countOdd;
+    
+    return result;
 }
