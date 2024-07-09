@@ -4,11 +4,11 @@ int do_algebra(vector<string> ops, vector<int> nums) {
 
     for (int i = 0; i < ops.size(); i++) {
         if (ops[i] == "+") {
-            result += temp * nums[i];
+            result += temp * std::stoll(nums[i].c_str());
         } else if (ops[i] == "-") {
-            result -= temp * nums[i];
+            result -= temp * std::stoll(nums[i].c_str());
         } else if (ops[i] == "*") {
-            temp *= nums[i];
+            temp *= std::stoll(nums[i].c_str());
         } else if (ops[i] == "/") {
             temp /= std::stoll(nums[i].c_str());
         } else if (ops[i] == "^") {
