@@ -1,27 +1,20 @@
-```cpp
-#include <string>
-#include <iostream>
-
+#include<string>
+#include<sstream>
+#include<numeric>
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = 0, b = 0, c = 0, d = 0;
+    int a = 1, b = 1, c = 1, d = 1;
+    istringstream xx(x);
+    istringstream nn(n); 
+    xx >> a >> c;
+    nn >> b >> d;
     
-    size_t pos = x.find('/');
-    a = stoi(x.substr(0, pos));
-    b = stoi(x.substr(pos + 1));
-
-    pos = n.find '/';
-    c = stoi(n.substr(0, pos));
-    d = stoi(n.substr(pos+1));
-
-    return (a*d) == (b*c);
-}
-
-int main() {
-    cout << simplify("1/5", "5/1") << endl; // true
-    cout << simplify("1/6", "2/1") << endl; // false
-    cout << simplify("7/10", "10/2") << endl; // false
-
-    return 0;
+    long long numerator = (long long)a * d;
+    long long denominator = (long long)b * c;
+    
+    if(denominator == 0) return false;
+    
+    int gcd = std::gcd(abs(numerator), abs(denominator)); 
+    return (numerator / gcd == denominator / gcd);
 }
