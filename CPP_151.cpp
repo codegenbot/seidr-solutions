@@ -16,15 +16,15 @@ int main() {
     std::vector<float> lst; 
     float odd_sum = 0; 
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    cin >> n;
     for(int i=0;i<n;i++){
         float x;
-        std::cout << "Enter element "<<i+1<<": ";
-        std::cin >> x;
-        lst.push_back(x);
+        cin>>x;
+        if(x > 0 && floor(x) == x){
+            lst.push_back(x);
+        }
     }
-    odd_sum = double_the_difference(lst);
-    std::cout << "The sum of the squares of the positive integers in the list is: " << odd_sum << std::endl;
+    long long result = double_the_difference(lst);
+    cout<<result<<endl;
     return 0;
 }
