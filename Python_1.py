@@ -1,6 +1,11 @@
 def solve_task():
-    num1 = int(input("Enter first number: "))
-    num2 = int(input("Enter second number: "))
+    while True:
+        try:
+            num1 = int(input("Enter first number: "))
+            num2 = int(input("Enter second number: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter numeric values.")
     result = num1 + num2
     while True:
         response = input("Are you sure? (y/N): ")
