@@ -1,13 +1,11 @@
 ```cpp
 #include <iostream>
-#include <string>
 
 bool is_happy(int n);
 
 int main() {
     std::cout << "Enter a number: ";
-    int num;
-    std::cin >> num;
+    int num = 19; 
     if (is_happy(num)) {
         std::cout << num << " is a happy number.\n";
     } else {
