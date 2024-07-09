@@ -6,23 +6,23 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result; 
-    int initialCapacity = l.size();
+    vector<int> result;
     int i = 0;
-    for (i = 0; i < l.size(); ) {
-        if (i % 3 == 0 && i + 3 <= l.size()) {
-            int block_size = 3;
-            vector<int> temp;
-            for (int j = i; j < min(i + 3, l.size()); j++) {
-                temp.push_back(l[j]);
+    while (i < l.size()) {
+        if (i + 2 < l.size()) {
+            int block[l.size() - i >= 3 ? 3 : l.size() - i];
+            for (int j = 0; j < (l.size() - i < 3 ? l.size() - i : 3); j++) {
+                block[j] = l[i + j];
             }
-            sort(temp.begin(), temp.end());
-            for (int t : temp) {
-                result.push_back(t); 
-                i++;
+            sort(block, block + sizeof(block) / sizeof(block[0]));
+            for (int j = 0; j < (l.size() - i < 3 ? l.size() - i : 3); j++) {
+                result.push_back(block[j]);
             }
+            i += 3;
         } else {
-            result.push_back(l[i]); 
+            if (i + 1 < l.size()) {
+                result.push_back(l[i]);
+            }
             i++;
         }
     }
