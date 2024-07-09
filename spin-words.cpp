@@ -1,6 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
 #include <algorithm>
 
 std::string spinWords(std::string str) {
@@ -13,9 +10,12 @@ std::string spinWords(std::string str) {
         }
         std::string word = str.substr(pos, nextPos - pos);
         if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+            std::vector<char> vec(word.begin(), word.end());
+            std::reverse(vec.begin(), vec.end());
+            result += std::string(vec.begin(), vec.end()) + " ";
+        } else {
+            result += word + " ";
         }
-        result += word + " ";
         pos = nextPos;
     }
     return result;
