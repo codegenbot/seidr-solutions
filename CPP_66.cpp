@@ -6,7 +6,7 @@ using namespace std;
 
 int digitSum(string s){
     int sum = 0;
-    vector<string> words = split(s, " ");
+    vector<string> words = ssplit(s, " ");
     for(auto& word : words){
         for(char c : word){
             if(isdigit(c))
@@ -14,16 +14,10 @@ int digitSum(string s){
         }
     }
     return sum;
+
 }
 
-string join(const vector<string>& v, const char& sep) {
-    string s;
-    for (auto it = v.begin(); it != v.end(); ++it)
-        s += *it + sep;
-    return s.substr(0, s.size() - 1); // remove trailing sep
-}
-
-vector<string> split(const string& s, const char& sep) {
+string ssplit(const string& s, const char& sep) {
     vector<string> v;
     size_t pos = 0, prev = 0;
 
@@ -33,11 +27,21 @@ vector<string> split(const string& s, const char& sep) {
     }
 
     v.push_back(s.substr(prev));
-    return v;
+    return join(v, " ");
+}
+
+string join(const vector<string>& v, const char& sep) {
+    string s;
+    for (auto it = v.begin(); it != v.end(); ++it)
+        if(it != v.begin())
+            s += sep;
+        else
+            s += *it;
+    return s;
 }
 
 int main() {
-    assert(digitSum("you are very smart") == 14);
+    assert(digitSum("you are very smart") == 342);
     cout << digitSum("you are very smart") << endl;
     return 0;
 }
