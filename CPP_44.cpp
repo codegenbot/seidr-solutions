@@ -1,1 +1,1 @@
-res.insert(0, 1, to_string(remainder));
+res.insert(0, 1, remainder + '0');
