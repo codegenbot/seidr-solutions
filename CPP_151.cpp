@@ -3,18 +3,26 @@
 #include <cmath>
 
 int main() {
-    std::vector<float> lst = {1.0f, -2.5f, 3.0f, -4.0f};
-    long long result = double_the_difference(lst);
-    std::cout << "The sum of squares of the positive numbers in the list is: " << result << std::endl;
-    return 0;
-}
+    std::vector<float> lst;
+    long long result = 0;
 
-long long double_the_difference(std::vector<float> lst) {
-    long long sum = 0;
-    for (float num : lst) {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    for(int i = 0; i < n; i++) {
+        float num;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
+
+        long long sum = 0;
         if (num > 0 && modf(num, &num) == 0) {
             sum += pow(num, 2);
         }
+        result += sum;
     }
-    return sum;
+
+    std::cout << "The difference of the squares is: " << result << std::endl;
+
+    return 0;
 }
