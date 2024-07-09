@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cctype>
 
@@ -12,7 +13,7 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    std::string s = "EEEE";  // Create a string object from the C-style string
+    std::string s = "EEEE";  
     assert(count_upper(s) == 2);
     return 0;
 }
