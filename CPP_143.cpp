@@ -39,8 +39,6 @@ std::vector<std::string> words_in_sentence(std::string sentence) {
                 result += word + " ";
                 wordLengths.push_back(std::to_string(length));
             }
-        } else if (length > 0) {
-            wordLengths.push_back(std::to_string(length));
         }
     }
 
