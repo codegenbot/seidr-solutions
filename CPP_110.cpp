@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -22,6 +23,6 @@ int main() {
     vector<int> lst1(lst1.begin(), lst1.end());
     vector<int> lst2(lst2.begin(), lst2.end());
     string result = exchange(lst1, lst2);
-    if (result == "YES") cout << result; else cout << result;
+    if (result == "YES") cout << "YES"; else cout << "NO";
     return 0;
 }
