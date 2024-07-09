@@ -1,9 +1,9 @@
-```
 from typing import List
 import math
 
 
-def factorize(n: int) -> List[int]:
+def main():
+    n = int(input("Enter an integer: "))
     factors = []
     i = 2
     while i * i <= n:
@@ -18,4 +18,8 @@ def factorize(n: int) -> List[int]:
             factors.extend([i] * count)
     if n > 1:
         factors.append(n)
-    return factors
+    print(factors)
+
+
+if __name__ == "__main__":
+    main()
