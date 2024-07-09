@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <initializer_list>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -14,14 +14,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
     std::vector<int> result;
     for (int num : numbers) {
-        bool found = false;
-        for (int i = 0; i < result.size(); i++) {
-            if (result[i] == num) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
+        if (std::find(result.begin(), result.end(), num) == result.end()) {
             result.push_back(num);
         }
     }
@@ -42,7 +35,7 @@ int main() {
     
     std::vector<int> unique_numbers = remove_duplicates(numbers);
     
-    if (!issame(numbers, unique_numbers)) {
+    if (!unique_numbers == numbers) {
         std::cout << "Unique numbers: ";
         for (int num : unique_numbers) {
             std::cout << num << " ";
