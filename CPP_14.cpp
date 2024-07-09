@@ -13,7 +13,13 @@ vector<string> all_prefixes(string str){
     return prefixes;
 }
 
+bool issame(vector<string> a, vector<string> b);
+
 int main() {
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
     return 0;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
