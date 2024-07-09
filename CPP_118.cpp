@@ -1,23 +1,25 @@
+#include <iostream>
 #include <string>
-#include <cctype>
 
-std::string get_closest_vowel(std::string word) {
-    int left = 0;
-    for (int i = word.length() - 1; i >= 0; --i) {
-        if (!is_vowel(word[i])) {
-            left = i + 1;
-            break;
+std::string get_closest_vowel(string word) {
+    string result = "";
+    for (int i = word.length() - 1; i > 0; --i) {
+        if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || 
+            word[i] == 'o' || word[i] == 'u' || word[i] == 'A' || 
+            word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || 
+            word[i] == 'U') {
+            int left = i - 1;
+            while (left >= 0 && !isVowel(word[left])) --left;
+            if (left < i - 1) {
+                result = word.substr(left + 1, i - left - 1);
+                break;
+            }
         }
     }
-    for (int i = left; i < word.length(); ++i) {
-        if (is_vowel(word[i])) {
-            return std::string(1, word[i]);
-        }
-    }
-    return "";
+    return result;
 }
 
-bool is_vowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+bool isVowel(char c) {
+    using namespace std;
+    return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
 }
