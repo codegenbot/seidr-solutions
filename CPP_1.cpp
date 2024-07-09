@@ -18,11 +18,13 @@ bool issame(vector<string> vec1, vector<string> vec2) {
 void separate_paren_groups(vector<string>& result, int open_count) {
     string current_group = "";
     for (int i = 0; i < open_count; i++) {
-        current_group += '(';
+        current_group += "(";
     }
+    vector<string> temp;
     for (char c : current_group) {
-        result.push_back(string(1, c)); // Create a string with one character
+        temp.push_back(std::string(1, c)); // Create a string with one character
     }
+    result.insert(result.end(), temp.begin(), temp.end());
 }
 
 void start() {
