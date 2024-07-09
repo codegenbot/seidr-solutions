@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <climits>
 
 using namespace std;
 
@@ -12,10 +12,10 @@ bool isSame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    int stones = 1;
-    while (stones < n + n/2) { 
+vector<unsigned int> make_a_pile(int n) {
+    vector<unsigned int> pile;
+    unsigned int stones = 1;
+    while (pile.size() < n) { 
         pile.push_back(stones);
         if ((n - stones) % 2 == 0) {
             stones += 1;
@@ -30,8 +30,8 @@ int main() {
     int n;
     cout << "Enter the number of stones: ";
     cin >> n;
-    vector<int> pile = make_a_pile(n);
-    for (int i : pile) {
+    vector<unsigned int> pile = make_a_pile(n);
+    for (unsigned int i : pile) {
         cout << i << " ";
     }
     if(isSame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22})) {
