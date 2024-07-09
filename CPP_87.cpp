@@ -2,6 +2,10 @@
 
 bool issame(vector<vector<int>> a, vector<vector<int>> b);
 
+bool issame(vector<vector<int>> a, vector<vector<int>> b){
+    return a == b;
+}
+
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
@@ -18,8 +22,4 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
         return a[0] < b[0];
     });
     return result;
-}
-
-bool issame(vector<vector<int>> a, vector<vector<int>> b){
-    return a == b;
 }
