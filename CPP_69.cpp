@@ -14,4 +14,5 @@ int search(vector<int> lst) {
             return pair.first;
         }
     }
-    throw runtime_error("No solution exists!");
+    throw runtime_error("No solution found. All elements should have a frequency greater than or equal to their index plus one.");
+    return -1;
