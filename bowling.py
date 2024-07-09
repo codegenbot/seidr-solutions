@@ -1,7 +1,6 @@
 def bowling_score(frames):
     if not isinstance(frames, str) or len(frames) != 20:
-        return "Invalid input"
-    
+        return 
     score = 0
     for i in range(0, len(frames), 2):
         if frames[i] == 'X':
@@ -17,4 +16,4 @@ def bowling_score(frames):
                 score += first_roll + second_roll
             else:
                 score += first_roll
-    return score
+    return
