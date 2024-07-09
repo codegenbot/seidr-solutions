@@ -1,10 +1,6 @@
-```
-def add(a=0, b=0):
-    while True:
-        try:
-            x = int(input("Enter the first number: ") or str(a))
-            y = int(input("Enter the second number: ") or str(b))
-            print(x + y)
-            break
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
+def add(a=0, b=0): 
+    i = 1 
+    x = int(input(f"Enter the {a if i==1 else 'second'} number: ") or a) 
+    i += 1 
+    y = int(input(f"Enter the {b if i==1 else 'second'} number: ") or b) 
+    print(x + y)
