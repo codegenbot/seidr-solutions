@@ -1,15 +1,13 @@
-```cpp
 #include <string>
 
 bool is_happy(std::string s) {
     if (s.length() < 3)
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
-        std::string sub = (char*)s.c_str()+i;
-        sub.resize(3);
+        std::string sub = s.substr(i, 3);
         bool found = false;
         for (auto c : sub) {
-            if ((char*)s.c_str() != (char*)sub.c_str()) {
+            if (s.find(std::string(1, c)) != std::string::npos) { 
                 found = true;
                 break;
             }
