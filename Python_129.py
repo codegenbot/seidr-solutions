@@ -13,8 +13,8 @@ def minPath(grid, k):
         x, y, path = queue.pop(0)
         
         if len(path) == k + 1:
-            if not res or sum(path) < sum(res):
-                res = path[:-1]
+            if not res or tuple(sorted(path)) < tuple(sorted(res)):
+                res = list(path[:-1])
             continue
         
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
