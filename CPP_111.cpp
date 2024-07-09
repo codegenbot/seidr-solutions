@@ -1,31 +1,38 @@
 #include <map>
 #include <sstream>
 
-bool issame(map<char, int> a, map<char, int> b){
-    return a == b;
+map<char,int> histogram(string test);
+
+bool issame(map<char,int>& a, map<char,int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (const auto& pair : a) {
+        if (b.find(pair.first) == b.end() || b[pair.first] != pair.second) {
+            return false;
+        }
+    }
+    return true;
 }
 
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    stringstream ss(test);
+map<char,int> histogram(string test){
+    map<char,int> result;
+    istringstream iss(test);
     string word;
-    while (ss >> word) {
-        for (char c : word) {
+    while (iss >> word) {
+        for (char& c : word) {
             result[c]++;
         }
     }
-    
     int maxCount = 0;
-    for (const auto &entry : result) {
-        maxCount = max(maxCount, entry.second);
+    for (const auto& pair : result) {
+        maxCount = max(maxCount, pair.second);
     }
-    
-    map<char, int> maxChars;
-    for (const auto &entry : result) {
-        if (entry.second == maxCount) {
-            maxChars[entry.first] = entry.second;
+    map<char,int> maxLetters;
+    for (const auto& pair : result) {
+        if (pair.second == maxCount) {
+            maxLetters[pair.first] = pair.second;
         }
     }
-    
-    return maxChars;
+    return maxLetters;
 }
