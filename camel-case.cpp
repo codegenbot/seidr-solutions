@@ -1,28 +1,19 @@
-#include <iostream>
-#include <string>
-
 std::string camelCase(const std::string& s) {
     std::string result;
     bool first = true;
 
     for (char c : s) {
         if (c == '-') {
-            first = false;
-        } else if (!first) {
-            result[0] = toupper(c);
-            result += c;
+            first = true;
         } else {
-            result += tolower(c);
+            if (!first) {
+                result += tolower(c);
+            } else {
+                result += toupper(c);
+                first = false;
+            }
         }
     }
 
     return result;
-}
-
-int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << '\n';
-    }
-    return 0;
 }
