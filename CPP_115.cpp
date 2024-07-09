@@ -1,10 +1,24 @@
 Here is the completed code:
 
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int total_water = 0;
-    for (auto row : grid) {
-        total_water += std::count(row.begin(), row.end(), 1);
+    int ans = 0;
+    while (true) {
+        bool changed = false;
+        vector<vector<int>> new_grid = grid;
+        for (int i = 0; i < grid.size(); i++) {
+            for (int j = 0; j < grid[0].size(); j++) {
+                if (grid[i][j] > capacity) {
+                    new_grid[i][j] -= capacity;
+                    changed = true;
+                } else if (grid[i][j]) {
+                    new_grid[i][j] = 0;
+                    changed = true;
+                }
+            }
+        }
+        grid = new_grid;
+        ans++;
+        if (!changed) break;
     }
-    
-    return total_water / capacity + ((total_water % capacity > 0) ? 1 : 0);
+    return ans - 1;
 }
