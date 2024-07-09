@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,14 +16,13 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> re
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
             if(word.size() > 30){ 
-                int j = 1;
-                while(j <= (word.size()/30) + 1){
-                    result.push_back(word.substr(0, 30));
-                    word = word.substr(30);
-                    j++;
+                int count = 1;
+                while(word[count-1] != ' ' && count < word.size()){
+                    count++;
                 }
-                if(word.size()>0)
-                    result.push_back(word);  
+                std::string temp = word.substr(0, count);
+                word.erase(0, count);
+                result.push_back(temp);
             }else if(word.size() <= 30){ 
                 result.push_back(word);
                 word = "";
@@ -33,18 +33,16 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> re
             }
         }
     }
-    if(word.size() > 0)  
-        while(word.size()>30){
-            int j = 1;
-            while(j <= (word.size()/30) + 1){
-                result.push_back(word.substr(0, 30));
-                word = word.substr(30);
-                j++;
-            }
-            if(word.size()>0)
-                result.push_back(word);  
-        } else 
-            result.push_back(word);
+    if(word.size() > 30){
+        int count = 1;
+        while(word[count-1] != ' ' && count < word.size()){
+            count++;
+        }
+        std::string temp = word.substr(0, count);
+        word.erase(0, count);
+        result.push_back(temp);
+    }else if(word.size() <= 30)  
+        result.push_back(word);
     return result;
 }
 
