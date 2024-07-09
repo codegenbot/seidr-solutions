@@ -1,21 +1,19 @@
 #include <cassert>
 #include <vector>
+#include <string>
 
 class _160 {
 public:
-    int do_algorithm(int op, std::vector<int> nums) { 
-        if (op == "*")
+    int do_algebra(int ops, const std::vector<int>& nums) { 
+        if (std::string(1, ops) == "*")
             return nums[0] * nums[1];
-        else if (op == "/")
-            return nums[0] / nums[1];
         else
-            return 0;
+            return nums[0] / nums[1];
     }
 };
 
-int main() {
+int cppMain() {
     _160 obj;
-    assert(obj.do_algorithm("*", {7, 3}) == 21);
-    int res = obj.do_algorithm("//", {7, 3, 4});
+    assert(obj.do_algebra("*", {7, 3}) == 21);
     return 0;
 }
