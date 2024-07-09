@@ -15,7 +15,7 @@ int main() {
     for (const auto& str : strings) {
         std::string md5_str = string_to_md5(str);
         std::stringstream ss;
-        ss << std::setw(10) << (int)md5_str.size();
+        ss << std::hex << std::setw(4) << std::setfill('0') << md5_str.size();
         // Process or use the stringstream
     }
     return 0;
