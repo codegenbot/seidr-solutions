@@ -16,12 +16,12 @@ int bowlingScore(std::string s) {
             rolls[0] = 10;
             roll = 0;
         }
-        rolls[9-roll] = std::max(roll, 1);
+        rolls[9-roll] = max(roll, 1);
     }
     
     for (int i = 0; i < 10; i++) {
         if (rolls[i] == 10) {
-            score += 10 + (i < 8 ? rolls[i+1] : 0);
+            score += 10 + rolls[i+1];
         } else {
             score += rolls[i] + (i >= 1 ? rolls[i-1] : 0);
         }
