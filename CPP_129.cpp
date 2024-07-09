@@ -3,33 +3,29 @@
 #include <queue>
 using namespace std;
 
+priority_queue<pair<int, pair<int, int>>> pq;
+vector<vector<bool>> visited(1000, vector<bool>(1000, false));
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>>(n, vector<bool>(n, false)) visited;
     
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
-                //push the value and position into pq
-                pair<int, pair<int, int>> pqInfo;
-                pqInfo.first = grid[i][j];
-                pqInfo.second.first = i;
-                pqInfo.second.second = j;
+                pq.push({grid[i][j], {i, j}});
                 visited[i][j] = true;
-                queue<pair<int, pair<int, int>>> myQueue;
-                myQueue.push(pqInfo);
             }
         }
     }
 
     vector<int> res;
 
-    while (!myQueue.empty()) {
-        int val = myQueue.back().first;
-        int x = myQueue.back().second.first;
-        int y = myQueue.back().second.second;
+    while (!pq.empty()) {
+        int val = pq.top().first;
+        int x = pq.top().second.first;
+        int y = pq.top().second.second;
         res.push_back(val);
-        myQueue.pop();
+        pq.pop();
 
         if (k > 0) {
             --k;
@@ -41,7 +37,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 
                     if(nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
                         visited[nx][ny] = true;
-                        myQueue.push({grid[nx][ny], {nx, ny}});
+                        pq.push({grid[nx][ny], {nx, ny}});
                     }
                 }
             }
