@@ -1,12 +1,16 @@
+```cpp
 #include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> evenLengthStrings;
     for (const string& str : lst) {
         if (str.length() % 2 == 0) {
+            evenLengthStrings.reserve(evenLengthStrings.size() + 1);
             evenLengthStrings.push_back(str);
         }
     }
@@ -23,7 +27,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return evenLengthStrings;
 }
 
-int main_test() {
+int main() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
     vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
 
