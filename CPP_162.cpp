@@ -7,9 +7,7 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    EVP_MD_CTX *mdctx;
-    OpenSSL_add_all_algorithms();
-    mdctx = EVP_MD_CTX_new();
+    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
 
@@ -23,5 +21,7 @@ std::string string_to_md5(const std::string& text) {
         sprintf(&mdString[i * 2], "%02x", digest[i]);
     }
 
-    return mdString;
+    mdString[32] = '\0'; // Add null terminator at the end
+
+    return std::string(mdString);
 }
