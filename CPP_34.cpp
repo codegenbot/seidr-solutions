@@ -14,7 +14,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int solution() {
+int main() {
     std::vector<int> uniqueVec = {5, 3, 5, 2, 3, 3, 9, 0, 123};
     std::sort(uniqueVec.begin(), uniqueVec.end());
     auto it = uniqueVec.begin();
@@ -25,12 +25,7 @@ int solution() {
         }
         it = nextIt;
     }
-    std::vector<int> unique({*(uniqueVec.begin()), *(uniqueVec.end()-1)});
+    std::vector<int> unique(uniqueVec.begin(), uniqueVec.end());
     assert(issame(unique, uniqueVec));
-    return 0;
-}
-
-int main() {
-    solution();
     return 0;
 }
