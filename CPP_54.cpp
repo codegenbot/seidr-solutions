@@ -24,3 +24,4 @@ int main() {
         cout << "The strings do not have the same characters.\n";
     }
     return 0;
+}
