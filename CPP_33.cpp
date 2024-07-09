@@ -9,26 +9,20 @@ vector<int> sort_third(vector<int> l) {
     int groupCount = 0;
 
     for (int i : l) {
-        if(groupCount % 3 == 0) { 
+        if(groupCount % 3 == 0 || groupCount >= l.size()) { 
             result.push_back(i);
-        } else if(groupCount % 3 == 1) {
-            if(result.empty() || result.back() <= i) {
-                result.push_back(i);
-            }
+            groupCount++;
         } else {
-            if(!result.empty() && result.back() >= i) {
-                result.push_back(i);
-            }
+            groupCount++;
         }
-        groupCount++;
     }
 
     return result;
 }
 
 int main() {
-    vector<int> l1 = {1, 2, 3};
-    vector<int> l2 = {5, 6, 3, 4, 8, 9, 2};
+    vector<int> l1 = vector<int>({1, 2, 3});
+    vector<int> l2 = vector<int>({5, 6, 3, 4, 8, 9, 2});
 
     cout << "l1: ";
     for (int i : l1) {
