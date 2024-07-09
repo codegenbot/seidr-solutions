@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 int prod_signs(vector<int> arr) {
     int sign_product = 1;
@@ -19,9 +18,4 @@ int prod_signs(vector<int> arr) {
     }
 
     return sum_of_magnitudes * sign_product;
-}
-
-int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
-    return 0;
 }
