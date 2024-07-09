@@ -28,7 +28,7 @@ int main() {
         std::string result = string_xor(str1, str2);
         std::cout << "XOR of the two strings is: " << result << std::endl;
     } catch (const std::invalid_argument& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cout << "Error: " << e.what() << std::endl;
     }
     return 0;
 }
