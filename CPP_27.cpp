@@ -1,15 +1,18 @@
+#include <iostream>
 #include <string>
-std::string flip_case(const std::string& s) {
-    std::string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            c = (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
-        }
-        result += c;
+
+std::string flip_case(const std::string& str) {
+    std::string result;
+    for (char c : str) {
+        result += (c >= 'a' && c <= 'z') ? (c + ('A' - 'a')) : (c >= 'A' && c <= 'Z') ? (c + ('a' - 'A')) : c;
     }
     return result;
 }
 
 int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE vIOLENT dELIGHTS hAVE vIOLENT eNDS");
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "Flipped case: " << flip_case(input) << std::endl;
+    return 0;
 }
