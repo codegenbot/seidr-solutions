@@ -7,15 +7,17 @@ std::string middleCharacter(std::string s) {
     if(n % 2 == 1) {
         result = s.substr(n / 2, 1);
     } else {
-        result = s.substr(n / 2 - 0, 2); 
+        result = s.substr(n / 2 - 1, 2); 
     }
     return result;
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << middleCharacter(str) << std::endl;
+    while(true) {
+        std::string str;
+        std::cout << "Enter a string: ";
+        std::getline(std::cin, str);
+        std::cout << middleCharacter(str) << std::endl;
+    }
     return 0;
 }
