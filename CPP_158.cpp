@@ -1,19 +1,21 @@
-vector<string> words;
-int max_unique = 0;
-string result;
+```cpp
+#include <vector>
+#include <algorithm>
+#include <string>
 
-for (const string& word : words) {
-    int unique_count = 0;
-    set<char> seen;
-    for (char c : word) {
-        if (seen.insert(c).second) {
-            unique_count++;
+std::string find_max(std::vector<std::string> words) {
+    std::string max_word = *max_element(words.begin(), words.end(),
+        [](const std::string& a, const std::string& b) {
+            if (a.length() == b.length()) {
+                return a < b;
+            }
+            return a.length() > b.length();
+        });
+    for (std::string word : words) {
+        if (word.length() > max_word.length() || 
+            (word.length() == max_word.length() && word < max_word)) {
+            max_word = word;
         }
     }
-    if (unique_count > max_unique || (unique_count == max_unique && word < result)) {
-        max_unique = unique_count;
-        result = word;
-    }
+    return max_word;
 }
-
-return result;
