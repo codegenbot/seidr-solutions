@@ -1,32 +1,18 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a == b ? true : false);
 }
 
 int main() {
-    std::vector<int> numbers;
-    int n;
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = {1, 4, 3};
 
-    // Read the number of integers to be processed
-    std::cout << "Enter the number of integers: ";
-    std::cin >> n;
+    if(issame(a, b))
+        std::cout << "The two vectors are the same." << std::endl;
+    else
+        std::cout << "The two vectors are not the same." << std::endl;
 
-    for (int i = 0; i < n; ++i) {
-        int num;
-        std::cout << "Enter integer " << i + 1 << ": ";
-        std::cin >> num;
-        numbers.push_back(num);
-    }
-
-    // Filter integers
-    for (auto &num : numbers) {
-        if (!issame(num, 0)) {
-            std::cout << num << " is not zero.\n";
-        }
-    }
-
-    return 0;
+    return (a == b ? 0 : 1);
 }
