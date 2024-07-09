@@ -1,23 +1,23 @@
-#include <typeindex>
+#include <iostream>
+#include <list>
+#include <vector>
+#include <boost/any.hpp>
 
-bool is_same(const std::any& value) {
-    try {
-        if (std::any_cast<int>(value).type() == typeid(int)) {
-            return true;
-        } else {
-            return false;
-        }
-    } catch (const std::bad_any_cast&) {
-        return false;
-    }
+bool issame(vector<int> a, vector<int> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<int> filter_integers(list-any values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (is_same(value)) {
+        if (boost::any_cast<int>(value, 0) != 0) { 
             result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(filter_integers({3, boost::any("c"), 3, 3, boost::any("a"), boost::any("b")}), {3, 3, 3}));
+    return 0;
 }
