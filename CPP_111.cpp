@@ -18,5 +18,5 @@ bool areEqualHistograms(std::map<char, int> a, std::map<char, int> b) {
 }
 
 int main() {
-    assert(areEqualHistograms(characterFrequencyHistogram("a"), characterFrequencyHistogram("a")));
+    assert(areEqualHistograms(characterFrequencyHistogram("aa"), characterFrequencyHistogram("a")));
     return 0;
