@@ -5,8 +5,7 @@
 using namespace std;
 
 int main() {
-    vector<int> lst = {127, 97, 8192};
-    cout << skjkasdkd(lst) << endl;
+    assert(skjkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
 
