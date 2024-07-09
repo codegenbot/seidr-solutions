@@ -1,4 +1,5 @@
-if (arr.empty()) {
+int prod_signs(const std::vector<int>& arr) {
+    if (arr.empty()) {
         return -32768;
     }
     
@@ -12,7 +13,7 @@ if (arr.empty()) {
             signProduct *= -1;
         }
         
-        sumMagnitudes += abs(num);
+        sumMagnitudes += std::abs(num);
     }
     
     return signProduct * sumMagnitudes;
