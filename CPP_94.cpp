@@ -1,13 +1,16 @@
-```
 #include <iostream>
 #include <vector>
 
 int skjkasdkd(const std::vector<int>& lst) {
     int sum = 0;
     for (int num : lst) {
-        while(num > 0) {
-            sum += num % 10;
-            num /= 10;
+        if(num<0){
+            cout<<"Error: The input should be non-negative numbers."<<endl;
+            return -1;
+        }
+        while(num!=0){
+            sum+=num%10;
+            num/=10;
         }
     }
     return sum;
