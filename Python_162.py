@@ -1,4 +1,3 @@
-import sys
 import hashlib
 
 def string_to_md5(text):
@@ -8,5 +7,8 @@ def string_to_md5(text):
         return None
 
 if __name__ == "__main__":
-    text = sys.stdin.readline().rstrip()
-    print(string_to_md5(text))
+    try:
+        text = input("Enter a string: ")
+        print(string_to_md5(text))
+    except EOFError:
+        pass
