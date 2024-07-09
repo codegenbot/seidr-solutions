@@ -1,16 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[b.size() - 1 - i]) return false;
-    }
-    return true;
-}
+using namespace std;
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
+    vector<int> result;
     while (!lst.empty()) {
         int minVal = *min_element(lst.begin(), lst.end());
         result.push_back(minVal);
@@ -22,6 +17,18 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         }
     }
     return result;
+}
+
+bool isSame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[b.size() - i - 1])
+            return false;
+    }
+
+    return true;
 }
 
 int main() {
