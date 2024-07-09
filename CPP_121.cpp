@@ -2,27 +2,33 @@
 #include <iostream>
 #include <vector>
 
-int sumOdd(std::vector<int> lst) {
+int sumOdd(std::vector<std::string> lst) {
     int sum = 0;
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] % 2 != 0) {
-            sum += lst[i];
+    for (std::string i : lst) {
+        int num = std::stoi(i);
+        if (num % 2 != 0) {
+            sum += num;
         }
     }
     return sum;
 }
 
-int solutions(std::vector<int> lst) { 
+int solutions(std::vector<std::string> lst) { 
     int sum = sumOdd(lst);
-    for (int i : lst) {
-        if (i % 2 == 0 && i > 0)
-            sum -= i; 
+    for (std::string i : lst) {
+        int num = std::stoi(i);
+        if (num % 2 == 0 && num > 0)
+            sum -= num; 
     }
     return sum;
 }
 
 int main() {
-    std::vector<int> lst = {3, 13, 2, 9};
+    std::vector<std::string> lst;
+    lst.push_back("3");
+    lst.push_back("13");
+    lst.push_back("2");
+    lst.push_back("9");
     assert(solutions(lst) == 25);
     std::cout << "Test passed.\n";
 }
