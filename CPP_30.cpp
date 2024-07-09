@@ -20,5 +20,12 @@ vector<float> get_positive(vector<float> l){
 
 int main() {
     assert(issame(get_positive({}), {}));
+    std::vector<float> numbers = {-1.5, -2.3, 0, 0.9, 2.7};
+    std::vector<float> pos_numbers = get_positive(numbers);
+    
+    for (float num : pos_numbers) {
+        std::cout << num << " ";
+    }
+    
     return 0;
 }
