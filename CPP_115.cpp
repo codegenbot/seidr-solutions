@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 
 int max_fill(vector<vector<int>> grid, int capacity) {
@@ -11,6 +11,5 @@ int max_fill(vector<vector<int>> grid, int capacity) {
         }
     }
 
-    int steps = -(-total_water / capacity);
-    return steps;
+    return total_water / capacity;
 }
