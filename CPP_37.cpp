@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -18,7 +19,7 @@ int main() {
             vector<float> evenVals;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
-                    evenVals.push_back(l[j]);
+                    evenVals.push_back(stof(std::to_string(l[j])));
                 }
             }
             sort(evenVals.begin(), evenVals.end());
@@ -27,6 +28,6 @@ int main() {
             result[i] = l[i];
         }
     }
-    assert(issame({-12, 4, 2, -10}, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    assert(issame({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}, result));
     return 0;
 }
