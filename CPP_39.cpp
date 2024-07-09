@@ -6,7 +6,7 @@ int prime_fib(int n) {
     int count = 0;
     while (true) {
         int fib = a + b;
-        if (fib > n) return count + 1;
+        if (fib > n) break;
         a = b;
         b = fib;
         bool isPrime = true;
@@ -16,8 +16,8 @@ int prime_fib(int n) {
                 break;
             }
         }
-        if (!isPrime) continue;
-        count++;
+        if (isPrime) count++;
+        if (count == n) return fib;
     }
 }
 
