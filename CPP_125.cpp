@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cctype>
 #include <cassert>
 
 std::vector<std::string> split_words(std::string txt) {
