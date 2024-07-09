@@ -1,12 +1,30 @@
-Here is the completed code:
+bool check(string s) {
+    int count = 0;
+    for (char c : s) {
+        if (c == '(')
+            count++;
+        else if (c == ')')
+            count--;
+        if (count < 0) return false;
+    }
+    return count == 0;
+}
 
 string match_parens(vector<string> lst) {
+    string s1 = lst[0];
+    string s2 = lst[1];
     int open = 0, close = 0;
-    for (const string& s : lst) {
-        for (char c : s) {
-            if (c == '(') open++;
-            else if (c == ')') close++;
-        }
+    for (char c : s1) {
+        if (c == '(')
+            open++;
+        else
+            close++;
     }
-    return open == close ? "Yes" : "No";
+    for (char c : s2) {
+        if (c == '(')
+            open--;
+        else
+            close--;
+    }
+    return check(s1 + s2) ? "Yes" : "No";
 }
