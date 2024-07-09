@@ -1,5 +1,13 @@
+```cpp
 #include <cstddef>
 #include <string>
+
+int main() {
+    std::string code = "XXXX"; 
+    std::string guess("XXXX", 4); 
+    int result = mastermind(code, guess);
+    return 0;
+}
 
 int mastermind(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
@@ -11,14 +19,14 @@ int mastermind(const std::string& code, const std::string& guess) {
         }
     }
 
-    for(int i=0; i<4; i++) {
+    for(int j=0; j<4; j++) {
         bool found = false;
         int count = 0;
-        for(int j=0; j<4; j++) {
-            if(code[j] == guess[i]) {
+        for(int k=0; k<4; k++) {
+            if(code[k] == guess[j]) {
                 found = true;
                 count++;
-                if(j==i) blackPegs++; 
+                if(k==j) blackPegs++; 
                 else whitePegs++;      
             }
         }
@@ -26,11 +34,4 @@ int mastermind(const std::string& code, const std::string& guess) {
     }
 
     return blackPegs + whitePegs;
-}
-
-int main() {
-    std::string code = "abcz";
-    std::string guess = "abcd";
-    int result = mastermind(code, guess);
-    return result;
 }
