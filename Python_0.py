@@ -8,4 +8,4 @@ def check_threshold(numbers, threshold):
 numbers = [5, 10, 15, 20, 25]
 threshold = 3
 result = check_threshold(numbers, threshold)
-print(result)  
+print(result)
