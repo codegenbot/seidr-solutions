@@ -1,18 +1,15 @@
 #include <vector>
 #include <algorithm>
 
-bool areEqual(vector<int> a, vector<int> b) {
+bool arePilesSame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> make_a_pile(int n) {
-    vector<int> pile = {0, 1};
+int main() {
+    int n = 8;
+    std::vector<int> pile = {0, 1};
     for (int i = 2; i <= n; ++i)
         pile.push_back(pile.back() + i);
-    return pile;
-}
-
-int main() {
-    assert(areEqual(make_a_pile(8), make_a_pile(8)));
+    assert(arePilesSame(pile, pile));
     return 0;
 }
