@@ -14,7 +14,7 @@ float median(std::vector<float> numbers) {
 }
 
 int main() {
-    std::vector<float> numbers(1);
+    std::vector<float> numbers(1); // Initialize the vector with some capacity
     std::cout << "Enter the numbers (enter 'stop' to finish): ";
     std::string input;
     while (true) {
@@ -32,11 +32,7 @@ int main() {
             }
         }
     }
-    if (numbers.size() == 1) {
-        std::cout << "The median of the given numbers is: " << numbers[0] << std::endl;
-    } else {
-        float result = median(numbers);
-        std::cout << "The median of the given numbers is: " << result << std::endl;
-    }
+    float result = median(numbers);
+    std::cout << "The median of the given numbers is: " << result << std::endl;
     return 0;
 }
