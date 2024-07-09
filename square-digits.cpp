@@ -1,24 +1,20 @@
-```c++
-#include <vector>
+```cpp
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string squareDigits(string input) {
-    string output = "";
+std::string squareDigits(std::string input) {
+    std::string output = "";
     for (char c : input) {
         int digit = c - '0';
-        output += to_string(digit * digit);
+        output += std::to_string(digit * digit);
     }
     return output;
 }
 
 int main() {
-    using namespace std;
-    string input;
-    cout << "Enter a positive integer: ";
-    getline(cin, input);
-    cout << squareDigits(input) << std::endl;
+    std::string input;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> input;
+    std::cout << squareDigits(input) << std::endl;
     return 0;
 }
