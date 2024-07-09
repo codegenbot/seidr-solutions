@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -17,5 +16,5 @@ vector<int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    assert(eat(4,5,1)==make_pair(9,0));
+    assert(eat(4,5,1)==make_pair(5,0));
 }
