@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -10,8 +9,8 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<int> a;
-    std::vector<int> b;
+    std::vector<int> a(0);
+    std::vector<int> b(0);
 
     for(int i = 0; i < n; ++i)
         {
