@@ -1,12 +1,10 @@
 def fix_spaces(text):
+    previous_char_was_space = False
     result = ""
-    previous_char_was_space = True
     for char in text:
-        if char != " ":
-            if not previous_char_was_space:
-                result += "-"
+        if char != " " or not previous_char_was_space:
             result += char
-            previous_char_was_space = False
         else:
-            previous_char_was_space = True
+            result += "-"
+        previous_char_was_space = char == " "
     return result
