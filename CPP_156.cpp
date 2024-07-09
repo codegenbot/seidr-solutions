@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,7 +18,7 @@ std::string int_to_roman(int number) {
     return roman;
 }
 
-int originalMain() {
+int main() {
     std::cout << int_to_roman(1000);
     return 0;
 }

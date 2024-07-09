@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <climits>
 
 using namespace std;
 
-bool isSame(vector<int> a, vector<int> b) {
+bool isSame(vector<unsigned int> a, vector<unsigned int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -12,9 +11,9 @@ bool isSame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> make_a_pile(long long n) {
-    vector<int> pile;
-    long long stones = 1;
+vector<unsigned int> make_a_pile(int n) {
+    vector<unsigned int> pile;
+    unsigned int stones = 1;
     while (pile.size() < n) { 
         pile.push_back(stones);
         if ((n - stones) % 2 == 0) {
@@ -27,14 +26,14 @@ vector<int> make_a_pile(long long n) {
 }
 
 int main() {
-    long long n;
+    int n;
     cout << "Enter the number of stones: ";
     cin >> n;
-    vector<int> pile = make_a_pile(n);
-    for (long long i : pile) {
+    vector<unsigned int> pile = make_a_pile(n);
+    for (unsigned int i : pile) {
         cout << i << " ";
     }
-    if(isSame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22})) {
+    if(isSame(make_a_pile(8), make_a_pile(8))) {
         cout << "\nThe piles are the same.\n";
     } else {
         cout << "\nThe piles are not the same.\n";
