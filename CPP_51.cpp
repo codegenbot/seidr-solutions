@@ -1,20 +1,18 @@
 ```cpp
 #include <string>
 #include <iostream>
-#include <allocator>
 
 int main() {
     std::string text;
     std::cout << "Enter a string: ";
     std::getline(std::cin, text);
     std::string new_result = remove_vowels(text);  
-    std::cout << "String after removing vowels: " << new_result << std::endl;
+    std::cout << "String after removing vowels: " << new_result << '\n';
     return 0;
 }
 
 std::string remove_vowels(std::string str) {
-    std::allocator<char> alloc;
-    std::string new_str(alloc);
+    std::string new_str;  
     for(char c : str){
         if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && 
            std::tolower(c) != 'a' && std::tolower(c) != 'e' && std::tolower(c) != 'i' && 
