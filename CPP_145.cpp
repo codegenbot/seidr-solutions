@@ -3,17 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-vector<int> order_by_points(const vector<int>& points){
-    // Implement the logic to order points here
-    return points;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    sort(a.begin(), a.end(), [](int x, int y){
+bool issame(std::vector<int> a, std::vector<int> b){
+    std::sort(a.begin(), a.end(), [](int x, int y){
         int sum_x = 0, sum_y = 0;
-        int temp_x = abs(x), temp_y = abs(y);
+        int temp_x = std::abs(x), temp_y = std::abs(y);
         while(temp_x > 0){
             sum_x += temp_x % 10;
             temp_x /= 10;
@@ -23,14 +16,18 @@ bool issame(vector<int> a, vector<int> b){
             temp_y /= 10;
         }
         if(sum_x == sum_y){
-            return a.find(x) < a.find(y);
+            return std::find(a.begin(), a.end(), x) < std::find(a.begin(), a.end(), y);
         }
         return sum_x < sum_y;
     });
     return a == b;
 }
 
+std::vector<int> order_by_points(std::vector<int> vec){
+    return vec; // Implement your ordering logic here
+}
+
 int main(){
-    assert(issame({0,6,6,-76,-21,23,4}, {-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
