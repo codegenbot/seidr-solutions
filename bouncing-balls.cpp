@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include <cmath> //Added header file
+#include <cmath> 
 using namespace std;
 
 int main() {
