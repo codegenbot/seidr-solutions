@@ -1,4 +1,3 @@
-```
 def split_words(txt):
     words = txt.split()
     if len(words) > 0:
