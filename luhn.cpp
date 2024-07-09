@@ -1,23 +1,19 @@
 int luhn(int* numbers) {
-    int sum = 0;
+    long long sum = 0;
+    bool isSecond = false; 
     for (int i = 0; i < 16; i++) {
         int digit = numbers[i];
         if ((i % 2 == 1)) {
+            isSecond = true; 
+        } else {
+            isSecond = false;
+        }
+        if (isSecond) {
             digit *= 2;
             if (digit > 9)
                 digit -= 9;
         }
         sum += digit;
-    }
-    int result = 0;
-    while(sum > 0) {
-        int temp = sum % 10;
-        if(temp * 2 > 9)
-            temp = temp*2 - 9;
-        else
-            temp *= 2;
-        result += temp;
-        sum /= 10;
     }
     return static_cast<int>(sum);
 }
