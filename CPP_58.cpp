@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <set>
 #include <vector>
@@ -10,11 +9,11 @@ int main() {
     int n1, m1, n2, m2;
     std::cin >> n1 >> m1 >> n2 >> m2;
 
-    std::vector<std::string> s1Vec(n1);
+    std::vector<std::string> s1Vec(m1);
     for(int i = 0; i < n1; i++) {
         std::string x;
         std::cin >> x;
-        s1Vec[i] = x; 
+        s1Vec.push_back(x); 
     }
 
     for(auto &i : s1Vec) {
@@ -22,7 +21,7 @@ int main() {
             continue; 
     }
 
-    std::vector<std::string> s2Vec(m1);
+    std::vector<std::string> s2Vec(m2);
     for(int i = 0; i < m1; i++) {
         std::string y;
         std::cin >> y;
