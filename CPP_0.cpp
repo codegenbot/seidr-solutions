@@ -3,17 +3,17 @@
 #include <vector>
 
 struct FloatArrayPair {
-    float** first;
-    float** second;
+    float* first;
+    float* second;
 };
 
-bool has_close_elements(std::vector<FloatArrayPair*> numbers, float tol) {
+bool has_close_elements(std::vector<std::pair<float*, float*> > numbers, float tol) {
     for (int i = 0; i < numbers.size() - 1; i++) {
         for (int j = i + 1; j < numbers.size(); j++) {
             bool closeFound = false;
             size_t k = 0;
-            while (k < (*numbers[i]->first)[0] && k < (*numbers[j]->second)[0]) {
-                float diff = std::abs((*numbers[i]->first)[k] - (*numbers[j]->second)[k]);
+            while (k < *numbers[i].first->size() && k < *numbers[j].second->size()) {
+                float diff = std::abs((*numbers[i].first)[k] - (*numbers[j].second)[k]);
                 if (diff <= tol) {
                     closeFound = true;
                     break;
@@ -34,26 +34,13 @@ int main() {
     float* p1 = &arr1[0];
     float* p2 = &arr2[0];
 
-    float** arr1_ = new float*[2]; 
-    float** arr2_ = new float*[2]; 
-
-    arr1_[0] = &arr1[0]; 
-    arr1_[1] = &arr1[1]; 
-
-    arr2_[0] = &arr2[0]; 
-    arr2_[1] = &arr2[1]; 
-
-    FloatArrayPair* p1_pair = new FloatArrayPair{&arr1_, &arr2_};
-    std::vector<FloatArrayPair*> input;
-    input.push_back(p1_pair);
-
+    std::vector<std::pair<float*, float*>> input;
+    input.push_back({&arr1[0], &arr2[0]});
+    
     if (!has_close_elements(input, 0.5)) {
         std::cout << "No close elements found." << std::endl;
     } else {
         std::cout << "Close elements found." << std::endl;
     }
-    delete[] arr1_;
-    delete[] arr2_;
-    delete p1_pair;
     return 0;
 }
