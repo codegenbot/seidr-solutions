@@ -1,8 +1,16 @@
 #include <iostream>
 
 double probability(int n, int m) {
-    double total = (double)n * m;
-    double p = (m - 1) / total;
+    double total = (double)(n*m);
+    double p = 0;
+
+    for(int i=1; i<=m && i<n; i++){
+        if(i < m) { 
+            p += (n-i) * (m-i+1) /total;
+        } else { 
+            p += (n-m) /total;
+        }
+    }
 
     return p;
 }
