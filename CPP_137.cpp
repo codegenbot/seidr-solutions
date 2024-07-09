@@ -4,7 +4,7 @@
 
 boost::any compare_one(const boost::any& a, const boost::any& b);
 
-boost::any compare_one(const boost::any& a, const boost::any& b) {
+boost::any compare_one(const boost::any& a, const boost::any& b){
     if(a.type() == typeid(int) && b.type() == typeid(int)){
         if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
             return a;
@@ -18,8 +18,8 @@ boost::any compare_one(const boost::any& a, const boost::any& b) {
             return b;
         }
     } else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
-        float fa = stof(boost::any_cast<std::string>(a).replace(boost::any_cast<std::string>(a).find(','), 1, "."));
-        float fb = stof(boost::any_cast<std::string>(b).replace(boost::any_cast<std::string>(b).find(','), 1, "."));
+        float fa = std::stof(boost::any_cast<std::string>(a).replace(boost::any_cast<std::string>(a).find(','), 1, "."));
+        float fb = std::stof(boost::any_cast<std::string>(b).replace(boost::any_cast<std::string>(b).find(','), 1, "."));
         if(fa > fb){
             return a;
         } else if(fa < fb){
