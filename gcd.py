@@ -15,14 +15,11 @@ def find_indices(text, target):
         start = pos + 1
     return indices
 
-while True:
-    try:
-        a = int(input("Enter the first integer: "))
-        b = int(input("Enter the second integer: "))
-        print(gcd(a, b))
-        text = input("Enter the text string: ")
-        target = input("Enter the target string: ")
-        print(find_indices(text, target))
-        break
-    except ValueError:
-        print("Invalid input. Please enter integers.")
+print("GCD of two integers: Please enter two integers separated by space.")
+input_values = input().split()
+a, b = int(input_values[0]), int(input_values[1])
+print(gcd(a, b))
+
+print("Indices of a target string in a text: Please enter the text and target strings.")
+text, target = input().split()
+print(find_indices(text, target))
