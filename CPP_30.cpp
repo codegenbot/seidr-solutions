@@ -1,19 +1,20 @@
-```
 #include <vector>
+#include <algorithm>
+#include <initializer_list>
 
-bool isSame(vector<float> a, vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (abs(a[i] - b[i]) > 0.0001f) {
             return false;
         }
     }
     return true;
 }
 
-vector<float> getPositive(vector<float> l) {
+vector<float> get_positive(vector<float> l){
     vector<float> result;
     for (float num : l) {
         if (num > 0) {

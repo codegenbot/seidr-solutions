@@ -1,3 +1,4 @@
+```cpp
 bool issame(vector<float> a,vector<float>b){
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
@@ -14,4 +15,3 @@ vector<float> sort_even(vector<float> l){
         }
     }
     return l_prime;
-}
