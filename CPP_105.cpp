@@ -1,13 +1,6 @@
-#include <vector>
-#include <algorithm>
-#include <map>
 #include <string>
 
-bool issame(int a, int b) {
-    return a == b;
-}
-
-vector<string> b(vector<int> arr);
+bool issame(int a, int b);
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
