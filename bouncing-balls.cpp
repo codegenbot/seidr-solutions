@@ -3,17 +3,25 @@
 #include <sstream>
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    int startHeight = std::stoi(input.substr(0, input.find(' ')));
-    double firstBounce = std::stod(input.substr(input.find(' ') + 1, input.find('\n') - input.find(' ') - 1));
-    int numBounces = std::stoi(input.substr(input.find('\n') + 1));
+    std::string line;
+    std::getline(std::cin, line);
+    std::istringstream iss(line);
+
+    int startHeight;
+    double firstBounce;
+    int numBounces;
+
+    iss >> startHeight >> firstBounce >> numBounces;
 
     startHeight = static_cast<double>(startHeight);
     firstBounce = static_cast<double>(firstBounce);
 
     double bouncinessIndex = firstBounce / startHeight;
 
-    std::cout << std::to_string(startHeight) << " " << std::to_string(firstBounce) << "\n" << numBounces;
+    std::cout << bouncinessIndex << " ";
+    for (int i = 1; i <= numBounces; ++i) {
+        firstBounce *= 0.5;
+        std::cout << firstBounce << " ";
+    }
     return 0;
 }
