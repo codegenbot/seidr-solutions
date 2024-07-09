@@ -21,4 +21,3 @@ int main
         cout << "Number is not prime";
 
     return 0;
-}
