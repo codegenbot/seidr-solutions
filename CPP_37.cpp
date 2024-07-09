@@ -1,5 +1,7 @@
-bool issame(float a, float b) {
-    return abs(a - b) < 1e-9;
+```
+bool issame(float a, float b){
+    if(abs(a-b)<1e-9) return true;
+    else return false;
 }
 
 vector<float> sort_even(vector<float> l){
