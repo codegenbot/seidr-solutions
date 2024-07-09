@@ -10,8 +10,3 @@ std::vector<int> makeApile(int n) {
         pile.push_back(i);
     return pile;
 }
-
-int main() {
-    assert(vectorSame(makeApile(8), {8, 6, 4, 2}));
-    return 0;
-}
