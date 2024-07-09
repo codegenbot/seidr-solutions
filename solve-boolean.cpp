@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```cpp
+```
 #include <string>
 #include <iostream>
 
@@ -33,9 +31,7 @@ bool solveBoolean(std::string s) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    bool result = solveBoolean(input);
+    bool result = solveBoolean("");
     std::cout << (result ? "True" : "False") << std::endl;
     return 0;
 }
