@@ -2,6 +2,7 @@
 #include <string>
 #include <cctype>
 #include <cassert>
+
 using namespace std;
 
 int count_upper(string s);
