@@ -1,3 +1,4 @@
+```
 def find_pair(n, numbers):
     numbers.sort()
     left = 0
