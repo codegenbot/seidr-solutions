@@ -1,16 +1,17 @@
+```
 #include <vector>
-using namespace std;
-
-double poly(vector<double> xs, double x) {
-    double result = 0;
-    for (int i = 0; i < xs.size(); i++) {
-        result += xs[i] * pow(x, i);
-    }
-    return result;
-}
+#include <cmath>
 
 double find_zero(vector<double> xs) {
     if(xs.size() % 2 != 0) return -1; 
-    double root = -xs[1]/(2*xs[0]); 
+    double root = poly(0, &xs[0], &xs[xs.size()]);
     return std::round(root);
+}
+
+double poly(double x, const double*coeffs, const double*end) {
+    double result = 0;
+    for (; coeffs < end; ++coeffs) {
+        result += *coeffs * pow(x, coeffs - coeffs[0]);
+    }
+    return result;
 }
