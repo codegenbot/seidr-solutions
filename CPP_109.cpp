@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int move_one_ball(vector<int> arr) {
