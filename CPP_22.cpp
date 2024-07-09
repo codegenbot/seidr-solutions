@@ -1,10 +1,12 @@
-#include <boost/any.hpp>
+```cpp
 #include <vector>
 #include <list>
+#include <boost/any.hpp>
+
 using namespace std;
 using namespace boost;
 
-bool issame(vector<any> a, vector<any> b) {
+bool isSame(vector<any> a, vector<any> b) {
     if (a.size() != b.size())
         return false;
     for (size_t i = 0; i < a.size(); i++) {
@@ -18,7 +20,7 @@ bool issame(vector<any> a, vector<any> b) {
     return true;
 }
 
-vector<int> filter_integers(list<any> values){
+vector<int> filterIntegers(list<any> values){
     vector<int> result;
     for (const auto& value : values) {
         if (any_cast<bool>(value)) {
