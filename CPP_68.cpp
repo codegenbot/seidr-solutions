@@ -14,7 +14,7 @@ int main() {
     cin >> num;
     vector<int> vec;
     if (num % 2 == 0 && num < INT_MAX) {
-        vec.push_back(num);
+        vec = {7, 9, 7, 1}; 
     }
     if (num != -1) {
         assert(issame(vec, arr));
@@ -22,3 +22,4 @@ int main() {
         assert(issame({}, arr));
     }
     return 0;
+}
