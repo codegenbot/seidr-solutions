@@ -1,3 +1,2 @@
-strings = input().split()
-result = max(strings, key=len)
+result = max(input().strip().split(), key=len)
 print(result)
