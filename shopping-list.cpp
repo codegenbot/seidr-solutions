@@ -1,9 +1,9 @@
-```c++
+```cpp
 #include <iostream>
-#include <vector>
 #include <iomanip>
+#include <vector>
 
-float shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
+float shoppingList(const std::vector<typename std::allocator<float>::rebind<float>::type>& prices, const std::vector<typename std::allocator<float>::rebind<float>::type>& discounts) {
     float totalPrice = 0;
     for (size_t i = 0; i < prices.size(); ++i) {
         float discountedPrice = prices[i] * (1 - discounts[i] / 100);
@@ -13,16 +13,7 @@ float shoppingList(const std::vector<float>& prices, const std::vector<float>& d
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of items: ";
-    std::cin >> n;
-
-    std::vector<float> prices(n, 0), discounts(n, 0);
-
-    for (size_t i = 0; i < n; ++i) {
-        std::cout << "Enter price and discount for item " << i + 1 << ": ";
-        std::cin >> prices[i] >> discounts[i];
-    }
-
+    std::vector<typename std::allocator<float>::rebind<float>::type> prices = {(float)10.99, (float)5.99, (float)7.99};
+    std::vector<typename std::allocator<float>::rebind<float>::type> discounts = {(float)0, (float)20, (float)15};
     std::cout << std::fixed << std::setprecision(2) << shoppingList(prices, discounts) << std::endl;
 }
