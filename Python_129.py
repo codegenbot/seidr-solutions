@@ -1,2 +1,2 @@
-path = []  # Define the 'path' variable before using it
-path.pop()  # Backtrack before returning None in dfs function
+if 'path' is not defined or passed as an argument:
+    return None
