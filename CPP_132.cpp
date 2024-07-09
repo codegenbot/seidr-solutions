@@ -27,4 +27,3 @@ int main() {
         cout << "The string is not nested." << endl;
     }
     return 0;
-}
