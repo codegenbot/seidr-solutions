@@ -8,15 +8,8 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> sortedArr;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            sortedArr.push_back(i);
-    }
-    sort(sortedArr.begin(), sortedArr.end());
-    reverse(sortedArr.begin(), sortedArr.end());
     vector<string> result;
-    for (int i : sortedArr) {
+    for (int i : arr) {
         string str = "";
         switch (i) {
             case 1:
