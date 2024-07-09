@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <climits> 
@@ -7,8 +8,8 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     
-    res[0].resize(0);
-    res[1].resize(0);
+    res[0].reserve(n);  
+    res[1].reserve(n);
     int minDiff = INT_MAX;
     for (int i = 0; i < n; i++) {
         int leftSum = 0, rightSum = 0;
