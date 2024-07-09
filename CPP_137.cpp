@@ -13,15 +13,11 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
 } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
     string strA = boost::any_cast<string>(a);
     string strB = boost::any_cast<string>(b);
-    if (strA.find_first_of(".,")) {
-        replace(strA.begin(), strA.end(), ',', '.');
-    }
-    if (strB.find_first_of(".,")) {
-        replace(strB.begin(), strB.end(), ',', '.');
-    }
-    if (stof(strA) > stof(strB)) {
+    strA.erase(std::remove(strA.begin(), strA.end(), ','), strA.end());
+    strB.erase(std::remove(strB.begin(), strB.end(), ','), strB.end());
+    if (stod(strA) > stod(strB)) {
         return a;
-    } else if (stof(strA) < stof(strB)) {
+    } else if (stod(strA) < stod(strB)) {
         return b;
     }
 }
