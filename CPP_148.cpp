@@ -1,3 +1,4 @@
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -39,5 +40,4 @@ int main() {
     for (string planet : bf_result) {
         cout << planet << endl;
     }
-    return 0;
 }
