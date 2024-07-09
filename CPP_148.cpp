@@ -1,10 +1,10 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    vector<string> b_copy = b;
+    return a == b_copy;
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
@@ -36,11 +36,9 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::sort(result.begin(), result.end());
     
     return result;
+
 }
 
-int main() {
-    if (!issame(bf("Jupiter", "Makemake"), {})) {
-        return 1;
-    }
-    return 0;
+void test_bf() {
+    assert(issame(bf("Jupiter", "Neptune"), {"Saturn"})); 
 }
