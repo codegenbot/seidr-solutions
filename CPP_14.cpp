@@ -10,8 +10,19 @@ std::vector<std::string> all_prefixes(const std::string& str) {
     return prefixes;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if(a.size() != b.size()) {
+        std::cout << "Error: Vectors are not the same size." << std::endl;
+        return false;
+    } else {
+        for(int i = 0; i < a.size(); ++i) {
+            if(a[i] != b[i]) {
+                std::cout << "Error: Vectors contain different elements." << std::endl;
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
 int main() {
