@@ -23,7 +23,7 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y,
     for (int dx = -1; dx <= 1; dx++) {
         for (int dy = -1; dy <= 1; dy++) {
             int nx = x + dx, ny = y + dy;
-            if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+            if(nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
                 dfs(grid, visited, nx, ny, k - 1, res);
                 return;
             }
