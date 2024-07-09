@@ -9,5 +9,10 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     
     std::vector<int> result(arr.begin(), arr.begin() + k);
     sort(result.begin(), result.end());
+    sort(arr.begin(), arr.end());
+    for(int i = 0; i < k; i++) {
+        arr.erase(std::remove(arr.begin(), arr.end(), result[i]), arr.end());
+    }
+    
     return result;
 }
