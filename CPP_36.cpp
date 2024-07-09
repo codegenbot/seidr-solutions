@@ -1,17 +1,5 @@
-```cpp
 #include <iostream>
 using namespace std;
-
-int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    if (n < 1) {
-        cout << "Invalid input. Please enter a positive integer.\n";
-    } else {
-        cout << "The result is: " << fizz_buzz(n);
-    }
-    return 0;
 
 int fizz_buzz(int n) {
     int count = 0;
@@ -23,3 +11,14 @@ int fizz_buzz(int n) {
         cout << "No numbers meet the condition.\n";
     return count;
 }
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    if (n < 1) {
+        cout << "Invalid input. Please enter a positive integer.\n";
+    } else {
+        cout << "The result is: " << fizz_buzz(n);
+    }
+    return 0;
