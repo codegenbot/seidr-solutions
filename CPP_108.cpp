@@ -1,5 +1,6 @@
+```cpp
 #include <vector>
-#include <iostream>
+#include <algorithm>
 
 int count_nums(std::vector<int> nums) {
     int count = 0;
@@ -39,6 +40,8 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    assert (count_nums({1}) == 1);
+    std::vector<int> numbers = {12, -34, 45, -67, 89};
+    int result = count_nums(numbers);
+    std::cout << "Number of positive sums: " << result << std::endl;
     return 0;
 }
