@@ -1,4 +1,5 @@
 #include <initializer_list>
+#include <set>
 
 bool pairs_sum_to_zero(std::vector<std::pair<int, int>> l) {
     std::set<int> s;
@@ -9,15 +10,15 @@ bool pairs_sum_to_zero(std::vector<std::pair<int, int>> l) {
     }
     for (auto it = s.begin(); it != s.end(); ++it) { 
         int complement = -(*it);
-        if (s.find(complement) != s.end()) {
-            return true;
+        if (s.find(complement) == s.end()) {
+            return false;
         }
     }
-    return false; 
+    return true; 
 }
 
 int main() {
     std::vector<std::pair<int, int>> input({{-3, 0}, {9, -9}, {-1, 1}, {4, -4}, {2, -2}, {31, -31}});
-    assert(pairs_sum_to_zero(input) == false);
+    assert(pairs_sum_to_zero(input) == true);
     return 0;
 }
