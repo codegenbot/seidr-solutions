@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -10,11 +9,10 @@ bool issame(std::vector<int> a,std::vector<int>b){
     return true;
 }
 
-std::vector<int> make_a_pile(int n) {
+std::vector<int> make_a_pile(int n){
     std::vector<int> pile;
-    for (int i = 2 * n; i > 0; --i) {
-        pile.push_back(i);
-    }
+    for(int i=2;i<=n;++i)
+        pile.push_back(i*2);
     return pile;
 }
 
