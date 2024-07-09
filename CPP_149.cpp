@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -13,7 +14,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
             result.push_back(str);
         }
     }
-    sort(result.begin(), result.end(),
+    std::sort(result.begin(), result.end(),
          [](const string& a, const string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
@@ -24,25 +25,23 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     return result;
 }
 
-using namespace std;
-
 int main() {
-    vector<string> inputStrings;
+    std::vector<std::string> inputStrings;
     int n;
-    cout << "Enter the number of strings: ";
-    cin >> n;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> n;
     
     for(int i = 0; i < n; i++) {
-        string str;
-        cout << "Enter string " << (i+1) << ": ";
-        getline(cin, str);
+        std::string str;
+        std::cout << "Enter string " << (i+1) << ": ";
+        std::getline(std::cin, str);
         inputStrings.push_back(str);
     }
     
-    vector<string> output = sorted_list_sum(inputStrings);
+    std::vector<std::string> output = sorted_list_sum(inputStrings);
     
     // Test assertion
-    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == vector<string>({"cc", "dd", "aaaa", "bbbb"}));
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == std::vector<std::string>({"cc", "dd", "aaaa", "bbbb"}));
     
     return 0;
 }
