@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
+using namespace std;
 
-int productSigns(std::vector<int> inputArr) {
+int prod_signs(vector<int> inputArr) {
     int product = 1;
     long long sum = 0;
 
@@ -17,8 +19,4 @@ int productSigns(std::vector<int> inputArr) {
     }
 
     return product * sum;
-}
-
-int main() {
-    assert(productSigns({-1, 1, 1, 0}) == 0);
 }
