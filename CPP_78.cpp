@@ -14,9 +14,12 @@ int hex_key(std::string num) {
     return count;
 }
 
-std::cin >> input;
+int main() {
+    std::string input;
+    std::cin >> input;
 
-int output = hex_key(input);
-printf("%d\n", output);
+    int output = hex_key(input);
+    std::cout << output << std::endl;
 
-return 0;
+    return 0;
+}
