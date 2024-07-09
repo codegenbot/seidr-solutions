@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -40,6 +39,6 @@ int main() {
     }
 
     long long sum = double_the_difference(lst);
-    std::cout << "The difference is: " << sum << std::endl;
+    std::cout << "The difference is: " << sum;
     return 0;
 }
