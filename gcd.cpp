@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
-#include <string>
-
+#include <string> // include this header
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
