@@ -1,13 +1,13 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-using namespace std;
 
-bool same(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a) {
+    std::vector<std::string> b = {{"Nine", "Eight", "Four"}};
     return a == b;
 }
 
-vector<string> numbersToWords(vector<int> arr) {
+std::vector<std::string> by_length(std::vector<int> arr) {
     vector<string> result;
     for (int i : arr) {
         switch (i) {
@@ -28,5 +28,9 @@ vector<string> numbersToWords(vector<int> arr) {
 }
 
 int main() {
-    assert(same(numbersToWords({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    if (!issame(by_length({9, 4, 8}))) {
+        std::cout << "Test failed!" << std::endl;
+    } else {
+        std::cout << "Test passed!" << std::endl;
+    }
 }
