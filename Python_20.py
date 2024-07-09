@@ -1,6 +1,5 @@
 from typing import Tuple
 
-
 def find_closest_elements(numbers: list[float]) -> Tuple[float, float]:
     numbers.sort()
     min_diff = float("inf")
