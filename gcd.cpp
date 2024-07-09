@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <initializer_list>
 
 using namespace std;
 
@@ -40,7 +41,6 @@ int main() {
         cin.clear();
         cout << "Invalid input. Please enter two positive integers: ";
         cin.ignore();
-        cin >> ws; // ignore any remaining characters in the input stream
         cin >> a >> b;
     }
 
