@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -22,5 +23,6 @@ int main() {
     for(int i = 1; i <= 3999; i++) { 
         std::cout << i << ": " << int_to_roman(i) << std::endl;
     }
+    assert(int_to_roman(1000) == "M");
     return 0;
 }
