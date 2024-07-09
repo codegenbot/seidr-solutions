@@ -1,5 +1,5 @@
 ```
-def decode_cyclic(s):
+def decode_cyclic(s: str):
     result = ""
     temp = ""
     for char in s:
@@ -16,3 +16,6 @@ def decode_cyclic(s):
         else:
             result += temp
     return result
+
+s = input()
+print(decode_cyclic(s))
