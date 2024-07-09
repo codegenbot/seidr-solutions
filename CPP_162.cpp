@@ -1,4 +1,4 @@
-int main(); {
+int main() {
     string input;
     cout << "Enter a string: ";
     getline(cin, input);
@@ -13,4 +13,3 @@ int main(); {
     
     cout << "MD5 Hash: " << md5_hash << endl;
     return 0;
-}
