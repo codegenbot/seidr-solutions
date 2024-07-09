@@ -4,7 +4,7 @@
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return sort(a.begin(), a.end()) == sort(b.begin(), b.end());
+    return std::sort(a.begin(), a.end()) == std::sort(b.begin(), b.end());
 }
 
 int main() {
