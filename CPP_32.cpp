@@ -1,13 +1,11 @@
-#include <vector>
-using namespace std;
-
-double find_zero(vector<double> xs) {
-    double a = xs[0];
-    double b = 0;
-    for (int i = 1; i < xs.size(); i++) {
-        if (i % 2 == 1) {
-            b += xs[i] / pow(-a, i/2.0);
-        }
+double find_zero(vector<double> xs){
+    double sum=0;
+    int i,x;
+    for (i=0;i<xs.size();i++)
+    {
+        x=pow(-xs[i]/xs[xs.size()-1], 1.0/(i+1));
+        if(abs(poly(vector<double>(xs.begin(), xs.end()),x)) < 0.00001)
+            return round(x,2);
     }
-    return -b / a;
+    return -1;
 }
