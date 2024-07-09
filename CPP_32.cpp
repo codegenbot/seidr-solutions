@@ -14,5 +14,5 @@ double find_zero(vector<double> xs) {
             initialCoeff = xs[i];
         }
     }
-    return -initialCoeff / initialCoeff;
+    return -polyCoeffs[0] / initialCoeff;
 }
