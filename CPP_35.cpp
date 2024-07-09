@@ -12,8 +12,8 @@ float max_element(const std::vector<float>& l){
 }
 
 int main() {
-    std::vector<float> v = {4.5, -2.3, 8.6, -0.9};
-    float result = max_element(v);
-    std::cout << "The maximum element is: " << result << std::endl;
+    std::vector<float> myVector = {2.5, -3.0, 10.0, 8.0};
+    float largest = max_element(myVector);
+    printf("The largest number is %f\n", largest);
     return 0;
 }
