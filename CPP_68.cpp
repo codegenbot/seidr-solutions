@@ -1,23 +1,30 @@
 Here is the completed code:
 
 vector<int> pluck(vector<int> arr) {
-    vector<int> result;
-    if (arr.empty()) {
-        return result;
-    }
-    
-    int smallest_even = INT_MAX;
-    int smallest_index = -1;
-    
+    vector<pair<int, int>> result;
+
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest_even) {
-            smallest_even = arr[i];
-            smallest_index = i;
+        if (arr[i] % 2 == 0) { // check if the node is even
+            bool found = false;
+            for (auto it = result.begin(); it != result.end(); it++) {
+                if (it->first <= arr[i]) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                result.push_back({arr[i], i});
+            }
         }
     }
-    
-    result.push_back(smallest_even);
-    result.push_back(smallest_index);
-    
-    return result;
+
+    if (result.empty()) {
+        return {};
+    } else {
+        auto minEvenNode = *min_element(result.begin(), result.end(),
+                                          [](const pair<int, int>& a, const pair<int, int>& b) {
+                                              return a.first > b.first;
+                                          });
+        return {minEvenNode.first, minEvenNode.second};
+    }
 }
