@@ -13,7 +13,7 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
     vector<string> result;
     for (int num : numbers) {
-        string str = "";
+        string str; // declare string before using it
         switch (num) {
             case 1:
                 str = "One";
@@ -49,6 +49,7 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    assert (by_length({9, 4, 8}) == vector<string>({"Nine", "Eight", "Four"}));
+    vector<string> expected_result = {"Nine", "Eight", "Four"};
+    assert (by_length({9, 4, 8}) == expected_result);
     return 0;
 }
