@@ -2,6 +2,8 @@
 #include <string>
 #include <cctype>
 
+using namespace std;
+
 bool check_dict_case(map<pair<string, string>, bool> dict) {
     if (dict.empty()) return false;
 
