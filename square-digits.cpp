@@ -1,16 +1,11 @@
-```cpp
 #include <string>
 #include <iostream>
 
 std::string squareDigits(std::string input) {
     std::string output = "";
     for (char c : input) { 
-        if (std::isdigit(c)) { 
-            int digit = (c - '0') * (c - '0'); 
-            output += std::to_string(digit);
-        } else {
-            output += c;
-        }
+        int digit = (c - '0') * (c - '0'); 
+        output += std::to_string(digit);
     }
     return output;
 }
