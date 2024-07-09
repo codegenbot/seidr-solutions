@@ -28,7 +28,7 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
+
     // Create a new vector and fill space
     std::vector<int> game(n); 
     for(int i = 0; i < n; i++){
