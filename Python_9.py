@@ -1,3 +1,3 @@
-numbers = [2, 5, 1, 8, 3]
-output = rolling_max(numbers)
-print(output)
+numbers = list(map(int, input().split()))
+result = rolling_max(numbers)
+print(result)
