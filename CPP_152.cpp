@@ -44,7 +44,7 @@ int main() {
             if(temp >= 0)
                 break;
             else{
-                std::cerr << "Error: Number of elements should be non-negative." << std::endl;
+                std::cerr << "Error: Number should be non-negative." << std::endl;
                 return -1; 
             }
         }
@@ -61,7 +61,7 @@ int main() {
             if(temp >= 0)
                 break;
             else{
-                std::cerr << "Error: Number of elements should be non-negative." << std::endl;
+                std::cerr << "Error: Number should be non-negative." << std::endl;
                 return -1; 
             }
         }
