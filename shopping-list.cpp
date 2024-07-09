@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 #include <vector>
 #include <iomanip>
 #include <iostream>
