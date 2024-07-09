@@ -50,12 +50,12 @@ int main() {
 
     std::istringstream iss(user_input1);
     std::string str;
-    while (std::getline(iss, str, ' ')) {
+    while (std::getline(iss >> std::skipws >> str >> std::ws >> std::skipws)) {
         lst1.push_back(str);
     }
 
     std::istringstream iis(user_input2);
-    while (std::getline(iis, str, ' ')) {
+    while (std::getline(iis >> std::skipws >> str >> std::ws >> std::skipws)) {
         lst2.push_back(str);
     }
 
