@@ -12,9 +12,9 @@ bool isPrime(int n) {
 
 int find_max_prime_and_sum_digits(std::vector<int> lst){
     int maxPrime = 0;
-    for(int i : lst){
-        if(isPrime(i) && i > maxPrime)
-            maxPrime = i;
+    for(int i = 0; i < lst.size(); i++){
+        if(isPrime(lst[i]) && lst[i] > maxPrime)
+            maxPrime = lst[i];
     }
     int sum = 0;
     while(maxPrime > 0){
@@ -24,7 +24,7 @@ int find_max_prime_and_sum_digits(std::vector<int> lst){
     return sum;
 }
 
-int main {
+int main() {
     std::vector<int> lst;
     int n;
     std::cout << "Enter the number of elements: ";
@@ -35,4 +35,8 @@ int main {
         std::cin >> num;
         lst.push_back(num);
     }
-    std::cout << "Maximum prime and sum of digits: " << find_max_prime_and_sum_digits(lst) << std::endl;
+    {
+        int maxPrimeAndSum = find_max_prime_and_sum_digits(lst);
+        std::cout << "Maximum prime and sum of digits: " << maxPrimeAndSum << std::endl;
+    }
+}
