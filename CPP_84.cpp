@@ -1,19 +1,22 @@
+```cpp
 #include <iostream>
-using namespace std;
+#include <string>
 
-int solve(int n) {
-    string binary = "";
-    while(n > 0) {
-        if(n % 2 == 0)
-            binary = "0" + binary;
-        else
-            binary = "1" + binary;
-        n /= 2;
-    }
-    return stoi(binary);
-}
+int solve(int);
 
 int main() {
-    assert(solve(963) == 10010);
+    assert(solve(963) == "10010");
     return 0;
+}
+
+std::string solve(int n) {
+    std::string result = "";
+    while(n > 0) {
+        if(n % 2 == 1)
+            result += "1";
+        else
+            result += "0";
+        n /= 2;
+    }
+    return result;
 }
