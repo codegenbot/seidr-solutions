@@ -4,12 +4,12 @@ def double_the_difference(lst):
     return 2 * odd_sum - sum(lst)
 
 def check(func):
-    test_cases = [(1, [1, 3, 5], 2)]
-    for input_list, output in test_cases:
+    test_cases = [(4, [1, 3, 5])]
+    for i, ((expected_output), (input_list)) in enumerate(test_cases):
         result = func(input_list)
-        if result == output:
-            print(f"Test passed")
+        if result == expected_output:
+            print(f"Test {i+1} passed")
         else:
-            print(f"Test failed. Expected: {output}, Got: {result}")
+            print(f"Test {i+1} failed. Expected: {expected_output}, Got: {result}")
 
-check(double_the_difference([1, 3, 5]))
+check(double_the_difference)
