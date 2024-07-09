@@ -1,23 +1,25 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::string> temp;
+    vector<string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
-            temp.push_back(std::to_string(i));
+            temp.push_back(to_string(i));
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
     return temp;
 }
 
+#include <string>
+
 int main() {
-    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
+    std::vector<int> arr = {9, 4, 8};
+    assert(issame(by_length(arr) , {"Nine", "Eight", "Four"}));
 }
