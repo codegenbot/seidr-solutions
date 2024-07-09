@@ -1,13 +1,16 @@
-string match_parens(vector<string> lst){
-    int left = 0, right = 0;
-    for (const string& str : lst) {
-        for (char c : str) {
-            if (c == '(') left++;
-            else if (c == ')') {
-                if (left > 0) left--;
-                else right++;
-            }
+int countParens(const string& s) {
+    int balance = 0;
+    for (char c : s) {
+        if (c == '(') {
+            balance++;
+        } else {
+            balance--;
         }
     }
-    return (left == 0 && right <= 1) ? "Yes" : "No";
+    return balance;
+}
+
+string match_parens(vector<string> lst) {
+    int balance = countParens(lst[0]) + countParens(lst[1]);
+    return (balance == 0) ? "Yes" : "No";
 }
