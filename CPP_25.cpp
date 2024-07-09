@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
 vector<int> factorize(int n){
     vector<int> factors;
     for(int i=2; i*i<=n; i++){
