@@ -1,10 +1,10 @@
 #include <vector>
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+bool issame(vector<int> a,vector<int>b){
+    if(a.size()!=b.size()) return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i]) return false;
     }
     return true;
 }
@@ -29,13 +29,11 @@ vector<int> unique_digits(vector<int> x) {
     return result;
 }
 
-int main() {
-    vector<int> x = {1,2};
-    vector<int> y = {1,2};
-    assert(issame(x,y)); 
-    vector<int> z = {3,4};
-    assert(!issame(x,z));
-    
-    // Your code here
-    return 0;
+int main(){
+    vector<int> x = {12,23,34,35};
+    vector<int> res = unique_digits(x);
+    for(int i=0; i<res.size();i++){
+        cout<<res[i]<<" ";
+    }
+    cout<<endl;
 }
