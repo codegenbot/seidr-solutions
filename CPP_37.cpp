@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -37,5 +38,6 @@ int main() {
         }
     }
     
+    assert(sameVectors(sort_even(vec), { -12, 8, 3, 4, 5, 2, 12, 11, 23, -10 }));
     return 0;
 }
