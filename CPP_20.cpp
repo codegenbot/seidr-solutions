@@ -1,7 +1,7 @@
 ```cpp
 #include <algorithm>
-#include <numeric>
 #include <vector>
+#include <numeric>
 #include <limits>
 
 bool issame(vector<float> a, vector<float> b) {
@@ -22,7 +22,7 @@ vector<float> find_closest_elements(vector<float> numbers) {
         }
     }
 
-    return vector<float>{closest_pair.first, closest_pair.second};
+    return vector<float>({closest_pair.first, closest_pair.second});
 }
 
 int main() {
