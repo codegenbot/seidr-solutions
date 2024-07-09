@@ -1,13 +1,12 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<vector<string>> by_length(const vector<int>& arr) {
+vector<vector<string>> by_length(vector<int> arr) {
     vector<int> num;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
