@@ -1,10 +1,3 @@
-#include <vector>
-#include <cassert>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 std::vector<int> completeCode(int n) {
     std::vector<int> result = {3};
     for (int i = 1; i <= n; ++i) {
