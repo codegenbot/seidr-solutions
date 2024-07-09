@@ -1,4 +1,3 @@
-```cpp
 #include <boost/any.hpp>
 #include <iostream>
 #include <string>
@@ -24,20 +23,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         std::string str = boost::any_cast<std::string>(a);
         double num = boost::any_cast<double>(b);
         return (std::stod(str) > num) ? a : b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return ((int)boost::any_cast<int>(a) > boost::any_cast<double>(b)) ? a : b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        int num = boost::any_cast<int>(a);
-        std::string str = boost::any_cast<std::string>(b);
-        return (num > std::stoi(str)) ? a : b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        float num = boost::any_cast<float>(a);
-        std::string str = boost::any_cast<std::string>(b);
-        return (num > std::stof(str)) ? a : b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
-        double num = boost::any_cast<double>(a);
-        std::string str = boost::any_cast<std::string>(b);
-        return (num > std::stod(str)) ? a : b;
+    } else {
+        return "None";
     }
-    return boost::any();
 }
