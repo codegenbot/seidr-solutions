@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -13,7 +13,8 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {};
-    long long odd_sum = double_the_difference(lst);
-    // ...
+    std::vector<float> lst = {1.2f, 3.4f, 5.6f};
+    int result = double_the_difference(lst);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
 }
