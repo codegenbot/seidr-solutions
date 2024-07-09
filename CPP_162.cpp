@@ -2,8 +2,9 @@
 #include <iostream>
 #include <limits>
 #include <string>
-#include <iomanip> 
 #include <openssl/evp.h>
+#include <iomanip>
+#include <sstream>
 
 using namespace std;
 
@@ -18,8 +19,8 @@ string string_to_md5(string text) {
     
     string md5_hash;
     for (int i = 0; i < 16; ++i) {
-        ostringstream oss;
-        oss << hex << setfill('0') << setw(2) << static_cast<unsigned int>(d[i]);
+        std::ostringstream oss;
+        oss << std::hex << std::setfill('0') << std::setw(2) << (int)d[i];
         md5_hash += oss.str();
     }
     
