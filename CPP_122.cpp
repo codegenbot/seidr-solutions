@@ -14,18 +14,14 @@ int add_elements(std::vector<int> arr, int k) {
 
 int main() {
     assert(add_elements({1}, 1) == 1);
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> arr[i];
-    }
+    std::vector<int> input;
     int k;
-    std::cout << "Enter the number of elements to sum: ";
-    std::cin >> k;
-    int result = add_elements(arr, k);
-    std::cout << "Sum of elements: " << result << std::endl;
+    std::cout << "Enter the elements of the array: ";
+    for (int i = 0; i < k; i++) {
+        int num;
+        std::cin >> num;
+        input.push_back(num);
+    }
+    std::cout << "Sum of elements with length <= 2 is: " << add_elements(input, k) << std::endl;
     return 0;
 }
