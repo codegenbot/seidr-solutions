@@ -2,35 +2,35 @@
 #include <vector>
 #include <string>
 
-bool isSame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
-    if (vec1.size() != vec2.size()) return false;
-    for (int i = 0; i < vec1.size(); ++i) {
-        if (vec1[i] != vec2[i]) return false;
+bool issame(const std::vector<std::string>& strings) {
+    if (strings.size() > 1) {
+        for (size_t i = 1; i < strings.size(); ++i) {
+            if (strings[i] != strings[0]) return false;
+        }
+        return true;
+    } else {
+        return true;
     }
-    return true;
 }
 
 int main() {
-    std::vector<std::string> vec1, vec2;
+    std::vector<std::string> strings;
+    std::cout << "Enter some strings. Enter 'stop' when you're done.\n";
+    for (std::string s; std::cin >> s && s != "stop";) {
+        strings.push_back(s);
+    }
     
-    // Input strings
-    for (std::string s; std::cin >> s; ) {
-        vec1.push_back(s);
-    }
-
-    std::cout << "Enter the substring: ";
-    std::string subStr;
-    std::cin >> subStr;
-
-    vec2 = filter_by_substring(vec1, subStr);
-
-    // Check if vec1 and vec2 are same
-    if (isSame(vec1, vec2)) {
-        std::cout << "The filtered vector is the same as the original.\n";
+    if (!issame(strings)) {
+        std::cout << "Strings are not the same.\n";
     } else {
-        std::cout << "The filtered vector is different from the original.\n";
+        std::cout << "Strings are the same.\n";
     }
 
+    vector<string> filtered = filter_by_substring(strings, "");
+    for (const auto& str : filtered) {
+        cout << str << endl;
+    }
+    
     return 0;
 }
 
