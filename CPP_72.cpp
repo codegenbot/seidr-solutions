@@ -8,7 +8,7 @@ bool will_it_fly(std::vector<int> q, int w) {
     for (int i : q) {
         str += std::to_string(i);
     }
-    if (str != std::to_string(std::stoi(str))) {
+    if (str != std::to_string(str)) {
         return false;
     }
     int sum = 0;
