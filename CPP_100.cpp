@@ -1,7 +1,6 @@
-```
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -19,4 +18,9 @@ std::vector<int> make_a_pile(int n) {
         pile.push_back(i);
     }
     return pile;
+}
+
+int test_main() {
+    assert(issame(make_a_pile(8), std::vector<int>({8, 6, 4, 2})));
+    return 0;
 }
