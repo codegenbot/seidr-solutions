@@ -1,8 +1,20 @@
-bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && a == b;
+```c++
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(std::vector<int> a,std::vector<int> b){
+    return a==b;
 }
-vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> pairs;
+
+int main() {
+    std::vector<int> nums = {0,6,6,-76,-21,23,4};
+    assert(issame({-76, -21, 0, 4, 23, 6, 6}, order_by_points(nums)));
+    return 0;
+}
+
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sum = 0;
         int num = abs(nums[i]);
@@ -12,8 +24,8 @@ vector<int> order_by_points(vector<int> nums) {
         }
         pairs.push_back({sum, i});
     }
-    sort(pairs.begin(), pairs.end());
-    vector<int> result;
+    std::sort(pairs.begin(), pairs.end());
+    std::vector<int> result;
     for (const auto& pair : pairs) {
         result.push_back(nums[pair.second]);
     }
