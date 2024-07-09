@@ -1,4 +1,3 @@
-```cpp
 bool issame(vector<string> a,vector<string> b){
     // implement your comparison logic here
 }
