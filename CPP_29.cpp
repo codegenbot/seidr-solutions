@@ -1,9 +1,9 @@
-```cpp
+```
 #include <initializer_list>
 #include <vector>
 #include <string>
 
-bool equal_vectors(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
     if(a.size() != b.size())
         return false;
     for(size_t i = 0; i < a.size(); ++i)
@@ -23,5 +23,5 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main_test() {
-    assert (equal_vectors({filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx")}, {"xxx", "xxxAAA", "xxx"}));
+    assert (issame({filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx")}, {"xxx", "xxxAAA", "xxx"}));
 }
