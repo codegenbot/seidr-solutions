@@ -1,17 +1,13 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 
-std::string flip_case(std::string str){
-    std::string result = "";
-    for(char c : str){
-        if(c >= 'a' && c <= 'z')
-            result += toupper(c);
-        else if(c >= 'A' && c <= 'Z')
-            result += tolower(c);
-        else
-            result += c;
+std::string flip_case(std::string str) {
+    for (char &c : str) {
+        c = toupper(c);
     }
-    return result;
+    return str;
+}
 
 int main() {
     std::cout << flip_case("These violent delights have violent ends") << std::endl;
