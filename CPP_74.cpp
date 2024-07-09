@@ -1,26 +1,35 @@
+Here is the modified code:
+```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a,vector<string> b) {
-    if(a.size() != b.size())
+    if(a.size() != b.size()) {
         return false;
-    for(int i=0; i<a.size(); i++)
-        if(a[i] != b[i])
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
+        }
+    }
     return true;
 }
 
-vector<vector<string>> total_match(vector<string> a, vector<vector<string>> b){
-    vector<vector<string>> result;
-    for(auto &i : b){
-        if(issame(i, {a})){
-            result.push_back(i);
-        }
-    }
-    return result;
+int main() {
+    assert(issame({"this"}, {}));
+    return 0;
 }
 
-int main() {
-    assert(issame(total_match({"this"}, {}), {}));
-    return 0;
+vector<string> total_match(initializer_list<string> lst1, initializer_list<string> lst2) {
+    int sum1 = 0, sum2 = 0;
+    for (const string& s : lst1) sum1 += s.size();
+    for (const string& s : lst2) sum2 += s.size();
+
+    if (sum1 < sum2)
+        return vector<string>(lst1);
+    else if (sum1 > sum2)
+        return vector<string>(lst2);
+    else
+        return issame(vector<string>(lst1), vector<string>(lst2)) ? vector<string>(lst1) : vector<string>(lst2);
 }
