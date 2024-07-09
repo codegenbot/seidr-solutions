@@ -15,15 +15,15 @@ int main() {
     int n;
     std::cout << "Enter the number of strings: ";
     std::cin >> n;
-
-    for (int i = 0; i < n; i++) {
-        std::string str;
+    
+    for(int i = 0; i < n; i++) {
+        std::string s;
         std::cout << "Enter string " << i + 1 << ": ";
-        std::getline(std::cin, str);
-        strings.push_back(str);
+        std::getline(std::cin, s);
+        strings.push_back(s);
     }
-
-    std::cout << "Concatenated String: " << concatenate(strings) << std::endl;
-
+    
+    std::cout << "Concatenated strings: " << concatenate(strings) << std::endl;
+    
     return 0;
 }
