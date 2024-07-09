@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,7 +15,7 @@ bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
-    std::vector<int> sortedNumbers = numbers; 
+    sortedNumbers = numbers; 
     std::sort(sortedNumbers.begin(), sortedNumbers.end()); 
 
     for (auto it = sortedNumbers.begin(); it != sortedNumbers.end() - 1; ++it) {
@@ -43,7 +43,7 @@ int mainFunction() {
 
     std::vector<int> uniqueNumbers = remove_duplicates(numbers);
 
-    if (areVectorsEqual(uniqueNumbers, numbers)) {
+    if (issame(uniqueNumbers, numbers)) {
         std::cout << "The resulting vector is the same as the original." << std::endl;
     } else {
         std::cout << "The resulting vector is different from the original." << std::endl;
