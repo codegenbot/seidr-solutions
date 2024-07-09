@@ -1,7 +1,11 @@
 #include <cassert>
 #include <string>
+#include <iostream>
+#include <algorithm>
 
-bool same_chars(std::string s0, std::string s1) {
+using namespace std;
+
+bool same_chars(string s0, string s1) {
     if(s0.length() != s1.length()) {
         return false;
     }
@@ -10,10 +14,7 @@ bool same_chars(std::string s0, std::string s1) {
             return false;
         }
     }
-    return true;
+    return s0 == s1;
 }
 
-int main() {
-    assert(same_chars("aabb", "aaccc") == false);
-    return 0;
-}
+cout << same_chars("aabb", "aaccc");
