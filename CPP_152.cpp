@@ -30,25 +30,21 @@ int main() {
     std::cin >> n;
     
     // Create a new vector and fill space
-    std::vector<int> game;
+    std::vector<int> game(n);
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
-        if(i < n) {
-            game.push_back(temp);
-        }
+        game[i] = temp;
     }
     
     // Create a new vector and fill space
-    std::vector<int> guess;
+    std::vector<int> guess(n);
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
-        if(i < n) {
-            guess.push_back(temp);
-        }
+        guess[i] = temp;
     }
     
     if(issame(game, guess))
