@@ -18,6 +18,6 @@ string string_to_md5(const string& text) {
 
 int main() {
     string text = "Hello, World!";
-    string result = string_to_md5(text);
+    string md5_hash = string_to_md5(text);
     return 0;
 }
