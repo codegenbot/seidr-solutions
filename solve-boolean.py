@@ -1,15 +1,21 @@
-```
 def solve_boolean(expression):
-    result = True
     stack = []
-    for char in expression[::-1]:
+    operators = []
+    for char in expression + '&':
         if char in '&|':
-            prev_value = stack.pop()
-            operator = stack.pop()
-            if operator == '&':
-                stack.append(prev_value and True)
+            while len(operators) > 0 and operators[-1] != '(':
+                operator = operators.pop()
+                prev_value = stack.pop()
+                result = prev_value
+                if operator == '|':
+                    result = prev_value or True
+                elif operator == '&':
+                    result = prev_value and True
+                stack.append(result)
+            if char == '(':
+                operators.append(char)
             else:
-                stack.append(prev_value or True)
+                operators.append(char)
         elif char in 'TF':
             stack.append(char == 'T')
     return stack[0]
