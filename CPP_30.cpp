@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <vector>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
@@ -21,4 +21,9 @@ std::vector<float> get_positive(std::vector<float> l) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(get_positive({}), {}) == true);
+    return 0;
 }
