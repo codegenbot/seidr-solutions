@@ -2,20 +2,23 @@
 #include <sstream>
 #include <iomanip>
 #include <string>
-#include <vector>
+#include <md5.h> // Include the necessary header file for MD5 encryption
 
 std::string stringToMd5(const std::string& str) {
-    // implement your md5 function here
+    // Implement your md5 function here, e.g., using OpenSSL
+    return md5(str);
 }
 
 int main() {
     int i = 0;
-    std::vector<std::string> input;
+    std::vector<std::string> inputStrings;
 
-    // add your code to populate the 'input' vector
+    // Add your code to populate the 'inputStrings' vector
 
-    for (const auto& s : input) {
-        std::cout << std::setw(2) << std::hex << (int)s.size();
+    for (const auto& s : inputStrings) {
+        std::stringstream ss;
+        ss << std::setfill(2) << std::setw(8) << std::hex << (int)s.size();
+        std::cout << ss.str() << "\n";
     }
     return 0;
 }
