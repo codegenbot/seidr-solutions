@@ -1,11 +1,22 @@
-string solve(string s){
+using namespace std;
+
+string solve(string s) {
     string result = "";
-    for(int i = 0; i < s.length(); i++){
-        if(isalpha(s[i])){
-            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+    bool foundLetter = false;
+
+    for (char c : s) {
+        if (!isalpha(c)) {
+            result += c;
+            foundLetter = false;
         } else {
-            result += s[i];
+            if (foundLetter) {
+                result += tolower(c);
+            } else {
+                result += toupper(c);
+                foundLetter = true;
+            }
         }
     }
+
     return result;
 }
