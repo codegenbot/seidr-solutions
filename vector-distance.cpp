@@ -1,11 +1,8 @@
 #include <cmath>
 #include <vector>
+using namespace std;
 
-double vectorDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
-    if(v1.size() != v2.size()) {
-        // Handle error: vectors of different sizes
-    }
-    
+double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
     double sum = 0;
     for (int i = 0; i < v1.size(); i++) {
         sum += pow((v1[i] - v2[i]), 2);
