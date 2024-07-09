@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -15,10 +14,6 @@ int main() {
     int input;
     cout << "Enter a number: ";
     cin >> input;
-    cout << "Number is ";
-    if (is_prime(input)) {
-        cout << "prime";
-    } else {
-        cout << "not prime";
-    }
+    cout << "Number is " << (is_prime(input) ? "prime" : "not prime") << endl;
     return 0;
+}
