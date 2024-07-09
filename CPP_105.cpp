@@ -1,22 +1,17 @@
-#include <string>
 #include <vector>
+#include <algorithm>
+#include <string>
+
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return (a.size() == b.size()) && all_of(a.begin(), a.end(), [&](const string& s){return find(b.begin(), b.end(), s) != b.end();});
 }
 
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
     for (int i : arr) {
-        switch (i % 10) {
+        switch (i) {
             case 1: result.push_back("One"); break;
             case 2: result.push_back("Two"); break;
             case 3: result.push_back("Three"); break;
@@ -28,5 +23,14 @@ vector<string> by_length(vector<int> arr) {
             case 9: result.push_back("Nine"); break;
         }
     }
+
+    sort(result.begin(), result.end());
+    reverse(result.begin(), result.end());
+
     return result;
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
+    return 0;
 }
