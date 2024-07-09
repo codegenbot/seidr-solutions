@@ -14,7 +14,7 @@ int main() {
     
     while (iss >> word) {
         if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+            reverse(word.begin(), word.end());
         }
         result += word + " ";
     }
