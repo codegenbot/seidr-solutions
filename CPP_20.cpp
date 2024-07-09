@@ -22,5 +22,5 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
         }
     }
     
-    return vector<pair<float, float>>({pair<float,float>(closest.first, closest.second)});
+    return vector<pair<float, float>>(1, closest);
 }
