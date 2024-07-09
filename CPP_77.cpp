@@ -10,12 +10,10 @@ bool isCube(int n) {
     return false;
 }
 
-void originalFunction() {
-    // implement the function
-}
+void originalFunction() {}
 
 int main(){
     originalFunction();
-    assert(isCube(1729) == false);
+    assert(isCube(1728) == true);
     return 0;
 }
