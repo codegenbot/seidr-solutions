@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -55,10 +54,8 @@ int main() {
         }
     }
 
-    string test1 = "( ) (( ";
-    string test2 = "(())";
-    cout << "Result: " << separate_paren_groups(test1) << endl;
-    cout << "Result: " << separate_paren_groups(test2) << endl;
-    assert(issame(s));
+    assert(issame("()" + ")) (" + "(()())")); || issame("()"));
+
+    cout << "Result: " << separate_paren_groups(s) << endl;
     return 0;
 }
