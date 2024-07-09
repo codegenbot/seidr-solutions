@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -7,8 +6,7 @@ bool same_chars(string s1, string s2) {
         return false;
     }
     for(int i = 0; i < s1.size(); i++){
-        char c = s1[i]; 
-        if(c != s2[i]) { 
+        if(s1.at(i) != s2.at(i)) { 
             return false;
         }
     }
