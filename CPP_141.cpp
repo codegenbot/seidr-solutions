@@ -1,16 +1,24 @@
-if (file_name.empty()) return "No";
-int dotPos = file_name.find(".");
-if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.size() - 1) return "No";
-string beforeDot = file_name.substr(0, dotPos);
-string afterDot = file_name.substr(dotPos + 1);
-
-int digitCount = 0;
-for (char c : beforeDot) {
-    if (isdigit(c)) digitCount++;
+int countDigits(string s) {
+    int count = 0;
+    for(char c : s) {
+        if(isdigit(c)) {
+            count++;
+        }
+    }
+    return count;
 }
-if (digitCount > 3 || !isalpha(beforeDot[0])) return "No";
 
-if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll") return "No";
+string file_name_check(string file_name) {
+    if(file_name.find('.') == string::npos) return "No";
+    int dotPos = file_name.find('.');
+    string nameBeforeDot = file_name.substr(0, dotPos);
+    string nameAfterDot = file_name.substr(dotPos + 1);
 
-return "Yes";
+    if(countDigits(nameBeforeDot) > 3) return "No";
+
+    if(nameBeforeDot.empty() || !isalpha(nameBeforeDot[0])) return "No";
+
+    if(nameAfterDot != "txt" && nameAfterDot != "exe" && nameAfterDot != "dll") return "No";
+
+    return "Yes";
 }
