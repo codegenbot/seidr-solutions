@@ -1,19 +1,20 @@
+```cpp
 #include <iomanip>
 
 string string_to_md5(string text) {
-    if (text.empty()) return "";
+    if (text.empty()) return "None";
 
-    unsigned char md[MD5_DIGEST_LENGTH];
-    MD5_CTX md_ctx;
-    MD5_Init(&md_ctx);
-    const char* str = text.c_str();
-    size_t len = text.length();
-    MD5_Update(&md_ctx, str, len);
-    MD5_Final(md, &md_ctx);
+    unsigned char md5[MD5_DIGEST_LENGTH];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char* p = text.c_str();
+    while(*p) MD5_Update(&ctx, p, 1);
+    MD5_Final(md5, &ctx);
 
-    ostringstream oss;
-    for (size_t i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        oss << setfill('0') << setw(2) << hex << (int)md[i];
+    stringstream ss;
+    for(int i=0; i<MD5_DIGEST_LENGTH; i++) {
+        ss << setfill('0') << setw(2) << hex << (int)md5[i];
     }
-    return oss.str();
+
+    return ss.str();
 }
