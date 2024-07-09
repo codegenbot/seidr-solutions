@@ -1,8 +1,8 @@
-path = []  # Define path variable before using it in code snippet
+path = []
 
 if path:
     path.pop()
 
-minPath = "your_value_here"  # Define minPath variable with a value
+minPath = "your_value_here"
 
-check(minPath)  # Call the check function with minPath variable
+check(minPath)
