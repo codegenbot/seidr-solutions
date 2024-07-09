@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -14,4 +13,5 @@ int solution(vector<int> lst) {
 
 int main() {
     assert(solution({3, 13, 2, 9}) == 3);
+    // rest of your code
 }
