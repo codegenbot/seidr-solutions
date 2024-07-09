@@ -18,6 +18,18 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
+int main(){
+    int n;
+    cin >> n;
+    
+    vector<int> factors = factorize(n);
+    
+    for(int factor : factors){
+        cout << factor << " ";
+    }
+    return 0;
+}
+
 vector<int> factorize(int n){
     vector<int> factors;
     for(int i = 2; i * i <= n; i++){
@@ -30,15 +42,4 @@ vector<int> factorize(int n){
         factors.push_back(n);
     }
     return factors;
-}
-
-int main(){
-    int n;
-    cin >> n;
-    vector<int> factors = factorize(n);
-    for(int factor : factors){
-        cout << factor << " ";
-    }
-    cout << endl;
-    return 0;
 }
