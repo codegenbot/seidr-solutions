@@ -14,7 +14,17 @@ bool below_zero(const std::vector<int>& operations) {
 }
 
 int main() {
-    assert(below_zero({1, -2, 2, -2, 5, -5, 4, -4}) == true);
-    assert(below_zero({1, 2, 3, 4}) == false);
+    std::vector<int> operations;
+    int input;
+    while (std::cin >> input) {
+        operations.push_back(input);
+    }
+    
+    if (below_zero(operations)) {
+        std::cout << "Below zero balance reached.\n";
+    } else {
+        std::cout << "Below zero balance not reached.\n";
+    }
+
     return 0;
 }
