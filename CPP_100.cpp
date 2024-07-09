@@ -1,9 +1,6 @@
+```c++
 #include <vector>
 #include <cassert>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
 
 std::vector<int> make_a_pile(int n) {
     vector<int> pile;
@@ -14,6 +11,10 @@ std::vector<int> make_a_pile(int n) {
             pile.push_back((pile.empty() ? n : pile.back()) + 2);
     }
     return pile;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
