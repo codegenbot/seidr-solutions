@@ -17,16 +17,16 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     return tokens;
 }
 
-std::string words_in_sentence(std::string sentence) {
-    std::vector<size_t> wordLengths;
+std::vector<int> words_in_sentence(std::string sentence) {
+    std::vector<int> wordLengths{}; // Initialize here
     std::string result = "";
 
     for (const auto& word : split(sentence, ' ')) {
-        size_t length = word.length();
+        int length = word.length();
         bool isPrime = true;
 
         if (length > 1) {
-            for (size_t i = 2; i * i <= length; ++i) {
+            for (int i = 2; i * i <= length; ++i) {
                 if (length % i == 0) {
                     isPrime = false;
                     break;
