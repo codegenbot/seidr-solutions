@@ -1,7 +1,4 @@
-from typing import List
-import math
-
-
-def max_fill(grid: List[List[int]], capacity: int) -> int:
+```Python
+def max_fill(grid, capacity):
     total_water = sum(sum(row) for row in grid)
     return math.ceil(total_water / capacity)
