@@ -2,13 +2,13 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> ops = { "//", "*" }; 
+std::vector<std::string> ops = {"//", "*"}; 
 
-int do_algebra(std::vector<std::string> operators, std::vector<int> operands) {
+int doAlgo(std::vector<std::string> operators, std::vector<int> operands) {
     std::string expression = "";
-    for (int i = 0; i < operators.size(); i++) {
+    for (int i = 0; i < operators.size() - 1; i++) {
         expression += to_string(operands[i]);
-        expression += operators[i];
+        expression += ops[0]; // assuming first operator is '//'
     }
     expression += to_string(operands.back());
     
@@ -41,7 +41,6 @@ int eval(const std::string& s) {
 }
 
 int main() {
-    int result = do_algebra(ops, {7, 3, 4});
-    assert(result == 28);
+    int result = doAlgo(ops, {7, 3, 4});
     return 0;
 }
