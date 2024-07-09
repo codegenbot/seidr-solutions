@@ -8,14 +8,12 @@ std::string string_to_md5(const std::string& text) {
     std::stringstream ss;
     for (int i = 0; i < text.length(); i++) {
         if ((i+1)%4==0)
-            ss << std::hex << std::setw(2) << std::setfill('0') << ((unsigned char)(text[i]))<< std::endl;
+            ss << std::hex << std::setw(2) << std::setfill('0') << (unsigned char)(text[i]))<< std::endl;
         else
             ss <<"00";
     }
     return ss.str();
 }
-
-std::string text;
 
 std::cout << "Enter a string: ";
 std::getline(std::cin, text);
