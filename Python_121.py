@@ -1,4 +1,3 @@
-```
 def solution(lst):
     total = 0
     for i in lst:
