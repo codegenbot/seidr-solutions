@@ -17,9 +17,18 @@ string anti_shuffle(string s) {
                 word += s[j];
                 j++;
             }
-            string v = word;  
-            sort(v.begin(), v.end());
-            for(char c : v) result += c;
+            char temp;
+            for (int k = 0; k < word.length(); k++) {
+                temp = word[k];
+                for (int l = 0; l < word.length() - k - 1; l++) {
+                    if (temp > word[l]) {
+                        temp = word[l];
+                    }
+                }
+            }
+            for(int i = 0; i < word.length(); i++){
+                result += temp;
+            }
         }
     }
     return result;
