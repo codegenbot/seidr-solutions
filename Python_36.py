@@ -1,3 +1,4 @@
+
 def fizz_buzz(n: int):
     return sum(
         1
