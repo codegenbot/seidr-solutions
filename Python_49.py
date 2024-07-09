@@ -1,6 +1,12 @@
 def modp(n: int, p: int):
-    if n == 0 or p == 1:
-        return 0
-    if n == 1:
-        return 1 % p
-    return pow(n, p - 2, p) * n % p
+    def extended_gcd(a, b):
+        if a == 0:
+            return b, 0, 1
+        else:
+            gcd, y, x = extended_gcd(b % a, a)
+            return gcd, x - (b // a) * y, y
+
+    gcd, x, _ = extended_gcd(n, p)
+    if gcd != 1:
+        raise ValueError("n and p are not coprime")
+    return pow(n, p - 2, p) * x % p
