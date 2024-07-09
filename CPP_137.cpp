@@ -5,9 +5,9 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b);
+        return b;
     } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return boost::any_cast<string>(b);
+        return a;
     } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         return a;
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
@@ -32,6 +32,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         else
             return b;
     } else {
-        return boost::any("None");
+        return "None";
     }
 }
