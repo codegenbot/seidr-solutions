@@ -1,9 +1,7 @@
-Here is the solution:
-
 string find_max(vector<string> words){
-    string res = *max_element(words.begin(), words.end(),
+    string result = *minmax_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
-            return std::tie(a.size(), a) < std::tie(b.size(), b);
-    });
-    return res;
+            return count(a.begin(), a.end(), a[0]) > count(b.begin(), b.end(), b[0]);
+        })->first;
+    return result;
 }
