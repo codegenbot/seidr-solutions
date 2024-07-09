@@ -3,6 +3,21 @@
 #include <cassert>
 #include <iostream>
 
+bool issame(vector<int> a, vector<int> b);
+vector<int> pluck(vector<int> arr);
+
+int main() {
+    vector<int> input = {7, 9, 7, 1};
+    assert(issame(input, vector<int>{}));
+    vector<int> output = pluck(input);
+    std::cout << "Output: ";
+    for (int i : output) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
+
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -29,17 +44,4 @@ vector<int> pluck(vector<int> arr) {
     result.push_back(minIndex);
 
     return result;
-
-}
-
-int main() {
-    vector<int> input = {7, 9, 7, 1};
-    vector<int> output = pluck(input);
-    assert(issame(output, vector<int>{}));
-    std::cout << "Output: ";
-    for (int i : output) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-    return 0;
 }
