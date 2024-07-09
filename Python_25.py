@@ -6,6 +6,5 @@ def main():
     factors = factorize(n)
     print(factors)
 
-
 if __name__ == "__main__":
     main()
