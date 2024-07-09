@@ -1,22 +1,43 @@
+#include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
 
-std::vector<std::string> bfs(string planet1, string planet2) {
-    std::vector<string> result;
-    string planets[] = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    int i = 0;
-    while (i < 8) {
-        if (planet1 == planets[i]) {
-            for (int j = i + 1; j < 8; j++) {
-                if (planet2 == planets[j]) {
-                    for (int k = i + 1; k < j; k++) {
-                        result.push_back(planets[k]);
-                    }
-                    return result;
-                }
-            }
+bool issame(vector<string> a, vector<string> b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
+
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    int index1 = -1;
+    int index2 = -1;
+
+    for (int i = 0; i < planets.size(); i++) {
+        if (planets[i] == planet1) {
+            index1 = i;
         }
-        i++;
+        else if (planets[i] == planet2) {
+            index2 = i;
+        }
     }
-    return {};
+
+    if (index1 == -1 || index2 == -1)
+        return vector<string>();
+
+    int minIndex = min(index1, index2);
+    int maxIndex = max(index1, index2);
+
+    vector<string> result;
+
+    for (int i = 0; i < planets.size(); i++) {
+        if (i >= minIndex && i <= maxIndex)
+            continue;
+        if (i < minIndex) {
+            result.push_back(planets[i]);
+        }
+        else {
+            result.push_back(planets[i - 1]);
+        }
+    }
+
+    return result;
 }
