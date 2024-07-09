@@ -1,4 +1,7 @@
-from typing import List, Tuple
+from typing import List
 
-def find_max_min(input_list: List[int]) -> Tuple[int, int]:
-    # Task: Write a function that takes a list of integers and returns a tuple containing the maximum and minimum values in the list.  
+def remove_duplicates(numbers: List[int]) -> List[int]:
+    num_count = {}
+    for num in numbers:
+        num_count[num] = num_count.get(num, 0) + 1
+    return [num for num in numbers if num_count[num] == 1]
