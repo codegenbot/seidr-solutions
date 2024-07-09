@@ -1,4 +1,3 @@
 def sort_third(l: list):
-    sorted_list = sorted(l)
-    groups = [sorted(l[i:i+3]) for i in range(0, len(sorted_list), 3)]
-    return [elem for group in groups for elem in group]
+    sorted_list = sorted(l, key=lambda x: x[2] if len(x) >= 3 else x[0])
+    return [elem for sublist in sorted_list for elem in sublist]
