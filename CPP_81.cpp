@@ -2,7 +2,7 @@
 #include <string>
 
 bool issame(const vector<string> &b){
-    // Function implementation here
+    return !b.empty() && std::adjacent_find(b.begin(), b.end(), std::not_equal_to<>()) == b.end();
 }
 
 vector<string> numerical_letter_grade(vector<float> grades){
