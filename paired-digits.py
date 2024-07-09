@@ -1,5 +1,6 @@
+```
 def paired_digits(s):
-    return sum(int(d) for j, d in enumerate(s) if s[j] == s[j+1] if j < len(s)-1)
+    return sum(int(d) for d1, d2 in zip(s, s[1:]) if d1 == d2)
 
 print(paired_digits("99"))
 print(paired_digits("88"))
