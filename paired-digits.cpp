@@ -12,7 +12,6 @@ int pairedDigits(std::string s) {
         if (s[s.length() - 1] == s[s.length() - 2]) {
             sum += s[s.length() - 1] - '0';
         } else {
-            std::cout << "Error: The input string must have an even number of digits." << std::endl;
             return -1;
         }
     }
@@ -23,10 +22,12 @@ int pairedDigits(std::string s) {
 int main() {
     std::string input;
     std::cout << "Enter a string of digits: ";
-    std::getline(std::cin, input);
+    std::cin.ignore(); // Add this line to ignore any remaining characters.
+    std::cin >> input;
     int result = pairedDigits(input);
     if (result == -1) {
-        return 1;
+        std::cerr << "Error: The input string must have an even number of digits." << std::endl;
+        return -1;
     } else {
         std::cout << "Sum of paired digits is: " << result << std::endl;
         return 0;
