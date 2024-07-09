@@ -8,4 +8,3 @@ std::string middleCharacter(std::string s) {
         result += s[n/2];
     }
     return result;
-}
