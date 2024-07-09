@@ -1,9 +1,26 @@
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix);
+
+int main() {
+    vector<string> test_strings = {"apple", "banana", "apricot", "cherry"};
+    string test_prefix = "ap";
+    vector<string> filtered_strings = filter_by_prefix(test_strings, test_prefix);
+
+    vector<string> expected_result = {"apple", "apricot"};
+    assert(issame(filtered_strings, expected_result));
+
+    return 0;
+}
+
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> filtered_strings;
-    for(const auto &str : strings){
+    vector<string> result;
+    for(const auto& str : strings){
         if(str.find(prefix) == 0){
-            filtered_strings.push_back(str);
+            result.push_back(str);
         }
     }
-    return filtered_strings;
+    return result;
 }
