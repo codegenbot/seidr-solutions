@@ -1,10 +1,5 @@
-```c++
 #include <vector>
-int main() {
-    std::vector<int> v = {1, 2, 3};
-    int result = fuelCost(v);
-    return 0;
-}
+#include <iostream>
 
 int fuelCost(std::vector<int> v) {
     int sum = 0;
@@ -13,4 +8,9 @@ int fuelCost(std::vector<int> v) {
         sum += std::max(temp - 2, 0);
     }
     return sum;
+}
+
+int main() {
+    // test your function
+    return fuelCost(std::vector<int>{4, 5, 6});
 }
