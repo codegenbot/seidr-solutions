@@ -1,9 +1,10 @@
-```cpp
+#include <string>
 #include <vector>
-#include <bitset>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    if (a != b)
+        return false;
+    return true;
 }
 
 std::vector<int> sort_array(std::vector<int> arr) {
@@ -15,5 +16,5 @@ std::vector<int> sort_array(std::vector<int> arr) {
         }
     };
     std::sort(arr.begin(), arr.end(), comp);
-    return arr;
+    return sort_array(arr);
 }
