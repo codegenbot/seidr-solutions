@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -8,10 +8,10 @@ bool same_chars(string s1, string s2) {
     }
     for (int i = 0; i < s1.size(); i++) {
         int count = 0;
-        while (i + count <= s1.size() && i + count < s1.size() && s1[i] == s1[i + count]) {
+        while (i + count <= s1.size() && i < s1.size() && s1[i] == s1[i + count]) {
             count++;
         }
-        if (count > 1) {
+        if (s1[i] != s1[i + count - 1]) {
             return false;
         }
     }
@@ -19,8 +19,7 @@ bool same_chars(string s1, string s2) {
 
 }
 
-int main 
-{
+int main() {
     string s1, s2;
     cout << "Enter the first string: ";
     cin >> s1;
