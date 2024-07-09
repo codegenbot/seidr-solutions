@@ -3,7 +3,7 @@
 
 bool issame(vector<int> a, vector<int> b);
 
-vector<int> pluck(vector<int> arr) {
+vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallest_even = -1;
     int smallest_index = -1;
