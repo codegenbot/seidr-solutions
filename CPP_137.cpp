@@ -1,33 +1,29 @@
-#include <any>
+#include <variant>
 #include <string>
 #include <cassert>
 
 using namespace std;
 
-auto compare_one(const std::any& a, const std::any& b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (any_cast<int>(a) > any_cast<int>(b))
+auto compare_one(const variant<int, float, string>& a, const variant<int, float, string>& b) {
+    if (holds_alternative<int>(a) && holds_alternative<int>(b)) {
+        if (get<int>(a) > get<int>(b))
             return a;
-        else if (any_cast<int>(a) < any_cast<int>(b))
+        else if (get<int>(a) < get<int>(b))
             return b;
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (any_cast<float>(a) > any_cast<float>(b))
+    else if (holds_alternative<float>(a) && holds_alternative<float>(b)) {
+        if (get<float>(a) > get<float>(b))
             return a;
-        else if (any_cast<float>(a) < any_cast<float>(b))
+        else if (get<float>(a) < get<float>(b))
             return b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (stof(any_cast<string>(a)) > stof(any_cast<string>(b)))
+    else if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
+        float a_float = stof(get<string>(a));
+        float b_float = stof(get<string>(b));
+        if (a_float > b_float)
             return a;
-        else if (stof(any_cast<string>(a)) < stof(any_cast<string>(b)))
+        else if (a_float < b_float)
             return b;
     }
-    return any();
-}
-
-int main() {
-    assert(any_cast<string>(compare_one(string("1"), string("2"))) == "2");
-    
-    return 0;
+    return variant<int, float, string>(); // Return default-constructed std::variant
 }
