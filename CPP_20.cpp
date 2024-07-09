@@ -3,7 +3,7 @@
 #include <vector>
 #include <limits>
 
-std::pair<float> find_closest_elements(std::vector<float> numbers) {
+std::vector<float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
     float min_diff = std::numeric_limits<float>::max();
     std::pair<float, float> closest_pair;
@@ -16,7 +16,7 @@ std::pair<float> find_closest_elements(std::vector<float> numbers) {
         }
     }
 
-    return closest_pair;
+    return {closest_pair.first, closest_pair.second};
 }
 
 bool issame(std::vector<float> a, std::vector<float>b) { return a == b; }
