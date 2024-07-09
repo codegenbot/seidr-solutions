@@ -1,4 +1,3 @@
-```
 from collections import deque
 
 
@@ -19,7 +18,6 @@ def minPath(grid):
 
         return False
 
-    grid = []
     for _ in range(int(input("Enter number of rows: "))):
         row = list(input("Enter row {}: ".format(_+1)))
         grid.append(row)
