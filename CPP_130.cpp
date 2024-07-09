@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -14,7 +13,7 @@ std::vector<int> completeCode(int n) {
             if (i % 2 == 0) {
                 result.push_back(1 + i / 2);
             } else {
-                result.push_back(result[i - 1] + result[i - 2] + result[i + 1]);
+                result.push_back(result[i - 1] + result[i - 2] + result[i - 1]);
             }
         }
     }
