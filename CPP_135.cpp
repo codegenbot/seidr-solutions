@@ -1,4 +1,5 @@
 #include <vector>
+
 int can_arrange(vector<int> arr) {
     int prev = INT_MIN;
     int firstOutOfOrderIndex = -1;
@@ -9,4 +10,3 @@ int can_arrange(vector<int> arr) {
         prev = arr[i];
     }
     return firstOutOfOrderIndex;
-}
