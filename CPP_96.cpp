@@ -1,9 +1,12 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-std::vector<int> primes;
+using namespace std;
 
-void count_upto(int n) {
+vector<int> count_upto(int n) {
+    vector<int> primes;
     for (int i = 2; i < n; ++i) {
         bool isPrime = true;
         for (int j = 2; j * j <= i; ++j) {
@@ -13,20 +16,21 @@ void count_upto(int n) {
             }
         }
         if (isPrime) {
-            primes.insert(primes.end(), i);
+            primes.push_back(i);
         }
     }
+    return primes;
+
 }
 
-int main() {
+void main() {
     int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    count_upto(n);
-    std::cout << "Primes up to " << n << ": ";
-    for (int prime : primes) {
-        std::cout << prime << " ";
+    cout << "Enter a number: ";
+    cin >> n;
+    vector<int> result = count_upto(n);
+    cout << "Primes up to " << n << ": ";
+    for (int prime : result) {
+        cout << prime << " ";
     }
-    std::cout << std::endl;
-    return 0;
+    cout << endl;
 }
