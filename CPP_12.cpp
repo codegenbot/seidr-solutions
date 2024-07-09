@@ -1,11 +1,8 @@
-#include <vector>
-#include <string>
-
-std::string longest(std::vector<std::string> strings) {
+Str longest(vector<Str> strings){
     if(strings.empty()) {
-        return "";
+        return Str("");
     }
-    std::string result = strings[0];
+    Str result = strings[0];
     for(auto str : strings) {
         if(str.length() > result.length()) {
             result = str;
@@ -14,9 +11,4 @@ std::string longest(std::vector<std::string> strings) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
-    return 0;
 }
