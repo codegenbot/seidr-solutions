@@ -1,2 +1,4 @@
-def camel_case(input_string):
-    return ''.join(word.capitalize() for word in input_string.split()) if '-' not in input_string else ' '.join(word.title() for word in input_string.split('-'))
+Here is the Python solution for the problem:
+
+def camel_case(input_str):
+    return ''.join(word.capitalize() if idx > 0 else word for idx, word in enumerate(input_str.replace('-', ' ').split()))
