@@ -1,5 +1,3 @@
-def find_longest_string():
-    strings = input().split()
-    return max(strings, key=len)
-
-print(find_longest_string())
+import sys
+strings = input().split()
+print(max(strings, key=len))
