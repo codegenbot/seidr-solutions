@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -23,13 +24,20 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst(std::allocator<int>());
+    std::vector<int> lst;
     int num, n = 1;
-    std::cout << "Enter numbers (terminate with 0): ";
-    while (std::cin >> num && num != 0) {
+    int sumOdd = 0;
+    while (true) {
+        std::cout << "Enter numbers (terminate with 0): ";
+        int num;
+        std::cin >> num;
         if(num != 0)
             lst.push_back(num); 
         else
+            break;
+
+        sumOdd += sumOdd(lst);
+        if(sumOdd > 25)
             break;
     }
     int result = solutions(lst);
