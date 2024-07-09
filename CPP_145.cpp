@@ -16,7 +16,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
             temp_y /= 10;
         }
         if(sum_x == sum_y){
-            return std::find(a.begin(), a.end(), x) < std::find(a.begin(), a.end(), y);
+            return std::find(b.begin(), b.end(), x) < std::find(b.begin(), b.end(), y);
         }
         return sum_x < sum_y;
     });
