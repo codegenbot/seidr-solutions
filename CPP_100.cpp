@@ -1,9 +1,11 @@
-Here is the completed code:
-
 vector<int> make_a_pile(int n) {
     vector<int> pile;
+    int current = 1;
     for (int i = 0; i < n; i++) {
-        pile.push_back((i % 2 == 0) ? i * 2 + 1 : i * 2);
+        if ((i + 1) % 2 == 0) {
+            current++;
+        }
+        pile.push_back(current);
     }
     return pile;
 }
