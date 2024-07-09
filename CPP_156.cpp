@@ -30,13 +30,9 @@ string int_to_mini_roman(int num) {
             num -= 400;
             result += "CD";
         } else if (num >= 100) {
-            for(int i = 0; ; ++i) {
-                if((i * 100) > num) break;
-                num -= i * 100;
+            for(int i = 0; i < (num / 100); ++i) {
+                num -= 100;
                 result += "C";
-                for(int j = 0; j < i - 1; ++j) {
-                    result += "X";
-                }
             }
         } else if (num >= 90) {
             num -= 90;
@@ -47,34 +43,12 @@ string int_to_mini_roman(int num) {
         } else if (num >= 40) {
             num -= 40;
             result += "XL";
-        } else if (num >= 10) {
+        } else {
             for(int i = 0; ; ++i) {
                 if((i * 10) > num) break;
                 num -= i * 10;
                 result += "X";
                 for(int j = 0; j < i - 1; ++j) {
-                    result += "I";
-                }
-            }
-        } else if (num >= 9) {
-            num -= 9;
-            result += "IX";
-        } else if (num >= 5) {
-            num -= 5;
-            result += "V";
-        } else if (num >= 4) {
-            num -= 4;
-            result += "IV";
-        } else {
-            while(num > 0) {
-                if(num >= 3) {
-                    num -= 3;
-                    result += "I";
-                } else if (num == 2) {
-                    result += "II";
-                    return result;
-                } else {
-                    num--;
                     result += "I";
                 }
             }
