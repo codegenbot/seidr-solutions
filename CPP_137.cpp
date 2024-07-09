@@ -1,29 +1,23 @@
-#include <boost/any.hpp>
-using namespace boost;
+#include <string>
+#include <algorithm>
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return a;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        if (str1 > str2)
-            return a;
-        else if (str1 < str2)
-            return b;
-        else
-            return any((string)"None");
-    }
-    else {
-        if (boost::any_cast<double>(a) > boost::any_cast<double>(b))
-            return a;
-        else if (boost::any_cast<double>(a) < boost::any_cast<double>(b))
-            return b;
-        else
-            return any((string)"None");
-    }
+std::string compareOne(std::string a, std::string b) {
+    double numA = stod(a.replace(".", ","));
+    double numB = stod(b.replace(".", ","));
+
+    if (numA > numB) return a;
+    else if (numA < numB) return b;
+    else return "None";
+}
+
+int main() {
+    std::string input1, input2;
+    std::cout << "Enter the first value: ";
+    std::cin >> input1;
+    std::cout << "Enter the second value: ";
+    std::cin >> input2;
+    
+    std::cout << compareOne(input1, input2) << std::endl;
+
+    return 0;
 }
