@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
-#include <iostream>
+using namespace std;
 
-int specialFilter(std::vector<int> nums) {
+int specialFilter(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (abs(num) > 10 && ((num / abs(num)) % 10 % 2 != 0 || (abs(num) % 10) % 2 != 0)) {
@@ -12,8 +13,7 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {12, -20, 15, 30};
-    int result = specialFilter(nums);
-    std::cout << "Result: " << result << std::endl;
+    vector<int> nums = {-101, -52, -31, 1, 21, 51, 100};
+    cout << "The number of special numbers is: " << specialFilter(nums) << endl;
     return 0;
 }
