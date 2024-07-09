@@ -2,12 +2,10 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string anti_shuffle(string s) {
+string anti_shuffle(string& s) {
     string res = "";
     for (int i = 0; i < s.length(); i++) {
-        res += s.substr(i, 1);
+        res += s[i];
     }
     return res;
 }
@@ -15,7 +13,7 @@ string anti_shuffle(string s) {
 int main() {
     string input_string;
     cout << "Enter a string: ";
-    getline(cin, input_string);
+    cin >> input_string;
     cout << "Anti-shuffled string: " << anti_shuffle(input_string) << endl;
     return 0;
 }
