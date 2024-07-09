@@ -6,8 +6,8 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int>().swap(result);
-    result.reserve(l.size());
+    vector<int> result;
+    result.resize(l.size());
     int i = 0; 
     while (i < l.size()) {
         if (i + 2 < l.size() - 1) { 
