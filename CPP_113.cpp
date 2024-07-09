@@ -16,7 +16,9 @@ void displayOutput(vector<string> output) {
 int main() {
     vector<string> lst;
     string temp;
-    while(getline(cin,temp) && !temp.empty()) {
+    while (true) {
+        cin >> temp;
+        if (temp == "stop") break;
         lst.push_back(temp);
     }
     vector<string> output = odd_count(lst);
