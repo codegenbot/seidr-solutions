@@ -3,7 +3,7 @@
 
 std::vector<int> completeCode(int n) {
     std::vector<int> result;
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; ++i) {
         result.push_back(i);
     }
     return result;
