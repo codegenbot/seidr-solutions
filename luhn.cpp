@@ -1,37 +1,28 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
-using namespace std;
-
-int luhn(const vector<int>& digits) {
+int luhn(const std::vector<int>& card) {
     int sum = 0;
-    bool doubleNext = false;
-    
-    for (int i = 0; i < digits.size(); i++) {
-        if (doubleNext) {
-            int doubled = digits[i] * 2;
-            if (doubled > 9) {
-                sum += doubled - 9;
-            } else {
-                sum += doubled;
+    bool isSecond = true;
+
+    for (int i = card.size() - 1; i >= 0; --i) {
+        int digit = card[i];
+        if (!isSecond) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
             }
-            doubleNext = false;
-        } else {
-            sum += digits[i];
-            doubleNext = !doubleNext;
         }
+        sum += digit;
+        isSecond = !isSecond;
     }
-    
+
     return sum;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> digits(n);
-    for (int i = 0; i < n; i++) {
-        cin >> digits[i];
-    }
-    cout << luhn(digits) << endl;
+    std::vector<int> card = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 9, 8, 7, 6, 5, 4};
+    int result = luhn(card);
+    std::cout << "The Luhn checksum is: " << result << std::endl;
     return 0;
 }
