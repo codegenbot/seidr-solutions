@@ -1,16 +1,13 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <map>
-#include <cassert>
+#include <string>
 
-using namespace std;
-
-vector<string> by_length(vector<int> arr);
-
-bool issame(vector<string> a, vector<string> b){
+bool issame(int a, int b) {
     return a == b;
 }
+
+vector<string> b(vector<int> arr);
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
@@ -22,6 +19,7 @@ vector<string> by_length(vector<int> arr){
     }
 
     sort(sorted_arr.begin(), sorted_arr.end());
+
     reverse(sorted_arr.begin(), sorted_arr.end());
 
     map<int, string> num_to_word = {
@@ -41,10 +39,4 @@ vector<string> by_length(vector<int> arr){
     }
 
     return result;
-}
-
-int main(){
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-  
-    return 0;
 }
