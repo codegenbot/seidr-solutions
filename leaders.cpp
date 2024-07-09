@@ -1,20 +1,22 @@
-```
+#include <initializer_list>
 #include <vector>
-#include <algorithm>
 
-std::vector<int> leaders(std::vector<int>& numbers) {
+std::vector<int> leaders(std::vector<int>& inputVector) {
     std::vector<int> result;
-    int n = numbers.size();
-    if(n == 0) return result; 
-
-    int max_right = numbers.back();
-    for(int i = (int)numbers.size() -1; i >= 0; i--) {
-        if(numbers[i] >= max_right) {
-            result.push_back(numbers[i]);
-            max_right = numbers[i];
+    int n = inputVector.size();
+    for (int i = n - 1; i >= 0; i--) {
+        if (i == n - 1 || inputVector[i] >= inputVector[i + 1]) {
+            result.push_back(inputVector[i]);
         }
     }
     return result;
 }
 
-int main() { leaders(std::vector<int>()); return 0; }
+int main() {
+    std::vector<int> testInput = {16, 17, 4, 3, 5, 2, 8, 9};
+    std::vector<int> result = leaders(testInput);
+    for (int i : result) {
+        std::cout << i << " ";
+    }
+    return 0;
+}
