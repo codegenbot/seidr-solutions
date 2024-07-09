@@ -1,8 +1,7 @@
 string file_name_check(string s) {
-    int i;
     int digitCount = 0;
     bool foundDot = false;
-    for(i=0; i<s.length(); i++){
+    for(int i=0; i<s.length(); i++){
         char c = s[i];
         if(c >= '0' && c <= '9'){
             digitCount++;
