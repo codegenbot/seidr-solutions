@@ -9,10 +9,8 @@ bool is_happy(const std::string& s) {
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
         bool unique = true;
-        char c1 = s[i];
-        char c2 = s[i + 1];
-        char c3 = s[i + 2];
-        if (s.find(c1) != std::string::npos || s.find(c2) != std::string::npos || s.find(c3) != std::string::npos)
+        std::string subStr = s.substr(i, 3); // Convert the substring to a string
+        if (s.find(subStr) != std::string::npos)
             return false;
     }
     return true;
