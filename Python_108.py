@@ -1,3 +1,6 @@
 ```
-def count_nums(arr):
-    return sum(1 for num in arr if str(num).replace('-', '').isdigit() and int(str(num).replace('-', '')) > 0)
+def count_nums():
+    arr = list(map(int, input("Enter space-separated numbers: ").split()))
+    return sum(1 for num in arr if sum(int(d) if d != '-' else -int(d) for d in str(num).replace('-', '')) > 0)
+
+print(count_nums())
