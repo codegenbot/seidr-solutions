@@ -7,12 +7,9 @@ using namespace std;
 string join(const vector<string>& vec, const string& sep) {
     string result;
     for (const auto& s : vec) {
-        if (!result.empty()) {
-            result += sep;
-        }
-        result += s;
+        result += s + sep;
     }
-    return result;
+    return result.substr(0, result.size() - 1);
 }
 
 string split(const string& str, char sep) {
@@ -29,9 +26,9 @@ string split(const string& str, char sep) {
 string anti_shuffle(string s) {
     string result = "";
     for (const auto& word : split(s, ' ')) {
-        vector<char> temp(word.begin(), word.end());
+        string temp = word;
         sort(temp.begin(), temp.end());
-        result += string(temp.begin(), temp.end()) + " ";
+        result += temp + " ";
     }
     return result.substr(0, result.size() - 1);
 }
