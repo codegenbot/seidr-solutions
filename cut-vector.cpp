@@ -1,9 +1,9 @@
 #include <vector>
 #include <numeric>
-#include <limits>
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     int n = v.size();
+    std::vector<std::vector<int>> res;
     
     long long totalSum = 0;
     for (int i = 0; i < n; i++) {
@@ -28,18 +28,18 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
         }
     }
     
-    auto subVec1 = std::vector<int>();
+    res.push_back(std::vector<int>());
     for (int j = 0; j <= leftIndex; j++) {
-        subVec1.push_back(v[j]);
+        res.back().push_back(v[j]);
     }
-    auto subVec2 = std::vector<int>();
     if (totalSum != halfSum) {
+        res.push_back(std::vector<int>());
         for (int j = leftIndex; j < n; j++) {
-            subVec2.push_back(v[j]); 
+            res.back().push_back(v[j]); 
         }
     } else {
-        subVec2 = subVec1;
+        res.push_back(res[0]);
     }
     
-    return {std::move(subVec1), std::move(subVec2)};
+    return res;
 }
