@@ -6,21 +6,17 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result;
+    vector<int> result(l.size(), 0); 
     int i = 0; 
     while (i < l.size()) {
         if (i + 2 < l.size() - 1) { 
             vector<int> block;
-            for (int j = 0; j < 3 && i + j < l.size(); j++) {
+            for (int j = 0; j < 3; j++) {
                 block.push_back(l[i + j]);
             }
-            if (!block.empty()) {
-                sort(block.begin(), block.end());
-                for (int k : block) {
-                    result.push_back(k);
-                }
-            } else {
-                result.push_back(l[i]);
+            sort(block.begin(), block.end());
+            for (int k : block) {
+                result.push_back(k);
             }
             i += 3;
         } else {
