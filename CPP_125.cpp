@@ -1,31 +1,27 @@
-#include <string>
-#include <iostream>
 #include <vector>
+#include <string>
+#include <cctype>
+#include <cassert>
 
-using namespace std;
-
-vector<string> split_words(string txt);
-
-int main() {
-    string input;
-    getline(cin, input);
-    
-    vector<string> result = split_words(input);
-    
-    for (string word : result) {
-        cout << word << " ";
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    if(a.size() != b.size()){
+        return false;
     }
-    
-    return 0;
+    for(size_t i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(std::string txt){
+    std::vector<std::string> words;
+    std::string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
-                result.push_back(word);
+                words.push_back(word);
                 word = "";
             }
         } else {
@@ -33,16 +29,21 @@ vector<string> split_words(string txt){
         }
     }
     if(!word.empty()){
-        result.push_back(word);
+        words.push_back(word);
     }
-    if(result.size() == 1){
-        int count = 0;
-        for(char c : result[0]){
+    if(words.size() == 0){
+        int oddCount = 0;
+        for(char c : txt){
             if(islower(c) && (c - 'a') % 2 == 1){
-                count++;
+                oddCount++;
             }
         }
-        result[0] = to_string(count);
+        words.push_back(std::to_string(oddCount));
     }
-    return result;
+    return words;
+}
+
+int main() {
+    assert(issame(split_words(""), {"0"}));
+    return 0;
 }
