@@ -1,13 +1,10 @@
-int totalOpen = 0, totalClose = 0;
-
-for(auto str : lst) {
-    for(char c : str) {
-        if(c == '(') totalOpen++;
-        else if(c == ')') totalClose++;
+string match_parens(vector<string> lst) {
+    int open = 0, close = 0;
+    for (const string& s : lst) {
+        for (char c : s) {
+            if (c == '(') open++;
+            else close++;
+        }
     }
+    return open == close ? "Yes" : "No";
 }
-
-if(totalOpen == totalClose)
-    return "Yes";
-else
-    return "No";
