@@ -2,6 +2,7 @@
 #include <sstream>
 #include <cctype>
 #include <string>
+#include <cstdlib>
 
 bool simplify(string x, string n) {
     char arr1[6], arr2[4];
@@ -17,7 +18,7 @@ bool simplify(string x, string n) {
            atoi(std::string(1, arr2[0]).c_str()) * (slash - '0'));
 }
 
-int main() {
+int mainFunction() {
     string x, n;
     cout << "Enter the numerator: ";
     cin >> x;
