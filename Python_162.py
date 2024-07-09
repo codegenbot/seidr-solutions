@@ -6,10 +6,6 @@ def string_to_md5(text):
     else:
         return None
 
-try:
-    input_str = input("Enter a string: ")
-except EOFError:
-    input_str = None
-
+input_str = input("Enter a string: ")
 result = string_to_md5(input_str)
 print(result)
