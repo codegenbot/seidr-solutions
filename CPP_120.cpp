@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
