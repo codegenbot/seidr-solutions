@@ -1,28 +1,28 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cmath>
 
 int do_algebra(vector<string> ops, vector<int> nums) {
-    int result = nums[0];
-    long long temp = nums[0];
+    int result = 0;
+    long long temp = 1;
 
-    for (int i = 1; i < ops.size(); i++) {
+    for (int i = 0; i < ops.size(); i++) {
         if (ops[i] == "+") {
-            result += temp;
+            result += temp * nums[i];
         } else if (ops[i] == "-") {
-            result -= temp;
+            result -= temp * nums[i];
         } else if (ops[i] == "*") {
-            temp *= std::stoll(nums[i].c_str());
+            temp *= nums[i];
         } else if (ops[i] == "/") {
-            temp /= std::stoll(nums[i].c_str());
+            if(nums[i] != 0)
+                temp /= nums[i];
+            else
+                return -1;
         } else if (ops[i] == "^") {
-            temp = pow(temp, std::stoll(nums[i].c_str()));
+            temp = pow(temp, nums[i]);
         }
     }
 
     return result;
-}
-
-int main() {
-    assert (do_algebra({"//", "*"}, {7, 3, 4}) == 8);
 }
