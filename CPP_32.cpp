@@ -1,7 +1,3 @@
-double poly(double c, double s) {
-    return c + s;
-}
-
 double find_zero(vector<double> xs) {
     double initialCoeff;
     vector<double> polyCoeffs;
