@@ -1,14 +1,21 @@
 #include <vector>
-#include <cassert>
 
-std::vector<float> derivative(std::vector<float> xs){
-    std::vector<float> result;
+vector<float> derivative(vector<float> xs);
+
+bool issame(vector<float> xs1, vector<float> xs2){
+    return xs1 == xs2;
+}
+
+vector<float> derivative(vector<float> xs){
+    vector<float> result;
     for(int i=1; i<xs.size(); i++){
         result.push_back(xs[i] * i);
     }
     return result;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b){
-    return a == b;
+int main(){
+    vector<float> input = {1.0, 2.0, 3.0, 4.0, 5.0};
+    vector<float> result = derivative(input);
+    return 0;
 }
