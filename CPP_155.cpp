@@ -1,11 +1,13 @@
-vector<int> result(2, 0);
-    string num_str = to_string(abs(num));
+string num_str = to_string(abs(num));
+    vector<int> count(2, 0);
+    
     for (char c : num_str) {
         if ((c - '0') % 2 == 0) {
-            result[0]++;
+            count[0]++;
         } else {
-            result[1]++;
+            count[1]++;
         }
     }
-    return result;
+    
+    return count;
 }
