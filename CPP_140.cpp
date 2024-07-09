@@ -1,18 +1,11 @@
-string result = "";
-    int count = 0;
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-            if (count > 2) {
-                result += '-';
-                count = 0;
+for (int i = 0; i < text.size(); ++i) {
+        if (text[i] == ' ') {
+            if (i < text.size() - 2 && text[i+1] == ' ' && text[i+2] == ' ') {
+                text.replace(i, 3, "-");
             } else {
-                result += '_';
+                text[i] = '_';
             }
-        } else {
-            result += c;
-            count = 0;
         }
     }
-    return result;
+    return text;
 }
