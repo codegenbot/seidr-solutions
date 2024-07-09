@@ -1,8 +1,13 @@
+```cpp
 #include <map>
 #include <string>
 #include <cctype>
 #include <cassert>
 #include <algorithm>
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wundef"
+#include <initializer_list>
+#pragma GCC diagnostic pop
 
 bool check_dict_case(std::map<std::string, std::string> dict) {
     if (dict.empty()) return false;
@@ -23,7 +28,6 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
 }
 
 int main() {
-    std::map<std::string, std::string> dict;
-    assert(check_dict_case(dict) == false);
+    assert(check_dict_case({}) == false);
     return 0;
 }
