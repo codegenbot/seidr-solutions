@@ -1,15 +1,19 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
+namespace CPPL104 {
+    bool issame(std::vector<int> a, std::vector<int> b) {
+        if (a.size() != b.size()) {
+            return false;
+        }
+        return std::equal(a.begin(), a.end(), b.begin());
     }
-    return std::equal(a.begin(), a.end(), b.begin());
-}
 
-int main() {
-    assert(issame(std::vector<int>{135, 103, 31}, std::vector<int>{31, 135}));
-    return 0;
+    bool unique_digits(std::initializer_list<int> digits) {
+        // Implement the unique_digits function here
+        // Return true if all the digits are unique, false otherwise
+    }
 }
