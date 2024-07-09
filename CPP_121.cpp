@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cassert>
 #include <iostream>
@@ -25,14 +26,6 @@ void runTest() {
 }
 
 int main() {
-    int num, size = 0;
-    std::cin >> num;
-    std::vector<int> lst;
-    while (num != -1) {
-        lst.push_back(num);
-        std::cin >> num;
-        size++;
-    }
-    assert(solution(lst) == 16); 
+    runTest();
     return 0;
 }
