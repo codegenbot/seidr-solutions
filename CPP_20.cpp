@@ -4,7 +4,7 @@
 #include <utility>
 
 bool issame(float a, float b) {
-    return (a - b) <= 0.0001;
+    return (a - b) <= 1e-9;
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
@@ -13,7 +13,7 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            if (abs(numbers[j] - numbers[i]) < abs(closest_pair.second - closest_pair.first)) {
+            if (issame(numbers[j], numbers[i])) {
                 closest_pair = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
             }
         }
