@@ -1,4 +1,11 @@
 ```
-y_true_list = list(map(float, input("Enter the true values (space separated): ").split()))
-y_pred_list = list(map(float, input("Enter the predicted values (space separated): ").split()))
-print(mean_absolute_deviation(y_true_list, y_pred_list))
+def mean_absolute_deviation(numbers):
+    average = sum(numbers) / len(numbers)
+    mad = sum(abs(num - average) for num in numbers) / len(numbers)
+    return mad
+
+numbers = [int(x) for x in input("Enter numbers separated by spaces: ").split()]
+if len(numbers) > 0:
+    print(mean_absolute_deviation(numbers))
+else:
+    print(len(numbers))
