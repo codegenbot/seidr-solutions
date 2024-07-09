@@ -1,5 +1,4 @@
 from sys import stdin
-
 def add(x, y):
     return x + y
 
