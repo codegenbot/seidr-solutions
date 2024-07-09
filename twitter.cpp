@@ -1,9 +1,10 @@
 string validateTweet(string tweet) {
-    if (tweet.empty()) {
-        return "You didn't type anything";
-    }
-    if (tweet.length() > 140) {
+    int len = tweet.length();
+    if (len > 140) {
         return "Too many characters";
+    } else if(len == 0) {
+        return "You didn't type anything";
+    } else {
+        return "Your tweet has " + to_string(len) + " characters";
     }
-    return "Your tweet has " + to_string(tweet.length() - 2) + " characters";
 }
