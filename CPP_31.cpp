@@ -1,15 +1,23 @@
 #include <iostream>
 
-bool is_prime(int num);
+bool is_prime(int n) {
+    if(n <= 1)
+        return false;
+    for(int i = 2; i*i <= n; i++) {
+        if(n % i == 0)
+            return false;
+    }
+    return true;
+}
 
-int cpp_main() {
+int main() {
     int num;
     std::cout << "Enter a prime number: ";
     std::cin >> num;
 
-    if(is_prime(num)) {
-        for(int i = 2; i <= num; i++) {
-            if(is_prime(i))
+    if (is_prime(num)) {
+        for (int i = 2; i <= num; i++) {
+            if (is_prime(i))
                 std::cout << i << " is a prime number." << std::endl;
         }
     } else {
@@ -17,15 +25,4 @@ int cpp_main() {
     }
 
     return 0;
-}
-
-bool is_prime(int num) {
-    if(num <= 1)
-        return false;
-
-    for(int i = 2; i*i <= num; i++) {
-        if(num % i == 0)
-            return false;
-    }
-    return true;
 }
