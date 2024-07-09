@@ -1,5 +1,8 @@
 def rolling_max(numbers):
-    max_values = []
-    for i in range(len(numbers) - 2 + 1):
-        max_values.append(max(numbers[i : i + 3]))
-    return max_values
+    max_list = [max(numbers[i:i+3]) for i in range(len(numbers)-2)]
+    return max_list
+
+print("Enter space-separated numbers:")
+numbers = list(map(int, input().split()))
+result = rolling_max(numbers)
+print(result)
