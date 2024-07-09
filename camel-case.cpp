@@ -1,7 +1,7 @@
 ```cpp
+#include <vector>
 #include <iostream>
 #include <string>
-#include <limits>
 
 std::string kebabToCamel(const std::string& s) {
     std::string result;
