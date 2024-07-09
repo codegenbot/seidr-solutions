@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -33,12 +34,4 @@ vector<int> even_odd_palindrome(int n) {
     }
     
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> res = even_odd_palindrome(n);
-    cout << "Even: " << res[0] << ", Odd: " << res[1] << endl;
-    return 0;
 }
