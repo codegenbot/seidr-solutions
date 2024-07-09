@@ -10,9 +10,5 @@ int prod_signs(vector<int> arr) {
         sum_of_magnitudes += abs(num);
     }
 
-    if (arr.empty()) {
-        return -32768;
-    }
-
     return sign_product * sum_of_magnitudes;
 }
