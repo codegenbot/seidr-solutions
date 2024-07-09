@@ -5,26 +5,23 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(const vector<string>& a, const vector<string>& b){
+    return a == b;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> filtered_strings;
-    for(const auto &str : strings){
+vector<string> filter_by_prefix(const vector<string>& strings, const string& prefix){
+    vector<string> result;
+    for(const auto& str : strings){
         if(str.find(prefix) == 0){
-            filtered_strings.push_back(str);
+            result.push_back(str);
         }
     }
-    return filtered_strings;
+    return result;
 }
 
-int main() {
+int main(){
+    assert(issame(filter_by_prefix({"apple", "banana", "apricot", "cherry"}, "ap"), {"apple", "apricot"}));
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
-    cout << "Test passed successfully!" << endl;
+
     return 0;
 }
