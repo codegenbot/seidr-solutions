@@ -1,12 +1,8 @@
-Here is the corrected code:
-
-```cpp
 #include <vector>
+#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a != b)
-        return false;
-    return true;
+    return a == b;
 }
 
 std::vector<int> sort_array(std::vector<int> arr) {
@@ -17,6 +13,6 @@ std::vector<int> sort_array(std::vector<int> arr) {
             return a < b;
         }
     };
-    sort(arr.begin(), arr.end(), comp);
+    std::sort(arr.begin(), arr.end(), comp);
     return arr;
 }
