@@ -1,36 +1,16 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
-double poly(const vector<double>& coeffs, double x) {
-    double result = 0;
-    for (int i = 0; i < coeffs.size(); ++i) {
-        result += coeffs[i] * pow(x, i);
-    }
-    return result;
-}
-
-double find_zero(vector<double> coeffs){
-    double tol = 1e-6; // tolerance for finding zero
-    int max_iter = 1000; // maximum number of iterations
-    vector<double> xs(coeffs); 
-    double x = 1;
-
-    for(int i=0; i<max_iter; i++){
-        double f = poly(xs, x);
-        
-        if(abs(f) < tol){
-            return round(x, 2);
+```cpp
+double find_zero(vector<double> xs) {
+    double coeffs;
+    vector<double> polyCoeffs;
+    int n = xs.size();
+    coeffs = xs[0];
+    for (int i = 1; i < n; i++) {
+        if ((i & 1) == 0) {
+            polyCoeffs.insert(polyCoeffs.begin(), -coeffs*xs[i]);
+        } else {
+            coeffs = xs[i];
         }
-        
-        x -= f / poly(xs, x); // Newton's method
     }
-    
-    return -1.0; // not found
-}
-
-int main() {
-    vector<double> coeffs = {1, -6, 11, -6}; 
-    cout << "Zero: " << find_zero(coeffs) << endl;
-    return 0;
+    double poly(double c, double s) { return c + s; }
+    return -coeffs / coeffs;
 }
