@@ -1,7 +1,6 @@
 bool issame(vector<string> a) {
-    vector<int> b = {1, 2, 3};
-    vector<string> c = by_length(b);
-    return (c == a);
+    vector<int> input = {1, 2, 3};
+    return by_length(input) == a;
 }
 
 vector<string> by_length(vector<int> arr) {
