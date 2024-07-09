@@ -1,6 +1,4 @@
-#include <string>
-
-int mastermind(std::basic_string<char> code, std::basic_string<char> guess) {
+int mastermind(std::string code, std::string guess) {
     int black = 0;
     int white = 0;
 
