@@ -1,10 +1,10 @@
+```
 #include <cassert>
 #include <string>
 
-int strLength(string str){
-    return str.length();
+int strLength(char* str){
+    return strlen(str);
 }
 
 int main() {
-    assert(strLength("asdasnakj") == 13);
 }
