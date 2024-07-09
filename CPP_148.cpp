@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
+std::vector<std::string> getPlanetsBetween(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
@@ -32,6 +32,11 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     return result;
 }
 
-bool assertEqual(vector<string> a, vector<string> b) {
+bool isSameVector(vector<string> a, vector<string> b) {
     return a == b;
+}
+
+int main() {
+    assert(isSameVector(getPlanetsBetween("Jupiter", "Makemake"), std::vector<std::string>{}));
+    return 0;
 }
