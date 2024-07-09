@@ -1,5 +1,5 @@
 long double probability(int n, int m) {
-    long double total = 0;
+    long double total = 0; 
     for (int i = 1; i <= m; i++) {
         for (int j = 1; j <= n; j++) {
             if (j > i) {
@@ -7,5 +7,5 @@ long double probability(int n, int m) {
             }
         }
     }
-    return total / (n * m);
+    return total / static_cast<long double>(n * m);
 }
