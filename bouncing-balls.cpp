@@ -1,4 +1,7 @@
-```cpp
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+
 int main() {
     int startHeight, firstBounce, numBounces;
 
@@ -12,7 +15,7 @@ int main() {
 
     for (int i = 0; i <= numBounces; ++i) {
         int height = static_cast<int>(startHeight * pow(0.5, i));
-        std::cout << "Height at bounce " << i+1 << ": " << height << std::endl;
+        std::cout << std::to_string(height) << " ";
         startHeight = height;
     }
     return 0;
