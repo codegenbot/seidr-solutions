@@ -4,11 +4,8 @@ using namespace std;
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     double totalSnow = static_cast<double>(initialSnow);
     for (int i = 0; i < hours; i++) {
-        if (rateOfSnowFall > totalSnow * proportionOfSnowMeltingPerHour) {
-            totalSnow += rateOfSnowFall;
-        } else {
-            totalSnow -= totalSnow * proportionOfSnowMeltingPerHour;
-        }
+        totalSnow += rateOfSnowFall;
+        totalSnow -= totalSnow * proportionOfSnowMeltingPerHour;
     }
     return totalSnow;
 }
@@ -20,4 +17,3 @@ int main() {
     cin >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
     cout << fixed << setprecision(2) << totalSnow << endl;
     return 0;
-}
