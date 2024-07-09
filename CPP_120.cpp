@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
+#include <cassert>
 
 bool issame(int x, int y) {
     return x == y;
@@ -13,7 +13,7 @@ std::vector<int> maximum(const std::vector<int>& arr, int k) {
         if (a != b) {
             return a > b;
         }
-        return false; // If equal values, keep the order
+        return false;
     });
 
     arrCopy.resize(k);
