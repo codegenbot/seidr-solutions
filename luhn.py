@@ -1,4 +1,3 @@
-```python
 def luhn():
     card_number = [int(x) for x in str(input("Enter your credit card number: "))]
     total = 0
@@ -9,5 +8,3 @@ def luhn():
         else:
             total += num
     return "Invalid" if sum(card_number) % 10 != total % 10 else "Valid"
-
-print(luhn())
