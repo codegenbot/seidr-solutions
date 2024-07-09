@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -36,9 +35,9 @@ boost::any compare_one(boost::any a, boost::any b) {
             num1 = stoi(str1);
             num2 = stoi(str2);
 
-            return boost::any((num1 > num2) ? str1 : ((num1 < num2) ? str2 : "None"));
+            return (num1 > num2) ? str1 : ((num1 < num2) ? str2 : boost::any("None"));
         } else {
-            return a;
+            return max(a, b);
         }
     }
 
