@@ -5,11 +5,11 @@
 
 using namespace std;
 
-vector<int> filter_integers(list<cpp_any> values) {
-    vector<int> result({3, 'c'}); // Initialize with {3, 'c'}
+vector<int> filter_integers(list<any> values) {
+    vector<int> result; // Initialize with empty vector
     for (const auto& value : values) {
         try {
-            int val = boost::any_cast<int>(value);
+            int val = any_cast<int>(value);
             if(find(result.begin(), result.end(), val) == result.end())
                 result.push_back(val);
         } catch (...) {
@@ -23,7 +23,8 @@ bool is_same(vector<int> a, vector<int> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
-int test_main() {
-    assert(is_same(filter_integers({{3, 'c'}, 3, 3, {'a', 'b'}}), {3, 3, 3}));
+int main() {
+    list<any> values = {3, int(3), 3, 'a', 'b'};
+    assert(is_same(filter_integers(values), vector<int>{3, 3, 3}));
     return 0;
 }
