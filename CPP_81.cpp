@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(std::vector<std::string> a) {
     if(a.size() == 0) return true;
