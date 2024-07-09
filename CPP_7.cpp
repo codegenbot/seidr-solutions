@@ -2,15 +2,20 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    for (const auto& str : a) {
-        if (std::find(b.begin(), b.end(), str) == b.end()) {
-            return false;
+    return a == b;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for(auto str : strings){
+        if(str.find(substring) != string::npos){
+            result.push_back(str);
         }
     }
-    return true;
+    return result;
 }
 
 int main() {
-    assert(issame({{"grunt", "trumpet", "prune", "gruesome"}, "run"} , {{"grunt", "prune"}}));
+    assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
     return 0;
 }
