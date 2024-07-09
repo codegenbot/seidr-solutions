@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -28,7 +29,7 @@ int main() {
     vector<string> lst = {"hello", "world", "abc", "abcd"};
     vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
     
-    assert(issame(sorted_list_sum({{"aaa","aaaa","aa"}},{"aaaa", "bbbb", "dd", "cc"})), {"cc", "dd", "aaaa", "bbbb"});
+    assert(issame(sorted_list_sum({{"aaaa", "bbbb", "dd", "cc"}}), {"cc", "dd", "aaaa", "bbbb"}));
     
     return 0;
 }
