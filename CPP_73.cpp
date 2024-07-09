@@ -9,15 +9,8 @@ int smallest_change(vector<int> arr) {
     while (left < right) {
         if (str[left] != str[right]) {
             changes++;
-            if (str[left] == str[right - 1]) {
-                right--;
-            } else {
-                left++;
-            }
-        } else {
-            left++;
-            right--;
         }
+        left++, right--;
     }
     return changes;
 }
