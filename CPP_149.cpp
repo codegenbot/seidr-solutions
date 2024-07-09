@@ -1,35 +1,22 @@
-#include <iostream>
-#include <vector>
+```cpp
 #include <algorithm>
-
+#include <vector>
 using namespace std;
 
-bool compare(int x, int y) {
-    if (x > y) {
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) 
         return false;
-    } else if (y > x) {
-        return true;
-    } else {
-        return false;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
     }
+    return true;
 }
 
 int main() {
-    vector<string> lst = {"cat", "dog", "elephant", "a", "b"};
-    
-    // Sort the list by length and then alphabetically
-    std::sort(lst.begin(), lst.end(),
-        [](const string& a, const string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
-            }
-            return a.length() < b.length();
-        });
-
-    for (auto i : lst)
-    {
-        cout << i << " ";
-    }
-
+    vector<string> b;
+    assert(issame({"aaaa", "bbbb", "dd", "cc"}, {"ccc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
