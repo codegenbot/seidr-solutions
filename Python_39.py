@@ -4,5 +4,4 @@ def prime_fib(n: int):
         fib.append(fib[-1] + fib[-2])
     
     prime_fib_numbers = [num for num in fib if is_prime(num)]
-    
-    return prime_fib_numbers[-1] if prime_fib_numbers else None
+    return prime_fib_numbers[-1]
