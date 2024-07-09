@@ -1,9 +1,3 @@
-#include <string>
-#include <cassert>
-#include <iostream>
-
-using namespace std;
-
 int how_many_times(string& str, const string& substring) {
     int count = 0;
     size_t pos = 0;
