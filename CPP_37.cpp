@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -16,12 +15,7 @@ std::vector<float> sort_even(std::vector<float> l) {
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             auto it = std::stable_partition(l.begin(), l.end(), [](float x){return x % 2 != 0;});
-            result[i] = *it;
-            ++it;
-            for (; j < i; ++j, ++it) {
-                result[j] = *it;
-            }
-            j = i + 1;
+            result[i] = *std::min_element(it, l.end());
         } else {
             result[i] = l[i];
         }
@@ -29,10 +23,6 @@ std::vector<float> sort_even(std::vector<float> l) {
     return result;
 }
 
-std::vector<float> v1 = {5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f};
-std::vector<float> v2 = {-12.0f, 8.0f, 3.0f, 4.0f, 5.0f, 2.0f, 12.0f, 11.0f, 23.0f, -10.0f};
-
 int main() {
-    assert(checkSame(sort_even(v1), v2));
+    assert(checkSame(sort_even({5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f}), {-12.0f, 8.0f, 3.0f, 4.0f, 5.0f, 2.0f, 12.0f, 11.0f, 23.0f, -10.0f}));
     return 0;
-}
