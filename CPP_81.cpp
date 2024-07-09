@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -29,7 +30,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades1 = {0, 0.7};
+    vector<float> grades1 = {0.0f, 0.7f};
     vector<string> result1 = numerical_letter_grade(grades1);
     
     if (checkResults(result1, result1)) {
