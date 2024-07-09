@@ -18,6 +18,7 @@ bool match_parens(const std::string& s) {
 }
 
 void processInput(int n) {
+    lst = std::vector<std::string>(); 
     for(int i=0; i<n; ++i){
         std::string s;
         std::getline(std::cin, s);
@@ -38,7 +39,8 @@ int main() {
     int n;
     std::cin >> n;
     processInput(n);
-    for (const auto& s : lst) {
-        std::cout << s << std::endl;
+    for (const auto& str : lst) {
+        std::cout << str << std::endl;
     }
     return 0;
+}

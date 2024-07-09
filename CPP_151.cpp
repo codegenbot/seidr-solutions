@@ -1,3 +1,5 @@
+unsigned long double_the_difference(const std::vector<unsigned long>& input);
+
 int main() {
     int n;
     std::vector<unsigned long> input;

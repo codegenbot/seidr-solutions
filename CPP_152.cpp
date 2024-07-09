@@ -28,15 +28,15 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    std::vector<int> game;
+    std::vector<int> game(n, 0);
     
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
-        game.push_back(temp);
+        game[i] = temp;
     }
-    std::vector<int> guess(n);
+    std::vector<int> guess(n, 0);
     
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
