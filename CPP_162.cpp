@@ -1,9 +1,4 @@
-#include <string>
-#include <algorithm>
-#include <iostream>
-
-#include <string>
-#include <mysql.h>
+using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
@@ -26,4 +21,3 @@ string string_to_md5(string text) {
     }
     
     return result;
-}
