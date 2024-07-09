@@ -13,8 +13,8 @@ bool cycpattern_check(string a, string b) {
 int main() {
     std::string a, b;
     std::cin >> a >> b;
-    
+
     std::cout << (cycpattern_check(a, b) ? "true" : "false") << std::endl;
-    
+
     return 0;
 }
