@@ -1,8 +1,4 @@
-```cpp
-#include <iostream>
-#include <vector>
-
-int max_fill(std::vector<std::vector<int>> grid, int capacity) {
+int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     int ans = 0;
     for (int i = 0; i < n; i++) {
@@ -13,19 +9,11 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
             }
         }
         while (water > 0) {
-            int bucket = std::min(water, capacity);
+            int bucket = min(water, capacity);
             water -= bucket;
             ans++;
-            capacity = std::max(0, capacity - bucket);
+            capacity = max(0, capacity - bucket);
         }
     }
     return ans;
-}
-
-int main() {
-    std::vector<std::vector<int>> grid = {{1, 0, 1}, {1, 1, 0}};
-    int capacity = 2;
-    int result = max_fill(grid, capacity);
-    std::cout << "Maximum number of buckets needed: " << result << std::endl;
-    return 0;
 }
