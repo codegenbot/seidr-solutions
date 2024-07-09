@@ -1,5 +1,5 @@
-```cpp
 #include <vector>
+#include <iostream>
 
 int luhn(std::vector<int> digits) {
     int sum = 0;
@@ -11,4 +11,11 @@ int luhn(std::vector<int> digits) {
         doubleNext = !doubleNext;
     }
     return sum;
+}
+
+int main() {
+    std::vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 1, 6, 4, 3, 9, 0};
+    int result = luhn(digits);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
 }

@@ -9,17 +9,17 @@ vector<int> findIndices(string text, string target) {
     int m = target.size();
 
     for (int i = 0; i <= n - m; i++) {
+        int pos = i;
         bool found = true;
         for (int j = 0; j < m; j++) {
-            if (text[i + j] != target[j]) {
+            if (text[pos] != target[j]) {
+                i = pos;
                 found = false;
                 break;
             }
+            pos++;
         }
-        if (found) {
-            indices.push_back(i);
-            i += m - 1;
-        }
+        if (found) indices.push_back(i);
     }
 
     return indices;
