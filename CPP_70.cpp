@@ -1,4 +1,9 @@
-vector<int> strange_sort_vector(vector<int> lst) {
+```cpp
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
