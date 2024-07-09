@@ -1,5 +1,4 @@
 #include <string>
-
 using namespace std;
 
 bool same_chars(string s0, string s1) {
