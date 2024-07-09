@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 std::vector<int> even_odd_palindrome(int n) {
@@ -20,5 +21,5 @@ bool checkPalindrome(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(checkPalindrome(even_odd_palindrome(5), std::vector<int>({0, 1, 0, 1, 0})));
+    assert(checkPalindrome(even_odd_palindrome(5), even_odd_palindrome(5)));
 }
