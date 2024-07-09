@@ -18,6 +18,7 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(std::equal(get_odd_collatz(1).begin(), get_odd_collatz(1).end(), std::vector<int>({1}).begin()));
+    using namespace std;
+    assert(equal(get_odd_collatz(1).begin(), get_odd_collatz(1).end(), vector<int>({1}).begin()));
     return 0;
 }
