@@ -8,7 +8,7 @@ int main() {
     double firstBounce;
     int numBounces;
 
-    std::cin >> startHeight >> std::endl >> firstBounce >> std::endl >> numBounces >> std::endl;
+    std::cin >> startHeight >> firstBounce >> numBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
 
@@ -18,7 +18,7 @@ int main() {
         startHeight *= bouncinessIndex; 
     }
 
-    std::cout << "The total distance traveled by the ball is: " << fixed << setprecision(0) << totalDistance << std::endl;
+    std::cout << "The total distance traveled by the ball is: " << std::to_string(totalDistance) << std::endl;
 
     return 0;
 }
