@@ -7,3 +7,4 @@ std::string squareDigits(std::string input) {
         output += std::to_string(digit);
     }
     return output;
+}
