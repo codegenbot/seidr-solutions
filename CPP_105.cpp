@@ -1,13 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> by_length(vector<int> arr) {
-    vector<int> sortedArr;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            sortedArr.push_back(i);
-    }
-    sort(sortedArr.begin(), sortedArr.end());
-    reverse(sortedArr.begin(), sortedArr.end());
     vector<string> result;
-    for (int i : sortedArr) {
+    for (int i : arr) {
         string str = "";
         switch (i) {
             case 1:
@@ -43,12 +45,7 @@ vector<string> by_length(vector<int> arr) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size())
-        return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
+int main() {
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
+    return 0;
 }
