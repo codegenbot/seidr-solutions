@@ -35,11 +35,11 @@ Pair find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() { 
-    std::vector<float> testVec = {1.1f, 2.2f, 3.1f, 4.1f, 5.1f};
-    std::vector<float> numbers;
-    for (float num : testVec) {
-        numbers.push_back(num);
+    std::vector<float> testVec; // Create an empty vector
+    for (int i = 0; i < 5; ++i) {
+        testVec.push_back(i + 1.1f);
     }
+    std::vector<float> numbers = testVec;
     assert(issame({find_closest_elements(numbers).first, find_closest_elements(numbers).second}, {2.2f, 3.1f}));
     return 0;
 }
