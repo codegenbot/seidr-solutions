@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     def eval_expr(expression):
         if expression == "T":
@@ -5,15 +6,27 @@ def solve_boolean(expression):
         elif expression == "F":
             return False
         elif expression[0] in ["&", "|"]:
-            left = eval_expr(expression[1])
-            right = eval_expr(expression[2:])
-            if expression[0] == "&":
-                return left and right
+            i = expression.find("(")
+            j = expression.find(")")
+            if i != -1:  
+                left = eval_expr(expression[i+1:j])
+                expression = expression[:i] + expression[j+1:]
+                right = eval_expr(expression)
+                return left and right or left
             else:
-                return left or right
+                left = eval_expr(expression[1])
+                right = eval_expr(expression[2:])
+                if expression[0] == "&":
+                    return left and right
+                else:
+                    return left or right
+
         else:  
             i = expression.find("(")
             j = expression.find(")")
-            return eval_expr(expression[i+1:j])
+            if i != -1:  
+                return eval_expr(expression[i+1:j])
+            elif j != -1:
+                return eval_expr(expression[:j])
 
     return eval_expr(expression)
