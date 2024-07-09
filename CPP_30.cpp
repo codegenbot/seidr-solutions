@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <iomanip>
 
 bool same(const std::vector<float>& v1, const std::vector<float>& v2) {
     if (v1.size() != v2.size()) {
@@ -26,22 +27,16 @@ std::vector<float> getPositive(const std::vector<float>& numbers) {
 
 int main() {
     std::vector<float> numbers;
-    int n = 0;
-    float num = 0;
-    while(n < 1)
-{
-    std::cout << "Enter element number: ";
-    std::cin >> n;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> std::setprecision(6) >> n;
 
-    if (n > 0)
-        break;
-}
-for(int i=0; i<n; i++)
-{
-    std::cout << "Enter element " << i + 1 << ": ";
-    std::cin >> num;
-    numbers.push_back(num);
-}
+    for (int i = 0; i < n; i++) {
+        float num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> std::setprecision(6) >> num;
+        numbers.push_back(num);
+    }
 
     std::vector<float> positiveNumbers = getPositive(numbers);
 
