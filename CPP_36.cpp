@@ -1,4 +1,6 @@
-#include <string>
+```cpp
+#include <sstream>
+using namespace std;
 
 int fizz_buzz(int n) {
     int count = 0;
@@ -7,3 +9,9 @@ int fizz_buzz(int n) {
             count++;
     }
     return count;
+
+}
+
+int main() {
+    return 0;
+}
