@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 int is_bored(std::string S){
@@ -8,17 +7,11 @@ int is_bored(std::string S){
     while ((pos = S.find(" ", pos)) != std::string::npos) {
         if (S.substr(0, pos).compare(boredom) == 0) {
             count++;
-            break;
+            S.erase(0, pos + boredom.size());
+            pos = S.find(" ", pos); // Update this line
+        } else {
+            pos++;
         }
-        pos++;
     }
     return count;
-
-int main(){
-    std::string input;
-    std::cout << "Enter a sentence: ";
-    std::cin >> input;
-    int result = is_bored(input);
-    std::cout << "Result: " << result << std::endl;
-    return 0;
 }
