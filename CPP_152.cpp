@@ -28,11 +28,7 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    for(int i = 0; i < n; i++){
-        game[i] = -1; 
-        guess[i] = -1;
-    }
-    std::vector<int> game(n);
+    std::vector<int> game(n);  // Initialize with n zeros
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
