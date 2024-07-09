@@ -1,15 +1,15 @@
-```cpp
-#include <iostream>
-#include <string>
+```
+#include<iostream>
+using namespace std;
 
-int custom_str_len(std::string str){
+int custom_str_len(string str){
     return str.length();
 }
 
 int main(){
-    std::string user_input;
-    std::cout << "Enter a string: ";
-    std::cin >> user_input;
-    std::cout << "The length of your input is: " << custom_str_len(user_input) << "\n";
+    string s;
+    cout << "Enter a string: ";
+    getline(cin, s);
+    cout << "Length of the string is: " << custom_str_len(s) << endl;
     return 0;
 }
