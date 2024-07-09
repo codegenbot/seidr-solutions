@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
 
 int findGCD(int a, int b) {
     if (b == 0) return std::abs(a);
@@ -15,7 +14,7 @@ int findGCD(int a, int b) {
 std::vector<int> findIndices(const std::string& text, const std::string& target) {
     std::vector<int> indices;
     size_t pos = 0;
-    while ((pos = text.find(target, pos)) != std::string::npos) {
+    while ((pos = text.find(target, pos)) != stdstring::npos) {
         indices.push_back(pos);
         pos += target.size();
     }
@@ -40,3 +39,4 @@ int main() {
         std::cout << i << " ";
     }
     std::cout << std::endl;
+}
