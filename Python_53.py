@@ -1,6 +1,3 @@
-def add(numbers):
-    return sum(numbers)
-
-numbers = [int(num) for num in input().split()]
-result = add(numbers)
+numbers = list(map(int, input().split()))
+result = sum(numbers)
 print(result)
