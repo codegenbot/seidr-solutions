@@ -2,7 +2,7 @@
 #include <vector>
 #include <limits>
 
-bool is_same(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
@@ -34,6 +34,6 @@ Pair find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() {
-    assert(is_same({2.2f, 3.1f}, {find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}).first, find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}).second}));
+    assert(issame({2.2f, 3.1f}, {find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}).first, find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}).second}));
     return 0;
 }
