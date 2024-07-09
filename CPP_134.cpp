@@ -1,16 +1,13 @@
-```cpp
 #include <string>
-#include <cassert>
-
 using namespace std;
 
-bool check_if_last_char_is_a_letter(const string& str) {
-    if(str.empty()) return false;
-    int c = str.back(); 
+bool check_if_last_char_is_a_letter(const char* str) {
+    if(*str == '\0') return false;
+    int c = *--str; 
     return ::isalpha(c);  
 }
 
 int main() {
-    assert(check_if_last_char_is_a_letter("apple pi e ") == true);
+    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
     return 0;
 }
