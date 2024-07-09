@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -20,21 +21,4 @@ vector<int> count_up_to(int n) {
     }
     return primes;
 
-}
-
-int originalMain() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    vector<int> result = count_up_to(n);
-    cout << "Primes up to " << n << ": ";
-    for (int prime : result) {
-        cout << prime << " ";
-    }
-    cout << endl;
-    return 0;
-}
-
-int main() {
-    originalMain();
 }
