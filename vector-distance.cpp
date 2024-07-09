@@ -15,9 +15,10 @@ double vectorDistance(int n) {
 
     double distance = 0.0;
     for (int i = 0; i < n; i++) {
-        distance += sqrt(pow(v2[i] - v1[i], 2));
+        double diff = pow(v2[i] - v1[i], 2);
+        distance += pow(diff, 0.5); 
     }
-    return distance;
+    return sqrt(distance);
 }
 
 int main() {
@@ -27,4 +28,3 @@ int main() {
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
 
     return 0;
-}
