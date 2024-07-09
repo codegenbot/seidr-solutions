@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <boost/any.hpp>
+
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -34,9 +35,9 @@ boost::any compare_one(boost::any a, boost::any b) {
             num1 = stoi(str1);
             num2 = stoi(str2);
 
-            return (num1 > num2) ? str1 : ((num1 < num2) ? str2 : boost::any("None"));
+            return (num1 > num2) ? a : ((num1 < num2) ? b : boost::any("None"));
         } else {
-            return a > b;
+            return max(a, b);
         }
     }
 
