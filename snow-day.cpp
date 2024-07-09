@@ -1,6 +1,5 @@
-```cpp
 #include <iostream>
-#include <iomanip>
+#include <iomanip> 
 using namespace std;
 
 int main() {
@@ -23,14 +22,12 @@ int main() {
     double totalSnow = initialSnow;
     
     for (int i = 0; i < hours; i++) {
+        double currentSnow = totalSnow - (proportionOfSnowMeltingPerHour * totalSnow);
         totalSnow += rateOfSnowFall;
-        totalSnow -= initialSnow * proportionOfSnowMeltingPerHour;
+        totalSnow = currentSnow;  
     }
     
-    ios_base::fmtflags fmtFlags;
-    fmtFlags |= ios_base::fixed;
-    fmtFlags |= ios_base::showpoint;
-    cout << fixed << setprecision(2);
+    cout << fixed << std::setprecision(2);
     cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << " ft" << endl;
     return 0;
 }
