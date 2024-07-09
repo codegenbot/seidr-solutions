@@ -13,21 +13,17 @@ bool issame(const std::variant<int>& v1, const std::variant<int>& v2) {
 std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int>> values) {
     std::vector<std::variant<int>> result; 
     for (const auto& value : values) {
-        try {
-            if (value.index() == 0) { // Check if the variant contains an int
-                int val = std::get<int>(value);
-                bool found = false;
-                for (auto& v : result) {
-                    if (v.index() == 0 && std::get<int>(v) == val) {
-                        found = true;
-                        break;
-                    }
+        if (value.index() == 0) { // Check if the variant contains an int
+            int val = std::get<int>(value);
+            bool found = false;
+            for (auto& v : result) {
+                if (v.index() == 0 && std::get<int>(v) == val) {
+                    found = true;
+                    break;
                 }
-                if (!found)
-                    result.push_back(value);
             }
-        } catch (...) {
-            // ignore non-integer values
+            if (!found)
+                result.push_back(value);
         }
     }
     return result;
