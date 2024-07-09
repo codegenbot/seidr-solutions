@@ -1,11 +1,11 @@
 ```cpp
 #include <algorithm>
 #include <iostream>
-#include <cassert> 
+#include <cassert>
 
-using namespace std; 
+using namespace std;
 
-bool issame(vector<int> a, vector<int> b) { 
+bool issame(vector<int> a, vector<int> b) {
     if(a.size() == b.size())
         return true;
     else
@@ -18,6 +18,7 @@ vector<int> maximum(vector<int> arr, int k) {
     return result;
 }
 
-int main() { 
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7), {0,-23,-400,1,2,3,243})); 
+int main() {
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7) , {0,-23,-400,1,2,3,243}));
     return 0;
+}
