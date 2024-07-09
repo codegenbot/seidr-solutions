@@ -33,6 +33,6 @@ int main() {
     int number;
     cin >> number;
 
-    assert(int_to_mini_roman(number) == string("m"));
+    assert(int_to_mini_roman(number) == string("III"));
     return 0;
 }
