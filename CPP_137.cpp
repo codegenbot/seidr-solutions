@@ -16,10 +16,10 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (stod(a.convert_to<string>()) > stod(b.convert_to<string>())) {
             return a;
         }
-        else if (stod(a.convert_to<string>()) < stod(b.convert_to<string>())) {
+       	else if (stod(a.convert_to<string>()) < stod(b.convert_to<string>())) {
             return b;
         }
-       	else {
+		else {
             return boost::any("None");
         }
     }
@@ -29,7 +29,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (a_num > b_num) {
             return a;
         }
-       	else if (a_num < b_num) {
+		else if (a_num < b_num) {
             return b;
         }
 		else {
@@ -78,20 +78,4 @@ boost::any compare_one(boost::any a, boost::any b) {
     else {
         return boost::any("None");
     }
-}
-
-int main() {
-    // Your code here
-    cout << "Enter two values: ";
-    boost::any a, b;
-    cin >> a >> b;
-    boost::any result = compare_one(a, b);
-    if (result.type() == typeid(string)) {
-        cout << "The comparison is None." << endl;
-    }
-    else {
-        cout << "The comparison is: " << result << endl;
-    }
-
-    return 0;
 }
