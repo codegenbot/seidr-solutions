@@ -1,29 +1,24 @@
 Here is the completed code:
 
-```cpp
-bool has_digit = false;
-int dot_count = 0;
-
-for (char c : file_name) {
-    if (isdigit(c)) {
-        if (!has_digit) {
-            has_digit = true;
-            --; // More than three digits
+string file_name_check(string file_name) {
+    int count = 0;
+    bool foundDot = false;
+    for (int i = 0; i < file_name.length(); i++) {
+        if (isdigit(file_name[i])) {
+            count++;
+        } else if (file_name[i] == '.') {
+            foundDot = true;
+        } else if (!foundDot && !isalpha(file_name[i])) {
+            return "No";
         }
-    } else if (c == '.') {
-        dot_count++;
-    } else if (!dot_count && !isalpha(c)) {
+    }
+    if (count > 3 || !foundDot) {
         return "No";
     }
+    size_t pos = file_name.find('.');
+    string ext = file_name.substr(pos + 1);
+    if (ext != "txt" && ext != "exe" && ext != "dll") {
+        return "No";
+    }
+    return "Yes";
 }
-
-if (dot_count != 1 || has_digit || file_name.find('.') == string::npos) {
-    return "No";
-}
-
-string extension = file_name.substr(file_name.find('.') + 1);
-if (extension != "txt" && extension != "exe" && extension != "dll") {
-    return "No";
-}
-
-return "Yes";
