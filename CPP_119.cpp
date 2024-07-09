@@ -23,10 +23,9 @@ int main() {
     for(int i = 0; i < n; i++) {
         string s;
         if(getline(cin, s)) { 
-            cin.ignore(); // Add this to consume whitespace
             lst.push_back(s);
         } else {
-            while (cin.peek() == '\n') cin.ignore();
+            while (cin.peek() == '\n') cin.ignore(), cout << ' '; // <--- Add a space here!
             break; 
         }
     }
