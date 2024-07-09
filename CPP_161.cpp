@@ -1,3 +1,9 @@
+#include <iostream>
+#include <cctype>
+#include <string>
+
+using namespace std;
+
 string solve(string s) {
     string result = "";
     bool foundLetter = false;

@@ -1,9 +1,7 @@
 ```
 def solve(N):
-    if N == 0:
-        return "0"
-    elif N < 0:
-        return "-" + bin(-N)[2:]
+    if N > 0:
+        s = str(format(N, 'b'))
+        return bin(sum(int(i) for i in s)) if s else "0"
     else:
-        total = sum(int(digit) ** len(str(bin(N)[2:])) for digit in str(N))
-        return bin(total)[2:]
+        return "0"
