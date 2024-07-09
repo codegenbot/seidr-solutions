@@ -1,10 +1,11 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <cmath>
 
-long long double_the_difference(std::vector<double> lst) {
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
-    for (double num : lst) {
+    for (float num : lst) {
         if (num > 0 && std::floor(num) == num) { 
             if (static_cast<long long>(num) % 2 != 0) { 
                 sum += static_cast<long long>(std::pow(num, 2)); 
@@ -15,9 +16,9 @@ long long double_the_difference(std::vector<double> lst) {
 }
 
 int main() {
-    double input; 
+    float input; 
     int n = 0;
-    std::vector<double> lst;
+    std::vector<float> lst;
 
     while (1) {
         std::cout << "Enter a number (negative to stop): ";
