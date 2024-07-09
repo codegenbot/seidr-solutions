@@ -1,12 +1,14 @@
 #include <string>
+#include <vector>
+#include <algorithm>
 
-string exchange(vector<int> lst1, vector<int> lst2) {
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     for (int num : lst1) {
         if (num % 2 != 0) {
             int found = 0;
             for (int num2 : lst2) {
                 if (num2 % 2 == 0 && num2 != num) {
-                    swap(lst1[find(lst1.begin(), lst1.end(), num)], num2);
+                    std::swap(lst1[std::find(lst1.begin(), lst1.end(), num)], num2);
                     found = 1;
                     break;
                 }
