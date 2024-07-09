@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 std::string file_name_check(std::string file_name){
@@ -22,3 +23,16 @@ std::string file_name_check(std::string file_name){
     if(digitCount > 3 || !foundDot) return "No";
     if(file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z') return "No";
     return "Yes";
+}
+
+int main(){
+    std::cout << "Enter a file name: ";
+    std::string input;
+    std::getline(std::cin, input);
+    if(file_name_check(input) == "Yes") {
+        std::cout << "Valid" << std::endl;
+    } else {
+        std::cout << "Invalid" << std::endl;
+    }
+    return 0;
+}
