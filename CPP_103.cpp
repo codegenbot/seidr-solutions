@@ -23,12 +23,3 @@ std::string rounded_avg(int n, int m) {
 
     std::reverse(binary.begin(), binary.end());
     return binary.empty() ? "0" : binary;
-}
-
-int main() {
-    int n, m;
-    std::cout << "Enter two numbers: ";
-    std::cin >> n >> m;
-    std::cout << rounded_avg(n, m);
-    return 0;
-}
