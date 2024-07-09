@@ -1,7 +1,5 @@
-Here is the completed code:
-
 bool any_int(float a, float b, float c) {
-    if (fmod(a + b, 1) == 0 || fmod(a + c, 1) == 0 || fmod(b + c, 1) == 0)
-        return true;
-    return false;
+    return (int(a) == a && (a == b + c || a == b || a == c)) ||
+           (int(b) == b && (b == a + c || b == a || b == c)) ||
+           (int(c) == c && (c == a + b || c == a || c == b));
 }
