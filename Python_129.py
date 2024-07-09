@@ -16,7 +16,7 @@ def minPath(grid, k):
                 if new_path:
                     return new_path
         visited.remove((x, y))
-
+      
     for i in range(n):
         for j in range(n):
             path = dfs(i, j, [grid[i][j]])
