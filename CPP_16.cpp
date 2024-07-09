@@ -12,6 +12,5 @@ int count_distinct_characters(const std::string& str) {
 
 int main() {
     assert (count_distinct_characters("Jerry jERRY JeRRRY") == 5);
-    // Add more test cases here
     return 0;
 }
