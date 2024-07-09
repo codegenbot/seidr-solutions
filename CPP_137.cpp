@@ -1,27 +1,9 @@
 #include <iostream>
 #include <string>
+#include <boost/config.hpp>
 #include <boost/any.hpp>
 
 using namespace std;
-
-int main() {
-    int i1;
-    float f2;
-    string s3;
-    cout << "Enter the first value (integer): ";
-    cin >> i1;
-    cout << "Enter the second value: ";
-    if (cin >> f2) {
-        // assume it's a float
-        cout << compare_one(boost::any(i1), boost::any(f2)) << endl;
-    } else {
-        // assume it's a string
-        cin.ignore();
-        getline(cin, s3);
-        cout << compare_one(boost::any(i1), boost::any(s3)) << endl;
-    }
-    return 0;
-}
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -55,4 +37,23 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else {
         return "None";
     }
+}
+
+int main() {
+    int i1;
+    float f2;
+    string s3;
+    cout << "Enter the first value (integer): ";
+    cin >> i1;
+    cout << "Enter the second value: ";
+    if (cin >> f2) {
+        // assume it's a float
+        cout << boost::any_cast<string>(compare_one(boost::any(i1), boost::any(f2))) << endl;
+    } else {
+        // assume it's a string
+        cin.ignore();
+        getline(cin, s3);
+        cout << boost::any_cast<string>(compare_one(boost::any(i1), boost::any(s3))) << endl;
+    }
+    return 0;
 }
