@@ -1,9 +1,8 @@
-```cpp
-bool issame(vector<float> a,vector<float>b){
-    return a==b;
-}
-vector<float> sort_even(vector<float> l){
-    vector<float> l_new;
+#include <vector>
+#include <algorithm>
+
+std::vector<float> sort_even(std::vector<float> l) {
+    std::vector<float> l_new;
     for(int i=0; i<l.size(); i++){
         if(i%2 == 0) {
             l_new.push_back(l[i]);
