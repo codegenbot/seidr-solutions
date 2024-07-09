@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::string concatenate(const std::vector<std::string>& strings) {
+std::string concatenate(std::vector<std::string> strings) {
     std::string result = "";
     for (const auto& str : strings) {
         result += str;
@@ -12,19 +11,19 @@ std::string concatenate(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    std::vector<std::string> strings;
-    int numStrings;
+    std::vector<std::string> inputStrings;
+    int n;
     std::cout << "Enter the number of strings: ";
-    std::cin >> numStrings;
+    std::cin >> n;
     
-    for(int i = 0; i < numStrings; ++i) {
+    for(int i = 0; i < n; i++) {
         std::string str;
         std::cout << "Enter string " << (i+1) << ": ";
         std::getline(std::cin, str);
-        strings.push_back(str);
+        inputStrings.push_back(str);
     }
     
-    std::cout << "Concatenated string: " << concatenate(strings) << std::endl;
-    
+    std::cout << "Concatenated strings: " << concatenate(inputStrings) << std::endl;
+
     return 0;
 }
