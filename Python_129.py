@@ -3,38 +3,32 @@ from collections import deque
 
 def minPath(grid):
     n = len(grid)
+    m = len(grid[0])
 
     def bfs(i, j, path):
         if grid[i][j] == 1:
             return False
-        grid[i][j] = 1
+        grid[i][j] = 2
 
         for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = i + di, j + dj
-            if 0 <= ni < n and 0 <= nj < n:
+            if 0 <= ni < n and 0 <= nj < m:
                 new_path = path + [(i, j), (ni, nj)]
                 if bfs(ni, nj, new_path):
                     return True
 
         return False
 
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            if grid[i][j] == 1:
-                start = (i, j)
+    start = [i for i, row in enumerate(grid) if any(cell == 1 for cell in row)][0]
 
     min_length = float("inf")
     min_path = []
 
-    path = [start]
-    while path:
-        x, y = path[-1]
-        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
-            nx, ny = x + dx, y + dy
-            if grid[nx][ny] == 0:
-                new_path = list(path)
-                new_path.append((nx, ny))
-                if bfs(nx, ny, new_path):
-                    return new_path
+    for j in range(m):
+        path = [(start, 0), (start, j)]
+        if bfs(start, j, path):
+            if len(path) < min_length:
+                min_length = len(path)
+                min_path = path
 
     return min_path
