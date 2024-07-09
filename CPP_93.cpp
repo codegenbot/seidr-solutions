@@ -1,14 +1,21 @@
-for (char &c : message) {
+// Complete the function
+    for (char &c : message) {
         if (isalpha(c)) {
-            if (islower(c)) {
-                c = toupper(c);
+            if (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u') {
+                if (isupper(c)) {
+                    c = toupper((c - 'A' + 2) % 26 + 'A');
+                } else {
+                    c = tolower((c - 'a' + 2) % 26 + 'a');
+                }
             } else {
-                c = tolower(c);
-            }
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                c = c + 2;
+                if (isupper(c)) {
+                    c = tolower(c);
+                } else {
+                    c = toupper(c);
+                }
             }
         }
     }
+    
     return message;
 }
