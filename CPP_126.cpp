@@ -10,18 +10,18 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
+
     for(int i = 0; i < n; i++) {
-        int num;
+        int temp;
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
-        lst.push_back(num);
+        std::cin >> temp;
+        lst.push_back(temp);
     }
-    
+
     if(is_sorted(lst))
-        std::cout << "The vector is sorted.\n";
+        std::cout << "The list is sorted.\n";
     else
-        std::cout << "The vector is not sorted.\n";
+        std::cout << "The list is not sorted.\n";
 
     return 0;
 }
@@ -32,7 +32,7 @@ bool is_sorted(std::vector<int> lst){
             return false;
         }
     }
-    std::vector<int>::iterator it;
+    vector<int>::iterator it;
     for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
         if(std::distance(it, lst.end()) > 1)
             return false;
