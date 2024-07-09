@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 
@@ -14,7 +15,6 @@ long long special_factorial(int n) {
     return result;
 }
 
-//int main() { // comment or delete this line
 int main() {
     int n;
     std::cout << "Enter a number: ";
