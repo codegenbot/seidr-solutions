@@ -1,7 +1,24 @@
-vector<float> positive_nums;
+#include <vector>
+
+vector<float> get_positive(vector<float> l){
+    vector<float> result;
     for (float num : l) {
         if (num > 0) {
-            positive_nums.push_back(num);
+            result.push_back(num);
         }
     }
-    return positive_nums;
+    return result;
+}
+
+bool issame(float a, float b){
+    return (a == b);
+}
+
+int main(){
+    vector<float> numbers = {1.5, -2.3, 4.0, -5.2, 6.7};
+    vector<float> positive_numbers = get_positive(numbers);
+    for (float num : positive_numbers) {
+        cout << num << " ";
+    }
+    return 0;
+}
