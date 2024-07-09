@@ -1,22 +1,10 @@
 ```cpp
-double find_zero(vector<double> xs){
-    vector<vector<double>> poly;
-    vector<double> coeff;
-    for (int i = 1; i < xs.size(); i += 2) {
-        double x = xs[i];
-        int power = (i - 1) / 2;
-        if (poly.size() <= power) {
-            poly.resize(power + 1);
-        }
-        poly[power].push_back(x);
+double find_zero(vector<double> coefficients) {
+    double sum = 0;
+    int coeff = 1;
+    for (int i = 1; i < coefficients.size(); i += 2) {
+        sum -= coeff * coefficients[i] / coefficients[0];
+        coeff *= -1;
     }
-    for (int i = 0; i < poly.size(); i++) {
-        coeff.insert(coeff.begin(), 0);
-        for (int j = 0; j <= i; j++) {
-            if (j < poly[i].size()) {
-                coeff[0] -= poly[i][j];
-            }
-        }
-    }
-    return -coeff[0] / xs[0];
+    return -sum / coefficients[0];
 }
