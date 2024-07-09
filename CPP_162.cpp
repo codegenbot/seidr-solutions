@@ -21,7 +21,9 @@ string string_to_md5(string text) {
         char temp[3];
         sprintf(temp, "%02x", result[i]);
         md5String += temp;
-    }
+   }
     
     return md5String;
 }
+
+assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
