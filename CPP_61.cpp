@@ -1,18 +1,22 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 
 bool correct_bracketing(const std::string& s) {
-    int open = 0, close = 0;
+    int count = 0;
     for (char c : s) {
-        if (c == '(') open++;
-        else close++;
-        if (close > open) return false; // wrong closing order
+        if (c == '(') {
+            ++count;
+        } else if (c == ')') {
+            if (count <= 0) return false;
+            --count;
+        }
     }
-    return open == close; // same number of opening and closing brackets
+    return count == 0;
 }
 
 int main() {
-    assert(correct_bracketing("()()(()())"));
+    assert(correct_bracketing("()()(()())")); 
     std::cout << "Correct bracketing test passed." << std::endl;
     return 0;
 }
