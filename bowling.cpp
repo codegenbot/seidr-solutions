@@ -2,35 +2,35 @@
 #include <iostream>
 using namespace std;
 
-int scoreGame(string game) {
+int main() {
     int score = 0;
-    int roll = 0;
-    for (char c : game) {
-        if (c == '/') {
-            if (roll < 10) {
-                score += 10 - roll;
-                roll = 0;
+    int frame = 1;
+    string line;
+    cin.ignore();
+    
+    while (frame <= 10) {
+        getline(cin, line);
+        if (line[0] == 'X') {
+            score += 30;
+            frame++;
+        } else if (line[2] == '/') {
+            score += 10 + (line[0] - '0' * 2);
+            frame++;
+        } else {
+            int first = line[0] - '0';
+            int second = line[1] - '0';
+            score += first + second;
+            if (second == 0) {
+                frame++;
             } else {
-                roll = 0;
-            }
-        } else if (isdigit(c)) {
-            int currentRoll = stoi(string(1, c));
-            if (currentRoll + roll > 10) {
-                score += 10 - (roll = 0);
-                roll = 0;
-            } else {
-                roll += currentRoll;
+                frame++;
+                if (line[3] != '/') {
+                    score += line[2] - '0' * 10;
+                }
             }
         }
     }
-    return score;
-}
-
-int main() {
-    string game;
-    cout << "Enter the game: ";
-    cin >> game;
-    int result = scoreGame(game);
-    cout << "The score is: " << result << endl;
+    
+    cout << "The total score is: " << score << endl;
     return 0;
 }
