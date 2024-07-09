@@ -1,9 +1,7 @@
-#include <iostream>
 #include <string>
 #include <algorithm>
-using namespace std;
 
-pair<int, int> mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
@@ -14,12 +12,12 @@ pair<int, int> mastermind(string code, string guess) {
     }
 
     for (char c : code) {
-        if (count(guess.begin(), guess.end(), c) > 0) {
+        if (std::count(guess.begin(), guess.end(), c) > 0) {
             white++;
         }
     }
 
     white -= black;
 
-    return make_pair(white, black);
+    return black;
 }
