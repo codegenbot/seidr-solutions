@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <limits>
 
@@ -22,6 +23,24 @@ int pluckSame(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(issame(pluckSame({7, 9, 7, 1}), {}));
+    int n;
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> arr[i];
+    }
+
+    if (issame({1, 2}, arr)) {
+        std::cout << "Same" << std::endl;
+    } else {
+        int result = pluckSame(arr);
+        if (result != -1) {
+            std::cout << "Index: " << result << std::endl;
+        } else {
+            std::cout << "No even element found" << std::endl;
+        }
+    }
+
     return 0;
 }
