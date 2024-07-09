@@ -1,13 +1,12 @@
-#include <iostream>
+#include <cassert>
 #include <string>
+#include <cstring>
 
-using namespace std;
-
-int str_len(string str){
-    return str.length();
+int custom_strlen(std::string str){
+    return std::strlen(str.c_str());
 }
 
 int main() {
-    assert(str_len("asdasnakj") == 12);
+    assert(custom_strlen("asdasnakj") == 13);
     return 0;
 }
