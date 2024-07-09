@@ -11,12 +11,13 @@ string anti_shuffle(string s) {
             result += " ";
         } else {
             string word;
-            for (int j = i; j < s.length() && s[j] != ' '; j++) {
+            int j = i;
+            while (j < s.length() && s[j] != ' ') {
                 word += s[j];
+                j++;
             }
             sort(word.begin(), word.end());
             result += word;
-            i = j - 1;
         }
     }
     return result;
