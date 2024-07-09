@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 #include <initializer_list>
 
 float double_the_difference(const std::vector<float>& lst) {
@@ -13,5 +14,5 @@ float double_the_difference(const std::vector<float>& lst) {
 int main() {
     std::vector<float> lst = {1.0f, 2.5f, -3.5f, 4.0f};
     float result = double_the_difference(lst);
-    assert(std::abs(result) < 1e-6);
+    assert(std::abs(result) < 1e-6); 
 }
