@@ -1,7 +1,8 @@
-#include <boost/any.hpp>
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <boost/any.hpp>
+#include <cmath>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -25,5 +26,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         double num = boost::any_cast<double>(b);
         return boost::any(stod(str) > num);
     }
-    return boost::any("None");
+    return "None";
 }
