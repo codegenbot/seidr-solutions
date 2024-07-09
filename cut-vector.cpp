@@ -1,52 +1,30 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::vector<int> cutVector(const std::vector<int>& vec) {
-    int minDiff = INT_MAX;
-    int pos = -1;
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    pair<vector<int>, vector<int>> result;
 
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j <= i; j++) {
-            leftSum += vec[j];
+    for (int i = 1; i < vec.size(); i++) {
+        int diff = abs((int)vec[0] - (int)vec[i]);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            result.first.clear();
+            result.second.clear();
+
+            if ((int)vec[0] == (int)vec[i]) {
+                result.first.push_back(vec[0]);
+                result.second.push_back(vec[i]);
+            } else {
+                for (int j = 0; j < i; j++) {
+                    result.first.push_back(vec[j]);
+                }
+                for (int j = i; j < vec.size(); j++) {
+                    result.second.push_back(vec[j]);
+                }
+            }
         }
-        for (int j = i + 1; j < vec.size(); j++) {
-            rightSum += vec[j];
-        }
-
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            pos = i;
-        }
     }
 
-    return {std::vector<int>(vec.begin(), vec.begin() + pos),
-            std::vector<int>(vec.begin() + pos, vec.end())};
-}
-
-int main() {
-    int num;
-    std::cin >> num;
-    std::vector<int> vec(1, num);
-    for (int i = 0; i < 5; i++) {
-        cin >> num;
-        vec.push_back(num);
-    }
-
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(vec);
-
-    cout << "First part: ";
-    for (int i : result.first) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    cout << "Second part: ";
-    for (int i : result.second) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    return 0;
+    return result;
 }
