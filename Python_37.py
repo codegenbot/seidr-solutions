@@ -2,9 +2,15 @@
 def sort_even(l):
     result = []
     for i in range(len(l)):
-        even_indices = [x for x in range(len(l)) if (x - i) % 2 == 0]
-        if i in even_indices:
-            result.append(sorted([l[j] for j in even_indices])[::-1][i % 2])
+        if l[i] % 2 == 0:
+            even_numbers = [x for x in l if x % 2 == 0]
+            odd_numbers = [x for x in l if x % 2 != 0]
+            sorted_even = sorted(even_numbers)[::-1]
+            result.append(sorted_even[0])
+            even_numbers.remove(sorted_even[0])
+            while even_numbers:
+                result.append(min(even_numbers))
+                even_numbers.remove(min(even_numbers))
         else:
             result.append(l[i])
     return result
