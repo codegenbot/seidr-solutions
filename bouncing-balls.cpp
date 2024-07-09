@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -17,8 +16,7 @@ int main() {
         totalDistance += pow(2, -bouncinessIndex) * startHeight;
     }
 
-    cout.precision(5);
-    cout << fixed << totalDistance << endl;
+    cout << fixed << setprecision(5) << totalDistance << endl;
 
     return 0;
 }
