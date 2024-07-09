@@ -18,8 +18,6 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         while (it != temp_lst.end()) {
             if (*it == min_val) {
                 it = temp_lst.erase(it);
-                ++it;
-                break;
             } else {
                 ++it;
             }
@@ -29,13 +27,12 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
             int max_val = *std::max_element(temp_lst.begin(), temp_lst.end());
             result.push_back(max_val);
 
-            auto it2 = temp_lst.begin();
-            while (it2 != temp_lst.end()) {
-                if (*it2 == max_val) {
-                    it2 = temp_lst.erase(it2);
+            while (it != temp_lst.end()) {
+                if (*it == max_val) {
+                    it = temp_lst.erase(it);
                     break;
                 } else {
-                    ++it2;
+                    ++it;
                 }
             }
         }
