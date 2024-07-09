@@ -4,7 +4,7 @@
 
 using namespace std;
 
-auto compare_one(const any& a, const any& b) {
+auto compare_one(const std::any& a, const std::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (any_cast<int>(a) > any_cast<int>(b))
             return a;
@@ -23,5 +23,5 @@ auto compare_one(const any& a, const any& b) {
         else if (stof(any_cast<string>(a)) < stof(any_cast<string>(b)))
             return b;
     }
-    return any(); // Return default-constructed std::any
+    return any(); // Return default-constructed boost::any
 }
