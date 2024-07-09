@@ -7,11 +7,12 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> lst = {"hello", "world", "abc", "abcd"};
+    vector<string> lst = {"aa", "bb", "cc", "dd"};
     vector<string> result = sorted_list_sum(lst);
-    
+    bool same = issame(sorted_list_sum({{"a", "b"}, {"c", "d"}}), {{"c", "d"}, {"a", "b"}});
     return 0;
 }
+
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
     for (const auto& str : lst) {
