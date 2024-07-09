@@ -1,4 +1,3 @@
-#include <vector>
 #include <string>
 
 string match_parens(vector<string> lst){
@@ -6,7 +5,7 @@ string match_parens(vector<string> lst){
     for(int i=0; i<lst.size(); i++){
         for(char c: lst[i]){
             if(c == '(') open++;
-            else close++;
+            else if(c == ')') close++;
         }
     }
     return (open==close) ? "Yes" : "No";
