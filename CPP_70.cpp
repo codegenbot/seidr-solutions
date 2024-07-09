@@ -15,23 +15,24 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> lst;
+    std::vector<int> list;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for (int i = 0; i < n; i++) {
-        int val;
+        int num;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> val;
-        lst.push_back(val);
+        std::cin >> num;
+        list.push_back(num);
     }
-    std::vector<int> result = strange_sort_list(lst);
-    std::cout << "The sorted list is: ";
-    for (int val : result) {
-        std::cout << val << " ";
+    
+    std::vector<int> result = strange_sort_list(list);
+    if (issame(result, {1,2,3,4})) {
+        std::cout << "The output is correct." << std::endl;
+    } else {
+        std::cout << "The output is incorrect." << std::endl;
     }
-    std::cout << std::endl;
-
+    
     return 0;
 }
 
