@@ -1,12 +1,11 @@
-```cpp
+```
 #include <iostream>
 #include <string>
-using namespace std;
 
 int mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
-    
+
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
             blackPegs++;
@@ -20,8 +19,9 @@ int mastermind(string code, string guess) {
             }
         }
     }
-    
+
     return blackPegs + whitePegs;
+
 }
 
 int main() {
@@ -31,6 +31,5 @@ int main() {
     cout << "Enter your guess: ";
     getline(cin, guess);
     int pegs = mastermind(code, guess);
-    std::cout << "Number of pegs: " << pegs << std::endl;
-    return 0;
+    cout << "Number of pegs: " << pegs << endl;
 }
