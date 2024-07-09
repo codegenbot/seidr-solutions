@@ -1,9 +1,11 @@
-#include <vector>
+```c++
+#include <iostream>
+#include <string>
 
-int bowlingScore(const std::vector<char>& input) {
+int bowlingScore(std::string input) {
     int score = 0;
     int i = 0;
-    while(i < input.size()) {
+    while(i < input.length()) {
         if(input[i] == 'X') { 
             score += 10;
             i++; 
@@ -12,7 +14,7 @@ int bowlingScore(const std::vector<char>& input) {
             i+=3; 
         } else {
             int roll = 0;
-            while(i < input.size() && input[i] != '-' && input[i] != '/' ) {
+            while(i < input.length() && input[i] != '-' && input[i] != '/' ) {
                 if(input[i] == '/') break;
                 roll = roll * 10 + (input[i] - '0');  
                 i++;  
@@ -25,7 +27,7 @@ int bowlingScore(const std::vector<char>& input) {
                 i+=2; 
             } else {
                 int nextRoll = 0;
-                while(i < input.size() && input[i] != '-' && input[i] != '/' ) {
+                while(i < input.length() && input[i] != '-' && input[i] != '/' ) {
                     if(input[i] == '/') break;
                     nextRoll = nextRoll * 10 + (input[i] - '0');  
                     i++;  
@@ -38,8 +40,9 @@ int bowlingScore(const std::vector<char>& input) {
 }
 
 int main() {
-    std::string input = "your-input-string"; 
-    std::vector<char> charInput(input.begin(), input.end());
-    int result = bowlingScore(charInput);
+    std::string userInput;
+    std::cout << "Enter your input: ";
+    std::getline(std::cin, userInput);  // read user input
+    int result = bowlingScore(userInput);
     return 0;
 }
