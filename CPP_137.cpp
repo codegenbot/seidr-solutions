@@ -61,12 +61,12 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
     }
     else {
-        float val1 = boost::any_cast<float>(a);
-        float val2 = boost::any_cast<float>(b);
+        float f1 = boost::any_cast<float>(a);
+        float f2 = boost::any_cast<float>(b);
 
-        if (val1 > val2)
+        if (f1 > f2)
             return a;
-        else if (val1 < val2)
+        else if (f1 < f2)
             return b;
         else
             return boost::any("None");
