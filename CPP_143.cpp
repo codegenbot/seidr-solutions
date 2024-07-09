@@ -1,27 +1,24 @@
+```
 #include <string>
 
-using namespace std;
-
-string words_in_sentence(string sentence) {
-    string result = "";
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
     int len = 0;
-    for (int i = 0; i < sentence.length(); i++) {
+    for (int i = 0; i < sentence.size(); i++) {
         if (sentence[i] == ' ') {
-            if (!isPrime(len)) {
-                continue;
-            }
-            result += " ";
+            len = 0;
+            result += "\n";
         } else {
             len++;
         }
-    }
-    if (isPrime(len)) {
-        result += sentence;
+        if (is_prime(len)) {
+            result += sentence.substr(i - len + 1, len) + " ";
+        }
     }
     return result;
 }
 
-bool isPrime(int n) {
+bool is_prime(int n){
     if (n <= 1) {
         return false;
     }
