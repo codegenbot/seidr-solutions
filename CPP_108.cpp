@@ -1,8 +1,8 @@
-int count_nums(vector<int> v) {
+int count_nums(vector<int> nums) {
     int count = 0;
-    for (int num : v) {
+    for (int num : nums) {
         if (num < 0) {
-            num = -num; // make it positive to calculate signed digits
+            num = -num;
         }
         int sum = 0;
         while (num > 0) {
