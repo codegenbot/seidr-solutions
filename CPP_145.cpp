@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -8,6 +9,15 @@ using namespace std;
 vector<int> order_by_points(vector<int> points) {
     sort(points.begin(), points.end());
     return points;
+}
+
+// Function to check if two vectors are same
+bool issame(const vector<int>& a, const vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
@@ -21,5 +31,7 @@ int main() {
         points.push_back(x);
     }
     
-    order_by_points(vector<int>({0,6,6,-76,-21,23,4})) == vector<int>({ -76, -21, 0, 4, 6, 6, 23 });
+    int p[] = { -76, -21, 0, 4, 6, 6, 23 };
+    vector<int> v(p, p + sizeof(p) / sizeof(p[0]));
+    assert(issame(order_by_points(points), v));
 }
