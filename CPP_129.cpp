@@ -1,16 +1,49 @@
 #include <vector>
 #include <queue>
+#include <iostream>
+
 using namespace std;
 
-int issame(vector<int> v1, vector<int> v2) {
-    if(v1.size() != v2.size()) 
-        return 0;
-    for(int i = 0; i < v1.size(); i++) 
-        if(v1[i] != v2[i]) 
-            return 0;
-    return 1;
+vector<int> minPath(vector<vector<int>>& grid, int k) {
+    int n = grid.size();
+    vector<vector<bool>> visited(n, vector<bool>(n));
+    vector<pair<int, int>> dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> pq;
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (grid[i][j] == 1) {
+                pq.push({k, {i, j}});
+                break;
+            }
+        }
+    }
+
+    vector<int> res;
+
+    while (!pq.empty()) {
+        auto [dist, pos] = pq.top();
+        pq.pop();
+
+        if (dist > 0) {
+            res.push_back(grid[pos.first][pos.second]);
+            visited[pos.first][pos.second] = true;
+
+            for (auto& d : dir) {
+                int ni = pos.first + d.first;
+                int nj = pos.second + d.second;
+                if (ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]) {
+                    pq.push({dist - 1, {ni, nj}});
+                }
+            }
+        }
+
+        if (res.size() == k) break;
+    }
+
+    return res;
 }
 
-vector<int> minPath(vector<vector<int>>& grid, int k) {
-    // your code here...
+int main() {
+    // your code here
 }
