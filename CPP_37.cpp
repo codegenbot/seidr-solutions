@@ -21,4 +21,3 @@ vector<float> sortEven(vector<float> l) {
         }
     }
     return l_prime;
-}
