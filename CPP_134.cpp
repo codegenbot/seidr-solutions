@@ -1,13 +1,17 @@
-```cpp
-#include <string>
+```
+#include <iostream>
 using namespace std;
 
-bool check_if_last_char_is_a_letter(const string& str) {
-    if(str.empty()) return false;
-    return isalpha(str.back());
-}
-
 int main() {
-    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    if(num % 2 == 0) {
+        cout << "The number is even." << endl;
+    } else {
+        cout << "The number is odd." << endl;
+    }
+    
     return 0;
 }
