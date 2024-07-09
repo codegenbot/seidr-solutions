@@ -1,12 +1,18 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <variant>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<std::variant<int>>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+        bool found = false;
+        for (const auto& v : b) {
+            if (v.index() == 0 && std::get<int>(v) == a[i]) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) return false;
     }
     return true;
 }
@@ -34,9 +40,9 @@ std::vector<std::variant<int>> filter_integers(std::initializer_list<std::varian
     return result;
 }
 
-int main() {
+int mainCPP22() {
     auto integers = filter_integers({1, 2, 3});
-    if (issame({1, 2}, std::vector<int>(integers | std::views::filter([](auto v) { return v.index() == 0; }))) ) {
+    if (issame({1, 2}, integers | std::views::filter([](auto v) { return v.index() == 0; }))) {
         std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
