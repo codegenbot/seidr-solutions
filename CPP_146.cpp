@@ -14,8 +14,14 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    vector<int> numbers = {12, 15, 21, 35, 40};
-    int result = specialFilter(numbers);
-    cout << "The number of integers that meet the condition is: " << result << endl;
+    vector<int> input;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        cout << "Enter element " << (i+1) << ": ";
+        cin >> input.push_back();
+    }
+    cout << "The count is: " << specialFilter(input);
     return 0;
 }
