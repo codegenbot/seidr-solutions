@@ -1,9 +1,7 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -71,5 +69,4 @@ int main() {
         cout << s << " ";
     }
     cout << endl;
-    return 0;
 }
