@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -10,19 +10,18 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result(l);
-    float evens[100]; int eIndex = 0;
+vector<float> sort_even(vector<float> l) {
+    vector<float> result(l.size());
+    vector<float> evens;
+    int eIndex = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            evens[eIndex++] = l[i];
+            evens.push_back(l[i]);
         } else {
             result[i] = l[i];
         }
     }
-    for(int i = 0; i < eIndex; i++) {
-        std::sort(evens, evens + eIndex);
-    }
+    sort(evens.begin(), evens.end());
     int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
