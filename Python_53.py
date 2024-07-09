@@ -1,4 +1,6 @@
-def add(x: int, y: int):
-    x = int(input("Enter first number: "))
-    y = int(input("Enter second number: "))
-    return x + y
+```
+def max_of_two_numbers(x: int, y: int) -> int:
+    if x > y:
+        return x
+    else:
+        return y
