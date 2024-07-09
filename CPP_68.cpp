@@ -18,7 +18,7 @@ int pluck(std::vector<int> arr) {
     return minIndex;
 }
 
-bool compareVectors(const std::vector<int>& v1, const std::vector<int>& v2) {
+bool isSame(const std::vector<int>& v1, const std::vector<int>& v2) {
     if (v1.size() != v2.size()) return false;
 
     for (int i = 0; i < v1.size(); i++) {
@@ -33,7 +33,6 @@ int main() {
     std::vector<int> emptyVector;
 
     if (index % 2 == 0 || index == -1) {
-        if (!compareVectors({}, emptyVector)) 
-            return 0;
+        assert(isSame({}, emptyVector)); 
     }
 }
