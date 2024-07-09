@@ -1,4 +1,4 @@
-Here's the corrected code:
+Here's the modified code:
 
 ```python
 def double_the_difference(lst):
@@ -7,7 +7,7 @@ def double_the_difference(lst):
 
 def check(func):
     test_cases = [(4, [1, 3, 5])]
-    for i, ((expected_output,), (input_list)) in enumerate(test_cases):
+    for i, ((expected_output), (input_list)) in enumerate(test_cases):
         result = func(input_list)
         if result == expected_output:
             print(f"Test {i+1} passed")
