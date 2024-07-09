@@ -1,29 +1,22 @@
 ```cpp
 #include <iostream>
-#include <string>
+using namespace std;
 
-bool is_happy(const std::string& s);
-
-int main() {
-    assert(is_happy("iopaxioi") == false );
-    return 0;
-}
-
-bool is_happy(const std::string& s) {
-    bool visited[100] = {false};
-    int n = s.length();
-    int i = 0;
-    while (i < n) {
-        if (!visited[int(s[i]) - '0']) {
-            int temp = int(s[i]) - '0';
-            while (temp != 1 && !visited[temp]) {
-                visited[temp] = true;
-                temp = (temp % 10 + (temp / 10 * 10)) % 10;
-            }
-            if (temp == 1) return true;
-            else if (visited[int(s[i]) - '0']) return false;
-        }
-        i++;
+bool is_happy(const string& str) {
+    int n = str.length();
+    for(int i=0;i<n-1;++i){
+        if(str[i] == '3' && (str[i+1] == '4' || str[i+1] == '7')) return false;
     }
     return true;
+}
+
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    getline(cin, s);
+    if(is_happy(s)) 
+        cout << "The input string is happy.\n";
+    else
+        cout << "The input string is not happy.\n";
+    return 0;
 }
