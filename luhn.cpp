@@ -12,7 +12,7 @@ int main() {
     
     int sum = 0;
     for (int i = n - 1; i >= 0; --i) {
-        if (i % 2 == 1) {
+        if ((n - i - 1) % 2 == 1) {
             int doubled = digits[i] * 2;
             sum += (doubled > 9) ? doubled - 9 : doubled;
         } else {
@@ -20,7 +20,13 @@ int main() {
         }
     }
     
-    cout << sum << endl;
+    cout << sum % 10 << endl;
     
+    if (sum % 10 == 0) {
+        cout << "Valid credit card number" << endl;
+    } else {
+        cout << "Invalid credit card number" << endl;
+    }
+
     return 0;
 }
