@@ -5,4 +5,4 @@ def fix_spaces(text):
 
 text = input("Enter the text: ")
 result = fix_spaces(text)
-print(result)
+print(result)  
