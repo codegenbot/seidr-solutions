@@ -12,9 +12,13 @@ def find_zero(xs: str):
 # Get user input
 user_input = input("Enter a list of integers separated by space: ")
 
-# Ensure correct input format
-if not user_input.strip():
-    print("Invalid input. Please enter a list of integers separated by space.")
-else:
-    # Call the function with user input and print the result
-    print(find_zero(user_input))
+# Validate input format
+try:
+    for num in user_input.split():
+        int(num)
+except ValueError:
+    print("Invalid input format. Please enter a list of integers separated by space.")
+    exit()
+
+# Call the function with user input and print the result
+print(find_zero(user_input))
