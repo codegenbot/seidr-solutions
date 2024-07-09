@@ -1,26 +1,35 @@
-bool hasDigit = false;
-int dotCount = 0;
+#include <string>
+#include <vector>
+#include <algorithm>
 
-for (char c : file_name) {
-    if (isdigit(c)) {
-        if (!hasDigit) hasDigit = true; // More than one digit
-        else return "No";
-    } else if (c == '.') {
-        dotCount++;
-        if (dotCount > 1) return "No"; // More than one dot
-    } else if (c == ' ' || c < 'a' || c > 'z' && c < 'A' || c > 'Z') {
-        return "No"; // Not a latin alphabet letter and not a space
+std::string file_name_check(std::string file_name){
+    int digit_count = 0;
+    bool found_dot = false;
+    std::string before_dot;
+
+    for(int i=0; i<file_name.length(); i++){
+        char c = file_name[i];
+        if(isdigit(c)){
+            digit_count++;
+            if(digit_count > 3)
+                return "No";
+        }else if(c == '.'){
+            found_dot = true;
+        }else{
+            before_dot += c;
+            if(found_dot)
+                break;
+        }
     }
+
+    if(!found_dot || before_dot.empty() || !isalpha(before_dot[0]))
+        return "No";
+
+    int start = file_name.find('.');
+    std::string after_dot = file_name.substr(start+1);
+    std::vector<std::string> valid_extensions = {"txt", "exe", "dll"};
+    if(std::find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end())
+        return "No";
+
+    return "Yes";
 }
-
-string suffix;
-int i = 0;
-while (i < file_name.size()) {
-    if (file_name[i] == '.') break;
-    i++;
-}
-suffix = file_name.substr(i + 1);
-
-if (suffix != "txt" && suffix != "exe" && suffix != "dll") return "No";
-
-return hasDigit ? "No" : "Yes";
