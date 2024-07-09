@@ -1,10 +1,13 @@
-string encrypt(string s) {
-    string result = s;
-    for (char& c : result) {
-        if (isalpha(c)) {
-            char base = islower(c) ? 'a' : 'A';
-            c = base + (c - base + 2 * 2) % 26;
+string alphabet = "abcdefghijklmnopqrstuvwxyz";
+    string encrypted = "";
+    for(char ch : s){
+        if(isalpha(ch)){
+            size_t pos = alphabet.find(tolower(ch));
+            pos = (pos + 2) * 2 % 26;
+            encrypted += isupper(ch) ? toupper(alphabet[pos]) : alphabet[pos];
+        } else {
+            encrypted += ch;
         }
     }
-    return result;
+    return encrypted;
 }
