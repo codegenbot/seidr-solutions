@@ -42,6 +42,6 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    assert(checkIfSame(numerical_letter_grade({4.0, 3.5}), {"A+", "B+"}));
+    assert(checkIfSame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
     return 0;
 }
