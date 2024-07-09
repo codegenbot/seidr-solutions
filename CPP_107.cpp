@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -27,6 +26,7 @@ bool areSame(std::vector<int> a, std::vector<int> b) {
         if(a[i] != b[i]) return false;
     }
     return true;
+
 }
 
 int main() {
