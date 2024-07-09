@@ -1,20 +1,18 @@
+```cpp
 #include <cassert>
 #include <iostream>
 #include <cctype>
 
 int prod_signs(std::string str1, std::string str2, std::string str3) {
     for (auto& s : {str1, str2, str3}) {
+        std::string temp;
+        for (char c : s) {
+            if (std::isalpha(c) || c == ' ') {
+                temp += c;
+            }
+        }
         if (!s.empty()) {
-            size_t i = 0;
-            while (i < s.size()) {
-                if (!(std::isalpha(s[i]) || s[i] == ' ')) {
-                    break;
-                }
-                ++i;
-            }
-            if (i > 0) {
-                s.erase(0, i);
-            }
+            s = temp;
         }
     }
 
@@ -22,6 +20,6 @@ int prod_signs(std::string str1, std::string str2, std::string str3) {
 }
 
 int main() {
-    assert(prod_signs("((-1))", "1", "1") == 0);
-    std::cout << prod_signs("((-1))", "1", "1") << std::endl; 
+    assert(prod_signs("-1", "1", "1") == 0);
+    std::cout << prod_signs("1", "-1", "1") << std::endl; 
 }
