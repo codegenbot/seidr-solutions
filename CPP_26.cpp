@@ -1,4 +1,4 @@
-#include <initializer_list>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <set>
@@ -14,11 +14,11 @@ bool isSameVector(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
     std::set<int> uniqueNumbers(numbers.begin(), numbers.end());
     return std::vector<int>(uniqueNumbers.begin(), uniqueNumbers.end());
-
 }
 
 int main() {
     int n;
+    
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     
