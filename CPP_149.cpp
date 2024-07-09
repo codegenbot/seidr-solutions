@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -6,7 +7,7 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -34,9 +35,12 @@ vector<string> sorted_list_sum(vector<string> lst) {
 
 int main() {
     vector<string> lst = {"hello", "world", "abc", "abcd"};
-    vector<string> result = sorted_list_sum({{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}});
-
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
-
+    vector<string> result = sorted_list_sum({{"aaaa", "bbbb", "dd", "cc"}});
+    
+    if (!issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {{"cc", "dd", "aaaa", "bbbb"}})) {
+        cout << "Test failed";
+        return 1;
+    }
+    
     return 0;
 }
