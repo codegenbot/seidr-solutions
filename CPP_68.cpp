@@ -18,34 +18,17 @@ int pluck(std::vector<int> arr) {
     return minIndex;
 }
 
-bool areEqual(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-
-    return true;
-}
-
 bool issame(std::vector<int> a, std::vector<std::vector<int>> b) {
     if (a.size() != b.size()) return false;
 
     for (int i = 0; i < a.size(); i++) {
-        bool found = false;
-        for (const auto& vec : b) {
-            if (areEqual(a[i], vec)) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) return false;
+        if (!areEqual(a[i], b[i])) return false;
     }
 
     return true;
 }
 
 int main() {
-    assert( issame({7, 9, 7, 1}, {{}}) );
+    assert(issame(std::vector<int>(pluck({7, 9, 7, 1})), std::vector<int>()));
     return 0;
 }
