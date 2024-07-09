@@ -19,24 +19,18 @@ int total_sum(const std::vector<std::string>& lst) {
 
 std::vector<std::string> total_match(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
     if (lst1.empty() || lst2.empty()) return {};
-    int sum1 = 0;
-    for (const auto& s : lst1) {
-        sum1 += total_sum({s});
-    }
-    int sum2 = 0;
-    for (const auto& s : lst2) {
-        sum2 += total_sum({s});
-    }
-    if (sum1 < sum2) return {lst1[0], lst2[0]};
-    else if (sum1 > sum2) return {lst2[0], lst1[0]};
-    else return {lst1[0], lst2[0]};  // or return an empty vector
+    int sum1 = total_sum(lst1);
+    int sum2 = total_sum(lst2);
+    if (sum1 < sum2) return lst1;
+    else if (sum1 > sum2) return lst2;
+    else return lst1;
 }
 
 int main() {
-    std::vector<std::string> lst1 = {"apple", "banana", "cherry"};
-    std::vector<std::string> lst2 = {"date", "elderberry", "fig"};
-    std::vector<std::string> lst3 = {"grape", "honeydew", "ice cream"};
-    std::vector<std::string> lst4 = {"jackfruit", "kiwi", "lemon"};
+    std::vector<std::string> lst1({"apple", "banana", "cherry"});
+    std::vector<std::string> lst2({"date", "elderberry", "fig"});
+    std::vector<std::string> lst3({"grape", "honeydew", "ice cream"});
+    std::vector<std::string> lst4({"jackfruit", "kiwi", "lemon"});
 
     assert(issame({"this"}, {"this", "", ""}));
     std::cout << "Test passed" << std::endl;
@@ -50,9 +44,9 @@ int main() {
     }
     
     std::vector<std::string> result = total_match(lst3, lst4);
-    if (total_sum({result[0]}) < total_sum({result[1]})) {
+    if (total_sum(result) < total_sum(lst3)) {
         std::cout << "List 3 has the highest sum." << std::endl;
-    } else if (total_sum({result[0]}) > total_sum({result[1]})) {
+    } else if (total_sum(result) > total_sum(lst3)) {
         std::cout << "List 4 has the highest sum." << std::endl;
     } else {
         std::cout << "Both lists have the same sum." << std::endl;
