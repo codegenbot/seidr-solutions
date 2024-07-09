@@ -1,6 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
+
+using namespace std;
 
 string int_to_mini_roman(int number) {
     vector<pair<int, string>> romanMap = {{1000, "M"}, {900, "CM"}, {500, "D"},
@@ -14,10 +15,9 @@ string int_to_mini_roman(int number) {
             roman += pair.second;
         }
     }
-    return roman;
 }
 
 int main() {
-    cout << int_to_mini_roman(1000);
+    assert(int_to_mini_roman(1000) == "M");
     return 0;
 }
