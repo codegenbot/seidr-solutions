@@ -1,13 +1,29 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 
-bool same(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
+int main() {
+    int n1,n2;
+    std::cin>>n1>>n2;
+    if(issame({0}, {0})) {
+        std::cout << "The numbers are same." << std::endl;
+    } else {
+        std::vector<int> x = {n1, n2};
+        std::vector<int> y = unique_digits(x);
+        for (int i : y) {
+            std::cout << i << ' ';
+        }
+        std::cout << std::endl;
+    }
+    return 0;
+}
+
 std::vector<int> unique_digits(std::vector<int> x) {
-    vector<int> result;
+    std::vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
@@ -25,9 +41,4 @@ std::vector<int> unique_digits(std::vector<int> x) {
     }
     sort(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    assert(same(unique_digits({135, 103, 31}), {31, 135}));
-    return 0;
 }
