@@ -1,6 +1,9 @@
 #include <map>
 #include <cassert>
 #include <string>
+#include <iostream>
+
+using namespace std;
 
 bool issame(std::map<char, int> a, std::map<char, int> b) {
     return a == b;
