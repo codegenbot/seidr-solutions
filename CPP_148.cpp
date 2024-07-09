@@ -1,3 +1,5 @@
+Here is the updated code:
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -35,8 +37,4 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 bool isSame(vector<string> a, vector<string> b) {
     return a == b;
 }
-
-int main() {
-    assert(isSame(bf("Jupiter", "Makemake"), std::vector<std::string>{}));
-    return 0;
-}
+assert(isSame(bf("Jupiter", "Makemake"), std::vector<std::string>{}));
