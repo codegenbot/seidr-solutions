@@ -24,7 +24,7 @@ int luhnAlgorithm(vector<int> cardNumber) {
 }
 
 int main() {
-    vector<int> cardNumber = {4,3,2,1,8,7,6,5,4,3,2,1,8,7,6,5};
+    vector<int> cardNumber = {4, 5, 3, 0, 8, 7, 1, 6, 2, 0, 9, 9, 8, 5, 5, 6};
     cout << luhnAlgorithm(cardNumber) << endl;
     return 0;
 }
