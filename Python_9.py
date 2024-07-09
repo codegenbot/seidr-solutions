@@ -1,15 +1,10 @@
 ```
-def calculate_total_expenses(expenses):
-    """
-    Calculate total expenses.
-    
-    Args:
-        expenses (list): A list of tuples, where each tuple contains the category and amount of expenses.
-        
-    Returns:
-        float: The total amount of expenses.
-    """
-    total = 0
-    for expense in expenses:
-        total += expense[1]
-    return total
+def calculate_discounted_price(price, discount_rate):
+    return price * (1 - discount_rate / 100)
+
+# Get price and discount rate from user
+price = float(input("Enter the original price of the item: "))
+discount_rate = int(input("Enter the percentage of the discount (e.g., 20 for 20%): "))
+
+# Calculate and display the discounted price
+print(f"The discounted price is {calculate_discounted_price(price, discount_rate)}")
