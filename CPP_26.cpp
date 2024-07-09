@@ -3,6 +3,7 @@
 #include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() == 0 && b.size() == 0) return true;
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -33,10 +34,11 @@ int main() {
     std::cin >> n;
     
     std::vector<int> numbers;
-    numbers.reserve(n); 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> numbers.push_back(i);
+        int num;
+        std::cin >> num;
+        numbers.push_back(num);
     }
     
     std::vector<int> uniqueNumbers = removeDuplicates(numbers);
