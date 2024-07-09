@@ -1,6 +1,13 @@
-#include <algorithm>
+#include <vector>
+#include <cmath>
+#include <cassert>
 
-int main() {
-    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    return *std::max_element(l.begin(), l.end());
+float max_element(std::vector<float> l){
+    float max = l[0];
+    for (int i = 1; i < l.size(); i++) {
+        if (l[i] > max) {
+            max = l[i];
+        }
+    }
+    return max;
 }

@@ -5,7 +5,7 @@ int car_race_collision(int n) {
     int collisions = 0;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
-            if (i + j > n && i != j) {
+            if (i + j > n * 2 && i != j) {
                 collisions++;
             }
         }
@@ -19,4 +19,5 @@ int main() {
     printf("Enter the number of cars: ");
     scanf("%d", &n);
     printf("Number of collisions: %d\n", car_race_collision(n));
+    return 0;
 }
