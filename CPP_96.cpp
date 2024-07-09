@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 using namespace std;
 
@@ -19,4 +18,10 @@ vector<int> count_upto(int n) {
         }
     }
     return primes;
+
+}
+
+vector<int> result = count_upto(101);
+for (int i : result) {
+    cout << i << " ";
 }
