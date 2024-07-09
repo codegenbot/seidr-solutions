@@ -1,24 +1,21 @@
-Here is the completed code:
+```cpp
+int digitCount = 0;
+bool foundDot = false;
 
-string file_name_check(string file_name) {
-    int count = 0;
-    bool foundDot = false;
-    for (int i = 0; i < file_name.length(); i++) {
-        if (isdigit(file_name[i])) {
-            count++;
-        } else if (file_name[i] == '.') {
-            foundDot = true;
-        } else if (!foundDot && !isalpha(file_name[i])) {
-            return "No";
-        }
+for(char c : file_name){
+    if(c == '.'){
+        foundDot = true;
+    } else if(isdigit(c)){
+        digitCount++;
     }
-    if (count > 3 || !foundDot) {
-        return "No";
-    }
-    size_t pos = file_name.find('.');
-    string ext = file_name.substr(pos + 1);
-    if (ext != "txt" && ext != "exe" && ext != "dll") {
-        return "No";
-    }
-    return "Yes";
 }
+
+if(digitCount > 3 || !foundDot) return "No";
+else if(file_name.find('.') != string::npos && file_name.substr(0, file_name.find('.')).find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos){
+    string extension = file_name.substr(file_name.find('.'), file_name.size()).substr(1);
+    string validExtensions[] = {"txt", "exe", "dll"};
+    for(string s : validExtensions){
+        if(s == extension) return "Yes";
+    }
+}
+return "No";
