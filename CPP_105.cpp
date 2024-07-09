@@ -18,7 +18,12 @@ vector<string> by_length(vector<int> arr) {
 }
 
 bool issame(vector<string> a) {
-    vector<int> arr = {1, 2, 3};
-    vector<string> b = by_length(arr);
-    return a == b;
+    vector<int> nums = {1, 2, 3};
+    vector<string> result = by_length(nums);
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != result[i]) {
+            return false;
+        }
+    }
+    return true;
 }
