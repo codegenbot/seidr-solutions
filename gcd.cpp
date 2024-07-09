@@ -1,4 +1,3 @@
-```cpp
 int main() {
     int a, b;
     std::cout << "Enter two integers: ";
