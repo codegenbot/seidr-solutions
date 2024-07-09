@@ -1,20 +1,24 @@
+```
 #include <iostream>
 #include <iomanip>
 
 using namespace std;
 
-float snowDay(int hours, float onGround, float rate, float melt) {
-    return onGround + (rate * hours - melt * hours);
+float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
+    float totalSnow = initialSnow;
+    
+    for (int i = 0; i < hours; i++) {
+        totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
+    }
+    
+    return totalSnow;
 }
 
 int main() {
-    int h;
-    cin >> h;
-    float s, r, m;
-    cin >> s >> r >> m;
-    ios_base::fmtflags flags = cout.flags();
-    cout << fixed << setprecision(10);
-    cout << snowDay(h, s, r, m) << endl;
-    cout.flags(flags);  // restore original format
+    int hours;
+    cin >> hours;
+    float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
+    cin >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
+    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
     return 0;
 }

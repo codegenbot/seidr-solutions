@@ -1,15 +1,13 @@
-def solve_boolean(boolean_expression):
-    if boolean_expression == 'T':
+def solve_boolean(expression):
+    if expression.strip() in ["T", "t"]:
         return True
-    elif boolean_expression == 'F':
+    elif expression.strip() in ["F", "f"]:
         return False
-    elif '&' in boolean_expression and '|' in boolean_expression:
-        raise ValueError("Invalid expression")
-    elif '&' in boolean_expression:
-        left, right = boolean_expression.split('&')
-        return not (bool(left) and bool(right))
-    elif '|' in boolean_expression:
-        left, right = boolean_expression.split('|')
-        return bool(left) or (bool(right) == False)
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return solve_boolean(left) and solve_boolean(right)
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return solve_boolean(left) or solve_boolean(right)
     else:
-        raise ValueError("Invalid expression")
+        raise ValueError("Invalid input")
