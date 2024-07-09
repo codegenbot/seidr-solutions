@@ -3,35 +3,30 @@ using namespace std;
 
 string camelCase(string s) {
     string result = "";
-    bool upperCaseNext = false;
-
-    for (char c : s) {
-        if (c == '-') {
-            result += ' ';
-            continue;
-        }
-
-        if (c == ' ') {
-            upperCaseNext = true;
-            continue;
-        }
-
-        if (!upperCaseNext) {
-            result += tolower(c);
-        } else {
-            result += toupper(c);
-            upperCaseNext = false;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] != ' ') {
+                result += toupper(s[i]);
+                i++;
+            }
+            result += " ";
+        } else if (s[i] != ' ') {
+            result += tolower(s[i]);
         }
     }
-
-    cout << result << endl;
     return result;
 }
 
-int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    camelCase(str);
-    return 0;
+string s; 
+char c;
+while ((c = cin.get()) && c != '\n') {
+    if (c == '-') {
+        getline(cin, s);
+        s += " ";
+    } else {
+        s += c;
+    }
 }
+cout << camelCase(s) << endl;
+return 0;
