@@ -18,8 +18,10 @@ vector<int> sort_third(vector<int> l) {
                 sort(result.begin() + groupCount - (groupCount % 3), result.begin() + groupCount);
                 vector<int> temp = result;
                 result.clear(); 
-                result.resize(temp.size());
-                std::copy(temp.rbegin(), temp.rend(), result.begin());
+                l.reserve(l.size()); 
+                for (int j = temp.size() - 1; j >= 0; j--) {
+                    result.push_back(temp[j]);
+                }
             }
         } else {
             result.push_back(i);
