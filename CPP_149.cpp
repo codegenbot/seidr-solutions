@@ -36,17 +36,12 @@ int main_entry() {
     std::cin >> n;
     
     std::vector<std::string> inputStrings; 
-    std::string str1;
-    std::cout << "Enter string 1: ";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-    std::getline(std::cin, str1);
-    inputStrings.push_back(str1);
-
-    for(int i = 2; i <= n; i++) {
+    for(int i = 0; i < n; i++) {
         std::string str;
-        std::cout << "Enter string " << i << ": ";
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-        std::getline(std::cin, str);
+        std::cout << "Enter string " << (i+1) << ": ";
+        std::string temp;
+        std::getline(std::cin, temp); // read the whole line first
+        str = temp; // then store it in your string variable
         inputStrings.push_back(str);
     }
     
