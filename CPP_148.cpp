@@ -33,13 +33,6 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     return result;
 }
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
-int main() {
-    std::string planet1, planet2;
-    std::cin >> planet1 >> planet2;
-    std::cout << "Output: " << bf(planet1, planet2).size() << std::endl;
-    return 0;
+bool isSame(const std::vector<std::string>& a, const std::string& b) {
+    return a.empty() || (a.size() == 1 && a[0] == b);
 }
