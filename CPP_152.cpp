@@ -1,12 +1,9 @@
-```
+```cpp
 #include <vector>
 #include <algorithm>
 
 bool issame(int a, int b) {
-    if (a == b) {
-        return true;
-    }
-    return false;
+    return (a == b);
 }
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
@@ -14,10 +11,12 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
         if (issame(game[i], guess[i])) {
             result.push_back(0);
-        } else if (game[i] > guess[i]) {
-            result.push_back(1);
         } else {
-            result.push_back(-1);
+            int diff = abs(game[i] - guess[i]);
+            if (game[i] > guess[i]) {
+                diff++;
+            }
+            result.push_back(diff);
         }
     }
     return result;
