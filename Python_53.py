@@ -1,4 +1,5 @@
 import sys
+
 def add(numbers):
     return sum(numbers)
 
