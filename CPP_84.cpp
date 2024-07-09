@@ -1,4 +1,4 @@
-#include <string>
+#include <bits/stdc++.h>
 
 string solve(int N) {
     int sum = 0;
