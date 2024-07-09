@@ -9,7 +9,7 @@ double snowDay(int hours, float groundSnow, float rateFall, float meltRate) {
         groundSnow += rateFall;
         groundSnow -= groundSnow * meltRate;
     }
-    return groundSnow;
+    return round(groundSnow * 100.0) / 100.0;
 }
 
 int main() {
