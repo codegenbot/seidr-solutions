@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <set>
-#include <vector>
 
 using namespace std;
 
@@ -15,10 +13,7 @@ int main() {
     cout << "Enter the first 7 numbers: ";
     cin >> n1 >> n2 >> n3 >> n4 >> n5 >> n6 >> n7;
 
-    vector<int> v;
-    for (int i : {n1, n2, n3, n4, n5, n6, n7}) v.push_back(i);
-
-    bool result = isSame(set<int>({n1, n2, n3}), set<int>(v.begin() + 3, v.end()));
+    bool result = isSame(set<int>({n1,n2,n3}), set<int>({n1,n2,n3,n4}));
     if(result) {
         cout << "The sets are same." << endl;
     } else {
