@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <initializer_list>
 
@@ -32,7 +33,7 @@ int get_odd_collatz(int n) {
     std::cout << std::endl;
 }
 
-int mainOld() {
+int main() {
     int num;
     std::cin >> num;
     get_odd_collatz(num);
