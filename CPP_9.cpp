@@ -3,9 +3,13 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b){
-    if(a.size()!=b.size()) return false;
+    if(a.size() != b.size()){
+        return false;
+    }
     for(int i=0; i<a.size(); i++){
-        if(a[i]!=b[i]) return false;
+        if(a[i] != b[i]){
+            return false;
+        }
     }
     return true;
 }
@@ -13,8 +17,10 @@ bool issame(vector<int> a, vector<int> b){
 vector<int> rolling_max(vector<int> numbers);
 
 int main(){
-    vector<int> result = rolling_max({3, 2, 3, 100, 3});
-    assert(issame(result, {3, 3, 3, 100, 100}));
+    vector<int> input = {3, 2, 3, 100, 3};
+    vector<int> expected_output = {3, 3, 3, 100, 100};
+    vector<int> result = rolling_max(input);
+    assert(issame(result, expected_output));
     return 0;
 }
 
