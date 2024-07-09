@@ -4,27 +4,21 @@ int count_nums(vector<int> nums) {
         if (num >= 0) {
             int sum = 0;
             int temp = num;
-            while (temp != 0) {
-                int digit = temp % 10;
-                sum += digit;
+            while (temp > 0) {
+                sum += temp % 10;
                 temp /= 10;
             }
             if (sum > 0) {
                 count++;
             }
         } else {
-            int sum = 0;
+            int sum = 0, sign = 1;
             int temp = -num;
-            bool isNegative = true;
-            while (temp != 0) {
-                int digit = temp % 10;
-                if (isNegative && digit == 5) {
-                    break;
-                }
-                sum += digit;
+            while (temp > 0) {
+                sum += abs(temp % 10);
                 temp /= 10;
             }
-            if (sum > 0) {
+            if (sign * sum > 0) {
                 count++;
             }
         }
