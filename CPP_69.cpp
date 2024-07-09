@@ -1,6 +1,9 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <map>
+
+int search(std::vector<int> lst); // Function declaration
 
 int main() {
     int n;
@@ -23,8 +26,8 @@ int main() {
     return 0;
 }
 
-int search(vector<int> lst) {
-    map<int, int> freq;
+int search(std::vector<int> lst) {
+    std::map<int, int> freq;
     for (int num : lst) {
         if (freq.find(num) == freq.end()) {
             freq[num] = 1;
