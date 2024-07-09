@@ -8,10 +8,12 @@ bool has_close_elements(vector<float> a, float tol) {
     for (int i = 0; i < a.size() - 1; i++) {
         for (int j = i + 1; j < a.size(); j++) {
             if (abs(a[i] - a[j]) <= tol) {
+                cout << "Warning: Close elements detected!" << endl;
                 return true;
             }
         }
     }
+    cout << "No close elements found." << endl;
     return false;
 }
 
