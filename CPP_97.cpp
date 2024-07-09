@@ -1,5 +1,5 @@
 #include <cmath>
 
 int multiply(int a, int b){
-    return abs((a % 10) * (b % 10));
+    return std::abs((a % 10) * (b % 10));
 }
