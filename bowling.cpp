@@ -1,7 +1,9 @@
+Here is the modified code:
+
 ```cpp
 #include <string>
 int getBonus(int a, int b);
-#include <cctype>
+#include <string>
 
 int bowlingScore(std::string s) {
     int score = 0;
