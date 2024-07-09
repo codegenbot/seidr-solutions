@@ -1,15 +1,17 @@
-#include <vector>
-#include <string>
-#include <sstream>
-
 vector<string> words_string(string s){
     vector<string> words;
-    stringstream ss(s);
-    string word;
-    while (getline(ss, word, ' ')) {
-        size_t pos = word.find(',');
-        if (pos != string::npos)
-            word.erase(pos, 1);
+    string word = "";
+    for(char c : s){
+        if(c == ' ' || c == ','){
+            if(word != ""){
+                words.push_back(word);
+                word = "";
+            }
+        } else {
+            word += c;
+        }
+    }
+    if(word != ""){
         words.push_back(word);
     }
     return words;
