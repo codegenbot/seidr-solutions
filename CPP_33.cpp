@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -24,6 +23,7 @@ vector<int> sort_third(vector<int> l) {
         }
     }
     return result;
+
 }
 
 int main() {
