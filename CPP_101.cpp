@@ -24,11 +24,11 @@ std::vector<std::string> words_string(std::string s){
             word += s[i];
         }
     }
-    if(word.size() <= 30)  
+    if(word.size() <= 30) 
         result.push_back(word);
     return result;
 }
 
 int main(){
-    assert(issame(words_string("ahmed     , gamal"), std::vector<std::string>{"ahmed", "gamal"}));
-    //return 0;
+    assert (issame(words_string("ahmed     , gamal") , std::vector<std::string> {"ahmed", "gamal"}));
+}
