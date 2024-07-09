@@ -28,17 +28,8 @@ bool has_close_elements(std::vector<std::vector<float>> numbers, float tol) {
 
 int main() {
     std::vector<std::vector<float>> numbers;
-    numbers.resize(7);
     for (int i = 0; i < 7; i++) {
-        numbers[i].resize(2);
-        if (i == 0) numbers[i][0] = (float)i;
-        else if (i == 1) numbers[i][0] = (float)(i-1);
-        else if (i == 2) numbers[i][0] = 2.0f;
-        else if (i == 3) numbers[i][0] = 4.0f;
-        else if (i == 4) numbers[i][0] = 5.0f;
-        else if (i == 5) numbers[i][0] = 2.2f;
-        else numbers[i][0] = 0.0f;
-        numbers[i][1] = 0.0f;
+        numbers.push_back({(float)i});
     }
     assert(has_close_elements(numbers, 0.5) == false);
     
