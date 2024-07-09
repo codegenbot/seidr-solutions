@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <algorithm>
 
 // Define issame function here...
 bool issame(vector<string> a, vector<string> b) {
@@ -41,4 +40,3 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
-}
