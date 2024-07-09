@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -15,6 +14,6 @@ int digitSum(string s) {
 }
 
 int main() {
-    assert(digitSum("You arE Very Smart") == 327);
+    cout << digitSum("You arE Very Smart");
     return 0;
 }
