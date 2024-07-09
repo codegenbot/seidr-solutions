@@ -6,8 +6,13 @@ def string_to_md5(text):
         return hashlib.md5(text.encode()).hexdigest()
 
 
-text = input("Enter a string: ").strip()
-while not text:
-    text = input("Please provide a string: ").strip()
-
-print(string_to_md5(text))
+while True:
+    try:
+        text = input("Enter a string: ")
+        if text:
+            print(string_to_md5(text))
+            break
+        else:
+            print("Please provide a string.")
+    except EOFError:
+        print("No input provided.")
