@@ -1,17 +1,5 @@
-```cpp
-#include <sstream>
-#include <vector>
-#include <utility>
-#include <cmath>
-
-struct pair {
-    char first;
-    int second;
-
-    pair(char x, int y) : first(x), second(y) {}
-};
-
-int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
+```
+int do_algebra(std::vector<pair> operators_and_operands) {
     if (operators_and_operands.size() == 0) {
         return 0;
     }
@@ -39,10 +27,37 @@ int main() {
     std::string str = "++7*3+4";
     std::istringstream iss(str);
     
-    char op;
+    char op = '+';
     int operand = 0; // initialize operand variable
-    std::vector<std::pair<char, int>> operators_and_operands;
-    while (iss >> op >> operand) {
+    std::vector<pair> operators_and_operands;
+    std::string token;
+    while (iss >> token) {
+        if (!token.empty()) {
+            if (op != '+') {
+                operators_and_operands.push_back({op, operand});
+                op = '+';
+                operand = 0;
+            }
+            if (token[0] == '+') {
+                op = '+';
+                operand = std::stoi(token.substr(1));
+            } else if (token[0] == '-') {
+                op = '-';
+                operand = std::stoi(token.substr(1));
+            } else if (token[0] == '*') {
+                op = '*';
+                operand = std::stoi(token.substr(1));
+            } else if (token[0] == '/') {
+                op = '/';
+                operand = std::stoi(token.substr(1));
+            } else if (token[0] == '^') {
+                op = '^';
+                operand = std::stoi(token.substr(1));
+            }
+        }
+    }
+    // add the last operator and operand to vector
+    if (op != '+') {
         operators_and_operands.push_back({op, operand});
     }
     
