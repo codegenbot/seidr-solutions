@@ -1,3 +1,5 @@
+```cpp
+#include <iostream>
 #include <string>
 
 string fix_spaces(string text){
