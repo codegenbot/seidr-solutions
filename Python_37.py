@@ -1,5 +1,13 @@
-def sort_even(l: list):
-    return [
-        i if j % 2 != 0 else sorted([x for x in l[:min(j+1, len(l)) if (j - i) % 2 == 0])[::-1][i % 2]
-        for i, j in enumerate(l)
-    ]
+```
+def sort_even(l):
+    result = []
+    for i in range(min(len(l), len(l))):
+        if l[i] % 2 == 0:
+            temp = sorted([x for x in l if x % 2 == 0])[::-1]
+            for j, k in enumerate(temp):
+                if k <= l[i]:
+                    result.append(k)
+                    break
+        else:
+            result.append(l[i])
+    return result
