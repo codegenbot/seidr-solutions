@@ -1,17 +1,15 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 
-bool issame(vector<std::string> a, vector<std::string> b) {
-    if (b.empty()) {
-        return a.empty();
-    }
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::string> result;
-    for (int i : arr) {
+std::vector<std::string> by_length(std::initializer_list<int> il) {
+    vector<string> result;
+    for (int i : il) {
         switch (i) {
             case 1: result.push_back("One"); break;
             case 2: result.push_back("Two"); break;
@@ -24,11 +22,11 @@ std::vector<std::string> by_length(std::vector<int> arr) {
             case 9: result.push_back("Nine"); break;
         }
     }
-    std::sort(result.begin(), result.end());
-    std::reverse(result.begin(), result.end());
+    sort(result.begin(), result.end());
+    reverse(result.begin(), result.end());
     return result;
 }
 
-int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+int main_test() {
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
 }
