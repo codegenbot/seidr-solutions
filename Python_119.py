@@ -9,10 +9,10 @@ def match_parens(lst):
         elif s[0] == ')':
             close_count += 1
             
-        if s[1:] != s[:1]:
+        if len(s) != 2 or s[1] != s[0]:
             return 'No'
             
-    if open_count == close_count:
+    if open_count == close_count and open_count > 0:
         return 'Yes'
     else:
         return 'No'
