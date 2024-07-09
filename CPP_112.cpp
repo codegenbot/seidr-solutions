@@ -42,3 +42,4 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         result.push_back("False");
     }
     return result;
+}
