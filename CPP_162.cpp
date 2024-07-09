@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <openssl/evp.h>
 #include <openssl/hmac.h>
+#include <openssl/md5.h>
 
 using namespace std;
 
@@ -16,7 +17,6 @@ string string_to_md5(string text) {
     EVP_MD_CTX_init(&md);
     unsigned char result[MD5_DIGEST_LENGTH];
 
-    EVP_DigestInit_ex(&md, EVP_md5(), NULL);
     EVP_DigestUpdate(&md, (unsigned char*)text.c_str(), text.size());
     unsigned char *digest = (unsigned char *)OPENSSL_malloc(MD5_DIGEST_LENGTH);
     EVP_DigestFinal_CTX(&md, digest, NULL);
