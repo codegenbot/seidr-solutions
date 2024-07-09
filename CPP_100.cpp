@@ -1,10 +1,8 @@
-```
-#include <initializer_list>
-
 #include <vector>
 #include <cassert>
+#include <initializer_list>
 
-bool compare_vectors(std::vector<int> a, std::vector<int> b) {
+bool compareVectors(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -19,6 +17,6 @@ std::vector<int> make_a_pile(int n, std::vector<int> pile = {}) {
     return pile;
 }
 
-int main_tester() {
-    assert(compare_vectors(make_a_pile(8), {8,10,12,14,16,18,20,22}));
+int main() {
+    assert(compareVectors(make_a_pile(8), {8,10,12,14,16,18,20,22}));
 }
