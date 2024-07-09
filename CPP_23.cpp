@@ -1,12 +1,14 @@
 #include <cassert>
 #include <string>
-#include <cstring>
 
 int my_strlen(string str){
     return str.length();
 }
 
-int main() {
-    assert(my_strlen("asdasnakj") == 12); 
+int main1() {
+    assert(my_strlen("asdasnakj") == 11); 
     return 0;
+}
+
+int main2() {
 }
