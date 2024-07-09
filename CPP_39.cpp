@@ -24,27 +24,25 @@ int prime_fib(int n) {
     }
 }
 
-int main() {
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
+std::cout << "Enter a number: ";
+int n;
+std::cin >> n;
 
-    if (!(n >= 1 && n <= 9)) { 
-        std::cout << "-1" << std::endl; 
+if (!(n >= 1 && n <= 9)) { 
+    std::cout << "-1" << std::endl; 
+} else {
+    int num = n; // store n as an integer
+    int result = prime_fib(num);
+    std::string suffix;
+    if (num == 1) {
+        suffix = "st";
+    } else if (num == 2) {
+        suffix = "nd";
+    } else if (num == 3) {
+        suffix = "rd";
     } else {
-        int num = n; // store n as an integer
-        int result = prime_fib(num);
-        std::string suffix;
-        if (num == 1) {
-            suffix = "st";
-        } else if (num == 2) {
-            suffix = "nd";
-        } else if (num == 3) {
-            suffix = "rd";
-        } else {
-            suffix = "th";
-        }
-        std::cout << "The " << result << suffix << " prime Fibonacci number is: ";
-        std::cout << result << std::endl;
+        suffix = "th";
     }
+    std::cout << "The " << result << suffix << " prime Fibonacci number is: ";
+    std::cout << result << std::endl;
 }
