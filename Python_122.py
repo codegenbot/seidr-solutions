@@ -1,2 +1,2 @@
-def add_elements(arr, k=None):
-    return sum(num for num in arr[: k if k else len(arr)] if 10 <= num < 100)
+def add_elements(arr, k):
+    return sum(x for x in arr[:k+1] if 10 <= x <= 99)
