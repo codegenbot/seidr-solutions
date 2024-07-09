@@ -4,4 +4,4 @@ m = int(input())
 discounts = list(map(float, input().split()))
 
 total_price = sum([(1 - discounts[i] / 100) * prices[i] for i in range(n)])
-print(total_price)
+print(round(total_price, 2))
