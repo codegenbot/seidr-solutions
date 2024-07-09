@@ -1,9 +1,9 @@
-from sys import stdin
 def add(x, y):
     return x + y
 
 try:
-    x, y = map(int, stdin.readline().split())
+    input_str = input("Enter two integers separated by space: ")
+    x, y = map(int, input_str.split())
 
     result = add(x, y)
     print(result)
