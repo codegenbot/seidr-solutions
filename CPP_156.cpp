@@ -1,3 +1,5 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -21,7 +23,15 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    int n; cin >> n;
-    cout << int_to_mini_roman(n);
+    int num;
+    cout << "Enter a positive integer: ";
+    cin >> num;
+
+    if(num < 1){
+        cout << "Invalid input. Please enter a positive integer."<<endl;
+    }else{
+        cout << "The mini Roman representation of the number is: " << int_to_mini_roman(num) << endl;
+    }
+
     return 0;
 }
