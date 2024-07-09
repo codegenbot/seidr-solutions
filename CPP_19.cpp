@@ -1,32 +1,14 @@
-map<string, int> number_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
-
-string sort_numbers(string numbers){
-    map<int, string> sorted_numbers;
-    string result;
-    
-    size_t pos = 0;
-    while ((pos = numbers.find(" ")) != string::npos) {
-        string num_str = numbers.substr(0, pos);
-        sorted_numbers[number_map[num_str]] = num_str;
-        numbers.erase(0, pos + 1);
-    }
-    sorted_numbers[number_map[numbers]] = numbers;
-    
-    for (const auto& pair : sorted_numbers) {
-        result += pair.second + " ";
-    }
-    
-    result.pop_back(); // Remove the extra space at the end
-    return result;
+map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
+map<int, string> rev_num_map;
+for (auto const &pair : num_map) {
+    rev_num_map[pair.second] = pair.first;
 }
+
+string result;
+for (int i = 0; i <= 9; ++i) {
+    if (numbers.find(rev_num_map[i]) != string::npos) {
+        result += rev_num_map[i] + " ";
+    }
+}
+
+return result;
