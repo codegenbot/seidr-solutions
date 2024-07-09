@@ -1,10 +1,11 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 #include <sstream>
 #include <openssl/md5.h>
 
 using namespace std;
+
+const int MD5_DIGEST_LENGTH = 16;
 
 string string_to_md5(string text) {
     if (text.empty()) return "None";
