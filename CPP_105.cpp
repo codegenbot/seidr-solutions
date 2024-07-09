@@ -8,9 +8,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
             temp.push_back(i);
         }
     }
-    
+
     sort(temp.begin(), temp.end());
-    
+
     std::vector<std::string> result;
     for (int i : temp) {
         string s = "";
@@ -45,8 +45,8 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
         result.push_back(s);
     }
-    
+
     reverse(result.begin(), result.end());
-    
+
     return result;
 }
