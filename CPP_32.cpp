@@ -1,12 +1,19 @@
-double poly(vector<double> xs, int n){
-    double sum = xs[0];
-    for(int i = 1; i < n; i++){
-        sum += xs[i] * pow(-1, i) / fact(i);
+#include <iostream>
+#include <pmr/vector>
+
+double poly(std::pmr::vector<double> xs, double x) {
+    double res = 0;
+    for (int i = 0; i <= xs.size() - 1; i++) {
+        res += xs[i] * pow(x, xs.size() - 1 - i);
     }
-    return sum;
+    return res;
 }
 
-int fact(int n){
-    if(n > 1) return n * fact(n-1);
-    else return 1;
+double find_zero(std::pmr::vector<double> coeffs) {
+    int n = coeffs.size();
+    if (n % 2 != 0)
+        return -1;
+
+    double root = -coeffs[1]/(2*coeffs[0]); 
+    return std::round(root);
 }
