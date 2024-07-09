@@ -1,15 +1,13 @@
-#include <vector>
+```
 #include <algorithm>
+#include <vector>
 
-bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
-        return false;
+bool issame(int i, int j) {
+    // Your logic here
 }
 
-std::vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result;
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::vector<int> result;
     for (int i = 0; i < k; i++) {
         auto it = std::max_element(arr.begin(), arr.end());
         result.push_back(*it);
