@@ -1,7 +1,8 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <set>
 
-bool same(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -10,8 +11,20 @@ bool same(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
-    std::set<int> uniqueNumbers(numbers.begin(), numbers.end());
-    return std::vector<int>(uniqueNumbers.begin(), uniqueNumbers.end());
+    std::vector<int> uniqueNumbers;
+    for (int num : numbers) {
+        bool found = false;
+        for (int i = 0; i < uniqueNumbers.size(); i++) {
+            if (uniqueNumbers[i] == num) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            uniqueNumbers.push_back(num);
+        }
+    }
+    return uniqueNumbers;
 }
 
 int main() {
@@ -19,25 +32,24 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     
-    using namespace std;
-    vector<int> numbers(n);
+    std::vector<int> numbers(n);
     for (int i = 0; i < n; i++) {
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> numbers[i];
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> numbers[i];
     }
     
-    vector<int> uniqueNumbers = removeDuplicates(numbers);
+    std::vector<int> uniqueNumbers = removeDuplicates(numbers);
     
-    if (!same(numbers, uniqueNumbers)) {
-        cout << "Unique numbers: ";
+    if (!issame(numbers, uniqueNumbers)) {
+        std::cout << "Unique numbers: ";
         for (int num : uniqueNumbers) {
-            cout << num << " ";
+            std::cout << num << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     } else {
-        cout << "All elements are duplicates." << endl;
+        std::cout << "All elements are duplicates." << std::endl;
     }
     
-    assert(same(removeDuplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
+    assert(issame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
     return 0;
 }
