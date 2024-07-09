@@ -24,17 +24,12 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
-    std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAffAA", "xxx"};
+    std::vector<std::string> input = {"xxx", "asd", "xxy", "john doe", "xxxAffAA", "xxx"};
     std::string prefix = "xxx";
     
-    std::vector<std::string> filteredStrings = filter_by_prefix(strings, prefix);
-    bool result = issame(filteredStrings, {"xxx", "xxxAAA", "xxx"});
+    std::vector<std::string> filtered = filter_by_prefix(input, prefix);
     
-    if(result) {
-        std::cout << "The strings are the same." << std::endl;
-    } else {
-        std::cout << "The strings are not the same." << std::endl;
-    }
+    assert(issame(filtered , {"xxx", "xxxAAA", "xxx"}));
     
     return 0;
 }
