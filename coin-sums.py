@@ -10,5 +10,4 @@ def coin_sums():
 
     return output
 
-
 print(*coin_sums(), sep="\n")
