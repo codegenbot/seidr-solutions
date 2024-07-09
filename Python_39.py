@@ -11,16 +11,16 @@ def prime_fib(n: int):
         return 2
     if n == 2:
         return 3
-    
+
     fib = [1, 1]
     while len(fib) < n:
         fib.append(fib[-1] + fib[-2])
-    
+
     prime_fib_num = 0
     num = fib[-1]
     while prime_fib_num < n:
         num += 1
         if is_prime(num):
             prime_fib_num += 1
-            
+
     return num
