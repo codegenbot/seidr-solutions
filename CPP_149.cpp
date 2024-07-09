@@ -1,4 +1,8 @@
-```c++
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <initializer_list>
+
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -27,6 +31,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
              }
          });
     return result;
+
 }
 
 int main() {

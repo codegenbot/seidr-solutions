@@ -2,17 +2,18 @@
 #include <iostream>
 #include <string>
 
-std::string anti_shuffle(std::string& s) {
-    std::string res = "";
-    res += s;
-    res.pop_back();
+string anti_shuffle(string& s) {
+    string res = "";
+    for (int i = 0; i < s.length(); i++) {
+        res += static_cast<char>(s[i]); 
+    }
     return res;
 }
 
 int main() {
-    std::string input_string;
-    std::cout << "Enter a string: ";
-    std::cin >> input_string;
-    std::cout << "Anti-shuffled string: " << anti_shuffle(input_string) << std::endl;
+    string input_string;
+    cout << "Enter a string: ";
+    cin >> input_string;
+    cout << "Anti-shuffled string: " << anti_shuffle(input_string) << endl;
     return 0;
 }
