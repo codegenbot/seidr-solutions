@@ -2,11 +2,14 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    std::vector<int> unique_digits = {1, 2, 3, 4, 5};
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return std::is_permutation(a.begin(), a.end(), b.begin());
 }
 
-int main(){
-    assert(issame({1, 2, 3, 4, 5}, {1, 2, 3, 4, 5}));
+int main() {
+    std::vector<int> digits = {135, 103, 31};
+
+    assert(issame(digits, {31, 135}));
+
+    return 0;
 }
