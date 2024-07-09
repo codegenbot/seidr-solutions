@@ -27,6 +27,7 @@ int main() {
     string text;
     string target;
     cin >> text;
+    cin >> target;
 
     vector<int> result = findIndices(text, target);
     for(int i : result) cout << i << " ";
