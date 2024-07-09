@@ -24,8 +24,5 @@ vector<string> sorted_list_sum(vector<string> lst) {
         return true;
     }
 
-    // Use the issame function to compare the input list with the result
-    // You might want to check some condition before calling this function
-
     return result;
 }
