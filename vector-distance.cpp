@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <cmath>
 #include <iostream>
 
 using namespace std;
@@ -7,6 +9,7 @@ double vectorDistance(int n) {
     float v1[n];
     float v2[n];
 
+    // Read input vectors
     for (int i = 0; i < n; i++) {
         cin >> v1[i] >> v2[i];
     }
