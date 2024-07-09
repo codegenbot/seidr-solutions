@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```python
+```Python
 from decimal import Decimal, getcontext
 
 def snow_day():
