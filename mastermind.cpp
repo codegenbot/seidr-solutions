@@ -6,15 +6,16 @@ int mastermind(std::string code, std::string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
 
-    for(int i=0; i<4; i++) {
-        if(guess.at(i) == code.at(i)) { 
+    for(size_t j = 0; j < 4; j++) {
+        if(code[j] == guess[j]) {
             blackPegs++;
         } else {
-            for(size_t j=0; j<4; j++) {
-                if(guess.at(j) == code[i]) {
-                    if(i==j) blackPegs++; 
+            bool found = false;
+            for(size_t k = 0; k < 4; k++) {
+                if(code[k] == guess[j] && !found) {
+                    if(k==j) blackPegs++; 
                     else whitePegs++;      
-                    break;
+                    found = true;
                 }
             }
         }
