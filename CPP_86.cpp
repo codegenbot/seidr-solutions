@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 
 string join(const vector<string>& vec, const string& sep) {
     string result;
