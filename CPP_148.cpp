@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
@@ -11,6 +12,7 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
     std::vector<std::string> result;
     
     int start = -1, end = -1;
+    
     for (int i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
             start = i;
@@ -35,6 +37,7 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
 }
 
 int main() {
-    // Add test cases or function calls here
+    assert(issame(bf("Jupiter", "Makemake"), {}));  
+    
     return 0;
 }
