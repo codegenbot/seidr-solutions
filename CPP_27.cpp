@@ -1,8 +1,7 @@
+#include <cctype>
 #include <cassert>
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+
+int flip_case(const std::string& input) {
     std::string output;
     for (char c : input) {
         if (isupper(c)) {
@@ -13,5 +12,11 @@ int main() {
             output += c;
         }
     }
+    return 0;
+}
+
+int main() {
+    std::string output = flip_case("These violent delights have violent ends");
     assert(output == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
 }
