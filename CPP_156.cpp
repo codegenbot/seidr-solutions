@@ -8,7 +8,7 @@ std::pair<int, std::string> romanMap[] = {{1000, "M"}, {900, "CM"}, {500, "D"},
                                            {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
 
 std::string int_to_roman(int number) {
-    std::string roman = ""; 
+    std::string roman = ""; // Initialize the string
     for (const auto& pair : romanMap) {
         while (number >= pair.first) {
             number -= pair.first;
