@@ -1,18 +1,18 @@
+Here is the solution:
+
+```cpp
 string fix_spaces(string text){
     string result = "";
-    bool prevSpace = false;
-
-    for(char c : text){
-        if(c == ' '){
-            if(!prevSpace || !result.empty()){
-                result += (prevSpace) ? "-" : "_";
+    for(int i=0; i<text.length(); i++){
+        if(text[i] == ' '){
+            if(i < text.length() - 1 && text[i+1] == ' '){
+                if(result.length() > 0 || i > 0) result += '-';
+                continue;
             }
-            prevSpace = true;
+            if(result.length() > 0 || i > 0) result += '_';
         }else{
-            result += c;
-            prevSpace = false;
+            result += text[i];
         }
     }
-
     return result;
 }
