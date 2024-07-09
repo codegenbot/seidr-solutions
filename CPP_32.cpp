@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <iostream> 
@@ -43,4 +42,3 @@ double poly(vector<double> coeffs, double solution) {
         result += coeffs[i] * pow(solution, i);
     }
     return result;
-}
