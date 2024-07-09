@@ -26,7 +26,9 @@ int main() {
         if(output.empty()) {
             std::cout << "Error: Input contains a number greater than or equal to 100." << std::endl;
         } else {
-            std::cout << "Squared digits: " << output << std::endl;
+            if (!output.empty()) {
+                std::cout << "Squared digits: " << output << std::endl;
+            }
         }
     }
     return 0;
