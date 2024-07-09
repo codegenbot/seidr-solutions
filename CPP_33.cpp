@@ -13,8 +13,9 @@ vector<int> sort_third(vector<int> l) {
             result.push_back(i);
         } else {
             if(result.empty()) {
-                result.reserve(l.size());
-            }
+                result.resize((i >= 3 ? i % 3 : groupCount < l.size()));
+            } else if (!result.empty() && l.size() > result.size())
+                result.resize((i >= 3 ? i % 3 : groupCount < l.size()));
             result.push_back(i);
             groupCount++;
         }
