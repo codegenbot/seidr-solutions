@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <map>
 #include <string>
 
 using namespace std;
 
-bool dictionaryCheck(map<string,string> dict){
+bool caseCheck(map<string,string> dict){
     if(dict.empty()) return false;
     
     string first_key = dict.begin()->first;
@@ -28,7 +27,7 @@ int main() {
         cin >> value;
         dictionary[input] = value;
     }
-    if(dictionaryCheck(dictionary)) {
+    if(caseCheck(dictionary)) {
         cout << "All keys in the same case.\n";
     } else {
         cout << "Keys have mixed case.\n";
