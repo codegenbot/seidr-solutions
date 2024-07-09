@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 using namespace std;
 
@@ -27,3 +26,4 @@ int main() {
         cout << "The string is not nested." << endl;
     }
     return 0;
+}
