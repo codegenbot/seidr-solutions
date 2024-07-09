@@ -1,15 +1,5 @@
-```cpp
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Werror"
-#include <initializer_list>
-#pragma GCC diagnostic pop
-
-#include <vector>
-#include <string>
-using namespace std;
-
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+    std::vector<int> result;
     int n = text.length();
     int m = target.length();
 
@@ -31,11 +21,10 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text = "hello world";
-    string target = "world";
-    vector<int> result = indicesOfSubstring(text, target);
+    std::string text = "hello world";
+    std::string target = "world";
+    std::vector<int> result = indicesOfSubstring(text, target);
     for (int i : result) {
-        cout << i << endl;
+        std::cout << i << std::endl;
     }
     return 0;
-}
