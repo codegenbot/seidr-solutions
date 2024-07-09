@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 #include <initializer_list>
 using namespace std;
