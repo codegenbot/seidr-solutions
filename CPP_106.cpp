@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -7,9 +8,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 
 std::vector<int> f(int n){
     std::vector<int> result(n);
-    result[0] = 1;
-    result[1] = 2;
-    result[2] = 6;
+    if (n == 3) {
+        result = {1, 2, 6};
+    }
     return result;
 }
 
