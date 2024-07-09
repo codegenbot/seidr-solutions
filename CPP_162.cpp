@@ -1,4 +1,3 @@
-```
 #include <sstream>
 #include <iomanip>
 
@@ -9,7 +8,8 @@ extern "C" {
 using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) return "None";
+    if (text.empty()) 
+        return "None";
     
     unsigned char md5[16];
     MD5((const unsigned char*)text.c_str(), text.size(), md5);
