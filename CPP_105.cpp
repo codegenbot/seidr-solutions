@@ -26,8 +26,7 @@ int main() {
     }
     
     std::vector<std::string> lengthArr = by_length(intArray);
-    std::vector<std::string> expected = {"9", "4", "8"};
-    std::vector<std::string> b;  // Declare and initialize b
-    assert(issame(expected, lengthArr));
+    std::vector<std::string> b = {"9", "4", "8"};
+    assert(issame(b, lengthArr)); 
     return 0;
 }
