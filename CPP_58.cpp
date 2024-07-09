@@ -54,5 +54,11 @@ int main() {
     }
     std::cout << "\n";
 
+    if(s1 == s2) {
+        std::cout << "Sets are same.\n";
+    } else {
+        std::cout << "Sets are not same.\n";
+    }
+
     return 0;
 }
