@@ -1,11 +1,10 @@
-```cpp
-int hex_key(std::string num) {
+int hex_key(const char* num) {
     int count = 0;
-    for (char c : num) {
+    for (char c : std::string(num)) {
         if (c >= '2' && c <= '7') {
             count++;
         } else if (c == 'B' || c == 'D' || c == 'F') {
-            count += 3; 
+            count++;
         }
     }
     return count;
