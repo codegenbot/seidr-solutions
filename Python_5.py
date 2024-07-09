@@ -1,4 +1,4 @@
-def join_with_delimeter(numbers, delimiter):
+def join_with_delimiter(numbers, delimiter):
     result = []
     for num in numbers:
         result.extend([num, delimiter])
