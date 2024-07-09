@@ -15,10 +15,8 @@ int main() {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            if (code[i] >= 'A' && code[i] <= 'F') {
+            if (code[i] >= 'A' && code[i] <= 'F' && guess[i] >= 'A' && guess[i] <= 'F') {
                 codeFreq[code[i]]++;
-            }
-            if (guess[i] >= 'A' && guess[i] <= 'F') {
                 guessFreq[guess[i]]++;
             }
         }
