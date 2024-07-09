@@ -1,14 +1,12 @@
-```cpp
 #include <iostream>
 using namespace std;
 
-int fizz_buzz(int n) {
+void fizz_buzz(int n) {
     for (int i = 1; i <= n; i++) {
         if ((i % 11 == 0 || i % 13 == 0))
             cout << i << " ";
     }
     cout << endl;
-    return 0;
 }
 
 int main() {
