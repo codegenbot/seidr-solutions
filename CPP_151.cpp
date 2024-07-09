@@ -7,7 +7,7 @@ size_t double_the_difference(std::vector<size_t> input) {
     size_t sum = 0;
     for (size_t num : input) {
         if (num > 0 && num == static_cast<size_t>(std::floor((double)num))) { 
-            if ((double)num != std::trunc((double)num)) { 
+            if ((double)num % 2.0 != 0.0) { 
                 sum += std::pow((double)num, 2);
             }
         }
@@ -16,8 +16,8 @@ size_t double_the_difference(std::vector<size_t> input) {
 }
 
 int main() {
-    std::vector<size_t> input;
     size_t n;
+    std::vector<size_t> input;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for (size_t i = 0; i < n; i++) {
