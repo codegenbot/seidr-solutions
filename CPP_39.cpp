@@ -13,10 +13,10 @@ int main() {
     cout << "Enter a number: ";
     cin >> n;
     if (n <= 0) {
-        string output = "-1";
-        cout << output << endl;
+        cout << "-1" << endl;
     } else {
-        cout << "The " << to_string(n) << "th prime Fibonacci number is: " << prime_fib(n) << endl;
+        string str = (n == 1 ? "The first" : (n == 2 ? "The second" : "The " + to_string(n) + "th")) + " prime Fibonacci number is: ";
+        cout << str << prime_fib(n) << endl;
     }
 }
 
@@ -28,9 +28,9 @@ int prime_fib(int n) {
         if (isPrime(b))
             if (++count == n)
                 return b;
-        string temp = to_string(a + b);
-        a =stoi(temp.substr(0, temp.find(" ")));
-        b =stoi(temp.substr(temp.find(" ")+1));
+        int temp = a + b;
+        a = b;
+        b = temp;
     }
 }
 
