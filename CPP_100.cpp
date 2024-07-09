@@ -2,13 +2,23 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
     }
     return true;
+}
+
+vector<int> make_a_pile(int n) {
+    vector<int> pile;
+    int i = 1;
+    while (i <= n) {
+        if (n % 2 == 0) {
+            pile.push_back(i + 1);
+        } else {
+            pile.push_back(i * 2 - 1);
+        }
+        i += (n % 2 == 0 ? 2 : 1);
+    }
+    return pile;
 }
