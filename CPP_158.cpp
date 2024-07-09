@@ -1,23 +1,27 @@
-Here is the solution:
+#include <iostream>
+#include <vector>
+#include <set>
+#include <string>
 
-```cpp
-string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(),
-        [](const string& a, const string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
-            }
-            return a.length() > b.length();
-        });
+std::string find_max(std::vector<std::string> words){
+    std::string max_word = *words.begin();
+    int max_unique_chars = 0;
     
-    for (string word : words) {
-        if (word.length() > max_word.length() || 
-            (word.length() == max_word.length() && 
-             count(word.begin(), word.end(), unique(word.begin(), word.end())[0]) > 
-             count(max_word.begin(), max_word.end(), unique(max_word.begin(), max_word.end())[0]))) {
+    for(auto word : words){
+        int unique_chars = 0;
+        std::set<char> char_set(word.begin(), word.end());
+        
+        if(char_set.size() > max_unique_chars){
+            max_unique_chars = char_set.size();
             max_word = word;
         }
     }
     
     return max_word;
+}
+
+int main() {
+    assert(find_max({"play", "play", "play"}) == "play");
+    std::cout << "Passed assertion test." << std::endl;
+    return 0;
 }
