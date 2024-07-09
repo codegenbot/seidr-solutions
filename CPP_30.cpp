@@ -1,4 +1,5 @@
 #include <vector>
+#include <assert.h>
 
 std::vector<float> get_positive(std::vector<float> v) {
     std::vector<float> result;
