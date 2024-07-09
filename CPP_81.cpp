@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool checkGrades(std::vector<std::string> a, std::vector<std::string> b) {
+bool same(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
@@ -42,11 +42,6 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    std::vector<float> grades = {0, 0.7};
-    std::vector<std::string> expected = {"F", "D"};
-    if (!checkGrades(numerical_letter_grade(grades), expected)) {
-        std::cout << "Test failed.\n";
-    } else
-        std::cout << "Test passed.\n";
+    assert(same(numerical_letter_grade({0, 0.7}), {"F", "D"}));
     return 0;
 }
