@@ -1,15 +1,8 @@
 #include <vector>
-#include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) 
+bool issame(const vector<int>& a, const vector<int>& b) {
+    if (a != b)
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (std::bitset<32>(a[i]).count() != std::bitset<32>(b[i]).count())
-            return false;
-        else if (std::bitset<32>(a[i]).count() < std::bitset<32>(b[i]).count()) 
-            return false;
-    }
     return true;
 }
 
@@ -21,6 +14,6 @@ std::vector<int> sort_array(std::vector<int> arr) {
             return a < b;
         }
     };
-    std::sort(arr.begin(), arr.end(), comp);
+    sort(arr.begin(), arr.end(), comp);
     return arr;
 }
