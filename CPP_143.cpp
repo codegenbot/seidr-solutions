@@ -1,38 +1,33 @@
-#include<string>
-
-using namespace std;
-
-string words_in_sentence(string sentence) {
+string words_in_sentence(string sentence){
     string result = "";
-    int len = 0;
-    
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            if (is_prime(len)) {
-                result += sentence.substr(len - (i + 1), i - len) + " ";
+    int length;
+    for(int i=0; i<sentence.length(); i++){
+        if(sentence[i] == ' '){
+            continue;
+        }
+        else{
+            length = 0;
+            while(i < sentence.length() && sentence[i] != ' '){
+                i++;
+                length++;
             }
-            len = 0;
-        } else {
-            len++;
+            string word = sentence.substr(0, length);
+            int num = stoi(word);
+            bool isPrime = true;
+            if(num > 1){
+                for(int j=2; j*j<=num; j++){
+                    if(num%j == 0){
+                        isPrime = false;
+                        break;
+                    }
+                }
+            }else{
+                isPrime = false;
+            }
+            if(isPrime){
+                result += word + " ";
+            }
         }
     }
-
-    // Add the last word
-    if (is_prime(len)) {
-        result += sentence.substr(len - len, len);
-    }
-
     return result;
-}
-
-bool is_prime(int n) {
-    if (n <= 1)
-        return false;
-
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
-            return false;
-    }
-    
-    return true;
 }
