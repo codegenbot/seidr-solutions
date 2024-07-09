@@ -1,11 +1,14 @@
 #include <vector>
+#include <algorithm>
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
-    // Your code to find and return the minimum path
-    std::vector<int> minPath;
-    return minPath;
+vector<int> minPath(vector<vector<int>> grid, int k);
+bool issame(vector<int> a, vector<int> b);
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
 }
