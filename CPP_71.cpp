@@ -1,25 +1,23 @@
 ```cpp
 #include <iostream>
+#include <iomanip>
+#include <cmath>
+
 using namespace std;
 
 float triangle_area(float a, float b, float c);
 
-int main() {
-    string s1, s2, s3;
+int main_cpp() {
+    float a, b, c;
     cout << "Enter three sides of the triangle: ";
-    cin >> s1 >> s2 >> s3;
+    cin >> a >> b >> c;
 
-    float a_val = stof(s1);
-    float b_val = stof(s2);
-    float c_val = stof(s3);
-
-    if(triangle_area(a_val, b_val, c_val) == -1.0f) {
+    if(triangle_area(a, b, c) == -1.0f) {
         cout << "The given values do not form a valid triangle.";
     } else {
-        float result = triangle_area(a_val, b_val, c_val);
+        float result = triangle_area(a, b, c);
         cout << "The area of the triangle is: ";
-        cout << fixed << setprecision(2);
-        cout << result;
+        cout << std::fixed << std::setprecision(2) << result;
     }
 
     return 0;
