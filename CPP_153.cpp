@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <cctype>
+#include <cassert>
 
 std::vector<std::string> extensions;
 std::string class_name = "Sp";
