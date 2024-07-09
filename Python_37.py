@@ -1,6 +1,5 @@
-```
-def sort_even(l: list):
+def sort_even(l):
     return [
-        i if j % 2 != 0 else sorted([x for x in l if (j - i) % 2 == 0])[::-1][0] if [x for x in l if (j - i) % 2 == 0] else 0
-        for i, j in enumerate(l)
+        i if j < len(l) and k < len(l) else None
+        for i, (x, k) in enumerate(sorted((y, int(y / 2)) for y in l))
     ]
