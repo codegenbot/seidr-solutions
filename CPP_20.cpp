@@ -1,9 +1,8 @@
-#include <vector>
 #include <algorithm>
 
-std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
+vector<float> find_closest_elements(vector<float> numbers) {
     if (numbers.size() < 2) {
-        throw std::runtime_error("Vector must contain at least two elements");
+        throw std::invalid_argument("The vector must contain at least two elements.");
     }
 
     float min_diff = numeric_limits<float>::max();
@@ -14,10 +13,10 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
             float diff = abs(numbers[i] - numbers[j]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest_pair = make_pair(min(max(numbers[i], numbers[j]), min_diff));
+                closest_pair = make_pair(min(max(numbers[i], numbers[j]), min_pair.first), max(min(numbers[i], numbers[j]), min_pair.second));
             }
         }
     }
 
-    return closest_pair;
+    return vector<float>{closest_pair.first, closest_pair.second};
 }
