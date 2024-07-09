@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 bool below_zero(const std::vector<int>& operations) {
     int balance = 0;
