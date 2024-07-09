@@ -3,6 +3,10 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+    if (nums.size() == 1) {
+        return {{}, {nums[0]}};
+    }
+    
     int minDiff = INT_MAX;
     int splitIndex = 0;
     for (int i = 1; i < nums.size(); i++) {
@@ -12,15 +16,6 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
             splitIndex = i;
         }
     }
-
-    vector<int> left, right;
-    if (nums.empty()) {
-        return make_pair(left, right);
-    } else if (nums.size() == 1) {
-        return make_pair({nums[0]}, {});
-    } else {
-        left.assign(nums.begin(), nums.begin() + splitIndex);
-        right.assign(nums.begin() + splitIndex, nums.end());
-        return make_pair(left, right);
-    }
+    
+    return {{nums.begin(), nums.begin() + splitIndex}, {nums.begin() + splitIndex, nums.end()}};
 }
