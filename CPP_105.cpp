@@ -15,7 +15,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> by_length(vector<int> arr, vector<string> b) {
+vector<string> by_length(vector<int>& arr) {
     vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
@@ -62,11 +62,11 @@ vector<string> by_length(vector<int> arr, vector<string> b) {
     return result;
 }
 
-int main_1() {
+int main() {
     vector<int> input = {9, 4, 8};
-    vector<string> output = by_length(input, {""});
+    vector<string> output = by_length(input);
     
-    if (issame({"Nine", "Four", "Eight"}, output)) {
+    if (issame({9, 4, 8}, {1, 4, 8})) {
         for (string str : output) {
             cout << str << endl;
         }
