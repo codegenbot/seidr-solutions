@@ -1,6 +1,11 @@
+```
 def middle_character(s):
-    s = ''.join(c if c.isalnum() else '_' for c in s)
+    s = ''.join(filter(str.isalnum, s))
     length = len(s)
+    
+    if length == 0:
+        return "_"
+    
     mid_point = length // 2
     
     if length % 2 == 0:
