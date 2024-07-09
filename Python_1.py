@@ -1,9 +1,6 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if not isinstance(paren_string, str):
-        return []
-
     result = []
     temp = ""
     open_count = 0
@@ -22,3 +19,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 temp += char
 
     return result
+
+paren_string = input()
+result = separate_paren_groups(paren_string)
+print(result)
