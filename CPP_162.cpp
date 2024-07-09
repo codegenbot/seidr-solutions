@@ -3,14 +3,12 @@
 
 string string_to_md5(string text) {
     if (text.empty()) return "None";
-
+    
     unsigned char md[16];
-    MD5((const unsigned char*)text.c_str(), text.size(), md);
-
-    stringstream ss;
-    for (int i = 0; i < 16; i++) {
-        ss << hex << setfill('0') << fixed << setw(2) << (int)md[i];
+    MD5((unsigned const char*)text.c_str(), text.size(), md);
+    string result;
+    for(int i = 0; i < 16; i++) {
+        sprintf(result + 2*i, "%02x", md[i]);
     }
-
-    return ss.str();
+    return result;
 }
