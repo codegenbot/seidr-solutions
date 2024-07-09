@@ -18,7 +18,7 @@ std::vector<std::string> by_length(const std::vector<int>& arr) {
     return result;
 }
 
-int main() {
+int main_test() {
     std::vector<int> intArray;
     std::cout << "Enter the numbers separated by space: ";
     for (std::string str; std::getline(std::cin, str); ) {
