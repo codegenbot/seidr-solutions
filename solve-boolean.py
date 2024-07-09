@@ -12,8 +12,15 @@ def solve_boolean(expression):
         right = ''.join(filter(lambda x: x not in '&|', expression[start+1:end]))
         expression = f"({str(bool(left) and bool(right))}){expression[end:]}"
     if '&' in expression:
-        return eval(f"{expression.replace('&', 'and').replace('|', 'or')}")
+        left, right = expression.split('&')
+        return eval(f"{left} & {right}")
     elif '|' in expression:
-        return any(solve_boolean(arg) for arg in expression.split('|'))
+        result = False
+        for arg in expression.split('|'):
+            result = solve_boolean(arg)
+            if not result:
+                continue
+            break
+        return result
     else:
-        return str(bool(int(expression)))
+        return eval(expression.replace("True", "1").replace("False", "0"))
