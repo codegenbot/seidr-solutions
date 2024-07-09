@@ -1,15 +1,13 @@
 #include <iostream>
-#include <string>
 #include <sstream>
 #include <algorithm>
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
+    getline(std::cin, input);
 
-    std::string word;
+    std::string word, result = "";
     std::stringstream ss(input);
-    std::string result = "";
     while (ss >> word) {
         if (word.size() >= 5) {
             std::reverse(word.begin(), word.end());
