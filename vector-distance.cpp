@@ -9,8 +9,8 @@ double vectorDistance() {
     int n;
     cin >> n;
 
-    float v1[n];
-    float v2[n];
+    double v1[n];
+    double v2[n];
 
     for (int i = 0; i < n; i++) {
         cin >> v1[i] >> v2[i];
