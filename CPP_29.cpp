@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -24,31 +23,15 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 
 int main() {
-    vector<string> a;
-    vector<string> b;
-    
-    int n1,n2; 
-    cin >> n1;
-    cin >> n2;
-    
-    for(int i = 0; i < n1; i++) {
-        string s;
-        cin >> s;
-        a.push_back(s);
-    }
-    for(int i = 0; i < n2; i++) {
-        string s;
-        cin >> s;
-        b.push_back(s);
-    }
-    
-    if(issame(a,b)) {
-        cout << "Yes\n";
-    } else {
-        vector<string> result = filter_by_prefix(a, "abc");
-        for(string str : result) {
-            cout << str << "\n";
+    vector<string> a = {"apple", "banana", "cherry"};
+    vector<string> b; // declare before calling issame
+    if(issame(a, b)) {
+        vector<string> filtered = filter_by_prefix(a, "ap");
+        for(string s : filtered) {
+            cout << s << endl;
         }
+    } else {
+        cout << "vectors are not same" << endl;
     }
     return 0;
 }
