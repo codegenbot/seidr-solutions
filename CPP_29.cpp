@@ -3,11 +3,11 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
+using namespace std; // Add this line
 
-vector<string> filter_by_prefix(const vector<string>& strings, const string& prefix);
+vector<string> filter_by_prefix(const vector<string>& strings, const string& prefix); // Forward declaration
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b) { // Change function signature
     if (a.size() != b.size())
         return false;
 
