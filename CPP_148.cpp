@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -40,15 +40,16 @@ int main() {
     std::cin >> planet1;
     std::cout << "Enter the second planet: ";
     std::cin >> planet2;
-    std::vector<std::string> output = bf(planet1, planet2);
-    if (!output.empty()) {
+
+    std::vector<std::string> result = bf(planet1, planet2);
+    if (!result.empty()) {
         std::cout << "The planets between are: ";
-        for (const auto& p : output) {
-            std::cout << p << " ";
+        for (const auto& planet : result) {
+            std::cout << planet << " ";
         }
         std::cout << std::endl;
     } else {
-        std::cout << "No planets found." << std::endl;
+        std::cout << "Planets not found." << std::endl;
     }
 
     return 0;
