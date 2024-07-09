@@ -1,4 +1,6 @@
-```cpp
+#include <assert.h>
+#include <string>
+
 int str_len(string str){
     return str.length();
 }
