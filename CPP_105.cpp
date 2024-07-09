@@ -1,10 +1,12 @@
 #include <vector>
 #include <string>
+#include <bits/stdc++.h>
+#include <bits/stl_pair.h>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) 
-        if(to_string(a[i]).size() != to_string(b[i]).size()) 
+        if(a[i].size() != b[i].size()) 
             return false;
     return true;
 }
@@ -28,5 +30,6 @@ int main() {
     
     std::vector<int> lengthArr = by_length(intArray);
     // Test assertion
-    assert(issame(by_length({9, 4, 8}) , {to_string(9).size(), to_string(4).size(), to_string(8).size()}));
+    assert(issame({to_string(9).size(), to_string(4).size(), to_string(8).size()}, vector<string>(lengthArr.begin(), lengthArr.end())));
     return 0;
+}
