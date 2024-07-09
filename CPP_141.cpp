@@ -1,11 +1,9 @@
 #include <iostream>
-#include <cassert>
 #include <string>
 
 using namespace std;
 
 string file_name_check(string file_name) {
-
     int digit_count = 0;
     int dot_count = 0;
     string before_dot, after_dot;
@@ -29,8 +27,9 @@ string file_name_check(string file_name) {
     return "Yes";
 }
 
+// Example test cases
 int main() {
-    assert(file_name_check("s.") == "No");
-    
-    return 0;
+    assert(file_name_check("file.txt") == "Yes");
+    assert(file_name_check("document.dll") == "Yes");
+    assert(file_name_check("data123.pdf") == "No");
 }
