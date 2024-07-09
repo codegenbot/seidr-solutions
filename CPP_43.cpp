@@ -1,9 +1,11 @@
-Here is the solution:
-```c++
+#include <vector>
+using namespace std;
+
 bool pairs_sum_to_zero(vector<int> l) {
     unordered_set<int> s(l.begin(), l.end());
-    for (auto it = s.begin(); it != s.end(); ++it) {
-        if (s.find(-(*it)) != s.end()) {
+    for (auto it1 = s.begin(); it1 != s.end(); ++it1) {
+        int complement = -(*it1);
+        if (s.find(complement) != s.end() && *it1 != complement) {
             return true;
         }
     }
