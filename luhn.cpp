@@ -1,36 +1,16 @@
 #include <vector>
-using namespace std;
 
-int luhnAlgorithm(const vector<int>& ccNum) {
+int luhnAlgo(const std::vector<int>& digits) {
     int sum = 0;
-    bool isDouble = false;
-    
-    for (auto digit : ccNum) {
-        if (isDouble) {
+    for (size_t i = 0; i < digits.size(); ++i) {
+        int digit = digits[i];
+        if ((digits.size() - 1 - i) % 2 == 1) { // double every other digit
             digit *= 2;
-            if (digit > 9) {
+            if (digit > 9) { // subtract 9 from them if over 9
                 digit -= 9;
             }
         }
-        
         sum += digit;
-        isDouble = !isDouble; // toggle the boolean
     }
-    
     return sum;
-}
-
-int main() {
-    int numDigits, temp;
-    vector<int> ccNum;
-
-    cin >> numDigits;
-    for (int i = 0; i < numDigits; ++i) {
-        cin >> temp;
-        ccNum.push_back(temp);
-    }
-
-    cout << luhnAlgorithm(ccNum) << endl;
-    
-    return 0;
 }
