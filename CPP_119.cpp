@@ -1,13 +1,13 @@
-string match_parens(vector<string> lst){
-    int left = 0, right = 0;
-    for (const string& str : lst) {
-        for (char c : str) {
-            if (c == '(') left++;
-            else if (c == ')') {
-                if (left > 0) left--;
-                else right++;
+int sum = 0;
+    for (string s : lst) {
+        for (char c : s) {
+            if (c == '(') {
+                sum++;
+            } else {
+                if (sum == 0) return "No";
+                sum--;
             }
         }
     }
-    return (left == 0 && right <= 1) ? "Yes" : "No";
+    return sum == 0 ? "Yes" : "No";
 }

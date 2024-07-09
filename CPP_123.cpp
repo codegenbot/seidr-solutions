@@ -1,8 +1,10 @@
 #include <vector>
-#include <algorithm>
-#include <cassert>
 
-std::vector<int> get_odd_collatz(int n) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> solve(int n) {
     std::vector<int> result;
     while (n != 1) {
         if (n % 2 != 0) {
@@ -17,13 +19,4 @@ std::vector<int> get_odd_collatz(int n) {
     result.push_back(1);
     std::sort(result.begin(), result.end());
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(get_odd_collatz(1), {1}));
-    return 0;
 }
