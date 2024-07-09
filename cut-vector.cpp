@@ -9,7 +9,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     vector<vector<int>> res(2);
     
     for (int i = 0; i < 2; i++) {
-        res[i].resize(0); // Initialize each inner vector by resizing it to zero size.
+        res[i].clear(); // initialize each inner vector by clearing any existing elements
     }
     int minDiff = INT_MAX;
     for (int i = 0; i < n; i++) {
