@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
+#include <cctype>
+#include <algorithm>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
@@ -16,7 +19,7 @@ std::vector<std::string> select_words(std::string s, int n){
             word = "";
             count = 0;
         } else if (isalpha(c)) {
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
+            if (std::find(std::begin("aeiou"), std::end("aeiou"), tolower(c)) == std::end("aeiou")) {
                 count++;
             }
             word += c;
@@ -29,11 +32,13 @@ std::vector<std::string> select_words(std::string s, int n){
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return std::vector<std::string>(a.begin(), a.end()) == std::vector<std::string>(b.begin(), b.end());
+    return a == b;
 }
 
 int main(){
     assert(issame(select_words("a b c d e f", 1), std::vector<std::string>{"b", "c", "d", "f"}));
-    // Remove the duplicated definition of `issame` here
+    
+    // Add more test cases here
+    
     return 0;
 }
