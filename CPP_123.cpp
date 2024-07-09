@@ -1,7 +1,7 @@
 #include <vector>
 #include <initializer_list>
 
-bool sequenceEqual(std::vector<int> a, std::vector<int> b) {
+bool isSequenceEqual(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     
@@ -13,7 +13,7 @@ bool sequenceEqual(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-void get_odd_collatz(int n) {
+int get_odd_collatz(int n) {
     std::vector<int> sequence;
     
     while(n != 1) {
@@ -35,5 +35,5 @@ void get_odd_collatz(int n) {
 int main() {
     int num;
     std::cin >> num;
-    get_odd_collatz(num);
+    int result = get_odd_collatz(num);
 }
