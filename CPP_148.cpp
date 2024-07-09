@@ -1,21 +1,22 @@
-```cpp
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size())
-        return false;
+bool issame(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "MakeMake"};
     
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
+    for (int i = 0; i < planets.size(); i++) {
+        if (planets[i] == planet1) {
+            index1 = i;
+        } else if (planets[i] == planet2) {
+            index2 = i;
+        }
+        
+        if (index1 != -1 && index2 != -1)
+            break;
     }
     
-    return true;
+    return index1 == index2;
 }
 
-std::vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "MakeMake"};
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
@@ -49,8 +50,4 @@ std::vector<string> bf(string planet1, string planet2) {
     }
     
     return result;
-}
-
-int main() {
-    assert(bf("Jupiter", "Makemake") == {});
 }
