@@ -1,11 +1,10 @@
-```cpp
 #include <algorithm>
 #include <cassert>
 #include <vector>
+#include <initializer_list>
 
 int findMax(std::vector<int> l) {
-    int max = *std::max_element(l.begin(), l.end());
-    return abs(max - 12);
+    return abs(*std::max_element(l.begin(), l.end()) - 12);
 }
 
 int main() {
