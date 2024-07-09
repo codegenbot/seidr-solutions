@@ -1,6 +1,4 @@
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+bool issame(vector<string>, vector<string>);  
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
