@@ -1,19 +1,42 @@
+#include <vector>
 #include <algorithm>
-#include <cctype>
+using namespace std;
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<pair<int, string>> select_words(string s, int n) {
+    vector<pair<int, string>> result;
+    int wordCount = 0;
     string word = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            word += tolower(c);
-        } else if (!word.empty()) {
-            bool has_n_consonants = count(word.begin(), word.end(), [](unsigned char ch) { return !ispunct(ch) && !isvowel(ch); }) == n;
-            if (has_n_consonants) {
-                result.push_back(word);
+        if (c == ' ') {
+            if (!word.empty()) {
+                int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+                    count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
+                if (vowelCount <= n) {
+                    result.push_back({vowelCount, word});
+                }
+                word = "";
             }
-            word = "";
+            wordCount++;
+        } else {
+            word += c;
+        }
+    }
+    if (!word.empty()) {
+        int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+            count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
+        if (vowelCount <= n) {
+            result.push_back({vowelCount, word});
         }
     }
     return result;
+}
+
+int main() {
+    vector<pair<int, string>> expected = {{1, "b"}, {1, "c"}, {1, "d"}, {1, "f"}};
+    assert(issame(vector<pair<int, string>>(select_words("a b c d e f", 1)), expected));
+    return 0;
 }
