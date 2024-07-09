@@ -1,9 +1,9 @@
 Here is the completed code:
 
-string middleCharacter(string str) {
-    int len = str.length();
-    if (len % 2 != 0)
-        return str.substr(len / 2, 1);
+string middleCharacter(string s) {
+    int length = s.length();
+    if (length % 2 != 0)
+        return string(1, s.substr(length / 2, 1));
     else
-        return str.substr((len - 1) / 2, 2);
+        return s.substr(length / 2 - 1, 2);
 }
