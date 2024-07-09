@@ -1,4 +1,6 @@
-bool solveBoolean(std::string s) {
+using namespace std;
+
+bool solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
@@ -20,4 +22,4 @@ bool solveBoolean(std::string s) {
     while (!st.empty()) {
         st.pop();
     }
-    return st.empty();
+    return !st.empty();
