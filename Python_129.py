@@ -16,7 +16,7 @@ def minPath(grid, k):
                 if new_path:
                     return new_path
         
-        path.pop()
+        path.pop() 
         return None
 
     for i in range(n):
