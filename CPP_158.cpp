@@ -3,21 +3,17 @@
 
 using namespace std;
 
-struct Str {
-    string s;
-};
-
-Str find_max(vector<Str> words){
-    Str max_word = *max_element(words.begin(), words.end(),
-        [](const Str& a, const Str& b) {
-            if (a.s.length() == b.s.length())
-                return a.s < b.s;
-            return a.s.length() > b.s.length();
+string find_max(vector<string> words){
+    string max_word = *max_element(words.begin(), words.end(),
+        [](const string& a, const string& b) {
+            if (a.length() == b.length())
+                return a < b;
+            return a.length() > b.length();
         });
     return max_word;
 }
 
 int main() {
-    assert ((find_max({"play", "play", "play"}) == {"play"});
+    assert ((find_max({"play", "play", "play"}) == "play"));
     return 0;
 }
