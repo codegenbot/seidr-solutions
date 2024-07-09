@@ -1,12 +1,13 @@
-// Include missing header <climits> for INT_MIN
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 #include <climits>
 
-// Change parameter types in issame function to use fully qualified std::vector
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-// Add 'std::' qualifier in front of 'vector' in the issame function definition
 std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> result;
     int max_num = INT_MIN;
@@ -15,4 +16,9 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
         result.push_back(max_num);
     }
     return result;
+}
+
+int main() {
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    return 0;
 }
