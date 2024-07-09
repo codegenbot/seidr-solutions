@@ -11,10 +11,13 @@ std::string file_name_check(std::string file_name){
         }else if(c == '.'){
             foundDot = true;
         }else if(foundDot){
-            if(file_name.length() - i < 4) {
-                return "No";
+            if(file_name.length() < 4) {
+                return file_name.substr(i, i+file_name.substr(i).length());
             }
             std::string extension = file_name.substr(i);
+            if(file_name.length() < i+extension.length()) {
+                return "No";
+            }
             if(extension != "txt" && extension != "exe" && extension != "dll"){
                 return "No";
             }
