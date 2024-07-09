@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
-int maxFunc() {
+int main() {
     std::vector<int> numbers = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    std::cout << *std::max_element(numbers.begin(), numbers.end()) << std::endl;
+    int maxNum = *std::max_element(numbers.begin(), numbers.end());
+    assert(abs(maxNum - 124) < 1e-4);
+    std::cout << maxNum << std::endl;
     return 0;
 }
