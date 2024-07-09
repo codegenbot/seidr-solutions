@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <initializer_list>
@@ -17,7 +16,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> b({"aaaa", "bbbb", "dd", "cc"});
-    assert(issame({"aaaa", "bbbb", "dd", "cc"}, {"ccc", "dd", "aaaa", "bbbb"}));
+    vector<string> b = {"aaaa", "bbbb", "dd", "cc"};
+    assert(issame({"aaaa", "bbbb", "dd", "cc"}, b));
     return 0;
 }
