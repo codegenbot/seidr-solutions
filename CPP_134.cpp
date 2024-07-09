@@ -1,5 +1,6 @@
-bool check_if_last_char_is_a_letter(string txt){
-    if(txt.empty()) return false;
-    char lastChar = txt.back();
-    return (isalpha(lastChar) && !isspace(lastChar));
+size_t pos = 0;
+while (pos < txt.size()) {
+    if (txt[pos] == ' ') break;
+    pos++;
 }
+return pos == txt.size() || !isalpha(txt.back());
