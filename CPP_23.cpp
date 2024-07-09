@@ -1,7 +1,2 @@
-#include <cstring>
-
-int main() {
-    assert(strlen("asdasnakj") == 9);
-    string str = "asdasnakj";
-    return str.length();
-}  
+std::string str = "asdasnakj";
+    return strlen(str.c_str());
