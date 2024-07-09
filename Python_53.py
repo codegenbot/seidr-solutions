@@ -1,4 +1,4 @@
-def add(a=None, b=None):
-    x = int(input("Enter the first number: ") or a)
-    y = int(input("Enter the second number: ") or b)
-    return x + y
+def add(a=0, b=0):
+    x = int(input("Enter the first number: ").strip() or str(a))
+    y = int(input("Enter the second number: ").strip() or str(b))
+    print(x + y)
