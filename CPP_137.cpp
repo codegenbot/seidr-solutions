@@ -1,16 +1,16 @@
 #include <boost/any.hpp>
-#include <boost/type_index.hpp>
+#include <boost/type_traits.hpp>
 
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (get_type(a) == typeid(any_tag) && get_type(b) == typeid(any_tag)) {
+    if (is_same<any_tag, get_type(a)>() && is_same<any_tag, get_type(b)>()) {
         return a > b ? a : b;
-    } else if (get_type(a) == typeid(string_any_tag) && get_type(b) == typeid(string_any_tag)) {
+    } else if (is_same<string_any_tag, get_type(a)>() && is_same<string_any_tag, get_type(b)>()) {
         string str1 = any_cast<string>(a);
         string str2 = any_cast<string>(b);
         return str1 > str2 ? a : b;
-    } else if ((get_type(a) == typeid(string_any_tag) || get_type(b) == typeid(string_any_tag))) {
+    } else if (is_same<string_any_tag, get_type(a)>() || is_same<string_any_tag, get_type(b)>()) {
         string str1 = any_cast<string>(a);
         string str2 = any_cast<string>(b);
         if (str1 == str2) {
