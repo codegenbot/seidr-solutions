@@ -1,3 +1,4 @@
+```Python
 def solveBoolean(expression):
     if expression == 'T':
         return True
