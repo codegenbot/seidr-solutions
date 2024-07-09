@@ -1,8 +1,13 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<std::string> filterBySubstring(const std::vector<std::string>& strings, const std::string& substring) {
@@ -15,8 +20,7 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& strin
 }
 
 int main() {
-    assert(isSame(filterBySubstring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    
+    assert(issame(filterBySubstring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     std::vector<std::string> strings = {"grunt", "trumpet", "prune", "gruesome"};
     std::string substr = "run";
     std::vector<std::string> result = filterBySubstring(strings, substr);
