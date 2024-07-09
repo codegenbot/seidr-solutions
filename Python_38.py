@@ -1,3 +1,3 @@
 s = input("Enter a string:")
-result = "".join(chr(ord(char) + 1) for char in s)
+result = "".join(chr(((ord(char) - ord("a") - 1) % 26) + ord("a")) for char in s)
 print(result)
