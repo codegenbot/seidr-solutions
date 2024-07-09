@@ -1,23 +1,14 @@
-```
-#include <string>
-#include <cctype>
+using std::string;
 
-std::string flipCase(std::string str){
-    std::string result = "";
+string flip_case(string str){
+    string result = "";
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z')
-            result += std::toupper(c);
+            result += toupper(c);
         else if(c >= 'A' && c <= 'Z')
-            result += std::tolower(c);
+            result += tolower(c);
         else
             result += c;
     }
     return result;
-}
-
-int main() {
-    std::string input = "Hello, world!";
-    std::cout << flipCase(input) << std::endl;
-    return 0;
-}
