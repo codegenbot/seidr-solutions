@@ -1,5 +1,6 @@
 #include <map>
-using std::map;
+#include <initializer_list>
+using namespace std;
 
 string int_to_mini_roman(int number) {
     map<int, string> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
