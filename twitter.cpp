@@ -1,2 +1,1 @@
-```cpp
-return "Your tweet has " + to_string(min(tweet.length(), 140)) + " characters";
+return "Your tweet has " + std::to_string(tweet.size()) + " characters";
