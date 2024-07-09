@@ -1,23 +1,22 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<int> v1, vector<int> v2) {
+    if(v1.size() != v2.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < v1.size(); i++) {
+        if(v1[i] != v2[i]) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<int> even_odd_palindrome(int n) {
-    std::vector<int> result(2);
+vector<int> even_odd_palindrome(int n) {
+    vector<int> result(2);
     for (int i = 1; i <= n; i++) {
-        std::string str = to_string(i);
+        string str = to_string(i);
         bool isPalindrome = true;
         int start = 0, end = str.length() - 1;
         while (start < end) {
@@ -35,9 +34,4 @@ std::vector<int> even_odd_palindrome(int n) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));
-    return 0;
 }
