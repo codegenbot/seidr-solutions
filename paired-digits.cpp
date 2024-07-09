@@ -1,4 +1,5 @@
 #include <string>
+#include <cctype>
 
 int pairedDigits(std::string s) {
     int sum = 0;
