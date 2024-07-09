@@ -25,12 +25,12 @@ int main() {
         ++index;
     }
     
-    if (prefixSum == target || abs(prefixSum - target) < abs(prefixSum - target - nums[index - 1] * 2)) {
+    if (prefixSum == target) {
         for (int i = 0; i < index; ++i) {
             cout << nums[i] << endl;
         }
     } else {
-        for (int i = 0; i < index - 1; ++i) {
+        for (int i = 0; i < index; ++i) {
             cout << nums[i] << endl;
         }
     }
