@@ -3,6 +3,18 @@
 #include <algorithm>
 #include <string>
 
+bool issame(vector<vector<string>> a, vector<vector<string>> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (issame(a[i], b[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -15,7 +27,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> by_length(vector<int>& arr) {
+vector<string> by_length(vector<int> arr) {
     vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
@@ -63,14 +75,22 @@ vector<string> by_length(vector<int>& arr) {
 }
 
 int main() {
-    vector<int> input = {9, 4, 8};
+    vector<int> input;
+    
+    for(int i = 0; i < 3; i++){
+        cout << "Enter an integer (1-9):";
+        int num;
+        cin >> num;
+        if(num >= 1 && num <= 9){
+            input.push_back(num);
+        } else {
+            cout << "Invalid input. Please enter a number between 1 and 9.";
+        }
+    }
+
     vector<string> output = by_length(input);
     
-    if (issame({9, 4, 8}, {1, 4, 8})) {
-        for (string str : output) {
-            cout << str << endl;
-        }
-    } else {
-        cout << "Output is incorrect." << endl;
+    for (string str : output) {
+        cout << str << endl;
     }
 }
