@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -22,10 +22,10 @@ int prime_fib(int n) {
     }
 }
 
-void main() {
+int main() {
     int n;
     cout << "Enter the number: ";
     cin >> n;
     cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << endl;
-    return;
+    return 0;
 }
