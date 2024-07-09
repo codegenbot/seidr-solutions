@@ -1,20 +1,22 @@
-#include <iostream>
+#include <algorithm>
 #include <vector>
-#include <string>
+#include <initializer_list>
+using namespace std;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) 
         return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[b.size()-1-i]) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i])
             return false;
-        }
     }
     return true;
-}
 
+}
 int main() {
-    assert(issame({"aaaa", "bbbb", "dd", "cc"}, {"ccc", "dd", "aaaa", "bbbb"}));
+    vector<string> b={"aaaa", "bbbb", "dd", "cc"};
+    assert(issame({"aaaa", "bbbb", "dd", "cc"}, b));
     return 0;
 }
