@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size()) {
@@ -16,7 +16,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::pair<std::string, bool> reverse_delete(std::string s, std::string c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    vector<string> result;
     string temp = "";
     for (int i = 0; i < s.length(); i++) {
         bool found = false;
@@ -30,13 +31,15 @@ std::pair<std::string, bool> reverse_delete(std::string s, std::string c) {
             temp += s[i];
         }
     }
-    
+    result.push_back(temp);
     string rev = "";
     for(int i = temp.length()-1; i >= 0; i--) {
         rev += temp[i];
     }
-    
-    bool isSame = (temp == rev);
-    
-    return std::make_pair(rev, isSame);
+    if (temp == rev) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
+    return result;
 }
