@@ -1,6 +1,5 @@
 ```cpp
 #include <string>
-#include <assert.h>
 
 bool is_happy(std::string s) {
     if (s.length() < 3)
@@ -23,9 +22,4 @@ bool is_happy(std::string s) {
             return false;
     }
     return true;
-}
-
-int main() {
-    assert(is_happy("iopaxioi") == false );
-    return 0;
 }
