@@ -1,9 +1,12 @@
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result = {};
+#include <vector>
+#include <limits>
+
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> result;
     if (arr.empty()) return result;
-    
+
     int minEvenIndex = -1;
-    int minEvenValue = INT_MAX;
+    int minEvenValue = std::numeric_limits<int>::max();
 
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
