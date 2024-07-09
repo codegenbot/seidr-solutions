@@ -8,5 +8,5 @@ def match_parens(lst):
                 return "No"
             stack.pop()
         else:
-            return "No"
+            continue
     return "No" if stack else "Yes"
