@@ -12,20 +12,20 @@ long long double_the_difference(std::vector<float> lst){
 
 int main() {
     std::vector<float> inputVector; // declare input vector
-    int n;
-    std::cout << "Enter the number of elements in the list: ";
-    std::cin >> n;
+    int n; // number of elements in the vector
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n; // read the number
     
-    for(int i = 0; i < n; ++i){
+    for(int i = 0; i < n; i++) {
         float num;
-        std::cout << "Enter element " << i + 1 << ": ";
+        std::cout << "Enter element " << (i+1) << ": ";
         std::cin >> num;
-        inputVector.push_back(num);
+        inputVector.push_back(num); // add elements to vector
     }
     
     long long result = double_the_difference(inputVector); // call the function
     
-    std::cout << "The sum of the squares of odd positive elements is: " << result << std::endl;
+    std::cout << "The sum of squares of odd numbers in the list is: " << result << std::endl;
 
     return 0;
 }
