@@ -8,7 +8,7 @@ bool isSame(vector<float> a, vector<float> b){
     }
     return true;
 
-int main(){
+int main { 
     int n;
     cin >> n;
     vector<float> a(n), b(n);
@@ -17,5 +17,4 @@ int main(){
     }
     if(isSame(a, b)) cout << "The vectors are the same." << endl;
     else cout << "The vectors are not the same." << endl;
-    return 0;
 }
