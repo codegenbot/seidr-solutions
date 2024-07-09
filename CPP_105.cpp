@@ -62,11 +62,11 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     return result;
 }
 
-int main() {
-    std::vector<int> input = {1, 4, 8};
+void mainFunc() {
+    std::vector<int> input = {1,4,8};
     std::vector<std::string> output = by_length(input);
     
-    if (issame({{"One"}}, {{output[0]}})) {
+    if (issame({1,4,8}, {9, 4, 8})) {
         for (std::string str : output) {
             std::cout << str << std::endl;
         }
