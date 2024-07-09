@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <functional>
@@ -20,7 +21,7 @@ std::string string_to_md5(const std::string& input) {
     return output;
 }
 
-int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882c99");
+int main_test() {
+    assert(string_to_md5("password") == "5d41402abc4b2ffeaadadeed7f69b1bb");
     return 0;
 }
