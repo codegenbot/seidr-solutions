@@ -16,13 +16,28 @@ bool isSimplePower(int num) {
 }
 
 int main() {
-    int num;
+    std::string input;
     std::cout << "Enter a number: ";
-    std::cin >> num; 
-    if (isSimplePower(num)) {  
-        std::cout << num << " is a simple power.\n";
-    } else {
-        std::cout << num << " is not a simple power.\n";
+    std::getline(std::cin, input); 
+
+    bool isValidInput = true;
+    for (char c : input) {
+        if (!std::isdigit(c)) {
+            isValidInput = false;
+            break;
+        }
     }
+
+    if (isValidInput) {
+        int num = std::stoi(input);  
+        if (isSimplePower(num)) {
+            std::cout << input << " is a simple power.\n";
+        } else {
+            std::cout << input << " is not a simple power.\n";
+        }
+    } else {
+        std::cout << "Invalid input. Please enter a numeric value.\n";
+    }
+
     return 0;
 }
