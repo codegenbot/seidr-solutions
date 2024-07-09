@@ -16,13 +16,13 @@ bool isSame(vector<int> a, vector<int> b) {
 }
 
 vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result;
-    for(int num : numbers){
-        if(std::find(std::begin(result), std::end(result), num) == std::end(result)){
-            result.push_back(num);
+    std::vector<int> newVector;
+    for(int i:numbers){
+        if(std::find(newVector.begin(), newVector.end(), i) == newVector.end()){
+            newVector.push_back(i);
         }
     }
-    return result;
+    return newVector;
 }
 
 int main() {
