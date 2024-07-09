@@ -1,9 +1,28 @@
-float min_val = *min_element(numbers.begin(), numbers.end());
-    float max_val = *max_element(numbers.begin(), numbers.end());
-    vector<float> rescaled_numbers;
-    for (float num : numbers) {
-        float rescaled_num = (num - min_val) / (max_val - min_val);
-        rescaled_numbers.push_back(rescaled_num);
+float find_min(const vector<float>& numbers) {
+    float min_val = numbers[0];
+    for (const auto& num : numbers) {
+        min_val = min(min_val, num);
     }
-    return rescaled_numbers;
+    return min_val;
+}
+
+float find_max(const vector<float>& numbers) {
+    float max_val = numbers[0];
+    for (const auto& num : numbers) {
+        max_val = max(max_val, num);
+    }
+    return max_val;
+}
+
+vector<float> rescale_to_unit(vector<float> numbers) {
+    float min_val = find_min(numbers);
+    float max_val = find_max(numbers);
+    
+    vector<float> rescaled;
+    for (const auto& num : numbers) {
+        float rescaled_num = (num - min_val) / (max_val - min_val);
+        rescaled.push_back(rescaled_num);
+    }
+    
+    return rescaled;
 }
