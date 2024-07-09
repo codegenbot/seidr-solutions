@@ -14,20 +14,20 @@ bool below_zero(const std::vector<int>& operations) {
 }
 
 int main() {
-    std::vector<int> operations;
-    int n;
-    std::cin >> n;
-    
-    for (int i = 0; i < n; ++i) {
+    std::vector<int> input_ops;
+    int num_ops;
+    std::cin >> num_ops;
+
+    for (int i = 0; i < num_ops; ++i) {
         int op;
         std::cin >> op;
-        operations.push_back(op);
+        input_ops.push_back(op);
     }
-    
-    if (below_zero(operations)) {
-        std::cout << "Below zero balance exists.\n";
+
+    if (below_zero(input_ops)) {
+        std::cout << "True\n";
     } else {
-        std::cout << "No below zero balance.\n";
+        std::cout << "False\n";
     }
 
     return 0;
