@@ -1,7 +1,8 @@
-#include <string> // Include the string header
-#include <cassert> // Include the assert header
+#include <string>
+#include <cassert>
+#include <iostream>
 
-using namespace std; // Use the standard namespace
+using namespace std;
 
 string change_base(int x, int base){
     string result = "";
@@ -14,6 +15,6 @@ string change_base(int x, int base){
 
 int main(){
     int x = 10;
-    assert(change_base(x, x + 1) == to_string(x)); // Add include to_string(x) in main
+    assert(change_base(x, x + 1) == to_string(x));
     return 0;
 }
