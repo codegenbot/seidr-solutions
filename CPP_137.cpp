@@ -1,21 +1,55 @@
+#include <iostream>
+#include <string>
 #include <boost/any.hpp>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<a>(int.class)) {
-        int x = any_cast<int>(a);
-        int y = any_cast<int>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (is_any_of<a>(double.class)) {
-        double x = any_cast<double>(a);
-        double y = any_cast<double>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
-    } else if (is_any_of<a>(string.class)) {
-        string x = any_cast<string>(a);
-        string y = any_cast<string>(b);
-        double ax = stod(x);
-        double ay = stod(y);
-        return (ax > ay) ? a : ((ax < ay) ? b : boost::any("None"));
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)a > (float)b ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > (int)b ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = any_cast<string>(a);
+        string str2 = any_cast<string>(b);
+
+        int pos1 = str1.find(',');
+        int pos2 = str2.find(',');
+
+        double num1 = stod(str1.substr(0, pos1));
+        double num2 = stod(str2.substr(0, pos2));
+
+        return (num1 > num2 ? a : b);
+    } else if (a.type() == typeid(string) && b.type() != typeid(string)) {
+        string str = any_cast<string>(a);
+
+        int pos = str.find(',');
+        double num = stod(str.substr(0, pos));
+
+        if ((int)b > num || (float)b > num)
+            return b;
+        else
+            return "None";
+    } else if (b.type() == typeid(string) && a.type() != typeid(string)) {
+        string str = any_cast<string>(b);
+
+        int pos = str.find(',');
+        double num = stod(str.substr(0, pos));
+
+        if ((int)a > num || (float)a > num)
+            return a;
+        else
+            return "None";
+    } else {
+        return "None";
     }
+}
+
+int main() {
+    boost::any a = 1;
+    boost::any b = 2.5;
+
+    cout << any_cast<boost::any>(compare_one(a, b)) << endl;
+
+    return 0;
 }
