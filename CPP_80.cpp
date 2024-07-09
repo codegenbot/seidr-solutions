@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -16,16 +15,13 @@ bool is_happy(std::string s){
         if(!unique) return false;
     }
     return true;
-}
 
-int main() {
+int main(){
     std::string s;
-    std::cout << "Enter a string: ";
     std::cin >> s;
-    if(is_happy(s)) {
-        std::cout << "The string is happy" << std::endl;
-    } else {
-        std::cout << "The string is not happy" << std::endl;
-    }
+    if(is_happy(s))
+        std::cout << "Happy String";
+    else
+        std::cout << "Not a Happy String";
     return 0;
 }
