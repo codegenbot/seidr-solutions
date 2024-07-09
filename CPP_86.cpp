@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <iostream>
 using namespace std;
@@ -27,3 +28,4 @@ int main() {
     string res = anti_shuffle(str);
     cout << "Anti-Shuffled String: " << res << endl;
     return 0;
+}

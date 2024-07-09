@@ -10,7 +10,7 @@ string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
-    return std::to_string(sum);
+    return to_string(sum);
 }
 
 int main() {
