@@ -1,3 +1,2 @@
-def parse_music(musical_string: str) -> List[int]:
-    durations = {"o": 4, "o|": 2, ".|": 1}
-    return [durations[note] for note in musical_string.split()]
+def filter_odd_numbers(input_list: List[int]) -> List[int]:
+    return [num for num in input_list if num % 2 != 0]
