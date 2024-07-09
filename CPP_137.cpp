@@ -9,7 +9,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         return a;
     } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        return a;
+        return boost::any(a);
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string x = boost::any_cast<string>(a);
         string y = boost::any_cast<string>(b);
