@@ -1,21 +1,27 @@
-int digit_count = 0;
-    for (char c : file_name) {
-        if (c >= '0' && c <= '9') {
-            digit_count++;
+int dotPos = file_name.find('.');
+    if(dotPos == string::npos || dotPos == 0 || dotPos == file_name.size() - 1){
+        return "No";
+    }
+    string nameBeforeDot = file_name.substr(0, dotPos);
+    string extAfterDot = file_name.substr(dotPos + 1);
+    if(nameBeforeDot.size() == 0 || extAfterDot.size() == 0 || 
+       extAfterDot != "txt" && extAfterDot != "exe" && extAfterDot != "dll"){
+        return "No";
+    }
+    int digitsCount = 0;
+    for(char c : file_name){
+        if(c >= '0' && c <= '9'){
+            digitsCount++;
         }
     }
-    
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
+    if(digitsCount > 3){
         return "No";
     }
     
-    string prefix = file_name.substr(0, dot_pos);
-    string suffix = file_name.substr(dot_pos + 1);
-    
-    if (digit_count > 3 || !isalpha(prefix[0]) || suffix != "txt" && suffix != "exe" && suffix != "dll") {
+    if((nameBeforeDot[0] >= 'a' && nameBeforeDot[0] <= 'z') || 
+       (nameBeforeDot[0] >= 'A' && nameBeforeDot[0] <= 'Z')){
+        return "Yes";
+    } else {
         return "No";
     }
-    
-    return "Yes";
 }

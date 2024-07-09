@@ -1,18 +1,23 @@
 #include <boost/any.hpp>
 #include <cassert>
+#include <algorithm>
+#include <string>
 
-template <typename T>
-T compare_one(const T& a, const T& b) {
-    if (boost::any_cast<T>(a) > boost::any_cast<T>(b)) return a;
-    else if (boost::any_cast<T>(a) < boost::any_cast<T>(b)) return b;
-    else return T();
-}
-
-int main() {
-    assert(compare_one<int>(1, 3) == 3);
-    assert(compare_one<float>(1.5, 2.5) == 2.5);
-    assert(compare_one<std::string>("hello", "world") == "world");
-    assert(compare_one<std::string>("123", 100) == "123");
-    
-    return 0;
+boost::any compare_one(boost::any a, boost::any b) {
+    if(a.type() == typeid(int) && b.type() == typeid(int)){
+        return boost::any_cast<int>(a) > boost::any_cast<int>(b) ? a : b;
+    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
+        return boost::any_cast<float>(a) > boost::any_cast<float>(b) ? a : b;
+    } else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
+        std::string str_a = boost::any_cast<std::string>(a);
+        std::string str_b = boost::any_cast<std::string>(b);
+        if(str_a.find_first_of(".,") != std::string::npos){
+            std::replace(str_a.begin(), str_a.end(), ',', '.');
+        }
+        if(str_b.find_first_of(".,") != std::string::npos){
+            std::replace(str_b.begin(), str_b.end(), ',', '.');
+        }
+        return std::stod(str_a) > std::stod(str_b) ? a : b;
+    }
+    return boost::any();
 }
