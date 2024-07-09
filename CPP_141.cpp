@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 std::string file_name_check(std::string file_name) {
@@ -7,13 +6,13 @@ std::string file_name_check(std::string file_name) {
 
     for (char c : file_name) {
         if (isdigit(c)) {
-            if (!hasDigit) hasDigit = true; 
+            if (!hasDigit) hasDigit = true; // More than one digit
             else return "No";
         } else if (c == '.') {
             dotCount++;
-            if (dotCount > 1) return "No"; 
+            if (dotCount > 1) return "No"; // More than one dot
         } else if (c == ' ' || c < 'a' || c > 'z' && c < 'A' || c > 'Z') {
-            return "No"; 
+            return "No"; // Not a latin alphabet letter and not a space
         }
     }
 
