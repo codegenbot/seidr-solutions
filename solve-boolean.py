@@ -1,20 +1,22 @@
 def solve_boolean(expression):
+    operations = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
     stack = []
-    for char in expression:
-        if char == 'T':
-            stack.append(True)
-        elif char == 'F':
-            stack.append(False)
-        elif char == '|':
-            while len(stack) > 0 and not isinstance(stack[-1], bool):
+    temp_stack = []
+    for char in expression + '&':
+        if char == '(':
+            temp_stack.append(stack[:])
+            stack.append(0)
+        elif char in 'TF':
+            stack.append(char == 'T')
+        elif char in '&|':
+            while len(temp_stack) > 1 and temp_stack[-2][0] == 0:
+                op = '&' if temp_stack[-1][-1] == '&' else '|'
                 stack.pop()
-            operator_value = stack.pop()
-            result = operator_value or stack.pop()
-            stack.append(result)
-        elif char == '&':
-            while len(stack) > 0 and not isinstance(stack[-1], bool):
+                temp_stack[-2].pop()
+                stack.append(operations[op](*temp_stack[-2]))
+            temp_stack.append([stack, []])
+        elif char == ')':
+            result = stack[-1]
+            stack.pop()
+            while len(temp_stack) > 1:
                 stack.pop()
-            operator_value = stack.pop()
-            result = operator_value and stack.pop()
-            stack.append(result)
-    return stack[0]
