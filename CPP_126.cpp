@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -25,9 +25,9 @@ int main() {
     }
     
     if(is_sorted(lst)) {
-        std::cout << "The list is sorted.\n";
+        std::cout << "The list is sorted." << std::endl;
     } else {
-        std::cout << "The list is not sorted.\n";
+        std::cout << "The list is not sorted." << std::endl;
     }
     
     return 0;
