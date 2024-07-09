@@ -1,3 +1,4 @@
+```cpp
 int main() {
     std::vector<float> lst;
     long long odd_sum = 0;
@@ -7,6 +8,7 @@ int main() {
     long long double_result = double_the_difference(lst); 
     assert(double_result == 14);
     return 0;
+
 }
 
 long long double_the_difference(std::vector<float> lst) {
