@@ -1,12 +1,5 @@
-#include <vector>
-#include <algorithm>
-
-bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
-}
-
-std::vector<int> unique_digits(std::vector<int> x) {
-    std::vector<int> result;
+vector<int> unique_digits(vector<int> x) {
+    vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
@@ -21,13 +14,6 @@ std::vector<int> unique_digits(std::vector<int> x) {
             result.push_back(num);
         }
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    assert(std::sort(std::vector<int>(unique_digits({135, 103, 31})).begin(),
-                     std::vector<int>(unique_digits({135, 103, 31})).end()) ==
-           std::sort(std::vector<int>({31, 135}).begin(), std::vector<int>({31, 135}).end()));
-    return 0;
 }
