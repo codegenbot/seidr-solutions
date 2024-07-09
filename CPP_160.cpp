@@ -1,90 +1,40 @@
-#include <vector>
-#include <utility>
+#include <sstream>
+#include <string>
 
-int do_algebra(char* operators) {
-    if (operators == NULL) {
+int do_algebra(std::string input) {
+    std::stringstream ss(input);
+    char ops;
+    int operand;
+
+    std::vector<std::pair<char, int>> operators_and_operands;
+
+    while (ss >> ops >> operand) {
+        operators_and_operands.push_back({ops, operand});
+    }
+
+    if (operators_and_operands.size() == 0) {
         return 0;
     }
     
-    int result = 0;
-    char* end = operators;
-    std::vector<std::pair<char, int>> operators_and_operands;
-
-    while (end != NULL) {
-        if (*end == '+') {
-            end++;
-            int operand = 0;
-            while (*end >= '0' && *end <= '9') {
-                operand = operand * 10 + (*end - '0');
-                end++;
-            }
-            operators_and_operands.push_back(std::make_pair('+', operand));
-        } else if (*end == '-') {
-            end++;
-            int operand = 0;
-            while (*end >= '0' && *end <= '9') {
-                operand = operand * 10 + (*end - '0');
-                end++;
-            }
-            operators_and_operands.push_back(std::make_pair('-', operand));
-        } else if (*end == '*') {
-            end++;
-            int operand = 0;
-            while (*end >= '0' && *end <= '9') {
-                operand = operand * 10 + (*end - '0');
-                end++;
-            }
-            operators_and_operands.push_back(std::make_pair('*', operand));
-        } else if (*end == '/') {
-            end++;
-            int operand = 0;
-            while (*end >= '0' && *end <= '9') {
-                operand = operand * 10 + (*end - '0');
-                end++;
-            }
-            operators_and_operands.push_back(std::make_pair('/', operand));
-        } else if (*end == '**') {
-            end++;
-            int operand = 0;
-            while (*end >= '0' && *end <= '9') {
-                operand = operand * 10 + (*end - '0');
-                end++;
-            }
-            operators_and_operands.push_back(std::make_pair('**', operand));
-        } else if (*end < '0' || *end > '9') {
-            if (*end == '\0') break;
-            char op = *end;
-            end++;
-            int operand = 0;
-            while (*end >= '0' && *end <= '9') {
-                operand = operand * 10 + (*end - '0');
-                end++;
-            }
-            operators_and_operands.push_back(std::make_pair(op, operand));
-        } else {
-            break;
-        }
-    }
-
-    int final_result = 0;
+    int result = operators_and_operands[0].second;
     for (const auto& pair : operators_and_operands) {
         if (pair.first == '+') {
-            final_result += pair.second;
+            result += pair.second;
         } else if (pair.first == '-') {
-            final_result -= pair.second;
+            result -= pair.second;
         } else if (pair.first == '*') {
-            final_result *= pair.second;
+            result *= pair.second;
         } else if (pair.first == '/') {
             if (pair.second != 0) {
-                final_result /= pair.second;
+                result /= pair.second;
             }
         } else if (pair.first == '**') {
             long long temp = 1; 
             for(int i=0;i<pair.second;i++){
-                temp*=final_result;
+                temp*=result;
             }
-            final_result = temp;
+            result = temp;
         }
     }
-    return final_result;
+    return result;
 }
