@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
+#include <assert.h>
 
-bool monotonic(std::vector<float> l) {
+bool monotonic(const std::vector<float>& l) {
     bool increasing = true;
     bool decreasing = true;
 
