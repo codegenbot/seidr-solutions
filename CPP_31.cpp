@@ -1,4 +1,3 @@
-```
 #include <cassert>
 #include <cmath>
 
@@ -10,5 +9,3 @@ bool is_prime(int n) {
             return false;
     }
     return true;
-
-}
