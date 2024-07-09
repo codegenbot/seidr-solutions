@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
-using namespace std;
 
-int maxPrimeSum(vector<int> lst){
+int skjkasdkd(std::vector<int> lst) {
     int maxPrime = 0;
     for(int i = 0; i < lst.size(); i++){
         if(isPrime(lst[i])){
@@ -29,11 +27,6 @@ bool isPrime(int n) {
     return true;
 
 int main() {
-    vector<int> lst;
-    int num;
-    cout << "Enter numbers, -1 to stop: ";
-    while((cin >> num) && (num != -1))
-        lst.push_back(num);
-    cout << "Sum of digits of the maximum prime number is: " << maxPrimeSum(lst) << endl;
+    assert(skkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
