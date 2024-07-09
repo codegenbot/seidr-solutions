@@ -1,15 +1,22 @@
+```cpp
 #include <iostream>
-#include <bitset>
+using namespace std;
 
-int solve(int N); 
+string solve(int N) {
+    string::string binary = "";  
+    while (N > 0) {
+        if (N % 2 == 0)
+            binary = "0" + binary;
+        else
+            binary = "1" + binary;
+        N /= 2;
+    }
+    return binary;
+}
 
 int main() {
     int N;
-    std::cout << "Enter a number: ";
-    std::cin >> N;
-    std::cout << "The binary representation of the number is: " << std::bitset<32>(N) << std::endl;
-}
-
-int solve(int N) {
-    return 0; // implement your solution here
+    cout << "Enter a number: ";
+    cin >> N;
+    cout << "The binary representation of the number is: " << solve(N) << endl;
 }
