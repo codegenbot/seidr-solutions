@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -25,13 +24,9 @@ int main() {
         std::cout << "Enter a non-empty string" << std::endl;
     } else {
         int len = input.length();
-        std::string result;
-        if(len % 2 == 0) {
-            result = input.substr(len/2-1, 2);
-        } else {
-            result = input.substr(len/2, 1);
-        }
-        std::cout << result << std::endl;
+        std::string result = middleCharacter(input);
+        if(!result.empty())
+            std::cout << result << std::endl;
     }
     return 0;
 }
