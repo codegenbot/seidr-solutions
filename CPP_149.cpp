@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -10,8 +10,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    std::vector<std::string> result = lst;
+vector<string> sorted_list_sum(vector<string> lst) {
+    vector<string> result = lst;
     for (auto it = result.begin(); it != result.end();) {
         if (it->length() % 2 == 1) {
             it = result.erase(it);
@@ -20,7 +20,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
         }
     }
     sort(result.begin(), result.end(),
-         [](const std::string& a, const std::string& b) {
+         [](const string& a, const string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
              }
@@ -30,27 +30,19 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> lst;
-    int n;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        std::string str;
-        std::cout << "Enter string " << i + 1 << ": ";
-        std::getline(std::cin, str);
-        lst.push_back(str);
+    vector<string> lst;
+    cout << "Enter the list of strings. Enter 'stop' to finish entering the list." << endl;
+    string s;
+    while (true) {
+        cin >> s;
+        if (s == "stop") break;
+        lst.push_back(s);
     }
-    
-    std::vector<std::string> result = sorted_list_sum(lst);
-
-    if (result.size() > 0) {
-        for (auto it = result.begin(); it != result.end(); ++it) {
-            std::cout << *it << " ";
-        }
-        std::cout << "\n";
-    } else {
-        std::cout << "No strings with odd length found.\n";
+    vector<string> result = sorted_list_sum(lst);
+    cout << "The sum of strings is: ";
+    for (const auto& str : result) {
+        cout << str << " ";
     }
-
+    cout << endl;
     return 0;
 }
