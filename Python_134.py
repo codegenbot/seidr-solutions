@@ -1,1 +1,2 @@
-return txt.strip()[-1].isalpha() and txt.strip()[-2] == " "
+def check_if_last_char_is_a_letter(txt):
+    return txt and txt[-1].isalpha() and not txt.split()[-1].isalpha()
