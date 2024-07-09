@@ -23,7 +23,8 @@ int main() {
     for(int i = 0; i < n; i++) {
         string s;
         if(getline(cin, s)) { 
-            cin.ignore(10000, '\n');  
+            cin.ignore(); // Add this to consume whitespace
+            cin.ignore(); // Add this to consume newline left over from getline
             lst.push_back(s);
         } else {
             while (cin.peek() == '\n') cin.ignore();
