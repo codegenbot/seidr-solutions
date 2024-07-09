@@ -19,7 +19,7 @@ std::vector<int> unique_digits(std::vector<int> x) {
         if (!hasEvenDigit(num))
             result.push_back(num);
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
 
