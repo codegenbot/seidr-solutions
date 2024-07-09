@@ -20,8 +20,8 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {1, -2, 3, 4, -5};
+    std::vector<int> nums = {-123, -456, 789};
     int result = count_nums(nums);
-    std::cout << "The number of positive sums is: " << result << std::endl;
+    std::cout << "Count of positive sums: " << result << std::endl;
     return 0;
 }
