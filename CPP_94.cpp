@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
 int main() {
-    assert(sumOfDigits(isPrime(8192) ? 10 : -1) == 10);
+    assert(isPrime(8192) ? sumOfDigits(10) : -1);
     return 0;
 }
 
