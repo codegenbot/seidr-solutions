@@ -8,7 +8,7 @@ using namespace std;
 
 int do_algebra(vector<string> ops, vector<int> nums) {
     int result = 0;
-    long long temp = 1;
+    double temp = 1.0;
 
     for (int i = 0; i < ops.size(); i++) {
         if (ops[i] == "+") {
@@ -18,9 +18,9 @@ int do_algebra(vector<string> ops, vector<int> nums) {
         } else if (ops[i] == "*") {
             temp *= nums[i];
         } else if (ops[i] == "/") {
-            temp /= stoi(to_string(nums[i]));
+            temp /= static_cast<double>(nums[i]);
         } else if (ops[i] == "^") {
-            temp = pow(temp, stoi(to_string(nums[i])));
+            temp = pow(temp, nums[i]);
         }
     }
 
@@ -43,15 +43,10 @@ int main() {
         cin >> op;
         cout << "Enter number: ";
         cin >> strNum;
+        int num = stoi(strNum);
         
-        try {
-            int num = stoi(strNum);
-            ops.push_back(op);
-            nums.push_back(num);
-        } catch (invalid_argument e) {
-            cout << "Invalid input. Please enter an integer." << endl;
-            i--;
-        }
+        ops.push_back(op);
+        nums.push_back(num);
     }
 
     cout << "Result: " << do_algebra(ops, nums) << endl;
