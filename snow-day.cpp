@@ -1,12 +1,12 @@
 #include <iostream>
 #include <iomanip>
-#include <cmath> 
+#include <cmath>
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     double totalSnow = initialSnow;
     for (int i = 0; i < hours; i++) {
-        totalSnow = round(totalSnow + rateOfSnowFall - totalSnow * proportionOfSnowMeltingPerHour); 
+        totalSnow = round(totalSnow + rateOfSnowFall - totalSnow * proportionOfSnowMeltingPerHour);
     }
     return totalSnow;
 }
