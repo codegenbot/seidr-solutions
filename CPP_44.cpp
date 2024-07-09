@@ -1,17 +1,12 @@
 #include <string>
 #include <cassert>
-using namespace std;
 
-string change_base(int x, int base){
-    string result = "";
-    while(x > 0){
-        result = to_string(x % base) + result;
+std::string change_base(int x, int base){
+    assert(base >= 2 && base <= 36);
+    std::string result = "";
+    while (x > 0){
+        result = std::to_string(x % base) + result;
         x /= base;
     }
     return result;
-}
-
-int main() {
-    // Add test cases here
-    return 0;
 }
