@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -19,7 +18,7 @@ vector<string> words_string(string s){
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
             if(!word.empty()){
-                result.push_back(word);
+                result.emplace_back(word);
                 word = "";
             }
         }else{
@@ -27,19 +26,11 @@ vector<string> words_string(string s){
         }
     }
     if(!word.empty())
-        result.push_back(word);
+        result.emplace_back(word);
     return result;
 }
 
 int main(){
-    string input;
-    cout << "Enter your string: ";
-    cin >> input;
-    vector<string> strings = words_string(input);
-    bool same = issame(strings, {"ahmed", "gamal"});
-    if(same)
-        cout << "Strings are same." << endl;
-    else
-        cout << "Strings are not same." << endl;
+    assert (issame(words_string("ahmed     , gamal") , vector<string> {"ahmed", "gamal"}));
     return 0;
 }

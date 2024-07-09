@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -63,16 +62,13 @@ vector<string> by_length(vector<int> arr) {
     return result;
 }
 
-vector<string> main() {
+int main() {
     vector<int> input = {9, 4, 8};
     vector<string> output = by_length(input);
     
-    if (issame(output, {"Nine", "Eight", "Four"})) {
+    if (issame({"Nine", "Eight", "Four"}, output)) {
         for (string str : output) {
             cout << str << endl;
         }
-    } else {
-        cout << "The output is incorrect." << endl;
     }
-    return output;
 }
