@@ -1,21 +1,21 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
 
-vector<int> sort_vector(vector<int> arr) {
-    vector<int> result = arr;
-    sort(result.begin(), result.end(), [](int a, int b) {
-        if (bit_set(a) == bit_set(b)) {
-            return a < b;
-        }
-        return bit_set(a) < bit_set(b);
-    });
-    return result;
-}
-
-int bit_set(int n) {
-    int count = 0;
-    while (n > 0) {
-        n &= n - 1;
-        count++;
+vector<int> sort_array(vector<int> arr) {
+    vector<pair<int, int>> pairs;
+    
+    for (int num : arr) {
+        int ones = __builtin_popcount(num);
+        pairs.push_back({ones, num});
     }
-    return count;
+    
+    sort(pairs.begin(), pairs.end());
+    
+    vector<int> result;
+    
+    for (const auto& pair : pairs) {
+        result.push_back(pair.second);
+    }
+    
+    return result;
 }
