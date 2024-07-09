@@ -1,9 +1,12 @@
-```cpp
-vector<int> common(vector<int> l1, vector<int> s2) {
-    set<int> s1(l1.begin(), l1.end());
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> common(vector<int> s1, vector<int> s2) {
+    set<int> intersection;
     set<int> s2(s2.begin(), s2.end());
 
-    set<int> intersection;
     set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
                       inserter(intersection, intersection.begin()));
 
