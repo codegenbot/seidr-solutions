@@ -49,7 +49,8 @@ int main() {
             ops.push_back(op);
             nums.push_back(num);
         } catch (invalid_argument e) {
-            // Handle non-integer values
+            cout << "Invalid input. Please enter an integer." << endl;
+            i--;
         }
     }
 
