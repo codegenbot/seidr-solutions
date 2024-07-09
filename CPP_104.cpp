@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 
@@ -22,11 +23,11 @@ std::vector<int> unique_digits(std::vector<int> x) {
             result.push_back(num);
         }
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
 }
 
 int main(int argc, char** argv) {
-    assert(issame(unique_digits({135, 103, 31}), std::vector<int>({31, 135})));
+    assert(issame(std::equal_to<int>()(unique_digits({135, 103, 31}), {31, 135}));
     return 0;
 }
