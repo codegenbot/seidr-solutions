@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
 void fizz_buzz(int n) {
@@ -8,7 +8,7 @@ void fizz_buzz(int n) {
         if ((i % 11 == 0 || i % 13 == 0))
             count++;
     }
-    cout << "The number of numbers in the range [1, " << n << "] that are divisible by either 11 or 13 is: " << count << endl;
+    cout << "The number of numbers in the range [1, " << to_string(n) << "] that are divisible by either 11 or 13 is: " << count << endl;
 }
 
 int main() {
