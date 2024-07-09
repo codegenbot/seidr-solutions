@@ -1,38 +1,15 @@
-vector<int> minPath(vector<vector<int>> grid, int k) {
-        int n = grid.size();
-        vector<int> path;
-        int startRow = 0, startCol = 0;
-
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 1) {
-                    startRow = i;
-                    startCol = j;
-                }
-            }
+int n = grid.size();
+    int m = grid[0].size();
+    vector<int> result;
+    result.push_back(grid[0][0]); // Start from top-left corner
+    int row = 0, col = 0;
+    for(int i = 1; i < k; ++i){
+        if(col < m - 1 && (row == 0 || grid[row][col+1] > grid[row-1][col])){
+            col++;
+        } else {
+            row++;
         }
-
-        vector<vector<int>> visited(n, vector<int>(n, 0));
-        vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-        path.push_back(grid[startRow][startCol]);
-        visited[startRow][startCol] = 1;
-
-        while (path.size() < k) {
-            pair<int, int> nextCell = {-1, -1};
-            for (auto dir : directions) {
-                int nextRow = startRow + dir.first;
-                int nextCol = startCol + dir.second;
-                if (nextRow >= 0 && nextRow < n && nextCol >= 0 && nextCol < n && !visited[nextRow][nextCol]) {
-                    if (nextCell.first == -1 || grid[nextRow][nextCol] < grid[nextCell.first][nextCell.second]) {
-                        nextCell = {nextRow, nextCol};
-                    }
-                }
-            }
-            path.push_back(grid[nextCell.first][nextCell.second]);
-            startRow = nextCell.first;
-            startCol = nextCell.second;
-            visited[startRow][startCol] = 1;
-        }
-
-        return path;
+        result.push_back(grid[row][col]);
     }
+    return result;
+}
