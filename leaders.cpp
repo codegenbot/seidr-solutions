@@ -5,11 +5,14 @@ using namespace std;
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
+    int maxRightNow = arr[n - 1]; // Rightmost element is always a leader
     for (int i = n - 1; i >= 0; i--) {
-        if (i == n - 1 || arr[i] >= arr[i + 1]) {
+        if (arr[i] >= maxRightNow) {
             result.push_back(arr[i]);
+            maxRightNow = arr[i];
         }
     }
+    reverse(result.begin(), result.end()); // Reverse the order of leaders
     return result;
 }
 
