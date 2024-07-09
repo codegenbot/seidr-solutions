@@ -7,29 +7,32 @@ using namespace std;
 
 vector<int> sort_third(vector<int> l) {
     vector<int> result;
-    int groupCount = 0;
-
-    for (int i : l) {
-        if(groupCount % 3 == 0) { 
-            if(groupCount != 0) { 
-                sort(result.begin(), result.end());
-                for (int j = result.size() - 1; j >= 0; j--) {
-                    result.push_back(result[j]);
-                }
+    int thirdIndex = 0;
+    
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 3 == 0 && i != 0) {
+            // Sort the previous "third" elements
+            vector<int> temp;
+            while(thirdIndex > 0 && l[thirdIndex-1] % 3 != 0) {
+                temp.push_back(l[--thirdIndex]);
             }
-            result.clear(); 
+            sort(temp.begin(), temp.end());
+            
+            for (int k = temp.size() - 1; k >= 0; k--) {
+                result.push_back(temp[k]);
+            }
+        } else if (i % 3 != 2) {
+            result.push_back(l[i]);
         }
-        result.push_back(i);
-        groupCount++;
-    }
-
-    if(groupCount % 3 == 0) {
-        sort(result.begin(), result.end());
-        for (int j = result.size() - 1; j >= 0; j--) {
-            result.push_back(result[j]);
+        
+        // Update the third index
+        if(i % 3 == 0) {
+            thirdIndex = i + 1;
+        } else {
+            thirdIndex++;
         }
     }
-
+    
     return result;
 }
 
