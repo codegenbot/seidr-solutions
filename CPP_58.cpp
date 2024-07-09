@@ -1,36 +1,41 @@
+````
 #include <iostream>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) 
-        return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) 
-            return false;
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 int main() {
-    int n1, n2;
-    std::cout << "Enter number of elements in first vector: ";
-    std::cin >> n1;
-    std::vector<int> l1(n1);
-    for(int i = 0; i < n1; i++) 
-        std::cin >> l1[i];
-    
-    std::cout << "Enter number of elements in second vector: ";
-    std::cin >> n2;
-    std::vector<int> l2(n2);
-    for(int i = 0; i < n2; i++) 
-        std::cin >> l2[i];
-
-    if(issame(l1, l2)) {
-        std::cout << "Vectors are same." << std::endl;
+    int m1, n1, m2, n2;
+    std::cout << "Enter number of elements in list 1: ";
+    std::cin >> m1;
+    std::cout << "Enter the elements of list 1: ";
+    std::vector<int> v1(m1);
+    for(int i=0; i<m1; i++) {
+        std::cin >> v1[i];
     }
-    else
-        std::cout << "Vectors are not same." << std::endl;
-
+    
+    std::cout << "Enter number of elements in list 2: ";
+    std::cin >> n2;
+    std::cout << "Enter the elements of list 2: ";
+    std::vector<int> v2(n2);
+    for(int i=0; i<n2; i++) {
+        std::cin >> v2[i];
+    }
+    
+    if(issame(v1, v2)) {
+        std::cout << "Lists are same" << std::endl;
+    } else {
+        std::vector<int> common = common(v1, v2);
+        for(int num : common) {
+            std::cout << num << " ";
+        }
+        std::cout << std::endl;
+    }
+    
     return 0;
 }
+
+```
