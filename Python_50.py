@@ -1,4 +1,3 @@
-```
 def decode_shift():
     while True:
         try:
@@ -13,10 +12,10 @@ def decode_shift():
     while True:
         try:
             s = input("Enter the encoded string: ")
-            if not isinstance(s, str):
-                print("Invalid input! Please enter a string. Try again.")
-            else:
+            if all(c.isalpha() or c.isspace() for c in s):
                 break
+            else:
+                print("Invalid input! String should only contain alphabets and spaces. Try again.")
         except ValueError:
             pass
 
@@ -24,9 +23,9 @@ def decode_shift():
     for ch in s:
         if ch.isalpha():
             if ch.isupper():
-                decoded_s += chr(((ord(ch) - ord('A')) - shift) % 26 + ord('A'))
+                decoded_s += chr((ord(ch) - ord('A') - shift) % 26 + ord('A'))
             else:
-                decoded_s += chr(((ord(ch) - ord('a')) - shift) % 26 + ord('a'))
+                decoded_s += chr((ord(ch) - ord('a') - shift) % 26 + ord('a'))
         else:
             decoded_s += ch
     return decoded_s
