@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool areEqual(std::vector<int> a, std::vector<int> b) {
+bool same(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(std::find(b.begin(), b.end(), a[i]) == b.end()) return false;
@@ -21,7 +21,7 @@ std::vector<int> remove_duplicates(std::vector<int> v) {
 }
 
 int main() {
-    if(!areEqual(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5})) {
+    if(!same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5})) {
         std::cout << "assert failed" << std::endl;
     } else {
         std::cout << "assert passed" << std::endl;
