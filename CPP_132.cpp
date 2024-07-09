@@ -1,3 +1,4 @@
+```
 #include <string>
 
 bool is_nested(std::string str) {
@@ -14,3 +15,4 @@ bool is_nested(std::string str) {
         }
     }
     return count == 0;
+}
