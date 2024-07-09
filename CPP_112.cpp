@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -15,7 +16,7 @@ vector<string> reverse_delete(string s, string c) {
         if (!found) {
             temp += s[i];
         }
-   
+   }
     
     string reverse_temp = temp;
     reverse(reverse_temp.begin(), reverse_temp.end());
