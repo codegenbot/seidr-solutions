@@ -1,14 +1,13 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     return (a == b);
 }
 
 int main() {
-    vector<int> input;
+    std::vector<int> input;
     int n;
     cin >> n;
     for(int i = 0; i < n; i++) {
@@ -18,14 +17,12 @@ int main() {
     }
     
     auto unique_end = std::unique(input.begin(), input.end());
-    vector<int> output(input.begin(), unique_end);
-    sort(output.begin(), output.end());
+    std::vector<int> output(input.begin(), unique_end);
+    std::sort(output.begin(), output.end());
     
     for (int i : output) {
         cout << i << " ";
     }
     
-    assert(std::issame({5, 3, 5, 2, 3, 3, 9, 0, 123}, {0, 2, 3, 5, 9, 123}));
-    
-    return 0;
+    assert(std::equal(input.begin(), unique_end, input.begin()));
 }
