@@ -1,17 +1,16 @@
 ```cpp
 #include <vector>
-#include <numeric>
-#include <limits>
+using namespace std;
 
-std::vector<std::vector<int>> cutVector(std::vector<int> v) {
+vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    std::vector<std::vector<int>> res(2);
+    vector<vector<int>> res(2);
     
     long long totalSum = 0;
     for (int i = 0; i < n; i++) {
         totalSum += v[i];
     }
-    int minDiff = std::numeric_limits<int>::max(); 
+    int minDiff = INT_MAX;
     int leftIndex = 0;
     
     long long halfSum = totalSum / 2;
@@ -23,8 +22,8 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
         while (i < n && totalSum > halfSum) {
             totalSum -= v[i];
             leftIndex = i + 1;
-            if (totalSum == halfSum || std::abs(totalSum - halfSum) < minDiff) {
-                minDiff = std::abs(totalSum - halfSum);
+            if (totalSum == halfSum || abs(totalSum - halfSum) < minDiff) {
+                minDiff = abs(totalSum - halfSum);
                 break;
             }
         }
