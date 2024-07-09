@@ -5,8 +5,8 @@
 std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
     std::vector<std::string> letter_grades;
     for (float grade : grades) {
-        std::string letter_grade = ""; // Convert grade to letter grade
-        letter_grades.push_back(letter_grade); // Add to letter_grades vector
+        std::string letter_grade = ""; 
+        letter_grades.push_back(letter_grade); 
     }
     return letter_grades;
 }
