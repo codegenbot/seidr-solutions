@@ -1,8 +1,7 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <boost/any.hpp>
-
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp> 
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -13,23 +12,23 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (stod(a.convert_to<string>().c_str()) > stod(b.convert_to<string>().c_str())) {
+        if (stod(a.convert_to<string>()) > stod(b.convert_to<string>())) {
             return a;
         }
-        else if (stod(a.convert_to<string>().c_str()) < stod(b.convert_to<string>().c_str())) {
+       	else if (stod(a.convert_to<string>()) < stod(b.convert_to<string>())) {
             return b;
         }
-       	else {
+		else {
             return boost::any("None");
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        double a_num = stod(a.convert_to<string>().c_str());
-        double b_num = stod(b.convert_to<string>().c_str());
+        double a_num = stod(a.convert_to<string>());
+        double b_num = stod(b.convert_to<string>());
         if (a_num > b_num) {
             return a;
         }
-       	else if (a_num < b_num) {
+		else if (a_num < b_num) {
             return b;
         }
 		else {
@@ -78,13 +77,4 @@ boost::any compare_one(boost::any a, boost::any b) {
     else {
         return boost::any("None");
     }
-}
-
-int main() {
-    boost::any a = 5; // integer
-    boost::any b = "10.0"; // string converted to float
-
-    cout << compare_one(a, b) << endl;
-
-    return 0;
 }
