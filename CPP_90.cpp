@@ -1,9 +1,12 @@
 int next_smallest(vector<int> lst){
-    if(lst.size() < 2)
-        return -1; // Return None which is represented by -1 in this case
-    sort(lst.begin(), lst.end());
-    for(int i = 0; i < (lst.size()-1); i++)
-        if(lst[i] != lst[i+1])
-            return lst[i];
-    return -1;
+    vector<int> copy = lst;
+    if(copy.empty()){
+        return -1; // or some value that represents None
+    }
+    sort(copy.begin(), copy.end());
+    copy.erase(unique(copy.begin(), copy.end()), copy.end());
+    if(copy.size() < 2){
+        return -1; // or some value that represents None
+    }
+    return copy[1];
 }
