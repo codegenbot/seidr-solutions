@@ -4,13 +4,17 @@
 bool cycpattern_check(std::string a, std::string b) {
     int n = a.size(), m = b.size();
     if (n != m) return false;
-    
+
     std::string temp = a + a;
-    
+
     return (temp.find(b) != std::string::npos);
 }
 
 int main() {
-    std::cout << cycpattern_check("abcde", "cde") << std::endl;
+    std::string a, b;
+    std::cin >> a >> b;
+    
+    std::cout << cycpattern_check(a, b) << std::endl;
+
     return 0;
 }
