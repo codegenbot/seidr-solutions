@@ -1,4 +1,4 @@
-vector<string> filter_strings(vector<string> strings, string substring){
+vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings){
         if(s.find(substring) != string::npos)
@@ -7,7 +7,11 @@ vector<string> filter_strings(vector<string> strings, string substring){
     return result;
 }
 
+bool same(vector<string> a, vector<string> b){
+    return a.size() == b.size() && all_of(a.begin(), a.end(), [&](const string& s) { return find(b.begin(), b.end(), s) != b.end(); });
+}
+
 int main(){
-    assert(sort(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run")) == {"grunt", "prune"});
+    assert(same(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
 }
