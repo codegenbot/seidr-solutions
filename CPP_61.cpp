@@ -1,7 +1,6 @@
-```cpp
+```
 #include <iostream>
 #include <string>
-#include <cassert>
 
 bool correct_bracketing(const std::string& s) {
     int count = 0;
