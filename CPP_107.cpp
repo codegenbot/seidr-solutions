@@ -42,4 +42,3 @@ int main() {
     cout << "Odd palindrome count: " << output[1] << endl;
     
     return 0;
-}
