@@ -1,3 +1,5 @@
+#include <string>
+
 std::string spinWords(const std::string& str) {
     std::vector<std::string> words = split(str, ' ');
     std::string result;
