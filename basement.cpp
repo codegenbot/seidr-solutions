@@ -1,17 +1,11 @@
-#include <vector>
-
+```cpp
 int basement(std::vector<int> nums) {
-    int total_sum = 0;
+    int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
-        total_sum += nums[i];
-        if (total_sum < 0) { 
-            return i;
+        sum += nums[i];
+        if (sum < 0) { 
+            return i+1; 
         }
     }
     return -1;
-
-}
-
-int main() {
-    return 0;
 }
