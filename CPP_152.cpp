@@ -27,21 +27,25 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 int main() {
     int n;
     std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    if (n < 0) {
+    if (!(std::cin >> n)) { 
+        std::cerr << "Error: Please enter a non-negative integer." << std::endl;
+        return -1; 
+    }
+    if(n < 0) {
         std::cerr << "Error: Number of elements should be non-negative." << std::endl;
         return -1; 
     }
 
     // Create a new vector and fill space
-    std::vector<int> game(n); 
+    std::vector<int> game; 
     for(int i = 0; i < n; i++){
         int temp;
         while(true) {
             std::cout << "Enter element " << i+1 << ": ";
-            if (!(std::cin >> temp)) { // Check for invalid input
+            if (!(std::cin >> temp)) { 
                 std::cerr << "Error: Please enter a non-negative integer." << std::endl;
+                std::cin.clear(); // Clear the error flag
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the rest of the line
                 return -1; 
             }
             if(temp < 0) {
@@ -50,17 +54,19 @@ int main() {
             }
             break;
         }
-        game[i] = temp;
+        game.push_back(temp);
     }
     
     // Create a new vector and fill space
-    std::vector<int> guess(n); 
+    std::vector<int> guess; 
     for(int i = 0; i < n; i++){
         int temp;
         while(true) {
             std::cout << "Enter element " << i+1 << ": ";
-            if (!(std::cin >> temp)) { // Check for invalid input
+            if (!(std::cin >> temp)) { 
                 std::cerr << "Error: Please enter a non-negative integer." << std::endl;
+                std::cin.clear(); // Clear the error flag
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the rest of the line
                 return -1; 
             }
             if(temp < 0) {
@@ -69,21 +75,15 @@ int main() {
             }
             break;
         }
-        guess[i] = temp;
+        guess.push_back(temp);
     }
     
-    if(issame(game, guess))
-    {
-        std::cout << "The two vectors are the same.\n";
+    if(issame(game, guess)) {
+        std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::vector<int> result = compare(game, guess);
-        for(int i = 0; i < game.size(); i++){
-            std::cout << "Element " << i+1 << ": ";
-            if(result[i] == 0)
-                std::cout << "Matched\n";
-            else
-                std::cout << "Missed by " << result[i] << "\n";
+        for(int i = 0; i < result.size(); i++) {
+            std::cout << "Element " << i+1 << ": " << result[i] << std::endl;
         }
     }
-    return 0;
 }
