@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 
-bool std::vector<bool> issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a != b)
         return false;
     return true;
