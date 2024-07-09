@@ -1,14 +1,3 @@
-def decipher_cipher(cipher_map, message):
-    result = ""
-    for char in message:
-        if char in cipher_map[0]:
-            index = cipher_map[0].index(char)
-            result += cipher_map[1][index]
-        else:
-            result += char
-    return result
-
-
-cipher_map = [input(), input()]
-message = input()
-print(decipher_cipher((cipher_map,), message))
+def decipher_cipher(cipher_text1, cipher_text2, message):
+    cipher_dict = {cipher_text1[i]: cipher_text2[i] for i in range(len(cipher_text1))}
+    return "".join([cipher_dict.get(char, char) for char in message])
