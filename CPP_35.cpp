@@ -1,17 +1,16 @@
-```cpp
 #include <vector>
-#include <cmath>
+#include <cassert>
 
-float max_element(std::vector<float> l){
-    float max = l[0];
-    for(int i=1; i<l.size(); i++){
-        if(l[i] > max)
-            max = l[i];
+float std::max_element(std::vector<float> l) {
+    float result = l[0];
+    for(float x : l) {
+        if(x > result)
+            result = x;
     }
-    return max;
+    return result;
 }
 
 int main() {
-    assert (std::abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10})- 12.4)<1e-4);
-    return 0;
+    vector<float> v = {1.2, 3.4, 5.6};
+    assert(std::max_element(v) == 5.6);
 }
