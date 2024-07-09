@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -5,11 +6,11 @@ bool issame(const std::vector<std::unique_ptr<float>>& a, const std::vector<std:
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::unique_ptr<float>> get_positive(const std::vector<std::unique_ptr<float>>& numbers) {
-    std::vector<std::unique_ptr<float>> positive_numbers;
+std::vector<int> get_positive(const std::vector<std::unique_ptr<float>>& numbers) {
+    std::vector<int> positive_numbers;
     for (auto& num : numbers) { 
         if (*num > 0) {
-            positive_numbers.push_back(std::make_unique<float>(*num));
+            positive_numbers.push_back(*num);
         }
     }
     return positive_numbers;
@@ -30,12 +31,12 @@ int main() {
             numbers.push_back(std::make_unique<float>(num));
         }
 
-        std::vector<std::unique_ptr<float>> positive_numbers = get_positive(numbers);
+        std::vector<int> positive_numbers = get_positive(numbers);
 
         if(issame(numbers, positive_numbers)) {
             std::cout << "The list of positive numbers is: ";
             for (auto& num : positive_numbers) {
-                std::cout << std::to_string(*num) << " ";
+                std::cout << num << " ";
             }
             std::cout << std::endl;
         } else {
