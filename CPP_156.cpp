@@ -21,38 +21,32 @@ std::string int_to_roman(int n) {
             return "CM";
         }
         else if (n >= 50) {
-            return "L" + int_to_roman(n - 50);
+            return "L";
         }
         else if (n >= 40) {
-            return "XL" + int_to_roman(n - 40);
+            return "XL";
         }
         else {
             if (n >= 9) {
                 return "IX";
             }
             else if (n >= 5) {
-                return "V" + int_to_roman(n - 5);
+                return "V";
             }
             else if (n >= 4) {
-                return "IV" + int_to_roman(n - 4);
+                return "IV";
             }
             else {
-                return roman[n];
+                return "I";
             }
         }
     }
     else {
-        if (n >= 9) {
-            return "IX";
-        }
-        else if (n >= 5) {
-            return "V";
-        }
-        else if (n >= 4) {
-            return "IV";
-        }
-        else {
-            return roman[n];
-        }
+        return "";
     }
+}
+
+int main() {
+    assert(int_to_roman(1000) == "M");
+    return 0;
 }
