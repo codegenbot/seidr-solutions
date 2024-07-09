@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <sstream>
 
 using namespace std;
 
-void words_in_sentence(const string& sentence);
+void words_in_sentence(string sentence);
 
 int main() {
     string sentence;
@@ -16,7 +15,7 @@ int main() {
     return 0;
 }
 
-void words_in_sentence(const string& sentence) {
+void words_in_sentence(string sentence) {
     stringstream ss(sentence);
     string word;
     int count = 0;
