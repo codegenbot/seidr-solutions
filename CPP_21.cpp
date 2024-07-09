@@ -1,12 +1,20 @@
-vector<float> rescale_to_unit(vector<float> numbers) {
-    float min_num = *min_element(numbers.begin(), numbers.end());
-    float max_num = *max_element(numbers.begin(), numbers.end());
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+void rescale_to_unit(std::vector<float>& numbers) {
+    float min_num = *std::min_element(numbers.begin(), numbers.end());
+    float max_num = *std::max_element(numbers.begin(), numbers.end());
     
-    vector<float> result;
-    for (float num : numbers) {
-        float rescaled_num = (num - min_num) / (max_num - min_num);
-        result.push_back(rescaled_num);
+    for (float &num : numbers) {
+        num = (num - min_num) / (max_num - min_num);
     }
+}
+
+int main() {
+    std::vector<float> input = {12.0, 11.0, 15.0, 13.0, 14.0};
+    rescale_to_unit(input);
+    assert(std::equal(input.begin(), input.end(), {0.25, 0.0, 1.0, 0.5, 0.75}));
     
-    return result;
+    return 0;
 }
