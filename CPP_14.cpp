@@ -2,21 +2,13 @@
 #include <string>
 
 bool issame(const vector<string> a, const vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
-vector<string> all_prefixes(const string str) {
-    vector<string> result;
+vector<vector<string>> all_prefixes(string str) {
+    vector<vector<string>> result;
     for (int i = 1; i <= str.size(); ++i) {
-        result.push_back(str.substr(0, i));
+        result.push_back({str.substr(0, i)});
     }
     return result;
 }
