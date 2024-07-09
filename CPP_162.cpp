@@ -10,11 +10,11 @@ string string_to_md5(string text) {
         return "";
     }
 
-    unsigned char md5[16];
     md5_context ctx;
+    unsigned char md5[16];
     MD5_CTX_init(&ctx);
     const char* cstr = text.c_str();
-    MD5_CTX_update(&ctx, cstr, text.size());
+    MD5_CTX_update(&ctx, (unsigned char*)cstr, text.size());
     MD5_CTX_finish(&ctx, md5);
 
     ostringstream oss;
