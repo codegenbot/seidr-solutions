@@ -13,7 +13,7 @@ int solution(std::vector<int> lst) {
     return sum;
 }
 
-int main() {
+void runTest() {
     int num, size = 0;
     std::cin >> num;
     std::vector<int> lst;
@@ -23,5 +23,9 @@ int main() {
         size++;
     }
     assert(solution(lst) == 16); 
+}
+
+int main() {
+    runTest();
     return 0;
 }
