@@ -1,10 +1,18 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    if n % 2 != 0 or n < 2:
-        raise ValueError("The number of coefficients must be even and greater than 1.")
-    max_coeff = max(xs[1:])
-    if max_coeff != 0:
-        for i in range(n):
-            if xs[i] == max_coeff or xs[i] == -max_coeff:
-                return -i / xs[i]
-    return 0
+    a = xs[-1]
+    b = xs[-2]
+
+    if n == 2:
+        return -b / a
+    else:
+        return 1.0
+
+# Read input from the user
+input_list = list(map(float, input().split()))
+
+# Call the function with the input
+result = find_zero(input_list)
+
+# Print the result
+print(result)
