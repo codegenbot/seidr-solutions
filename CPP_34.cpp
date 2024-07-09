@@ -25,7 +25,7 @@ int solution() {
         }
         it = nextIt;
     }
-    std::vector<int> unique(std::vector<int>(it, uniqueVec.end()));
+    std::vector<int> unique(uniqueVec.begin(), uniqueVec.end());
     assert(issame(unique, uniqueVec));
     return 0;
 }
