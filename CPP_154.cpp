@@ -11,7 +11,6 @@ bool cycpattern_check(std::string a, std::string b) {
 }
 
 int main() {
-    std::cout << cycpattern_check("abcde", "cdeab") << std::endl;
-
+    std::cout << cycpattern_check("abcde", "cde") << std::endl;
     return 0;
 }
