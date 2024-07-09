@@ -14,15 +14,14 @@ string string_to_md5(string text) {
     EVP_MD_CTX_init(&md);
     unsigned char result[MD5_DIGEST_LENGTH];
 
-    EVP_DigestInit_ex(EVP_get_defaultdigest(), NULL, NULL, &md);
+    EVP_DigestInit_ex(&md, EVP_md5(), NULL);
     EVP_DigestUpdate(&md, text.c_str(), text.size());
-    unsigned char mdValue[16];
-    EVP_DigestFinal_ex(&md, mdValue, NULL);
+    unsigned char* md5 = (unsigned char*)malloc(MD5_DIGEST_LENGTH);
+    EVP_DigestFinal_CTX(&md, md5, NULL);
+    string output;
     for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        stringstream ss;
-        ss << setfill('0') << setw(2) << hex << (int)mdValue[i];
-        text += ss.str();
+        output += setfill('0') << setw(2) << hex << std::setw(2) << std::setfill('0') << (int)md5[i];
     }
-
-    return text;
+    free(md5);
+    return output;
 }
