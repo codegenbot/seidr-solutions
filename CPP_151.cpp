@@ -5,7 +5,6 @@ long double_the_difference(const std::vector<int>& input);
 
 int main() {
     int n;
-    long odd_sum = 0;
     std::vector<int> input;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -15,13 +14,16 @@ int main() {
         std::cin >> num;
         if(num > 0) { 
             input.push_back(num);
-            odd_sum += num * num; 
         }
     }
-    long result = (long)input.size() * (long)input.size() - odd_sum;
+    long result = double_the_difference(input);
     std::cout << "The total sum of squares is: " << static_cast<int>(result) << std::endl;
 }
 
 long double_the_difference(const std::vector<int>& input) {
-    return 0; 
+    long sum = 0;
+    for (const auto& num : input) {
+        sum += (long)num * (long)num; 
+    }
+    return (long)sum; 
 }
