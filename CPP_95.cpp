@@ -1,6 +1,12 @@
-```cpp
 #include <map>
 #include <string>
+#include <vector>
+
+int main() {
+    map<string, string> dict;
+    bool result = check_dict_case(dict);
+    return 0;
+}
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -15,10 +21,4 @@ bool check_dict_case(map<string, string> dict) {
     }
 
     return allUpper && allLower;
-}
-
-int main() {
-    map<string, string> dict = {{"key", "value"}};
-    cout << check_dict_case(dict);
-    return 0;
 }
