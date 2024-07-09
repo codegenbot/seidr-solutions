@@ -20,6 +20,6 @@ int main() {
     std::vector<std::string> vec = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     std::string prefix = "xxx";
     std::vector<std::string> result = filter_by_prefix(vec, prefix);
-    bool same = issame(result, {result[0], result[1], "xxx"});
+    bool same = issame(result, {prefix + "AAA"});
     return 0;
 }
