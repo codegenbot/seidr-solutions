@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,13 +8,12 @@ vector<string> odd_count(vector<string> lst) {
     vector<string> result;
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
-        string temp; // Fix: allocate memory here
         for (char c : lst[i]) {
             if (c % 2 != 0) {
                 count++;
             }
         }
-        temp = "the number of odd elements ";
+        string temp = "the number of odd elements ";
         temp += to_string(count);
         temp += " in the string ";
         temp += to_string(i + 1);
@@ -28,9 +26,24 @@ vector<string> odd_count(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"1234567"};
-    odd_count(lst);
-    for (vector<string> output : odd_count(lst)) {
-        cout << output << endl;
+    vector<string> lst;
+    string s;
+
+    cout << "Enter strings (enter 'stop' to stop):" << endl;
+    while (true) {
+        cin >> s;
+        if (s == "stop") break;
+        lst.push_back(s);
     }
+
+    for (string str : lst) {
+        cout << str << endl;
+    }
+
+    vector<string> output = odd_count(lst);
+    for (string o : output) {
+        cout << o << endl;
+    }
+    
+    return 0;
 }
