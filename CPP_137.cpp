@@ -1,4 +1,3 @@
-```cpp
 #include <boost/variant.hpp>
 
 using namespace boost;
