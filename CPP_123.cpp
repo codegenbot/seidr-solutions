@@ -29,3 +29,4 @@ std::vector<int> get_odd_collatz(int n) {
 int main() {
     assert(same(get_odd_collatz(12), {6, 3, 1})); 
     return 0;
+}
