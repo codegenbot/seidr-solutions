@@ -7,8 +7,8 @@ std::string squareDigits(std::string input) {
     for (char c : input) { 
         int digit = c - '0'; 
         digit *= digit; 
-        if(digit >= 10){
-            return "";
+        if(digit >= 10000){
+            return "Error: Input number is too large.";
         }
         output += std::to_string(digit); 
     }
@@ -23,11 +23,11 @@ int main() {
         std::cout << "Error: Input cannot be empty." << std::endl;
     } else {
         std::string output = squareDigits(input);
-        if (output.empty()) {
-            std::cout << "Error: Input contains a number greater than or equal to 100." << std::endl;
-        } else {
+        if (!output.empty() && output != "Error: Input number is too large.") {
             std::cout << "Squared digits: " << output << std::endl;
         }
+        else
+            std::cout << output << std::endl;
     }
     return 0;
 }
