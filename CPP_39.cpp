@@ -1,9 +1,12 @@
+```cpp
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-int prime_fib(int n);  
+bool isPrime(int num); // Declare isPrime before using it
+
+int prime_fib(int n);
 
 int main() {
     int n;
