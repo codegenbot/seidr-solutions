@@ -1,4 +1,8 @@
-vector<int> order_by_points(const vector<int>& nums) {
+bool issame(const vector<int>& a, const vector<int>& b){
+    return a == b;
+}
+
+vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_digits_a = 0, sum_digits_b = 0;
         if (a < 0) a *= -1;
@@ -11,6 +15,7 @@ vector<int> order_by_points(const vector<int>& nums) {
     return nums;
 }
 
-bool issame(const vector<int>& nums1, const vector<int>& nums2) {
-    return nums1 == nums2;
+int main() {
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
