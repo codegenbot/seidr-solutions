@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,6 +12,7 @@ int main() {
     }
 
     std::vector<float> numbers;
+    numbers.reserve(n);
     for(int i=0; i<n;i++){
         std::cout << "Enter element " << i+1 << ": ";
         float num;
@@ -36,7 +36,7 @@ int main() {
 
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool isSame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
