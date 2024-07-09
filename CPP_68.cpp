@@ -3,7 +3,7 @@
 #include <cassert>
 #include <iostream>
 
-bool compareVectors(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -11,8 +11,8 @@ bool compareVectors(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
     if (arr.empty()) return result;
 
     uint64_t minEven = UINT64_MAX;
@@ -33,9 +33,9 @@ vector<int> pluck(vector<int> arr) {
 }
 
 int main() {
-    vector<int> input = {7, 9, 7, 1};
-    vector<int> output = pluck(input);
-    assert(compareVectors(output, vector<int>{}));
+    std::vector<int> input = {7, 9, 7, 1};
+    std::vector<int> output = pluck(input);
+    assert(issame(output, {}));
     std::cout << "Output: ";
     for (int i : output) {
         std::cout << i << " ";
