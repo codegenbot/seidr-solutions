@@ -1,14 +1,12 @@
 #include <vector>
 #include <algorithm>
-#include <string>
-#include <cctype>
-
+#include <array> 
 using namespace std;
 
 bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
     if (a.size() != b.size()) return false;
     for(int i = 0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
+        if ((a[i].first != b[i].first) || (a[i].second != b[i].second)) return false;
     }
     return true;
 }
@@ -29,7 +27,7 @@ vector<pair<int, string>> select_words(string s, int n) {
             }
             wordCount++;
         } else {
-            word += tolower(c);
+            word += c;
         }
     }
     if (!word.empty()) {
