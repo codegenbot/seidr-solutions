@@ -7,4 +7,7 @@ def string_to_md5(text):
         return None
 
 text = input("Enter a string: ")
-print(string_to_md5(text))
+if text:
+    print(string_to_md5(text))
+else:
+    print("Please provide a valid string.")
