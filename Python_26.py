@@ -1,7 +1,7 @@
 from typing import List
 
-def remove_duplicates(numbers: List[int]) -> List[int]:
-    return list(set(numbers))
 
-numbers = list(map(int, input("Enter space-separated numbers: ").split()))
-print(remove_duplicates(numbers))
+def remove_duplicates() -> List[int]:
+    numbers_str = input("Enter space-separated numbers: ")
+    numbers_list = list(map(int, numbers_str.split()))
+    return list(set(numbers_list))
