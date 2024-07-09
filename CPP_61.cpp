@@ -1,18 +1,17 @@
 #include <iostream>
-#include <stack>
 #include <string>
 
 bool correct_bracketing(const std::string& s) {
-    std::stack<char> brackets;
+    int count = 0;
     for (char c : s) {
         if (c == '(') {
-            brackets.push(c);
+            ++count;
         } else if (c == ')') {
-            if (brackets.empty()) return false;
-            brackets.pop();
+            if (count <= 0) return false;
+            --count;
         }
     }
-    return brackets.empty();
+    return count == 0;
 }
 
 int main() {
