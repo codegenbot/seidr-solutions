@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -19,7 +20,7 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
                     break;
                 }
             }
-            if (foundOddInLst1 == 0) return "NO";
+            if (foundOddInLst1 > 0) return "NO";
         }
     }
     return "YES";
