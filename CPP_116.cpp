@@ -1,13 +1,6 @@
-```cpp
-#include <vector>
-#include <algorithm>
-
-bool areEqual(int a, int b) {
-    return (a == b);
-}
-
 std::vector<int> sort_array(std::vector<int> arr) {
-    std::sort(arr.begin(), arr.end(), [](int a, int b) {
+    std::vector<int> arrCopy = arr;  // Create a copy of the input vector
+    std::sort(arrCopy.begin(), arrCopy.end(), [](int a, int b) {
         int ones_a = __builtin_popcount(a);
         int ones_b = __builtin_popcount(b);
 
@@ -16,11 +9,5 @@ std::vector<int> sort_array(std::vector<int> arr) {
         else
             return ones_a < ones_b;
     });
-    return arr;
-}
-
-int main() {
-    std::vector<int> arr = {2, 4, 8, 16, 32};
-    assert(std::equal(arr.begin(), arr.end(), sort_array(arr).begin()));
-    return 0;
+    return arrCopy;
 }
