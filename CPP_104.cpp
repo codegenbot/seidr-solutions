@@ -23,11 +23,10 @@ vector<int> unique_digits(vector<int> x) {
     }
     sort(result.begin(), result.end());
     return result;
-}
 
-int main() {
-    vector<int> numbers = {11, 22, 33};
-    vector<int> result = unique_digits(numbers);
+int test_unique_digits() {
+    vector<int> x = {15, 33, 1422, 1};
+    vector<int> result = unique_digits(x);
     for (int num : result) {
         cout << num << " ";
     }
