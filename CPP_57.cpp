@@ -1,4 +1,5 @@
-```cpp
+#include <initializer_list>
+
 bool monotonic(std::vector<float> l) {
     bool increasing = true;
     bool decreasing = true;
@@ -12,4 +13,3 @@ bool monotonic(std::vector<float> l) {
     }
 
     return increasing || decreasing;
-}
