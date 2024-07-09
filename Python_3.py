@@ -1,1 +1,1 @@
-operations = list(map(int, input().split()))
+operations = [int(input()) for _ in range(5)]
