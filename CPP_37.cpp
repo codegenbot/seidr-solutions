@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -13,10 +10,10 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<std::float> sort_even(const std::vector<float>& l) {
-    std::vector<float> result(l.size());
+    std::vector<std::float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            std::vector<float> evens;
+            std::vector<std::float> evens;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     evens.push_back(l[j]);
