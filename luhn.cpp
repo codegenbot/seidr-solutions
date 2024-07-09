@@ -1,29 +1,27 @@
 #include <vector>
 using namespace std;
 
-int luhn(vector<int> cardNumber) {
+int luhn(vector<int>& digits) {
     int sum = 0;
-    for(int i = 0; i < cardNumber.size(); i++) {
-        if(i % 2 == 1) {
-            int temp = cardNumber[i] * 2;
-            if(temp > 9) {
+    for (int i = 0; i < digits.size(); i++) {
+        if ((i % 2 == 1)) {
+            int temp = digits[i] * 2;
+            if (temp > 9) {
                 temp -= 9;
             }
             sum += temp;
         } else {
-            sum += cardNumber[i];
+            sum += digits[i];
         }
     }
     return sum;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> cardNumber(n);
-    for(int i = 0; i < n; i++) {
-        cin >> cardNumber[i];
+    vector<int> digits(16);
+    for (int i = 0; i < 16; i++) {
+        cin >> digits[i];
     }
-    cout << luhn(cardNumber) << endl;
+    cout << luhn(digits) << endl;
     return 0;
 }
