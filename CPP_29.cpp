@@ -2,12 +2,14 @@
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if(a.size() != b.size()) {
-        throw std::runtime_error("Vectors are not the same size");
+    if (a.size() != b.size()) {
+        std::cerr << "Vectors are not the same size." << std::endl;
+        return false;
     }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            throw std::runtime_error("Vectors contain different elements");
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            std::cerr << "Vectors are not the same.\n";
+            return false;
         }
     }
     return true;
