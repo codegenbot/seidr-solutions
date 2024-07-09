@@ -17,15 +17,3 @@ vector<string> all_prefixes(const string& str) {
     }
     return result;
 }
-
-int main() {
-    string str = "WWW";
-    vector<vector<string>> a = {{"W"}, {"W", "W"}, {"W", "W", "W"}};
-    vector<vector<string>> b = {{"W"}, {"W", "W"}, {"W", "W", "W"}};
-    assert(issame(a, b));
-    vector<string> prefixes = all_prefixes(str);
-    for (const string& prefix : prefixes) {
-        cout << prefix << endl;
-    }
-    return 0;
-}
