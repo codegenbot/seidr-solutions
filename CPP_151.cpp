@@ -17,11 +17,11 @@ int main() {
 
     int n;
     cin >> n;
-    for(int i=0;i<n;i++){
+    for (int i = 0; i < n; i++) {
         float x;
         cin >> x;
-        if(x > 0 && floor(x) == x){
-            odd_sum += pow(x,2);
+        if (x > 0 && floor(x) == x) { 
+            odd_sum += pow(x, 2);
         }
     }
 
