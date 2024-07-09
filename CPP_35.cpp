@@ -3,7 +3,7 @@
 #include <initializer_list>
 #include <iostream>
 
-int getMax(int n) {
+int max_of_elements(int n) {
     std::vector<int> l;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -19,6 +19,7 @@ int getMax(int n) {
 }
 
 int main() {
-    assert (std::abs(getMax(0)-12) < 1e-4);
+    assert (std::abs(std::max({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10})-12) < 1e-4);
+    int result = max_of_elements(0); 
     return 0;
 }
