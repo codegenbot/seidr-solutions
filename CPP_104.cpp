@@ -1,16 +1,15 @@
 #include <vector>
-#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> unique_digits(vector<int> x);
+
+int main() {
+    // Main function implementation
+}
+
+bool issame(vector<int> a, vector<int> b){
+    // issame function implementation
 }
 
 vector<int> unique_digits(vector<int> x){
