@@ -33,6 +33,5 @@ vector<int> pluck(vector<int> arr) {
 }
 
 int main() {
-    // You can test your pluck function here
     return 0;
 }
