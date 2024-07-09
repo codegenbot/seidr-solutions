@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <initializer_list>
 using namespace std;
 
 bool has_close_elements(vector<float> a, float tol) {
@@ -17,7 +15,7 @@ bool has_close_elements(vector<float> a, float tol) {
 }
 
 int main() {
-    vector<float> numbers = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f, 0.0f};
+    vector<float> numbers = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2, 0.0};
     assert(has_close_elements(numbers, 0.5) == false);
     
     vector<float> numbers2 = {1.1f, 2.2f, 3.1f, 4.1f, 5.1f};
