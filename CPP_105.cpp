@@ -1,3 +1,10 @@
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> by_length(vector<int> arr) {
     vector<int> nums;
     for (int num : arr) {
@@ -45,4 +52,9 @@ vector<string> by_length(vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    assert(by_length({9, 4, 8}) == vector<string>({"Nine", "Eight", "Four"}));
+    return 0;
 }
