@@ -1,4 +1,5 @@
-vector<string> groups;
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
     string current_group;
     int count = 0;
 
@@ -7,20 +8,17 @@ vector<string> groups;
             count++;
             if (count > 1) {
                 current_group += c;
-            } else if (!current_group.empty()) {
-                groups.push_back(current_group);
-                current_group = "";
             }
         } else if (c == ')') {
             count--;
             if (count > 0) {
                 current_group += c;
             } else {
-                current_group += c;
-                groups.push_back(current_group);
+                result.push_back(current_group);
                 current_group = "";
             }
         }
     }
 
-    return groups;
+    return result;
+}
