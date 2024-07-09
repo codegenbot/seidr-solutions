@@ -17,13 +17,12 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    int n; 
-    std::cin >> n;
+    int n; cin >> n;
     
     std::vector<std::string> lst(n);
     
     for(int i = 0; i < n; i++) {
-        std::cin >> lst[i];
+        cin >> lst[i];
     }
     
     std::vector<std::string> result = sorted_list_sum(lst);
