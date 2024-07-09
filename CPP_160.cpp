@@ -1,4 +1,5 @@
-string do_algebra(vector<string> operator_, vector<int> operand) {
+```
+int do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
         expression += to_string(operand[i]);
@@ -6,25 +7,35 @@ string do_algebra(vector<string> operator_, vector<int> operand) {
     }
     expression += to_string(operand.back());
     
-    int result = stoi(eval(expression));
+    long long result = eval(expression);
+    
+    return static_cast<int>(result);
+}
+
+long long eval(const string& s) {
+    long long result = 0;
+    if (s.empty()) {
+        return result;
+    }
+    
+    int start = 0, sign = 1;
+    for (int i = 0; i < (s.size() - 1); i++) {
+        if (!isdigit(s[i])) {
+            if (s[i] == '+') {
+                sign = 1;
+            } else if (s[i] == '-') {
+                sign = -1;
+            }
+            start = i + 1;
+        } 
+        else {
+            while (i < s.size() && isdigit(s[i])) {
+                result += sign * (s[i] - '0');
+                i++;
+            }
+            i--;
+        }
+    }
     
     return result;
 }
-
-string eval(const string& s) {
-    string temp = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (isdigit(s[i])) {
-            temp += s[i];
-        } else if (s[i] == '+') {
-            int num = stoi(temp);
-            temp = "";
-            result += num;
-        } else if (s[i] == '-') {
-            int num = stoi(temp);
-            temp = "";
-            result -= num;
-        }
-    }
-    int num = stoi(temp);
-    return to_string(num);
