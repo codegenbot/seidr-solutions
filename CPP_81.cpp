@@ -1,30 +1,21 @@
 #include <vector>
 #include <string>
-#include <cassert>
 
-bool checkIfSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+std::string numerical_letter_grade(std::vector<float> grades) {
+    std::string letter_grades[] = {"F","D+","D","D-","C+","C","C-","B+","B","B-","A+","A","A-","E"};
+    int grade_index = (int)(grades[1] * 4);
+    if(grade_index > 12)
+        return "E";
+    else
+        return letter_grades[grade_index];
 }
 
-float numerical_letter_grade(float grade) {
-    if (grade >= 4.0)
-        return 4.0; 
-    else if (grade >= 3.7)
-        return 3.7; 
-    else if (grade >= 3.3)
-        return 3.3; 
-    else if (grade >= 3.0)
-        return 3.0; 
-    else if (grade >= 2.7)
-        return 2.7; 
-    else if (grade >= 2.3)
-        return 2.3; 
-    else
-        return 0.0; 
+bool areSame(vector<string> a, vector<string>b){
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
     std::vector<float> grades = {0, 0.7};
-    assert(checkIfSame(std::vector<std::string>(numerical_letter_grade(grades[0]), numerical_letter_grade(grades[1])), {"E", "D-"}));
+    assert(areSame({numerical_letter_grade(grades)}, {"E", "D-"}));
     return 0;
 }
