@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <algorithm>
 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result(2, 0);
@@ -11,4 +13,22 @@ std::vector<int> even_odd_count(int num) {
         num /= 10;
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+
+    return true;
+}
+
+int main() {
+    int num = 0;
+    std::vector<int> expected = {1, 0};
+    assert(issame(even_odd_count(num), expected));
 }
