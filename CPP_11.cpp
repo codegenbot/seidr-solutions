@@ -15,6 +15,7 @@ std::string string_xor(std::string a, std::string b) {
         result += res == 1 ? "1" : "0";
     }
     return result;
+
 }
 
 int main() {
@@ -31,3 +32,4 @@ int main() {
         std::cerr << "Error: " << e.what() << std::endl;
     }
     return 0;
+}
