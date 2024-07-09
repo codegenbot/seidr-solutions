@@ -6,6 +6,11 @@
 
 using namespace std;
 
+template <typename T>
+T get(const variant<int, float, string>& v) {
+    return get<T>(v);
+}
+
 variant<int, float, string> compare_one(const variant<int, float, string>& a, const variant<int, float, string>& b) {
     if (a.index() != b.index())
         return {}; // Different types, return default-constructed variant
