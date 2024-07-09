@@ -1,13 +1,7 @@
-```c++
+```cpp
 #include <string>
-
-int getBonus(int a, int b) {
-    if(a + b == 10) {
-        return 10;
-    } else {
-        return a + b;
-    }
-}
+int getBonus(int a, int b);
+#include <cctype>
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -35,3 +29,12 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
+}
+
+int getBonus(int a, int b) {
+    if(a + b == 10) {
+        return 10;
+    } else {
+        return a + b;
+    }
+}
