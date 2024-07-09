@@ -1,7 +1,8 @@
+#include <string>
 int bowlingScore(std::string input) {
     int score = 0;
     int i = 0;
-    while (i < input.length()) {
+    while(i < input.length()) {
         if(input[i] == 'X') { 
             score += 10;
             i++; 
