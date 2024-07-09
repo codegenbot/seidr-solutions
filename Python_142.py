@@ -7,8 +7,6 @@ def sum_squares(lst):
                 total += num**2
             elif num % 4 == 0 and num % 3 != 0:
                 total += num**3
-            else:
-                return "Only integers are allowed"
         else:
             return "Only integers are allowed"
     return total
