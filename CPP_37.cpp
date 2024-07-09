@@ -24,8 +24,8 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> input = {3.2, 1.5, 4.7, 2.1, 5.3};
-    vector<float> expected_output = {1.5, 3.2, 2.1, 4.7, 5.3};
+    vector<float> input = {3.5, 2.0, 1.8, 4.2, 5.1};
+    vector<float> expected_output = {1.8, 2.0, 3.5, 4.2, 5.1};
 
     vector<float> output = sort_even(input);
 
