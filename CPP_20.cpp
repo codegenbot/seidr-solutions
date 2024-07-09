@@ -1,8 +1,15 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <limits>
+#include <algorithm>
+
+using namespace std;
+
 int main(){
     int n;
     cin >> n;
-    vector<float> a(n), b(n);
+    vector<float> a(n, 0.0f), b(n, 0.0f);
     for (int i = 0; i < n; i++) {
         cin >> a[i] >> b[i];
     }
