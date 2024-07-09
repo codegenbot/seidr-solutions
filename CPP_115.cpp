@@ -7,7 +7,7 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     for (const auto &row : grid) {
         for (int water : row) {
             if (water == 1) {
-                total_water += water;
+                total_water += 1; // assuming it's binary (0 or 1)
             }
         }
     }
@@ -17,9 +17,12 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 }
 
 int main() {
-    std::vector<std::vector<int>> grid = {{0, 0, 0}, {0, 1, 1}, {1, 1, 1}};
-    int capacity = 2;
+    std::vector<std::vector<int>> grid = {{0, 0, 1}, {1, 1, 0}, {1, 1, 0}};
+    int capacity = 3;
+
     int result = max_fill(grid, capacity);
-    std::cout << "The maximum number of steps is: " << result << std::endl;
+
+    std::cout << "The minimum number of operations to fill the container is: " << result << std::endl;
+
     return 0;
 }
