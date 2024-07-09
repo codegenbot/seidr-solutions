@@ -12,8 +12,8 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst; // define your vector here
-    float odd_sum = double_the_difference(lst); // calculate the sum before using it in assert
+    std::vector<float> lst; 
+    float odd_sum = double_the_difference(lst); 
     assert(double_the_difference(lst) == odd_sum );
     return 0;
 }
