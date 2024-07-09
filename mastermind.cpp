@@ -1,3 +1,6 @@
+#include <cstddef>
+#include <string>
+
 int mastermind(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -8,10 +11,10 @@ int mastermind(const std::string& code, const std::string& guess) {
         }
     }
 
-    for(size_t j=0; j<4; j++) {
+    for(int j=0; j<4; j++) {
         bool found = false;
         int count = 0;
-        for(size_t k=0; k<4; k++) {
+        for(int k=0; k<4; k++) {
             if(code[k] == guess[j]) {
                 found = true;
                 count++;
