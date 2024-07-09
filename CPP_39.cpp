@@ -12,13 +12,14 @@ bool isPrime(int n) {
 
 int prime_fib(int n) {
     int a = 0, b = 1, fib = 0;
-    for (int i = 2; ; i++) {
+    while (true) {
         fib = a + b;
-        if (fib > n) return i - 1;
+        if (fib > n) break;
         a = b;
         b = fib;
-        if (isPrime(fib)) return i - 1;
+        if (isPrime(fib)) return fib; // return the current index
     }
+    return -1; // or any other value to indicate no prime found
 }
 
 int main() {
