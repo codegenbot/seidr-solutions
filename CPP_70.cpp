@@ -1,9 +1,8 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+    // Implement the issame function logic here
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst){
@@ -21,6 +20,8 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
 }
 
 int main(){
+    // Write test cases using assert here
     assert (issame(strange_sort_list({111111}) , {111111}));
+    
     return 0;
 }
