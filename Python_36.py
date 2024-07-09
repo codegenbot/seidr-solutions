@@ -1,3 +1,4 @@
+```
 def fizz_buzz(n: int):
     """
     Returns a string consisting of numbers from 1 to n, replaced by
