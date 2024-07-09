@@ -5,4 +5,3 @@ bool prime_length(std::string str){
         if(len%i == 0) return false;
     }
     return true;
-}
