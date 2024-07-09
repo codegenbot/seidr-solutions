@@ -1,27 +1,36 @@
 #include <vector>
-#include <iostream>
 
-bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size())
-        return false;
-    
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
+// Define the issame function
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size();
 }
 
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
-    for(float num : l){
-        if(num > 0)
+// Define the get_positive function
+std::vector<float> get_positive(std::vector<float> l) {
+    std::vector<float> result;
+    for (float num : l) {
+        if (num > 0) {
             result.push_back(num);
+        }
     }
     return result;
 }
 
 int main() {
-    assert(issame(get_positive({}), {}));
-    // your other code here
+    assert(get_positive({}) == {});
+    vector<float> numbers;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; ++i){
+        float num;
+        cin >> num;
+        numbers.push_back(num);
+    }
+    
+    std::vector<float> pos_numbers = get_positive(numbers);
+    if(issame({1.0},pos_numbers)) {
+        cout << "The numbers are the same." << endl;
+    } else {
+        cout << "The numbers are not the same." << endl;
+    }
 }
