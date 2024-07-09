@@ -6,9 +6,9 @@
 bool is_happy(const std::string& s) {
     if (s.length() < 3)
         return false;
-    for (int i = 0; i <= s.length() - 3; i++) {
+    for (int i = 0; i <= s.length() - 1; i++) {
         bool unique = true;
-        for (int j = i; j < i + 3; j++) {
+        for (int j = i; j < i + 3 && j < s.length(); j++) {
             char c = s[j];
             int count = 0;
             for (int k = j; k < j + 3 && k < s.length(); k++) {
@@ -30,7 +30,7 @@ int main() {
     assert(is_happy("iopaxioi") == false);
     std::string s;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
+    std::cin >> s;
     if (is_happy(s))
         std::cout << "The string is happy." << std::endl;
     else
