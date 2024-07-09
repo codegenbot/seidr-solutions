@@ -1,5 +1,19 @@
 #include <vector>
 
+vector<float> derivative(vector<float> xs);
+
+bool issame(vector<float> v1, vector<float> v2){
+    if(v1.size() != v2.size()){
+        return false;
+    }
+    for(int i=0; i<v1.size(); i++){
+        if(v1[i] != v2[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<float> derivative(vector<float> xs){
     vector<float> result;
     for(int i=1; i<xs.size(); i++){
@@ -8,12 +22,8 @@ vector<float> derivative(vector<float> xs){
     return result;
 }
 
-bool issame(vector<float> vec1, vector<float> vec2){
-    return vec1 == vec2;
-}
-
 int main(){
-    vector<float> input = {1.1, 2.2, 3.3, 4.4, 5.5};
+    vector<float> input = {1.0, 2.0, 3.0, 4.0, 5.0};
     vector<float> result = derivative(input);
     return 0;
 }
