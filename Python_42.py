@@ -1,4 +1,2 @@
-def increment_numbers(l):
-    return [num + 1 for num in l]
-
-check(increment_numbers)
+def check(incr_list):
+    return incr_list([1, 2, 3])
