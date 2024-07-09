@@ -1,12 +1,13 @@
+```cpp
 #include <sstream>
 #include <iomanip>
-#include <openssl/md5.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md5[16];
     MD5_CTX ctx;
+    #include <openssl/md5.h>
     MD5_Init(&ctx);
     const unsigned char* ptr = reinterpret_cast<const unsigned char*>(text.c_str());
     size_t len = text.size();
@@ -15,7 +16,7 @@ string string_to_md5(string text) {
 
     stringstream ss;
     for (int i = 0; i < 16; i++) {
-        ss << hex << setfill('0') << setw(2) << (unsigned int)(md5[i]);
+        ss << std::hex << std::setfill('0') << std::setw(2) << (unsigned int)(md5[i]);
     }
 
     return ss.str();
