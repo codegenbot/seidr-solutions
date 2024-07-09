@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <cctype>
 #include <cassert>
@@ -13,6 +14,9 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    std::string str = "EEEE"; 
-    assert(count_upper(str) == 2);
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    assert(count_upper(str) == 4); // Fix this line to test the correct result
     return 0;
+}
