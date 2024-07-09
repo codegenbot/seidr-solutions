@@ -1,31 +1,13 @@
-#include <iostream>
 #include <string>
-#include <cmath>
 #include <cassert>
 
-std::string calculateBinary(int n, int m) {
-    if (n > m) {
-        return "-1";
-    }
-    
-    int sum = 0;
-    int count = 0;
-    for (int i = n; i <= m; i++) {
-        sum += i;
-        count++;
-    }
-    
-    int avg = std::round((double)sum / count);
-    
-    std::string binary = "";
-    while (avg > 0) {
-        binary = std::to_string(avg % 2) + binary;
-        avg /= 2;
-    }
-    
-    return binary;
+std::string calculateBinary(int num1, int num2) {
+    int avg = (num1 + num2) / 2;
+    std::string binary_avg = std::bitset<8>(avg).to_string(); // 8-bit binary representation
+    return binary_avg;
 }
 
 int main() {
-    assert(calculateBinary(5, 5) == "101");
+    int rounded_avg = std::stoi(calculateBinary(5, 5), 0, 2);
+    assert(rounded_avg == 5);
 }
