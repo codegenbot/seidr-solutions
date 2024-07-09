@@ -25,32 +25,29 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
-    int n;
+    int n = 0; 
     std::cout << "Enter the number of elements: ";
-    std::cin >> n;
     
-    // Create a new vector and fill space
+    while (!(std::cin >> n)) { 
+        std::cout << "Invalid input. Please enter a positive integer: ";
+        std::cin.clear(); 
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+    }
+    
     std::vector<int> game;
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
-        if(i < n)
-            game.push_back(temp);
-        else
-            break; // stop the loop when we reach the end of game
+        game.push_back(temp);
     }
     
-    // Create a new vector and fill space
     std::vector<int> guess;
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
-        if(i < n)
-            guess.push_back(temp);
-        else
-            break; // stop the loop when we reach the end of game
+        guess.push_back(temp);
     }
     
     if(issame(game, guess))
