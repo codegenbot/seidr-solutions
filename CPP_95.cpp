@@ -1,15 +1,11 @@
 ```cpp
-#include <map>
-#include <string>
-#include <cctype>
-
 bool check_dict_case(map<pair<string, string>, bool> dict) {
     if (dict.empty()) return false;
 
     bool allLower = true;
     bool allUpper = true;
 
-    for (auto& pair : dict) {
+    for (auto& pair : std::move(dict)) { 
         if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
             allLower = false;
             allUpper = false;
