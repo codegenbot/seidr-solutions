@@ -1,11 +1,11 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <string>
 
-int match_parens(vector<std::string> lst) {
+int match_parens(const std::vector<std::string>& lst) {
     int open = 0, close = 0;
-    for (const string& s : lst) {
+    for (const auto& s : lst) {
         for (char c : s) {
             if (c == '(') open++;
             else close++;
@@ -15,8 +15,8 @@ int match_parens(vector<std::string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"(abc)", "def(", "(ghi)"};
+    std::vector<std::string> lst = {"(abc", "def(", "(ghi", "jkl("};
     int result = match_parens(lst);
-    cout << result << endl;
+    std::cout << "Result: " << (result ? "Yes" : "No") << std::endl;
     return 0;
 }
