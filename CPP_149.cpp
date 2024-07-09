@@ -8,8 +8,8 @@ bool issame(vector<string> a, vector<string> b) {
         return false;
     }
     
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -17,8 +17,8 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
+std::vector<string> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::string> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
@@ -39,6 +39,6 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == {"cc", "dd", "aaaa", "bbbb"});
     return 0;
 }
