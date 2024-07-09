@@ -28,3 +28,4 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 int main() {
     assert(issame(strange_sort_vector({1, 2, 3}), {1, 2, 3}));
     return 0;
+}
