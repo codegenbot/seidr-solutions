@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert> // Add assert header
+#include <cctype>
+#include <cassert>
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> words;
@@ -31,7 +32,7 @@ std::vector<std::string> split_words(std::string txt) {
     return words;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) { // Change reference to value
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -42,12 +43,4 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) { // Change 
         }
     }
     return true;
-}
-
-int main() {
-    // Test cases using assert
-    assert(issame(split_words(""), {"0"}));
-    assert(!issame(split_words("hello"), {"world"}));
-
-    return 0;
 }
