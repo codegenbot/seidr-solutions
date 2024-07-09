@@ -1,4 +1,9 @@
 #include <algorithm>
+#include <map>
+#include <set>
+#include <vector>
+#include <string>
+
 using namespace std;
 
 string sort_numbers(string numbers) {
