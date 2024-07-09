@@ -1,37 +1,40 @@
-#include <iostream>
+#include <string>
 using namespace std;
 
-bool evaluateBooleanExpression(string expression) {
-    stack<char> operationStack;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!operationStack.empty() && operationStack.top() == '|') {
-                operationStack.pop();
+bool solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-        } else if (expression[i] == '|') {
-            operationStack.push(expression[i]);
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
-            char result = expression[i];
-            while (!operationStack.empty() && operationStack.top() != '&') {
-                operationStack.pop();
+            if (st.empty()) {
+                return false;
             }
-            if (!operationStack.empty()) {
-                result = operationStack.top() == '&' ? (result == 'T' ? 'F' : 'T') : result;
-                operationStack.pop();
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
+            if (st.empty()) {
+                return true;
+            }
+        } else {
+            st.push(s[i]);
         }
     }
-    return expression[0] == 'T';
+    if (st.size() > 0) {
+        return st.top() == 'T';
+    }
+    return false;
 }
 
 int main() {
-    string expression;
-    cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    bool result = evaluateBooleanExpression(expression);
-    if (result)
-        cout << "True" << endl;
-    else
-        cout << "False" << endl;
+    // Test cases
+    cout << boolalpha << solveBoolean("t") << endl;  // True
+    cout << boolalpha << solveBoolean("f") << endl;  // False
+    cout << boolalpha << solveBoolean("f&f") << endl;  // False
+    cout << boolalpha << solveBoolean("f&t") << endl;  // False
+    cout << boolalpha << solveBoolean("t&f") << endl;  // False
+
     return 0;
 }
