@@ -1,15 +1,15 @@
-int i = 0, count_open = 0, count_close = 0;
-while (i < str.length()) {
-    if (str[i] == '[') {
-        count_open++;
-    } else if (str[i] == ']') {
-        if (count_open > 0) {
-            count_open--;
-            count_close++;
-        } else {
-            return false;
+Here is the completed code:
+
+```cpp
+bool is_nested(string str) {
+    int count = 0;
+    for (char c : str) {
+        if (c == '[') {
+            count++;
+        } else if (c == ']') {
+            if (count > 1) return true;
+            count--;
         }
     }
-    i++;
+    return false;
 }
-return count_close > 0;
