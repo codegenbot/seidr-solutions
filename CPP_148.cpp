@@ -10,7 +10,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    if (!issame(bf("Jupiter", "Makemake"), {{"Jupiter"}, {"Makemake"}})) {
+    if (!issame(bf("Jupiter", "Makemake"), bf("Jupiter", "Makemake"))) {
         return 1; 
     }
     return 0;
