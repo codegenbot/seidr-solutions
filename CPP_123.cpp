@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 bool issame(vector<int> a,vector<int>b){
@@ -26,14 +25,6 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    vector<int> odd_collatz = get_odd_collatz(num);
-    if (issame(odd_collatz, {1})) {
-        cout << "The Collatz sequence contains only odd numbers." << endl;
-    } else {
-        cout << "The Collatz sequence does not contain only odd numbers." << endl;
-    }
+    assert(issame(get_odd_collatz(1), {1}));
     return 0;
 }
