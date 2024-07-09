@@ -1,9 +1,6 @@
 #include <vector>
 #include <algorithm>
-
-bool issame(std::pair<float, float> a, std::pair<float, float> b) {
-    return a.first == b.first && a.second == b.second;
-}
+#include <cassert>
 
 std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
@@ -21,6 +18,7 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == std::pair<float, float>{2.2, 3.1});
+    
     return 0;
 }
