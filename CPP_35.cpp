@@ -3,15 +3,10 @@
 #include <vector>
 #include <algorithm>
 
-int maxFunc() {
-    std::cout << *std::max_element({std::to_string(5), std::to_string(3), std::to_string(-5), 
-                                    std::to_string(2), std::to_string(-3), std::to_string(3), 
-                                    std::to_string(9), std::to_string(0), std::to_string(124), 
-                                    std::to_string(1), std::to_string(-10)}) << std::endl;
-    return 0;
-}
-
 int main() {
-    maxFunc();
+    std::vector<int> numbers = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    int maxNum = *std::max_element(numbers.begin(), numbers.end());
+    assert(abs(maxNum - 124) < 1e-4);
+    std::cout << maxNum << std::endl;
     return 0;
 }
