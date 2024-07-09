@@ -2,36 +2,50 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int minDiff = INT_MAX;
-    int splitIndex = 0;
+pair<vector<int>, vector<int>> cutVector(vector<int>& vec) {
+    int min_diff = INT_MAX;
+    int cut_index = -1;
     
-    for (int i = 1; i < vec.size(); i++) {
-        int diff = abs(vec[i] - vec[i-1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            splitIndex = i;
+    for(int i = 0; i < vec.size() - 1; i++) {
+        int left_sum = 0, right_sum = 0;
+        
+        for(int j = 0; j <= i; j++) {
+            left_sum += vec[j];
+        }
+        
+        for(int j = i + 1; j < vec.size(); j++) {
+            right_sum += vec[j];
+        }
+        
+        int diff = abs(left_sum - right_sum);
+        
+        if(diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    vector<int> leftVec = vector<int>(vec.begin(), vec.begin() + splitIndex);
-    vector<int> rightVec = vector<int>(vec.begin() + splitIndex, vec.end());
+    vector<int> left_vec(vec.begin(), vec.begin() + cut_index + 1);
+    vector<int> right_vec(vec.begin() + cut_index + 1, vec.end());
     
-    return {leftVec, rightVec};
+    return {left_vec, right_vec};
 }
 
 int main() {
-    int n;
-    cin >> n;
+    int n; cin >> n;
     vector<int> vec(n);
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         cin >> vec[i];
     }
     pair<vector<int>, vector<int>> result = cutVector(vec);
-    cout << "1 ";
-    for (int num : result.second) {
-        cout << num << " ";
+    cout << "Left: ";
+    for(auto x : result.first) {
+        cout << x << " ";
+    } 
+    cout << endl;
+    cout << "Right: ";
+    for(auto x : result.second) {
+        cout << x << " ";
     }
-    cout << std::endl;
+    cout << endl;
     return 0;
-}
