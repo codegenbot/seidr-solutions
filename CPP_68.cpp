@@ -1,12 +1,21 @@
 #include <vector>
-#include <limits>
-#include <iostream>
+#include <algorithm>
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
-    std::vector<std::pair<int, int>> result;
-    
+    std::vector<std::pair<int, int>> result = {};
+
+    if (arr.empty()) return result;
+
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0) {
+        bool foundSame = false;
+        for (int j = 0; j < i; j++) {
+            if (arr[i] == arr[j]) {
+                foundSame = true;
+                break;
+            }
+        }
+
+        if (!foundSame) {
             result.push_back({arr[i], i});
         }
     }
