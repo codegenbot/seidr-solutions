@@ -1,3 +1,4 @@
-def check(double_the_difference, lst):
-    return double_the_difference(lst)
-check(double_the_difference, [1, 2, 3, 4, 5])
+def check(function, lst):
+    return function(lst) 
+
+check(double_the_difference, lst)  # Pass lst as an argument
