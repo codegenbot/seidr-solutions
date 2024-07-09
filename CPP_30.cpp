@@ -20,10 +20,14 @@ vector<float> get_positive(vector<float> l){
 
 int main() {
     assert(issame(get_positive({}), {}));
-    std::vector<float> v = {1.0, -2.0, 3.0, -4.0};
-    vector<float> pos_v = get_positive(v);
-    for (float f : pos_v) {
-        std::cout << f << " ";
+    std::vector<float> input;
+    float val;
+    while (std::cin >> val) {
+        input.push_back(val);
+    }
+    vector<float> pos = get_positive(input);
+    for(float num : pos) {
+        std::cout << num << " ";
     }
     return 0;
 }
