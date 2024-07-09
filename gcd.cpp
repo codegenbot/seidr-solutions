@@ -1,6 +1,5 @@
 Here is the modified code:
 
-```cpp
 #include <iostream>
 
 int main() {
