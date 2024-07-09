@@ -3,13 +3,13 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<string>& a, const std::vector<string>& b) {
     return a == b;
 }
 
-std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    std::vector<std::string> result;
+std::vector<string> bf(const string& planet1, const string& planet2) {
+    std::vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    std::vector<string> result;
     
     int start = -1, end = -1;
     for (int i = 0; i < planets.size(); ++i) {
