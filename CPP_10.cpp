@@ -7,14 +7,10 @@ bool is_palindrome(string str){
     return s==str;
 }
 
-string make_palindrome(string str){
-    int i=str.length()-1;
-    while(i>=0 && str[i]==str[0]){
-        i--;
+string make_palindrome(string str) {
+    string prefix = str;
+    while (!is_palindrome(prefix)) {
+        prefix += (str[0]);
     }
-    if(i<0) {
-        return str+str;
-    } else {
-        return str.substr(0,i+1)+reverse(str.substr(i+1)).to_string()+str.substr(0,i+1);
-    }
+    return prefix + prefix.substr(0, str.length());
 }
