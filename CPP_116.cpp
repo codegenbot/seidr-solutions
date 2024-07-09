@@ -1,6 +1,7 @@
 ```cpp
-#include <string>
 #include <vector>
+#include <bitset>
+#include <limits>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a != b)
@@ -9,7 +10,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> sort_array(std::vector<int> arr) {
-    auto comp = [&] (int a, int b) -> bool {
+    auto comp = [&] (int a, int b) {
         if (std::bitset<32>(a).count() != std::bitset<32>(b).count()) {
             return std::bitset<32>(a).count() < std::bitset<32>(b).count();
         } else {
