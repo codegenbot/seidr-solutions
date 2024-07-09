@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,22 +5,23 @@
 bool is_sorted(std::vector<int> lst);
 
 int main() {
-    std::vector<int> lst;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        int num;
+
+    std::vector<int> lst;
+    for(int i = 0; i < n; i++){
+        int x;
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
-        lst.push_back(num);
+        std::cin >> x;
+        lst.push_back(x);
     }
-    
-    if(is_sorted(lst))
-        std::cout << "The vector is sorted.\n";
-    else
-        std::cout << "The vector is not sorted.\n";
+
+    if(is_sorted(lst)){
+        std::cout << "The list is sorted.\n";
+    } else {
+        std::cout << "The list is not sorted.\n";
+    }
 
     return 0;
 }
