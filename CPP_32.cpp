@@ -1,8 +1,6 @@
-```
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <cassert>
 
 using namespace std;
 
@@ -35,12 +33,6 @@ int main() {
     cout << "Enter coefficients (space separated): ";
     for(double x; cin >> x; xs.push_back(x)); 
     double solution = find_zero(xs);
-    vector<double> coeffs;
-    for (int i = 1; i < xs.size(); i++) {
-        if (i % 2 == 0) {
-            coeffs.push_back(xs[i] / xs[i-1]);
-        }
-    }
-    assert(abs(poly(coeffs, solution))< 1e-3);
+    assert(abs(poly(find_coefficients(xs), solution)) < 1e-3);
     return 0;
 }
