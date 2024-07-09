@@ -13,6 +13,7 @@ float median(std::vector<float> numbers) {
         return numbers[size / 2];
 }
 
+std::vector<float> numbers;
 std::cout << "Enter the numbers (enter 'stop' to finish): ";
 std::string input;
 while (true) {
