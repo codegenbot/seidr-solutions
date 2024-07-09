@@ -1,18 +1,11 @@
-bool issame(vector<int> a,vector<int> b){
-    return a==b;
-}
+#include <boost/any.hpp>
 
 vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value, 0)) {
-            result.push_back(boost::any_cast<int>(value));
+        if (boost::any_cast<bool>(value)) {
+            int val = boost::any_cast<boost::any>(value).get_value<int>();
+            result.push_back(val);
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
-    // your code here
-}
