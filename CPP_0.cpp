@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -16,9 +15,11 @@ bool has_close_elements(vector<float> a, float tol) {
 }
 
 int main() {
-    vector<float> numbers = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f, 0.0f};
+    vector<float> numbers(7, 0.0f);
+    numbers[0] = 1.0f; numbers[1] = 2.0f; numbers[2] = 3.9f; numbers[3] = 4.0f; numbers[4] = 5.0f; numbers[5] = 2.2f; numbers[6] = 0.0f;
     assert(has_close_elements(numbers, 0.5) == false);
-    
-    vector<float> numbers2 = {1.1f, 2.2f, 3.1f, 4.1f, 5.1f};
+
+    vector<float> numbers2(5, 0.0f);
+    numbers2[0] = 1.1f; numbers2[1] = 2.2f; numbers2[2] = 3.1f; numbers2[3] = 4.1f; numbers2[4] = 5.1f;
     assert(has_close_elements(numbers2, 0.5) == false);
 }
