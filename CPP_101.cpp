@@ -9,7 +9,6 @@ bool issame(vector<string> a, vector<string> b) {
         if (a[i] != b[i]) {
             return false;
     }
-
     return true;
 }
 
