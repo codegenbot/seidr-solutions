@@ -1,5 +1,9 @@
-vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             nums.push_back(num);
@@ -9,9 +13,9 @@ vector<string> by_length(vector<int> arr) {
     sort(nums.begin(), nums.end());
     reverse(nums.begin(), nums.end());
 
-    vector<string> result;
+    std::vector<std::string> result;
     for (int num : nums) {
-        string str = "";
+        std::string str = "";
         switch (num) {
             case 1:
                 str = "One";
@@ -45,4 +49,17 @@ vector<string> by_length(vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    std::vector<int> arr = {9, 4, 8};
+    std::vector<std::string> result = by_length(arr);
+
+    for (int i = 0; i < result.size(); i++) {
+        if (result[i] != "Nine" && result[i] != "Eight" && result[i] != "Four") {
+            std::cout << "Difference found: " << result[i] << std::endl;
+        }
+    }
+
+    return 0;
 }
