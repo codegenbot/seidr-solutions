@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -23,6 +24,6 @@ int do_algebra(vector<string> ops, vector<int> nums) {
 }
 
 int main() {
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    assert (do_algebra({"//", "*"}, {7, 3, 4}) == 8);
     return 0;
 }
