@@ -1,9 +1,10 @@
-Here is the solution:
+```
+from decimal import Decimal, getcontext
 
-def snow_day(hours, initial_snow, rate_of_fall, melting_rate):
-    total_snow = 0
+def snow_day(hours, ground_snow, rate_snowfall, melt_rate):
+    getcontext().prec = 30
+    ground_snow = Decimal(str(ground_snow))
     for _ in range(hours):
-        total_snow += rate_of_fall
-        if total_snow > 0:
-            total_snow -= initial_snow * melting_rate
-    return round(total_snow, 5)
+        ground_snow += Decimal(str(rate_snowfall))
+        ground_snow -= ground_snow * Decimal(str(melt_rate))
+    return str(round(float(ground_snow), 6))
