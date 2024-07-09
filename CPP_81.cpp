@@ -1,23 +1,18 @@
 #include <vector>
 #include <string>
 
-bool issame(string s1, string s2) {
-    if (s1.length() != s2.length()) {
+bool issame(float a, float b) {
+    if (a - b > 0.0001 || b - a > 0.0001)
         return false;
-    }
-    for (int i = 0; i < s1.length(); i++) {
-        if (s1[i] != s2[i]) {
-            return false;
-        }
-    }
-    return true;
+    else
+        return true;
 }
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
         string letterGrade = "";
-        if (grade >= 4.0) {
+        if (issame(grade, 4.0)) {
             letterGrade = "A+";
         } else if (grade > 3.7) {
             letterGrade = "A";
