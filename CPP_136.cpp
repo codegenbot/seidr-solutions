@@ -18,7 +18,4 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst){
     return {largest_negative, smallest_positive};
 }
 
-int main(){
-    largest_smallest_integers({-6, -4, -4, -3, -100, 1});
-    return 0;
-}
+issame({-6, -4, -4, -3, -100, 1}, {0, 1});
