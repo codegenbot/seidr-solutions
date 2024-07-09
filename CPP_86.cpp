@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <string>
-
 using namespace std;
 
 string join(const vector<string>& vec, const string& sep) {
@@ -50,4 +45,3 @@ string anti_shuffle(string s) {
         result += w;
     }
     return result;
-}
