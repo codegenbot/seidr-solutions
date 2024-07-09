@@ -14,5 +14,5 @@ vector<int> even_odd_count(int num) {
         else
             odds++;
     }
-    return std::vector<int>(2) = {evens, odds};
+    return vector<int>(2) = {evens, odds};
 }
