@@ -1,8 +1,6 @@
 ```cpp
-#include <vector>
-#include <cassert>
-#include <cmath>
-#include <algorithm>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 std::vector<float> make_vector(const vector<float>& v) {
