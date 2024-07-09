@@ -10,8 +10,14 @@ double find_zero(vector<double> xs) {
         }
     }
     double solution;
-    for (int i = 0; i <= polyCoeffs.size() / 2; i++) {
-        solution += polyCoeffs[i] / pow(1, i);
+    if (polyCoeffs.size() > 1) {
+        double sum = 0.0;
+        for (int i = 0; i < polyCoeffs.size(); i++) {
+            sum += pow(xs[0],i)*polyCoeffs[i];
+        }
+        solution = -sum / xs[0];
+    } else {
+        solution = 0.0;
     }
-    return -solution;
+    return solution;
 }
