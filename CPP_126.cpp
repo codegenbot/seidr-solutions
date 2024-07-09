@@ -15,21 +15,7 @@ bool is_sorted(std::vector<int> lst){
     return true;
 }
 
-int main() {
-    std::vector<int> lst;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i < n; i++){
-        int temp;
-        std::cout << "Enter element "<<i+1<<": ";
-        std::cin >> temp;
-        lst.push_back(temp);
-    }
-    if(is_sorted(lst)){
-        std::cout << "The vector is sorted." << std::endl;
-    } else{
-        std::cout << "The vector is not sorted." << std::endl;
-    }
+int main(){
+    assert(is_sorted({1, 2, 3, 4}) == true);
     return 0;
 }
