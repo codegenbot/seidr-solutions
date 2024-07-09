@@ -6,14 +6,16 @@ def parse_music(music_string: str) -> List[int]:
     
     for char in music_string:
         if char not in notes:
-            continue
-        if char != note:
+            if note:
+                beats.append(notes[note])
+            note = ''
+        elif char != note:
             if note:
                 beats.append(notes[note])
             note = char
         else:
             note += char
-    
-    beats.append(notes[note])
+    if note:
+        beats.append(notes[note])
     
     return beats
