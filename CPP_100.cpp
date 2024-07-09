@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list>
 
@@ -13,4 +12,3 @@ vector<int> make_a_pile(int n) {
     for (int i = 2; i <= n; ++i)
         pile.insert(pile.begin(), i);
     return pile;
-}
