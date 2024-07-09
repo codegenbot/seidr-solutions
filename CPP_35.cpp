@@ -1,9 +1,8 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-int findMax(std::vector<int> numbers) {
+int findMaximum(std::vector<int> numbers) {
     int maxNum = (numbers.empty()) ? -1 : *std::max_element(numbers.begin(), numbers.end());
     if (maxNum != -1)
         std::cout << maxNum << std::endl;
@@ -15,14 +14,14 @@ int main() {
     int num = 0; 
     std::cout << "Enter numbers (separated by spaces): ";
     while(std::cin >> num) { 
-        while(std::cin.peek() == ' ') {
-            std::cin.ignore();
+        while(std::cin.get() == ' ') {
+            std::cin.ignore(); 
         }
         numbers.push_back(num);
         while(std::cin.get() != '\n') { 
             std::cin.ignore(); 
         }
     }
-    findMax(numbers);
+    findMaximum(numbers);
     return 0;
 }

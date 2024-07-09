@@ -6,22 +6,23 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result(l);
+    vector<int> result;
     int groupCount = 0;
 
     for (int i : l) {
         if(groupCount % 3 == 0) { 
-            result[groupCount] = i;
+            result.push_back(i);
             groupCount++;
             if(groupCount % 3 != 0) { 
                 // Sort and reverse the current group
                 sort(result.begin() + groupCount - (groupCount % 3), result.begin() + groupCount);
-                for (int j = temp.size() - 1; j >= 0; j--) {
-                    result.push_back(temp[j]);
-                }
+                vector<int> temp = result;
+                result.clear(); 
+                result.resize(temp.size());
+                std::copy(temp.rbegin(), temp.rend(), result.begin());
             }
         } else {
-            result[groupCount] = i;
+            result.push_back(i);
             groupCount++;
         }
     }
