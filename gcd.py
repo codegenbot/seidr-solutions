@@ -1,4 +1,3 @@
-"""
 a = int(input("Enter the first integer: "))
 b = int(input("Enter the second integer: "))
 
@@ -8,6 +7,7 @@ def gcd(a, b):
     return a
 
 print(gcd(a, b))
+
 
 text = input("Enter the text string: ")
 target = input("Enter the target string: ")
