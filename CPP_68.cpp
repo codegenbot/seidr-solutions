@@ -1,10 +1,11 @@
 #include <climits>
+#include <vector>
 
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if (arr.empty()) return vector<pair<int, int>>(); 
+    if (arr.empty()) return vector<pair<int, int>>(); // update the function to actually return something based on your requirements.
 
     int minEvenValue = INT_MAX;
     int minIndex = -1;
