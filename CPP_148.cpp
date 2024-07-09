@@ -1,50 +1,60 @@
-```cpp
 #include <vector>
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
-        return false;
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    
-    return true;
-}
-
 vector<string> bf(string planet1, string planet2) {
     vector<string> result;
+    
+    int mercury = 57.9, venus = 67.2, earth = 0, mars = 225, 
+        jupiter = 778, saturn = 1433, uranus = 2870, neptune = 4495;
 
-    string planets[] = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Makemake"};
-
-    int index1 = -1;
-    int index2 = -1;
-
-    for (int i = 0; i < 9; i++) {
-        if (planets[i] == planet1) {
-            index1 = i;
-        }
-        else if (planets[i] == planet2) {
-            index2 = i;
-        }
-
-        if (index1 != -1 && index2 != -1)
-            break;
+    if (planet1 == "Mercury" && planet2 != "Mercury") {
+        result.push_back(planet1);
     }
-
-    if (index1 == -1 || index2 == -1) {
-        return result;
+    else if (planet2 == "Mercury" && planet1 != "Mercury") {
+        result.push_back(planet2);
     }
-
-    for (int i = 0; i < 9; i++) {
-        if (i >= std::min(index1, index2) && i <= std::max(index1, index2)) {
-            result.push_back(planets[i]);
-        }
+    else if (planet1 == "Venus" && planet2 != "Venus") {
+        result.push_back(planet1);
     }
-
-    sort(result.begin(), result.end());
+    else if (planet2 == "Venus" && planet1 != "Venus") {
+        result.push_back(planet2);
+    }
+    else if (planet1 == "Earth" && planet2 != "Earth") {
+        result.push_back(planet1);
+    }
+    else if (planet2 == "Earth" && planet1 != "Earth") {
+        result.push_back(planet2);
+    }
+    else if (planet1 == "Mars" && planet2 != "Mars") {
+        result.push_back(planet1);
+    }
+    else if (planet2 == "Mars" && planet1 != "Mars") {
+        result.push_back(planet2);
+    }
+    else if (planet1 == "Jupiter" && planet2 != "Jupiter") {
+        result.push_back(planet1);
+    }
+    else if (planet2 == "Jupiter" && planet1 != "Jupiter") {
+        result.push_back(planet2);
+    }
+    else if (planet1 == "Saturn" && planet2 != "Saturn") {
+        result.push_back(planet1);
+    }
+    else if (planet2 == "Saturn" && planet1 != "Saturn") {
+        result.push_back(planet2);
+    }
+    else if (planet1 == "Uranus" && planet2 != "Uranus") {
+        result.push_back(planet1);
+    }
+    else if (planet2 == "Uranus" && planet1 != "Uranus") {
+        result.push_back(planet2);
+    }
+    else if (planet1 == "Neptune" && planet2 != "Neptune") {
+        result.push_back(planet1);
+    }
+    else if (planet2 == "Neptune" && planet1 != "Neptune") {
+        result.push_back(planet2);
+    }
 
     return result;
 }
