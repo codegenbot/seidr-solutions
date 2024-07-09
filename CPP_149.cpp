@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -27,26 +26,16 @@ vector<string> sorted_list_sum(vector<string> lst) {
             result.push_back(str);
         }
     }
+    
     sort(result.begin(), result.end(),
          [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
+             return a.length() < b.length();
          });
-    vector<string> sorted_result;
-    for(const auto& str : result) {
-        bool found = false;
-        for(auto it = sorted_result.begin(); it != sorted_result.end(); ++it) {
-            if (*it == str) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) {
-            sorted_result.push_back(str);
-        }
+    
+    long sum = 0;
+    for (const auto& str : result) {
+        sum += str.length();
     }
-    return sorted_result;
+    
+    return result;
 }
