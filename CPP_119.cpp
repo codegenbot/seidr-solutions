@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,7 +19,7 @@ int main() {
     vector<string> lst;
     int n;
     cin >> n;
-    while (getline(cin, string s)) {
+    while (getline(cin, s)) {
         lst.push_back(s);
     }
     if(match_parens(lst))
