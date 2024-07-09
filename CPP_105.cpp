@@ -1,20 +1,21 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> temp;
+    vector<string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            temp.push_back(i);
+            temp.push_back(to_string(i));
         }
     }
     
     sort(temp.begin(), temp.end());
     
-    std::vector<std::string> result;
-    for (int i : temp) {
-        string s = "";
-        switch (i) {
+    vector<string> result;
+    for (int i = temp.size() - 1; i >= 0; --i) {
+        string s = "Zero";
+        switch (stoi(temp[i])) {
             case 1:
                 s = "One";
                 break;
@@ -46,15 +47,5 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         result.push_back(s);
     }
     
-    reverse(result.begin(), result.end());
-    
     return result;
-}
-
-int main() {
-    std::vector<int> numbers = {9, 4, 8};
-    if (by_length(numbers) != {"Nine", "Eight", "Four"}) {
-        return 1;
-    }
-    return 0;
 }
