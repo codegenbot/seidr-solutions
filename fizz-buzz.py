@@ -1,1 +1,9 @@
-return "Fizz" if x % 3 == 0 and x % 5 == 0 else "Fizz" if x % 3 == 0 else "Buzz" if x % 5 == 0 else str(x)
+def fizz_buzz(x):
+    result = ""
+    if x % 3 == 0:
+        result += "Fizz"
+    if x % 5 == 0:
+        result += "Buzz"
+    else:
+        result = str(x)
+    return result
