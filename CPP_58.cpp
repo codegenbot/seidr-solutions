@@ -1,11 +1,11 @@
-```
+```cpp
 #include <vector>
 #include <set>
 
-vector<int> common(vector<int> l1,vector<int> l2){
-    set<int> s1(l1.begin(),l1.end());
-    set<int> s2(l2.begin(),l2.end());
-    set<int> result;
+std::vector<int> common(std::vector<int> l1,std::vector<int> l2){
+    std::set<int> s1(l1.begin(),l1.end());
+    std::set<int> s2(l2.begin(),l2.end());
+    std::set<int> result;
     
     for(auto i : s1){
         if(s2.find(i) != s2.end()){
@@ -13,7 +13,7 @@ vector<int> common(vector<int> l1,vector<int> l2){
         }
     }
     
-    vector<int> res(result.begin(),result.end());
+    std::vector<int> res(result.begin(),result.end());
     sort(res.begin(),res.end());
     return res;
 }
