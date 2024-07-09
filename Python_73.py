@@ -1,8 +1,9 @@
+```
 def smallest_change(arr):
-    arr.sort()
-    rev_arr = sorted(arr, reverse=True)
+    n = len(arr)
+    rev_arr = arr[::-1]
     changes = 0
-    for i in range(len(arr)):
-        if arr[i] != rev_arr[i]:
+    for i in range(n//2):
+        if arr[i] != rev_arr[n-i-1]:
             changes += 1
-    return changes
+    return changes + (n % 2)
