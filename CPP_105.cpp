@@ -35,3 +35,4 @@ int main() {
     vector<int> arr = {9, 4, 8};
     assert(issame(by_length(arr), {"Nine", "Eight", "Four"}));
     return 0;
+}
