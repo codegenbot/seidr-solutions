@@ -6,9 +6,9 @@ def string_to_md5(text):
     else:
         return None
 
-try:
-    input_str = input("Enter a string: ")
+input_str = input("Enter a string: ")
+if input_str:
     result = string_to_md5(input_str)
     print(result)
-except EOFError:
-    print("Error: No input provided")
+else:
+    print("Please enter a valid string.")
