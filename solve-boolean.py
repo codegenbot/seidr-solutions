@@ -6,13 +6,13 @@ def solve_boolean(expression):
     elif "&" in expression or "|" in expression:
         for char in expression:
             if char == "(":
-                index = expression.index(char)
-                expression = (
-                    expression[:index]
-                    + solve_boolean(expression[index + 1 :])
-                    + expression[index + 2 :]
-                )
+                return solve_boolean(char) 
             elif char == ")":
-                index = expression.index(char)
-                return eval("({0})".format(expression[:index]))
-        return eval(expression)
+                return solve_boolean(0)
+    else:
+        left = evaluate(expression[:expression.index(char)])
+        right = evaluate(expression[expression.index(char)+1:])
+        if char == "&":
+            return left and right
+        elif char == "|":
+            return left or right
