@@ -15,7 +15,7 @@ vector<int> sort_third(vector<int> l) {
         else
             others.push_back(l[i]);
 
-        if (multiplesOfThree.size() >= l.size() / 3) {
+        if (multiplesOfThree.size() > l.size() / 2) {
             break;
         }
     }
@@ -24,14 +24,12 @@ vector<int> sort_third(vector<int> l) {
 
     vector<int> result;
     for (int i = 0; i < l.size(); i++) {
-        if (i % 3 == 0)
+        if (i % 3 == 0 && !multiplesOfThree.empty()) {
             result.push_back(multiplesOfThree[0]);
-        else
+            multiplesOfThree.erase(multiplesOfThree.begin());
+        } else
             result.push_back(others[i % others.size()]);
 
-        if (multiplesOfThree.size() >= l.size() / 3) {
-            break;
-        }
     }
 
     return result;
