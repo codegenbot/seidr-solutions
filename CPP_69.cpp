@@ -1,12 +1,9 @@
-#include <vector>
-using namespace std;
-
 int search(vector<int> lst) {
-    int max = -1;
-    for (auto num : lst) {
-        if (num > 0 && num <= freq.count(num)) {
-            max = num;
+    int max = 0;
+    for (int i : lst) {
+        if (i > max && count(lst.begin(), lst.end(), i) >= i) {
+            max = i;
         }
     }
-    return max;
+    return max == 0 ? -1 : max;
 }
