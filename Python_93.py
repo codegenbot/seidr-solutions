@@ -1,5 +1,3 @@
-Here is the corrected Python code:
-
 def encode(message):
     vowels = 'aeiouAEIOU'
     result = ''
