@@ -1,33 +1,42 @@
-#include <iostream>
 #include <map>
 #include <string>
+#include <algorithm>
 
-bool check_dict_case(map<string,string> dict) {
-    for(auto& pair : dict) {
-        if (!pair.second.empty() && (toupper(pair.second) != toupper(pair.first))) 
-            return false;
+bool check_dict_case(const std::map<std::string, std::string>& dict) {
+    bool lower = true;
+    bool upper = true;
+
+    for (const auto& pair : dict) {
+        if (!pair.first.empty()) {
+            if (std::any_of(pair.first.begin(), pair.first.end(), ::isupper)) {
+                upper = false;
+            }
+            if (std::any_of(pair.first.begin(), pair.first.end(), ::islower)) {
+                lower = false;
+            }
+        }
     }
-    return true;
+
+    return lower && upper;
 }
 
 int main() {
-    map<string, string> dict;
-    string key;
+    std::map<std::string, std::string> dict;
+    std::string key;
 
-    cout << "Enter a dictionary of word-meanings (format: word meaning, each pair on a new line). Type 'stop' to finish input." << endl;
+    std::cout << "Enter a dictionary of word-meanings (format: word meaning, each pair on a new line). Type 'stop' to finish input." << std::endl;
 
-    key = "";
-    
     while(true){
-        cin >> key >> string();
+        std::cin >> key >> std::string();
         if(key == "stop") break;
-        dict.insert({key, ""});
+        dict.insert({key,""});
     }
 
     if(check_dict_case(dict)){
-        cout << "The case is consistent!" << endl;
+        std::cout << "The case is consistent!" << std::endl;
     }else{
-        cout << "The case is not consistent!" << endl;
+        std::cout << "The case is not consistent!" << std::endl;
     }
 
     return 0;
+}
