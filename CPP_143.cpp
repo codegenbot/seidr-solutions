@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 
-std::vector<std::string> words_in_sentence(const std::string& sentence) {
+std::vector<std::string> words_in_sentence(std::string sentence) {
     if (sentence.empty()) {
         return {};
     }
@@ -36,6 +36,15 @@ int main() {
 
     std::vector<std::string> wordLengths = words_in_sentence(sentence);
     for (const auto& length : wordLengths) {
-        std::cout << length << '\n';
+        bool found = false;
+        for (const auto& otherLength : wordLengths) {
+            if (length == otherLength) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            std::cout << length << '\n';
+        }
     }
 }
