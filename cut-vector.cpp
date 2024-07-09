@@ -1,6 +1,8 @@
 ```cpp
 #include <vector>
 #include <climits>
+#include <cmath>
+#include <initializer_list>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
@@ -15,7 +17,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
             right_sum += vec[k];
         }
         if (left_sum == right_sum) {
-            return {{}, vec};
+            return {{}, vector<int>(vec.begin(), vec.end())};
         }
         int diff = abs(left_sum - right_sum);
         if (diff < min_diff) {
@@ -23,11 +25,11 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
             cut_index = i;
         }
     }
-    vector<int> left;
-    for (int i = 0; i < cut_index; i++) {
+    vector<int> left = {vec[0]};
+    for (int i = 1; i < cut_index; i++) {
         left.push_back(vec[i]);
     }
-    vector<int> right;
+    vector<int> right = {};
     for (int i = cut_index; i < vec.size(); i++) {
         right.push_back(vec[i]);
     }
@@ -41,13 +43,9 @@ int main() {
     for (auto& x : vec) cin >> x;
     pair<vector<int>, vector<int>> result = cutVector(vec);
     cout << "[";
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i] << " ";
-    }
+    for (const auto& x : result.first) cout << x << " ";
     cout << "], [";
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i] << " ";
-    }
+    for (const auto& x : result.second) cout << x << " ";
     cout << "]";
     return 0;
 }
