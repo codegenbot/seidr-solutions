@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -36,25 +37,11 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    int n;
-    std::vector<std::string> input_list;
-    
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
-    
-    for(int i = 0; i<n; ++i) {
-        std::string str;
-        std::cin >> str;
-        input_list.push_back(str);
+    std::vector<std::string> input_list = {"hello", "world", "abc", "abcd", "def"};
+    auto output_list = sorted_list_sum(input_list);
+    if (issame(output_list, {"abc", "abcd", "def"})) {
+        std::cout << "The lists are the same.\n";
+    } else {
+        std::cout << "The lists are not the same.\n";
     }
-    
-    std::vector<std::string> output_list = sorted_list_sum(input_list);
-    
-    std::cout << "Sorted list of strings with even length: ";
-    for(const auto& str : output_list) {
-        std::cout << str << " ";
-    }
-    std::cout << std::endl;
-    
-    return 0;
 }
