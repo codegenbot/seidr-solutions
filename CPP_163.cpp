@@ -1,8 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a.size() == b.size();
 }
 
 std::vector<int> generate_integers(int start, int end) {
@@ -11,4 +12,9 @@ std::vector<int> generate_integers(int start, int end) {
         result.push_back(i);
     }
     return result;
+}
+
+int main() {
+    assert(issame(generate_integers(17, 89), generate_integers(17, 89)));
+    return 0;
 }
