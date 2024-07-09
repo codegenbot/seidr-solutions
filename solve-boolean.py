@@ -1,25 +1,26 @@
+```
 def solve_boolean(expression):
-    if "(" in expression:
+    while "(" in expression:
+        start = expression.index("(")
         end = expression.index(")")
-        return solve_boolean("(" + expression[:end+1])
+        expression = str(solve_boolean(expression[:start] + " ")) + "( " + expression[start+1:end+1].strip() + " ) " + expression[end+2:]
+    return boolean_expression_to_result(eval(precedence_based_parsing(expression)))
 
+def precedence_based_parsing(expression):
     while "&" in expression and "|" in expression:
-        while "&" in expression:
-            left, right = expression.split("&", 1)
-            expression = str(eval(left)) + "&"
-        while "|" in expression:
-            left, right = expression.split("|", 1)
-            expression = str(eval(left)) + "|"
-
-    if "&" in expression or "|" in expression:
-        left, right = expression.split("&")
-        return eval("(" + str(solve_boolean(left)) + ") and (" + solve_boolean(right) + ")")
-
+        left, right = expression.split("&", 1)
+        expression = str(boolean_expression_to_result(left)) + "&"
+        left, right = right.rsplit("|", 1)
+        return left + " & " + str(boolean_expression_to_result(right))
+    if "&" in expression:
+        return expression.replace("&", " and ")
     if "|" in expression:
-        left, right = expression.split("|")
-        return eval("(" + str(solve_boolean(left)) + ") or (" + solve_boolean(right) + ")")
+        return expression.replace("|", " or ")
 
-    if "T" in expression or "True" in expression:
+def boolean_expression_to_result(expression):
+    if expression == "T":
         return True
-    elif "F" in expression or "False" in expression:
+    elif expression == "F":
         return False
+    else:
+        return eval(expression)
