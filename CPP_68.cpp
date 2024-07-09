@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,11 +14,12 @@ bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     return true;
 }
 
-std::vector<int> pluck(const std::vector<std::vector<int>>& arr, int index) {
+std::vector<int>& pluck(const std::vector<std::vector<int>>& arr, int index) {
     return arr[index];
 }
 
 int main() {
-    assert(issame({{7, 9, 7, 1}}, {{7, 9, 7, 1}}));
+    std::vector<std::vector<int>> arr = {{7, 9, 7, 1}};
+    assert(issame(pluck(arr, 0), {{7, 9, 7, 1}}));
     return 0;
 }
