@@ -2,7 +2,9 @@
 #include <vector>
 #include <cmath>
 
+namespace std{
 using namespace std;
+}
 
 float max_element(vector<float> l) {
     float max = l[0];
