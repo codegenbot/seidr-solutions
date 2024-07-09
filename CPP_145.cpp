@@ -11,13 +11,10 @@ vector<int> order_by_points(vector<int> nums) {
         }
         pairs.push_back({sumOfDigits, i});
     }
-
     sort(pairs.begin(), pairs.end());
-
     vector<int> result;
     for (const auto& pair : pairs) {
         result.push_back(nums[pair.second]);
     }
-
     return result;
 }
