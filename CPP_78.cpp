@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 
 int hex_key(std::string num) {
     int count = 0;
