@@ -1,9 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string> &b){
-    return !b.empty() && std::adjacent_find(b.begin(), b.end(), std::not_equal_to<>()) == b.end();
-}
+bool issame(const vector<string> &a, const vector<string> &b);
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
