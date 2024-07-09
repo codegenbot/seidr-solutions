@@ -1,6 +1,6 @@
 def find_zero(xs: str):
     xs = list(map(int, xs.split()))
-    if not xs or all(x != 0 for x in xs):
+    if not xs or 0 not in xs:
         return None
     if max(xs, key=abs) == 0:
         return 0
