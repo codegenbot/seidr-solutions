@@ -9,9 +9,10 @@ int basement(vector<int>& v) {
             return i;
     }
     return -1;
-
 }
 
 int main() {
+    vector<int> v = {-2, 3, 1, -5, 4};
+    int result = basement(v);
     return 0;
 }
