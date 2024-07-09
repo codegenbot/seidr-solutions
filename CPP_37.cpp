@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float>a, std::vector<float>b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -16,7 +16,7 @@ std::vector<float> sort_even(const std::vector<float>& l) {
     return evenVals;
 }
 
-std::vector<float> main() {
+int main() {
     std::vector<float> vec = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     std::vector<float> result(vec.size());
     for (int i = 0; i < vec.size(); i++) {
@@ -37,5 +37,5 @@ std::vector<float> main() {
         }
     }
     
-    return result;
+    return 0;
 }
