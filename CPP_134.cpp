@@ -1,9 +1,6 @@
 bool check_if_last_char_is_a_letter(string txt) {
     if (txt.empty()) return false;
-    char lastChar = txt.back();
-    if (!isalpha(lastChar)) return false;
-    for (int i = 0; i < txt.length() - 1; ++i) {
-        if (!isspace(txt[i]) && !isalnum(txt[i])) return true;
-    }
-    return false;
+    int last_index = txt.length() - 1;
+    char last_char = txt.at(last_index);
+    return isalpha(last_char) && !isalnum(last_char);
 }
