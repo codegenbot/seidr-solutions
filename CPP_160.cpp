@@ -3,7 +3,7 @@
 #include <string>
 #include <cmath>
 
-int do_alphabet(vector<string> operator_, vector<int> operand) {
+int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = operand[0];
     for (int i = 0; i < operator_.size(); i++) {
         if (operator_[i] == "+") {
@@ -11,23 +11,20 @@ int do_alphabet(vector<string> operator_, vector<int> operand) {
         } else if (operator_[i] == "-") {
             result -= operand[i + 1];
         } else if (operator_[i] == "*") {
-            int temp = 0;
+            int temp = 1;
             for (int j = i + 1; j < operand.size(); j++) {
-                temp += operand[j];
+                temp *= operand[j];
             }
             result *= temp;
         } else if (operator_[i] == "//") {
-            if (temp(0) == 0) return 0;
-            int temp = 0;
-            for (int j = i + 1; j < operand.size(); j++) {
-                temp += operand[j];
+            int temp = operand[i + 1];
+            while (temp > 0) {
+                result /= temp;
+                temp--;
             }
-            result /= temp;
         } else if (operator_[i] == "**") {
-            if(i+2 >= operand.size()) return -1;
-            int base = operand[i + 1];
-            int exponent = 0;
-            for (int j = i + 2; j < operand.size(); j++) {
+            int base = operand[i + 1], exponent = 0;
+            for (; i < operator_.size() && j < operand.size(); i++, j++) {
                 exponent += operand[j];
             }
             result = pow(base, exponent);
