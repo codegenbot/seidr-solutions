@@ -1,21 +1,24 @@
 #include <vector>
 #include <cmath>
-#include <initializer_list>
 using namespace std;
 
-int do_algebra(initializer_list<string> ops, initializer_list<int> nums) {
+int do_algebra(vector<string>, vector<int>);
+
+int do_algebra(vector<string> ops, vector<int> nums) {
     int result = 0;
     int temp = 1;
 
-    for (auto i = ops.begin(); i != ops.end(); ++i) {
-        if (*i == "+") {
-            result += temp * *nums++;
-        } else if (*i == "-") {
-            result -= temp * *nums++;
-        } else if (*i == "*") {
-            temp *= *nums++;
-        } else if (*i == "//" || *i == "**") {
-            temp = pow(temp, *nums++);
+    for (int i = 0; i < ops.size(); i++) {
+        if (ops[i] == "+") {
+            result += temp * nums[i];
+        } else if (ops[i] == "-") {
+            result -= temp * nums[i];
+        } else if (ops[i] == "*") {
+            temp *= nums[i];
+        } else if (ops[i] == "//") {
+            temp /= nums[i];
+        } else if (ops[i] == "**") {
+            temp = pow(temp, nums[i]);
         }
     }
 
