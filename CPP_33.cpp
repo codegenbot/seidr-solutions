@@ -6,13 +6,13 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int>(1024, int()); // Replace 1024 with your desired maximum size.
+    vector<int> result;
     int i = 0;
     for (i = 0; i < l.size(); ) {
-        if (i % 3 == 0 && i < l.size() - 2) {
+        if (i % 3 == 0 && i + 3 <= l.size()) {
             vector<int> temp;
-            temp.reserve(min(i + 3, l.size()));
-            for (int j = i; j < min(i + 3, l.size()); j++) {
+            temp.reserve(3);
+            for (int j = i; j < i + 3 && j < l.size(); j++) {
                 temp.push_back(l[j]);
             }
             sort(temp.begin(), temp.end());
