@@ -24,6 +24,6 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
-    cout << smallest_change({0, 1}) << endl;
+    assert(smallest_change({0, 1}) == 1);
     return 0;
 }
