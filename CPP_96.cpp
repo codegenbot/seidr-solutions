@@ -1,9 +1,22 @@
-#include <vector>
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
 
-bool issame(vector<int> a, vector<int> b);
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+vector<int> count_up_to(int n);
 
 vector<int> count_up_to(int n) {
     vector<int> result;
+    
     if (n <= 1) {
         return result;
     }
@@ -23,6 +36,7 @@ vector<int> count_up_to(int n) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    // Function implementation
+int main() {
+    // Your main function code here
+    return 0;
 }
