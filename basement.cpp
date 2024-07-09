@@ -18,8 +18,6 @@ int main() {
     while (std::cin >> num) {
         nums.push_back(num);
     }
-    if (!std::cin.eof()) {
-        std::cout << basement(nums) << std::endl;
-    }
+    std::cout << basement(nums) << std::endl;
     return 0;
 }
