@@ -11,11 +11,13 @@ int findMax(std::vector<int> numbers) {
 
 int main() {
     std::vector<int> numbers;
-    for(int i=0; ;i++){
+    for(int i=0; i<5; i++){
         int num;
-        std::cin >> num;
-        numbers.push_back(num);
-        if(i == 4) break; // exit the loop after reading 5 numbers
+        if (!(num>>std::ws, std::cin).fail()) {  
+            numbers.push_back(num);
+        } else {
+            break;  
+        }
     }
     findMax(numbers);
     return 0;
