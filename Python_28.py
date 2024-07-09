@@ -1,2 +1,12 @@
-def sum_odd_numbers(numbers: List[int]) -> int:
-    return sum(num for num in numbers if num % 2 != 0)
+def concatenate_strings():
+    input_list = []
+
+    while True:
+        user_input = input("Enter a string (or 'stop' to finish): ")
+
+        if user_input.lower() == "stop":
+            break
+
+        input_list.append(user_input)
+
+    print(concatenate(input_list))
