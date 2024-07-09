@@ -1,14 +1,16 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 int main() {
-    std::string input;
-    std::cin >> input;
-    std::string output = "";
+    string input;
+    cin >> input;
+    string output = "";
     for (char digit : input) {
         int num = digit - '0';
-        output += std::to_string(num * num);
+        output += to_string(num * num);
     }
-    std::cout << output << std::endl;
+    cout << output << endl;
     return 0;
 }
