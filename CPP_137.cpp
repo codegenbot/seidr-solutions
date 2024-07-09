@@ -57,4 +57,3 @@ int main() {
         cout << boost::any_cast<string>(compare_one(boost::any(i1), boost::any(s3))) << endl;
     }
     return 0;
-}
