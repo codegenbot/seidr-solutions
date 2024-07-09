@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -21,7 +22,7 @@ int eval(const string& s) {
     }
     
     int start = 0, sign = 1;
-    for (int i = 0; i < s.size(); i++) {
+    for (int i = 0; i < s.length(); i++) {
         if (!isdigit(s[i])) {
             if (s[i] == '+') {
                 sign = 1;
@@ -29,7 +30,7 @@ int eval(const string& s) {
                 sign = -1;
             }
             start = i + 1;
-        } else if (i == s.size() - 1) {
+        } else if (i == s.length() - 1) {
             result += sign * (s[i] - '0');
         } else if (!isdigit(s[i + 1])) {
             result += sign * (s[i] - '0');
