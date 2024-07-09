@@ -28,9 +28,9 @@ vector<int> make_a_pile(int n) {
 
 int main() {
     vector<int> a = make_a_pile(8);
-    std::cout << "a: ";
-    for (auto i : a) std::cout << i << " ";
-    std::cout << std::endl;
+    cout << "a: ";
+    for (auto i : a) cout << i << " ";
+    cout << endl;
     
     assert (issame(a, {8, 10, 12, 14, 16, 18, 20, 22})); 
     return 0;
