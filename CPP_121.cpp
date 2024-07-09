@@ -2,7 +2,7 @@
 #include <initializer_list>
 #include <cassert>
 
-int sumOdd(std::vector<int> lst) {
+int solution(std::vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
@@ -13,5 +13,10 @@ int sumOdd(std::vector<int> lst) {
 }
 
 int main() {
-    assert(sumOdd({3, 13, 2, 9}) == 16);
+    try {
+        assert(solution({3, 13, 2, 9}) == 16);
+    } catch (...) {
+        std::cerr << "Error: Test failed.\n";
+        exit(1);
+    }
 }
