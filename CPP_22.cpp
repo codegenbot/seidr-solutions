@@ -13,7 +13,7 @@ vector<int> filter_integers(list<any> values) {
     for (const auto& value : values) {
         if (any_cast<bool>(value)) {
             int castedValue = any_cast<int>(value);
-            if (castedValue != 0) { 
+            if (castedValue != 0) { // Check if the integer is not zero
                 result.push_back(castedValue);
             }
         }
