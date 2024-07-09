@@ -1,8 +1,8 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <initializer_list>
 
 double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
     double total = 0;
