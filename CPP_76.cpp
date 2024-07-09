@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <string>
 #include <cmath>
 
 bool isSimplePower(int num) {
@@ -16,9 +16,10 @@ bool isSimplePower(int num) {
 }
 
 int main() {
-    int num;
+    std::string input;
     std::cout << "Enter a number: ";
-    std::cin >> num;
+    std::cin >> input; 
+    int num = std::stoi(input); 
     if (isSimplePower(num)) {  
         std::cout << num << " is a simple power.\n";
     } else {
