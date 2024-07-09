@@ -6,4 +6,4 @@ def check(func):
             print(f"Test {i+1} passed")
         else:
             print(f"Test {i+1} failed. Expected: {expected_output}, Got: {result}")
-    check(double_the_difference)
+    double_the_difference([1, 3, 5])
