@@ -12,6 +12,7 @@ int basement(vector<int> nums) {
     }
     return -1;
 }
+
 int main() {
     int n;
     cin >> n;
