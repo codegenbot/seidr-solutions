@@ -12,8 +12,20 @@ int solution(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {1, 2, 3, 4, 5};
+    std::vector<int> lst;
+    int n;
+    std::cout << "Enter the number of elements in the list: ";
+    std::cin >> n;
+    
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        int x;
+        std::cin >> x;
+        lst.push_back(x);
+    }
+    
     int result = solution(lst);
-    std::cout << "The sum is: " << result << std::endl;
+    std::cout << "The sum of odd numbers is: " << result << std::endl;
+    
     return 0;
 }
