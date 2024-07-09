@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <variant>
@@ -35,7 +36,7 @@ int main() {
         if (input < 0) break;
         lst.push_back(input);
         n++;
-   
+    }
     
     long long odd_sum = double_the_difference(lst);
     return 0;
