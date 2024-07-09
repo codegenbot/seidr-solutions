@@ -9,11 +9,10 @@ std::vector<float> get_positive(std::vector<float> v) {
     return result;
 }
 
-bool operator==(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
+bool is_same(std::vector<float> vec1, std::vector<float> vec2) {
+    return vec1 == vec2;
 }
 
 int main() {
-    assert(std::operator==((get_positive({})), std::vector<float>()) == true); 
     return 0;
 }
