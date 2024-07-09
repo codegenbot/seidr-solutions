@@ -1,41 +1,30 @@
-bool issame(int a, int b);  // Function prototype
+#include <vector>
 
-vector<string> separate_paren_groups(string paren_string);  // Function prototype
-
-bool issame(int a, int b) {
-    return a == b;
+bool issame(vector<string> a, vector<string> b) {
+    // Your implementation here
 }
 
-vector<string> separate_paren_groups(string paren_string) {
+vector<string> split_groups(string paren_string) {
     vector<string> result;
-    string current_group;
+    string group;
     int open_count = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (open_count > 0) {
-                current_group += c;
-            }
             open_count++;
+            if (open_count > 1) {
+                group += c;
+            }
         } else if (c == ')') {
             open_count--;
             if (open_count == 0) {
-                result.push_back(current_group);
-                current_group.clear();
+                result.push_back(group);
+                group = "";
             } else {
-                current_group += c;
+                group += c;
             }
         }
     }
 
     return result;
-}
-
-int main() {
-    vector<string> test_output = separate_paren_groups("(hello) (world)");
-    vector<string> expected_output = {"hello", "world"};
-  
-    assert(test_output == expected_output);
-
-    return 0;
 }
