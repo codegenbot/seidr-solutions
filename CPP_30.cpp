@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(vector<float> a, vector<float> b){
+bool issame(vector<float> a, vector<float> b) {
     vector<float> result;
     for (float num : a) {
         if (num > 0) {
