@@ -1,7 +1,5 @@
-```
 #include <iostream>
 #include <vector>
-#include <limits.h>
 using namespace std;
 
 bool isSame(vector<int> a, vector<int> b) {
