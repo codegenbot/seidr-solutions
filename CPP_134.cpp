@@ -1,25 +1,21 @@
-```cpp
-#include <iostream>
-using namespace std;
-
-bool check_if_last_char_is_a_letter(string str);
-
-int main() {
-    string s = "apple pi e ";
-    bool result = check_if_last_char_is_a_letter(s);
-    if (result == true) {
-        cout << "Last character of the string is a letter." << endl;
-    } else {
-        cout << "Last character of the string is not a letter." << endl;
-    }
-    return 0;
+int check_if_last_char_is_a_letter(string s) {
+    if (s.length() > 0 && isalpha(s[s.length()-1]))
+        return 1;
+    else
+        return 0;
 }
 
-bool check_if_last_char_is_a_letter(string str) {
-    char lastChar = str.back();
-    if (isalpha(lastChar)) { // Check if the last character is an alphabet
-        return true;
-    } else {
-        return false;
-    }
+int start() {
+    int result = 0;
+    string input;
+    cin >> input;
+    if (check_if_last_char_is_a_letter(input))
+        cout << "The last character of the given string is a letter.\n";
+    else
+        cout << "The last character of the given string is not a letter.\n";
+    return result;
+}
+
+int main() {
+    start();
 }
