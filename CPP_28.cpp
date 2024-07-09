@@ -6,4 +6,3 @@ string concatenate(vector<string> strings){
         result += str;
     }
     return result;
-}
