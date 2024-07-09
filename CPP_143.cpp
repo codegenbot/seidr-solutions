@@ -1,20 +1,8 @@
 #include <vector>
 #include <algorithm>
+#include <string>
 
 using namespace std;
-
-string words_in_sentence(string sentence) {
-    vector<string> words = split(sentence, ' ');
-    string result;
-    
-    for (auto word : words) {
-        if (is_prime(word.length())) {
-            result += word + " ";
-        }
-    }
-    
-    return result.substr(0, result.size() - 1);
-}
 
 bool is_prime(int num) {
     if (num <= 1)
@@ -26,7 +14,7 @@ bool is_prime(int num) {
     return true;
 }
 
-vector<string> split(string sentence, char delimiter) {
+std::vector<std::string> split(const std::string& sentence, char delimiter) {
     vector<string> words;
     string word;
     
@@ -42,4 +30,17 @@ vector<string> split(string sentence, char delimiter) {
     words.push_back(word);
     
     return words;
+}
+
+string words_in_sentence(string sentence) {
+    vector<string> words = split(sentence, ' ');
+    string result;
+    
+    for (auto word : words) {
+        if (is_prime(word.length())) {
+            result += word + " ";
+        }
+    }
+    
+    return result.substr(0, result.size() - 1);
 }
