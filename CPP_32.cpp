@@ -1,8 +1,17 @@
-double find_zero(vector<double> xs){
-    double a = xs[0];
-    double b = 0;
-    for (int i = 1; i < xs.size(); i += 2) {
-        b -= xs[i] / pow(xs[i-1], i/2);
+vector<double> coeffs;
+double poly(vector<double> xs, double x) {
+    double result = 0;
+    for (int i = 0; i < xs.size(); i++) {
+        result += xs[i] * pow(x, i);
     }
-    return -b / a;
+    return result;
+}
+
+double find_zero(vector<double> xs){
+    double root = -xs[1]/(2*xs[0]);
+    
+    if (poly({xs[0], 1},root) < 0)
+        return root;
+    else
+        return -1.0; 
 }
