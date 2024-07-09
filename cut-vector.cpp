@@ -1,13 +1,13 @@
-#include <vector>
-#include <algorithm>
+using namespace std;
 
-std::vector<std::vector<int>> cutVector(std::vector<int> v) {
-    std::vector<std::vector<int>> res(2);
+myVector<myVector<int>> cutVector(myVector<int> v) {
+    int n = v.size();
+    myVector<myVector<int>> res(2);
     
     res[0].resize(0);
     res[1].resize(0);
     long long totalSum = 0;
-    for (int i = 0; i < v.size(); i++) {
+    for (int i = 0; i < n; i++) {
         totalSum += v[i];
     }
     int minDiff = INT_MAX;
@@ -18,12 +18,12 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
         halfSum++;
     }
     
-    for (int i = 0; i < v.size(); i++) {
-        while (i < v.size() && totalSum > halfSum) {
+    for (int i = 0; i < n; i++) {
+        while (i < n && totalSum > halfSum) {
             totalSum -= v[i];
             leftIndex = i + 1;
-            if (totalSum == halfSum || std::abs(totalSum - halfSum) < minDiff) {
-                minDiff = std::abs(totalSum - halfSum);
+            if (totalSum == halfSum || abs(totalSum - halfSum) < minDiff) {
+                minDiff = abs(totalSum - halfSum);
                 break;
             }
         }
@@ -35,7 +35,7 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     }
     if (totalSum != halfSum) {
         res[1].clear();
-        for (int j = leftIndex; j < v.size(); j++) {
+        for (int j = leftIndex; j < n; j++) {
             res[1].push_back(v[j]); 
         }
     } else {
