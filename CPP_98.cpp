@@ -14,6 +14,5 @@ int count_upper(string s){
 
 int main() {
     assert(count_upper("EEEE") == 4);
-    cout << "Count of uppercase letters at even position: " << count_upper("ABCDE") << endl;
     return 0;
 }
