@@ -1,3 +1,4 @@
+```cpp
 #include <cstdlib>
 #include <vector>
 #include <string>
@@ -17,6 +18,8 @@ int do_algebra(std::vector<std::string> operators, std::vector<int> operands) {
     return result;
 }
 
+#include <string>
+
 int eval(const std::string& s) {
     int result = 0;
     if (s.empty()) {
@@ -33,7 +36,7 @@ int eval(const std::string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * std::stoi(std::string(1, s[i]).c_str());
+            result += sign * std::atoi(std::string(1, s[i]).c_str());
         }
     }
     
