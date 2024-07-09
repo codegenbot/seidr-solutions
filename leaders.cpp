@@ -1,20 +1,26 @@
+#include <vector>
+#include <iostream>
+
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
     
-    for(int i=0; i<n; i++) {
+    for(int i=0; i<n-1; i++) {
         if(res.empty() || arr[i] >= res.back()) 
             res.push_back(arr[i]);
-        else
-            break;
-    }
-    
-    // Reverse the vector before returning
-    for(int i = 0; i < res.size()/2; i++) {
-        int temp = res[i];
-        res[i] = res[res.size()-1-i];
-        res[res.size()-1-i] = temp;
     }
     
     return res;
+}
+
+int main() {
+    int n;
+    std::vector<int> input;
+    while(std::cin >> n && std::cin.peek() != '\n') {
+        input.push_back(n);
+    }
+    std::vector<int> result = leaders(input);
+    for(int i: result)
+        std::cout << i << " ";
+    return 0;
 }
