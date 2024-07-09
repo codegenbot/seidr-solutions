@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -14,7 +13,7 @@ int search(const std::vector<int>& lst) {
 }
 
 int main() {
-    std::vector<int> numbers = {3, 10, 10, 9, 2};
-    assert(search(numbers) == -1);
+    using namespace std;
+    assert(search(vector<int>{3, 10, 10, 9, 2}) == -1);
     return 0;
 }
