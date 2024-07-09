@@ -1,3 +1,9 @@
+```cpp
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 string spinWords(string str) {
     string result = "";
     string word = "";
