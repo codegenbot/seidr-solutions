@@ -3,8 +3,11 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i)
+        if (a[i] != b[i]) return false;
+    return true;
 }
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> words, const std::string& sub) {
@@ -18,6 +21,6 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> words, con
 
 int main() {
     std::vector<std::string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    assert(issame(result, {"grunt", "prune"}));
+    assert(result == {"grunt", "prune"});
     return 0;
 }
