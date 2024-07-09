@@ -1,14 +1,14 @@
 def parse_nested_parens(paren_string: str) -> List[int]:
-    result = []
+    levels = []
     for group in paren_string.split():
-        max_depth = 0
-        current_depth = 0
+        max_level = 0
+        cur_level = 0
         for char in group:
             if char == "(":
-                current_depth += 1
-                if current_depth > max_depth:
-                    max_depth = current_depth
+                cur_level += 1
+                if cur_level > max_level:
+                    max_level = cur_level
             elif char == ")":
-                current_depth -= 1
-        result.append(max_depth)
-    return result
+                cur_level -= 1
+        levels.append(max_level)
+    return levels
