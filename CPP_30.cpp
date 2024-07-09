@@ -36,7 +36,7 @@ int main() {
         if(issame(numbers, positive_numbers)) {
             std::cout << "The list of positive numbers is: ";
             for (auto& num : positive_numbers) {
-                std::cout << (*num) << " ";
+                std::cout << std::to_string(*num) << " ";
             }
             std::cout << std::endl;
         } else {
