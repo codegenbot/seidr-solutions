@@ -1,4 +1,3 @@
-```
 #include <cassert>
 #include <string>
 #include <vector>
@@ -30,7 +29,6 @@ bool isSameVectors(vector<string> a, vector<string> b) {
         }
     }
     return true;
-}
 
 int testMain() {
     assert(isSameVectors(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
