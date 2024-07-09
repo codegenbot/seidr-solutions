@@ -14,48 +14,41 @@ vector<string> by_length(vector<int> arr) {
     vector<string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            temp.push_back(to_string(i));
+            switch (i) {
+                case 1:
+                    temp.push_back("One");
+                    break;
+                case 2:
+                    temp.push_back("Two");
+                    break;
+                case 3:
+                    temp.push_back("Three");
+                    break;
+                case 4:
+                    temp.push_back("Four");
+                    break;
+                case 5:
+                    temp.push_back("Five");
+                    break;
+                case 6:
+                    temp.push_back("Six");
+                    break;
+                case 7:
+                    temp.push_back("Seven");
+                    break;
+                case 8:
+                    temp.push_back("Eight");
+                    break;
+                case 9:
+                    temp.push_back("Nine");
+                    break;
+            }
         }
     }
     
     sort(temp.begin(), temp.end());
     
-    vector<string> result;
-    for (string s : temp) {
-        string str = "";
-        switch (stoi(s)) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
-        }
-        result.push_back(str);
-    }
-    
-    reverse(result.begin(), result.end());
+    vector<string> result = temp;
     
     return result;
 }
