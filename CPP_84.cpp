@@ -1,7 +1,3 @@
-#include <cassert>
-#include <iostream>
-#include <string>
-
 int solve(int n) {
     std::string binary = "";
     while(n > 0) {
@@ -15,7 +11,6 @@ int solve(int n) {
 }
 
 int main() {
-    int expected = solve(963); 
-    assert(expected == 18); 
+    assert(solve(963) == 18); 
     return 0;
 }
