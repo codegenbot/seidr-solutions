@@ -1,21 +1,41 @@
 #include <string>
-#include <sstream>
+#include <iostream>
 
 using namespace std;
 
 bool simplify(string x, string n) {
     int a = 0, b = 0, c = 0, d = 0;
-    stringstream s1(x), s2(n);
-    s1 >> a >> char('/') >> b;
-    s2 >> c >> char('/') >> d;
     
-    int g = abs(__gcd(a*d, b*c));
-    return (a*d)/g == c*g && b*c == g;
+    // Extract numerator and denominator from both fractions
+    size_t pos1 = x.find('/');
+    size_t pos2 = n.find('/');
+    
+    a = stoi(x.substr(0, pos1));
+    b = stoi(x.substr(pos1 + 1));
+    c = stoi(n.substr(0, pos2));
+    d = stoi(n.substr(pos2 + 1));
+    
+    // Calculate the greatest common divisor of both denominators
+    int gcd = abs(b) > abs(d) ? gcd(abs(b), abs(d)) : gcd(abs(d), abs(b));
+    
+    // Check if the product of the two fractions is a whole number
+    return (a * c / gcd) == (b * d / gcd);
 }
 
-int __gcd(int a, int b) {
-    if(b == 0)
-        return a;
-    else
-        return __gcd(b, a%b);
+// Helper function to calculate the greatest common divisor
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int main() {
+    cout << simplify("1/5", "5/1") << endl;  // true
+    cout << simplify("1/6", "2/1") << endl;  // false
+    cout << simplify("7/10", "10/2") << endl;  // false
+    
+    return 0;
 }
