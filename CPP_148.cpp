@@ -1,9 +1,10 @@
-```
+#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 vector<string> bf(string planet1, string planet2) {
@@ -35,7 +36,7 @@ vector<string> bf(string planet1, string planet2) {
             result.push_back(planets[i]);
         }
         else {
-            result.push_back(planets[i - 1]);
+            result.push_back((planets[(minIndex + maxIndex) / 2]));
         }
     }
 
