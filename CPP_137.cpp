@@ -1,37 +1,24 @@
 #include <boost/any.hpp>
+#include <string>
+
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+    if (is_none(a) || is_none(b)) return "None";
+    
+    if (any_cast<int>(a) > any_cast<int>(b))
+        return a;
+    else if (any_cast<float>(a) > any_cast<float>(b))
+        return a;
+    else if (any_cast<std::string>(a) > any_cast<std::string>(b))
+        return a;
+    
+    if (any_cast<int>(b) > any_cast<int>(a))
         return b;
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+    else if (any_cast<float>(b) > any_cast<float>(a))
         return b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = any_cast<string>(a);
-        string strB = any_cast<string>(b);
-
-        int i = strA.find('.');
-        if (i != -1)
-            strA.erase(i, 1);
-
-        i = strB.find(',');
-        if (i != -1)
-            strB[i] = '.';
-
-        return (stod(strA) > stod(strB)) ? a : b;
-    }
-    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
-        string strA = any_cast<string>(a);
-        int i = strA.find('.');
-        if (i != -1)
-            strA.erase(i, 1);
-
-        double numB = any_cast<double>(b);
-        return (stod(strA) > numB) ? a : b;
-    }
-    else {
-        return "None";
-    }
+    else if (any_cast<std::string>(b) > any_cast<std::string>(a))
+        return b;
+    
+    return "None";
 }
