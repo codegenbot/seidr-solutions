@@ -1,20 +1,18 @@
-```
 def solve_boolean(expression):
-    def eval_expr(expression):
-        if expression == "T":
-            return True
-        elif expression == "F":
-            return False
-        elif expression[0] in ["&", "|"]:
-            left = eval_expr(expression[1])
-            right = eval_expr(expression[2:])
-            if expression[0] == "&":
-                return left and right
-            else:
-                return left or right
-        else:  # expression is enclosed in parentheses
-            i = expression.find("(")
-            j = expression.find(")")
-            return eval_expr(expression[i+1:j])
-
-    return eval_expr(expression)
+    if expression.startswith("T"):
+        return True
+    elif expression == "F":
+        return False
+    elif "&" in expression or "|" in expression:
+        for char in expression:
+            if char == "(":
+                index = expression.index(char)
+                expression = (
+                    expression[:index]
+                    + solve_boolean(expression[index + 1 :])
+                    + expression[index + 2 :]
+                )
+            elif char == ")":
+                index = expression.index(char)
+                return eval("({0})".format(expression[:index]))
+        return eval(expression)
