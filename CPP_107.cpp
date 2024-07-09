@@ -1,13 +1,5 @@
 #include <vector>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[std::abs(i - (a.size() - 1))]) return false;
-    }
-    return true;
-}
-
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result;
     for (int i = 1; i <= n; ++i) {
@@ -19,13 +11,21 @@ std::vector<int> even_odd_palindrome(int n) {
     return result;
 }
 
+bool isSame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[std::abs(i - (a.size() - 1))]) return false;
+    }
+    return true;
+}
+
 int main() {
-    std::vector<int> expected = {};
+    std::vector<int> result = even_odd_palindrome(5);
     for(int i = 0; i <= 5; ++i) {
         if(i % 2 == 0)
-            expected.push_back(0);
+            result.push_back(0);
         else
-            expected.push_back(1);
+            result.push_back(1);
     }
-    assert(isSame(even_odd_palindrome(5), expected));
+    assert(isSame(result, {}));
 }
