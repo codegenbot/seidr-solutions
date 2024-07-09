@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 int sumOdd(std::vector<int> lst) {
     int sum = 0;
