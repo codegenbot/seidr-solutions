@@ -7,7 +7,7 @@ namespace std { class initializer_list; }
 #include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return (a.size() == b.size());
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
@@ -28,7 +28,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     return result;
 }
 
-int main_entry() {
+int main() {
     if (issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"})) {
         assert(true);
     }
