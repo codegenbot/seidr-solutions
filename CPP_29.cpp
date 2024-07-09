@@ -22,8 +22,8 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 }
 
 int main() {
-    vector<vector<string>> strings = {{ "xxx", "asd", "xxy", "john doe", "xxxAAC", "xxx" }};
+    vector<vector<string>> strings = {{"xxx", "asd", "xxy", "john doe", "xxxAAC", "xxx"}};
     string prefix = "xxx";
-    vector<string> filtered_strings = filter_by_prefix(strings[0],prefix);
-    assert(issame(filtered_strings, {"xxx", "xxxAAA", "xxx"}));
+    vector<string> result = filter_by_prefix(strings[0], prefix);
+    assert(issame(result, {"xxx", "xxxAAA", "xxx"}));
 }
