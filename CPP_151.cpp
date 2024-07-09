@@ -1,6 +1,7 @@
-#include <initializer_list>
+```cpp
 #include <cassert>
 #include <vector>
+#include <initializer_list>
 
 long double_the_difference(const std::vector<int>& input) {
     long average = 0;
