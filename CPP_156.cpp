@@ -21,7 +21,7 @@ std::string toMiniRoman(int number) {
     return result;
 }
 
-int miniRoman() {
+int miniroman() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
