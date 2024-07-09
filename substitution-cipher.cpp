@@ -1,26 +1,12 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-std::string substitutionCipher(const std::string& cipher, const std::string& input) {
-    std::string result;
-    for (char c : input) {
-        if (c >= 'a' && c <= 'z') {
-            int index = c - 'a';
-            if (index < 0 || index > 25) {
-                continue; // Handle uppercase letters or non-alphabetic characters
-            }
-            result += cipher[index];
+string decipher(const string& cipher1, const string& cipher2, const string& message) {
+    string result = "";
+    for (char c : message) {
+        int idx = cipher1.find(c);
+        if (idx != string::npos) {
+            result += cipher2[idx];
         } else {
-            result += c;
+            result += c; // keep non-mapped characters as is
         }
     }
     return result;
-}
-
-int main() {
-    std::string cipher1, cipher2, input;
-    std::cin >> cipher1 >> cipher2 >> input;
-    std::cout << substitutionCipher(cipher1 + cipher2, input) << std::endl;
-    return 0;
 }
