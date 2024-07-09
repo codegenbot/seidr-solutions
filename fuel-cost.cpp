@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -12,7 +11,7 @@ int calculateFuelCost(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers = {10,20,30};
+    vector<int> numbers = {2022,};
     cout << calculateFuelCost(numbers) << endl;
     return 0;
 }
