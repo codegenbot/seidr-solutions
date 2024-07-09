@@ -1,8 +1,10 @@
-int prod_signs(vector<int> inputArr) {
+#include <vector>
+
+int prod_signs(vector<int> arr) {
     int product = 1;
     long long sum = 0;
 
-    for (int num : inputArr) {
+    for (int num : arr) {
         if (num == 0) {
             return 0;
         }
@@ -10,7 +12,7 @@ int prod_signs(vector<int> inputArr) {
         sum += abs(num);
     }
 
-    if (inputArr.empty()) {
+    if (arr.empty()) {
         return -32768;
     }
 
