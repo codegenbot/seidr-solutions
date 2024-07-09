@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
-#include <map>
 #include <string>
+#include <map>
 
 using namespace std;
 
@@ -11,7 +10,7 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
-
+    
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
             map<int, string> numMap = {{1, "One"}, {2, "Two"}, {3, "Three"}, 
@@ -24,9 +23,4 @@ vector<string> by_length(vector<int> arr) {
     reverse(result.begin(), result.end());
     
     return result;
-}
-
-int main() {
-    assert(issame(by_length({9, 4, 8}), vector<string>({"Nine", "Four", "Eight"})));
-    return 0;
 }
