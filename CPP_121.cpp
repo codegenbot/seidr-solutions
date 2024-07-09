@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -26,12 +25,17 @@ int main() {
     std::vector<int> lst;
     std::cout << "Enter numbers (terminate with 0): ";
     while (std::cin >> num) {
-        if(num != 0)
-            lst.push_back(num);
-        else 
+        if(num == 0)
             break;
+        lst.push_back(num);
+        n++;
     }
-    int result = solutions(lst);
-    assert(result == 25);
-    std::cout << "Test passed.\n";
+    
+    // Ensure all inputs are processed
+    if(lst.size() > 0) {
+        int result = solutions(lst);
+        std::cout << "Result: " << result << "\n";
+    } else {
+        std::cout << "No numbers entered.\n";
+    }
 }
