@@ -14,10 +14,12 @@ vector<int> sort_third(vector<int> l) {
             if(groupCount != 0) { 
                 // Sort and reverse the current group
                 sort(result.begin(), result.end());
+                std::vector<int> temp;
+                temp.reserve(result.size());
                 for (int j = result.size() - 1; j >= 0; j--) {
-                    result.push_back(result[j]);
-                    result.pop_back(); // Remove the last element to avoid duplicates
+                    temp.push_back(result[j]);
                 }
+                result = temp;
             }
             result.clear(); 
         }
@@ -27,10 +29,12 @@ vector<int> sort_third(vector<int> l) {
 
     if(groupCount % 3 == 0) {
         sort(result.begin(), result.end());
+        std::vector<int> temp;
+        temp.reserve(result.size());
         for (int j = result.size() - 1; j >= 0; j--) {
-            result.push_back(result[j]);
-            result.pop_back(); // Remove the last element to avoid duplicates
+            temp.push_back(result[j]);
         }
+        result = temp;
     }
 
     return result;
