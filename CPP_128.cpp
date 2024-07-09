@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
-using namespace std;
+#include <assert.h>
 
-int prod_signs(vector<int> arr){
+int prod_signs(std::vector<int> arr){
     int product = 1;
     long sum = 0;
     
@@ -10,12 +11,12 @@ int prod_signs(vector<int> arr){
         else product *= (i > 0 ? 1 : -1);
         
         sum += abs(i);
-   }
+    }
     
-    return product * sum == 0 ? INT_MIN : product * sum;
+    return product * sum == 0 ? -32768 : product * sum;
 }
 
 int main() {
-    assert (prod_signs({-1, 1, 1, 0}) == 0);
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
     return 0;
 }
