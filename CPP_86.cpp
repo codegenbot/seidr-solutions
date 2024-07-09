@@ -1,7 +1,22 @@
 ```cpp
-while ((pos = str.find(sep)) != string::npos) {
-    tokens.push_back(str.substr(0, pos));
-    string temp = str;
-    temp.erase(0, pos + 1);
-    str = temp.substr(pos + 1);
+string anti_shuffle(string s) {
+    vector<string> words;
+    string word = "";
+    for (const auto& c : s) {
+        if (c == ' ') {
+            words.push_back(word);
+            word = "";
+        } else {
+            word += c;
+        }
+    }
+    words.push_back(word);
+
+    string result = "";
+    for (const auto& word : words) {
+        string w = word;
+        sort(w.begin(), w.end());
+        result += w + " ";
+    }
+    return result.substr(0, result.size() - 1);
 }
