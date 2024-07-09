@@ -26,13 +26,3 @@ int main() {
     assert(solution(lst) == 16); 
     return 0;
 }
-
-int testMain() { 
-    int result = solution({3, 13, 2, 9});
-    if (result != 3) {
-        std::cerr << "Test failed: expected 3 but got " << result << std::endl;
-    } else {
-        std::cout << "Test passed!" << std::endl;
-    }
-    return 0;
-}
