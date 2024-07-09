@@ -2,14 +2,15 @@
 #include <algorithm>
 
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-9) return false;
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
     assert(get_positive({}) == {});
-    // rest of your code
+    vector<float> l = {1, -2, 3, -4};
+    vector<float> result = get_positive(l);
+    for (float num : result) {
+        cout << num << " ";
+    }
+    return 0;
 }
