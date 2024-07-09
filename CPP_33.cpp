@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -9,18 +9,13 @@ vector<int> sort_third(vector<int> l) {
     vector<int> result;
     int groupCount = 0;
 
-    for (int i : l) {
+    for (int i = 0; i < l.size(); i++) { 
         if(groupCount % 3 == 0) { 
-            reverse(result.begin(), result.end());
-            groupCount++;
+            result.push_back(l[i]);
         } else {
-            result.push_back(i);
+            result.push_back(l[i]);
             groupCount++;
         }
-    }
-
-    if(groupCount % 3 != 0) {
-        reverse(result.begin(), result.end());
     }
 
     return result;
@@ -56,4 +51,6 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
+    
+    return 0;
 }
