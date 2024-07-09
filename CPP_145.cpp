@@ -8,15 +8,15 @@ bool issame(std::vector<int> a, std::vector<int> b){
         int sum_x = 0, sum_y = 0;
         int temp_x = abs(x), temp_y = abs(y);
         while(temp_x > 0){
-            sum_x += temp_x % 10;
-            temp_x /= 10;
+          sum_x += temp_x % 10;
+          temp_x /= 10;
         }
         while(temp_y > 0){
-            sum_y += temp_y % 10;
-            temp_y /= 10;
+          sum_y += temp_y % 10;
+          temp_y /= 10;
         }
         if(sum_x == sum_y){
-            return std::find(b.begin(), b.end(), x) < std::find(b.begin(), b.end(), y);
+          return std::find(a.begin(), a.end(), x) < std::find(a.begin(), a.end(), y);
         }
         return sum_x < sum_y;
     });
