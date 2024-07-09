@@ -24,6 +24,7 @@ string camelCase(string s) {
         }
     }
 
+    cout << result << endl;
     return result;
 }
 
@@ -31,6 +32,6 @@ int main() {
     string str;
     cout << "Enter a string: ";
     getline(cin, str);
-    cout << camelCase(str) << endl;
+    camelCase(str);
     return 0;
 }
