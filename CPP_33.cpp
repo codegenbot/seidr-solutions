@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,7 +10,7 @@ vector<int> sort_third(vector<int> l) {
 
     for (int i : l) {
         if(groupCount % 3 == 0) { 
-            result.push_back(i);
+            result.push_back(i); 
         } else {
             result.push_back(i);
             groupCount++;
