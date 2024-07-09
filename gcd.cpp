@@ -1,9 +1,7 @@
-```c++
 #include <vector>
 #include <string>
 #include <iostream>
-#include <initializer_list>
-#include <limits>
+#include <algorithm>
 
 using namespace std;
 
@@ -38,18 +36,18 @@ int main() {
 
     while (!(cin >> a >> b) || a < 1 || b < 1) {
         cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Invalid input. Please enter two positive integers: ";
+        cin.ignore();
+        cin >> a >> b;
     }
 
     cout << gcd(a, b) << endl;
 
-    string text, target;
-    while (!(cin >> text >> target)) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Invalid input. Please enter valid strings: ";
-    }
+    string text;
+    getline(cin, text);
+    
+    string target;
+    getline(cin, target);
 
     vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices)
