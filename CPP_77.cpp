@@ -1,6 +1,5 @@
 #include <cassert>
 #include <iostream>
-#include <string>
 
 bool isCube(int n) {
     int i = 1;
@@ -14,6 +13,10 @@ bool isCube(int n) {
 }
 
 int main() {
-    assert(std::to_string(1729).find("1729") != std::string::npos);
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+
+    assert(isCube(num) == isCube(1729)); 
     return 0;
 }
