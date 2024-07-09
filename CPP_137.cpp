@@ -19,7 +19,7 @@ any compareOne(any a, any b) {
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string x = boost::any_cast<string>(a);
         string y = boost::any_cast<string>(b);
-        return (x > y) ? a : ((y > x) ? b : any(typeid(void)));
+        return (stod(x) > stod(y)) ? a : ((stod(y) > stod(x)) ? b : any(typeid(void)));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         string x = boost::any_cast<string>(a);
