@@ -1,9 +1,8 @@
+using namespace std;
+
 #include <string>
 #include <algorithm>
 #include <iostream>
-
-#include <string>
-#include <mysql.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";

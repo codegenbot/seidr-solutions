@@ -1,27 +1,14 @@
 #include <vector>
 #include <string>
+#include <memory>
+#include <initializer_list>
 
-bool issame(std::vector<std::string> a) {
-    if (a.size() != 2)
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i].size() > 1)
+        if (a[i] != b[i])
             return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if ((i == 0 && !issame_helper(a[i])) || (i == 1 && !issame_helper(a[1])))
-            return false;
-    }
-    return true;
-}
-
-bool issame_helper(std::string s) {
-    int start = 0, end = s.length() - 1;
-    while (start < end) {
-        if (s[start] != s[end])
-            return false;
-        start++;
-        end--;
     }
     return true;
 }
@@ -63,7 +50,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
 int main() {
     std::vector<std::string> vector = {"", "1"};
-    if(issame(reverse_delete("mamma", "mia")) == 2 && std::stoi(vector[1]) == 1)
+    if(issame(reverse_delete("mamma", "mia"), vector))
         std::cout << "Test case passed." << std::endl;
     else
         std::cout << "Test case failed." << std::endl;
