@@ -5,7 +5,7 @@ using namespace std;
 
 string squareDigits(string input) {
     string output;
-    for (char c : input) {
+    for (char c : to_string(stoi(input))) {
         int digit = c - '0';
         output += to_string(digit * digit);
     }
