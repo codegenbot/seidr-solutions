@@ -5,16 +5,18 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (!is_palindrome(str)) return false;
-    int sum = 0;
-    for (int i : q) {
-        sum += i;
-    }
-    return sum <= w;
+    return palindrome(str) && sum(q) <= w;
 }
 
-bool is_palindrome(string s) {
+bool palindrome(string s) {
     string rev = s;
     reverse(rev.begin(), rev.end());
     return s == rev;
 }
+
+int sum(vector<int> v) {
+    int sum = 0;
+    for (int i : v) {
+        sum += i;
+    }
+    return sum;
