@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <initializer_list>
-
 using namespace std;
 
 string join(const vector<string>& vec, const string& sep) {
