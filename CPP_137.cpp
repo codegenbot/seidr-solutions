@@ -4,32 +4,15 @@
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = any_cast<string>(a);
-        string strB = any_cast<string>(b);
-        int numA = std::stod(strA);
-        int numB = std::stod(strB);
-        if (numA > numB)
-            return a;
-        else if (numA < numB)
-            return b;
-        else
-            return boost::any("None");
-    }
-    else {
-        double numA = any_cast<double>(a);
-        double numB = any_cast<double>(b);
-        if (numA > numB)
-            return a;
-        else if (numA < numB)
-            return b;
-        else
-            return boost::any("None");
+    if (is_any_of<a>(boost::type_id<double>())) {
+        double da = boost::any_cast<double>(a);
+        double db = boost::any_cast<double>(b);
+        return (da > db) ? a : ((da < db) ? b : boost::any("None"));
+    } else if (is_any_of<a>(boost::type_id<std::string>())) {
+        std::string sa = boost::any_cast<std::string>(a);
+        std::string sb = boost::any_cast<std::string>(b);
+        return (sa > sb) ? a : ((sa < sb) ? b : boost::any("None"));
+    } else {
+        throw "Invalid input";
     }
 }
