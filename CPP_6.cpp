@@ -4,9 +4,9 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> parse_nested_parens(string paren_string);
+vector<int> parse_nested_parens(string paren_string);  // Function prototype
 
-vector<int> Solution::parse_nested_parens(string paren_string) {
+vector<int> parse_nested_parens(string paren_string) {
     vector<int> depths;
     int max_depth = 0;
     int depth = 0;
@@ -24,4 +24,4 @@ vector<int> Solution::parse_nested_parens(string paren_string) {
     }
     depths.push_back(max_depth);
     return depths;
-}
+}  
