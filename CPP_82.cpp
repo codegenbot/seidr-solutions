@@ -1,6 +1,5 @@
+```
 #include <iostream>
-#include <string>
-
 using namespace std;
 
 bool prime_length(string str){
@@ -10,10 +9,12 @@ bool prime_length(string str){
             return false;
     }
     return true;
-
 }
 
 int main(){
-    cout << boolalpha << (prime_length("10") ? "Prime" : "Not Prime") << endl;
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    cout << boolalpha << (prime_length(input) ? "Prime" : "Not Prime") << endl;
     return 0;
 }
