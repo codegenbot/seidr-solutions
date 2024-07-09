@@ -8,6 +8,6 @@ int myStringLen(const std::string& str) {
 }
 
 int main() {
-    assert(myStringLen("asdasnakj") == 11);
+    assert(myStringLen(std::string("asdasnakj")) == 11);
     return 0;
 }
