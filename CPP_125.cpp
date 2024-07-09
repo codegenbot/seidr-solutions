@@ -1,34 +1,37 @@
-#include<iomanip>
+#include <stdio.h>
+#include <vector>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0;
-    while (pos < txt.size()) {
-        if (isspace(txt[pos])) {
-            pos++;
+    size_t start = 0;
+    while (start < txt.size()) {
+        if (!isalnum(txt[start])) {
+            if (txt[start] == ',') {
+                break; // no more commas, only spaces
+            }
+            start++;
             continue;
         }
-        size_t nextPos = txt.find_first_of(" ,", pos);
-        string word = txt.substr(pos, nextPos - pos);
-        if (nextPos == string::npos) {
-            result.push_back(word);
-            break;
+        size_t end = start;
+        while (end + 1 < txt.size() && isalnum(txt[end + 1])) {
+            end++;
         }
-        pos = nextPos + 1;
-        result.push_back(word);
+        result.push_back(txt.substr(start, end - start + 1));
+        start = end + 1;
     }
     if (result.empty()) {
         int count = 0;
         for (char c : txt) {
             if (c >= 'a' && c <= 'z') {
-                if ((count & 1)) {
-                    result.push_back(to_string(count));
-                    break;
+                if ((int)c % 2 == 1) {
+                    count++;
                 }
-                count++;
             }
         }
+        result.push_back(to_string(count));
     }
     return result;
 }
