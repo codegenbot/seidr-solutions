@@ -1,7 +1,3 @@
-```cpp
-#include <vector>
-#include <iostream>
-
 int luhn(std::vector<int> ccNum) {
     long long sum = 0;
     for (int i = 0; i < 16; i++) {
@@ -13,19 +9,15 @@ int luhn(std::vector<int> ccNum) {
         }
         sum += digit;
     }
-    return static_cast<int>(sum);
-}
-
-int main() {
-    std::vector<int> ccNum;
-    ccNum.resize(16); 
-    std::cout << "Enter a credit card number: ";
-    for (int i = 0; i < 16; ++i) {
-        int num;
-        std::cin >> num;
-        ccNum[i] = num;
+    long long result = 0;
+    while(sum > 0) {
+        int temp = sum % 10;
+        if(temp * 2 > 9)
+            temp = temp*2 - 9;
+        else
+            temp *= 2;
+        result += temp;
+        sum /= 10;
     }
-    int result = luhn(ccNum);
-    std::cout << "The Luhn check value is: " << result << std::endl;
-    return 0;
+    return static_cast<int>(result);
 }
