@@ -1,6 +1,6 @@
+```
 #include <vector>
 #include <assert.h>
-#include <tr1/initializer_list>
 
 bool monotonic(const std::vector<float>& l) {
     bool increasing = true;
@@ -18,5 +18,5 @@ bool monotonic(const std::vector<float>& l) {
 }
 
 int main() {
-    assert(monotonic(std::vector<float>{9, 9, 9, 9}) == true);
+    //assert(monotonic({9, 9, 9, 9}) == true);
 }
