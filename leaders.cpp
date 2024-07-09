@@ -1,24 +1,24 @@
 ```cpp
 #include <vector>
-#include <iostream>
+#include <algorithm>
 
-std::vector<int> leaders(std::vector<int>& inputVector) {
+std::vector<int> leaders(std::vector<int>& numbers) {
     std::vector<int> result;
-    int n = inputVector.size();
-    for (int i = n - 1; i >= 0; i--) {
-        if (i == n - 1 || inputVector[i] >= inputVector[i + 1]) {
-            result.push_back(inputVector[i]);
-        }
+    int n = numbers.size();
+    if(n == 0) return result; 
+    for(int i = n-1; i >= 0; i--) {
+        while(i > 0 && numbers[i] <= numbers[i-1]) i--;
+        if(i == 0) result.push_back(numbers[0]);
+        else result.push_back(numbers[i]);
     }
     return result;
 }
 
 int main() {
-    std::vector<int> input = {17, 28, 4};
-    std::vector<int> result = leaders(input);
-    for (int leader : result) {
+    std::vector<int> numbers = {16,17,4,3,5,2};
+    std::vector<int> leadersResult = leaders(numbers);
+    for(int leader : leadersResult) {
         std::cout << leader << " ";
     }
-    std::cout << std::endl;
     return 0;
 }
