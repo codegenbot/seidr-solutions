@@ -1,29 +1,24 @@
-int digitCount = 0;
-    int dotCount = 0;
-    int letterCount = 0;
-    int validExtension = 0;
-
-    for (char c : file_name) {
-        if (c >= '0' && c <= '9') {
-            digitCount++;
-        } else if (c == '.') {
-            dotCount++;
-        } else if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
-            letterCount++;
+int countDigits(string s) {
+    int count = 0;
+    for(char c : s) {
+        if(isdigit(c)) {
+            count++;
         }
     }
+    return count;
+}
 
-    if (digitCount <= 3 && dotCount == 1 && letterCount > 0) {
-        size_t dotPos = file_name.find('.');
-        string extension = file_name.substr(dotPos + 1);
-        if (extension == "txt" || extension == "exe" || extension == "dll") {
-            validExtension = 1;
-        }
-    }
+string file_name_check(string file_name) {
+    if(file_name.find('.') == string::npos) return "No";
+    int dotPos = file_name.find('.');
+    string nameBeforeDot = file_name.substr(0, dotPos);
+    string nameAfterDot = file_name.substr(dotPos + 1);
 
-    if (digitCount <= 3 && dotCount == 1 && letterCount > 0 && validExtension) {
-        return "Yes";
-    } else {
-        return "No";
-    }
+    if(countDigits(nameBeforeDot) > 3) return "No";
+
+    if(nameBeforeDot.empty() || !isalpha(nameBeforeDot[0])) return "No";
+
+    if(nameAfterDot != "txt" && nameAfterDot != "exe" && nameAfterDot != "dll") return "No";
+
+    return "Yes";
 }
