@@ -17,7 +17,7 @@ struct Pair {
     float first, second;
 };
 
-Pair find_closest_elements(std::vector<float>(std::allocator<float>()) numbers) {
+Pair find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
     float minDiff = std::numeric_limits<float>::max();
     Pair closestPair;
@@ -35,8 +35,8 @@ Pair find_closest_elements(std::vector<float>(std::allocator<float>()) numbers) 
 }
 
 int main() { 
-    std::vector<float>(std::allocator<float>()) testVec;
-    for (int i = 0; i < 10; ++i) {
+    std::vector<float> testVec(100); // Initialize the vector with a maximum size.
+    for (int i = 0; i < 100; ++i) {
         testVec.push_back(i + 1.1f);
     }
     Pair closestPair = find_closest_elements(testVec);
