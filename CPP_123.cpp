@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 
 int main() {
-    std::vector<int> vec = std::vector<int>(1, 3);
+    std::vector<int> vec = vector<int>(1, 3);
     // ...
 }
