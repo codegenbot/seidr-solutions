@@ -1,7 +1,7 @@
 int sum_squares(vector<float> lst){
     int total = 0;
-    for(float x : lst){
-        total += ceil(x)*ceil(x);
+    for (float num : lst) {
+        total += ceil(num) * ceil(num);
     }
     return total;
 }
