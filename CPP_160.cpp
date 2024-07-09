@@ -1,3 +1,6 @@
+#include <utility>
+using namespace std;
+
 int do_algebra(vector<pair<char, int>> operators_and_operands) {
     if (operators_and_operands.size() == 0) {
         return 0;
@@ -20,4 +23,8 @@ int do_algebra(vector<pair<char, int>> operators_and_operands) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(do_algebra({make_pair('+', 7), make_pair('*', 3), make_pair('/', 4)}) == 8);
 }

@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -21,7 +20,8 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
-                pq.push({grid[i][j], {i, j}});
+                Node node = {grid[i][j], {i, j}};
+                pq.push(node);
                 visited[i][j] = true;
             }
         }
@@ -30,22 +30,24 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> res;
 
     while (!pq.empty()) {
-        Node node = pq.top();
+        int val = pq.top().val;
+        int x = pq.top().pos.first;
+        int y = pq.top().pos.second;
+        res.push_back(val);
         pq.pop();
-
-        res.push_back(node.val);
 
         if (k > 0) {
             --k;
 
             for (int dx : {-1, 0, 1}) {
                 for (int dy : {-1, 0, 1}) {
-                    int nx = node.pos.first + dx;
-                    int ny = node.pos.second + dy;
+                    int nx = x + dx;
+                    int ny = y + dy;
 
                     if(nx>=0&&nx<n&&ny>=0&&ny<n&&!visited[nx][ny]){
                         visited[nx][ny] = true;
-                        pq.push({grid[nx][ny], {nx, ny}});
+                        Node node = {grid[nx][ny], {nx, ny}};
+                        pq.push(node);
                     }
                 }
             }
