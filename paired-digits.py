@@ -1,5 +1,13 @@
+```
 def paired_digits(s):
-    return sum(int(d) for i, d in enumerate(s) if i < len(s) - 1 and d == s[i+1])
+    s = s.lstrip('0') or '0'  
+    total = 0
+    prev = ''
+    for d in s:
+        if d == prev:
+            total += int(d)
+        prev = d
+    return total
 
 print(paired_digits("99"))
 print(paired_digits("88"))
