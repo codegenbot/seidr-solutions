@@ -1,6 +1,6 @@
+```c++
 #include <iostream>
 #include <string>
-#include <bits/stdc++.h>
 
 bool starts_one_ends(int n) {
     int count = 0;
