@@ -16,10 +16,8 @@ bool correct_bracketing(const std::string& s) {
     return brackets.empty();
 }
 
-int main() { 
-    if (!correct_bracketing("()()(()())")) 
-        std::cout << "Incorrect bracketing." << std::endl; 
-    else
-        std::cout << "Correct bracketing test passed." << std::endl;
+int main() {
+    assert(correct_bracketing("()()(()())")); 
+    std::cout << "Correct bracketing test passed." << std::endl;
     return 0;
 }
