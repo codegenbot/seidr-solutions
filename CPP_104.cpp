@@ -1,24 +1,27 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    return std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<int> unique_digits(int n){
-    std::vector<int> result;
-    while (n != 0){
-        int digit = n % 10;
-        if (std::find(result.begin(), result.end(), digit) == result.end()){
-            result.push_back(digit);
+namespace std {
+    bool issame(std::vector<int> a, std::vector<int> b){
+        if (a.size() != b.size()) {
+            return false;
         }
-        n /= 10;
+        return std::equal(a.begin(), a.end(), b.begin());
     }
-    return result;
+
+    bool unique_digits(std::vector<int> vec){
+        std::vector<int> digits(10, 0);
+        for (int num : vec) {
+            while (num > 0) {
+                if (digits[num % 10] > 0) {
+                    return false;
+                }
+                digits[num % 10]++;
+                num /= 10;
+            }
+        }
+        return true;
+    }
 }
