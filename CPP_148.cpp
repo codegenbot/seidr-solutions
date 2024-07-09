@@ -1,2 +1,1 @@
-```cpp
-assert(bf("Jupiter", "Makemake").size() == 0);
+`assert(bf("Jupiter", "Makemake").size() == 0);`
