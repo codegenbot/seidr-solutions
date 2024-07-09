@@ -1,4 +1,8 @@
-double poly(vector<double> orig_coeffs, double x) {
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+double poly(std::vector<double> orig_coeffs, double x) {
     double sum = 0;
     for (int i = 0; i < orig_coeffs.size(); i++) {
         sum += orig_coeffs[i] * pow(x, i);
@@ -6,8 +10,8 @@ double poly(vector<double> orig_coeffs, double x) {
     return sum;
 }
 
-double find_zero(vector<double> coeffs){
-    vector<double> new_coeffs(coeffs); 
+double find_zero(std::vector<double> coeffs){
+    std::vector<double> new_coeffs(coeffs); 
     double root = 1;
     double precision = 0.00001;
 
@@ -18,4 +22,26 @@ double find_zero(vector<double> coeffs){
         root -= poly_val / poly(new_coeffs, root);
     }
     return root;
+}
+
+int main() {
+    int n; // Number of terms in the polynomial
+    std::cin >> n;
+
+    std::vector<double> coeffs(n); // Read coefficients
+    for (int i = 0; i < n; i++) {
+        std::cin >> coeffs[i];
+    }
+
+    double x; // Input value
+    std::cin >> x;
+    
+    // Call poly function with input values
+    double sum = poly(coeffs, x);
+    std::cout << "The polynomial evaluation at x = " << x << " is: " << sum << std::endl;
+
+    // Calculate the root using find_zero function
+    double solution = find_zero(coeffs);
+
+    return 0;
 }
