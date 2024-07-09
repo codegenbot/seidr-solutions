@@ -9,7 +9,6 @@ int can_arrange(vector<int> arr){
 }
 
 int main() {
-    // Your test cases here
     assert(can_arrange({}) == -1);
     return 0;
 }
