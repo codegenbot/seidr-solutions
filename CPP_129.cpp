@@ -1,41 +1,43 @@
 #include <vector>
-#include <queue>
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
+    vector<vector<bool>> visited(n, vector<bool>(n));
+    vector<int> res;
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (!visited[i][j]) {
+                dfs(grid, visited, i, j, k, res);
+            }
+        }
     }
-    return true;
+    
+    return res;
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
     int n = grid.size();
-    std::vector<std::vector<bool>> visited(n, std::vector<bool>(n));
-    std::vector<std::vector<int>> directions({{-1, 0}, {1, 0}, {0, -1}, {0, 1}});
-    std::priority_queue<std::pair<int, std::pair<int, int>>, std::vector<std::pair<int, std::pair<int, int>>>, std::greater<std::pair<int, std::pair<int, int>>>> queue;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) {
-                queue.push({grid[i][j], {i, j}});
-                visited[i][j] = true;
+    if (k == 0) {
+        for(int i = 0; i < res.size(); i++) {
+            res[i] *= 2;
+        }
+        return;
+    }
+    
+    visited[x][y] = true;
+    res.push_back(grid[x][y]);
+    
+    for (int dx = -1; dx <= 1; dx++) {
+        for (int dy = -1; dy <= 1; dy++) {
+            int nx = x + dx, ny = y + dy;
+            if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                dfs(grid, visited, nx, ny, k - 1, res);
+                return;
             }
         }
     }
-    std::vector<int> path;
-    while (k--) {
-        int value, x, y;
-        tie(value, pair<int, int>) = queue.top();
-        queue.pop();
-        path.push_back(value);
-        for (auto& dir : directions) {
-            x += dir[0];
-            y += dir[1];
-            if (x >= 0 && x < n && y >= 0 && y < n && !visited[x][y]) {
-                queue.push({grid[x][y], {x, y}});
-                visited[x][y] = true;
-            }
-        }
-    }
-    return path;
+    
+    visited[x][y] = false;
 }
