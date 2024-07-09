@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -7,9 +8,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
     std::vector<std::pair<int, int>> result;
-    
+
     if (arr.empty()) return result;
-    
+
     int minEvenIndex = -1;
     int minEvenValue = INT_MAX;
 
