@@ -6,8 +6,8 @@ std::string longest(const std::vector<std::string>& strings) {
     if(strings.empty()) {
         return "";
     } else {
-        std::string longest = *max_element(strings.begin(), strings.end(), 
-            [](const std::string& a, const std::string& b) {return a.size() < b.size();});
+        string longest = *max_element(strings.begin(), strings.end(), 
+            [](const string& a, const string& b) {return a.size() < b.size();});
         return longest;
     }
 }
