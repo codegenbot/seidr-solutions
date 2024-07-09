@@ -1,3 +1,6 @@
+```cpp
+#include <openssl/md5.h>
+#include <string>
 #include <iostream>
 #include <iomanip>
 #include <sstream>
@@ -13,7 +16,7 @@ string string_to_md5(string text) {
     string md5_hash;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
         ostringstream ss;
-        ss << hex << setfill('0') << setw(2) << (int)result[i];
+        ss << hex << setfill('0') << setw(2) << static_cast<int>(result[i]);
         md5_hash += ss.str();
     }
     
