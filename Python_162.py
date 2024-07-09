@@ -1,11 +1,10 @@
 import hashlib
-import sys
 
 def string_to_md5(text):
     if text:
         return hashlib.md5(text.encode()).hexdigest()
 
-text = sys.stdin.readline().strip()
+text = input("Enter a string: ")
 if text:
     print(string_to_md5(text))
 else:
