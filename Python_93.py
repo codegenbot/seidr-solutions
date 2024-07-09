@@ -1,4 +1,4 @@
-Here is the modified code:
+Here is the modified code for the given task description and function signature:
 
 ```
 def encode(message):
