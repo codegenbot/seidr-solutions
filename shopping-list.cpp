@@ -11,11 +11,15 @@ double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
 }
 
 int main() {
-    std::vector<double> prices(3);
-    prices[0] = 10.0; prices[1] = 20.0; prices[2] = 30.0;
+    std::vector<double> prices;
+    prices.push_back(10.0);
+    prices.push_back(20.0);
+    prices.push_back(30.0);
 
-    std::vector<double> discounts(3);
-    discounts[0] = 0.1; discounts[1] = 0.2; discounts[2] = 0.3;
+    std::vector<double> discounts;
+    discounts.push_back(0.1);
+    discounts.push_back(0.2);
+    discounts.push_back(0.3);
 
     double result = hoppingList(prices, discounts);
     std::cout << "The total price of the shopping trip is: " << result << std::endl;
