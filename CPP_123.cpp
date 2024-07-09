@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -27,4 +26,7 @@ std::vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-int main(){}
+int main() {
+    assert(same(get_odd_collatz(12), {1,6,3})); 
+    return 0;
+}
