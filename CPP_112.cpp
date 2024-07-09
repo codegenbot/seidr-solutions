@@ -8,25 +8,27 @@ using namespace std;
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
-    // Create a set from string c for efficient lookup
-    set<char> cSet(c.begin(), c.end());
+    // Create a set of characters in c for efficient lookup
+    unordered_set<char> cSet(c.begin(), c.end());
     
     // Initialize an empty string to store the result
-    string temp = "";
+    string res = "";
     
-    // Iterate over the input string s
-    for (char& ch : s) {
-        // If the character is not in the set, add it to the temporary string
+    // Iterate over each character in s
+    for (char ch : s) {
+        // Check if the character is not in cSet
         if (cSet.find(ch) == cSet.end()) {
-            temp += ch;
+            // Add the character to the result string
+            res += ch;
         }
     }
     
-    // Check if the reversed string is equal to the original string
-    bool isPalindrome = temp == string(temp.rbegin(), temp.rend());
+    // Check if the reversed result string is equal to the original result string
+    bool isPalindrome = res == string(res.rbegin(), res.rend());
     
-    result.push_back(temp);
-    result.push_back(to_string(isPalindrome));
+    // Add the result string and palindrome status to the vector
+    result.push_back(res);
+    result.push_back(isPalindrome ? "True" : "False");
     
     return result;
 }
@@ -37,8 +39,9 @@ int main() {
     cin >> s;
     cout << "Enter another string: ";
     cin >> c;
-    vector<string> result = reverse_delete(s, c);
-    cout << "Result: " << result[0] << ", " << (result[1] == "True" ? "True" : "False") << endl;
-    
+    vector<string> res = reverse_delete(s, c);
+    for (string str : res) {
+        cout << str << endl;
+    }
     return 0;
 }
