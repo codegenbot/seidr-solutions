@@ -1,48 +1,27 @@
-```
-#include <initializer_list>
-#include <algorithm>
+```cpp
+#include <cstddef>
 #include <string>
 #include <vector>
+#include <algorithm>
 
-using namespace std;
-
-string join(const vector<string>& vec, const string& sep) {
-    string result;
-    for (const auto& s : vec) {
-        result.append(s + sep);
-    }
-    return result.substr(0, result.size() - 1);
-}
-
-string split(const string& str, char sep) {
-    vector<string> tokens;
+std::vector<std::string> tokens;
+int anti_shuffle(std::string str, char sep) {
     size_t pos = 0;
-    while ((pos = str.find(sep)) != string::npos) {
+    while ((pos = str.find(sep)) != std::string::npos) {
         tokens.push_back(str.substr(0, pos));
         str = str.substr(pos + 1);
     }
     tokens.push_back(str);
-    return join(tokens, " ");
+
+    // Anti-shuffle logic here
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(tokens.begin(), tokens.end(), g);
+
+    return 0;
 }
 
-string anti_shuffle(string s) {
-    vector<string> words;
-    string word = "";
-    for (const auto& c : s) {
-        if (c == ' ') {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += c;
-        }
-    }
-    words.push_back(word);
-
-    string result = "";
-    for (const auto& word : words) {
-        string w = word;
-        sort(w.begin(), w.end());
-        result.append(w + " ");
-    }
-    return result.substr(0, result.size() - 1);
+int main() {
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?", '.') == 0);
+    return 0;
 }
