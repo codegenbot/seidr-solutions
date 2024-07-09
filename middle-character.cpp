@@ -3,8 +3,8 @@
 std::string middleCharacter(std::string s) {
     int len = s.length();
     if(len % 2 == 1) {
-        return std::string(1, s[len/2]);
+        return std::string(1, s[len/2-1]);
     } else {
-        return std::string(1, s[(len-1)/2]) + std::string(1, s[(len+1)/2]);
+        return s.substr((len-1)/2, 2);
     }
 }
