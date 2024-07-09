@@ -20,9 +20,11 @@ int main() {
         iss >> price;
     }
 
+    while (std::isspace(iss.peek())) iss.ignore(); // Consume leading whitespace
+    iss >> std::ws; // Discard leading whitespace
     std::getline(std::cin, input);
-    iss.clear();
     iss.str(input);
+
     std::vector<double> discounts(15);
     for (double &discount : discounts) {
         iss >> discount;
