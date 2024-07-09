@@ -20,4 +20,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             result.append(current_group)
             current_group = ''
     
-    return result
+    return [current_group] if stack else result
