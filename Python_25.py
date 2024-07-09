@@ -22,7 +22,7 @@ def factorize(n: int) -> List[int]:
 
 def main():
     num = int(input("Enter a number: "))
-    print(f"The prime factorization of {num} is: {factorize(num)}")
+    print("Factorization of", num, "is:", factorize(num))
 
 
 if __name__ == "__main__":
