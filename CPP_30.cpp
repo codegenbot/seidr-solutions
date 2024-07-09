@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <sstream>
 
 bool operator==(const std::vector<std::unique_ptr<float>>& a, const std::vector<std::unique_ptr<float>>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
@@ -36,7 +37,9 @@ int main() {
         if(positive_numbers == numbers) {
             std::cout << "The list of positive numbers is: ";
             for (auto& num : positive_numbers) {
-                std::cout << *num << " "; 
+                std::stringstream ss;
+                ss << *num; 
+                std::cout << ss.str() << " "; 
             }
             std::cout << std::endl;
         } else {
