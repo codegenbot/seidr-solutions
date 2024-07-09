@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <iostream>
 
@@ -14,14 +13,14 @@ bool isCube(int n) {
 }
 
 int main() { 
-    int num;
+    int n;
     std::cout << "Enter a cube number (like 1729): ";
-    std::cin >> num;
+    std::cin >> n;
+
+    if (isCube(n))
+        std::cout << "You entered: " << n << std::endl; 
+    else
+        std::cout << "Invalid input." << std::endl;
     
-    if (isCube(num)) {
-        std::cout << "You entered a cube number: " << num << std::endl;
-    } else {
-        std::cout << "You entered a non-cube number: " << num << std::endl;
-    }
     return 0;
 }
