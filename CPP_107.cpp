@@ -20,7 +20,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    if (issame(even_odd_palindrome(5), {})) {
+    if (issame(even_odd_palindrome(5), std::vector<int>())) {
         assert(true);
     } else {
         assert(false);
