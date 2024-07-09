@@ -13,7 +13,7 @@ int solution(std::vector<int> lst) {
     return sum;
 }
 
-int mainFunction() {
+int main() {
     int num, size = 0;
     std::cin >> num;
     std::vector<int> lst;
