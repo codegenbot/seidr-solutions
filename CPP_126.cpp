@@ -3,14 +3,12 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-bool isSorted(const vector<int>& lst) {
-    return is_sorted(lst.begin(), lst.end());
+bool is_sorted(const std::vector<int>& lst) {
+    return std::is_sorted(lst.begin(), lst.end());
 }
 
 int main() {
-    assert(isSorted({1, 2, 3, 4}) == true);
+    assert(is_sorted({1, 2, 3, 4}) == true);
 
     return 0;
 }
