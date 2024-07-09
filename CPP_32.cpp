@@ -2,17 +2,17 @@
 #include <cassert>
 #include <cmath>
 
-double poly(std::vector<double> coeffs, double x){
+double poly(double x, const vector<double>& coeffs){
     double result = 0.0;
-    for(int i = 0; i < coeffs.size(); i++){
+    for(int i=0; i<coeffs.size(); ++i){
         result += coeffs[i] * pow(x, i);
     }
     return result;
 }
 
-double find_zero(std::vector<double> xs);
+double find_zero(vector<double> xs);
 
-double find_zero(std::vector<double> xs){
+double find_zero(vector<double> xs){
     assert(xs.size() == 2);
     double a = xs[0];
     double b = xs[1];
