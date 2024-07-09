@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     black = sum(1 for a, b in zip(code, guess) if a == b)
     guess_count = {char: guess.count(char) for char in set(guess)}
