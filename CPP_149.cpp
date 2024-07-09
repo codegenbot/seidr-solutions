@@ -21,8 +21,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> expected_output = {"cc", "dd", "aaaa", "bbbb"};
-    assert(issame(sorted_list_sum(input), expected_output));
+    vector<string> input{"aaaa", "bbbb", "dd", "cc"};
+    assert(issame(sorted_list_sum(input), vector<string>{"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
