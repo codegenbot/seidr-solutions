@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <assert.h>
 
 bool same(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
@@ -22,3 +22,4 @@ std::vector<float> getPositive(const std::vector<float>& l) {
         }
     }
     return result;
+}
