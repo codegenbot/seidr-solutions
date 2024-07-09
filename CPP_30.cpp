@@ -15,7 +15,7 @@ std::vector<float> get_positive(std::vector<float> l) {
 
 // Then declare issame function
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return true; // Your code here
+    // Your code here
 }
 
 int main() {
