@@ -10,12 +10,14 @@ bool isSameSet(std::pmr::vector<int> a, std::pmr::vector<int> b) {
 }
 
 int main() {
-    std::pmr::vector<int> l1(std::pmr::memory_resource{}, 3); 
+    std::pmr::polymorphic_allocator<int> alloc;
+    std::pmr::vector<int> l1(alloc);
     l1.push_back(1);
     l1.push_back(2);
     l1.push_back(3);
 
-    std::pmr::vector<int> v2(std::pmr::memory_resource{}, 6); 
+    std::pmr::polymorphic_allocator<int> alloc2;
+    std::pmr::vector<int> v2(alloc2);
     v2.push_back(4);
     v2.push_back(5);
     v2.push_back(6);
