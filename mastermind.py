@@ -1,12 +1,8 @@
-```
-master_code = input("Enter the 4-character Mastermind code: ")
-guess = input("Enter a guess (4 characters): ")
-
-black = 0
-white = 0
-
+code = input("Enter Mastermind code: ")
+guess = input("Enter guess: ")
+black, white = 0, 0
 for i in range(4):
-    if master_code[i] == guess[i]:
+    if code[i] == guess[i]:
         black += 1
-    elif master_code.count(guess[i]) > 0:
+    elif code.count(guess[i]) > 0:
         white += 1
