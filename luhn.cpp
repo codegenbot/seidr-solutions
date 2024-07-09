@@ -1,6 +1,4 @@
-#include <vector>
-#include <iostream>
-
+```cpp
 int luhn(std::vector<int> digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {
@@ -15,16 +13,4 @@ int luhn(std::vector<int> digits) {
         sum += digit;
     }
     return sum;
-}
-
-int main() {
-    std::vector<int> digits;
-    int digit;
-    for (int i = 0; i < 16; i++) {
-        std::cin >> digit;
-        digits.push_back(digit);
-    }
-    int result = luhn(digits);
-    std::cout << "The Luhn check digit is: " << result << std::endl;
-    return 0;
 }
