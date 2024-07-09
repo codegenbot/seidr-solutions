@@ -1,3 +1,2 @@
-def fuel_cost():
-    numbers = list(map(int, input().split()))
-    return sum((n // 3) - 2 for n in numbers)
+def fuel_cost(input_vector):
+    return sum((i // 3) - 2 if i > 8 else 0 for i in input_vector)
