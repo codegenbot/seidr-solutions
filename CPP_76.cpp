@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -19,8 +18,8 @@ bool isSimplePower(int num) {
 int main() {
     std::string input;
     std::cout << "Enter a number: ";
-    std::getline(std::cin, input);
-    int num = std::stoi(input);
+    std::cin >> input; 
+    int num = std::stoi(input); 
     if (isSimplePower(num)) {  
         std::cout << num << " is a simple power.\n";
     } else {

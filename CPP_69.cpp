@@ -28,19 +28,8 @@ int main() {
     std::vector<int> lst;
     for (int i = 0; i < n; ++i) {
         int num; 
-        do {
-            std::cout << "Enter element " << i + 1 << ": ";
-            do {
-                std::cin >> num; 
-                if(std::cin.fail() || num <= 0) { // Check for invalid input (non-integer or zero)
-                    std::cin.clear();
-                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear the error and discard the input
-                    std::cout << "Invalid input. Please enter a positive integer.\n"; // Inform the user of the invalid input
-                } else {
-                    break; // If the input is valid, exit the loop
-                }
-            } while(true); // Repeat the process until a valid input is given
-        } 
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num; 
         lst.push_back(num); 
     }
 
