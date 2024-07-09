@@ -1,6 +1,7 @@
+```cpp
+#include <initializer_list>
 #include <vector>
 #include <cassert>
-#include <initializer_list>
 #include <iostream>
 
 int solution(std::vector<int> lst) {
@@ -13,7 +14,7 @@ int solution(std::vector<int> lst) {
     return sum;
 }
 
-int main() {
+void runTest() {
     int num, size = 0;
     std::cin >> num;
     std::vector<int> lst;
@@ -23,10 +24,9 @@ int main() {
         size++;
     }
     assert(solution(lst) == 16); 
-    return 0;
 }
 
-void runTest() {
+int main() {
     int num, size = 0;
     std::cin >> num;
     std::vector<int> lst;
