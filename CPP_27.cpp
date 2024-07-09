@@ -1,14 +1,13 @@
-```cpp
-#include <iostream>
 #include <string>
+#include <cctype>
 
 std::string flip_case(const std::string& str) {
     std::string result;
     for (char c : str) {
-        if (c >= 'a' && c <= 'z') {
-            result += c + ('A' - 'a');
-        } else if (c >= 'A' && c <= 'Z') {
-            result += c + ('a' - 'A');
+        if (std::isupper(c)) {
+            result += std::tolower(c);
+        } else if (std::islower(c)) {
+            result += std::toupper(c);
         } else {
             result += c;
         }
@@ -17,6 +16,6 @@ std::string flip_case(const std::string& str) {
 }
 
 int main() {
-    std::cout << flip_case("These violent delights have violent ends") << std::endl;
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
 }
