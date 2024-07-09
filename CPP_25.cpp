@@ -14,7 +14,6 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main(){
-    factorize(100); // calling the factorize function
-    return 0;
+int main() {
+    std::vector<int> result = factorize(100);
 }
