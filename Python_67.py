@@ -1,7 +1,9 @@
-```
 def fruit_distribution(s, n):
-    s = s.lower()
-    num_apples = 0
-    for char in "".join(filter(str.isdigit, s)):
-        num_apples = int(char) * 10 ** (7 - len("".join(filter(str.isdigit, s))))
-    return n - num_apples
+    fruits = {"apples": 0, "oranges": 0}
+    for fruit in s.split():
+        if fruit in fruits:
+            fruits[fruit] += int(''.join(filter(str.isdigit, fruit)))
+        elif not fruit.lower() == 'and':
+            return None
+    total_fruits = sum(fruits.values())
+    return n - total_fruits - 1
