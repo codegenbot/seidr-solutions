@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <cmath>
 
+namespace std {
 int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
