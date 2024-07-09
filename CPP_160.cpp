@@ -1,17 +1,25 @@
-int do_algebra(vector<string> operato, vector<int> operand){
+#include <vector>
+#include <string>
+#include <cmath>
+
+int do_algebra(std::vector<std::string> operatoR, std::vector<int> operand){
     int result = operand[0];
-    for (int i = 0; i < operato.size(); ++i) {
-        if (operato[i] == "+") {
+    for (int i = 0; i < operatoR.size(); ++i) {
+        if (operatoR[i] == "+") {
             result += operand[i + 1];
-        } else if (operato[i] == "-") {
+        } else if (operatoR[i] == "-") {
             result -= operand[i + 1];
-        } else if (operato[i] == "*") {
+        } else if (operatoR[i] == "*") {
             result *= operand[i + 1];
-        } else if (operato[i] == "//") {
+        } else if (operatoR[i] == "//") {
             result /= operand[i + 1];
-        } else if (operato[i] == "**") {
-            result = pow(result, operand[i + 1]);
+        } else if (operatoR[i] == "**") {
+            result = std::pow(result, operand[i + 1]);
         }
     }
     return result;
+}
+
+int main() {
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
 }
