@@ -1,8 +1,4 @@
-```cpp
-#include <vector>
-#include <string>
-
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool compareVector(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -16,7 +12,7 @@ std::vector<std::string> filterBySubstring(const std::vector<std::string>& strin
 }
 
 int main() {
-    assert(isSame(filterBySubstring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    assert(compareVector(filterBySubstring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     std::vector<std::string> strings = {"grunt", "trumpet", "prune", "gruesome"};
     std::string substr = "run";
     std::vector<std::string> result = filterBySubstring(strings, substr);
