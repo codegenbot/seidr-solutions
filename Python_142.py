@@ -12,6 +12,6 @@ def sum_squares():
             print("Invalid input. Please enter numbers separated by spaces.")
 
     for x in lst:
-        total += x**2
+        total += x ** 2
 
     return total
