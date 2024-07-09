@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 using namespace std;
 
 int luhnAlgorithm(vector<int> cardNumber) {
@@ -24,7 +23,7 @@ int luhnAlgorithm(vector<int> cardNumber) {
 }
 
 int main() {
-    vector<int> cardNumber = {4,3,2,1,0,9,8,7,6,5,4,3,2,1};
+    vector<int> cardNumber = {3,4,5,6,7,8,9,10,11,12,13,14,15};
     cout << luhnAlgorithm(cardNumber) << endl;
     return 0;
 }
