@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -31,13 +30,4 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::sort(result.begin(), result.end());
     
     return result;
-}
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame({}, bf("Jupiter", "Mars"))); 
-    return 0;
 }
