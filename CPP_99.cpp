@@ -1,17 +1,11 @@
-double num = stod(value);
-    int intPart = static_cast<int>(num);
-    if (num - intPart >= 0.5) {
-        return ceil(num);
+#include <string>
+#include <cmath>
+
+int closest_integer(const std::string& value) {
+    double num = std::stod(value);
+    int closestInt = std::round(num);
+    if (std::abs(num - closestInt) == 0.5) {
+        closestInt = (num - closestInt > 0) ? std::ceil(num) : std::floor(num);
     }
-    else if (num - intPart <= -0.5) {
-        return floor(num);
-    }
-    else {
-        if (num >= 0) {
-            return ceil(num);
-        }
-        else {
-            return floor(num);
-        }
-    }
+    return closestInt;
 }
