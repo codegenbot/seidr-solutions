@@ -11,13 +11,13 @@ bool issame(const boost::any& a, const boost::any& b) {
     if (!a.type() || !b.type()) {
         return false;
     }
-    return *boost::any_cast<const int*>(boost::any_cast<std::vector<int>*>(&a)) == *boost::any_cast<const int*>(boost::any_cast<std::vector<int>*>(&b));
+    return issame(boost::any_cast<std::vector<int>>(a), boost::any_cast<std::vector<int>>(b));
 }
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
+std::vector<int> filter_integers(const std::list<boost::any>& values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (!value.type() || boost::any_cast<int>(value).good()) {
+        if (value.type() == typeid(int) && boost::any_cast<int>(value).good()) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
