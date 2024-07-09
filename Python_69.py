@@ -1,4 +1,3 @@
-```
 def search(lst):
     freq_dict = {}
     for num in lst:
@@ -13,6 +12,3 @@ def search(lst):
             max_num = key
             break
     return max_num
-
-lst = list(map(int, input("Enter the numbers separated by space: ").split()))
-print(search(lst))
