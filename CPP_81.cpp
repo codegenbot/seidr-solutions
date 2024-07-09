@@ -5,7 +5,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
     // implement your logic here to check if two vectors are same
 }
 
-std::vector<string> numerical_letter_grade(vector<float> grades){
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
     vector<string> result;
     for(float grade : grades){
         if(grade >= 4.0) result.push_back("A+");
