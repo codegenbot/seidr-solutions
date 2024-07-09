@@ -1,4 +1,3 @@
-#include <vector>
 #include <algorithm>
 using namespace std;
 
@@ -7,12 +6,12 @@ vector<int> unique(vector<int> l) {
     return result;
 }
 
-vector<int>::iterator unique_copy(iterator b, iterator e) {
-    unordered_set<int> seen;
-    for (auto it = b; it != e; ++it) {
-        if (seen.insert(*it).second) {
-            *result++ = *it;
+vector<int>::iterator unique_copy(iterator first, iterator last) {
+    unordered_map<int, bool> seen;
+    for (; first != last; ++first) {
+        if (!seen.count(*first)) {
+            *seen.insert(make_pair(*first, true)).first = *first;
         }
     }
-    return result;
+    return first;
 }
