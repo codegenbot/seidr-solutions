@@ -10,7 +10,7 @@ bool match_parens(vector<string> lst) {
     for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') open++;
-            else close++;
+            else if (c == ')') close++;
         }
     }
     return open == close;
@@ -19,12 +19,13 @@ bool match_parens(vector<string> lst) {
 int main() {
     vector<string> lst;
     int n;
-    std::getline(std::cin, str);
-    n = stoi(str);
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin >> n;
     string s;
-    for(int i=0; i<n; ++i++){
+    for(int i=0; i<n; ++i){
         getline(cin, s);
         lst.push_back(s);
     }
     cout << (match_parens(lst) ? "Yes" : "No") << endl;
+    return 0;
 }
