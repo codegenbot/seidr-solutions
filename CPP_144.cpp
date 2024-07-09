@@ -1,18 +1,21 @@
+#include<string>
+using namespace std;
+
 bool simplify(string x, string n) {
-    int numeratorX = 0, denominatorX = 0, numeratorN = 0, denominatorN = 0;
-    
-    size_t pos = 0;
-    pos = x.find('/');
-    int num1 = stoi(x.substr(0, pos));
-    int deno1 = stoi(x.substr(pos + 1));
-    
-    pos = n.find('/');
-    int num2 = stoi(n.substr(0, pos));
-    int deno2 = stoi(n.substr(pos + 1));
-    
-    if((num1 * deno2) == (deno1 * num2)) {
-        return true;
-    } else {
-        return false;
+    int a = 1, b = 1, c = 1, d = 1;
+    int pos = 0;
+    while (pos < x.size()) {
+        if (x[pos] == '/') break;
+        pos++;
     }
+    for (int i = 0; i < pos; i++) a *= stoi(x.substr(0, i)) - 1;
+    for (int i = pos + 1; i < x.size(); i++) b *= stoi(x.substr(pos + 1, i));
+    pos = 0;
+    while (pos < n.size()) {
+        if (n[pos] == '/') break;
+        pos++;
+    }
+    for (int i = 0; i < pos; i++) c *= stoi(n.substr(0, i)) - 1;
+    for (int i = pos + 1; n.size() > i; i++) d *= stoi(n.substr(pos + 1, i));
+    return a*d == b*c;
 }
