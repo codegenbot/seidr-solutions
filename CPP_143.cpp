@@ -1,10 +1,10 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-string words_in_sentence(string& sentence);
+string words_in_sentence(string sentence);
 
 int main() {
     string sentence;
@@ -17,8 +17,8 @@ int main() {
     return 0;
 }
 
-string words_in_sentence(string& sentence) {
-    string result = "";
+string words_in_sentence(string sentence) {
+    std::string result = "";
     size_t start = 0;
     while (start < sentence.size()) {
         size_t end = sentence.find(' ', start);
