@@ -1,20 +1,35 @@
-#include <iomanip>
-#include <sstream>
+```cpp
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) return "";
+    if(text.empty()) return "";
     
-    unsigned char md[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char* ptr = text.c_str();
-    size_t len = text.size();
-    while(len-- > 0) MD5_Update(&ctx, &ptr[len], 1);
-    MD5_Final(md, &ctx);
+    unsigned char md5[16];
+    const EVP_MD* md = EVP_md5();
+    EVP_MD_CTX* ctx = EVP_MD_CTX_new();
+    unsigned char input[1024];
 
-    ostringstream oss;
-    for(int i = 0; i < MD5_DIGEST_LENGTH; ++i)
-        oss << setfill('0') << setw(2) << hex << (int)md[i];
+    int input_len = strlen(text.c_str());
+    int total_len = 0;
+    for(int i=0; i<input_len; i++) {
+        input[i] = (unsigned char)text[i];
+    }
+    
+    EVP_DigestInit_ex(ctx, md, NULL);
+    EVP_DigestUpdate(ctx, input, input_len);
+    EVP_DigestFinal_ex(ctx, md, NULL);
 
-    return oss.str();
+    string result;
+    for(int i=0; i<16; i++) {
+        char buf[3];
+        sprintf(buf, "%02x", (unsigned)md[i]);
+        result.append(string(buf));
+    }
+    
+    EVP_MD_CTX_free(ctx);
+    
+    return result;
 }
