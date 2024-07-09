@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <cstdlib>
@@ -43,4 +42,3 @@ int main() {
     int n = sizeof(oper) / sizeof(oper[0]);
     int result = do_algebra(op, oper, n);
     return 0;
-}
