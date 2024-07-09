@@ -36,7 +36,7 @@ vector<string> bf(string planet1, string planet2) {
             result.push_back(planets[i]);
         }
         else {
-            result.push_back((planets[i - 1]).substr(0, 3));
+            result.push_back(planets[i - 1]);
         }
     }
 
