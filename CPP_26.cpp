@@ -4,7 +4,6 @@
 
 bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() == 0 && b.size() == 0) return true;
-    if ((a.size() == 0 && b.size() != 0) || (a.size() != 0 && b.size() == 0)) return false;
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -41,6 +40,9 @@ int main() {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
         std::cin >> num;
+        if (numbers.size() == numbers.capacity()) {
+            std::vector<int>(numbers).reserve(numbers.capacity() * 2); 
+        }
         numbers.push_back(num);
     }
 
