@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -23,12 +23,13 @@ vector<int> unique_digits(vector<int> x) {
     }
     sort(result.begin(), result.end());
     return result;
+}
 
 int main() {
-    vector<int> x = {1, 2, 3, 4, 5};
-    vector<int> y = unique_digits(x);
-    for (int num : y) {
+    vector<int> x = {1, 2, 3};
+    for (int num : unique_digits(x)) {
         cout << num << " ";
     }
     cout << endl;
     return 0;
+}
