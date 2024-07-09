@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include <string>
 
 std::string rounded_avg(int n, int m) {
@@ -24,8 +23,8 @@ std::string rounded_avg(int n, int m) {
 
 int main() {
     int n, m;
-    std::cout << "Enter the range [n, m]: ";
+    std::cout << "Enter the values of n and m: ";
     std::cin >> n >> m;
-    std::cout << "Rounded average: " << rounded_avg(n, m) << std::endl;
+    std::cout << "The rounded average is: " << rounded_avg(n, m) << std::endl;
     return 0;
 }
