@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool isSame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -36,10 +36,6 @@ vector<vector<int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {5, 10, 15};
-    vector<vector<int>> output = pluck(arr);
-    
-    for (const auto& element : output) {
-        cout << "Smallest even: " << element[0] << ", Index: " << element[1] << endl;
-    }
+    // You can test your pluck function here
+    return 0;
 }
