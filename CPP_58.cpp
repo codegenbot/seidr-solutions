@@ -3,10 +3,6 @@
 #include <vector>
 #include <algorithm>
 
-std::set<std::string> common(const std::set<std::string>& s1, const std::set<std::string>& s2) {
-    return s1.intersection(s2);
-}
-
 int main() {
     std::set<std::string> s1;
     std::set<std::string> s2;
