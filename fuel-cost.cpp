@@ -8,9 +8,9 @@ int fuelCost(int n) {
 }
 
 int main() {
-    std::vector<int> numbers = {2909, 7270, 6972};
     int sum = 0;
-    for(int n : numbers) { 
+    std::vector<int> vec = {2909, 7270, 6972}; 
+    for(int n : vec) { 
         sum += fuelCost(n);
     }
     std::cout << "Result: " << sum << std::endl;
