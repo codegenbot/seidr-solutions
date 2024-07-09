@@ -6,4 +6,5 @@ lst = input("Enter a list of numbers: ")
 lst = [int(x) for x in lst.split()]
 
 odd_sum = sum(i for i in lst if i % 2 != 0)
-check(double_the_difference(lst)) == odd_sum
+
+print(odd_sum == double_the_difference(lst))

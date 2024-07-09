@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```
 def fix_spaces(text):
     new_text = ""
     for i in range(len(text)):
@@ -8,8 +11,6 @@ def fix_spaces(text):
             else:
                 if new_text and not new_text.endswith("_") or (new_text and new_text[-1] != " "):
                     new_text += "_"
-        elif i > 0 and new_text and not new_text[-1].isalnum():
-            new_text += " "
         else:
             new_text += text[i]
     return new_text
