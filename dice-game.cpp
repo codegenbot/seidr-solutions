@@ -1,8 +1,12 @@
+```cpp
+cpp
 double probability(int n, int m) {
-    if(n <= m) {
-        return 0.0;
+    double total = n * m;
+    double petersWin = 0.0;
+    
+    for (int i = 1; i <= n - 1; i++) {
+        petersWin += m - i;
     }
     
-    double total = (n + m - 1);
-    return (n - m - 1.0) / total;
+    return petersWin / total;
 }
