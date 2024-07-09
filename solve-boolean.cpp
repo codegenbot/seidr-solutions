@@ -1,31 +1,49 @@
-string solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+#include <string>
+using namespace std;
+
+bool evaluateBooleanExpression(string expression) {
+    stack<char> operatorStack;
+    for (int i = 0; i < expression.length(); ++i) {
+        if (expression[i] == '&') {
+            while (!operatorStack.empty() && operatorStack.top() == '|') {
+                operatorStack.pop();
             }
-            if (st.empty()) {
-                return "False";
+            if (!operatorStack.empty()) {
+                operatorStack.push('&');
+            } else {
+                return false;
             }
-            st.pop();
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+        } else if (expression[i] == '|') {
+            while (!operatorStack.empty()) {
+                operatorStack.pop();
             }
-            if (st.empty()) {
-                return "False";
+            operatorStack.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
+            string operand = "";
+            while (i < expression.length() && (expression[i] == 'T' || expression[i] == 'F')) {
+                operand += expression[i];
+                ++i;
             }
-            st.pop();
-        } else {
-            st.push(s[i]);
+            --i;
+            if (operand == "TF") return false;
+            if (operand == "TT" || operand == "FF") return true;
         }
     }
-    if (st.size() > 1) {
-        return "True";
-    } else if (st.size() == 0) {
-        return "False";
-    } else {
-        return st.top() == 'T' ? "True" : "False";
+    while (!operatorStack.empty()) {
+        operatorStack.pop();
     }
+    return true;
+}
+
+int main() {
+    string expression;
+    cout << "Enter a boolean expression: ";
+    cin >> expression;
+    bool result = evaluateBooleanExpression(expression);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
 }
