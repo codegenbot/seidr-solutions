@@ -2,13 +2,16 @@ def decipher_message(key1, key2, message):
     key1 = key1.lower()
     key2 = key2.lower()
 
-    cipher_dict = {v: k for k, v in zip(key1, key2)}
+    cipher_dict = {k: v for k, v in zip(key1, key2)}
 
     result = ""
 
     for char in message:
         if char.isalpha():
-            result += (cipher_dict.get(char.lower(), char).upper() if char.isupper() else cipher_dict.get(char.lower(), char))
+            if char.isupper():
+                result += cipher_dict.get(char.lower(), char).upper()
+            else:
+                result += cipher_dict.get(char, char)
         else:
             result += char
 
