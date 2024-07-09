@@ -12,7 +12,7 @@ string string_to_md5(string text) {
     MD5_CTX ctx;
     MD5_Init(&ctx);
     MD5_Update(&ctx, (const unsigned char*)text.c_str(), text.size());
-    MD5_Final(md5,&ctx);
+    MD5_Final(md5, &ctx);
 
     string result;
     for(int i = 0; i < 16; ++i){
