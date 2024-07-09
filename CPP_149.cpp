@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) {
@@ -36,28 +37,19 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
 
 int main() {
     int n;
-    std::cout << "Enter number of strings: ";
+    std::vector<std::string> lst;
+    std::cout << "Enter the number of strings: ";
     std::cin >> n;
-
-    std::vector<std::string> list;
     for (int i = 0; i < n; ++i) {
-        std::string str;
-        std::cout << "Enter string " << i+1 << ": ";
-        std::getline(std::cin, str);
-        list.push_back(str);
+        std::string s;
+        std::cin >> s;
+        lst.push_back(s);
     }
-
-    std::vector<std::string> sorted = sorted_list_sum(list);
-
-    if (sorted.empty()) {
-        std::cout << "The sum is 0." << std::endl;
-    } else {
-        std::cout << "Sorted strings: ";
-        for (const auto& str : sorted) {
-            std::cout << str << " ";
-        }
-        std::cout << std::endl;
+    
+    auto result = sorted_list_sum(lst);
+    
+    std::cout << "Sorted list of strings: ";
+    for (const auto& str : result) {
+        std::cout << str << " ";
     }
-
-    return 0;
-}
+    std::cout << std::endl;
