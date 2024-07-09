@@ -14,6 +14,7 @@ string int_to_mini_roman(int number) {
     
     return roman;
 }
+
 int main() {
     cout << int_to_mini_roman(1000) << endl;
     return 0;
