@@ -1,22 +1,18 @@
-#include <stack>
+Here is the modified code:
+
 #include <string>
 
 std::string solveBoolean(std::string s) {
-    stack<char> st;
-    bool prev = false;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'T') prev = true;
-        else if (s[i] == 'F') prev = false;
-        else if (s[i] == '|') {
-            st.push(prev ? '1' : '0');
-            prev = false;
-        }
-        else if (s[i] == '&') {
-            bool curr = prev;
-            prev = false;
-            while (!st.empty()) st.pop();
-            st.push(curr ? '1' : '0');
+    int prevOp = -1;
+    for (char c : s) {
+        if (c == 'T' || c == 'F') {
+            if (prevOp == '|') return c == 'T'? "True" : "False";
+            else if (prevOp == '&') return c == 'T'? "True" : "False";
+            prevOp = -1;
+        } else if (c == '|') {
+            prevOp = '|';
+        } else if (c == '&') {
+            prevOp = '&';
         }
     }
-    return prev ? "True" : "False";
-}
+    return s[0] == 'T'? "True" : "False";
