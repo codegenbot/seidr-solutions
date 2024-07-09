@@ -1,38 +1,22 @@
+```
 def solve_boolean(expression):
     def eval_expr(expression):
         stack = []
-        left = ""
-        operators = "&|"
+        left = ''
+        operators = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
         while expression:
-            if expression[0] in operators:
-                stack.append(left)
-                left = ""
-                while expression and expression[0] in "()":
-                    expression = expression[1:]
-                if not expression or expression[0] in operators:
-                    return False
-                right = ""
-                i = 0
-                for char in expression:
-                    if char in operators:
-                        break
-                    right += char
-                    i = len(expression)
-                if right == "T":
-                    left = eval_expr(left) and True or left
-                elif right == "F":
-                    left = eval_expr(left) or False or left
-                else:
-                    left = "(" + right + ")"
-                    return eval_expr(left) and stack[-1] or stack[-1]
-            else:
-                if expression[0] in "T":
-                    left += "T"
-                elif expression[0] == "F":
-                    left += "F"
-                else:
-                    left += "("
+            if expression[0] in 'TF':
+                yield bool(expression[0])
                 expression = expression[1:]
-        return eval_expr(left) and True or False
+            elif expression[0] in '&|(':
+                if expression[0] == '(':
+                    stack.append(left + operators.get(expression[0], lambda x: x)(left, left))
+                    left = ''
+                else:
+                    left = operators[expression[0]](left, eval_expr(expression[1])[0])
+            elif expression[0] == ')':
+                result = stack.pop()
+                left = str(result)
+        return bool(left)
 
-    return eval_expr(expression)
+    return next(eval_expr(expression))
