@@ -12,7 +12,10 @@ bool below_threshold(std::vector<int> l, int t) {
 }
 
 int main() {
-    std::vector<int> l = {1, 8, 4, 10};
+    std::vector<int> l;
+    for(int i = 0; i < 4; ++i) {
+        l.push_back(i*2 + 4);
+    }
     int t = 10;
     assert(!below_threshold(l, t));
 }
