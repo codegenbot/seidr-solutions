@@ -1,4 +1,5 @@
-bool isPrime(int n) {
+```
+bool is_prime(int n) {
     if (n <= 1)
         return false;
     for (int i = 2; i * i <= n; i++)
@@ -9,5 +10,5 @@ bool isPrime(int n) {
 
 bool prime_length(string str) {
     int len = str.length();
-    return isPrime(len);
+    return is_prime(len);
 }
