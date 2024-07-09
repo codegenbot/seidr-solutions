@@ -1,7 +1,6 @@
+```
 #include <vector>
 #include <cmath>
-
-using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     pair<vector<int>, vector<int>> result;
