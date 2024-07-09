@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 std::vector<int> order_by_points(std::vector<int>& nums) {
     std::sort(nums.begin(), nums.end(), [](int a, int b) {
