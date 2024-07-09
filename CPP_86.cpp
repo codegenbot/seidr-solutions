@@ -15,10 +15,9 @@ string anti_shuffle(string s) {
 }
 
 int main() {
-    string input;
+    string input_string;
     cout << "Enter a string: ";
-    getline(cin, input);
-    string output = anti_shuffle(input);
-    cout << "Anti-shuffled string: " << output << endl;
+    getline(cin, input_string);
+    cout << "Anti-shuffled string: " << anti_shuffle(input_string) << endl;
     return 0;
 }
