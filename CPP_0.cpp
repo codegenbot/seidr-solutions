@@ -14,7 +14,8 @@ bool has_close_elements(float numbers[], int size, float threshold){
 
 int main() {
     float numbers[] = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    bool result = has_close_elements(numbers, 6, 0.5);
+    int size = sizeof(numbers) / sizeof(numbers[0]);
+    bool result = has_close_elements(numbers, size, 0.5);
     std::cout << "The result is: " << (result ? "true" : "false") << std::endl;
     
     return 0;
