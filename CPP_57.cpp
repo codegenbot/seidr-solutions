@@ -13,4 +13,3 @@ bool monotonic(std::vector<float> l) {
     }
 
     return increasing || decreasing;
-}
