@@ -1,4 +1,7 @@
-int bowlingScore(std::string s) {
+#include <iostream>
+#include <string>
+
+int bowlingScore(string s) {
     int score = 0;
     int currentRoll = 0;
     int currentFrame = 1;
