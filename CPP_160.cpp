@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <vector>
 
@@ -14,6 +13,6 @@ public:
 
 int main() {
     _160 obj;
-    assert(obj.do_algebra("*", {7, 3}) == 21);
+    assert(obj.do_algebra(1, {7, 3}) == 21); 
     return 0;
 }
