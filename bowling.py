@@ -1,18 +1,29 @@
-```
-def bowling_score(frames):
-    score = 0
-    for frame in frames:
-        if "X" * len(frame) == frame: 
-            score += 10 + (10 - len([c for c in frame if c != "X"]) ) * 1
-        else:
-            rolls = [int(c) for c in frame.replace("-", "")]
-            if sum(rolls) < 10:
-                score += sum(rolls)
-            elif "X" in str(rolls):
-                score += 10 + (10 - len([c for c in str(rolls) if c != "X"]) ) * 1
-            else:
-                score += min(sum(rolls), 10) + (10 - min(sum(rolls), 10)) * 1
-    return score
+import re
 
-frames = [line.strip() for line in input().splitlines()]
-print(bowling_score(frames))
+user_input = input()
+total_score = 0
+current_frame = 1
+frames = user_input.split("\n")
+
+for frame in frames:
+    if len(frame) == 2 and frame[0] == 'X':  
+        total_score += 10 + sum(map(int, frames[:current_frame+1][:2]))
+        current_frame += 1
+    elif '-' in frame:  
+        total_score += 5 + map(int, frame.split('-'))[1]
+        current_frame += 1
+    else:
+        strike_count = 0
+        for roll in map(int, frame.split()):
+            if strike_count == 2:
+                break
+            elif strike_count > 0:  
+                total_score += roll + 10 * (strike_count - 1)
+                current_frame += 1
+                break
+            else:
+                total_score += roll
+        if len(frame.split()) < 2:
+            continue
+
+print(total_score)
