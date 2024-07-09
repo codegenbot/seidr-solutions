@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -37,7 +36,6 @@ int main() {
         std::cin >> num;
         lst.push_back(num);
     }
-    int result = skjkasdkd(lst);
-    std::cout << "Sum of digits in the largest prime number is: " << result << std::endl;
+    std::cout << "The sum of the digits of the largest prime number is: " << skjkasdkd(lst) << std::endl;
     return 0;
 }
