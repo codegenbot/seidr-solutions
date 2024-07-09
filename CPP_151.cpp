@@ -1,24 +1,12 @@
-```
+```cpp
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
+    int odd_sum = 0;
+    vector<float> lst;
     for (float num : lst) {
         if (num > 0 && modf(num, &num) == 0) { 
             sum += pow(num, 2);
         }
     }
     return sum;
-}
-int main() {
-    vector<float> lst;
-    int odd_sum = 0;
-    // Input list
-    cout << "Enter numbers (space separated): ";
-    cin >> std::fixed >> std::showpoint;
-    for (float &num : lst) {
-        cin >> num;
-    }
-    // Calculate sum of squares of positive integers in the input list
-    long long total_sum = double_the_difference(lst);
-    
-    return 0;
 }
