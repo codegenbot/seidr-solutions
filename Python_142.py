@@ -1,11 +1,2 @@
-def sum_squares():
-    lst = list(map(int, input("Enter numbers separated by space: ").split()))
-    total = 0
-    for i in range(len(lst)):
-        if i % 3 == 0 and i % 4 != 0:
-            total += lst[i] ** 2
-        elif i % 4 == 0 and i % 3 != 0:
-            total += lst[i] ** 3
-    return total
-
-print(sum_squares())
+def sum_squares(lst):
+    return sum(i**3 if isinstance(int(i), int) and (i%12==0 or i%4==0) else i**2 for i in map(int, lst))
