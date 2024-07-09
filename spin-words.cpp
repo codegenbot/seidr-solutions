@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+using std::string;
+using std::cout;
+using std::endl;
 
 string spinWords(string sentence) {
     string result = "";
@@ -33,5 +35,6 @@ int main() {
     cout << spinWords("this is a test") << endl; 
     cout << spinWords("this is another test") << endl; 
     cout << spinWords("hi") << endl; 
+
     return 0;
 }
