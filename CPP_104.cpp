@@ -1,6 +1,5 @@
-#include <algorithm>
-#include <cassert>
 #include <vector>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -8,12 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> unique_digits(std::vector<int> a) {
     std::vector<int> result = a;
-    std::sort(result.begin(), result.end());
-    result.erase(std::unique(result.begin(), result.end()), result.end());
+    std::sort(std::begin(result), std::end(result));
+    result.erase(std::unique(std::begin(result), std::end(result)), std::end(result));
     return result;
-}
-
-int main() {
-    assert(issame(unique_digits({135, 103, 31}), {31, 103, 135}));
-    return 0;
 }
