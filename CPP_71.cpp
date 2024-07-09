@@ -1,15 +1,16 @@
-#include <iostream>
+#include <cmath>
+#include <cassert>
+#include <cstddef>
 
-double triangle_area(int a, int b, int c) {
-    double s = (a + b + c)/2;
-    return std::sqrt(s*(s-a)*(s-b)*(s-c));
+int triangle_area(int a, int b, int c) {
+    if (a + b <= c || a + c <= b || b + c <= a) 
+        return -1;  
+    int s = (a + b + c) / 2.0;
+    double area = std::sqrt(s*(s-a)*(s-b)*(s-c));
+    return static_cast<int>(area);
 }
 
 int main() {
-    double area = triangle_area(2, 2, 10);
-    if(area > 0)
-        std::cout << "The area of the triangle is: " << area;
-    else
-        std::cout << "This doesn't form a valid triangle.";
+    assert(std::abs(triangle_area(2, 2, 10)) < 1e-6);  
     return 0;
 }
