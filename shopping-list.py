@@ -2,7 +2,7 @@ def shopping_list():
     n = int(input())
     prices1 = list(map(float, input().split()))
     discounts1 = list(map(float, input().split()))
-    
+
     prices2 = list(map(float, input().split()))
     discounts2 = list(map(float, input().split()))
 
