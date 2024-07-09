@@ -1,3 +1,3 @@
-string temp = a + a;
-    return temp.find(b) != string::npos;
+string combined = a + a;
+    return combined.find(b) != string::npos;
 }
