@@ -1,4 +1,7 @@
 ```
+interval1 = [int(i) for i in input("Enter interval 1: ").split()]
+interval2 = [int(i) for i in input("Enter interval 2: ").split()]
+
 def intersection(interval1, interval2):
     start = max(interval1[0], interval2[0])
     end = min(interval1[1], interval2[1])
@@ -7,6 +10,16 @@ def intersection(interval1, interval2):
         return "NO"
     
     length = end - start + 1
-    is_prime = all(not i or length//i > 1 for i in range(2, int(length**0.5) + 1))
     
-    return "YES" if is_prime else "NO"
+    def is_prime(n):
+        if n <= 1:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    if is_prime(length):
+        return "YES"
+    else:
+        return "NO"
