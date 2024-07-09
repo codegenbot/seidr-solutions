@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <sstream>
 
 bool operator==(const std::vector<std::unique_ptr<float>>& a, const std::vector<std::unique_ptr<float>>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
@@ -25,10 +26,10 @@ int main() {
     if(n > 0) {
         std::vector<std::unique_ptr<float>> numbers;
         for(int i=0; i<n;i++){
-            std::string input;
-            std::cout << "Enter element " << (i+1) << ": ";
-            std::cin >> input; 
-            numbers.push_back(std::make_unique<float>(std::stof(input)));
+            float num;
+            std::cout << "Enter element " << i+1 << ": ";
+            std::cin >> num;
+            numbers.push_back(std::make_unique<float>(num));
         }
 
         auto positive_numbers = get_positive(numbers);
@@ -36,7 +37,9 @@ int main() {
         if(positive_numbers == numbers) {
             std::cout << "The list of positive numbers is: ";
             for (auto& num : positive_numbers) {
-                std::cout << *num << " "; 
+                std::stringstream ss;
+                ss << *num; 
+                std::cout << ss.str() << " "; 
             }
             std::cout << std::endl;
         } else {
