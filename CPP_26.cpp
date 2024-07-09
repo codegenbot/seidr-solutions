@@ -1,17 +1,8 @@
-#include <unordered_map>
-
-using namespace std;
-
-vector<int> remove_duplicates(vector<int> numbers) {
-    unordered_map<int, bool> mp;
+vector<int> remove_duplicates(vector<int> numbers){
     vector<int> result;
-
-    for (int i = 0; i < numbers.size(); i++) {
-        if (!mp.count(numbers[i]) || !mp[numbers[i]]) {
-            mp[numbers[i]] = true;
-            result.push_back(numbers[i]);
-        }
+    for(int num : numbers){
+        if(find(result.begin(), result.end(), num) == result.end())
+            result.push_back(num);
     }
-
     return result;
 }
