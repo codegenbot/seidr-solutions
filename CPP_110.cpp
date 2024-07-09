@@ -1,3 +1,4 @@
+```cpp
 string exchange(vector<int> lst1, vector<int> lst2) {
     bool foundOdd = false;
     for (int num : lst1) {
