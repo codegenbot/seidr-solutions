@@ -16,27 +16,21 @@ std::vector<std::string> words_string(std::string s){
     std::string word = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
-            if(word.size() > 30) {
-                // Trim the word to fit in the 30 character limit
-                if(word.size()>30){
-                    result.push_back(word.substr(0,30));
-                    word = word.substr(30);
-                }else{
-                    result.push_back(word);
-                    word = "";
-                }
-            }else{
-                if(word.size() <= 30){ 
-                    result.push_back(word);
-                    word = "";
-                }
+            if(word.length() <= 30) 
+                result.push_back(word);
+            else{
+                result.push_back(std::string(word.begin(), word.begin()+29).append("..."));
             }
+            word = "";
         }else{
             word += s[i];
         }
     }
-    if(word.size() <= 30) 
+    if(word.length() <= 30) 
         result.push_back(word);
+    else{
+        result.push_back(std::string(word.begin(), word.begin()+29).append("..."));
+    }
     return result;
 }
 
