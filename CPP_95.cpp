@@ -1,7 +1,9 @@
+```cpp
 #include <map>
 #include <string>
 #include <cctype>
 #include <cassert>
+#include <initializer_list>
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -13,13 +15,15 @@ bool check_dict_case(map<string, string> dict) {
         if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
             return false;
         }
-        if (islower(pair.first[0]))
-            allLower = false;
-        else
-            allUpper = false;
+        if (!allLower && !allUpper) break;
+        if (!allLower) allUpper = true;
+        if (!allUpper) allLower = true;
     }
 
     return allLower || allUpper;
 }
 
-assert(check_dict_case({}) == false);
+int main() {
+    assert(check_dict_case({}) == false);
+    return 0;
+}
