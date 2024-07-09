@@ -5,13 +5,13 @@
 int luhn(std::string ccNum) {
     int sum = 0;
     for (int i = 0; i < ccNum.length(); i++) {
-        int digit = ccNum[i] - '0';
+        int n = ccNum[i] - '0';
         if ((i % 2 == 1)) {
-            digit *= 2;
-            if (digit > 9)
-                digit -= 9;
+            n *= 2;
+            if (n > 9)
+                n -= 9;
         }
-        sum += digit;
+        sum += n;
     }
     return sum;
 }
@@ -19,8 +19,8 @@ int luhn(std::string ccNum) {
 int main() {
     std::string ccNum;
     std::cout << "Enter a credit card number: ";
-    std::cin >> ccNum;
-
+    std::getline(std::cin, ccNum);
+    
     int result = luhn(ccNum);
     if (result % 10 == 0)
         std::cout << "The credit card number is valid." << std::endl;
