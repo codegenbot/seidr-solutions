@@ -17,33 +17,34 @@ std::vector<std::unique_ptr<float>> get_positive(const std::vector<std::unique_p
 }
 
 int main() {
-    int n;
+    std::string line;
     std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    std::getline(std::cin, line);
+    float n = stof(line);
 
     if(n > 0) {
         std::vector<std::unique_ptr<float>> numbers;
         for(int i=0; i<n;i++){
             std::cout << "Enter element " << i+1 << ": ";
             float num;
-            cin >> num;
+            std::cin >> num;
             numbers.push_back(std::make_unique<float>(num));
         }
 
         std::vector<std::unique_ptr<float>> positive_numbers = get_positive(numbers);
 
         if(issame(numbers, positive_numbers)) {
-            cout << "The list of positive numbers is: ";
+            std::cout << "The list of positive numbers is: ";
             for (auto& num : positive_numbers) {
-                cout << *num << " ";
+                std::cout << *num << " ";
             }
-            cout << endl;
+            std::cout << std::endl;
         } else {
-            cout << "No positive numbers found." << endl;
+            std::cout << "No positive numbers found." << std::endl;
         }
 
     } else {
-        cout << "Please enter a number greater than zero." << endl;
+        std::cout << "Please enter a number greater than zero." << std::endl;
     }
 
     return 0;
