@@ -1,18 +1,18 @@
-```
+```cpp
 #include <iostream>
 using namespace std;
 
 float triangle_area(float a, float b, float c);
 
 int main() {
-    float a, b, c;
+    float a_val, b_val, c_val;
     cout << "Enter three sides of the triangle: ";
-    cin >> a >> b >> c;
+    cin >> a_val >> b_val >> c_val;
 
-    if(triangle_area(a, b, c) == -1.0f) {
+    if(triangle_area(a_val, b_val, c_val) == -1.0f) {
         cout << "The given values do not form a valid triangle.";
     } else {
-        float result = triangle_area(a, b, c);
+        float result = triangle_area(a_val, b_val, c_val);
         cout << "The area of the triangle is: ";
         cout << fixed << setprecision(2);
         cout << result;
