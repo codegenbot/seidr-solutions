@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <algorithm>
+#include <iostream>
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
@@ -20,4 +20,29 @@ std::vector<int> pluck(std::vector<int> arr) {
     result.push_back(index);
 
     return result;
+}
+
+int main() {
+    std::vector<int> input;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        int num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        input.push_back(num);
+    }
+
+    std::vector<int> output = pluck(input);
+
+    if (!output.empty()) {
+        std::cout << "The minimum even number is: " << output[0] << "\n";
+        std::cout << "Its index in the array is: " << output[1] << "\n";
+    } else {
+        std::cout << "Array is empty.\n";
+    }
+
+    return 0;
 }
