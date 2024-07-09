@@ -25,7 +25,7 @@ int get_odd_collatz(int n) {
     std::cout << std::endl;
 }
 
-int solver() {
+int main() {
     int num;
     std::cin >> num;
     get_odd_collatz(num);
