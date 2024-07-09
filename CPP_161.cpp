@@ -2,18 +2,20 @@
 #include <algorithm>
 
 std::string solve(const std::string& s) {
-    std::string result = s;
-    for (auto& c : result) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+    for (size_t i = 0; i < s.length(); i++) {
+        if (isalpha(s[i])) {
+            if (islower(s[i])) {
+                s[i] = toupper(s[i]);
+            } else {
+                s[i] = tolower(s[i]);
+            }
         }
     }
-    std::reverse(result.begin(), result.end());
-    return result;
+    std::reverse(s.begin(), s.end());
+    return s;
 }
 
 int main() {
     assert(solve("#ccc") == "#CCC");
-    // Add more test cases here
     return 0;
 }
