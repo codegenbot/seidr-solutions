@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <boost/variant.hpp>
+#include <boost/variant2/variant.hpp>
 
 int main() {
     std::string a;
@@ -74,29 +73,19 @@ boost::variant<std::string, int> compare_one(boost::variant<int, float, std::str
         if(x < y)
             return "Integer 1 is less than Integer 2";
         else if (x > y)
-            return "Integer 1 is greater than or equal to Integer 2";
+            return "Integer 1 is greater than Integer 2";
         else
             return "Integers are equal";
     }
-    else if (std::holds_alternative<float>(a) && std::holds_alternative<float>(b)) {
+    else if (std::holds_alternative<float>(a) && std::holds_alternative<int>(b)) {
         float x = boost::get<float>(a);
-        float y = boost::get<float>(b);
+        int y = boost::get<int>(b);
         if(x < y)
-            return "Float 1 is less than Float 2";
+            return "Float 1 is less than Integer 2";
         else if (x > y)
-            return "Float 1 is greater than or equal to Float 2";
+            return "Float 1 is greater than Integer 2";
         else
-            return "Floats are equal";
-    }
-    else if (std::holds_alternative<std::string>(a) && std::holds_alternative<std::string>(b)) {
-        std::string strA = boost::get<std::string>(a);
-        std::string strB = boost::get<std::string>(b);
-        if(strA > strB)
-            return "String 1 is greater than String 2";
-        else if (strA < strB)
-            return "String 1 is less than String 2";
-        else
-            return "Strings are equal";
+            return "Float and integer are equal";
     }
     else {
         return "Invalid input";
