@@ -12,7 +12,7 @@ def factorize(n: int) -> List[int]:
     return factors
 
 try:
-    n = int(input().strip())
+    n = int(input("Please enter an integer: ").strip())
     result = factorize(n)
     print(result)
 except ValueError:
