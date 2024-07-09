@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -22,10 +21,6 @@ int main() {
     for(int i = 0; i < n; i++){
         std::cin >> lst[i];
     }
-    if (n > 0) {
-        std::cout << next_smallest(lst) << std::endl;
-    } else {
-        std::cout << -1 << std::endl;
-    }
+    std::cout << next_smallest(lst) << std::endl;
     return 0;
 }
