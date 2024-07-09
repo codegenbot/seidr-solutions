@@ -15,15 +15,7 @@ int main() {
     int num = 0; 
     std::cout << "Enter numbers (separated by spaces): ";
     while(std::cin >> num) { 
-        while(std::cin.peek() == ' ') {
-            std::cin.ignore();
-        }
         numbers.push_back(num);
-        char ch;
-        // ignore the rest of the line
-        do {
-            std::cin.get(ch);
-        } while (ch != '\n');
     }
     findMax(numbers);
     return 0;
