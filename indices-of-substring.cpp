@@ -1,3 +1,7 @@
+```cpp
+#include <vector>
+#include <string>
+
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     std::vector<int> result;
     int n = text.length();
@@ -28,3 +32,4 @@ int main() {
         std::cout << i << std::endl;
     }
     return 0;
+}
