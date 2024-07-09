@@ -1,9 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
 int main() {
-    vector<float> lst = {1.0f, -2.5f, 3.0f, 4.5f};
+    std::vector<float> lst = {1.5f, -3.2f, 0.0f, 4.8f, -6.1f};
     long long result = double_the_difference(lst);
+    std::cout << "The sum of the squares of the positive integers in the list is: " << result << std::endl;
     return 0;
 }
 
