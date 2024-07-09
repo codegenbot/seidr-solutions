@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -31,9 +32,14 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 
     // Keep popping elements from the priority queue until k elements are popped
     while (!pq.empty() && k--) {
-        arr.erase(std::remove(arr.begin(), arr.end(), pq.top().first), arr.end());
+        int idx = pq.top().second;
         pq.pop();
+        if (idx < arr.size()) {
+            arr[idx] = -1;  // Mark this index as processed, don't pop it directly
+        }
     }
+
+    arr.erase(std::remove(arr.begin(), arr.end(), -1), arr.end()); // Erase the marked indices
 
     return arr;
 }
@@ -49,9 +55,15 @@ int main() {
     std::vector<int> arr;
     std::cout << "Enter elements: ";
     for (int i = 0; i < n; i++) {
+        if (!arr.empty()) { 
+            arr.push_back(0); // initialize with some value, not necessary for this problem
+        }
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
+        if (!arr.empty()) { 
+            arr.pop_back(); // remove the initial 0 before storing the actual value
+        }
         if (!arr.empty()) { 
             arr.push_back(val);
         }
