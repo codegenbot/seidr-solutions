@@ -10,11 +10,11 @@ int main() {
     int n1, m1, n2, m2;
     std::cin >> n1 >> m1 >> n2 >> m2;
 
-    std::vector<std::string> s1Vec;
+    std::vector<std::string> s1Vec(n1);
     for(int i = 0; i < n1; i++) {
         std::string x;
         std::cin >> x;
-        s1Vec.push_back(x); 
+        s1Vec[i] = x; 
     }
 
     for(auto &i : s1Vec) {
@@ -22,8 +22,7 @@ int main() {
             continue; 
     }
 
-    std::vector<std::string> s2Vec;
-    s2Vec.resize(m1);
+    std::vector<std::string> s2Vec(m1);
     for(int i = 0; i < m1; i++) {
         std::string y;
         std::cin >> y;
