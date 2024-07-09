@@ -1,18 +1,22 @@
-int gcd(int a, int b) {
-    if (b == 0) return a;
-    return gcd(b, a % b);
-}
+#include <stdio.h>
+#include <string>
+#include <sstream>
+#include <iostream>
+using namespace std;
 
 bool simplify(string x, string n) {
-    int numerator_x = stoi(x.substr(0, x.find('/')));
-    int denominator_x = stoi(x.substr(x.find('/') + 1));
-    int numerator_n = stoi(n.substr(0, n.find('/')));
-    int denominator_n = stoi(n.substr(n.find('/') + 1));
+    int num1, den1, num2, den2;
+    char slash;
+    stringstream ss1(x), ss2(n);
+    ss1 >> num1 >> slash >> den1;
+    ss2 >> num2 >> slash >> den2;
 
-    int product_numerator = numerator_x * numerator_n;
-    int product_denominator = denominator_x * denominator_n;
+    return (num1 * num2) % (den1 * den2) == 0;
+}
 
-    int common_divisor = gcd(product_numerator, product_denominator);
-
-    return product_denominator / common_divisor == 1;
+int main() {
+    string x, n;
+    cin >> x >> n;
+    cout << (simplify(x, n) ? "true" : "false") << endl;
+    return 0;
 }
