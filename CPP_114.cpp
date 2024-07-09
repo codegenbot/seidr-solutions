@@ -2,7 +2,7 @@
 #include <limits.h>
 #include <cassert>
 
-long long minSubArraySum(vector<long long> nums) {
+long long minSubArraySumFunction(vector<long long> nums) {
     long long sum = 0, min_sum = LLONG_MAX;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
@@ -16,6 +16,6 @@ long long minSubArraySum(vector<long long> nums) {
     return min_sum;
 }
 
-int main() {
-    assert(minSubArraySum({1, -1}) == -1);
+void mainTest() {
+    assert(minSubArraySumFunction({1, -1}) == -1);
 }
