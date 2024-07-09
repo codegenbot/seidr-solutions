@@ -1,5 +1,3 @@
-```
-frames = input("Enter the string representing individual bowls: ")
 def bowling_score(frames):
     score = 0
     i = 0
@@ -21,4 +19,3 @@ def bowling_score(frames):
             score += frame_score
         i += 1
     return score
-print(bowling_score(frames))
