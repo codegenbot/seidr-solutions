@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
 
-bool issame(vector<string> a,vector<string> b) {
+bool issame(std::vector<std::string> a,std::vector<std::string> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -15,14 +16,14 @@ bool issame(vector<string> a,vector<string> b) {
 }
 
 int main() {
-    assert(issame({"this"}, {})); 
+    assert(issame({{"this"}}, {}));
     return 0;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int sum1 = 0, sum2 = 0;
-    for (const string& s : lst1) sum1 += s.size();
-    for (const string& s : lst2) sum2 += s.size();
+    for (const std::string& s : lst1) sum1 += s.size();
+    for (const std::string& s : lst2) sum2 += s.size();
 
     if (sum1 < sum2)
         return lst1;
