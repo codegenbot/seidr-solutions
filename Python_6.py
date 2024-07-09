@@ -1,8 +1,8 @@
 from typing import List
 
-def parse_nested_parens(paren_string: str) -> List[int]:
-    return [ max([paren_string.count("(" * i) for i in range(1, len(paren_string) // 2 + 1)]) for paren_string in paren_string.split(' ')]
+def parse_nested_parens() -> List[int]:
+    nested_parens = input("Enter the nested parentheses string: ").split()
+    return [max([nested.count("(" * i) for i in range(1, len(nested) // 2 + 1)]) for nested in nested_parens]
 
-user_input = input("Enter the nested parentheses string: ")
-result = parse_nested_parens(user_input)
+result = parse_nested_parens()
 print(result)
