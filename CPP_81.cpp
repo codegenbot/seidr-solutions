@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool checkIfSame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size())
@@ -11,8 +11,8 @@ bool checkIfSame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> letter_grades;
+std::vector<char*> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<char*> letter_grades;
     for (float grade : grades) {
         if (grade >= 4.0)
             letter_grades.push_back("A+");
@@ -43,12 +43,6 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    std::vector<float> grades = {0.0, 0.7};
-    std::vector<std::string> output = numerical_letter_grade(grades);
-    if (checkIfSame(output, {"F", "D-"})) {
-        std::cout << "The input vector contains the same elements as expected." << std::endl;
-    } else {
-        std::cout << "The input vector does not contain the same elements as expected." << std::endl;
-    }
+    std::vector<float> grades = {0, 0.7};
+    assert(checkIfSame(numerical_letter_grade(grades), {"E", "D-"}));
     return 0;
-}
