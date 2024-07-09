@@ -33,4 +33,3 @@ int main(){
         cout << "The zero of the polynomial is: " << solution << endl;
     }
     return 0;
-}
