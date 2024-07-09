@@ -1,41 +1,19 @@
+```c++
 #include <vector>
-#include <iostream>
-#include <string>
-#include <sstream>
 
-double shoppingList(std::vector<double> prices, std::vector<float> discounts) {
+double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
     double total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        total += prices[i] * (1 - (discounts[i] / 100.0));
+        total += prices[i] * (1 - discounts[i]);
     }
     return total;
 }
 
 int main() {
-    std::vector<double> prices;
-    std::vector<float> discounts;
-
-    // Read prices
-    std::string temp;
-    std::getline(std::cin, temp);
-    std::istringstream iss(temp);
-    double price;
-    while (iss >> price) {
-        prices.push_back(price);
-    }
-
-    // Read discounts
-    std::getline(std::cin, temp);
-    iss.clear();
-    iss.str(temp);
-    float discount;
-    while (iss >> discount) {
-        discounts.push_back(discount / 100.0); 
-    }
-
-    double total = shoppingList(prices, discounts);
-
-    std::cout << "The total price after applying the discount is: $" << total << std::endl;
-
+    double prices[] = {10.0, 20.0, 30.0};
+    double discounts[] = {0.1, 0.2, 0.3};
+    std::vector<double> vec_prices(prices, prices + sizeof(prices) / sizeof(prices[0]));
+    std::vector<double> vec_discounts(discounts, discounts + sizeof(discounts) / sizeof(discounts[0]));
+    double result = hoppingList(vec_prices, vec_discounts);
     return 0;
 }
