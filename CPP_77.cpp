@@ -14,14 +14,14 @@ bool isCube(int n) {
 }
 
 int main() { 
-    std::string num_str;
+    int num;
     std::cout << "Enter a cube number (like 1729): ";
-    std::cin >> num_str;
-
-    if (isCube(std::stoi(num_str)))
-        std::cout << "You entered: " << num_str << std::endl; 
-    else
-        std::cout << "Invalid input." << std::endl;
+    std::cin >> num;
     
+    if (isCube(num)) {
+        std::cout << "You entered a cube number: " << num << std::endl;
+    } else {
+        std::cout << "You entered a non-cube number: " << num << std::endl;
+    }
     return 0;
 }
