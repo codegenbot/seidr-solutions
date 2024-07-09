@@ -1,32 +1,30 @@
 #include <vector>
 #include <iostream>
-#include <string>
-
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int pos = 0;
-    
-    while ((pos = text.find(target, pos)) != string::npos) {
-        result.push_back(pos);
-        pos += 1; // avoid infinite loop
+class Solution {
+public:
+    vector<int> findIndices(string text, string target) {
+        vector<int> indices;
+        int len = target.length();
+        for(int i = 0; i <= text.length() - len; i++) {
+            if(text.substr(i, len) == target) {
+                indices.push_back(i);
+            }
+        }
+        return indices;
     }
-    
-    return result;
-}
+};
 
 int main() {
+    Solution solution;
     string text;
     cin >> text;
     string target;
     cin >> target;
-
-    vector<int> indices = indicesOfSubstring(text, target);
-
-    for (auto index : indices) {
-        cout << index << endl;
+    vector<int> result = solution.findIndices(text, target);
+    for(int i : result) {
+        cout << i << " ";
     }
-
+    cout << endl;
     return 0;
-}
