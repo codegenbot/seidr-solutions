@@ -2,10 +2,10 @@
 #include <iostream>
 #include <cmath>
 
-int sum_squares(double arr[], int n){
+int sum_squares(float arr[], int n){
     int total = 0;
     for(int i=0; i<n; i++){
-        double x = static_cast<double>(arr[i]);
+        float x = arr[i];
         if(x >= 0) {
             int ceil_x = std::ceil(x);
             total += std::pow(ceil_x,2);
@@ -15,9 +15,10 @@ int sum_squares(double arr[], int n){
 }
 
 int main(){
-    double testArray[] = {-1.0, 1.0, 0.0};
+    float testArray[] = {-1, 1, 0};
     int n = sizeof(testArray)/sizeof(testArray[0]);
-    int result = sum_squares(testArray, n);
-    std::cout << "Sum of squares: " << result << std::endl;
+    for (int i=0; i<n; i++) {
+        std::cout << "Element: " << testArray[i] << std::endl;
+    }
     return 0;
 }
