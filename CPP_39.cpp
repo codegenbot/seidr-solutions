@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -22,8 +23,8 @@ int main() {
         } else {
             suffix = "th";
         }
-        cout << "The " << to_string(result) << suffix << " prime Fibonacci number is: ";
-        cout << to_string(result) << endl;
+        cout << "The " << std::to_string(result) << suffix << " prime Fibonacci number is: ";
+        cout << std::to_string(result) << endl;
     }
 
     return 0;
