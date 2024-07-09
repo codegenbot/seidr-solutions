@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
 std::vector<double> coeffs;
 double coeff;
@@ -13,10 +13,12 @@ int main() {
     std::cout << "Enter the number of coefficients: ";
     std::cin >> n;
 
+    std::vector<double>(n); // Modified line
+
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter coefficient " << i+1 << ": ";
         std::cin >> coeff;
-        coeffs.push_back(coeff);
+        coeffs[i] = coeff;
     }
 
     double solution = find_zero(coeffs); 
@@ -38,4 +40,3 @@ double poly(std::vector<double> coeffs, double solution) {
         result += coeffs[i] * pow(solution, i);
     }
     return result;
-}
