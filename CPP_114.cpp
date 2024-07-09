@@ -1,5 +1,4 @@
-```cpp
-#include <cassert>
+#include <assert>
 #include <vector>
 #include <climits>
 
