@@ -1,7 +1,7 @@
 def mastermind(code, guess):
     black = sum(1 for a, b in zip(code, guess) if a == b)
     code_count = {char: 0 for char in set(code)}
-    white = sum(1 for char in set(guess) if code_count.pop(char, None) is not None)
+    white = sum(1 for char in set(guess) if code_count.setdefault(char, 0) > 0)
 
     return black, white
 
