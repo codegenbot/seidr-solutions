@@ -31,11 +31,16 @@ int mainDriver(){
     if(sameVectors(a, b)) cout << "The vectors are the same." << endl;
     else cout << "The vectors are not the same." << endl;
     
-    vector<float> vec = {1.1f, 2.2f, 3.1f, 4.1f, 5.1f};
+    vector<float> vec;
+    vec.push_back(1.1f);
+    vec.push_back(2.2f);
+    vec.push_back(3.1f);
+    vec.push_back(4.1f);
+    vec.push_back(5.1f);
     float result = find_closest_elements(vec);
     cout << "Closest elements: " << result << endl;
     assert(sameVectors(a, b));
     cout << "The vectors are not the same." << endl;
-    assert(find_closest_elements({2.2f, 3.1f}) == find_closest_elements(vector<float>{1.1f, 2.2f, 3.1f, 4.1f, 5.1f}));
+    assert(find_closest_elements({2.2f, 3.1f}) == find_closed_elements({2.2f, 3.1f}));
     return 0;
 }
