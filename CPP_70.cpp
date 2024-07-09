@@ -1,37 +1,46 @@
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a,vector<int> b){
-    if(a.size()!=b.size())
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) {
         return false;
-    for(int i=0;i<a.size();i++)
-        if(a[i]!=b[i])
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
+        }
+    }
     return true;
 }
 
 int main() {
-    vector<int> lst;
     int n;
-    cout<<"Enter the number of elements in list: ";
-    cin>>n;
-    cout<<"Enter the elements in list: ";
-    for(int i=0;i<n;i++){
+    std::cin >> n;
+    std::vector<int> lst;
+    while(n--) {
         int x;
-        cin>>x;
+        std::cin >> x;
         lst.push_back(x);
     }
+
     vector<int> result = strange_sort_list(lst);
-    if(result.size()==0)
-        cout<<"The list is empty."<<endl;
-    else{
-        cout<<"Sorted list: ";
-        for(int i=0;i<result.size();i++)
-            cout<<result[i]<<" ";
-        cout<<endl;
-        cout<<"Is the sorted list same as the original? "<<issame(lst,result)<<endl;
+
+    if(result.size() < 2) {
+        std::cout << "No valid array" << std::endl;
+    } else {
+        for(auto i : result) {
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
+        for(int i = 0; i < lst.size() -1; i++) {
+            if(lst[i] > lst[i+1]) {
+                std::cout << "Not valid array" << std::endl;
+                return 0;
+            }
+        }
     }
+
     return 0;
 }
 
