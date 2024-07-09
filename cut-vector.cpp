@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```c++
 #include <vector>
 #include <climits>
@@ -42,9 +44,9 @@ int main() {
     vector<int> vec(n);
     for (auto& x : vec) std::cin >> x;
     pair<vector<int>, vector<int>> result = cutVector(vec);
-    cout << "[";
-    for (const auto& x : result.first) cout << x << " ";
-    cout << "], [";
-    for (const auto& x : result.second) cout << x << " ";
-    cout << "]";
+    std::cout << "[";
+    for (const auto& x : result.first) std::cout << x << " ";
+    std::cout << "], [";
+    for (const auto& x : result.second) std::cout << x << " ";
+    std::cout << "]";
 }
