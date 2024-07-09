@@ -1,4 +1,4 @@
-import re
-
+```
 def paired_digits(s):
-    return sum(int(digit) for digit in re.sub('[^0-9]', '', s) if len(re.findall(digit, re.sub('[^' + digit + ']', '', s))) > 1)
+    s = str(int(s))  
+    return sum(int(digit) * 2 for i, digit in enumerate(s) if i < len(s) - 1 and digit == s[i + 1])
