@@ -1,4 +1,5 @@
-Here is the completed code:
+#include <vector>
+using namespace std;
 
 int max_fill(vector<vector<int>> grid, int capacity) {
     int total_water = 0;
