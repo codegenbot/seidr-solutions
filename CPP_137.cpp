@@ -1,7 +1,5 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
+#include <iostream>
+#include <boost/any.hpp>
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -12,25 +10,27 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string a_str = boost::any_cast<string>(a);
-        string b_str = boost::any_cast<string>(b);
-        if (stoi(a_str) > stoi(b_str)) {
+        string str1 = a.convert_to<string>();
+        string str2 = b.convert_to<string>();
+        int compare_result = str1.compare(str2);
+        if (compare_result > 0) {
             return a;
         }
-       	else if (stoi(a_str) < stoi(b_str)) {
+        else if (compare_result < 0) {
             return b;
         }
-		else {
+       	else {
             return boost::any("None");
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int a_int = boost::any_cast<int>(a);
-        string b_str = boost::any_cast<string>(b);
-        if (a_int > stoi(b_str)) {
+        double a_num = stod(a.convert_to<string>());
+        string str = b.convert_to<string>();
+        int compare_result = str.compare(to_string(a_num));
+        if (compare_result > 0) {
             return a;
         }
-		else if (a_int < stoi(b_str)) {
+       	else if (compare_result < 0) {
             return b;
         }
 		else {
