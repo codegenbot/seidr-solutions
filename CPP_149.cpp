@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -29,9 +28,6 @@ int main() {
     vector<string> lst = {"hello", "world", "abc", "abcd"};
     vector<string> result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
     
-    if (!issame(sorted_list_sum(lst), {"cc", "dd", "aaaa", "bbbb"})) {
-        std::cout << "Test failed";
-    }
-    
+    assert(issame(sorted(result_list_sum(lst), result));
     return 0;
 }
