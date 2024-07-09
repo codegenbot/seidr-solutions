@@ -1,5 +1,5 @@
 ```c
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool areWordsSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -15,6 +15,6 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 
 int main() {
     std::vector<std::string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    assert(issame(result, {"grunt", "prune"}));
+    assert(areWordsSame(result, {"grunt", "prune"}));
     return 0;
 }

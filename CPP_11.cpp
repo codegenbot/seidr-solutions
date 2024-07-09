@@ -1,6 +1,7 @@
-```
+```cpp
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 std::string string_xor(std::string a, std::string b) {
     if(a.length() != b.length())
@@ -18,11 +19,24 @@ std::string string_xor(std::string a, std::string b) {
 
 int main() { 
     assert(string_xor("0101", "0000") == "0101");
-    std::string str1, str2;
-    std::cout << "Enter the first string: ";
-    std::getline(std::cin, str1);
-    std::cout << "Enter the second string: ";
-    std::getline(std::cin, str2);
+    char c;
+    std::string str1;
+    while ((c = std::cin.get()) != '\n') {
+        if (c == ' ') {
+            continue;
+        }
+        str1 += c - '0';
+    }
+    str1.erase(0, 1);
+    char d;
+    std::string str2;
+    while ((d = std::cin.get()) != '\n') {
+        if (d == ' ') {
+            continue;
+        }
+        str2 += d - '0';
+    }
+    str2.erase(0, 1);
     try {
         std::string result = string_xor(str1, str2);
         std::cout << "XOR of the two strings is: " << result << std::endl;
