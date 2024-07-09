@@ -1,3 +1,4 @@
+````
 #include <string>
 #include <algorithm>
 #include <cassert>
@@ -17,3 +18,4 @@ int main() {
     assert(is_happy("iopaxioi") == false );
     return 0;
 }
+```
