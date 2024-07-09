@@ -1,13 +1,11 @@
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // Return None or equivalent in C++
+    if (lst.empty()) return -1; // or any other value to indicate None
     vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    int second_smallest = -1;
-    for (int i = 0; i < sorted.size() - 1; i++) {
-        if (sorted[i] != sorted[i + 1]) {
-            second_smallest = sorted[i + 1];
-            break;
+    std::sort(sorted.begin(), sorted.end());
+    for (int i = 1; i < sorted.size(); i++) {
+        if (sorted[i] != sorted[0]) {
+            return sorted[i];
         }
     }
-    return second_smallest;
+    return -1; // or any other value to indicate None
 }
