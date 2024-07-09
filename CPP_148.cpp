@@ -1,3 +1,4 @@
+```
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int idx1 = -1, idx2 = -1;
