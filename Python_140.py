@@ -1,3 +1,4 @@
+```python
 def fix_spaces(text):
     new_text = ""
     for i in range(len(text)):
@@ -10,4 +11,4 @@ def fix_spaces(text):
                     new_text += "_"
         else:
             new_text += text[i]
-    return new_text
+    return new_text```
