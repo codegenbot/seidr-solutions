@@ -1,8 +1,7 @@
-```
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <initializer_list>
+#include <iostream>
 
 using namespace std;
 
@@ -35,4 +34,3 @@ int main() {
     } else {
         cout << "Error: The lists are not the same." << endl;
     }
-}
