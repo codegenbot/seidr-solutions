@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <sstream>
@@ -15,19 +16,22 @@ int main() {
     std::getline(std::cin, input);
 
     std::istringstream iss(input);
-    std::string line;
-    iss >> line; // Read the first line
-    std::istringstream lineIss(line);
-    std::vector<double> prices;
-    while (lineIss >> line) {
-        prices.push_back(std::stod(line)); 
+    std::vector<double> prices(15);
+    for (double &price : prices) {
+        iss >> price;
     }
 
-    iss >> line; // Read the second line
-    lineIss = std::istringstream(line);
-    std::vector<double> discounts;
-    while (lineIss >> line) {
-        discounts.push_back(std::stod(line));
+    while (std::isspace(iss.peek())) iss.ignore(); // Consume leading whitespace
+    iss >> std::ws; // Discard leading whitespace
+    std::getline(std::cin, input);
+    iss.str(input);
+
+    std::vector<double> discounts(15);
+    while (std::isspace(iss.peek())) iss.ignore(); // Consume leading whitespace
+    for (int i = 0; i < 15; i++) {
+        double discount;
+        if (!(iss >> discount)) break;
+        discounts[i] = discount;
     }
 
     double result = hoppingList(prices, discounts);
