@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -59,7 +60,7 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     if (distance1 != -1 && distance2 != -1) {
-        result.push_back((distance1 < distance2 ? planet1 : planet2));
+        result.push_back((distance1 < distance2 ? planet1 : (distance1 > distance2 ? planet2 : "")));
     }
 
     return result;
