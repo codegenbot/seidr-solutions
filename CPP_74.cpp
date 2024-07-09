@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -70,7 +70,7 @@ int main() {
         std::cout << "The sums are equal." << std::endl;
     }
 
-    if (issame(lst5, lst6)) {
+    if (issame({lst5}, {lst6})) {
         std::cout << "The lists are the same." << std::endl;
     }
     else {
