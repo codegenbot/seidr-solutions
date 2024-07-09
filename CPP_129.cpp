@@ -1,31 +1,44 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n));
     vector<int> res;
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < n; ++j)
-            if (grid[i][j] == 1) {
-                int val = dfs(grid, visited, i, j, k, 0);
-                if (!res.size() || res.back() > val) res = vector<int>(k + 1);
-                for (int x = k; x >= 0; --x)
-                    if (val <= res[x])
-                        res[x] = val;
+    for (int i = 0; i < k; i++) {
+        int minVal = INT_MAX, cellIndex = -1;
+        for (int j = 0; j < grid.size(); j++) {
+            for (int col = 0; col < grid[0].size(); col++) {
+                if (grid[j][col] <= minVal) {
+                    minVal = grid[j][col];
+                    cellIndex = j * grid[0].size() + col;
+                }
             }
+        }
+        res.push_back(minVal);
+        for (int i = 0; i < grid.size(); i++) {
+            if (i == cellIndex / grid[0].size()) {
+                for (int j = 0; j < grid[0].size(); j++) {
+                    grid[i][j] = INT_MAX;
+                }
+            } else {
+                for (int j = 0; j < grid[0].size(); j++) {
+                    if (grid[i][j] == minVal) {
+                        grid[i][j] = INT_MAX;
+                    }
+                }
+            }
+        }
+    }
     return res;
 }
 
-int dfs(vector<vector<int>> grid, vector<vector<bool>> &visited, int i, int j, int k, int val) {
-    if (k == 0) return val;
-    visited[i][j] = true;
-    int minV = INT_MAX;
-    for (int dx = -1; dx <= 1; ++dx)
-        for (int dy = -1; dy <= 1; ++dy)
-            if (abs(dx) + abs(dy) == 1 && i + dx >= 0 && i + dx < grid.size() && j + dy >= 0 && j + dy < grid.size()) {
-                int x = i + dx;
-                int y = j + dy;
-                if (!visited[x][y] && grid[x][y] > val) {
-                    minV = min(minV, dfs(grid, visited, x, y, k - 1, val));
-                }
-            }
-    return minV;
+int main() {
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for (int val : result) {
+        cout << val << " ";
+    }
+    cout << endl;
+    return 0;
 }
