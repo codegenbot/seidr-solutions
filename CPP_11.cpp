@@ -21,18 +21,9 @@ int main() {
     assert(string_xor("0101", "0000") == "0101");
     std::string str1;
     std::string str2;
-    std::cout << "Enter the first string (only 0s and 1s): ";
-    str1 = std::string();
-    while(str1.length() > 0) {
-        str1.pop_back(); // remove last character until the length is equal to 'a'
-    }
+    std::cout << "Enter the first string: ";
     std::getline(std::cin, str1);
-
-    std::cout << "Enter the second string (only 0s and 1s): ";
-    str2 = std::string();
-    while(str2.length() > 0) {
-        str2.pop_back(); // remove last character until the length is equal to 'a'
-    }
+    std::cout << "Enter the second string: ";
     std::getline(std::cin, str2);
     try {
         std::string result = string_xor(str1, str2);
