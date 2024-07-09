@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -17,5 +18,9 @@ bool has_close_elements(vector<float> numbers, float threshold) {
 int main() {
     using namespace std;
     vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    cout << has_close_elements(a, 0.5) << endl;
+    if (has_close_elements(a, 0.5)) {
+        cout << "The array contains elements that are close to each other." << endl;
+    } else {
+        cout << "The array does not contain elements that are close to each other." << endl;
+    }
 }
