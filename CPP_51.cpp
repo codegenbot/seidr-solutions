@@ -3,8 +3,8 @@
 
 using namespace std;
 
-std::string remove_vowels(std::string text){
-    std::string result = "";
+string remove_vowels(string text){
+    string result = "";
     for(char c : text){
         if(strchr("aeiouAEIOU",c) == NULL)
             result += c;
