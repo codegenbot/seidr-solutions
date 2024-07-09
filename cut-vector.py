@@ -1,5 +1,4 @@
-n = int(input())
-arr = list(map(int, input().split()))
+n, *arr = map(int, input().split())
 
 total_sum = sum(arr)
 half_sum = total_sum // 2
@@ -19,6 +18,4 @@ subvector1 = arr[: cut_index + 1]
 subvector2 = arr[cut_index + 1 :]
 
 print("\n".join(map(str, subvector1)))
-print("\n".join(map(str, subvector2)))
-
-
+print("\n".join(map(str, subvector2)) )
