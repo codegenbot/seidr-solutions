@@ -1,11 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int> &a, const std::vector<int> &b) {
+bool issame(int a, int b) {
     return a == b;
 }
 
-std::vector<int> cpp123(int n) {
+std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
     while (n != 1) {
         if (n % 2 != 0) {
@@ -14,11 +14,11 @@ std::vector<int> cpp123(int n) {
         n = (n % 2 == 0) ? n / 2 : 3 * n + 1;
     }
     result.push_back(1);
-    std::sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end(), issame);
     return result;
 }
 
 int main() {
-    assert(issame(cpp123(1), {1}));
+    assert(issame(get_odd_collatz(1)[0], 1));
     return 0;
 }
