@@ -1,10 +1,9 @@
-#include <string>
+```
 #include <iostream>
+#include <string>
 
-using namespace std;
-
-string encrypt(string s){
-    string result = "";
+std::string encrypt(std::string s) {
+    std::string result = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
         if(c >= 'a' && c <= 'z'){
@@ -18,9 +17,8 @@ string encrypt(string s){
 }
 
 int main() {
-    string s;
-    cout << "Enter a string: ";
-    cin >> s;
-    cout << "Encrypted string: " << encrypt(s) << endl;
-    return 0;
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::cout << "Encrypted string: " << encrypt(str) << std::endl;
 }
