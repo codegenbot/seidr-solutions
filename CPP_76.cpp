@@ -1,4 +1,3 @@
-```c++
 #include <cmath>
 #include <iostream>
 
@@ -20,9 +19,9 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> x;
     if (isSimplePower(x)) {
-        std::cout << x << " is a simple power.\n";
+        std::cout << std::to_string(x) << " is a simple power.\n";
     } else {
-        std::cout << x << " is not a simple power.\n";
+        std::cout << std::to_string(x) << " is not a simple power.\n";
     }
     return 0;
 }
