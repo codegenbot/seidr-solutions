@@ -1,45 +1,80 @@
-```
-if (a.type() == typeid(int) && b.type() == typeid(float)) {
-    return boost::any(b);
-} else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-    string str = boost::any_cast<string>(b);
-    if (str.find('.') != string::npos || str.find(',') != string::npos)
-        return boost::any(str);
-    else
-        return a;
-} else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-    int x = boost::any_cast<int>(a);
-    if (x < boost::any_cast<int>(b))
-        return b;
-    else if (x > boost::any_cast<int>(b))
-        return a;
-    else
-        return boost::any("None");
-} else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-    int x = boost::any_cast<int>(a);
-    int y = boost::any_cast<int>(b);
-    if (x < y)
-        return a;
-    else if (x > y)
-        return b;
-    else
-        return boost::any("None");
-} else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-    float x = boost::any_cast<float>(a);
-    float y = boost::any_cast<float>(b);
-    if (x < y)
-        return a;
-    else if (x > y)
-        return b;
-    else
-        return boost::any("None");
-} else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-    string x = boost::any_cast<string>(a);
-    string y = boost::any_cast<string>(b);
-    if (x.compare(y) < 0)
-        return a;
-    else if (x.compare(y) > 0)
-        return b;
-    else
-        return boost::any("None");
+#include <string>
+#include <algorithm>
+#include <boost/any.hpp>
+
+using namespace std;
+
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return boost::any_cast<int>(b);
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return boost::any_cast<float>(b) > boost::any_cast<float>(a)
+            ? b : a;
+    }
+    else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+             (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        string s1 = boost::any_cast<string>(a);
+        string s2 = boost::any_cast<string>(b);
+
+        bool has_decimal1 = false;
+        for (char c : s1) {
+            if (c == '.' || c == ',') {
+                has_decimal1 = true;
+                break;
+            }
+        }
+
+        bool has_decimal2 = false;
+        for (char c : s2) {
+            if (c == '.' || c == ',') {
+                has_decimal2 = true;
+                break;
+            }
+        }
+
+        return has_decimal1 && has_decimal2
+            ? ((stod(s2) > stod(s1)) ? b : a)
+            : ((s2 > s1) ? b : a);
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return boost::any_cast<float>(b) > boost::any_cast<int>(a)
+            ? b : a;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return boost::any_cast<int>(b) > boost::any_cast<float>(a)
+            ? b : a;
+    }
+    else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+             (b.type() == typeid(int))) {
+        string s = boost::any_cast<string>(a);
+        bool has_decimal = false;
+        for (char c : s) {
+            if (c == '.' || c == ',') {
+                has_decimal = true;
+                break;
+            }
+        }
+
+        return has_decimal
+            ? ((stod(s) > boost::any_cast<int>(b)) ? a : b)
+            : ((s > to_string(boost::any_cast<int>(b))) ? a : b);
+    }
+    else if ((a.type() == typeid(int)) && (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        int x = boost::any_cast<int>(a);
+        string s = boost::any_cast<string>(b);
+        bool has_decimal = false;
+        for (char c : s) {
+            if (c == '.' || c == ',') {
+                has_decimal = true;
+                break;
+            }
+        }
+
+        return has_decimal
+            ? ((boost::any_cast<int>(a) > stod(s)) ? a : b)
+            : ((x > stoi(s)) ? a : b);
+    }
+
+    return boost::any("None");
 }
