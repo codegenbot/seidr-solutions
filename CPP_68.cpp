@@ -1,22 +1,22 @@
 #include <vector>
+#include <limits>
 
-using namespace std;
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> result;
+    if (arr.empty()) return result;
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return {};
+    int minEvenIndex = -1;
+    int minEvenValue = std::numeric_limits<int>::max();
 
-    int smallestEven = INT_MAX;
-    int smallestIndex = -1;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallestEven) {
-            smallestEven = arr[i];
-            smallestIndex = i;
+        if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
+            minEvenValue = arr[i];
+            minEvenIndex = i;
         }
     }
 
-    if (smallestEven != INT_MAX) {
-        result.push_back({smallestEven, smallestIndex});
+    if (minEvenIndex != -1) {
+        result.push_back({minEvenValue, minEvenIndex});
     }
 
     return result;
