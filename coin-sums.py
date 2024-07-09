@@ -4,8 +4,11 @@ def coin_sums(cents):
 
     for i in range(len(coins)):
         count = cents // coins[i]
-        result[i] = count
-        cents -= coins[i] * count
+        if count > 0:
+            result[i] = count
+            cents -= coins[i] * count
+        else:
+            result[i] = 0
 
     return (
         [f"{count} quarter{'s' if count > 1 else ''}" for count in [result[0]]]
