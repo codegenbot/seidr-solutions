@@ -1,28 +1,30 @@
 ```cpp
-#include <vector>
-#include <string>
+#include<stdio.h>
+#include<vector>
+#include<string>
+using namespace std;
 
-std::vector<int> parse_nested_parens(std::string paren_string) {
-    std::vector<int> result;
-    int max_depth = 0;
-    for (char c : paren_string) {
-        if (c == '(') {
+vector<int> parse_nested_parens(string paren_string){
+    vector<int> result;
+    int maxDepth = 0;
+    for (int i = 0; i < paren_string.size(); ++i) {
+        if (paren_string[i] == '(') {
             int depth = 1;
-            while (paren_string.find('(', paren_string.find('(') + 1) != std::string::npos) {
-                paren_string.erase(paren_string.find('('), 1);
-                depth++;
+            for (++i; i < paren_string.size() && paren_string[i] != ')'; ++i) {
+                if (paren_string[i] == '(') depth++;
+                else if (paren_string[i] == ')') depth--;
+                if (depth > maxDepth) maxDepth = depth;
             }
-            max_depth = std::max(max_depth, depth);
-        } else if (c == ')') {
-            int depth = 0;
-            while (paren_string.find(')', 0) != std::string::npos) {
-                size_t pos = paren_string.find(')');
-                paren_string.erase(0, pos + 1);
-                depth++;
+        } 
+        else if (paren_string[i] == ')') { 
+            int depth = 1;
+            for (--i; i >= 0 && paren_string[i] != '('; --i) {
+                if (paren_string[i] == ')') depth++;
+                else if (paren_string[i] == '(') depth--;
+                if (depth > maxDepth) maxDepth = depth;
             }
-            result.push_back(max_depth - depth);
-            max_depth = 0;
         }
     }
+    result.push_back(maxDepth);
     return result;
 }
