@@ -1,14 +1,33 @@
-vector<string> sorted_list_sum(vector<string> lst) {
-    auto is_same = [](const string& a, const string& b) -> bool {
-        return (a.length() % 2 && !b.length() % 2) || (!a.length() % 2 && b.length() % 2);
-    };
-    vector<string> result;
-    for (auto i = lst.begin(); i != lst.end(); ++i) {
-        auto it = unique(i, i+1, is_same);
-        vector<string> temp(i, it);
-        sort(temp.begin(), temp.end());
-        if (!result.size() || temp[0].compare(result[0]) < 0)
-            result.insert(result.end(), temp.begin(), temp.end());
+```
+bool areSortedListsEqual(const string& a, const string& b) {
+    vector<string> list1;
+    vector<string> list2;
+
+    for (int i = 0; i < a.length(); i++) {
+        list1.push_back(a.substr(i, 1));
     }
-    return result;
+
+    for (int i = 0; i < b.length(); i++) {
+        list2.push_back(b.substr(i, 1));
+    }
+
+    sort(list1.begin(), list1.end());
+    sort(list2.begin(), list2.end());
+
+    return list1 == list2;
+}
+
+vector<string> sorted_list_sum(vector<string> lst) {
+    auto it = unique(lst.begin(), lst.end(),
+                      [this](const string& a, const string& b) 
+                      { return areSortedListsEqual(a, b); });
+    lst.erase(it, lst.end());
+    sort(lst.begin(), lst.end(),
+         [](const string& a, const string& b) {
+             if (a.length() == b.length())
+                 return a < b;
+             else
+                 return a.length() < b.length();
+         });
+    return lst;
 }
