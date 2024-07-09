@@ -1,10 +1,11 @@
-#include <map>
+#include <iostream>
 #include <string>
+#include <map>
 #include <cassert>
 
 using namespace std;
 
-map<char, int> histogram(string s); // Forward declaration
+map<char, int> histogram(string s);
 
 bool issame(map<char, int> a, map<char, int> b) {
     if (a.size() != b.size()) {
@@ -30,5 +31,8 @@ map<char, int> histogram(string s) {
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
+    
+    cout << "All test cases passed!" << endl;
+
     return 0;
 }
