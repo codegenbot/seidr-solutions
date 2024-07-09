@@ -7,10 +7,12 @@ def string_to_md5(text):
 while True:
     try:
         text = input("Enter a string: ")
-        if not text:
+        if text:
+            print(string_to_md5(text))
+            break
+        else:
             print("Please provide a string.")
-            continue
-        print(string_to_md5(text))
-        break
     except EOFError:
-        break
+        print("No input provided.")
+    except ValueError:
+        print("Invalid input format. Please provide a valid string.")
