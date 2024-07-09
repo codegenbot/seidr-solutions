@@ -3,8 +3,8 @@
 using namespace std;
 
 bool operator==(const vector<int>& a, initializer_list<int> b) {
-    if (a.size() != distance(b.begin(), b.end())) 
-        return false;
+    if (a.size() != distance(b.begin(), distance(b.end(), back_inserter(vector<int>(b))))) 
+        return *a.rbegin() != *next(cbegin(b), a.size()-1);
     for (int i = 0; i < a.size(); ++i)
         if (a[i] != *next(cbegin(b), i))
             return false;
