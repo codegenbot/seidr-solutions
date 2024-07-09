@@ -28,7 +28,7 @@ int main() {
             std::cout << "Enter element " << i+1 << ": ";
             float num;
             std::cin >> num;
-            numbers.push_back(std::make_unique<float>(*num));
+            numbers.push_back(std::make_unique<float>(num));
         }
 
         auto positive_numbers = get_positive(numbers);
