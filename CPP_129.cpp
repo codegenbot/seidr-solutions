@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
@@ -43,17 +43,13 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y,
 }
 
 int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-    vector<int> res = minPath(grid, k);
-    if (issame(res, vector<int>({1, 2, 3}))) {
-        cout << "The shortest path is: ";
-        for (int i : res) {
-            cout << i << " ";
-        }
-        cout << endl;
+    vector<vector<int>> grid = {{1,2},{3,4}};
+    int k = 2;
+    vector<int> result = minPath(grid,k);
+    if (issame(result,{1,2})) {
+        cout << "The minimum path is [" << result[0] << ", " << result[1] << "]" << endl;
     } else {
-        cout << "No such path exists." << endl;
+        cout << "No such path found" << endl;
     }
     return 0;
 }
