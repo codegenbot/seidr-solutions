@@ -6,7 +6,7 @@ std::string anti_shuffle(std::string s) {
     std::string res;
     for (int i = 0; i < s.length(); i++) {
         if (i % 2 == 0) {
-            res.insert(i/2, 1, s[i]);  
+            res += static_cast<char>(s[i]);  
         }
     }
     return res;
