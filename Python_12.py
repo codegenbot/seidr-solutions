@@ -1,5 +1,6 @@
 from typing import List, Optional
 
+
 def longest(strings: list) -> Optional[str]:
     if not isinstance(strings, list):
         return None
