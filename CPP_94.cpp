@@ -1,12 +1,12 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
 int main() {
-    assert(skjkasdkd({127, 97, 8192}) == 10);
-    return 0;
+    vector<int> numbers = {127, 97, 8192};
+    int sumOfDigits = skjkasdkd(numbers);
+    cout << "Sum of digits: " << sumOfDigits;
 }
 
 int skjkasdkd(vector<int> lst){
