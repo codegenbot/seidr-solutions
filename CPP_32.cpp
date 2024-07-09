@@ -1,9 +1,55 @@
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <initializer_list>
+#include <cassert>
+using namespace std;
+
+double poly(vector<double> coeffs, double solution) {
+    double result = 0;
+    for (int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(solution, i);
+    }
+    return result;
+}
+
 double find_zero(vector<double> xs){
     double sum = 0;
+    double coeff = xs[0];
+    vector<vector<double>> temp;
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
-            sum += xs[i] / xs[0];
+            sum += xs[i] / coeff;
+            vector<double> temp1(xs.begin() + i, xs.begin() + i+1);
+            temp.push_back(temp1);
+        }
+        else{
+            coeff = xs[i];
         }
     }
-    return -sum / xs[0];
+    vector<double> coeffs;
+    for(int i=0; i<temp.size(); i++){
+        for(int j = 0; j < temp[i].size(); j++) {
+            coeffs.push_back(temp[i][j]);
+        }
+    }
+    return -sum / coeff;
+}
+
+int main2() {
+    vector<double> xs; 
+    cout << "Enter coefficients (space separated): ";
+    for(double x; cin >> x; ) {
+        xs.push_back(x); 
+    }    
+    double solution = find_zero(xs);
+    vector<double> coeffs;
+    for (int i = 1; i < xs.size(); i++) {
+        if (i % 2 == 0) {
+            coeffs.push_back(xs[i] / xs[i-1]);
+        }
+    }
+    assert(abs(poly(coeffs, solution))< 1e-3);
+    cout << "The zero of the polynomial is: " << solution << endl;
+    return 0;
 }

@@ -1,9 +1,14 @@
-int how_many_times(string str, string substring) {
+#include <cassert>
+#include <string>
+
+int how_many_times(const std::string& str, const std::string& substring) {
     int count = 0;
     size_t pos = 0;
-    while ((pos = str.find(substring)) != string::npos) {
+    std::string temp_str = str; // Create a copy of the original string
+
+    while ((pos = temp_str.find(substring)) != std::string::npos) {
         count++;
-        str.erase(pos, substring.length());
+        temp_str.erase(0, pos + substring.length());
     }
     return count;
 }
