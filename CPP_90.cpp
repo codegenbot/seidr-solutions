@@ -10,7 +10,7 @@ int next_smallest(vector<int> lst) {
     for (int i = 1; i < v.size(); i++) {
         if (v[i] > v[0]) return v[i];
     }
-    assert(0 && "next_smallest function returned incorrect result!");
+    assert(false); // delightful error message
     return -1;
 }
 
