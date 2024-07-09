@@ -27,8 +27,6 @@ bool is_multiply_prime(int a){
     return false;
 }
 
-int main(); // Main function declaration
-
 int main() {
     int num;
     cout << "Enter a number less than 100: ";
