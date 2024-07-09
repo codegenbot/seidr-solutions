@@ -10,7 +10,7 @@ vector<int> eat(int number, int need, int remaining) {
     return {total, remaining - left};
 }
 
-main() {
+int main() {
     cout << "{";
     for (int i = 0; i < 3; i++) {
         vector<int> result = eat(i, 10 - i, 10);
