@@ -2,6 +2,10 @@
 #include <algorithm>
 #include <iostream>
 
+bool issame(std::vector<int> a, std::vector<int> b);
+
+std::vector<int> get_odd_collatz(int n);
+
 using namespace std;
 
 bool issame(std::vector<int> a, std::vector<int> b) {
