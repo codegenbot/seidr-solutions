@@ -1,10 +1,7 @@
-#include <iostream>
-#include <string>
-
 std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     bool found_dot = false;
-    string before_dot;
+    std::string before_dot;
 
     for(int i=0; i<file_name.length(); i++){
         if(isdigit(file_name[i])){
@@ -21,7 +18,7 @@ std::string file_name_check(std::string file_name) {
 
     if(!found_dot || before_dot.empty() || !isalpha(before_dot[0])) return "No";
 
-    string after_dot = file_name.substr(found_dot ? file_name.find('.')+1 : file_name.length());
+    std::string after_dot = file_name.substr(found_dot ? file_name.find('.')+1 : file_name.length());
     if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll") return "No";
 
     return "Yes";
