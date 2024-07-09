@@ -1,7 +1,7 @@
 #include <string>
 
 bool issame(string s1, string s2) {
-    return (s1 == s2);
+    return s1 == s2;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
@@ -19,9 +19,4 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
         return lst1;
     }
     return lst2;
-}
-
-int main() {
-    // Your main function logic here
-    return 0;
 }
