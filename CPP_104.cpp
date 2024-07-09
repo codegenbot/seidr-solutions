@@ -30,9 +30,12 @@ vector<int> unique_digits(vector<int> x) {
 }
 
 int main() {
-    // Your code here
     vector<int> x = {1,2};
-    vector<int> y = {1,4};
-    assert (issame(unique_digits(x), unique_digits(y)));
+    vector<int> y = {1,2};
+    assert(issame(x,y)); 
+    vector<int> z = {3,4};
+    assert(!issame(x,z));
+    
+    // Your code here
     return 0;
 }
