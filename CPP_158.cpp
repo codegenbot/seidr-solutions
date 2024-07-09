@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <set>
 #include <string>
@@ -19,6 +20,7 @@ string find_max(vector<string> words) {
     }
     
     return max_word;
+
 }
 
 int main() {
