@@ -1,7 +1,9 @@
+#cplusplus -std=c++11
+
 #include <algorithm>
 #include <vector>
-#include <iterator>
-using namespace std;
+#include <initializer_list>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) 
@@ -16,7 +18,7 @@ bool issame(vector<string> a, vector<string> b) {
 
 }
 
-int sorted_list_sum(vector<string> s) {
+int sorted_list_sum(std::initializer_list<std::string> s) {
     int sum = 0;
     for (const auto& str : s) {
         sum += str.length();
@@ -25,9 +27,9 @@ int sorted_list_sum(vector<string> s) {
 }
 
 int main() {
-    vector<string> b={"aaaa", "bbbb", "dd", "cc"};
-    assert(issame({"aaaa", "bbbb", "dd", "cc"}, b));
+    std::vector<std::string> b={"aaaa", "bbbb", "dd", "cc"};
+    assert(issame(std::vector<std::string>({"aaaa", "bbbb", "dd", "cc"}), b));
     int result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
-    cout << "sorted_list_sum: " << result << endl;
+    std::cout << "sorted_list_sum: " << result << std::endl;
     return 0;
 }
