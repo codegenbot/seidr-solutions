@@ -1,33 +1,23 @@
+```cpp
+#include <cmath>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-int double_the_difference(vector<float> numbers) {
-    int minNum = *min_element(numbers.begin(), numbers.end());
-    int maxNum = *max_element(numbers.begin(), numbers.end());
-    
-    if (maxNum - minNum % 2 == 0) {
-        return static_cast<int>((double(maxNum - minNum)) / 2);
-    }
-    else {
-        return 0;
-    }
-}
-
-int odd_sum(vector<float> numbers) {
-    int sum = 0;
-    for (float num : numbers) {
-        if (num % 1 != 0) {
-            sum += static_cast<int>(num);
+double double_the_difference(vector<float> lst) {
+    double sum = 0.0;
+    for (float num : lst) {
+        if (num > 0 && floor(num) == num) { 
+            if (fmod(num, 2.0) != 0.0) { 
+                sum += pow(num, 2);
+            }
         }
     }
-    return sum;
+    return (long long)sum; 
 }
 
 int main() {
     vector<float> lst = {1.5, 2.0, 3.5};
-    int odd_sum;
-    assert(double_the_difference(lst) == odd_sum);
-    odd_sum = odd_sum(lst);
-    cout << "Double the difference: " << double_the_difference(lst) << endl;
-    cout << "Sum of odds: " << odd_sum << endl;
+    long long odd_sum = double_the_difference(lst);
+    cout << "The sum of squares is: " << odd_sum << endl;
+    return 0;
 }
