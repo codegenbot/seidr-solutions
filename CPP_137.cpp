@@ -1,62 +1,42 @@
+```cpp
 #include <boost/any.hpp>
 #include <boost/type_index.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any(b);
-    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any(b);
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return a;
-    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return a;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        if (std::stod(b.convert_to<std::string>().c_str()) > a.convert_to<std::string>().c_str()) {
-            return b;
-        } else if (std::stod(b.convert_to<std::string>().c_str()) < std::stod(a.convert_to<std::string>().c_str())) {
-            return a;
-        } else {
-            return boost::any("None");
-        }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
-        if (std::stod(b.convert_to<std::string>().c_str()) > a.convert_to<std::string>().c_str()) {
-            return b;
-        } else if (std::stod(b.convert_to<std::string>().c_str()) < std::stod(a.convert_to<std::string>().c_str())) {
-            return a;
-        } else {
-            return boost::any("None");
-        }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::stod(b.convert_to<std::string>().c_str()) > std::stod(a.convert_to<std::string>().c_str())) {
-            return b;
-        } else if (std::stod(b.convert_to<std::string>().c_str()) < std::stod(a.convert_to<std::string>().c_str())) {
-            return a;
-        } else {
-            return boost::any("None");
-        }
-    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        if (std::stoi(b.convert_to<std::string>().c_str()) > a) {
-            return b;
-        } else if (std::stoi(b.convert_to<std::string>().c_str()) < a) {
-            return a;
-        } else {
-            return boost::any("None");
-        }
-    } else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
-        if (std::stod(b.convert_to<std::string>().c_str()) > a) {
-            return b;
-        } else if (std::stod(b.convert_to<std::string>().c_str()) < a) {
-            return a;
-        } else {
-            return boost::any("None");
-        }
-    } else {
-        if (a.convert_to<int>() > b.convert_to<int>()) {
-            return a;
-        } else if (a.convert_to<int>() < b.convert_to<int>()) {
-            return b;
-        } else {
-            return boost::any("None");
-        }
+    using namespace boost;
+    
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int) a > (double) b ? a : b;
     }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return (double) a > (int) b ? a : b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string s1 = any_cast<string>(a);
+        string s2 = any_cast<string>(b);
+        double n1 = stod(s1);
+        double n2 = stod(s2);
+        return n1 > n2 ? a : b;
+    }
+    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
+        string s = any_cast<string>(a);
+        double n = stod(s);
+        return n > boost::any_cast<int>(b) ? a : b;
+    }
+    else if ((a.type() == typeid(int) || a.type() == typeid(double)) && b.type() == typeid(string)) {
+        double n1 = boost::any_cast<double>(a);
+        string s2 = any_cast<string>(b);
+        double n2 = stod(s2);
+        return n1 > n2 ? a : b;
+    }
+    else if (a.type() == typeid(int) && boost::any_cast<int>(a) == boost::any_cast<int>(a)) {
+        return typeid(int);
+    }
+    else if (a.type() == typeid(double) && boost::any_cast<double>(a) == boost::any_cast<int>(a)) {
+        return typeid(int);
+    }
+    else if (a.type() == typeid(string) && any_cast<string>(a).find('.') == std::string::npos) {
+        return typeid(int);
+    }
+    return a;
 }
