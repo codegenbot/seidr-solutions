@@ -1,3 +1,11 @@
-int custom_strlen(string str) {
+#include <assert.h>
+#include <string>
+
+int str_len(string str){
     return str.length();
+}
+
+int main(){
+    assert(str_len("asdasnakj") == 11);
+    return 0;
 }
