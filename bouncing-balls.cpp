@@ -1,5 +1,5 @@
 #include <iostream>
-#include <boost/conversion.hpp>
+#include <boost/lexical_cast.hpp>
 
 int main() {
     int startHeight, firstBounce, numBounces;
