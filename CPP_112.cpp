@@ -29,6 +29,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
