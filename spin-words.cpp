@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -8,12 +9,15 @@ std::vector<std::string> split(const std::string& str, char c) {
     std::string word;
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i] == c) {
+            if (i < str.length()) {
+                word += str[i];
+            }
             if (!word.empty()) {
                 words.push_back(word);
                 word.clear();
             }
             if (i < str.length()) {
-                word += str[i];
+                word = "";
             }
         } else {
             word += str[i];
@@ -44,8 +48,8 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    std::string str;
     std::cout << "Enter a string: ";
+    std::string str;
     std::getline(std::cin, str);
     std::cout << spinWords(str) << std::endl;
     return 0;
