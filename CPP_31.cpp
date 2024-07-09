@@ -8,17 +8,28 @@ int cpp_main() {
     std::cin >> num;
 
     if(is_prime(num)) {
-        for(int i = 2; i * i <= num; i++) {
-            if(is_prime(i))
-                std::cout << i << " is a prime number." << std::endl;
+        for(int i = 2; i <= num; i++) {
+            if(i == num)
+                std::cout << i << " is the entered prime number." << std::endl;
+            else
+                std::cout << i << (is_prime(i) ? " is a prime number." : " is not a prime number.") << std::endl;
         }
     } else {
-        std::cout << num << " is not a prime number." << std::endl;
+        for(int i = 2; i <= num; i++) {
+            std::cout << i << (is_prime(i) ? " is a prime number." : " is not a prime number.") << std::endl;
+        }
     }
 
     return 0;
 }
 
 bool is_prime(int num) {
-    return num > 1;
+    if(num <= 1)
+        return false;
+
+    for(int i = 2; i*i <= num; i++) {
+        if(num % i == 0)
+            return false;
+    }
+    return true;
 }
