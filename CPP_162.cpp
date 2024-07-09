@@ -8,7 +8,7 @@ std::string string_to_md5(const std::string& text) {
     }
 
     EVP_MD_CTX *mdctx;
-    OpenSSL_add_all_algorithms();
+    OpenSSL_add_all_digests(); // Add this line
     mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
@@ -17,6 +17,7 @@ std::string string_to_md5(const std::string& text) {
     unsigned int digest_len;
     EVP_DigestFinal_ex(mdctx, digest, &digest_len);
     EVP_MD_CTX_free(mdctx);
+    EVP_cleanup(); // Add this line
 
     char mdString[33];
     for (unsigned int i = 0; i < digest_len; i++) {
