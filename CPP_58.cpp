@@ -18,9 +18,11 @@ int main() {
         s1Vec.push_back(x);
     }
 
+    s1.insert("dummy");  
     for(auto &i : s1Vec) {
-        if(s1.insert(i).second)  
-            continue; 
+        if (s1.find(i) == s1.end()) {  // Check if i is not in s1 before inserting
+            s1.insert(i);  
+        }
     }
 
     std::vector<std::string> s2Vec;
@@ -31,9 +33,11 @@ int main() {
         s2Vec.push_back(y);
     }
 
+    s2.insert("dummy");  
     for(auto &i : s2Vec) {
-        if(s2.insert(i).second)  
-            continue; 
+        if (s2.find(i) == s2.end()) {  // Check if i is not in s2 before inserting
+            s2.insert(i);  
+        }
     }
 
     std::vector<std::string> diff(s1.begin(), s1.end());
