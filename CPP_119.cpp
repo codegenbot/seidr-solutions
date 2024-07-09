@@ -1,3 +1,7 @@
+```cpp
+#include <string>
+#include <vector>
+
 std::string match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
     for (const std::string& s : lst) {
@@ -6,5 +10,5 @@ std::string match_parens(std::vector<std::string> lst) {
             else close++;
         }
     }
-    return (open == close) ? "Yes" : "No";
+    return open == close ? "Yes" : "No";
 }
