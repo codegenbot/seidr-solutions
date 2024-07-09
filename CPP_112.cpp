@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -15,7 +16,7 @@ vector<string> reverse_delete(string s, string c) {
     vector<string> result;
 
     // Delete all characters in s that are equal to any character in c
-    for (char ch : s) {
+    for (char& ch : s) {
         bool found = false;
         for (char cc : c) {
             if (ch == cc) {
@@ -24,7 +25,7 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found)
-            result.push_back(string(1, ch));
+            result.push_back({ch});
     }
 
     // Check if the result string is palindrome
@@ -45,8 +46,7 @@ vector<string> reverse_delete(string s, string c) {
     // Return the result
     vector<string> final_result;
     final_result.push_back(res_str);
-    if(is_palindrome)final_result.push_back("True");
-    else final_result.push_back("False");
+    final_result.push_back(to_string(is_palindrome));
     return final_result;
 }
 
