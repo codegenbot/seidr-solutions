@@ -16,13 +16,14 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
 }
 
 int main() {
-    std::vector<int> nums(1, 2, 3, 4, 5);
+    int nums[] = {1, 2, 3, 4, 5};
+    std::vector<int> numsVec(nums, nums + sizeof(nums) / sizeof(*nums));
     int target = 7;
-    std::pair<int, int> result = findPair(nums, target);
+    std::pair<int, int> result = findPair(numsVec, target);
     if (result.first != -1) {
         std::cout << "The pair is (" << result.first << ", " << result.second << ")" << std::endl;
     } else {
-        std::cout << "No pair found with sum " << target << "." << std::endl;
+        std::cout << "No pair found" << std::endl;
     }
     return 0;
 }
