@@ -1,8 +1,6 @@
-```cpp
-#include <vector>
-#include <cassert>
+#include <initializer_list>
 
-int solution(vector<int> lst) {
+int solution(std::vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
