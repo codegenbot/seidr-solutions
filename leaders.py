@@ -1,6 +1,5 @@
+```
 def leaders(arr):
-    if len(arr) <= 2:
-        return arr
     leaders = [arr[-1]]
     max_right = arr[-1]
     for i in range(len(arr) - 2, -1, -1):
