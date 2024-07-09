@@ -1,6 +1,11 @@
 #include <vector>
 #include <cassert>
 
+// Function declarations
+bool issame(vector<int> a, vector<int> b);
+vector<int> pluck(vector<int> arr);
+
+// Function definitions
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -8,8 +13,6 @@ bool issame(vector<int> a, vector<int> b) {
     }
     return true;
 }
-
-vector<int> pluck(vector<int> arr); // Declare the function before using it
 
 vector<int> pluck(vector<int> arr) {
     vector<int> result;
@@ -31,12 +34,8 @@ vector<int> pluck(vector<int> arr) {
     return result;
 }
 
-#include <cinttypes>
-#include <iostream>
-
 int main() {
     vector<int> input = {7, 9, 7, 1};
     vector<int> output = pluck(input);
     assert(issame(output, vector<int>{}));
     return 0;
-}
