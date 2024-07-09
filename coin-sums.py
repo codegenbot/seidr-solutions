@@ -1,14 +1,14 @@
 def coin_sums():
-    c = int(input())
-    coins = [25, 10, 5, 1]
-    res = []
+    amount = int(input())
+    coins = [25, 10, 5, 1]  # quarters, dimes, nickels, pennies
+    output = [0, 0, 0, 0]
 
-    for coin in coins:
-        cnt = c // coin
-        c %= coin
-        res.append(cnt)
+    for coin in reversed(coins):
+        while amount >= coin:
+            amount -= coin
+            output[coins.index(coin)] += 1
 
-    return " ".join(map(str, res))
+    return output
 
 
-print(coin_sums())
+print(*coin_sums(), sep="\n")
