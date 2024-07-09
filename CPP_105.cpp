@@ -1,6 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> nums;
@@ -10,8 +15,8 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
     }
 
-    std::sort(nums.begin(), nums.end());
-    std::reverse(nums.begin(), nums.end());
+    sort(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.end());
 
     std::vector<std::string> result;
     for (int num : nums) {
@@ -61,5 +66,6 @@ int main() {
         }
     }
 
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
     return 0;
 }
