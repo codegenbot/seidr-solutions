@@ -4,24 +4,42 @@
 #include <string>
 
 int main() {
-    std::vector<std::string> list = {"aaaa", "bbbb", "dd", "cc"};
-    std::sort(list.begin(), list.end(),
-        [](const std::string& a, const std::string& b) {
-            if (a.length() != b.length()) {
-                return a.length() < b.length();
-            } else {
-                return a < b;
-            }
-        });
-    for (auto it = list.begin(); it != list.end();) {
-        if (it->length() % 2 == 1) {
-            it = list.erase(it);
-        } else {
-            ++it;
+    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
+    sort(input.begin(), input.end(),
+         [](const string& a, const string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
+         });
+    assert(issame(input));
+    return 0;
+}
+
+bool issame(const vector<string>& lst) {
+    for (int i = 1; i < lst.size(); i++) {
+        if (sorted_sum({lst[i - 1], lst[i]})[0] != sorted_sum({lst[i], lst[i - 1]})[0]) {
+            return false;
         }
     }
-    for (const auto& str : list) {
-        std::cout << str << " ";
+
+    return true;
+}
+
+vector<int> sorted_sum(const vector<string>& lst) {
+    vector<int> result;
+
+    for (const auto& str : lst) {
+        if (str.length() % 2 == 0) {
+            int sum = 0;
+            for (char c : str) {
+                sum += static_cast<int>(c);
+            }
+            result.push_back(sum);
+        }
     }
-    return 0;
+
+    sort(result.begin(), result.end());
+    return result;
 }
