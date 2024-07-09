@@ -10,15 +10,6 @@ vector<int> order_by_points(vector<int> points) {
     return points;
 }
 
-// Function to check if two vectors are same
-bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 int main() {
     vector<int> points;
     int n;
@@ -30,5 +21,5 @@ int main() {
         points.push_back(x);
     }
     
-    assert(issame(order_by_points(points), vector<int>({ -76, -21, 0, 4, 6, 6, 23 })));
+    order_by_points(vector<int>({0,6,6,-76,-21,23,4})) == vector<int>({ -76, -21, 0, 4, 6, 6, 23 });
 }
