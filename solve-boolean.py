@@ -1,22 +1,30 @@
 def solve_boolean(expression):
-    if "&" not in expression and "|" not in expression:
-        return "T" == expression[0].upper()
-    for char in ["&", "|"]:
-        if char not in expression:
+    def and_op(a, b): return a and b
+    def or_op(a, b): return a or b
+
+    stack = []
+    result = None
+    operator = None
+
+    for char in expression:
+        if char in ["&", "|"]:
+            operator = char
             continue
-        start = 0
-        end = len(expression) - 1
-        while end > start and expression[end] != char:
-            end -= 1
-        expression = expression[:start+1] + " (" + expression[start+2:end] + ") )"
-    if "&" in expression and "&" not in expression[1:-1]:
-        return solve_boolean(expression.replace("&", " &("))
-    elif "|" in expression and "|" not in expression[1:-1]:
-        return solve_boolean(expression.replace("|", " |("))
-    else:
-        left = solve_boolean(expression[:expression.index(")")])
-        right = solve_boolean(expression[expression.index("(")+1:expression.rindex(")")])
-        if "&" in expression:
-            return left and right
+        if char == "(":
+            stack.append(result)
+            stack.append(operator)
+            result = None
+            operator = None
+        elif char == ")":
+            b = stack.pop()
+            op = stack.pop()
+            a = stack.pop()
+            if op == "&": result = and_op(a, b)
+            else: result = or_op(a, b)
         else:
-            return left or right
+            if result is None: result = eval(char)  # boolean values (T/F)
+            else:
+                if operator == "&": result = and_op(result, eval(char))
+                else: result = or_op(result, eval(char))
+
+    return result
