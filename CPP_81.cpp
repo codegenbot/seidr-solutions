@@ -28,10 +28,13 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> result1 = numerical_letter_grade({0.0, 0.7});
+int main() {
+    std::vector<std::string> result1 = numerical_letter_grade({0.0, 0.7});
     
-if (issame({{"F"}, {"D"}}, {result1[0], result1[1]})) {
-    std::cout << "The two vectors are the same." << std::endl;
-} else {
-    std::cout << "The two vectors are not the same." << std::endl;
+    assert(issame({"F"}, {"D+"}) && issame({"F", "D+"}, {result1[0], result1[1]}));
+    if (issame({"F"}, {"D+"}) && issame({"F", "D+"}, {result1[0], result1[1]})) {
+        std::cout << "The two vectors are the same." << std::endl;
+    } else {
+        std::cout << "The two vectors are not the same." << std::endl;
+    }
 }
