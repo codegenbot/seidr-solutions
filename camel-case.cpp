@@ -1,4 +1,3 @@
-```c++
 #include <string>
 #include <iostream>
 
@@ -22,7 +21,7 @@ std::string camelCase(const std::string& str) {
 
 int main() {
     std::string input;
-    getline(cin, input);
+    std::cin >> input;
     std::cout << camelCase(input) << std::endl;
     return 0;
 }
