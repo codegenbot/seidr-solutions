@@ -1,8 +1,6 @@
 #include <vector>
 #include <cmath>
 #include <string>
-#include <iostream>
-
 using namespace std;
 
 int do_algebra(vector<string> ops, vector<int> nums) {
@@ -16,10 +14,9 @@ int do_algebra(vector<string> ops, vector<int> nums) {
             result -= temp * nums[i];
         } else if (ops[i] == "*") {
             temp *= nums[i];
-        } else if (ops[i] == "/") {  
-            if(nums[i] == 0) return -1;  // handle division by zero
+        } else if (ops[i] == "/") {  // use "/" instead of "//"
             temp /= nums[i];
-        } 
+        }
     }
 
     return result;
