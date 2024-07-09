@@ -7,3 +7,8 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     for num in numbers:
         total_product *= num
     return total_sum, total_product
+
+
+input_numbers = list(map(int, input().split()))
+result = sum_product(input_numbers)
+print(result)
