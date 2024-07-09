@@ -1,12 +1,6 @@
-def process_numbers(numbers, delimiter):
+def complete_code(numbers, delimeter):
     result = []
     for num in numbers:
-        result.extend([num, delimiter])
+        result.extend([num, delimeter])
     result.pop() if result else None
     return result
-
-# Call the function with the required input
-numbers = [1, 2, 3]
-delimiter = ','
-output = process_numbers(numbers, delimiter)
-print(output)
