@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```cpp
 #include <string>
 #include <map>
 #include <utility>
@@ -29,5 +26,13 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
         }
     }
 
-    return make_pair(white, black);
+    return std::make_pair(white, black);
+}
+
+int main() {
+    std::string code = "XXXX";
+    std::string guess = "ABCD"; // replace with your test inputs
+    std::pair<int, int> result = mastermind(code, guess);
+    std::cout << "White pegs: " << result.first << ", Black pegs: " << result.second << std::endl;
+    return 0;
 }
