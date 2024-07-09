@@ -1,5 +1,6 @@
-#include <iostream>
-#include <vector>
+```c++
+#include<vector>
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -44,35 +45,9 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y,
 }
 
 int main() {
-    int n, k;
-    std::cout << "Enter the size of the grid: ";
-    std::cin >> n;
-    vector<vector<int>> grid(n);
-    
-    for(int i=0; i<n; i++) {
-        vector<int> temp;
-        std::cout << "Enter elements for row " << i+1 << ": ";
-        for(int j=0; j<n; j++) {
-            int x;
-            std::cin >> x;
-            temp.push_back(x);
-        }
-        grid[i] = temp;
-    }
-    
-    std::cout << "Enter the value of k: ";
-    std::cin >> k;
-
-    vector<int> res = minPath(grid, k);
-    
-    if (!res.empty()) {
-        for(int i=0; i<res.size(); i++) {
-            std::cout << res[i] << " ";
-        }
-        std::cout << "\n";
-    } else {
-        std::cout << "No path found\n";
-    }
-
+    vector<vector<int>> grid = {{1,2},{3,4}};
+    int k = 2;
+    vector<int> path = minPath(grid, k);
+    for (auto x : path) cout << x << " ";
     return 0;
 }
