@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cctype>
 #include <cassert>
+#include <cctype>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
 
-std::vector<std::string> select_words(std::string s, int n){
+std::vector<std::string> select_words(std::string s, int n) {
     std::vector<std::string> result;
     std::string word = "";
     int count = 0;
@@ -17,8 +17,8 @@ std::vector<std::string> select_words(std::string s, int n){
             }
             word = "";
             count = 0;
-        } else if (isalpha(c)) {
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
+        } else if (std::isalpha(c)) {
+            if (std::tolower(c) != 'a' && std::tolower(c) != 'e' && std::tolower(c) != 'i' && std::tolower(c) != 'o' && std::tolower(c) != 'u') {
                 count++;
             }
             word += c;
@@ -30,6 +30,6 @@ std::vector<std::string> select_words(std::string s, int n){
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
