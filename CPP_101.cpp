@@ -1,9 +1,9 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]) return false;
@@ -11,7 +11,7 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b){
     return true;
 }
 
-std::vector<std::string> wordsString(std::string s){
+std::vector<std::string> words_string(std::string s){
     std::vector<std::string> result;
     std::string word = "";
     for(int i=0; i<s.length(); i++){
@@ -21,19 +21,16 @@ std::vector<std::string> wordsString(std::string s){
                 word = "";
             }
         }else{
-            if((s[i] != ' ') && (s[i] != ',')){
+            if(s[i] != ' ' && s[i] != ',')  
                 word += s[i];
-            }
         }
     }
-    if(word.size() <= 30)  
+    if(word.size() > 0)  
         result.push_back(word);
     return result;
 }
 
 int main(){
-    std::vector<std::string> expected = {"ahmed", "gamal"};
-    std::vector<std::string> output = wordsString("ahmed     , gamal");
-    assert(isSame(output, expected));
+    assert(issame(words_string("ahmed     , gamal"), std::vector<std::string>{"ahmed", "gamal"}));
     return 0;
 }
