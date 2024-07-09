@@ -1,30 +1,33 @@
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
-    vector<vector<int>> directions({{-1, 0}, {1, 0}, {0, -1}, {0, 1}});
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> queue;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
+    vector<int> res;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
             if (!visited[i][j]) {
-                queue.push({grid[i][j], {i, j}});
-                visited[i][j] = true;
+                dfs(grid, visited, i, j, k, res);
             }
         }
     }
-    vector<int> path;
-    while (k--) {
-        int value, x, y;
-        tie(value, pair<int, int>) = queue.top();
-        queue.pop();
-        path.push_back(value);
-        for (auto& dir : directions) {
-            x += dir[0];
-            y += dir[1];
-            if (x >= 0 && x < n && y >= 0 && y < n && !visited[x][y]) {
-                queue.push({grid[x][y], {x, y}});
-                visited[x][y] = true;
+    return res;
+}
+
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
+    int n = grid.size();
+    if (k == 0) {
+        res.insert(res.end(), res.begin(), res.end());
+        return;
+    }
+    visited[x][y] = true;
+    res.push_back(grid[x][y]);
+    for (int dx = -1; dx <= 1; dx++) {
+        for (int dy = -1; dy <= 1; dy++) {
+            int nx = x + dx, ny = y + dy;
+            if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                dfs(grid, visited, nx, ny, k - 1, res);
+                return;
             }
         }
     }
-    return path;
+    visited[x][y] = false;
 }
