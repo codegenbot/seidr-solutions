@@ -10,6 +10,9 @@ int basement(vector<int> nums) {
             return i;
         }
     }
+    if (sum < 0) {
+        return nums.size() - 1;
+    }
     return -1;
 }
 
