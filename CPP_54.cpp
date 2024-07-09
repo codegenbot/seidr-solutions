@@ -1,19 +1,18 @@
-#include <cassert>
-#include <string>
-
-bool same_chars(string s0, string s1) {
-    if(s0.length() != s1.length()) {
-        return false;
-    }
-    for(int i = 0; i < s0.length(); i++) {
-        if(count(s0.begin(), s0.end(), s1[i]) != 1) {
+namespace problem {
+    bool same_chars(string s0, string s1) {
+        if(s0.length() != s1.length()) {
             return false;
         }
+        for(int i = 0; i < s0.length(); i++) {
+            if(count(s0.begin(), s0.end(), s1[i]) != 1) {
+                return false;
+            }
+        }
+        return true;
     }
-    assert(same_chars("aabb", "aaccc") == false);
-    return true;
-}
 
-int main() {
-    return 0;
+    int main() {
+        assert(same_chars("aabb", "aaccc") == false);
+        return 0;
+    }
 }
