@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -5,8 +6,12 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for (int i = 0; i < a.size(); ++i) {
+        if (find(a[i].begin(), a[i].end(), ' ') == a[i].end()) {
+            if (find(b[i].begin(), b[i].end(), ' ') != b[i].end()) {
+                return false;
+            }
+        } else if (find(b[i].begin(), b[i].end(), ' ') != b[i].end()) {
             return false;
         }
     }
