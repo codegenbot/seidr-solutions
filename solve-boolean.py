@@ -1,15 +1,28 @@
-```
 def evaluate_expression(expression):
-    if "&" in expression:
-        while "&" in expression:
-            left, right = expression.split("&", 1)
-            expression = str(evaluate_expression(left)) + " & "
-        return eval("(" + expression.replace("&", ") and (") + "))")
-    elif "|" in expression:
-        while "|" in expression:
-            left, right = expression.split("|", 1)
-            expression = left + " | " + str(evaluate_expression(right))
-        if expression == "False":
-            return False
-        else:
-            return True
+    while "(" in expression and ")" in expression:
+        start = expression.index("(")
+        end = expression.index(")")
+        expression = (
+            str(evaluate_expression(expression[:start]))
+            + ") "
+            + str(evaluate_expression(expression[start + 1 : end].strip()))
+            + " "
+        )
+
+    while "&" in expression:
+        left, right = expression.split("&", 1)
+        if left == "T":
+            left = "True"
+        if right == "T":
+            right = "True"
+        expression = str(evaluate_expression(left)) + " and " + str(evaluate_expression(right))
+
+    while "|" in expression:
+        left, right = expression.split("|", 1)
+        if left == "T":
+            left = "True"
+        if right == "T":
+            right = "True"
+        expression = str(evaluate_expression(left)) + " or " + str(evaluate_expression(right))
+
+    return eval("Boolean(" + expression + ")")
