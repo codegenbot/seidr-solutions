@@ -1,3 +1,5 @@
+Here is the modified code:
+
 #include <iomanip>
 #include <iostream>
 
@@ -24,4 +26,3 @@ int main() {
         cin >> discount;
     }
     cout << std::fixed << setprecision(1) << shoppingList(prices, discounts) << std::endl;
-}
