@@ -1,18 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <assert.h>
-
-long long double_the_difference(std::vector<float> lst);
-
-int main() {
-    std::vector<float> lst = {1.5f, 2.3f, 4.8f}; 
-    int odd_sum = 0; 
-
-    long long result = double_the_difference(lst); 
-
-    assert(result == (long long)odd_sum);
-    
-    return 0;
-}
 
 long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
@@ -21,4 +8,24 @@ long long double_the_difference(std::vector<float> lst){
             sum += (int(num) * int(num));
     }
     return sum;
+}
+
+int main() {
+    std::vector<float> inputVector; // declare input vector
+    int n;
+    std::cout << "Enter the number of elements in the list: ";
+    std::cin >> n;
+    
+    for(int i = 0; i < n; ++i){
+        float num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        inputVector.push_back(num);
+    }
+    
+    long long result = double_the_difference(inputVector); // call the function
+    
+    std::cout << "The sum of the squares of odd positive elements is: " << result << std::endl;
+
+    return 0;
 }
