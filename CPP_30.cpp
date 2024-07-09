@@ -1,11 +1,17 @@
 #include <vector>
-#include <cmath>
+#include <algorithm>
 
-using namespace std;
+bool issame(float a, float b) {
+    if(std::abs(a-b)<1e-9) return true;
+    return false;
+}
 
-bool issame(vector<float> a, vector<float> b) {
-    for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i]-b[i]) > 1e-4) return false;
+std::vector<float> get_positive(const std::vector<float>& l) {
+    std::vector<float> result;
+    for (float x : l) {
+        if (x > 0) {
+            result.push_back(x);
+        }
     }
-    return true;
+    return result;
 }
