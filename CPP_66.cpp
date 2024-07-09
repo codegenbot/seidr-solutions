@@ -1,11 +1,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
-int digitSum(string s){
+int digitSum(string s) {
     int sum = 0;
     vector<string> words = ssplit(s, " ");
     for(auto& word : words){
@@ -38,7 +37,8 @@ string ssplit(const string& s, const char& sep) {
     return join(v, " ");
 }
 
-int main() {
+int main() 
+{
     assert(digitSum("you are very smart") == 342);
     cout << digitSum("you are very smart") << endl;
     return 0;
