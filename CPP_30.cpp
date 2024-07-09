@@ -18,3 +18,4 @@ bool same(vector<float> a,vector<float>b){
 int main() {
     assert(same(get_positive({}),{}));
     return 0;
+}
