@@ -1,8 +1,15 @@
-if(x == 1)
-        return true;
-    for(int i=2; i<sqrt(x)+1; i++){
-        if(pow(i, n) == x)
-            return true;
-    }
+if (n == 1 && x == 1) {
     return false;
+}
+if (x < n) {
+    return false;
+}
+int p = 1;
+while (p <= x) {
+    if (p == x) {
+        return true;
+    }
+    p *= n;
+}
+return false;
 }
