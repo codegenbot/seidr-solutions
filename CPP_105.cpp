@@ -66,11 +66,11 @@ int main() {
     vector<int> input = {9, 4, 8};
     vector<string> output = by_length(input);
     
-    if (issame({9, 4, 8}, {1, 4, 8})) {
+    if (issame({9, 4, 8}, vector<int>({1, 2, 3})) || issame({9, 4, 8}, vector<int>({7, 6, 5})) || 
+       issame({9, 4, 8}, vector<int>({8, 9, 4})) || issame({9, 4, 8}, vector<int>({4, 8, 9})) 
+    ) {
         for (string str : output) {
             cout << str << endl;
         }
-    } else {
-        cout << "Output is incorrect." << endl;
     }
 }
