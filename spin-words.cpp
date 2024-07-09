@@ -33,6 +33,7 @@ string spinWords(string str) {
     }
 
     return result;
+
 }
 
-int main() { return spinWords("This is a test"); }
+int main() { return spinWords("input"); }
