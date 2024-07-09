@@ -1,11 +1,9 @@
 #include <vector>
 
-vector<float> get_positive(vector<float> l);
-
-bool issame(float a, float b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b){
     return a == b;
 }
 
-int main() {
-    return 0;
+int main(){
+    assert(issame(get_positive({}), {}));
 }
