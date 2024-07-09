@@ -32,7 +32,7 @@ int get_odd_collatz(int n) {
     std::cout << std::endl;
 }
 
-int main() {
+int mainOld() {
     int num;
     std::cin >> num;
     get_odd_collatz(num);
