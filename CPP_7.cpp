@@ -13,11 +13,8 @@ vector<string> filter_by_substring(vector<string> strings, string substring) {
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "cherry", "date"};
-    string substring = "an";
-    vector<string> result = filter_by_substring(strings, substring);
-    for (const string &str : result) {
-        cout << str << " ";
-    }
+    vector<string> strings = {"apple", "banana", "grape", "orange"};
+    vector<string> filtered = filter_by_substring(strings, "an");
+
     return 0;
 }
