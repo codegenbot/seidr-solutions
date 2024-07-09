@@ -3,9 +3,14 @@
 #include <utility>
 #include <cmath>
 
-using namespace std;
+struct pair {
+    char first;
+    int second;
 
-int do_algebra(vector<pair<char, int>> operators_and_operands) {
+    pair(char x, int y) : first(x), second(y) {}
+};
+
+int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
     if (operators_and_operands.size() == 0) {
         return 0;
     }
@@ -23,44 +28,41 @@ int do_algebra(vector<pair<char, int>> operators_and_operands) {
                 result /= pair.second;
             }
         } else if (pair.first == '^') { 
-            result = pow(result, pair.second);
+            result = std::pow(result, pair.second);
         }
     }
     return result;
 }
 
 int main() {
-    string str = "++7*3+4";
-    istringstream iss(str);
+    std::string str = "++7*3+4";
+    std::istringstream iss(str);
     
-    vector<pair<char, int>> operators_and_operands;
-    string token;
-    int operand = 0; // initialize operand variable
+    std::vector<std::pair<char, int>> operators_and_operands;
     char op = '+';
-    while (getline(iss, token)) {
+    int operand = 0; // initialize operand variable
+    while (iss >> token) {
         if (!token.empty()) {
-            // if operator is not '+' then add previous operand and operator to vector
             if (op != '+') {
                 operators_and_operands.push_back({op, operand});
                 op = '+';
                 operand = 0;
             }
-            // process the current token as operand or operator
             if (token[0] == '+') {
                 op = '+';
-                operand = stoi(token.substr(1));
+                operand = std::stoi(token.substr(1));
             } else if (token[0] == '-') {
                 op = '-';
-                operand = stoi(token.substr(1));
+                operand = std::stoi(token.substr(1));
             } else if (token[0] == '*') {
                 op = '*';
-                operand = stoi(token.substr(1));
+                operand = std::stoi(token.substr(1));
             } else if (token[0] == '/') {
                 op = '/';
-                operand = stoi(token.substr(1));
+                operand = std::stoi(token.substr(1));
             } else if (token[0] == '^') {
                 op = '^';
-                operand = stoi(token.substr(1));
+                operand = std::stoi(token.substr(1));
             }
         }
     }
