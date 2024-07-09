@@ -1,15 +1,14 @@
-int result = -1;
+unordered_map<int, int> freq_map;
     for (int num : lst) {
-        if (num <= 0) continue;
-        int freq = 0;
-        for (int n : lst) {
-            if (n == num) {
-                freq++;
-            }
-        }
-        if (freq >= num && num > result) {
-            result = num;
+        freq_map[num]++;
+    }
+    
+    int result = -1;
+    for (auto pair : freq_map) {
+        if (pair.first > pair.second && pair.second >= result) {
+            result = pair.second;
         }
     }
-    return result;
+    
+    return result > 0 ? result : -1;
 }
