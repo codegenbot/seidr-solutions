@@ -1,21 +1,21 @@
-```cpp
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 
 float triangle_area(float a, float b, float c);
 
 int main() {
-    float a_val, b_val, c_val;
+    float a, b, c;
     cout << "Enter three sides of the triangle: ";
-    cin >> a_val >> b_val >> c_val;
+    cin >> a >> b >> c;
 
-    if(triangle_area(a_val, b_val, c_val) == -1.0f) {
+    if(triangle_area(a, b, c) == -1.0f) {
         cout << "The given values do not form a valid triangle.";
     } else {
-        float result = triangle_area(a_val, b_val, c_val);
+        float result = triangle_area(a, b, c);
         cout << "The area of the triangle is: ";
-        cout << fixed << setprecision(2);
-        cout << result;
+        cout << fixed << setprecision(2) << result;
     }
 
     return 0;
