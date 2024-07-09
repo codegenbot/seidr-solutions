@@ -1,36 +1,44 @@
-```cpp
-#include <iostream>
+```
 #include <vector>
 #include <algorithm>
-using namespace std;
 
-vector<int> unique_digits(vector<int> x) {
-    vector<int> result;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    int n1,n2;
+    std::cin>>n1>>n2;
+    if(issame({0}, {0})) {
+        std::cout << "The numbers are same." << std::endl;
+    } else {
+        std::vector<int> x = {n1, n2};
+        std::vector<int> y = unique_digits(x);
+        for (int i : y) {
+            std::cout << i << ' ';
+        }
+        std::cout << std::endl;
+    }
+    return 0;
+}
+
+std::vector<int> unique_digits(std::vector<int> x) {
+    std::vector<int> result;
     for (int num : x) {
-        bool has_even_digit = false;
+        bool hasEvenDigit = false;
         int temp = num;
-        while (temp != 0) {
+        while (temp > 0) {
             int digit = temp % 10;
             if (digit % 2 == 0) {
-                has_even_digit = true;
+                hasEvenDigit = true;
                 break;
             }
             temp /= 10;
         }
-        if (!has_even_digit) {
+        if (!hasEvenDigit) {
             result.push_back(num);
         }
     }
     sort(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    vector<int> x = {15, 33, 1422, 1};
-    vector<int> result = unique_digits(x);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
-    return 0;
 }
