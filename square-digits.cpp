@@ -17,7 +17,8 @@ int main() {
     string input;
     cout << "Enter a positive integer: ";
     getline(cin, input); 
-    string output = squareDigits(input);
+    string output = "";
+    output = squareDigits(input);
     cout << "Squared digits: " << output << endl;
     return 0;
 }
