@@ -1,11 +1,10 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <pair>
 using namespace std;
 
-vector< pair<int,int> > indicesOfSubstring(string text, string target) {
-    vector< pair<int,int> > result;
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
     int n = text.length();
     int m = target.length();
 
@@ -18,7 +17,7 @@ vector< pair<int,int> > indicesOfSubstring(string text, string target) {
             }
         }
         if(match) {
-            result.push_back(make_pair(i,1));
+            result.push_back(i);
         }
     }
 
@@ -28,9 +27,9 @@ vector< pair<int,int> > indicesOfSubstring(string text, string target) {
 int main() {
     string text = "hello world";
     string target = "world";
-    vector< pair<int,int> > result = indicesOfSubstring(text, target);
-    for (auto it : result) {
-        cout << it.first << endl; 
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int i : result) {
+        cout << i << endl;
     }
     return 0;
 }
