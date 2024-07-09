@@ -42,8 +42,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 int main() {
     std::vector<float> grades = {4.0};
     std::vector<std::string> result = numerical_letter_grade(grades);
-    
-    if (issame({result[0]})) { 
+    if (issame({result[0]})) {
         for (std::string s : result) {
             if (s != "E") {
                 return 1;
