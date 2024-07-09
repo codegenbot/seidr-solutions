@@ -1,3 +1,4 @@
+```
 #include <sstream>
 #include <vector>
 #include <utility>
@@ -35,30 +36,39 @@ int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter an expression: ";
-    std::getline(std::cin, str);
+    std::string str = "++7*3+4";
+    std::istringstream iss(str);
     
     std::vector<std::pair<char, int>> operators_and_operands;
     char op = '+';
     int operand = 0; // initialize operand variable
-    for (int i = 0; i < str.size(); ++i) {
-        if (str[i] == '+' || str[i] == '-' || str[i] == '*' || str[i] == '/' || str[i] == '^') {
-            op = str[i];
-            operand = 0;
-            for (int j = i + 1; j < str.size(); ++j) {
-                if (!std::isdigit(str[j])) {
-                    break;
-                }
-                operand = operand * 10 + (str[j] - '0');
+    while (std::getline(iss, str, ' ")) {
+        if (!str.empty()) {
+            if (op != '+') {
+                pair p(op, operand); 
+                operators_and_operands.push_back(p);
+                op = '+';
+                operand = 0;
             }
-            operators_and_operands.push_back({op, operand});
-            op = '+';
-            operand = 0;
+            if (str[0] == '+' || str[0] == '-' || str[0] == '*' || str[0] == '/' || str[0] == '^') {
+                op = str[0];
+                operand = 0;
+                for (int i = 1; i < str.size(); ++i) {
+                    if (!std::isdigit(str[i])) {
+                        break;
+                    }
+                    operand = operand * 10 + (str[i] - '0');
+                }
+            }
         }
     }
     
+    // add the last operator and operand to vector
+    if (op != '+') {
+        pair p(op, operand);
+        operators_and_operands.push_back(p);
+    }
+    
     int result = do_algebra(operators_and_operands);
-    std::cout << "Result: " << result << std::endl;
     return 0;
 }
