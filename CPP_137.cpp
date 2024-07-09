@@ -9,7 +9,7 @@ variant<string, int, double, float> compare_one(variant<string, int, double, flo
         string strB = get<string>(b);
         return strA > strB ? a : b;
     }
-    if ((holds_alternative<int>(a) && holds_alternation<string>(b)) || (holds_alternation<string>(a) && holds_alternation<int>(b))) {
+    if ((holds_alternative<int>(a) && holds_alternative<string>(b)) || (holds_alternative<string>(a) && holds_alternation<string>(b))) {
         int val1 = get<int>(a), val2 = get<string>(b);
         return val1 > 0 ? a : b;
     }
