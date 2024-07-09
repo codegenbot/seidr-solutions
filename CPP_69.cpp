@@ -13,5 +13,7 @@ int search(const std::vector<int>& lst) {
     return result;
 }
 
-assert(search(std::vector<int>{3, 10, 10, 9, 2}) == -1);
-return 0;
+int main() {
+    assert(search(std::vector<int>{3, 10, 10, 9, 2}) == -1);
+    return 0;
+}
