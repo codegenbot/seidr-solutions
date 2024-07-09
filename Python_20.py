@@ -7,7 +7,3 @@ def find_closest_elements(numbers):
         if numbers[i + 1] - numbers[i] == min_diff
     ]
     return closest_elements[0]
-
-input_numbers = [int(x) for x in input().split()]
-result = find_closest_elements(input_numbers)
-print(result)
