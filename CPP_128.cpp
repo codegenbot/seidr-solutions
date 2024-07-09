@@ -21,6 +21,6 @@ int productSigns(std::vector<int> inputArr) {
     return product * sum;
 }
 
-int main() {
+int main2() {
     assert(productSigns({-1, 1, 1, 0}) == 0);
 }
