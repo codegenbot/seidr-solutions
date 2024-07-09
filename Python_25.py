@@ -5,13 +5,16 @@ import math
 
 def factorize(n: int) -> List[int]:
     factors = []
-    i = 2
+    while n % 2 == 0:
+        factors.append(2)
+        n //= 2
+    i = 3
     while i * i <= n:
         if n % i == 0:
-            while n % i == 0:
-                factors.append(i)
-                n //= i
-        i += 1
+            factors.extend([i] * (n // i - 1))
+            n //= i
+        else:
+            i += 2
     if n > 1:
         factors.append(n)
     return factors
