@@ -1,10 +1,12 @@
+```
 def solve_boolean(expression):
     if '&' in expression:
-        return eval(f"{expression.replace('&', 'and').replace('|', 'or')}")
+        return all(bool(s.replace('T', 'True').replace('F', 'False')) for s in expression.split('&'))
     elif '|' in expression:
-        return all(solve_boolean(arg) for arg in expression.split('|'))
+        return any(bool(s.replace('T', 'True').replace('F', 'False')) for s in expression.split('|'))
     else:
-        if expression == 'T':
+        left = ''.join(filter(lambda x: x not in '&|', expression))
+        if left.startswith('T'):
             return True
-        elif expression == 'F':
+        elif left.startswith('F'):
             return False
