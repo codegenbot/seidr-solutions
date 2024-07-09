@@ -1,7 +1,4 @@
-```cpp
 #include <string>
-#include <cctype>
-
 std::string solve(std::string s) {
     std::string result = "";
     for (char c : s) {
@@ -11,10 +8,4 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? std::string(s).reverse() : result;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    return 0;
-}
+    return result.empty() ? s.substr(0, s.size()) : result;
