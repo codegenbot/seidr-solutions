@@ -43,8 +43,11 @@ int main() {
     std::string s;
     while (true) {
         std::cout << "Enter a string: ";
-        if (!(std::cin >> s)) {
-            break; // Input failed, probably due to parentheses.
+        std::string s;
+        std::getline(std::cin, s);
+        s.erase(std::remove_if(s.begin(), s.end(), [](char c){return !isalnum(c) && c != ' ';}),s.end());
+        if (s.empty()) {
+            break; 
         }
     }
     std::cout << "Result: " << separate_paren_groups(s) << std::endl;
