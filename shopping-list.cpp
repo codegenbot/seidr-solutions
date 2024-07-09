@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
