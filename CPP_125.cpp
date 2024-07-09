@@ -1,7 +1,8 @@
 #include <vector>
 #include <string>
-#include <cctype>
+#include <cctype>  // for islower
 #include <assert.h>
+#include <iostream>  // for input/output
 
 std::vector<std::string> split_words(std::string txt){
     std::vector<std::string> words;
@@ -22,7 +23,7 @@ std::vector<std::string> split_words(std::string txt){
     if(words.size() == 0){
         int oddCount = 0;
         for(char c : txt){
-            if(std::islower(c) && (c - 'a') % 2 == 1){
+            if(islower(c) && (c - 'a') % 2 == 1){
                 oddCount++;
             }
         }
