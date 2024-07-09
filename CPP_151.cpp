@@ -1,8 +1,7 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <cmath>
-#include <iostream>
-
 using namespace std;
 
 long long double_the_difference(vector<float> lst) {
@@ -17,6 +16,8 @@ long long double_the_difference(vector<float> lst) {
 
 int main() {
     vector<float> lst = {1.5, 2.3, 4.0, -3.7, 6.0};
+    float odd_sum;
+
     long long result = double_the_difference(lst);
     cout << "The difference is: " << result << endl;
 
