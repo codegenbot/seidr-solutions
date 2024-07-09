@@ -11,7 +11,17 @@ int add(vector<int> lst){
 }
 
 int main(){
-    vector<int> lst = {4, 4, 6, 8};
-    cout << "Result: " << add(lst) << endl;
+    vector<int> lst;
+    cout << "Enter numbers (separated by spaces): ";
+    int num;
+    while (cin >> num) {
+        lst.push_back(num);
+    }
+    
+    if(lst.size() == 0)
+        cout << "List is empty!" << endl;
+    else
+        cout << "Result: " << add(lst) << endl;
+    
     return 0;
 }
