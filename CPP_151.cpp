@@ -1,11 +1,10 @@
-```
 #include <iostream>
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(const std::vector<float>& lst) {
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
-    for (const float& x : lst) {
+    for (float x : lst) {
         if (x > 0 && std::floor(x) == x) {
             sum += pow(x, 2);
         }
@@ -16,14 +15,12 @@ long long double_the_difference(const std::vector<float>& lst) {
 int main() {
     std::vector<float> lst;
     float input;
+    
     while(std::cin >> input)
         lst.push_back(input);
 
     long long odd_sum = double_the_difference(lst); 
-    if (lst.size() % 2 == 0) {
-        std::cout << "The difference is: " << odd_sum << std::endl;
-    } else {
-        std::cout << "The difference is: " << odd_sum - lst[0] << std::endl;
-    }
+    std::cout << "The sum of squares is: " << odd_sum << std::endl;
+    
     return 0;
 }
