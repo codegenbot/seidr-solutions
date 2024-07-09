@@ -1,7 +1,10 @@
+Here is the modified code:
+
 ```cpp
 #include <vector>
 #include <string>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -15,6 +18,7 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
         sum1 += s.length();
     }
     int sum2 = 0;
+#include <initializer_list>
     for (const string& s : lst2) {
         sum2 += s.length();
     }
