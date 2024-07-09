@@ -1,3 +1,4 @@
+cpp
 int search(const vector<int>& lst) {
     int maxFrequency = -1;
     for (int num : lst) {
