@@ -6,7 +6,7 @@ bool same_chars(string s1, string s2) {
         return false;
     }
     for(int i = 0; i < s1.size(); i++){
-        if((char)s1[i] != (char)s2[i]) { 
+        if(s1[i] != s2[i]) { 
             return false;
         }
     }
