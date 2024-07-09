@@ -2,10 +2,9 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(std::vector<std::string> a) {
-    std::vector<std::string> b = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    std::vector<std::string> b = a;
     return a == b;
 }
 
