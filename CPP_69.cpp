@@ -28,13 +28,14 @@ int main() {
 
     std::vector<int> lst;
     for (int i = 0; i < n; ++i) {
-        int num; 
-        while (!(std::cout << "Enter element " << i + 1 << ": ")) {
+        int num;
+        while (!(std::cout << "Enter element " << i + 1 << ": ") || !std::cin) {
             if (!std::cin)
                 std::cout << "Invalid input. Please enter a positive integer.\n";
             else
                 std::cout << "Please enter a positive integer.\n";
             std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         while (!(std::cin >> num) || (num <= 0)) {
             if (!std::cin)
@@ -44,7 +45,7 @@ int main() {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        lst.push_back(num); 
+        lst.push_back(num);
     }
 
     if(lst.empty()) {
