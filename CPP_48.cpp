@@ -1,4 +1,3 @@
-
 bool is_palindrome(const string& text) {
     int left = 0;
     int right = text.length() - 1;
