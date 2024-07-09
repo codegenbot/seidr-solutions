@@ -9,17 +9,14 @@ std::vector<std::string> all_prefixes(const std::string& str) {
     return prefixes;
 }
 
-bool compareVectors(std::vector<std::string> a, const std::vector<std::string>& b) {  
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(const std::vector<std::string>& vec) {  
+    const std::vector<std::string> expected = {"W", "WW", "WWW"};
+    return vec == expected;
 }
 
 int main() {
     std::vector<std::string> result;
     result = all_prefixes("WWW");
-    assert(compareVectors({ "W", "WW", "WWW" }, result));
+    assert(issame(result));
     return 0;
 }
