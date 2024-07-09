@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     N = len(grid)
     visited = [[False]*N for _ in range(N)]
