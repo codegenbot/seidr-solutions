@@ -2,19 +2,16 @@
 #include <vector>
 #include <cassert>
 
-float double_the_difference(const std::vector<float>& lst) {
+float double_the_difference(std::vector<float>& lst) {
     float odd_sum = 0;
-    for (const auto& val : lst) {
-        if (std::abs(std::fmod(val, 1.0f)) > 0.5f) {
-            odd_sum += val;
-        }
+    for (std::size_t __i = 0; __i < lst.size(); ++__i) {
+        if (lst[__i] % 2 != 0)
+            odd_sum += lst[__i] * 2;
     }
-    return std::abs(odd_sum - (lst[0] + lst.back()));
+    return odd_sum;
 }
 
 int main() {
     std::vector<float> lst = {1.0f, 2.5f, -3.5f, 4.0f};
-    float result = double_the_difference(lst);
-    assert(result != 0); // You need to correct this line
-    return 0;
+    assert(double_the_difference(lst) == 0);
 }
