@@ -1,4 +1,3 @@
-```cpp
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
@@ -62,12 +61,12 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
     }
     else {
-        float f1 = boost::any_cast<float>(a);
-        float f2 = boost::any_cast<float>(b);
+        float num1 = boost::any_cast<float>(a);
+        float num2 = boost::any_cast<float>(b);
 
-        if (f1 > f2)
+        if (num1 > num2)
             return a;
-        else if (f1 < f2)
+        else if (num1 < num2)
             return b;
         else
             return boost::any("None");
