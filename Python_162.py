@@ -2,7 +2,6 @@ import hashlib
 
 text = input()
 
-
 def string_to_md5(text):
     if not text:
         return None
