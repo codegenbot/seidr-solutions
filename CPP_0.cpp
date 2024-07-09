@@ -1,22 +1,18 @@
+```cpp
 #include <vector>
+#include <initializer_list>
 #include <assert.h>
 
-bool has_close_elements(const std::vector<float>& vec, float epsilon) {
-    for (int i = 0; i < vec.size() - 1; ++i) {
-        if (std::abs(vec[i] - vec[i + 1]) > epsilon) {
-            return false;
+bool has_close_elements(std::vector<float> numbers, float threshold) {
+    for (int i = 1; i < numbers.size(); i++) {
+        if (std::abs(numbers[i] - numbers[i-1]) <= threshold) {
+            return true;
         }
     }
-    return true;
+    return false;
 }
 
 int main() {
     std::vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    float epsilon = 0.1f;
-    if (has_close_elements(a, epsilon)) {
-        std::cout << "The vector has close elements." << std::endl;
-    } else {
-        std::cout << "The vector does not have close elements." << std::endl;
-    }
-    return 0;
+    assert(has_close_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5) == false);
 }
