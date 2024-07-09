@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 std::string middleCharacter(std::string s) {
@@ -9,4 +10,11 @@ std::string middleCharacter(std::string s) {
         result = s.substr((n - 1) / 2, 2);
     }
     return result;
+}
+
+int main() {
+    std::string str;
+    std::cin.getline(&str[0], 256);
+    std::cout << middleCharacter(str) << std::endl;
+    return 0;
 }
