@@ -1,18 +1,20 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 int main() {
-    std::string digits;
-    std::cin >> digits;
+    string s;
+    cin >> s;
     
     int sum = 0;
-    for (int i = 0; i < digits.size() - 1; ++i) {
-        if (digits[i] == digits[i + 1]) {
-            sum += digits[i] - '0';
+    for (int i = 0; i < s.size() - 1; ++i) {
+        if (s[i] == s[i + 1]) {
+            sum += s[i] - '0';
         }
     }
     
-    std::cout << sum << std::endl;
+    cout << sum << endl;
     
     return 0;
 }
