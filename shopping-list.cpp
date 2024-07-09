@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <iomanip>
 
@@ -13,7 +12,7 @@ float shoppingList(float prices[], float discounts[], int numPrices) {
 int main() {
     float prices[] = {10.99f, 5.50f, 23.75f};
     float discounts[] = {20.00f, 15.00f, 10.00f};
-    int numPrices = sizeof(prices)/sizeof(prices[0]);
+    int numPrices = sizeof(prices) / sizeof(prices[0]);
     
     std::cout << std::fixed << std::setprecision(2) << shoppingList(prices, discounts, numPrices) << std::endl;
 }
