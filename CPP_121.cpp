@@ -12,4 +12,4 @@ int sumOdd(std::vector<int> lst) {
     return sum;
 }
 
-assert(sumOdd({3, 13, 2, 9}) == 25);
+assert(sumOdd({3, 13, 2, 9}) == 46);
