@@ -21,15 +21,15 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::priority_queue<std::pair<int,int>, std::vector<std::pair<int,int>>, std::greater<std::pair<int,int>> > pq;
+    std::priority_queue<int, std::vector<int>, std::greater<int>> pq;
 
     for(int i = 0; i < arr.size(); i++) {
-        pq.push({arr[i], i});
+        pq.push(arr[i]);
     }
 
     // Keep popping elements from the priority queue until k elements are popped
     while (!pq.empty() && k--) {
-        int idx = pq.top().second;
+        int idx = pq.top();
         pq.pop();
         if (idx < arr.size()) {
             arr[idx] = -1;  // Mark this index as processed, don't pop it directly
