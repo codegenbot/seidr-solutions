@@ -1,5 +1,4 @@
 #include <boost/any.hpp>
-#include <boost/type_traits.hpp>
 
 using namespace boost;
 
