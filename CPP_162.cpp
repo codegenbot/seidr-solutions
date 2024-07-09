@@ -17,9 +17,6 @@ string string_to_md5(string text) {
     if (text.empty()) return "None";
 
     SSL_library_init();
-    ERR_load_crypto_strings();
-
-    EVP_MD_CTX md;
     EVP_MD_CTX_init(&md);
     unsigned char result[MD5_DIGEST_LENGTH];
 
