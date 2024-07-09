@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cctype> // Include the missing header for islower
+#include <cctype>
 #include <cassert>
 using namespace std;
 
