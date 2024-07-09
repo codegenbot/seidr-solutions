@@ -5,12 +5,8 @@
 using namespace std;
 
 bool issame(vector<int> v1, vector<int> v2) {
-    set<int> setA;
-    setA.insert(v1.begin(), v1.end());
-
-    set<int> setB;
-    setB.insert(v2.begin(), v2.end());
-
+    set<int> setA(v1);
+    set<int> setB(v2);
     return setA == setB;
 }
 
