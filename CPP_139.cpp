@@ -1,11 +1,6 @@
-```cpp
-#include <iostream>
-#include <cmath>
-#include <string>
-
 std::string special_factorial(int n) {
     if (n <= 1)
-        return "1";
+        std::string result = "1";
 
     std::string result = "1";
     for (int i = 2; i <= n; i++) {
@@ -16,13 +11,5 @@ std::string special_factorial(int n) {
         if(i > 1)
             result += " * " + std::to_string(mul_result);
     }
-    return "n! = " + result;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
-    return 0;
+    return result;
 }
