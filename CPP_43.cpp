@@ -1,7 +1,6 @@
 ```cpp
 #include <cassert>
 #include <vector>
-#include <set>
 
 bool pairs_sum_to_zero(std::vector<std::pair<int, int>> l) {
     std::set<int> s;
