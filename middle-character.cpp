@@ -11,9 +11,11 @@ std::string middleCharacter(std::string s) {
         return s.substr(len/2, 1);
     }
 }
-}
 
 int main() {
-    std::cout << middleCharacter("your_string_here") << std::endl;
-    return 0;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << middleCharacter(input) << std::endl;
 }
+};

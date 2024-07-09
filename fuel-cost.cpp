@@ -8,7 +8,8 @@ int fuelCost(int n) {
 }
 
 int main() {
-    std::vector<int> numbers = {2909, 7270, 6972};
+    std::vector<int> numbers(3); 
+    for (auto &n : numbers) n = 2909; 
     int sum = 0;
     for(int n : numbers) { 
         sum += fuelCost(n);
