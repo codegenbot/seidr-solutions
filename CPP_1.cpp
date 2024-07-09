@@ -1,24 +1,22 @@
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
-    int count = 0;
+vector<string> separate_paren_groups(string paren_string);
 
-    for (char c : paren_string) {
-        if (c == '(') {
-            count++;
-            if (count > 1) {
-                current_group += c;
-            }
-        } else if (c == ')') {
-            count--;
-            if (count > 0) {
-                current_group += c;
-            } else {
-                result.push_back(current_group);
-                current_group = "";
-            }
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
 
-    return result;
+    return true;
+}
+
+#include "header_file.h"
+
+int main() {
+    // main function code here
+    return 0;
 }
