@@ -12,11 +12,9 @@ int count_upper(std::string s){
 }
 
 int main(){
-    assert(count_upper("EEEE") == 2);
     std::string input;
     std::cout << "Enter a string: ";
-    std::cin >> input;
-    int result = count_upper(input);
-    std::cout << "Number of characters between positions 0 and (n-1) that satisfy the given conditions is: " << result << std::endl;
+    std::getline(std::cin, input);
+    std::cout << "Upper letters at even positions: " << count_upper(input) << std::endl;
     return 0;
 }
