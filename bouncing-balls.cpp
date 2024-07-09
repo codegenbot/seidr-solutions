@@ -14,4 +14,3 @@ int main() {
     cout << fixed << setprecision(9) << (2 * startHeight) * (1 - pow(bouncinessIndex, numBounces)) << endl;
 
     return 0;
-}
