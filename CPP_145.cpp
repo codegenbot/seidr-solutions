@@ -4,8 +4,6 @@
 
 vector<int> order_by_points(const vector<int>& nums);
 
-bool issame(const vector<int>& a, const vector<int>& b);
-
 vector<int> order_by_points(const vector<int>& nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_digits_a = 0, sum_digits_b = 0;
