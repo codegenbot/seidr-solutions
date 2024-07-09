@@ -1,19 +1,29 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 vector<int> eat(int number, int need, int remaining) {
-    int total = number + need;
-    int left = min(remaining, need);
+    vector<int> result;
     
-    return {total, remaining - left};
+    // Calculate total number of eaten carrots after your meals
+    int total = number + (remaining >= need ? need : remaining);
+    
+    // Calculate the number of carrots left after your meals
+    int leftover = max(0, remaining - need);
+    
+    result.push_back(total);
+    result.push_back(leftover);
+    
+    return result;
 }
 
-cout << "{";
-for (int i = 0; i < 3; i++) {
-    vector<int> result = eat(i, 10 - i, 10);
-    cout << result[0] << "," << result[1];
-    if (i != 2) cout << ",";
-    cout << endl;
+int main() {
+    cout << "{ " << eat(5, 6, 10).at(0) << ", " << eat(5, 6, 10).at(1) << " }"; 
+    cout << endl; 
+    cout << "{ " << eat(4, 8, 9).at(0) << ", " << eat(4, 8, 9).at(1) << " }"; 
+    cout << endl; 
+    cout << "{ " << eat(1, 10, 10).at(0) << ", " << eat(1, 10, 10).at(1) << " }"; 
+    cout << endl; 
+    cout << "{ " << eat(2, 11, 5).at(0) << ", " << eat(2, 11, 5).at(1) << " }"; 
+    return 0;
 }
