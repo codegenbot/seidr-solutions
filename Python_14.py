@@ -1,3 +1,4 @@
+```python
 from typing import list
 
 def all_prefixes(string: str) -> list:
