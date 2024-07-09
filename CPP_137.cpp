@@ -18,7 +18,7 @@ boost::any compare_one(boost::any a, boost::any b) {
 
         i = strB.find(',');
         if (i != -1)
-            strB.replace(i, 1, ".");
+            strB[i] = '.';
 
         return (stod(strA) > stod(strB)) ? a : b;
     }
