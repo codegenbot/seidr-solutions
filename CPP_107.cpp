@@ -1,4 +1,4 @@
-```
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,40 +6,36 @@ using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
     vector<int> result(2);
-    int count_even = 0;
-    int count_odd = 0;
+    int even = 0;
+    int odd = 0;
 
     for (int i = 1; i <= n; i++) {
         string str = to_string(i);
-        bool is_palindrome = true;
+        bool isPalindrome = true;
 
         for (int j = 0; j < str.length() / 2; j++) {
             if (str[j] != str[str.length() - j - 1]) {
-                is_palindrome = false;
+                isPalindrome = false;
                 break;
             }
         }
 
-        if (!is_palindrome) continue;
-
-        if (i % 2 == 0) count_even++;
-        else count_odd++;
-
+        if (isPalindrome && i % 2 == 0) {
+            even++;
+        } else if (isPalindrome && i % 2 != 0) {
+            odd++;
+        }
     }
 
-    result[0] = count_even;
-    result[1] = count_odd;
+    result[0] = even;
+    result[1] = odd;
 
     return result;
 }
 
 int main() {
     int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
-    vector<int> res = even_odd_palindrome(n);
-    cout << "Number of even palindromes: " << res[0] << endl;
-    cout << "Number of odd palindromes: " << res[1] << endl;
-
+    cin >> n; // read input from user
+    cout << "(" << even_odd_palindrome(n)[0] << ", " << even_odd_palindrome(n)[1] << ")" << endl; // return output
     return 0;
 }
