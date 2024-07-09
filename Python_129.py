@@ -7,8 +7,8 @@ def minPath(grid, k):
     while queue:
         x, y, path = queue.pop(0)
 
-        if grid[x][y] == 3 and len(path) == k + 1:
-            if not res or len(path) > len(res):
+        if grid[x][y] == 3 and len(path) - 1 == k:
+            if not res or tuple(sorted(path)) < tuple(sorted(res)):
                 res = list(path[:-1])
             continue
 
@@ -19,8 +19,7 @@ def minPath(grid, k):
                 0 <= nx < N
                 and 0 <= ny < N
                 and not visited[nx][ny]
-                and ((dx, dy) in [(0, 0), (-1, 0), (1, 0), (0, -1)] or (dx, dy) == (0, 1))
-                and grid[nx][ny] != "X"
+                and grid[nx][ny] != 2
             ):
                 visited[nx][ny] = True
                 queue.append((nx, ny, path + [grid[nx][ny]]))
