@@ -1,30 +1,46 @@
-Here is the completed code:
-
-```cpp
-using namespace boost;
+#include <boost/lexical_cast.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<string>(a)) {
-        string s1 = any_cast<string>(a);
-        if (is_any_of<string>(b)) {
-            string s2 = any_cast<string>(b);
-            return s2 > s1 ? b : (s1 > s2 ? a : boost::any("None"));
-        } else {
-            double d = stod(any_cast<string>(b));
-            return d > stod(s1) ? b : (stod(s1) > d ? a : boost::any("None"));
-        }
-    } else if (is_any_of<string>(b)) {
-        string s2 = any_cast<string>(b);
-        if (is_any_of<string>(a)) {
-            string s1 = any_cast<string>(a);
-            return s1 > s2 ? a : (s2 > s1 ? b : boost::any("None"));
-        } else {
-            double d = stod(any_cast<string>(a));
-            return d > stod(s2) ? a : (stod(s2) > d ? b : boost::any("None"));
-        }
-    } else {
-        double d1 = any_cast<double>(a);
-        double d2 = any_cast<double>(b);
-        return d1 > d2 ? a : (d2 > d1 ? b : boost::any("None"));
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)b > a.convert_to<int>() ? b : a;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (double)b > a.convert_to<int>() ? b : a;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (int)a > b.convert_to<float>() ? a : b;
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return (int)b > a.convert_to<double>() ? b : a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        double fa = boost::lexical_cast<double>(boost::any_cast<string>(a));
+        double fb = boost::lexical_cast<double>(b);
+        return fb > fa ? b : a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        double fa = boost::lexical_cast<double>(boost::any_cast<string>(a));
+        double fb = boost::lexical_cast<double>(b);
+        return fb > fa ? b : a;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        double fb = boost::lexical_cast<double>(b);
+        double fa = boost::lexical_cast<double>(boost::any_cast<string>(a));
+        return fa > fb ? a : b;
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        double fb = boost::lexical_cast<double>(b);
+        double fa = boost::lexical_cast<double>(boost::any_cast<string>(a));
+        return fa > fb ? a : b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string s1 = boost::any_cast<string>(a);
+        string s2 = boost::any_cast<string>(b);
+        double fa = boost::lexical_cast<double>(s1);
+        double fb = boost::lexical_cast<double>(s2);
+        return fb > fa ? b : a;
+    }
+    else {
+        return "None";
     }
 }
