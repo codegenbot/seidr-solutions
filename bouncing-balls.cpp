@@ -2,13 +2,17 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include <sstream>
 
 int main() {
     double startHeight;
     double firstBounce;
     int numBounces;
 
-    std::cin >> startHeight >> firstBounce >> numBounces;
+    std::string input;
+    getline(std::cin, input);
+    std::istringstream iss(input);
+    iss >> startHeight >> firstBounce >> numBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
 
@@ -18,7 +22,7 @@ int main() {
         startHeight *= bouncinessIndex; 
     }
 
-    std::cout << "The total distance traveled by the ball is: " << totalDistance << std::endl;
+    std::cout << "The total distance traveled by the ball is: " << static_cast<int>(totalDistance) << std::endl;
 
     return 0;
 }
