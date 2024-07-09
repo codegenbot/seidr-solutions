@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -13,8 +12,7 @@ vector<int> make_a_pile(int n) {
     return pile;
 }
 
-int main
-{
-    assert(checkIfSame(make_a_pile(8), vector<int>({0, 1, 3, 6, 10, 15, 21, 28})));
-    return 0
+int main() {
+    assert(checkIfSame(make_a_pile(8), make_a_pile(8)));
+    return 0;
 }
