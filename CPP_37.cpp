@@ -11,15 +11,16 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 
 std::vector<float> sort_even(const std::vector<float>& l) {
     std::vector<float> result(l.size());
-    int evens_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            for(int j = 0; j < l.size(); j++) {
+            std::vector<float> evens;
+            for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
-                    result[evens_index++] = l[j];
+                    evens.push_back(l[j]);
                 }
             }
-            std::sort(result.begin(), result.begin() + evens_index);
+            std::sort(evens.begin(), evens.end());
+            result[i] = evens[0];
         } else {
             result[i] = l[i];
         }
@@ -28,12 +29,19 @@ std::vector<float> sort_even(const std::vector<float>& l) {
 }
 
 int main() {
-    std::vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
-    std::cout << "Sorted Even: ";
+    std::vector<float> input(std::vector<float>({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}));
+    std::vector<float> expected({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
+
+    if(!issame(sort_even(input), expected)) {
+        return 1;
+    }
+
     for (float num : sort_even(input)) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-    
+
+    assert(issame(sort_even(std::vector<float>({5, 8, -12, 4, 23, 2, 3, 11, 12, -10})), {-
+12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
