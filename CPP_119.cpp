@@ -1,16 +1,16 @@
-int countOpen = 0;
-for (const auto& s : lst) {
-    int countClose = 0;
-    for (char c : s) {
-        if (c == '(') {
-            countOpen++;
-        } else if (c == ')') {
-            if (countOpen > 0) {
-                countOpen--;
-            } else {
+int match_parens(vector<string> lst) {
+    int countOpen = 0, countClose = 0;
+
+    for (auto str : lst) {
+        for (char c : str) {
+            if (c == '(')
+                countOpen++;
+            else
                 countClose++;
-            }
         }
     }
-}
-return countOpen == 0 ? "Yes" : "No";
+
+    if (countOpen == countClose)
+        return "All parentheses are balanced.\n";
+    else
+        return "The parentheses do not match.\n";
