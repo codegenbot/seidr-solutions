@@ -13,7 +13,7 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {10, 20, 30, 40, 50};
+    std::vector<int> lst = {1, 2, 3, 4, 5};
     int result = solutions(lst);
     std::cout << "The sum of odd numbers is: " << result << std::endl;
     return 0;
