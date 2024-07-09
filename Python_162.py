@@ -6,8 +6,9 @@ def string_to_md5(text):
     else:
         return None
 
-text = "input string here"
-if text:
-    print(string_to_md5(text))
-else:
+text = input("Please enter a string: ")
+while not text:
     print("Please provide a string.")
+    text = input("Please enter a string: ")
+
+print(string_to_md5(text))
