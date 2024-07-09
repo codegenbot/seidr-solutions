@@ -4,21 +4,19 @@
 
 std::string kebabToCamel(const std::string& s) {
     std::string result;
-    bool capitalize = false;
+    bool capitalize = true;
 
     for (char c : s) {
         if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += std::toupper(c);
-            capitalize = false;
-            result += ' ';
+            result += ' '; // Add a space after each '-'
+            capitalize = true; // Start the next group with capitalization
         } else {
-            result += c;
+            result += capitalize ? std::toupper(c) : std::tolower(c);
+            capitalize = false; // Turn off capitalization within groups
         }
     }
 
-    return result.substr(1); 
+    return result;
 }
 
 int main() {
