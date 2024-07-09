@@ -3,9 +3,9 @@
 #include <vector>
 #include <algorithm>
 
-int next_smallest(vector<int> lst) {
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
+int next_smallest(std::vector<int> lst) {
+    std::vector<int> sorted = lst;
+    std::sort(sorted.begin(), sorted.end());
     if (sorted.size() < 2) return -1;
     for (int i = 0; i < sorted.size(); i++) {
         if (i > 0 && sorted[i] != sorted[i-1]) {
