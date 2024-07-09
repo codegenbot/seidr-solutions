@@ -1,14 +1,11 @@
-#include <vector>
-
 vector<int> even_odd_count(int num) {
-    int even = 0, odd = 0;
-    while (num != 0) {
-        int digit = num % 10;
-        if (digit % 2 == 0)
-            even++;
+    vector<int> count(2, 0);
+    string str = to_string(abs(num));
+    for (char c : str) {
+        if (stoi(c + "") % 2 == 0)
+            count[0]++;
         else
-            odd++;
-        num /= 10;
+            count[1]++;
     }
-    return {even, odd};
+    return count;
 }
