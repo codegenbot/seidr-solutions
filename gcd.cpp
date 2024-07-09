@@ -1,8 +1,3 @@
-```c++
-#include <iostream>
-#include <vector>
-#include <string>
-
 int findGCD(int a, int b) {
     if (b == 0) return std::abs(a);
     while (b != 0) {
@@ -14,7 +9,7 @@ int findGCD(int a, int b) {
 }
 
 std::vector<int> findIndices(const std::string& text, const std::string& target) {
-    std::vector<int> indices(std::numeric_limits<std::size_t>::max());  // Set max size to the possible value for an unsigned integer
+    std::vector<int> indices;  
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
