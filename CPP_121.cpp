@@ -13,7 +13,7 @@ int solution(std::vector<int> lst) {
     return sum;
 }
 
-void runTest() {
+int main() {
     int num, size = 0;
     std::cin >> num;
     std::vector<int> lst;
@@ -22,10 +22,6 @@ void runTest() {
         std::cin >> num;
         size++;
     }
-    assert(solution(lst) == 16); 
-}
-
-int main() {
-    runTest();
+    std::cout << "Sum of odd numbers: " << solution(lst) << "\n"; 
     return 0;
 }
