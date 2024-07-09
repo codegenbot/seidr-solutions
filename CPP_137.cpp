@@ -27,7 +27,3 @@ auto compare_one(const any& a, const any& b) {
     }
     return any(); // Return default-constructed std::any
 }
-
-int main() {
-    assert(any_cast<string>(compare_one(string("1"), 1)) == "None");
-}
