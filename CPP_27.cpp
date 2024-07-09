@@ -1,14 +1,13 @@
+#include <cassert>
 #include <string>
 
-using namespace std;
-
-string flip_case(string str) {
-    string result = "";
+std::string filp_case(const std::string& str) {
+    std::string result;
     for (char c : str) {
-        if (islower(c)) {
-            result += toupper(c);
-        } else if (isupper(c)) {
+        if (isupper(c)) {
             result += tolower(c);
+        } else if (islower(c)) {
+            result += toupper(c);
         } else {
             result += c;
         }
