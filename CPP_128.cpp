@@ -1,23 +1,9 @@
-#include <cassert>
-#include <iostream>
-#include <string>
-
+```cpp
 int prod_signs(std::string str1, std::string str2, std::string str3) {
     for (auto& s : {str1, str2, str3}) {
-        std::transform(s.begin(), s.end(), s.begin(), ::toupper);
-        
-        if ((s[0] == '-' || s[0] == ' ') && s.length() > 1) {
-            size_t i = 0;
-            if (s.length() > 1) {
-                while (i < s.size()) {
-                    if (!((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))) {
-                        break;
-                    }
-                    ++i;
-                }
-                s.erase(0, i);
-            }
-        }
+        auto upper = [&s](char c){ return std::toupper(c); };
+        s.erase(std::remove_if(s.begin(), s.end(), [](char c){ return !std::isalnum(c); }), s.end());
+        s = std::string(std::transform(s.begin(), s.end(), s.begin(), upper).base(), s.size());
     }
     
     if (str1.empty() || str2.empty() || str3.empty()) return 0;
