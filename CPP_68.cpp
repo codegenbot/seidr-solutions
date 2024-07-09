@@ -1,18 +1,13 @@
 ```cpp
 #include <vector>
-// ...
+#include <utility>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
     // your logic here
 }
 
-int main() {
-    assert(std::equal(pluck({7, 9, 7, 1}), {}));
-    return 0;
-}
-
-std::vector<pair<int, int>> pluck(std::vector<int> arr) {
-    std::vector<pair<int, int>> result;
+std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
+    std::vector<std::pair<int, int>> result;
     if (arr.empty()) return result;
 
     int minEven = INT_MAX;
