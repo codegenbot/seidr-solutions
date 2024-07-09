@@ -1,6 +1,6 @@
-def match_parens(s):
+def match_parens(lst):
     stack = []
-    for char in s:
+    for char in lst:
         if char == "(":
             stack.append(char)
         elif char == ")":
@@ -10,3 +10,4 @@ def match_parens(s):
         else:
             return "No"
     return "Yes" if not stack else "No"
+```
