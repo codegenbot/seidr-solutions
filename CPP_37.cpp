@@ -16,7 +16,16 @@ vector<float> sort_even(vector<float> l){
             sort(temp.begin(), temp.end());
             result[i] = temp[0];
         }else{
-            result[i] = l[i];
+            bool found = false;
+            float val = l[i];
+            for(int k = i; k < l.size(); k++){
+                if(issame(val, l[k])){
+                    result[i] = l[k];
+                    found = true;
+                    break;
+                }
+            }
+            if(!found)result[i] = val;
         }
     }
     return result;
