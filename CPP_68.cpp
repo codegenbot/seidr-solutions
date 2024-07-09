@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <cassert>
-#include <cinttypes>
 #include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -18,7 +16,7 @@ std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
     if (arr.empty()) return result;
 
-    int minEven = INT_MAX;
+    uint64_t minEven = UINT64_MAX;
     int minIndex = -1;
 
     for (int i = 0; i < arr.size(); i++) {
@@ -28,7 +26,7 @@ std::vector<int> pluck(std::vector<int> arr) {
         }
     }
 
-    result.push_back(minEven);
+    result.push_back((int)minEven);
     result.push_back(minIndex);
 
     return result;
@@ -37,7 +35,7 @@ std::vector<int> pluck(std::vector<int> arr) {
 int main() {
     std::vector<int> input = {7, 9, 7, 1};
     std::vector<int> output = pluck(input);
-    assert(issame(output, {}));
+    assert(issame(output, std::vector<int>{}));
     std::cout << "Output: ";
     for (int i : output) {
         std::cout << i << " ";
