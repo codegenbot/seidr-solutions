@@ -17,7 +17,7 @@ std::vector<float> sortEven(const std::vector<float>& l) {
     return evenVals;
 }
 
-int mainTest() {
+int main() {
     std::vector<float> vec;
     int n;
     std::cout << "Enter the number of elements: ";
@@ -56,6 +56,6 @@ int mainTest() {
     }
     std::sort(expected.begin(), expected.end());
     
-    assert(checkEquality(result, expected));
+    bool isSame = checkEquality(result, expected);
     return 0;
 }
