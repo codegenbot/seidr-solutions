@@ -1,20 +1,23 @@
 #include <iostream>
 #include <cmath>
+#include <string>
 
-long long special_factorial(int n) {
+std::string special_factorial(int n) {
     if (n <= 1)
-        return 1;
-    long long result = 1;
+        return "1";
+
+    std::string result = "1";
     for (int i = 1; i <= n; i++) {
-        result *= i;
+        long long mul_result = 1;
         for (int j = 2; j <= i; j++)
-            result *= j;
+            mul_result *= j;
+
+        result += " * " + std::to_string(mul_result);
     }
     return result;
 }
 
-int main 
-{
+int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
