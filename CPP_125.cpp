@@ -5,9 +5,9 @@
 #include <cassert>
 #include <cstring>
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> words;
-    std::string word;
+std::vector<std::basic_string<char>> split_words(std::basic_string<char> txt) {
+    std::vector<std::basic_string<char>> words;
+    std::basic_string<char> word;
     for (char& c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -33,7 +33,7 @@ std::vector<std::string> split_words(std::string txt) {
     return words;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::basic_string<char>>& a, const std::vector<std::basic_string<char>>& b) {
     if (a.size() != b.size()) {
         return false;
     }
