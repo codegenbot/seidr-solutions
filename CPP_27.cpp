@@ -17,7 +17,7 @@ std::string filp_case(std::string str){
 int main() {
     std::string s;
     std::cout << "Enter a string: ";
-    std::cin >> s;
-    std::cout << "Flip Case of the string is : " << filp_case(s) << std::endl;
+    std::getline(std::cin, s);
+    std::cout << "The flipped case is: " << filp_case(s) << std::endl;
     return 0;
 }
