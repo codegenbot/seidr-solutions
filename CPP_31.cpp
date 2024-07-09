@@ -10,7 +10,6 @@ bool is_prime(long long n) {
     }
     return true;
 
-{
 int main() {
     string input;
     cout << "Enter a number: ";
