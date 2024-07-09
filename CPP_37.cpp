@@ -32,10 +32,8 @@ namespace myspace {
 }
 
 int main() {
-    std::vector<float> input;
-    for (float num : {5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f}) {
-        input.push_back(num);
-    }
+    float arr[] = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    std::vector<float> input(arr, arr + sizeof(arr)/sizeof(arr[0]));
     std::cout << "Original array: ";
     for (float num : input) {
         std::cout << num << " ";
