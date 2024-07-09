@@ -1,5 +1,8 @@
+#include <iostream>
+#include <map>
 #include <string>
-bool check_dict_case(map<string, string> dict) {
+
+bool check_dict_case(std::map<std::string, std::string> dict) {
     if (dict.empty()) return false;
 
     bool allUpper = true;
@@ -7,11 +10,15 @@ bool check_dict_case(map<string, string> dict) {
 
     for (auto it = dict.begin(); it != dict.end(); ++it) {
         if (!allUpper && !allLower) break;
-        if (allUpper) allUpper = std::find_if(it->first.begin(), it->first.end(),
-            [](char c){ return tolower(c) != c; }).base() == &it->first[0];
-        if (allLower) allLower = std::find_if(it->first.begin(), it->first.end(),
-            [](char c){ return toupper(c) != c; }).base() == &it->first[0];
+        if (allUpper) allUpper = std::tolower(it->first).find((char)0) == std::string::npos;
+        if (allLower) allLower = std::toupper(it->first).find((char)0) == std::string::npos;
     }
 
-    return allUpper && allLower;
+    return allUpper && allLower ? true : false;
+}
+
+int main() {
+    std::map<std::string, std::string> my_dict = {{"A", "a"}, {"B", "b"}};
+    assert(check_dict_case(my_dict) == true);
+    return 0;
 }
