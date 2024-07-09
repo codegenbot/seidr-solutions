@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <initializer_list>
 
@@ -8,23 +9,26 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 int get_odd_collatz(int n) {
     std::vector<int> sequence;
     
-    while(n != 1) {
+    int i = 0;
+    
+    while(n != 1 && i < 49) {
         if(n % 2)
             n = 3*n + 1;
         else
             n /= 2;
         
         sequence.push_back(n);
+        i++;
     }
     
-    for(auto num : sequence) {
-        std::cout << num << " ";
+    for(int j = 0; j < i; j++) {
+        std::cout << sequence[j] << " ";
     }
     
     std::cout << std::endl;
 }
 
-int main() {
+int solver() {
     int num;
     std::cin >> num;
     get_odd_collatz(num);
