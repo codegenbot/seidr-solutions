@@ -1,13 +1,14 @@
 import hashlib
 
 def string_to_md5(text):
-    if text is not None:
+    if text:
         return hashlib.md5(text.encode()).hexdigest()
-    else:
-        return None
 
-text = input("Please enter a string: ").strip()
-if text != '':
-    print(string_to_md5(text))
-else:
-    print("Please provide a string.")
+try:
+    text = input("Enter a string: ")
+    if text.strip():
+        print(string_to_md5(text))
+    else:
+        print("Please provide a string.")
+except EOFError:
+    print("No input provided.")
