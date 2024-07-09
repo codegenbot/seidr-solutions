@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -16,7 +17,7 @@ int main() {
 
 bool check_if_last_char_is_a_letter(string str) {
     char lastChar = str.back();
-    if (isalpha(lastChar)) { 
+    if (isalpha(lastChar)) { // Check if the last character is an alphabet
         return true;
     } else {
         return false;
