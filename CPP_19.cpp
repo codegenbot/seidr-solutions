@@ -1,26 +1,14 @@
+Here is the solution:
+
+```cpp
 string sort_numbers(string numbers) {
-    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, 
-                                 {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                 {"eight", 8}, {"nine", 9}};
+    map<string,int> numMap = {{"zero",0},{"one",1},{"two",2},{"three",3},{"four",4},
+                              {"five",5},{"six",6},{"seven",7},{"eight",8},{"nine",9}};
     vector<string> nums;
-    string temp = "";
-    for (char c : numbers) {
-        if (c == ' ') {
-            nums.push_back(temp);
-            temp = "";
-        } else {
-            temp += c;
+    for (char& c : numbers) {
+        if (!isdigit(c)) {
+            nums.push_back(numMap.begin()->first + (numMap.find(string(1,c))+map<string,int>::iterator::value)->first);
         }
     }
-    nums.push_back(temp);
-
-    sort(nums.begin(), nums.end(), [&numMap](string a, string b) {
-        return to_string(numMap[a]) < to_string(numMap[b]);
-    });
-
-    string result = "";
-    for (string num : nums) {
-        result += num + " ";
-    }
-    return result.substr(0, result.length() - 1);
-}
+    sort(nums.begin(),nums.end());
+    return string("#{" + string(&nums[0]) + "}");
