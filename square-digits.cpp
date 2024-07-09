@@ -7,4 +7,4 @@ std::string squareDigits(std::string input) {
         int squared = digit * digit;
         output += to_string(squared);
     }
-    return output;
+}
