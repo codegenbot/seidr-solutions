@@ -1,9 +1,10 @@
 ```cpp
 #include <vector>
+#include <cmath>
 
 bool has_close_elements(const std::vector<float>& elements, float tolerance) {
     for (int i = 1; i < elements.size(); ++i) {
-        if (std::abs(static_cast<float>(elements[i]) - static_cast<float>(elements[i-1])) <= tolerance) {
+        if (std::abs(elements[i] - elements[i-1]) <= tolerance) {
             return true;
         }
     }
@@ -11,7 +12,13 @@ bool has_close_elements(const std::vector<float>& elements, float tolerance) {
 }
 
 int main() {
-    std::vector<float> a({1.0, 2.0, 3.9, 4.0, 5.0, 2.0});
-    assert(has_close_elements({1.0, 2.0, 3.9, 4.0, 5.0}, 0.0) == false);
+    std::vector<float> a;
+    a.push_back(1.0f);
+    a.push_back(2.0f);
+    a.push_back(3.9f);
+    a.push_back(4.0f);
+    a.push_back(5.0f);
+    a.push_back(2.0f);
+    assert(has_close_elements(a, 0.0f) == false);
     return 0;
 }
