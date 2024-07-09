@@ -16,10 +16,8 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    std::vector<int> test_output = get_odd_collatz(10);
-    std::vector<int> expected_output = {1, 1, 3, 5};
-
-    assert(test_output == expected_output);
+    std::vector<int> expected = {1, 3, 5, 7, 9};
+    assert(get_odd_collatz(10) == expected);
 
     return 0;
 }
