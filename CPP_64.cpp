@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -9,7 +8,6 @@ int vowels_count(std::string s) {
     if (!s.empty()) {
         char last_char = s.back();
         has_y_as_last_char = (last_char == 'y');
-        s.pop_back(); // remove the last character to avoid incorrect find() usage
     }
     
     for (char c : s) {
@@ -31,3 +29,5 @@ int main() {
     std::getline(std::cin, str);
     int vowelCount = vowels_count(str);
     std::cout << "Number of vowels: " << vowelCount << std::endl;
+    return 0;
+}

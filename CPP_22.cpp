@@ -10,11 +10,8 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<int> a;
-    std::vector<int> b;
-
-    a.reserve(n);
-    b.reserve(n);
+    std::vector<int> a = {};
+    std::vector<int> b = {};
 
     for(int i = 0; i < n; ++i)
         {
