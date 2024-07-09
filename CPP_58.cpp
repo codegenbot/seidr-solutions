@@ -37,7 +37,7 @@ void solveProblem() {
             continue; 
     }
 
-    std::vector<std::string> diff;
+    std::vector<std::string> diff(s1.begin(), s1.end());
     std::set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(),
                         std::back_inserter(diff));
 
