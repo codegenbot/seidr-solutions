@@ -1,13 +1,14 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = [0, 0, 0, 0]
 
     for i in range(len(coins)):
-        while cents >= coins[i]:
-            count = 1
-            cents -= coins[i]
-            result[i] += count
+        count = cents // coins[i]
+        if count > 0:
+            result[i] = count
+            cents -= coins[i] * count
+        else:
+            result[i] = 0
 
     return (
         [f"{count} quarter{'s' if count > 1 else ''}" for count in [result[0]]]
