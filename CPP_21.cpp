@@ -8,8 +8,15 @@ vector<float> rescale_to_unit(vector<float> numbers) {
     float maxVal = *max_element(numbers.begin(), numbers.end());
 
     vector<float> result;
-    for (float num : numbers) {
-        result.push_back((num - minVal) / (maxVal - minVal));
+    float range = maxVal - minVal;
+    if (range == 0) {
+        for (float num : numbers) {
+            result.push_back(num);
+        }
+    } else {
+        for (float num : numbers) {
+            result.push_back((num - minVal) / range);
+        }
     }
 
     return result;
