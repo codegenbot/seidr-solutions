@@ -4,10 +4,10 @@
 
 using namespace std;
 
-string anti_shuffle(const string& str) {
+string anti_shuffle(string str) {
     string result = "";
     int start = 0;
-    for(int i = 0; i < str.size(); i++) {
+    for(int i = 0; i < str.length(); i++) {
         if(i > start && isalpha(str[i])) {
             result += str[i];
             start = i;
@@ -17,13 +17,14 @@ string anti_shuffle(const string& str) {
 }
 
 int main() { 
-    string str;
+    string userInput;
     cout << "Enter a sentence: ";
-    getline(cin, str);
-    if(str.empty()) {
+    getline(cin, userInput);
+    if(userInput.empty()) {
         cout << "Error: Please enter a valid sentence." << endl;
     } else {
-        cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
+        string result = anti_shuffle(userInput);
+        cout << "Anti-shuffled sentence: " << result << endl;
     }
     return 0;
 }
