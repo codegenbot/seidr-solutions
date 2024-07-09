@@ -1,6 +1,11 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <map>
 #include <algorithm>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> nums;
@@ -10,56 +15,16 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
     }
 
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
+    std::sort(nums.begin(), nums.end());
+    std::reverse(nums.begin(), nums.end());
+
+    std::map<int, std::string> numberToString = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, 
+                                                    {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
 
     std::vector<std::string> result;
     for (int num : nums) {
-        std::string str = "";
-        switch (num) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
-        }
-        result.push_back(str);
+        result.push_back(numberToString[num]);
     }
 
     return result;
-}
-
-int main() {
-    std::vector<int> arr = {9, 4, 8};
-    std::vector<std::string> result = by_length(arr);
-
-    for (int i = 0; i < result.size(); i++) {
-        if (result[i] != "Nine" && result[i] != "Eight" && result[i] != "Four") {
-            std::cout << "Difference found: " << result[i] << std::endl;
-        }
-    }
-
-    return 0;
 }
