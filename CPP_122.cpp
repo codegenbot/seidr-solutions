@@ -1,6 +1,5 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <string>
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
@@ -13,8 +12,16 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> numbers = {1, 12, 123};
-    int result = add_elements(numbers, numbers.size());
-    std::cout << "Sum of the elements whose string representation has a length less than or equal to 2 is: " << result << std::endl;
+    std::vector<int> input;
+    int num, count;
+    std::cout << "Enter the size of the array: ";
+    std::cin >> count;
+    for (int i = 0; i < count; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        input.push_back(num);
+    }
+    int sum = add_elements(input, count);
+    std::cout << "The sum of elements is: " << sum << "\n";
     return 0;
 }

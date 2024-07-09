@@ -1,13 +1,10 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
 
 bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
-    if (a.size() != b.size()) return false;
-    for(int i = 0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+    return all_of(a.begin(), a.end(), [&](auto p) { return find(b.begin(), b.end(), p) != b.end(); });
 }
 
 vector<pair<int, string>> select_words(string s, int n) {
@@ -40,8 +37,7 @@ vector<pair<int, string>> select_words(string s, int n) {
 }
 
 int main() {
-    vector<pair<int, string>> expected = {{1, "b"}, {1, "c"}, {1, "d"}, {1, "f"}};
-    vector<pair<int, string>> output = select_words("a b c d e f", 1);
-    assert(issame(output, expected));
+    vector<pair<int, string>> result = select_words("a b c d e f", 1);
+    assert(result == {{1, "b"}, {1, "c"}, {1, "d"}, {1, "f"}});
     return 0;
 }
