@@ -10,31 +10,37 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
-        result.push_back(min_val);
+        int max_val = *std::max_element(lst.begin(), lst.end());
 
+        result.push_back(min_val);
         auto it = lst.begin();
-        bool found = false;
+        bool found_min = false;
         for (; it != lst.end(); ++it) {
             if (*it == min_val) {
-                found = true;
+                found_min = true;
                 break;
             }
         }
 
-        if (found) {
-            if (!lst.empty()) {
-                lst.erase(it);
+        if (found_min) {
+            lst.erase(it);
+        }
+
+        result.push_back(max_val);
+
+        it = lst.begin();
+        bool found_max = false;
+        for (; it != lst.end(); ++it) {
+            if (*it == max_val) {
+                found_max = true;
+                break;
             }
-        } else {
-            break;
+        }
+
+        if (found_max) {
+            lst.erase(it);
         }
     }
-
-    int max_val = *std::max_element(result.begin(), result.end());
-    while (!result.empty() && *result.rbegin() == max_val) {
-        result.pop_back();
-    }
-
     return result;
 }
 
