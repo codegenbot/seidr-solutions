@@ -1,6 +1,3 @@
-Here's your completed code:
-
-```cpp
 #include <vector>
 
 int prod_signs(vector<int> arr) {
