@@ -1,35 +1,20 @@
-```cpp
-#include <string>
-#include <algorithm>
-
-using namespace std;
+#include <digest.h>
 
 string string_to_md5(string text) {
-    if(text.empty()) return "";
-    
-    unsigned char md5[16];
-    const EVP_MD* md = EVP_md5();
-    EVP_MD_CTX* ctx = EVP_MD_CTX_new();
-    unsigned char input[1024];
+    if (text.empty()) return "";
 
-    int input_len = strlen(text.c_str());
-    int total_len = 0;
-    for(int i=0; i<input_len; i++) {
-        input[i] = (unsigned char)text[i];
-    }
-    
-    EVP_DigestInit_ex(ctx, md, NULL);
-    EVP_DigestUpdate(ctx, input, input_len);
-    EVP_DigestFinal_ex(ctx, md, NULL);
+    unsigned char md5[MD5_DIGEST_LENGTH];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, text.c_str(), text.length());
+    MD5_Final(md5, &ctx);
 
     string result;
-    for(int i=0; i<16; i++) {
+    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
         char buf[3];
-        sprintf(buf, "%02x", (unsigned)md[i]);
-        result.append(string(buf));
+        sprintf(buf, "%02x", md5[i]);
+        result += buf;
     }
-    
-    EVP_MD_CTX_free(ctx);
-    
+
     return result;
 }
