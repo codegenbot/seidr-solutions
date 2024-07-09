@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,9 +19,9 @@ vector<int> even_odd_palindrome(int n) {
         }
 
         if (isPalindrome && i % 2 == 0) {
-            result[i] = 1;
+            result[i] += 1;
         } else if (isPalindrome && i % 2 != 0) {
-            result[i] = 1;
+            result[i] += 1;
         }
     }
 
@@ -30,6 +31,6 @@ vector<int> even_odd_palindrome(int n) {
 int main() {
     int n;
     cin >> n; 
-    cout << "(" << even_odd_palindrome(n)[1] << ", " << even_odd_palindrome(n)[2] - 1 << ")" << endl; 
+    cout << "(" << even_odd_palindrome(n)[1] << ", " << even_odd_palindrome(n)[0] << ")" << endl; 
     return 0;
 }
