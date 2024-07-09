@@ -1,9 +1,9 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
+// Remove parameter type declarations in function definition
+bool issame(vector<int> a, vector<int> b);
 
-bool order_by_points(std::vector<int>& nums) {
-    std::sort(nums.begin(), nums.end(), [](int a, int b) {
+// Define the order_by_points function before the main function
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         if (a < 0) a = -a;
         if (b < 0) b = -b;
@@ -22,7 +22,7 @@ bool order_by_points(std::vector<int>& nums) {
     return nums;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
