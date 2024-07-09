@@ -18,10 +18,10 @@ def prime_fib(n: int):
     count = 0
     num = 2
     while count < n:
+        num += 1
         fib_num = fibonacci(num)
         if is_prime(fib_num):
             count += 1
-        num += 1
 
     return fib_num
 
