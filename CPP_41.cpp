@@ -18,6 +18,6 @@ int main() {
     int n;
     cout << "Enter the number of cars: ";
     cin >> n;
-    cout << car_race_collision(n) << endl;
+    cout << car_race_collision(n);
     return 0;
 }
