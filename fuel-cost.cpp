@@ -6,7 +6,7 @@ int fuelCost(vector<int> v) {
     int sum = 0;
     for (int x : v) {
         int y = floor((double)x / 3);
-        y = (y > 0) ? (y - 2) : 0;
+        y = max(0, y - 2);
         sum += y;
     }
     return sum;
