@@ -1,3 +1,4 @@
-from typing import list
-def filter_by_prefix(strings: list, prefix: str) -> list:
+```
+from typing import List
+def filter_by_prefix(strings: list[str], prefix: str) -> list[str]:
     return [s for s in strings if s.startswith(prefix)]
