@@ -1,20 +1,24 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <algorithm>
 
 std::string string_to_md5(const std::string& text) {
     unsigned char result[16];
-    // Implement MD5 hash function here.
-    // For simplicity, we assume a simple implementation where each character in the input string contributes to the hash value in an unspecified manner.
+    int n = 0;
+    unsigned char c = 0;
+    unsigned long hash = 0x12345678;
+
     for (int i = 0; i < text.length(); i++) {
-        result[i % 16] += (unsigned char)text[i];
+        c = (unsigned char)(text[i]);
+        hash = (hash << 8) ^ ((unsigned long)c);
     }
-    
+
+    n = (int)(4 + (text.length() / 16) * 64);
+
     std::string output;
-    for(int i=0; i<16; i++) {
-        std::stringstream ss;
-        ss << std::setw(2) << std::setfill('0') << std::hex << (int)(result[i]);
-        output += ss.str();
+    for(int i=0; i<n; i++) {
+        output += (char)((hash >> (i*8)) & 0xFF);
     }
 
     return output;
