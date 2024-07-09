@@ -1,61 +1,66 @@
-```cpp
 #include <cassert>
+
 const char* roman[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
 string int_to_roman(int n) {
-    string result;
-    for (int i = 0; i < 13; ++i) {
-        while (n >= roman2int(roman[i])) {
-            n -= roman2int(roman[i]);
-            result += roman[i];
+    if (n >= 1000) {
+        return string("M") + int_to_roman(n - 1000);
+    }
+    else if (n >= 900) {
+        return string("CM") + int_to_roman(n - 900);
+    }
+    else if (n >= 500) {
+        return string("D") + int_to_roman(n - 500);
+    }
+    else if (n >= 400) {
+        return string("CD") + int_to_roman(n - 400);
+    }
+    else if (n >= 100) {
+        if (n >= 90) {
+            return string("XC") + int_to_roman(n - 90);
+        } 
+        else if (n >= 50) {
+            return string("L") + int_to_roman(n - 50);
+        }
+        else if (n >= 40) {
+            return string("XL") + int_to_roman(n - 40);
+        }
+        else {
+            if (n >= 9) {
+                return string("IX") + int_to_roman(n - 9);
+            } 
+            else {
+                return string("X");
+            }
         }
     }
-    return result;
-}
-
-int roman2int(const char *s) {
-    int val = 0;
-    for (; *s; ++s)
-        if (*s == 'M')
-            val += 1000;
-        else if (*s == 'C' || *s == 'D')
-            switch (*s) {
-                case 'M':
-                    val += 900;
-                    break;
-                case 'C':
-                    val += 400;
-                    break;
-                default:
-                    val += 500;
-            }
-        else if (*s >= 'I' && *s <= 'X')
-            switch (*s) {
-                case 'M':
-                    return -1000;
-                case 'C':
-                    if (roman2int(s + 1) > 0)
-                        val -= 100;
-                    break;
-                default:
-                    if (val < 4)
-                        val--;
-                    else
-                        val += int(val / 10);
-            }
-        else
-            switch (*s) {
-                case 'I':
-                    val++;
-                    break;
-                case 'V':
-                    val += 3;
-                    break;
-                case 'L':
-                    val += 30;
-                    break;
-                default:
-                    return -1;
-            }
-    return val;
+    else if (n >= 50) {
+        return string("L") + int_to_roman(n - 50);
+    }
+    else if (n >= 40) {
+        return string("XL") + int_to_roman(n - 40);
+    }
+    else if (n >= 10) {
+        if (n >= 9) {
+            return string("IX");
+        } 
+        else if (n >= 5) {
+            return string("V") + int_to_roman(n - 5);
+        }
+        else if (n >= 4) {
+            return string("IV") + int_to_roman(n - 4);
+        }
+        else {
+            return string("I");
+        }
+    } 
+    else if (n >= 5) {
+        return string("V");
+    }
+    else if (n >= 4) {
+        return string("IV");
+    }
+    else {
+        return string("I");
+    }
 }
