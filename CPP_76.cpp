@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -32,5 +33,5 @@ bool isSimplePower(int num) {
 }
 
 bool isSimplePower(int base, int power) {
-    return (int)pow(base, power) == base; 
+    return (int)pow(base, power) == base * power;
 }
