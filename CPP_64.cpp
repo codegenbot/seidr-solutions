@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -22,4 +21,3 @@ int main() {
     int result = vowels_count(input);
     std::cout << "Number of vowels in the string is: " << result << std::endl;
     return 0;
-}
