@@ -1,8 +1,20 @@
+#include <iostream>
 #include <boost/any.hpp>
 #include <string>
 #include <cassert>
 
 using namespace std;
+
+boost::any compare_one(boost::any a, boost::any b);
+
+int main() {
+    assert (boost::any_cast<string>(compare_one(string("1"), string("2"))) == "2");
+    assert (boost::any_cast<int>(compare_one(1, 2)) == 2);
+    assert (boost::any_cast<float>(compare_one(1.5f, 1.2f)) == 1.5f);
+    assert (compare_one("a", 1).empty());
+
+    return 0;
+}
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -24,5 +36,6 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
     }
+
     return boost::any();
 }
