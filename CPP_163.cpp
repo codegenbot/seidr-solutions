@@ -11,10 +11,6 @@ std::vector<int> generate_integers(int a, int b) {
     return result;
 }
 
-// Change the function signature of issame function to use the complete type std::vector<int>
-bool issame(std::vector<int> a, std::vector<int> b);
-
-// Add correct namespace for vector type in issame function.
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
