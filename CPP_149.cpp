@@ -1,9 +1,8 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+std::vector<std::string> sorted_list_sum(std::vector<std::string>& lst) {
     auto it = std::remove_if(lst.begin(), lst.end(), [](const std::string& s){ return s.length() % 2; });
     lst.erase(it, lst.end());
     std::sort(lst.begin(), lst.end(), 
@@ -15,11 +14,9 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
             }
         });
     int sum = 0;
-    for(auto str : lst) {
-        sum += (str.length() % 2 == 1 ? -1 : 1);
+    for(const auto& s : lst) {
+        sum += stoi(s);
     }
-    std::cout << "Sorted List Sum: " << sum << std::endl;
-    
     return lst;
 }
 
@@ -33,5 +30,16 @@ int main() {
         std::cin >> lst[i];
     }
     
-    sorted_list_sum(lst);
+    std::vector<std::string> result = sorted_list_sum(lst);
+    
+    cout << "Sorted List Sum: ";
+    int total_sum = 0;
+    for(auto str : result) {
+        total_sum += stoi(str);
+        cout << str << " ";
+    }
+    cout << endl;
+    cout << "Total Sum: " << total_sum << endl;
+    
+    return 0;
 }
