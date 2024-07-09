@@ -15,20 +15,21 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
+std::vector<int> maximum(std::vector<std::pair<int,int>> arr, int k) {
     std::priority_queue<std::pair<int,int>, std::vector<std::pair<int,int>>, std::greater<std::pair<int,int>>> pq;
 
     for(int i = 0; i < arr.size(); i++) {
-        pq.push({arr[i],i});
+        pq.push(arr[i]);
     }
 
-    // Keep popping elements from the priority queue until k elements are popped
-    while (!pq.empty() && k--) {
-        arr.erase(std::remove(arr.begin(), arr.end(), pq.top().first), arr.end());
+    std::vector<int> result;
+
+    for(int i = 0; i < k && !pq.empty(); i++) {
+        result.push_back(pq.top().first);
         pq.pop();
     }
 
-    return arr;
+    return result;
 }
 
 int main() {
@@ -39,14 +40,16 @@ int main() {
     std::cout << "Enter the value of k: ";
     std::cin >> k;
 
-    std::vector<int> arr;
+    std::vector<std::pair<int,int>> arr;
     std::cout << "Enter elements: ";
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
         if (!arr.empty()) { 
-            arr.push_back(val);
+            arr.push_back(std::make_pair(val,i));
+        } else {
+            arr.push_back(std::make_pair(val,i));
         }
     }
 
