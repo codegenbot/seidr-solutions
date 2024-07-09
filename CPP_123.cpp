@@ -26,7 +26,20 @@ std::vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-int solve() {
-    assert(same(get_odd_collatz(12), {6, 3, 1})); 
+int main() {
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::vector<int> result = get_odd_collatz(num);
+    std::cout << "Collatz sequence: ";
+    for (auto i : result) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+    if(same(get_odd_collatz(12), {6, 3, 1})) {
+        std::cout << "The sequences are the same." << std::endl;
+    } else {
+        std::cout << "The sequences are not the same." << std::endl;
+    }
     return 0;
 }
