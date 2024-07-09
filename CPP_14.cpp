@@ -1,8 +1,12 @@
+#include <initializer_list>
 #include <vector>
 #include <string>
+#include <cassert>
+#include <iostream>
+
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const vector<vector<string>>& a, const vector<vector<string>>& b) {
     return a == b;
 }
 
@@ -16,6 +20,12 @@ vector<string> all_prefixes(const string& str) {
 
 int main() {
     string str = "WWW";
-    assert(issame(vector<string>({"W", "WW", "WWW"}), all_prefixes(str)));
+    vector<vector<string>> a = {{"W"}, {"W", "W"}, {"W", "W", "W"}};
+    vector<vector<string>> b = {{"W"}, {"W", "W"}, {"W", "W", "W"}};
+    assert(issame(a, b));
+    vector<string> prefixes = all_prefixes(str);
+    for (const string& prefix : prefixes) {
+        cout << prefix << endl;
+    }
     return 0;
 }
