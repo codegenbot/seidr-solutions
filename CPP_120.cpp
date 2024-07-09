@@ -19,10 +19,8 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
     for (int i = 0; i < k; i++) {
         auto it = std::max_element(arr.begin(), arr.end());
-        if (i < arr.size()) {
-            result.push_back(*it);
-            arr.erase(it);
-        }
+        result.push_back(*it);
+        arr.pop_back(); // equivalent to erase(arr.end()-1) for this specific use case
     }
     return result;
 }
