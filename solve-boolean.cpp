@@ -1,66 +1,44 @@
-```c++
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
+using namespace std;
 
-std::string input; // Declare input globally
-
-bool solveBoolean(const std::string& s) {
+bool solveBoolean(const string& s, size_t& i) {
     bool result = true;
-    size_t i = 0;
 
-    while (i < s.size()) {
-        if (s[i] == 'T') {
-            result = true;
-        } else if (s[i] == 'F') {
-            result = false;
-        } else if (s[i] == '|') {
-            bool temp = result;
-            i++;
-            while (i < s.size() && s[i] != '|') {
-                if (s[i] == '&') {
-                    i++;
-                    while (i < s.size() && s[i] != '|') {
-                        if (s[i] == 'T') {
-                            result = temp;
-                        } else {
-                            result = !temp;
-                        }
-                        i++;
-                    }
-                } else {
-                    if (s[i] == 'T') {
-                        result = temp;
-                    } else {
-                        result = !temp;
-                    }
-                    i++;
-                }
+    if (i < s.size()) {
+        switch (s[i]) {
+            case 'T':
+                return true;
+            case 'F':
+                return false;
+            case '&': {
+                i++; // skip &
+                result &= solveBoolean(s, ++i);
+                break;
             }
-        } else if (s[i] == '&') {
-            bool temp = result;
-            i++;
-            while (i < s.size() && s[i] != '&') {
-                if (s[i] == 'T') {
-                    result = temp;
-                } else {
-                    result = !temp;
-                }
-                i++;
+            case '|': {
+                i++; // skip |
+                result = result || solveBoolean(s, ++i);
+                break;
             }
         }
-        i++;
     }
+
     return result;
 }
 
 int main() {
-    std::cout << "Enter a Boolean expression: ";
-    std::getline(std::cin, input); // Input goes here
-    bool result = solveBoolean(input);
+    string input;
+    cout << "Enter a Boolean expression: ";
+    getline(cin, input);
+
+    size_t i = 0;
+    bool result = solveBoolean(input, i);
+
     if (result) {
-        std::cout << "The result is True." << std::endl;
+        cout << "The result is True." << endl;
     } else {
-        std::cout << "The result is False." << std::endl;
+        cout << "The result is False." << endl;
     }
+
     return 0;
 }
