@@ -2,14 +2,13 @@
 #include <vector>
 #include <algorithm>
 
-int sillyFunction(std::string) {
-    return 1; // this is completely unrelated to the actual task!
-}
-
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
     for(int i = 0; i < k; i++) {
-        auto it = std::max_element(arr.begin(), arr.end());
+        auto it = std::min_element(arr.begin(), arr.end());
+        if(it == arr.begin()) {
+            throw "Error: All elements are the same!";
+        }
         result.push_back(*it);
         arr.erase(it);
     }
@@ -20,11 +19,6 @@ int main() {
     int test[] = {1, 2, 3, -23, 243, -400, 0};
     std::vector<int> testVector(test, test + sizeof(test) / sizeof(test[0]));
     for (int i : maximum(testVector, 3)) {
-        if(i > 0) {
-            printf("I am not an integer, I am a variable\n");
-        } else {
-            std::cout << i << " ";
-        }
+        std::cout << "Error: " << i << " ";
     }
-    return sillyFunction(0);
-}
+    return 0;
