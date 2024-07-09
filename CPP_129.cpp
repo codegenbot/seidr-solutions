@@ -1,49 +1,38 @@
 #include <vector>
 #include <queue>
-#include <iostream>
+#include <algorithm>
 
-using namespace std;
-
-vector<int> minPath(vector<vector<int>>& grid, int k) {
-    int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n));
-    vector<pair<int, int>> dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> pq;
-
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (grid[i][j] == 1) {
-                pq.push({k, {i, j}});
-                break;
-            }
-        }
-    }
-
-    vector<int> res;
-
-    while (!pq.empty()) {
-        auto [dist, pos] = pq.top();
-        pq.pop();
-
-        if (dist > 0) {
-            res.push_back(grid[pos.first][pos.second]);
-            visited[pos.first][pos.second] = true;
-
-            for (auto& d : dir) {
-                int ni = pos.first + d.first;
-                int nj = pos.second + d.second;
-                if (ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]) {
-                    pq.push({dist - 1, {ni, nj}});
-                }
-            }
-        }
-
-        if (res.size() == k) break;
-    }
-
-    return res;
+bool issame(vector<int> a,vector<int>b){
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
-int main() {
-    // your code here
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
+    int n = grid.size();
+    std::vector<std::vector<bool>> visited(n, std::vector<bool>(n));
+    std::vector<std::vector<int>> directions({{-1, 0}, {1, 0}, {0, -1}, {0, 1}});
+    std::priority_queue<std::pair<int, std::pair<int, int>>, std::vector<std::pair<int, std::pair<int, int>>>, greater<std::pair<int, std::pair<int, int>>>> queue;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (!visited[i][j]) {
+                queue.push({grid[i][j], {i, j}});
+                visited[i][j] = true;
+            }
+        }
+    }
+    std::vector<int> path;
+    while (k--) {
+        int value, x, y;
+        std::tie(value, std::ignore) = queue.top();
+        queue.pop();
+        path.push_back(value);
+        for (auto& dir : directions) {
+            x += dir[0];
+            y += dir[1];
+            if (x >= 0 && x < n && y >= 0 && y < n && !visited[x][y]) {
+                queue.push({grid[x][y], {x, y}});
+                visited[x][y] = true;
+            }
+        }
+    }
+    return path;
 }
