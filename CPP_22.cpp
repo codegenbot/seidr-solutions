@@ -6,13 +6,12 @@ bool filter_integers(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-int main() {
+int main() { 
     int n;
     std::cin >> n;
 
-    std::vector<int> a;
-    a.reserve(n); 
-    std::vector<int> b; b.resize(n);
+    std::vector<int> a(n); 
+    std::vector<int> b(n);
     
     for(int i = 0; i < n; ++i)
         std::cin >> a[i];
