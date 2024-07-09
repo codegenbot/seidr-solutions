@@ -17,7 +17,7 @@ vector<int> pluck(vector<int> arr){
             smallest_even = arr[i];
             result.clear();
             result.push_back(smallest_even);
-            result.push_back(i);
+            result.push_back(i+1);
         }
     }
 
