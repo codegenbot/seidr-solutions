@@ -1,6 +1,5 @@
-```
-#include <vector>
 #include <iostream>
+#include <vector>
 
 std::vector<int> leaders(std::vector<int>& inputVector) {
     std::vector<int> result;
