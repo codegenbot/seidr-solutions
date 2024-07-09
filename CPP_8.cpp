@@ -1,5 +1,20 @@
 #include <vector>
-std::pair<int, int> sum_product(std::vector<int> numbers) {
+#include <tuple>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    assert(a.size() == b.size());
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+std::tuple<int, int> sum_product(std::vector<int> numbers) {
     int sum = 0;
     int product = 1;
     
@@ -8,13 +23,5 @@ std::pair<int, int> sum_product(std::vector<int> numbers) {
         product *= num;
     }
     
-    return std::make_pair(sum, product);
-}
-
-bool issame(std::pair<int, int> a, std::pair<int, int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(sum_product({10}), std::make_pair(10, 10)));
+    return {sum, product};
 }
