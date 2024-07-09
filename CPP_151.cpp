@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cassert>
 
@@ -14,5 +13,5 @@ float double_the_difference(const std::vector<float>& lst) {
 int main() {
     std::vector<float> lst = {1.0f, 2.5f, -3.5f, 4.0f};
     float result = double_the_difference(lst);
-    std::cout << "The doubled difference is: " << result * 2 << std::endl;
+    assert(result == 6.0); // Correct assertion
 }
