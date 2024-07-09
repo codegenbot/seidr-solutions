@@ -19,7 +19,7 @@ int main() {
     if (num != -1) {
         assert(issame(vec, arr));
     } else {
-        assert(issame(vector<int>(), arr));
+        assert(issame({}, arr));
     }
     return 0;
 }
