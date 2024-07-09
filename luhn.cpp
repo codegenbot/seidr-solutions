@@ -1,13 +1,20 @@
-int sum = 0;
-bool isSecond = false;
-while (std::cin >> int digit) {
-    if (isSecond) {
-        digit *= 2;
-        if (digit > 9) {
-            digit -= 9;
-        }
+int sum = 0, digit;
+std::string ccNum;
+std::cout << "Enter a credit card number: ";
+std::cin >> ccNum;
+
+for (char c : ccNum) {
+    if (!(isdigit(c))) {
+        std::cout << "Invalid input. Please enter a digit between 0 and 9: ";
+        std::cin >> std::ws;
+        continue;
     }
-    isSecond = !isSecond;
-    sum += digit;
+    int n = c - '0';
+    if (n < 0 || n > 9) {
+        std::cout << "Invalid input. Please enter a digit between 0 and 9: ";
+        std::cin >> std::ws;
+        sum = 0; // reset sum
+        continue;
+    }
+    sum += n;
 }
-std::cout << "The sum of the digits is: " << sum << std::endl;
