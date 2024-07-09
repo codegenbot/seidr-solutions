@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <boost/any.hpp>
 
@@ -32,6 +33,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         else
             return b;
     } else {
-        return boost::any("None");
+        return "None";
     }
 }
