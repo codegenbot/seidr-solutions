@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -14,16 +15,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> uniqueVec = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    std::sort(uniqueVec.begin(), uniqueVec.end());
-    auto it = uniqueVec.begin();
-    while (it != uniqueVec.end()) {
-        auto nextIt = it + 1;
-        while (nextIt != uniqueVec.end() && *it == *nextIt) {
-            ++nextIt;
-        }
-        it = nextIt;
-    }
-    std::vector<int> unique(uniqueVec.begin(), it);
-    assert(issame(unique, {0, 2, 3, 5, 9, 123}));
+    std::vector<int> inputVec = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    std::sort(inputVec.begin(), inputVec.end());
+    assert(issame(inputVec, {0, 2, 3, 5, 9, 123}));
 }
