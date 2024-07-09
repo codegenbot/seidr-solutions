@@ -3,10 +3,10 @@
 #include <string>
 
 std::string anti_shuffle(std::string s) {
-    std::string res = ""; // Initialize res as an empty string.
+    std::string res = ""; 
     for (int i = 0; i < s.length(); i++) {
-        if (i % 2 != 0) {
-            res += std::string(1, s[i]);  
+        if (i % 2 == 0) { 
+            res += s[i];  
         }
     }
     return res;
