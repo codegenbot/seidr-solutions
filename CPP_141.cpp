@@ -1,6 +1,6 @@
 using namespace std;
 
-string validate_file(string file_name) {
+string validate_file_name(const string& file_name) {
     int digit_count = 0;
     for (char c : file_name) {
         if (isdigit(c)) {
