@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> const &a, const std::vector<int> &b) {
     return a == b;
 }
 
@@ -12,7 +13,7 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-int main_function() {
+int main() {
     int n = 8;
     std::vector<int> pile = make_a_pile(n);
     assert(issame(pile, pile));
