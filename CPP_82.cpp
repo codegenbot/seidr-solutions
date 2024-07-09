@@ -16,5 +16,5 @@ bool prime_length(std::string str) {
 
 int main() {
     assert(prime_length("0") == false);
-    
+    std::cout << "Program is running fine." << std::endl;
 }
