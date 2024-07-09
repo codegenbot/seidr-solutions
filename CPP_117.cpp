@@ -1,18 +1,18 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 #include <cctype>
+#include <algorithm>
+#include <initializer_list>
 
-using std::count;
-using std::size_t;
-using std::pair;
-using std::string;
+using namespace std;
 
 bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
     if (a.size() != b.size()) return false;
     for(int i = 0; i<a.size(); i++){
-        auto p1 = a[i];
-        auto p2 = b[i];
+        pair<int, string> p1 = a[i];
+        pair<int, string> p2 = b[i];
         if(p1.first != p2.first || p1.second != p2.second) return false;
     }
     return true;
