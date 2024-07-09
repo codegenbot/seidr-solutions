@@ -14,7 +14,7 @@ bool isSimplePower(int x) {
     return false;
 }
 
-int main() {
+int main1() {
     int x;
     std::cout << "Enter a number: ";
     std::cin >> x;
