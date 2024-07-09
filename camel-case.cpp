@@ -23,12 +23,7 @@ std::string camelCase(const std::string& s) {
 int main() {
     std::string s;
     while (std::cin >> s) {
-        try {
-            std::cout << camelCase(s) << '\n';
-        } catch (...) {
-            std::cerr << "Invalid input. Please provide a string in kebab-case.\n";
-            return 1;
-        }
+        std::cout << camelCase(s) << '\n';
     }
     return 0;
 }
