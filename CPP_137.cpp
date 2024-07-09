@@ -1,44 +1,31 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
 #include <boost/any.hpp>
-using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max(a.convert_to<int>(), b.convert_to<float>());
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return max(a.convert_to<float>(), b.convert_to<int>());
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = a.convert_to<string>();
-        string str2 = b.convert_to<string>();
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)a > (double)b ? a : b;
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return (double)a > (int)b ? a : b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
 
-        int num1, num2;
-        bool isNum1Valid = true, isNum2Valid = true;
+        int num1 = stoi(str1.substr(0, str1.find(',')));
+        int num2 = stoi(str2.substr(0, str2.find(',')));
 
-        for (int i = 0; i < str1.length(); ++i) {
-            if (!isdigit(str1[i])) {
-                isNum1Valid = false;
-                break;
-            }
-        }
-
-        for (int i = 0; i < str2.length(); ++i) {
-            if (!isdigit(str2[i])) {
-                isNum2Valid = false;
-                break;
-            }
-        }
-
-        if (isNum1Valid && isNum2Valid) {
-            num1 = stoi(str1);
-            num2 = stoi(str2);
-
-            return (num1 > num2) ? str1 : ((num1 < num2) ? str2 : boost::any("None"));
-        } else {
-            return max(a, b);
-        }
+        return (double)num1 > (double)num2 ? a : b;
+    }
+    else if (a.type() == typeid(string)) {
+        string str = boost::any_cast<string>(a);
+        int num = stoi(str.substr(0, str.find(',')));
+        return b.type() == typeid(int) && (int)b >= num ? "None" : a;
+    }
+    else if (b.type() == typeid(string)) {
+        string str = boost::any_cast<string>(b);
+        int num = stoi(str.substr(0, str.find(',')));
+        return a.type() == typeid(int) && (int)a >= num ? "None" : b;
     }
 
-    return boost::any("None");
+    return "None";
 }
