@@ -59,3 +59,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     return result;
 
 }
+
+int main() {
+    solve();
+}
