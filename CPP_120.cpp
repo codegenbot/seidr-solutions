@@ -21,13 +21,13 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::priority_queue<std::pair<int,int>, std::vector<std::pair<int,int>>, std::greater<std::pair<int,int>>> pq;
+    std::priority_queue<std::pair<int,int>, std::vector<Pair>, std::greater<Pair>> pq;
 
     for(int i = 0; i < arr.size(); i++) {
         Pair p;
         p.first = arr[i];
         p.second = i;
-        pq.push(p);
+        pq.push(std::make_pair(arr[i], i));
     }
 
     // Keep popping elements from the priority queue until k elements are popped
@@ -57,12 +57,12 @@ int main() {
     std::cin >> k;
 
     std::cout << "Enter elements: ";
-    std::vector<int> arr(n); // Initialize the array with size n
+    std::vector<int> arr;
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
-        arr[i] = val;
+        arr.push_back(val);
     }
 
     std::vector<int> result = maximum(arr, k);
