@@ -18,34 +18,34 @@ int main() {
 
     for(int i = 0; i < n; ++i) {
         int x;
-        while (!(std::cin >> x)) {
-            if (std::cin.fail()) {
-                std::cerr << "Invalid input. Please enter an integer." << std::endl;
-                std::cin.clear(); 
-                while(std::cin.get() != '\n') {  // Read and discard rest of the line
+        while (true) {
+            try {
+                std::cin >> x;
+                a.push_back(x);
+                break; // successfully read the integer
+            } catch (...) {
+                if (!std::cin) { // input stream is invalid
+                    std::cerr << "Invalid input. Please enter an integer." << std::endl;
+                    std::cin.clear(); 
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
                 }
-                std::cin >> x;  // Re-try to read an integer
-            } else {
-                a.push_back(x);
-                break;
             }
         }
     }
 
     for(int i = 0; i < n; ++i) {
         int x;
-        while (!(std::cin >> x)) {
-            if (std::cin.fail()) {
-                std::cerr << "Invalid input. Please enter an integer." << std::endl;
-                std::cin.clear(); 
-                while(std::cin.get() != '\n') {  // Read and discard rest of the line
+        while (true) {
+            try {
+                std::cin >> x;
+                b.push_back(x);
+                break; // successfully read the integer
+            } catch (...) {
+                if (!std::cin) { // input stream is invalid
+                    std::cerr << "Invalid input. Please enter an integer." << std::endl;
+                    std::cin.clear(); 
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
                 }
-                std::cin >> x;  // Re-try to read an integer
-            } else {
-                b.push_back(x);
-                break;
             }
         }
     }
