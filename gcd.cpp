@@ -1,7 +1,5 @@
-```
 #include <vector>
 #include <string>
-
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -12,9 +10,8 @@ vector<int> indicesOfSubstring(string text, string target) {
     for(int i=0; i<=n-m; i++){
         if(text.substr(i,m).compare(target) == 0){
             result.push_back(i);
-            // check for overlapping substrings
-            while(i + m <= n && text.substr(i,m).compare(target) == 0){
-                i++;
+            while((i+m) <= n && (text.substr(i,m)).compare(target) == 0) {
+                i += m;
             }
         }
     }
