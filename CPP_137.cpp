@@ -1,4 +1,3 @@
-```
 #include <boost/any.hpp>
 #include <boost/type_index.hpp>
 
@@ -29,14 +28,14 @@ boost::any compare_one(boost::any a, boost::any b) {
         double n2 = stod(s2);
         return n1 > n2 ? a : b;
     }
-    else if (a.type() == typeid(int) && boost::any_cast<int>(a) == boost::any_cast<double>(a)) {
-        return type_id<int>();
+    else if (a.type() == typeid(int) && a.convert_to<int>() == a.convert_to<double>()) {
+        return type_id<decltype("None")>();
     }
-    else if (a.type() == typeid(double) && boost::any_cast<double>(a) == boost::any_cast<int>(a)) {
-        return type_id<int>();
+    else if (a.type() == typeid(double) && a.convert_to<double>() == a.convert_to<int>()) {
+        return type_id<decltype("None")>();
     }
-    else if (a.type() == typeid(string) && any_cast<string>(a).find('.') == std::string::npos) {
-        return type_id<int>();
+    else if (a.type() == typeid(string) && any_cast<string>(a).find('.') == string::npos) {
+        return type_id<decltype("None")>();
     }
     return a;
 }
