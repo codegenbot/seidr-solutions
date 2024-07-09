@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -47,15 +46,4 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
 
     return result;
-}
-
-int main() {
-    std::vector<int> numbers = {1, 2, 3};
-    std::vector<std::string> output = by_length(numbers);
-    
-    for (std::string str : output) {
-        std::cout << str << std::endl;
-    }
-
-    return 0;
 }
