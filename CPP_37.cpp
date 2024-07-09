@@ -19,10 +19,8 @@ namespace myspace {
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
                 auto it = l.begin();
-                float minVal = *it;
-                for(int j = 1; j < l.size(); j++){
-                    if(l[j] < minVal){
-                        minVal = l[j];
+                for (int j = 0; j < l.size(); j++) {
+                    if (l[j] < *it) {
                         it = &l[j];
                     }
                 }
