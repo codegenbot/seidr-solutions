@@ -1,4 +1,4 @@
-#include <iostream>
+#include <vector>
 #include <algorithm>
 
 bool same(const std::vector<int>& a, const std::vector<int>& b) {
