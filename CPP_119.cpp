@@ -1,17 +1,26 @@
-Here is the completed code:
-
-```cpp
-int stack_size = 0;
-for (auto &s : lst) {
-    int size = s.size();
-    for (int i = 0; i < size; i++) {
-        if (s[i] == '(') {
-            stack_size++;
-        } else if (s[i] == ')') {
-            if (stack_size <= 0) return "No";
-            stack_size--;
+bool checkBalance(string s) {
+    int count = 0;
+    for (char c : s) {
+        if (c == '(') count++;
+        else if (c == ')') {
+            if (count <= 0) return false;
+            count--;
         }
     }
+    return count == 0;
 }
-if (stack_size > 0) return "No";
-return "Yes";
+
+string match_parens(vector<string> lst) {
+    string s1 = lst[0], s2 = lst[1];
+    int count1 = 0, count2 = 0;
+    for (char c : s1) {
+        if (c == '(') count1++;
+        else if (c == ')') count1--;
+    }
+    for (char c : s2) {
+        if (c == '(') count2++;
+        else if (c == ')') count2--;
+    }
+    if ((count1 >= 0 && count2 >= 0) || (count1 <= 0 && count2 <= 0)) return "Yes";
+    return "No";
+}
