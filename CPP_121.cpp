@@ -1,7 +1,4 @@
 ```cpp
-#include <iostream>
-#include <vector>
-
 int sumOdd(std::vector<int> lst) {
     int sum = 0;
     for (int i : lst) {
@@ -15,8 +12,10 @@ int sumOdd(std::vector<int> lst) {
 int solutions(std::vector<int> lst) { 
     int sum = sumOdd(lst);
     for (int i : lst) {
-        if (i % 2 == 0 && i > 0)
+        if (i % 2 == 0 && sum > 0)
             sum -= i; 
+        else
+            break;
     }
     return sum;
 }
