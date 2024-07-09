@@ -1,5 +1,4 @@
-```cpp
-#include<stdio.h>
+#include<iostream>
 #include<string>
 #include<algorithm>
 #include<boost/any.hpp>
@@ -13,10 +12,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (stod(a.convert_to<string>()) > stod(b.convert_to<string>())) {
+        string a_str = boost::any_cast<string>(a);
+        string b_str = boost::any_cast<string>(b);
+        if (stoi(a_str) > stoi(b_str)) {
             return a;
         }
-       	else if (stod(a.convert_to<string>()) < stod(b.convert_to<string>())) {
+       	else if (stoi(a_str) < stoi(b_str)) {
             return b;
         }
 		else {
@@ -24,12 +25,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        double a_num = stod(a.convert_to<string>());
-        double b_num = stod(b.convert_to<string>());
-        if (a_num > b_num) {
+        int a_int = boost::any_cast<int>(a);
+        string b_str = boost::any_cast<string>(b);
+        if (a_int > stoi(b_str)) {
             return a;
         }
-		else if (a_num < b_num) {
+		else if (a_int < stoi(b_str)) {
             return b;
         }
 		else {
