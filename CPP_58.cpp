@@ -17,8 +17,9 @@ int main() {
         s1Vec.push_back(x);
     }
 
-    std::vector<std::string> s1Copy(s1Vec);
-    s1 = s1Copy;
+    for (const auto& x : s1Vec) {
+        s1.insert(x);
+    }
 
     std::vector<std::string> s2Vec;
     for(int i = 0; i < m1; i++) {
@@ -27,8 +28,9 @@ int main() {
         s2Vec.push_back(y);
     }
 
-    std::vector<std::string> s2Copy(s2Vec);
-    s2 = s2Copy;
+    for (const auto& x : s2Vec) {
+        s2.insert(x);
+    }
 
     std::vector<std::string> diff(s1.begin(), s1.end());
     set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(),
