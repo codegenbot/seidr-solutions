@@ -3,7 +3,7 @@
 
 int main() {
     boost::any a = "hello";
-    boost::any b = "hi";
+    boost::any b = 2;
 
     boost::any result = compare_one(a, b);
 
@@ -14,10 +14,10 @@ int main() {
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return "Invalid";
+        return "Int is greater";
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        return a;
+        return "Float is greater";
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
