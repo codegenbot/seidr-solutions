@@ -1,4 +1,3 @@
-```
 def Strongest_Extension(class_name, extensions):
     strongest = (None, 0)
     for extension in extensions:
