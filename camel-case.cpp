@@ -4,24 +4,21 @@
 
 std::string kebabToCamel(const std::string& s) {
     std::string result;
-    bool capitalize = true;
+    bool capitalize = false;
 
     for (char c : s) {
         if (c == '-') {
-            if (s.find(c) < s.size() - 1 && std::isalpha(s[s.find(c) + 1])) {
-                capitalize = true;
-            } else {
-                result += c;
-            }
+            capitalize = true;
         } else if (capitalize) {
             result += std::toupper(c);
             capitalize = false;
+            result += ' ';
         } else {
-            result += std::tolower(c);
+            result += c;
         }
     }
 
-    return result;
+    return result.substr(1); // Remove leading space
 }
 
 int main() {
