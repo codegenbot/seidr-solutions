@@ -1,6 +1,8 @@
+```
 #include <map>
 #include <string>
 
+namespace std {
 std::map<char, int> histogram(const std::string& s) {
     std::map<char, int> result;
     for (char c : s) {
@@ -15,4 +17,5 @@ std::map<char, int> histogram(const std::string& s) {
 
 bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
+}
 }
