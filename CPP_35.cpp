@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -14,5 +14,7 @@ float max_element(vector<float> l){
 }
 
 int main() {
-    // Your test code here
+    vector<float> numbers = {4.2, -9.5, 7.8, 3.6};
+    cout << "The maximum element is: " << max_element(numbers) << endl;
+    return 0;
 }
