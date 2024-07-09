@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -25,27 +26,25 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst;
+    vector<string> input;
     cout << "Enter strings separated by spaces: ";
-    for(string s; getline(cin, s);) 
-        lst.push_back(s);
-    
-    vector<string> result = sorted_list_sum(lst);
+    string s;
+    getline(cin, s);
+    size_t start = 0;
+    while ((size_t)(start = s.find(" ")) != string::npos) {
+        input.push_back(s.substr(0, start));
+        s.erase(0, start + 1);
+    }
+    input.push_back(s);
+
+    vector<string> result = sorted_list_sum(input);
 
     sort(result.begin(), result.end());
-    
-    cout << "Sorted list sum of even length strings is:" << endl;
     for (const auto& str : result) {
         if (str.length() % 2 == 0) {
             cout << str << " ";
         }
     }
-    cout << endl;
-    
-    vector<string> test_lst = lst;
-    sort(test_lst.begin(), test_lst.end());
-    
-    assert(issame(sorted(test_lst), {"aaaa", "bbbb"}));
     
     return 0;
 }
