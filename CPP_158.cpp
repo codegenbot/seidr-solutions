@@ -3,13 +3,11 @@
 #include <algorithm>
 
 int find_max(std::vector<std::string> words){
-    int max_count = 0;
-    string max_word = *max_element(words.begin(), words.end());
-    for(string word : words){
-        if(count(word.begin(), word.end(), unique(word.begin(), word.end())) > max_count){
-            max_count = count(word.begin(), word.end(), unique(word.begin(), word.end()));
+    auto max_word = *std::max_element(words.begin(), words.end());
+    for(const std::string& word : words){
+        if(std::count(word.begin(), word.end(), unique(word.begin(), word.end())) > std::count(max_word.begin(), max_word.end(), unique(max_word.begin(), max_word.end()))){
             max_word = word;
         }
     }
-    return max_count;
+    return std::hash<std::string>{}(max_word);
 }
