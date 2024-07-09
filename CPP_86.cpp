@@ -1,17 +1,17 @@
-string result = "";
-    string word = "";
-    for (char c : s){
-        if (c == ' '){
-            sort(word.begin(), word.end());
-            result += word + ' ';
-            word = "";
-        } else {
-            word += c;
+string anti_shuffle(string s){
+    string result = "";
+    string current_word = "";
+    for(char c : s){
+        if(c == ' '){
+            sort(current_word.begin(), current_word.end());
+            result += current_word + ' ';
+            current_word = "";
+        }
+        else{
+            current_word += c;
         }
     }
-    if (!word.empty()){
-        sort(word.begin(), word.end());
-        result += word;
-    }
+    sort(current_word.begin(), current_word.end());
+    result += current_word;
     return result;
 }
