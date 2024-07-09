@@ -2,23 +2,22 @@
 #include <string>
 #include <cctype>
 
-bool isAllCaseConsistent(map<string, string> inputMap) {
-    if (inputMap.empty()) return false;
+bool check_dict_case(std::map<std::string, std::string> dict) {
+    if (dict.empty()) return false;
 
-    bool allLower = true;
     bool allUpper = true;
+    bool allLower = true;
 
-    for (auto& pair : inputMap) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            allLower = false;
-            allUpper = false;
-            break;
-        } else if ((pair.first[0] >= 'a' && pair.first[0] <= 'z') != (allLower)) {
-            allLower = false;
-            allUpper = false;
-            break;
-        }
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        if (!allUpper && !allLower) break;
+        if (allUpper) allUpper = std::tolower(it->first).find((char)0) == std::string::npos;
+        if (allLower) allLower = std::toupper(it->first).find((char)0) == std::string::npos;
     }
 
-    return allLower || allUpper;
+    return allUpper && allLower;
+}
+
+int main() {
+    assert(check_dict_case({}) == false);
+    return 0;
 }
