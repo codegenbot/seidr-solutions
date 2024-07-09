@@ -2,24 +2,18 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int>& a, std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // Implementation of issame function
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
+    // Implementation of the maximum function
     sort(arr.begin(), arr.end(), std::greater<int>());
     arr.resize(k);
     return arr;
 }
 
 int main() {
-    // Your main function implementation here
+    // Your main function logic here
+    return 0;
 }
