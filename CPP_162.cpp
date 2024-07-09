@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-std::string string_to_md5(std::string text) {
+std::string string_to_md5(const std::string& text) {
     if (text.empty()) return "";
     
     unsigned char result[16];
@@ -27,6 +27,9 @@ std::string string_to_md5(std::string text) {
 
 int main() {
     assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-    std::cout << string_to_md5("your_input") << std::endl; // change to your input
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "MD5 of your input is: " << string_to_md5(input) << std::endl;
     return 0;
 }
