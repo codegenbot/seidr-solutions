@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+using namespace std;
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
@@ -19,4 +21,9 @@ int smallest_change(vector<int> arr) {
     }
     
     return dp[0][n - 1];
+}
+
+int main() {
+    cout << smallest_change({0, 1}) << endl;
+    return 0;
 }
