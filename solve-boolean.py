@@ -3,20 +3,30 @@ def solve_boolean(expression):
     return evaluate_expression(expression)
 
 def evaluate_expression(expression):
+    if "(" in expression:
+        end = expression.index(")")
+        return evaluate_expression("(" + expression[:end+1])
+
     while "&" in expression and "|" in expression:
-        op = "&" if "&" in expression else "|"
-        left, right = expression.split(op)
-        expression = str(evaluate_expression(left)) + op + evaluate_expression(right[1:])
+        while "&" in expression:
+            left, right = expression.split("&", 1)
+            expression = str(evaluate_expression(left)) + " & "
 
-    if "&" in expression:
+        while "|" in expression:
+            left, right = expression.split("|", 1)
+            expression = left + " | " + right
+
+    if "&" in expression and "|" not in expression:
+        return eval("(" + expression.replace("&", ") and (") + ")")
+
+    if "|" in expression and "&" not in expression:
+        return eval("(" + expression.replace("|", ") or (") + ")")
+
+    if "&" in expression and "|" in expression:
         left, right = expression.split("&")
-        return eval("(" + str(evaluate_expression(left)) + ") and (" + evaluate_expression(right) + ")")
+        return eval("((" + str(evaluate_expression(left)) + ") and (" + evaluate_expression(right) + "))")
 
-    if "|" in expression:
-        left, right = expression.split("|")
-        return eval("(" + str(evaluate_expression(left)) + ") or (" + evaluate_expression(right) + ")")
-
-    if "T" in expression:
+    if "T" in expression or "True" in expression:
         return True
-    elif "F" in expression:
+    elif "F" in expression or "False" in expression:
         return False
