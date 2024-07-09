@@ -5,12 +5,8 @@
 
 using namespace std;
 
-bool issame(string& a) {
-    bool found = false;
-    if (a == "( ) (( ") || a == "(())") {
-        found = true;
-    }
-    return found;
+bool issame(string& s) {
+    return (s == "( ) (( ") || s == "(())");
 }
 
 string separate_paren_groups(string s) {
@@ -54,7 +50,7 @@ int main() {
         }
     }
 
-    assert(issame(separate_paren_groups("( ) (( ")) );
+    assert(issame(separate_paren_groups("( ) (( ")) == issame("(())"));
 
     cout << "Result: " << separate_paren_groups(s) << endl;
     return 0;
