@@ -1,4 +1,4 @@
-long long minSubArraySum(vector<long long> nums) {
+int minSubArraySum(vector<long long> nums) {
     long long min_sum = LLONG_MAX;
     for (int start = 0; start < nums.size(); ++start) {
         long long current_sum = 0;
@@ -13,7 +13,6 @@ long long minSubArraySum(vector<long long> nums) {
 }
 
 int main() {
-    vector<long long> nums = {2,3,4};
-    cout << "Minimum sum of subarray: " << minSubArraySum(nums) << endl;
+    // Test your minSubArraySum function here...
     return 0;
 }
