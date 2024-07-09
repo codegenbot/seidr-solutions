@@ -1,2 +1,3 @@
-def sum_odd(lst):
-    return sum(i for i in lst if isinstance(i, int) and i % 2 != 0)
+```
+def solution(lst):
+    return sum(i for i in lst[1::2] if i % 2 != 0)
