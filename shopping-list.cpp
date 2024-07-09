@@ -1,5 +1,8 @@
 #include <vector>
 #include <iostream>
+#include <string>
+#include <sstream>
+#include <initializer_list>
 
 double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
     double total = 0;
@@ -10,15 +13,24 @@ double shoppingList(std::vector<float> prices, std::vector<float> discounts) {
 }
 
 int main() {
-    std::vector<float> prices(15);
-    std::vector<float> discounts(15);
+    std::vector<float> prices;
+    std::vector<float> discounts;
 
-    for(int i = 0; i < 15; i++) {
-        std::cin >> prices[i];
+    // Read prices
+    std::string temp;
+    std::getline(std::cin, temp);
+    std::istringstream iss(temp);
+    float price;
+    while (iss >> price) {
+        prices.push_back(price);
     }
 
-    for(int i = 0; i < 15; i++) {
-        std::cin >> float(discounts[i]);
+    // Read discounts
+    std::getline(std::cin, temp);
+    iss.clear();
+    iss.str(temp);
+    while (iss >> price) {
+        discounts.push_back(price);
     }
 
     double total = shoppingList(prices, discounts);
