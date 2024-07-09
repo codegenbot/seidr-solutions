@@ -1,30 +1,20 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string kebabToCamel(const std::string& str) {
-    std::string result;
-    bool capitalize = true;
-
-    for (char c : str) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
-        } else {
-            result += tolower(c);
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++; // skip the dash
+            while (i < s.length() && isspace(s[i])) i++; // skip spaces
+            char firstChar = toupper(s[i]);
+            result += firstChar;
+            i--; // go back to the previous character
+        } else if (!isspace(s[i])) {
+            if (result != "") {
+                result[0] = tolower(result[0]); // make it lowercase
+            }
+            result += s[i];
         }
     }
-
     return result;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input;
-
-    std::cout << "CamelCase conversion: " << kebabToCamel(input) << std::endl;
-
-    return 0;
 }
