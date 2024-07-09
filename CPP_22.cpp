@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,17 +12,4 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> filter_integers(list_any values){
-    vector<int> result;
-    for (auto val : values) {
-        if (val.type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(val));
-        }
-    }
-    return result;
-}
-
-int main() {
-    // Your main function code goes here
-    return 0;
-}
+vector<int> filter_integers(list_any values);
