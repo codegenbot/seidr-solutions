@@ -1,4 +1,4 @@
-bool solveBoolean(std::string s) {
+bool solveBoolean(string s) {
     bool result = true;
     int i = 0;
 
