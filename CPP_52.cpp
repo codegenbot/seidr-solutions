@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 
@@ -12,25 +13,29 @@ bool below_threshold(vector<int> l, int t) {
     return true;
 }
 
-int main() {
-    vector<int> numbers;
-    int threshold;
-
-    cout << "Enter the number of integers: ";
-    int n; cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        int num; cin >> num;
-        numbers.push_back(num);
-    }
-
+bool getNumbers(vector<int>& numbers, int& threshold) {
     cout << "Enter the threshold: ";
     cin >> threshold;
 
-    if(below_threshold(numbers, threshold)) {
-        cout << "All numbers are below threshold." << endl;
-    } else {
-        cout << "At least one number is not below the threshold." << endl;
+    cout << "Enter the numbers separated by space: ";
+    for(int i=0; i<5; i++) {
+        cin >> numbers[i];
     }
     
+    return true;
+}
+
+int main() {
+    vector<int> numbers(5); 
+    int threshold;
+
+    if(getNumbers(numbers, threshold)) {
+        if(below_threshold(numbers, threshold)) {
+            cout << "All numbers are below the threshold." << endl;
+        } else {
+            cout << "At least one number is not below the threshold." << endl;
+        }
+    }
+
     return 0;
+}
