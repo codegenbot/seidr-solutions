@@ -1,5 +1,4 @@
-```
-int do_algebra(vector<string> operator_, vector<int> operand) {
+long long do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
         expression += to_string(operand[i]);
@@ -9,7 +8,7 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
     
     long long result = eval(expression);
     
-    return static_cast<int>(result);
+    return result;
 }
 
 long long eval(const string& s) {
@@ -27,13 +26,11 @@ long long eval(const string& s) {
                 sign = -1;
             }
             start = i + 1;
-        } 
-        else {
+        } else {
             while (i < s.size() && isdigit(s[i])) {
                 result += sign * (s[i] - '0');
                 i++;
             }
-            i--;
         }
     }
     
