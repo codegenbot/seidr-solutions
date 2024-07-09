@@ -1,6 +1,7 @@
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+bool checkIfSame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -12,6 +13,5 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(issame(make_a_pile(8), vector<int>({0, 1, 3, 6, 10, 15, 21, 28})));
+    assert(checkIfSame(make_a_pile(8), vector<int>({0, 1, 3, 6, 10, 15, 21, 28})));
     return 0;
-}

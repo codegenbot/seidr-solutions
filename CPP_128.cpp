@@ -1,23 +1,22 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 int prod_signs(std::string str1, std::string str2, std::string str3) {
     for (auto& s : {str1, str2, str3}) {
-        for (const char& c : s) {
-            c = static_cast<char>(std::toupper(c));
-        }
+        std::transform(s.begin(), s.end(), s.begin(), ::toupper);
         
-        if ((str1[0] == '-' || str1[0] == ' ') && str1.length() > 1) {
-            str1 = str1.substr(1);
+        if ((s[0] == '-' || s[0] == ' ') && s.length() > 1) {
+            size_t i = 0;
+            while (i < s.size()) {
+                if (!((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))) {
+                    break;
+                }
+                ++i;
+            }
+            s.erase(0, i);
         }
-        if ((str2[0] == '-' || str2[0] == ' ') && str2.length() > 1) {
-            str2 = str2.substr(1);
-        }
-        if ((str3[0] == '-' || str3[0] == ' ') && str3.length() > 1) {
-            str3 = str3.substr(1);
-        }
-
     }
     
     if (str1.empty() || str2.empty() || str3.empty()) return 0;
