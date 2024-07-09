@@ -19,4 +19,4 @@ int main() {
     getline(cin, input);
     string output = squareDigits(input);
     cout << "Squared digits: " << output << endl;
-    return 0; }
+    return 0}
