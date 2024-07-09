@@ -1,29 +1,30 @@
-#include <string>
-using namespace std;
+Here's the modified code:
 
-pair<int, int> getMastermindPegs(const string& code, const string& guess) {
-    int whitePegs = 0;
-    int blackPegs = 0;
-    
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
-            blackPegs++;
-        } else if(count(guess.begin(), guess.end(), code[i]) > 0) {
-            whitePegs++;
+```c
+#include <string>
+
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+    vector<int> code_count(6, 0);
+    vector<int> guess_count(6, 0);
+
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            black++;
+            code_count[code[i] - 'A']++;
+            guess_count[guess[i] - 'A']++;
+        } else {
+            code_count[code[i] - 'A']++;
+            guess_count[guess[i] - 'A']++;
         }
     }
 
-    return {whitePegs, blackPegs};
-}
+    for (int i = 0; i < 6; i++) {
+        if (code_count[i] > 0 && guess_count[i] > 0) {
+            white += min(code_count[i], guess_count[i]);
+        }
+    }
 
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-
-    pair<int, int> pegs = getMastermindPegs(code, guess);
-
-    cout << pegs.second << endl; // print the number of white pegs
-    cout << pegs.first << endl;  // print the number of black pegs
-
-    return 0;
+    return black + white;
 }
