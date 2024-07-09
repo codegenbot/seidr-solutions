@@ -7,7 +7,7 @@ std::vector<int> leaders(std::vector<int>& arr) {
     
     for(int i=n-1; i>=0; i--) {
         bool isLeader = true;
-        for(int j=i+1; j<n; j++) {
+        for(int j=i; j<n; j++) { 
             if(arr[i] < arr[j])
                 isLeader = false;
         }
