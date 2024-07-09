@@ -3,14 +3,13 @@
 
 using namespace std;
 
-bool isSame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
-        }
     }
     return true;
 }
@@ -20,7 +19,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     for (int i = 0; i < grid.size(); ++i) {
         for (int j = 0; j < grid[0].size(); ++j) {
             if (grid[i][j] == k) {
-                while (k-- > 1) {
+                for(int _k=0;_k<k;++_k){
                     result.push_back(i);
                     result.push_back(j);
                 }
@@ -31,6 +30,6 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 }
 
 int main() {
-    assert(isSame(minPath({{1, 3}, {3, 2}}, 10), vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3})));
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     return 0;
 }
