@@ -1,7 +1,4 @@
 #include <iostream>
-#include <cmath>
-
-using namespace std;
 
 long long special_factorial(int n) {
     if (n <= 1)
@@ -17,8 +14,8 @@ long long special_factorial(int n) {
 
 int main() {
     int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    cout << "Special factorial of " << n << " is " << special_factorial(n) << endl;
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    long long result = special_factorial(n);
+    std::cout << "The special factorial of " << n << " is " << result << "." << std::endl;
     return 0;
-}
