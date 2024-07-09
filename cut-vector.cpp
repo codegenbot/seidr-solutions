@@ -1,15 +1,23 @@
+#include <vector>
+#include <limits> // for INT_MAX
+#include <cmath>  // for abs
+
+using namespace std;
+
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int minDiff = numeric_limits<int>::max();
     pair<vector<int>, vector<int>> result;
     
-    for(int i = 1; i < v.size(); i++) {
+    for(int i = 1; i <= v.size(); i++) {
         int leftSum = 0, rightSum = 0;
         
-        for(int j = 0; j < i; j++) {
+        for(int j = 0; j <= i - 1; j++) {
             leftSum += v[j];
         }
         
-        rightSum = accumulate(v.begin() + i, v.end(), 0);
+        for(int j = i; j <= v.size() - 1; j++) {
+            rightSum += v[j];
+        }
         
         int diff = abs(leftSum - rightSum);
         
