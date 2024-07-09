@@ -1,15 +1,20 @@
+#include <cassert>
+#include <vector>
+#include <string>
+
 using namespace std;
 
-string longest(vector<string> strings) {
+string longest(vector<string> strings){
     if(strings.empty()) return "";
-    string strng = strings[0];
-    for(auto str : strings){
-        if(str.length() > strng.length()){
-            strng = str;
-        }
-        else if(str.length() == strng.length()){
-            strng = str;
-        }
+    string result = strings[0];
+    for(string s : strings) {
+        if(s.length() > result.length())
+            result = s;
     }
-    return strng;
+    return result;
+}
+
+int main() {
+    assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    return 0;
 }
