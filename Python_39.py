@@ -1,20 +1,11 @@
-def prime_fib():
-    n = int(input("Enter n: "))
+def prime_fib(n: int):
+    fib = [0, 1]
+    while len(fib) <= n:
+        fib.append(fib[-1] + fib[-2])
     
-    def fibonacci(n):
-        if n <= 1:
-            return n
-        else:
-            return fibonacci(n - 1) + fibonacci(n - 2)
+    prime_fib_list = [num for num in fib if is_prime(num)]
     
-    i = 0
-    while True:
-        fib_num = fibonacci(i)
-        if is_prime(fib_num):
-            n -= 1
-            if n == 0:
-                print(fib_num)
-                return
-        i += 1
-        
-prime_fib()
+    if n-1 < len(prime_fib_list):
+        return prime_fib_list[n-1]
+    else:
+        return None  # or handle the case where index is out of range differently
