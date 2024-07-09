@@ -1,23 +1,20 @@
 #include <string>
-#include <cassert>
 #include <algorithm>
 
-bool assert_pair_equal(std::pair<std::string, std::string> a, std::pair<std::string, std::string> b) {
-    return a == b;
-}
-
-std::pair<std::string, std::string> reverse_delete(const std::string& s, const std::string& c) {
+std::pair<std::string, std::string> reverse_delete(const std::string& input_string, const std::string& chars_to_delete) {
     std::string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == std::string::npos) {
+    for (char ch : input_string) {
+        if (chars_to_delete.find(ch) == std::string::npos) {
             result += ch;
         }
     }
-    std::string result_reversed = result;
-    std::reverse(result_reversed.begin(), result_reversed.end());
-    return {result, result == result_reversed ? "True" : "False"};
+
+    std::string reversed_result = result;
+    std::reverse(reversed_result.begin(), reversed_result.end());
+
+    return { result, result == reversed_result ? "True" : "False" };
 }
 
 int main() {
-    assert(assert_pair_equal(reverse_delete("mamma", "mia"), std::make_pair("", "True")));
+    assert(assert_pair_equal(reverse_delete("mamma", "mia"), { "", "True" }));
 }
