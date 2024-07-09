@@ -1,18 +1,12 @@
-int search(vector<int> lst) {
-    map<int, int> count;
-    for (int i : lst) {
-        if (!count.count(i)) {
-            count[i] = 1;
-        } else {
-            count[i]++;
-        }
-    }
-    int result = -1;
-    for (auto p : count) {
-        if (p.first > 0 && p.second >= p.first) {
-            result = p.first;
+Here is the completed code:
+
+int search(vector<int> lst){
+    int max = 0;
+    for(int i = 1; i <= *max_element(lst.begin(), lst.end()); i++){
+        if(count(lst.begin(), lst.end(), i) >= i){
+            max = i;
             break;
         }
     }
-    return result;
+    return max == 0 ? -1 : max;
 }
