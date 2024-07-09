@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 bool issame(const std::vector<int> &a, const std::vector<int> &b) {
     return a == b;
@@ -21,6 +20,5 @@ std::vector<int> cpp123(int n) {
 
 int main() {
     assert(issame(cpp123(1), {1}));
-
     return 0;
 }
