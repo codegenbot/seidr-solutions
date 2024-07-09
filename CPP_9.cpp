@@ -3,15 +3,13 @@
 using namespace std;
 
 vector<int> rolling_max(vector<int> numbers) {
-    vector<int> result;
-    int max = INT_MIN;
-
+    vector<int> maxs;
+    int currentMax = INT_MIN;
     for (int num : numbers) {
-        if (num > max) {
-            max = num;
+        if (num > currentMax) {
+            currentMax = num;
         }
-        result.push_back(max);
+        maxs.push_back(currentMax);
     }
-
-    return result;
+    return maxs;
 }
