@@ -1,13 +1,30 @@
-int main 
-{
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    std::vector<int> result = get_odd_collatz(n);
-    std::cout << "Collatz sequence for " << n << ": ";
-    for (auto x : result) {
-        std::cout << x << " ";
+```
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool same(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
-    std::cout << std::endl;
-    return 0;
+    return true;
 }
+
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
+    while (n != 1) {
+        if (n % 2 == 0) {
+            n /= 2;
+        } else {
+            n = 3 * n + 1;
+        }
+        if (n % 2 != 0) {
+            result.push_back(n);
+        }
+    }
+    std::sort(result.begin(), result.end());
+    return result;
+}
+
+int main(){}
