@@ -1,6 +1,8 @@
-from math import ceil
+```
+from math import ceil, max
+from typing import List
 
-def max_fill(grid, capacity):
+def max_fill(grid: List[List[int]], capacity: int) -> int:
     if not grid or not all(len(row) == len(grid[0]) for row in grid):
         raise ValueError("Grid should be a square")
     
