@@ -1,17 +1,15 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(vector<int> a, vector<int> b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<any> filter_integers(list<any> values){
-    std::vector<any> result;
+vector_any filter_integers(list_any values){
+    vector_any result;
     for (const auto& value : values) {
-        boost::any_cast<int>(value);
-        if(boost::any_cast<bool>(value) && boost::any_cast<int>(value).second == 0){
-            result.push_back(value);
-        }
+        if(boost::any_cast<tuple<bool,int>,value>().second==0){ 
+            if(boost::get<bool>(boost::any_cast<tuple<bool,int>,value>()) && boost::get<int>(boost::any_cast<tuple<bool,int>,value>())!=0) {
+                result.push_back(boost::get<int>(boost::any_cast<tuple<bool,int>,value>()));
+            }
+        } 
     }
     return result;
 }
