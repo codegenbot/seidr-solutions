@@ -1,5 +1,6 @@
 #include <vector>
 #include <tuple>
+#include <iostream>
 
 std::tuple<int, int> sum_product(std::vector<int> numbers) {
     int sum = 0;
