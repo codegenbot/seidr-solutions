@@ -12,11 +12,7 @@ bool is_happy(const std::string& s) {
     return sum == 9 || sum == 18 || sum % 19 == 0;
 }
 
-int main() {
-    assert(is_happy("iopaxioi") == false);
-    std::cout << "Enter a string: ";
-    std::string s;
-    std::getline(std::cin, s);
+bool is_valid(const std::string& s) {
     int result = 0;
     for (char c : s) {
         if (c != 'a' && c != 'b' && c != 'c' && c != 'd' && c != 'e' && c != 'f') {
@@ -24,8 +20,5 @@ int main() {
             break;
         }
     }
-    if (result == 0)
-        std::cout << "The string is happy." << std::endl;
-    else
-        std::cout << "The string is not happy." << std::endl;
+    return result == 0;
 }
