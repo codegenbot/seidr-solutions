@@ -2,12 +2,15 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
 bool same(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
@@ -55,7 +58,7 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
 
 int main() {  
     vector<string> lst1 = {"apple", "banana"};
-    vector<string> lst2;
+    vector<string> lst2 = {"orange", "grape"}; 
     vector<string> result = totalMatch(lst1, lst2);
     cout << "Result: ";
     for (const string& s : result) {
