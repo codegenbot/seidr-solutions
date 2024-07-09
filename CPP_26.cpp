@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 
-bool isSame(vector<int> a, vector<int> b) {
+bool areVectorsEqual(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -18,14 +17,14 @@ bool isSame(vector<int> a, vector<int> b) {
 vector<int> remove_duplicates(vector<int> numbers) {
     std::vector<int> newVector;
     for(int i:numbers){
-        if(std::find(newVector.begin(), newVector.end(), stoi(to_string(i))) == newVector.end()){
-            newVector.push_back(stoi(to_string(i)));
+        if(std::find(newVector.begin(), newVector.end(), i) == newVector.end()){
+            newVector.push_back(i);
         }
     }
     return newVector;
 }
 
-int main() {
+int mainFunction() { 
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -38,7 +37,7 @@ int main() {
 
     vector<int> result = remove_duplicates(numbers);
 
-    if (isSame(result, numbers)) {
+    if (areVectorsEqual(result, numbers)) {
         std::cout << "The resulting vector is the same as the original." << std::endl;
     } else {
         std::cout << "The resulting vector is different from the original." << std::endl;
