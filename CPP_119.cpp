@@ -23,9 +23,10 @@ int main() {
     for(int i = 0; i < n; i++) {
         string s;
         if(getline(cin, s)) { 
+            cin.ignore(10000, '\n');  
             lst.push_back(s);
         } else {
-            while (cin.peek() == '\n') cin.ignore(), cout << ' '; // <--- Add a space here!
+            while (cin.peek() == '\n') cin.ignore();
             break; 
         }
     }
