@@ -8,15 +8,12 @@ std::string string_to_md5(std::string text) {
 
     unsigned char md5[16];
     EVP_MD_CTX ctx;
-    EVP_Preferences defaults;
-    EVP_MD_CTX_init(&ctx);
-    EVP_DigestInit_ex(&ctx, EVP_md5(), nullptr);
+    EVP_PacketWriteInit(&ctx);
     const char* p = text.c_str();
-    size_t len = text.length();
     while (*p) {
-        EVP_DigestUpdate(&ctx, p++, 1);
+        EVP_PacketWriteUpdate(&ctx, p++, 1);
     }
-    EVP_DigestFinal_ex(&ctx, md5, &len);
+    EVP_PacketWriteFinal(md5, &ctx);
 
     std::string result(32, '0');
     for (int i = 0; i < 16; ++i) {
