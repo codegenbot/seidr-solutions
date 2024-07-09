@@ -1,19 +1,12 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
 long long minSubArraySum(vector<long long> nums) {
-    long long minSum = INT64_MAX;
-    long long currentSum = 0;
-    
-    for(long long num : nums) {
-        currentSum += num;
-        
-        if(currentSum > 0) {
-            minSum = min(minSum, currentSum);
-        } else {
-            currentSum = 0;
-        }
+    long long min_sum = INT_MAX, current_sum = 0;
+    for (int i = 0; i < nums.size(); ++i) {
+        current_sum += nums[i];
+        min_sum = min(min_sum, current_sum);
+        if (current_sum > 0)
+            current_sum = 0;
     }
-    
-    return minSum > 0 ? 0 : minSum;
+    return min_sum;
 }
