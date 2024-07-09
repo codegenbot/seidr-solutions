@@ -1,13 +1,14 @@
-```
 def is_palindrome(string: str) -> bool:
-    return string.lower() == string.lower()[::-1]
+    """Returns True if the input string is a palindrome, False otherwise"""
+    return string == string[::-1]
+
 
 def make_palindrome(string: str) -> str:
-    if not string:
-        return string
+    """Makes the input string into a palindrome by adding its reverse to itself"""
     if string == string[::-1]:
         return string + string
     else:
-        reverse_half = string[::-1]
-        middle_char = string[len(string)//2]
-        return "".join([reverse_half[:len(middle_char)], middle_char, reverse_half[:len(middle_char)][::-1]])
+        middle_char = len(string) // 2
+        first_half = string[:middle_char]
+        second_half = string[middle_char:][::-1]
+        return first_half + second_half
