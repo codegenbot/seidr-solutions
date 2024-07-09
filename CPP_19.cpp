@@ -1,10 +1,11 @@
+```
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
 std::string sort_numbers(std::string numbers) {
-    vector<std::string> numVec;
+    vector<string> numVec;
     string token;
     map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
         {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
@@ -25,7 +26,7 @@ std::string sort_numbers(std::string numbers) {
 
     // Concatenate the sorted strings into a single output string
     std::string result;
-    for (string str : numVec) {
+    for (std::string str : numVec) {
         result += str + " ";
     }
     return result;
