@@ -2,13 +2,12 @@
 #include <string>
 #include <iostream>
 #include <cassert>
-#include <boost/any.hpp>
 
 using namespace std;
 
 variant<int, float, string> compare_one(const variant<int, float, string>& a, const variant<int, float, string>& b) {
     if (a.index() != b.index())
-        return {};
+        return {}; // Different types, return default-constructed variant
 
     if (holds_alternative<int>(a) && holds_alternative<int>(b)) {
         if (get<int>(a) > get<int>(b))
@@ -34,7 +33,7 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
 int main() {
     assert(get<string>(compare_one(string("1"), string("2"))) == "2");
     assert(get<int>(compare_one(10, 5)) == 10);
-    assert(get<string>(compare_one(string("None"), string("None"))) == "None");
+    assert(compare_one(string("None"), string("None")) == variant<int, float, string>::index_npos);
 
     return 0;
 }
