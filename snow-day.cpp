@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <iomanip>
 
@@ -20,4 +19,3 @@ int main() {
     double calculatedSnow = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
     cout << fixed << setprecision(2) << calculatedSnow << endl;
     return 0;
-}
