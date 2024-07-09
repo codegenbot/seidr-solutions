@@ -3,5 +3,5 @@ def indices_of_substring(text, target):
     for i in range(len(text)):
         pos = text.find(target, i)
         if pos != -1:
-            result.append(pos)
-    return result
+            result.append(i + pos)  
+    return sorted(set(result))
