@@ -5,19 +5,10 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    int n = text.size();
-    int m = target.size();
-
-    for (int i = 0; i <= n - m + 1; i++) {
-        bool found = true;
-        for (int j = 0; j < m; j++) {
-            if (i + j >= n) break; // Check for out-of-bounds access
-            if (text[i + j] != target[j]) {
-                found = false;
-                break; // Stop searching for this occurrence of the target
-            }
-        }
-        if (found) indices.push_back(i);
+    int i = 0;
+    while ((i = text.find(target)) != string::npos) {
+        indices.push_back(i);
+        i += target.size();
     }
 
     return indices;
