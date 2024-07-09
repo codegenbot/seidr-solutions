@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <iostream>
 #include <cassert>
 
 std::vector<int> even_odd_count(int num) {
