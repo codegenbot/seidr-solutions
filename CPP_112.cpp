@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -10,7 +11,7 @@ bool isSame(const std::string& s1, const std::string& s2) {
     return true;
 }
 
-std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::string result = "";
     for (char ch : s) {
         bool found = false;
@@ -30,6 +31,14 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
 }
 
 int main() {
-    std::cout << reverse_delete("hello", "lo").at(1) << std::endl;
+    std::string str1, str2;
+    std::cout << "Enter the string: ";
+    std::cin >> str1;
+    std::cout << "Enter the character to be deleted: ";
+    std::cin >> str2;
+    std::vector<std::string> output = reverse_delete(str1, str2);
+    for (const auto& s : output) {
+        std::cout << s << std::endl;
+    }
     return 0;
 }
