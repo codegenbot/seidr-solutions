@@ -1,14 +1,15 @@
-Here is the solution:
+#include <string>
+#include <cctype>
 
-```cpp
-string flip_case(string str){
-    string result = "";
+std::string filp_case(std::string str) {
+    char c;
+    std::string result = "";
     for(int i=0; i<str.length(); i++){
-        char c = str[i];
+        c = str[i];
         if(c >= 'a' && c <= 'z')
-            result += (c - ('a' - 'A'));
+            result += toupper(c);
         else if(c >= 'A' && c <= 'Z')
-            result += (c - ('A' - 'a'));
+            result += tolower(c);
         else
             result += c;
     }
