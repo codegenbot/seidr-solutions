@@ -1,44 +1,41 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cmath>
 
-int do_algebra(vector<string> operators, vector<int> operand) {
+int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = operand[0];
-    for (int i = 0; i < operators.size(); i++) {
-        if (operators[i] == "+") {
+    for (int i = 0; i < operator_.size(); i++) {
+        if (operator_[i] == "+") {
             result += operand[i + 1];
-        } else if (operators[i] == "-") {
+        } else if (operator_[i] == "-") {
             result -= operand[i + 1];
-        } else if (operators[i] == "*") {
+        } else if (operator_[i] == "*") {
             int temp = 0;
-            for (int j = i; j < operators.size(); j++) {
-                if (operators[j] == "*") {
-                    temp += operand[++j];
-                }
+            for (int j = i + 1; j < operand.size(); j++) {
+                temp += operand[j];
             }
             result *= temp;
-        } else if (operators[i] == "/") {
+        } else if (operator_[i] == "//") {
             int temp = 0;
-            for (int j = i; j < operators.size(); j++) {
-                if (operators[j] == "/") {
-                    temp += operand[++j];
-                }
+            for (int j = i + 1; j < operand.size(); j++) {
+                temp += operand[j];
             }
-            if (temp != 0) {
+            if(temp != 0)
                 result /= temp;
-            } else {
-                return -1;
-            }
-        } else if (operators[i] == "**") {
+        } else if (operator_[i] == "**") {
             int base = operand[i + 1];
             int exponent = 0;
-            for (int j = i; j < operators.size(); j++) {
-                if (operators[j] == "**") {
-                    exponent += operand[++j];
-                }
+            for (int j = i + 2; j < operand.size(); j++) {
+                exponent += operand[j];
             }
             result = pow(base, exponent);
         }
     }
     return result;
+}
+
+int main() {
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    return 0;
 }
