@@ -1,22 +1,25 @@
+#include <cmath>
+#include <stack>
+#include <string>
+#include <vector>
+
 int do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
         expression += to_string(operand[i]);
         expression += operator_[i];
-        i++; // increment i here
     }
     expression += to_string(operand[operator_.size()]);
 
-    long long result = eval(expression);
-    
-    return (int)result;
+    int result = eval(expression);
+
+    return result;
 }
 
 long long eval(const string& s) {
     int n = s.size();
     stack<int> st;
-    int i = 0; // declare i here
-    while (i < n) {
+    for (int i = 0; i < n; i++) {
         if (isdigit(s[i])) {
             int num = 0;
             while (i < n && isdigit(s[i])) {
@@ -47,8 +50,8 @@ long long eval(const string& s) {
             }
         }
     }
-    
-    long long res = 0;
+
+    int res = 0;
     char op = '+';
     while (!st.empty()) {
         if (op == '+') {
@@ -58,7 +61,7 @@ long long eval(const string& s) {
             res -= st.top();
             st.pop();
         } else if (op == '*') {
-            long long num = st.top() * 1;
+            int num = st.top() * 1;
             st.pop();
             while (!st.empty() && st.top() == '(') {
                 st.pop();
@@ -69,7 +72,18 @@ long long eval(const string& s) {
             }
             res += num;
         } else if (op == '/') {
-            long long num = st.top() / 1;
+            int num = st.top() / 1;
+            st.pop();
+            while (!st.empty() && st.top() == '(') {
+                st.pop();
+            }
+            if (!st.empty()) {
+                num /= st.top();
+                st.pop();
+            }
+            res += num;
+        } else if (op == '//') {
+            int num = st.top() / 1;
             st.pop();
             while (!st.empty() && st.top() == '(') {
                 st.pop();
@@ -80,7 +94,7 @@ long long eval(const string& s) {
             }
             res += num;
         } else if (op == '**') {
-            long long num = pow(st.top(), 1);
+            int num = pow(st.top(), 1);
             st.pop();
             while (!st.empty() && st.top() == '(') {
                 st.pop();
@@ -90,20 +104,15 @@ long long eval(const string& s) {
                 st.pop();
             }
             res += num;
-        } else if (op == '//') {
-            long long num = st.top() / 1;
-            st.pop();
-            while (!st.empty() && st.top() == '(') {
-                st.pop();
-            }
-            if (!st.empty()) {
-                num /= st.top();
-                st.pop();
-            }
-            res += num;
+        } else if (op == '+') {
+            i++;
         }
-        op = s[i++];
     }
-    
+
     return res;
+}
+
+int main() {
+    assert(do_algebra({"/", "*"}, {7, 3, 4}) == 8);
+    return 0;
 }

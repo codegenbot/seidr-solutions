@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool same(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -27,6 +27,6 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(same(get_odd_collatz(12), {1, 6, 3})); 
+    assert(isSame(get_odd_collatz(12), {6, 3, 1})); 
     return 0;
 }
