@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 std::string file_name_check(std::string file_name){
     int digit_count = 0;
@@ -29,7 +28,7 @@ std::string file_name_check(std::string file_name){
     int start = file_name.find('.');
     std::string after_dot = file_name.substr(start+1);
     std::vector<std::string> valid_extensions = {"txt", "exe", "dll"};
-    if(find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end())
+    if(std::find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end())
         return "No";
 
     return "Yes";
