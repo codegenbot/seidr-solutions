@@ -1,11 +1,11 @@
 sort(numbers.begin(), numbers.end());
-    float min_diff = INFINITY;
-    pair<float, float> closest_elements;
-    for (int i = 1; i < numbers.size(); ++i) {
-        if (numbers[i] - numbers[i - 1] < min_diff) {
-            min_diff = numbers[i] - numbers[i - 1];
-            closest_elements = make_pair(numbers[i - 1], numbers[i]);
-        }
+pair<float, float> closest_pair;
+float min_diff = numbers[1] - numbers[0];
+for (int i = 1; i < numbers.size() - 1; ++i){
+    float diff = numbers[i + 1] - numbers[i];
+    if (diff < min_diff) {
+        min_diff = diff;
+        closest_pair = make_pair(numbers[i], numbers[i + 1]);
     }
-    return {closest_elements.first, closest_elements.second};
 }
+return {closest_pair.first, closest_pair.second};
