@@ -1,13 +1,12 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::pair<std::vector<float>::value_type, std::vector<float>::value_type>& pair1,
-            const std::pair<std::vector<float>::value_type, std::vector<float>::value_type>& pair2) {
-    return pair1 == pair2;
+bool issame(const std::pair<std::vector<float>::value_type, std::vector<float>::value_type>& p1, const std::pair<std::vector<float>::value_type, std::vector<float>::value_type>& p2) {
+    return p1 == p2;
 }
 
 std::pair<std::vector<float>::value_type, std::vector<float>::value_type> find_closest_elements(const std::vector<std::vector<float>::value_type>& numbers) {
-    std::sort(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
     std::vector<float>::value_type min_diff = numbers[1] - numbers[0];
     std::pair<std::vector<float>::value_type, std::vector<float>::value_type> result = {numbers[0], numbers[1]};
     for (int i = 1; i < numbers.size() - 1; ++i) {
