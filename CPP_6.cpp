@@ -1,7 +1,4 @@
 #include <vector>
-#include <stack>
-using namespace std;
-
 bool issame(vector<int> a,vector<int>b){
     if(a.size() != b.size()) return false;
     for(int i = 0; i<a.size(); i++){
@@ -9,6 +6,8 @@ bool issame(vector<int> a,vector<int>b){
     }
     return true;
 }
+#include <stack>
+using namespace std;
 
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
