@@ -1,6 +1,3 @@
-Here is the completed code:
-
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,40 +12,34 @@ vector<string> split_words(string txt) {
         result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + 1);
     }
-    if (txt.empty()) return result;
-
-    result.push_back(txt);
-
-    for (char& c : txt) {
-        if (c == ',') {
-            size_t pos = txt.find(',');
-            string temp = txt.substr(0, pos);
-            result.clear();
-            result.push_back(temp);
-            txt.erase(0, pos + 1);
-            return result;
-        }
+    if (txt.empty()) {
+        return result;
     }
 
-    int count = 0;
-    for (char c : txt) {
-        if (c >= 'a' && c <= 'z') {
-            count++;
-            if ((count - 1) % 2 != 0) {
-                vector<string> v;
-                v.push_back(to_string(count));
-                return v;
+    if (txt.find(',') == string::npos) {
+        int count = 0;
+        for (char c : txt) {
+            if (c >= 'a' && c <= 'z') {
+                if ((count % 2 != 0)) {
+                    count++;
+                }
+            } else {
+                break;
             }
         }
+        result.push_back(to_string(count));
+    } else {
+        result.push_back(txt);
     }
 
-    vector<string> v;
-    v.push_back(to_string(txt.length()));
-    return v;
+    return result;
 }
 
 int main() {
-    string txt = "Hello world!";
+    string txt;
+    cout << "Enter a text: ";
+    getline(cin, txt);
+
     vector<string> result = split_words(txt);
     for (string s : result) {
         cout << s << endl;
