@@ -13,7 +13,7 @@ def string_to_md5():
     elif option == 1:
         return hashlib.md5(text.encode()).hexdigest().encode('ascii', 'replace')
     else:
-        return hashlib.md5(text.encode()).hexdigest()
+        return str(hashlib.md5(text.encode()).digest())
 
 
 print(string_to_md5())
