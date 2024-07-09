@@ -1,14 +1,10 @@
-from typing import List
+```
+def filter_integers(values):
+    try:
+        return [int(value) for value in values]
+    except ValueError:
+        return "Error: Non-integer values entered."
 
-
-def filter_integers() -> List[int]:
-    values = []
-    while True:
-        user_input = input("Enter a list of values (or 'stop' to finish): ")
-        if user_input.lower() == "stop":
-            break
-        try:
-            values += [int(x) for x in user_input.split()]
-        except ValueError:
-            print("Invalid input. Please enter only integers separated by spaces.")
-    return [value for value in set(values) if isinstance(value, int)]
+numbers = input("Enter numbers separated by commas: ")
+values = [value.strip() for value in numbers.split(",")]
+print(filter_integers(values))
