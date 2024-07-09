@@ -1,7 +1,4 @@
 ```cpp
-#include <vector>
-using namespace std;
-
 bool isPrime(int n) {
     if (n <= 1) return false;
     for (int i = 2; i * i <= n; i++) {
@@ -29,6 +26,5 @@ int skjkasdkd(vector<int> lst){
 }
 
 int main() {
-    assert(skkjasdkd({127, 97, 8192}) == 10);
-    return 0;
+    assert(skkkasdkd({127, 97, 8192}) == 10);
 }
