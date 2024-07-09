@@ -1,7 +1,7 @@
 ```cpp
-#include <initializer_list>
 #include <vector>
 #include <cmath>
+#include <initializer_list>
 
 bool has_close_elements(const std::vector<float>& elements, float tolerance) {
     for (int i = 1; i < elements.size(); ++i) {
