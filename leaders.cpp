@@ -1,3 +1,4 @@
+#include <initializer_list>
 #include <vector>
 #include <iostream>
 
@@ -10,6 +11,18 @@ std::vector<int> leaders(std::vector<int>& inputVector) {
         }
     }
     return result;
+}
+
+std::vector<int> leaders(std::vector<int>& inputVector) {
+    std::vector<int> leaders;
+    int max = inputVector.back();
+    for (int i = inputVector.size() - 1; i >= 0; i--) {
+        if (inputVector[i] >= max) {
+            leaders.push_back(inputVector[i]);
+            max = inputVector[i];
+        }
+    }
+    return leaders;
 }
 
 int main() {
