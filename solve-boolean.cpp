@@ -1,6 +1,6 @@
 #include <iostream>
 
-bool evaluateBooleanExpression(const std::string& expression) {
+bool evaluateBooleanExpression(const string& expression) {
     if (expression == "t") {
         return true;
     } else if (expression == "f") {
@@ -17,12 +17,12 @@ bool evaluateBooleanExpression(const std::string& expression) {
 }
 
 int main() {
-    std::string expression;
-    std::cin >> expression;
+    string expression;
+    cin >> expression;
     if (evaluateBooleanExpression(expression)) {
-        std::cout << "True" << std::endl;
+        cout << "True" << endl;
     } else {
-        std::cout << "False" << std::endl;
+        cout << "False" << endl;
     }
     return 0;
 }
