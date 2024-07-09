@@ -18,10 +18,10 @@ std::vector<float> sortEven(const std::vector<float>& l) {
 }
 
 int main() {
+    std::vector<float> vec;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    std::vector<float> vec;
     for (int i = 0; i < n; i++) {
         float x;
         std::cout << "Enter element " << i + 1 << ": ";
