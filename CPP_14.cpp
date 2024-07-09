@@ -1,6 +1,6 @@
 ```cpp
-#include <string>
 #include <vector>
+#include <string>
 #include <cassert>
 using namespace std;
 
@@ -17,5 +17,5 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    assert(isSame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    assert(isSame(all_prefixes("WWW"), vector<string>({"W", "WW", "WWW"})));
 }
