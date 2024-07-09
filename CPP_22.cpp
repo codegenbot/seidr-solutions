@@ -13,8 +13,11 @@ int main() {
     std::vector<int> a;
     std::vector<int> b;
 
-    a.resize(n, 0);
-    b.resize(n, 0);
+    a.reserve(n);
+    a.assign(n, 0);
+
+    b.reserve(n);
+    b.assign(n, 0);
 
     for(int i = 0; i < n; ++i)
         std::cin >> a[i];
