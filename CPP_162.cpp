@@ -3,19 +3,20 @@
 #include <hash.h>
 
 struct MD5_CTX {
-    unsigned int bytes[4];
+    unsigned char iv[16];
+    unsigned int counter;
 };
 
-unsigned int MD5_Init(MD5_CTX *ctx) {
-    // your code here...
+unsigned char* MD5_Init(MD5_CTX *ctx) {
+    return ctx->iv;
 }
 
-void MD5_Update(MD5_CTX *ctx, const char *inbuf, unsigned int inlen) {
-    // your code here...
+void MD5_Update(unsigned char *buf, unsigned long len, MD5_CTX *ctx) {
+    // implementation here...
 }
 
-void MD5_Final(unsigned char *mdigest, MD5_CTX *context) {
-    // your code here...
+unsigned char* MD5_Final(unsigned char *buf, MD5_CTX *ctx) {
+    return buf;
 }
 
 string string_to_md5(string text) {
@@ -26,7 +27,7 @@ string string_to_md5(string text) {
     MD5_Init(&ctx);
     const char* p = text.c_str();
     while (*p) {
-        MD5_Update(&ctx, p, 1);
+        MD5_Update((unsigned char*)p, 1, &ctx);
         p++;
     }
     MD5_Final(md5, &ctx);
@@ -37,6 +38,6 @@ string string_to_md5(string text) {
         sprintf(buf, "%02x", md5[i]);
         result.replace(i*2, 2, buf);
     }
-    
+
     return result;
 }
