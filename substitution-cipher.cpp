@@ -7,13 +7,8 @@ std::string decipher(std::string cipher1, std::string cipher2, std::string messa
     for (int i = 0; i < message.length(); i++) {
         char c = message[i];
         if(isalpha(toupper(c))) {
-            int index = tolower(c) - 'a';
-            if(index >= 0 && index < cipher1.length()) {
-                char mappedChar = std::tolower(cipher2[index]);
-                result += (c != c ? " " : "") + mappedChar;
-            } else {
-                result += c;
-            }
+            char cDeciphered = cipher2[cipher1.find(std::tolower(c))];
+            result += std::tolower(cDeciphered);
         } else {
             result += c;
         }
