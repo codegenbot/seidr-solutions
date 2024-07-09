@@ -1,5 +1,3 @@
-import sys
-
 def find_zero(xs: list):
     n = len(xs)
     if n < 2:
@@ -9,5 +7,9 @@ def find_zero(xs: list):
     return -b / a
 
 xs = list(map(int, input().split()))
+while len(xs) < 2:
+    print("Input list should have at least 2 elements")
+    xs = list(map(int, input().split()))
+
 result = find_zero(xs)
 print(result)
