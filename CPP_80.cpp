@@ -15,9 +15,9 @@ int main() {
     std::cin >> input;
     
     if(is_happy(input)){
-        std::cout << "Happy string\n";
+        std::cout << "Happy string" << std::endl;
     } else {
-        std::cout << "Not a happy string\n";
+        std::cout << "Not a happy string" << std::endl;
     }
     
     return 0;
