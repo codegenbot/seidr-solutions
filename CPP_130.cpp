@@ -17,7 +17,11 @@ std::vector<int> completeCode(int n) {
     return result;
 }
 
-int main() {
+void solveProblem() {
     assert(issame(completeCode(1), {1, 3}));
+}
+
+int main() {
+    solveProblem();
     return 0;
 }
