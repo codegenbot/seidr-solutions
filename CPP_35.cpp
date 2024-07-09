@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -10,18 +9,24 @@ int findMaximum(std::vector<int> numbers) {
     return 0;
 }
 
-int main() {
+int startProgram() {
     std::vector<int> numbers;
     int num = 0; 
     std::cout << "Enter numbers (separated by spaces): ";
     while(std::cin >> num) { 
+        while(std::cin.get() == ' ') {
+            std::cin.ignore(); 
+        }
         numbers.push_back(num);
-        char c;
-        do {
-            c = std::cin.get();
-        } while(c == ' ');
-        std::cin.ignore();
+        while(std::cin.get() != '\n') { 
+            std::cin.ignore(); 
+        }
     }
     findMaximum(numbers);
+    return 0;
+}
+
+int main() {
+    startProgram();
     return 0;
 }
