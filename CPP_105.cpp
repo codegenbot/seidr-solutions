@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool compareVectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -11,13 +10,13 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
-            temp.push_back(std::to_string(i));
+            temp.push_back(to_string(i));
     }
-    std::sort(temp.begin(), temp.end());
-    std::reverse(temp.begin(), temp.end());
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
     std::vector<std::string> result;
-    for (const auto& s : temp) {
-        switch (std::stoi(s)) {
+    for (std::string s : temp) {
+        switch (stoi(s)) {
             case 1: result.push_back("One"); break;
             case 2: result.push_back("Two"); break;
             case 3: result.push_back("Three"); break;
@@ -33,5 +32,12 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    assert(compareVectors(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    std::vector<std::string> b = by_length({9, 4, 8});
+    if (!same(by_length({9, 4, 8}), b)) {
+        for (std::string s : b)
+            std::cout << s << " ";
+        std::cout << std::endl;
+        return 1;
+    }
+    return 0;
 }
