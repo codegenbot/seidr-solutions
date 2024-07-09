@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream> 
 using namespace std;
@@ -28,13 +29,7 @@ int maxPrime(vector<int> lst){
 }
 
 int main(){
-    //vector<int> lst = {127, 97, 8192};
-    int n;
-    cin >> n;
-    vector<int> lst(n);
-    for (int i = 0; i < n; i++) {
-        cin >> lst[i];
-    }
+    vector<int> lst = {127, 97, 8192};
     cout << maxPrime(lst) << endl;
     return 0;
 }
