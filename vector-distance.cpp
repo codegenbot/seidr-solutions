@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <limits>
 using namespace std;
 
 int main() {
@@ -11,8 +10,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> vec1[i];
     }
-
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
