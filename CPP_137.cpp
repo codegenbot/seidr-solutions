@@ -1,25 +1,21 @@
-```
-#include <boost/any.hpp>
+#include <iostream>
 #include <string>
+#include <boost/any.hpp>
 
-using namespace std;
-
-boost::any compare_one(boost::any a, boost::any b) {
+std::string compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b) > boost::any_cast<int>(a) ? b : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return boost::any_cast<float>(a) > boost::any_cast<int>(b) ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-        return stof(strB) > stof(strA) ? b : a;
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b) > stof(boost::any_cast<string>(a)) ? b : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return stof(boost::any_cast<string>(b)) > boost::any_cast<float>(a) ? b : a;
+        return std::to_string(static_cast<float>(boost::any_cast<int>(a))) > std::to_string(b.convert_to<float>()) ? std::to_string(a.convert_to<int>()) : std::to_string(b.convert_to<float>());
     } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any_cast<int>(a) > boost::any_cast<int>(b) ? a : b;
+        return std::to_string(boost::any_cast<int>(b)) > std::to_string(boost::any_cast<int>(a)) ? std::to_string(b.convert_to<int>()) : std::to_string(a.convert_to<int>());
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return std::to_string(b.convert_to<float>()) > std::to_string(boost::any_cast<int>(a)) ? std::to_string(b.convert_to<float>()) : std::to_string(a.convert_to<int>());
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return boost::any_cast<std::string>(b) > boost::any_cast<std::string>(a) ? boost::any_cast<std::string>(b) : boost::any_cast<std::string>(a);
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        return std::to_string(b.convert_to<float>()) > boost::any_cast<std::string>(a) ? std::to_string(b.convert_to<float>()) : boost::any_cast<std::string>(a);
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        return boost::any_cast<std::string>(b) > std::to_string(a.convert_to<float>()) ? boost::any_cast<std::string>(b) : std::to_string(a.convert_to<float>());
     } else {
-        return boost::any("None");
+        return "None";
     }
 }
