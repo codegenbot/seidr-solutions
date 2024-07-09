@@ -9,14 +9,11 @@ string solveBoolean(string s) {
             }
             if (st.empty()) return "False";
             else st.pop();
-        } 
-        else if (s[i] == '|') {
+        } else if (s[i] == '|') {
             while (!st.empty()) st.pop();
             st.push(s[i]);
-        } 
-        else {
-            st.push((s[i] == 'T') ? '1' : '0');
+        } else {
+            st.push(s[i] == 'T' ? '1' : '0');
         }
     }
-    return (st.top() == '1') ? "True" : "False";
-}
+    return st.top() == '1' ? "True" : "False";
