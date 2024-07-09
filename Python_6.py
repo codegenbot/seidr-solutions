@@ -9,6 +9,4 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 stack.pop()
             else:
                 stack.append(-1)
-    while stack:
-        result.append(stack.pop())
-    return result
+    return [0] + stack
