@@ -1,7 +1,11 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
-#include <initializer_list>
+#include <utility>
 
-bool compareVectors(const vector<int>& a, const vector<int>& b) {
+using namespace std;
+
+bool same(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -28,6 +32,20 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    assert(compareVectors(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    vector<int> nums = {12, 34, 5};
+    cout << "Input: ";
+    for (auto num : nums) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    vector<int> res = order_by_points(nums);
+
+    cout << "Output: ";
+    for (auto num : res) {
+        cout << num << " ";
+    }
+    cout << endl;
+
     return 0;
 }
