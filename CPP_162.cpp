@@ -1,5 +1,5 @@
 ```cpp
-#include <openssl/MD5.h>
+#include <openssl/md5.h>
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -25,4 +25,12 @@ std::string string_to_md5(std::string text) {
     }
     
     return result;
+}
+
+int main() {
+    std::string text;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, text);
+    std::cout << "MD5: " << string_to_md5(text) << std::endl;
+    return 0;
 }
