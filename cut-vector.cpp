@@ -1,37 +1,52 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    pair<vector<int>, vector<int>> res;
-    
-    for (int i = 1; i < n; i++) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j < i; j++) left_sum += vec[j];
-        for (int j = i; j < n; j++) right_sum += vec[j];
-        
-        if (left_sum == right_sum) {
-            res.first = vector<int>(vec.begin(), vec.begin() + i);
-            res.second = vector<int>(vec.begin() + i, vec.end());
-            return res;
+std::vector<int> cutVector(const std::vector<int>& vec) {
+    int minDiff = INT_MAX;
+    int pos = -1;
+
+    for (int i = 0; i < vec.size() - 1; i++) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j <= i; j++) {
+            leftSum += vec[j];
+        }
+        for (int j = i + 1; j < vec.size(); j++) {
+            rightSum += vec[j];
+        }
+
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            pos = i;
         }
     }
-    
-    int min_diff = INT_MAX, split_idx = -1;
-    for (int i = 1; i < n; i++) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j < i; j++) left_sum += vec[j];
-        for (int j = i; j < n; j++) right_sum += vec[j];
-        
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            split_idx = i;
-        }
+
+    return {std::vector<int>(vec.begin(), vec.begin() + pos),
+            std::vector<int>(vec.begin() + pos, vec.end())};
+}
+
+int main() {
+    int num;
+    std::cin >> num;
+    std::vector<int> vec(1, num);
+    for (int i = 0; i < 5; i++) {
+        cin >> num;
+        vec.push_back(num);
     }
-    
-    res.first = vector<int>(vec.begin(), vec.begin() + split_idx);
-    res.second = vector<int>(vec.begin() + split_idx, vec.end());
-    
-    return res;
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(vec);
+
+    cout << "First part: ";
+    for (int i : result.first) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    cout << "Second part: ";
+    for (int i : result.second) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
