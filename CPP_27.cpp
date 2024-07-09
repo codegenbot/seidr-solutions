@@ -1,11 +1,13 @@
-int i = 0;
-while(i < str.length()){
-    if(str[i] >= 'a' && str[i] <= 'z'){
-        str[i] -= ('a' - 'A');
+string flip_case(string str) {
+    string result = "";
+    for (char c : str) {
+        if (islower(c)) {
+            result += toupper(c);
+        } else if (isupper(c)) {
+            result += tolower(c);
+        } else {
+            result += c;
+        }
     }
-    else if(str[i] >= 'A' && str[i] <= 'Z'){
-        str[i] += ('a' - 'A');
-    }
-    i++;
+    return result;
 }
-return str;
