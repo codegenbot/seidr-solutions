@@ -1,12 +1,14 @@
 #include <vector>
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int fuelCost(vector<int> v) {
     int sum = 0;
     for (int x : v) {
-        int y = floor((double)x / 3);
-        y = max(0, y - 2);
+        int y = std::floor((double)x/3);
+        y -= 2;
+        if(y<0)y=0;
         sum += y;
     }
     return sum;
