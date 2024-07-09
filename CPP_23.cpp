@@ -1,7 +1,8 @@
+#include <cassert>
 #include <cstring>
 
 int main() {
-    const char* str = "asdasnakj";
+    char str[] = "asdasnakj";
     assert(strlen(str) == 9);
-    return strlen(str);
+    return str[strlen(str) - 1] - str[0];
 }
