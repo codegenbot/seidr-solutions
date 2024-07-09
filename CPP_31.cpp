@@ -9,3 +9,4 @@ int main
         cout << to_string(num) << " is not a prime number.\n";
     }
     return 0;
+}
