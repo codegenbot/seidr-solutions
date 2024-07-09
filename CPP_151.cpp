@@ -6,9 +6,9 @@
 size_t double_the_difference(std::vector<size_t> input) {
     size_t sum = 0;
     for (size_t num : input) {
-        if (num > 0 && num == static_cast<size_t>(std::floor((double)num))) { 
-            if ((double)num % 2.0 != 0.0) { 
-                sum += std::pow((double)num, 2);
+        if (num > 0 && num == static_cast<size_t>(num)) { 
+            if (num % 2 != 0) { 
+                sum += num * num;
             }
         }
     }
