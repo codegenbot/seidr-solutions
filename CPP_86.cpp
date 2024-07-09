@@ -1,19 +1,31 @@
 #include <algorithm>
+#include <sstream>
+
 using namespace std;
 
 string anti_shuffle(string s) {
+    istringstream iss(s);
+    string word;
     string result = "";
-    for (int i = 0; i <= s.size(); i++) {
-        if (i == s.size() || s[i] == ' ') {
-            string word = s.substr(i - s.find_first_of(" ") + 1, i - (s.find_last_of(" ") + 1) > 0 ? i - (s.find_last_of(" ") + 1) : s.size() - i);
-            sort(word.begin(), word.end());
-            result += word;
-            if (i < s.size()) {
-                result += " ";
-            }
-        } else {
-            result += s[i];
+
+    while (iss >> word) {
+        for (char c : word) {
+            result += c;
         }
+        for (int i = 0; i < word.length(); ++i) {
+            if (i == 0)
+                continue;
+            char prev = word[i - 1];
+            for (int j = i; j < word.length(); ++j) {
+                if (word[j] <= prev) {
+                    result += word[j];
+                    word.erase(j, 1);
+                    break;
+                }
+            }
+        }
+        result += " ";
     }
-    return result;
+
+    return result.substr(0, result.size() - 1); // remove extra space at the end
 }
