@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool operator==(const vector<string>& a, const vector<string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
@@ -49,5 +50,9 @@ std::vector<std::vector<std::string>> by_length(std::vector<int> arr) {
         }
     }
 
-    return {result};
+    return {{result}};
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
 }
