@@ -1,7 +1,2 @@
-```
-if (tweet.empty())
-    return "You didn't type anything";
-else if (tweet.size() > 140)
-    return "Too many characters";
-else
-    return std::to_string(tweet.size()) + " characters";
+```cpp
+return tweet.size() > 140 ? ("Too many characters") : (tweet.empty() ? "You didn't type anything" : std::to_string(tweet.size()) + " characters");
