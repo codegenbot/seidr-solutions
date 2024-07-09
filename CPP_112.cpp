@@ -3,6 +3,14 @@
 #include <vector>
 #include <algorithm>
 
+bool isSame(const std::string& s1, const std::string& s2) {
+    if (s1.size() != s2.size()) return false;
+    for (int i = 0; i < s1.size(); ++i) {
+        if (s1[i] != s2[i]) return false;
+    }
+    return true;
+}
+
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::string result = "";
     for (char ch : s) {
@@ -19,28 +27,18 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     }
     std::string reversed = result;
     std::reverse(reversed.begin(), reversed.end());
-    return {result, (reversed == result ? "True" : "False")};
-}
-
-bool isSame(std::vector<std::string> v1, std::vector<std::string> v2) {
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i]) return false;
-    }
-    return true;
+    return {result, (isSame(result, reversed) ? "True" : "False")};
 }
 
 int main() {
-    std::string str, ch;
+    std::string s, c;
     std::cout << "Enter a string: ";
-    std::cin >> str;
-    std::cout << "Enter a character: ";
-    std::cin >> ch;
-    std::vector<std::string> output = reverse_delete(str, ch);
-    if(isSame({str}, {output[0] + output[1]}) ) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
+    std::cin >> s;
+    std::cout << "Enter another string: ";
+    std::cin >> c;
+    auto output = reverse_delete(s, c);
+    for (const auto& str : output) {
+        std::cout << str << std::endl;
     }
     return 0;
 }
