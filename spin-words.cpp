@@ -4,24 +4,31 @@
 
 using namespace std;
 
-string spinWords(string str) {
-    string result = "";
-    string word = "";
+int main() {
+    string str = "Hello World"; 
+    string result = spinWords(str);
+    cout << result << endl; 
 
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
+    return 0;
+}
+
+string spinWords(string str) {
+    string word = "";
+    string result = "";
+
+    for (char c : str) {
+        if (c == ' ') {
             if (word.length() >= 5) {
                 result += word;
                 word = std::string(word.rbegin(), word.rend());
                 result += " ";
                 word = "";
             } else {
-                result += word;
-                result += " ";
+                result += word + " ";
                 word = "";
             }
         } else {
-            word += str[i];
+            word += c;
         }
     }
 
@@ -33,10 +40,4 @@ string spinWords(string str) {
     }
 
     return result;
-}
-
-int main() {
-    string str = "Hello World";
-    cout << spinWords(str) << endl;
-    return 0;
 }
