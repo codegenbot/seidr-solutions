@@ -14,7 +14,8 @@ std::vector<int> sort_array(std::vector<int> arr) {
     return arr;
 }
 
-int main_test() {
+int main() {  
     assert(issame(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32}));
-    return 0;
+    int result = 0;  
+    return result;   
 }
