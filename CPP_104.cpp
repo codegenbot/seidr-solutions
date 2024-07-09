@@ -5,7 +5,7 @@ bool same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> same(std::vector<int> x) {
+std::vector<int> unique_digits(std::vector<int> x) {
     std::vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
@@ -22,8 +22,11 @@ std::vector<int> same(std::vector<int> x) {
             result.push_back(num);
         }
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
 
-assert(same({135, 103, 31}) == {31, 135});
+int main() {
+    assert(same(unique_digits({135, 103, 31}), {31, 135}));
+    return 0;
+}
