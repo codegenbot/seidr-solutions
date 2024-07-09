@@ -3,15 +3,15 @@ from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    temp = []
-    level = 0
+    group_level = 0
     for char in paren_string:
         if char == '(':
-            level += 1
-            temp.append(level)
+            if group_level > 0:
+                result.append(1)
+            else:
+                result.append(2)
+            group_level += 1
         elif char == ')':
-            level -= 1
-            temp.pop()
-    while temp:
-        result.append(temp.pop())
+            result.append(-2)
+            group_level -= 1
     return result
