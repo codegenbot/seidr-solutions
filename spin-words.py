@@ -5,8 +5,5 @@ def spin_words(sentence):
         if len(word.strip()) >= 5:  
             result.append(word[::-1] + ' ')  # Add space after reversing
         else:
-            if len(word.strip()) < 5:  
-                result.append(' ' + word)  # Add space before original word
-            else:
-                result.append(word)
+            result.append(word)
     return ' '.join(result).strip()
