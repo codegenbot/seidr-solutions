@@ -6,16 +6,29 @@ bool simplify(string x, string n) {
     int pos = 0;
     while (pos < x.size()) {
         if (x[pos] == '/') break;
+        int numeratorPart = stoi(x.substr(0, pos));
+        a *= --numeratorPart;
         pos++;
     }
-    for (int i = 0; i < pos; i++) a *= stoi(x.substr(0, i)) - 1;
-    for (int i = pos + 1; i < x.size(); i++) b *= stoi(x.substr(pos + 1, i));
+    while (pos < x.size()) {
+        if (x[pos] == '/') break;
+        int denominatorPart = stoi(x.substr(pos + 1));
+        b *= denominatorPart;
+        pos += denominatorPart;
+    }
+
     pos = 0;
     while (pos < n.size()) {
         if (n[pos] == '/') break;
+        int numeratorPart = stoi(n.substr(0, pos));
+        c *= --numeratorPart;
         pos++;
     }
-    for (int i = 0; i < pos; i++) c *= stoi(n.substr(0, i)) - 1;
-    for (int i = pos + 1; n.size() > i; i++) d *= stoi(n.substr(pos + 1, i));
+    while (pos < n.size()) {
+        if (n[pos] == '/') break;
+        int denominatorPart = stoi(n.substr(pos + 1));
+        d *= denominatorPart;
+        pos += denominatorPart;
+    }
     return a*d == b*c;
 }
