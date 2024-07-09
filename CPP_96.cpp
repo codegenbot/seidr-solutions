@@ -1,16 +1,12 @@
-vector<int> issame(vector<int> a, vector<int> b) {
-    vector<int> result;
-    if (a.size() != b.size()) {
-        return result;
-    }
-    
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] == b[i]) {
-            result.push_back(i);
-        }
-    }
-    
-    return result;
+vector<int> issame (vector<int> a, vector<int> b) {
+    vector<int> res(2);
+
+    if (a == b)
+        res[0] = 1;
+    else
+        res[1] = 1;
+
+    return res;
 }
 
 vector<int> count_up_to(int n) {
@@ -40,5 +36,10 @@ vector<int> count_up_to(int n) {
 }
 
 int main() {
-    // Main function code using count_up_to and issame functions
+    int n = 20;
+    vector<int> primes = count_up_to(n);
+    
+    vector<int> result = issame(primes, primes);
+    
+    return 0;
 }
