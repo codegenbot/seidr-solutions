@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-	return a == b;
+    return a == b;
 }
 
 std::vector<int> unique_digits(std::vector<int> a) {
