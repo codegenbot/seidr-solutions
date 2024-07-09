@@ -18,6 +18,13 @@ string ssplit(const string& s, char sep) {
     return join(v, ' ');
 }
 
+string join(const vector<string>& v, char sep) {
+    string s;
+    for (auto it = v.begin(); it != v.end(); ++it)
+        s += *it + sep;
+    return s.substr(0, s.size() - 1); // remove trailing sep
+}
+
 int digitSum(string s){
     int sum = 0;
     vector<string> words = ssplit(s, ' ');
@@ -29,13 +36,6 @@ int digitSum(string s){
     }
     return sum;
 
-}
-
-string join(const vector<string>& v, char sep) {
-    string s;
-    for (auto it = v.begin(); it != v.end(); ++it)
-        s += *it + sep;
-    return s.substr(0, s.size() - 1); // remove trailing sep
 }
 
 int main() {
