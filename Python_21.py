@@ -1,3 +1,4 @@
+```
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     if not isinstance(numbers, list):
         raise ValueError("Input must be a list")
