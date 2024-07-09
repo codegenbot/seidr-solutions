@@ -1,8 +1,8 @@
-```cpp
 #include <algorithm>
 #include <cassert>
 #include <string>
 #include <vector>
+#include <initializer_list>
 
 std::string find_max(std::vector<std::string> words){
     std::string max_word = *max_element(words.begin(), words.end(),

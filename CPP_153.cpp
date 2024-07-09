@@ -3,7 +3,6 @@
 #include <string>
 #include <cctype>
 #include <cassert>
-#include <initializer_list>
 
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int max_strength = 0;
