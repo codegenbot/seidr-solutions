@@ -1,8 +1,8 @@
 #include <string>
+#include <cmath>
 
-using namespace std;
-
-int closest_integer(string value) {
+int closest_integer(std::string value) {
     double num = stod(value);
-    return (num > 0) ? ceil(num) : floor(num);
+    int integerPart = (int)num;
+    return (abs(num - integerPart) >= 0.5) ? integerPart + (num > integerPart ? 1 : -1) : integerPart;
 }
