@@ -2,7 +2,9 @@
 #include <iostream>
 using namespace std;
 
-bool is_prime(long long n); {
+bool is_prime(long long n);
+
+bool is_prime(long long n) {
     if (n <= 1) return false;
     if (n == 2) return true; 
     if (n % 2 == 0) return false; 
@@ -10,9 +12,8 @@ bool is_prime(long long n); {
         if (n % i == 0) return false;
     }
     return true;
-}
 
-int main() { 
+int main() {
     string input;
     cout << "Enter a number: ";
     getline(cin, input);
