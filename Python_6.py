@@ -1,11 +1,2 @@
-def max_count_parenthesis(paren_string):
-    return [max([s.count("(") for s in group.split()]) for group in paren_string.split()]
-
-# Get input from the user
-paren_string = input("Enter a string with parenthesis groups: ")
-
-# Call the function with input
-result = max_count_parenthesis(paren_string)
-
-# Display the output
-print(result)
+def parse_nested_parens(paren_string: str) -> List[int]:
+    return [max([paren_string.count('(' * i) for i in range(1, len(paren_string) // 2 + 1)]) // 2 for paren_string in paren_string.split()]      
