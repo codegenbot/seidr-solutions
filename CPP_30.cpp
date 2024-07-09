@@ -18,4 +18,3 @@ bool are_equal(std::vector<float> a, std::vector<float> b){
 int main() {
     assert (are_equal(get_positive({}), {}) );
     return 0;
-}
