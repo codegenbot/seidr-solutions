@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -31,5 +31,3 @@ int main() {
     std::getline(std::cin, str);
     int vowelCount = vowels_count(str);
     std::cout << "Number of vowels: " << vowelCount << std::endl;
-    return 0;
-}
