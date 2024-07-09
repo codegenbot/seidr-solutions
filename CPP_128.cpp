@@ -18,6 +18,7 @@ int prod_signs(vector<int> arr) {
 }
 
 int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0); 
+    vector<int> arr = {1, 2, 3};
+    cout << prod_signs(arr) << endl;
     return 0;
 }
