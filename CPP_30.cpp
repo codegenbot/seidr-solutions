@@ -2,11 +2,11 @@
 #include <assert.h>
 
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if ((a[i] > 0 && !b[i].ispositive) || (a[i] <= 0 && b[i].ispositive)) {
+    for(int i = 0; i < a.size(); i++) {
+        if(abs(a[i]) - abs(b[i]) > 0.0001) {
             return false;
         }
     }
