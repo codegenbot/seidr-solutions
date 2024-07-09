@@ -2,8 +2,8 @@
 #include <cassert>
 #include <string>
 
-int myStrlen(string str){
-    return str.length();
+int myStrlen(const string& str){
+    return str.size();
 }
 
 int main() {
