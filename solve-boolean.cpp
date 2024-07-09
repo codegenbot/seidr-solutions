@@ -32,13 +32,13 @@ bool solveBoolean(std::string s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a Boolean expression: ";
+    std::cout << "Enter a Boolean expression (T/F/|/&): ";
     std::getline(std::cin, input);
     bool result = solveBoolean(input);
     if (result) {
-        std::cout << "True" << std::endl;
+        std::cout << "Result: True" << std::endl;
     } else {
-        std::cout << "False" << std::endl;
+        std::cout << "Result: False" << std::endl;
     }
     return 0;
 }
