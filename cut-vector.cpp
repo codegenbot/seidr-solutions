@@ -1,7 +1,8 @@
 ```cpp
 #include <vector>
 #include <climits>
-#include <cmath>
+#include <iostream>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
@@ -16,7 +17,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
             right_sum += vec[k];
         }
         if (left_sum == right_sum) {
-            return {{}, vector<int>(vec.begin() + cut_index, vec.end())};
+            return {{}, vec};
         }
         int diff = abs(left_sum - right_sum);
         if (diff < min_diff) {
@@ -32,19 +33,18 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     for (int i = cut_index; i < vec.size(); i++) {
         right.push_back(vec[i]);
     }
-    return {left, vector<int>(vec.begin() + cut_index, vec.end())};
+    return {left, right};
 }
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
     vector<int> vec(n);
-    for (auto& x : vec) cin >> x;
+    for (auto& x : vec) std::cin >> x;
     pair<vector<int>, vector<int>> result = cutVector(vec);
     cout << "[";
     for (const auto& x : result.first) cout << x << " ";
     cout << "], [";
     for (const auto& x : result.second) cout << x << " ";
     cout << "]";
-    return 0;
 }
