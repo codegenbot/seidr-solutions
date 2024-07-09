@@ -1,22 +1,22 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string squareDigits(std::string input) {
-    std::string result = "";
+string squareDigits(string input) {
+    string output = "";
     for (char c : input) {
-        int digit = c - '0'; 
-        result += std::to_string(digit * digit); 
+        int digit = c - '0';
+        output += to_string(digit * digit);
     }
-    return result;
+    return output;
 }
 
 int main() {
-    std::cout << squareDigits("0") << std::endl;  
-    std::cout << squareDigits("1") << std::endl;  
-    std::cout << squareDigits("2") << std::endl;  
-    std::cout << squareDigits("3") << std::endl;  
-    std::cout << squareDigits("4") << std::endl;  
+    using namespace std;
+    string input;
+    cout << "Enter a positive integer: ";
+    getline(cin, input);
+    cout << squareDigits(input) << std::endl;
     return 0;
 }
