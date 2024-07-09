@@ -1,5 +1,3 @@
-#include <iostream>
-
 long long special_factorial(int n){
     long long result = 1;
     for (int i = 1; i <= n; ++i) {
@@ -16,7 +14,7 @@ int main(){
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    long long res = special_factorial(n);
-    std::cout << "The special factorial of " << n << " is: " << res << std::endl;
+    long long result = special_factorial(n);
+    std::cout << "The factorial of " << n << " is " << result << std::endl;
     return 0;
 }
