@@ -6,4 +6,7 @@ def concatenate(strings: List[str]) -> str:
 
 
 strings = input("Enter strings (separated by space): ").split()
-print(concatenate(strings))
+if strings:
+    print(concatenate(strings))
+else:
+    print("No strings entered.")
