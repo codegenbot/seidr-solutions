@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 bool issame(vector<string> v1, vector<string> v2) {
     if (v1.size() != v2.size()) {
@@ -18,14 +16,12 @@ bool issame(vector<string> v1, vector<string> v2) {
 vector<string> sorted_list_sum(const vector<string>& lst) {
     vector<string> result;
 
-    // Remove strings with odd lengths
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
             result.push_back(str);
         }
     }
 
-    // Sort the resulted vector by length and then alphabetically
     sort(result.begin(), result.end(),
          [](const string& a, const string& b) {
              if (a.length() != b.length()) {
