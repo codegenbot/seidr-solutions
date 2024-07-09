@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,8 +17,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> list) {
-    // Sort the list of strings and return
+std::vector<std::string> sorted_list_sum(std::vector<std::string>& list) {
     std::sort(list.begin(), list.end());
     return list;
 }
