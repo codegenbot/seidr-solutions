@@ -1,6 +1,7 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
 
 bool same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -49,18 +50,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades;
-    int n;
-    cout << "Enter the number of grades: ";
-    cin >> n;
-
-    for (int i = 0; i < n; i++) {
-        float grade;
-        cout << "Enter grade" << (i+1) << ": ";
-        cin >> grade;
-        grades.push_back(grade);
-    }
-
+    vector<float> grades = {3.9, 2.5, 4.0};
     vector<string> letterGrades = numerical_letter_grade(grades);
 
     for (const auto& grade : letterGrades) {
