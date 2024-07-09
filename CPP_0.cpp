@@ -1,11 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-bool has_close_elements(vector<float> numbers, float threshold) {
+bool has_close_elements(std::vector<float> numbers, float threshold) {
     for (int i = 1; i < numbers.size(); i++) {
-        if (abs(numbers[i] - numbers[i-1]) <= threshold) {
+        if (std::abs(numbers[i] - numbers[i-1]) <= threshold) {
             return true;
         }
     }
@@ -13,21 +12,8 @@ bool has_close_elements(vector<float> numbers, float threshold) {
 }
 
 int main() {
-    vector<float> a;
-    cout << "Enter the number of elements: ";
-    int n;
-    cin >> n;
-    a.resize(n);
-    
-    cout << "Enter the elements: ";
-    for (float &num : a) {
-        cin >> num;
-    }
-    
-    float threshold;
-    cout << "Enter the threshold value: ";
-    cin >> threshold;
-    
-    cout << (has_close_elements(a, threshold) ? "True" : "False") << endl;
+    std::vector<float> a(6);
+    a[0] = 1.0f; a[1] = 2.0f; a[2] = 3.9f; a[3] = 4.0f; a[4] = 5.0f; a[5] = 2.2f;
+    std::cout << (has_close_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5) ? "true" : "false") << std::endl;
     return 0;
 }
