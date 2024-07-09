@@ -4,7 +4,7 @@ bool issame(vector<int> a, vector<int> b) {
     return a[0] == b[0] && a[1] == b[1];
 }
 
-vector<int> solve(int n) {
+vector<int> palindromeCount(int n) {
     vector<int> res(2, 0);
     for (int i = 1; i <= n; ++i) {
         string s = to_string(i);
