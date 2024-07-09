@@ -1,20 +1,27 @@
+#include <iostream>
 #include <string>
+#include <cctype>
+using namespace std;
 
-std::string encrypt(std::string s) {
-    std::string encrypted = "";
+string encrypt(string s){
+    string result = "";
     for(char c : s){
         if(isalpha(c)){
-            char base = islower(c) ? 'a' : 'A';
-            char encrypted_char = base + (c - base + 2 * 2) % 26;
-            encrypted += encrypted_char;
+            char encrypted = c + 4;
+            if(islower(c) && encrypted > 'z'){
+                encrypted = 'a' + (encrypted - 'z' - 1);
+            } else if(isupper(c) && encrypted > 'Z'){
+                encrypted = 'A' + (encrypted - 'Z' - 1);
+            }
+            result += encrypted;
         } else {
-            encrypted += c;
+            result += c;
         }
     }
-    return encrypted;
+    return result;
 }
 
 int main() {
-    assert (encrypt("a")=="e");
+    assert (encrypt("a") == "e");
     return 0;
 }
