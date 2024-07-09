@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -16,10 +17,9 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
-    for (int i = 0; i < lst.size(); i++) {
-        string s = lst[i];
-        if (s.length() % 2 == 0) {
-            result.push_back(s);
+    for (const auto& str : lst) {
+        if (str.length() % 2 == 0) {
+            result.push_back(str);
         }
     }
     sort(result.begin(), result.end(),
