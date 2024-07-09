@@ -33,7 +33,8 @@ int main() {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
         if(i == n-1) {
-            std::cout << "The sum of digits is equal to " << find_max_prime_and_sum_digits(n, num) << "." << std::endl;
+            maxPrimeAndSum = find_max_prime_and_sum_digits(n, num);
+            std::cout << "The sum of digits is equal to " << maxPrimeAndSum << "." << std::endl;
         } else {
             int temp = find_max_prime_and_sum_digits(n, num);
             std::cout << "Maximum prime and sum of digits: " << temp << std::endl;
