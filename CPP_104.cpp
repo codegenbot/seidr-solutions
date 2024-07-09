@@ -3,7 +3,9 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::is_permutation(a.begin(), a.end(), b.begin());
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    return a == b;
 }
 
 int main() {
