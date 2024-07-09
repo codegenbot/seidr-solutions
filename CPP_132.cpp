@@ -1,6 +1,7 @@
-#include <string>
+#include <iostream>
+using namespace std;
 
-bool is_nested(string str) {
+bool is_nested(std::string str) {
     int count = 0;
     for (char c : str) {
         if (c == '[') {
