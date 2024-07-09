@@ -1,4 +1,6 @@
-std::string fizzBuzz(int x) { 
+#include <string>
+
+std::string fizzBuzz(int x) {
     if (x % 3 == 0 && x % 5 == 0)
         return "FizzBuzz";
     else if (x % 3 == 0)
@@ -7,4 +9,3 @@ std::string fizzBuzz(int x) {
         return "Buzz";
     else
         return std::to_string(x);
-}
