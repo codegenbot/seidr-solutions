@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     N = len(grid)
     visited = [[False] * N for _ in range(N)]
@@ -11,7 +10,7 @@ def minPath(grid, k):
         if grid[x][y] == 3:
             if not res or len(path) - 1 > k or (len(path) - 1 == k and tuple(sorted(path)) < tuple(sorted(res))):
                 res = list(path[:-1])
-        
+
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nx, ny = x + dx, y + dy
 
