@@ -1,13 +1,35 @@
-string match_parens(vector<string> lst){
-    int left = 0, right = 0;
-    for (const string& str : lst) {
-        for (char c : str) {
-            if (c == '(') left++;
-            else if (c == ')') {
-                if (left > 0) left--;
-                else right++;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <stack>
+
+std::string match_parens(std::vector<std::string> lst) {
+    std::string str = lst[0] + lst[1];
+    std::stack<char> stk;
+    
+    for (char c : str) {
+        if (c == '(') {
+            stk.push(c);
+        } else {
+            if (stk.empty()) {
+                return "No";
             }
+            stk.pop();
         }
     }
-    return (left == 0 && right <= 1) ? "Yes" : "No";
+    
+    return stk.empty() ? "Yes" : "No";
+}
+
+int main() {
+    std::vector<std::string> input;
+    std::string str;
+    for (int i = 0; i < 2; ++i) {
+        std::cin >> str;
+        input.push_back(str);
+    }
+    
+    std::cout << match_parens(input) << std::endl;
+    
+    return 0;
 }
