@@ -1,4 +1,3 @@
-```
 code = input("Enter the code: ")
 guess = input("Enter a guess: ")
 

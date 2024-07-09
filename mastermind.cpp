@@ -1,17 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 int mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
+    
+    vector<char> uniqueGuess;
     
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
             blackPegs++;
         } else {
             bool found = false;
-            for(int j=i+1; j<4; j++) {
-                if(guess[j] == code[i] && !found) {
-                    whitePegs++;
+            for(char c : uniqueGuess) {
+                if(c == code[i]) {
                     found = true;
+                    break;
                 }
+            }
+            if(!found) {
+                whitePegs++;
+                uniqueGuess.push_back(guess[i]);
             }
         }
     }

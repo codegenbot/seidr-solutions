@@ -10,4 +10,4 @@ def luhn(card_number):
                 total += doubled
         else:
             total += num
-    return total
+    return total % 10
