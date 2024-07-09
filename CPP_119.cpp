@@ -1,9 +1,3 @@
-#include <iostream>
-#include <string>
-#include <vector>
-
-using namespace std;
-
 string match_parens(const vector<string>& lst) {
     int balance = 0;
     for (const string& s : lst) {
@@ -19,9 +13,4 @@ string match_parens(const vector<string>& lst) {
         }
     }
     return (balance == 0) ? "Yes" : "No";
-}
-
-int main() {
-    assert(match_parens({")", "("}) == "Yes" );
-    return 0;
 }
