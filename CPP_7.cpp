@@ -13,12 +13,14 @@ int main() {
         }));
     };
 
+    // Test filter_by_substring
     std::cout << "Filtering for substring 'run' results in: ";
     for (const auto& s : filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, "run")) {
         std::cout << s << " ";
     }
     std::cout << std::endl;
 
+    // Test issame function
     assert(issame(filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, "run"), {"grunt", "prune"}));
 
     return 0;
