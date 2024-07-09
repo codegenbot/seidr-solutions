@@ -1,0 +1,15 @@
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
+
+vector<float> derivative(vector<float> xs){
+    vector<float> result;
+    if(xs.size() > 0) {
+        result.push_back(0);
+        for(int i = 1; i < xs.size(); i++) {
+            result.push_back(i * xs[i]);
+        }
+    }
+    return result;
+}
