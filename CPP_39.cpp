@@ -10,10 +10,14 @@ int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    if (n <= 0) {
-        std::cout << "-1" << std::endl;
+    
+    // Check if input is an integer
+    if (!(n >= 1 && n <= 9)) { 
+        std::cout << "-1" << std::endl; 
     } else {
-        std::cout << "The " << std::to_string(n) << "th prime Fibonacci number is: " << prime_fib(n) << std::endl;
+        int result = prime_fib(n);
+        std::cout << "The " << (n == 1 ? "first" : n == 2 ? "second" : n == 3 ? "third" : "the " + std::to_string(n) + "th") << " prime Fibonacci number is: ";
+        std::cout << result << std::endl;
     }
 }
 
