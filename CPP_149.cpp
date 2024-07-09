@@ -45,6 +45,9 @@ int main_entry() {
             if(c == '\n') break;
             if(j < i) str += c;
         }
+        if(str.empty()) { // Add this check
+            continue; // Skip adding the empty string to the vector
+        }
         inputStrings.push_back(str);
     }
     
