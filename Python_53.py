@@ -1,5 +1,4 @@
-Here's the corrected code:
-
+```Python
 def add(x: int, y: int):
     x = int(input("Enter first integer: "))
     y = int(input("Enter second integer: "))
