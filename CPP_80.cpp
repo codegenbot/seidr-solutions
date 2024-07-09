@@ -28,10 +28,11 @@ bool is_happy(const std::string& s) {
 
 int main() {
     assert(is_happy("iopaxioi") == false);
-    char s[256];
+    char s[257];
     std::cout << "Enter a string: ";
-    if(std::cin.getline(s, 255)) {
-        if (is_happy(s))
+    if(std::cin.getline(s, 256)) {
+        s[256] = '\0'; // Remove newline character
+        if (is_happy(std::string(s)))
             std::cout << "The string is happy." << std::endl;
         else
             std::cout << "The string is not happy." << std::endl;
