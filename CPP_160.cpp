@@ -10,7 +10,7 @@ int do_algebra(vector<string> operato, vector<int> operand) {
             result -= operand[i + 1];
         } else if (operato[i] == "*") {
             result *= operand[i + 1];
-        } else if (operato[i] == "//") {
+        } else if (operato[i] == "/") {
             result /= operand[i + 1];
         } else if (operato[i] == "**") {
             result = pow(result, operand[i + 1]);
