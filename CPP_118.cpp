@@ -1,3 +1,10 @@
+
+// Include necessary headers
+#include <iostream>
+#include <string>
+#include <cassert>
+
+// Define function signature
 string get_closest_vowel(string word) {
     string vowels = "AEIOUaeiou";
     string result = "";
@@ -15,4 +22,10 @@ string get_closest_vowel(string word) {
     }
     
     return result;
+}
+
+// Implement main function
+int main() {
+    assert(get_closest_vowel("Above") == "o");
+    return 0;
 }
