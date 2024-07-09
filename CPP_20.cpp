@@ -1,20 +1,17 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <limits>
+#include <utility>
 
-bool issame(std::vector<std::vector<float>> a, std::vector<std::vector<float>> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); ++i)
-        if (!issame(a[i], b[i]))
-            return false;
-    return true;
+bool issame(const std::vector<std::vector<float>>& a, const std::vector<std::vector<float>>& b) {
+    return a == b;
 }
 
-std::vector<std::vector<float>> find_closest_elements(std::vector<float> numbers) {
+std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
     std::pair<float, float> closest;
     float min_diff = std::numeric_limits<float>::max();
-    
+
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
             float diff = numbers[j] - numbers[i];
@@ -24,5 +21,6 @@ std::vector<std::vector<float>> find_closest_elements(std::vector<float> numbers
             }
         }
     }
-    
-    return {{closest.first}, {closest.second}};
+
+    return {closest};
+}

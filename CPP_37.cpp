@@ -1,5 +1,4 @@
-```
-using namespace std;
+#include <vector>
 
 bool issame(const vector<float>& a,const vector<float>&b){
     for(int i = 0; i < a.size(); i++){
@@ -22,4 +21,3 @@ vector<float> sort_even(vector<float> l){
         }
     }
     return l_prime;
-}
