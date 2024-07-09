@@ -1,22 +1,22 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <cassert>
 
-bool issame(const std::vector<std::string>& v) {
-    if (v.size() == 1) {
+bool issame(std::vector<std::string> a) {
+    if (a.size() == 1) {
         return true;
     }
-    for (int i = 1; i < v.size(); i++) {
-        if (v[i - 1] != v[i]) {
+    for (int i = 1; i < a.size(); i++) {
+        if (a[i - 1] != a[i]) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<std::string> by_length(const std::vector<int>& arr) {
+std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
@@ -24,12 +24,12 @@ std::vector<std::string> by_length(const std::vector<int>& arr) {
         }
     }
 
-    std::sort(temp.begin(), temp.end());
-    std::reverse(temp.begin(), temp.end());
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
 
     std::vector<std::string> result;
-    for (const auto& str : temp) {
-        switch (std::stoi(str)) {
+    for (std::string str : temp) {
+        switch (stoi(str)) {
             case 1:
                 result.push_back("One");
                 break;
@@ -64,11 +64,11 @@ std::vector<std::string> by_length(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> input = {1, 4, 8};
+    std::vector<int> input = {9, 4, 8};
     std::vector<std::string> output = by_length(input);
     
-    if (issame({{"One", "Four", "Eight"}})) {
-        for (const auto& str : output) {
+    if (issame({{"Nine", "Four", "Eight"}})) {
+        for (std::string str : output) {
             std::cout << str << std::endl;
         }
     } else {
