@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <iomanip>
 
@@ -16,7 +15,7 @@ int main() {
         }
     }
     
-    double probability = favorable_outcomes / static_cast<double>(n * m);
+    double probability = favorable_outcomes / static_cast<double>(n) / static_cast<double>(m);
     
     std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
     
