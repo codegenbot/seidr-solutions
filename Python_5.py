@@ -1,12 +1,7 @@
-def process_numbers(numbers, delimiter):
+def format_numbers(numbers: List[int], delimiter: str) -> List[str]:
     result = []
     for num in numbers[:-1]:
-        result.extend([num, delimiter])
+        result.extend([str(num), delimiter])
     if numbers:
-        result.append(numbers[-1])
+        result.append(str(numbers[-1]))
     return result
-
-numbers = [1, 2, 3, 4, 5]
-delimiter = ","
-output = process_numbers(numbers, delimiter)
-print(output)
