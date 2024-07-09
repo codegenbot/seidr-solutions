@@ -1,11 +1,10 @@
-```cpp
 #include <openssl/evp.h>
 #include <string>
 #include <cassert>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
+
     unsigned char result[16];
     MD5_CTX md5Context;
     unsigned char buffer[text.length()];
