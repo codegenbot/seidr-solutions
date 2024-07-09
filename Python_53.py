@@ -4,5 +4,5 @@ def add(a=0, b=0):
         y = int(input(f"Enter the second number: {b} "))
         print(x + y)
         response = input("Do you want to continue? (y/n) ")
-        if response.lower() != "y":
+        if response.lower() != 'y':
             break
