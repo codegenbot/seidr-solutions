@@ -9,6 +9,7 @@ string remove_vowels(string text){
         }
     }
     return result;
+
 }
 
 int main(){
