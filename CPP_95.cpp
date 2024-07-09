@@ -1,8 +1,10 @@
 #include <map>
+#include <vector>
+#include <algorithm>
 #include <string>
-#include <cctype>
 
-bool check_dict_case(std::map<std::string, std::string> dict) {
+bool main() {
+    map<string, string> dict;
     if (dict.empty()) return false;
 
     bool allUpper = true;
