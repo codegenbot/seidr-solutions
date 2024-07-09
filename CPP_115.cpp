@@ -1,3 +1,9 @@
+#include <iostream>
+#include <numeric>
+#include <vector>
+
+using namespace std;
+
 int max_fill(vector<vector<int>> grid, int capacity) {
     int n = grid.size();
     int total_water = 0;
