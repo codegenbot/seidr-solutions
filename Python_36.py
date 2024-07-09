@@ -1,4 +1,3 @@
-```Python
 def fizz_buzz(n: int):
     result = ""
     for i in range(1, n+1):
@@ -10,4 +9,4 @@ def fizz_buzz(n: int):
             result += "Buzz"
         else:
             result += str(i)
-    return result```
+    return result
