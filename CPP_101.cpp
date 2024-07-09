@@ -1,11 +1,15 @@
+```
 vector<string> words_string(string s) {
     vector<string> result;
-    size_t start = 0;
-    for (size_t i = 0; i <= s.size(); ++i) {
-        if (i == s.size() || (s[i] == ',' && (i == 1 || s[i - 1] != '\\')) || (s[i] == ' ' && (i == start || s[i - 1] != '\\'))) {
-            result.push_back(s.substr(start, i - start));
-            start = i;
+    string word;
+    for (char c : s) {
+        if (c == ' ' || c == ',') {
+            result.push_back(word);
+            word = "";
+        } else {
+            word += c;
         }
     }
+    result.push_back(word);
     return result;
 }
