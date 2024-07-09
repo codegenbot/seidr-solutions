@@ -1,11 +1,8 @@
-```cpp
-#include <vector>
-
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
     
-    for(int i=n-1; i>=0; i--) {
+    for(int i=0; i<n; i++) {
         if(res.empty() || arr[i] >= res.back()) 
             res.push_back(arr[i]);
         else
@@ -13,13 +10,4 @@ std::vector<int> leaders(std::vector<int>& arr) {
     }
     
     return res;
-}
-
-int main() {
-    std::vector<int> input = {12, 10, 8, 6};
-    std::vector<int> output = leaders(input);
-    for(int i:output) {
-        std::cout << i << " ";
-    }
-    return 0;
 }
