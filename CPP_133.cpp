@@ -14,15 +14,16 @@ int sum_squares(double arr[], int n){
 int main_test(){
     double testArray[] = {1.0, 2.0, 3.0};
     int n = sizeof(testArray)/sizeof(testArray[0]);
-    int result = sum_squares(&testArray[0], n);
+    int result = sum_squares(testArray, n);
     std::cout << "Sum of squares: " << result << std::endl;
     
-    assert (sum_squares(&testArray[0], 3) == 14);
+    int result1 = sum_squares(new double[] {1.0, 2.0, 3.0}, 3);
+    assert (result1 == 14);
 
     double testArray1[] = {-1, 1, 0};
     int n1 = sizeof(testArray1)/sizeof(testArray1[0]);
-    int result1 = sum_squares(&testArray1[0], n1);
-    assert (result1 == 2);
+    int result2 = sum_squares(new double[] {-1, 1, 0}, 3);
+    assert (result2 == 2);
     
     return 0;
 }
