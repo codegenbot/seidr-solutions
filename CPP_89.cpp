@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int encrypt(string s){
@@ -17,5 +16,4 @@ int encrypt(string s){
 
 int main(){
     assert (encrypt("a")=="e");
-    return 0;
 }
