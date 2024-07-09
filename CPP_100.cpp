@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> contestProblem(int n){
+std::vector<int> stones(int n){
     std::vector<int> stones;
     stones.push_back(n);
     for(int i=1; i<n; ++i){
