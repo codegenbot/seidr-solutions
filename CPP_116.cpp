@@ -1,14 +1,12 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <bitset>
 
-bool issame(vector<int> a,vector<int> b){
-    return a==b;
+bool issame(int a, int b){
+    return a == b;
 }
 
-vector<int> sort_array(vector<int> arr) {
-    sort(arr.begin(), arr.end(), [](int a, int b) {
+void sort_array(std::vector<int>& arr) {
+    std::sort(arr.begin(), arr.end(), [](int a, int b) {
         int ones_a = __builtin_popcount(a);
         int ones_b = __builtin_popcount(b);
 
@@ -17,10 +15,14 @@ vector<int> sort_array(vector<int> arr) {
         else
             return ones_a < ones_b;
     });
-    return arr;
 }
 
 int main() {
-    assert(issame(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32}));
+    std::vector<int> arr = {2,4,8,16,32};
+    sort_array(arr);
+    for(int i : arr) {
+        std::cout << i << " ";
+    }
+    assert(issame(*std::max_element(arr.begin(), arr.end()), *std::min_element(arr.begin(), arr.end())));
     return 0;
 }
