@@ -1,10 +1,10 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
 
-bool vector_issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    bool b = true;
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
 }
 
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix) {
@@ -12,6 +12,6 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, c
 }
 
 int main() {
-    assert(vector_issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
