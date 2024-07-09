@@ -2,13 +2,15 @@
 #include<cstring>
 
 int my_strlen(string str){
-    int i = 0;
-    while(str[i] != '\0')
-        i++;
-    return i;
+    int count = 0;
+    for(int i = 0; i < str.length(); i++){
+        if(str[i] != ' ')
+            count++;
+    }
+    return count;
 }
 
 int main(){
-    assert(my_strlen("asdasnakj") == 11); 
+    assert(my_strlen("asdasnakj") == 9);
     return 0;
 }
