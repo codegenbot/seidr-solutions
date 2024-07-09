@@ -1,10 +1,13 @@
-```cpp
 #include <vector>
 #include <string>
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    std::vector<std::string> result;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    vector<string> result;
 
     int idx1 = 0;
     int idx2 = 0;
