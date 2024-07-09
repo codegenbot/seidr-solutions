@@ -1,7 +1,6 @@
-```cpp
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int frame = 0;
     for (char c : s) {
@@ -19,8 +18,8 @@ int bowlingScore(string s) {
             } else {
                 score += pins;
                 while (c == 'X' || c == '/') {
-                    s.pop_back();
                     c = s.back();
+                    s.pop_back();
                 }
                 int bonus = stoi(c + c);
                 if (bonus > 10) {
