@@ -1,13 +1,13 @@
 #include <vector>
-using namespace std;
+#include <string>
 
-vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2);
+std::vector<int> even_odd_palindrome(int n) {
+    std::vector<int> result(2);
     int count_even = 0;
     int count_odd = 0;
 
     for (int i = 1; i <= n; ++i) {
-        string str = to_string(i);
+        std::string str = std::to_string(i);
         bool is_palindrome = true;
 
         for (int j = 0; j < str.length() / 2; ++j) {
@@ -31,5 +31,3 @@ vector<int> even_odd_palindrome(int n) {
 
     return result;
 }
-
-assert(std::vector<int>({0, 1}) == even_odd_palindrome(1));
