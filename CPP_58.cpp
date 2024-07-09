@@ -1,18 +1,18 @@
-#include<vector>
-#include<algorithm>
+#include <set>
 using namespace std;
 
-vector<int> common(vector<int> l1,vector<int> l2){
-    vector<int> result;
-    set<int> s1(l1.begin(),l1.end());
-    set<int> s2(l2.begin(),l2.end());
+vector<int> common(vector<int> l1, vector<int> l2) {
+    set<int> s1(l1.begin(), l1.end());
+    set<int> s2(l2.begin(), l2.end());
 
-    for(auto it = s1.begin(); it != s1.end(); ++it) {
-        if (s2.find(*it) != s2.end()) {
-            result.push_back(*it);
+    set<int> result;
+    for (int i : s1) {
+        if (s2.find(i) != s2.end()) {
+            result.insert(i);
         }
     }
 
-    sort(result.begin(),result.end());
-    return result;
+    vector<int> v(result.begin(), result.end());
+    sort(v.begin(), v.end());
+    return v;
 }
