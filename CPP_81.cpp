@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size();i++){
         if(a[i] != b[i])return false;
@@ -10,8 +11,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return true;
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> result;
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> result;
     for (float grade : grades) {
         if (grade < 0.9)
             result.push_back("F");
@@ -27,14 +28,14 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     return result;
 }
 
-std::vector<float> grades1 = {0, 0.7};
-std::vector<std::string> result1 = numerical_letter_grade(grades1);
-std::vector<std::string> b = result1;  
-std::vector<float> grades2 = {0, 0.7};
-std::vector<std::string> result2 = numerical_letter_grade(grades2);
+vector<float> grades1 = {0, 0.7};
+vector<string> result1 = numerical_letter_grade(grades1);
+vector<string> b = result1;  
+vector<float> grades2 = {0, 0.7};
+vector<string> result2 = numerical_letter_grade(grades2);
 
 if (issame(result1, b)) {
-    std::cout << "The two vectors are the same." << std::endl;
+    cout << "The two vectors are the same." << endl;
 } else {
-    std::cout << "The two vectors are not the same." << std::endl;
+    cout << "The two vectors are not the same." << endl;
 }
