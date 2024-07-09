@@ -9,6 +9,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             current_group += char
         elif char == ")":
             current_group += char
-            result.append(current_group)
-            current_group = ""
+            if current_group.count("(") == current_group.count(")"):
+                result.append(current_group)
+                current_group = ""
     return result
