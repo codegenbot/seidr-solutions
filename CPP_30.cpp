@@ -3,11 +3,9 @@
 
 using namespace std;
 
-vector<float> get_positive(vector<float> l) {
-    vector<float> result;
-    for (float x : l) {
-        if (x > 0 || x == 0) {
-            result.push_back(x);
-        }
+bool issame(vector<float> a, vector<float> b) {
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i]-b[i]) > 1e-4) return false;
     }
-    return result;
+    return true;
+}
