@@ -1,15 +1,18 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 #include <cctype>
-#include <initializer_list>
+#include <algorithm>
 
 using namespace std;
 
 bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
     if (a.size() != b.size()) return false;
     for(int i = 0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
+        pair<int, string> p1 = a[i];
+        pair<int, string> p2 = b[i];
+        if(p1.first != p2.first || p1.second != p2.second) return false;
     }
     return true;
 }
@@ -21,7 +24,7 @@ vector<pair<int, string>> select_words(string s, int n) {
     for (char c : s) {
         if (c == ' ') {
             if (!word.empty()) {
-                int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+                size_t vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
                     count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
                 if (vowelCount <= n) {
                     result.push_back({make_pair(vowelCount, word)});
@@ -34,7 +37,7 @@ vector<pair<int, string>> select_words(string s, int n) {
         }
     }
     if (!word.empty()) {
-        int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+        size_t vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
             count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
         if (vowelCount <= n) {
             result.push_back({make_pair(vowelCount, word)});
