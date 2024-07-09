@@ -1,13 +1,9 @@
 string make_palindrome(string str){
-    if(str.empty()) return "";
-    
-    int n = str.size();
-    int i = n - 1;
-    while(i >= 0 && !is_palindrome(str.substr(i)))
-        i--;
-    
-    string prefix = str.substr(0, i);
-    string postfix = str.substr(i);
-    
-    return str + string(prefix.rbegin(), prefix.rend()) + postfix;
+    string rev_str(str.rbegin(), str.rend());
+    for (int i = str.size(); i >= 0; i--) {
+        if (is_palindrome(str.substr(i))) {
+            return str + rev_str.substr(0, str.size() - i);
+        }
+    }
+    return str;
 }
