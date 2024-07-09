@@ -1,13 +1,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
 int digitSum(string s){
     int sum = 0;
-    vector<string> words = ssplit(s, " ");
+    vector<string> words = split(s, " ");
     for(auto& word : words){
         for(char c : word){
             if(isdigit(c))
@@ -15,7 +14,6 @@ int digitSum(string s){
         }
     }
     return sum;
-
 }
 
 string join(const vector<string>& v, const char& sep) {
@@ -25,7 +23,7 @@ string join(const vector<string>& v, const char& sep) {
     return s.substr(0, s.size() - 1); // remove trailing sep
 }
 
-string ssplit(const string& s, const char& sep) {
+vector<string> split(const string& s, const char& sep) {
     vector<string> v;
     size_t pos = 0, prev = 0;
 
@@ -35,11 +33,11 @@ string ssplit(const string& s, const char& sep) {
     }
 
     v.push_back(s.substr(prev));
-    return join(v, " ");
+    return v;
 }
 
 int main() {
-    assert(digitSum("you are very smart") == 12);
+    assert(digitSum("you are very smart") == 14);
     cout << digitSum("you are very smart") << endl;
     return 0;
 }
