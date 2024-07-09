@@ -7,9 +7,10 @@ std::string calculateBinary(int a, int b) {
 }
 
 int main() {
-    int rounded_avg = std::stoi(calculateBinary(5, 5), nullptr, 2);
-    assert(rounded_avg == 10);
-    assert(calculateBinary(5, 5) == "101");
+    int rounded_avg = std::stoi(calculateBinary(2, 1), nullptr, 2);
+    assert(rounded_avg == 3);
+    assert(calculateBinary(2, 1) == "011");
+    assert(std::stoi(calculateBinary(5, 5), nullptr, 2) == 10);
 
     return 0;
 }
