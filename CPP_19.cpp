@@ -1,4 +1,6 @@
-#include <algorithm>
+#include<stdio.h>
+#include<string>
+#include<map>
 using namespace std;
 
 string sort_numbers(string numbers) {
@@ -8,25 +10,26 @@ string sort_numbers(string numbers) {
     vector<string> numVec;
     string temp;
 
-    for (int i = 0; i < numbers.length(); i++) {
+    for (int i = 0; i < numbers.size(); i++) {
         if (numbers[i] == ' ') {
             continue;
         }
-        temp = "";
-        while (i < numbers.length() && numbers[i] != ' ') {
-            temp += numbers[i];
-            i++;
+        temp += numbers[i];
+        for (int j = i + 1; j < numbers.size(); j++) {
+            if (numbers[j] != ' ') {
+                break;
+            }
+            i = j - 1;
         }
         numVec.push_back(temp);
+        temp.clear();
     }
 
-    sort(numVec.begin(), numVec.end(), [&numMap](const string& a, const string& b) {
-        return numMap[a] < numMap[b];
-    });
+    sort(numVec.begin(), numVec.end());
 
     string result;
-    for (auto &str : numVec) {
+    for (auto str : numVec) {
         result += str + " ";
     }
-    return result.substr(0, result.length() - 1);
+    return result.substr(0, result.size() - 1);
 }
