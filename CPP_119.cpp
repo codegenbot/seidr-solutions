@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -17,5 +18,5 @@ int match_parens(const std::vector<std::string>& lst) {
             }
         }
     }
-    return countOpen == 0 ? "Yes" : "No";
+    return countOpen == 0 ? 1 : -1;
 }
