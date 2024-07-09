@@ -1,25 +1,31 @@
-```
 #include <vector>
 #include <list>
 #include <any>
-#include <assert.h>
+#include <algorithm>
 
-using namespace std;
-
-bool issame(const any& a, const any& b) {
-    return typeid(any_cast<any>(a)) == typeid(any_cast<any>(b));
+namespace std {
+template<typename T>
+bool is_same(const list<any>& values) {
+    vector<T> result;
+    for (const auto& value : values) {
+        if (boost::any_cast<T>(value)) {
+            result.push_back(boost::any_cast<T>(value));
+        }
+    }
+    return (result == vector<T>(values.begin(), values.end()));
 }
 
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value)) {
-            result.push_back(any_cast<int>(value));
+        if (boost::any_cast<int>(value)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
-    return static_cast<vector<int>>(result);
+    return result;
 }
 
 int main() {
-    assert(is_same(filter_integers({3, 'c', 3, 3, 'a', 'b'}), vector<int> {3, 3, 3}));
+    assert(filter_integers({3, 'c', 3, 3, 'a', 'b'}) == vector<int>{3, 3, 3});
+    // ...
 }
