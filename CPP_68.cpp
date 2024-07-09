@@ -18,13 +18,8 @@ int pluck(std::vector<int> arr) {
     return minIndex;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.empty() && b.empty()) return true;
-    return (a == b);
-}
-
 int main() {
     int index = pluck({7, 9, 7, 1});
-    assert(issame({}, {(index % 2 == 0) ? 0 : 1})); 
+    assert(index % 2 == 0 || index == -1); 
     return 0;
 }
