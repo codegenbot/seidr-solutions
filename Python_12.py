@@ -1,2 +1,3 @@
-result = max(input().strip().split(), key=len)
-print(result)
+import sys
+strings = sys.stdin.readline().strip().split()
+print(max(strings, key=len))
