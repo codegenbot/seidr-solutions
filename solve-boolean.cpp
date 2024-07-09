@@ -1,8 +1,7 @@
 #include <string>
-using namespace std;
-
-bool solveBoolean(const string& s, size_t& i) {
+bool solveBoolean(const std::string& s, size_t& i) {
     bool result = true;
+
     while (i < s.size()) {
         switch (s[i]) {
             case 'T':
