@@ -1,8 +1,6 @@
-```cpp
 #include <vector>
-#include <algorithm>
 #include <cassert>
-
+#include <cmath>
 using namespace std;
 
 template<typename T>
@@ -39,8 +37,6 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    assert(isSame(sort_even(make_vector(5.0f)), make_vector(8.0f), make_vector(-12.0f), make_vector(4.0f), 
-            make_vector(23.0f), make_vector(2.0f), make_vector(3.0f), make_vector(11.0f), 
-            make_vector(12.0f), make_vector(-10.0f)));
+    assert(isSame(sort_even(vector<float>(make_vector({5, 8, -12, 4, 23, 2, 3, 11, 12, -10})) ) , vector<float>({ -12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
