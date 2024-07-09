@@ -1,8 +1,9 @@
-def count_black_pegs(code, guess):
+def mastermind(code, guess):
     black = sum(1 for a, b in zip(code, guess) if a == b)
-    return black
+    white = len(code) - black
+    return black, white
 
 code = input("Enter the Mastermind code: ")
-guess = input("Enter the guess: ")
+guess = input("Enter your guess: ")
 
-print(f"Black: {count_black_pegs(code, guess)}, White: {4 - count_black_pegs(code, guess)}")
+print(f"Black: {mastermind(code, guess)[0]}, White: {mastermind(code, guess)[1]}")
