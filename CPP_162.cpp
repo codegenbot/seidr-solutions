@@ -12,7 +12,8 @@ string string_to_md5(string text) {
     EVP_MD_CTX md_ctx;
     unsigned char* d = nullptr;
     size_t len = 0;
-    int ret = EVP_Digest(text.c_str(), text.size(), &d, &len, EVP_sha1(), &md_ctx);
+    int ret = EVP_Digest(text.c_str(), text.size(), &d, &len, EVP_md5(), &md_ctx);
+    EVP_MD_CTX_free(&md_ctx);
     
     string md5_hash;
     for (int i = 0; i < 16; ++i) {
@@ -22,7 +23,6 @@ string string_to_md5(string text) {
     }
     
     free(d);
-    EVP_MD_CTX_free(&md_ctx);
     
     return md5_hash;
 }
