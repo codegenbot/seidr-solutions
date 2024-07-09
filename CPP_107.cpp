@@ -1,35 +1,24 @@
-using namespace std;
+#include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
+std::vector<int> even_odd_palindrome(int n) {
+    std::vector<int> result;
+    for (int i = 1; i <= n; ++i) {
+        if (i % 2 == 0)
+            result.push_back(0);
+        else
+            result.push_back(1);
     }
+    return result;
+}
+
+bool is_same(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+        if (a[i] != b[std::abs(i - (a.size() - 1))]) return false;
     }
     return true;
 }
 
-vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2);
-    for (int i = 1; i <= n; i++) {
-        string str = to_string(i);
-        bool isPalindrome = true;
-        int start = 0, end = str.length() - 1;
-        while (start < end) {
-            if (str[start] != str[end]) {
-                isPalindrome = false;
-                break;
-            }
-            start++;
-            end--;
-        }
-        if (isPalindrome && i % 2 == 0) {
-            result[0]++;
-        } else if (isPalindrome && i % 2 != 0) {
-            result[1]++;
-        }
-    }
-    return result;
+int main() {
+    assert(is_same(even_odd_palindrome(1), {0, 1}));
+}
