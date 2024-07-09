@@ -1,6 +1,6 @@
 def mastermind(code, guess):
     black = sum(1 for a, b in zip(code, guess) if a == b)
-    white = len(code) - black
+    white = 4 - black - sum(1 for c in set(guess) if c in code and c != guess[guess.index(c)])
     return black, white
 
 code = input("Enter the Mastermind code: ")
