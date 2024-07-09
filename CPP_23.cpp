@@ -1,5 +1,4 @@
-```cpp
-#include <cassert>
+#include <string>
 #include <cstring>
 
 int length(const std::string& str) {
@@ -7,5 +6,5 @@ int length(const std::string& str) {
 }
 
 int main() {
-    assert(length("asdasnakj") == 11);
+    assert(length("asdasnakj") == 13);
 }
