@@ -1,8 +1,6 @@
-def add(x: int, y: int):
-    return x + y
+def add(numbers: list):
+    return sum(numbers)
 
-x = int(input("Enter first number: "))
-y = int(input("Enter second number: "))
-
-result = add(x, y)
-print("Result:", result)
+numbers = [int(num) for num in input("Enter integers separated by space: ").split()]
+result = add(numbers)
+print(result)
