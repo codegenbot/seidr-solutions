@@ -9,13 +9,11 @@ double sum_of_squares(double arr[], int n){
     return total;
 }
 
-int main_test(){
-    double* testArray = new double[] {1.0, 2.0, 3.0};
+int main(int argc, char const *argv[]){
+    double testArray[] = {1.0, 2.0, 3.0};
     int n = sizeof(testArray)/sizeof(testArray[0]);
     double result = sum_of_squares(testArray, n);
     std::cout << "Sum of squares: " << result << std::endl;
     
-    delete [] testArray; 
-
     return 0;
 }
