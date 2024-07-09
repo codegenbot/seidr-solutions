@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <initializer_list>
 
 using namespace std;
 
@@ -12,4 +12,10 @@ vector<int> make_a_pile(int n) {
     for (int i = 2; i <= n; ++i)
         pile.insert(pile.begin(), i);
     return pile;
+}
+
+int main() {
+    vector<int> pile = make_a_pile(8);
+    assert (issame(pile, vector<int>({8, 10, 12, 14, 16, 18, 20, 22})));
+    return 0;
 }
