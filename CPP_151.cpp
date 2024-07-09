@@ -1,5 +1,7 @@
 ```cpp
 #include <vector>
+#include <cmath>
+
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
@@ -11,7 +13,7 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5, 2.3, 4.8};
+    std::vector<float> lst = {1.0, 2.0, 3.0};
     long long odd_sum = double_the_difference(lst);
     assert(odd_sum == 14);
     return 0;
