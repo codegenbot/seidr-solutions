@@ -2,6 +2,10 @@
 #include <algorithm>
 #include <string>
 
+bool issame(const std::string& a, const std::string& b) {
+    return a.length() == b.length();
+}
+
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     std::vector<std::string> result;
     for (const auto& str : lst) {
