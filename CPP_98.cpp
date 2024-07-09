@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -12,9 +13,10 @@ int count_upper(std::string s){
 }
 
 int main(){
-    std::string input;
+    std::string user_input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << "Upper letters at even positions: " << count_upper(input) << std::endl;
+    std::getline(std::cin, user_input);
+    int result = count_upper(user_input);
+    std::cout << "The number of uppercase letters at even positions is: " << result << std::endl;
     return 0;
 }
