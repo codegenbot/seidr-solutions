@@ -5,14 +5,15 @@ def histogram(test):
     
     words = test.split()
     max_count = 0
-    most_common = {}
+    result = {}
     
-    for word in set(words):
+    for word in words:
         count = words.count(word)
+        
         if count > max_count:
             max_count = count
-            most_common = {word: count}
+            result = {word: count}
         elif count == max_count:
-            most_common[word] = count
+            result[word] = count
     
-    return most_common
+    return result
