@@ -5,4 +5,5 @@ def indices_of_substring(text, target):
         i = text.find(target, i)
         if i == -1: break
         result.append(i)
-        i = i + len(target)
+        i += 1 + len(target)
+    return result
