@@ -2,10 +2,11 @@
 #include <algorithm>
 #include <initializer_list>
 #include <ostream>
+#include <iostream>
 
 using namespace std;
 
-vector<int> count_upto(int n) {
+vector<int> count_up_to(int n) {
     vector<int> primes;
     for (int i = 2; i < n; ++i) {
         bool isPrime = true;
@@ -27,11 +28,10 @@ int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    vector<int> result = count_upto(n);
+    vector<int> result = count_up_to(n);
     cout << "Primes up to " << n << ": ";
     for (int prime : result) {
         cout << prime << " ";
     }
     cout << endl;
-    return 0;
 }
