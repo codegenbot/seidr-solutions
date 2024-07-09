@@ -2,11 +2,21 @@
 #include <sstream>
 #include <iomanip>
 #include <string>
-#include <md5.h> // Include the necessary header file for MD5 encryption
+#include <openssl/md5.h>
 
 std::string stringToMd5(const std::string& str) {
-    // Implement your md5 function here, e.g., using OpenSSL
-    return md5(str);
+    unsigned char md5[16];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, str.c_str(), str.size());
+    MD5_Final(md5, &ctx);
+
+    std::stringstream ss;
+    for (int i = 0; i < 16; ++i) {
+        ss << std::hex << (int)(md5[i]) << "";
+    }
+
+    return ss.str();
 }
 
 int main() {
