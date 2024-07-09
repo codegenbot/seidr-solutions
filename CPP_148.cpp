@@ -1,15 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-using namespace std;
-
-bool issame(pair<string, string> a, pair<string, string> b) {
-    return (a.first == b.first && a.second == b.second);
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 int main() {
-    assert(issame(make_pair("Jupiter", "Makemake"), make_pair("", "")));
+    assert(issame({"Jupiter", "Makemake"}, {}));
     return 0;
 }
