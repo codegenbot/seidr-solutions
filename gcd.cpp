@@ -1,6 +1,7 @@
-```cpp
+````
 #include <vector>
 #include <string>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -21,3 +22,4 @@ int gcd(int a, int b) {
     else
         return gcd(b, a % b);
 }
+```
