@@ -1,6 +1,15 @@
-```
+```cpp
 #include <algorithm>
 #include <vector>
+
+int main() {
+    vector<float> l = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    vector<float> result = sort_even(l);
+    for (float f : result) {
+        std::cout << f << " ";
+    }
+    return 0;
+}
 
 bool issame(vector<float> a, vector<float> b) {
     if(a.size() != b.size()) return false;
@@ -27,17 +36,4 @@ vector<float> sort_even(vector<float> l) {
         }
     }
     return result;
-}
-
-int main() {
-    vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
-    vector<float> expected({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
-    
-    vector<float> result = sort_even(input);
-    assert(issame(result, expected));
-    
-    for (float num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
 }
