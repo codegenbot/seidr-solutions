@@ -1,35 +1,33 @@
-vector<string> numerical_letter_grade(vector<float> grades){
-    vector<string> result;
-    for(float g:grades){
-        string letterGrade = "";
-        if(g >= 4.0) {
-            letterGrade = "A+";
-        } else if(g > 3.7) {
-            letterGrade = "A";
-        } else if(g > 3.3) {
-            letterGrade = "A-";
-        } else if(g > 3.0) {
-            letterGrade = "B+";
-        } else if(g > 2.7) {
-            letterGrade = "B";
-        } else if(g > 2.3) {
-            letterGrade = "B-";
-        } else if(g > 2.0) {
-            letterGrade = "C+";
-        } else if(g > 1.7) {
-            letterGrade = "C";
-        } else if(g > 1.3) {
-            letterGrade = "C-";
-        } else if(g > 1.0) {
-            letterGrade = "D+";
-        } else if(g > 0.7) {
-            letterGrade = "D";
-        } else if(g > 0.0) {
-            letterGrade = "D-";
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> letter_grades;
+    for (float grade : grades) {
+        string letter_grade = "";
+        if (grade >= 4.0) {
+            letter_grade = "A+";
+        } else if (grade > 3.7) {
+            letter_grade = "A";
+        } else if (grade > 3.3) {
+            letter_grade = "A-";
+        } else if (grade > 3.0) {
+            letter_grade = "B+");
+        } else if (grade > 2.7) {
+            letter_grade = "B";
+        } else if (grade > 2.3) {
+            letter_grade = "B-";
+        } else if (grade > 2.0) {
+            letter_grade = "C+";
+        } else if (grade > 1.7) {
+            letter_grade = "C";
+        } else if (grade > 1.3) {
+            letter_grade = "C-";
+        } else if (grade > 1.0) {
+            letter_grade = "D+";
+        } else if (grade > 0.7) {
+            letter_grade = "D";
         } else {
-            letterGrade = "E";
+            letter_grade = "E";
         }
-        result.push_back(letterGrade);
+        letter_grades.push_back(letter_grade);
     }
-    return result;
+    return letter_grades;
 }
