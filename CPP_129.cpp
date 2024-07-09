@@ -14,19 +14,19 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<vector<int>> minPath(vector<vector<int>> grid, int k) {
     vector<int> result;
     for (int i = 0; i < grid.size(); ++i) {
         for (int j = 0; j < grid[0].size(); ++j) {
             if (grid[i][j] == k) {
-                for(int _k=0;_k<k;++_k){
+                for (int x = 0; x < k; ++x) {
                     result.push_back(i);
                     result.push_back(j);
                 }
             }
         }
     }
-    return result;
+    return {{}, };
 }
 
 int main() {
