@@ -1,20 +1,9 @@
+```cpp
 bool issame(vector<string> a, vector<string>b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        bool found = false;
-        for(string s : b) {
-            if(s == a[i]) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) {
-            return false;
-        }
-    }
-    return true;
+    if(a.size()!=b.size())return false;
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
+    return a==b;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
