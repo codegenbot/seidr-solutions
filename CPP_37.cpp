@@ -17,7 +17,7 @@ std::vector<float> sortEven(const std::vector<float>& l) {
     return evenVals;
 }
 
-int originalMain() {
+int main() {
     std::vector<float> vec = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     std::vector<float> result(vec.size()); 
     for (int i = 0; i < vec.size(); i++) {
@@ -39,11 +39,7 @@ int originalMain() {
     }
     
     std::vector<float> expected = { -12, 8, 3, 4, 5, 2, 12, 11, 23, -10 };
-    assert(checkEquality(result, expected));
-    return 0;
-}
-
-int newMain() {
-    originalMain();
+    bool isSame = checkEquality(result, expected);
+    assert(isSame);
     return 0;
 }
