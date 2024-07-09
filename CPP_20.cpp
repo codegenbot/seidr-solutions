@@ -1,5 +1,7 @@
+```cpp
 #include <initializer_list>
 #include <vector>
+#include <cassert>
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
     if (numbers.size() < 2) {
@@ -22,11 +24,13 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
+
     for (int i = 0; i < a.size(); ++i) {
-        if (std::abs(a[i] - b[i]) > 1e-5) {
+        if (std::abs(a[i] - b[i]) > 1e-5f) { // 1e-5f is a small float value
             return false;
         }
     }
+
     return true;
 }
 
