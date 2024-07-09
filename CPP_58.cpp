@@ -10,47 +10,35 @@ int main() {
     int n1, m1, n2, m2;
     std::cin >> n1 >> m1 >> n2 >> m2;
 
-    std::vector<std::string> s1Vec;
-    s1Vec.reserve(n1);
     for(int i = 0; i < n1; i++) {
         std::string x;
         std::cin >> x;
-        s1Vec.push_back(x);
+        s1.insert(x);  
     }
 
-    for(auto &i : s1Vec) {
-        s1.insert(i);  
-    }
-
-    std::vector<std::string> s2Vec;
-    s2Vec.reserve(m1);
     for(int i = 0; i < m1; i++) {
         std::string y;
         std::cin >> y;
-        s2Vec.push_back(y);
+        s2.insert(y);  
     }
 
-    for(auto &i : s2Vec) {
-        s2.insert(i);  
-    }
-
-    std::vector<std::string> diff(s1.begin(), s1.end());
+    std::set<std::string> diff(s1.begin(), s1.end());
+    auto res = std::inclusive_sort(diff);
     std::set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(),
-                        std::back_inserter(diff));
+                        res);
 
     auto intersection = s1;
     s1.clear();
-    std::vector<std::string> intersect;
-    std::set_intersection(intersection.begin(), intersection.end(), s2.begin(), s2.end(),
-                           std::back_inserter(intersect));
-
+    auto intersectRes = std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
+                           res);
+    
     std::cout << "Difference: ";
     for (const auto& i : diff) {
         std::cout << i << " ";
     }
     std::cout << "\n";
     std::cout << "Intersection: ";
-    for (const auto& i : intersect) {
+    for (const auto& i : intersectRes) {
         std::cout << i << " ";
     }
     std::cout << "\n";
