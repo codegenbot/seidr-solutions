@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <limits>
 
@@ -18,7 +18,7 @@ int prod_signs(vector<int> arr) {
     }
 
     if (arr.empty()) {
-        return numeric_limits<int>::min(); // Return -32768 for empty array
+        return numeric_limits<int>::min(); // Return minimum integer for empty array
     }
 
     return sum_of_magnitudes * sign_product;
