@@ -1,11 +1,10 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
 std::vector<int> sort_array(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
-        int ones_a = std::bitset<32>(a).count();
-        int ones_b = std::bitset<32>(b).count();
+        int ones_a = __builtin_popcount(a);
+        int ones_b = __builtin_popcount(b);
 
         if (ones_a == ones_b)
             return a < b;
@@ -13,4 +12,10 @@ std::vector<int> sort_array(std::vector<int> arr) {
             return ones_a < ones_b;
     });
     return arr;
+}
+
+int main() {
+    std::vector<int> arr = {2, 4, 8, 16, 32};
+    assert(std::equal(arr.begin(), arr.end(), sort_array(arr).begin()));
+    return 0;
 }
