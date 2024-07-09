@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -47,37 +48,32 @@ int main() {
     std::getline(std::cin, user_input1);
     std::getline(std::cin, user_input2);
 
-    std::istringstream iss1(user_input1), iss2(user_input2);
-    for (int i = 0; i < 3 && std::getline(iss1, user_input1, ' ') && i < 3; ++i) {
-        lst1.push_back(user_input1);
+    std::istringstream iss1(user_input1);
+    std::string temp;
+    while (std::getline(iss1, temp, ' ')) {
+        lst1.push_back(temp);
     }
-    for (int i = 0; i < 3 && std::getline(iss2, user_input2, ' ') && i < 3; ++i) {
-        lst2.push_back(user_input2);
+
+    std::istringstream iss2(user_input2);
+    while (std::getline(iss2, temp, ' ')) {
+        lst2.push_back(temp);
     }
 
     if (!lst1.empty() && !lst2.empty()) {
-        int sum1 = total_sum(lst1);
-        int sum2 = total_sum(lst2);
+        if (total_sum(lst1) < total_sum(lst2)) {
+            std::cout << "List 1 has a lower sum." << std::endl;
+        } else if (total_sum(lst1) > total_sum(lst2)) {
+            std::cout << "List 2 has a higher sum." << std::endl;
+        } else {
+            std::cout << "The sums are equal." << std::endl;
+        }
+    }
 
-        std::cout << "Sum of list 1: " << sum1 << std::endl;
-        std::cout << "Sum of list 2: " << sum2 << std::endl;
-
-        if (sum1 < sum2) {
-            std::cout << "List 1 has the smaller sum." << std::endl;
-        }
-        else if (sum1 > sum2) {
-            std::cout << "List 2 has the smaller sum." << std::endl;
-        }
-        else {
-            std::cout << "Both lists have the same sum." << std::endl;
-        }
-
-        std::vector<std::string> result = total_match(lst1, lst2);
-        if (!result.empty()) {
-            std::cout << "The fruit that appears in both lists is: " << result[0] << std::endl;
-        }
-        else {
-            std::cout << "No fruits appear in both lists." << std::endl;
+    if (!lst1.empty() && !lst2.empty()) {
+        if (issame({lst1[0], lst1[1], lst1[2]}, {lst2[0], lst2[1], lst2[2]})) {
+            std::cout << "The lists are the same." << std::endl;
+        } else {
+            std::cout << "The lists are different." << std::endl;
         }
     }
 
