@@ -19,22 +19,22 @@ int bowlingScore(std::string s) {
             currentFrame++;
         } else if(s[i] == 'X') {
             score += 10;
-            currentFrame++;
+            if(currentFrame < 10) {
+                score += 10;
+                currentFrame++;
+            }
         } else {
             int roll = s[i] - '0';
             score += roll;
             if(currentFrame < 10) {
                 if(i+1 < s.length() && s[i+1] != '/') {
-                    if(s[i+1] == 'X') {
-                        score += 10;
-                        currentFrame++;
-                    } else {
-                        score += getBonus(roll, (s[i+1] - '0'));
-                        currentFrame++;
-                    }
+                    score += getBonus(roll, (s[i+1] - '0'));
+                    currentFrame++;
                 } else {
                     break;
                 }
+            } else {
+                currentFrame = 10;
             }
         }
     }
