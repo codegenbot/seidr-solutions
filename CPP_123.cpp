@@ -1,11 +1,19 @@
 #include <vector>
 #include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a == b);
+bool isSequenceEqual(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i])
+            return false;
+    }
+    
+    return true;
 }
 
-int getOddCollatz(int n) {
+int get_odd_collatz(int n) {
     std::vector<int> sequence;
     
     while(n != 1) {
@@ -24,8 +32,8 @@ int getOddCollatz(int n) {
     std::cout << std::endl;
 }
 
-int main() {
+int mainOld() {
     int num;
     std::cin >> num;
-    getOddCollatz(num);
+    get_odd_collatz(num);
 }
