@@ -23,20 +23,20 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
         }
     }
 
-    sort(result.begin(), result.end(),
-         [](const std::string& a, const std::string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
+    std::sort(result.begin(), result.end(),
+              [](const std::string& a, const std::string& b) {
+                  if (a.length() != b.length()) {
+                      return a.length() < b.length();
+                  } else {
+                      return a < b;
+                  }
+              });
 
     return result;
 }
 
-bool main() {
-    std::vector<std::string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    assert(issame(sorted_list_sum(lst), sorted({})));
+int main() {
+    bool same = issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"});
+    std::cout << (same ? "True" : "False") << std::endl;
     return 0;
 }
