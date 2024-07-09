@@ -1,14 +1,10 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> contestProblem(int n) {
+vector<int> tri(int n) {
     vector<int> result;
     if (n == 0) {
         result.push_back(0);
@@ -31,4 +27,15 @@ vector<int> contestProblem(int n) {
         }
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(tri(1), {1, 3}));
+    // Add more test cases if needed
+
+    return 0;
 }
