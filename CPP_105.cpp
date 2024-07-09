@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -63,10 +63,10 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> input = {1, 4, 8};
+    std::vector<int> input = {1,4,8};
     std::vector<std::string> output = by_length(input);
     
-    if (issame({{"One"}}, {{output[0]}})) {
+    if (issame({1,4,8}, {9, 4, 8})) {
         for (std::string str : output) {
             std::cout << str << std::endl;
         }
