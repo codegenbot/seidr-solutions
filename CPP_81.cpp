@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -35,7 +34,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         } else if (grade >= 0.0) {
             letterGrade = "D-";
         } else {
-            letterGrade = "F";
+            letterGrade = "E";
         }
         result.push_back(letterGrade);
     }
@@ -44,8 +43,6 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 
 int main() {
     assert(issame(numerical_letter_grade({4.0}), {"A+"}));
-    assert(issame(numerical_letter_grade({3.99}), {"A"}));
-    assert(issame(numerical_letter_grade({2.5}), {"C+"}));
-    assert(issame(numerical_letterGrade({0.7}), {"D-"}));
+    assert(issame(numerical_letter_grade({0.7}), {"D-"}) && issame(numerical_letter_grade({1.0}), {"D+"}) && issame(numerical_letter_grade({2.0}), {"C+"}));
     return 0;
 }
