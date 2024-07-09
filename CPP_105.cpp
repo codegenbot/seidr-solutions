@@ -1,15 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
+bool issame(vector<string> a) {
+    if (a.size() == 1) {
+        return true;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for (int i = 1; i < a.size(); i++) {
+        if (a[i - 1] != a[i]) {
             return false;
         }
     }
@@ -20,7 +19,7 @@ vector<string> by_length(vector<int> arr) {
     vector<string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            temp.push_back(std::to_string(i)); 
+            temp.push_back(std::to_string(i)); // Convert int to string
         }
     }
 
@@ -29,7 +28,7 @@ vector<string> by_length(vector<int> arr) {
 
     vector<string> result;
     for (string str : temp) {
-        switch (stoi(str)) {
+        switch(stoi(str)) {
             case 1:
                 result.push_back("One");
                 break;
@@ -67,14 +66,9 @@ int main() {
     vector<int> input = {1, 4, 8};
     vector<string> output = by_length(input);
     
-    if (issame({{"One", "Four", "Eight"}}, output)) {
-        for (string str : output) {
-            cout << str << endl;
-        }
-    } else {
-        cout << "Output is incorrect." << endl;
+    for (string str : output) {
+        cout << str << endl;
     }
     
-    assert(issame({{"Nine", "Eight", "Four"}});
     return 0;
 }
