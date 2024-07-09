@@ -8,7 +8,12 @@ def solve_boolean(expression):
             left = eval_expr(expression[1])
             right = eval_expr(expression[2:])
             if expression[0] == "&":
-                return ((left and right) or (expression[1:] != "T" | expression[1:] != "F")) 
+                return left and right
             else:
-                return ((left or right) and (expression[1:] != "F & F"))
+                return left or right
+        else:  
+            i = expression.find("(")
+            j = expression.find(")")
+            return eval_expr(expression[i+1:j])
+
     return eval_expr(expression)
