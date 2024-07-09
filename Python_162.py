@@ -1,10 +1,12 @@
 import hashlib
 
-def string_to_md5():
-    text = input()
+text = input()
+
+
+def string_to_md5(text):
     if not text:
         return None
     return hashlib.md5(text.encode()).hexdigest()
 
-result = string_to_md5()
-print(result)
+
+print(string_to_md5(text))
