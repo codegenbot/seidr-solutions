@@ -1,7 +1,5 @@
-```
 #include <boost/any.hpp>
 #include <boost/type_index.hpp>
-#include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -12,51 +10,51 @@ boost::any compare_one(boost::any a, boost::any b) {
         return a;
     } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
         return a;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        if (std::stod(b.convert_to<std::string>().c_str()) > a.convert_to<std::string>().c_str()) {
-            return boost::any(b);
-        } else if (std::stod(b.convert_to<std::string>().c_str()) < std::stod(a.convert_to<std::string>().c_str())) {
-            return boost::any(a);
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        if (stod(b.convert_to<string>().c_str()) > a.convert_to<string>().c_str()) {
+            return b;
+        } else if (stod(b.convert_to<string>().c_str()) < stod(a.convert_to<string>().c_str())) {
+            return a;
         } else {
             return boost::any("None");
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
-        if (std::stod(b.convert_to<std::string>().c_str()) > a.convert_to<std::string>().c_str()) {
-            return boost::any(b);
-        } else if (std::stod(b.convert_to<std::string>().c_str()) < std::stod(a.convert_to<std::string>().c_str())) {
-            return boost::any(a);
+    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        if (stod(b.convert_to<string>().c_str()) > a.convert_to<string>().c_str()) {
+            return b;
+        } else if (stod(b.convert_to<string>().c_str()) < stod(a.convert_to<string>().c_str())) {
+            return a;
         } else {
             return boost::any("None");
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::stod(b.convert_to<std::string>().c_str()) > std::stod(a.convert_to<std::string>().c_str())) {
-            return boost::any(b);
-        } else if (std::stod(b.convert_to<std::string>().c_str()) < std::stod(a.convert_to<std::string>().c_str())) {
-            return boost::any(a);
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (stod(b.convert_to<string>().c_str()) > stod(a.convert_to<string>().c_str())) {
+            return b;
+        } else if (stod(b.convert_to<string>().c_str()) < stod(a.convert_to<string>().c_str())) {
+            return a;
         } else {
             return boost::any("None");
         }
-    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        if (std::stoi(b.convert_to<std::string>().c_str()) > a) {
-            return boost::any(b);
-        } else if (std::stoi(b.convert_to<std::string>().c_str()) < a) {
-            return boost::any(a);
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        if (stoi(b.convert_to<string>().c_str()) > a) {
+            return b;
+        } else if (stoi(b.convert_to<string>().c_str()) < a) {
+            return a;
         } else {
             return boost::any("None");
         }
-    } else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
-        if (std::stod(b.convert_to<std::string>().c_str()) > a) {
-            return boost::any(b);
-        } else if (std::stod(b.convert_to<std::string>().c_str()) < a) {
-            return boost::any(a);
+    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        if (stod(b.convert_to<string>().c_str()) > a) {
+            return b;
+        } else if (stod(b.convert_to<string>().c_str()) < a) {
+            return a;
         } else {
             return boost::any("None");
         }
     } else {
         if (a.convert_to<int>() > b.convert_to<int>()) {
-            return boost::any(a);
+            return a;
         } else if (a.convert_to<int>() < b.convert_to<int>()) {
-            return boost::any(b);
+            return b;
         } else {
             return boost::any("None");
         }
