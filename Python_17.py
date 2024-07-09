@@ -1,1 +1,1 @@
-map(int, input().strip().split("|"))
+input_list = list(map(int, input().strip().split("|")))
