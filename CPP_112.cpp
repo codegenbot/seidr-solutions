@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -20,32 +19,11 @@ vector<string> reverse_delete(string s, string c) {
             temp += s[i];
         }
     }
-    
     result.push_back(temp);
     
     string palindromCheck = temp;
     reverse(palindromCheck.begin(), palindromCheck.end());
     
-    if (palindromCheck == temp) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
-    }
-    
-    for(int i=0; i<s.length(); i++) {
-        bool found = false;
-        for(int j=0; j<c.length(); j++) {
-            if(s[i] == c[j]) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) {
-            result.push_back(string(1, s[i]));
-        }
-    }
-    
-    string temp2 = "";
     for (int i = 0; i < s.length(); i++) {
         bool found = false;
         for (int j = 0; j < c.length(); j++) {
@@ -55,14 +33,15 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            temp2 += s[i];
+            temp += s[i];
         }
     }
+    result.push_back(temp);
     
-    string palindromCheck2 = temp2;
-    reverse(palindromCheck2.begin(), palindromCheck2.end());
+    string check = temp;
+    reverse(check.begin(), check.end());
     
-    if (palindromCheck2 == temp2) {
+    if (check == temp) {
         result.push_back("True");
     } else {
         result.push_back("False");
