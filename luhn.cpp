@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+
 using namespace std;
 
 int luhn(const vector<int>& digits) {
@@ -6,17 +8,15 @@ int luhn(const vector<int>& digits) {
     bool doubleNext = false;
     
     for (int i = 0; i < digits.size(); i++) {
-        if (doubleNext) {
+        if ((i % 2) == 0) {
             int doubled = digits[i] * 2;
             if (doubled > 9) {
                 sum += doubled - 9;
             } else {
                 sum += doubled;
             }
-            doubleNext = false;
         } else {
             sum += digits[i];
-            doubleNext = !doubleNext;
         }
     }
     
