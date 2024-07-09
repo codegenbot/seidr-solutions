@@ -1,37 +1,48 @@
 def bowling_score(frames):
     score = 0
     frame_count = 0
-    frames_list = frames.split("/")
-    
-    for frame in frames_list:
-        if len(frame) == 1: 
-            score += int(frame)
+    for i in range(0, len(frames), 2):
+        if frames[i] == 'X':
+            score += 30
             frame_count += 1
-        elif len(frame) == 2: 
-            first_roll = int(frame[0])
-            second_roll = 10 - first_roll
-            if first_roll != 10:
+        elif frames[i] == '/':
+            first_roll = int(frames[i-1])
+            second_roll = 10 - int(frames[i+1])
+            score += first_roll + second_roll
+            frame_count += 1
+        else:
+            first_roll = int(frames[i])
+            second_roll = int(frames[i+1])
+            if first_roll + second_roll >= 10:
+                score += first_roll + second_roll
+                frame_count += 1
+            elif first_roll == 10:
+                score += first_roll
+                frame_count += 1
+                if second_roll != 0:
+                    score += second_roll
+                else:
+                    for j in range(i+2, len(frames), 2):
+                        if frames[j] == 'X' or (frames[j] != '/' and int(frames[j]) + int(frames[j+1]) >= 10):
+                            frame_count += 1
+                            break
+            else:
+                score += first_roll
+                frame_count += 1
+    if frame_count < 10:
+        remaining_frames = len(frames) - 2*frame_count
+        for i in range(0, remaining_frames, 2):
+            if frames[i] == 'X':
+                score += 30
+            elif frames[i] == '/':
+                first_roll = int(frames[i-1])
+                second_roll = 10 - int(frames[i+1])
                 score += first_roll + second_roll
             else:
-                score += 10 + next_frame(frames_list, frame_count)
-            frame_count += 1
-        else: 
-            first_roll = int(frame[0])
-            second_roll = int(frame[1])
-            third_roll = 10 - (first_roll + second_roll)
-            if first_roll != 10:
-                score += first_roll + second_roll + third_roll
-            elif second_roll != 10:
-                score += 10 + next_frame(frames_list, frame_count)
-            else:
-                score += 10 + 10 + next_frame(frames_list, frame_count)
-            frame_count += 1
-    
+                first_roll = int(frames[i])
+                second_roll = int(frames[i+1])
+                if first_roll + second_roll >= 10:
+                    score += first_roll + second_roll
+                else:
+                    score += first_roll
     return score
-
-def next_frame(frames_list, current_frame):
-    for i in range(current_frame+1, len(frames_list)+1):
-        if len(frames_list[i-1]) == 2:
-            return int(frames_list[i-1][0]) + int(frames_list[i-1][1])
-        else:
-            return int(frames_list[i-1])
