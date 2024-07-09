@@ -1,13 +1,15 @@
+#include <iostream>
 #include <string>
 #include <cassert>
+#include <bitset>
 
-std::string calculateBinary(int num1, int num2) {
-    int avg = (num1 + num2) / 2;
-    std::string binary_avg = std::bitset<8>(avg).to_string(); // 8-bit binary representation
-    return binary_avg;
+std::string calculateBinary(int a, int b) {
+    return std::bitset<8>(a + b).to_string();
 }
 
 int main() {
     int rounded_avg = std::stoi(calculateBinary(5, 5), 0, 2);
     assert(rounded_avg == 5);
+
+    return 0;
 }
