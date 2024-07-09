@@ -1,28 +1,19 @@
-#include <iostream>
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
-std::vector<int> incr_list(std::vector<int> l){
-    for (int i = 0; i < l.size(); i++) {
+std::vector<int> incr_list(std::vector<int> l) {
+    for(int i = 0; i < l.size(); i++) {
         l[i]++;
     }
     return l;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    std::vector<int> vec1 = {1, 2, 3};
-    std::vector<int> vec2 = {1, 2, 4};
-
-    std::vector<int> incremented_vec = incr_list(vec1);
-
-    if (issame(vec1, vec2)) {
-        std::cout << "Vectors are the same" << std::endl;
-    } else {
-        std::cout << "Vectors are different" << std::endl;
-    }
-
+    assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));
+    
     return 0;
 }
