@@ -39,3 +39,9 @@ int eval(const std::string& s) {
     
     return result;
 }
+
+int main() {
+    int result = do_algebra(ops, {7, 3, 4});
+    assert(result == 28);
+    return 0;
+}
