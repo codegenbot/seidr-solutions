@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 int basement(std::vector<int>& v) {
     int sum = 0;
