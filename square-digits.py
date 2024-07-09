@@ -1,7 +1,7 @@
-def main():
-    n = int(input("Enter an integer: "))
-    result = "".join(str(int(i) ** 2) for i in str(n).lstrip('0'))
-    print(result)
+```
+def square_digits(n):
+    return "".join(str(int(i) ** 2) for i in str(n))
 
 if __name__ == "__main__":
-    main()
+    n = int(input("Enter a positive integer: "))
+    print(square_digits(n))
