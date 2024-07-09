@@ -1,3 +1,5 @@
+Here is the solution:
+
 int digits(int n) {
     int product = 1;
     while (n > 0) {
