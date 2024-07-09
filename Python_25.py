@@ -11,10 +11,10 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-try:
-    print("Please enter an integer:")
-    n = int(input().strip())
-    result = factorize(n)
-    print(result)
-except ValueError:
-    print("Invalid input. Please enter an integer.")
+while True:
+    try:
+        n = int(input().strip())
+        result = factorize(n)
+        print(result)
+    except ValueError:
+        break
