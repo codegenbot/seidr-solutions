@@ -1,9 +1,13 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-std::vector<int> order_by_points(const std::vector<int>& nums) {
-    std::vector<int> nums_copy = nums;
-    std::sort(nums_copy.begin(), nums_copy.end(), [](int a, int b) {
+vector<int> order_by_points(const vector<int>& nums);
+
+bool issame(const vector<int>& a, const vector<int>& b);
+
+vector<int> order_by_points(const vector<int>& nums) {
+    sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_digits_a = 0, sum_digits_b = 0;
         if (a < 0) a *= -1;
         if (b < 0) b *= -1;
@@ -12,9 +16,9 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
         if (sum_digits_a == sum_digits_b) return a < b;
         return sum_digits_a < sum_digits_b;
     });
-    return nums_copy;
+    return nums;
 }
 
-bool issame(const std::vector<int>& nums1, const std::vector<int>& nums2) {
-    return nums1 == nums2;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
