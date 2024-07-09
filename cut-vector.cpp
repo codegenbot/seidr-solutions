@@ -5,7 +5,7 @@
 int main() {
     std::vector<int> v = {1, 2, 3, 4, 5};
     auto res = cutVector(v);
-    for (const auto& sub : {res.first, res.second}) {
+    for (const auto& sub : {res[0], res[1]}) {
         for (int num : sub) {
             std::cout << num << " ";
         }
@@ -14,13 +14,13 @@ int main() {
     return 0;
 }
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
+std::vector<int> cutVector(std::vector<int> v) {
     int n = v.size();
     long long totalSum = 0;
     for (int i = 0; i < n; i++) {
         totalSum += v[i];
     }
-    int minDiff = INT_MAX; 
+    int minDiff = std::numeric_limits<int>::max(); 
     int leftIndex = 0;
 
     long long halfSum = totalSum / 2;
@@ -32,8 +32,8 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> v) {
         while (i < n && totalSum > halfSum) {
             totalSum -= v[i];
             leftIndex = i + 1;
-            if (totalSum == halfSum || abs(totalSum - halfSum) < minDiff) {
-                minDiff = abs(totalSum - halfSum);
+            if (totalSum == halfSum || std::abs(totalSum - halfSum) < minDiff) {
+                minDiff = std::abs(totalSum - halfSum);
                 break;
             }
         }
