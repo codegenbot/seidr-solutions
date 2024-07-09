@@ -1,7 +1,6 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    if n % 2 != 0:
-        raise ValueError("Number of coefficients must be even.")
-    if xs[-1] == 0:
-        raise ValueError("Largest non-zero coefficient must be non-zero.")
-    return -xs[0] / xs[1]
+    for i in range(n):
+        if xs[i] != 0:
+            break
+    return -xs[n] / xs[i]
