@@ -3,11 +3,11 @@
 #include <string>
 #include <cassert>
 
-bool issame(const vector<string>& a, const vector<string>& b){
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
-
-vector<string> filter_by_prefix(vector<string> strings, string prefix);
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
@@ -19,13 +19,15 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     return result;
 }
 
-int main() {
-    vector<string> test_strings = {"apple", "banana", "apricot", "cherry"};
-    string test_prefix = "ap";
-    vector<string> filtered_strings = filter_by_prefix(test_strings, test_prefix);
-
+int main(){
+    vector<string> test_strings = {"apple", "banana", "apricot", "kiwi"};
     vector<string> expected_result = {"apple", "apricot"};
-    assert(issame(filtered_strings, expected_result));
+    
+    vector<string> result = filter_by_prefix(test_strings, "a");
+    
+    assert(issame(result, expected_result));
+    
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
 
     return 0;
 }
