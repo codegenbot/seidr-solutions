@@ -1,22 +1,13 @@
-def check(func):
-    def inner(lst):
-        evens = [x for x in lst if isinstance(x, int) and x % 2 == 0]
-        odds = [x for x in lst if isinstance(x, int) and x % 2 != 0]
-        even_sum_squares = sum(i**2 for i in evens)
-        odd_sum = sum(odds)
-        total_sum = sum(lst)
-        diff = total_sum - odd_sum
-        return func([evens, odds]) == (2 * diff)
+def check(f):
+    def g(lst):
+        pos = [i for i in lst if isinstance(i, int) and i >= 0]
+        odd_pos = [x for x in pos if x % 2 != 0]
+        even_pos = [x for x in pos if x % 2 == 0]
+        return sum(x**2 for x in even_pos) == 2 * (
+            sum(sum(map(lambda x: x**2, odd_pos))) + sum(map(lambda x: x**2, even_pos))
+        )
 
-    return inner
+    return g
 
 
-@check
-def double_the_difference(lst):
-    evens = [x for x in lst[0] if isinstance(x, int) and x >= 0]
-    odds = [x for x in lst[1] if isinstance(x, int) and x >= 0]
-    even_sum_squares = sum(i**2 for i in evens)
-    odd_sum = sum(odds)
-    total_sum = sum(lst[0]) + sum(lst[1])
-    diff = total_sum - odd_sum
-    return even_sum_squares == (2 * diff)
+print(check(lambda lst: double_the_difference(lst))(list(range(-3, 4))))
