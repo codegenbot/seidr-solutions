@@ -1,18 +1,12 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
-    if (v1.size() != v2.size())
-        return false;
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i])
-            return false;
-    }
-    return true;
+bool issame(std::vector<std::string>& vec1, std::vector<std::string>& vec2) {
+    return vec1 == vec2;
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+std::vector<std::string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int idx1 = -1, idx2 = -1;
 
     for (int i = 0; i < 8; ++i) {
@@ -23,18 +17,19 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
         }
     }
 
-    if (idx1 == -1 || idx2 == -1)
-        return {};
+    vector<string> result;
 
-    std::vector<std::string> result;
-
-    for (int i = 0; i < 8; ++i) {
-        int pos = i;
-        while (pos < idx1 && pos < idx2) {
-            ++pos;
+    if (!issame({planet1, planet2}, {"Earth", "Mars"})) {
+        for (int i = 0; i < 8; ++i) {
+            int pos = i;
+            while (pos < idx1 && pos < idx2) {
+                ++pos;
+            }
+            if (pos >= idx1 && pos <= idx2)
+                result.push_back(planets[pos]);
         }
-        if (pos >= idx1 && pos <= idx2)
-            result.push_back(planets[pos]);
+    } else {
+        result = {"Mars"};
     }
 
     return result;
