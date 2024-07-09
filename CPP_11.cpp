@@ -9,8 +9,8 @@ std::string string_xor(std::string a, std::string b) {
 
     std::string result = "";
     for (int i = 0; i < a.length(); i++) {
-        int x = (a[i] - '0');
-        int y = (b[i] - '0');
+        int x = a[i] == '1' ? 1 : 0;
+        int y = b[i] == '1' ? 1 : 0;
         int res = x ^ y;
         result += (res > 0) ? '1' : '0';
     }
@@ -22,9 +22,15 @@ int main() {
     std::string str1;
     std::string str2;
     std::cout << "Enter the first string: ";
-    std::getline(std::cin, str1);
+    char c1;
+    while(std::cin >> c1) {
+        str1 += c1;
+    }
     std::cout << "Enter the second string: ";
-    std::getline(std::cin, str2);
+    char c2;
+    while(std::cin >> c2) {
+        str2 += c2;
+    }
     try {
         std::string result = string_xor(str1, str2);
         std::cout << "XOR of the two strings is: " << result << std::endl;
