@@ -1,25 +1,55 @@
-vector<string> split_words(string txt) {
-    vector<string> result;
+```cpp
+#include <vector>
+#include <string>
 
-    for (int i = 0; i < txt.length(); i++) {
-        if (!isalnum(txt[i]) && !ispunct(txt[i])) {
-            if (i > 0) {
-                string word = txt.substr(0, i);
-                if (word.length() == 1) {
-                    result.push_back(to_string(word[0]));
-                } else {
-                    result.push_back(word);
-                }
-                txt.erase(0, i);
-                i = -1;
-            }
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
         }
     }
+    return true;
+}
 
-    if (!txt.empty()) {
-        string word = txt;
-        result.push_back(word);
+std::vector<std::string> split_words(string txt) {
+    vector<string> result;
+    string word = "";
+    
+    for (char c : txt) {
+        if (isspace(c)) {
+            if (!word.empty()) {
+                result.push_back(word);
+                word = "";
+            }
+        } else if (c == ',') {
+            if (!word.empty()) {
+                result.push_back(word);
+                word = "";
+            }
+        } else {
+            word += c;
+        }
     }
-
+    
+    if (!word.empty()) {
+        result.push_back(word);
+    } else {
+        int count = 0;
+        for (char c = 'a'; c <= 'z'; ++c) {
+            if (txt.find(c) != string::npos) {
+                count++;
+            }
+        }
+        result.push_back(to_string(count));
+    }
+    
     return result;
+}
+
+int main() {
+    assert(issame(split_words(""), {"0"}));
+    return 0;
 }
