@@ -13,21 +13,17 @@ int solution(std::vector<int> lst) {
 
 int main() {
     std::vector<int> input;
-    int num;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    input.resize(n);
     
-    // Read number of elements
-    cout << "Enter the number of elements: ";
-    cin >> num;
-
-    // Read the numbers from user
-    cout << "Enter the elements: ";
-    for (int i = 0; i < num; i++) {
-        cin >> input.push_back();
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> input[i];
     }
-
+    
     int result = solution(input);
-    
-    cout << "Sum of odd elements is: " << result;
-    
+    std::cout << "Sum of odd elements: " << result << std::endl;
     return 0;
 }
