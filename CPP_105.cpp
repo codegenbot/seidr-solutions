@@ -22,31 +22,31 @@ vector<vector<string>> by_length(const vector<int>& arr) {
     for (int n : num) {
         switch (n) {
             case 1:
-                result.emplace_back({"One"});
+                result.push_back({"One"});
                 break;
             case 2:
-                result.emplace_back({"Two"});
+                result.push_back({"Two"});
                 break;
             case 3:
-                result.emplace_back({"Three"});
+                result.push_back({"Three"});
                 break;
             case 4:
-                result.emplace_back({"Four"});
+                result.push_back({"Four"});
                 break;
             case 5:
-                result.emplace_back({"Five"});
+                result.push_back({"Five"});
                 break;
             case 6:
-                result.emplace_back({"Six"});
+                result.push_back({"Six"});
                 break;
             case 7:
-                result.emplace_back({"Seven"});
+                result.push_back({"Seven"});
                 break;
             case 8:
-                result.emplace_back({"Eight"});
+                result.push_back({"Eight"});
                 break;
             case 9:
-                result.emplace_back({"Nine"});
+                result.push_back({"Nine"});
                 break;
         }
     }
