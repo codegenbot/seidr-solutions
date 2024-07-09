@@ -1,14 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
 int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    if(n > 10000) {
-        std::cout << "Too many elements. Please enter less than or equal to 10000." << std::endl;
+    if(n > std::numeric_limits<unsigned>::max()) {
+        std::cout << "Too many elements. Please enter less than or equal to " << std::numeric_limits<unsigned>::max() << "." << std::endl;
         return 0;
     }
 
@@ -36,7 +36,7 @@ int main() {
 
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool isSame(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
