@@ -46,17 +46,26 @@ int main() {
     std::cout << "Enter 2 lists of fruits separated by spaces: ";
     std::string user_input1, user_input2;
     std::getline(std::cin, user_input1);
-    std::getline(std::cin, user_input2);
+    std::getline(std::cin, user_input2;
 
-    std::istringstream iss(user_input1);
-    std::string str;
-    while (std::getline(iss >> std::skipws >> str >> std::ws >> std::skipws)) {
-        lst1.push_back(str);
+    size_t i = 0;
+    for (const auto& str : user_input1) {
+        if (str == ' ') {
+            i++;
+        } else {
+            lst1.push_back(user_input1.substr(i, i != 0 ? i - 1 : i));
+            i++;
+        }
     }
 
-    std::istringstream iis(user_input2);
-    while (std::getline(iis >> std::skipws >> str >> std::ws >> std::skipws)) {
-        lst2.push_back(str);
+    i = 0;
+    for (const auto& str : user_input2) {
+        if (str == ' ') {
+            i++;
+        } else {
+            lst2.push_back(user_input2.substr(i, i != 0 ? i - 1 : i));
+            i++;
+        }
     }
 
     if (!lst1.empty() && !lst2.empty()) {
