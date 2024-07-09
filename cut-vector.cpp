@@ -1,11 +1,11 @@
-```cpp
 #include <vector>
 #include <numeric>
 #include <limits>
+#include <initializer_list>
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     int n = v.size();
-    std::vector<std::vector<int>> res;
+    std::vector<std::vector<int>> res(2);
     
     long long totalSum = 0;
     for (int i = 0; i < n; i++) {
@@ -30,17 +30,17 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
         }
     }
     
-    res.push_back(std::vector<int>());
+    res[0].clear();
     for (int j = 0; j <= leftIndex; j++) {
-        res.back().push_back(v[j]);
+        res[0].push_back(v[j]);
     }
     if (totalSum != halfSum) {
-        res.push_back(std::vector<int>());
+        res[1].clear();
         for (int j = leftIndex; j < n; j++) {
-            res.back().push_back(v[j]); 
+            res[1].push_back(v[j]); 
         }
     } else {
-        res.push_back(res[0]);
+        res[1] = res[0];
     }
     
     return res;
