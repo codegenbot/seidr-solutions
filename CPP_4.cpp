@@ -12,9 +12,3 @@ float mean_absolute_deviation(vector<float> numbers) {
 float mean(vector<float> numbers) {
     return accumulate(numbers.begin(), numbers.end(), 0.0f) / numbers.size();
 }
-
-int main() {
-    vector<float> numbers = {1.0, 2.0, 3.0};
-    cout << "Mean absolute deviation: " << mean_absolute_deviation(numbers) << endl;
-    return 0;
-}
