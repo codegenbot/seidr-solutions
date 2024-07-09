@@ -1,16 +1,17 @@
-int countOpen = 0;
-for (const auto& s : lst) {
-    int countClose = 0;
+int countOpen = 0, countClose = 0;
+
+for (const string& s : lst) {
     for (char c : s) {
         if (c == '(') {
             countOpen++;
-        } else if (c == ')') {
-            if (countOpen > 0) {
-                countOpen--;
-            } else {
-                countClose++;
-            }
+        } else {
+            countClose++;
         }
     }
 }
-return countOpen == 0 ? "Yes" : "No";
+
+if ((countOpen == 0 && countClose % 2 == 1) || (countOpen > countClose)) {
+    return "No";
+} else {
+    return "Yes";
+}
