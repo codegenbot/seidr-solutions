@@ -1,13 +1,19 @@
-string solve(string s){
-    bool hasLetter = false;
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            hasLetter = true;
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+std::string solve(std::string s){
+    for(char &c : s){
+        if(std::isalpha(c)){
+            if(std::isupper(c)){
+                c = std::tolower(c);
+            }else{
+                c = std::toupper(c);
+            }
         }
     }
-    if(!hasLetter){
-        reverse(s.begin(), s.end());
+    if(std::count_if(s.begin(), s.end(), ::isalpha) == 0){
+        std::reverse(s.begin(), s.end());
     }
     return s;
 }
