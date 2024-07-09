@@ -1,10 +1,6 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    // Your function implementation here
-}
-
-vector<int> generate_integers(int a, int b){
+vector<int> generate_integers(int a, int b) {
     vector<int> result;
     for(int i = a; i <= b; ++i){
         if(i % 2 == 0){
