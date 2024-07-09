@@ -1,1 +1,2 @@
+```cpp
 res = std::string(1, (remainder - 10) + 'A') + res;
