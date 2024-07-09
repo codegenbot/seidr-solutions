@@ -1,9 +1,11 @@
-```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
+
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 vector<vector<string>> by_length(const vector<int>& arr) {
@@ -51,4 +53,3 @@ vector<vector<string>> by_length(const vector<int>& arr) {
     }
 
     return result;
-}
