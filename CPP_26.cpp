@@ -19,9 +19,9 @@ bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
     if (numbers.empty()) return std::vector<int>();
 
-    std::set<int> uniqueNumbersSet(numbers.begin(), numbers.end());
-    std::vector<int> uniqueNumbers(uniqueNumbersSet.begin(), uniqueNumbersSet.end());
-    std::sort(uniqueNumbers.begin(), uniqueNumbers.end());
+    std::sort(numbers.begin(), numbers.end());
+    std::set<int>(numbers.begin(), numbers.end());
+    std::vector<int> uniqueNumbers(std::set<int>(numbers.begin(), numbers.end()).begin(), std::set<int>(numbers.begin(), numbers.end()).end());
 
     return uniqueNumbers;
 }
