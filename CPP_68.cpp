@@ -1,12 +1,15 @@
-#include <iostream>
+```cpp
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    
+bool issame(int a, int b) {
+    return a == b;
+}
+
+std::vector<pair<int, int>> pluck(std::vector<int> arr) {
+    std::vector<pair<int, int>> result = {};
     if (arr.empty()) return result;
-    
+
     int minEvenIndex = -1;
     int minEvenValue = INT_MAX;
 
@@ -25,19 +28,12 @@ vector<pair<int, int>> pluck(vector<int> arr) {
 }
 
 int main() {
-    vector<int> input;
-    int num;
-
-    while (cin >> num) {
-        input.push_back(num);
+    std::vector<int> arr = {2, 4, 6};
+    auto res = pluck(arr);
+    for (const auto& p : res) {
+        if (issame(p.first, 0)) {
+            std::cout << "Even value: " << p.first << ", Index: " << p.second << std::endl;
+        }
     }
-
-    auto output = pluck(input);
-
-    for (const auto& pair : output) {
-        cout << "Minimum even value: " << pair.first 
-             << ", Index: " << pair.second << endl;   
-    }
-    
     return 0;
 }
