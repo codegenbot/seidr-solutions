@@ -1,10 +1,7 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 #include <string>
 
-std::string exchange(vector<int> lst1, vector<int> lst2) {
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     bool has_odd = false;
     for (int num : lst1) {
         if (num % 2 != 0) {
@@ -26,4 +23,3 @@ std::string exchange(vector<int> lst1, vector<int> lst2) {
         }
     }
     return "YES";
-}
