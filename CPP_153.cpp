@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
 using namespace std;
 
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
