@@ -35,8 +35,8 @@ bool issame(vector<string> a, vector<string> b){
 
 int main() {
     assert (issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
-    
+
     cout << "All test cases passed successfully!";
-    
+
     return 0;
 }
