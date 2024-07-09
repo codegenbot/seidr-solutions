@@ -1,24 +1,5 @@
-#include <iostream>
+float snow_on_ground = 0.0;
+float snow_fall_rate = 0.5;
+float snow_melt_rate = 0.3;
 
-int main() {
-    float snow_fall_rate, snow_melt_rate, snow_on_ground = 0.0;
-    int num_hours;
-    
-    std::cout << "Enter snow fall rate: ";
-    std::cin >> snow_fall_rate;
-    
-    std::cout << "Enter snow melt rate: ";
-    std::cin >> snow_melt_rate;
-    
-    std::cout << "Enter number of hours: ";
-    std::cin >> num_hours;
-    
-    for (int i = 0; i < num_hours; ++i) {
-        snow_on_ground += snow_fall_rate;
-        snow_on_ground -= snow_melt_rate;
-    }
-    
-    std::cout << "Final snow on ground after " << num_hours << " hours: " << snow_on_ground << std::endl;
-
-    return 0;
-}
+snow_on_ground += snow_fall_rate - snow_melt_rate;
