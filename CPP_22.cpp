@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <initializer_list>
 #include <any>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
@@ -26,7 +24,7 @@ int main() {
     std::vector<int> vector1 = {num1};
     std::vector<int> vector2 = {num2};
 
-    if(isSame(vector1, vector2)) {
+    if(issame(vector1, vector2)) {
         std::cout << "Vectors are same." << std::endl; 
     }
     else {
@@ -41,4 +39,3 @@ int main() {
     std::cout << std::endl;
     
     return 0;
-}
