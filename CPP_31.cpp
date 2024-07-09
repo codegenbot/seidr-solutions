@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 bool is_prime(int num);
 
@@ -8,18 +9,16 @@ int cpp_main() {
     std::cin >> num;
 
     if(is_prime(num)) {
+        std::cout << num << " is a prime number." << std::endl;
+        
         for(int i = 2; i <= num; i++) {
-            if(i == num)
-                std::cout << i << " is the entered prime number." << std::endl;
+            if(is_prime(i))
+                std::cout << i << " is a prime number" << std::endl;
             else
-                std::cout << i << (is_prime(i) ? " is a prime number." : " is not a prime number.") << std::endl;
-        }
-    } else {
-        for(int i = 2; i <= num; i++) {
-            std::cout << i << (is_prime(i) ? " is a prime number." : " is not a prime number.") << std::endl;
+                std::cout << i << (is_prime(i) ? " is a prime number" : "") << std::endl;
         }
     }
-
+    
     return 0;
 }
 
