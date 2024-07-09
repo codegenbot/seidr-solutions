@@ -7,7 +7,7 @@ bool same(const std::vector<float>& v1, const std::vector<float>& v2) {
         return false;
     }
     for (int i = 0; i < v1.size(); i++) {
-        if (std::abs(v1[i] - v2[i]) > 0.000001f) {
+        if (std::abs(v1[i] - v2[i]) > 0.00001f) {
             return false;
         }
     }
@@ -15,7 +15,7 @@ bool same(const std::vector<float>& v1, const std::vector<float>& v2) {
 }
 
 std::vector<float> getPositive(const std::vector<float>& numbers) {
-    std::vector<float> positiveNumbers;
+    std::vector<float> positiveNumbers = std::vector<float>();
     for (float num : numbers) {
         if (num >= 0) {
             positiveNumbers.push_back(num);
@@ -26,17 +26,17 @@ std::vector<float> getPositive(const std::vector<float>& numbers) {
 
 int main() {
     int n;
-    float num = 0;
     while (!(std::cin >> n) || n < 1)
 {
-    std::cout << "Enter element number: ";
+        std::cout << "Enter element number: ";
 }
-for(int i=0; i<n; i++)
-{
-    std::cout << "Enter element " << i + 1 << ": ";
-    std::cin >> num;
     std::vector<float> numbers;
-    numbers.push_back(num);
+    for(int i=0; i<n; i++)
+{
+        std::cout << "Enter element " << i + 1 << ": ";
+        float num;
+        std::cin >> num;
+        numbers.push_back(num);
 }
 
     std::vector<float> positiveNumbers = getPositive(numbers);
