@@ -1,16 +1,16 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <sstream>
+using namespace std;
 
 std::vector<std::string> words_in_sentence(std::string sentence) {
     if (sentence.empty()) {
         return {};
     }
-    std::vector<std::string> wordLengths; 
-    std::stringstream ss(sentence);
-    std::string word;
+    vector<string> wordLengths; 
+    string result = "";
 
-    while (ss >> word) {
+    for (const auto& word : split(sentence, ' ')) {
         int length = word.length();
         bool isPrime = true;
 
@@ -23,10 +23,23 @@ std::vector<std::string> words_in_sentence(std::string sentence) {
             }
 
             if (isPrime) {
-                wordLengths.push_back(std::to_string(length));
+                result += word + " ";
+                wordLengths.push_back(to_string(length));
             }
         }
     }
 
     return wordLengths; 
+}
+
+vector<string> split(const string& str, char delimiter) {
+    vector<string> tokens;
+    stringstream ss(str);
+    string token;
+
+    while (getline(ss, token, delimiter)) {
+        tokens.push_back(token);
+    }
+
+    return tokens;
 }
