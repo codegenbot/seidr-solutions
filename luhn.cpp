@@ -1,4 +1,5 @@
 int main() {
-    int sum = luhnAlgorithm({4,3,2,1,8,7,6,5,4,3,2,1,6,5,4,3});
-    return 0;
+    vector<int> cardNumber = {4,3,2,1,8,7,6,5,4,3,2,1,8,7,6,5};
+    int sum = luhnAlgorithm(cardNumber);
+    return sum;
 }
