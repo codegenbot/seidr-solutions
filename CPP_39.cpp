@@ -9,15 +9,13 @@ bool isPrime(int n) {
     return true;
 }
 
-int primeFib(int num) {
-    int a = 0, b = 1, fibNum = 0;
+int primeFib(int n) {
+    int a = 0, b = 1, fib = 0;
     while (true) {
-        fibNum = a + b;
+        fib = a + b;
+        if (isPrime(fib)) return fib;
         a = b;
-        b = fibNum;
-        if (isPrime(fibNum)) {
-            if (fibNum > num) return fibNum;
-        }
+        b = fib;
     }
 }
 
@@ -25,6 +23,6 @@ int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    cout << "The first prime Fibonacci number greater than " << num << " is " << primeFib(num) << endl;
+    cout << "The first prime Fibonacci number greater than " << num << " is " << (num > 1 ? primeFib(num + 1) : -1) << endl;
     return 0;
 }
