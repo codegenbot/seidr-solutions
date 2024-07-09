@@ -8,4 +8,4 @@ def solve_boolean(expression):
             expression = str(bool(a)) + "|"
         else:
             break
-    return expression.replace("&", "").replace("|", "") == "t"
+    return bool(expression)
