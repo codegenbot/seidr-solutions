@@ -6,7 +6,7 @@ using namespace std;
 string middleCharacter(string s) {
     int n = s.size();
     if (n % 2 == 0) {
-        return s.substr(n / 2 - 1, 2);
+        return s.substr(n / 2, 2);
     } else {
         return s.substr(n / 2, 1);
     }
@@ -14,7 +14,7 @@ string middleCharacter(string s) {
 
 int main() {
     string s;
-    getline(cin, s);
+    cin >> s;
     cout << middleCharacter(s) << endl;
     return 0;
 }
