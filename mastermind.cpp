@@ -20,3 +20,4 @@ int mastermind(std::string code, std::string guess) {
     white -= black;
 
     return black;
+}
