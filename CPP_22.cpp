@@ -6,8 +6,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-bool issame(const boost::any& a, const boost::any& b) {
-    return a.type() == b.type();
+bool issame(const boost::any& a, int b) {
+    return boost::any_cast<int>(a) == b;
 }
 
 std::vector<int> filter_integers(std::list<boost::any> values) {
