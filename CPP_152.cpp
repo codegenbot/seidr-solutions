@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size())
@@ -29,13 +30,16 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     std::vector<int> game(n);
+    std::vector<int> guess(n);
+    
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
         game[i] = temp;
-        guess[i] = temp; 
+        guess[i] = rand() % 100 + 1; 
     }
+    
     if(issame(game, guess)){
         std::cout << "The two vectors are the same.\n";
     } else {
