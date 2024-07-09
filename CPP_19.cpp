@@ -1,14 +1,34 @@
-Here is the solution:
+#include <vector>
+#include <algorithm>
 
-```cpp
+using namespace std;
+
 string sort_numbers(string numbers) {
-    map<string,int> numMap = {{"zero",0},{"one",1},{"two",2},{"three",3},{"four",4},
-                              {"five",5},{"six",6},{"seven",7},{"eight",8},{"nine",9}};
-    vector<string> nums;
-    for (char& c : numbers) {
-        if (!isdigit(c)) {
-            nums.push_back(numMap.begin()->first + (numMap.find(string(1,c))+map<string,int>::iterator::value)->first);
+    vector<string> numList;
+    map<string, int> numberMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+        {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
+    string temp;
+
+    for (char c : numbers) {
+        if (c != ' ') {
+            temp += c;
+        } else {
+            numList.push_back(temp);
+            temp = "";
         }
     }
-    sort(nums.begin(),nums.end());
-    return string("#{" + string(&nums[0]) + "}");
+
+    numList.push_back(temp);
+
+    sort(numList.begin(), numList.end(),
+        [&numberMap](const string& a, const string& b) {
+            return numberMap.at(a) < numberMap.at(b);
+        });
+
+    string result;
+    for (string s : numList) {
+        result += s + " ";
+    }
+
+    return result.substr(0, result.size() - 1);
+}
