@@ -8,7 +8,7 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
     int max_strength = INT_MIN;
     string strongest_extension = "";
     
-    for (const auto & extension : extensions) {
+    for (const auto& extension : extensions) {
         int CAP = 0, SM = 0;
         
         for (char c : extension) {
