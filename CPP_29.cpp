@@ -1,13 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b){
-    if(a.size() != b.size())
-        return false;
-    for(size_t i = 0; i < a.size(); ++i)
-        if(a[i] != b[i])
-            return false;
-    return true;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+    return a == b;
 }
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
@@ -17,4 +13,11 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
             result.push_back(*it);
     }
     return result;
+}
+
+int main(){
+    int numPassingTests = 0;
+    assert(issame({ "xxx", "xxxAAA", "xxx" }, filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx")) );
+    // Add more test cases here...
+    return 0;
 }
