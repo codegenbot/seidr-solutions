@@ -1,3 +1,4 @@
+```cpp
 string file_name_check(string file_name){
     int digitCount = 0;
     bool foundDot = false;
