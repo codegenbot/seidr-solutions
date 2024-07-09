@@ -8,19 +8,11 @@ string anti_shuffle(string s) {
             result += " ";
         } else {
             string word;
-            bool first = true;
             for (int j = i; j < s.length() && s[j] != ' '; j++) {
-                if (!first) {
-                    word += s[j];
-                }
-                first = false;
+                word += s[j];
             }
-            string newWord;
-            for (char c : word) {
-                newWord += to_string(c);
-            }
-            sort(newWord.begin(), newWord.end());
-            result += newWord;
+            sort(word.begin(), word.end());
+            result += word;
             i = j - 1;
         }
     }
