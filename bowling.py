@@ -4,7 +4,7 @@ def bowling_score(bowls):
     bowls = bowls.replace("X", "X/")
     frames = bowls.split("/")
 
-    for i in range(min(10, len(frames) - 2)):
+    for i in range(min(10, len(frames))):
         if frames[i] == "X":
             score += 10 + get_value(frames[i + 1]) + get_value(frames[i + 2])
         else:
@@ -12,13 +12,11 @@ def bowling_score(bowls):
 
     return score
 
-
 def get_value(char):
     if char == "X" or char == "/":
         return 10
     else:
         return int(char)
-
 
 bowls = input()
 print(bowling_score(bowls))
