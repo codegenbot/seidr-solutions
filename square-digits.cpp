@@ -1,18 +1,18 @@
 #include <string>
 #include <iostream>
-#include <sstream>
 using namespace std;
 
 string squareDigits(string input) {
-    ostringstream output;
+    string output = "";
     for (char c : input) {
         int digit = c - '0';
-        output << to_string(digit * digit);
+        string str = to_string(digit * digit);
+        output += str;
     }
-    return output.str();
+    return output;
 }
 
 int main() {
-    string input = "34";
-    cout << squareDigits(input) << endl;
+    string input("34");
+    cout << std::move(squareDigits(input)) << endl;
 }
