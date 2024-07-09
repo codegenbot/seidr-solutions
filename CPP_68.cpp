@@ -2,8 +2,8 @@
 #include <vector>
 #include <limits>
 
-bool std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
-    return (a.size() == 0 && b.size() == 0);
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a.empty() && b.empty());
 }
 
 std::vector<int> pluck(std::vector<int> arr) {
