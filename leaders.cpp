@@ -6,20 +6,21 @@ std::vector<int> leaders(std::vector<int>& arr) {
     std::vector<int> res;
     
     for(int i=n-1; i>=0; i--) {
-        bool isLeader = true;
-        for(int j=i; j<n; j++) { 
-            if(arr[i] < arr[j])
-                isLeader = false;
-        }
-        if(isLeader)
+        if(res.empty() || arr[i] >= res.back()) 
             res.push_back(arr[i]);
+        else
+            break;
     }
     
     return res;
 }
 
 int main() {
-    std::vector<int> input = {18, 48, 517, 190, 204, 169, 784, 446, 770, 327, 555, 908, 56, 410, 987, 629, 467, 142, 858};
+    int n;
+    std::vector<int> input;
+    while(std::cin >> n) {
+        input.push_back(n);
+    }
     std::vector<int> result = leaders(input);
     for(int i: result)
         std::cout << i << " ";
