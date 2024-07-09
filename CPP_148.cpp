@@ -1,12 +1,13 @@
-#include <vector>
-#include <string>
-#include <initializer_list>
+#include <iostream>
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
+    namespace std;
     return a == b;
 }
 
 vector<string> bf(string planet1, string planet2) {
+    namespace std;
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
