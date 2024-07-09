@@ -1,9 +1,11 @@
 #include <string>
-#include <cassert>
+#include <cstring>
 
 int my_strlen(string str){
     return str.length();
 }
+
+#include<assert.h>
 
 int main(){
     assert (my_strlen("asdasnakj") == 13);
