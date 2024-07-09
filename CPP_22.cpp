@@ -1,44 +1,32 @@
+```
 #include <vector>
 #include <list>
+#include <optional>
 
-struct Value {
-    bool is_bool;
-    std::optional<bool> bool_val;
-    std::optional<int> int_val;
-
-    Value(bool b = false, int i = 0) : is_bool(true), bool_val(b), int_val(i) {}
-};
-
-bool issame(const std::vector<Value>& a, const std::vector<Value>& b) {
+bool issame(const std::vector<std::any> &a, const std::vector<std::any> &b) {
     if (a.size() != b.size())
         return false;
     for (size_t i = 0; i < a.size(); i++) {
-        auto &value_a = a[i];
-        auto &value_b = b[i];
-
-        if (!value_a.is_bool && !value_b.is_bool)
+        auto bool_val_a = std::any_cast<bool>(a[i]);
+        auto bool_val_b = std::any_cast<bool>(b[i]);
+        if (!bool_val_a || !bool_val_b)
+            continue;
+        if (std::any_cast<int>(a[i]) != std::any_cast<int>(b[i]))
             return false;
-
-        if (!value_a.is_bool) {
-            if (!value_b.bool_val || *value_a.bool_val != *value_b.bool_val)
-                return false;
-        }
-        else {
-            if (value_a.int_val.has_value() && value_b.int_val.has_value()) {
-                if (*value_a.int_val != *value_b.int_val)
-                    return false;
-            }
-        }
     }
     return true;
 }
 
-std::vector<int> filter_integers(const std::list<Value>& values) {
+std::vector<int> filter_integers(const std::list<std::any> &values) {
     std::vector<int> result;
     for (const auto &value : values) {
-        if (!value.is_bool && value.int_val.has_value()) {
-            result.push_back(*value.int_val);
+        if (std::any_cast<bool>(value)) {
+            result.push_back(std::any_cast<int>(value));
         }
     }
     return result;
+}
+int main() {
+    assert(issame(filter_integers({true, std::any(3), true, 3, true, 3, false, 'a', false, 'b'}), {3, 3, 3}));
+    return 0;
 }
