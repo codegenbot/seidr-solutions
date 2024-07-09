@@ -1,3 +1,9 @@
-```
 def paired_digits(s):
-    return sum(int(a) for a, b in zip(s, s[1:]) if a == b)
+    s = str(s)  
+    total = 0
+    prev = None
+    for c in s:
+        if c == prev:
+            total += int(c)
+        prev = c
+    return total
