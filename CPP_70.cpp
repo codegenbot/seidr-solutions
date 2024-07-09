@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <memory>
+#include <memory_resource>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -11,29 +11,13 @@ std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
     std::pmr::vector<int> result;
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
-        int count = 0;
-        for (auto it = lst.begin(); it != lst.end(); ++it) {
-            if (*it == min_val) {
-                ++count;
-                it = lst.erase(it);
-            }
-        }
-        while (count--) {
-            result.push_back(min_val);
-        }
+        result.push_back(min_val);
+        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
 
         if (!lst.empty()) {
             int max_val = *std::max_element(lst.begin(), lst.end());
-            count = 0;
-            for (auto it = lst.begin(); it != lst.end(); ++it) {
-                if (*it == max_val) {
-                    ++count;
-                    it = lst.erase(it);
-                }
-            }
-            while (count--) {
-                result.push_back(max_val);
-            }
+            result.push_back(max_val);
+            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
         }
     }
     return result;
