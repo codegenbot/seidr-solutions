@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionMelting) {
@@ -11,5 +12,6 @@ int main() {
     cin >> h;
     float is, rsf, pm;
     cin >> is >> rsf >> pm;
-    cout << fixed << setprecision(10) << snowDay(h, is, rsf, pm) << endl;
+    cout << fixed << setprecision(10) << showpoint << setiosflags(ios::fixed | ios::showpoint) << snowDay(h, is, rsf, pm) << endl;
     return 0;
+}
