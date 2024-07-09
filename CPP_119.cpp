@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,12 +21,11 @@ int main() {
     int n;
     cin >> n;
     string s;
-    while (getline(cin, s)) {
+    while (true) {
+        getline(cin, s);
+        if (s.empty()) break;
         lst.push_back(s);
     }
-    if(match_parens(lst))
-        cout << "Yes" << endl;
-    else
-        cout << "No" << endl;
+    std::cout << (match_parens(lst) ? "Yes" : "No") << std::endl;
     return 0;
 }
