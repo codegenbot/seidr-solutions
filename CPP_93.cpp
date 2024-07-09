@@ -1,4 +1,8 @@
-transform(message.begin(), message.end(), message.begin(), [](char c) {
+#include <algorithm>
+#include <cctype>
+
+std::string encode(std::string message) {
+    transform(message.begin(), message.end(), message.begin(), [](char c) {
         if(isalpha(c)){
             c = toupper(c);
             if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
