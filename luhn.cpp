@@ -1,11 +1,9 @@
-```cpp
 #include <vector>
-#include <iostream>
 
-int luhn(std::vector<int> ccNum) {
+int luhn(const vector<int>& numbers) {
     long long sum = 0;
     for (int i = 0; i < 16; i++) {
-        int digit = ccNum[i];
+        int digit = numbers[i];
         if ((i % 2 == 1)) {
             digit *= 2;
             if (digit > 9)
@@ -27,11 +25,6 @@ int luhn(std::vector<int> ccNum) {
 }
 
 int main() {
-    std::vector<int> vec(16);
-    for (int i = 0; i < 16; i++) {
-        int digit;
-        std::cin >> digit;
-        vec[i] = digit;
-    }
-    return luhn(vec);
+    vector<int> numbers = {4,2,8,6,2,1,1,7,9,3,5,1,4,3,9,0};
+    return luhn(numbers);
 }
