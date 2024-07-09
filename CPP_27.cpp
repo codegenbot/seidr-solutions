@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-std::string filp_case(std::string& str) {
+std::string filp_case(const std::string& str) {
     std::string result = str;
     for (char &c : result) {
         if (std::islower(c)) {
@@ -16,7 +16,7 @@ std::string filp_case(std::string& str) {
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
+    input = std::string(std::istreambuf_iterator<char>(std::cin), {});
     std::cout << filp_case(input) << std::endl;
     return 0;
 }
