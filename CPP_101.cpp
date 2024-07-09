@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -31,7 +32,9 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> sp
 }
 
 int main(){
+    std::string str = "ahmed     , gamal";
     std::vector<std::string> split_chars = {" ", ","};
-    std::cout << issame(words_string("ahmed     , gamal", split_chars), std::vector<std::string>{ "ahmed", "gamal" }) << std::endl;
+    std::vector<std::string> result = words_string(str, split_chars);
+    assert(issame(result, std::vector<std::string>{ "ahmed", "gamal" }));
     return 0;
 }
