@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <memory>
 
-bool isSame(const std::vector<float>& a, const std::vector<float>& b) {
+bool std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -22,9 +21,4 @@ std::vector<float> getPositive(const std::vector<float>& l) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(isSame(getPositive({}), {}) == true);
-    return 0;
 }
