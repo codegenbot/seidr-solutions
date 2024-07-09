@@ -1,11 +1,13 @@
-#include <climits>
+#include <vector>
 using namespace std;
+
+#include <climits>
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if(arr.empty()) return result;
     
-    int minEven = INT_MIN; // Changed from INT_MAX
+    int minEven = INT_MIN;
     int minIndex = 0;
     
     for(int i=0; i<arr.size(); i++) {
