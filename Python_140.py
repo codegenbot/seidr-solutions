@@ -7,4 +7,3 @@ def fix_spaces(text):
             new_text += "-"
         else:
             new_text += "_"
-    return new_text
