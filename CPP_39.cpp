@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -23,16 +22,9 @@ int prime_fib(int n) {
 }
 
 int main() {
-    int n;
-    cout << "Enter the number: ";
-    cin >> n;
-    
-    if(n <= 0) {
-        cout << "Invalid input. Please enter a positive integer." << endl;
-    } else {
-        int result = prime_fib(n);
-        cout << "The " << result << "th prime Fibonacci number is: " << result << endl;
-    }
-    
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << "The first prime Fibonacci number greater than " << num << " is " << prime_fib(num) << endl;
     return 0;
 }
