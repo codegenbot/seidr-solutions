@@ -1,24 +1,22 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <cmath>
 
-bool has_close_elements(float numbers[], int size, float threshold){
-    for(int i = 0; i < size; i++){
-        for(int j = i + 1; j < size; j++){
+bool has_close_elements(std::vector<float> numbers, float threshold){
+    for(int i = 0; i < numbers.size(); i++){
+        for(int j = i + 1; j < numbers.size(); j++){
             if(abs(numbers[i] - numbers[j]) <= threshold)
                 return true;
         }
     }
     return false;
-
 }
 
-int main() {
-    float numbers[] = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    int size = sizeof(numbers) / sizeof(numbers[0]);
-    bool result = has_close_elements(numbers, size, 0.5);
-    std::cout << "The result is: " << (result ? "true" : "false") << std::endl;
+int maincpp0() {
+    std::vector<float> a={1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    bool result = has_close_elements(a, 0.5);
+    std::cout << "Output: " << (result ? "true" : "false") << std::endl;
     
     return 0;
 }
