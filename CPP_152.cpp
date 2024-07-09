@@ -31,20 +31,26 @@ int main() {
     
     // Create a new vector and fill space
     std::vector<int> game;
-    int val;
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> val;
-        game.push_back(val);
+        int temp;
+        std::cin >> temp;
+        if(i < n)
+            game.push_back(temp);
+        else
+            break; // stop the loop when we reach the end of game
     }
     
     // Create a new vector and fill space
     std::vector<int> guess;
-    val = 0;
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> val;
-        guess.push_back(val);
+        int temp;
+        std::cin >> temp;
+        if(i < n)
+            guess.push_back(temp);
+        else
+            break; // stop the loop when we reach the end of game
     }
     
     if(issame(game, guess))
