@@ -1,5 +1,7 @@
 int main() {
-    std::string input = "These violent delights have violent ends";
+    std::string input;
+    std::cout << "Enter your string: ";
+    std::getline(std::cin, input);
     std::string output;
     for (char c : input) {
         if (isupper(c)) {
@@ -10,5 +12,5 @@ int main() {
             output += c;
         }
     }
-    assert(output == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
 }
