@@ -10,6 +10,5 @@ def find_pair(n, numbers):
         else:
             right -= 1
 
-
 n = int(input())
 print(find_pair(n, [int(x) for x in input().split("\n")[1:-1]]))
