@@ -5,7 +5,8 @@ def find_zero(xs: list):
     x = -a / b
     return x
 
-
+# Read input from user
 xs = list(map(int, input().split()))
-result = find_zero(xs)
-print(result)
+
+# Call the function and print the result
+print(find_zero(xs))
