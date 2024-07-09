@@ -9,8 +9,8 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
     }
 
-    sort(numbers.begin(), numbers.end());
-    reverse(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
+    std::reverse(numbers.begin(), numbers.end());
 
     std::vector<std::string> result;
     for (int num : numbers) {
