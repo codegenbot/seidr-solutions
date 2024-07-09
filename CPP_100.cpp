@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <cassert>
-#include <iostream>
 
 bool same(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
