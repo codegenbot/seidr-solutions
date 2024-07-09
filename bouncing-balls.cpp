@@ -18,7 +18,7 @@ int main() {
         startHeight *= bouncinessIndex; 
     }
 
-    std::cout << "The total distance traveled by the ball is: " << static_cast<int>(totalDistance) << std::endl;
+    std::cout << "The total distance traveled by the ball is: " << totalDistance << std::endl;
 
     return 0;
 }
