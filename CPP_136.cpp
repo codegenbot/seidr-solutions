@@ -1,8 +1,8 @@
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
-vector<int> largest_smallest_integer(vector<int> lst){
+std::vector<int> largest_smallest_integers(std::vector<int> lst){
     int max_neg = INT_MIN, min_pos = INT_MAX;
     for (int num : lst) {
         if (num < 0 && num > max_neg) {
@@ -15,7 +15,6 @@ vector<int> largest_smallest_integer(vector<int> lst){
 }
 
 int main() {
-    assert (issame(largest_smallest_integer({-6, -4, -4, -3, -100, 1}), {-3, 1}));
-
+    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
     return 0;
 }
