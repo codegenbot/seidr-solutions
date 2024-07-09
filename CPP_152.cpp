@@ -35,9 +35,7 @@ int main() {
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
-        if(i < n) {
-            game.push_back(temp);
-        }
+        game.push_back(temp);
     }
     
     // Create a new vector and fill space
@@ -46,9 +44,7 @@ int main() {
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
-        if(i < n) {
-            guess.push_back(temp);
-        }
+        guess.push_back(temp);
     }
     
     if(issame(game, guess))
