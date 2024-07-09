@@ -1,7 +1,4 @@
-#include <vector>
-#include <algorithm>
-
-bool is_sorted(std::vector<int> lst) {
+bool is_sorted(vector<int> lst){
     for(int i = 0; i < lst.size() - 1; i++){
         if(lst[i] >= lst[i+1]){
             vector<int>::iterator it = unique(lst.begin(), lst.end());
@@ -12,7 +9,6 @@ bool is_sorted(std::vector<int> lst) {
     return true;
 }
 
-int main() {
+int main(){
     assert(is_sorted({1, 2, 3, 4}) == true);
-    return 0;
 }
