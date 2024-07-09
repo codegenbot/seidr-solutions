@@ -18,7 +18,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(temp)
             if not stack:
                 temp = ""
-                
+
     if stack:
         return ["Invalid Input"]
     return result
