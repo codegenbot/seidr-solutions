@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-
 std::vector<int> findPrimeFactors(int n) {
     std::vector<int> factors;
     for (int i = 2; i <= n; ++i) {
