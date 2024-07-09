@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <cmath>
 #include <cassert>
@@ -12,7 +13,7 @@ bool isCube(int a) {
     return false;
 }
 
-int checkNumber(){
+int originalFunction(){
     int n;
     std::cout << "Enter an integer: ";
     std::cin >> n;
@@ -20,9 +21,10 @@ int checkNumber(){
         std::cout << n << " is a perfect cube.\n";
     else
         std::cout << n << " is not a perfect cube.\n";
+    return 0;
 }
 
-int main(){
-    checkNumber();
+int cpp77Main(){
+    originalFunction();
     assert (isCube(1729) == false);
 }
