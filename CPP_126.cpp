@@ -1,7 +1,7 @@
 ```cpp
 #include <cassert>
 #include <vector>
-#include <algorithm> 
+#include <algorithm>
 
 bool is_sorted(std::vector<int> lst) {
     if(lst.size() <= 1)
