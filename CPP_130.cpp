@@ -8,7 +8,7 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> completeCode(int n) {
+vector<int> solve(int n) {
     vector<int> result;
     if (n == 0) {
         result.push_back(0);

@@ -1,5 +1,5 @@
 int sum = 0;
-    for (float num : lst) {
+    for(auto num : lst){
         sum += ceil(num) * ceil(num);
     }
     return sum;
