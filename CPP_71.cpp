@@ -2,9 +2,9 @@
 #include <cmath>
 #include <cassert>
 
-int triangle_area(int a, int b, int c) {
-    int s = (a + b + c) / 2;
-    return abs((s*(s-a)*(s-b)*(s-c))/144);
+double triangle_area(double a, double b, double c) {
+    double s = (a + b + c) / 2;
+    return sqrt(s * (s - a) * (s - b) * (s - c));
 }
 
 int main() {
