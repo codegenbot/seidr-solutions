@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,8 +13,15 @@ bool has_close_elements(vector<float> a, float threshold) {
 }
 
 int main() {
-    vector<float> a({0.5f, 0.6f, 0.7f, 0.8f, 0.9f});
-    float threshold = 0.1f;
+    vector<float> a;
+    float threshold;
+
+    cout << "Enter the elements of the vector (space-separated): ";
+    for(float x : cin >> x) a.push_back(x);
+
+    cout << "Enter the threshold: ";
+    cin >> threshold;
+
     if(has_close_elements(a, threshold)) {
         cout << "There are consecutive elements with difference less than or equal to the threshold." << endl;
     } else {
