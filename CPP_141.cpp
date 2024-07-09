@@ -1,6 +1,7 @@
-```#include <string>
+#include <string>
+#include <cctype>
 
-string file_name_check(string file_name){
+std::string file_name_check(std::string file_name) {
     bool valid = true;
     int digit_count = 0;
     for(int i=0; i<file_name.length(); i++){
@@ -13,7 +14,7 @@ string file_name_check(string file_name){
         }
         else if(i == 0 && !isalpha(file_name[i])) return "No";
     }
-    string extension = file_name.substr(file_name.find('.')+1);
+    std::string extension = file_name.substr(file_name.find('.')+1);
     if(extension != "txt" && extension != "exe" && extension != "dll") valid = false;
     return valid ? "Yes" : "No";
-}```
+}
