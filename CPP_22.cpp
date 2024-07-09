@@ -1,11 +1,5 @@
-#include <boost/config.hpp>
-#ifdef _MSC_VER
-#include <boost/any.hpp>
-#else
-#include <boost/any.hpp> // for C++14 or later
-#endif
-
 #include <vector>
+#include <boost/any.hpp>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
