@@ -1,50 +1,11 @@
-```cpp
-#include <iostream>
-#include <string>
-
-int bowlingScore(std::string s) {
+int bowlingScore(std::string input) {
     int score = 0;
-    std::string::iterator it = s.begin();
-    while (it != s.end()) {
-        if (*it == 'X') {
+    for (char c : input) {
+        if (c == 'X') {
             score += 10;
-            if (it + 1 != s.end()) { 
-                score += std::stoi(std::string(1, *++it)); 
-            }
-            it += 2;
-        } else if (*it == '/') {
-            int spare = 10 + std::stoi(std::string(1, *++it));
-            score += spare;
-            while (it != s.end() && *it == '/') {
-                score += 10; // handle multiple spare rows
-                it++; 
-            }
-        } else {
-            int roll = 0;
-            while (it != s.end() && !(*it == '/' || *it == 'X')) {
-                roll = roll * 10 + (*it - '0');
-                it++;
-            }
-            if (*it == '/') {
-                score += roll + 10;
-                it++; 
-                int roll2 = std::stoi(std::string(1, *++it));
-                score += roll2; // add second roll value
-            } else {
-                int roll2 = *it - '0';
-                score += 10 + roll;
-                it++; 
-            }
+        } else if (isdigit(c)) {
+            score += c - '0';
         }
     }
     return score;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter the bowling scores (X for strike, / for spare): ";
-    std::getline(std::cin, input);
-    int score = bowlingScore(input);
-    std::cout << "Score: " << score << std::endl;
-    return 0;
 }
