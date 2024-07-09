@@ -1,14 +1,15 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
 int gcd(int a, int b) {
     if (b == 0) {
-        return a;
+        return abs(a);
     }
-    return gcd(b, a % b);
+    return gcd(abs(b), abs(a % b));
 }
 
 vector<int> findIndicesOfSubstring(const string& text, const string& target) {
@@ -16,7 +17,7 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
     int textLen = text.length();
     int targetLen = target.length();
     
-    for (int i = 0; i <= textLen - targetLen + 1; ++i) {
+    for (int i = 0; i < textLen - targetLen + 1; ++i) {
         bool found = true;
         for (int j = 0; j < targetLen; ++j) {
             if (text[i + j] != target[j]) {
@@ -45,7 +46,7 @@ int main() {
         cin >> text >> target;
         vector<int> result = findIndicesOfSubstring(text, target);
         for (int i : result) {
-           cout << i << " ";
+            cout << i << " ";
         }
         cout << endl;
     }
