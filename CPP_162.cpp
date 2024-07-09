@@ -27,7 +27,7 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    string actualResult = string_to_md5("password");
-    assert(actualResult == "5f4dcc3b5aa765d61d8327deb882cf99");
+    string output = string_to_md5("password");
+    assert(output == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
