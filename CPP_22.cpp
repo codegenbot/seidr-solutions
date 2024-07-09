@@ -1,5 +1,4 @@
 #include <boost/any.hpp>
-#include <boost/any_cast.hpp>
 
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
@@ -9,4 +8,3 @@ vector<int> filter_integers(list<any> values) {
         }
     }
     return result;
-}
