@@ -1,14 +1,7 @@
+```cpp
+#include <algorithm>
 #include <vector>
 #include <string>
-
-std::vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
-    for(string s : strings){
-        if(s.find(prefix) == 0)
-            result.push_back(s);
-    }
-    return result;
-}
 
 bool areEqual(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
@@ -19,5 +12,19 @@ bool areEqual(const std::vector<std::string>& a, const std::vector<std::string>&
             return false;
         }
     }
+    for (const auto& t : b) {
+        if (std::find(a.begin(), a.end(), t) == a.end()) {
+            return false;
+        }
+    }
     return true;
+}
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
+    for(string s : strings){
+        if(s.find(prefix) == 0)
+            result.push_back(s);
+    }
+    return result;
 }
