@@ -1,10 +1,8 @@
-#include <iostream>
 #include <vector>
+#include <limits>
 
-using namespace std;
-
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
     if (arr.empty()) return result;
 
     int minEvenValue = INT_MAX;
@@ -23,4 +21,3 @@ vector<int> pluck(vector<int> arr) {
     }
 
     return result;
-}
