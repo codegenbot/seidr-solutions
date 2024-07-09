@@ -1,13 +1,10 @@
-```cpp
 int can_arrange(vector<int> arr){
     int i = 0;
-    while(i < arr.size() - 1) {
-        if(arr[i] > arr[i+1]) {
-            swap(arr[i], arr[i+1]);
-            i = 0; // reset the index
-        } else {
+    while (i < arr.size()) {
+        if (i == 0 || arr[i-1] <= arr[i])
+            return i + 1;
+        else
             i++;
-        }
     }
-    return 1;
+    return -1;
 }
