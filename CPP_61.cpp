@@ -1,3 +1,5 @@
+#include <iostream>
+#include <string>
 #include <cassert>
 
 bool correct_bracketing(std::string brackets) {
@@ -13,5 +15,7 @@ bool correct_bracketing(std::string brackets) {
 }
 
 int main() {
-    assert(not (correct_bracketing("()()(()())()))")));
+    assert(!correct_bracketing("()()(()())()))"));
     std::cout << "Correct bracketing test passed." << std::endl;
+    return 0;
+}
