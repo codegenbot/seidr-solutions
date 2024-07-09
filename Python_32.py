@@ -1,3 +1,2 @@
-def find_zero(xs: list):
-    n = len(xs)
-    return -xs[n - 2] / xs[n - 1]
+a, b, c = map(int, input().split())
+return -c / b

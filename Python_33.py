@@ -1,2 +1,4 @@
 def sort_third(l: list):
-    return [elem for group in zip(*[iter(sorted(l))] * 3) for elem in group]
+    sorted_list = sorted(l)
+    result = [sorted_list[i:i+3] for i in range(0, len(sorted_list), 3)]
+    return [elem for group in result for elem in group]
