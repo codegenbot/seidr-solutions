@@ -23,7 +23,7 @@ int main() {
     } 
     try {
         string output = squareDigits(input);
-        cout << "Squared digits: " << squareDigits(input) << endl;
+        cout << "Squared digits: " << output.c_str() << endl;
     } catch (const exception& e) {
         cerr << "Error: " << e.what() << endl;
     }
