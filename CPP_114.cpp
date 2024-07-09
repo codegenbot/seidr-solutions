@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 long long minSubArraySum(std::vector<long long> nums) {
     long long total = 0;
