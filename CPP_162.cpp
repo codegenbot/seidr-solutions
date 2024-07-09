@@ -1,43 +1,21 @@
+```cpp
 #include <string>
-#include <algorithm>
-#include <hash.h>
+#include <openssl/md5.h>
+#include <sstream>
+#include <iomanip>
 
-struct MD5_CTX {
-    unsigned char iv[16];
-    unsigned int counter;
-};
-
-unsigned char* MD5_Init(MD5_CTX *ctx) {
-    return ctx->iv;
-}
-
-void MD5_Update(unsigned char *buf, unsigned long len, MD5_CTX *ctx) {
-    // implementation here...
-}
-
-unsigned char* MD5_Final(unsigned char *buf, MD5_CTX *ctx) {
-    return buf;
-}
+using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    unsigned char md5[16];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char* p = text.c_str();
-    while (*p) {
-        MD5_Update((unsigned char*)p, 1, &ctx);
-        p++;
-    }
-    MD5_Final(md5, &ctx);
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5((const unsigned char*)text.c_str(), text.length(), result);
 
-    string result(32, '0');
-    for (int i = 0; i < 16; ++i) {
-        char buf[3];
-        sprintf(buf, "%02x", md5[i]);
-        result.replace(i*2, 2, buf);
+    stringstream ss;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << hex << setfill('0') << fixed << setw(2) << (int)result[i];
     }
 
-    return result;
+    return ss.str();
 }
