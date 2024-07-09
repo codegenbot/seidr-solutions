@@ -1,24 +1,25 @@
 def minPath(grid, k):
     n = len(grid)
+    res = []
 
-    def dfs(i, j, path, dist, prev_dir):
+    def dfs(i, j, path, dist):
+        nonlocal res
         if len(path) == k:
-            return path
+            res = (
+                min(res, sorted(path))
+                if not res
+                else (res if sum(res) < sum(path) else res)
+            )
+            return False
 
-        res = None
         for x, y in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
             if 0 <= x < n and 0 <= y < n and grid[x][y] not in path:
-                p = dfs(x, y, path + [grid[x][y]], dist + grid[x][y], (x - i, y - j))
-                if res is None or sum(p) < sum(res):
-                    res = p
-        return res
+                dfs(x, y, path + [grid[x][y]], dist + grid[x][y])
 
-    min_dist = float("inf")
+        return True
+
     for i in range(n):
         for j in range(n):
-            path = dfs(i, j, [grid[i][j]], grid[i][j], (0, 0))
-            if len(path) == k and sum(path) < min_dist:
-                min_dist = sum(path)
-                res = path
+            dfs(i, j, [grid[i][j]], grid[i][j])
 
     return res
