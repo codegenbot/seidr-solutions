@@ -6,7 +6,9 @@ def find_zero(xs: list):
     b = -a
     return b
 
-if __name__ == "__main__":
-    xs = list(map(int, input().split()))
-    result = find_zero(xs)
-    print(result)
+# Input
+xs = list(map(int, input().split()))
+
+# Calling the function
+result = find_zero(xs)
+print(result)
