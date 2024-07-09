@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -21,8 +20,8 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
 
 int main() {
     std::vector<std::string> strings = {"grunt", "prune"};
-    std::vector<std::string> filtered_strings = filter_by_substring(strings, "ru");
-    // Use the filtered_strings here
+    // Use the filter_by_substring function here
+    auto filtered_strings = filter_by_substring(strings, "un");
     for (const auto& s : filtered_strings) {
         std::cout << s << std::endl;
     }
