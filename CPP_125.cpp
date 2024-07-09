@@ -4,7 +4,7 @@
 
 std::vector<std::string> split_words(std::string txt);
 
-bool is_same(std::vector<std::string> a, std::vector<std::string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
 std::vector<std::string> split_words(std::string txt){
     std::vector<std::string> words;
@@ -34,7 +34,7 @@ std::vector<std::string> split_words(std::string txt){
     return words;
 }
 
-bool is_same(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size()){
         return false;
     } else {
