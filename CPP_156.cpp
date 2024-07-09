@@ -14,6 +14,6 @@ const char* int_to_roman(int n) {
 }
 
 int main() {
-    assert(int_to_roman(1000) == roman[0]);
+    assert(int_to_roman(1000) == "M");
     return 0;
 }
