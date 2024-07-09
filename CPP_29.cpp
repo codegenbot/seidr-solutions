@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,29 +14,18 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
             result.push_back(s);
     }
     return result;
+
 }
 
 int main() {
-    vector<string> input;
-    std::cout << "Enter the number of words: ";
-    int n;
-    std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        string word;
-        std::cout << "Enter a word: ";
-        std::cin >> word;
-        input.push_back(word);
+    std::vector<std::string> words = {"apple", "banana", "cherry"};
+    std::string prefix = "ap";
+    std::vector<std::string> filteredWords = filter_by_prefix(words, prefix);
+
+    for (const auto& word : filteredWords) {
+        std::cout << word << " ";
     }
-    
-    vector<string> filtered_words = filter_by_prefix(input, "Hello");
-    bool is_same = issame(filtered_words, {"Hello", "Hello", "Hello"});
-    
-    if(is_same) {
-        std::cout << "The words are the same.\n";
-    } else {
-        std::cout << "The words are not the same.\n";
-    }
-    
+    std::cout << std::endl;
+
     return 0;
 }
