@@ -1,3 +1,4 @@
+```
 #include <string>
 
 int is_bored(string S){
@@ -5,7 +6,7 @@ int is_bored(string S){
     string word;
     for(int i=0; i<S.length(); i++){
         if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
-            if(i > 0 && S.substr(0, i).find("I") != std::string::npos){
+            if(i > 0 && S.substr(0, i).find("I") != string::npos){
                 count++;
             }
             word = "";
