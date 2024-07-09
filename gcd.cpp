@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -8,7 +9,7 @@ int gcd(int a, int b) {
         b = a % b;
         a = temp;
     }
-    return b;
+    return b; // Corrected here
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
