@@ -1,5 +1,3 @@
-def decode_shift(s: str):
+def decode_shift():
+    s = input("Enter the encoded message: ")
     return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s])
-
-s = input("Enter the string to decode: ")
-print(decode_shift(s)) Remember this will work on local IDE where console input is supported.
