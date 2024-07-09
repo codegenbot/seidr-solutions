@@ -1,8 +1,7 @@
 #include <vector>
-#include <iostream>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] == b[i]) {
