@@ -3,7 +3,7 @@
 #include <string>
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), 
+    std::sort(nums.begin(), nums.end(),
               [&nums](int a, int b) -> bool { 
                   return to_string(a).size() + to_string(abs(a)).size() != 
                          to_string(b).size() + to_string(abs(b)).size(); 
