@@ -1,14 +1,17 @@
-int sumOfUniqueNumbers(vector<int> nums) {
-    set<int> uniqueNums(nums.begin(), nums.end());
-    int total = 0;
-    for (int num : uniqueNums) {
-        int count = 0;
-        for (int i : nums) {
-            if (i == num)
-                count++;
-        }
-        if (count > 1) continue;
-        total += num;
+bool hasEvenDigit(int num) {
+    while (num > 0) {
+        int digit = num % 10;
+        if (digit % 2 == 0)
+            return true;
+        num /= 10;
     }
-    return total;
+    return false;
+}
+
+int main() {
+    vector<int> lst;
+    for (int i = 1; i <= 100; ++i) {
+        lst.push_back(i);
+    }
+    cout << skjkasdkd(lst);
 }
