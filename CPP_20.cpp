@@ -3,7 +3,7 @@
 #include <vector>
 #include <limits>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<double> a, std::vector<double> b) {
     if (a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
@@ -14,16 +14,16 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 struct Pair {
-    float first, second;
+    double first, second;
 };
 
-Pair find_closest_elements(std::vector<float> numbers) {
+Pair find_closest_elements(std::vector<double> numbers) {
     std::sort(numbers.begin(), numbers.end());
-    float minDiff = std::numeric_limits<float>::max();
+    double minDiff = std::numeric_limits<double>::max();
     Pair closestPair;
     
     for (int i = 0; i < numbers.size() - 2; ++i) {
-        float diff = numbers[i + 1] - numbers[i];
+        double diff = numbers[i + 1] - numbers[i];
         if (diff < minDiff) {
             minDiff = diff;
             closestPair.first = numbers[i];
@@ -35,21 +35,11 @@ Pair find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() { 
-    std::vector<float> testVec;
-    testVec.push_back(1.1f);
-    testVec.push_back(2.2f);
-    testVec.push_back(3.3f);
-    testVec.push_back(4.4f);
-    testVec.push_back(5.5f);
-    testVec.push_back(6.6f);
-    testVec.push_back(7.7f);
-    testVec.push_back(8.8f);
-    testVec.push_back(9.9f);
-    testVec.push_back(10.0f);
+    std::vector<double> testVec = {1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.0};
     
     Pair closestPair = find_closest_elements(testVec);
     
-    if (issame({closestPair.first, closestPair.second}, {2.2f, 2.3f})) {
+    if (issame({closestPair.first, closestPair.second}, {2.2, 2.3})) {
         std::cout << "The closest pair is (" << closestPair.first << ", " << closestPair.second << ")" << std::endl;
     } else {
         std::cout << "Error: The closest pair does not match the expected result." << std::endl;
