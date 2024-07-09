@@ -1,12 +1,14 @@
+Here is the solution in Python:
+
 def luhn(card_number):
-    card_number = [int(x) for x in str(card_number)]
-    card_number.reverse()
+    sum = 0
+    for i, digit in enumerate(map(int, card_number)):
+        if (i % 2) == 1:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        sum += digit
+    return str(sum)
 
-    result = sum(
-        [
-            x if i % 2 == 0 else 2 * x if x * 10 // 9 else 2 * x - 9
-            for i, x in enumerate(card_number)
-        ]
-    )
-
-    return result
+card_num = input().split()
+print(luhn(card_num))
