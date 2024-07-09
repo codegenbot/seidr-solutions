@@ -1,5 +1,6 @@
-```
+```cpp
 #include <vector>
+#include <numeric>
 #include <limits>
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
