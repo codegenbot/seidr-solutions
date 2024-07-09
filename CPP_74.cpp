@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -27,7 +29,5 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 
 int main() {
     vector<string> result = total_match({"this"}, {});
-    bool same = issame(result, {});
-    //...
-    return 0;
+    assert(issame(result, {}));
 }
