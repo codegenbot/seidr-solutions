@@ -17,4 +17,4 @@ vector<int> even_odd_count(int num) {
     return {evens, odds};
 }
 
-assert(issame(even_odd_count(-10), vector<int>{1, 3}));
+assert(issame(even_odd_count(0), vector<int>({{0}, {1}})));
