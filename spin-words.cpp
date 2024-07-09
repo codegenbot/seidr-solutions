@@ -1,21 +1,18 @@
-#include <vector>
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
     int start = 0;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
+    for (int end = 0; end <= str.length(); end++) {
+        if (end == str.length() || str[end] == ' ') {
+            string word = str.substr(start, end - start);
             if (word.length() >= 5) {
-                result += string(word.rbegin(), word.rend()) + " ";
-            } else {
-                result += word + " ";
+                reverse(word.begin(), word.end());
             }
-            start = i + 1;
+            result += word + " ";
+            start = end + 1;
         }
     }
     return result.substr(0, result.length() - 1);
