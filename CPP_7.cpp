@@ -1,8 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
-
-using namespace std;
+#include <iostream>
 
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
@@ -16,14 +14,16 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 }
 
-int main() {
-    vector<string> strings = {"apple", "banana", "orange", "grape", "kiwi"};
+int main(){
+    // Test the function
+    vector<string> strings = {"apple", "banana", "orange", "grape"};
     string substring = "an";
-
+    
     vector<string> filtered_strings = filter_by_substring(strings, substring);
 
-    for(const auto& str : filtered_strings){
+    for(const auto &str : filtered_strings){
         cout << str << " ";
     }
+
     return 0;
 }
