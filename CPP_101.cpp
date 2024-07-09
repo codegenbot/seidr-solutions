@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -10,7 +11,7 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b){
     return true;
 }
 
-std::vector<std::string> words_string(std::string s){
+std::vector<std::string> wordsString(std::string s){
     std::vector<std::string> result;
     std::string word = "";
     for(int i=0; i<s.length(); i++){
@@ -31,10 +32,8 @@ std::vector<std::string> words_string(std::string s){
 }
 
 int main(){
-    bool test = isSame(words_string("ahmed     , gamal"), std::vector<std::string>{"ahmed", "gamal"});
-    if(test)
-        std::cout << "Test passed";
-    else
-        std::cout << "Test failed";
+    std::vector<std::string> expected = {"ahmed", "gamal"};
+    std::vector<std::string> output = wordsString("ahmed     , gamal");
+    assert(isSame(output, expected));
     return 0;
 }
