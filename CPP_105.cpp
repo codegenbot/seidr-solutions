@@ -12,8 +12,15 @@ bool issame(vector<string> a, vector<string>b){
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> result;
+    vector<int> temp;
     for (int i : arr) {
+        if (i >= 1 && i <= 9)
+            temp.push_back(i);
+    }
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
+    vector<string> result;
+    for (int i : temp) {
         switch (i) {
             case 1: result.push_back("One"); break;
             case 2: result.push_back("Two"); break;
@@ -30,14 +37,9 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3};
-    vector<string> output = by_length(arr);
-    // Check if the output is as expected
-    bool same = issame(output, {"One", "Two", "Three"});
-    if(same) {
-        cout << "The output is correct." << endl;
-    } else {
-        cout << "The output is incorrect." << endl;
-    }
+    vector<int> arr = {1,2,3,4,5};
+    vector<string> res = by_length(arr);
+    for(string s : res) 
+        cout << s << " ";
     return 0;
 }
