@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -29,7 +28,7 @@ int main() {
     std::vector<int> indices = findIndices("Hello World Hello", "Hello");
     
     std::cout << "GCD of the two numbers is: " << result << std::endl;
-    for(int i: indices) {
+    for(int i : indices) {
         std::cout << i << " ";
     }
     return 0;
