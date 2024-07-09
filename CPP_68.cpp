@@ -1,7 +1,10 @@
+Here is the corrected code:
+
+```cpp
 #include <vector>
 
-vector<vector<int>> pluck(vector<int> arr) {
-    vector<vector<int>> result;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
     if (arr.empty()) return result;
 
     int smallest_even = INT_MAX;
@@ -14,11 +17,8 @@ vector<vector<int>> pluck(vector<int> arr) {
         }
     }
 
-    vector<int> output;
-    output.push_back(smallest_even);
-    output.push_back(index);
-
-    result.push_back(output);
+    result.push_back(smallest_even);
+    result.push_back(index);
 
     return result;
 }
