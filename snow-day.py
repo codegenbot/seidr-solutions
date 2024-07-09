@@ -1,4 +1,3 @@
-```Python
 from decimal import Decimal, getcontext
 
 def snow_day():
