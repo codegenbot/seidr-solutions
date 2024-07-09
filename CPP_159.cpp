@@ -1,20 +1,19 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
-std::vector<int> eat(int number, int need, int remaining) {
-    int total = number + need;
-    int eaten = std::min(total, remaining);
-    return {total, std::max(0, remaining - eaten)};
+std::vector<int> eat(int number, int need, int remaining){
+    int totalCarrots = number + need;
+    int eatenCarrots = totalCarrots > remaining ? remaining : totalCarrots;
+    int remainingCarrots = remaining - eatenCarrots;
+    return {eatenCarrots, remainingCarrots};
 }
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-#include <iostream>
-
-int main() {
-    assert(isSame(eat(4, 5, 1), {5, 0}));
+int main(){
+    assert(issame(eat(4, 5, 1), {5, 0}));
     return 0;
 }
