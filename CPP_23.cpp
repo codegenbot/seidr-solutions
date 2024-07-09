@@ -1,5 +1,4 @@
-#include <string>
-
-int my_strlen(string str){
+```cpp
+int strLength(string str) {
     return str.length();
 }
