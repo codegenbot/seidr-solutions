@@ -8,8 +8,6 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     }
     return true;
 
-}
-
 vector<float> get_positive(vector<float> l) {
     vector<float> positiveNumbers;
     for (float num : l) {
