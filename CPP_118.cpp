@@ -1,20 +1,16 @@
-string get_closest_vowel(string word) {
-    int left = 0, right = word.size() - 1;
-    
-    while (left < right) {
-        if (!isvowel(word[left])) {
-            left++;
-        } else if (!isvowel(word[right])) {
-            right--;
-        } else {
-            return isupper(word[right]) ? "U" : "u";
+string get_closest_vowel(string word){
+    int i = word.size() - 1;
+    while(i >= 0 && !isVowel(word[i])) i--;
+    if(i < 0) return "";
+    for(int j = i-1; j >= 0; j--){
+        if(isVowel(word[j])){
+            return word.substr(j, i-j);
         }
     }
-    
     return "";
 }
 
-bool isvowel(char c) {
+bool isVowel(char c){
     c = tolower(c);
     return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
