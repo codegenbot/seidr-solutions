@@ -1,11 +1,10 @@
-#include <iostream>
+Here is the modified code:
+
+```c++
 #include <string>
+#include <algorithm>
 
-int main {
-    std::cout << "Please enter a sentence: ";
-    std::string s;
-    std::cin >> s;
-
+std::string solve(std::string s) {
     std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
@@ -14,6 +13,5 @@ int main {
             result += c;
         }
     }
-
-    return 0;
+    return !result.empty() ? result : s;
 }
