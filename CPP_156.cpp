@@ -47,3 +47,5 @@ std::string int_to_roman(int n) {
         return "";
     }
 }
+
+assert(std::string("M") == int_to_roman(1000));
