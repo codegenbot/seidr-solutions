@@ -2,6 +2,8 @@
 #include <vector>
 #include <assert.h>
 
+using namespace std;
+
 std::vector<float> get_positive(std::vector<float> v) {
     std::vector<float> result;
     for (float x : v) {
@@ -10,8 +12,7 @@ std::vector<float> get_positive(std::vector<float> v) {
     return result;
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    using namespace std;
+bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
 
