@@ -1,19 +1,17 @@
+```cpp
 #include <iostream>
 #include <string>
 
 std::string string_xor(const std::string &a, const std::string &b) {
-    int result = 0;
+    std::string result;
     for (int i = 0; i < a.length(); i++) {
-        if(i >= b.length()) {
-            result = (result << 1) | (a[i] - '0');
-        } else {
-            result = (result << 1) | ((a[i] - '0') ^ (b[i] - '0'));
-        }
+        int xored = (a[i] - '0') ^ (b[i] - '0');
+        result += (xored % 2 == 0 ? "0" : "1");
     }
-    return std::to_string(result);
+    return result;
 }
 
 int main() {
-    std::cout << string_xor("10101010", "11001100") << std::endl;
-    return 0;
+    std::cout << string_xor("0101", "0000") << std::endl;
+    return 0; 
 }
