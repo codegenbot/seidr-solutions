@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 namespace myspace {
     bool issame(const std::vector<float>& a, const std::vector<float>& b) {
@@ -15,8 +16,7 @@ namespace myspace {
         int evenIndex = 0;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                auto it = std::minmax_element(l.begin(), l.end(), 
-                                              [](float a, float b){return a>b;} );
+                auto it = std::minmax_element(l.begin(), l.end());
                 result[i] = *(it.first);
                 for(int j = 0; j < l.size(); j++){
                     if(j%2==0 && l[j] != *(it.first)){
@@ -32,18 +32,7 @@ namespace myspace {
 }
 
 int main() {
-    std::vector<float> input(10); // or any other size that suits your needs
-    input.push_back(5);
-    input.push_back(8);
-    input.push_back(-12);
-    input.push_back(4);
-    input.push_back(23);
-    input.push_back(2);
-    input.push_back(3);
-    input.push_back(11);
-    input.push_back(12);
-    input.push_back(-10);
-
+    std::vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
     std::cout << "Original array: ";
     for (float num : input) {
         std::cout << num << " ";
