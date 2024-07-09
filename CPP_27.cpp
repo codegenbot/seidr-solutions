@@ -14,7 +14,7 @@ bool flip_case(const std::string& input) {
             output += c;
         }
     }
-    return output == "these violent delights have violent ends";
+    return false;
 }
 
 int main() {
