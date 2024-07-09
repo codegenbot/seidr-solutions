@@ -12,6 +12,9 @@ int main() {
     cin >> h;
     float s, r, m;
     cin >> s >> r >> m;
-    cout << fixed << setprecision(10) << snowDay(h, s, r, m) << endl;
+    ios_base::fmtflags flags = cout.flags();
+    cout << fixed << setprecision(10);
+    cout << snowDay(h, s, r, m) << endl;
+    cout.flags(flags);  
     return 0;
 }
