@@ -19,9 +19,10 @@ string int_to_roman(int number) {
 }
 
 int main() {
-    int n;
+    int num;
     cout << "Enter a number: ";
-    cin >> n;
-    cout << int_to_roman(n);
+    cin >> num;
+    string roman = int_to_roman(num);
+    cout << "The Roman numeral is: " << roman << endl;
     return 0;
 }
