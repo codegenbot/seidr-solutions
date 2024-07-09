@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 #include <iostream>
@@ -27,4 +26,3 @@ int main() {
     std::cin >> num;
     std::cout << "Mini Roman representation of the number is: " << toMiniRoman(num) << std::endl;
     return 0;
-}
