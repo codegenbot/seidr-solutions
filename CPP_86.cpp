@@ -1,32 +1,54 @@
-#include <cstddef>
-#include <string>
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
-std::vector<std::string> tokens;
-int anti_shuffle(std::string str, char sep) {
+using namespace std;
+
+string join(const vector<string>& vec, const string& sep) {
+    string result;
+    for (const auto& s : vec) {
+        if (!result.empty()) {
+            result += sep;
+        }
+        result += s;
+    }
+    return result;
+}
+
+string split(const string& str, char sep) {
+    vector<string> tokens;
     size_t pos = 0;
-    while ((pos = str.find(sep)) != std::string::npos) {
+    while ((pos = str.find(sep)) != string::npos) {
         tokens.push_back(str.substr(0, pos));
         str = str.substr(pos + 1);
     }
     tokens.push_back(str);
-
-    for (size_t i = 0; i < tokens.size(); ++i) {
-        size_t j = (i + 1) % tokens.size();
-        std::swap(tokens[i], tokens[j]);
-    }
-
-    std::string result;
-    for (const auto& token : tokens) {
-        if (!result.empty())
-            result += sep;
-        result += token;
-    }
-    return 0;
+    return join(tokens, " ");
 }
 
-int main() {
-    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?", '.') == 0);
-    return 0;
+string anti_shuffle(string s) {
+    vector<string> words;
+    string word = "";
+    for (const auto& c : s) {
+        if (c == ' ') {
+            words.push_back(word);
+            word = "";
+        } else {
+            word += c;
+        }
+    }
+    words.push_back(word);
+
+    string result = "";
+    for (const auto& word : words) {
+        string w = word;
+        sort(w.begin(), w.end());
+        if (!result.empty()) {
+            result += " ";
+        }
+        result += w;
+    }
+    return result;
 }
