@@ -14,19 +14,20 @@ string sort_numbers(const string& numbers) {
         {"nine", 9}
     };
 
-    vector<string> tokens;
+    vector<string> numbers_vec;
+
     stringstream ss(numbers);
-    string token;
-    while (ss >> token) {
-        tokens.push_back(token);
+    string num;
+    while (ss >> num) {
+        numbers_vec.push_back(num);
     }
 
-    sort(tokens.begin(), tokens.end(), [&](const string &a, const string &b) {
+    sort(numbers_vec.begin(), numbers_vec.end(), [&](const string &a, const string &b) {
         return number_map[a] < number_map[b];
     });
 
     string result;
-    for (const string& num : tokens) {
+    for (const string& num : numbers_vec) {
         result += num + " ";
     }
 
