@@ -1,9 +1,9 @@
 #include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
-    vector<int> rolls(10);
+    std::vector<int> rolls(10);
 
     for (char c : s) {
         if (c == '/') {
