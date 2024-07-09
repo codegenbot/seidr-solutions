@@ -1,9 +1,13 @@
+Here is the solution:
+
+```cpp
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            c = (c - base + 2 * 26) % 26 + base;
+        if (c >= 'a' && c <= 'z') {
+            c = ('a' + (c - 'a' + 2 * 26) % 26);
+        } else if (c >= 'A' && c <= 'Z') {
+            c = ('A' + (c - 'A' + 2 * 26) % 26);
         }
         result += c;
     }
