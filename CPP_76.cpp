@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -16,10 +16,9 @@ bool isSimplePower(int num) {
 }
 
 int main() {
-    std::string input;
+    int num;
     std::cout << "Enter a number: ";
-    std::getline(std::cin, input); 
-    int num = std::stoi(input); 
+    std::cin >> num; 
     if (isSimplePower(num)) {  
         std::cout << num << " is a simple power.\n";
     } else {
