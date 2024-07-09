@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <iostream>
 
 int fuelCost(std::vector<int> v) {
     int sum = 0;
@@ -13,6 +13,5 @@ int fuelCost(std::vector<int> v) {
 int main() {
     std::vector<int> v = {1, 2, 3};
     int result = fuelCost(v);
-    std::cout << "Result: " << result << std::endl;
-    return 0;
+    return result;
 }
