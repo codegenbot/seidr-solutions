@@ -1,10 +1,9 @@
 bool move_one_ball(vector<int> arr) {
-    int i = 0;
-    while (i < arr.size() - 1) {
-        if (arr[i] > arr[i + 1]) {
-            return false;
+    int n = arr.size();
+    for (int i = 1; i < n; i++) {
+        if (arr[i] >= arr[0]) {
+            return true;
         }
-        i++;
     }
-    return true;
+    return false;
 }
