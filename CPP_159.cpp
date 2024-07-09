@@ -5,25 +5,46 @@ using namespace std;
 vector<int> eat(int number, int need, int remaining) {
     vector<int> result;
     
-    // Calculate the total number of eaten carrots after meals
-    int total = number + (remaining >= need - number ? need - number : remaining);
+    // Calculate total eaten carrots
+    int totalEaten = number + (need - remaining);
     
-    // Calculate the number of carrots left after meals
-    int left = max(0, min(total, remaining));
+    // Calculate remaining carrots
+    int leftCarrots = max(0, min(totalEaten, need));
     
-    result.push_back(total);
-    result.push_back(left);
+    result.push_back(totalEaten);
+    result.push_back(leftCarrots);
     
     return result;
 }
 
 int main() {
-    cout << "{ " << eat(5, 6, 10).at(0) << ", " << eat(5, 6, 10).at(1) << " }";
+    vector<int> res1 = eat(5, 6, 10);
+    cout << "Result for eat(5, 6, 10): ";
+    for (int i : res1) {
+        cout << i << " ";
+    }
     cout << endl;
-    cout << "{ " << eat(4, 8, 9).at(0) << ", " << eat(4, 8, 9).at(1) << " }";
+
+    vector<int> res2 = eat(4, 8, 9);
+    cout << "Result for eat(4, 8, 9): ";
+    for (int i : res2) {
+        cout << i << " ";
+    }
     cout << endl;
-    cout << "{ " << eat(1, 10, 10).at(0) << ", " << eat(1, 10, 10).at(1) << " }";
+
+    vector<int> res3 = eat(1, 10, 10);
+    cout << "Result for eat(1, 10, 10): ";
+    for (int i : res3) {
+        cout << i << " ";
+    }
     cout << endl;
-    cout << "{ " << eat(2, 11, 5).at(0) << ", " << eat(2, 11, 5).at(1) << " }";
+
+    vector<int> res4 = eat(2, 11, 5);
+    cout << "Result for eat(2, 11, 5): ";
+    for (int i : res4) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
     return 0;
 }
