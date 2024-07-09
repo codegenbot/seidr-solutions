@@ -1,19 +1,26 @@
 #include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b) > boost::any_cast<int>(a) ? b : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return boost::any_cast<float>(a) > boost::any_cast<int>(b) ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-        return stof(strB) > stof(strA) ? b : a;
-    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b) > stof(boost::any_cast<string>(a)) ? b : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return stof(boost::any_cast<string>(b)) > boost::any_cast<float>(a) ? b : a;
-    } else {
-        return "None";
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)a.cast_to<int>() > (double)b.cast_to<double>() ? b : a;
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        return (double)a.cast_to<double>() > stod(b.cast_to<string>()) ? b : a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return a.cast_to<string>() > b.cast_to<string>() ? b : a;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return (int)a.cast_to<int>() > stod(b.cast_to<string>()) ? b : a;
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return (double)a.cast_to<double>() > (int)b.cast_to<int>() ? b : a;
+    }
+    else {
+        return boost::any("None");
     }
 }
