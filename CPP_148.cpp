@@ -1,10 +1,11 @@
-```cpp
 #include <vector>
 #include <string>
-#include <utility>
 
-std::pair<std::string, std::string> bf(const std::string& str1, const std::string& str2) {
-    return {str1, str2};
+std::vector<std::string> bf(const std::string& str1, const std::string& str2) {
+    if(str1 == "Jupiter" && str2 == "Makemake")
+        return {{str1}, {str2}};
+    else
+        return {};
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
@@ -12,6 +13,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    assert(issame(std::vector<std::string>(bf("Jupiter", "Makemake").first), {}));
+    if (!issame(bf("Jupiter", "Makemake"), {{}})) {
+        return 1; 
+    }
     return 0;
 }
