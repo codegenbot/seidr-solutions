@@ -1,31 +1,28 @@
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        bool has_positive_sum = false;
-        int sum = 0;
-        if (num < 0) {
-            num = -num; // convert to positive
+        if (num >= 0) {
+            int sum = 0;
             while (num > 0) {
-                int digit = num % 10;
-                if (digit != 0 || sum == 0) { // first non-zero digit or initial sum is 0
-                    sum += digit;
-                }
+                sum += abs(num % 10);
                 num /= 10;
+            }
+            if (sum > 0) {
+                count++;
             }
         } else {
-            while (num > 0) {
-                int digit = num % 10;
-                if (digit != 0 || sum == 0) { // first non-zero digit or initial sum is 0
-                    sum += digit;
+            int sum = 0, sign = 1;
+            for (int i = 0; num < 0 && i <= to_string(abs(num)).size(); i++) {
+                if (num % 10 != 0) {
+                    sum += sign * (abs(num) % 10);
+                    num /= 10;
+                } else {
+                    num /= 10;
                 }
-                num /= 10;
             }
-        }
-        if (sum > 0) {
-            has_positive_sum = true;
-        }
-        if (has_positive_sum) {
-            count++;
+            if (sum > 0) {
+                count++;
+            }
         }
     }
     return count;
