@@ -16,8 +16,3 @@ bool will_it_fly(std::vector<int> q, int w) {
     }
     return sum <= w;
 }
-
-int main() {
-    std::vector<int> q = {5, 10, 15};
-    assert(will_it_fly(q, 5));
-}
