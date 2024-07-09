@@ -12,3 +12,7 @@ std::vector<int> findIndices(std::string text, std::string target) {
     }
     return indices;
 }
+
+int main() {
+    // Your code here
+}
