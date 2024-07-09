@@ -24,31 +24,29 @@ std::vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    // user input here
-    std::vector<std::string> list1, list2;
-    int n;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
+    vector<string> lst1, lst2;
+    //input
+    int n1, n2;
+    cin >> n1 >> n2;
+    for(int i = 0; i < n1; i++) {
         string s;
         cin >> s;
-        if(i < n/2) {
-            list1.push_back(s);
-        } else {
-            list2.push_back(s);
-        }
+        lst1.push_back(s);
+    }
+    for(int i = 0; i < n2; i++) {
+        string s;
+        cin >> s;
+        lst2.push_back(s);
     }
     
-    // calling total_match function
-    if(issame(list1, list2)) {
-        cout << "Lists are same";
-    } else {
-        cout << "Total match: ";
-        vector<string> matched_list = total_match(list1, list2);
-        for(const auto& s : matched_list) {
-            cout << s << " ";
-        }
-        cout << endl;
-    }
-    
+    //output
+    if(issame(lst1, lst2)) {
+        if (total_match(lst1, lst2) == lst1)
+            cout << "List 1 has the maximum total character count." << endl;
+        else
+            cout << "List 2 has the maximum total character count." << endl;
+    } else
+        cout << "The lists are not same." << endl;
+
     return 0;
 }
