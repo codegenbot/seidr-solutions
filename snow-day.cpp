@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 #include <cmath>
@@ -12,7 +11,9 @@ int main() {
     float calculatedSnow = groundSnow;
 
     for(int i = 1; i <= hours; i++) {
-        calculatedSnow += std::round((rateOfSnowFall - calculatedSnow * proportionMelting / 100.0f) * 100) / 100;
+        calculatedSnow += rateOfSnowFall;
+        calculatedSnow = std::round(calculatedSnow * 100.0f) / 100.0f;
+        calculatedSnow -= calculatedSnow * proportionMelting;
     }
 
     std::cout << std::fixed << std::setprecision(2) << calculatedSnow << std::endl;
