@@ -1,7 +1,5 @@
-```
 #include <algorithm>
 #include <vector>
-
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -17,7 +15,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> b = {"aaaa", "bbbb", "dd", "cc"};
-    assert(issame({"aaaa", "bbbb", "dd", "cc"}, b));
+    vector<string> b({"aaaa", "bbbb", "dd", "cc"});
+    assert(issame(vector<string>({"aaaa", "bbbb", "dd", "cc"}), b));
     return 0;
 }
