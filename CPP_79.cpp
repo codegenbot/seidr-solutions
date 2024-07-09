@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 
 string decimal_to_binary(int decimal){
