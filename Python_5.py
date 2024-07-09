@@ -1,12 +1,8 @@
-def process_numbers(numbers, delimeter):
+def intersperse(numbers, delimiter):
     result = []
-    for num in numbers[:-1]:
-        result.extend([num, delimeter])
-    if numbers:
-        result.append(numbers[-1])
+    for num in numbers:
+        result.extend([num, delimiter])
+    result.pop()
     return result
 
-numbers = [1, 2, 3, 4]
-delimeter = ","
-output = process_numbers(numbers, delimeter)
-print(output)
+check(intersperse)
