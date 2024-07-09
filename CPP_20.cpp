@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <initializer_list>
 
 vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
