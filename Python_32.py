@@ -8,11 +8,6 @@ def find_zero(xs: list):
     else:
         return 1.0
 
-# Read input from the user
-input_list = list(map(float, input().split()))
-
-# Call the function with the input
+input_list = list(map(float, input("Enter a list of numbers separated by spaces: ").split()))
 result = find_zero(input_list)
-
-# Print the result
 print(result)
