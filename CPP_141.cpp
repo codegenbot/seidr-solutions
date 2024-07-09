@@ -1,6 +1,7 @@
-#include <string>
+#include<string>
+using namespace std;
 
-std::string file_name_check(std::string file_name) {
+string file_name_check(string file_name) {
     bool hasDigit = false;
     int dotCount = 0;
 
@@ -30,6 +31,7 @@ std::string file_name_check(std::string file_name) {
 }
 
 int main() {
-    assert (file_name_check("s.") == "No");
+    assert(file_name_check("s.") == "No");
+    // your test cases
     return 0;
 }
