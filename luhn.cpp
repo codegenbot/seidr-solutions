@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int luhn(std::vector<int> ccNum) {
@@ -22,4 +23,9 @@ int luhn(std::vector<int> ccNum) {
         sum /= 10;
     }
     return static_cast<int>(result);
+
+}
+
+int main() {
+    return luhn(std::vector<int>{}); 
 }

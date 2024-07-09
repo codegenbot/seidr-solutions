@@ -16,18 +16,16 @@ int main() {
 
     std::istringstream iss(input);
     std::vector<double> prices(15);
-    for (double &price : prices) {
-        iss >> price;
+    for (int i = 0; i < prices.size(); i++) {
+        iss >> prices[i];
     }
 
-    while (std::isspace(iss.peek())) iss.ignore(); // Consume leading whitespace
-    iss >> std::ws; // Discard leading whitespace
     std::getline(std::cin, input);
+    iss.clear();
     iss.str(input);
-
     std::vector<double> discounts(15);
-    for (double &discount : discounts) {
-        iss >> discount;
+    for (int i = 0; i < discounts.size(); i++) {
+        iss >> discounts[i];
     }
 
     double result = hoppingList(prices, discounts);
