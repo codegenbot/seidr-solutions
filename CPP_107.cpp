@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 std::vector<int> even_odd_palindrome(int n) {
@@ -19,10 +20,8 @@ bool checkPalindrome(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-bool assert_palindrome(std::vector<int> a, std::vector<int> b) {
+bool verifyPalindrome(std::vector<int> a, std::vector<int> b) {
     return checkPalindrome(a, b);
 }
 
-int main() {
-    assert(assert_palindrome(even_odd_palindrome(5), std::vector<int>({0, 1, 0, 1, 0})));
-}
+assert(verifyPalindrome(even_odd_palindrome(5), std::vector<int>({0, 1, 0, 1, 0})));
