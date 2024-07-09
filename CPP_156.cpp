@@ -1,3 +1,4 @@
+```cpp
 std::string int_to_roman(int n) {
     if (n >= 1000) return "M" + int_to_roman(n - 1000);
     else if (n >= 900) return "CM";
