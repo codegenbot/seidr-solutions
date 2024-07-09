@@ -1,22 +1,16 @@
-```cpp
 #include <string>
 #include <iostream>
 
 std::string solve(int N) {
-    int sum = 0;
-    string result = "";
+    std::string result = "";
     while (N > 0) {
-        sum += N % 2;
-        N /= 2;
-    }
-    while (sum > 0) {
-        if (sum & 1)
+        if (N % 2 == 1)
             result.push_back('1');
         else
             result.push_back('0');
-        sum >>= 1;
+        N /= 2;
     }
-    return std::string(result.rbegin(), result.rend());
+    return result;
 }
 
 int main() {
