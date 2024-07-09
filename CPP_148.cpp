@@ -1,9 +1,10 @@
-bool issame(int a, int b) {
-    return a == b;
-}
-
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    
+    bool issame(int i1, int i2) {
+        return i1 == i2;
+    }
+    
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
@@ -25,10 +26,13 @@ vector<string> bf(string planet1, string planet2) {
     
     vector<string> result;
     for (int i = 0; i < planets.size(); i++) {
-        if (!issame(i, start) && !issame(i, end)) {
-            result.push_back(planets[i]);
-        } else if (i > end) {
-            break;
+        if (issame(i, start) || issame(i, end)) continue;
+        if (i >= start && i <= end)
+            continue;
+        for (int j = i + 1; j < planets.size(); j++) {
+            if (planets[j] == planet2)
+                break;
+            result.push_back(planets[j]);
         }
     }
     
