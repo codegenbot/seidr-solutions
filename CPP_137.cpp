@@ -1,7 +1,9 @@
-#include <iostream>
+```cpp
 #include <string>
-#include <sstream>
+#include <algorithm>
 #include <boost/any.hpp>
+#include <boost/convert.hpp>
+#include <sstream>
 
 using namespace std;
 
@@ -33,16 +35,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         istringstream iss(static_cast<string>(a));
         float a_float;
         iss >> a_float;
-        return a_float > boost::any(b) ? a : b;
+        return a_float > b ? a : b;
     }
     else
         return boost::any("None");
-}
-
-int main() {
-    boost::any a = 10;
-    boost::any b = "20.5";
-    cout << boost::any_cast<string>(compare_one(a, b)) << endl;
-
-    return 0;
 }
