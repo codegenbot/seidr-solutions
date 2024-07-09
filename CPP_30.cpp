@@ -14,4 +14,3 @@ std::vector<float> get_positive(std::vector<float> l){
         }
     }
     return result;
-}
