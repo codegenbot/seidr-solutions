@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <memory> // Include memory header for size_type
 
 using namespace std;
 
@@ -18,9 +19,7 @@ string anti_shuffle(string s) {
                 j++;
             }
             sort(word.begin(), word.end());
-            for (char c : word) {
-                result += c;
-            }
+            result += word;
         }
     }
     return result;
