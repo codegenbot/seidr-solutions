@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int sumOfDigits(int n) {
@@ -11,7 +10,8 @@ int sumOfDigits(int n) {
 }
 
 int largestPrime(vector<int> lst) {
-    for (int i = 2; ; i++) {
+    int result = -1;
+    for (int i = 1; i <= 100000; i++) {
         bool isPrime = true;
         if (i < 2)
             continue;
@@ -27,11 +27,17 @@ int largestPrime(vector<int> lst) {
                 if (val > maxVal && val == i)
                     maxVal = val;
             }
-            return sumOfDigits(maxVal);
+            if (maxVal != 0) {
+                result = sumOfDigits(maxVal);
+                break;
+            }
         }
     }
+    return result;
 }
 
-int skjkasdkd(vector<int> lst) {
-    return largestPrime(lst);
+int main() {
+    vector<int> lst = { };
+    cout << skjkasdkd(lst) << endl;
+    return 0;
 }
