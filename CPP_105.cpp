@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <string>
 
-bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool compare(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
@@ -27,5 +27,5 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    assert(by_length({9, 4, 8}) == std::vector<std::string> {"Eight", "Four", "Nine"});
+    assert(compare(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
 }
