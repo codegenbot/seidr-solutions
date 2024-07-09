@@ -6,7 +6,7 @@ string decipher(const string& cipher1, const string& cipher2, const string& mess
         if (idx != string::npos) {
             result += cipher2[idx];
         } else {
-            result += c; // keep non-mapped characters as is
+            result += c; 
         }
     }
     return result;
