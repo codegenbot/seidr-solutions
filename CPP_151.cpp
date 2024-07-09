@@ -1,6 +1,7 @@
+```cpp
 int main() {
-    vector<float> lst; 
-    float odd_sum = 0.0f; 
+    vector<float> lst;
+    float odd_sum = 0.0f;
     assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
