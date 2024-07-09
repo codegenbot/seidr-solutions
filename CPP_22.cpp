@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -13,14 +14,14 @@ int main() {
         return 1; 
     }
 
-    std::vector<int> a, b;
+    std::vector<int> a(n), b(n);
 
     for(int i = 0; i < n; ++i) {
         int x;
         while (true) {
             try {
                 std::cin >> x;
-                a.push_back(x);
+                a[i] = x;
                 break; // successfully read the integer
             } catch (...) {
                 if (!std::cin) { // input stream is invalid
@@ -37,7 +38,7 @@ int main() {
         while (true) {
             try {
                 std::cin >> x;
-                b.push_back(x);
+                b[i] = x;
                 break; // successfully read the integer
             } catch (...) {
                 if (!std::cin) { // input stream is invalid
