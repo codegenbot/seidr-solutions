@@ -14,16 +14,37 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> re
     std::string word = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
-            if(word.size() > 0){ 
+            if(word.size() > 30){ 
+                int j = 1;
+                while(j <= (word.size()/30) + 1){
+                    result.push_back(word.substr(0, 30));
+                    word = word.substr(30);
+                    j++;
+                }
+                if(word.size()>0)
+                    result.push_back(word);  
+            }else if(word.size() <= 30){ 
                 result.push_back(word);
                 word = "";
             }
         }else{
-            word += s[i];
+            if((s[i] != ' ') && (s[i] != ',')){
+                word += s[i];
+            }
         }
     }
     if(word.size() > 0)  
-        result.push_back(word);
+        while(word.size()>30){
+            int j = 1;
+            while(j <= (word.size()/30) + 1){
+                result.push_back(word.substr(0, 30));
+                word = word.substr(30);
+                j++;
+            }
+            if(word.size()>0)
+                result.push_back(word);  
+        } else 
+            result.push_back(word);
     return result;
 }
 
