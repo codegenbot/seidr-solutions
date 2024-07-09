@@ -1,10 +1,9 @@
 def paired_digits(s):
-    s = str(int(s.lstrip('0'))).zfill(len(s))
-    return sum(int(d) for d in s if d == s[s.index(d)+1])
+    return sum(int(d) for i, d in enumerate(s) if i < len(s) - 1 and (d == s[i+1] or d * 2 == int(s[i+1])))
 
-print(paired_digits("0011111"))
+print(paired_digits("0011111")) 
 print(paired_digits("99")) 
 print(paired_digits("88"))
-print(paddedigits("77"))
+print(paired_digits("77"))
 print(paired_digits("55"))
 print(paired_digits("44"))
