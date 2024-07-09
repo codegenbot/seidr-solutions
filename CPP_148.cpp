@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -49,13 +50,9 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) { 
-    std::vector<std::string> result;
-    if (isPlanet(planet1) && isPlanet(planet2)) {
-        if (planet1 < planet2)
-            result.push_back(planet1);
-        else
-            result.push_back(planet2);
-    }
-    return result;
-
+    if (!isPlanet(planet1) || !isPlanet(planet2)) return {}; // Return an empty vector if either of the planets is not in the list.
+    if (planet1 < planet2)
+        return {planet1, planet2};
+    else
+        return {planet2, planet1};
 }
