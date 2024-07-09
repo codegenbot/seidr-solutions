@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float>b){
+bool issame(std::vector<float> a, std::vector<float> b){
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]) return false;
@@ -9,9 +9,9 @@ bool issame(std::vector<float> a, std::vector<float>b){
     return true;
 }
 
-std::vector<float> my_vector(float l[]){ 
+std::vector<float> get_positive(std::vector<float> l){
     std::vector<float> result;
-    for(float i : {l,l+sizeof(l)/sizeof(*l)}) {
+    for(float i : l) {
         if(i > 0)
             result.push_back(i);
     }
@@ -19,6 +19,6 @@ std::vector<float> my_vector(float l[]){
 }
 
 int main() {
-    assert(issame(my_vector({}), {}));
+    assert(issame(get_positive({}), {}));
     return 0;
 }
