@@ -4,6 +4,7 @@ using namespace std;
 
 bool is_nested(string str) {
     int count = 0;
+    bool result = true;
     for (char c : str) {
         if (c == '[') {
             count++;
@@ -11,20 +12,10 @@ bool is_nested(string str) {
             if (count > 0) {
                 count--;
             } else {
-                return false;
+                result = false;
+                break;
             }
         }
     }
-    return count > 0;
-
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-    if(is_nested(input)) {
-        cout << "The string is nested." << endl;
-    } else {
-        cout << "The string is not nested." << endl;
-    }
-    return 0;
+    return !result && count > 0;
 }
