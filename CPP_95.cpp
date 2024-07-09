@@ -8,6 +8,7 @@ bool check_dict_case(map<string,string> dict){
     if(dict.empty()) return false;
     
     auto [key, _] = *dict.begin();
+    
     string first_key = key;
     
     for(auto it = dict.begin(); it != dict.end(); ++it){
