@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -23,7 +22,6 @@ std::string kebabToCamel(const std::string& s) {
 int main() {
     std::string input;
     std::cin >> input;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cout << kebabToCamel(input) << std::endl;
 
     return 0;
