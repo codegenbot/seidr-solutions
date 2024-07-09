@@ -1,7 +1,13 @@
-int len = text.length();
-for (int i = 0; i < len / 2; i++) {
-    if (text[i] != text[len - 1 - i]) {
-        return false;
+int left = 0;
+    int right = text.length() - 1;
+    
+    while(left < right){
+        if(text[left] != text[right]){
+            return false;
+        }
+        left++;
+        right--;
     }
+    
+    return true;
 }
-return true;
