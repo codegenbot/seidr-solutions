@@ -1,27 +1,31 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
-int sum_squares(std::vector<double> lst){
+int sum_squares(std::vector<float> lst){
     int sum = 0;
-    for(double num : lst){
+    for(float num : lst){
         sum += std::ceil(num) * std::ceil(num);
     }
     return sum;
 }
 
 int main(){
-    assert (sum_squares({-1.0,1.0,0.0})==2);
-    std::vector<double> numbers;
-    double num;
-    
-    while(std::cin >> num){
-        numbers.push_back(num);
+    std::vector<float> numbers;
+    float n;
+
+    while(std::cin >> n && n != -1.0f){
+        numbers.push_back(n);
+    }
+
+    int result = sum_squares(numbers);
+
+    if (!std::cin.fail()) {
+        std::cout << "Sum of squares: " << result << std::endl;
+    } else {
+        std::cerr << "Invalid input." << std::endl;
     }
     
-    int result = sum_squares(numbers);
-    std::cout << "Sum of squares: " << result << "\n";
     return 0;
 }
