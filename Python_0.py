@@ -1,4 +1,4 @@
-```python
+```
 from typing import List
 
 
@@ -17,8 +17,13 @@ def main() -> None:
             numbers = [float(num) for num in input_str.split()]
             if len(numbers) < 2:
                 raise ValueError
-            threshold = float(input("Enter the threshold value: "))
-            print(has_close_elements(numbers, threshold))
+            while True:
+                try:
+                    threshold = float(input("Enter the threshold value: "))
+                    print(has_close_elements(numbers, threshold))
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter a valid floating point number.")
             break
         except ValueError:
             print("Invalid input. Please enter valid floating point numbers.")
