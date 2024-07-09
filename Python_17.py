@@ -1,24 +1,9 @@
 from typing import List
 
+def parse_music(music_string: str) -> List[int]:
+    durations = {"o": 4, "o|": 2, ".|": 1}
+    return [durations[note] for note in music_string.split()]
 
-# Add function signature and task description here
-def find_duplicates(nums: List[int]) -> List[int]:
-    """
-    Given a list of integers, return a new list containing all duplicate elements in the input list.
-
-    Args:
-    nums: A list of integers
-
-    Returns:
-    A list of integers containing duplicate elements
-    """
-    duplicates = []
-    seen = set()
-
-    for num in nums:
-        if num in seen:
-            duplicates.append(num)
-        else:
-            seen.add(num)
-
-    return duplicates
+music_input = input()
+result = parse_music(music_input)
+print(result)
