@@ -1,5 +1,7 @@
-#include <initializer_list>
-
+#include <vector>
+#include <string>
+#include <iostream>
+#include <initializer_list> // Add this line
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
