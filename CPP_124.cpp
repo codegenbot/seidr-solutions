@@ -15,5 +15,6 @@ bool valid_date(string date) {
 
 int main() {
     assert(valid_date("04-2003") == false);
+    // Add more test cases if needed
     return 0;
 }
