@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 bool simplify(std::string x, std::string n) {
     int numerator = 0, denominator = 0;
     char slash;
