@@ -1,7 +1,16 @@
 #include <vector>
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+using namespace std;
+
+bool issame(int a, int b) {
+    if (a == b)
+        return true;
+    else
+        return false;
+}
+
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     if (arr.empty()) {
         return result;
     }
