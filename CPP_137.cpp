@@ -18,9 +18,9 @@ boost::any compare_one(boost::any a, boost::any b) {
 
         i = strB.find(',');
         if (i != -1)
-            strB[i] = '.';
+            strB.replace(i, 1, ".");
 
-        return (stod(strA) > stold(strB)) ? a : b;
+        return (stod(strA) > stod(strB)) ? a : b;
     }
     else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
         string strA = any_cast<string>(a);
@@ -32,6 +32,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (stod(strA) > numB) ? a : b;
     }
     else {
-        return boost::any(b);
+        return b;
     }
 }
