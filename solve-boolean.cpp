@@ -9,26 +9,10 @@ bool solveBoolean(string s) {
             break;
         }
         else if (c == '&') {
-            bool temp = true;
-            for (; s.size() && s[0] != '&' && s[0] != '|'; ++s) {
-                if (s[0] == 'T')
-                    temp = true;
-                else 
-                    temp = false;
-                s = s.substr(1);
-            }
-            res &= temp;
+            res &= !s.substr(0, s.find(c)).find('T') != string::npos;
         }
         else if (c == '|') {
-            bool temp = false;
-            for (; s.size() && s[0] != '&' && s[0] != '|'; ++s) {
-                if (s[0] == 'T')
-                    temp = true;
-                else 
-                    temp = false;
-                s = s.substr(1);
-            }
-            res |= temp;
+            res |= s.find('T') != string::npos;
         }
     }
     return res;
