@@ -1,11 +1,12 @@
+```
 def bowling_score(frames):
     score = 0
-    frame_values = [int(frame) for frame in frames.replace('-', '').split('/')]
+    frame_values = [10 if len(frame) == 1 else sum(map(int, frame.replace('-', ''))) for frame in frames.replace('X', '10-').split('/')]
     for i, value in enumerate(frame_values):
         if value == 10:  
-            score += value + frame_values[(i+1)%2 + (i+1)//2]
-        elif value >= 10:  
-            score += value + frame_values[(i+1)%2 + (i+1)//2] + frame_values[(i+2)%2 + (i+2)//2]
+            score += 10 + (frame_values[i+1] if i < 9 else 0)
+        elif i < 9 and value < 10:  
+            score += value + frame_values[i+1]
         else:
-            score += value + min(frame_values[i+1], 10)
+            score += value
     return score
