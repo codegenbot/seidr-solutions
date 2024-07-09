@@ -12,13 +12,8 @@ int solution(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst;
-    cout << "Enter numbers separated by space: ";
-    for(int i = 0; i < 5; i++) {
-        int x;
-        cin >> x;
-        lst.push_back(x);
-    }
-    cout << "Sum of odd numbers is: " << solution(lst) << endl;
+    vector<int> lst = {10, 3, 5, 4, 6, 7};
+    int output = solution(lst);
+    cout << "Sum of all odd numbers: " << output << endl;
     return 0;
 }
