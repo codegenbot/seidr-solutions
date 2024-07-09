@@ -9,7 +9,7 @@ std::vector<std::string> numerical_letter_grade(const std::vector<double>& grade
         else if (grade >= 0.8)
             result.push_back("B");
         else if (grade >= 0.7)
-            result.push_back("C");
+            result.push_back((grade >= 0.75) ? "D" : "C");
         else if (grade >= 0.6)
             result.push_back("D");
         else
@@ -31,7 +31,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 int main() {
     std::vector<std::string> result1 = numerical_letter_grade({0.0, 0.7});
     
-    if (issame({{"F"}, {"D+"}}, {result1[0], result1[1]})) {
+    if (issame({result1[0], result1[1]}, {"F", "D"})) { 
         std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
