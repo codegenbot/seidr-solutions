@@ -3,17 +3,13 @@
 #include <algorithm>
 #include <cassert>
 
-std::string sorted_list_sum(std::vector<std::string> strings) {
-    std::sort(strings.begin(), strings.end());
-    std::string result;
-    for (const auto& str : strings) {
-        result += str;
-    }
-    return result;
+std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
+    std::sort(input.begin(), input.end());
+    return input;
 }
 
-bool issame(std::string str1, std::string str2) {
-    return str1 == str2;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
 }
 
 int main() {
