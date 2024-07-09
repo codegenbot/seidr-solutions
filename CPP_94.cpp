@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
-#include <initializer_list>
+using namespace std;
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -29,17 +29,17 @@ int find_max_prime_and_sum_digits(int n, int num){
 
 int main() {
     int n, num, maxPrimeAndSum;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
     for(int i = 0; i < n; i++){
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> num;
         if(i == n-1) {
             maxPrimeAndSum = find_max_prime_and_sum_digits(n, num);
-            std::cout << "The sum of digits is equal to " << maxPrimeAndSum << "." << std::endl;
+            cout << "The sum of digits is equal to " << maxPrimeAndSum << "." << endl;
         } else {
             int temp = find_max_prime_and_sum_digits(n, num);
-            std::cout << "Maximum prime and sum of digits: " << temp << std::endl;
+            cout << "Maximum prime and sum of digits: " << temp << endl;
             maxPrimeAndSum = temp;
         }
     }
