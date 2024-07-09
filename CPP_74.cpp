@@ -1,22 +1,29 @@
 #include <string>
 
-bool issame(string s1, string s2) {
-    return s1 == s2;
-}
+bool issame(string a, string b) {
+        return a == b;
+    }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
-int sum_chars(vector<string> lst) {
-    int sum = 0;
-    for (string s : lst) {
-        sum += s.size();
+int main() {
+    // Sample usage of the total_match function
+    vector<string> lst1 = {"apple", "banana", "orange"};
+    vector<string> lst2 = {"grape", "melon"};
+    vector<string> result = total_match(lst1, lst2);
+
+    // Display the result
+    for (string s : result) { 
+        cout << s << " ";
     }
-    return sum;
+    cout << endl;
+
+    return 0;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    if (sum_chars(lst1) < sum_chars(lst2)) {
-        return lst1;
-    }
-    return lst2;
-}
+        if (sum_chars(lst1) < sum_chars(lst2)) {
+            return lst1;
+        }
+        return lst2;
+    }  
