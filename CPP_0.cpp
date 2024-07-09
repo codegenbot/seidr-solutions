@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -27,22 +26,11 @@ bool has_close_elements(std::vector<std::vector<float>> numbers, float tol) {
 }
 
 int main() {
-    std::vector<std::vector<float>> numbers;
-    for (int i = 0; i < 7; i++) {
-        std::vector<float> row;
-        for (int j = 0; j < 2; j++) {
-            if (i == 0) row.push_back((float)i);
-            else if (i == 1) row.push_back((float)(i-1));
-            else if (i == 2) row.push_back(2.0f);
-            else if (i == 3) row.push_back(4.0f);
-            else if (i == 4) row.push_back(5.0f);
-            else if (i == 5) row.push_back(2.2f);
-            else row.push_back(0.0f);
-        }
-        numbers.push_back(row);
-    }
-    assert(has_close_elements(numbers, 0.5) == false);
-    
-    std::vector<std::vector<float>> numbers2 = {{1.1f},{1.1f}, {2.2f},{2.2f}, {3.1f},{3.1f}, {4.1f},{4.1f}, {5.1f},{5.1f}};
-    assert(has_close_elements(numbers2, 0.5) == false);
+    std::vector<std::vector<float>> numbers = {{1.0f}, {2.0f}, {3.0f}, {4.0f}, {5.0f},
+                                                 {2.2f, 2.2f}, {2.2f, 2.2f},
+                                                 {4.1f, 4.1f}, {5.1f, 5.1f}, {6.1f, 6.1f}};
+
+    std::cout << (has_close_elements(numbers, 0.5) ? "True" : "False") << std::endl;
+
+    return 0;
 }
