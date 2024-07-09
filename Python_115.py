@@ -1,3 +1,7 @@
+Here is the completed code:
+
 def max_fill(grid, capacity):
+    n = len(grid)
     total_water = sum(sum(row) for row in grid)
-    return math.ceil(total_water / capacity)
+    total_buckets = math.ceil(total_water / capacity)
+    return total_buckets
