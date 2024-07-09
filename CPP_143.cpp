@@ -1,4 +1,4 @@
-#include <iostream>
+```cpp
 #include <string>
 #include <vector>
 
@@ -15,7 +15,7 @@ std::string words_in_sentence(std::string sentence) {
     
     std::string result = "";
     std::vector<std::string> words = split(sentence, ' ');
-    for (std::string word : words) {
+    for (const auto& word : words) {
         if (find(primeLengths.begin(), primeLengths.end(), word.size()) != primeLengths.end())
             result += word + " ";
     }
