@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath>
 #include <cassert>
+#include <cmath>
 
 bool is_simple_power(int n, int x) {
     if (n == 1 && x == 1) return true;

@@ -1,3 +1,7 @@
+#include <vector>
+#include <climits>
+#include <cassert>
+
 std::vector<int> pluck(std::vector<int> arr){
     std::vector<int> result;
     int min_even = INT_MAX;
