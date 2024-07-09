@@ -1,4 +1,4 @@
-int mastermind(const std::string& code, const std::string& guess) {
+int mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
 
