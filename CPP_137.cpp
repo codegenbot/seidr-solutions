@@ -1,7 +1,5 @@
 #include <any>
 #include <string>
-#include <iostream>
-#include <cassert>
 
 std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -17,16 +15,11 @@ std::any compare_one(std::any a, std::any b) {
             return b;
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (std::stof(std::any_cast<std::string>(a)) > std::stof(std::any_cast<std::string>(b))) {
+        if (std::any_cast<std::string>(a) > std::any_cast<std::string>(b)) {
             return a;
-        } else if (std::stof(std::any_cast<std::string>(a)) < std::stof(std::any_cast<std::string>(b))) {
+        } else if (std::any_cast<std::string>(a) < std::any_cast<std::string>(b)) {
             return b;
         }
     }
     return std::any();
-}
-
-int main() {
-    assert(std::any_cast<std::string>(std::any_cast<std::any>(compare_one(1, 2))) == "None");
-    return 0;
 }
