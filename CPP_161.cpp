@@ -1,17 +1,16 @@
-Here is the solution:
-
-```cpp
-string solve(string s){
-    string result;
-    for(int i=0; i<s.size(); i++){
-        if(isalpha(s[i])){
-            if(islower(s[i]))
-                result += toupper(s[i]);
-            else
-                result += tolower(s[i]);
+string solve(string s) {
+    string result = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            c = tolower(c);
+            if (result.empty() || !isupper(result.back())) {
+                c = toupper(c);
+            }
         }
-        else
-            result += s[i];
+        result += c;
     }
-    return (result.empty() ? string(1, s.back()) + s.substr(0, s.size()-1) : result);
+    if (result.empty()) {
+        reverse(result.begin(), result.end());
+    }
+    return result;
 }
