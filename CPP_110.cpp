@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -21,11 +20,11 @@ string exchange(vector<int> lst1, vector<int> lst2) {
 
 int main() {
     vector<int> lst1(3);
+    vector<int> lst2(4);
+
     for (int i = 0; i < 3; ++i) {
         lst1[i] = 1 + i*2;
     }
-    
-    vector<int> lst2(4);
     for (int i = 0; i < 4; ++i) {
         lst2[i] = 2 + i*2;
     }
