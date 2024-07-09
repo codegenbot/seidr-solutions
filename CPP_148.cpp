@@ -1,22 +1,31 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-std::vector<std::string> bf(const std::string& a, const std::string& b) {
-    if(a==b)
-        return {};
-    else 
-        return {a,b};
+bool issame(vector<string> a,vector<string>b){
+    return a==b;
 }
 
-bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
-    return (vec1.size() == vec2.size()) && std::equal(vec1.begin(), vec1.end(), vec2.begin());
+vector<string> bf(string planet1, string planet2) {
+    vector<string> result;
+
+    int mercury = 57.9, venus = 67.2, earth = 0, mars = 225, 
+        jupiter = 778, saturn = 1433, uranus = 2870, neptune = 4495;
+
+    if (planet1 == planet2) {
+        result.push_back("The two planets are the same.");
+    } else {
+        if (abs(jupiter - mars) < abs(mercury - venus)) {
+            result.push_back("Mars is closer to Jupiter than Venus is to Mercury.");
+        } else {
+            result.push_back("Venus is closer to Mercury than Mars is to Jupiter.");
+        }
+    }
+
+    return result;
 }
 
 int main() {
-    if (bf("Jupiter", "Makemake") == {}) {
-        assert(true);
-    } else {
-        assert(false);  
-    }
+    assert (issame(bf("Jupiter", "Makemake") , {"The two planets are different."}));
     return 0;
 }
