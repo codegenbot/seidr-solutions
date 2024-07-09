@@ -10,8 +10,11 @@ bool is_happy(const std::string& s) {
     for (int i = 0; i <= s.length() - 3; i++) {
         bool unique = true;
         std::string subStr = s.substr(i, 3); 
-        int pos = s.find(subStr);
-        if (pos != std::string::npos) return false;
+        size_t pos = s.find(subStr);
+        while (pos != std::string::npos) {
+            if (s.length() < i + 3) return false;
+            pos = s.find(subStr, pos + 1);
+        }
     }
     return true;
 }
