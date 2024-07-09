@@ -1,4 +1,3 @@
-```
 int bowlingScore(std::string input) {
     int score = 0;
     int i = 0;
@@ -12,7 +11,6 @@ int bowlingScore(std::string input) {
         } else {
             int roll = 0;
             while(i < input.length() && input[i] != '-' && input[i] != '/' ) {
-                if(input[i] == '/') break;
                 roll = roll * 10 + (input[i] - '0');  
                 i++;  
             }
@@ -25,7 +23,6 @@ int bowlingScore(std::string input) {
             } else {
                 int nextRoll = 0;
                 while(i < input.length() && input[i] != '-' && input[i] != '/' ) {
-                    if(input[i] == '/') break;
                     nextRoll = nextRoll * 10 + (input[i] - '0');  
                     i++;  
                 }
