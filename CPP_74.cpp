@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,12 +26,6 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    std::vector<std::string> lst1 = {"this"};
-    std::vector<std::string> lst2 = {};
-    if (!issame(lst1, lst1, total_match(lst1, lst2))) {
-        std::cout << "Test failed" << std::endl;
-    } else {
-        std::cout << "Test passed" << std::endl;
-    }
+    assert(issame(total_match({"this"}, {}), {}, {}));
     return 0;
 }
