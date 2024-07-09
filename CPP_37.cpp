@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 
@@ -23,19 +24,13 @@ std::vector<float> sortEven(std::vector<float> l) {
     return result;
 }
 
-int readInput() 
+int main() 
 {
     std::vector<float> input;
     float num;
     while(std::cin >> num) {
         input.push_back(num);
     }
-    return 0;
-}
-
-int main() 
-{
-    readInput();
     std::vector<float> output = sortEven(input);
     for(float f : output) {
         std::cout << f << " ";
