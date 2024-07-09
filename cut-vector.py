@@ -9,9 +9,9 @@ def cut_vector(vector):
         diff = abs(left_sum - right_sum)
 
         if left_sum == right_sum:
-            return vector[:i+1], vector[i+1:]
+            return vector[:i + 1], vector[i + 1:]
 
-        if (left_sum <= right_sum) and (diff < min_diff):
+        if (left_sum == total_sum // 2) or (left_sum <= right_sum) and (diff < min_diff):
             min_diff = diff
             split_index = i
 
