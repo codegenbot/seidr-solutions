@@ -18,14 +18,20 @@ int simplePowerCheckerMain() {
 }
 
 bool isSimplePower(int num) {
-    for(int base = 2; base * base <= num; ++base) {
-        int power = 1;
-        while (power * base <= num) {
-            if ((power * base) == num) {
+    int base = 2;
+    while (base * base <= num) {
+        if ((base * base) == num) {
+            return true;
+        }
+        for (int power = 1; ; ++power) {
+            if ((base * power) == num) {
                 return true;
             }
-            ++power;
+            if ((base * power) > num) {
+                break;
+            }
         }
+        ++base;
     }
     return false;
 }
