@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -20,6 +19,7 @@ std::vector<std::string> by_length(const std::vector<int>& arr) {
 }
 
 int main() {
+    // User input
     std::vector<int> intArray;
     std::cout << "Enter the numbers separated by space: ";
     for (std::string str; std::getline(std::cin, str); ) {
@@ -27,6 +27,7 @@ int main() {
     }
     
     std::vector<std::string> lengthArr = by_length(intArray);
+    // Test assertion
     std::vector<std::string> expected = {"9", "4", "8"};
     assert(issame(expected, lengthArr));
     return 0;
