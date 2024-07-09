@@ -26,25 +26,25 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> input;
-    cout << "Enter strings separated by spaces: ";
-    string s;
-    getline(cin, s);
-    size_t start = 0;
-    while ((size_t)(start = s.find(" ")) != string::npos) {
-        input.push_back(s.substr(0, start));
-        s.erase(0, start + 1);
+    vector<string> lst;
+    int n;
+    cout << "Enter number of strings: ";
+    cin >> n;
+    
+    for (int i = 0; i < n; ++i) {
+        string s;
+        cout << "Enter string " << i+1 << ": ";
+        getline(cin, s);
+        lst.push_back(s);
     }
-    input.push_back(s);
-
-    vector<string> result = sorted_list_sum(input);
-
-    sort(result.begin(), result.end());
+    
+    vector<string> result = sorted_list_sum(lst);
+    
+    cout << "Sorted list: ";
     for (const auto& str : result) {
-        if (str.length() % 2 == 0) {
-            cout << str << " ";
-        }
+        cout << str << " ";
     }
+    cout << endl;
     
     return 0;
 }
