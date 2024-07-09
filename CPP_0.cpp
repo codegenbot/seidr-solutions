@@ -1,21 +1,22 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <cmath>
+
+bool haveCloseElements(const std::vector<float>& vec, float threshold);
 
 int main() {
-    std::vector<float> a = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    if (has_close_elements(a, 0.1)) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
-    }
+    std::vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
+
+    // Call the function
+    assert(haveCloseElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5f) == false);
+
+    return 0;
 }
 
-bool has_close_elements(const std::vector<float>& a, float delta) {
-    for (int i = 0; i < a.size() - 1; i++) {
-        if (std::abs(a[i] - a[i + 1]) <= delta) {
+bool haveCloseElements(const std::vector<float>& vec, float threshold) {
+    for (int i = 0; i < vec.size() - 1; i++) {
+        if (abs(vec[i] - vec[i + 1]) <= threshold)
             return true;
-        }
     }
     return false;
 }
