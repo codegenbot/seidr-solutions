@@ -1,14 +1,12 @@
 bool issame(vector<int> a, vector<int> b) {
-    return a == b; 
+    return a == b; // or implement your own equality check
 }
 
-vector<int> filter_integers(vector<vector<int>> values) {
+vector<int> filter_integers(vector<int> values) {
     vector<int> result;
-    for (auto& value : values) {
-        if (std::find(value.begin(), value.end(), 0) == value.end()) { // check for 0
-            for (int v : value) {
-                result.push_back(v);
-            }
+    for (int value : values) {
+        if (value >= 0) { 
+            result.push_back(value);
         }
     }
     return result;
