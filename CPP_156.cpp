@@ -1,6 +1,6 @@
-```cpp
 #include <map>
 using std::map;
+using std::string;
 
 string int_to_mini_roman(int number) {
     map<int, string> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
@@ -20,4 +20,3 @@ string int_to_mini_roman(int number) {
 int main() {
     assert(int_to_mini_roman(1000) == "M");
     return 0;
-}
