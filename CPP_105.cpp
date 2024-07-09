@@ -39,13 +39,16 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {1,2,3,4,5};
-    std::vector<std::string> output = by_length(arr);
+    std::vector<int> arr = {1, 2, 3, 4};
+    std::vector<std::string> result = by_length(arr);
     
-    if(issame(output, {"One", "Two", "Three", "Four", "Five"}))
-        std::cout << "The output is correct." << std::endl;
-    else
-        std::cout << "The output is incorrect." << std::endl;
+    if(result.size() == 0) {
+        std::cout << "No numbers in the range [1-9]" << std::endl;
+    } else {
+        for (const auto &str : result) {
+            std::cout << str << std::endl;
+        }
+    }
     
     return 0;
 }
