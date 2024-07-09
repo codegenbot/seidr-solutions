@@ -1,6 +1,6 @@
-```cpp
 #include <cassert>
 #include <cmath>
+#include <iostream>
 
 bool is_prime(int n) {
     if (n <= 1)
