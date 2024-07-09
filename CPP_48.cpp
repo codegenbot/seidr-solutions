@@ -1,0 +1,27 @@
+#include <cassert>
+#include <iostream>
+
+bool is_palindrome(const std::string& s) {
+    int left = 0;
+    int right = s.length() - 1;
+
+    while (left < right) {
+        if (s[left] != s[right])
+            return false;
+        left++;
+        right--;
+    }
+
+    return true;
+}
+
+int original_main() {
+    assert(is_palindrome("xywzx") == false);
+    std::string input;
+    int num;
+    std::cout << "Enter an integer: ";
+    std::cin >> num;
+    input = std::to_string(num); 
+    std::cout << "Test passed.\n";
+    return 0;
+}
