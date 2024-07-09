@@ -17,29 +17,38 @@ bool solveBoolean(std::string s) {
                 i++;
                 break;
             case '|': {
-                bool subResult = true;
+                bool temp = true;
                 while (i < s.size() && s[i] == '|') {
                     i++;
                 }
-                for (; i < s.size() && s[i] != '&'; i++) {
-                    if (s[i] == 'F')
-                        subResult = false;
+                if (!temp) {
+                    result = false;
+                } else {
+                    while (i < s.size() && s[i] == '&') {
+                        i++;
+                    }
+                    if (!result) {
+                        return false;
+                    } else {
+                        result = true;
+                    }
                 }
-                result = subResult;
-                break; }
+            } break;
             case '&': {
-                bool subResult = true;
+                bool temp = false;
                 while (i < s.size() && s[i] == '&') {
                     i++;
                 }
-                for (; i < s.size(); i++) {
-                    if (s[i] != 'T' && s[i] != 'F')
-                        return false;  // Incorrect input
-                    if (s[i] == 'F')
-                        subResult = false;
+                if (!temp) {
+                    if (result)
+                        return false;
+                    result = false;
+                } else {
+                    if (!result)
+                        return false;
+                    result = true;
                 }
-                result = subResult;
-                break; }
+            } break;
         }
     }
     return result;
@@ -47,6 +56,5 @@ bool solveBoolean(std::string s) {
 
 int main() {
     std::cout << solveBoolean("T|F&F") << std::endl;
-    std::cout << solveBoolean("f&f|f&f|f|f&f&f&f|t|f|t|f&f&f&f&f|f&t");
     return 0;
 }
