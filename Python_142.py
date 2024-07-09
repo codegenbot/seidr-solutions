@@ -1,4 +1,4 @@
-```def sum_squares():
+def check():
     while True:
         try:
             lst = list(map(int, input("Enter numbers separated by space: ").split()))
@@ -11,5 +11,3 @@
                  else x for i, x in enumerate(lst))
 
     return result
-
-check()
