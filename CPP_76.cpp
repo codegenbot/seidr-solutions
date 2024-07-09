@@ -1,5 +1,9 @@
-Here is the completed code:
-
+```cpp
 bool is_simple_power(int x, int n) {
-    return pow(n, ceil(log(x)/log(n))) == x;
+    double y = pow(n, log(x)/log(n));
+    return (y == round(y) && y == x);
+}
+
+int main() {
+    assert(is_simple_power(1, 12)==true);
 }
