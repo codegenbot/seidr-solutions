@@ -1,5 +1,5 @@
+```
 import math
-
 
 def bouncing_balls():
     h1 = float(input())
@@ -12,6 +12,5 @@ def bouncing_balls():
     )
 
     print(format(total_distance, ".4f"))
-
 
 bouncing_balls()
