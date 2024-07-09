@@ -1,11 +1,12 @@
-bool correct_bracketing(string brackets){
-    int open = 0;
-    for(int i=0; i<brackets.length(); i++){
-        if(brackets[i] == '<') open++;
-        else if(brackets[i] == '>') {
-            if(open <= 0) return false;
-            open--;
-        }
+```cpp
+int i = 0, count_open = 0;
+while (i < brackets.length()) {
+    if (brackets[i] == '<') {
+        count_open++;
+    } else if (brackets[i] == '>') {
+        if (count_open == 0) return false;
+        count_open--;
     }
-    return open == 0;
+    i++;
 }
+return count_open == 0;
