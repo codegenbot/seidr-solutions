@@ -31,7 +31,9 @@ bool solveBoolean(std::string s) {
 }
 
 int main() {
-    bool result = solveBoolean("");
+    std::string input;
+    std::getline(std::cin, input);
+    bool result = solveBoolean(input);
     std::cout << (result ? "True" : "False") << std::endl;
     return 0;
 }
