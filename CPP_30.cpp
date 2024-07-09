@@ -1,7 +1,7 @@
 #include <vector>
 
 bool issame(float a, float b) {
-    return (a == b);
+    return abs(a - b) < 1e-6;
 }
 
 vector<float> get_positive(vector<float> l) {
