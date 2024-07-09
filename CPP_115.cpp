@@ -1,19 +1,8 @@
-Here is the completed code:
-
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int ans = 0;
-    int sum = 0;
+    int total_water = 0;
     for (auto row : grid) {
-        for (int w : row) {
-            if (w == 1) {
-                sum += w;
-            }
-        }
+        total_water += accumulate(row.begin(), row.end(), 0);
     }
-
-    while (sum > 0) {
-        sum -= capacity;
-        ans++;
-    }
-    return ans;
+    
+    return ceil(total_water / static_cast<double>(capacity));
 }
