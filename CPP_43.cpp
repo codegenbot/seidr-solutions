@@ -1,14 +1,8 @@
-#include <algorithm>
-#include <vector>
-#include <set>
-
-using namespace std;
-
 bool pairs_sum_to_zero(vector<int> l) {
-    set<int> s = set<int>(l.begin(), l.end()); 
-    for (int i = 0; i < s.size(); i++) { 
-        int complement = -s[i];
-        if (find(s.begin() + i + 1, s.upper_bound(complement), complement) != s.end()) {
+    set<int> s(l.begin(), l.end()); 
+    for (auto it = next(s.begin(), 1); it != s.end(); ++it) { 
+        int complement = -(*it);
+        if (find(s.begin(), it, complement) != s.end()) {
             return true;
         }
     }

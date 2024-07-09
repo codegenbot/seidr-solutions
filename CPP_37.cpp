@@ -1,7 +1,8 @@
+```
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> v1, std::vector<float> v2) {
+bool checkSame(std::vector<float> v1, std::vector<float> v2) {
     if(v1.size() != v2.size()) return false;
     for(int i = 0; i < v1.size(); i++) {
         if(v1[i] != v2[i]) return false;
@@ -23,10 +24,4 @@ std::vector<float> sort_even(std::vector<float> l) {
     return result;
 }
 
-std::vector<float> v1 = {5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f};
-std::vector<float> v2 = {5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f};
-
-int main() {
-    assert(issame(sort_even(v1), v2));
-    return 0;
-}
+int main
