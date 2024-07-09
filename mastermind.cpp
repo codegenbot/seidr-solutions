@@ -1,11 +1,6 @@
-#include <string>
-#include <map>
-#include <utility>
-
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     map<char, int> codeCount;
     map<char, int> guessCount;
-
     int white = 0;
     int black = 0;
 
@@ -13,7 +8,6 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
         codeCount[code[i]]++;
         guessCount[guess[i]]++;
     }
-
     for (auto& pair : codeCount) {
         if (pair.second > 0 && pair.second != guessCount[pair.first]) {
             white += pair.second - guessCount[pair.first];
