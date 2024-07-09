@@ -20,31 +20,31 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
+std::vector<int> maximum(std::vector<Pair> arr, int k) {
     struct Compare {
-        bool operator()(const std::pair<int, int>& a, const std::pair<int, int>& b) const {
+        bool operator()(const std::pair<int,int>& a, const std::pair<int,int>& b) const {
             return a.first < b.first;
         }
     };
     std::priority_queue<std::pair<int,int>, std::vector<std::pair<int,int>>, decltype(Compare{})> pq(Compare());
 
     for(int i = 0; i < arr.size(); i++) {
-        pq.push({arr[i], i});
+        pq.push({arr[i].first, i});
     }
 
     // Keep popping elements from the priority queue until k elements are popped
-    while (!pq.empty() && k-- < arr.size()) {
+    while (!pq.empty() && k--) {
         int idx = pq.top().second;
         pq.pop();
         if (idx < arr.size()) {
-            arr[idx] = -1;  // Mark this index as processed, don't pop it directly
+            arr[idx].first = -1;  // Mark this index as processed, don't pop it directly
         }
     }
 
     std::vector<int> result;
     for(int i : arr) {
-        if(i != -1) {
-            result.push_back(i);
+        if(i.first != -1) {
+            result.push_back(i.first);
         }
     }
     return result;
@@ -59,12 +59,12 @@ int main() {
     std::cin >> k;
 
     std::cout << "Enter elements: ";
-    std::vector<int> arr;
+    std::vector<Pair> arr;
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
-        arr.push_back(val);
+        arr.push_back({val, i});
     }
 
     std::vector<int> result = maximum(arr, k);

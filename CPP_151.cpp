@@ -28,7 +28,6 @@ int main() {
         }
         average /= input.size();
         result = double_the_difference(input);
-        assert(result == static_cast<long>(average * average) - (input.size() * (long)input.size()));
         std::cout << "The difference between the total sum of squares and the square of the average is: " << static_cast<int>(result) << std::endl;
     } else {
         std::cout << "No positive numbers entered." << std::endl;

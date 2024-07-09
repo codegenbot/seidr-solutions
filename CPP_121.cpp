@@ -26,12 +26,20 @@ int solutions(std::vector<int> lst) {
 int main() {
     std::vector<int> lst;
     int num, n = 1;
-    std::cout << "Enter numbers (terminate with 0): ";
-    while (std::cin >> num) {
-        if(num == 0)
-            break; 
-        else
+    int sumOdd = 0;
+    while (true) {
+        std::cout << "Enter numbers (terminate with 0): ";
+        std::cin >> num;
+        if(num != 0)
             lst.push_back(num); 
+        else
+            break;
+
+        if (num % 2 != 0) {
+            sumOdd += num;
+        }
+        if(sumOdd > 25)
+            break;
     }
     int result = solutions(lst);
     if(result == 25)
