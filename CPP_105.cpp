@@ -1,13 +1,12 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(std::vector<std::string> a) {
-    std::sort(a.begin(), a.end());
-    for (int i = 0; i < a.size() - 1; i++) {
-        if (a[i] == a[i + 1]) {
-            return false;
-        }
+bool same(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -33,9 +32,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    if (!issame(by_length({9, 4, 8}))) {
-        std::cout << "Test failed!" << std::endl;
+    if (same(by_length({9, 4, 8}), {"Nine", "Eight", "Four"})) {
+        return 0;
     } else {
-        std::cout << "Test passed!" << std::endl;
+        return 1;
     }
 }
