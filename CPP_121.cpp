@@ -12,6 +12,8 @@ int solution(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {1,2,3,4,5};
-    cout << "The solution is: " << solution(lst) << endl;
+    vector<int> lst = {10, 3, 5, 4, 6, 7};
+    int output = solution(lst);
+    cout << "Sum of all odd numbers: " << output << endl;
+    return 0;
 }
