@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
 int fuelCost(vector<int> v) {
@@ -25,3 +26,4 @@ int main() {
     }
     cout << fuelCost(v) << endl;
     return 0;
+}
