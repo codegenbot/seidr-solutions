@@ -1,8 +1,17 @@
 string get_closest_vowel(string word) {
-    for(int i = word.size() - 2; i >= 0; --i) {
-        if(strchr("aeiouAEIOU", word[i]) != NULL) {
-            return string(1, word[i]);
+    int i = word.size() - 1;
+    while (i > 0 && !isVowel(word[i])) {
+        i--;
+    }
+    if (i <= 0) return "";
+    for (int j = i - 1; j >= 0; j--) {
+        if (isVowel(word[j])) {
+            return word.substr(j, i - j);
         }
     }
     return "";
+}
+
+bool isVowel(char c) {
+    return "AEIOUaeiou".find(toupper(c)) != string::npos;
 }
