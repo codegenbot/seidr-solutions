@@ -28,4 +28,6 @@ int main() {
     } else {
         cout << "The sets are not same." << endl;
     }
+    
+    return 0;
 }
