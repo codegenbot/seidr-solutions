@@ -1,16 +1,21 @@
-#include <vector>
-#include <iostream>
+#include <unordered_map>
 #include <string>
 
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
+    std::unordered_map<char, char> substitutions;
+    for (int i = 0; i < cipher1.length(); i++) {
+        substitutions[cipher1[i]] = cipher2[i];
+    }
+    
     std::string result;
     for (char c : message) {
-        if (auto idx = cipher1.find(std::to_string(c)); idx != std::string::npos) {
-            result += cipher2.at(idx);
+        if (substitutions.count(c)) {
+            result += substitutions.at(c);
         } else {
-            result += c; // or do something more interesting here
+            result += c;  // Add the character to the result string if it is not in the substitution map
         }
     }
+    
     return result;
 }
 
