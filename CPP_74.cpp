@@ -1,6 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
-#include <ostream>
+#include <iostream>
 
 using namespace std;
 
@@ -48,12 +49,12 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
     return {};
 }
 
-int test() {
+int main() {  
     vector<string> result = totalMatch({"this"}, {});
     cout << "Result: ";
     for (const string& s : result) {
         cout << s << " ";
     }
-    cout << std::endl;
-    return 0;
+    cout << endl;
+    return 0; 
 }
