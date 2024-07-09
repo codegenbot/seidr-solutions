@@ -25,5 +25,5 @@ boost::any compare(boost::any a, boost::any b) {
             return b;
     }
 
-    return boost::any();
+    return "None";
 }

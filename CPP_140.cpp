@@ -1,27 +1,24 @@
-int count = 0;
-    string result = "";
+#include <string>
 
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-        } else {
-            if (count > 2) {
-                result += '-';
-            } else {
-                result += string(count, '_');
+std::string fix_spaces(std::string text) {
+    for (int i = 0; i < text.size(); ++i) {
+        if (text[i] == ' ') {
+            text[i] = '_';
+            int count = 1;
+            for (int j = i + 1; j < text.size(); ++j) {
+                if (text[j] == ' ') {
+                    count++;
+                } else {
+                    break;
+                }
             }
-            count = 0;
-        }
-        if (c != ' ') {
-            result += c;
+            if (count > 2) {
+                for (int k = i + 1; k < i + count; ++k) {
+                    text[k] = '-';
+                }
+            }
+            i += count - 1;
         }
     }
-
-    if (count > 2) {
-        result += '-';
-    } else {
-        result += string(count, '_');
-    }
-
-    return result;
+    return text;
 }
