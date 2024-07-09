@@ -1,31 +1,35 @@
-Here is the completed code:
+#include <string>
+#include <map>
+using namespace std;
 
-map<pair<char, int>, int> histogram(string test) {
+map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return result;
+    if (test.empty()) {
+        return result;
+    }
 
-    size_t pos = 0;
+    string letters = test;
+    for (char c : unique(letters.begin(), letters.end())) {
+        int count = 0;
+        size_t pos = 0;
+        while ((pos = letters.find(c)) != string::npos) {
+            letters.erase(pos, 1);
+            count++;
+        }
+        result[c] = count;
+    }
+
+    map<char, int> maxCountMap;
     int maxCount = 0;
-    while ((pos = test.find(' ', pos)) != string::npos) {
-        string word = test.substr(0, pos);
-        for (char c : word) {
-            if (result.count(c)) {
-                result[c]++;
-            } else {
-                result[c] = 1;
-            }
-        }
-        maxCount = max(maxCount, result.size());
-        test.erase(0, pos + 1);
-    }
-
-    map<pair<char, int>, int> finalResult;
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second == maxCount) {
-            pair<char, int> key(it->first, it->second);
-            finalResult[key] = 1;
+    for (auto& pair : result) {
+        if (pair.second > maxCount) {
+            maxCount = pair.second;
+            maxCountMap.clear();
+            maxCountMap[pair.first] = pair.second;
+        } else if (pair.second == maxCount) {
+            maxCountMap[pair.first] = pair.second;
         }
     }
 
-    return finalResult;
+    return maxCountMap;
 }
