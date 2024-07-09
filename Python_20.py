@@ -1,5 +1,5 @@
 ```
-def find_closest_elements(numbers: list) -> tuple:
+def find_closest_elements(numbers: list[float]) -> tuple[float, float]:
     numbers.sort()
     min_diff = float("inf")
     closest_pair = (None, None)
