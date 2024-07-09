@@ -1,14 +1,3 @@
-#include <vector>
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
@@ -36,8 +25,13 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y,
             int nx = x + dx, ny = y + dy;
             if(nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
                 dfs(grid, visited, nx, ny, k - 1, res);
+                return;
             }
         }
     }
-    return;
+    visited[x][y] = false;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
