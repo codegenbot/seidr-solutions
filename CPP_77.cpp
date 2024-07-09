@@ -1,6 +1,6 @@
 Here is the completed code:
 
 bool iscuber(int a){
-    int x = cbrt(a);
-    return (x * x * x == a);
+    int n = round(cbrt(a));
+    return (n*n*n) == a;
 }
