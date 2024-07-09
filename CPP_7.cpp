@@ -1,22 +1,27 @@
-```cpp
-#include <vector>
-#include <algorithm>
-
-bool areSame(std::vector<std::string> v1, std::vector<std::string> v2) {
-    if(v1.size() != v2.size()) return false;
-    for(std::string s : v1)
-        if(std::find(v2.begin(), v2.end(), s) == v2.end())
-            return false;
-    return true;
-}
-
-std::vector<string> filter_by_substring(vector<string> strings, string substring){
+vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings){
         if(s.find(substring) != string::npos)
             result.push_back(s);
     }
     return result;
+}
+
+bool areSame(vector<string> vec1, vector<string> vec2) {
+    if (vec1.size() != vec2.size()) {
+        return false;
+    }
+
+    sort(vec1.begin(), vec1.end());
+    sort(vec2.begin(), vec2.end());
+
+    for (int i = 0; i < vec1.size(); i++) {
+        if (vec1[i] != vec2[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 int main(){
