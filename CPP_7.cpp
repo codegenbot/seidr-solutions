@@ -24,7 +24,6 @@ int testMain() {
         std::cout << s << std::endl;
     }
 }
-
 int main() {
     testMain();
 }
