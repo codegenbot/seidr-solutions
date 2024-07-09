@@ -1,4 +1,3 @@
-```
 def solve_task():
     while True:
         try:
@@ -19,5 +18,3 @@ def solve_task():
                 return None
         else:
             print("Invalid input. Please enter y or N.")
-    
-solve_task()
