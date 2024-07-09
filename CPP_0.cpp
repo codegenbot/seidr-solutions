@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -9,7 +6,7 @@ bool has_close_elements(std::vector<std::pair<float*, float*>> numbers, float to
         for (int j = i + 1; j < numbers.size(); j++) {
             bool closeFound = false;
             size_t k = 0;
-            while (k < numbers[i].first->size() && k < numbers[j].second->size()) {
+            while (k < *numbers[i].first->size() && k < *numbers[j].second->size()) {
                 float diff = std::abs((*numbers[i].first)[k] - (*numbers[j].second)[k]);
                 if (diff <= tol) {
                     closeFound = true;
@@ -26,24 +23,20 @@ bool has_close_elements(std::vector<std::pair<float*, float*>> numbers, float to
 }
 
 int main() {
-    float *p1 = new float[2];
-    float *p2 = new float[2];
-    p1[0] = 1.0f; p1[1] = 0.0f;
-    p2[0] = 1.1f; p2[1] = 0.0f;
     std::vector<std::pair<float*, float*>> numbers(7);
     for (int i = 0; i < 7; i++) {
         numbers[i].first = new float[2];
         numbers[i].second = new float[2];
         if (i == 0) {
-            numbers[i].first[0] = (float)i;
+            numbers[i].first[0] = i;
             numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = (float)(i-1);
+            numbers[i].second[0] = i - 1;
             numbers[i].second[1] = 0.0f;
         }
         else if (i == 1) {
-            numbers[i].first[0] = (float)(i-1);
+            numbers[i].first[0] = i - 1;
             numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = (float)i;
+            numbers[i].second[0] = i;
             numbers[i].second[1] = 0.0f;
         }
         else if (i == 2) {
@@ -77,5 +70,5 @@ int main() {
             numbers[i].second[1] = 0.0f;
         }
     }
-    assert(has_close_elements({std::make_pair(p1, p2), std::make_pair(new float[2], new float[2])}, 0.5) == false);
+    assert(has_close_elements(numbers, 0.5) == false);
 }
