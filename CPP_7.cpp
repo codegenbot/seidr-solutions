@@ -1,7 +1,13 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
     std::vector<std::string> result;
@@ -13,11 +19,25 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
+    vector<string> expected = {"grunt", "prune"};
+    vector<string> actual = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    std::vector<std::string> strings = {"grunt", "trumpet", "prune", "gruesome"};
+    string substring = "run";
+    std::vector<std::string> result = filter_by_substring(strings, substring);
+    if (!issame(expected, result)) {
+        for (auto s : expected) {
+            bool found = false;
+            for (auto r : result) {
+                if (r == s) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                std::cout << "Expected string not found: " << s << std::endl;
+            }
+        }
+    }
     return 0;
 }
