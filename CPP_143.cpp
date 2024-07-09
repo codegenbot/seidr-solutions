@@ -39,9 +39,8 @@ void words_in_sentence(string sentence) {
     }
 
     if (isWord) {
-        if (!word.empty()) {
-            cout << word << endl;
-        } else {
-            cout << sentence << endl;
-        }
+        cout << word << endl;
+    } else {
+        cout << sentence; // handle case when input only contains spaces
     }
+}
