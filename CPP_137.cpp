@@ -1,32 +1,27 @@
-#include <boost/any.hpp>
 #include <string>
-#include <vector>
 #include <algorithm>
 
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    // Extract values from any type
-    double da = 0.0;
-    string sa;
-    if (a.type() == typeid(double)) {
-        da = boost::any_cast<double>(a);
-    } else if (a.type() == typeid(string)) {
-        sa = boost::any_cast<string>(a);
+    if (is_any_of<a>(int.class)) {
+        int x = any_cast<int>(a);
+        int y = any_cast<int>(b);
+        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
     }
-
-    double db = 0.0;
-    string sb;
-    if (b.type() == typeid(double)) {
-        db = boost::any_cast<double>(b);
-    } else if (b.type() == typeid(string)) {
-        sb = boost::any_cast<string>(b);
+    else if (is_any_of<a>(double.class)) {
+        double x = any_cast<double>(a);
+        double y = any_cast<double>(b);
+        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
     }
-
-    // Compare values
-    if (da > db) return a;
-    if (db > da) return b;
-
-    // Values are equal, return "None"
-    return boost::any("None");
+    else if (is_any_of<a>(string.class)) {
+        string x = any_cast<string>(a);
+        string y = any_cast<string>(b);
+        double dx = stod(x), dy = stod(y);
+        return (dx > dy) ? a : ((dy > dx) ? b : boost::any("None"));
+    }
+    else {
+        // This should never happen
+        throw runtime_error("Invalid type");
+    }
 }
