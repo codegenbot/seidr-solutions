@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -13,8 +13,4 @@ bool pairs_sum_to_zero(const std::vector<int>& nums) {
     return false;
 }
 
-main() {
-    std::vector<int> input = {-3, 9, -1, 4, 2, 31};
-    std::cout << (pairs_sum_to_zero(input) ? "True" : "False");
-    return 0;
-}
+std::cout << (pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) ? "True" : "False");
