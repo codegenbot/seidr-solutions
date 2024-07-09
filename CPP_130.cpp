@@ -20,4 +20,4 @@ std::vector<int> completeCode(int n) {
     return result;
 }
 
-assert(issame(completeCode(1), {1, 3})); 
+assert(issame(completeCode(1), {1, 3}));
