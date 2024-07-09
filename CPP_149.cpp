@@ -40,9 +40,10 @@ int main_entry() {
         std::string str;
         std::cout << "Enter string " << i << ": ";
         for(int j = 0; ; j++) {
-            if(std::cin.get() == '\n') break;
-            if(j < str.length()) str += std::cin.get();
-            else std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            char c;
+            std::cin >> c;
+            if(c == '\n') break;
+            if(j < i) str += c;
         }
         inputStrings.push_back(str);
     }
