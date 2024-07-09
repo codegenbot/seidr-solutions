@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -71,6 +70,6 @@ int main() {
             std::cout << "F ";
     }
     std::cout << std::endl;
-    assert(assertSame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    assert(checkIfSame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
     return 0;
 }
