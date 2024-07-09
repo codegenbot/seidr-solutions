@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <map>
@@ -26,7 +26,8 @@ int main() {
     std::cin >> n;
 
     std::vector<int> lst;
-    lst.resize(n);
+    lst.resize(n, 0); // Initialize all new elements with a default value
+
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> lst[i];
