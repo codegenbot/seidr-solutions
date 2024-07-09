@@ -1,20 +1,14 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-namespace std {
-    #include <initializer_list>
-}
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> letter_grades;
     for (float grade : grades) {
-        string letter_grade;
+        std::string letter_grade;
         if (grade >= 4.0)
             letter_grade = "A+";
         else if (grade > 3.7)
