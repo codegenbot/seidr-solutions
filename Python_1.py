@@ -19,9 +19,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(temp)
                 temp = ""
     if stack:
-        while stack:
-            temp += "("
-            stack.pop()
-        result.append(temp)
-
+        raise ValueError("Parentheses are unbalanced")
     return [x for x in result]
