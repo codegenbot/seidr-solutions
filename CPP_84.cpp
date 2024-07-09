@@ -1,8 +1,3 @@
-#include <iostream>
-#include <cassert>
-
-using namespace std;
-
 int solve(int n) {
     string binary = "";
     while(n > 0) {
@@ -12,6 +7,5 @@ int solve(int n) {
             binary = "1" + binary;
         n /= 2;
     }
-    assert(solve(963) == stoi("10010"));
-    return binary.length() ? stoi(binary) : 0;
+    return binary.length() ? stoi(binary, 0, 2) : 0;
 }
