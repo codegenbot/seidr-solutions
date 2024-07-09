@@ -4,19 +4,19 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a) {
-    if (a.size() == 1) {
+bool issame(const std::vector<std::string>& v) {
+    if (v.size() == 1) {
         return true;
     }
-    for (int i = 1; i < a.size(); i++) {
-        if (a[i - 1] != a[i]) {
+    for (int i = 1; i < v.size(); i++) {
+        if (v[i - 1] != v[i]) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
+std::vector<std::string> by_length(const std::vector<int>& arr) {
     std::vector<std::string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
@@ -28,8 +28,8 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     std::reverse(temp.begin(), temp.end());
 
     std::vector<std::string> result;
-    for (std::string str : temp) {
-        switch (stoi(str)) {
+    for (const auto& str : temp) {
+        switch (std::stoi(str)) {
             case 1:
                 result.push_back("One");
                 break;
@@ -68,7 +68,7 @@ int main() {
     std::vector<std::string> output = by_length(input);
     
     if (issame({{"One", "Four", "Eight"}})) {
-        for (std::string str : output) {
+        for (const auto& str : output) {
             std::cout << str << std::endl;
         }
     } else {
