@@ -22,22 +22,47 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        string temp = "The number of odd elements is ";
-        temp += to_string(count);
-        temp += " in the string";
-        temp += to_string(i + 1);
-        temp += ".";
+        string temp = to_string(i + 1);
+        temp += ": " + to_string(count) + " character(s) are odd.";
         result.push_back(temp);
     }
     return result;
 }
 
+int mainMenu() {
+    int choice;
+    while (true) {
+        cout << "Main Menu:" << endl;
+        cout << "1. Run Program" << endl;
+        cout << "2. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+        if (choice == 1) {
+            return 0; // run program
+        } else if (choice == 2) {
+            return 1; // exit
+        } else {
+            cout << "Invalid choice. Please try again." << endl;
+        }
+    }
+}
+
 int main() {
-    vector<string> lst;
-    string temp;
-    while(getline(cin,temp))
-        lst.push_back(temp);
-    vector<string> output = odd_count(lst);
-    displayOutput(output);
+    vector<string> input;
+    int n, choice = -1;
+    do {
+        cout << "Enter the number of strings: ";
+        cin >> n;
+        
+        for (int i = 0; i < n; i++) {
+            string s;
+            cin >> s;
+            input.push_back(s);
+        }
+        
+        vector<string> output = odd_count(input);
+        displayOutput(output);
+    } while (choice != 2);
+    
     return 0;
 }

@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,27 +19,13 @@ std::vector<std::string> words_string(std::string s){
             if(word.size() <= 30){ 
                 result.push_back(word);
                 word = "";
-            }else{
-                while(word.size() > 30){
-                    int pos = word.find_last_of(' ');
-                    if(pos != -1) {
-                        word = word.substr(0, pos+1);
-                        result.push_back(word);
-                        word = s.substr(i- (pos +1), i - i + 1); 
-                        break;
-                    }else{
-                        result.push_back(word);
-                        word = "";
-                        break;  
-                    }
-                }
             }
         }else{
             if(s[i] != ' ' && s[i] != ',')  
                 word += s[i];
         }
     }
-    if(word.size() <= 30)  
+    if(word.size() > 0)  
         result.push_back(word);
     return result;
 }

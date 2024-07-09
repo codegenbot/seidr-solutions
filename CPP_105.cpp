@@ -3,12 +3,12 @@
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
+bool same(vector<string> a, vector<vector<string>> b) {
+    if (a.size() != b[0].size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (a[i] != b[0][i]) {
             return false;
         }
     }
@@ -16,10 +16,10 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
+    vector<std::string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            temp.push_back(i);
+            temp.push_back(to_string(i));
         }
     }
 
@@ -27,8 +27,8 @@ vector<string> by_length(vector<int> arr) {
     reverse(temp.begin(), temp.end());
 
     vector<string> result;
-    for (int i : temp) {
-        switch (i) {
+    for (int i = 0; i < temp.size(); i++) {
+        switch (stoi(temp[i])) {
             case 1:
                 result.push_back("One");
                 break;
@@ -63,11 +63,11 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> input = {1, 4, 8};
+    vector<int> input = {9, 4, 8};
     vector<string> output = by_length(input);
     
-    if (issame({{"One", "Four"}}, {(string)"One Four"})) {
-        for (const auto& str : output) {
+    if (same({{"One", "Four", "Eight"}}, {{output}})) {
+        for (string str : output) {
             cout << str << endl;
         }
     } else {
