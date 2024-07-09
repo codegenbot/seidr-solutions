@@ -1,11 +1,15 @@
-string solve(string s){
-    string res = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            res += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
-        }else{
-            res += s[i];
+#include <string>
+
+using namespace std;
+
+string solve(string s) {
+    string result = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+        } else {
+            result += c;
         }
     }
-    return res;
+    return result;
 }

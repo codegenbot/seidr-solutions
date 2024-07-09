@@ -1,20 +1,7 @@
 bool issame(vector<string> a, vector<string>b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        bool flag = true;
-        for(int j = 0; j < a[i].size(); j++) {
-            if(a[i][j] != b[i][j]) {
-                flag = false;
-                break;
-            }
-        }
-        if(!flag) {
-            return false;
-        }
-    }
-    return true;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
