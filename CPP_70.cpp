@@ -1,16 +1,16 @@
 vector<int> strange_sort_list(vector<int> lst){
-    sort(lst.begin(), lst.end());
     vector<int> result;
-    int left = 0, right = lst.size() - 1;
-    while (left <= right) {
-        if (left == right) {
-            result.push_back(lst[left]);
+    sort(lst.begin(), lst.end());
+    int i = 0, j = lst.size() - 1;
+    while (i <= j) {
+        if (i == j) {
+            result.push_back(lst[i]);
             break;
         }
-        result.push_back(lst[left]);
-        result.push_back(lst[right]);
-        left++;
-        right--;
+        result.push_back(lst[i]);
+        result.push_back(lst[j]);
+        i++;
+        j--;
     }
     return result;
 }
