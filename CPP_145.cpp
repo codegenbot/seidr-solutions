@@ -1,4 +1,10 @@
 #include <algorithm>
+#include <vector>
+#include <numeric>
+
+bool issame(vector<int> a, vector<int> b) {
+    return a.size() == b.size() && equal(a.begin(),a.end(),b.begin());
+}
 
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
@@ -24,8 +30,4 @@ vector<int> order_by_points(vector<int> nums) {
     }
 
     return result;
-}
-
-bool issame(vector<int> a, vector<int>b){
-    return a.size() == b.size() && equal(a.begin(),a.end(),b.begin());
 }
