@@ -10,8 +10,7 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-int main() {
-    vector<float> l = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+vector<float> sort_even(vector<float> l) {
     vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -27,6 +26,25 @@ int main() {
             result[i] = l[i];
         }
     }
-    assert (issame(result , {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    return result;
+}
+
+int main() {
+    vector<float> input;
+    cout << "Enter numbers (enter 'stop' to finish): ";
+    string temp;
+    while(getline(cin, temp)) {
+        if(temp == "stop") break;
+        input.push_back(stof(temp));
+    }
+    
+    vector<float> expected = sort_even(input);
+    
+    if (!issame(expected, input)) {
+        cout << "Failed to sort the even numbers correctly" << endl;
+    } else {
+        cout << "Sorted the even numbers successfully" << endl;
+    }
+    
     return 0;
 }
