@@ -1,8 +1,14 @@
-```cpp
-bool issame(vector<string> a, vector<string> b) {
-    // implement your comparison logic here
-    return true;  
+if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (!(issame(a[i], b[i]))) {
+            return false;
+        }
+    }
+    return true;
 }
+
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for (const auto& str : strings) {
