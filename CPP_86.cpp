@@ -17,7 +17,6 @@ string anti_shuffle(const string& str) {
 }
 
 int main() { 
-    using namespace std;
     string str;
     cout << "Enter a sentence: ";
     getline(cin, str);
