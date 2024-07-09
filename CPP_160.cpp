@@ -1,3 +1,9 @@
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int do_algebra(vector<string>, vector<int>);
+
 int do_algebra(vector<string> ops, vector<int> nums) {
     int result = 0;
     int temp = 1;
