@@ -1,4 +1,3 @@
-```cpp
 #include <boost/any.hpp>
 #include <iostream>
 #include <string>
@@ -26,5 +25,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         double num = boost::any_cast<double>(b);
         return boost::any(stod(str) > num);
     }
-    return boost::any(false);
+    return boost::any("None");
 }
