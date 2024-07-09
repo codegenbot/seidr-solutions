@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -59,6 +59,6 @@ int main() {
         cout << s << " ";
     }
     cout << endl;
-    assert(result == {});
+    assert(same(result, {}));
     return 0; 
 }
