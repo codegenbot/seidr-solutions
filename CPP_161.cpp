@@ -1,17 +1,14 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
-string solve(string s) {
+```cpp
+string solve(string s){
     string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            result += tolower(c) == 'a' ? toupper(c) : tolower(c);
-        } else {
+        if (!isalnum(c)) {
             result += c;
+        } else {
+            result += (islower(c) ? toupper(c) : tolower(c));
         }
-    }
-    if (result.length() % 2 != 0) {
-        reverse(result.begin(), result.end());
     }
     return result;
 }
