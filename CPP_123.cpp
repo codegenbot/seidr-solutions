@@ -1,7 +1,4 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 vector<int> get_odd_collatz(int n) {
@@ -17,16 +14,4 @@ vector<int> get_odd_collatz(int n) {
         }
     }
     return result;
-}
-
-int main() {
-    int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
-    vector<int> res = get_odd_collatz(n);
-    sort(res.begin(), res.end());
-    for (auto x : res) {
-        cout << x << " ";
-    }
-    return 0;
 }
