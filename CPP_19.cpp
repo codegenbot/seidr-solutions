@@ -1,33 +1,35 @@
-#include <algorithm>
+#include<stdio.h>
+#include<string>
+#include<map>
 using namespace std;
 
 string sort_numbers(string numbers) {
-    string result = "";
-    map<string, int> numMap;
-    for (int i = 0; i <= 9; i++) {
-        char ch = '0' + i;
-        if (i == 0)
-            numMap["zero"] = i;
-        else
-            numMap[string(1, ch)] = i;
-    }
-    
-    string nums[numbers.size()];
-    int index = 0;
+    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                {"eight", 8}, {"nine", 9}};
+    vector<string> numVec;
+    string temp;
+
     for (int i = 0; i < numbers.size(); i++) {
         if (numbers[i] == ' ') {
-            index++;
             continue;
         }
-        int j = i + 1;
-        while (j <= numbers.size() && numbers[j] != ' ')
-            j++;
-        string str = numbers.substr(i, j - i - 1);
-        nums[index++] = str;
+        temp += numbers[i];
+        for (int j = i + 1; j < numbers.size(); j++) {
+            if (numbers[j] != ' ') {
+                break;
+            }
+            i = j - 1;
+        }
+        numVec.push_back(temp);
+        temp.clear();
     }
-    
-    sort(nums, nums + index);
-    for (int i = 0; i < index; i++)
-        result += nums[i] + " ";
+
+    sort(numVec.begin(), numVec.end());
+
+    string result;
+    for (auto str : numVec) {
+        result += str + " ";
+    }
     return result.substr(0, result.size() - 1);
 }
