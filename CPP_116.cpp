@@ -1,6 +1,12 @@
-```c++
 #include <vector>
 #include <algorithm>
+#include <bitset>
+
+int main() {
+    vector<int> arr = {2,4,8,16,32};
+    arr = sort_array(arr);
+    return 0;
+}
 
 bool issame(vector<int> a,vector<int>b){
     if(a.size()!=b.size()) return false;
@@ -22,5 +28,3 @@ vector<int> sort_array(vector<int> arr) {
     });
     return arr;
 }
-
-vector<int> {2,4,8,16,32};
