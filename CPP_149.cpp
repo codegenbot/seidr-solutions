@@ -6,7 +6,9 @@ bool issame(vector<string> a, vector<string> b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i].size() % 2 != b[i].size() % 2) {
+        sort(a[i].begin(), a[i].end());
+        sort(b[i].begin(), b[i].end());
+        if (a[i] != b[i]) {
             return false;
         }
     }
