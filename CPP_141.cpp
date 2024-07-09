@@ -1,38 +1,40 @@
-Here is the completed code:
+#include <iostream>
+#include <string>
 
-```cpp
-bool has_digits = false;
-int dot_count = 0;
+using namespace std;
 
-for (char c : file_name) {
-    if (isdigit(c)) {
-        has_digits |= true;
-    } else if (c == '.') {
-        dot_count++;
+string file_name_check(string file_name) {
+    bool has_dot = false;
+    int digit_count = 0;
+    for (int i = 0; i < file_name.length(); i++) {
+        if (file_name[i] == '.') {
+            has_dot = true;
+        } else if (isdigit(file_name[i])) {
+            digit_count++;
+        }
     }
-}
-
-if (dot_count != 1 || has_digits > 3) {
-    return "No";
-}
-
-string before_dot = "";
-string after_dot = "";
-
-for (char c : file_name) {
-    if (c == '.') {
-        break;
+    string prefix = "";
+    for (int i = 0; i < file_name.find('.'); i++) {
+        if (!isalpha(file_name[i])) {
+            return "No";
+        }
+        prefix += file_name[i];
     }
-    before_dot += c;
+    string suffix = file_name.substr(file_name.find('.') + 1);
+    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
+        return "No";
+    }
+    if (digit_count > 3 || !has_dot) {
+        return "No";
+    }
+    if (prefix.empty()) {
+        return "No";
+    }
+    return "Yes";
 }
 
-for (char c : file_name.substr(file_name.find('.') + 1)) {
-    after_dot += c;
+int main() {
+    cout << file_name_check("example.txt") << endl; // Should print: Yes
+    cout << file_name_check("1example.dll") << endl; // Should print: No
+    return 0;
 }
-
-if (!before_dot.empty() && !all_of(before_dot.begin(), before_dot.end(), ::isalpha) ||
-    (after_dot != "txt" && after_dot != "exe" && after_dot != "dll")) {
-    return "No";
-}
-
-return "Yes";
