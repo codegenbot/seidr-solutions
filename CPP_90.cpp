@@ -1,12 +1,12 @@
 Here is the completed code:
 
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // Return None
+    if (lst.size() < 2) return -1; // Return None
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    for (int i = 0; i < sorted.size() - 1; i++) {
-        if (sorted[i] != sorted[i + 1]) {
-            return sorted[i + 1];
+    for (int i = 0; i < sorted.size(); i++) {
+        if (i > 0 && sorted[i] != sorted[i-1]) {
+            return std::count_if(lst.begin(), lst.end(), [i](int x) { return x == sorted[i]; }) ? -1 : sorted[i+1];
         }
     }
     return -1; // Return None
