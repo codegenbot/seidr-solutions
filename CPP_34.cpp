@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     return (a == b);
 }
 
@@ -18,11 +18,13 @@ int main() {
     
     auto unique_end = std::unique(input.begin(), input.end());
     std::vector<int> output(input.begin(), unique_end);
-    std::sort(output.begin(), output.end());
+    sort(output.begin(), output.end());
     
     for (int i : output) {
         cout << i << " ";
     }
     
-    assert(std::equal(input.begin(), unique_end, input.begin()));
+    assert(isSame({0, 2, 3, 5, 9, 123}, std::vector<int>(output.begin(), output.end())));
+    
+    return 0;
 }
