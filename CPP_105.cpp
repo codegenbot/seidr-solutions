@@ -1,62 +1,22 @@
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(vector<string> a) {
+    return (a == vector<string>(by_length({1, 2, 3})));
 }
 
-vector<vector<string>> splitByLength(vector<int> arr) {
-    map<int, vector<string>> result;
+vector<string> by_length(vector<int> arr) {
+    vector<string> result;
+    map<int, string> numberNames = {{1, "One"}, {2, "Two"}, {3, "Three"}, 
+                                     {4, "Four"}, {5, "Five"}, {6, "Six"}, 
+                                     {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+    
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            string name = "";
-            switch (num) {
-                case 1:
-                    name = "One";
-                    break;
-                case 2:
-                    name = "Two";
-                    break;
-                case 3:
-                    name = "Three";
-                    break;
-                case 4:
-                    name = "Four";
-                    break;
-                case 5:
-                    name = "Five";
-                    break;
-                case 6:
-                    name = "Six";
-                    break;
-                case 7:
-                    name = "Seven";
-                    break;
-                case 8:
-                    name = "Eight";
-                    break;
-                case 9:
-                    name = "Nine";
-                    break;
-            }
-            if (result.count(num)) {
-                result[num].push_back(name);
-            } else {
-                vector<string> temp = {name};
-                result[num] = temp;
-            }
+            result.push_back(numberNames[num]);
         }
     }
-
-    map<int, vector<string>> sortedResult = result;
-    for (auto& pair : sortedResult) {
-        sort(pair.second.begin(), pair.second.end());
-    }
-
-    vector<vector<string>> finalResult;
-    for (auto& pair : sortedResult) {
-        reverse(pair.second.begin(), pair.second.end());
-        if (!issame(finalResult, {pair.second})) {
-            finalResult.push_back({pair.second});
-        }
-    }
-
-    return finalResult;
+    
+    sort(result.begin(), result.end());
+    
+    reverse(result.begin(), result.end());
+    
+    return result;
 }
