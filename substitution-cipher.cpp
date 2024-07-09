@@ -1,33 +1,22 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <algorithm>
 
-using namespace std;
-
-string decipher(const string& cipher1, const string& cipher2, const string& message) {
-    transform(cipher1.begin(), cipher1.end(), cipher1.begin(), ::tolower);
-    transform(cipher2.begin(), cipher2.end(), cipher2.begin(), ::tolower);
-
-    string result;
+std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
+    std::string result;
     for (char c : message) {
-        if (c != '\n') {
-            int idx = cipher1.find(tolower(c));
-            if (idx != string::npos) {
-                result += tolower(cipher2[idx]);
-            } else {
-                result += tolower(c);
-            }
+        if (auto idx = cipher1.find(std::to_string(c)); idx != std::string::npos) {
+            result += cipher2.at(idx);
         } else {
-            result += c;
+            result += c; 
         }
     }
     return result;
 }
 
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    cout << decipher(cipher1, cipher2, message) << endl;
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
+    std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl;
     return 0;
 }
