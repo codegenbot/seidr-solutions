@@ -20,4 +20,3 @@ int main() {
     cout << "Output: " << (result ? "true" : "false") << endl;
     
     return 0;
-}
