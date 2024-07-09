@@ -1,9 +1,6 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if "(" not in paren_string or ")" not in paren_string:
-        return ["Invalid Input"]
-    
     result = []
     stack, temp = [], ""
     
@@ -17,7 +14,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 return ["Invalid Input"]
             stack.pop()
             temp += char
-            if not stack:
+            if not stack and temp:
                 result.append(temp)
             if not stack:
                 temp = ""
