@@ -3,11 +3,11 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return a == b;
+bool issame(std::pair<std::string, std::string> a, std::pair<std::string, std::string> b) {
+    return a.first == b.first && a.second == b.second;
 }
 
-std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
+std::pair<std::string, std::string> reverse_delete(const std::string& s, const std::string& c) {
     std::string result = "";
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
@@ -21,5 +21,4 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
 
 int main() {
     assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
-    return 0;
 }
