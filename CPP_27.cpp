@@ -1,11 +1,8 @@
+```cpp
 #include <iostream>
 #include <cctype>
 
-int mainFunction() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-
+bool filp_case(const std::string& input) {
     std::string output = "";
     
     for (char c : input) {
@@ -17,11 +14,5 @@ int mainFunction() {
             output += c;
         }
     }
-    std::cout << "Output: " << output << std::endl;
-
-}
-
-int main() {
-    mainFunction();
-    return 0;
+    return output == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS";
 }
