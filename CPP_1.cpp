@@ -1,37 +1,50 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 #include <string>
+
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    string temp = "";
-    int count = 0;
+    stack<string> parentheses;
+    string currentParentheses = "";
 
     for (char c : paren_string) {
         if (c == '(') {
-            count++;
-            temp += c;
+            currentParentheses += c;
+            parentheses.push(currentParentheses);
+            currentParentheses = "";
         } else if (c == ')') {
-            count--;
-            temp += c;
-            if (count == 0) {
-                result.push_back(temp);
-                temp = "";
+            currentParentheses += c;
+            parentheses.push(currentParentheses);
+            currentParentheses = "";
+        } else {
+            currentParentheses += c;
+        }
+
+        if (!parentheses.empty()) {
+            string top = parentheses.top();
+            int diff = top.length() - currentParentheses.length();
+            while (diff > 0) {
+                currentParentheses += ')';
+                diff--;
             }
         }
+    }
+
+    while (!parentheses.empty()) {
+        result.push_back(parentheses.top());
+        parentheses.pop();
     }
 
     return result;
 }
 
 int main() {
-    string paren_string = "( ) (( )) (( )( ))";
-    vector<string> result = separate_paren_groups(paren_string);
-
-    for (string s : result) {
+    vector<string> res = separate_paren_groups("( ) (( )) (( )( ))");
+    for (const auto& s : res) {
         cout << s << endl;
     }
-
     return 0;
 }
