@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-
 #include <iostream>
 #include <vector>
 
@@ -21,6 +19,11 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+
+    if(n > 10000) {
+        std::cout << "Too many elements. Please enter less than or equal to 10000." << std::endl;
+        return 0;
+    }
 
     std::vector<float> numbers;
     for(int i=0; i<n;i++){
