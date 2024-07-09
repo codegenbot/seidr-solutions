@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -15,7 +14,7 @@ def solve_boolean(expression):
             expression_list = list(map(str.strip, expression.split('&')))
             expression = ''.join(list(map(lambda x: str(evaluate_and(*map(bool, [x]))), expression_list)))
 
-    elif '|':
+    elif '|' in expression:
         def evaluate_or(x, y):
             return x or y
 
