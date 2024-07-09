@@ -1,5 +1,7 @@
-```
-def match_parens(lst):
+```Python
+def match_parens():
+    lst = [line.strip() for line in input().split(',')]
+    
     open_count = 0
     close_count = 0
     
@@ -9,12 +11,12 @@ def match_parens(lst):
         elif s[0] == ')':
             close_count += 1
             
-        if len(s) != 2 or s[1] != s[0]:
+        if len(s) != 2 or s[0] != s[1]:
             return 'No'
             
-    if open_count == close_count and open_count > 0:
+    if open_count == close_count:
         return 'Yes'
     else:
         return 'No'
 
-print(match_parens([]))
+print(match_parens())
