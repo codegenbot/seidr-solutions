@@ -5,7 +5,7 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<float> prices(n);
-    std::vector<float> discounts(n); // Declare discounts vector
+    std::vector<float> discounts(n); 
     for (int i = 0; i < n; ++i) {
         std::cin >> prices[i];
     }
