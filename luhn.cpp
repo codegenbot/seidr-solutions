@@ -1,16 +1,36 @@
-int luhn(vector<int> digits) {
-    int sum = 0;
-    bool doubleNext = false;
+#include <vector>
+using namespace std;
 
-    for (int i = digits.size() - 1; i >= 0; i--) {
-        int digit = digits[i];
-        if (doubleNext) {
+int luhnAlgorithm(const vector<int>& ccNum) {
+    int sum = 0;
+    bool isDouble = false;
+    
+    for (auto digit : ccNum) {
+        if (isDouble) {
             digit *= 2;
-            if (digit > 9) digit -= 9;
+            if (digit > 9) {
+                digit -= 9;
+            }
         }
+        
         sum += digit;
-        doubleNext = !doubleNext;
+        isDouble = !isDouble; // toggle the boolean
+    }
+    
+    return sum;
+}
+
+int main() {
+    int numDigits, temp;
+    vector<int> ccNum;
+
+    cin >> numDigits;
+    for (int i = 0; i < numDigits; ++i) {
+        cin >> temp;
+        ccNum.push_back(temp);
     }
 
-    return sum;
+    cout << luhnAlgorithm(ccNum) << endl;
+    
+    return 0;
 }
