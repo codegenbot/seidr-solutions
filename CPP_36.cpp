@@ -2,13 +2,13 @@
 #include <string>
 using namespace std;
 
-int fizz_buzz(int n) {
+void fizz_buzz(int n) {
     int count = 0;
     for (int i = 1; i <= n; i++) {
         if ((i % 11 == 0 || i % 13 == 0))
             count++;
     }
-    return count;
+    cout << "The number of numbers in the range [1, " << to_string(n) << "] that are divisible by either 11 or 13 is: " << count << endl;
 }
 
 int main() {
@@ -18,8 +18,9 @@ int main() {
     if (n < 1) {
         cout << "Invalid input. Please enter a positive integer.\n";
     } else {
-        int result = fizz_buzz(n);
-        cout << "Result for " << n << ": " << result << endl; 
+        int count = 0; 
+        fizz_buzz(n);
+        cout << "Result for " << n << ": " << endl; 
     }
     return 0;
 }
