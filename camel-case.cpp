@@ -1,7 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
+```cpp
 std::string kebabToCamel(const std::string& s) {
     std::string result;
     bool capitalize = true;
