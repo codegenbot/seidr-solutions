@@ -20,7 +20,15 @@ int main() {
     std::cout << "Enter a number: ";
     std::getline(std::cin, input); 
 
-    if (input.find_first_not_of("0123456789") == std::string::npos) {  
+    bool isValidInput = true;
+    for (char c : input) {
+        if (!std::isdigit(c)) {
+            isValidInput = false;
+            break;
+        }
+    }
+
+    if (isValidInput) {
         int num = std::stoi(input);  
         if (isSimplePower(num)) {
             std::cout << input << " is a simple power.\n";
