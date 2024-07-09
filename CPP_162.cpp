@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <limits>
 #include <string>
@@ -12,7 +13,6 @@ string string_to_md5(string text) {
     
     unsigned char result[16];
     EVP_MD_CTX md_ctx;
-    EVP_PseudoRandomBytes(result, 0, &md_ctx);
     unsigned char* d = nullptr;
     size_t len = 0;
     int ret = EVP_Digest(text.c_str(), text.size(), &d, &len, EVP_md_md5(), &md_ctx);
@@ -20,7 +20,7 @@ string string_to_md5(string text) {
     string md5_hash;
     for (int i = 0; i < 16; ++i) {
         std::ostringstream oss;
-        oss << std::hex << std::setfill('0') << setw(2) << (int)d[i];
+        oss << std::hex << std::setfill('0') << std::setw(2) << (int)d[i];
         md5_hash += oss.str();
     }
     
@@ -45,3 +45,4 @@ int main() {
     
     cout << "MD5 Hash: " << md5_hash << endl;
     return 0;
+}
