@@ -17,7 +17,7 @@ int main() {
     std::vector<double> lst = {1.5, 2.0, 3.0, 4.0, 5.5};
     long long odd_sum = double_the_difference(lst);
 
-    assert(odd_sum == 42); // Assuming the expected output is 42
+    assert(odd_sum == 42);
 
     return 0;
 }
