@@ -7,7 +7,7 @@ bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> sortArray(std::vector<int> arr) {
+std::vector<int> sort_array(std::vector<int> arr) {
     auto comp = [&] (int a, int b) -> bool {
         if (std::bitset<32>(a).count() != std::bitset<32>(b).count()) {
             return std::bitset<32>(a).count() < std::bitset<32>(b).count();
