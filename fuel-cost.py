@@ -1,2 +1,3 @@
-```
-return sum(((int(num)) // 3) - 2 for num in input().split())
+def fuel_cost():
+    numbers = list(map(int, input().split()))
+    return sum((n // 3) - 2 for n in numbers)
