@@ -1,18 +1,29 @@
-Here is the solution:
+Here is the completed code:
+
+```cpp
+#include <iostream>
+
+using namespace std;
 
 int starts_one_ends(int n) {
     int count = 0;
-    for (int i = 1; i <= 9; i++) {
-        if ((i == 1 || i % 10 == 1) && (n > 2)) {
+    for (int i = 1; i <= 9; ++i) {
+        if (i == 1 || i == 9) {
             count += pow(10, n - 1);
-        }
-        if (i >= 2 && i < 10) {
-            for (int j = 0; j <= 9; j++) {
-                if ((j == 1 || j % 10 == 1) && (n > 2)) {
-                    count++;
-                }
+        } else {
+            count += pow(10, n - 1);
+            for (int j = 2; j < i; ++j) {
+                count += pow(j, n - 1);
             }
         }
     }
     return count;
+}
+
+int main() {
+    int n;
+    cout << "Enter a positive integer: ";
+    cin >> n;
+    cout << "Count of numbers that start or end with 1 is: " << starts_one_ends(n) << endl;
+    return 0;
 }
