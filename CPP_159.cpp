@@ -1,17 +1,13 @@
-#include <algorithm>
-#include <cassert>
 #include <vector>
+#include <cassert>
 
-using namespace std;
-
-vector<int> eat(int number, int need, int remaining) {
+std::vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
-    int eaten = min(total, remaining);
-    int left = max(0, total - remaining);
-    return {eaten, left};
+    int carrotsLeft = std::max(0, remaining - need);
+    return {total, carrotsLeft};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
