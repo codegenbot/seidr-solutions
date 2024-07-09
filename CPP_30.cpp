@@ -2,6 +2,20 @@
 #include <iostream>
 #include <vector>
 
+std::vector<float> get_positive(const std::vector<float>& numbers) {
+    std::vector<float> positive_numbers;
+    for (float num : numbers) {
+        if (num > 0) {
+            positive_numbers.push_back(num);
+        }
+    }
+    return positive_numbers;
+}
+
+bool isSame(const std::vector<float>& a, const std::vector<float>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
 int main() {
     int n;
     std::cout << "Enter the number of elements: ";
@@ -33,19 +47,4 @@ int main() {
     }
 
     return 0;
-
-}
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<float> get_positive(const std::vector<float>& numbers) {
-    std::vector<float> positive_numbers;
-    for (float num : numbers) {
-        if (num > 0) {
-            positive_numbers.push_back(num);
-        }
-    }
-    return positive_numbers;
 }
