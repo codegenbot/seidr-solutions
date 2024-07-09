@@ -1,6 +1,13 @@
-def max_fill(grid: List[List[int]], capacity: int) -> float:
-    if not grid or len(set(len(row) for row in grid)) != 1:
-        raise ValueError("Grid should be a square")
+from math import ceil
 
-    total_water = sum(sum(1 for cell in row if cell > 0) for row in grid)
-    return min(total_water / (len(grid) ** 2), capacity)
+def max_fill(grid, capacity):
+    if not grid or not all(len(row) == len(grid[0]) for row in grid):
+        raise ValueError("Grid should be a square")
+    
+    total_water = 0
+    for row in grid:
+        water_per_row = min(capacity, sum(1 for cell in row if cell > 0))
+        total_water += water_per_row
+        capacity -= water_per_row if water_per_row > 0 else 0
+    
+    return ceil(total_water / max(1, capacity))
