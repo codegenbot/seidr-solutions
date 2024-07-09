@@ -1,6 +1,4 @@
 #include <algorithm>
-#include <vector>
-
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wignored-qualoppers"
 #include <initializer_list>
