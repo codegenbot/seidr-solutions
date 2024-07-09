@@ -17,5 +17,8 @@ int main() {
     cout << "Enter the number of cars: ";
     cin >> n;
     cout << "Number of collisions: " << car_race_collision(n) << endl;
+    for (int i = 1; i <= n; i++) {
+        cout << "Car " << i << " is participating in the race." << endl;
+    }
     return 0;
 }
