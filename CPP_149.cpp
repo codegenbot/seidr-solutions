@@ -1,8 +1,10 @@
+```
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <initializer_list>
-#include <iostream>
+#include <ostream>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
