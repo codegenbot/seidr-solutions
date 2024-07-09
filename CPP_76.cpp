@@ -2,6 +2,22 @@
 #include <string>
 #include <cmath>
 
+bool isSimplePower(int base, int power);
+bool isSimplePower(int num);
+
+int main() {
+    std::string input;
+    std::cout << "Enter a number: ";
+    std::cin >> input;
+    int num = std::stoi(input);
+    if (isSimplePower(num)) {  
+        std::cout << input << " is a simple power.\n";
+    } else {
+        std::cout << input << " is not a simple power.\n";
+    }
+    return 0;
+}
+
 bool isSimplePower(int num) {
     for(int base = 2; base * base <= num; ++base) {
         int power = 1;
@@ -16,18 +32,5 @@ bool isSimplePower(int num) {
 }
 
 bool isSimplePower(int base, int power) {
-    return (int)pow(base, power) == num; 
-}
-
-int simplePowerCheckerMain() {
-    std::string input;
-    std::cout << "Enter a number: ";
-    std::cin >> input;
-    int num = std::stoi(input);
-    if (isSimplePower(num)) {  
-        std::cout << input << " is a simple power.\n";
-    } else {
-        std::cout << input << " is not a simple power.\n";
-    }
-    return 0;
+    return (int)pow(base, power) == base * power;
 }
