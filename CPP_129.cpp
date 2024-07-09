@@ -1,3 +1,6 @@
+#include <vector>
+using namespace std;
+
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, vector<int>& res) {
     int n = grid.size();
     
