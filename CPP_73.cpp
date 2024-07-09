@@ -1,23 +1,14 @@
 #include <vector>
 #include <string>
 
-int main() {
-    int n;
-    std::cout << "Enter number of integers: ";
-    std::cin >> n;
-
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter integer " << i + 1 << ": ";
-        std::cin >> arr[i];
-    }
-
-    int changes = 0;
+int smallest_change(std::vector<int> arr) {
+    int n = arr.size();
     std::string s = "";
     for (int i : arr) {
         s += std::to_string(i);
     }
     int left = 0, right = s.length() - 1;
+    int changes = 0;
     bool swapped = true;
     while (swapped) {
         swapped = false;
@@ -33,4 +24,10 @@ int main() {
         right--;
     }
     return changes;
+
+}
+
+int main() {
+    assert(smallest_change({0, 1}) == 1);
+    return 0;
 }
