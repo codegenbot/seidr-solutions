@@ -5,7 +5,6 @@ def parse_music(music_string: str) -> List[int]:
     notes = music_string.split()
     return [notes_duration[note] for note in notes]
 
-music_string = input("Enter the music string: ").split()
-music_string = " ".join(music_string)
+music_string = input()
 result = parse_music(music_string)
 print(result)
