@@ -1,14 +1,21 @@
-string int_to_mini_roman(int num) {
-    vector<pair<int, string>> romanNumerals = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
-        {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"}, {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-    string result = "";
+#include <map>
 
-    for (const auto& pair : romanNumerals) {
-        while (num >= pair.first) {
-            num -= pair.first;
-            result += pair.second;
+using namespace std;
+
+string int_to_mini_roman(int number) {
+    map<int, string> romanMap = {{1, "i"}, {4, "iv"}, {5, "v"}, 
+                                    {9, "ix"}, {10, "x"}, {40, "xl"},
+                                    {50, "l"}, {90, "xc"}, {100, "c"},
+                                    {400, "cd"}, {500, "d"}, {900, "cm"}, {1000, "m"}};
+
+    string roman = "";
+
+    for (auto it = romanMap.rbegin(); it != romanMap.rend(); ++it) {
+        while (number >= it->first) {
+            roman += it->second;
+            number -= it->first;
         }
     }
 
-    return toLowerCase(result);
+    return roman;
 }
