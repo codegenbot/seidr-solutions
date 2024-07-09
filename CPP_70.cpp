@@ -1,9 +1,6 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
-
-using namespace std;
 
 bool issame(vector<vector<int>>& a, vector<vector<int>>& b) {
     if (a.size() != b.size()) {
