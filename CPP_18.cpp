@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <cassert> 
 using namespace std;
@@ -11,3 +12,5 @@ int how_many_times(const string& str, const string& substring) {
         s.erase(pos, substring.length());
     }
     return count;
+
+}
