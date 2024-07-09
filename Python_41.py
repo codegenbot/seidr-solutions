@@ -1,6 +1,2 @@
-def car_race_collision(car: int, speed: int):
-    if speed > 0:
-        total_distance = (car * (2 * car - 1)) // 2
-        return total_distance
-    else:
-        return 0
+def car_race_collision(num_cars: int, speed: int = 1):
+    return num_cars * (num_cars - 1) // 2
