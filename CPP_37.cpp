@@ -1,4 +1,13 @@
-vector<float> even_indices;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+vector<float> sort_even(vector<float> l);
+vector<float> sort_even(vector<float> l) {
+    vector<float> even_indices;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             even_indices.push_back(l[i]);
