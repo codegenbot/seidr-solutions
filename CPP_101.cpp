@@ -1,29 +1,41 @@
 #include <algorithm>
-#include <vector>
+#include <cassert>
+#include <initializer_list>
 #include <string>
+#include <vector>
 
-bool issame(vector<string> a,vector<string>b){
-    return (a==b);
+using namespace std;
+
+vector<string> splitString(string str) {
+    vector<string> words;
+    string word;
+    for(int i = 0; i < str.length(); i++) {
+        if(str[i] == ' ') {
+            words.push_back(word);
+            word = "";
+        } else {
+            word += str[i];
+        }
+    }
+    words.push_back(word);
+    return words;
 }
 
-vector<string> words_string(string s) {
-    vector<string> tokens;
-    size_t start = 0, end;
-    do {
-        end = s.find(" ", start);
-        if (end == string::npos) {
-            tokens.push_back(s.substr(start));
-            break;
+bool isSameVectors(vector<string> a, vector<string> b) { 
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
         }
-        tokens.push_back(s.substr(start, end - start));
-        start = end + 1;
-    } while (1);
-    return tokens;
+    }
+    return true;
 }
 
 int testMain() {
-    vector<string> v1 = words_string("ahmed     , gamal");
-    sort(v1.begin(), v1.end()); 
-    assert(issame(v1, {"ahmed", "gamal"}));
+    vector<string> v1 = splitString("ahmed     , gamal");
+    sort(v1.begin(), v1.end()); // Sort the vectors to compare correctly
+    assert(isSameVectors(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
