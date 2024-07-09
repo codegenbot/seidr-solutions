@@ -4,15 +4,15 @@
 #include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     std::vector<std::string> result;
     
-    size_t start = -1, end = -1;
-    for (size_t i = 0; i < planets.size(); ++i) {
+    int start = -1, end = -1;
+    for (int i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
             start = i;
         } else if (planets[i] == planet2) {
@@ -28,7 +28,7 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
         std::swap(start, end);
     }
     
-    for (size_t i = start + 1; i < end; ++i) {
+    for (int i = start + 1; i < end; ++i) {
         result.push_back(planets[i]);
     }
     
