@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include <algorithm>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::stringstream ss(str);
@@ -21,7 +20,7 @@ std::string spinWords(const std::string& str) {
     std::string result;
 
     for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() >= 5) {
+        if(words[i].length() >= 5) {
             std::string reversed = "";
             for(int j = words[i].length()-1; j>=0; --j)
                 reversed += words[i][j];
