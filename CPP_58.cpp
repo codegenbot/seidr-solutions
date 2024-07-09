@@ -1,10 +1,11 @@
 #include <vector>
+#include <assert>
 #include <set>
 #include <algorithm>
 
 using namespace std;
 
-bool isSame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -15,12 +16,12 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
         inserter(intersection, intersection.begin()));
     vector<int> result(intersection.begin(), intersection.end());
-    sort(result.begin(), result.end());
+    sort(result.begin(), result.end()); 
     return result;
 }
 
 int main() {
-    assert(isSame(common({4, 3, 2, 8}, {}), {}));
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
     vector<int> list1 = {1, 2, 3};
     vector<int> list2 = {1, 2, 4};
     
