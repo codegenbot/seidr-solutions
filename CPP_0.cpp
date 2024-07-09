@@ -1,7 +1,8 @@
-```cpp
+std::vector<float> a={1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
 #include <vector>
 #include <cmath>
-#pragma GCC target "c++14"
+#include <assert.h>
+#pragma GCC target "c++11"
 
 bool has_close_elements(std::vector<float> numbers, float threshold) {
     for (int i = 0; i < numbers.size(); i++) {
