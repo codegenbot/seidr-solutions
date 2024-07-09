@@ -11,6 +11,7 @@ long long special_factorial(int n) {
             result *= j;
     }
     return result;
+
 }
 
 int main() {
