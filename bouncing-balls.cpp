@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 
-using namespace std;
+namespace std {
+}
 
 int main() {
     double startHeight, firstBounce;
@@ -10,16 +11,16 @@ int main() {
 
     cin >> startHeight >> firstBounce >> numBounces;
 
-    int indexRoundedUp = ceil(firstBounce / startHeight);
-    startHeight *= (indexRoundedUp * 1.0); 
+    double bouncinessIndex = firstBounce / startHeight;
 
-    double totalDistance = 0.0;
-    for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += startHeight; 
-        startHeight *= indexRoundedUp; 
+    double totalDistance = 2.0 * (firstBounce + startHeight); // initial bounce
+    for (int i = 1; i < numBounces; ++i) {
+        totalDistance += 2.0 * startHeight; 
+        startHeight *= bouncinessIndex; 
     }
 
-    cout << fixed << setprecision(5);
+    cout << fixed;
+    cout << setprecision(10);
     cout << totalDistance << endl;
 
     return 0;
