@@ -1,24 +1,24 @@
-#include <string>
 #include <map>
-using namespace std;
+#include <string>
+#include <cctype>
+#include <cassert>
 
-bool check_dict_case(map<string, string>& dict) {
+bool check_dict_case(std::map<std::string, std::string> dict) {
     if (dict.empty()) return false;
-    
+
     bool allUpper = true;
     bool allLower = true;
 
     for (auto it = dict.begin(); it != dict.end(); ++it) {
         if (!allUpper && !allLower) break;
-        if (allUpper) allUpper = tolower(it->first).find((char)0) == std::string::npos;
-        if (allLower) allLower = toupper(it->first).find((char)0) == std::string::npos;
+        if (allUpper) allUpper = std::tolower(it->first)[0] == 0;
+        if (allLower) allLower = std::toupper(it->first)[0] == 0;
     }
 
     return allUpper && allLower;
 }
 
 int main() {
-    map<string, string> dict; 
-    assert(check_dict_case(dict) == false); 
+    assert(check_dict_case({}) == false);
     return 0;
 }

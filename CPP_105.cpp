@@ -1,31 +1,34 @@
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
-bool issame(vector<string> vec1, vector<string> vec2) {
-    if (vec1.size() != vec2.size()) return false;
-    for (int i = 0; i < vec1.size(); i++) {
-        if (vec1[i] != vec2[i]) return false;
-    }
-    return true;
+bool issame(vector<string> a,vector<string> b){
+    return (a == b);
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<vector<string>> result;
+    vector<string> result;
     for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            result.push_back({(i == 1 ? "One" : i == 2 ? "Two" : i == 3 ? "Three" : i == 4 ? "Four" : i == 5 ? "Five" : i == 6 ? "Six" : i == 7 ? "Seven" : i == 8 ? "Eight" : "Nine")});
+        string num = "";
+        switch (i) {
+            case 1: num = "One"; break;
+            case 2: num = "Two"; break;
+            case 3: num = "Three"; break;
+            case 4: num = "Four"; break;
+            case 5: num = "Five"; break;
+            case 6: num = "Six"; break;
+            case 7: num = "Seven"; break;
+            case 8: num = "Eight"; break;
+            case 9: num = "Nine"; break;
+        }
+        result.push_back(num);
     }
     sort(result.begin(), result.end());
     reverse(result.begin(), result.end());
-    vector<string> final_result;
-    for (vector<string> strings : result) {
-        final_result.insert(final_result.end(), strings.begin(), strings.end());
-    }
-    return final_result;
+    return result;
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    assert(issame(vector<string>(by_length({9, 4, 8})), vector<string>({"Nine", "Eight", "Four"})));
     return 0;
 }
