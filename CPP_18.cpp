@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <string>
 #include <cassert> 
 using namespace std;
@@ -13,15 +13,6 @@ int how_many_times(const string& str, const string& substring) {
     }
     return count;
 
-}
-
-int main() {
-    string str, substring;
-    cout << "Enter a string: ";
-    cin >> str;
-    cout << "Enter a substring: ";
-    cin >> substring;
-    
-    int result = how_many_times(str, substring);
-    cout << "The substring appears " << result << " times.\n";
+int main() 
+{
 }
