@@ -9,7 +9,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0, sum2 = 0;
     for (const auto& s : lst1) {
         sum1 += s.length();
@@ -23,6 +23,9 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
-    // And so on...
+    vector<string> b;
+    vector<string> a = {"this"};
+    vector<string> c = {};
+    assert(issame(total_match(a, c), c));
+    return 0;
 }
