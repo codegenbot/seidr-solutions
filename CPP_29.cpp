@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 
 #include <vector>
@@ -14,14 +13,13 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, c
     return result;
 }
 
-bool issame(const std::vector<std::string>& a) {
+bool issame(const std::vector<std::string>& vec) {
+    if(vec.size() == 0)
+        return true;
+    std::string first = vec[0];
+    for(auto str : vec) {
+        if(str != first)
+            return false;
+    }
     return true;
-}
-
-int main() {
-    std::vector<std::string> vec = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    std::string prefix = "xxx";
-    std::vector<std::string> result = filter_by_prefix(vec, prefix);
-    bool same = issame({result[0], result[1], "xxx"});
-    return 0;
 }
