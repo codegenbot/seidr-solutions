@@ -30,6 +30,7 @@ int main() {
         std::cin >> num;
         nums.push_back(num);
     }
-    std::cout << "Count of numbers with odd sum of digits: " << count_nums(nums) << std::endl;
+    int result = count_nums(nums);
+    std::cout << "Number of numbers with sum greater than 0: " << result << std::endl;
     return 0;
 }
