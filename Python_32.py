@@ -1,6 +1,6 @@
 def find_zero(xs: str):
     xs = list(map(int, xs.split()))
-    if not xs or xs[0] != 0:
+    if not xs or 0 not in xs:
         return None
     if max(xs, key=abs) == 0:
         return 0
@@ -9,9 +9,6 @@ def find_zero(xs: str):
         if xs[i] == a:
             return -i / xs[i]
 
+user_input = input("Enter a list of integers separated by space: ").strip()
 
-# Get user input
-user_input = input("Enter a list of integers separated by space: ")
-
-# Call the function with user input and print the result
 print(find_zero(user_input))
