@@ -1,7 +1,5 @@
-```cpp
 #include <algorithm>
 #include <vector>
-#include <cstddef>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
