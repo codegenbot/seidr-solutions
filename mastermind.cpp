@@ -25,11 +25,9 @@ int mastermind(string code, string guess) {
 int main() {
     string code, guess;
     cout << "Enter the Mastermind code: ";
-    cin >> code;
+    getline(cin, code);
     cout << "Enter your guess: ";
-    cin >> guess;
-    int result = mastermind(code, guess);
-    cout << "Black pegs: " << result - (result/4) << endl;
-    cout << "White pegs: " << result/4 << endl;
+    getline(cin, guess);
+    int pegs = mastermind(code, guess);
+    cout << "Number of pegs: " << pegs << endl;
     return 0;
-}
