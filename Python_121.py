@@ -1,2 +1,2 @@
-def sum_odd(lst):
-    return sum(i for i in lst if isinstance(i, int) and i % 2 != 0)
+def odd_sum_even_skips(lst):
+    return sum(i for i in lst[1::2] if i % 2 != 0)
