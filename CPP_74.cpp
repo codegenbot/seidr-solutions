@@ -2,12 +2,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-
-#ifdef __cplusplus
-    extern "C" {
-        #include <initializer_list>
-    }
-#endif
+#include <initializer_list>
 
 using namespace std;
 
@@ -65,6 +60,6 @@ int main() {
         cout << s << " ";
     }
     cout << endl;
-    assert(result == {});
+    assert(result == {"this"});
     return 0; 
 }
