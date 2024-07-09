@@ -1,11 +1,11 @@
-```
+```python
 import hashlib
 
 def string_to_md5(text):
-    if text == "":
+    if not text:
         return None
-    else:
-        try:
-            return hashlib.md5(text.encode()).hexdigest()
-        except Exception as e:
-            return str(e)
+    return hashlib.md5(text.encode()).hexdigest()
+
+if __name__ == "__main__":
+    user_input = input("Enter a string: ")
+    print(string_to_md5(user_input))
