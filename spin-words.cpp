@@ -32,9 +32,12 @@ std::string join(const std::vector<std::string>& words, char delimiter) {
 std::string spinWords(std::string str) {
     std::vector<std::string> words = split(str, ' ');
     for (int i = 0; i < words.size(); i++) {
+        std::string temp = words[i];
         if (words[i].length() >= 5) {
-            std::swap(words[i], words.back());
-            words.pop_back();
+            std::reverse(temp.begin(), temp.end());
+            result += temp;
+        } else {
+            result += temp + " ";
         }
     }
     return join(words, ' ');
