@@ -1,13 +1,15 @@
+```cpp
 #include <iostream>
 
 int findGCD(int a, int b) {
-    if (b == 0) return abs(a);
+    a = abs(a);
+    b = abs(b);
     while (b != 0) {
         int temp = b;
         b = a % b;
         a = temp;
     }
-    return abs(a);
+    return a;
 }
 
 int main() {
