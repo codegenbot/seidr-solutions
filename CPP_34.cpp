@@ -1,6 +1,16 @@
-auto unique_end = unique(input.begin(), input.end());
-vector<int> output(input.begin(), unique_end);
-sort(output.begin(), output.end());
-for (int i : output) {
-    cout << i << " ";
-}
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> output;
+    auto end_unique = unique(input.begin(), input.end());
+    copy(end_unique, input.end(), back_inserter(output));
+    sort(output.begin(), output.end());
+    for (int i : output) {
+        cout << i << " ";
+    }
+    return 0;
