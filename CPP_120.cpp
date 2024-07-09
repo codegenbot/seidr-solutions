@@ -1,7 +1,12 @@
-Here is the solution:
+Here is the completed code:
 
+```cpp
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> res(k);
-    partial_sort(res.begin(), res.end(), [](int a, int b) { return a > b; });
-    return res;
+    vector<int> result;
+    for (int i = 0; i < k; i++) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
+    }
+    return result;
 }
