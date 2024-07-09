@@ -1,12 +1,9 @@
-```
 from collections import deque
 
 
 def minFallingRainWater(grid):
     n = len(grid)
-    
-    if not path:
-        return "No '1' found"
+    m = [[0 for _ in range(n)] for _ in range(n)]
 
     def dfs(i, j, path, visited):
         if len(path) == n * n:
@@ -30,5 +27,8 @@ def minFallingRainWater(grid):
 
     start = [i for i, row in enumerate(grid) if "1" in "".join(row)][0]
     path = dfs(start, 0, [grid[start][0]], set())
+
+    if not path:
+        return "No '1' found"
 
     return path
