@@ -1,31 +1,26 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-using namespace std;
+#include <boost/any.hpp>
+#include <boost/convert.hpp>
+
+using namespace boost;
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a > (double)b ? a : b;
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double)a > (int)b ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+    if (is_same<any_tag, get_type(a)>() && is_same<any_tag, get_type(b)>()) {
+        return a > b ? a : b;
+    } else if (is_same<string_any_tag, get_type(a)>() && is_same<string_any_tag, get_type(b)>()) {
         string str1 = any_cast<string>(a);
         string str2 = any_cast<string>(b);
-        str1.erase(remove(str1.begin(), str1.end(), ','), str1.end());
-        str2.erase(remove(str2.begin(), str2.end(), ','), str2.end());
-        return (stod(str1) > stod(str2)) ? a : b;
+        return str1 > str2 ? a : b;
+    } else if (is_same<string_any_tag, get_type(a)>() || is_same<string_any_tag, get_type(b)>()) {
+        string str1 = any_cast<string>(a);
+        string str2 = any_cast<string>(b);
+        if (str1 == str2) {
+            return boost::any("None");
+        } else if (str1 > str2) {
+            return a;
+        } else {
+            return b;
+        }
+    } else {
+        throw invalid_argument("Invalid types");
     }
-    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
-        string str = any_cast<string>(a);
-        str.erase(remove(str.begin(), str.end(), ','), str.end());
-        return (stod(str) > any_cast<double>(b)) ? a : b;
-    }
-    else if ((a.type() == typeid(int) || a.type() == typeid(double)) && b.type() == typeid(string)) {
-        boost::any temp = a;
-        a = b;
-        b = temp;
-    }
-    return "None";
 }
