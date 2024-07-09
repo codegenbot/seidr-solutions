@@ -13,21 +13,23 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> lst; // define lst
-    float odd_sum = 0; // define odd_sum
-    
+    std::vector<float> lst;
+    float odd_sum = 0;
+
     int n;
-    cin >> n;
-    
-    for(int i=0; i<n; i++) {
-        float num;
-        cin >> num;
-        lst.push_back(num);
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        float temp;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> temp;
+        lst.push_back(temp);
     }
-    
-    long long result = double_the_difference(lst);
-    
-    cout << "The sum of squares is: " << result << endl;
-    
+
+    odd_sum = double_the_difference(lst);
+
+    std::cout << "The sum of the squares of positive integers in the list is: " << odd_sum << std::endl;
+
     return 0;
 }
