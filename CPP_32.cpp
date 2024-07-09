@@ -1,26 +1,22 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
+#include <cassert>
 
-double poly(const std::vector<double>& coeffs, double x){
-    double result = 0;
-    for(int i = 0; i < coeffs.size(); i++){
+double my_abs(double num){
+    return num >= 0 ? num : -num;
+}
+
+double poly(std::vector<double> coeffs, double x){
+    double result = 0.0;
+    for(int i=0; i<coeffs.size(); i++){
         result += coeffs[i] * std::pow(x, i);
     }
     return result;
 }
 
-double find_zero(const std::vector<double>& xs){
-    double a = xs[0];
-    double b = xs[1];
+double find_zero(std::vector<double> coeffs){
+    assert(coeffs.size() >= 2);
+    double a = coeffs[0];
+    double b = coeffs[1];
     return -b/a;
-}
-
-int main(){
-    std::vector<double> coeffs = {2, -3, 1}; // Example coefficients
-    double solution = find_zero(coeffs);
-    
-    assert(std::abs(poly(coeffs, solution)) < 1e-3);
-    
-    return 0;
 }
