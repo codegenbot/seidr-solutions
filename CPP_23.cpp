@@ -1,10 +1,11 @@
+```cpp
 #include <string>
 
-int myStrLen(std::string str){
+int str_len(string str){
     return str.length();
 }
 
 int main() {
-    assert(myStrLen("asdasnakj") == 11); 
+    assert (str_len("asdasnakj") == 12);
     return 0;
 }
