@@ -1,11 +1,15 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
 
-vector<int> sort_array(vector<int> arr) {
-    vector<int> result = arr;
-    sort(result.begin(), result.end(),
-         [](int a, int b) {
-             return bitset<32>(a).count() < bitset<32>(b).count()
-                 || (bitset<32>(a).count() == bitset<32>(b).count() && a < b);
-         });
-    return result;
+std::vector<int> sort_array(std::vector<int> arr) {
+    std::sort(arr.begin(), arr.end(), [](int a, int b) {
+        int ones_a = __builtin_popcount(a);
+        int ones_b = __builtin_popcount(b);
+
+        if (ones_a == ones_b)
+            return a < b;
+        else
+            return ones_a < ones_b;
+    });
+    return arr;
 }
