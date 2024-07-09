@@ -1,10 +1,7 @@
-```
 def simplify(x, n):
-    a, b = map(int, x.split("/"))
-    c, d = map(int, n.split("/"))
-
-    if (a * d) % (b * c) != 0:
-        return x + ' / ' + n
-    gcd = lambda a, b: a if not b else gcd(b, a%b)
-    g = gcd(gcd(a, b), gcd(c, d))
-    return f"{a//g}/{b//g} / {c//g}/{d//g}"
+    x_num, x_denom = map(int, x.split('/'))
+    n_num, n_denom = map(int, n.split('/'))
+    
+    common_divisor = max(x_num, x_denom, n_num, n_denom)
+    
+    return (x_num // common_divisor) * (n_num // common_divisor) == (x_denom // common_divisor) * (n_denom // common_divisor)
