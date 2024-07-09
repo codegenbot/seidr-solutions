@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```c++
 #include <iostream>
 #include <vector>
 using namespace std;
