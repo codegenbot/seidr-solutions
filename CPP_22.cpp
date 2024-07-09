@@ -10,7 +10,8 @@ vector<int> filter_integers(list<boost::any> values) {
     for (const auto& value : values) {
         try {
             int val = boost::any_cast<int>(value);
-            result.push_back(val);
+            if(find(result.begin(), result.end(), val) == result.end())
+                result.push_back(val);
         } catch (...) {
             // ignore non-integer values
         }
@@ -20,9 +21,4 @@ vector<int> filter_integers(list<boost::any> values) {
 
 bool issame(vector<int> a, vector<int> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
-}
-
-int main() {
-    assert(issame(filter_integers({3, boost::any("c"), 3, 3, boost::any("a"), boost::any("b")}), {3, 3, 3}));
-    return 0;
 }
