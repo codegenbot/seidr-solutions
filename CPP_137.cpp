@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <boost/any.hpp>
 
@@ -5,12 +6,11 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b);
+        return b;
     } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string s = boost::any_cast<string>(b);
-        return topper(s);
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         return a;
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        return boost::any(a.convert_to<string>());
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string x = boost::any_cast<string>(a);
         string y = boost::any_cast<string>(b);
@@ -33,13 +33,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         else
             return b;
     } else {
-        return "None";
-    }
-
-    string topper(string s) {
-        for (char &c : s) {
-            c = toupper(c);
-        }
-        return s;
+        return boost::any("None");
     }
 }
