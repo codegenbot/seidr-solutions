@@ -1,4 +1,14 @@
-double vectorDistance(int n) {
+#include <vector>
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+double vectorDistance() {
+    int n;
+    cin >> n;
+
     float v1[n];
     float v2[n];
 
@@ -11,4 +21,10 @@ double vectorDistance(int n) {
         distance += pow(v2[i] - v1[i], 2);
     }
     return sqrt(distance);
+}
+
+int main() {
+    cout << fixed << setprecision(10) << vectorDistance() << endl;
+
+    return 0;
 }
