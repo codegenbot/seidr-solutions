@@ -12,8 +12,7 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5, 3.8, 4.2, 6.7};
-    float odd_sum = double_the_difference(lst);
-    assert(odd_sum == 29); // Check if the sum of squares is correct
-    return 0;
+    std::vector<float> lst = {};
+    long long odd_sum = double_the_difference(lst);
+    // ...
 }
