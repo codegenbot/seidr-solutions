@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <openssl/md5.h>
 #include <openssl/evp.h>
 
 std::string string_to_md5(const std::string& text) {
@@ -8,11 +7,11 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    unsigned char digest[MD5_DIGEST_LENGTH];
-    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
+    unsigned char digest[EVP_MAX_MD_SIZE];
+    EVP_MD_CTX* mdctx = EVP_MD_CTX_new();
     EVP_DigestInit(mdctx, EVP_md5());
-    EVP_DigestUpdate(mdctx, text.c_str(), text.size());
-    EVP_DigestFinal(mdctx, digest, NULL);
+    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
+    EVP_DigestFinal_ex(mdctx, digest, nullptr);
     EVP_MD_CTX_free(mdctx);
 
     char mdString[33];
