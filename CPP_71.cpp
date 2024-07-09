@@ -17,7 +17,7 @@ int main_cpp() {
     } else {
         float result = triangle_area(a, b, c);
         cout << "The area of the triangle is: ";
-        cout << fixed << std::setprecision(2) << result;
+        cout << std::fixed << std::setprecision(2) << result;
     }
 
     return 0;
