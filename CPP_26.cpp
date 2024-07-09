@@ -1,20 +1,14 @@
-Here is the solution:
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> uniqueNumbers;
-
-    for (int number : numbers) {
-        bool isUnique = true;
-        for (int uniqueNumber : uniqueNumbers) {
-            if (uniqueNumber == number) {
-                isUnique = false;
-                break;
-            }
-        }
-        if (isUnique) {
-            uniqueNumbers.push_back(number);
+    vector<int> unique_numbers;
+    for (int num : numbers) {
+        if (find(unique_numbers.begin(), unique_numbers.end(), num) == unique_numbers.end()) {
+            unique_numbers.push_back(num);
         }
     }
-
-    return uniqueNumbers;
+    return unique_numbers;
 }
