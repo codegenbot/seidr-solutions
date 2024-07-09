@@ -1,3 +1,4 @@
+```c++
 #include <algorithm>
 #include <limits>
 #include <vector>
@@ -26,6 +27,7 @@ vector<float> find_closest_elements(vector<float> numbers) {
     return vector<float>(closest_pair.begin(), closest_pair.end());
 }
 
-vector<float> test() {
-    return find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
-}
+int main() {
+    vector<float> result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
+    assert(issame(result, {2.2, 3.1})); 
+    return 0;
