@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -41,3 +40,4 @@ int main() {
         cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
     }
     return 0;
+}
