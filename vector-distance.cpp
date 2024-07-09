@@ -11,6 +11,9 @@ int main() {
         std::cin >> vec1[i];
     }
 
+    float discard; // to discard the comma
+    std::cin >> discard;
+
     std::vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
