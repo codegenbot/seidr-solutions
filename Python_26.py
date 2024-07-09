@@ -2,7 +2,6 @@ from typing import List
 
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    numbers.sort()
     seen = set()
     result = []
     for num in numbers:
