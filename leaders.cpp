@@ -2,11 +2,11 @@
 #include <algorithm>
 #include <climits>
 #include <iostream>
-using std::vector;
-using namespace std;
 
-vector<int> findLeaders(vector<int> nums) {
-    vector<int> leaders;
+using vector = std::vector<_Tp, polymorphic_allocator<_Tp>>;
+
+std::vector<int> findLeaders(std::vector<int> nums) {
+    std::vector<int> leaders;
     int n = nums.size();
     int maxRight = INT_MIN;
     
@@ -17,17 +17,17 @@ vector<int> findLeaders(vector<int> nums) {
         }
     }
     
-    reverse(leaders.begin(), leaders.end());
+    std::reverse(leaders.begin(), leaders.end());
     
     return leaders;
 }
 
 int main() {
-    vector<int> nums = {16, 17, 4, 3, 5, 2};
-    vector<int> result = findLeaders(nums);
+    std::vector<int> nums = {16, 17, 4, 3, 5, 2};
+    std::vector<int> result = findLeaders(nums);
     
     for (int num : result) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
     
     return 0;
