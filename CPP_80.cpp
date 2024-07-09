@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -11,15 +12,7 @@ bool is_happy(const std::string& s) {
         char c1 = s[i];
         char c2 = s[i + 1];
         char c3 = s[i + 2];
-        auto it = s.begin() + i; // create a string iterator
-        while(it + 3 <= s.end()) {
-            if (*it == c1 || *(it+1) == c2 || *(it+2) == c3) {
-                unique = false;
-                break;
-            }
-            it += 3;
-        }
-        if (!unique)
+        if (s.find(c1) != std::string::npos || s.find(c2) != std::string::npos || s.find(c3) != std::string::npos)
             return false;
     }
     return true;
