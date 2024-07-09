@@ -1,16 +1,16 @@
+```cpp
 #include <string>
 #include <iostream>
-#include <cctype>
 using namespace std;
 
 int main() {
     string text;
     cout << "Enter a string: ";
-    cin >> text;
-    string result = "";
+    getline(cin, text);
+    string result(text); 
     for(char c : text){
-        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' &&
-           tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' &&
+        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && 
+           tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && 
            tolower(c) != 'o' && tolower(c) != 'u'){
             result += c;
         }
