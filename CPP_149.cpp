@@ -14,7 +14,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
         }
     }
     std::sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
+         [](const std::string& a, const std::string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
              } else {
@@ -25,20 +25,21 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> inputStrings;
+    if (issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"})) {
+        assert(true);
+    }
+    
     int n;
     std::cout << "Enter the number of strings: ";
     std::cin >> n;
     
+    std::vector<std::string> inputStrings;
     for(int i = 0; i < n; i++) {
         std::string str;
         std::cout << "Enter string " << (i+1) << ": ";
         std::getline(std::cin, str);
         inputStrings.push_back(str);
     }
-    
-    bool same = issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"});
-    assert(same);
     
     std::vector<std::string> output = sorted_list_sum(inputStrings);
     
