@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <map>
@@ -13,8 +13,9 @@ int search(std::vector<int> lst) {
         }
     }
     for (auto it = freq.begin(); it != freq.end(); ++it) {
-        if (it->second >= it->first && it->first > 0) {
-            return it->first * it->second;
+        auto found = freq.find(it->first);
+        if (found != freq.end() && found->second >= found->first && found->first > 0) {
+            return found->first * found->second;
         }
     }
     return -1;
