@@ -13,6 +13,9 @@ int main() {
 
     int nickles = cents / 5;
     cents %= 5;
+    if (cents > 0) {
+        cents %= 5;
+    }
 
     int pennies = cents;
 
