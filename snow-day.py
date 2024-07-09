@@ -1,3 +1,4 @@
+```
 def snow_day():
     inputs = input("Enter hours and snow data (space separated): ").split()
     
