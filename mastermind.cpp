@@ -1,7 +1,6 @@
-```cpp
+#include <iostream>
 #include <string>
 #include <unordered_map>
-#include <iostream>
 
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
@@ -30,12 +29,9 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "ABCD";
-    std::string guess1 = "ABAD";
-    std::cout << mastermind(code, guess1).first << " white pegs and " << mastermind(code, guess1).second << " black pegs." << std::endl;
-
-    std::string guess2 = "BCDF";
-    std::cout << mastermind(code, guess2).first << " white pegs and " << mastermind(code, guess2).second << " black pegs." << std::endl;
-    
+    std::string code = "AAAA";
+    std::string guess = "ABCD";
+    auto result = mastermind(code, guess);
+    std::cout << "White pegs: " << result.first << ", Black pegs: " << result.second << std::endl;
     return 0;
 }
