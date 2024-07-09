@@ -1,4 +1,5 @@
 double find_zero(vector<double> xs){
-    double x = -xs[1]/(2*abs(xs[1]));
-    return poly(xs,x);
+    if(xs.size() % 2 != 0) return -1; 
+    double root = -xs[1]/(2*xs[0]); 
+    return std::round(root);
 }
