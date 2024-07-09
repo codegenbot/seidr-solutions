@@ -1,4 +1,3 @@
-```
 def find_zero(xs):
     n = len(xs)
     a = xs[n//2]
