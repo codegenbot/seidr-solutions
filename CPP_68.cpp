@@ -1,13 +1,18 @@
+Here is the solution:
+
 vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> nodes;
+    int smallest = INT_MAX;
+    int index = -1;
+    
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0) {
-            nodes.emplace_back(arr[i], i);
+        if (arr[i] % 2 == 0 && arr[i] < smallest) {
+            smallest = arr[i];
+            index = i;
         }
     }
-    if (nodes.empty()) {
+    
+    if (smallest == INT_MAX)
         return {};
-    }
-    sort(nodes.begin(), nodes.end());
-    return {{nodes[0].first, nodes[0].second}};
+    else
+        return {(int)smallest, index};
 }
