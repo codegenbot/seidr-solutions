@@ -18,14 +18,13 @@ int smallest_change(vector<int> arr) {
             if (arr[i] == arr[j]) {
                 dp[i][j] = 0;
             } else {
-                dp[i][j] = 1 + min(dp[i+1][j-1], max(dp[i+1][j-1], dp[i][j-1]));
+                dp[i][j] = 1 + min({dp[i+1][j-1], max(dp[i+1][j-1], dp[i][j-1])}.max());
             }
         }
     }
     
     return dp[0][n-1];
 }
-
 int main() {
     assert(smallest_change({0, 1}) == 1);
     return 0;
