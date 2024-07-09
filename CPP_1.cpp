@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -54,8 +55,10 @@ int main() {
         }
     }
 
-    assert(issame("( ) (( ")); // or any other valid input for the issame function
-
-    cout << "Result: " << separate_paren_groups(s) << endl;
+    string test1 = "( ) (( ";
+    string test2 = "(())";
+    cout << "Result: " << separate_paren_groups(test1) << endl;
+    cout << "Result: " << separate_paren_groups(test2) << endl;
+    assert(issame(s));
     return 0;
 }
