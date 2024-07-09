@@ -1,4 +1,10 @@
+bool issame(char a, char b);
+
 vector<string> separate_paren_groups(string paren_string);
+
+bool issame(char a, char b) {
+    return a == b;
+}
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
