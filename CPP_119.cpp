@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <iostream>
+#include <cassert>
 
 std::string match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
@@ -20,8 +20,6 @@ std::string match_parens(std::vector<std::string> lst) {
     return (open == 0 && close <= 1) ? "Yes" : "No";
 }
 
-int main() {
-    std::vector<std::string> input = {")", "("};
-    std::cout << match_parens(input);
-    return 0;
+void main() {
+    assert (match_parens({")", "("}) == "Yes" );
 }
