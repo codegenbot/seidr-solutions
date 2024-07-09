@@ -1,10 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
 std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
     while (!lst.empty()) {
@@ -30,7 +26,7 @@ int main() {
     
     std::vector<int> output = strange_sort_list(input);
     
-    if (issame(output, {1,2,3,4,5,6})) {
+    if (output == std::vector<int>({1,2,3,4,5,6})) {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
