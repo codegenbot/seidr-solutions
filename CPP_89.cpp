@@ -1,20 +1,14 @@
-string encrypt(string s){
-    string alphabet = "abcdefghijklmnopqrstuvwxyz";
+Here is the completed code:
+
+string encrypt(string s) {
     string result = "";
-    
-    for(int i=0; i<s.length(); i++){
-        char c = tolower(s[i]);
-        
-        if(c < 'a' + 2 || c > 'z'){
+    for (char c : s) {
+        if (isalpha(c)) {
+            char base = (c > 'm') ? 'a' : 'm';
+            result += (char)((c - base + 2 * 26 / 2) % 26 + base);
+        } else {
             result += c;
-            continue;
         }
-        
-        int pos = (c - 'a') % 26;
-        pos = (pos + 2 * 2) % 26; // shift down by two multiplied to two places
-        
-        result += alphabet[pos];
     }
-    
     return result;
 }
