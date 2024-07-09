@@ -1,4 +1,5 @@
 #include <iostream>
+
 int score(std::string s) {
     int total = 0;
     int frame = 1;
