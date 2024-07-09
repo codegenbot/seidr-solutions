@@ -10,7 +10,7 @@ int how_many_times(const string& str, const string& substring) {
     
     while ((pos = str.find(substring)) != string::npos) {
         count++;
-        str.erase(0, pos + substring.length());
+        str = str.substr(pos + substring.length());
     }
     return count;
 

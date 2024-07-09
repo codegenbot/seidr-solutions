@@ -7,6 +7,7 @@ int main() {
     string text;
     cout << "Enter a string: ";
     getline(cin, text);
+    cin.ignore(); // ignore remaining characters
     string new_result = remove_vowels(text);  
     cout << "String after removing vowels: " << new_result << endl;
     return 0;
