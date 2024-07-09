@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int basement(std::vector<int>& v) {
@@ -19,3 +20,4 @@ int main() {
         std::cout << "No such index found." << std::endl;
     }
     return 0;
+}
