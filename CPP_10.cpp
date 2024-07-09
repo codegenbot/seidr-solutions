@@ -1,4 +1,3 @@
-```cpp
 #include<stdio.h>
 #include<string>
 using namespace std;
@@ -17,6 +16,5 @@ string make_palindrome(string str){
     string prefix=str.substr(0,i+1);
     std::string rev = str.substr(0, i + 1);
     std::reverse(rev.begin(), rev.end());
-    string postfix=rev+str.substr(i+1);
-    return postfix;
+    return str.substr(i+1) + rev;
 }
