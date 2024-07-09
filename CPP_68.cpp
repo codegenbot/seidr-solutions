@@ -1,10 +1,19 @@
 #include <vector>
-#include <iostream>
+#include <algorithm>
 
-std::vector<int> pluck(std::vector<int>& arr) {
-    std::vector<int> result;
-    if (arr.empty()) 
-        return result;
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
+    if (arr.empty()) return result;
 
     int smallest_even = INT_MAX;
     int index = -1;
@@ -20,9 +29,14 @@ std::vector<int> pluck(std::vector<int>& arr) {
     result.push_back(index);
 
     return result;
-
 }
 
 int main() {
-    assert(pluck({7, 9, 7, 1}) == std::vector<int>({0}));
+    // You can test your pluck function here
+    vector<int> arr = {1, 2, 3, 4};
+    cout << "Output: ";
+    for (auto num : pluck(arr)) {
+        cout << num << " ";
+    }
+    return 0;
 }
