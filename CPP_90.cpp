@@ -1,7 +1,13 @@
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // returning None equivalent value
-    vector<int> copy = lst;
-    sort(copy.begin(), copy.end());
-    auto it = prev(lower_bound(copy.begin(), copy.end(), copy[1]));
-    return *it == copy[0] ? -1 : *it; // returning None equivalent value if all elements are the same
+int next_smallest(vector<int> lst){
+    if(lst.size() < 2) return -1; // or return None in Python
+    
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    
+    for(int i=0; i<sorted.size()-1; i++){
+        if(sorted[i] != sorted[i+1])
+            return sorted[i+1];
+    }
+    
+    return -1; // or return None in Python
 }
