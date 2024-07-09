@@ -31,7 +31,7 @@ vector<string> bf(string planet1, string planet2) {
     for (int i = 0; i < planets.size(); i++) {
         if (i >= minIndex && i <= maxIndex)
             continue;
-        if (i < minIndex) {
+        else if (i < minIndex) {
             result.push_back(planets[i]);
         }
         else {
