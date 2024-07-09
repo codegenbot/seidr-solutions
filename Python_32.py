@@ -1,14 +1,10 @@
 def solve(a, b, c):
-    return -c / b
+    return -c / b if b != 0 else "Division by zero is not allowed!"
 
 
-while True:
-    try:
-        a, b, c = map(int, input().split())
-        break
-    except ValueError:
-        print("Input must contain three integers separated by spaces. Try again.")
-        continue
-
-result = solve(a, b, c)
-print(result)
+try:
+    a, b, c = map(int, input().split())
+    result = solve(a, b, c)
+    print(result)
+except ValueError:
+    print("Invalid input. Please provide three integers separated by spaces.")
