@@ -1,12 +1,18 @@
+```
 def fizz_buzz(n: int):
-    result = ''
+    """
+    Returns a string consisting of numbers from 1 to n, replaced by
+    "Fizz" if the number is divisible by 3, "Buzz" if it's divisible by 5,
+    and "FizzBuzz" if it's divisible by both. Otherwise, just the number.
+    """
+    result = []
     for i in range(1, n+1):
-        if i % 3 == 0 and i % 5 == 0:
-            result += 'FizzBuzz '
+        if i % 15 == 0: 
+            result.append("FizzBuzz")
         elif i % 3 == 0:
-            result += 'Fizz '
+            result.append("Fizz")
         elif i % 5 == 0:
-            result += 'Buzz '
+            result.append("Buzz")
         else:
-            result += str(i) + ' '
-    return result.strip()
+            result.append(str(i))
+    return "".join(result)
