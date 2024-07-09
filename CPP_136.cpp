@@ -1,15 +1,13 @@
 #include <vector>
+#include <cassert>
+#include <climits>
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-vector<int> largest_smallest_integers(vector<int> lst){
-    int largest_negative = 0, smallest_positive = 0;
+vector<int> largest_smallest_integers(vector<int> lst) {
+    int largest_negative = INT_MIN, smallest_positive = INT_MAX;
     for (int num : lst) {
-        if (num < 0 && num < largest_negative) {
+        if (num < 0 && num > largest_negative) {
             largest_negative = num;
-        } else if (num > 0 && (num < smallest_positive || smallest_positive == 0)) {
+        } else if (num > 0 && num < smallest_positive) {
             smallest_positive = num;
         }
     }
@@ -17,6 +15,6 @@ vector<int> largest_smallest_integers(vector<int> lst){
 }
 
 int main() {
-    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+    assert(largest_smallest_integers({-6, -4, -4, -3, -100, 1}) == {-100, 1});
     return 0;
 }
