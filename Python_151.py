@@ -1,2 +1,3 @@
 def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i > 0) * 2 - max(lst)
+    odd_sum = sum(i for i in lst if isinstance(i, int) and i >= 0 and i % 2 == 0)
+    return odd_sum * 2
