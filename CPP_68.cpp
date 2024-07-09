@@ -4,9 +4,7 @@
 #include <cassert>
 #include <iostream>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -14,12 +12,12 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
 
     if (arr.empty()) return result;
 
-    int minEven = SIZE_MAX;
+    int minEven = INT_MAX;
     int minIndex = -1;
 
     for (int i = 0; i < arr.size(); i++) {
@@ -37,13 +35,13 @@ vector<int> pluck(vector<int> arr) {
 }
 
 int mainFunction() {
-    vector<int> input = {7, 9, 7, 1};
-    vector<int> output = pluck(input);
+    std::vector<int> input = {7, 9, 7, 1};
+    std::vector<int> output = pluck(input);
     assert(issame(output, {}));
-    cout << "Output: ";
+    std::cout << "Output: ";
     for (int i : output) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
     return 0;
 }
