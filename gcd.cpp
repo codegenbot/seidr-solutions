@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <limits>
 
 int findGCD(int a, int b) {
     if (b == 0) return std::abs(a);
@@ -27,15 +28,14 @@ int main() {
     int a, b;
     std::cout << "Enter two numbers: ";
     std::cin >> a >> b;
-    std::cin.ignore();
     int result = findGCD(a, b);
     std::cout << "The GCD is: " << result << std::endl;
 
     std::string text, target;
     std::cout << "Enter the text: ";
-    getline(std::cin, text); 
+    std::getline(std::cin, text); 
     std::cout << "Enter the target string: ";
-    getline(std::cin, target);
+    std::getline(std::cin, target);
     std::vector<int> indices = findIndices(text, target);
     for (int i : indices) {
         std::cout << i << " ";
