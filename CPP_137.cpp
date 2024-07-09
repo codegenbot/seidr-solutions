@@ -1,40 +1,41 @@
-Here is the completed code:
-
-```cpp
 #include <boost/any.hpp>
 #include <string>
-
-using namespace boost;
+#include <algorithm>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+    if (a.type() == typeid(float) && b.type() == typeid(int)) {
         return b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        if (str1 > str2)
+    if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (stod(a.to_string()) > stod(b.to_string())) {
             return a;
-        else if (str1 < str2)
+        } else if (stod(a.to_string()) < stod(b.to_string())) {
             return b;
-        else
-            return any("None");
+        } else {
+            return boost::any("None");
+        }
     }
-    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
-        string str = boost::any_cast<string>(a);
-        int num = boost::any_cast<int>(b);
-        double dnum = boost::any_cast<double>(b);
-        if (str > std::to_string(num))
+    if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
+        double x = stod(a.to_string());
+        if ((typeid(int) == b.type()) ? x : (double)b.convert_to<double>()) > x) {
             return a;
-        else if (str > std::to_string(dnum))
-            return a;
-        else
-            return any("None");
+        } else {
+            return b;
+        }
     }
-    else {
-        return any("None");
+    if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(string)) {
+        double x = (a.type() == typeid(int)) ? (double)a.convert_to<int>() : (double)a.convert_to<float>();
+        if (stod(b.to_string()) > x) {
+            return b;
+        } else {
+            return boost::any("None");
+        }
     }
+    if ((typeid(int) == a.type()) && (typeid(int) == b.type())) {
+        return boost::any((int)max((int)a.convert_to<int>(), (int)b.convert_to<int>()));
+    }
+    return boost::any();
 }
