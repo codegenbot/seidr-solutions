@@ -8,8 +8,5 @@ def count_up_to(n):
                 return False
         return True
 
-    primes = []
-    for i in range(2, n):
-        if is_prime(i):
-            primes.append(i)
+    primes = [i for i in range(2, n) if is_prime(i)]
     return primes
