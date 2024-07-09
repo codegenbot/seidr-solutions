@@ -1,4 +1,3 @@
-```
 #include <iostream>
 using namespace std;
 
@@ -7,7 +6,7 @@ bool same_chars(string s1, string s2) {
         return false;
     }
     for(int i = 0; i < s1.size(); i++){
-        if((char)s1[i] != (char)s2[i]) { 
+        if(s1[i] != s2[i]) { 
             return false;
         }
     }
@@ -23,9 +22,9 @@ int main() {
     getline(cin, s2);
     
     if (same_chars(s1, s2)) {
-        cout << "True";
+        cout << "The strings are identical.\n";
     } else {
-        cout << "False";
+        cout << "The strings are not identical.\n";
     }
     return 0;
 }
