@@ -1,4 +1,3 @@
-```Python
 from typing import List, Any
 
 def filter_integers(values: List[Any]) -> List[int]:
@@ -12,4 +11,4 @@ def filter_integers(values: List[Any]) -> List[int]:
             result.extend(temp_values)
         except ValueError:
             print("Invalid input. Please enter only integers separated by spaces.")
-    return [value for value in result if isinstance(value, int)]
+    return [value for value in set(result) if isinstance(value, int)]
