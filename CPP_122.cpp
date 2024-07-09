@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -13,13 +12,11 @@ int add_elements(vector<int> arr, int k) {
     return sum;
 }
 
-vector<int> arr;
-int n, k;
-
-void main() {
+int main_func() {
+    int n, k;
     cout << "Enter the number of elements: ";
     cin >> n;
-    arr.resize(n);
+    vector<int> arr(n);
     for (int i = 0; i < n; i++) {
         cout << "Enter element " << i + 1 << ": ";
         cin >> arr[i];
@@ -28,4 +25,5 @@ void main() {
     cin >> k;
     int result = add_elements(arr, k);
     cout << "Sum of elements: " << result << endl;
+    return 0;
 }
