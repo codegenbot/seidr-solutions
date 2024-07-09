@@ -1,23 +1,12 @@
 #include <boost/any.hpp>
 #include <string>
 
-int main() {
-    boost::any a = "hello";
-    boost::any b = "hi";
-
-    boost::any result = compare_one(a, b);
-
-    std::cout << boost::any_cast<std::string>(result) << std::endl;
-
-    return 0;
-}
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return typeid(int);
+        return boost::any(1.5);
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        return typeid(float);
+        return boost::any("equal");
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
@@ -27,9 +16,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (strA < strB)
             return b;
         else
-            return typeid(std::string);
+            return boost::any("Equal");
     }
     else {
-        return typeid(int);
+        return boost::any(1.0);
     }
 }

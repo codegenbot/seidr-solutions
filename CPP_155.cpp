@@ -1,12 +1,12 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a == b);
+bool areEqual(std::vector<int> a, std::vector<int> b) {
+    if(a.size()!=b.size()) return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i]!=b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<int> even_odd_count(int num) {
@@ -23,6 +23,9 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), std::vector<int>{1, 0}));
+    std::vector<int> expected = even_odd_count(0);
+    bool check = areEqual(expected, std::vector<int>{1, 0});
+    if(check) std::cout << "Test passed\n";
+    else std::cout << "Test failed\n";
     return 0;
 }

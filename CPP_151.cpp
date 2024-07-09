@@ -1,12 +1,14 @@
-#include <vector>
+```
 #include <cmath>
+#include <vector>
+using namespace std;
 
-long long double_the_difference(const std::vector<float>& lst) {
+long long double_the_difference(vector<long long> lst) {
     long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && floor(num) == num) { 
-            if (fmod(num, 2.0) != 0.0) { 
-                sum += pow(num, 2);
+    for (long long num : lst) {
+        if (num > 0 && floor((double)num) == (double)num) { 
+            if (fmod((double)num, 2.0) != 0.0) { 
+                sum += pow((double)num, 2);
             }
         }
     }
@@ -14,7 +16,8 @@ long long double_the_difference(const std::vector<float>& lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5f, 2.0f, 3.5f};
-    long long result = double_the_difference(lst);
+    vector<long long> lst = {1.5, 2.0, 3.5};
+    long long odd_sum = double_the_difference(lst);
+    cout << "The sum of squares is: " << odd_sum << endl;
     return 0;
 }
