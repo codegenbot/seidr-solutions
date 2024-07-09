@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
 int luhn(std::vector<int> digits) {
     int sum = 0;
@@ -19,8 +19,13 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    // Example usage
-    std::vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 1, 0};
-    int result = luhn(digits);
+    vector<int> digits;
+    cout << "Enter a credit card number: ";
+    for(int i=0; i<16; i++) {
+        int temp;
+        cin >> temp;
+        digits.push_back(temp);
+    }
+    cout << "The Luhn check result is: " << luhn(digits) << endl;
     return 0;
 }
