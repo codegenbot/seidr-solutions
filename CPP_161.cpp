@@ -1,19 +1,27 @@
 #include <iostream>
+#include <string>
 #include <algorithm>
+#include <cassert>
 
-std::string solve(const std::string& s) {
-    std::string result = s;
-    for (auto& c : result) {
+using namespace std;
+
+string solve(string s) {
+    bool hasLetter = false;
+    for (char &c : s) {
         if (isalpha(c)) {
+            hasLetter = true;
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    std::reverse(result.begin(), result.end());
-    return result;
+    if (!hasLetter) {
+        reverse(s.begin(), s.end());
+    }
+    return s;
 }
 
 int main() {
     assert(solve("#ccc") == "#CCC");
+    assert(solve("123") == "321");
     // Add more test cases here
     return 0;
 }
