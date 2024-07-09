@@ -11,6 +11,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
 
     while (std::getline(ss, token, delimiter)) {
         tokens.push_back(token); 
+        if (ss.peek() == std::char_traits<char>::eof()) break;
     }
 
     return tokens;
@@ -20,15 +21,15 @@ std::string spinWords(const std::string& str) {
     std::vector<std::string> words = split(str, ' ');
     std::string result;
 
-    for (const auto& word : words) {
-        if (word.length() >= 5) {
-            result += std::string(word.rbegin(), word.rend()) + " ";
+    for (int i = 0; i < words.size(); i++) {
+        if (words[i].length() >= 5) {
+            result += std::string(words[i].rbegin(), words[i].rend()) + " ";
         } else {
-            result += word + " ";
+            result += words[i] + " ";
         }
     }
 
-    return result.substr(0, result.size() - 1);
+    return result;
 }
 
 int main() {
