@@ -1,3 +1,12 @@
-bool is_happy(string s){
-    return (s.length() < 3) ? false : !((s[0] == s[1]) || (s[1] == s[2]) || (s[0] == s[2])); 
+#include <string>
+#include <cassert>
+
+bool is_happy(string s) {
+    if (s.length() < 3) return false;
+    for (int i = 0; i <= s.length() - 3; i++) {
+        if (s[i] == s[i + 1] || s[i] == s[i + 2] || s[i + 1] == s[i + 2]) {
+            return false;
+        }
+    }
+    return true;
 }
