@@ -1,3 +1,8 @@
+#include <vector>
+#include <climits>
+
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<int>> dp(n, vector<int>(n));
@@ -18,12 +23,20 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (dp[i][j] == cur) {
-                res[k-1] = grid[i][j];
-                k--;
-                if (k == 0) return res;
-                break;
+                for(int x=0;x<k;x++){
+                    res[x] = grid[i][j];
+                }
+                return res;
             }
         }
     }
     return {};
+}
+
+bool same(vector<int> a, vector<int> b){
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size();i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
