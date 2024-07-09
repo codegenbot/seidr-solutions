@@ -1,7 +1,9 @@
 #include <iostream>
 #include <cmath>
 
-int abs(int n) { return n >= 0 ? n : -n; }
+int abs(int x) {
+    return x < 0 ? -x : x;
+}
 
 int gcd(int a, int b) {
     a = abs(a);
