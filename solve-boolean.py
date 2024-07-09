@@ -3,6 +3,10 @@ def solve_boolean(expression):
     return evaluate_expression(expression)
 
 def evaluate_expression(expression):
+    if expression.isnumeric():
+        return int(expression) == 1
+    elif expression.isdigit():
+        return bool(int(expression))
     if "(" in expression:
         end = expression.index(")")
         return evaluate_expression("(" + expression[:end+1])
