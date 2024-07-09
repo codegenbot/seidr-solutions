@@ -2,12 +2,26 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool same(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
     }
     return true;
+}
+
+int main() {
+    std::cout << "Enter the number: ";
+    int n;
+    std::cin >> n;
+    std::vector<int> result = get_odd_collatz(n);
+    std::cout << "The Collatz sequence for " << n << " is: ";
+    for (int i : result) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
 
 std::vector<int> get_odd_collatz(int n) {
@@ -24,9 +38,4 @@ std::vector<int> get_odd_collatz(int n) {
     }
     std::sort(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    assert(isSame(get_odd_collatz(12), {6, 3, 1})); 
-    return 0;
 }
