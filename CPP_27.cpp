@@ -1,3 +1,4 @@
+```c++
 #include <cassert>
 #include <string>
 
@@ -15,8 +16,7 @@ std::string flip_case(const std::string& input) {
     return result;
 }
 
-int testMain() {
-    std::string expected = "theSE Violent Delights Have Violent Ends";
-    assert(flip_case("These violent delights have violent ends").compare(expected) == 0);
+int main() {
+    assert(flip_case("These violent delights have violent ends") == "tHESE vIOLENT dELIGHTS hAVE vIOLENT eNDS");
     return 0;
 }
