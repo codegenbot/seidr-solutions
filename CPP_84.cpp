@@ -12,7 +12,4 @@ std::string solve(int N) {
     return std::bitset<32>(sum).to_string().substr(32 - sum);
 }
 
-int main() {
-    assert(solve(963) == "10010");
-    return 0;
-}
+assert(solve(963) == "10010");
