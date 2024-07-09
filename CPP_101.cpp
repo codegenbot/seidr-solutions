@@ -16,21 +16,16 @@ std::vector<std::string> words_string(std::string s){
     std::string word = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
-            if(word.length() <= 30) 
+            if(word.length() <= 30 || word.length() > 0){ 
                 result.push_back(word);
-            else{
-                result.push_back(std::string(word.begin(), word.begin()+29).append("..."));
+                word = "";
             }
-            word = "";
         }else{
             word += s[i];
         }
     }
-    if(word.length() <= 30) 
+    if(word.length() <= 30 || word.length() > 0) 
         result.push_back(word);
-    else{
-        result.push_back(std::string(word.begin(), word.begin()+29).append("..."));
-    }
     return result;
 }
 
