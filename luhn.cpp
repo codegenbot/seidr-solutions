@@ -1,8 +1,13 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 int luhn(const vector<int>& digits) {
     int sum = 0;
     bool doubleNext = false;
-
-    for (int i = digits.size() - 1; i >= 0; i--) {
+    
+    for (int i = 0; i < digits.size(); i++) {
         if (doubleNext) {
             int doubled = digits[i] * 2;
             if (doubled > 9) {
@@ -16,6 +21,16 @@ int luhn(const vector<int>& digits) {
             doubleNext = !doubleNext;
         }
     }
-
-    return sum % 10; 
+    
+    return sum;
 }
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> digits(n);
+    for (int i = 0; i < n; i++) {
+        cin >> digits[i];
+    }
+    cout << luhn(digits) << endl;
+    return 0;
