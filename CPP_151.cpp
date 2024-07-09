@@ -8,7 +8,7 @@ long long double_the_difference(std::vector<float> lst) {
     for (float num : lst) {
         if (num > 0 && std::floor(num) == num) { 
             if (num % 2 != 0) { 
-                sum += static_cast<long long>(std::pow(num, 2)); 
+                sum += std::pow(num, 2); 
             }
         }
     }
