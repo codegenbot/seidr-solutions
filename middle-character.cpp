@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
 
-namespace std {
 std::string middleCharacter(std::string s) {
     int len = s.length();
     if(len % 2 == 0) {
@@ -17,5 +15,5 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     std::cout << middleCharacter(input) << std::endl;
+    return 0;
 }
-};
