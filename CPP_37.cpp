@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <algorithm>
 #include <vector>
 
@@ -19,7 +19,7 @@ namespace myspace {
                 auto it = std::minmax_element(l.begin(), l.end(),
                     [](float a, float b){ return a<b; });
                 result[i] = *(it.first);
-                for(int j = 0; j < l.size(); j++){
+                for(int j = evenIndex; j < l.size(); j++){
                     if(j%2==0 && l[j] != *(it.first)){
                         result[evenIndex++] = l[j];
                     }
@@ -32,7 +32,8 @@ namespace myspace {
     }
 }
 
-int main() {
+int main() 
+{
     std::vector<float> input(10);
     input.push_back(5.0f);
     input.push_back(8.0f);
@@ -57,4 +58,6 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
+
+    return 0;
 }
