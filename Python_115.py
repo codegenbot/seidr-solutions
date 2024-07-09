@@ -3,6 +3,20 @@ import math
 
 
 def max_fill(grid: List[List[int]], capacity: int) -> int:
+    """
+    You are given a grid of integers where each integer represents a cell in a grid.
+    The value at each cell represents the amount of water that can be stored in that cell.
+    Your task is to determine how much water you can store by filling up all the cells
+    in the grid, assuming that the water level rises evenly throughout the entire grid.
+
+    Args:
+        grid (List[List[int]]): A 2D list representing the grid of integers.
+        capacity (int): The maximum amount of water that can be stored.
+
+    Returns:
+        int: The maximum amount of water that can be stored in the grid.
+    """
+
     if not grid or not all(len(row) == len(grid[0]) for row in grid):
         raise ValueError("Grid should be a square")
 
