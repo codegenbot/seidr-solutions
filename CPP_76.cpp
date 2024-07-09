@@ -1,8 +1,10 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
 bool isSimplePower(int num) {
+    if (num <= 1)
+        return false;
     for (int base = 2; base * base <= num; ++base) {
         int power = 1;
         while (power * base <= num) {
