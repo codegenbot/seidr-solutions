@@ -1,6 +1,4 @@
-if (a * a == b * b + c * c || b * b == a * a + c * c || c * c == a * a + b * b) {
-        return true;
-    } else {
-        return false;
-    }
+float hypo = max(max(a, b), c);
+    float sum_squares = (a * a) + (b * b) + (c * c) - (hypo * hypo);
+    return sum_squares == (hypo * hypo);
 }
