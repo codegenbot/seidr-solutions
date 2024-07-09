@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <any>
 
@@ -14,3 +15,15 @@ std::vector<int> filter_integers(std::vector<std::any> values) {
         }
     }
     return result;
+}
+
+int main() {
+    std::vector<std::any> values = {1, 2, 3, 4.5};
+    std::vector<int> integers = filter_integers(values);
+    
+    if (issame({1, 2}, integers)) {
+        std::cout << "The vectors are the same." << std::endl;
+    } else {
+        std::cout << "The vectors are not the same." << std::endl;
+    }
+}
