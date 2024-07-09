@@ -19,12 +19,10 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(same(even_odd_count(0), std::vector<int>{1, 0}));
-    int number = 123456;
-    std::vector<int> output = even_odd_count(number);
+    assert(same(even_odd_count(0), {1, 0}));
+    std::vector<int> output = even_odd_count(123456);
     for (int i : output) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
     return 0;
-}
