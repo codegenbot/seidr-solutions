@@ -8,5 +8,5 @@ std::string calculateBinary(int a, int b) {
 
 int main() {
     int rounded_avg = std::stoi(calculateBinary(5, 5), nullptr, 2);
-    assert(rounded_avg == 5 + 5);
+    assert(rounded_avg == 10);
 }
