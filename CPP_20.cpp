@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -22,7 +21,7 @@ Pair find_closest_elements(std::vector<float> numbers) {
     float minDiff = std::numeric_limits<float>::max();
     Pair closestPair;
     
-    for (int i = 0; i < numbers.size() - 2; ++i) {
+    for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < minDiff) {
             minDiff = diff;
