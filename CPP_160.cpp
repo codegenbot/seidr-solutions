@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <string>
 
 using namespace std;
 
@@ -18,9 +17,9 @@ int do_algebra(vector<string> ops, vector<int> nums) {
         } else if (ops[i] == "*") {
             temp *= nums[i];
         } else if (ops[i] == "/") {
-            temp /= stoi(to_string(nums[i]));
+            temp /= std::stoll(to_string(nums[i]));
         } else if (ops[i] == "^") {
-            temp = pow(temp, stoi(to_string(nums[i])));
+            temp = pow(temp, std::stoll(to_string(nums[i])));
         }
     }
 
@@ -38,12 +37,12 @@ int main() {
     for (int i = 0; i < n; i++) {
         string op;
         string strNum;
-
+        
         cout << "Enter operation (+, -, *, /, ^): ";
         cin >> op;
         cout << "Enter number: ";
         cin >> strNum;
-        int num = stoi(strNum);
+        int num = std::stoi(strNum);
         
         ops.push_back(op);
         nums.push_back(num);
