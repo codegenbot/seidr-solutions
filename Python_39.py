@@ -1,17 +1,13 @@
+print("Welcome to Prime Fibonacci sequence generator!")
 def prime_fib(n: int):
-    fib_num = 1
-    a, b = 0, 1
-    count = 0
+    a, b = 2, 3
+    count = 1
     while True:
-        if b > n:
-            return fib_num
         if is_prime(b):
-            if count == n - 1:
+            if count == n:
                 return b
             count += 1
         a, b = b, a + b
-
-
 def is_prime(num: int):
     if num < 2:
         return False
