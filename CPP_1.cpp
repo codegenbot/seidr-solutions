@@ -2,13 +2,25 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
-    std::vector<std::string> result;
-    std::string group;
+vector<string> separate_paren_groups(string paren_string);
+
+int main() {
+    string input;
+    getline(cin, input);
+    vector<string> groups = separate_paren_groups(input);
+    for (const auto& group : groups) {
+        cout << group << endl;
+    }
+    return 0;
+}
+
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string group;
     int balance = 0;
     
     for (char c : paren_string) {
@@ -29,17 +41,4 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     }
     
     return result;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-
-    std::vector<std::string> groups = separate_paren_groups(input);
-
-    for (const auto& group : groups) {
-        std::cout << group << std::endl;
-    }
-
-    return 0;
 }
