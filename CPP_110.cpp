@@ -1,19 +1,26 @@
+Here is the completed code:
+
 string exchange(vector<int> lst1, vector<int> lst2) {
-    for (int x : lst1) {
-        if (x % 2 != 0)
-            return "NO";
+    bool even = false;
+    for (int i : lst1) {
+        if (i % 2 != 0) {
+            even = true;
+            break;
+        }
     }
-    for (auto it = lst1.begin(); it != lst1.end(); ++it) {
-        bool found = false;
-        for (auto jt = lst2.begin(); jt != lst2.end(); ++jt) {
-            if (*it == *jt) {
-                *it = *jt; // replace in lst1
-                found = true;
-                break;
+    if (!even) {
+        return "YES";
+    } else {
+        int oddCount = 0;
+        for (int i : lst2) {
+            if (i % 2 != 0) {
+                oddCount++;
             }
         }
-        if (!found)
+        if (oddCount == 0 || oddCount == lst1.size()) {
             return "NO";
+        } else {
+            return "YES";
+        }
     }
-    return "YES";
 }
