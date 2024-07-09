@@ -11,8 +11,8 @@ vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> result;
     for(int i=0; i<n; i++){
-        if(grid[i][0] <= k){
-            k -= grid[i][0];
+        if(grid[i][1] <= k){
+            k -= grid[i][1];
             result.push_back(grid[i][0]);
         }
         else{
@@ -24,6 +24,6 @@ vector<int> minPath(vector<vector<int>> grid, int k){
 
 int main() {
     assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3}));
-
+    
     return 0;
 }
