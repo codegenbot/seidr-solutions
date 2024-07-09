@@ -4,13 +4,15 @@ int sum = 0;
     }
     
     if (sum <= w) {
-        vector<int> rev_q = q;
-        reverse(rev_q.begin(), rev_q.end());
-        
-        if (q == rev_q) {
-            return true;
+        bool balanced = true;
+        for (int i = 0; i < q.size() / 2; i++) {
+            if (q[i] != q[q.size() - 1 - i]) {
+                balanced = false;
+                break;
+            }
         }
+        return balanced;
+    } else {
+        return false;
     }
-    
-    return false;
 }
