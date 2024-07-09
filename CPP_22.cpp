@@ -28,7 +28,6 @@ int main() {
                 break; 
             }
         }
-        a.reserve(a.size() + 1);
         a.push_back(x);
     }
 
@@ -43,7 +42,6 @@ int main() {
                 break; 
             }
         }
-        b.reserve(b.size() + 1);
         b.push_back(x);
     }
 
