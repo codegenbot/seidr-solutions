@@ -1,30 +1,44 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
-    vector<string> result;
-    string word = "";
-    for(char c : txt) {
-        if(c == ' ' || c == ',') {
-            if(!word.empty()) {
-                result.push_back(word);
-                word = "";
+std::vector<std::string> split_words(const std::string& txt) {
+    std::vector<std::string> words;
+    std::string word;
+    for (char& c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
             }
         } else {
             word += c;
         }
     }
-    if(!word.empty()) {
-        result.push_back(word);
+    if (!word.empty()) {
+        words.push_back(word);
     }
-    if(result.size() == 1) {
-        int oddCount = 0;
-        for(char c : result[0]) {
-            if(islower(c) && (c - 'a') % 2 == 1) {
-                oddCount++;
+    if (words.empty()) {
+        int count = 0;
+        for (char& c : txt) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
+                count++;
             }
         }
-        result[0] = to_string(oddCount);
+        words.push_back(std::to_string(count));
     }
-    return result;
+    return words;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
