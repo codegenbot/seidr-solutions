@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
-#include <sstream>
+#include <boost/convert.hpp>
 
 using namespace std;
 
@@ -48,7 +48,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         iss >> bf;
         return (bf > ai) ? b : a;
     } else if (boost::any_cast<float>(a) == boost::any_cast<float>(b)) {
-        return any("None");
+        return boost::any("None");
     }
     return a;
 }
