@@ -1,10 +1,11 @@
-int prod_signs(vector<int> arr) {
+#include <vector>
+#include <numeric>
+
+int prod_signs(std::vector<int> arr) {
     if (arr.empty()) return -32768;
-    int productSign = 1;
-    long long sumMagnitude = 0;
-    for (int num : arr) {
-        productSign *= ((num > 0) ? 1 : ((num < 0) ? -1 : 0));
-        sumMagnitude += abs(num);
-    }
-    return productSign * sumMagnitude;
+
+    int sign_product = std::accumulate(arr.begin(), arr.end(), 1, 
+        [](int acc, int n){ return n == 0 ? acc : (n > 0 ? 1 : -1); });
+
+    return std::abs(std::accumulate(arr.begin(), arr.end(), 0)) * sign_product;
 }
