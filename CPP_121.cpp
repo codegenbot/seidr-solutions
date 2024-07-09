@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <cassert> 
+#include <cassert>
 using namespace std;
 
 int solution(vector<int> lst) {
