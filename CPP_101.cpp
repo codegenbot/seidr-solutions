@@ -1,5 +1,4 @@
-int testMain() {
-    vector<string> actual = splitString("ahmed     , gamal");
-    assert(isSameVectors(actual, {"ahmed", "gamal"}));
+int main() {
+    assert(isSameVectors(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
