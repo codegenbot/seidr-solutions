@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -14,14 +15,11 @@ int main() {
     float a, b, c;
     std::cout << "Enter three sides of the triangle: ";
     std::cin >> a >> b >> c;
-
     float area = triangle_area(a, b, c);
-    
-    if(area == -1.0f) {
-        std::cout << "Not a valid triangle." << std::endl;
+    if (area != -1.0) {
+        std::cout << "The area is: " << area << std::endl;
     } else {
-        std::cout << "The area of the triangle is: " << area << std::endl;
+        std::cout << "These sides do not form a valid triangle." << std::endl;
     }
-
     return 0;
 }
