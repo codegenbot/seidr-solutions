@@ -1,16 +1,17 @@
-#include <algorithm>
+#include <string>
 using namespace std;
 
-string make_palindrome(string str) {
-    string s = str;
-    int i = 0, j = s.size() - 1;
-    
-    while (i <= j && s[i] == s[j]) {
-        i++;
-        j--;
+bool is_palindrome(string str){
+    string s(str.rbegin(),str.rend());
+    return s==str;
+}
+
+string make_palindrome(string str){
+    if(is_palindrome(str)) return str;
+    for(int i=str.length()-1; i>=0; --i){
+        if(!is_palindrome(str.substr(0, i+1))){
+            return str + string(str.rbegin(), str.rend()).substr(i);
+        }
     }
-    
-    string rev = s.substr(i);
-    reverse(rev.begin(), rev.end());
-    return str + rev;
+    return str;
 }
