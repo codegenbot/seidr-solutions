@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <assert.h>
 
 int prod_signs(std::vector<int> arr){
     int product = 1;
