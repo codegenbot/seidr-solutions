@@ -1,11 +1,13 @@
-```
+```cpp
 #include <vector>
+#include <initializer_list>
 #include <assert.h>
+using namespace std;
 
 bool has_close_elements(float a[], int n, float tol) {
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
-            if (std::abs(a[i] - a[j]) <= tol) {
+            if (abs(a[i] - a[j]) <= tol) {
                 return true;
             }
         }
