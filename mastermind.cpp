@@ -1,30 +1,25 @@
 int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+    int whitePegs = 0;
+    int blackPegs = 0;
     
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
+            blackPegs++;
         }
     }
     
-    for (int i = 0; i < 4; i++) {
-        string temp = "";
-        for (int j = 0; j < 4; j++) {
-            if (guess[j] != code[i]) {
-                temp += guess[j];
-            }
-        }
-        
+    for (char c : code) {
         int count = 0;
-        for (int j = 0; j < 4; j++) {
-            if (temp.find(guess[j]) != string::npos) {
+        for (char d : guess) {
+            if (c == d) {
                 count++;
             }
         }
-        
-        white = max(white, count);
+        if (count > 1 || count == 1 && blackPegs > 0) {
+            continue;
+        }
+        whitePegs += count - blackPegs > 0 ? 1 : 0;
     }
     
-    return make_pair(black, white).second;
+    return {whitePegs, blackPegs};
 }
