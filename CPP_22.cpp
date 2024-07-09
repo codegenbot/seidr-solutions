@@ -3,25 +3,31 @@
 #include <vector>
 
 bool filter_integers(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() { 
     int n;
     std::cin >> n;
 
-    std::vector<int> a(n);
-    std::vector<int> b(n);
+    std::vector<int> a;
+    std::vector<int> b;
 
     for(int i = 0; i < n; ++i)
         {
             int x;
             std::cin >> x;
-            a[i] = x;
-            b[i] = x; 
+            a.push_back(x);
         }
 
-    if(a == b)
+    for(int i = 0; i < n; ++i)
+        {
+            int x;
+            std::cin >> x;
+            b.push_back(x);
+        }
+
+    if (filter_integers(a, b))
         std::cout << "The two vectors are the same." << std::endl;
     else
         std::cout << "The two vectors are not the same." << std::endl;
