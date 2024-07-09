@@ -1,9 +1,13 @@
 #include <vector>
 
-vector<int> factorize(int n){
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> factorize(int n) {
     vector<int> factors;
-    for(int i = 2; i * i <= n; i++){
-        while(n % i == 0){
+    for(int i=2; i*i<=n; i++){
+        while(n%i == 0){
             factors.push_back(i);
             n /= i;
         }
@@ -15,5 +19,6 @@ vector<int> factorize(int n){
 }
 
 int main() {
-    std::vector<int> result = factorize(100);
+    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
+    return 0;
 }
