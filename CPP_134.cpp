@@ -1,2 +1,6 @@
-size_t last_space = txt.find_last_of(' ');
-return (last_space == string::npos || txt[last_space + 1] <= ' ') && isalpha(txt.back());
+```cpp
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()) return false;
+    string lastChar = txt.substr(txt.length() - 1);
+    return isalpha(lastChar[0]) && (!isalpha(txt[txt.length()-2]) || txt[txt.length()-2] == ' ');
+}
