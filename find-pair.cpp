@@ -1,24 +1,17 @@
 #include <vector>
-#include <algorithm>
+#include <unordered_map>
 #include <iostream>
 
 using namespace std;
 
 pair<int, int> findPair(vector<int>& nums, int target) {
-    sort(nums.begin(), nums.end());
+    unordered_map<int, int> numMap;
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
-        int left = i + 1;
-        int right = nums.size() - 1;
-        while (left <= right) {
-            if (nums[left] + nums[right] == complement) {
-                return {nums[left], nums[right]};
-            } else if (nums[left] + nums[right] < complement) {
-                left++;
-            } else {
-                right--;
-            }
+        if (numMap.count(complement)) {
+            return {complement, nums[i]};
         }
+        numMap[nums[i]] = i;
     }
     return {-1, -1};
 }
