@@ -1,8 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <cmath>
-
-const float epsilon = 0.0001;
+#include <cassert>
 
 void rescale_to_unit(std::vector<float>& numbers) {
     float min_num = *std::min_element(numbers.begin(), numbers.end());
@@ -14,15 +12,10 @@ void rescale_to_unit(std::vector<float>& numbers) {
 }
 
 int main() {
-    std::vector<float> numbers = {3.0, 7.0, 1.0, 9.0};
-    
-    rescale_to_unit(numbers);
-    
-    for (float num : numbers) {
-        // Implementation of custom comparison to check within tolerance
-        bool isEqual = std::abs(num - (num - 1) / (9 - 1)) < epsilon;
-        assert(isEqual);
-    }
-    
+    std::vector<float> input = {12.0, 11.0, 15.0, 13.0, 14.0};
+    rescale_to_unit(input);
+
+    assert(input == std::vector<float>{0.25, 0.0, 1.0, 0.5, 0.75});
+
     return 0;
 }
