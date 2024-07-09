@@ -1,6 +1,6 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) return false;
@@ -42,4 +42,21 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y,
         }
     }
     visited[x][y] = false;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1,2},{3,4}};
+    int k = 0;
+    vector<int> res = minPath(grid, k);
+    
+    if(res.size() > 0) {
+        for(int i : res) {
+            cout << i << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "No valid path found" << endl;
+    }
+
+    return 0;
 }
