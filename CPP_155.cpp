@@ -1,6 +1,8 @@
-```cpp
-#include <vector>
 #include <string>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
 std::vector<int> even_odd_count(int num) {
     int evens = 0, odds = 0;
@@ -12,8 +14,4 @@ std::vector<int> even_odd_count(int num) {
             odds++;
     }
     return {evens, odds};
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
