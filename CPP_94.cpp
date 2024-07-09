@@ -21,10 +21,4 @@ bool isPrime(int n) {
         if(n % i == 0) return false;
     }
     return true;
-
-int main() {
-    vector<int> lst = {127, 97, 8192};
-    int result = skjkasdkd(lst);
-    assert(result == 10);
-    return 0;
 }
