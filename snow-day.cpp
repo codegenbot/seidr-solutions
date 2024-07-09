@@ -1,22 +1,20 @@
-```cpp
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 int main() {
-    int hours;
+    double hours;
     cout << "Enter the number of hours: ";
     cin >> hours;
     
-    float initialSnow;
+    double initialSnow;
     cout << "Enter the initial snow on the ground (in feet): ";
     cin >> initialSnow;
     
-    float rateOfSnowFall;
+    double rateOfSnowFall;
     cout << "Enter the rate of snow fall per hour (in feet/hour): ";
     cin >> rateOfSnowFall;
     
-    float proportionOfSnowMeltingPerHour;
+    double proportionOfSnowMeltingPerHour;
     cout << "Enter the proportion of snow melting per hour: ";
     cin >> proportionOfSnowMeltingPerHour;
 
@@ -27,8 +25,7 @@ int main() {
         totalSnow -= initialSnow * proportionOfSnowMeltingPerHour;
     }
     
-    cout << "The amount of snow on the ground after " << hours << " hours is: ";
-    cout << std::fixed << std::setprecision(2) << totalSnow << endl;
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << endl;
 
     return 0;
 }
