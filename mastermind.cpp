@@ -1,14 +1,12 @@
 #include <string>
-#include <map>
 #include <unordered_map>
-#include <utility>
 
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    std::unordered_map<char, int> codeCount;
-    std::unordered_map<char, int> guessCount;
+    std::unordered_map<char, unsigned int> codeCount;
+    std::unordered_map<char, unsigned int> guessCount;
     for (int i = 0; i < 4; ++i) {
         codeCount[code[i]]++;
         guessCount[guess[i]]++;
