@@ -6,10 +6,13 @@
 
 using namespace std;
 
-bool issame(const string& a, const string& s) {
+bool issame(const string& a, const vector<string>& b, const string& s) {
     bool found = false;
-    if (s == a) {
-        found = true;
+    for (const auto& str : b) {
+        if (str == a) {
+            found = true;
+            break;
+        }
     }
     return found;
 }
@@ -55,7 +58,8 @@ int main() {
         }
     }
 
-    assert(issame(separate_paren_groups("( ) (( ")) == issame("(())", "(())"));
+    string groups[] = { "", "(())", "(()())" };
+    assert(issame(separate_paren_groups("( ) (( )) (( )( )"), &groups[0]));
 
     cout << "Result: " << separate_paren_groups(s) << endl;
     return 0;
