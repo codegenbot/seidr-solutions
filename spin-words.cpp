@@ -1,4 +1,3 @@
-```c++
 #include <string>
 #include <algorithm>
 
@@ -33,11 +32,10 @@ string spinWords(string str) {
     }
 
     return result;
-
 }
 
 int main() {
-    string input = "Hello World";
-    cout << spinWords(input) << endl;
+    string str = "Hello World";
+    cout << spinWords(str) << endl;
     return 0;
 }
