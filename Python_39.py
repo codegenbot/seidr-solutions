@@ -6,13 +6,17 @@ def prime_fib(n):
             if num % i == 0:
                 return False
         return True
-    
+
     def is_fib(num):
-        a, b = 0, 1
-        while a < num:
-            a, b = b, a + b
-        return a == num
-    
+        phi = 0.5 + 0.5 * 5 ** 0.5
+        a = phi * num
+        if abs(round(a) - a) < 1e-9:
+            return True
+        a = 2 * phi * num
+        if abs(round(a) - a) < 1e-9:
+            return True
+        return False
+
     count = 0
     num = 2
     while count < n:
