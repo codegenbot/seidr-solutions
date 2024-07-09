@@ -1,13 +1,19 @@
-if(arr.empty()) return -32768;
-
-    int product = 1;
-    int sum = 0;
-
-    for(int num : arr){
-        if(num > 0) product *= 1;
-        else if(num < 0) product *= -1;
-        sum += abs(num);
+int prod_signs(vector<int> arr) {
+    if (arr.empty()) {
+        return -32768;
     }
-    
-    return product * sum;
+
+    int sum = 0;
+    int signProduct = 1;
+
+    for (int num : arr) {
+        if (num > 0) {
+            sum += num;
+        } else if (num < 0) {
+            sum -= num;
+            signProduct *= -1;
+        }
+    }
+
+    return sum * signProduct;
 }
