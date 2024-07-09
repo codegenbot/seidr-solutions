@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <cmath>
 #include <iostream>
@@ -25,3 +26,4 @@ int main() {
     }
     
     return 0;
+}
