@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 #include <iostream>
@@ -13,7 +14,7 @@ int solution(std::vector<int> lst) {
     return sum;
 }
 
-int main() {
+int mainFunction() {
     int num, size = 0;
     std::cin >> num;
     std::vector<int> lst;
