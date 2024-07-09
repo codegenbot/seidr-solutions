@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b){
     if(a.size() != b.size())
@@ -20,8 +21,9 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
-    std::initializer_list<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"};
-    std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
-    assert(operator==(filter_by_prefix({a}, "xxx"), b));
+    std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"};
+    std::vector<std::string> b = filter_by_prefix(a, "xxx");
+    std::vector<std::string> c = {"xxx", "xxxAAA", "xxx"};
+    assert(operator==(b, c));
     return 0;
 }
