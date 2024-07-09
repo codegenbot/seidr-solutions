@@ -1,6 +1,4 @@
-```cpp
-#include <iostream>
-#include <vector>
+#include <initializer_list>
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
     std::vector<std::string> result;
@@ -10,17 +8,3 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
         }
     }
     return result;
-
-}
-
-int main() {
-    std::vector<std::string> strings = {"abc", "abcd", "def", "abcdef"};
-    std::string prefix = "ab";
-    
-    auto output = filter_by_prefix(strings, prefix);
-
-    for(const auto& str : output) {
-        std::cout << str << std::endl;
-    }
-    return 0; 
-}
