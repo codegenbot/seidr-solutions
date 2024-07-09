@@ -12,7 +12,7 @@ bool is_bored(std::string S) {
         if (pos == std::string::npos)
             break;
         ++pos; 
-        if (std::string(S.substr(0, pos)).compare(boredom) == 0 && S.size() > pos + boredom.length()) {
+        if (S.substr(0, pos).compare(boredom) == 0 && S.size() > pos + boredom.length()) {
             count++;
         }
     }
