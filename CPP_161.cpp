@@ -1,11 +1,22 @@
-string solve(string s) {
-    string result = "";
+#include <iostream>
+#include <string>
+#include <cctype>
+
+std::string solve(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+            result += std::toupper(c) - ('A' - 'a') + ('A' <= c && c <= 'Z');
+            //result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
             result += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    return result.empty() ? std::string(result.rbegin(), result.rend()) : result;
+}
+
+int main() {
+    std::string str = "Hello, World!";
+    std::cout << solve(str) << std::endl;
+    return 0;
 }
