@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -5,10 +6,7 @@
 
 using namespace std;
 
-double vectorDistance() {
-    int n;
-    cin >> n;
-
+double vectorDistance(int n) {
     float v1[n];
     float v2[n];
 
@@ -18,15 +16,16 @@ double vectorDistance() {
 
     double distance = 0.0;
     for (int i = 0; i < n; i++) {
-        double diff = pow(v2[i] - v1[i], 2);
-        distance += diff;
+        distance += pow(v2[i] - v1[i], 2);
     }
     return sqrt(distance);
-
 }
 
 int main() {
-    cout << fixed << setprecision(10) << vectorDistance() << endl;
+    int n;
+    cin >> n;
+
+    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
 
     return 0;
 }
