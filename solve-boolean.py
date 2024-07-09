@@ -1,16 +1,20 @@
-Here's the solution:
-
 def solveBoolean(expression):
-    def evaluate(subexpression):
-        if subexpression == 'T':
-            return True
-        elif subexpression == 'F':
-            return False
-        elif '&' in subexpression:
-            left, right = subexpression.split('&')
-            return evaluate(left) and evaluate(right)
+    def evaluate(left, right):
+        if left == "T":
+            return right
+        elif left == "F":
+            return 1 - right
         else:
-            left, right = subexpression.split('|')
-            return evaluate(left) or evaluate(right)
+            raise ValueError("Invalid expression")
 
-    return str(evaluate(expression))
+    stack = []
+    for char in expression:
+        if char in ["|", "&"]:
+            right = int(stack.pop())
+            left = stack.pop()
+            stack.append(evaluate(left, right))
+        elif char == "T":
+            stack.append(1)
+        elif char == "F":
+            stack.append(0)
+    return stack[0]
