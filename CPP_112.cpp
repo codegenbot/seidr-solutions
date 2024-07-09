@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -9,7 +9,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> reverse_delete(string s, string c) {
+std::vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
     for (char ch : s) {
