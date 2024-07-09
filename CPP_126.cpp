@@ -1,5 +1,8 @@
-```cpp
-bool is_sorted(vector<int> lst) {
+```
+#include <iostream>
+#include <vector>
+
+bool is_sorted(std::vector<int> lst) {
     for (int i = 0; i < lst.size() - 1; ++i) {
         if (lst[i] >= lst[i + 1]) {
             return false;
@@ -9,20 +12,20 @@ bool is_sorted(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst;
+    std::vector<int> vec;
     int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    for(int i=0; i<n; ++i) {
-        int x;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> x;
-        lst.push_back(x);
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        vec.push_back(num);
     }
-    if(is_sorted(lst)) {
-        cout << "The list is sorted.\n";
+    if (is_sorted(vec)) {
+        std::cout << "The vector is sorted.\n";
     } else {
-        cout << "The list is not sorted.\n";
+        std::cout << "The vector is not sorted.\n";
     }
     return 0;
 }
