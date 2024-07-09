@@ -4,15 +4,18 @@ int main() {
     int n, m;
     std::cin >> n >> m;
     
+    double total_outcomes = n * m;
     double favorable_outcomes = 0;
     
     for (int i = 1; i <= n; ++i) {
-        if (i > m) {
-            favorable_outcomes += 1;
+        favorable_outcomes += std::max(0, m - i);  
+        
+        if (m < n) {
+            favorable_outcomes += (n - m);  
         }
     }
     
-    double probability = favorable_outcomes / (n * m);
+    double probability = favorable_outcomes / static_cast<double>(total_outcomes);
     
     std::cout << probability << std::endl;
     
