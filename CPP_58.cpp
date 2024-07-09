@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <set>
+#include <vector>
 
 using namespace std;
 
@@ -14,7 +14,7 @@ int main() {
     cout << "Enter the first 7 numbers: ";
     cin >> n1 >> n2 >> n3 >> n4 >> n5 >> n6 >> n7;
 
-    set<int> common;
+    set<int> common; // Initialize with an empty constructor
     for (int i : {n1, n2, n3, n4, n5, n6, n7}) {
         if (common.count(i) == 0) {
             common.insert(i);  

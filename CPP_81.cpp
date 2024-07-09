@@ -1,9 +1,9 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
-bool issame(std::vector<std::string> a) {
+using namespace std;
+
+bool isSame(vector<string> a) {
     if(a.size() == 0) return true;
     for(int i = 1; i < a.size(); i++) {
         if(a[i] != a[0]) return false;
@@ -11,8 +11,8 @@ bool issame(std::vector<std::string> a) {
     return true;
 }
 
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> result;
+vector<string> numericalLetterGrade(vector<float> grades) {
+    vector<string> result;
     for (int i = 0; i < grades.size(); i++) {
         if (grades[i] >= 4.0)
             result.push_back("A+");
@@ -43,8 +43,12 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    std::vector<float> grades = {0.0, 0.7};
-    std::vector<std::string> result = numerical_letter_grade(grades);
-    assert(issame({result[0]}));
+    vector<float> grades = {0.0, 0.7};
+    vector<string> result = numericalLetterGrade(grades);
+    if(isSame({result[0]})) {
+        cout << "The letter grade is: " << result[0] << endl;
+    } else {
+        cout << "Error: The input grades do not have the same letter grade." << endl;
+    }
     return 0;
 }
