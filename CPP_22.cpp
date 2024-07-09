@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
@@ -21,6 +20,6 @@ vector<int> filter_integers(list<any> values) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, 0, 3, 3, 0, boost::any(3), boost::any('b')}), {3, 3, 3}));
+    assert(issame(filter_integers({3, 0, 3, 3, 0, any(cast<int>(3), false)}), {3, 3, 3}));
     return 0;
 }
