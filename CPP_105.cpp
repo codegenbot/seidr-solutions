@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::vector<std::string>>& b) {
+bool same(vector<string> a, vector<vector<string>> b) {
     if (a.size() != b[0].size()) {
         return false;
     }
@@ -16,20 +15,20 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::vector<std
     return true;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::string> temp;
+vector<string> by_length(vector<int> arr) {
+    vector<std::string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            temp.push_back(std::to_string(i));
+            temp.push_back(to_string(i));
         }
     }
 
-    std::sort(temp.begin(), temp.end());
-    std::reverse(temp.begin(), temp.end());
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
 
-    std::vector<std::string> result;
+    vector<string> result;
     for (int i = 0; i < temp.size(); i++) {
-        switch (std::stoi(temp[i])) {
+        switch (stoi(temp[i])) {
             case 1:
                 result.push_back("One");
                 break;
@@ -64,12 +63,14 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> input = {1, 4, 8};
-    std::vector<std::string> output = by_length(input);
+    vector<int> input = {9, 4, 8};
+    vector<string> output = by_length(input);
     
-    assert(issame({{"One", "Four", "Eight"}}, {{output}}));
-    
-    for (const auto& str : output) {
-        std::cout << str << std::endl;
+    if (same({{"One", "Four", "Eight"}}, {{output}})) {
+        for (string str : output) {
+            cout << str << endl;
+        }
+    } else {
+        cout << "Output is incorrect." << endl;
     }
 }
