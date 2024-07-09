@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <climits>
 
 int CAP(string s) { int cnt = 0; for (char c : s) if (isupper(c)) cnt++; return cnt; }
 int SM(string s) { int cnt = 0; for (char c : s) if (islower(c)) cnt++; return cnt; }
