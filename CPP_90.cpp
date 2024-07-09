@@ -18,4 +18,5 @@ int main() {
     std::vector<int> lst = { -35, 34, 12, -45 };
     int result = next_smallest(lst);
     std::cout << "The smallest number greater than all elements in the list is: " << result << std::endl;
+    return 0;
 }
