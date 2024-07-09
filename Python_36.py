@@ -3,6 +3,6 @@ def fizz_buzz(n: int):
         if i % 3 == 0 and i % 5 == 0:
             print("FizzBuzz")
         elif i % 13 == 0 and "7" in str(i):
-            count = 0
+            print(i)
         else:
             print(i)
