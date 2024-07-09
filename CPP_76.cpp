@@ -21,18 +21,23 @@ int main() {
     if (!(std::cin >> num)) {
         std::cout << "Invalid input. Please enter a numeric value.\n";
     } else {
-        bool isValidInput = true;
-        std::string numStr = std::to_string(num);
+        std::string numStr = "";
+        int temp = num; 
+        do{
+            numStr.push_back(temp % 10 + '0'); 
+            temp /= 10;
+        }while(temp);
         
-        for (char c : numStr) { 
-            if (!std::isdigit(c)) {
+        bool isValidInput = true;
+        for (char c : numStr) {
+            if (!std::isdigit(c)) { 
                 isValidInput = false;
                 break;
             }
         }
 
         if (isValidInput) {
-            if (isSimplePower(num)) {
+            if (isSimplePower(std::stoi(numStr))) { 
                 std::cout << num << " is a simple power.\n";
             } else {
                 std::cout << num << " is not a simple power.\n";
