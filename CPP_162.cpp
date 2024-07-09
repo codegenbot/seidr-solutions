@@ -17,7 +17,7 @@ string string_to_md5(const string& text) {
 }
 
 int main() {
-    string input_text = "Hello, World!";
+    string input_text = "example_text";
     string md5_hash = string_to_md5(input_text);
     return 0;
 }
