@@ -45,5 +45,4 @@ int main() {
     } else {
         std::cout << "The input vector and the positive vector are not the same." << std::endl;
     }
-    return 0;
 }
