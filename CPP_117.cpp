@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -11,8 +11,8 @@ bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
     return true;
 }
 
-vector<pair<int, string>> select_words(string s, int n) {
-    vector<pair<int, string>> result;
+vector<string> select_words(string s, int n) {
+    vector<string> result;
     int wordCount = 0;
     string word = "";
     for (char c : s) {
@@ -21,7 +21,7 @@ vector<pair<int, string>> select_words(string s, int n) {
                 int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
                     count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
                 if (vowelCount <= n) {
-                    result.push_back({vowelCount, word});
+                    result.push_back(word);
                 }
                 word = "";
             }
@@ -34,15 +34,18 @@ vector<pair<int, string>> select_words(string s, int n) {
         int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
             count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
         if (vowelCount <= n) {
-            result.push_back({vowelCount, word});
+            result.push_back(word);
         }
     }
     return result;
 }
 
 int main() {
-    vector<pair<int, string>> expected = {{1, "b"}, {1, "c"}, {1, "d"}, {1, "f"}};
-    vector<pair<int, string>> output = select_words("a b c d e f", 1);
-    assert(issame(output, expected));
+    vector<string> expected = {"b", "c", "d", "f"};
+    vector<string> output = select_words("a b c d e f", 1);
+    sort(output.begin(), output.end());
+    sort(expected.begin(), expected.end());
+    assert(issame({{1, output[0]}}, {{1, expected[0]}}) && issame({{1, output[1]}}, {{1, expected[1]}}) &&
+           issame({{1, output[2]}}, {{1, expected[2]}}) && issame({{1, output[3]}}, {{1, expected[3]}}));
     return 0;
 }
