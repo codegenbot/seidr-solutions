@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 
-// Function to filter out non-integers from a vector and return it
 std::vector<int> filter_integers(const std::vector<int>& vec) {
     std::vector<int> result;
     for (int i : vec) {
@@ -25,8 +24,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 int main() {
     // Testing your function
-    std::vector<int> test1 = {3, 'c', 3, 3, 'a', 'b'};
-    std::vector<int> test2 = {3, 3, 3};
-    assert(issame(filter_integers(test1), test2));
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
