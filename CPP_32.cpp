@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -36,6 +35,7 @@ double find_zero(vector<double> xs){
 }
 
 int main() {
+    assert(true);
     vector<double> xs; 
     cout << "Enter coefficients (space separated): ";
     for(double x; cin >> x; ) {
