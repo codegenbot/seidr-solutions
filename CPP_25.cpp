@@ -1,10 +1,6 @@
-#include <iostream>
 #include <vector>
 
-using namespace std;
-
 vector<int> factorize(int n);
-bool issame(vector<int> a, vector<int> b);
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
@@ -33,12 +29,6 @@ vector<int> factorize(int n){
 }
 
 int main(){
-    int n;
-    cin >> n;
-    vector<int> factors = factorize(n);
-    for(int i = 0; i < factors.size(); i++){
-        cout << factors[i] << " ";
-    }
-    cout << endl;
+    // Your main function code here
     return 0;
 }
