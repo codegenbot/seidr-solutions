@@ -13,3 +13,6 @@ def search(lst):
             max_num = key
             break
     return max_num
+
+numbers = input("Enter a list of numbers separated by space: ").split()
+print(search(list(map(int, numbers))) or 0)
