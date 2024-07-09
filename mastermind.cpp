@@ -15,11 +15,14 @@ int main() {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            if (code[i] >= 'A' && code[i] <= 'F' && guess[i] >= 'A' && guess[i] <= 'F') {
-                codeFreq[code[i]]++;
-                guessFreq[guess[i]]++;
-            }
+            codeFreq[code[i]]++;
+            guessFreq[guess[i]]++;
         }
+    }
+
+    if (blackPegs == 4) {
+        cout << blackPegs << endl << 0 << endl;
+        return 0;
     }
 
     for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
