@@ -21,11 +21,14 @@ float find_closest_elements(vector<float> vec) {
 }
 
 int mainDriver(){
-    int n;
-    cin >> n;
-    vector<float> a(n), b(a);
+    int n, m;
+    cin >> n >> m;
+    vector<float> a(n), b(m);
     for (int i = 0; i < n; i++) {
-        cin >> a[i] >> b[i];
+        cin >> a[i];
+    }
+    for (int i = 0; i < m; i++) {
+        cin >> b[i];
     }
     assert(sameVectors(a, b));
     if(sameVectors(a, b)) cout << "The vectors are the same." << endl;
