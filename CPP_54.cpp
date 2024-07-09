@@ -19,7 +19,6 @@ bool same_chars(string s1, string s2) {
         }
     }
     return true;
-
 }
 
 int main() {
