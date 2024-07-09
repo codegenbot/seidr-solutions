@@ -6,21 +6,11 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> filter_integers(std::list<std::any> values) {
-    std::vector<int> result;
+vector<int> filter_integers(list<any> values) {
+    vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            int num = boost::any_cast<int>(value);
-            bool contains = false;
-            for (int n : result) {
-                if (n == num) {
-                    contains = true;
-                    break;
-                }
-            }
-            if (!contains) {
-                result.push_back(num);
-            }
+        if (boost::any_cast<int>(value).good()) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
