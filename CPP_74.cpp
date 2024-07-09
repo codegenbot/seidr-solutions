@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(vector<string> a,vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -20,7 +20,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else if (sum1 > sum2)
         return lst2;
     else
-        return (issame(lst1, lst2)?lst1:total_match(total_move(std::move(lst1), {}), std::move(lst2)));
+        return issame(lst1, lst2)?lst1:total_match(total_match(vector<string>(std::move(lst1)), {}), std::move(lst2));
 }
 
 int main() {
