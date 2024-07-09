@@ -1,0 +1,1 @@
+snow = snow_on_ground + snow_fall_rate * hours - (snow_fall_rate - snow_melt_rate) * sum(range(hours))
