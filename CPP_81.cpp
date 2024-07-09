@@ -44,5 +44,5 @@ std::vector<char*> numerical_letter_grade(std::vector<float> grades) {
 
 int main() {
     std::vector<float> grades = {0, 0.7};
-    assert(checkIfSame(numerical_letter_grade(grades), {"E", "D-"}));
+    assert(checkIfSame(numerical_letter_grade(grades), {"E", "D-"}) );
     return 0;
