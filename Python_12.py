@@ -4,4 +4,8 @@ def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
     longest_str = max(strings, key=len)
-    return [x for x in strings if len(x) == len(longest_str)]
+    return max(filter(lambda x: len(x) == len(longest_str), strings))
+
+input_string = input()
+output = longest(input_string.split())
+print(output)
