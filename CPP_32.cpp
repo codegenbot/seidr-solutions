@@ -1,9 +1,12 @@
-double find_zero(vector<double> xs) {
-    double coeff = 0;
-    for (int i = 1; i < xs.size(); i += 2) {
+double find_zero(vector<double> xs){
+    vector<double> coeff;
+    for (int i = 0; i < xs.size(); i += 2) {
         double x = xs[i];
         int power = (i - 1) / 2;
-        coeff -= x * pow(xs[0], power);
+        if (coeff.size() <= power) {
+            coeff.resize(power + 1);
+        }
+        coeff[power] -= x;
     }
-    return -coeff;
+    return -coeff[0] / xs[0];
 }
