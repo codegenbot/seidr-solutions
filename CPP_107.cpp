@@ -8,8 +8,9 @@ bool isPalindrome(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     int n;
-    std::cout << "Enter the value of n: ";
+    std::cout << "Enter the number: ";
     std::cin >> n;
+    
     std::vector<int> expected = even_odd_palindrome(n);
     
     for(int i = 0; i <= n; ++i) {
