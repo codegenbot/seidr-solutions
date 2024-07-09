@@ -1,32 +1,27 @@
-Here is the modified code:
-
-```cpp
-#include <stack>
-#include <string>
-
-using namespace std;
-
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return false;
-            st.push('&');
+bool solveBoolean(std::string s) {
+    bool result = true;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'F') {
+            return false;
         } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+            if (i == s.size() - 1 || (s[i + 1] == '&' && s.find('T', i + 2) != std::string::npos)) {
+                return true;
+            } else if (i == s.size() - 1 || s[i + 1] == 'F') {
+                return false;
             }
-            if (st.empty()) return true;
-            st.push('|');
-        } else {
-            st.push(s[i]);
+            i++;
+        } else if (s[i] == '&') {
+            bool foundT = false;
+            for (int j = i; j < s.size(); j++) {
+                if (s[j] == 'T') {
+                    foundT = true;
+                    break;
+                } else if (s[j] == 'F') {
+                    return false;
+                }
+            }
+            result = foundT;
         }
     }
-    while (!st.empty()) {
-        st.pop();
-    }
-    return st.empty();
+    return result;
 }
