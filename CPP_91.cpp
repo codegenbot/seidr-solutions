@@ -6,7 +6,7 @@ bool is_bored(std::string S) {
     int count = 0;
     std::string boredom = "I";
     for (int i = 0; i < S.size(); i++) {
-        if (S.substr(i, boredom.size()) == boredom && i + boredom.size() < S.size()) {
+        if (S.substr(i, boredom.size()).compare(0, boredom.size(), boredom) == 0) {
             count++;
         }
     }
