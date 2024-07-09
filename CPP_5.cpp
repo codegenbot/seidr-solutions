@@ -2,12 +2,8 @@
 
 bool issame(int a, int b);
 
-bool issame(int a, int b){
-    return a == b;
-}
-
-vector<int> intersperse(vector<int> numbers, int delimeter){
-    vector<int> result;
+std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
+    std::vector<int> result;
     if(numbers.empty()){
         return result;
     }
@@ -17,4 +13,8 @@ vector<int> intersperse(vector<int> numbers, int delimeter){
         result.push_back(numbers[i]);
     }
     return result;
+}
+
+bool issame(int a, int b){
+    return a == b;
 }
