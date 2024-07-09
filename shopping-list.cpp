@@ -1,18 +1,26 @@
+```cpp
 #include <iostream>
+#include <vector>
 #include <iomanip>
 
-float shoppingList(float prices[], float discounts[]) {
-    int n = sizeof(prices) / sizeof(prices[0]);
-    float total = 0;
-    for(int i = 0; i < n; i++) {
-        total += (1 - (discounts[i]/100)) * prices[i];
+float shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
+    float totalPrice = 0;
+    for (size_t i = 0; i < prices.size(); ++i) {
+        float discountedPrice = prices[i] * (1 - discounts[i] / 100);
+        totalPrice += discountedPrice;
     }
-    return total;
+    return totalPrice;
 }
 
 int main() {
-    float prices[] = {10.99f, 5.50f, 23.75f};
-    float discounts[] = {20.00f, 15.00f, 10.00f};
-    
+    std::vector<float> prices;
+    std::vector<float> discounts;
+
+    float price, discount;
+    while (std::cin >> price >> discount) {
+        prices.push_back(price);
+        discounts.push_back(discount / 100.0); 
+    }
+
     std::cout << std::fixed << std::setprecision(2) << shoppingList(prices, discounts) << std::endl;
 }
