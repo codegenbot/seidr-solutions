@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
 #include <openssl/md5.h>
 
 std::string string_to_md5(std::string text) {
