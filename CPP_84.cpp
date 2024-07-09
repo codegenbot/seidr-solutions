@@ -1,16 +1,17 @@
+```cpp
 #include <iostream>
 using namespace std;
 
 string solve(int N) {
-    string binary = "";  
+    string binaryRep = "";  
     while (N > 0) {
         if (N % 2 == 0)
-            binary = "0" + binary;
+            binaryRep = "0" + binaryRep;
         else
-            binary = "1" + binary;
+            binaryRep = "1" + binaryRep;
         N /= 2;
     }
-    return binary;
+    return binaryRep;
 }
 
 int main() {
