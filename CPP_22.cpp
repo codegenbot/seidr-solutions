@@ -1,5 +1,7 @@
 #include <boost/any.hpp>
-using namespace boost;
+#include <vector>
+#include <list>
+#include <algorithm>
 
 bool issame(vector<int> a,vector<int>b){
     if(a.size() != b.size()) return false;
@@ -11,11 +13,12 @@ bool issame(vector<int> a,vector<int>b){
     return true;
 }
 
-vector<int> filter_integers(vector<any> values) {
+vector<int> filter_integers(list-any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).good()) {
-            result.push_back(any_cast<int>(value));
+        int v = boost::any_cast<int>(value);
+        if (v >= 0) {
+            result.push_back(v);
         }
     }
     return result;
