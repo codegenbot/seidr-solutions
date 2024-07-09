@@ -1,32 +1,36 @@
-```cpp
-int bowlingScore(std::string s) {
-    int score = 0;
-    bool lastRollWasStrike = false;
-    bool lastRollWasSpare = false;
+```
+#include <iostream>
+using namespace std;
 
-    for (char c : s) {
-        if (c == 'X') {
-            score += 10 + (lastRollWasStrike ? 10 : (lastRollWasSpare ? 5 : 0));
-            lastRollWasStrike = true;
-            lastRollWasSpare = false;
-        } else if (c == '/') {
-            int nextOneRoll = c - '0';
-            score += nextOneRoll + (c-1) / 2;
-            lastRollWasStrike = false;
-            lastRollWasSpare = true;
-        } else {
-            int roll = c - '0';
-            if (roll == 9) lastRollWasSpare = true;
-            else lastRollWasStrike = true;
-            score += roll;
+int scoreGame(string game) {
+    int score = 0;
+    int roll = 0;
+    for (char c : game) {
+        if (c == '/') {
+            if (roll < 10) {
+                score += 10 - roll;
+                roll = 0;
+            } else {
+                roll = 0;
+            }
+        } else if (isdigit(c)) {
+            int currentRoll = stoi(string(1, c));
+            if (currentRoll + roll > 10) {
+                score += 10 - (roll = 0);
+                roll = 0;
+            } else {
+                roll += currentRoll;
+            }
         }
     }
-
     return score;
 }
 
 int main() {
-    std::string s = "XXXXX/6/5/X-8/X/X-4/X/X/9/-7/-5";
-    int score = bowlingScore(s);
-    std::cout << score << std::endl;
+    string game;
+    cout << "Enter the game: ";
+    cin >> game;
+    int result = scoreGame(game);
+    cout << "The score is: " << result << endl;
+    return 0;
 }

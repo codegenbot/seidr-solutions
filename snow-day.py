@@ -1,6 +1,7 @@
+```
 def snow_day(hours, initial_snow, rate_of_fall, melting_rate):
     snow = initial_snow
     for _ in range(hours):
-        snow *= 1 - melting_rate  # apply melting effect first
         snow += rate_of_fall
+        snow *= (1 - melting_rate)
     return round(snow, 6)
