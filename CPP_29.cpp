@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -16,9 +17,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    std::vector<std::string> vec = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
-    std::string prefix = "xxx";
-    std::vector<std::string> result = filter_by_prefix(vec, prefix);
-    bool same = issame(result, {"xxx", "xxxAAA", "xxx"});
+    std::vector<std::string> vec = {std::string("xxx"), std::string("asd"), std::string("xxy"), std::string("john doe"), std::string("xxxA"), std::string("xxx")};
+    assert(issame(filter_by_prefix(vec, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
