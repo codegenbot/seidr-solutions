@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cmath>
+#include <string>
 
 using namespace std;
 
@@ -12,7 +14,7 @@ int starts_one_ends(int n) {
     return count;
 }
 
-int main() {
+int runMain() {
     int n;
     cout << "Enter the value of n: ";
     cin >> n;
