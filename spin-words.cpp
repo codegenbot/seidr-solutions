@@ -1,38 +1,42 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    string word = "";
-    
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (word.length() >= 5) {
-                for (int j = word.length() - 1; j >= 0; j--)
-                    result += word[j];
-            } else
-                result += word;
-            word = "";
-        } else
-            word += str[i];
+std::string spinWords(std::string sentence) {
+    std::string result = "";
+    int length = 0;
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            if (length >= 5) {
+                for (int j = length - 1; j >= 0; j--) {
+                    result += sentence[i-length+j];
+                }
+            } else {
+                result += sentence.substr(i-length+1, i);
+            }
+            length = 0;
+        } else {
+            length++;
+        }
     }
-    
-    if (word.length() >= 5)
-        for (int i = word.length() - 1; i >= 0; i--)
-            result += word[i];
-    else
-        result += word;
-    
+    if (length >= 5) {
+        for (int j = length - 1; j >= 0; j--) {
+            result += sentence[i-length+j];
+        }
+    } else {
+        result = sentence.substr(i-length+1);
+    }
     return result;
 }
 
 int main() {
-    string s;
-    cout << "Enter a sentence: ";
-    getline(cin, s);
-    cout << spinWords(s) << endl;
+    std::string input;
+    while (true) {
+        std::cout << "Enter a string (or 'exit' to stop): ";
+        std::cin >> input;
+        if (input == "exit") {
+            break;
+        }
+        std::cout << spinWords(input) << std::endl;
+    }
     return 0;
 }
