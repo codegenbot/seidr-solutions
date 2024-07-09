@@ -1,26 +1,17 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <iomanip>
-#include <algorithm>
-#include "hash_functions/md5.h"
 
 std::string string_to_md5(const std::string& text) {
-    MD5_CTX ctx;
-    unsigned char result[16];
-    md5_init(&ctx);
-    const char* ptr = text.c_str();
-    size_t length = text.length();
-    md5_update(&ctx, (unsigned char*)ptr, length);
-    md5_final(&ctx, result);
-
-    std::string output;
-    for(int i=0; i<16; i++) {
-        std::stringstream ss;
-        ss << std::setw(2) << std::setfill('0') << std::hex << (int)(result[i]);
-        output += ss.str();
+    std::stringstream ss;
+    for (int i = 0; i < text.length(); i++) {
+        if ((i+1)%4==0)
+            ss << std::hex << std::setw(2) << std::setfill('0') << ((unsigned char)(text[i]))<< std::endl;
+        else
+            ss <<"00";
     }
-
-    return output;
+    return ss.str();
 }
 
 int main() {
