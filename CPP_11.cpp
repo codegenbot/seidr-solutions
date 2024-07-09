@@ -2,15 +2,11 @@
 #include <string>
 
 std::string string_xor(std::string a, std::string b) {
-    if(a.length() != b.length())
-        throw std::invalid_argument("Input strings must have the same length.");
-
-    std::string result = "";
+    std::string result(a.length(), '0');
     for (int i = 0; i < a.length(); i++) {
-        int x = (a[i] - '0');
-        int y = (b[i] - '0');
-        int res = x ^ y;
-        result += res == 1 ? "1" : "0";
+        if ((a[i] - '0') ^ (b[i] - '0')) {
+            result[i] = '1';
+        }
     }
     return result;
 }
