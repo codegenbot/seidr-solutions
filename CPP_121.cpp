@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <cassert>
 
 int solution(std::vector<int> lst) {
     int sum = 0;
@@ -12,7 +10,4 @@ int solution(std::vector<int> lst) {
     return sum;
 }
 
-int main() {
-    assert(solution({3, 13, 2, 9}) == 16);
-    return 0;
-}
+assert(solution({3, 13, 2, 9}) == 16);
