@@ -1,3 +1,4 @@
+```
 def roll_dice(n, m):
     p_total = n
     c_total = m
