@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <cmath>
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = operand[0];
