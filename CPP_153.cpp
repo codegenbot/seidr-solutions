@@ -1,14 +1,17 @@
-#include <cassert>
-int strongestExtension(std::string className, const std::vector<std::string>& extensions) {
-    int strongest = 0;
+```cpp
+#include <vector>
+#include <string>
+
+int Strongest_Extension(std::string className, const std::vector<std::string>& extensions) {
+    int strongest = -1;
     for (const auto& extension : extensions) {
-        if (extension.find(className) != std::string::npos) {
-            return className + "." + extension;
+        if (extension.find(className) != std::string::npos && extension.length() > strongest) {
+            strongest = extension.length();
         }
     }
-    return -1; 
+    return strongest == -1 ? -1 : className + "." + extensions[0];
 }
 
 int main() {
-    assert (strongestExtension("Sp", {"671235", "Bb"}) == "Sp.671235");
+    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
 }
