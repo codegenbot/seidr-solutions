@@ -1,6 +1,8 @@
+```
 from decimal import Decimal, getcontext
 
 def snow_day(hours, ground_snow, rate_snowfall, melt_rate):
+    hours = int(hours)
     getcontext().prec = 30
     ground_snow = Decimal(str(ground_snow))
     for _ in range(hours):
