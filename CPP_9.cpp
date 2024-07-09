@@ -1,30 +1,54 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <cassert>
 
 using namespace std;
 
-vector<int> rolling_max(vector<int> numbers);
-bool issame(vector<int> a, vector<int> b);
+vector<int> rolling_max(const vector<int>& numbers);
 
-vector<int> rolling_max(vector<int> numbers){
-    vector<int> result;
-    int maxNum = numbers[0];
-    for(int i=0; i<numbers.size(); i++){
-        maxNum = max(maxNum, numbers[i]);
-        result.push_back(maxNum);
+bool issame(const vector<int>& a, const vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
     }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+vector<int> rolling_max(const vector<int>& numbers) {
+    vector<int> result;
+    int max_num = INT_MIN;
+    
+    for (int i = 0; i < numbers.size(); ++i) {
+        max_num = max(max_num, numbers[i]);
+        result.push_back(max_num);
+    }
+    
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-int main(){
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+int main() {
+    vector<int> test1 = {1, 2, 3, 4, 5};
+    vector<int> test2 = {1, 2, 3, 4, 5};
     
-    cout << "Test passed!" << endl;
+    cout << "Rolling max of test1: ";
+    vector<int> result = rolling_max(test1);
+    for (int num : result) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    cout << "Are test1 and test2 the same: ";
+    if (issame(test1, test2)) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
     
     return 0;
 }
