@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -36,11 +37,6 @@ vector<string> sorted_list_sum(vector<string> lst) {
 
 int main() {
     vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    if (!issame(sorted_list_sum(lst), expected)) {
-        cout << "Test failed" << endl;
-    } else {
-        cout << "Test passed" << endl;
-    }
-    return 0;
+    vector<string> expected_result = {"cc", "dd", "aaaa", "bbbb"};
+    assert(issame(sorted_list_sum(lst), expected_result));
 }
