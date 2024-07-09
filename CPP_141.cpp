@@ -1,3 +1,8 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 string file_name_check(string file_name){
     int count = 0;
     bool foundDot = false;
