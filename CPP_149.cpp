@@ -17,7 +17,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> b({"aaaa", "bbbb", "dd", "cc"});
+    vector<string> b = {"aaaa", "bbbb", "dd", "cc"};
     assert(issame({"aaaa", "bbbb", "dd", "cc"}, b));
     return 0;
 }
