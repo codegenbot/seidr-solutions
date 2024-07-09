@@ -1,7 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <unordered_set>
+#include <string>
 
 bool isSame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -15,14 +16,15 @@ bool isSame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
-    std::vector<int> newVector;
-    for(int i:numbers){
-        if(std::find(newVector.begin(), newVector.end(), i) == newVector.end()){
-            newVector.push_back(i);
+vector<string> remove_duplicates(vector<int> numbers) {
+    unordered_set<string> seen;
+    vector<string> result;
+    for(int num : numbers){
+        if(seen.insert(to_string(num)).second){
+            result.push_back(to_string(num));
         }
     }
-    return newVector;
+    return result;
 }
 
 int main() {
@@ -36,9 +38,9 @@ int main() {
         std::cin >> numbers[i];
     }
 
-    vector<int> result = remove_duplicates(numbers);
+    vector<string> result = remove_duplicates(numbers);
 
-    if (isSame(result, numbers)) {
+    if (isSame(result, vector<int>(numbers.begin(), numbers.end()))){
         std::cout << "The resulting vector is the same as the original." << std::endl;
     } else {
         std::cout << "The resulting vector is different from the original." << std::endl;
