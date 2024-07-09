@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <vector>
 #include <initializer_list>
-#include <iterator>
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -31,3 +30,4 @@ int main() {
     int result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
     cout << "sorted_list_sum: " << result << endl;
     return 0;
+}
