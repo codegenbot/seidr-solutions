@@ -2,37 +2,44 @@
 using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
-    stack<char> operatorStack;
-    for (int i = 0; i < expression.length(); ++i) {
+    stack<char> operation;
+    for (int i = 0; i < expression.size(); ++i) {
         if (expression[i] == '&') {
-            while (!operatorStack.empty() && operatorStack.top() == '|') {
-                operatorStack.pop();
-            }
-            if (!operatorStack.empty()) {
-                operatorStack.push('&');
-            } else {
-                return false;
+            while (!operation.empty() && operation.top() == '|') {
+                operation.pop();
             }
         } else if (expression[i] == '|') {
-            while (!operatorStack.empty()) {
-                operatorStack.pop();
+            operation.push(expression[i]);
+        } else {
+            if (!operation.empty()) {
+                char op = operation.top(); 
+                expression[i] == 't' ? i++ : i;
+                operation.pop();
+                switch (op) {
+                    case '&':
+                        return expression[i-1] == 't';
+                    case '|':
+                        return expression[i-1] == 't' || expression[i-1] == 't';
+                }
+            } else {
+                return expression[i] == 't';
             }
-            operatorStack.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
-            string operand = "";
-            while (i < expression.length() && (expression[i] == 'T' || expression[i] == 'F')) {
-                operand += expression[i];
-                ++i;
-            }
-            --i;
-            if (operand == "TF") return false;
-            if (operand == "TT" || operand == "FF") return true;
         }
     }
-    while (!operatorStack.empty()) {
-        operatorStack.pop();
+    if (operation.empty()) {
+        return true;
     }
-    return true;
+    while (!operation.empty()) {
+        char op = operation.top(); 
+        switch (op) {
+            case '&':
+                return false;
+            case '|':
+                return true;
+        }
+        operation.pop();
+    }
+    return true;    
 }
 
 int main() {
