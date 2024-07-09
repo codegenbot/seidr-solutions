@@ -1,6 +1,8 @@
-```
 def valid_date(date):
-    day, month, year = date.split('-')
+    parts = date.split('-')
+    if len(parts) != 3:
+        return False
+    day, month, year = parts
     if len(day) == 1:
         day = '0' + day
     if len(month) == 1:
