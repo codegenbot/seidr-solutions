@@ -33,13 +33,12 @@ bool solveBoolean(std::string s) {
 int main() {
     std::string input;
     // Read input from user or initialize with a test string
-    std::cout << "Enter Boolean expression: ";
-    std::getline(std::cin, input);
-    bool output = solveBoolean(input);
-    if (output) {
-        std::cout << "True" << std::endl;
+    std::cout << "Enter the Boolean expression: ";
+    std::cin >> input;
+    if (solveBoolean(input)) {
+        std::cout << "The Boolean expression evaluates to true.\n";
     } else {
-        std::cout << "False" << std::endl;
+        std::cout << "The Boolean expression evaluates to false.\n";
     }
     return 0;
 }
