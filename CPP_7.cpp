@@ -13,18 +13,11 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
     return result;
 }
 
-bool issame(std::initializer_list<std::vector<std::string>> a, std::vector<std::string> b) {
-    bool same = true;
-    for(auto v : a) {
-        if(v != b) {
-            same = false;
-            break;
-        }
-    }
-    return same;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 int main() {
-    assert(issame({{filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") }}, {"grunt", "prune"}));
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
     return 0;
 }
