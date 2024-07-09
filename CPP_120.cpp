@@ -1,6 +1,3 @@
-#include <algorithm>
-using namespace std;
-
 vector<int> maximum(vector<int> arr, int k) {
     vector<int> res;
     vector<int> arr_copy = arr; 
