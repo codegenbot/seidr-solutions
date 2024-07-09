@@ -1,19 +1,27 @@
-```c++
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> vec);
+// Function declarations
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 std::vector<std::string> all_prefixes(std::string str);
 
 int main() {
-    assert(issame(all_prefixes("WWW"), all_prefixes("WWW")));
-    return 0;
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    
+    bool result = issame(all_prefixes(str), all_prefixes(str));
+    if(result)
+        std::cout << "The strings have the same prefixes.\n";
+    else
+        std::cout << "The strings do not have the same prefixes.\n";
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> vec) {
-    if (a.size() != vec.size()) return false;
+// Function definitions
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != vec[i]) return false;
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
