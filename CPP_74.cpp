@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <ostream>
+#include <iostream>
 
 using namespace std;
 
@@ -55,5 +55,10 @@ int main() {
         cout << s << " ";
     }
     cout << endl;
+    if (result == {}) {
+        cout << "No match found." << endl;
+    } else {
+        cout << "Total length of matched strings is " << accumulate(result.begin(), result.end(), 0, [](int a, const string& b) { return a + b.length(); }) << "." << endl;
+    }
     return 0;
 }
