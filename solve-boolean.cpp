@@ -1,5 +1,8 @@
-using namespace std;
-string solveBoolean(std::string s) {
+#include <stack>
+#include <vector>
+#include <string>
+
+std::string solveBoolean(std::string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
@@ -15,5 +18,5 @@ string solveBoolean(std::string s) {
             st.push(s[i]);
         }
     }
-    return (char)st.top() == 'T' ? "True" : "False";
+    return st.top() == 'T' ? "True" : "False";
 }
