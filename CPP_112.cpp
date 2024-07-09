@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
+bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -12,7 +12,7 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> reverseDelete(std::string s, std::string c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
 
     for (char& ch : s) {
@@ -43,11 +43,11 @@ std::vector<std::string> reverseDelete(std::string s, std::string c) {
 
     std::vector<std::string> final_result;
     final_result.push_back(res_str);
-    final_result.push_back((is_palindrome ? "True" : "False"));
+    final_result.push_back(std::to_string(is_palindrome));
     return final_result;
 }
 
-int cpp112() {
-    assert(isSame(reverseDelete("mamma", "mia"), {"", "True"}));
+int main() {
+    assert(issame(reverse_delete("mamma", "mia"), {"", "1"}));
     return 0;
 }
