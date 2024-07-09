@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -12,6 +13,8 @@ long long solve(int n) {
 }
 
 int main() {
-    assert(std::to_string(solve(963)) == "1010");
+    if (std::to_string(solve(963)) != "1010") {
+        assert(false);
+    }
     return 0;
 }
