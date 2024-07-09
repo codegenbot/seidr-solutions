@@ -1,18 +1,27 @@
-int match_parens(vector<string> lst) {
-    int open = 0;
-    int close = 0;
-    for (const string& str : lst) {
-        for (char c : str) {
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+string match_parens(const vector<string>& lst) {
+    int balance = 0;
+    for (const string& s : lst) {
+        for (char c : s) {
             if (c == '(') {
-                open++;
+                balance++;
             } else {
-                if (open > 0) {
-                    open--;
-                } else {
-                    close++;
+                if (balance == 0) {
+                    return "No";
                 }
+                balance--;
             }
         }
     }
-    return (open == 0 && close == 0) ? "Yes" : "No";
+    return (balance == 0) ? "Yes" : "No";
+}
+
+int main() {
+    assert(match_parens({")", "("}) == "Yes" );
+    return 0;
 }
