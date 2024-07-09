@@ -2,14 +2,16 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+bool issame(const std::vector<int> &v1, const std::vector<int> &v2) {
     return v1 == v2;
 }
 
 std::vector<int> cpp123(int n) {
     std::vector<int> result;
     while (n != 1) {
-        result.push_back(n);
+        if (n % 2 != 0) {
+            result.push_back(n);
+        }
         n = (n % 2 == 0) ? n / 2 : 3 * n + 1;
     }
     result.push_back(1);
