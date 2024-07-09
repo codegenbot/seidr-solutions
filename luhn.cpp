@@ -20,13 +20,13 @@ int main() {
         }
     }
     
-    cout << sum % 10 << endl;
-    
+    sum %= 10;
+
     if (sum % 10 == 0) {
         cout << "Valid credit card number" << endl;
     } else {
         cout << "Invalid credit card number" << endl;
     }
-
+    
     return 0;
 }
