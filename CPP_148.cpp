@@ -1,10 +1,19 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
-bool same(vector<string> a, vector<string> b) {
-    return a == b;
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> bf(string a, string b) {
@@ -16,12 +25,11 @@ vector<string> bf(string a, string b) {
         if(tolower(a[i]) != tolower(b[i])) {
             return {};
         }
-        result.push_back(a[i] + "");
     }
-    return result;
+    return {a, b};
 }
 
 int main() {
-    assert(same(bf("Jupiter", "Makemake") , vector<string>{}));
+    assert (issame(bf("Jupiter", "Makemake"), {"Jupiter", "Makemake"}));
     return 0;
 }
