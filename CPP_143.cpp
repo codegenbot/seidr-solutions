@@ -5,22 +5,23 @@ string words_in_sentence(string sentence){
         if(sentence[i] == ' '){
             count++;
         }else{
-            if(count > 0 && isPrime(count) == false){
-                continue;
-            }
-            if(i == sentence.size() - 1 || sentence[i+1] == ' '){
-                result += sentence.substr(count, i-count);
+            if(count > 0 && isPrime(sentence.substr(0, i).size())){
+                result += sentence.substr(0, i) + " ";
                 count = 0;
             }
+            sentence.erase(0, i);
+            i--;
         }
     }
     return result;
 }
 
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
+bool isPrime(int n){
+    if(n <= 1)
+        return false;
+    for(int i=2; i*i<=n; i++){
+        if(n%i == 0)
+            return false;
     }
     return true;
 }
