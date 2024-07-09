@@ -1,5 +1,4 @@
-```cpp
-std::string file_name_check(std::string file_name){
+string file_name_check(string file_name){
     int digitCount = 0;
     bool foundDot = false;
     for(int i=0; i<file_name.length(); i++){
@@ -9,7 +8,7 @@ std::string file_name_check(std::string file_name){
         }else if(c == '.'){
             foundDot = true;
         }else if(foundDot){
-            std::string extension = file_name.substr(i);
+            string extension = file_name.substr(i);
             if(extension != "txt" && extension != "exe" && extension != "dll"){
                 return "No";
             }
