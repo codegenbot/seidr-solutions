@@ -1,9 +1,6 @@
 #include <iostream>
-#include <cmath>
-
-int abs(int x) {
-    return x < 0 ? -x : x;
-}
+#include <vector>
+#include <cstdlib>
 
 int gcd(int a, int b) {
     a = abs(a);
@@ -17,6 +14,22 @@ int gcd(int a, int b) {
 int main() {
     int a, b;
     std::cin >> a >> b;
-    std::cout << gcd(a, b) << std::endl;
+    std::cout << gcd(a, b) << "\n";
+
+    std::string text, target;
+    std::cin >> text >> target;
+
+    std::vector<int> indices;
+    for (size_t i = 0; i <= text.size() - target.size(); ++i) {
+        if (text.substr(i, target.size()) == target) {
+            indices.push_back(i);
+        }
+    }
+
+    for (int index : indices) {
+        std::cout << index << " ";
+    }
+    std::cout << "\n";
+
     return 0;
 }
