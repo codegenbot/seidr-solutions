@@ -1,4 +1,5 @@
-print("Welcome to Prime Fibonacci sequence generator!")
+print("Hello, world!")
+
 def prime_fib(n: int):
     a, b = 2, 3
     count = 1
@@ -8,6 +9,7 @@ def prime_fib(n: int):
                 return b
             count += 1
         a, b = b, a + b
+
 def is_prime(num: int):
     if num < 2:
         return False
