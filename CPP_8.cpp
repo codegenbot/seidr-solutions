@@ -1,10 +1,12 @@
-int sum = 0;
-    int product = 1;
-    
+#include <vector>
+#include <utility>
+
+pair<int, int> sum_product(const vector<int>& numbers) {
+    int sum = 0;
+    int prod = 1;
     for (int num : numbers) {
         sum += num;
-        product *= num;
+        prod *= num;
     }
-    
-    return {sum, product};
+    return pair<int, int>(sum, prod);
 }
