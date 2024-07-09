@@ -1,16 +1,14 @@
+Here is the completed code:
+
+#include <algorithm>
+
 int search(vector<int> lst) {
-    map<int, int> freqMap;
-    for (int num : lst) {
-        if (freqMap.find(num) == freqMap.end()) {
-            freqMap[num] = 1;
-        } else {
-            freqMap[num]++;
+    int max = -1;
+    for (auto num : lst) {
+        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
+            max = num;
+            break;
         }
     }
-    for (auto& pair : freqMap) {
-        if (pair.second >= pair.first && pair.first > 0) {
-            return pair.first;
-        }
-    }
-    return -1;
+    return max;
 }
