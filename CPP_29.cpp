@@ -1,7 +1,5 @@
-#include <initializer_list>
 #include <vector>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -20,9 +18,7 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
     }
     return result;
 
-}
-
-int main_test() {
-    assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+int main() {
+    assert (issame(filter_by_prefix(vector<string>({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}), "xxx"), vector<string>({"xxx", "xxxAAA", "xxx"})));
     return 0;
 }
