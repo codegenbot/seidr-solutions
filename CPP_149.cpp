@@ -1,9 +1,10 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size();
+bool issame(const std::string& a, const std::string& b) {
+    return a == b;
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
@@ -37,10 +38,10 @@ int main() {
         inputStrings.push_back(str);
     }
     
-    bool same = issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"});
-    assert(same);
-    
     std::vector<std::string> output = sorted_list_sum(inputStrings);
+    
+    std::vector<std::string> testStrings = {"aaaa", "bbbb", "dd", "cc"};
+    assert(std::equal(sorted_list_sum(testStrings).begin(), sorted_list_sum(testStrings).end(), {"cc", "dd", "aaaa", "bbbb"}));
     
     return 0;
 }
