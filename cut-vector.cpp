@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -17,7 +16,9 @@ vector<int> cutVector(vector<int>& vec) {
             right_sum += vec[j];
 
         if (left_sum == right_sum) {
-            return vector<int>(vec.begin(), vec.begin() + i), vector<int>(vec.begin() + i, vec.end());
+            vector<int> left(vec.begin(), vec.begin() + i);
+            vector<int> right(vec.begin() + i, vec.end());
+            return left, right;
         }
 
         int diff = abs(left_sum - right_sum);
@@ -27,5 +28,7 @@ vector<int> cutVector(vector<int>& vec) {
         }
     }
 
-    return vector<int>(vec.begin(), vec.begin() + cut_idx), vector<int>(vec.begin() + cut_idx, vec.end());
+    vector<int> left(vec.begin(), vec.begin() + cut_idx);
+    vector<int> right(vec.begin() + cut_idx, vec.end());
+    return left, right;
 }
