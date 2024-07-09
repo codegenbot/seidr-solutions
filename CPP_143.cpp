@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <sstream>
 
@@ -6,7 +5,7 @@ using namespace std;
 
 string words_in_sentence(string sentence) {
     stringstream ss(sentence);
-    string word = "";
+    string word = ""; // Initialize word as an empty string
     int count = 0;
 
     while (getline(ss, word, ' ')) {
