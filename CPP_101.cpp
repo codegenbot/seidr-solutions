@@ -1,4 +1,3 @@
-```c++
 #include <algorithm>
 #include <cassert>
 #include <string>
