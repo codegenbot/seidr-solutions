@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -12,12 +13,21 @@ int basement(std::vector<int>& v) {
 }
 
 int main() {
-    std::vector<int> v = {1, 2, -3, 4, -5};
-    int result = basement(v);
-    if(result != -1) {
-        std::cout << "Basement found at index: " << result << std::endl;
-    } else {
-        std::cout << "No basement found." << std::endl;
+    std::vector<int> v;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    v.resize(n);
+    
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> v[i];
     }
+    
+    int result = basement(v);
+    if (result == -1)
+        std::cout << "No such index exists.\n";
+    else
+        std::cout << "The first negative sum index is: " << result << "\n";
     return 0;
 }
