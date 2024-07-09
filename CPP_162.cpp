@@ -1,4 +1,4 @@
-#include <openssl/md5.h>
+#include <openssl/MD5.h>
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -11,7 +11,8 @@ std::string string_to_md5(std::string text) {
     MD5_Init(&ctx);
     const char* p = text.c_str();
     while (*p) {
-        MD5_Update(&ctx, p++, 1);
+        MD5_Update(&ctx, p, 1);
+        p++;
     }
     MD5_Final(md5, &ctx);
 
