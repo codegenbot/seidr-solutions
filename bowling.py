@@ -1,32 +1,24 @@
-```
+````
 frames = input("Enter the string representing individual bowls: ")
 def bowling_score(frames):
     score = 0
-    i = 0
-    while i < len(frames):
-        if frames[i] == "X":
-            score += 10
-            if i+1 < len(frames) and (frames[i+1].strip()[:2] == "//" or frames[i+1].strip()[:2] == "9X"):
-                score += int(frames[i+1].strip()[2:])
-        elif frames[i] == "/":
-            if i-1 >= 0 and not (frames[i-1].strip().isdigit()):
+    frames = frames.split() 
+    for i, frame in enumerate(frames):
+        if frame == "X": 
+            if i+1 < len(frames) and (frames[i+1].strip().startswith("//") or frames[i+1].strip().startswith("9X")):
                 score += 10
-            else:
-                frame_score = int(frames[i-1].strip()) + int(frames[i].strip())
-                score += frame_score
-            if i+1 < len(frames) and frames[i+1].strip()[:2] == "9X":
-                score += int(frames[i+1].strip()[2:])
-        else:
-            if frames[i].strip() == "-":
-                if i+1 < len(frames) and not (frames[i+1].strip().isdigit()):
-                    frame_score = 10
-                else:
-                    frame_score = int(frames[i:i+2].strip())
-                score += frame_score
-                i += 1
-            else:
-                frame_score = sum(int(c) for c in frames[i:i+2])
-                score += frame_score
-        i += 1
+                if frames[i+1].strip().startswith("9X"):
+                    score += int(frames[i+1].strip()[2:])
+        elif frame == "/": 
+            frame_score = 10
+            if i+1 < len(frames):
+                frame_score += int(frames[i+1].strip())
+            score += frame_score
+        else: 
+            try:
+                score += sum(int(c) for c in frame)
+            except ValueError:
+                return -1 
     return score
+
 print(bowling_score(frames))
