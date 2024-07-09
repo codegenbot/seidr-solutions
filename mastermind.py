@@ -1,8 +1,12 @@
-```
 def mastermind(code, guess):
     black = sum(1 for a, b in zip(code, guess) if a == b)
-    white_count = {char: code.count(char) for char in set(guess)}
-    white = sum(min(count, code.count(char)) for char, count in white_count.items() if count > 0)
+    white = 0
+    code_count = {char: 0 for char in set(code)}
+    
+    for char in set(guess):
+        if char in code and code_count[char] < 1:
+            white += 1
+            code_count[char] -= 1
 
     return black, white
 
