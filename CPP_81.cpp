@@ -2,7 +2,7 @@
 #include <string>
 
 bool issame(std::vector<std::string> b, std::vector<std::string> a){
-    return (a == b);
+    // implement your logic here to check if two vectors are same
 }
 
 std::vector<string> numerical_letter_grade(vector<float> grades){
