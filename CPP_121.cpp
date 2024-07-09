@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 #include <initializer_list>
@@ -22,6 +23,6 @@ int main() {
         std::cin >> num;
         size++;
     }
-    assert(solution({3, 13, 2, 9}) == 16);
+    assert(solution(lst) == 16);
     return 0;
 }
