@@ -1,4 +1,5 @@
 #include<vector>
+
 int smallest_change(std::vector<int> arr){
     int changes = 0;
     for (int i = 0; i < arr.size() / 2; ++i) {
@@ -8,4 +9,3 @@ int smallest_change(std::vector<int> arr){
     }
     return changes;
 }
-```
