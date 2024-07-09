@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 vector<int> findIndices(std::string text, std::string target) {
