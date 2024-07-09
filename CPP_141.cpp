@@ -1,38 +1,26 @@
-Here is the completed code:
+#include <string>
 
-```cpp
-bool has_digits = false;
-int dot_count = 0;
+using namespace std;
 
-for (char c : file_name) {
-    if (isdigit(c)) {
-        has_digits |= true;
-    } else if (c == '.') {
-        dot_count++;
+string file_name_check(string file_name) {
+    int digit_count = 0;
+    bool found_dot = false;
+    string before_dot = "";
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digit_count++;
+        } else if (c == '.') {
+            found_dot = true;
+        } else {
+            if (!found_dot) {
+                before_dot += c;
+            }
+        }
     }
-}
-
-if (dot_count != 1 || has_digits > 3) {
-    return "No";
-}
-
-string before_dot = "";
-string after_dot = "";
-
-for (char c : file_name) {
-    if (c == '.') {
-        break;
+    if (digit_count > 3 || !found_dot || before_dot.empty() || 
+        (before_dot[0] < 'a' && before_dot[0] < 'A') || 
+        (find({"txt", "exe", "dll"}, file_name.substr(file_name.find('.') + 1)) == {"txt", "exe", "dll").end())) {
+        return "No";
     }
-    before_dot += c;
+    return "Yes";
 }
-
-for (char c : file_name.substr(file_name.find('.') + 1)) {
-    after_dot += c;
-}
-
-if (!before_dot.empty() && !all_of(before_dot.begin(), before_dot.end(), ::isalpha) ||
-    (after_dot != "txt" && after_dot != "exe" && after_dot != "dll")) {
-    return "No";
-}
-
-return "Yes";
