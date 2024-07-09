@@ -11,23 +11,13 @@ vector<int> sort_third(vector<int> l) {
 
     for (int i : l) {
         if(groupCount % 3 == 0) { 
-            // Reverse iterate over the entire result so far
-            for(int x : result)
-                result.push_back(x);
-            // Clear the result so far
-            result.clear();
+            for(int j : vector<int>{i}) {
+                result.push_back(j);
+            }
         } else {
             result.push_back(i);
             groupCount++;
         }
-    }
-
-    if(groupCount % 3 != 0) {
-        // Reverse iterate over the entire result so far
-        for(int x : result)
-            result.push_back(x);
-        // Clear the result so far
-        result.clear();
     }
 
     return result;
