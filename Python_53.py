@@ -1,7 +1,7 @@
-def add(x: int, y: int):
-    return x + y
-
-x = int(input("Enter first integer: "))
-y = int(input("Enter second integer: "))
-result = add(x, y)
-print(result)
+def add(x: int, y: int) -> int:
+    try:
+        x = int(x)
+        y = int(y)
+        return x + y
+    except ValueError:
+        return "Invalid input, please enter integers only"
