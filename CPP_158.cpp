@@ -13,6 +13,6 @@ std::string find_max(vector<string> words){
 }
 
 int main() {
-   vector<string> words = {"apple", "banana", "cherry"};
-   std::cout << find_max(words) << std::endl;
+   vector<string> wordList = {"apple", "banana", "cherry"};
+   cout << find_max(wordList) << endl; 
 }
