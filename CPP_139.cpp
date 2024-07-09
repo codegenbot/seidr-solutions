@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 
 long long special_factorial(int n) {
     if (n <= 1)
