@@ -1,6 +1,6 @@
 #include <string>
 
-string remove_vowels(string text) {
+string remove_vowels(string text){
     string result = "";
     for(char c : text){
         if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' 
@@ -9,3 +9,4 @@ string remove_vowels(string text) {
         }
     }
     return result;
+}
