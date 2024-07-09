@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -33,5 +32,4 @@ int main() {
         cout << prime << " ";
     }
     cout << endl;
-    return 0;
 }
