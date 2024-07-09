@@ -1,6 +1,7 @@
-```
+```c++
 #include <vector>
 #include <climits>
+#include <cmath>
 #include <iostream>
 using namespace std;
 
@@ -46,3 +47,4 @@ int main() {
     cout << "], [";
     for (const auto& x : result.second) cout << x << " ";
     cout << "]";
+}
