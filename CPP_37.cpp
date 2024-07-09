@@ -24,13 +24,12 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> v = {3.5, 2.2, 1.1, 4.4, 5.5}; // Sample input
+    vector<float> input = {4.5, 2.1, 3.2, 1.0, 5.5};
+    vector<float> sorted_even = sort_even(input);
 
-    vector<float> sorted_even = sort_even(v);
+    vector<float> expected_output = {2.1, 4.5, 1.0, 3.2, 5.5};
 
-    vector<float> expected_result = {1.1, 2.2, 3.5, 4.4, 5.5}; // Expected sorted result
-
-    assert(is_same(sorted_even, expected_result));
+    assert(ism_same(sorted_even, expected_output));
 
     return 0;
 }
