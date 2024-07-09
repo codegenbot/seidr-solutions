@@ -1,27 +1,20 @@
-```cpp
-#include <iostream>
 #include <string>
 
-std::string fix_spaces(std::string text) {
-    std::string result = "";
-    for (int i = 0; i < text.length(); i++) {
-        if (text[i] == ' ') {
-            if (i > 0 && result[result.length() - 1] == ' ' && result.length() >= 2) {
-                result += "-";
-            } else {
-                result += '_';
+string fix_spaces(string text){
+    string result = "";
+    bool prevSpace = false;
+
+    for(char c : text){
+        if(c == ' '){
+            if(!prevSpace || !result.empty()){
+                result += (prevSpace) ? "-" : "_";
             }
-        } else {
-            result += text[i];
+            prevSpace = true;
+        }else{
+            result += c;
+            prevSpace = false;
         }
     }
-    return result;
-}
 
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << "Fixed string: " << fix_spaces(input) << std::endl;
-    return 0;
+    return result;
 }
