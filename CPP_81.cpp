@@ -1,12 +1,11 @@
 #include <vector>
 #include <string>
-#include <algorithm>
 
 bool issame(std::vector<std::string> a) {
-    if (a.size() == 0 || all_of(a.begin(), a.end(), [s = a[0]](const std::string& x) { return s == x; })) {
-        return true;
+    for(int i = 1; i < a.size(); i++) {
+        if(a[i] != a[0]) return false;
     }
-    return false;
+    return true;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
@@ -42,9 +41,8 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 
 int main() {
     std::vector<float> grades = {4.0};
-    std::vector<std::string> result = numerical_letter_grade(grades);
-    if (issame({result})) {
-        for (std::string s : result) {
+    if (issame(numerical_letter_grade({grades}))) {
+        for (std::string s : numerical_letter_grade({grades})) {
             if (s != "E") {
                 return 1;
             }
