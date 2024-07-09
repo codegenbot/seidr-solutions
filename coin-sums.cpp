@@ -1,7 +1,4 @@
-```c++
-#include <iostream>
-using namespace std;
-
+```cpp
 int main() {
     int cents;
     cin >> cents;
