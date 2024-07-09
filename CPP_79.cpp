@@ -1,4 +1,6 @@
-Here is the solution:
+#include <string>
+#include <cassert>
+using namespace std;
 
 string decimal_to_binary(int decimal){
     string binary = "";
