@@ -16,5 +16,5 @@ int hex_key(std::string num) {
 
 int main() {
     assert(hex_key("") == 0);
-    // rest of your code
+    return 0;
 }
