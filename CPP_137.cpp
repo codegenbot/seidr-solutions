@@ -23,8 +23,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         else
             return "None";
-    }
-    else {
+    } else {
         return "None";
     }
 }
