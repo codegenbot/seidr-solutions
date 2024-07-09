@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream>
+#include <algorithm>
 
 int count_nums(std::vector<int> nums) {
     int count = 0;
@@ -35,10 +35,7 @@ int count_nums(std::vector<int> nums) {
             }
         }
     }
+    if (count == 0) {
+        return -1; // No numbers with positive digit sums
+    }
     return count;
-}
-
-int main() {
-    assert (count_nums({1}) == 1);
-    return 0;
-}
