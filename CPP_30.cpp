@@ -1,16 +1,22 @@
 #include <vector>
-#include <cmath>
+#include <iostream>
 
-bool issame(float x, float y) {
-    return (x == y);
-}
-
-vector<float> get_positive(vector<float> l) {
-    vector<float> result;
-    for (float x : l) {
-        if (x > 0) {
-            result.push_back(x);
-        }
+std::vector<float> get_positive(const std::vector<float>& l) {
+    std::vector<float> result;
+    for(float num : l){
+        if(num > 0)
+            result.push_back(num);
     }
     return result;
+}
+
+int main() {
+    std::vector<float> input;
+    float num;
+    while(std::cin >> num) {
+        input.push_back(num);
+    }
+    std::vector<float> result = get_positive(input);
+    //assert(issame(result, {0.5f, 1.0f, 2.0f}));
+    return 0;
 }
