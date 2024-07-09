@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
@@ -33,27 +32,16 @@ int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    for(int i=0; i<n; i++)
+    for(int i=0; i<n; i++) {
         cin >> nums[i];
-    vector<int> output = order_by_points(nums);
+    }
     
-    // Output the sorted numbers
-    cout << "Sorted numbers by points: ";
-    for(auto x : output)
-        cout << x << " ";
-    cout << endl;
-    
-    // Check if the output is correct
-    vector<int> correct_order;
-    cin >> n;
-    for(int i=0; i<n; i++)
-        cin >> nums[i];
-    correct_order = order_by_points(nums);
-    
-    if(issame(output, correct_order))
-        cout << "Output is correct" << endl;
-    else 
-        cout << "Incorrect output. Please check your code." << endl;
-    
+    vector<int> res = order_by_points(nums);
+
+    if (issame(res, {1,2,3})) 
+        cout << "YES" << endl;
+    else
+        cout << "NO" << endl;
+
     return 0;
 }
