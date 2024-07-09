@@ -1,10 +1,18 @@
-string::iterator it = text.begin();
-for (; it != text.end(); ++it) {
-    if (tolower(*it) == 'a' || tolower(*it) == 'e' ||
-        tolower(*it) == 'i' || tolower(*it) == 'o' ||
-        tolower(*it) == 'u') {
-        text.erase(it);
-        --it;
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+std::string remove_vowels(std::string text){
+    std::string result = "";
+    for(char c : text){
+        if(strchr("aeiouAEIOU",c) == NULL)
+            result += c;
     }
+    return result;
 }
-return text;
+
+int main(){
+    assert (remove_vowels("ybcd") == "ybcd");
+    return 0;
+}
