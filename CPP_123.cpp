@@ -1,16 +1,8 @@
 #include <vector>
+#include <iostream>
 
-bool issame(vector<int> a,vector<int>b){
-    if(a.size() != b.size())
-        return false;
-    for(int i=0;i<a.size();i++)
-        if(a[i] != b[i])
-            return false;
-    return true;
-}
-
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
             n = n / 2;
@@ -21,5 +13,25 @@ vector<int> get_odd_collatz(int n) {
             result.push_back(n);
         }
     }
-    return result; // stop storing numbers when n becomes 1
+    return result;
+}
+
+int main() {
+    int num;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> num;
+    
+    auto output = get_odd_collatz(num);
+
+    if (!output.empty()) {
+        std::cout << "The sequence for the input number is: ";
+        for (int i : output) {
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "No odd Collatz sequence found for this number." << std::endl;
+    }
+
+    return 0;
 }
