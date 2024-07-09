@@ -22,7 +22,7 @@ int main() {
         else
             std::cout << "Please enter a positive integer greater than zero.\n";
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), std::char_traits<std::streamsize>::eof());
     }
 
     std::vector<int> lst;
