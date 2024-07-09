@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -6,10 +7,7 @@ def concatenate(strings: List[str]) -> str:
 
 
 strings = input("Enter strings (separated by space): ")
-while True:
-    try:
-        strings = [s.strip() for s in strings.split()]
-        break
-    except ValueError:
-        print("Invalid input. Please enter strings separated by spaces.")
-print(concatenate(strings))
+if strings:
+    print(concatenate(strings.split()))
+else:
+    print("No strings entered")
