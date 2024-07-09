@@ -11,8 +11,8 @@ int skjkasdkd(std::vector<int> lst){
                 break;
             }
         }
-        if(isPrime && num > maxPrime){
-            maxPrime = num;
+        if(isPrime){
+            maxPrime = std::max(maxPrime, num);
         }
     }
     int sumDigits = 0;
