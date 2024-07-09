@@ -1,19 +1,18 @@
-#include<stdio.h>
-#include<math.h>
-#include<string>
-using namespace std;
+Here is the completed code:
 
 string rounded_avg(int n,int m){
     if(n > m) return "-1";
-    long sum = 0;
-    for(long i=n; i<=m; i++) sum += i;
-    double avg = (double)sum / (m - n + 1);
-    int rounded_avg = floor(avg+0.5); // rounding to the nearest integer
+    int sum = 0;
+    for(int i=n; i<=m; i++){
+        sum += i;
+    }
+    double avg = (double)sum / (m-n+1);
+    int rounded_avg = floor(avg);
     string res = "";
     while(rounded_avg > 0){
-        res = char(rounded_avg % 2) + res; // convert to binary
-        rounded_avg /= 2;
+        res += (rounded_avg & 1) ? "1" : "0";
+        rounded_avg >>= 1;
     }
-    reverse(res.begin(),res.end());
+    reverse(res.begin(), res.end());
     return res;
 }
