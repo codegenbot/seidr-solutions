@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -22,17 +23,17 @@ int main() {
         try {
             float num = std::stof(input);
             numbers.push_back(num);
+            if (numbers.size() >= 1000) {
+                std::cout << "Maximum number of entries reached. Stopping now." << std::endl;
+                break;
+            }
         } catch(const std::invalid_argument& e) {
             isValid = false;
             std::cout << "Invalid number. Please enter a valid floating point number." << std::endl;
-            while (std::cin.fail()) {  
+            while (!(std::cin >> input)) {  
                 std::cout << "Invalid input. Please try again: ";
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                if (!(std::cin >> input)) {
-                    std::cout << "Invalid input. Please enter a valid floating point number." << std::endl;
-                    break;
-                }
             }
         }
         if (!isValid) {
