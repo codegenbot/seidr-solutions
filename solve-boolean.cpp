@@ -1,27 +1,36 @@
 #include <string>
 
 bool solveBoolean(string s) {
-    stack<char> st;
-    
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == '&') {
-            while(!st.empty() && st.top() == '&') {
-                st.pop();
+    bool res = true;
+    for (char c : s) {
+        if (c == 'F') {
+            res = false;
+            break;
+        }
+        else if (c == '&') {
+            while (s.length() > 1 && s[0] == '&') {
+                s = s.substr(1);
             }
-            if(st.empty()) {
-                return false;
-            } else {
-                st.pop();
+            if (s.empty()) {
+                return true;
+            } 
+            if (s[0] == 'F') {
+                res = false;
+                break;
             }
-        } else if(s[i] == '|') {
-            while(!st.empty()) {
-                st.pop();
+        }
+        else if (c == '|') {
+            while (s.length() > 1 && s[0] == '|') {
+                s = s.substr(1);
             }
-            st.push(s[i]);
-        } else {
-            st.push(s[i]);
+            if (s.empty()) {
+                return true;
+            } 
+            if (s[0] == 'F') {
+                res = false;
+                break;
+            }
         }
     }
-    
-    return (s[0] == 'T');
+    return res;
 }
