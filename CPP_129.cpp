@@ -1,25 +1,12 @@
-#include <iostream>
-#include <vector>
-#include <queue>
+```cpp
+const int N = 50; 
 using namespace std;
 
-struct prior {
-    int val;
-    pair<int, int> pos;
-};
-
-prior operator>(const prior& a, const prior& b) {
-    if (a.val == b.val) {
-        return {a.val, {a.pos.first + 1, a.pos.second}} > {{b.val, {b.pos.first + 1, b.pos.second}}};
-    }
-    return a.val > b.val;
-}
+priority_queue<pair<int, pair<int, int>>> pq;
+vector<vector<bool>> visited(N, vector<bool>(N, false));
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(1000, vector<bool>(1000, false));
-    
-    priority_queue<prior> pq;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
@@ -32,9 +19,9 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> res;
 
     while (!pq.empty()) {
-        int val = pq.top().val;
-        int x = pq.top().pos.first;
-        int y = pq.top().pos.second;
+        int val = pq.top().first;
+        int x = pq.top().second.first;
+        int y = pq.top().second.second;
         res.push_back(val);
         pq.pop();
 

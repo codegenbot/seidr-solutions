@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <tuple>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size())
@@ -24,7 +24,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             }
         }
         if (!found)
-            result.push_back(std::string(1, ch));
+            result.push_back(std::to_string(ch));
     }
 
     std::string res_str = "";
