@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -8,9 +9,9 @@ double calculateEuclideanDistance(const vector<float>& vec1, const vector<float>
     double distance = 0.0;
     for (int i = 0; i < vec1.size(); ++i) {
         float diff = vec1[i] - vec2[i];
-        distance += std::pow(diff, 2);
+        distance += pow(diff, 2);
     }
-    return std::sqrt(distance);
+    return sqrt(distance);
 }
 
 int main() {
