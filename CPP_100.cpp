@@ -1,15 +1,14 @@
 #include <vector>
 #include <cassert>
 
-vector<int> stones;
-stones.push_back(n);
-for(int i=1; i<n; ++i){
-    if(n%2 == 0){
-        n += 2;
+vector<int> make_a_pile(int n) {
+    vector<int> stones;
+    for(int i = 0; i < n; i++){
+        stones.push_back(n + 2*i);
     }
-    else{
-        n += 1;
-    }
-    stones.push_back(n);
+    return stones;
 }
-return stones;
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
