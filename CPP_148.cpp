@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
@@ -22,7 +21,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
 
     if (index1 == -1 || index2 == -1)
-        return {};
+        return std::vector<std::string>();
 
     int minIndex = std::min(index1, index2);
     int maxIndex = std::max(index1, index2);
