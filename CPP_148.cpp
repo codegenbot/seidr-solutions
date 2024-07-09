@@ -1,9 +1,19 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    std::vector<std::string> result;
+using namespace std;
+
+bool issame(const vector<string>& v, const string& target) {
+    for (const auto& s : v) {
+        if (s == target) return true;
+    }
+    return false;
+}
+
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    vector<string> result;
 
     int idx1 = 0;
     int idx2 = 0;
@@ -18,7 +28,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
 
     if (idx1 == 0 || idx2 == 0)
-        return std::vector<std::string>();
+        return vector<string>();
 
     for (int i = idx1 + 1; i < idx2; i++) {
         result.push_back(planets[i]);
