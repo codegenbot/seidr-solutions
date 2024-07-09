@@ -28,14 +28,16 @@ int main() {
     }
     
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "Left side: ";
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i] << " ";
+    cout << result.first[0];
+    for (int i = 1; i < result.first.size(); i++) {
+        cout << " ";
+        cout << result.first[i];
     }
     cout << endl;
-    cout << "Right side: ";
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i] << " ";
+    cout << result.second[0];
+    for (int i = 1; i < result.second.size(); i++) {
+        cout << " ";
+        cout << result.second[i];
     }
     cout << endl;
     
