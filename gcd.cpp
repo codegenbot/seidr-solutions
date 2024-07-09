@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <string>
 
 int findGCD(int a, int b) {
     if (b == 0) return std::abs(a);
@@ -31,9 +32,9 @@ int main() {
 
     std::string text, target;
     std::cout << "Enter the text: ";
-    std::getline(std::cin, text);
+    getline(std::cin, text); 
     std::cout << "Enter the target string: ";
-    std::getline(std::cin, target); 
+    getline(std::cin, target);
     std::vector<int> indices = findIndices(text, target);
     for (int i : indices) {
         std::cout << i << " ";
