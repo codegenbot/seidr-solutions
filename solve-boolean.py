@@ -5,8 +5,7 @@ def solve_boolean(expression):
         return False
     else:
         stack = []
-        stack.append(expression[0] == "T")
-        for char in reversed(expression)[1:]:
+        for char in reversed(expression):
             if char in ["&", "|"]:
                 right = stack.pop()
                 left = stack.pop()
@@ -16,4 +15,4 @@ def solve_boolean(expression):
                     stack.append(left or right)
             else:
                 stack.append(char == "T")
-        return stack[0]
+        return stack[-1]
