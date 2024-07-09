@@ -1,9 +1,10 @@
 #include <algorithm>
 #include <string>
+#include <vector>
 #include <cassert>
 
-bool issame(const std::pair<std::string, std::string>& a, const std::pair<std::string, std::string>& b) {
-    return a.first == b.first && a.second == b.second;
+bool issame(const std::string& a, const std::string& b) {
+    return a == b;
 }
 
 std::pair<std::string, std::string> reverse_delete(const std::string& s, const std::string& c) {
@@ -19,6 +20,6 @@ std::pair<std::string, std::string> reverse_delete(const std::string& s, const s
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
-    return 0;
+    assert(issame(reverse_delete("mamma", "mia").first, ""));
+    assert(issame(reverse_delete("mamma", "mia").second, "True"));
 }
