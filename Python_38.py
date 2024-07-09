@@ -1,6 +1,3 @@
-import sys
-s = sys.stdin.readline().rstrip()
-result = ""
-for char in s:
-    result += chr(ord(char) - 1)
+s = input("Enter a string:")
+result = "".join(chr(ord(char) - 1) for char in s)
 print(result)
