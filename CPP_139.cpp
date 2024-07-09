@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 #ifndef MY_CPP_H
