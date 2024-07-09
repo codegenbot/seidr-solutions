@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -13,7 +12,7 @@ bool is_happy(const std::string& s) {
         size_t pos = s.find(subStr);
         while (pos != std::string::npos) {
             if (s.length() < i + 3) return false;
-            pos = s.find(subStr, pos + 1);
+            pos = s.find(subStr, pos);
         }
     }
     return true;
