@@ -18,8 +18,20 @@ int pluck(std::vector<int> arr) {
     return minIndex;
 }
 
+bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+
+    return true;
+}
+
 int main() {
     int index = pluck({7, 9, 7, 1});
-    assert(index % 2 == 0 || index == -1); 
-    return 0;
+    std::vector<int> emptyVector;
+
+    if (index % 2 == 0 || index == -1) 
+        assert(areEqual({}, emptyVector)); 
 }
