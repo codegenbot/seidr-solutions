@@ -3,16 +3,15 @@
 #include <algorithm>
 #include <cassert>
 
-int next_smallest(const std::vector<int>& lst) {
-    std::vector<int> sorted_lst = lst;
-    std::sort(sorted_lst.begin(), sorted_lst.end());
+int next_smallest(std::vector<int> lst) {
+    std::sort(lst.begin(), lst.end());
     int count = 0;
-    for (int i = 1; i < sorted_lst.size(); ++i) {
-        if (sorted_lst[i] != sorted_lst[i - 1]) {
+    for (int i = 1; i < lst.size(); ++i) {
+        if (lst[i] != lst[i - 1]) {
             count++;
         }
         if (count == 1) {
-            return sorted_lst[i];
+            return lst[i];
         }
     }
     return -1;
@@ -20,6 +19,7 @@ int next_smallest(const std::vector<int>& lst) {
 
 int main() {
     assert(next_smallest({-35, 34, 12, -45}) == -35);
-    // Additional test cases can be added here
+    // Add more test cases here
+
     return 0;
 }
