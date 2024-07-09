@@ -26,5 +26,9 @@ vector<string> sorted_list_sum(vector<string> lst) {
 int main() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
     vector<string> result = sorted_list_sum(input);
-    cout << "The lists are the same: actual - " << result << ", expected - {" << "cc" << ", " << "dd" << ", " << "aaaa" << ", " << "bbbb" << "}" << endl;
+    if (result == vector<string>{"cc", "dd", "aaaa", "bbbb"}) {
+        cout << "The lists are the same." << endl;
+    } else {
+        cout << "The lists are not the same: actual - " << result << ", expected - " << {"cc", "dd", "aaaa", "bbbb"} << endl;
+    }
 }
