@@ -1,10 +1,10 @@
+```cpp
 #include <vector>
 #include <iostream>
 
 int fuelCost(int n) {
-    int cost = (n / 3) - 2;
-    if (cost < 0) return 0;
-    return cost;
+    int cost = (n / 3) - (n % 3 == 0 ? 2 : 1);
+    return std::min(cost, 0);
 }
 
 int main() {
