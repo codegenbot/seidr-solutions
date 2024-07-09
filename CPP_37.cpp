@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
-bool isSame(std::vector<float> a, std::vector<float> b) {
+bool checkEquality(std::vector<float> a, std::vector<float> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -56,6 +56,6 @@ int main() {
     }
     std::sort(expected.begin(), expected.end());
     
-    bool isSame = isSame(result, expected);
+    bool isSame = checkEquality(result, expected);
     return 0;
 }
