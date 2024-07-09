@@ -1,11 +1,10 @@
-```
-vector<int> issame(vector<int> arr, int k) {
+vector<int> maximum(vector<int> arr, int k) {
     priority_queue<int> pq;
     for (int i : arr) {
         pq.push(i);
     }
     vector<int> result;
-    while (pq.size() > 1 && k--) {
+    for (int i = 0; i < k; i++) {
         result.push_back(pq.top());
         pq.pop();
     }
