@@ -12,12 +12,15 @@ bool isCube(int n) {
 
 }
 
-int mainFunc() { 
-    int num;
+int main() { 
+    int n;
     std::cout << "Enter a cube number (like 1729): ";
-    std::cin >> num;
+    std::cin >> n;
+
+    if (isCube(n))
+        std::cout << "You entered: " << n << std::endl; 
+    else
+        std::cout << "Invalid input." << std::endl;
     
-    assert(isCube(num) == isCube(1729)); 
-    std::cout << "You entered: " << num << std::endl; 
     return 0;
 }
