@@ -13,21 +13,22 @@ std::pmr::vector<int> strange_sort_list(std::pmr::pmr_vector<int> lst) {
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
         result.push_back(min_val);
-        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
+        auto newEnd = std::remove(lst.begin(), lst.end(), min_val);
+        lst.erase(newEnd, lst.end());
 
         if (!lst.empty()) {
             int max_val = *std::max_element(lst.begin(), lst.end());
             result.push_back(max_val);
-            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
+            newEnd = std::remove(lst.begin(), lst.end(), max_val);
+            lst.erase(newEnd, lst.end());
         }
     }
     return result;
 }
 
 int main() {
-    std::pmr::memory_resource mr;
-    std::pmr::polymorphic_allocator<void> global_mr = &mr;
-    std::pmr::vector<int> input(&mr);
+    std::pmr::polymorphic_allocator<int> global_mr;
+    std::pmr::vector<int> input(global_mr);
     for (int i = 0; i < 6; ++i) {
         int num;
         std::cin >> num;
