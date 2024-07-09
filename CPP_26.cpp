@@ -40,6 +40,9 @@ int main() {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
         std::cin >> num;
+        if (numbers.size() == numbers.capacity()) {
+            numbers.reserve(numbers.capacity() * 2); 
+        }
         numbers.push_back(num);
     }
 
