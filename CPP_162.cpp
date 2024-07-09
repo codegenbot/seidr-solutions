@@ -1,9 +1,9 @@
-```cpp
 #include <iostream>
 #include <limits>
 #include <string>
-#include <iomanip> 
+#include <iomanip>
 #include <openssl/evp.h>
+#include <openssl/md5.h>
 
 using namespace std;
 
@@ -14,17 +14,16 @@ string string_to_md5(string text) {
     EVP_MD_CTX md_ctx;
     unsigned char* d = nullptr;
     size_t len = 0;
-    int ret = EVP_Digest(text.c_str(), text.size(), &d, &len, EVP_md_md5(), &md_ctx);
-    
+    int ret = EVP_DigestInit_ex(&md_ctx, EVP_md5(), NULL);
+    ret = EVP_DigestUpdate(&md_ctx, text.c_str(), text.size());
+    EVP_MD_CTX_free(&md_ctx);
+
     string md5_hash;
     for (int i = 0; i < 16; ++i) {
         ostringstream oss;
-        oss << hex << setfill('0') << setw(2) << static_cast<unsigned int>(d[i]);
+        oss << hex << setfill('0') << setw(2) << static_cast<unsigned int>(result[i]);
         md5_hash += oss.str();
     }
-    
-    free(d);
-    EVP_MD_CTX_free(&md_ctx);
     
     return md5_hash;
 }
