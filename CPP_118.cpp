@@ -28,3 +28,8 @@ string get_closest_vowel(string word) {
         return string(1, closest_vowel);
     }
 }
+
+int main() {
+    // Main function body to test the get_closest_vowel function
+    return 0;
+}
