@@ -1,4 +1,4 @@
-#include <vector>
+```#include <vector>
 #include <iostream>
 #include <string>
 
@@ -22,7 +22,10 @@ std::string kebabToCamel(const std::string& s) {
 
 int main() {
     std::string input;
-    std::cin >> input;
+    for (char c : std::cin.rdbuf()->sgetn(&input[0], 256)) {
+        if (c == '\n' || !c) break;
+    }
     std::cout << kebabToCamel(input) << std::endl;
 
     return 0;
+}
