@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <cassert>
 
 bool is_palindrome(std::string text){
@@ -12,5 +13,7 @@ bool is_palindrome(std::string text){
 }
 
 int main(){
-    assert (is_palindrome("xywzx") == false);
+    assert(is_palindrome("xywzx") == false);
+    // Add more test cases here
+    return 0;
 }
