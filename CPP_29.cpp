@@ -2,12 +2,14 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) return false;
+    if(a.size() != b.size())
+        return false;
+    
     for(int i = 0; i < a.size(); i++) {
-        for(string s : a[i].split(" ")) {
-            if(std::count(b[i].begin(), b[i].end(), s[0]) == 0) return false;
-        }
+        if(a[i] != b[i])
+            return false;
     }
+    
     return true;
 }
 
