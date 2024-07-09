@@ -1,6 +1,7 @@
-#include <iostream>
 #include <vector>
-
+#include <cmath>
+#include <iostream>
+#include <cassert>
 using namespace std;
 
 bool is_same(vector<float> a, vector<float> b){
