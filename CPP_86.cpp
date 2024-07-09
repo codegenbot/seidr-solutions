@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <string>
 using namespace std;
@@ -30,4 +31,10 @@ string anti_shuffle(string s) {
         }
     }
     return result;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << anti_shuffle(s);
 }
