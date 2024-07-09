@@ -9,21 +9,41 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-bool issame(float a, float b) {
-    return (a == b);
-}
+bool issame(vector<float> v1, vector<float> v2){
+    if(v1.size() != v2.size())
+        return false;
 
-int main() {
-    vector<float> numbers = {1.2f, -3.4f, 5.6f, -7.8f};
-    
-    vector<float> positive_numbers = get_positive(numbers);
-
-    for (float number : positive_numbers) {
-        if (!issame(number, 0)) {
-            cout << "The positive numbers are: ";
-            break;
-        }
+    for(int i = 0; i < v1.size(); i++){
+        if(abs(v1[i] - v2[i]) > 1e-6)
+            return false;
     }
 
+    return true;
+}
+
+int main(){
+    vector<float> a, b;
+    
+    cin >> a.size();
+    for(float &i : a) 
+        cin >> i;
+
+    cin >> b.size();
+    for(float &i : b) 
+        cin >> i; 
+
+    if(issame(a, b))
+        cout << "Same\n";
+    else
+        cout << "Not Same\n";
+
+    vector<float> pos_a = get_positive(a);
+    vector<float> pos_b = get_positive(b);
+
+    cout << "Positive: ";
+    for(float &i : pos_a) 
+        cout << i << " ";
+
+    cout << endl;
     return 0;
 }
