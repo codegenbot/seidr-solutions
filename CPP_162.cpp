@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <limits>
 #include <string>
@@ -18,8 +19,8 @@ string string_to_md5(string text) {
     int ret = EVP_Digest(text.c_str(), text.size(), &d, &len, EVP_md_md5(), &md_ctx);
     
     string md5_hash;
+    std::ostringstream oss; // Modify to use std::
     for (int i = 0; i < 16; ++i) {
-        std::ostringstream oss;
         oss << hex << setfill('0') << setw(2) << static_cast<unsigned int>(d[i]);
         md5_hash += oss.str();
     }
