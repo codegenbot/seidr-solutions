@@ -34,23 +34,15 @@ int main_entry() {
     int n;
     std::cout << "Enter the number of strings: ";
     std::cin >> n;
-    
-    std::vector<std::string> inputStrings; 
-    std::string str1;
-    std::cout << "Enter string 1: ";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-    std::getline(std::cin, str1);
-    inputStrings.push_back(str1);
 
-    for(int i = 2; i <= n; i++) {
+    std::vector<std::string> inputStrings; 
+    for(int i = 1; i <= n; i++) {
         std::string str;
         std::cout << "Enter string " << i << ": ";
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+        for(int j = 0; j < i; j++)
+            for (int k = 0; std::cin.get(k) && k < '\n'; ) {} 
         std::getline(std::cin, str);
         inputStrings.push_back(str);
-
-        // Added this line to ignore the newline character
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     
     std::vector<std::string> output = sorted_list_sum(inputStrings);

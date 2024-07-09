@@ -4,10 +4,6 @@
 #include <vector>
 #include <string>
 
-int main() {
-    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
-}
-
 int Strongest_Extension(std::string className, const std::vector<std::string>& extensions) {
     int strongest = -1;
     for (const auto& extension : extensions) {
@@ -15,5 +11,10 @@ int Strongest_Extension(std::string className, const std::vector<std::string>& e
             strongest = extension.length();
         }
     }
-    return strongest == -1 ? -1 : className + "." + extensions[0];
+    return strongest == -1 ? 0 : className + "." + extensions[0];
+}
+
+int main() {
+    int result = Strongest_Extension("Sp", {"671235", "Bb"});
+    std::cout << "Result: " << (result > 0 ? "Strongest Extension exists" : "No strongest extension") << std::endl;
 }
