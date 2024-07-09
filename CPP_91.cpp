@@ -1,3 +1,4 @@
+```
 #include <string>
 
 int is_bored(string S){
@@ -15,3 +16,4 @@ int is_bored(string S){
     if(word.find("I") == 0)
         count++;
     return count;
+}
