@@ -5,7 +5,6 @@ def insert_delimeter(numbers, delimeter):
     result.pop()
     return result
 
-# Call the function with appropriate arguments
 numbers = [1, 2, 3, 4, 5]
 delimeter = ","
 output = insert_delimeter(numbers, delimeter)
