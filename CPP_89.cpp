@@ -1,15 +1,11 @@
 string encrypted = "";
-    for(int i = 0; i < s.size(); i++){
-        if(isalpha(s[i])){
-            int shift = (s[i] - 'a') + 2 * 2;
-            if(isupper(s[i])){
-                shift = (s[i] - 'A') + 2 * 2;
-                encrypted += (char)('A' + (shift % 26));
-            } else{
-                encrypted += (char)('a' + (shift % 26));
-            }
-        } else{
-            encrypted += s[i];
+    int shift = 2;
+    for (char c : s) {
+        if (isalpha(c)) {
+            char new_char = (tolower(c) - 'a' + shift * 2) % 26 + 'a';
+            encrypted += isupper(c) ? toupper(new_char) : new_char;
+        } else {
+            encrypted += c;
         }
     }
     return encrypted;
