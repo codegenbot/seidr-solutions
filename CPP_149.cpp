@@ -1,47 +1,14 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
-
-bool issame(int x, int y) {
-    if (x > y) {
-        return false;
-    } else if (y > x) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-int main() {
-    vector<string> lst = {"cat", "dog", "elephant", "a", "b"};
-    
-    // Sort the list by length and then alphabetically
-    sort(lst.begin(), lst.end(),
-        [](const string& a, const string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
-            }
-            return a.length() < b.length();
-        });
-
-    for (auto i : lst)
-    {
-        cout << i << " ";
-    }
-
-    return 0;
-}
 
 vector<string> sorted_list_sum(vector<string> lst) {
     // Remove strings with odd lengths from the vector
-    lst.erase(remove_if(lst.begin(), lst.end(),
+    lst.erase(std::remove_if(lst.begin(), lst.end(),
         [](const string& s) { return s.length() % 2; }),
         lst.end());
 
     // Sort the remaining vector by length and then alphabetically
-    sort(lst.begin(), lst.end(),
+    std::sort(lst.begin(), lst.end(),
         [](const string& a, const string& b) {
             if (a.length() == b.length()) {
                 return a < b;
@@ -51,3 +18,11 @@ vector<string> sorted_list_sum(vector<string> lst) {
 
     return lst;
 }
+
+int main() {
+    vector<string> lst = {"aa", "bb", "ccc", "dd", "eee", "ff"};
+    vector<string> result = sorted_list_sum(lst);
+    for(auto s : result) {
+        cout << s << endl;
+    }
+    return 0;
