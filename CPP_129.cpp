@@ -27,7 +27,7 @@ int main(){
     std::vector<int> actual = minPath(grid, k);
     assert(issame(actual, expected));
     
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3}));
+    assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3}));
     
     return 0;
 }
