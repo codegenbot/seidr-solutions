@@ -5,27 +5,35 @@
 
 using namespace std;
 
-boost::any compare(boost::any a, boost::any b) {
+template <typename T>
+T max_value(const boost::any& a, const boost::any& b) {
     assert(a.type() == b.type());
 
-    if (a.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
-            return a;
-        else if (boost::any_cast<int>(a) < boost::any_cast<int>(b))
-            return b;
-    }
-    else if (a.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
-            return a;
-        else if (boost::any_cast<float>(a) < boost::any_cast<float>(b))
-            return b;
-    }
-    else if (a.type() == typeid(string)) {
-        if (stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b)))
-            return a;
-        else if (stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b)))
-            return b;
+    if (a.empty() || b.empty()) {
+        return T();
     }
 
-    return "None";
+    if (boost::any_cast<T>(a) > boost::any_cast<T>(b)) {
+        return boost::any_cast<T>(a);
+    } else if (boost::any_cast<T>(a) < boost::any_cast<T>(b)) {
+        return boost::any_cast<T>(b);
+    } else {
+        return T();
+    }
+}
+
+int main() {
+    boost::any a = 5;
+    boost::any b = 10;
+    cout << max_value<int>(a, b) << endl;
+
+    boost::any c = 3.14f;
+    boost::any d = 2.71f;
+    cout << max_value<float>(c, d) << endl;
+
+    boost::any e = string("hello");
+    boost::any f = string("world");
+    cout << max_value<string>(e, f) << endl;
+
+    return 0;
 }
