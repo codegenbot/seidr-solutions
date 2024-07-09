@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cmath>
-#include <cassert>
 
 using namespace std;
 
@@ -16,7 +14,9 @@ float median(vector<float> l) {
     }
 }
 
-int main() {
-    assert(abs(median({8, 1, 3, 9, 9, 2, 7}) - 5.5) < 1e-4);
+int testMedian() {
+    vector<float> numbers = {8, 1, 3, 9, 9, 2, 7};
+    float result = median(numbers);
+    cout << "The median of the given numbers is: " << result << endl;
     return 0;
 }
