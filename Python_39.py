@@ -22,5 +22,5 @@ def prime_fib(n: int):
         num += 1
         if is_prime(num):
             prime_fib_num += 1
-            
+    
     return num
