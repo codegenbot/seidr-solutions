@@ -4,7 +4,8 @@
 
 int main() {
     vector<int> arr = {2,4,8,16,32};
-    arr = sort_array(arr);
+    sort_array(arr);
+    
     return 0;
 }
 
