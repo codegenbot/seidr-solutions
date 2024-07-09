@@ -1,7 +1,8 @@
-if (x == 1) return true;
-    int power = 0;
-    while (pow(n, power) < x) {
-        power++;
+if (x <= 0 || n <= 0) {
+        return false;
     }
-    return pow(n, power) == x;
+    
+    double result = log(x) / log(n);
+    
+    return (result == (int)result);
 }
