@@ -30,7 +30,8 @@ int mainFunction() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> numbers(n); // declare with size n
+    std::vector<int> numbers;
+    numbers.resize(n); // declare with size n
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> numbers[i];
