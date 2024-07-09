@@ -1,24 +1,29 @@
-``` 
+```
 #include <stack>
 #include <string>
 
 bool solveBoolean(std::string s) {
-    int i = 0;
-    bool result = false;
-    while (i < s.length()) {
-        if (s[i] == 'T') result = true;
-        else if (s[i] == 'F') result = false;
-        else if (s[i] == '|') {
-            bool temp = result;
-            while (result && i + 1 < s.length() && s[i + 1] != '|') i++;
-            result = temp || (i < s.length());
+    bool res = false;
+    std::stack<char> ops;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'T' || s[i] == 'F') {
+            if (!ops.empty() && (ops.top() == '&' || ops.top() == '|')) {
+                res = (res && (s[i] == T)) || (s[i] == F);
+                ops.pop();
+            } else {
+                res = (s[i] == 'T');
+            }
+        } else if (s[i] == '&') {
+            while (!ops.empty() && ops.top() != '|') {
+                ops.pop();
+            }
+            ops.push(s[i]);
+        } else if (s[i] == '|') {
+            while (!ops.empty()) {
+                ops.pop();
+            }
+            ops.push(s[i]);
         }
-        else if (s[i] == '&') {
-            bool temp = result;
-            while (result && i + 1 < s.length() && s[i + 1] != '&') i++;
-            result = temp && (i < s.length());
-        }
-        i++;
     }
-    return result;
+    return res;
 }
