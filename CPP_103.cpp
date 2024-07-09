@@ -2,9 +2,9 @@
 #include <cassert>
 
 std::string calculateBinary(int num1, int num2) {
-    int sum = num1 + num2;
-    std::string binaryResult = std::bitset<8>(sum).to_string();
-    return binaryResult.substr(binaryResult.find('1'));
+    int avg = (num1 + num2) / 2;
+    std::string binary_avg = std::bitset<8>(avg).to_string(); // 8-bit binary representation
+    return binary_avg;
 }
 
 int main() {
