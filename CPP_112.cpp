@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -34,6 +33,13 @@ std::pair<std::string, bool> reverse_delete(std::string s, std::string c) {
     for(int i = temp.length()-1; i >= 0; i--) {
         rev += temp[i];
     }
-    bool check = temp == rev;
-    return std::make_pair(rev, check);
+    std::pair<std::string, bool> result;
+    if (temp == rev) {
+        result.first = temp;
+        result.second = true;
+    } else {
+        result.first = temp;
+        result.second = false;
+    }
+    return result;
 }
