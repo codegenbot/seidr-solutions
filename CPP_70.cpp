@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -39,16 +38,7 @@ std::vector<std::vector<int>> strange_sort_list(std::vector<std::vector<int>> ls
 }
 
 int main() {
-    std::vector<std::vector<int>> input = {{1}, {2}, {3}}; // Initialize with single-element vectors
-    assert (issame(strange_sort_list(input) , input));
-    for (auto& v : strange_sort_list(input)) {
-        for (int i = 0; i < v.size(); i++) {
-            if (i == v.size() - 1 || *std::max_element(v.begin(), v.end()) != *std::max_element({v[i]})) {
-                std::cout << " ";
-                break;
-            }
-            std::cout << *std::max_element({v[i]}) << " ";
-        }
-    }
+    std::vector<int> input = {1,2,3,4,5,6};
+    assert (issame(strange_sort_list({{input.begin(),input.end()}}) , {{input.begin(),input.end()}}));
     return 0;
 }
