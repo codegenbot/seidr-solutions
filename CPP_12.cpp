@@ -1,7 +1,6 @@
-```
 Str longest(vector<Str> strings){
     if(strings.empty()) {
-        return Str("");
+        return "";
     }
     Str result = strings[0];
     for(auto str : strings) {
