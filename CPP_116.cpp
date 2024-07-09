@@ -22,4 +22,3 @@ std::vector<int> sortArray(std::vector<int> arr) {
 int main() {
     assert(isSame(sortArray({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
     return 0;
-}
