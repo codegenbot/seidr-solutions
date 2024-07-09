@@ -9,4 +9,9 @@ int basement(std::vector<int> nums) {
         }
     }
     return -1;
+
+}
+
+int main() {
+    return 0;
 }
