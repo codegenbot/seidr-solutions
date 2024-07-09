@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -28,20 +29,20 @@ vector<string> odd_count(vector<string> lst) {
     return result;
 }
 
-vector<string> lst;
+vector<string> output;
 
 int main() {
     int n;
     cin >> n;
-    
+
+    vector<string> lst(n);
+
     for(int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        lst.push_back(s);
+        cin >> lst[i];
     }
 
-    vector<string> output = odd_count(lst);
-    displayOutput(output);
+    vector<string> result = odd_count(lst);
+    displayOutput(result);
 
     return 0;
 }
