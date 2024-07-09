@@ -1,7 +1,19 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
-bool sameSequence(std::vector<int> a, std::vector<int> b) {
+std::vector<int> get_odd_collatz(int num) {
+    std::vector<int> sequence;
+    while (num != 1) {
+        if (num % 2 == 0)
+            num = num / 2;
+        else
+            num = 3 * num + 1;
+        sequence.push_back(num);
+    }
+    return sequence;
+}
+
+bool sequenceEqual(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     
@@ -13,21 +25,9 @@ bool sameSequence(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> sequence;
-    while (n > 1) {
-        if (n % 2 == 0)
-            n /= 2;
-        else
-            n = n * 3 + 1;
-        sequence.push_back(n);
-    }
-    sequence.push_back(1);
-    return sequence;
-}
-
 int main() {
     int num;
     std::cin >> num;
-    assert(sameSequence({get_odd_collatz(num)}, {num}));  
+    std::vector<int> result = get_odd_collatz(num);
+    assert(sequenceEqual(result, {1}));  
 }
