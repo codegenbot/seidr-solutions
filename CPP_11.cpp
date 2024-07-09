@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <cassert>
 
 std::string string_xor(std::string a, std::string b) {
     if (a.length() != b.length())
@@ -37,4 +38,3 @@ int main() {
         std::cout << "An error occurred." << std::endl;
     }
     return 0;
-}
