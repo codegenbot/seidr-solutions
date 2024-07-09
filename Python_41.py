@@ -1,6 +1,4 @@
-def car_race_collision(car1_speed, car2_speed):
-    total_distance = (car1_speed + car2_speed) * 100
-    time_taken = total_distance / (
-        min(car1_speed, car2_speed) + max(car1_speed, car2_speed)
-    )
-    return round(time_taken)
+```
+def car_race_collision(cars):
+    speed = int(input("Enter speed of the car: "))
+    return cars * (cars - 1) // 2
