@@ -19,17 +19,16 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     std::priority_queue<std::pair<int,int>, std::vector<std::pair<int,int>>, std::greater<std::pair<int,int>>> pq;
 
     for(int i = 0; i < arr.size(); i++) {
-        pq.push(std::make_pair(arr[i],i));
+        pq.push({arr[i],i});
     }
 
-    std::vector<int> result;
-
-    for(int i = 0; i < k && !pq.empty(); i++) {
-        result.push_back(pq.top().first);
+    // Keep popping elements from the priority queue until k elements are popped
+    while (!pq.empty() && k--) {
+        arr.erase(std::remove(arr.begin(), arr.end(), pq.top().first), arr.end());
         pq.pop();
     }
 
-    return result;
+    return arr;
 }
 
 int main() {
