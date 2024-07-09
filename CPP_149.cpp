@@ -44,6 +44,7 @@ int main_entry() {
             std::cin >> c;
             if(c == '\n') break;
             if(j < i) str += c;
+            else if(str.length() > 0) str += c;
         }
         inputStrings.push_back(str);
     }
