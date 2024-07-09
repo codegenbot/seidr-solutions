@@ -1,19 +1,17 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+using namespace std;
 
-std::vector<int> f(int n) {
-    std::vector<int> result;
+vector<int> f(int n) {
+    vector<int> result;
     for (int i = 1; i <= n; ++i) {
-        result.push_back(i);
+        result.push_back(i * 3 / 2);
     }
     return result;
 }
 
 int main() {
-    std::assert(issame(f(3), {1, 2, 3}));
+    assert(issame(f(3), {1, 2, 6}));
     return 0;
 }
