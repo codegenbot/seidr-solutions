@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -26,7 +25,7 @@ int find_max_prime_and_sum_digits(int n, int num){
     return sum;
 }
 
-int main() {
+int mainProblem(){
     int n, num, maxPrimeAndSum;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -41,4 +40,8 @@ int main() {
             maxPrimeAndSum = temp;
         }
     }
+}
+
+int main() {
+    mainProblem();
 }
