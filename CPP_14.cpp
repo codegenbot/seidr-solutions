@@ -1,16 +1,11 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a) {
-    for (int i = 1; i <= a[0].size(); i++) {
-        bool same = true;
-        for (const auto& str : a) {
-            if (!str.substr(0, i).compare(str)) {
-                same = false;
-                break;
-            }
-        }
-        if (!same) return false;
+bool issame(const std::vector<std::string>& a) { 
+    if (a.size() == 0) return true;
+    for (int i = 1; i < a.size(); i++) {
+        if (!issame({a[i-1]})) return false;
     }
     return true;
 }
