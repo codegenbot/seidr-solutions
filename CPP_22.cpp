@@ -7,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b);
 std::vector<int> filter_integers(std::list<char> values){
     std::vector<int> result;
     for (auto val : values) {
-        if (std::isdigit(val)) {
+        if (isdigit(val)) {
             result.push_back(val - '0');
         }
     }
