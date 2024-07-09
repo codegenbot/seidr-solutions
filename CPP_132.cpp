@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -14,10 +15,10 @@ bool is_nested(string str) {
             }
         }
     }
-    return count > 0;
+    return count != 0;
 
 int main() {
-    string input;
+    string& input;
     cout << "Enter a string: ";
     getline(cin, input);
     if(is_nested(input)) {
