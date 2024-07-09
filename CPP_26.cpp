@@ -1,9 +1,9 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
-#include <set>
 
-bool isSameVector(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -11,9 +11,21 @@ bool isSameVector(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
-    std::set<int> uniqueNumbers(numbers.begin(), numbers.end());
-    return std::vector<int>(uniqueNumbers.begin(), uniqueNumbers.end());
+std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
+    std::vector<int> result;
+    for (int num : numbers) {
+        bool found = false;
+        for (int i = 0; i < result.size(); i++) {
+            if (result[i] == num) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            result.push_back(num);
+        }
+    }
+    return result;
 
 }
 
@@ -28,11 +40,11 @@ int main() {
         std::cin >> numbers[i];
     }
     
-    std::vector<int> uniqueNumbers = removeDuplicates(numbers);
+    std::vector<int> unique_numbers = remove_duplicates(numbers);
     
-    if (!isSameVector(numbers, uniqueNumbers)) {
+    if (!issame(std::vector<int>(numbers), std::vector<int>(unique_numbers))) {
         std::cout << "Unique numbers: ";
-        for (int num : uniqueNumbers) {
+        for (int num : unique_numbers) {
             std::cout << num << " ";
         }
         std::cout << std::endl;
