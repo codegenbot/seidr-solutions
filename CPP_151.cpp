@@ -3,12 +3,12 @@
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> input) {
+long double_the_difference(std::vector<long> input) {
     long long sum = 0;
-    for (float num : input) {
-        if (num > 0 && floor(num) == num) { 
-            if (fmod(num, 2.0) != 0.0) { 
-                sum += pow(num, 2);
+    for (long num : input) {
+        if (num > 0 && floor((double)num) == num) { 
+            if (fmod((double)num, 2.0) != 0.0) { 
+                sum += pow((double)num, 2);
             }
         }
     }
@@ -16,16 +16,16 @@ long long double_the_difference(std::vector<float> input) {
 }
 
 int main() {
-    std::vector<float> input;
-    float num;
+    std::vector<long> input;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for (int i = 0; i < n; i++) {
+        long num;
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
         input.push_back(num);
     }
-    long long result = double_the_difference(input);
+    long result = double_the_difference(input);
     std::cout << "The total sum of squares is: " << result << std::endl;
 }
