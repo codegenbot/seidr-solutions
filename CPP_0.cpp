@@ -1,26 +1,22 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cmath>
 
-using namespace std;
-
-bool has_close_elements(vector<float> numbers, float threshold){
-    for(int i = 0; i < numbers.size(); i++){
-        for(int j = i + 1; j < numbers.size(); j++){
-            if(std::abs(numbers[i] - numbers[j]) <= threshold)
-                return true;
+bool has_close_elements(const std::vector<float>& vec, float threshold) {
+    for (size_t i = 1; i < vec.size(); ++i) {
+        if (std::abs(vec[i] - vec[i-1]) <= threshold) {
+            return true;
         }
     }
     return false;
 }
 
 int main() {
-    vector<float> a({1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f});
+    std::vector<float> a({1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f});
     if (has_close_elements(a, 0.1f)) {
-        cout << "The vector contains close elements." << endl;
+        std::cout << "The vector contains close elements." << std::endl;
     } else {
-        cout << "The vector does not contain close elements." << endl;
+        std::cout << "The vector does not contain close elements." << std::endl;
     }
     return 0;
 }
