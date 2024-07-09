@@ -13,21 +13,8 @@ int basement(std::vector<int>& v) {
 }
 
 int main() {
-    std::vector<int> v;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    v.resize(n);
-    
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> v[i];
-    }
-    
+    std::vector<int> v = {-2, 1, 3};
     int result = basement(v);
-    if (result == -1)
-        std::cout << "No such index exists.\n";
-    else
-        std::cout << "The first negative sum index is: " << result << "\n";
+    std::cout << "The first index with a negative sum is: " << result << std::endl;
     return 0;
 }
