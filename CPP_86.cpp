@@ -13,14 +13,12 @@ string join(const vector<string>& vec, const string& sep) {
     return result.substr(0, result.size() - 1);
 }
 
-string split(const string& str, char sep) {
+void split(string& str, char sep) {
     vector<string> tokens;
     size_t pos = 0;
     while ((pos = str.find(sep)) != string::npos) {
         tokens.push_back(str.substr(0, pos));
-        string temp = str;
-        temp.erase(0, pos + 1);
-        str = temp;
+        str.erase(0, pos + 1);
     }
     tokens.push_back(str);
     return join(tokens, " ");
