@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -6,12 +7,8 @@
 float shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
     float totalPrice = 0;
     for (size_t i = 0; i < prices.size(); ++i) {
-        if(discounts[i] > 0 || discounts[i] < 1e-9) {
-            float discountedPrice = prices[i] * (1 - discounts[i]);
-            totalPrice += discountedPrice;
-        } else {
-            std::cout << "Discount cannot be zero or near zero. Please enter a valid discount.\n";
-        }
+        float discountedPrice = prices[i] * (1 - discounts[i] / 100);
+        totalPrice += discountedPrice;
     }
     return totalPrice;
 }
