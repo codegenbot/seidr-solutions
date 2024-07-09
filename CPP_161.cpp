@@ -1,17 +1,26 @@
-Here is the solution:
+#include <string>
 
-```cpp
-string solve(string s){
-    string result;
-    for(int i=0; i<s.size(); i++){
-        if(isalpha(s[i])){
-            if(islower(s[i]))
-                result += toupper(s[i]);
-            else
-                result += tolower(s[i]);
-        }
-        else
+using namespace std;
+
+string solve(string s) {
+    string result = "";
+    bool hasLetter = false;
+
+    for (int i = 0; i < s.length(); i++) {
+        if (!isalpha(s[i])) {
             result += s[i];
+        } else {
+            if (hasLetter) {
+                result += tolower(toupper(s[i]));
+            } else {
+                hasLetter = true;
+                result += islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+            }
+        }
     }
-    return (result.empty() ? string(1, s.back()) + s.substr(0, s.size()-1) : result);
+
+    if (!hasLetter)
+        reverse(result.begin(), result.end());
+
+    return result;
 }
