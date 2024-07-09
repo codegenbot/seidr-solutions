@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <map>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -11,7 +11,9 @@ bool check_dict_case(map<string,string> dict){
     string first_key = *(dict.begin()->first);
     
     for(auto it = dict.begin(); it != dict.end(); ++it){
-        if(toupper(first_key.c_str()) != toupper(it->first.c_str())) return false;
+        transform(it->first.begin(), it->first.end(), it->first.begin(), ::toupper);
+        if(string(first_key).compare(0u, string(first_key).size(), it->first) != 0)
+            return false;
     }
     
     return true;
