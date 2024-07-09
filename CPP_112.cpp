@@ -3,7 +3,11 @@
 #include <vector>
 #include <cassert>
 
-std::pair<std::string, std::string> processString(const std::string& s, const std::string& c) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    return a == b;
+}
+
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
     std::string result = "";
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
@@ -15,10 +19,7 @@ std::pair<std::string, std::string> processString(const std::string& s, const st
     return {result, result == result_reversed ? "True" : "False"};
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(processString("mamma", "mia"), {"", "True"}));
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    return 0;
 }
