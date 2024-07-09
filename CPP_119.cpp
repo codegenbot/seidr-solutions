@@ -19,12 +19,13 @@ bool match_parens(vector<string> lst) {
 int main() {
     vector<string> lst;
     int n;
-    cin >> n;
+    cin >> n;  
     string s;
-    for(int i=0; i<n; ++i){
+    while (n--) {  
         getline(cin, s);
+        if (s.empty()) break;
         lst.push_back(s);
     }
-    cout << (match_parens(lst) ? "Yes" : "No") << endl;
+    std::cout << (match_parens(lst) ? "Yes" : "No") << std::endl;
     return 0;
 }
