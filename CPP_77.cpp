@@ -1,13 +1,11 @@
-bool iscuber(int n) {
-    int side = round(cbrt(n));
-    if (n == pow(side, 3))
-        return true;
-    else
-        return false;
-}
+#include <cassert>
 
-int main() {
+bool isCube(int);
+
+void originalFunction() {}
+
+int main(){
     originalFunction();
-    assert (iscuber(1729) == false);
+    assert (isCube(1729) == false);
     return 0;
 }
