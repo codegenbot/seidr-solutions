@@ -7,9 +7,9 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> by_length(std::initializer_list<int> il) {
+std::vector<std::string> by_length(std::initializer_list<int> arr) {
     vector<string> result;
-    for (int i : il) {
+    for (int i : arr) {
         switch (i) {
             case 1: result.push_back("One"); break;
             case 2: result.push_back("Two"); break;
