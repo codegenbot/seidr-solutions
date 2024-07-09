@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -17,7 +16,7 @@ vector<vector<string>> filter_by_substring(vector<vector<string>> input, string 
     for(auto &v : input) {
         bool same = true;
         for(auto &s : v) {
-            if(s.find(sub.c_str()) == std::string::npos) {
+            if(s.find(sub) == std::string::npos) {
                 same = false;
                 break;
             }
