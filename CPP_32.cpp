@@ -11,9 +11,14 @@ double poly(const std::vector<double>& coeffs, double x) {
 }
 
 double find_zero(const std::vector<double>& coeffs) {
-    double c0 = coeffs[2], c1 = -coeffs[1];
-    double solution = (c0 - std::sqrt(c1*c1 - 4*c0*coeffs[0])) / (2*c0);
-    return solution;
+    double x = 1.0;
+    while (true) {
+        double y = poly(coeffs, x);
+        if (std::abs(y) < 1e-6) {
+            return x;
+        }
+        x -= y / poly({coeffs[1], -coeffs[0]}, x);
+    }
 }
 
 int main() {
