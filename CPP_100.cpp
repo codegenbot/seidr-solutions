@@ -1,6 +1,5 @@
-```cpp
+```
 #include <vector>
-#include <initializer_list>
 #include <utility>
 #include <cassert>
 
@@ -24,4 +23,4 @@ vector<int> make_a_pile(int n) {
     return pile;
 }
 
-assert(make_a_pile(8) == vector<int>({8, 10, 12, 14, 16, 18, 20, 22}));
+assert(make_a_pile(8) == vector<int>({0, 1, 3, 6, 10, 15, 21, 28}));
