@@ -1,6 +1,6 @@
 ```
-#include <cmath>
-#include <iostream>
+#include<iostream>
+using namespace std;
 
 bool iscuber(int a){
     int i = 1;
@@ -15,14 +15,13 @@ bool iscuber(int a){
     }
 }
 
-int main() {
+int main(){
     int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    if(iscuber(num)) {
-        std::cout << num << " is a perfect cube.\n";
-    } else {
-        std::cout << num << " is not a perfect cube.\n";
-    }
+    cout<<"Enter the number: "<<endl;
+    cin>>num;
+    if(iscuber(num))
+        cout<<num<<" is a perfect cube."<<endl;
+    else
+        cout<<num<<" is not a perfect cube."<<endl;
     return 0;
 }
