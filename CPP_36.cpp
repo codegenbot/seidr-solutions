@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <sstream>
 using namespace std;
 
 int fizz_buzz(int n) {
@@ -17,12 +17,12 @@ int main() {
     cout << "Enter a number: ";
     cin >> n;
     if (n < 1) {
-        string output = "Invalid input. Please enter a positive integer.\n";
-        cout << output; 
+        ostringstream oss;
+        oss << "Invalid input. Please enter a positive integer." << endl; 
     } else {
         int result = fizz_buzz(n);
-        string output = "Result for " + to_string(n) + ": " + to_string(result) + "\n";
-        cout << output;
+        ostringstream oss;
+        oss << "Result for " << n << ": " << result << endl; 
     }
     return 0;
 }
