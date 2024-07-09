@@ -1,12 +1,3 @@
-#include <vector>
-#include <string>
-
-bool issame(const string &s) {
-    // Implement the 'issame' function as needed
-}
-
-vector<string> odd_count(vector<string> lst);
-
 vector<string> odd_count(vector<string> lst) {
     vector<string> res;
     for (string s : lst) {
