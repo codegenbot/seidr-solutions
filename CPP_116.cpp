@@ -1,12 +1,15 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-vector<int> sort_vector(vector<int> arr) {
+void sort_array(std::vector<int>& arr) {
     auto comp = [&] (int a, int b) {
         int ones_a = __builtin_popcount(a);
         int ones_b = __builtin_popcount(b);
@@ -17,6 +20,10 @@ vector<int> sort_vector(vector<int> arr) {
             return ones_a - ones_b;
     };
 
-    sort(arr.begin(), arr.end(), comp);
-    return arr;
+    std::sort(arr.begin(), arr.end(), comp);
+}
+
+int main() {
+    assert(issame(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32}));
+    return 0;
 }
