@@ -1,17 +1,13 @@
-Here is the solution:
-
-vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
-    vector<pair<int, pair<int, int>>> result;
-    for (int i = 0; i < lst.size(); i++) {
-        for (int j = 0; j < lst[i].size(); j++) {
-            if (lst[i][j] == x) {
-                result.push_back({i, {j, i}});
+vector<vector<int>> get_row(vector<vector<int>> lst, int x){
+    vector<vector<int>> result;
+    for(int i = 0; i < lst.size(); i++){
+        if(lst[i].size() > 0 && lst[i][x-1] == x){
+            vector<int> temp;
+            for(int j = lst[i].size()-1; j >= 0; j--){
+                temp.push_back({i, j});
             }
+            result.insert(result.end(), temp.begin(), temp.end());
         }
     }
-    sort(result.begin(), result.end());
-    vector<vector<int>> output;
-    for (const auto& p : result) {
-        output.push_back({p.second.second, p.second.first});
-    }
-    return output;
+    return result;
+}
