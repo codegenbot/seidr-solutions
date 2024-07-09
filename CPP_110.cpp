@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <initializer_list>
 using namespace std;
 
 string exchange(vector<int> lst1, vector<int> lst2) {
@@ -20,9 +21,9 @@ string exchange(vector<int> lst1, vector<int> lst2) {
 }
 
 int main() {
-    vector<int> lst1(lst1.begin(), lst1.end());
-    vector<int> lst2(lst2.begin(), lst2.end());
+    vector<int> lst1({1, 3, 4});
+    vector<int> lst2({2, 4, 6, 8});
     string result = exchange(lst1, lst2);
-    if (result == "YES") cout << "YES"; else cout << "NO";
+    if (result == "YES") cout << result; else cout << result;
     return 0;
 }
