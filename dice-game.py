@@ -1,4 +1,2 @@
 def dice_game(n, m):
-    if n == 1 or m == 1:
-        return 0
-    return sum(1/i/j for i in range(1, n) for j in range(1, m)) / (n*m)
+    return sum((1/i) for i in range(1, n)) * (n-1) / (n*m)
