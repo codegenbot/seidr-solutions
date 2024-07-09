@@ -6,7 +6,7 @@ def string_to_md5(text):
     else:
         return None
 
-text = input("Enter a string: ")
+text = input("Please enter a string: ")
 if text:
     print(string_to_md5(text))
 else:
