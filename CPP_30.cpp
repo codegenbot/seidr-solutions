@@ -1,13 +1,13 @@
 ```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 
-bool same(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
+bool same(const std::vector<float>& v1, const std::vector<float>& v2) {
+    if (v1.size() != v2.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for (int i = 0; i < v1.size(); i++) {
+        if (std::abs(v1[i] - v2[i]) > 0.00001f) {
             return false;
         }
     }
@@ -17,7 +17,7 @@ bool same(std::vector<float> a, std::vector<float> b) {
 std::vector<float> getPositive(const std::vector<float>& numbers) {
     std::vector<float> positiveNumbers;
     for (float num : numbers) {
-        if (num > 0) {
+        if (num >= 0) {
             positiveNumbers.push_back(num);
         }
     }
@@ -26,20 +26,26 @@ std::vector<float> getPositive(const std::vector<float>& numbers) {
 
 int main() {
     std::vector<float> numbers;
-    int n;
-    std::cout << "Enter the number of elements: ";
+    int n = 0;
+    float num = 0;
+    while(n < 1)
+{
+    std::cout << "Enter element number: ";
     std::cin >> n;
 
-    for (int i = 0; i < n; i++) {
-        float num;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        numbers.push_back(num);
-    }
+    if (n > 0)
+        break;
+}
+for(int i=0; i<n; i++)
+{
+    std::cout << "Enter element " << i + 1 << ": ";
+    std::cin >> num;
+    numbers.push_back(num);
+}
 
     std::vector<float> positiveNumbers = getPositive(numbers);
 
-    if (same(positiveNumbers, numbers)) { 
+    if (same(getPositive(numbers), positiveNumbers)) {
         std::cout << "The input vector and the positive vector are the same." << std::endl;
     } else {
         std::cout << "The input vector and the positive vector are not the same." << std::endl;
