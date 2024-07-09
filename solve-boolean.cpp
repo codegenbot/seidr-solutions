@@ -1,4 +1,3 @@
-#include <cstddef>
 #include <string>
 
 bool solveBoolean(const std::string& s) {
