@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -11,12 +12,7 @@ bool has_close_elements(vector<float> a, float threshold) {
 }
 
 int main() {
-    vector<float> a(5); 
-    a.push_back(1.1f);
-    a.push_back(2.2f);
-    a.push_back(3.1f);
-    a.push_back(4.1f);
-    a.push_back(5.1f);
+    vector<float> a({1.1f, 2.2f, 3.1f, 4.1f, 5.1fF});
     float threshold = 0.5f;
     assert(has_close_elements(a, threshold) == true);
 }
