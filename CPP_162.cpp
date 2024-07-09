@@ -1,7 +1,3 @@
-```cpp
-#include <openssl/ssl.h>
-#include <openssl/err.h>
-
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -16,13 +12,13 @@ const int MD5_DIGEST_LENGTH = 16;
 string string_to_md5(string text) {
     if (text.empty()) return "None";
 
-    SSL_library_init();
+    const EVP_MD_CTX *md;
     EVP_MD_CTX_init(&md);
     unsigned char result[MD5_DIGEST_LENGTH];
 
     EVP_DigestUpdate(&md, (unsigned char*)text.c_str(), text.size());
     unsigned char *digest = (unsigned char *)OPENSSL_malloc(MD5_DIGEST_LENGTH);
-    EVP_DigestFinal_CTX(&md, digest, NULL);
+    EVP_DigestFinal_ex(&md, digest, NULL);
 
     stringstream ss;
     for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
