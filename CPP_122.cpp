@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int add_elements(vector<int> arr, int k) {
@@ -9,4 +8,3 @@ int add_elements(vector<int> arr, int k) {
         }
     }
     return sum;
-}
