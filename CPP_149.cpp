@@ -8,7 +8,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
     }
 
     // Sort the remaining strings by length and then alphabetically
-    std::sort(evenLengthStrings.begin(), evenLengthStrings.end(),
+    sort(evenLengthStrings.begin(), evenLengthStrings.end(),
               [](const string& a, const string& b) {
                   if (a.length() != b.length()) {
                       return a.length() < b.length();
@@ -18,10 +18,4 @@ vector<string> sorted_list_sum(vector<string> lst) {
               });
 
     return evenLengthStrings;
-}
-
-int main() {
-    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
-    assert(sorted_list_sum(input) == expected);
 }
