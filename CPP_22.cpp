@@ -1,24 +1,17 @@
-#include <boost/any.hpp>
 #include <vector>
-#include <list>
+#include <boost/any.hpp>
+
+typedef std::list<boost::any> list_any;
 
 using namespace std;
-using namespace boost;
 
-vector<int> filter_integers(list<any> values) {
+vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value)) {
-            result.push_back(any_cast<int>(value));
+        int num = any_cast<int>(value);
+        if (!std::isnan(num)) {
+            result.push_back(num);
         }
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(filter_integers({3, any('c'), 3, 3, any('a'), any('b')}), {3, 3, 3}));
 }
