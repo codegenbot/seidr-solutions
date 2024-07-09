@@ -2,7 +2,7 @@
 #include <string>
 
 int strLength(const char* str){
-    return std::string(str).length();
+    return static_cast<int>(std::strlen(str));
 }
 
 int main() {
