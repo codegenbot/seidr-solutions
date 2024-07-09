@@ -13,3 +13,8 @@ string intToMiniRoman(int number) {
 
     return tolower(result);
 }
+
+int main() {
+    assert(intToMiniRoman(1000) == "m");
+    return 0;
+}
