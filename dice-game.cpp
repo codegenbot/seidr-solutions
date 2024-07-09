@@ -1,7 +1,10 @@
 double probability(int n, int m) {
-    double total = 1.0; // Initialize total as 1.0
-    for (int i = 1; i <= m - 1; i++) {
-        total += (n - i) / (n * m);
+    double total = (n * m) - (m + n) + 1.0;
+    double higher_than_colin = (n - m);
+    if(m > n){
+        return (double)0;
     }
-    return total;
+    else{
+        return ((double)higher_than_colin + 1.0) / total;
+    }
 }
