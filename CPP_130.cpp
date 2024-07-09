@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -20,4 +21,7 @@ std::vector<int> completeCode(int n) {
     return result;
 }
 
-assert(issame(completeCode(1), {1, 3}));
+int main() {
+    assert(issame(completeCode(1), {1, 3}));
+    return 0;
+}
