@@ -1,6 +1,6 @@
-```c++
 #include <vector>
 #include <numeric>
+#include <iostream>
 
 int main() {
     std::vector<int> v(5);
