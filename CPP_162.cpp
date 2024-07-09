@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <limits>
 #include <string>
@@ -12,15 +11,15 @@ string string_to_md5(string text) {
     
     unsigned char result[16];
     EVP_MD_CTX md_ctx;
-    unsigned char* d = nullptr;
+    const unsigned char* d = nullptr;
     size_t len = 0;
     int ret = EVP_Digest(text.c_str(), text.size(), &d, &len, EVP_md_md5(), &md_ctx);
     
     string md5_hash;
-    char temp[3];
     for (int i = 0; i < 16; ++i) {
-        sprintf(temp, "%02x", d[i]); 
-        md5_hash += string(temp);
+        ostringstream oss;
+        oss << hex << setfill('0') << setw(2) << static_cast<unsigned int>(d[i]);
+        md5_hash += oss.str();
     }
     
     free(d);
