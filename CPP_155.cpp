@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool same(std::vector<int> a, std::vector<int> b) {
     return (a == b);
 }
 
@@ -19,9 +19,9 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), std::vector<int>({1, 0})));
-    int n = 123456;
-    std::vector<int> output = even_odd_count(n);
+    assert(same(even_odd_count(0), std::vector<int>{1, 0}));
+    int number = 123456;
+    std::vector<int> output = even_odd_count(number);
     for (int i : output) {
         std::cout << i << " ";
     }
