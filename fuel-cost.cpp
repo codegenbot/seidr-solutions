@@ -1,11 +1,15 @@
+```cpp
 int fuelCost(std::vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int temp = static_cast<int>(i / 3.0) - 2;
-        if (temp < 0) {
+        int temp = (i / 3);
+        if (temp < 1) {
             temp = 0;
+        } else {
+            temp -= 2;
         }
         sum += temp;
     }
     return sum;
+
 }
