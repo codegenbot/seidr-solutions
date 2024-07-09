@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -21,7 +20,11 @@ char get_next_vowel(const std::string& word, char prev) {
 std::string get_closest_vowel(const std::string& word) {
     for (char c : word) {
         if (!isvowel(c)) {
-            return std::string(1, get_next_vowel(word, c));
+            char closest = get_next_vowel(word, c);
+            if (closest == '\0') {
+                throw std::runtime_error("No vowel found in the string");
+            }
+            return std::string(1, closest);
         }
     }
     return "";
@@ -29,5 +32,9 @@ std::string get_closest_vowel(const std::string& word) {
 
 int main() {
     assert(get_closest_vowel("Above") == "o");
-    std::cout << get_closest_vowel("Hello") << std::endl;
+    try {
+        std::cout << get_closest_vowel("Hello") << std::endl;
+    } catch (const std::runtime_error& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
 }
