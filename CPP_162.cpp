@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 #include <sstream>
@@ -14,7 +13,8 @@ string string_to_md5(string text) {
     EVP_MD_CTX ctx;
     EVP_DigestInit_ex(&ctx, EVP_md_md5(), NULL);
     EVP_DigestUpdate(&ctx, (const unsigned char*)text.c_str(), text.size());
-    EVP_DigestFinal_ex(&ctx, result, nullptr);
+    unsigned int total = 0;
+    EVP_DigestFinal_ex(&ctx, result, &total);
 
     string md5_hash;
     for (int i = 0; i < 16; ++i) {
@@ -26,8 +26,8 @@ string string_to_md5(string text) {
     return md5_hash;
 }
 
-string input;
 cout << "Enter a string: ";
+string input;
 getline(cin, input);
 
 string md5_hash = string_to_md5(input);
