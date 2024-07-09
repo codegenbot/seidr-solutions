@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -19,9 +18,9 @@ vector<int> even_odd_palindrome(int n) {
         }
 
         if (isPalindrome && i % 2 == 0) {
-            result[i] = 1;
+            result[i]++;
         } else if (isPalindrome && i % 2 != 0) {
-            result[i] = 1;
+            result[i]++;
         }
     }
 
