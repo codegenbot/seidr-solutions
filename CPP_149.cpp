@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
-bool issame(vector<string> v1, vector<string> v2) {
+bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -14,8 +14,8 @@ bool issame(vector<string> v1, vector<string> v2) {
     return true;
 }
 
-vector<string> sorted_list_sum(const vector<string>& lst) {
-    vector<string> result;
+std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
+    std::vector<std::string> result;
 
     // Remove strings with odd lengths
     for (const auto& str : lst) {
@@ -26,7 +26,7 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
 
     // Sort the resulted vector by length and then alphabetically
     std::sort(result.begin(), result.end(),
-              [](const string& a, const string& b) {
+              [](const std::string& a, const std::string& b) {
                   if (a.length() != b.length()) {
                       return a.length() < b.length();
                   } else {
@@ -38,10 +38,9 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
 }
 
 int main() {
-    vector<string> lst = {"apple", "banana", "hello", "world", "foo"};
-    const vector<string>& lst_copy = lst;
-    if (issame(lst, lst_copy)) {
-        vector<string> output = sorted_list_sum(lst);
+    std::vector<std::string> lst = {"apple", "banana", "hello", "world", "foo"};
+    if (issame(lst, lst)) {
+        std::vector<std::string> output = sorted_list_sum(lst);
         for (const auto& str : output) {
             std::cout << str << std::endl;
         }
