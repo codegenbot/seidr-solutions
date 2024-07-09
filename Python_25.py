@@ -16,5 +16,6 @@ while True:
         n = int(input().strip())
         result = factorize(n)
         print(result)
-    except ValueError:
         break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
