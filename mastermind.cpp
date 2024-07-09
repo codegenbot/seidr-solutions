@@ -1,6 +1,7 @@
+```cpp
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(std::basic_string<char> code, std::basic_string<char> guess) {
     int white = 0;
     int black = 0;
 
@@ -27,6 +28,14 @@ int mastermind(std::string code, std::string guess) {
     return black + white;
 }
 
-int main() {
+int main(int argc, char** argv) {
+    if (argc != 3) {
+        std::cerr << "Usage: " << argv[0] << " <code> <guess>" << std::endl;
+        return 1;
+    }
+    std::string code = argv[1];
+    std::string guess = argv[2];
+    int result = mastermind(code, guess);
+    std::cout << "Black pegs: " << result << std::endl;
     return 0;
 }
