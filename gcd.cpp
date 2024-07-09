@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cstdlib>
-#include <vector>
 
 int gcd(int a, int b) {
     a = abs(a);
@@ -14,6 +13,6 @@ int gcd(int a, int b) {
 int main() {
     int a, b;
     std::cin >> a >> b;
-    std::cout << gcd(a, b) << std::endl;
+    std::cout << abs(gcd(a, b)) << std::endl;
     return 0;
 }
