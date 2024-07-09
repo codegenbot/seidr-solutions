@@ -23,6 +23,6 @@ int main() {
         std::cin >> num;
         size++;
     }
-    assert(solution(lst) == 16);
+    assert(solution(lst) == 16); 
     return 0;
 }
