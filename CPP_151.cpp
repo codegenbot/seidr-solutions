@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <cmath>
-#include <cstdlib>
 
 long long double_the_difference(std::vector<float> lst) {
     size_t sum = 0;
