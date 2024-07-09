@@ -1,24 +1,24 @@
 #include <string>
-#include <map>
-#include <unordered_map>
 
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    std::unordered_map<char, int> codeCount;
-    std::unordered_map<char, int> guessCount;
+    int codeCount[6] = {0};
+    int guessCount[6] = {0};
+
     for (int i = 0; i < 4; ++i) {
-        codeCount[code[i]]++;
-        guessCount[guess[i]]++;
+        codeCount[code[i] - '0']++;
+        guessCount[guess[i] - '0']++;
     }
-    for (auto& pair : codeCount) {
-        if (pair.second > 0 && pair.second != guessCount[pair.first]) {
-            white += pair.second - guessCount[pair.first];
+
+    for (int i = 0; i < 6; ++i) {
+        if (codeCount[i] > 0 && codeCount[i] != guessCount[i]) {
+            white += codeCount[i] - guessCount[i];
         }
     }
 
-    int codeIndex = 0;
+    int correctIndex = 0;
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
