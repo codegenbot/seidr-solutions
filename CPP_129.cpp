@@ -4,13 +4,19 @@
 #include <queue>
 using namespace std;
 
+struct Node {
+    int val;
+    pair<int,int> pos;
+
+    bool operator<(const Node& other) const {
+        return val > other.val;
+    }
+};
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>>(n, vector<bool>(n, false)) visited;
-    priority_queue<pair<int, pair<int, int>>> pq;
-
-    pq = vector<pair<int, pair<int, int>>>();
-    vector<vector<bool>>(n, vector<bool>(n, false)) visited;
+    priority_queue<Node> pq;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -24,21 +30,20 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> res;
 
     while (!pq.empty()) {
-        int val = pq.top().first;
-        int x = pq.top().second.first;
-        int y = pq.top().second.second;
-        res.push_back(val);
+        Node node = pq.top();
         pq.pop();
+
+        res.push_back(node.val);
 
         if (k > 0) {
             --k;
 
             for (int dx : {-1, 0, 1}) {
                 for (int dy : {-1, 0, 1}) {
-                    int nx = x + dx;
-                    int ny = y + dy;
+                    int nx = node.pos.first + dx;
+                    int ny = node.pos.second + dy;
 
-                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                    if(nx>=0&&nx<n&&ny>=0&&ny<n&&!visited[nx][ny]){
                         visited[nx][ny] = true;
                         pq.push({grid[nx][ny], {nx, ny}});
                     }
