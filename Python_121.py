@@ -1,5 +1,7 @@
 ```
-def solution(lst):
-    odd_sum = sum(i for i in lst[1::2] if i % 2 != 0)
-    even_sum = sum(i for i in lst[::2] if i % 2 == 0)
-    return abs(odd_sum - even_sum)
+def sum_odd(lst):
+    total_sum = 0
+    for num in lst:
+        if isinstance(num, int) and num % 2 != 0:
+            total_sum += num
+    return total_sum
