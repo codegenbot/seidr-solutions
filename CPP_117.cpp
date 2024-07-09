@@ -1,10 +1,8 @@
-vector<string> result;
-    if (s.empty()) {
-        return result;
-    }
-    
+vector<string> select_words(string s, int n) {
+    vector<string> result;
     string word = "";
     int consonantCount = 0;
+
     for (char c : s) {
         if (c == ' ') {
             if (consonantCount == n) {
@@ -19,10 +17,10 @@ vector<string> result;
             word += c;
         }
     }
-    
+
     if (consonantCount == n) {
         result.push_back(word);
     }
-    
+
     return result;
 }
