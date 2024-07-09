@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -6,7 +7,7 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     for (int i = 0; i < grid.size(); i++) {
         for (int j = 0; j < grid[0].size(); j++) {
             if (grid[i][j] == 1) {
-                water += 1;
+                water++;
             }
         }
     }
