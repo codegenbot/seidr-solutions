@@ -23,7 +23,7 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
 }
 
 int main() {
-    std::cout << exchange({100, 200}, {200, 200}) << std::endl;
-    // Call the function here
+    assert(exchange({100, 200}, {200, 200}) == "YES");
+    std::cout << exchange({1, 2, 3, 4, 5}, {6, 7, 8}) << std::endl;
     return 0;
 }
