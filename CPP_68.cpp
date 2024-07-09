@@ -1,4 +1,7 @@
 #include <vector>
+bool issame(vector<int> a, vector<int> b) {
+    return a.size() == b.size();
+}
 
 vector<int> pluck(vector<int> arr) {
     vector<int> result;
