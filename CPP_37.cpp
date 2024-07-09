@@ -30,3 +30,33 @@ namespace myspace {
         return result;
     }
 }
+
+int main() {
+    using namespace myspace;
+    std::vector<float> input(10);
+    input.push_back(5.0f);
+    input.push_back(8.0f);
+    input.push_back(-12.0f);
+    input.push_back(4.0f);
+    input.push_back(23.0f);
+    input.push_back(2.0f);
+    input.push_back(3.0f);
+    input.push_back(11.0f);
+    input.push_back(12.0f);
+    input.push_back(-10.0f);
+
+    std::cout << "Original array: ";
+    for (float num : input) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    std::vector<float> sortedEven = sort_even(input);
+    if (!issame(sortedEven, input)) {
+        std::cout << "Array changed." << std::endl;
+    } else {
+        std::cout << "Array remains the same." << std::endl;
+    }
+    
+    return 0;
+}
