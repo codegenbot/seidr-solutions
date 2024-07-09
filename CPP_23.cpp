@@ -1,6 +1,5 @@
 ```cpp
 #include <cassert>
-#include <string>
 #include <cstring>
 
 int myStrlen(const char* str){
