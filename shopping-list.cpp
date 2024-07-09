@@ -11,6 +11,20 @@ double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
     return total;
 }
 
+double stream_string_to_vector(string s) {
+    istringstream iss(s);
+    vector<string> strVec;
+    string line;
+    while (getline(iss, line, ' ')) {
+        strVec.push_back(line);
+    }
+    vector<double> vec;
+    for (const auto& str : strVec) {
+        vec.push_back(stod(str));
+    }
+    return vec;
+}
+
 int main() {
     std::string input;
     std::getline(std::cin, input);
@@ -18,17 +32,16 @@ int main() {
     std::istringstream iss(input);
     std::string line;
     iss >> line; // Read the first line
-    std::istringstream lineIss(line);
     std::vector<double> prices;
-    while (lineIss >> line) {
-        prices.push_back(std::stod(line)); 
-    }
-
-    iss >> line; // Read the second line
-    lineIss = std::istringstream(line);
-    std::vector<double> discounts;
-    while (lineIss >> line) {
-        discounts.push_back(std::stod(line));
+    while (std::getline(iss, line)) {
+        if (!prices.empty()) {
+            istringstream lineIss(line);
+            while (lineIss >> line) {
+                prices.push_back(std::stod(line)); 
+            }
+        } else {
+            discounts = vector<double>(stream_string_to_vector(line));
+        }
     }
 
     double result = hoppingList(prices, discounts);

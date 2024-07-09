@@ -19,7 +19,11 @@ int main() {
     int n;
     std::vector<int> input;
     while(std::cin >> n) {
-        input.push_back(n);
+        if(n > 0) { 
+            input.push_back(n);
+        } else {
+            break; 
+        }
     }
     std::vector<int> result = leaders(input);
     for(int i: result)
