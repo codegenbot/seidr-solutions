@@ -8,7 +8,7 @@ std::string substitutionCipher(const std::string& cipher1, const std::string& ci
         if (auto idx = cipher1.find(std::to_string(c)); idx != std::string::npos) {
             result += cipher2.at(idx);
         } else {
-            result += c; // or do something more interesting here
+            result += c; 
         }
     }
     return result;
