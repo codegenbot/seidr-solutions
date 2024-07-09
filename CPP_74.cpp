@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -11,17 +12,13 @@ bool issame(vector<string> a,vector<string> b) {
 }
 
 vector<vector<string>> total_match(vector<string> a, vector<vector<string>> b){
-    int count = 0;
-    for(int i = 0; i < b.size(); i++){
-        if(issame(b[i], {a})){
-            count++;
+    vector<vector<string>> matches;
+    for(const auto& pair: {make_pair(a, {}), make_pair({}, a)}){
+        if(issame(pair.first, pair.second)){
+            matches.push_back(pair);
         }
     }
-    vector<vector<string>> result;
-    for(int i = 0; i < count; i++){
-        result.push_back({a});
-    }
-    return result;
+    return matches;
 }
 
 int main() {
