@@ -1,15 +1,23 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <iostream>
+#include <initializer_list>
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::vector<int> result;
-    
-    for (int i = 0; i < k; i++) {
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> maximum(vector<int> arr, int k) {
+    if(k > arr.size()) {
+        std::cout << "Invalid value of k. It must be less than or equal to the size of array." << std::endl;
+        return {};
     }
     
+    vector<int> result(arr.begin(), arr.begin() + k);
+    sort(result.begin(), result.end());
     return result;
 }
+
+int main() {
+    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 7) == vector<int>({0, 2, 3}));
+    return 0;
