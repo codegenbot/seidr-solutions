@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -47,10 +48,12 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    std::vector<std::string> b = {"", "0"};
-    if(issame(reverse_delete("mamma", "mia"), b))
-        std::cout << "Test case passed." << std::endl;
+    std::string s = "mamma";
+    std::string c = "mia";
+    if(issame(reverse_delete(s, c), {"", "1"}))
+        std::cout << "Test passed." << std::endl;
     else
-        std::cout << "Test case failed." << std::endl;
+        std::cout << "Test failed." << std::endl;
+    
     return 0;
 }
