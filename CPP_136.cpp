@@ -1,20 +1,11 @@
-bool issame(vector<int> a, vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
-}
+#include <climits>
+using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
-    int maxNeg = 0;
-    int minPos = INT_MAX;
-
+    int maxNeg = INT_MAX, minPos = -INT_MAX;
     for (int num : lst) {
-        if (num < 0 && num > maxNeg) {
-            maxNeg = num;
-        } else if (num > 0 && num < minPos) {
-            minPos = num;
-        }
+        if (num < 0 && num < maxNeg) maxNeg = num;
+        if (num > 0 && num > minPos) minPos = num;
     }
-
-    return {maxNeg, minPos};
+    return {(maxNeg >= 0 ? 0 : maxNeg), (minPos <= 0 ? 0 : minPos)};
 }
