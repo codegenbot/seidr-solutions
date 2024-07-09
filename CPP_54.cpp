@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -25,7 +24,7 @@ int main() {
     cin >> s1;
     cout << "Enter the second string: ";
     cin >> s2;
-    if (same_chars(s1, s2)) {
+    if ((same_chars(s1, s2))) {
         cout << "True";
     } else {
         cout << "False";
