@@ -3,13 +3,13 @@ string solve(string s) {
     bool hasLetter = false;
 
     for (char c : s) {
-        if (isalpha(c)) {
+        if (!isalpha(c)) {
+            result += c;
+        } else {
             hasLetter = true;
             result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
-        } else {
-            result += c;
         }
     }
 
-    return hasLetter ? result : string(result.rbegin(), result.rend());
+    return hasLetter ? s : string(result.rbegin(), result.rend());
 }
