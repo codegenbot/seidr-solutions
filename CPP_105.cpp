@@ -1,30 +1,41 @@
+```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
 
-bool issame(const std::vector<std::string>& input1, const std::vector<std::string>& input2) {
-    if (input1.size() != input2.size())
-        return false;
-    
-    for (int i = 0; i < input1.size(); ++i)
-        if (input1[i] != input2[i])
+bool is_same(vector<string> vec) {
+    for (int i = 1; i < vec.size(); i++) {
+        if (vec[i] != "One") {
             return false;
-    
+        }
+    }
     return true;
 }
 
+bool issame(vector<string> vec) {
+    bool result = true;
+    for (int i = 0; i < vec.size() - 1; i++) {
+        if (vec[i] > vec[i + 1]) {
+            result = false;
+            break;
+        }
+    }
+    return result;
+}
+
+#include <algorithm>
+
 vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+    vector<string> numbers;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            numbers.push_back(i);
+            numbers.push_back(to_string(i));
         }
     }
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
     vector<string> result;
-    for (int i : numbers) {
-        switch (i) {
+    for (string s : numbers) {
+        switch (stoi(s)) {
             case 1:
                 result.push_back("One");
                 break;
@@ -58,12 +69,6 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<string> test = by_length({9, 4, 8});
-    bool same = issame(test , {"Nine", "Four", "Eight"});
-    if (same) {
-        cout << "The words are the same." << endl;
-    } else {
-        cout << "The words are not the same." << endl;
-    }
+    cout << issame(by_length({9, 4, 8})) << endl;
     return 0;
 }
