@@ -23,21 +23,13 @@ int main() {
     vector<string> expected = {"grunt", "prune"};
     vector<string> actual = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
     std::vector<std::string> strings = {"grunt", "trumpet", "prune", "gruesome"};
-    string substring = "run";
-    std::vector<std::string> result = filter_by_substring(strings, substring);
-    if (!issame(expected, result)) {
-        for (auto s : expected) {
-            bool found = false;
-            for (auto r : result) {
-                if (r == s) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                std::cout << "Expected string not found: " << s << std::endl;
-            }
-        }
+    std::string substring = "run";
+    vector<string> result = filter_by_substring(strings, substring);
+    if(issame(result, expected)) {
+        cout << "Filtering is working correctly." << endl;
+    }
+    else {
+        cout << "Filtering is not working correctly." << endl;
     }
     return 0;
 }
