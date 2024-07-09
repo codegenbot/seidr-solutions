@@ -1,6 +1,6 @@
 #include <string>
 
-bool is_nested(std::string str) {
+bool is_nested(string str) {
     int open = 0, close = 0;
     for (char c : str) {
         if (c == '[') open++;
@@ -8,9 +8,3 @@ bool is_nested(std::string str) {
         if (open > 0 && close > open) return true;
     }
     return false;
-}
-
-int main() {
-    assert(is_nested("]]]]]]]]") == false);
-    return 0;
-}
