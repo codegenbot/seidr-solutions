@@ -1,12 +1,24 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
+    int evenCount = 0;
     for (int num : lst1) {
-        if (num % 2 != 0) {
-            oddCount++;
+        if (num % 2 == 0) {
+            evenCount++;
         }
     }
-    if (oddCount > (lst2.size() - oddCount)) {
-        return "NO";
+
+    bool canMakeEven = false;
+    for (int num : lst2) {
+        if (!canMakeEven && num % 2 != 0) {
+            continue;
+        }
+        for (int otherNum : lst1) {
+            if (otherNum % 2 == 0 && num % 2 != 0) {
+                swap(otherNum, num);
+                canMakeEven = true;
+                break;
+            }
+        }
     }
-    return "YES";
+
+    return evenCount == lst1.size() ? "YES" : "NO";
 }
