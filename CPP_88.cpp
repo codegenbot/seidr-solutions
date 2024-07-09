@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-void sort_array(const std::vector<int>& arr) {
+void sort_array(std::vector<int>& arr) {
     if (!arr.empty()) {
         if ((arr.front() + arr.back()) % 2 == 0) {
             std::sort(arr.begin(), arr.end(), std::greater<int>());
@@ -12,8 +12,7 @@ void sort_array(const std::vector<int>& arr) {
     }
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    sort_array(a);
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
