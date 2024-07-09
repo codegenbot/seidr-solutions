@@ -1,4 +1,4 @@
-````
+```
 def validate_tweet(tweet):
     tweet = tweet.strip().replace('\x00', '').replace(',', '')
     if len(tweet) > 140:
