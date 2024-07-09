@@ -13,8 +13,7 @@ int main() {
     if (n <= 0) {
         std::cout << "-1" << std::endl;
     } else {
-        std::string str = "";
-        str += "The " + std::to_string(n) + "th prime Fibonacci number is: ";
+        std::string str = "The " + std::to_string(int(1e9)) + "th prime Fibonacci number is: ";
         std::cout << str << prime_fib(n) << std::endl;
     }
 }
