@@ -1,4 +1,4 @@
-```
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -30,33 +30,34 @@ namespace myspace {
         }
         return result;
     }
+}
 
-    int mymain() {
-        std::vector<float> input(10); // or any other size that suits your needs
-        input.push_back(5);
-        input.push_back(8);
-        input.push_back(-12);
-        input.push_back(4);
-        input.push_back(23);
-        input.push_back(2);
-        input.push_back(3);
-        input.push_back(11);
-        input.push_back(12);
-        input.push_back(-10);
+int main() {
+    std::vector<float> input(10); 
+    input.push_back(5);
+    input.push_back(8);
+    input.push_back(-12);
+    input.push_back(4);
+    input.push_back(23);
+    input.push_back(2);
+    input.push_back(3);
+    input.push_back(11);
+    input.push_back(12);
+    input.push_back(-10);
 
-        std::cout << "Original array: ";
-        for (float num : input) {
-            std::cout << num << " ";
-        }
-        std::cout << std::endl;
-
-        std::vector<float> sortedEven = sort_even(input);
-        std::cout << "Sorted even array: ";
-        for (float num : sortedEven) {
-            std::cout << num << " ";
-        }
-        std::cout << std::endl;
-
-        return 0;
+    std::cout << "Original array: ";
+    for (float num : input) {
+        std::cout << num << " ";
     }
+    std::cout << std::endl;
+
+    std::vector<float> sortedEven = myspace::sort_even(input);
+    std::cout << "Sorted even array: ";
+    for (float num : sortedEven) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    assert (myspace::issame(myspace::sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) , {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    return 0;
 }
