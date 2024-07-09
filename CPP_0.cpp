@@ -16,3 +16,4 @@ bool has_close_elements(std::vector<float> numbers, float threshold) {
 int main() {
     std::vector<float> a={1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
     assert(std::abs(a[0] - a[1]) > 0.5);
+}
