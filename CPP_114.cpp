@@ -9,16 +9,17 @@ long long minSubArraySum(vector<long long> nums) {
             min_sum = current_sum;
         }
 
-        if (current_sum > 0) {
-            int left = i;
-            while (left >= 0 && current_sum > min_sum) {
-                current_sum -= nums[left];
-                left--;
-            }
-        } else {
-            current_sum = 0;
+        while (current_sum > min_sum && i < nums.size() - 1) {
+            current_sum -= nums[i];
+            i++;
         }
     }
 
     return min_sum;
+}
+
+int main() {
+    vector<long long> nums = {2,3,-1,5,-7,2,3};
+    cout << "Minimum subarray sum: " << minSubArraySum(nums) << endl;
+    return 0;
 }
