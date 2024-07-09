@@ -1,13 +1,13 @@
-```
-def fizz_buzz(n):
-    result = []
+def fizz_buzz():
+    output = []
+    n = int(input("Enter a number: "))
     for i in range(1, n+1):
         if i % 3 == 0 and i % 5 == 0:
-            result.append("FizzBuzz")
+            output.append("FizzBuzz")
         elif i % 3 == 0:
-            result.append("Fizz")
+            output.append("Fizz")
         elif i % 5 == 0:
-            result.append("Buzz")
+            output.append("Buzz")
         else:
-            result.append(str(i))
-    return "".join(result)
+            output.append(str(i))
+    return "".join(output)
