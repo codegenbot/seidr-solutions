@@ -5,10 +5,6 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
-# Define numbers list and threshold
-numbers = [3, 7, 2, 10, 5]
-threshold = 2
-
-# Call the function check_numbers
-result = check_numbers(numbers, threshold)
-print(result)
+numbers = [10, 15, 20, 25, 30]
+threshold = 5
+print(check_numbers(numbers, threshold))
