@@ -1,20 +1,23 @@
 #include <boost/any.hpp>
-#include <boost/type_traits.hpp>
+#include <boost/functional/hash.hpp>
+#include <string>
 
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (is_same<any_tag, get_type(a)>() && is_same<any_tag, get_type(b)>()) {
-        return a > b ? a : b;
+        int i1 = any_cast<int>(a);
+        int i2 = any_cast<int>(b);
+        return i1 > i2 ? a : b;
     } else if (is_same<string_any_tag, get_type(a)>() && is_same<string_any_tag, get_type(b)>()) {
-        string str1 = any_cast<string>(a);
-        string str2 = any_cast<string>(b);
+        std::string str1 = any_cast<std::string>(a);
+        std::string str2 = any_cast<std::string>(b);
         return str1 > str2 ? a : b;
     } else if (is_same<string_any_tag, get_type(a)>() || is_same<string_any_tag, get_type(b)>()) {
-        string str1 = any_cast<string>(a);
-        string str2 = any_cast<string>(b);
+        std::string str1 = any_cast<std::string>(a);
+        std::string str2 = any_cast<std::string>(b);
         if (str1 == str2) {
-            return boost::any("None");
+            return "None";
         } else if (str1 > str2) {
             return a;
         } else {
