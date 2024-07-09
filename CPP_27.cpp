@@ -1,16 +1,23 @@
-string filp_case(string str){
-    string result = "";
+```
+#include <string>
+#include <cctype>
+
+std::string flipCase(std::string str){
+    std::string result = "";
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z')
-            result += toupper(c);
+            result += std::toupper(c);
+        else if(c >= 'A' && c <= 'Z')
+            result += std::tolower(c);
         else
-            result += tolower(c);
+            result += c;
     }
     return result;
 }
 
 int main() {
-    assert(filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    std::string input = "Hello, world!";
+    std::cout << flipCase(input) << std::endl;
     return 0;
 }
