@@ -1,2 +1,2 @@
-```
-result = " ".join([word[::-1] if len(word) >= 5 else word for word in input().split()])
+```python
+result = " ".join([word[::-1] if len(word) >= 5 else word for word in input().split()])[:-1] if result.startswith(" ") else result
