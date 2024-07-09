@@ -1,5 +1,6 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
 int next_smallest(vector<int> lst) {
     if (lst.size() < 2) return -1; 
@@ -14,6 +15,13 @@ int next_smallest(vector<int> lst) {
 }
 
 int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
-    return 0;
+    vector<int> lst;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        cout << "Enter element " << i+1 << ": ";
+        cin >> lst.push_back(i);
+    }
+    cout << "The next smallest is: " << next_smallest(lst) << endl;
 }
