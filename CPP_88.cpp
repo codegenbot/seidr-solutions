@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 std::vector<int> sort_array(std::vector<int> array) {
     if(array.empty()) return array;
