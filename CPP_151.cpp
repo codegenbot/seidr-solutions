@@ -1,17 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
-#include <iostream>
-
-long long double_the_difference(std::vector<float> lst);
-
-int main() {
-    std::vector<float> lst = {3.0, 4.0, 5.0, 6.0, 7.0};
-    long long odd_sum = 0;
-    
-    long long result = double_the_difference(lst);
-    std::cout << result << std::endl;
-    return 0;
-}
 
 long long double_the_difference(std::vector<float> lst){
     long long odd_sum = 0;
@@ -21,4 +10,11 @@ long long double_the_difference(std::vector<float> lst){
         }
     }
     return 2 * odd_sum;
+}
+
+int main() {
+    std::vector<float> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
+    long long odd_sum = double_the_difference(lst);
+    std::cout << "Result: " << odd_sum << std::endl;
+    return 0;
 }
