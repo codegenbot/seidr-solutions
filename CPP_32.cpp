@@ -9,7 +9,7 @@ double abs(double x){
 double poly(std::vector<double> coeffs, double x){
     double result = 0;
     for (int i = 0; i < coeffs.size(); i++){
-        result += coeffs[i] * std::pow(x, i);
+        result += coeffs[i] * pow(x, i);
     }
     return result;
 }
@@ -20,6 +20,6 @@ double find_zero(std::vector<double> coeffs){
     return -b/a;
 }
 
-int main() {
+int main(){
     std::vector<double> coeffs = {1, -3, 2};
-}  
+}
