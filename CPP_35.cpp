@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <cmath>
 
-int main() {
+int getMax() {
     int n;
     std::vector<int> l;
     std::cout << "Enter the number of elements: ";
@@ -15,4 +15,8 @@ int main() {
     }
     
     return *std::max_element(l.begin(), l.end());
+}
+
+int main() {
+    return getMax();
 }
