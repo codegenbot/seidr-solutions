@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(vector<int> a, vector<int> b) {
+bool areVectorsEqual(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -24,7 +24,7 @@ vector<int> remove_duplicates(vector<int> numbers) {
     return newVector;
 }
 
-int main() {
+int mainFunction() { 
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -37,7 +37,7 @@ int main() {
 
     vector<int> result = remove_duplicates(numbers);
 
-    if (isSame(result, numbers)) {
+    if (areVectorsEqual(result, numbers)) {
         std::cout << "The resulting vector is the same as the original." << std::endl;
     } else {
         std::cout << "The resulting vector is different from the original." << std::endl;
