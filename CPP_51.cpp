@@ -1,11 +1,12 @@
-string::iterator it = text.begin();
-while (it != text.end()) {
-    if (*it == 'a' || *it == 'e' || *it == 'i' || *it == 'o' || *it == 'u'
-        || tolower(*it) == 'a' || tolower(*it) == 'e' || tolower(*it) == 'i'
-        || tolower(*it) == 'o' || tolower(*it) == 'u') {
-        text.erase(it);
-    } else {
-        ++it;
+#include <string>
+#include <cctype>
+
+string remove_vowels(string text){
+    string result = "";
+    for (char c : text) {
+        if (!ispunct(c) && !isalpha(c) || tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
+            result += c;
+        }
     }
+    return result;
 }
-return text;
