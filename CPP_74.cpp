@@ -10,7 +10,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> vec2) {
     return true;
 }
 
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+bool total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int sum1 = 0, sum2 = 0;
     for (const auto& s : lst1) {
         sum1 += s.length();
@@ -18,37 +18,36 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     for (const auto& s : lst2) {
         sum2 += s.length();
     }
-    if (sum1 < sum2) return lst1;
-    else if (sum1 > sum2) return lst2;
-    else {
-        std::vector<std::string> res;
-        if (!issame(lst1, lst2)) return {};
-        for (const auto& s : lst1) {
-            res.push_back(s);
-        }
-        return res;
-    }
+    if (sum1 < sum2) return true;
+    else if (sum1 > sum2) return false;
+    else return true;
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
-
-    std::vector<std::string> a, b;
-    for (int i = 0; i < n; i++) {
-        std::string temp;
+    int b = 0;
+    std::vector<std::string> vec1, vec2;
+    
+    // Read input from user
+    for(int i=0; i<5; i++) {
         std::cout << "Enter string " << i+1 << ": ";
-        std::getline(std::cin, temp);
-        if (i == 0) a.push_back(temp);
-        else b.push_back(temp);
+        std::string s;
+        std::cin >> s;
+        if(i < 2) vec1.push_back(s);
+        else vec2.push_back(s);
     }
-
-    std::vector<std::string> result = total_match(a, b);
-
-    std::cout << "The matching strings are: \n";
-    for (const auto& s : result) {
-        std::cout << s << "\n";
+    
+    // Check for total_match
+    bool result = issame(vec1, vec2);
+    if(result)
+        cout << "Strings are same." << endl;
+    else {
+        cout << "Calculating..." << endl;
+        std::vector<std::string> matched = total_match(vec1, vec2);
+        if(issame(vec1, matched)) 
+            cout << "After removing strings with length less than the average of both vectors, strings are same." << endl; 
+        else
+            cout << "Strings are not same after removal." << endl;
     }
+    
     return 0;
 }
