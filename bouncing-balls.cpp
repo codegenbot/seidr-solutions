@@ -1,22 +1,18 @@
+```cpp
 #include <iostream>
-#include <cmath>
-#include <iomanip>
 using namespace std;
 
 int main() {
     double startHeight, firstBounceHeight;
+    cin >> startHeight >> firstBounceHeight; 
+    double bouncinessIndex = 2.0 * (firstBounceHeight / startHeight);
+    
     int numBounces;
-
-    cin >> startHeight >> firstBounceHeight >> numBounces;
-
-    double bouncinessIndex = (firstBounceHeight / startHeight);
-
-    double totalDistance = 0.0;
-    for(int i = 1; i <= numBounces; ++i) {
-        totalDistance += pow(2, -i/2.0) * startHeight;
-    }
-
-    cout << fixed << setprecision(5) << showpoint << totalDistance << endl;
-
+    cin >> numBounces;
+    
+    // calculate total distance based on bounciness index and numBounces
+    double totalDistance = startHeight + firstBounceHeight + (bouncinessIndex - 1) * ((bouncinessIndex - 0.5) * startHeight / 2);
+    cout << "Total Distance: " << totalDistance << endl;
+    
     return 0;
 }
