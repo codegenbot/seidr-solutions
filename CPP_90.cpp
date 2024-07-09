@@ -1,8 +1,15 @@
 sort(lst.begin(), lst.end());
-int count = 1;
-for (int i = 0; i < lst.size(); ++i) {
-    if (lst[i] < lst[count - 1]) {
-        return lst[i];
+int count = 1, res = -1;
+for(int i = 1; i <lst.size(); i++) {
+    if(lst[i] != lst[i-1]) {
+        count++;
+    }
+    if(count == 2) {
+        res = lst[i];
+        break;
     }
 }
-return None;
+if(count < 2) 
+    return -1;
+return res;
+}
