@@ -42,16 +42,12 @@ int main() {
         cin >> a >> b;
     }
 
-    if (a == 0 || b == 0) {
-        cout << "GCD of two zero is undefined. Terminating the program.\n";
-        return 1; 
-    }
-
-    cout << gcd(a, b) << endl;
+    int result = gcd(a, b);
+    cout << "GCD is " << result << endl;
 
     string text;
     getline(cin, text);
-    
+
     string target;
     getline(cin, target);
 
