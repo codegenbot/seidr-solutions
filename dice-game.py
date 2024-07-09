@@ -1,6 +1,6 @@
 def roll_dice(n, m):
     p_total = n
     c_total = m
-
-    probability = sum(1 for _ in range(1, min(n, m)) if (n + i) > i) / (p_total * c_total)
+    
+    probability = sum((i + 1) / (n * p_total) for i in range(m - 1)) 
     return probability
