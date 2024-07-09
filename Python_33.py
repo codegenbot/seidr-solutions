@@ -1,9 +1,9 @@
 def sort_third(l: list):
-    return [
-        (
-            val
-            if i % 3 != 0
-            else sorted([x for x in l if (j := i // 3) * 3 <= index < (j + 1) * 3])[::-1][0]
-        )
-        for i, val in enumerate(l)
-    ]
+    result = []
+    for i, val in enumerate(l):
+        if i % 3 == 0:
+            sorted_vals = sorted([x for x in l if (i - j) % 3 != 0])
+            result.append(sorted_vals[::-1][0])
+        else:
+            result.append(val)
+    return result
