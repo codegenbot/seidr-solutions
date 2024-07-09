@@ -1,19 +1,12 @@
+#include <stdio.h>
+#include <string>
+using namespace std;
+
 string solve(int N) {
     int sum = 0;
-    while (N > 0) {
-        sum += N % 2;
-        N /= 2;
+    while(N > 0) {
+        sum += N & 1;
+        N >>= 1;
     }
-    string result;
-    if (sum == 0) result = "0";
-    else {
-        while (sum > 0) {
-            if (sum & 1)
-                result.push_back('1');
-            else
-                result.push_back('0');
-            sum >>= 1;
-        }
-    }
-    return result;
+    return to_string(sum);
 }
