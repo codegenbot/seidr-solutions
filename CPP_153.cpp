@@ -1,7 +1,15 @@
-#include <vector>
 #include <string>
+#include <vector>
 
-int Strongest_Extension(string class_name, vector<string> extensions){
+int main() {
+    string class_name = "MyClass";
+    vector<string> extensions = {"Java", "C++", "Python", "JS"};
+
+    cout << Strongest_Extension(class_name, extensions) << endl;
+
+}
+
+int Strongest_Extension(string class_name,vector<string> extensions){
     int max_strength = 0;
     string strongest_extension;
     
