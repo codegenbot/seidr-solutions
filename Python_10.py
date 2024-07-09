@@ -4,11 +4,14 @@ def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string[::-1]
+    if string.islower():
+        half = 0
+        while half < len(string) and string[half] == string[-half - 1]:
+            half += 1
+        return string + string[:len(string) - half].[::-1]
     else:
-        for i in range(len(string), 0, -1):
-            suffix = string[i-1::-1]
-            if string + suffix == (string + suffix)[::-1]:
-                return string + suffix
-        return string + 'a' + string[::-1]
+        s = ''.join(e for e in string if e.isalnum())
+        half = 0
+        while half < len(s) and s[half] == s[-half - 1]:
+            half += 1
+        return s + s[:len(s) - half].[::-1] + ''.join(e for e in string if not e.isalnum() and e != ' ')
