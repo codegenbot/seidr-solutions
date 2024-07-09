@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <any>
+#include <initializer_list>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -17,8 +18,7 @@ std::vector<int> filterIntegers(std::vector<std::any> values) {
     return result;
 }
 
-int main 
-{
+int main() {
     int num1, num2; 
     std::cout << "Enter two numbers: ";
     std::cin >> num1 >> num2;
