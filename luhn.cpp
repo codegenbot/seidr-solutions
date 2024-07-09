@@ -23,3 +23,4 @@ int main() {
     }
     cout << luhn(card) << endl;
     return 0;
+}
