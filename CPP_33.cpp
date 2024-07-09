@@ -1,12 +1,9 @@
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-}
-
 vector<int> sort_third(vector<int> l);
 
-int main() {
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 vector<int> sort_third(vector<int> l){
