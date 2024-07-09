@@ -1,21 +1,20 @@
-Here is the completed code:
+#include<vector>
+using namespace std;
 
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int n = grid.size();
-    int ans = 0;
-    for (int i = 0; i < n; i++) {
-        int water = 0;
-        for (int j = 0; j < grid[i].size(); j++) {
-            if (grid[i][j] == 1) {
-                water += 1;
-            }
+    int total_water = 0;
+    for (const auto& row : grid) {
+        for (int cell : row) {
+            if (cell > capacity)
+                return -1; // or handle this situation as per your requirement
+            total_water += min(cell, capacity);
         }
-        while (water > 0) {
-            int bucket = min(water, capacity);
-            water -= bucket;
-            ans++;
-            capacity = max(0, capacity - bucket);
-        }
+        capacity = 100; // reset the capacity for each row
     }
-    return ans;
+    
+    int buckets_needed = total_water / capacity;
+    if (total_water % capacity != 0)
+        ++buckets_needed;
+
+    return buckets_needed;
 }

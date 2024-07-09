@@ -1,12 +1,18 @@
-#include <algorithm>
+#include <queue>
 using namespace std;
 
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> res;
-    for (int i = 0; i < k; i++) {
-        auto it = max_element(arr.begin(), arr.end());
-        res.push_back(*it);
-        arr.erase(it);
+    vector<int> result;
+    priority_queue<int> pq;
+    
+    for (int x : arr) {
+        pq.push(x);
     }
-    return res;
+    
+    for (int i = 0; i < k; i++) {
+        result.push_back(pq.top());
+        pq.pop();
+    }
+    
+    return result;
 }
