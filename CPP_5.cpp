@@ -1,6 +1,6 @@
 #include <vector>
 
-bool issame(int a, int b);
+bool issame(int x, int y);
 
 std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
     std::vector<int> result;
@@ -15,6 +15,6 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimeter){
     return result;
 }
 
-bool issame(int a, int b){
-    return a == b;
+bool issame(int x, int y){
+    return x == y;
 }
