@@ -9,15 +9,15 @@ bool issame(std::vector a, std::vector b){
     return true;
 }
 
-std::vector make_a_pile(int n) {
-    std::vector pile;
+std::vector a(std::vector<int> n) {
+    std::vector a;
     for (int i = 2 * n; i > 0; --i) {
-        pile.push_back(i);
+        a.push_back(i);
     }
-    return pile;
+    return a;
 }
 
 int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(issame(a(8), {8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
