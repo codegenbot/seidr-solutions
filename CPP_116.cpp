@@ -3,9 +3,7 @@
 #include <bitset>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a != b)
-        return false;
-    return true;
+    return a == b;
 }
 
 std::vector<int> sort_array(std::vector<int> arr) {
