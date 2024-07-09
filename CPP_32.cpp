@@ -1,11 +1,10 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
 #include <initializer_list>
-std::vector<std::vector<double>> temp;
+using namespace std;
 
-double poly(std::vector<double> coeffs, double solution) {
+double poly(vector<double> coeffs, double solution) {
     double result = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         result += coeffs[i] * pow(solution, i);
@@ -13,21 +12,21 @@ double poly(std::vector<double> coeffs, double solution) {
     return result;
 }
 
-double find_zero(std::vector<double> xs){
+double find_zero(vector<double> xs){
     double sum = 0;
     double coeff = xs[0];
-    std::vector<std::vector<double>> temp;
+    vector<vector<double>> temp;
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
             sum += xs[i] / coeff;
-            std::vector<double> temp1(xs.begin() + i, xs.begin() + i+1);
+            vector<double> temp1(xs.begin() + i, xs.begin() + i+1);
             temp.push_back(temp1);
         }
         else{
             coeff = xs[i];
         }
     }
-    std::vector<double> coeffs;
+    vector<double> coeffs;
     for(int i=0; i<temp.size(); i++){
         for(int j = 0; j < temp[i].size(); j++) {
             coeffs.push_back(temp[i][j]);
@@ -37,13 +36,13 @@ double find_zero(std::vector<double> xs){
 }
 
 int main() {
-    std::vector<double> xs; 
+    vector<double> xs; 
     cout << "Enter coefficients (space separated): ";
     for(double x; cin >> x; ) {
         xs.push_back(x); 
     }    
     double solution = find_zero(xs);
-    std::vector<double> coeffs;
+    vector<double> coeffs;
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
             coeffs.push_back(xs[i] / xs[i-1]);
