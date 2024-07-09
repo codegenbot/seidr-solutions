@@ -1,7 +1,6 @@
-#include <vector>
 #include <iostream>
 #include <iomanip>
-
+#include <vector>
 using namespace std;
 
 double shoppingList(vector<double>& prices, vector<double>& discounts) {
