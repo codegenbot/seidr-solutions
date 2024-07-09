@@ -5,14 +5,12 @@ using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited;
+    vector<vector<bool>> visited(n);
+    for(int i=0; i<n; ++i) {
+        visited[i].resize(n, false);
+    }
     priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>(), greater<pair<int, int, pair<int, int>>>> pq;
     vector<int> res;
-
-    for (int i = 0; i < n; ++i) {
-        vector<bool> temp(n, false);
-        visited.push_back(temp);
-    }
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
