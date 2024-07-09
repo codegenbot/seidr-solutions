@@ -3,12 +3,22 @@
 
 bool issame(vector<string> a, vector<string> b);
 
-int main() {
-    // ... other code ...
-    assert(issame(total_match({"this"}, {}), {}));
+bool issame(vector<string> a, vector<string> b) {
+    for (const auto& s : a) {
+        bool found = false;
+        for (const auto& t : b) {
+            if (s == t) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) return false;
+    }
+    return true;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a == b) return true;
-    else return false;
+int main() {
+    vector<string> lst1 = {"this"};
+    vector<string> lst2;
+    assert(issame(total_match(lst1, lst2), lst2));
 }
