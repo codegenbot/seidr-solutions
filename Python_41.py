@@ -1,4 +1,3 @@
-```
 def car_race_collision(car: int, speed: int):
     if speed == 0:
         return 0
