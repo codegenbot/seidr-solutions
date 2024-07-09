@@ -13,28 +13,29 @@ std::pmr::vector<int> strange_sort_list(std::pmr::pmr_vector<int> lst) {
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
         result.push_back(min_val);
-        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
+        auto newEnd = std::remove(lst.begin(), lst.end(), min_val);
+        lst.erase(newEnd, lst.end());
 
         if (!lst.empty()) {
             int max_val = *std::max_element(lst.begin(), lst.end());
             result.push_back(max_val);
-            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
+            newEnd = std::remove(lst.begin(), lst.end(), max_val);
+            lst.erase(newEnd, lst.end());
         }
     }
     return result;
 }
 
 int main() {
-    std::pmr::polymorphic_allocator<int> global_mr;
-    std::pmr::pmr_vector<int> input(std::pmr::polymorphic_allocator<int>(global_mr));
+    std::pmr::monotonic_buffer_resource buffer_resource;
+    std::pmr::vector<int> input(buffer_resource);
     for (int i = 0; i < 6; ++i) {
         int num;
         std::cin >> num;
         input.push_back(num);
     }
 
-    std::pmr::pmr_vector<int> output(std::pmr::polymorphic_allocator<int>(global_mr));
-    output = strange_sort_list(input);
+    std::pmr::vector<int> output = strange_sort_list(input);
 
     if (issame(output, {1,2,3,4,5,6})) {
         std::cout << "True" << std::endl;
