@@ -1,28 +1,35 @@
-string words_in_sentence(string sentence) {
+Here is the solution:
+
+string words_in_sentence(string sentence){
+    vector<string> words = split(sentence, ' ');
     string result = "";
-    int wordCount = 0;
-
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            wordCount++;
-        } else if (i == sentence.length() - 1) {
-            int wordLength = sentence.length() - wordCount;
-            bool isPrime = false;
-
-            for (int j = 2; j * j <= wordLength; j++) {
-                if (wordLength % j == 0) {
-                    isPrime = false;
-                    break;
-                } else {
-                    isPrime = true;
-                }
-            }
-
-            if (isPrime) {
-                result += sentence.substr(wordCount, wordLength) + " ";
-            }
+    
+    for(int i=0; i<words.size(); i++){
+        if(is_prime(words[i].length())){
+            result += words[i] + " ";
         }
     }
-
+    
     return result;
+}
+
+vector<string> split(string str, char c) {
+    vector<string> arr;
+    size_t pos = 0;
+    while ((pos = str.find(c)) != string::npos) {
+        arr.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
+    }
+    arr.push_back(str);
+    return arr;
+}
+
+bool is_prime(int n){
+    if(n<=2)
+        return false;
+    for(int i = 3; i * i <= n; i += 2) {
+        if(n % i == 0) 
+            return false;
+    }  
+    return true;
 }
