@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 int sumOdd(std::vector<int> lst) {
     int sum = 0;
@@ -35,6 +36,5 @@ int main() {
     }
     int result = solutions(lst);
     assert(result == 25);
-    if(result == 25)
-        std::cout << "Test passed.\n";
+    std::cout << "Test passed.\n";
 }

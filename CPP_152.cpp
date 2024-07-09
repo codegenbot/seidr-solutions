@@ -25,24 +25,18 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
-    std::vector<int> game, guess;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    std::vector<int> game(n);
+    std::vector<int> guess(n);
     for(int i = 0; i < n; i++){
-        std::cout << "Enter element " << i+1 << " for game: ";
+        std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
-        game.push_back(temp);
+        game[i] = temp;
+        guess[i] = temp; 
     }
-    
-    for(int i = 0; i < n; i++){
-        std::cout << "Enter element " << i+1 << " for guess: ";
-        int temp;
-        std::cin >> temp;
-        guess.push_back(temp);
-    }
-    
     if(issame(game, guess)){
         std::cout << "The two vectors are the same.\n";
     } else {
