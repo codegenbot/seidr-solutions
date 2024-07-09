@@ -1,3 +1,4 @@
+import sys
 import hashlib
 
 def string_to_md5(text):
@@ -7,6 +8,5 @@ def string_to_md5(text):
         return None
 
 if __name__ == "__main__":
-    with open('input.txt', 'r') as file:
-        text = file.read().strip()
-        print(string_to_md5(text))
+    text = sys.stdin.readline().rstrip()
+    print(string_to_md5(text))
