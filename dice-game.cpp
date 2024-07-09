@@ -1,4 +1,4 @@
-```cpp
+#include <cmath>
 #include <iostream>
 #include <iomanip>
 
@@ -9,6 +9,7 @@ double probability(int n, int m) {
 
 int main() {
     std::cout << "The probability that Peter rolls strictly higher than Colin is: "
-              << std::fixed << setprecision(5) << (double)probability(34, 24)
-              << std::endl;
+              << std::fixed << setprecision(5) << probability(34, 24)
+              << '\n';
+    return 0;
 }
