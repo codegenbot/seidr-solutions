@@ -6,56 +6,58 @@ vector<string> bf(string planet1, string planet2) {
     
     int distance1 = -1;
     int distance2 = -1;
-    double mercuryDistance = 57.9, venusDistance = 67.2, earthDistance = 0, marsDistance = 225, jupiterDistance = 778, saturnDistance = 1433, uranusDistance = 2870, neptuneDistance = 4495;
+
+    if (planet1 == "Makemake" || planet2 == "Makemake") 
+        return vector<string>();
 
     if (planet1 == "Mercury") {
-        distance1 = mercuryDistance;
+        distance1 = 57.9;
     }
     else if (planet1 == "Venus") {
-        distance1 = venusDistance;
+        distance1 = 67.2;
     }
     else if (planet1 == "Earth") {
-        distance1 = earthDistance;
+        distance1 = 0;
     }
     else if (planet1 == "Mars") {
-        distance1 = marsDistance;
+        distance1 = 225;
     }
     else if (planet1 == "Jupiter") {
-        distance1 = jupiterDistance;
+        distance1 = 778;
     }
     else if (planet1 == "Saturn") {
-        distance1 = saturnDistance;
+        distance1 = 1433;
     }
     else if (planet1 == "Uranus") {
-        distance1 = uranusDistance;
+        distance1 = 2870;
     }
     else if (planet1 == "Neptune") {
-        distance1 = neptuneDistance;
+        distance1 = 4495;
     }
 
     if (planet2 == "Mercury") {
-        distance2 = mercuryDistance;
+        distance2 = 57.9;
     }
     else if (planet2 == "Venus") {
-        distance2 = venusDistance;
+        distance2 = 67.2;
     }
     else if (planet2 == "Earth") {
-        distance2 = earthDistance;
+        distance2 = 0;
     }
     else if (planet2 == "Mars") {
-        distance2 = marsDistance;
+        distance2 = 225;
     }
     else if (planet2 == "Jupiter") {
-        distance2 = jupiterDistance;
+        distance2 = 778;
     }
     else if (planet2 == "Saturn") {
-        distance2 = saturnDistance;
+        distance2 = 1433;
     }
     else if (planet2 == "Uranus") {
-        distance2 = uranusDistance;
+        distance2 = 2870;
     }
     else if (planet2 == "Neptune") {
-        distance2 = neptuneDistance;
+        distance2 = 4495;
     }
 
     if (distance1 != -1 && distance2 != -1) {
@@ -63,4 +65,3 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
-}
