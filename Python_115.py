@@ -1,4 +1,3 @@
-```
 def max_fill(grid: List[List[int]], capacity: int) -> int:
     total_water = 0
     for row in grid:
