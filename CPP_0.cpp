@@ -1,19 +1,20 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <cmath>
+#include <cassert>
 
-bool has_close_elements(std::vector<float> numbers, float threshold){
-    for(int i = 0; i < numbers.size() - 1; i++){
-        for(int j = i + 1; j < numbers.size(); j++){
-            if(std::abs(numbers[i] - numbers[j]) <= threshold)
-                return true;
+bool has_close_elements(const std::vector<float>& v, float threshold) {
+    for (int i = 0; i < v.size() - 1; i++) {
+        if (std::abs(v[i] - v[i + 1]) <= threshold) {
+            return true;
         }
     }
     return false;
 }
 
-int main(){
-    std::vector<float> a={1e-9 + 1.0, 1e-9 + 2.0, 1e-9 + 3.9, 1e-9 + 4.0, 1e-9 + 5.0, 1e-9 + 2.2};
-    assert(has_close_elements({1e-9 + 1.1, 1e-9 + 2.2, 1e-9 + 3.1, 1e-9 + 4.1, 1e-9 + 5.1}, 0.5) == false);
+int main() {
+    std::vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
+    
+    assert(has_close_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 0.5f) == false);
+    
     return 0;
 }
