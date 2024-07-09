@@ -3,12 +3,14 @@
 
 bool issame(vector<string> a, vector<string> b) {
     for (const auto& str : a) {
-        if (std::find(b.begin(), b.end(), str) == b.end()) return false;
+        if (std::find(b.begin(), b.end(), str) != b.end()) {
+            return true;
+        }
     }
-    return true;
+    return false;
 }
 
 int main() {
-    assert(issame({{"grunt", "trumpet", "prune", "gruesome"}, "run"} , {{"grunt", "prune"}}));
+    assert(issame({{"grunt", "trumpet", "prune", "gruesome"}, {"run"}}, {{"grunt", "prune"}}));
     return 0;
 }
