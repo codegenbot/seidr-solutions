@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 
@@ -15,5 +14,5 @@ std::vector<int> sort_array(std::vector<int> arr) {
         }
     };
     std::sort(arr.begin(), arr.end(), comp);
-    return arr;  // Return the sorted array instead of calling sort_array
+    return arr;
 }
