@@ -5,19 +5,19 @@ int main() {
     boost::any a = "hello";
     boost::any b = "hi";
 
-    boost::any result = compare(a, b);
+    boost::any result = compare_one(a, b);
 
     std::cout << boost::any_cast<std::string>(result) << std::endl;
 
     return 0;
 }
 
-boost::any compare(boost::any a, boost::any b) {
+boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return a;
+        return boost::any((int)(float)b.get_value<float>());
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        return "Float is greater";
+        return boost::any("Invalid");
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
@@ -27,19 +27,9 @@ boost::any compare(boost::any a, boost::any b) {
         else if (strA < strB)
             return b;
         else
-            return "Equal";
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int iA = boost::any_cast<int>(a);
-        int iB = boost::any_cast<int>(b);
-        if (iA > iB)
-            return a;
-        else if (iA < iB)
-            return b;
-        else
-            return "Equal";
+            return boost::any("Equal");
     }
     else {
-        return "None";
+        return boost::any("Invalid");
     }
 }
