@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
 int match_parens(const vector<string>& lst) {
     int countOpen = 0;
     for (const auto& s : lst) {
@@ -24,6 +20,6 @@ int match_parens(const vector<string>& lst) {
 int main() {
     vector<string> lst = {"(())"};
     cout << match_parens(lst);
-    assert(match_parens({""))"} == "Yes");
+    assert(match_parens({""}) == "Yes");
     return 0;
 }
