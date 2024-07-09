@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <initializer_list>
 
-bool sameVectors(std::vector<int> a, std::vector<int> b) {
+bool isEqual(std::vector<int> a, std::vector<int> b) {
     return (a == b);
 }
 
@@ -25,7 +26,7 @@ int get_odd_collatz(int n) {
     std::cout << std::endl;
 }
 
-int main() {
+int solver() {
     int num;
     std::cin >> num;
     get_odd_collatz(num);
