@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -34,7 +34,7 @@ int main() {
     std::cout << "Enter the text: ";
     std::getline(std::cin, text);
     std::cout << "Enter the target string: ";
-    std::getline(std::cin, target); // Use std::getline instead of std::cin
+    std::getline(std::cin, target);
     std::vector<int> indices = findIndices(text, target);
     for (int i : indices) {
         std::cout << i << " ";
