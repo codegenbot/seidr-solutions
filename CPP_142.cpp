@@ -1,4 +1,6 @@
 #include <vector>
+#include <cassert>
+using namespace std;
 
 int sum_squares(vector<int> lst) {
     int total = 0;
@@ -10,3 +12,11 @@ int sum_squares(vector<int> lst) {
         }
     }
     return total;
+}
+
+int main() {
+    vector<int> input = { -1, -3, 17, -1, -15, 13, -1, 14, -14, -12, -5, 
+                           14, -14, 6, 13, 11, 16, 16, 4, 10};
+    assert(sum_squares(input) == -1448);
+    return 0;
+}
