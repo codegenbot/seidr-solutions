@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <cctype>
+using namespace std;
 
 std::string kebabToCamel(const std::string& s) {
     std::string result;
