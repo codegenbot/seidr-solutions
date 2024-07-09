@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string>b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -22,33 +21,9 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
             result.push_back(s);
     }
     return result;
+}
 
 int main() {
-    vector<string> a;
-    vector<string> b;
-    
-    int n1,n2; 
-    cin >> n1;
-    cin >> n2;
-    
-    for(int i = 0; i < n1; i++) {
-        string s;
-        cin >> s;
-        a.push_back(s);
-    }
-    for(int i = 0; i < n2; i++) {
-        string s;
-        cin >> s;
-        b.push_back(s);
-    }
-    
-    if(issame(a,b)) {
-        cout << "Yes\n";
-    } else {
-        vector<string> result = filter_by_prefix(a, "abc");
-        for(string str : result) {
-            cout << str << "\n";
-        }
-    }
-    return 0;
+    vector<string>b = {"xxx", "xxxAAA", "xxx"};
+    assert (issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx") , b));
 }
