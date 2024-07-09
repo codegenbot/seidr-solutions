@@ -1,23 +1,13 @@
 #include <vector>
+#include <climits>
+#include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<int> pluck(vector<int> arr){
-    vector<int> result;
+std::vector<int> pluck(std::vector<int> arr){
+    std::vector<int> result;
     int min_even = INT_MAX;
     int min_index = INT_MAX;
     
-    for(int i = 0; i < arr.size(); i++){
+    for(int i=0; i<arr.size(); i++){
         if(arr[i] % 2 == 0 && arr[i] < min_even){
             min_even = arr[i];
             min_index = i;
@@ -32,7 +22,16 @@ vector<int> pluck(vector<int> arr){
     return result;
 }
 
-int main() {
-    // Main function content if needed
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
 }
