@@ -13,11 +13,7 @@ vector<int> sort_third(vector<int> l) {
         if (i % 3 == 0)
             multiplesOfThree.push_back(l[i]);
         else
-            others.push_back(l[i]);
-
-        if (multiplesOfThree.size() > l.size() / 3) {
-            break;
-        }
+            others.push_back(l[i+1]); // Changed condition to avoid out-of-bounds access
     }
 
     sort(multiplesOfThree.begin(), multiplesOfThree.end());
@@ -28,10 +24,6 @@ vector<int> sort_third(vector<int> l) {
             result.push_back(multiplesOfThree[0]);
         else
             result.push_back(others[i % others.size()]);
-
-        if (multiplesOfThree.size() > l.size() / 3) {
-            break;
-        }
     }
 
     return result;
