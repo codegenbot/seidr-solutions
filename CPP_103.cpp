@@ -1,32 +1,5 @@
-#include <iostream>
-#include <string>
-
-std::string rounded_avg(int n, int m) {
-    if (n > m) return "-1";
-    int sum = 0;
-    for (int i = n; i <= m; i++) {
-        sum += i;
-    }
-    double avg = static_cast<double>(sum) / (m - n + 1);
-    avg = std::nearbyint(avg + 0.5); 
-    int val = static_cast<int>(avg);
-    std::string binary;
-    if (val > 0) {
-        while (val > 0) {
-            if(val % 2 == 0) {
-                binary.insert(0, "0");
-            } else {
-                binary.insert(0, "1");
-            }
-            val /= 2;
-        }
-    } else {
-        return "0";
-    }
-    return binary.empty() ? "0" : binary;
-}
-
-int main() {
+int main 
+{
     int n, m;
     std::cout << "Enter two numbers: ";
     std::cin >> n >> m;
