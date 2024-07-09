@@ -55,11 +55,11 @@ int main() {
         std::cout << grade << std::endl;
     }
 
-    if (!issame({4.0, 3.9}, {"A+", "A+"})) {
+    if (!issame(numerical_letter_grade({0, 0.7}), {"E", "D-"})) {
         // test failed
     } else {
         // test passed
     }
-    
+
     return 0;
 }
