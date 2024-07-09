@@ -1,8 +1,7 @@
-float num = stof(value);
+double num = stod(value);
     int lower = floor(num);
     int upper = ceil(num);
-
-    if (abs(num - lower) < abs(num - upper)) {
+    if (num - lower < upper - num) {
         return lower;
     } else {
         return upper;
