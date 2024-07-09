@@ -18,5 +18,11 @@ std::string flip_case(const std::string& input) {
 int main() {
     std::string expected = "theSE Violent Delights Have Violent Ends";
     assert(flip_case("These violent delights have violent ends").compare(expected) == 0);
+
+    std::cout << "Enter a string: ";
+    std::string user_input;
+    std::cin >> user_input;
+    std::cout << "Flipped case: " << flip_case(user_input) << std::endl;
+
     return 0;
 }
