@@ -12,6 +12,9 @@ int specialFilter(vector<int> nums) {
     }
     return count;
 
+#include <iostream>
+using namespace std;
+
 int main() {
     vector<int> nums;
     for(int i = 123; i <= 789; i++) {
