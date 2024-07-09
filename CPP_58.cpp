@@ -1,10 +1,10 @@
 #include <vector>
 #include <set>
 
-bool issame(int a) {
-    if(a%2==0)
+bool issame(int a, int b) {
+    if (a == b)
         return true;
-    else 
+    else
         return false;
 }
 
