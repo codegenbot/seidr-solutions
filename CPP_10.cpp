@@ -14,7 +14,6 @@ string make_palindrome(string str){
         i--;
     }
     string prefix=str.substr(0,i+1);
-    std::string rev = str.substr(0, i + 1);
-    std::reverse(rev.begin(), rev.end());
-    return str.substr(i+1) + rev;
+    string postfix=str.substr(i+1)+string(str.substr(0,i+1)).rbegin(), std::string(str.substr(0,i+1)).rend());
+    return postfix;
 }
