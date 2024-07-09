@@ -2,7 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
-#pragma GCC target "c++2a"
+
+using namespace std;
 
 bool issame(vector<vector<int>>& a, vector<vector<int>>& b) {
     if (a.size() != b.size()) {
