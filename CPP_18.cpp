@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int how_many_times(const string& str, const string& substring) {
+int how_many_times(string& str, const string& substring) {
     int count = 0;
     size_t pos = 0;
     size_t original_len = str.length();
