@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -8,7 +9,7 @@ int pairedDigits(const std::string& input) {
         if (i < input.length() - 1 && input[i] == input[i + 1]) {
             sum += input[i] - '0';
         } else if (i == input.length() - 1) {
-            if (input[i] == input[i-1]) {
+            if (input[i] == input[0]) {
                 sum += input[i] - '0';
             }
         }
