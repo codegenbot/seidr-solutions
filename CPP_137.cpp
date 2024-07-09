@@ -29,7 +29,7 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
 int main() {
     assert(compare_one(string("1"), string("2")) == string("2"));
     assert(compare_one(10, 5) == 10);
-    assert(get<string>(compare_one(string("1"), string("None"))) == "None");
+    assert(get<string>(compare_one(string("1"), string("3"))) == "None");
 
     return 0;
 }
