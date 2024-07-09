@@ -1,11 +1,12 @@
-for (int i = 0; i < lst.size() - 1; i++) {
-    if (lst[i] >= lst[i + 1]) {
-        return false;
+bool is_sorted(const std::vector<int>& lst) {
+    for (int i = 0; i < lst.size() - 1; i++) {
+        if (lst[i] >= lst[i + 1]) {
+            return false;
+        }
     }
+    return true;
 }
-for (int i = 0; i < lst.size(); i++) {
-    if (count(lst.begin(), lst.end(), lst[i]) > 1) {
-        return false;
-    }
+
+int main() {
+    assert(is_sorted({1, 2, 3, 4}) == true);
 }
-return true;
