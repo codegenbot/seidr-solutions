@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-
 int main() {
     std::string digits;
     std::cin >> digits;
