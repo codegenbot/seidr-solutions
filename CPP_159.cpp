@@ -2,9 +2,9 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> eat(int number, int need, int carrotsLeft) {
-    int totalEaten = number + std::min(need, carrotsLeft);
-    carrotsLeft = std::max(0, carrotsLeft - need);
+std::vector<int> eat(int number, int need, int eaten) {
+    int totalEaten = number + std::min(need, eaten);
+    int carrotsLeft = std::max(0, eaten - need);
     return {totalEaten, carrotsLeft};
 }
 
