@@ -1,6 +1,6 @@
-```cpp
-#include <string>
 #include <vector>
+#include <algorithm>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -15,11 +15,9 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
     vector<string> result;
-
     for (int i : arr) {
-        switch (i % 10) {
+        switch (i) {
             case 1: result.push_back("One"); break;
             case 2: result.push_back("Two"); break;
             case 3: result.push_back("Three"); break;
@@ -31,6 +29,9 @@ vector<string> by_length(vector<int> arr) {
             case 9: result.push_back("Nine"); break;
         }
     }
+
+    sort(result.begin(), result.end());
+    reverse(result.begin(), result.end());
 
     return result;
 }
