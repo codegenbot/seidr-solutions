@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,8 +8,8 @@ bool issame(vector<string> a, vector<string> b) {
         return false;
     }
     
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -16,8 +17,8 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
+std::vector<string> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<string> result(0);
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
@@ -25,21 +26,19 @@ vector<string> sorted_list_sum(vector<string> lst) {
         }
     }
 
-    vector<string> stringsOfEvenLength;
+    std::sort(result.begin(), result.end(),
+              [](const string& a, const string& b) {
+                  if (a.length() != b.length()) {
+                      return a.length() < b.length();
+                  } else {
+                      return a < b;
+                  }
+              });
 
-    // Split the strings into strings of even length
-    for (auto &str: result) {
-        if (str.length() % 2 == 0) {
-            stringsOfEvenLength.push_back(str);
-        }
-    }
-
-    std::sort(stringsOfEvenLength.begin(), stringsOfEvenLength.end());
-
-    return stringsOfEvenLength;
+    return result;
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == {"cc", "dd", "aaaa", "bbbb"});
     return 0;
 }
