@@ -1,9 +1,11 @@
 #include <vector>
 #include <cassert>
 #include <initializer_list>
+#include <algorithm>
+
 using namespace std;
 
-bool is_same(const vector<any>& a, const vector<any>& b) {
+bool is_same(const vector<int>& a, const vector<int>& b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
@@ -21,9 +23,8 @@ vector<int> filter_integers(initializer_list<any> values) {
     return result;
 }
 
-int main_func() {
+int main() {
     vector<any> values = {3, any(3), 3, 'a', 'b'};
-    vector<any> expectedValues = {any(3), any(3), any(3)};
-    assert(is_same(vector<any>(expectedValues.begin(), expectedValues.end()), filter_integers({any(3), 'c', 3, 3, 'a', 'b'})));
+    assert(is_same(vector<int>({any(3), 'c', 3, 3, 'a', 'b'})), vector<int>({any(3), 'c', 3, 3, 'a', 'b'}));
     return 0;
 }
