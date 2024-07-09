@@ -1,7 +1,17 @@
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int total_water = 0;
-    for (const auto& row : grid) {
-        total_water += accumulate(row.begin(), row.end(), 0);
+    int res = 0;
+    for (vector<int> w : grid) {
+        int water = 0;
+        bool flag = false;
+        for (int h : w) {
+            if (h > 0) {
+                water += min(h, capacity);
+                flag = true;
+            } else if (flag) {
+                res++;
+                flag = false;
+            }
+        }
     }
-    return total_water / capacity + (total_water % capacity != 0);
+    return res;
 }
