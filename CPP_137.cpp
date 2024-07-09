@@ -1,22 +1,29 @@
-#include <boost/any.hpp>
+#include <iostream>
 #include <string>
 
-using namespace boost;
+using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<a>(int.class)) {
-        int ai = any_cast<int>(a);
-        int bi = any_cast<int>(b);
-        return ai > bi ? a : (bi > ai ? b : a);
-    }
-    else if (is_any_of<a>(double.class)) {
-        double ad = any_cast<double>(a);
-        double bd = any_cast<double>(b);
-        return ad > bd ? a : (bd > ad ? b : a);
-    }
-    else {
-        std::string as = any_cast<std::string>(a);
-        std::string bs = any_cast<std::string>(b);
-        return as > bs ? a : (bs > as ? b : a);
-    }
+string compareOne(int a, int b) {
+    if (a > b) 
+        return "First";
+    else if (b > a)
+        return "Second";
+    else 
+        return "Equal";
+}
+
+int main() {
+    int num1, num2;
+    
+    cout << "Enter the first number: ";
+    cin >> num1;
+    
+    cout << "Enter the second number: ";
+    cin >> num2;
+
+    string result = compareOne(num1, num2);
+    
+    cout << "Result: " << result << endl;
+    
+    return 0;
 }
