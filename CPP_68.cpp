@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -32,4 +33,13 @@ vector<vector<int>> pluck(vector<int> arr) {
     result.push_back(output);
 
     return result;
+}
+
+int main() {
+    vector<int> arr = {5, 10, 15};
+    vector<vector<int>> output = pluck(arr);
+    
+    for (const auto& element : output) {
+        cout << "Smallest even: " << element[0] << ", Index: " << element[1] << endl;
+    }
 }
