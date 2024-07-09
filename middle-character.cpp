@@ -8,7 +8,7 @@ std::string middleCharacter(std::string s) {
     
     std::string result;
     if(len % 2 == 0) {
-        result = s.substr(len/2 -1, 2);
+        result = s.substr(len/2-1, 2);
     } else {
         result = s.substr(len/2, 1);
     }
@@ -20,6 +20,11 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
 
+    if(input.find('\0') != std::string::npos) { 
+        std::cout << "Invalid Input. Null character not allowed." << std::endl;
+        return 1; 
+    }
+    
     if(input.empty()) {
         std::cout << "Enter a non-empty string" << std::endl;
     } else {

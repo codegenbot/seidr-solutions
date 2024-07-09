@@ -3,6 +3,6 @@ def middle_character(s):
     mid_point = length // 2
     
     if length % 2 == 0:
-        return ''.join([c if c.isalnum() else '_' for c in [s[mid_point - 1], s[mid_point]]])
+        return s[mid_point]
     else:
-        return ''.join([c if c.isalnum() else '_' for c in [s[mid_point]]])
+        return s[mid_point]
