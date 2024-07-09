@@ -1,12 +1,13 @@
+```cpp
 #include <vector>
 #include <limits>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector a, std::vector b) {
     return (a.size() == 0 && b.size() == 0);
 }
 
-bool pluckSame(std::vector<int> arr) {
-    std::vector<int> result;
+bool pluckSame(std::vector arr) {
+    std::vector result;
     if (arr.empty()) return true;
 
     int minEven = INT_MAX;
@@ -26,5 +27,5 @@ bool pluckSame(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(pluckSame({7, 9, 7, 1}), true));
+    assert(issame(std::vector({7, 9, 7, 1}), true));
 }
