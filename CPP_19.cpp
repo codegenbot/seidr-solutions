@@ -1,29 +1,30 @@
-string sort_numbers(string numbers) {
-    map<string, int> numberMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                   {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                   {"eight", 8}, {"nine", 9}};
-    vector<string> numberVec;
-    string num;
-
-    for (int i = 0; i < numbers.length(); i++) {
-        if (numbers[i] == ' ') {
+string sort_numbers(string numbers){
+    map<string,int> numMap;
+    for(int i=0; i<10; i++){
+        string str = (i==0)?"zero":(char)(48+i+48);
+        numMap[str] = i;
+    }
+    vector<string> nums;
+    string temp;
+    for(int i=0; i<numbers.length(); i++){
+        if(numbers[i]==' '){
             continue;
         }
-        for (auto &pair : numberMap) {
-            if (numbers.substr(i, pair.first.size()).compare(pair.first) == 0) {
-                num = pair.first;
-                i += pair.first.size() - 1;
-                break;
-            }
+        temp="";
+        while(i<numbers.length() && numbers[i]!=' '){
+            temp+=numbers[i];
+            i++;
         }
-        numberVec.push_back(num);
+        nums.push_back(temp);
     }
 
-    sort(numberVec.begin(), numberVec.end());
+    sort(nums.begin(),nums.end(),[&numMap](string a, string b) {
+        return numMap[a] < numMap[b];
+    });
 
-    string sortedNumbers = "";
-    for (auto &num : numberVec) {
-        sortedNumbers += num + " ";
+    string result = "";
+    for(auto &n : nums){
+        result += n + " ";
     }
-    return sortedNumbers;
+    return result.substr(0,result.length()-1);
 }
