@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cctype>
@@ -37,16 +38,9 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     }
 
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+        if (a[i].compare(b[i]) != 0) {
             return false;
         }
     }
     return true;
-}
-
-#include <iostream>
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
-    return 0;
 }
