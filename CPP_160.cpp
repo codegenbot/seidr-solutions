@@ -1,6 +1,7 @@
-#include <initializer_list>
+#include <vector>
+#include <string>
 
-int doAlgebra(std::vector<std::string> operators, std::vector<int> operands) {
+int cpp_160::doAlgebra(std::vector<std::string> operators, std::vector<int> operands) {
     int result = operands[0];
     for (int i = 1; i < operands.size(); i++) {
         if (operators[i-1] == "+") {
@@ -10,4 +11,8 @@ int doAlgebra(std::vector<std::string> operators, std::vector<int> operands) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(doAlgebra({"//", "*"}, {7, 3, 4}) == 8);
 }
