@@ -1,11 +1,12 @@
+```
 #include <vector>
 #include <string>
 #include <cassert>
-#include <sstream>
+#include <ostream>
 
 using namespace std;
 
-bool compareVectors(vector<string> a, vector<string> b) {
+bool checkVectors(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) {
         cout << "Error: Vectors are not the same size." << endl;
         return false;
@@ -32,7 +33,4 @@ vector<string> bf(string a, string b) {
     return {a, b};
 }
 
-int main() {
-    assert(compareVectors(bf("Jupiter", "Makemake"), {"Jupiter", "Makemake"}));
-    return 0;
-}
+assert (checkVectors(bf("Jupiter", "Makemake"), {"Jupiter", "Makemake"}));
