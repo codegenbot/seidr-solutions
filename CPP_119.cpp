@@ -1,26 +1,21 @@
-bool checkBalance(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (c == '(') count++;
-        else if (c == ')') {
-            if (count <= 0) return false;
-            count--;
-        }
-    }
-    return count == 0;
-}
+using namespace std;
 
 string match_parens(vector<string> lst) {
-    string s1 = lst[0], s2 = lst[1];
-    int count1 = 0, count2 = 0;
-    for (char c : s1) {
-        if (c == '(') count1++;
-        else if (c == ')') count1--;
+    string s1 = lst[0];
+    string s2 = lst[1];
+    stack<char> st;
+    for (char c : s1 + s2) {
+        if (c == '(') {
+            st.push(c);
+        } else {
+            if (st.empty()) {
+                return "No";
+            }
+            st.pop();
+        }
     }
-    for (char c : s2) {
-        if (c == '(') count2++;
-        else if (c == ')') count2--;
+    if (!st.empty()) {
+        return "No";
     }
-    if ((count1 >= 0 && count2 >= 0) || (count1 <= 0 && count2 <= 0)) return "Yes";
-    return "No";
+    return "Yes";
 }
