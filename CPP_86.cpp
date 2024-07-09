@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -19,4 +18,3 @@ int main() {
     std::string res = anti_shuffle(str);
     std::cout << "Anti-Shuffled String: " << res << std::endl;
     return 0;
-}
