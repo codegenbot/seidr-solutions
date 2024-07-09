@@ -1,6 +1,6 @@
-def find_max_positive_number(lst):
-    max_num = -1
+def find_max(lst):
+    max_num = None
     for num in lst:
-        if num > 0 and num > max_num:
+        if num > max_num:
             max_num = num
     return max_num
