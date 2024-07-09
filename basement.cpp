@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int basement(std::vector<int>& v) {
@@ -13,15 +14,11 @@ int basement(std::vector<int>& v) {
 
 int main() {
     std::vector<int> v;
-    int input;
-    while(true) {
-        std::cout << "Enter an integer (-1 to finish): ";
-        std::cin >> input;
-        if(input == -1)
-            break;
-        v.push_back(input);
+    int num;
+    while(std::cin >> num) {
+        v.push_back(num);
     }
     int result = basement(v);
-    std::cout << "The first index with negative sum is: " << result << "\n";
+    std::cout << "The basement is at index " << result << "." << std::endl;
     return 0;
 }
