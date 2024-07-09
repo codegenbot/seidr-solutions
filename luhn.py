@@ -1,13 +1,10 @@
 def luhn(card_number):
-    card_number = [int(x) for x in str(card_number)]
+    card_number = [int(x) for x in str(card_number).replace(" ", "")]
     total = 0
     for i in range(len(card_number)):
         if i % 2 == 1:
-            temp = (card_number[i] * 2) % 10
-            if temp > 9:
-                total += temp + 9
-            else:
-                total += temp
+            doubled = card_number[i] * 2
+            total += doubled - 9 if doubled > 9 else doubled
         else:
             total += card_number[i]
     return total

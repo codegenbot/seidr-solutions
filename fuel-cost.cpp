@@ -1,19 +1,18 @@
 ```cpp
 #include <vector>
+#include <iostream>
 
-int fuelCost(std::vector<int> v);
-
-int main() {
-    std::vector<int> v = {1, 2, 3};
-    int result = fuelCost(v);
-    return result;
+int fuelCost(int n) {
+    int cost = (n / 3) - (n % 3 == 0 ? 2 : 1);
+    return std::min(cost, 0);
 }
 
-int fuelCost(std::vector<int> v) {
+int main() {
+    std::vector<int> v = {2909, 7270, 6972};
     int sum = 0;
-    for (int i : v) {
-        int temp = static_cast<int>(i / 3.0);
-        sum += std::max(temp - 2, 0);
+    for(int n : v) {
+        sum += fuelCost(n);
     }
-    return sum;
+    std::cout << "Result: " << sum << std::endl;
+    return 0;
 }

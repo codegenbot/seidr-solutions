@@ -19,3 +19,12 @@ std::vector<int> leaders(std::vector<int>& arr) {
     
     return res;
 }
+
+int main() {
+    std::vector<int> arr = {16, 17, 4, 3, 5, 2};
+    std::vector<int> leadersRes = leaders(arr);
+    
+    for(int leader : leadersRes) {
+        std::cout << leader << " ";
+    }
+}
