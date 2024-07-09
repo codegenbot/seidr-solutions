@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::vector<std::string> numerical_letter_grade(const std::vector<double>& grades) {
     std::vector<std::string> result;
