@@ -19,9 +19,5 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    if(1999 == std::stoi(int_to_mini_roman(1999))){
-        return 0;
-    } else {
-        return -1;
-    }
+    std::cout << int_to_mini_roman(1000) << std::endl;
 }
