@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -17,9 +18,7 @@ vector<string> by_length(vector<int> arr) {
         }
     }
 
-    sort(filtered.begin(), filtered.end());
-
-    reverse(filtered.begin(), filtered.end());
+    sort(filtered.begin(), filtered.end(), greater<int>());
 
     vector<string> result;
     for (int num : filtered) {
