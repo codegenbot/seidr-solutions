@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 
@@ -23,8 +22,12 @@ std::string special_factorial(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
+    try {
+        std::cout << "Enter a number: ";
+        std::cin >> n;
+        std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
+    } catch (const std::error_code& ec) {
+        // handle the error
+    }
     return 0;
 }
