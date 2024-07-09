@@ -1,38 +1,40 @@
-int do_algebra(vector<string> operato, vector<int> operand) {
-    string expression = "";
-    for (int i = 0; i < operato.size(); i++) {
-        expression += to_string(operand[i]);
-        expression += operato[i];
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+int do_algebra(std::vector<std::string> operator_, std::vector<int> operand) {
+    int result = operand[0];
+    for (int i = 1; i <= operator_.size(); i++) {
+        if (operator_[i-1] == "+") {
+            result += operand[i];
+        } else if (operator_[i-1] == "-") {
+            result -= operand[i];
+        } else if (operator_[i-1] == "*") {
+            result *= operand[i];
+        } else if (operator_[i-1] == "//" && operand[i] != 0) {
+            result = result / operand[i];
+        } else if (operator_[i-1] == "**") {
+            result = pow(result, operand[i]);
+        }
     }
-    expression += to_string(operand.back());
-    
-    int result = eval(expression);
-    
     return result;
 }
 
-long long eval(const string& s) {
-    long long x = 0, y = 0;
-    for (char c : s) {
-        if (isdigit(c)) {
-            if (c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9' || c == '0') {
-                y = y * 10 + (c - '0');
-            }
-        } else if (c == '+') {
-            x += y;
-            y = 0;
-        } else if (c == '-') {
-            x -= y;
-            y = 0;
-        } else if (c == '*') {
-            long long t = x;
-            x = y;
-            y = t * y;
-        } else if (c == '/') {
-            long long t = x;
-            x = y;
-            y = t / y;
-        }
-    }
-    return x + y;
+int main() {
+    std::vector<std::string> operator_;
+    std::vector<int> operand;
+
+    // Input your values here
+    operator_.push_back("//");
+    operator_.push_back("*");
+    operator_.push_back("+");
+    operand.push_back(7);
+    operand.push_back(3);
+    operand.push_back(2);
+
+    int result = do_algebra(operator_, operand);
+
+    std::cout << "The result is: " << result << std::endl;
+
+    return 0;
 }
