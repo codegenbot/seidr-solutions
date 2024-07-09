@@ -1,9 +1,18 @@
+```cpp
 #include <cstddef>
 #include <string>
+
+int main() {
+    std::string code = "XXXX"; // Provide your own Mastermind code here.
+    std::string guess = "XXXX"; // Provide the player's guess here.
+    int result = mastermind(code, guess);
+    return 0;
+}
 
 int mastermind(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
     int blackPegs = 0;
+    int j, k;
 
     for(int i=0; i<4; i++) {
         if(guess[i] == code[i]) { 
