@@ -1,11 +1,23 @@
+```
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 int main() {
     int n;
-    cin >> n;
-    vector<int> lst(n);
-    for(int i = 0; i < n; i++) {
-        cin >> lst[i];
+    std::cin >> n;
+
+    std::vector<int> lst;
+    for (int i = 0; i < n; i++) {
+        int temp;
+        std::cin >> temp;
+        lst.push_back(temp);
     }
-    cout << next_smallest(lst) << endl;
+
+    int result = next_smallest(lst);
+
+    std::cout << result << std::endl;
+
     return 0;
 }
 
@@ -18,5 +30,5 @@ int next_smallest(vector<int> lst) {
             return sorted_lst[i + 1];
         }
     }
-    return -1; 
+    return -1;
 }
