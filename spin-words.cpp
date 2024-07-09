@@ -1,4 +1,3 @@
-```c++
 #include <string>
 #include <algorithm>
 
@@ -12,7 +11,7 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             if (word.length() >= 5) {
                 result += word;
-                vector<char> v(word.rbegin(), word.rend());
+                std::vector<char> v(word.rbegin(), word.rend());
                 word = std::string(v.begin(), v.end());
                 result += " ";
                 word = "";
@@ -27,10 +26,12 @@ string spinWords(string str) {
     }
 
     if (word.length() >= 5) {
-        vector<char> v(word.rbegin(), word.rend());
+        result += word;
+        std::vector<char> v(word.rbegin(), word.rend());
         word = std::string(v.begin(), v.end());
+    } else {
+        result += word;
     }
 
-    result += word;
     return result;
 }
