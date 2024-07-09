@@ -1,6 +1,5 @@
-```
+```cpp
 #include <iostream>
-
 int prime_fib(int n);
 
 int main() {
