@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -39,3 +40,4 @@ int main() {
         std::cout << i << " ";
     }
     std::cout << std::endl;
+}
