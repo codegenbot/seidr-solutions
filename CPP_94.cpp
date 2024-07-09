@@ -1,9 +1,13 @@
 #include <vector>
 #include <algorithm>
 
-int main() {
-    assert(isPrime(8192) ? sumOfDigits(10) : -1);
-    return 0;
+int sumOfDigits(int n) {
+    int sum = 0;
+    while(n > 0) {
+        sum += n % 10;
+        n /= 10;
+    }
+    return sum;
 }
 
 bool isPrime(int n) {
@@ -18,11 +22,7 @@ bool isPrime(int n) {
     return true;
 }
 
-int sumOfDigits(int n) {
-    int sum = 0;
-    while(n > 0) {
-        sum += n % 10;
-        n /= 10;
-    }
-    return sum;
+int main() {
+    assert(sumOfDigits(isPrime(8192) ? 10 : -1) == 10);
+    return 0;
 }
