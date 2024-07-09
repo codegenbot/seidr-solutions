@@ -1,9 +1,10 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(std::vector<float> input) {
     long long sum = 0;
-    for (float num : lst) {
+    for (float num : input) {
         if (num > 0 && floor(num) == num) { 
             if (fmod(num, 2.0) != 0.0) { 
                 sum += pow(num, 2);
@@ -17,16 +18,16 @@ int main() {
     std::vector<float> input;
     float num;
     int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
     for (int i = 0; i < n; i++) {
-        cout << "Enter element " << i+1 << ": ";
-        cin >> num;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
         input.push_back(num);
-    }
+   ]
     
     long long result = double_the_difference(input);
-    cout << "The total sum of squares is: " << result << endl;
+    std::cout << "The total sum of squares is: " << result << std::endl;
     
     return 0;
 }
