@@ -15,7 +15,7 @@ def minPath(grid, k):
                 new_path = dfs(nx, ny, curr_sum, path.copy())
                 if new_path:
                     return new_path
-        
+
         return None
 
     for i in range(n):
