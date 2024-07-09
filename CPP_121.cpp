@@ -1,4 +1,11 @@
+```cpp
 #include <vector>
+
+int main() {
+    std::vector<int> lst = {1,2,3,4,5};
+    int result = solution(lst);
+    std::cout << "Result: " << result << std::endl;
+}
 
 int solution(vector<int> lst) {
     int sum = 0;
@@ -8,9 +15,4 @@ int solution(vector<int> lst) {
         }
     }
     return sum;
-}
-
-int main() {
-    vector<int> numbers = {4, 6, 10, 20};
-    cout << solution(numbers);
 }
