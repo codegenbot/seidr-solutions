@@ -1,28 +1,28 @@
-vector<string> sorted_list_sum(const vector<string>& a, const vector<string>& b) {
-    vector<string> lst = a;
-    lst.insert(lst.end(), b.begin(), b.end());
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
-  
-    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
+}
+
+vector<string> sorted_list_sum(const vector<string>& lst) {
+    vector<string> sorted_lst = lst;
+    sorted_lst.erase(remove_if(sorted_lst.begin(), sorted_lst.end(), [](const string& s) { return s.length() % 2 != 0; }), sorted_lst.end());
+    sort(sorted_lst.begin(), sorted_lst.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
-  
-    return lst;
+    return sorted_lst;
 }
 
 int main() {
-    vector<string> a = {"apple", "banana", "orange"};
-    vector<string> b = {"pear", "grape", "kiwi"};
-
-    vector<string> result = sorted_list_sum(a, b);
-
-    for (const auto& word : result) {
-        cout << word << " ";
+    vector<string> lst = {"apple", "banana", "carrot", "date", "elephant"};
+    vector<string> result = sorted_list_sum(lst);
+    for (const auto& s : result) {
+        cout << s << " ";
     }
-
     return 0;
 }
