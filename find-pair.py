@@ -1,4 +1,6 @@
-```
+Here is the solution:
+
+Here is the solution:
 def find_pair(input_list):
     target_sum = int(input())
     for i in range(len(input_list)):
