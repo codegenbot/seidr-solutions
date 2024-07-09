@@ -1,5 +1,21 @@
-#include <iostream>
-#include <vector>
+```
+int n = 0;
+std::vector<float> lst;
+
+int main() {
+    float input; 
+    while (1) {
+        std::cout << "Enter a number (negative to stop): ";
+        std::cin >> input;
+        
+        if (input < 0) break;
+        lst.push_back(input);
+        n++;
+    }
+    
+    long long sum = double_the_difference(lst);
+    return static_cast<int>(sum);
+}
 
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
@@ -10,23 +26,5 @@ long long double_the_difference(std::vector<float> lst) {
             }
         }
     }
-    return static_cast<long long>(sum);
-}
-
-int main() {
-    float input; 
-    int n = 0;
-    std::vector<float> lst;
-
-    while (1) {
-        std::cout << "Enter a number (negative to stop): ";
-        std::cin >> input;
-        
-        if (input < 0) break;
-        lst.push_back(input);
-        n++;
-    }
-    
-    long long odd_sum = double_the_difference(lst);
-    return 0;
+    return sum;
 }
