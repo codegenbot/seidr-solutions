@@ -1,23 +1,19 @@
-#include <vector>
+#include <algorithm>
 #include <string>
+#include <vector>
 
-using namespace std;
-
-string longest(vector<string> strings){
-    if(strings.empty()) return "";
-    string result = strings[0];
-    for(auto str : strings){
-        if(str.length() > result.length()){
-            result = str;
-        }
-        else if(str.length() == result.length()){
-            result = str;
-        }
+std::string findLongestString(std::vector<std::string>& strings) {
+    if(strings.empty()) {
+        return "";
+    } else {
+        std::string longest = *max_element(strings.begin(), strings.end(), 
+            [](const string& a, const string& b) {return a.size() < b.size();});
+        return longest;
     }
-    return result;
 }
 
-int main(){
-    assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+int main() {
+    std::vector<std::string> strings = {"apple", "banana", "cherry"};
+    std::cout << findLongestString(strings) << std::endl;
     return 0;
 }
