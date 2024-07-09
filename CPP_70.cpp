@@ -11,13 +11,29 @@ std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
     std::pmr::vector<int> result;
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
-        result.push_back(min_val);
-        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
+        int count = 0;
+        for (auto it = lst.begin(); it != lst.end(); ++it) {
+            if (*it == min_val) {
+                ++count;
+                it = lst.erase(it);
+            }
+        }
+        while (count--) {
+            result.push_back(min_val);
+        }
 
         if (!lst.empty()) {
             int max_val = *std::max_element(lst.begin(), lst.end());
-            result.push_back(max_val);
-            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
+            count = 0;
+            for (auto it = lst.begin(); it != lst.end(); ++it) {
+                if (*it == max_val) {
+                    ++count;
+                    it = lst.erase(it);
+                }
+            }
+            while (count--) {
+                result.push_back(max_val);
+            }
         }
     }
     return result;
@@ -25,7 +41,7 @@ std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
 
 int main() {
     std::pmr::memory_resource* global_mr = new std::pmr::chiarenza_memory_resource();
-    std::pmr::pmr_vector<int> input(global_mr);
+    std::pmr::vector<int> input(global_mr);
     for (int i = 0; i < 6; ++i) {
         int num;
         std::cin >> num;
