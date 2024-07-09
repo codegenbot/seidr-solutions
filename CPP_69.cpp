@@ -1,5 +1,7 @@
+#include <cassert>
 #include <vector>
 #include <map>
+#include <iostream>
 
 int search(std::vector<int> lst) {
     std::map<int, int> freq;
@@ -16,3 +18,12 @@ int search(std::vector<int> lst) {
         }
     }
     return -1;
+}
+
+int main() {
+    assert(search({3, 10, 10, 9, 2}) == -1);
+    std::vector<int> lst = {3, 10, 10, 9, 2};
+    int result = search(lst);
+    std::cout << "The result is: " << result << std::endl;
+    return 0;
+}
