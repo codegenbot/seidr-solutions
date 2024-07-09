@@ -4,9 +4,10 @@ def add(a, b):
 
 def check():
     print("Enter numbers separated by spaces:")
-    a, b = map(int, input().split())
+    numbers = input().split()
+    a, b = map(int, numbers)
     result = add(a, b)
-    print("Sum:", result)
+    print("Result:", result)
 
 
 check()
