@@ -1,6 +1,7 @@
-def join_with_delimeter(numbers, delimeter):
-    result = []
-    for num in numbers:
-        result.extend([num, delimeter])
-    result.pop()
-    return result
+def complete_code(numbers, delimiter):
+    return (
+        [x for pair in zip(numbers, [delimiter] * (len(numbers) - 1)) for x in pair]
+        + numbers[-1:]
+        if numbers
+        else []
+    )
