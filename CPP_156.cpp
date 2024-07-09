@@ -1,7 +1,8 @@
+```cpp
 #include <cassert>
 #include <string>
 
-const std::string roman[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+const char* roman[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
 std::string int_to_roman(int n) {
     if (n >= 1000) return "M" + int_to_roman(n - 1000);
