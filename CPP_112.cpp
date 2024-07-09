@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -24,7 +25,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             }
         }
         if (!found)
-            result.push_back(std::string(1, ch));
+            result.push_back(std::to_string(ch));
     }
 
     std::string res_str = "";
@@ -43,16 +44,18 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 
     std::vector<std::string> final_result;
     final_result.push_back(res_str);
-    final_result.push_back((is_palindrome ? "True" : "False"));
+    if (is_palindrome) {
+        final_result.push_back("True");
+    } else {
+        final_result.push_back("False");
+    }
     return final_result;
 }
 
 int main() {
-    bool b;
-    std::vector<std::string> result = reverse_delete("mamma", "mia");
-    if (!issame(result, std::vector<std::string>({"" , "True"})))
-        b = false;
+    if (!issame(reverse_delete("mamma", "mia"), {"", "True"}))
+        std::cout << "Test failed.\n";
     else
-        b = true;
+        std::cout << "Test passed.\n";
     return 0;
 }
