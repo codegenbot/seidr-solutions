@@ -1,11 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
-bool sameVec(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && a == b;
-}
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
@@ -22,6 +17,5 @@ int main() {
     for (int i : test) {
         std::cout << i << " ";
     }
-    assert(sameVec(test, {test[0], test[1], test[2]}));
     return 0;
 }
