@@ -30,12 +30,12 @@ int main() {
     vector<int> lst;
     int num;
     while(true) {
-        cout << "Enter a number (-1 to stop): ";
+        cout << "Enter a number (0 to finish): ";
         cin >> num;
-        if(num == -1)
+        if(num == 0)
             break;
         lst.push_back(num);
     }
-    cout << "Sum of digits of max prime in the list: " << skjkasdkd(lst) << endl;
+    cout << "Sum of digits of max prime: " << skjkasdkd(lst) << endl;
     return 0;
 }
