@@ -1,18 +1,4 @@
-#include <vector>
-#include <cmath>
-#include <iostream>
-#include <cassert>
-using namespace std;
-
-bool is_same(vector<float> a, vector<float> b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++){
-        if(abs(a[i] - b[i]) > 1e-6) return false;
-    }
-    return true;
-};
-
-int main(){
+int cpp20_main(){
     int n;
     cin >> n;
     vector<float> a(n), b(n);
