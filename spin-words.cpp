@@ -3,14 +3,6 @@
 
 using namespace std;
 
-int main() {
-    string str = "Hello World"; 
-    string result = spinWords(str);
-    cout << result << endl; 
-
-    return 0;
-}
-
 string spinWords(string str) {
     string result = "";
     string word = "";
@@ -40,4 +32,9 @@ string spinWords(string str) {
     }
 
     return result;
+}
+
+int main() {
+    cout << spinWords("Hello world this is a test string") << endl;
+    return 0;
 }
