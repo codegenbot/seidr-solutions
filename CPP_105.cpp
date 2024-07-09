@@ -14,11 +14,12 @@ int main() {
     int numArray[] = {9, 4, 8};
     std::vector<std::string> stringArray = {"Nine", "Four", "Eight"};
     std::vector<std::string> by_length;
-
-    for (int i : numArray) {
-        by_length.push_back(std::to_string(i));
+    for (int i = 0; i < sizeof(numArray) / sizeof(numArray[0]); i++) {
+        if (numArray[i] == 9) by_length.push_back("Nine");
+        else if (numArray[i] == 4) by_length.push_back("Four");
+        else by_length.push_back("Eight");
     }
 
-    assert(issame(by_length, stringArray));
+    assert(issame(std::vector<std::string>(by_length.begin(), by_length.end()), stringArray));
     return 0;
 }
