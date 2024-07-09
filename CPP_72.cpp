@@ -19,20 +19,16 @@ bool will_it_fly(vector<int> q, int w) {
 int main() {
     vector<int> q;
     int w;
-    cout << "Enter the queue of integers (space-separated): ";
-    cin >> ws;
-    while (cin.peek() != '\n') {
-        cin >> w;
-        q.push_back(w);
+    cout << "Enter the weight: ";
+    cin >> w;
+    cout << "Enter the query weights: ";
+    for(int i=0; i<q.size();i++){
+        cin >> q[i];
     }
-    if (q.size() == 0) {
-        cout << "No queue entered." << endl;
+    if(will_it_fly(q, w)){
+        cout << "The aircraft will fly.";
     } else {
-        if (!will_it_fly(q, w)) {
-            cout << "The plane will not fly with this weight." << endl;
-        } else {
-            cout << "The plane will fly with this weight." << endl;
-        }
+        cout << "The aircraft won't fly.";
     }
     return 0;
 }
