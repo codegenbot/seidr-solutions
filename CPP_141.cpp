@@ -1,17 +1,31 @@
-int digit_count = 0;
-    for (char c : file_name) {
+int countDigits(string s) {
+    int count = 0;
+    for (char c : s) {
         if (isdigit(c)) {
-            digit_count++;
+            count++;
         }
     }
+    return count;
+}
 
-    size_t dot_pos = file_name.find('.');
-    if (digit_count > 3 || dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
+string file_name_check(string file_name){
+    int dotPos = file_name.find('.');
+    if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.size()-1) {
         return "No";
     }
 
-    string file_extension = file_name.substr(dot_pos + 1);
-    if (file_extension != "txt" && file_extension != "exe" && file_extension != "dll") {
+    string nameBeforeDot = file_name.substr(0, dotPos);
+    string extension = file_name.substr(dotPos + 1);
+
+    if (countDigits(nameBeforeDot) > 3) {
+        return "No";
+    }
+
+    if (!isalpha(nameBeforeDot[0])) {
+        return "No";
+    }
+
+    if (extension != "txt" && extension != "exe" && extension != "dll") {
         return "No";
     }
 
