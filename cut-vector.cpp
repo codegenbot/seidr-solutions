@@ -35,10 +35,16 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     return {left, right};
 }
 
-pair<vector<int>, vector<int>> main() {
+int main() {
     int n;
     cin >> n;
     vector<int> vec(n);
     for (auto& x : vec) cin >> x;
     pair<vector<int>, vector<int>> result = cutVector(vec);
     cout << "[";
+    for (const auto& x : result.first) cout << x << " ";
+    cout << "], [";
+    for (const auto& x : result.second) cout << x << " ";
+    cout << "]";
+    return 0;
+}
