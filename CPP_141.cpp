@@ -1,3 +1,6 @@
+```cpp
+#include <string>
+
 std::string file_name_check(std::string file_name) {
     bool hasDigit = false;
     int dotCount = 0;
@@ -25,4 +28,9 @@ std::string file_name_check(std::string file_name) {
     if (suffix != "txt" && suffix != "exe" && suffix != "dll") return "No";
 
     return hasDigit ? "No" : "Yes";
+}
+
+int main() {
+    assert (file_name_check("s.") == "No");
+    return 0;
 }
