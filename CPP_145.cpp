@@ -1,5 +1,6 @@
-#include <algorithm>
+```cpp
 #include <vector>
+#include <algorithm>
 
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
