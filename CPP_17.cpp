@@ -12,7 +12,7 @@ vector<int> parse_music(string music_string) {
         } else if (music_string[i] == '|' && i < music_string.size() - 1 && music_string[i + 1] == '|') {
             beats.push_back(2);
             ++i;
-        } else if (music_string[i] == '.' && i < music_string.size() - 1 && music_string[i + 1] == '|') {
+        } else if (music_string[i] == '.' && i < music_string.size() - 1 && music_string[i + 1] == '.') {
             beats.push_back(1);
             ++i;
         }
