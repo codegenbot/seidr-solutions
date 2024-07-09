@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 
@@ -18,7 +19,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 }
 
-int main() {
+int main {
     std::vector<std::string> b = all_prefixes("WWW");
     assert(issame(b, {"W", "WW", "WWW"}));
-    return 0;
+}
