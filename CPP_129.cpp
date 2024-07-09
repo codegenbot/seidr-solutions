@@ -1,39 +1,60 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n, -1));
-    
+    vector<vector<bool>> visited(n, vector<bool>(n));
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> pq;
+    vector<int> result;
+
+    // Start from every cell and add it to the priority queue
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (k == 1) {
-                dp[i][j] = grid[i][j];
-            } else {
-                int minVal = INT_MAX;
-                if (i > 0) minVal = min(minVal, dp[i-1][j]);
-                if (j > 0) minVal = min(minVal, dp[i][j-1]);
-                if (i < n - 1) minVal = min(minVal, dp[i+1][j]);
-                if (j < n - 1) minVal = min(minVal, dp[i][j+1]);
-                dp[i][j] = grid[i][j];
-                for (int x : {i-1, i+1, j-1, j+1}) {
-                    if (x >= 0 && x < n) {
-                        dp[i][j] += minVal;
+            pq.push({grid[i][j], {i, j}});
+        }
+    }
+
+    // Perform BFS
+    while (!pq.empty()) {
+        int val = pq.top().first;
+        int x = pq.top().second.first;
+        int y = pq.top().second.second;
+        pq.pop();
+
+        if (k > 0) {
+            result.push_back(val);
+            k--;
+
+            // Add neighbors to the priority queue
+            for (int i = -1; i <= 1; ++i) {
+                for (int j = -1; j <= 1; ++j) {
+                    int newX = x + i;
+                    int newY = y + j;
+
+                    if (newX >= 0 && newX < n && newY >= 0 && newY < n && !visited[newX][newY]) {
+                        visited[newX][newY] = true;
+                        pq.push({val, {newX, newY}});
                     }
                 }
             }
+        } else {
+            break;
         }
     }
-    
-    vector<int> res;
-    int val = INT_MAX;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (dp[i][j] == val) {
-                res.push_back(grid[i][j]);
-                --k;
-                if (k == 0) return res;
-            }
-            val = min(val, dp[i][j]);
-        }
+
+    return result;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for (int val : result) {
+        cout << val << " ";
     }
-    
-    return {};
+    return 0;
 }
