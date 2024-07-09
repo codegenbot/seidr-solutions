@@ -6,4 +6,3 @@ bool issame(const vector<float>& a, const vector<float>& b){
         if(abs(a[i] - b[i]) > 1e-9)return false;
     }
     return true;
-}
