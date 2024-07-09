@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -40,23 +40,17 @@ int main() {
     while (!(cin >> a >> b) || a < 1 || b < 1) {
         cin.clear();
         cout << "Invalid input. Please enter two positive integers: ";
-        cin.ignore();
+        cin.ignore(1000000, '\n'); // added this line
         cin >> a >> b;
     }
 
     cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
 
-    while(true) {
-        cout << "Enter the text: ";
-        getline(cin, text);
-        if(text.empty()) continue;
-        break;
+    cout << "Enter the text: ";
+    getline(cin, text);
 
-        cout << "Enter the target substring: ";
-        getline(cin, target);
-        if(target.empty()) continue;
-        break;
-    }
+    cout << "Enter the target substring: ";
+    getline(cin, target);
 
     vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices)
