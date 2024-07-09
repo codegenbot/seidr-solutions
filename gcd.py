@@ -1,3 +1,4 @@
+```
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -5,9 +6,12 @@ def gcd(a, b):
 
 def indices_of_substring(text, target):
     result = []
-    for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            result.append(i)
+    index = text.find(target)
+    
+    while index != -1:
+        result.append(index + 1)
+        index = text.find(target, index + 1)
+        
     return result
 
 a = int(input("Enter the first integer: "))
