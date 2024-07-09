@@ -11,26 +11,29 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
     return result;
 }
 
-int eval(string s) {
+int eval(const string& s) {
     int result = 0;
     if (s.empty()) {
         return result;
     }
     
     int start = 0, sign = 1;
-    for (int i = 0; i < s.length(); i++) {
-        if (!isdigit(s[i])) {
-            if (s[i] == '+') {
+    for (int i = 0; i < s.size(); i++) {
+        char c = s[i];
+        if (!isdigit(c)) {
+            if (c == '+') {
                 sign = 1;
-            } else if (s[i] == '-') {
+            } else if (c == '-') {
                 sign = -1;
             }
             start = i + 1;
-        } else if (i == s.length() - 1) {
-            result += sign * (s[i] - '0');
+        } else if (i == s.size() - 1) {
+            result += sign * (c - '0');
         } else if (!isdigit(s[i+1])) {
-            result += sign * (s[i] - '0');
+            result += sign * (c - '0');
+            i++;
         }
     }
     
     return result;
+}
