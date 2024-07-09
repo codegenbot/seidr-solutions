@@ -17,44 +17,38 @@ vector<string> by_length(vector<int> arr) {
     vector<string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            temp.push_back(to_string(i));
+            switch (i) {
+                case 1:
+                    temp.push_back("One");
+                    break;
+                case 2:
+                    temp.push_back("Two");
+                    break;
+                case 3:
+                    temp.push_back("Three");
+                    break;
+                case 4:
+                    temp.push_back("Four");
+                    break;
+                case 5:
+                    temp.push_back("Five");
+                    break;
+                case 6:
+                    temp.push_back("Six");
+                    break;
+                case 7:
+                    temp.push_back("Seven");
+                    break;
+                case 8:
+                    temp.push_back("Eight");
+                    break;
+                case 9:
+                    temp.push_back("Nine");
+                    break;
+            }
         }
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
-    vector<string> result;
-    for (string s : temp) {
-        string t = "";
-        switch (stoi(s)) {
-            case 1:
-                t = "One";
-                break;
-            case 2:
-                t = "Two";
-                break;
-            case 3:
-                t = "Three";
-                break;
-            case 4:
-                t = "Four";
-                break;
-            case 5:
-                t = "Five";
-                break;
-            case 6:
-                t = "Six";
-                break;
-            case 7:
-                t = "Seven";
-                break;
-            case 8:
-                t = "Eight";
-                break;
-            case 9:
-                t = "Nine";
-                break;
-        }
-        result.push_back(t);
-    }
-    return result;
+    return temp;
 }
