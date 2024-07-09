@@ -12,8 +12,6 @@ vector<int> sort_third(vector<int> l) {
             vector<int> temp;
             int j = i - 1;
             while (j >= 0 && j % 3 != 0) {
-                if(j <= 0)
-                    break;
                 temp.push_back(l[j]);
                 j--;
             }
