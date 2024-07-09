@@ -21,15 +21,15 @@ int main() {
     assert(string_xor("0101", "0000") == "0101");
     std::string str1, str2;
     std::cout << "Enter the first string: ";
-    std::getline(std::cin, str1);
-
-    // Clear the buffer
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
+    char c;
+    while ((c = getchar()) != '\n') {
+        str1.push_back(c);
+    }
+    
     std::cout << "Enter the second string: ";
-    std::getline(std::cin, str2);
-    std::cin.ignore(); 
-
+    while ((c = getchar()) != '\n') {
+        str2.push_back(c);
+    }
     try {
         std::string result = string_xor(str1, str2);
         std::cout << "XOR of the two strings is: " << result << std::endl;
