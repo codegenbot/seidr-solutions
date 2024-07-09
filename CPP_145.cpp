@@ -21,5 +21,7 @@ int main() {
         points.push_back(x);
     }
     
-    order_by_points(vector<int>({0,6,6,-76,-21,23,4})) == vector<int>({ -76, -21, 0, 4, 6, 6, 23 });
+    vector<int> ordered_points = order_by_points(points);
+    
+    return 0;
 }
