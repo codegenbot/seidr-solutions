@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -32,8 +31,8 @@ int main() {
             }
         }
     }
-    if (numbers.size() == 1) {
-        std::cout << "The median of the given numbers is: " << numbers[0] << std::endl;
+    if (numbers.size() == 0) {
+        std::cout << "The median of the given numbers is: No numbers entered." << std::endl;
     } else {
         float result = median(numbers);
         std::cout << "The median of the given numbers is: " << result << std::endl;
