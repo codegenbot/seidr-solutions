@@ -1,8 +1,13 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> result;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
     while (n != 1) {
         if (n % 2 == 0)
             n /= 2;
@@ -13,6 +18,6 @@ std::vector<int> get_odd_collatz(int n) {
         if (i % 2 != 0)
             result.push_back(i);
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
