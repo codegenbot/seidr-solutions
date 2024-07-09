@@ -16,14 +16,18 @@ namespace myspace {
         int evenIndex = 0;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                float minVal = l[0];
-                for(int j = 1; j < l.size(); j++){
-                    if(j%2==0 && l[j] < minVal){
-                        minVal = l[j];
+                float min = l[0];
+                for(int j = 0; j < l.size(); j++){
+                    if(j%2==0 && l[j] < min){
+                        min = l[j];
                     }
                 }
-                result[i] = minVal;
-                evenIndex++;
+                result[i] = min;
+                for(int j = 0; j < l.size(); j++){
+                    if(j%2==0 && l[j] != min){
+                        result[evenIndex++] = l[j];
+                    }
+                }
             } else {
                 result[i] = l[i];
             }
