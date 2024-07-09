@@ -1,7 +1,9 @@
-```
+from decimal import Decimal, getcontext
+
 def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
-    total_snow = initial_snow
+    getcontext().prec = 28 
+    total_snow = Decimal(initial_snow)
     for _ in range(hours): 
-        total_snow += rate_of_snowfall
-        total_snow = max(0, total_snow - melting_rate)
-    return total_snow
+        total_snow += Decimal(rate_of_snowfall)
+        total_snow -= Decimal(melting_rate) * total_snow / (1 if total_snow > 0 else 1)
+    return float(total_snow)
