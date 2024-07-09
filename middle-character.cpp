@@ -1,8 +1,10 @@
-string middleCharacter(string s) {
-    int n = s.length();
-    if (n % 2 == 1) {
-        return string(1, s[n / 2]);
+#include <string>
+
+std::string middleCharacter(std::string str) {
+    int length = str.length();
+    if (length % 2 == 0) {
+        return str.substr(length / 2 - 1, 2);
     } else {
-        return string(1, s[(n - 1) / 2]) + string(1, s[n / 2]);
+        return std::string(1, str[length / 2]);
     }
 }
