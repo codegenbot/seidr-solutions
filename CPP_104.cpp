@@ -15,24 +15,22 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> unique_digits(std::vector<int> numbers) {
-    std::vector<int> unique;
-
+    std::vector<int> unique_digits;
     for (int num : numbers) {
-        while (num > 0) {
+        while (num != 0) {
             int digit = num % 10;
-            if (std::find(unique.begin(), unique.end(), digit) == unique.end()) {
-                unique.push_back(digit);
+            if (std::find(unique_digits.begin(), unique_digits.end(), digit) == unique_digits.end()) {
+                unique_digits.push_back(digit);
             }
             num /= 10;
         }
     }
-
-    std::sort(unique.begin(), unique.end());
-
-    return unique;
+    std::sort(unique_digits.begin(), unique_digits.end());
+    return unique_digits;
 }
 
 int main() {
     assert(issame(unique_digits({135, 103, 31}), {1, 3, 5}));
+    // Add more test cases as needed
     return 0;
 }
