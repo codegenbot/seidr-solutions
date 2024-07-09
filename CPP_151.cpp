@@ -1,4 +1,6 @@
-```cpp
+#include <assert.h>
+#include <iostream>
+
 int double_the_difference(float *lst) {
     int odd_sum = 0;
     for (int i = 0; lst[i]; i++) {
@@ -8,9 +10,12 @@ int double_the_difference(float *lst) {
     return odd_sum;
 }
 
-int main() {
-    float lst[] = {1.5, 2.0, 3.5};
+int main(int argc, char **argv) {
+    float lst[argc];
+    for (int i = 0; i < argc; i++) {
+        std::cin >> lst[i];
+    }
     int result = double_the_difference(lst);
-    assert(result == 7); 
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
