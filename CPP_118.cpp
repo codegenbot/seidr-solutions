@@ -1,7 +1,7 @@
+```
 #include <iostream>
 #include <string>
 #include <cctype>
-#include <cassert>
 
 bool isvowel(char c) {
     c = tolower(c);
@@ -28,4 +28,5 @@ std::string get_closest_vowel(const std::string& word) {
 
 int main() {
     assert(get_closest_vowel("Above") == "o");
+    std::cout << get_closest_vowel("Hello") << std::endl;
 }
