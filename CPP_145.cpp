@@ -1,18 +1,22 @@
 ```cpp
-#include <vector>
+#include <initializer_list>
 #include <algorithm>
+#include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+#include <pmr/vector>
+#include <utility>
+
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) = delete;
+vector<int> order_by_points(vector<int, pmr::memory_resource> nums);
+
+bool issame(std::pmr::vector<int> a, std::pmr::vector<int> b) {
     return a == b;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> pairs;
+std::pmr::vector<int> order_by_points(std::pmr::vector<int, std::pmr::memory_resource> nums) {
+    std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); ++i) {
         int sumOfDigits = 0;
         int num = nums[i];
@@ -23,12 +27,17 @@ vector<int> order_by_points(vector<int> nums) {
         pairs.push_back({sumOfDigits, i});
     }
 
-    sort(pairs.begin(), pairs.end());
+    std::sort(pairs.begin(), pairs.end());
 
-    vector<int> result;
+    std::vector<int> result;
     for (const auto& pair : pairs) {
         result.push_back(nums[pair.second]);
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
