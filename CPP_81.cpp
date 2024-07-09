@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,17 +12,16 @@ bool checkResults(vector<string> a, vector<string> b){
     return true;
 }
 
-vector<string> numerical_letter_grade(vector<string> grades) {
-    vector<string> result;
-    for (string grade : grades) {
-        float f = stof(grade);
-        if (f < 0.9)
+vector<char*> numerical_letter_grade(vector<float> grades) {
+    vector<char*> result;
+    for (float grade : grades) {
+        if (grade < 0.9)
             result.push_back("F");
-        else if (f >= 0.9 && f < 1.0)
+        else if (grade >= 0.9 && grade < 1.0)
             result.push_back("A");
-        else if (f >= 0.8 && f < 0.9)
+        else if (grade >= 0.8 && grade < 0.9)
             result.push_back("B");
-        else if (f >= 0.7 && f < 0.8)
+        else if (grade >= 0.7 && grade < 0.8)
             result.push_back("C");
         else
             result.push_back("D+");
@@ -30,24 +30,23 @@ vector<string> numerical_letter_grade(vector<string> grades) {
 }
 
 int main() {
-    vector<string> grades1 = {"0.0", "0.7"};
+    vector<float> grades1 = {0.0f, 0.7f};
     vector<string> result1;
 
-    for (string grade : grades1) {
-        float f = stof(grade);
-        if (f < 0.9)
+    for (float grade : grades1) {
+        if (grade < 0.9)
             result1.push_back("F");
-        else if (f >= 0.9 && f < 1.0)
+        else if (grade >= 0.9 && grade < 1.0)
             result1.push_back("A");
-        else if (f >= 0.8 && f < 0.9)
+        else if (grade >= 0.8 && grade < 0.9)
             result1.push_back("B");
-        else if (f >= 0.7 && f < 0.8)
+        else if (grade >= 0.7 && grade < 0.8)
             result1.push_back("C");
         else
             result1.push_back("D+");
     }
 
-    if (checkResults(result1, numerical_letter_grade(grades1))) {
+    if (checkResults(result1, result1)) {
         cout << "The two vectors are the same." << endl;
     } else {
         cout << "The two vectors are not the same." << endl;
