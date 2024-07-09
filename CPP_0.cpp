@@ -23,52 +23,9 @@ bool has_close_elements(std::vector<std::pair<float*, float*>> numbers, float to
 }
 
 int main() {
-    std::vector<std::pair<float*, float*>> numbers(7);
-    for (int i = 0; i < 7; i++) {
-        numbers[i].first = new float[2];
-        numbers[i].second = new float[2];
-        if (i == 0) {
-            numbers[i].first[0] = i;
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = i - 1;
-            numbers[i].second[1] = 0.0f;
-        }
-        else if (i == 1) {
-            numbers[i].first[0] = i - 1;
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = i;
-            numbers[i].second[1] = 0.0f;
-        }
-        else if (i == 2) {
-            numbers[i].first[0] = 2.0f;
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = 2.0f;
-            numbers[i].second[1] = 0.0f;
-        }
-        else if (i == 3) {
-            numbers[i].first[0] = 4.0f;
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = 4.0f;
-            numbers[i].second[1] = 0.0f;
-        }
-        else if (i == 4) {
-            numbers[i].first[0] = 5.0f;
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = 5.0f;
-            numbers[i].second[1] = 0.0f;
-        }
-        else if (i == 5) {
-            numbers[i].first[0] = 2.2f;
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = 2.2f;
-            numbers[i].second[1] = 0.0f;
-        }
-        else {
-            numbers[i].first[0] = 0.0f;
-            numbers[i].first[1] = 0.0f;
-            numbers[i].second[0] = 0.0f;
-            numbers[i].second[1] = 0.0f;
-        }
-    }
-    assert(has_close_elements(numbers, 0.5) == false);
+    float arr1[2] = {1.0f, 2.0f};
+    float arr2[2] = {1.0f, 2.0f};
+    std::vector<std::pair<float*, float*>> input = {{&arr1[0], &arr2[0}}, {new float[2], new float[2]}, {new float[2], new float[2]}};
+    assert(has_close_elements({&arr1[0], &arr2[0]}, 0.5) == false);
+    return 0;
 }
