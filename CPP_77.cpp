@@ -1,12 +1,11 @@
-```c++
+Here is the completed code:
+
 bool iscuber(int a){
-    int i = 0;
-    while (1) {
-        long long temp = pow(i,3);
-        if(temp == a)
+    int i = 1;
+    while (pow(i, 3) <= a) {
+        if (pow(i, 3) == a)
             return true;
-        else if(temp > a)
-            return false;
         i++;
     }
+    return false;
 }
