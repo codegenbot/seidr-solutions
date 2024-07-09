@@ -1,2 +1,6 @@
-return n % 8 == 0 || n % 8 == 2;
+if ((n % 2 == 0) && (n >= 8)) {
+        return true; 
+    } else {
+        return false; 
+    }
 }
