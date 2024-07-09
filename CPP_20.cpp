@@ -1,8 +1,9 @@
+#include <initializer_list>
 #include <vector>
-#include <algorithm>
+#include <cmath>
 
-bool isSame(float a, float b) {
-    return std::abs(a - b) <= 1e-9;
+bool isSame(const std::pair<float, float>& pair1, const std::pair<float, float>& pair2) {
+    return std::abs(pair1.first - pair1.second) == std::abs(pair2.first - pair2.second);
 }
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
@@ -13,12 +14,28 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
     auto closest_pair = std::make_pair(numbers[0], numbers[0]);
     for (int i = 0; i < numbers.size(); ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            if (isSame(numbers[i], numbers[j])) {
+            if (std::abs(numbers[i] - numbers[j]) < std::abs(closest_pair.first - closest_pair.second)) {
                 closest_pair = std::make_pair(numbers[i], numbers[j]);
-                break;
             }
         }
     }
 
     return closest_pair;
+}
+
+int main() {
+    try {
+        std::vector<float> numbers = {1.0f, 2.0f, 3.0f};
+        auto result = find_closest_elements(numbers);
+        if (isSame(result, std::make_pair(2.5f, 2.5f))) {
+            std::cout << "Closest elements are same." << std::endl;
+        } else {
+            std::cout << "Closest elements are not the same." << std::endl;
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 1; // return non-zero status
+    }
+
+    return 0;
 }
