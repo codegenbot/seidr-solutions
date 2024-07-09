@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -13,27 +12,22 @@ namespace myspace {
 
     std::vector<float> sort_even(const std::vector<float>& l) {
         std::vector<float> result(l.size());
+        int j = 0;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                std::vector<float> evens;
-                for (int j = 0; j < l.size(); j++) {
-                    if (j % 2 == 0) {
-                        evens.push_back(l[j]);
-                    }
-                }
-                std::sort(evens.begin(), evens.end());
-                result[i] = evens[0];
+                result[i] = l[j];
+                j++;
             } else {
                 result[i] = l[i];
             }
         }
+        std::sort(result.begin(), result.end());
         return result;
     }
 }
 
 int main() {
-    float arr[] = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    std::vector<float> input(arr, arr + sizeof(arr)/sizeof(arr[0]));
+    std::vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
     std::cout << "Original array: ";
     for (float num : input) {
         std::cout << num << " ";
@@ -47,5 +41,6 @@ int main() {
     }
     std::cout << std::endl;
 
+    assert(myspace::issame(myspace::sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
