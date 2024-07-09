@@ -1,12 +1,13 @@
+```cpp
 #include <vector>
-#include <climits> 
+#include <climits>
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     
     if (arr.empty()) {
-        return {{0, 0}}; 
+        return {{0, 0}};
     }
     
     int smallest_even = INT_MAX;
