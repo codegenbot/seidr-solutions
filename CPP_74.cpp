@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -30,4 +29,18 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 int main() {
     vector<string> result = total_match({"this"}, {});
     assert(issame(result, {}));
+    
+    // Example usage
+    vector<string> list1 = {"hello", "world"};
+    vector<string> list2 = {"goodbye", "cruel", "world"};
+    vector<string> output = total_match(list1, list2);
+    if (issame(output, list1)) {
+        cout << "List 1 is the same length as List 2." << endl;
+    } else if (issame(output, list2)) {
+        cout << "List 2 is the same length as List 1." << endl;
+    } else {
+        cout << "Neither lists are the same length." << endl;
+    }
+    
+    return 0;
 }
