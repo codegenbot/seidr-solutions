@@ -1,13 +1,11 @@
-string filp_case(string str){
-    string result = "";
-    for(int i=0; i<str.length(); i++){
-        char c = str[i];
-        if(islower(c))
-            result += toupper(c);
-        else if(isupper(c))
-            result += tolower(c);
-        else
-            result += c;
+int i = 0;
+while(i < str.length()){
+    if(str[i] >= 'a' && str[i] <= 'z'){
+        str[i] -= ('a' - 'A');
     }
-    return result;
+    else if(str[i] >= 'A' && str[i] <= 'Z'){
+        str[i] += ('a' - 'A');
+    }
+    i++;
 }
+return str;
