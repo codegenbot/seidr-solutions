@@ -1,13 +1,14 @@
-#include <algorithm>
+#include <vector>
+
+using namespace std;
 
 bool move_one_ball(vector<int> arr) {
-    if (arr.empty()) return true;
-
-    for (int i = 0; i < arr.size() - 1; i++) {
-        if (arr[i] > arr[i + 1]) {
-            return false;
-        }
+    int n = arr.size();
+    if (n == 0) return true;
+    
+    for (int i = 1; i < n; i++) {
+        if (arr[i] <= arr[0]) return false;
     }
-
+    
     return true;
 }
