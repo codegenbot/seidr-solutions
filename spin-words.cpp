@@ -1,40 +1,40 @@
-Here's the solution:
-
 #include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string spinWords(std::string input) {
+    std::stringstream ss;
+    std::string word;
 
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
-    
-    while (i < str.length()) {
-        if (str.find(" ", i) == string::npos || str.find(" ", i) > str.length() - 1) {
-            string word = str.substr(i);
-            
-            if (word.length() >= 5)
-                reverse(word.begin(), word.end());
-            
-            result += word + " ";
-            i = str.length();
+    for (char c : input) {
+        if (c == ' ') {
+            ss << word;
+            ss << ' ';
+            word.clear();
         } else {
-            int j = str.find(" ", i);
-            string word = str.substr(i, j - i);
-            
-            if (word.length() >= 5)
-                reverse(word.begin(), word.end());
-            
-            result += word + " ";
-            i = j + 1;
+            word += c;
         }
     }
-    
-    return result;
+
+    ss << word;
+
+    word = "";
+    for (std::string w : {ss.str()}) {
+        if (w.length() >= 5) {
+            std::reverse(w.begin(), w.end());
+        }
+        if (!word.empty()) {
+            word += ' ';
+        }
+        word += w;
+    }
+
+    return word;
 }
 
 int main() {
-    // You can test your code here
+    std::cout << spinWords("this is a test") << std::endl;
+    //std::cout << spinWords("Hi") << std::endl;
+    //std::cout << spinWords("This is another test") << std::endl;
     return 0;
 }
