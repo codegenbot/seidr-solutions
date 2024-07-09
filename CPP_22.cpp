@@ -1,18 +1,13 @@
-```
 #include <boost/any.hpp>
-#include <list>
-#include <vector>
-#include <typeinfo>
 
-template<typename T1, typename T2>
-bool issame(const boost::any& a, const T2& b) {
-    return &typeid(T2) == &a.type();
+bool boost::typeindex::is_same(const boost::any& a, const boost::any& b) {
+    return a.type() == b.type();
 }
 
-vector<int> filter_integers(list<boost::any> values) {
+vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (issame(value, int())) {
+        if(boost::any_cast<int>(value).type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
