@@ -24,7 +24,7 @@ long long minSubArraySum(vector<long long> nums) {
 }
 
 int main() {
-    vector<long long> nums = {1,2,-3,4,-5};
-    cout << "The minimum sum is: " << minSubArraySum(nums) << endl;
+    vector<long long> nums = {1,2,3};
+    cout << minSubArraySum(nums) << endl;
     return 0;
 }
