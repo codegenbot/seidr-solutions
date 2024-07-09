@@ -50,10 +50,27 @@ bool issame(std::vector<std::string> a, std::vector<std::string> bf) {
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) { 
     std::vector<std::string> result;
-    if (isPlanet(planet1) && isPlanet(planet2)) {
-        std::string p = planet1 < planet2 ? planet1 : planet2;
-        result.push_back(p);
-    }
-    return result;
+    bool isPlan1 = false, isPlan2 = false;
 
+    if (isPlanet(planet1)) {
+        isPlan1 = true;
+    }
+    if (isPlanet(planet2)) {
+        isPlan2 = true;
+    }
+
+    if (isPlan1 && isPlan2) {
+        if (planet1 < planet2)
+            result.push_back(planet1);
+        else
+            result.push_back(planet2);
+    } else if (isPlan1 || isPlan2) {
+        if (isPlan1) {
+            result.push_back(planet1);
+        } else {
+            result.push_back(planet2);
+        }
+    }
+
+    return result;
 }
