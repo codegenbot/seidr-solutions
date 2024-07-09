@@ -1,12 +1,20 @@
+```cpp
 #include <vector>
 #include <cmath>
 
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
-        if (num >= 0 && std::floor(num) == num) {
-            sum += std::pow(num - std::floor(num), 2);
+        if (num > 0 && modf(num, &num) == 0.0) {
+            sum += pow(num, 2);
         }
     }
     return sum;
+}
+
+int main() {
+    std::vector<float> numbers = {1.5f, -3.25f, 4.75f, -2.0f};
+    long long result = double_the_difference(numbers);
+    std::cout << "The difference is: " << result << std::endl;
+    return 0;
 }
