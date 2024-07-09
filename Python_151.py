@@ -1,3 +1,9 @@
-def double_the_difference(lst):
-    positive_integers = [i for i in lst if isinstance(i, int) and i > 0]
-    return sum([n**2 for n in positive_integers]) * 2 - max(positive_integers)
+```
+def double_the_difference():
+    n = int(input("Enter number of elements: "))
+    lst = []
+    for i in range(n):
+        num = int(input(f"Enter element {i+1}: "))
+        if isinstance(num, int) and num > 0:
+            lst.append(num)
+    return sum(i**2 for i in lst) * 2 - max(lst)
