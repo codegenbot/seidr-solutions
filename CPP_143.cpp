@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <sstream>
 
@@ -11,7 +12,6 @@ int main() {
     getline(cin, sentence);
     
     words_in_sentence(sentence);
-    cout << endl;
     return 0;
 }
 
@@ -27,4 +27,5 @@ void words_in_sentence(string sentence) {
         cout << word;
         count++;
     }
+    cout << endl;
 }
