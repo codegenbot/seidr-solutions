@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <sstream>
 #include <iomanip>
@@ -17,7 +16,7 @@ int main() {
     for (const auto& str : strings) {
         string md5_str = string_to_md5(str);
         stringstream ss;
-        ss << setw(10) << md5_str.size();
+        ss << setw(10) << (int)md5_str.size();
         cout << ss.str() << endl;
     }
     return 0;
