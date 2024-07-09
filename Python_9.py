@@ -1,8 +1,12 @@
 ```
-def calculate_discounted_price(price, discount_rate):
-    return price * (1 - discount_rate / 100)
+def calculate_total_expenses(expenses):
+    total_expense = 0
+    for category, amount in expenses:
+        total_expense += amount
+    return total_expense
 
-price = float(input("Enter the original price of the item: "))
-discount_rate = int(input("Enter the percentage of the discount (e.g., 20 for 20%): "))
+def main():
+    print(calculate_total_expenses())
 
-print(f"The discounted price is {calculate_discounted_price(price, discount_rate)}")
+if __name__ == "__main__":
+    main()
