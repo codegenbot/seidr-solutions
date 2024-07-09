@@ -1,13 +1,14 @@
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <initializer_list>
 
 using namespace std;
 
-double shoppingList(vector<float> prices, vector<float> discounts) {
+double shoppingList(initializer_list<float> prices, initializer_list<float> discounts) {
     double total = 0;
-    for (int i = 0; i < prices.size(); i++) {
-        double price = prices[i];
-        double discount = price * (discounts[i] / 100);
+    int i = 0; 
+    for (float price : prices) { 
+        double discount = price * (discounts.begin()[i++] / 100); 
         total += price - discount;
     }
     return total;
@@ -24,6 +25,6 @@ int main() {
     for (float &discount : discounts) {
         cin >> discount;
     }
-    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
+    cout << fixed << setprecision(1) << shoppingList({prices.begin(), prices.end()}, {discounts.begin(), discounts.end()}) << endl;
     return 0;
 }
