@@ -8,29 +8,32 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<pair<int, string>> select_words(string s, int n) {
     vector<pair<int, string>> result;
-    int wordCount = 0;
     string word = "";
     for (char c : s) {
         if (c == ' ') {
             if (!word.empty()) {
-                int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
-                    count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
-                if (vowelCount <= n) {
-                    result.push_back({vowelCount, word});
+                int count = 0;
+                for (char w : word) {
+                    if (w == 'a' || w == 'e' || w == 'i' || w == 'o' || w == 'u')
+                        count++;
+                }
+                if (count <= n) {
+                    result.push_back({count, word});
                 }
                 word = "";
             }
-            wordCount++;
         } else {
             word += c;
         }
     }
     if (!word.empty()) {
-        int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
-            count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
-        if (vowelCount <= n) {
-            result.push_back({vowelCount, word});
+        int count = 0;
+        for (char w : word) {
+            if (w == 'a' || w == 'e' || w == 'i' || w == 'o' || w == 'u')
+                count++;
         }
+        if (count <= n)
+            result.push_back({count, word});
     }
     return result;
 }
