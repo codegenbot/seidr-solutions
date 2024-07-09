@@ -1,12 +1,13 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <numeric>
 
 int basement(std::vector<int> nums) {
-    std::partial_sum(nums.begin(), nums.end(), nums.begin());
+    int sum = 0;
     for (int i = 0; i < nums.size(); i++) {
-        if (nums[i] < 0)
-            return i;
+        sum += nums[i];
+        if (sum < 0) { 
+            return i+1; 
+        }
     }
     return -1;
 };
