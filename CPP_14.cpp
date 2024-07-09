@@ -2,10 +2,18 @@
 #include <vector>
 #include <string>
 
-bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) return false;
+bool issame(std::vector<std::string> a, std::vector<std::string> vec);
+std::vector<std::string> all_prefixes(std::string str);
+
+int main() {
+    assert(issame(all_prefixes("WWW"), all_prefixes("WWW")));
+    return 0;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> vec) {
+    if (a.size() != vec.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != vec[i]) return false;
     }
     return true;
 }
@@ -16,9 +24,4 @@ std::vector<std::string> all_prefixes(std::string str) {
         result.push_back(str.substr(0, i));
     }
     return result;
-}
-
-int main() {
-    assert(std::issame(all_prefixes("WWW"), all_prefixes("WWW")));
-    return 0;
 }
