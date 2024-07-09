@@ -1,14 +1,13 @@
-```cpp
 #include <iostream>
 #include <string>
 
 std::string flip_case(const std::string& str) {
     std::string result = str; 
-    for (char c : result) {
-        if (c >= 'a' && c <= 'z') {
-            result[0] = c + ('A' - 'a');
-        } else if (c >= 'A' && c <= 'Z') {
-            result[0] = c + ('a' - 'A');
+    for (char &c : result) {
+        if ((c >= 'a' && c <= 'z')) {
+            c = c + ('A' - 'a');
+        } else if ((c >= 'A' && c <= 'Z')) {
+            c = c + ('a' - 'A');
         }
     }
     return result;
