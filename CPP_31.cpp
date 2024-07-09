@@ -1,4 +1,6 @@
-```
+Here is the modified code:
+
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -11,8 +13,7 @@ bool is_prime(long long n) {
     }
     return true;
 
-int main
-{
+int main {
     long long num;
     cout << "Enter a number: ";
     cin >> num;
