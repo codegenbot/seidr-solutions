@@ -1,3 +1,4 @@
+```
 #include <cstddef>
 #include <string>
 
@@ -13,7 +14,7 @@ bool is_prime(size_t n) {
 string words_in_sentence(string sentence) {
     string result = "";
     size_t start = 0;
-    for (size_t end = 0; end < sentence.size(); ) {
+    for (size_t end = 0; end <= sentence.size(); ) {
         if (!is_prime(sentence.find(' ', end))) {
             end = sentence.find(' ', end);
         } else {
@@ -25,9 +26,10 @@ string words_in_sentence(string sentence) {
 }
 
 int main() {
-    string input;
+    string sentence;
     cout << "Enter a sentence: ";
-    getline(cin, input);
-    cout << words_in_sentence(input) << endl;
+    getline(cin, sentence);
+    string output = words_in_sentence(sentence);
+    cout << "Output: " << output << endl;
     return 0;
 }
