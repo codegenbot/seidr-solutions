@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -6,7 +7,7 @@ int vowels_count(std::string s) {
     
     for (char c : s) {
         if ((c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') 
-            || (c == 'y' && (int)s.find('y') != std::string::npos)) {
+            || (c == 'y')) {
             count++;
         }
     }
