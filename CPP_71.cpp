@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-
+#include <cmath>
 using namespace std;
 
 float triangle_area(float a, float b, float c);
@@ -15,7 +15,8 @@ int main() {
     } else {
         float result = triangle_area(a, b, c);
         cout << "The area of the triangle is: ";
-        cout << fixed << setprecision(2) << result;
+        cout << fixed << setprecision(2);
+        cout << result;
     }
 
     return 0;
