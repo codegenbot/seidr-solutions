@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 using namespace std;
 
@@ -32,4 +32,5 @@ int main() {
         cout << prime << " ";
     }
     cout << endl;
+    return 0;
 }
