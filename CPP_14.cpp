@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <array>
 
 bool issame(const std::vector<std::string>& a) { 
     if (a.size() == 0) return true;
