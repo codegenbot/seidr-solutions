@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <limits>
 #include <string>
@@ -31,7 +30,7 @@ string string_to_md5(string text) {
     return md5_hash;
 }
 
-string main() {
+int main() {
     string input;
     cout << "Enter a string: ";
     getline(cin, input);
@@ -45,5 +44,5 @@ string main() {
     string md5_hash = string_to_md5(input);
     
     cout << "MD5 Hash: " << md5_hash << endl;
-    return "";
+    return 0;
 }
