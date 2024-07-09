@@ -1,4 +1,5 @@
-#include <boost/config.hpp>
+#include <boost/any.hpp>
+
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -13,4 +14,3 @@ std::vector<int> filter_integers(std::vector<boost::any> values) {
         }
     }
     return result;
-}
