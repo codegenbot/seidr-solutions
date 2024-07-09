@@ -15,7 +15,16 @@ int main() {
     std::vector<float> lst; 
     float odd_sum; 
 
-    // fill your code here to calculate and store values in 'lst' and 'odd_sum'
+    for(int i=1;i<=10;++i){
+        if(i%2!=0)
+            lst.push_back((float)i); 
+    }
+
+    for(float num : lst) {
+        if (num > 0 && floor(num) == num) {
+            odd_sum += pow(num, 2);
+        }
+    }
 
     assert(double_the_difference(lst) == odd_sum);
 
