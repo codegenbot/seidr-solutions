@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> separate_paren_groups(std::string paren_string) {
+std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
     std::vector<std::string> result;
     std::string group;
     int open_count = 0;
@@ -28,12 +28,11 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
 }
 
 int main() {
-    std::string input_string;
-    std::cin >> input_string;
+    std::string input;
+    std::getline(std::cin, input);
+    std::vector<std::string> result = separate_paren_groups(input);
 
-    std::vector<std::string> groups = separate_paren_groups(input_string);
-
-    for (const std::string& group : groups) {
+    for (const auto& group : result) {
         std::cout << group << std::endl;
     }
 
