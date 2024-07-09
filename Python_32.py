@@ -1,4 +1,8 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    a, b = xs[-1], xs[-2]
-    return -a / b
+    return -xs[-2] / xs[-1]
+
+
+import doctest
+
+doctest.testmod()
