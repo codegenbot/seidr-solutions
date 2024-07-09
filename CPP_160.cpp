@@ -11,20 +11,21 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
         } else if (operator_[i] == "-") {
             result -= operand[i + 1];
         } else if (operator_[i] == "*") {
-            int temp = 1;
+            int temp = 0;
             for (int j = i + 1; j < operand.size(); j++) {
-                temp *= operand[j];
+                temp += operand[j];
             }
             result *= temp;
         } else if (operator_[i] == "//") {
-            int temp = operand[i + 1];
-            while (temp > 0) {
-                result /= temp;
-                temp--;
+            int temp = 0;
+            for (int j = i + 1; j < operand.size(); j++) {
+                temp += operand[j];
             }
+            result /= temp;
         } else if (operator_[i] == "**") {
-            int base = operand[i + 1], exponent = 0;
-            for (; i < operator_.size() && j < operand.size(); i++, j++) {
+            int base = operand[i + 1];
+            int exponent = 0;
+            for (int j = i + 2; j < operand.size(); j++) {
                 exponent += operand[j];
             }
             result = pow(base, exponent);
