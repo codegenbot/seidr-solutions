@@ -6,19 +6,21 @@ namespace std { class initializer_list; }
 #include <string>
 #include <initializer_list>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+using namespace std;
+
+bool issame(const vector<string>& a, const vector<string>& b) {
     return (a == b);
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    std::vector<std::string> result;
+vector<string> sorted_list_sum(vector<string> lst) {
+    vector<string> result;
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
             result.push_back(str);
         }
     }
-    std::sort(result.begin(), result.end(),
-         [](const std::string& a, const std::string& b) {
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
              } else {
@@ -28,27 +30,22 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     return result;
 }
 
-#include <vector>
-#include <string>
-
 int main_entry() {
-    if (issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"})) {
-        assert(true);
-    }
+    assert(issame(vector<string>(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})), vector<string>({"cc","dd","aaaa","bbbb"})));
     
     int n;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
+    cout << "Enter the number of strings: ";
+    cin >> n;
     
-    std::vector<std::string> inputStrings;
+    vector<string> inputStrings;
     for(int i = 0; i < n; i++) {
-        std::string str;
-        std::cout << "Enter string " << (i+1) << ": ";
-        std::getline(std::cin, str);
+        string str;
+        cout << "Enter string " << (i+1) << ": ";
+        getline(cin, str);
         inputStrings.push_back(str);
     }
     
-    std::vector<std::string> output = sorted_list_sum(inputStrings);
+    vector<string> output = sorted_list_sum(inputStrings);
     
     for(int i = 0; i < output.size(); i++) {
         bool found = false;
@@ -59,7 +56,7 @@ int main_entry() {
             }
         }
         if(!found) {
-            std::cout << output[i] << std::endl;
+            cout << output[i] << endl;
         }
     }
     
