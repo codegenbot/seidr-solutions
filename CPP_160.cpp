@@ -1,42 +1,36 @@
-long long pow(long long base, int exponent) {
-    long long res = 1;
-    while (exponent--) {
-        res *= base;
-    }
-    return res;
-}
-
 int do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
         expression += to_string(operand[i]);
         expression += operator_[i];
+        i++; // increment i here
     }
-    expression += to_string(operand[operator_.size() - 1]);
-    
+    expression += to_string(operand[operator_.size()]);
+
     long long result = eval(expression);
     
-    return static_cast<int>(result);
+    return (int)result;
 }
 
 long long eval(const string& s) {
-    int i = 0;
-    stack<long long> st;
-    while (i < s.size()) {
+    int n = s.size();
+    stack<int> st;
+    int i = 0; // declare i here
+    while (i < n) {
         if (isdigit(s[i])) {
-            long long num = 0;
-            while (i < s.size() && isdigit(s[i])) {
+            int num = 0;
+            while (i < n && isdigit(s[i])) {
                 num = num * 10 + (s[i] - '0');
                 i++;
             }
             st.push(num);
         } else if (s[i] == '(') {
             i++;
-            stack<long long> temp;
-            while (i < s.size() && s[i] != ')') {
+            stack<int> temp;
+            while (i < n && s[i] != ')') {
                 if (isdigit(s[i])) {
-                    long long num = 0;
-                    while (i < s.size() && isdigit(s[i])) {
+                    int num = 0;
+                    while (i < n && isdigit(s[i])) {
                         num = num * 10 + (s[i] - '0');
                         i++;
                     }
