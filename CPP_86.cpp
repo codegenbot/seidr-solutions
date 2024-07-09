@@ -4,8 +4,8 @@
 std::string anti_shuffle(std::string s) {
     std::string res = "";
     for (int i = 0; i < s.length(); i++) {
-        if (i % 2 == 1) {
-            res += s[i];
+        if (i % 2 == 0) {
+            res += s[i/2];
         }
     }
     return res;
