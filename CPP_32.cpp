@@ -1,12 +1,9 @@
-using namespace std;
-
 #include <iostream>
 #include <vector>
 #include <cmath>
 
 std::vector<double> coeffs;
 double poly(std::vector<double>, double);
-
 double find_zero(std::vector<double> xs) {
     double a = xs[0];
     double b = 0;
