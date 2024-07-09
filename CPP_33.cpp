@@ -6,14 +6,14 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result;
+    vector<int> result(l);
     int groupCount = 0;
 
     for (int i : l) {
         if(groupCount % 3 == 0) { 
             if(groupCount != 0) { 
                 // Sort and reverse the current group
-                sort(result.begin(), result.end());
+                sort(result.begin() + groupCount, result.begin() + groupCount + 3);
                 vector<int> temp = result;
                 result.clear(); 
                 for (int j = temp.size() - 1; j >= 0; j--) {
@@ -21,11 +21,7 @@ vector<int> sort_third(vector<int> l) {
                 }
             }
         }
-        if(groupCount % 3 == 0) {
-            // Reserve space for the next group
-            result.reserve(l.size() - groupCount);
-        }
-        result.push_back(i);
+        result[groupCount] = i;
         groupCount++;
     }
 
