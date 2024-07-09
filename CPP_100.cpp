@@ -19,15 +19,6 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> pile = make_a_pile(n);
-    if(issame(pile, {8, 10, 12, 14, 16, 18, 20, 22})) {
-        for(int i = 2*n; i > 0; --i) {
-            std::cout << i << " ";
-        }
-    } else {
-        std::cout << "The pile is not correct." << std::endl;
-    }
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
