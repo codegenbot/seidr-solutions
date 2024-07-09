@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -39,5 +38,5 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {})); 
+    assert(issame(bf("Jupiter", "Makemake"), {}));
 }
