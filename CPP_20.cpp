@@ -1,9 +1,8 @@
-#include <initializer_list>
-#include <algorithm>
+#include <iostream>
 #include <vector>
 #include <limits>
 
-bool operator==(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
@@ -13,23 +12,28 @@ bool operator==(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-std::vector<float> findClosestElements(std::vector<float> numbers) {
+struct Pair {
+    float first, second;
+};
+
+Pair findClosestElements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
     float minDiff = std::numeric_limits<float>::max();
-    std::pair<float, float> closestPair;
+    Pair closestPair;
     
     for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < minDiff) {
             minDiff = diff;
-            closestPair = {numbers[i], numbers[i + 1]};
+            closestPair.first = numbers[i];
+            closestPair.second = numbers[i + 1];
         }
     }
     
-    return std::vector<float>{closestPair.first, closestPair.second};
+    return closestPair;
 }
 
 int main() {
-    assert({2.2f, 3.1f} == findClosestElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}));
+    assert(issame({2.2f, 3.1f}, {findClosestElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}).first, findClosestElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}).second}));
     return 0;
 }
