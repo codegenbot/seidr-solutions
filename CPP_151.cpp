@@ -21,12 +21,12 @@ int main() {
     while (1) {
         long long temp;
         std::cout << "Enter a number (negative to stop): ";
-        std::cin >> temp;
-        
+        std::cin >> temp;        
         if (temp < 0) break;
-        if (temp > 0 && static_cast<long double>(temp) == static_cast<long double>(std::floor(temp))) {
-            if (static_cast<long long>(temp) % 2 != 0) { 
-                lst.push_back(temp);
+        input = static_cast<float>(temp);
+        if (input > 0 && std::floor(input) == input) {
+            if (static_cast<long long>(input) % 2 != 0) { 
+                lst.push_back(temp); 
             }
             else {
                 lst.push_back(temp);
@@ -36,8 +36,8 @@ int main() {
             lst.push_back(temp);
         }
         n++;
-   }
-    
+    }
+
     long long odd_sum = double_the_difference(lst);
     return 0;
 }
