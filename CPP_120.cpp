@@ -1,9 +1,8 @@
-```
 #include <algorithm>
 #include <vector>
 
-bool issame(int i, int j) {
-    // Your logic here
+bool issame(int a, int b) {
+    return a == b;
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
