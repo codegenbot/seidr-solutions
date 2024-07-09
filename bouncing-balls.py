@@ -1,3 +1,4 @@
+```
 import math
 
 def bouncing_balls():
@@ -18,5 +19,6 @@ def bouncing_balls():
             current_height /= math.sqrt(bounciness_index)
 
     print(total_distance)
+
 
 bouncing_balls()
