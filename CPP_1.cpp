@@ -1,31 +1,5 @@
-#include <vector>
-#include <iostream>
-
-vector<string> separate_paren_groups(string paren_string);
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    string input_string;
-    cin >> input_string;
-
-    vector<string> result = separate_paren_groups(input_string);
-
-    for (string group : result) {
-        cout << group << endl;
-    }
-
-    return 0;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -41,9 +15,9 @@ vector<string> separate_paren_groups(string paren_string) {
             open_count++;
         } else if (c == ')') {
             open_count--;
-            if (open_count > 0) {
+            if (open_count >= 0) {
                 current_group += c;
-            } else if (open_count == 0) {
+            } else {
                 result.push_back(current_group);
                 current_group = "";
             }
