@@ -1,35 +1,28 @@
-```c++
-bool solveBoolean(std::string s) {
-    bool result = true;
-    int i = 0;
+```cpp
+#include <string>
 
-    while (i < s.length()) {
+bool solveBoolean(std::string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
-            i++;
-            if (s[i] == '&') {
-                result &= (s[i++] == 'T');
-            } else if (s[i] == '|') {
-                result = false;
-                break;
-            } else {
-                result &= (s[i] == 'T');
-                i++;
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
+            if (st.empty()) {
+                return false;
+            }
+            st.pop();
         } else if (s[i] == '|') {
-            i++;
-            if (s[i] == '|') {
-                result |= (s[i++] == 'T');
-            } else if (s[i] == '&') {
-                break;
-            } else {
-                result |= (s[i] == 'T');
-                i++;
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
+            if (st.empty()) {
+                return true;
+            }
+            st.pop();
         } else {
-            result = (s[i] == 'T');
-            i++;
+            st.push(s[i]);
         }
     }
-
-    return result;
+    return st.top() == 'T';
 }
