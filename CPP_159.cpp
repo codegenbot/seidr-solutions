@@ -1,4 +1,5 @@
 int total = number + need;
-    int carrotsLeft = max(0, remaining - need);
-    return {total, carrotsLeft};
+    int eaten = total > remaining ? remaining : total;
+    int left = remaining - eaten;
+    return {eaten, left};
 }
