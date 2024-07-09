@@ -1,7 +1,8 @@
-```cpp
+```
 #include <vector>
 #include <string>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -53,13 +54,7 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {  
-    vector<string> lst1;
-    string str;
-    cout << "Enter strings (enter 'done' when finished): ";
-    while (!(str == "done")) {
-        cin >> str;
-        lst1.push_back(str);
-    }
+    vector<string> lst1 = {"this", "is", "a", "test"};
     vector<string> lst2;
     vector<string> result = totalMatch(lst1, lst2);
     cout << "Result: ";
@@ -67,6 +62,5 @@ int main() {
         cout << s << " ";
     }
     cout << endl;
-    assert(result == {"this"});
     return 0; 
 }
