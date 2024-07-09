@@ -13,18 +13,10 @@ int findMaximum(std::vector<int> numbers) {
 int main() {
     std::vector<int> numbers;
     int num = 0; 
-    char c = ' ';
     std::cout << "Enter numbers (separated by spaces): ";
-    while(true) { 
-        if(c != ' ') {
-            if(std::cin >> num) { 
-                numbers.push_back(num);
-            } else {
-                break;
-            }
-        } 
-        c = std::cin.get();
-        std::cin.ignore();
+    while(std::cin >> num) { 
+        numbers.push_back(num);
+        std::cin.ignore(); // Add this line to remove the extra space
     }
     findMaximum(numbers);
     return 0;
