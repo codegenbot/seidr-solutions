@@ -1,6 +1,9 @@
+```cpp
 #include <boost/any.hpp>
+#include <vector>
+#include <list>
 
-bool issame(vector<int> a,vector<int>b){
+bool issame(std::vector<int> a,std::vector<int>b){
     if(a.size() != b.size()) return false;
     sort(a.begin(),a.end());
     sort(b.begin(),b.end());
@@ -10,20 +13,14 @@ bool issame(vector<int> a,vector<int>b){
     return true;
 }
 
-#include <vector>
-#include <list>
-
-using namespace std;
-
-using AnyType = variant<int, double>; // You may need to include more types here
-using AnyList = vector<AnyType>;
-
-vector<int> filter_integers(AnyList values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (holds_alternative<int>(value)) {
-            int intValue = get<int>(value);
-            result.push_back(intValue);
+        try {
+            int val = boost::any_cast<int>(value);
+            result.push_back(val);
+        } catch (...) {
+            // handle exception if the value is not an integer
         }
     }
     return result;
