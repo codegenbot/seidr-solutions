@@ -1,49 +1,40 @@
+#include <cstdlib>
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cmath>
-
-using namespace std;
-
-vector<int> findIndicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices;
-    size_t pos = text.find(target, 0);
-    
-    while (pos != string::npos) {
-        indices.push_back(pos);
-        pos = text.find(target, pos + 1);
-    }
-    
-    return indices;
-}
 
 int gcd(int a, int b) {
-    if (a < 0) a = -a;
-    if (b < 0) b = -b;
-    
+    a = abs(a);
+    b = abs(b);
     if (b == 0) {
         return a;
     }
-    
     return gcd(b, a % b);
 }
 
-int main() {
-    int choice;
-    cin >> choice;
-    if (choice == 1) {
-        int a, b;
-        cin >> a >> b;
-        cout << gcd(a, b) << endl;
-    } else if (choice == 2) {
-        string text, target;
-        cin >> text >> target;
-        vector<int> result = findIndicesOfSubstring(text, target);
-        for (int index : result) {
-            cout << index << " ";
-        }
-        cout << endl;
+std::vector<int> indicesOfSubstring(const std::string &text, const std::string &target) {
+    std::vector<int> indices;
+    size_t pos = text.find(target, 0);
+    while (pos != std::string::npos) {
+        indices.push_back(pos);
+        pos = text.find(target, pos + 1);
     }
+    return indices;
+}
+
+int main() {
+    // Function calls to test gcd and indicesOfSubstring functions
+    int a = 12, b = 18;
+    std::cout << gcd(a, b) << std::endl;
+
+    // Customize your inputs for testing indicesOfSubstring function
+    std::string text = "ababcababc";
+    std::string target = "abc";
+    std::vector<int> indices = indicesOfSubstring(text, target);
+    for (int index : indices) {
+        std::cout << index << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }
