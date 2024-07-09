@@ -1,40 +1,22 @@
-#include <string>
-#include <algorithm>
 #include <boost/any.hpp>
-#include <boost/convert.hpp>
+#include <string>
 
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max(a, boost::any(b));
+    if (is_any_of<a>(int.class)) {
+        int x = any_cast<int>(a);
+        int y = any_cast<int>(b);
+        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
+    } else if (is_any_of<a>(double.class)) {
+        double x = any_cast<double>(a);
+        double y = any_cast<double>(b);
+        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
+    } else if (is_any_of<a>(string.class)) {
+        string s1 = any_cast<string>(a);
+        string s2 = any_cast<string>(b);
+        double x = atof(s1.c_str());
+        double y = atof(s2.c_str());
+        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        istringstream iss(static_cast<string>(b));
-        float b_float;
-        iss >> b_float;
-        return a > b_float ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (static_cast<string>(a) > static_cast<string>(b))
-            return a;
-        else if (static_cast<string>(a) < static_cast<string>(b))
-            return b;
-        else
-            return boost::any("None");
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        istringstream iss(static_cast<string>(b));
-        int b_int;
-        iss >> b_int;
-        return a > b_int ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        istringstream iss(static_cast<string>(a));
-        float a_float;
-        iss >> a_float;
-        return a_float > b ? a : b;
-    }
-    else
-        return boost::any("None");
 }
