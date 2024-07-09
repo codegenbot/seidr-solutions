@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <climits>
@@ -23,25 +22,5 @@ vector<int> findLeaders(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums;
-    int num;
-    
-    cout << "Enter positive integers (enter -1 to stop):\n";
-    while (true) {
-        cin >> num;
-        if (num == -1) {
-            break;
-        }
-        nums.push_back(num);
-    }
-    
-    vector<int> result = findLeaders(nums);
-    
-    cout << "Leaders: ";
-    for (int leader : result) {
-        cout << leader << " ";
-    }
-    cout << endl;
-    
     return 0;
 }
