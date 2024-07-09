@@ -1,9 +1,14 @@
 #include <algorithm>
 
-vector<int> sort_third(vector<int> l);
-
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
+}
+
+vector<int> sort_third(vector<int> l);
+
+int main() {
+    // Main function code here
+    return 0;
 }
 
 vector<int> sort_third(vector<int> l){
