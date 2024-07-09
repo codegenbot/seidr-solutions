@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -12,16 +11,11 @@ bool checkSame(std::vector<float> v1, std::vector<float> v2) {
 
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result(l.size());
+    int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            std::vector<float> evenVals;
-            for (int j = 0; j < l.size(); j++) {
-                if (j % 2 == 0) {
-                    evenVals.push_back(l[j]);
-                }
-            }
-            std::sort(evenVals.begin(), evenVals.end());
-            result[i] = evenVals[0];
+            auto it = std::stable_partition(l.begin(), l.end(), [](float x){return x % 2 != 0;});
+            result[i] = *std::min_element(it, l.end());
         } else {
             result[i] = l[i];
         }
