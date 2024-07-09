@@ -1,17 +1,12 @@
 #include <vector>
-using namespace std;
 
-int basement(vector<int> &nums) {
-    int sum = 0;
+int firstNegativeIndex(vector<int>& nums) {
     for (int i = 0; i < nums.size(); i++) {
-        sum += nums[i];
+        int sum = 0;
+        for (int j = 0; j <= i; j++) {
+            sum += nums[j];
+        }
         if (sum < 0) return i;
     }
     return -1;
-}
-
-int main() {
-    vector<int> nums = {-5,1,-3,4,-2};
-    cout << basement(nums);
-    return 0;
 }
