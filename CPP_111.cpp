@@ -1,12 +1,5 @@
 #include <map>
-
-map<char, int> histogram(string s) {
-    map<char, int> hist;
-    for (char c : s) {
-        hist[c]++;
-    }
-    return hist;
-}
+using namespace std;
 
 bool issame(map<char, int> a, map<char, int> b) {
     if (a.size() != b.size()) {
