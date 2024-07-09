@@ -12,19 +12,18 @@ bool is_happy(const std::string& s) {
         char c1 = s[i];
         char c2 = s[i + 1];
         char c3 = s[i + 2];
-        for (int j = i; j < s.length(); j++) {
-            if (s[j] == c1)
+        std::string::iterator it = s.begin() + i;
+        for (; it != s.begin() + i + 3; ++it) {
+            if (*it == c1)
                 continue;
-            else if (s[j] == c2)
+            else if (*it == c2)
                 continue;
-            else if (s[j] == c3)
+            else if (*it == c3)
                 continue;
             else
                 break;
         }
-        if ((s.find(c1) != std::string::npos && s.find(c1, i + 1) != std::string::npos) ||
-            (s.find(c2) != std::string::npos && s.find(c2, i + 1) != std::string::npos) ||
-            (s.find(c3) != std::string::npos && s.find(c3, i + 1) != std::string::npos))
+        if (it != s.begin() + i + 3)
             return false;
     }
     return true;
