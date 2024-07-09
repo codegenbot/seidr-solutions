@@ -1,48 +1,43 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <variant>
+#include <cmath>
 
-long long double_the_difference(std::vector<std::variant<float, long long>> lst) {
+long long double_the_difference(const std::vector<long long>& lst) {
     long long sum = 0;
     for (auto &num : lst) {
-        if (std::holds_alternative<float>(num)) {
-            float f = std::get<float>(num);
-            if (f > 0 && std::floor(f) == f) { 
-                if (static_cast<long long>(f) % 2 != 0) { 
-                    sum += static_cast<long long>(std::pow(f, 2)); 
-                }
+        if (num > 0 && num == static_cast<long long>(std::floor(num))) { 
+            if (num % 2 != 0) { 
+                sum += std::pow(num, 2); 
             }
         }
     }
-    return static_cast<long long>(sum);
+    return sum;
 }
 
-int main_cpp() {
-    float input; 
+int main() {
     int n = 0;
-    std::vector<std::variant<float, long long>> lst;
-    long long odd_sum = 0;
+    std::vector<long long> lst;
 
     while (1) {
+        double input; 
         std::cout << "Enter a number (negative to stop): ";
         std::cin >> input;
         
         if (input < 0) break;
-        if (input > 0 && std::floor(input) == input) {
+        if (input > 0 && input == static_cast<double>(std::floor(input))) {
             if (static_cast<long long>(input) % 2 != 0) { 
                 lst.push_back(static_cast<long long>(std::pow(input, 2))); 
             }
             else {
-                lst.push_back(input);
+                lst.push_back(static_cast<long long>(input));
             }
         }
         else {
-            lst.push_back(input);
+            lst.push_back(static_cast<long long>(input));
         }
         n++;
     }
-    
-    odd_sum = double_the_difference(lst);
+
+    long long sum = double_the_difference(lst);
     return 0;
 }
