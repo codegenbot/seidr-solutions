@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 
@@ -8,7 +7,7 @@ std::vector<int> leaders(std::vector<int>& arr) {
     
     for(int i=n-1; i>=0; i--) {
         bool isLeader = true;
-        for(int j=i+1; j<n; j++) {
+        for(int j=i; j<n; j++) { 
             if(arr[i] < arr[j])
                 isLeader = false;
         }
@@ -21,8 +20,8 @@ std::vector<int> leaders(std::vector<int>& arr) {
 
 int main() {
     std::vector<int> input = {18, 48, 517, 190, 204, 169, 784, 446, 770, 327, 555, 908, 56, 410, 987, 629, 467, 142, 858};
-    std::vector<int> leaders = leaders(input);
-    for(int i: leaders)
+    std::vector<int> result = leaders(input);
+    for(int i: result)
         std::cout << i << " ";
     return 0;
 }

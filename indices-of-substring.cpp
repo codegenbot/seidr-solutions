@@ -17,9 +17,9 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (found) {
             result.push_back(i);
-            i += m; // Increment i by the target length to avoid overlapping targets
+            i += m; // Start searching from the end of the found target
         } else {
-            i++; // Otherwise, move to the next character in the text
+            i++; // Continue searching at next position
         }
     }
 

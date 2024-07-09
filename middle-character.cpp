@@ -1,15 +1,15 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 
 std::string middleCharacter(std::string s) {
     int len = s.length();
+    
     if(len == 0)
         return "";
     
     std::string result;
-    if(len % 2 == 0) {
-        result = s.substr(len/2-1, 2);
+    if(len % 2 == 0) { 
+        result = s.substr(len/2 - 1, 2);
     } else {
         result = s.substr(len/2, 1);
     }
@@ -29,11 +29,7 @@ int main() {
     if(input.empty()) {
         std::cout << "Enter a non-empty string" << std::endl;
     } else {
-        std::istringstream iss(input);
-        std::string word;
-        while (iss >> word) { 
-            std::cout << middleCharacter(word) << std::endl; 
-        }
+        std::cout << middleCharacter(input) << std::endl;
     }
     return 0;
 }
