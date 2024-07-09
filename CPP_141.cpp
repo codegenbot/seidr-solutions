@@ -22,10 +22,4 @@ std::string file_name_check(std::string file_name){
     }
     if(digitCount > 3 || !foundDot) return "No";
     if(file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z') return "No";
-    return "";
-}
-
-int main() {
-    std::cout << file_name_check("example.txt");  // example input
-    return 0;
-}
+    return "Yes";
