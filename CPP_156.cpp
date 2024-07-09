@@ -13,4 +13,3 @@ string int_to_mini_roman(int number) {
     }
     
     return result;
-}
