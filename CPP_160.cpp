@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cmath>
@@ -14,7 +15,7 @@ int do_algebra(vector<string> operators, vector<int> operands) {
         } else if (operators[i] == "/") {
             result /= operands[i + 1];
         } else if (operators[i] == "**") {
-            result = pow(operands[0], operands[1]);
+            result = pow(operands[0], operands[i + 1]);
         }
     }
     return result;
