@@ -20,8 +20,7 @@ string string_to_md5(string text) {
     else
         *(input + text.size()) = '\0';
     EVP_DigestUpdate(&ctx, input, strlen(input));
-    EVP_MD_CTX_final(&ctx, &ctx);
-    EVP_DigestFinal_CTX(&ctx, md);
+    EVP_MD_CTX_final(&ctx, &md);
 
     std::ostringstream oss;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
