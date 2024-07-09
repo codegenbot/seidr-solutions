@@ -1,13 +1,13 @@
 #include <vector>
 #include <string>
 
-bool same(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
 }
 
-vector<int> even_odd_count(int num) {
+std::vector<int> even_odd_count(int num) {
     int evens = 0, odds = 0;
-    string str = to_string(abs(num));
+    std::string str = std::to_string(abs(num));
     for (char c : str) {
         if (stoi(c) % 2 == 0)
             evens++;
@@ -18,7 +18,6 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    vector<int> result = even_odd_count(0);
-    assert(same(result, vector<int>({1, 0})));
+    assert(issame(even_odd_count(0), std::vector<int>({1, 0})));
     return 0;
 }
