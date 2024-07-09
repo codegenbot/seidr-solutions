@@ -8,7 +8,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-void order_by_points(vector<int>& nums) {
+bool order_by_points(const vector<int>& nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         if (a < 0) a *= -1;
@@ -24,6 +24,7 @@ void order_by_points(vector<int>& nums) {
         if (sum_a == sum_b) return &a < &b;
         return sum_a < sum_b;
     });
+    return nums;
 }
 
 int main() {
