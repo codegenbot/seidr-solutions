@@ -12,10 +12,14 @@ total_score = sum(
         (
             min(10, k) + (k - 1) * 1
             if k < 10
-            else k + 30 if "X" in frame else min(k // 2, k)
+            else k + 30 if "X" in frame.replace("X", "33") else min(k // 2, k)
         )
         for k, frame in zip(
-            frames, [len("".join(filter(str.isdigit, f))) for f in frames]
+            frames,
+            [
+                str(k).rjust(2) * 0 if len(frame) > 1 else str(k)
+                for k, f in zip(map(int, user_input.split("\n")), frames)
+            ],
         )
     ]
 )
