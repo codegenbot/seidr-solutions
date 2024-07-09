@@ -2,8 +2,8 @@
 
 int add_elements(vector<int> arr, int k) {
     int sum = 0;
-    for (int i = 0; i < min(k, arr.size()); i++) {
-        if (-100 <= arr[i] && arr[i] <= 99) {
+    for (int i = 0; i < k && i < arr.size(); i++) {
+        if (abs(arr[i]) <= 100) {
             sum += arr[i];
         }
     }
