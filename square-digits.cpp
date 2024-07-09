@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 
@@ -18,8 +19,8 @@ int main() {
     getline(cin, input); 
     if(input.length() == 0) {
         cout << "Error: Input cannot be an empty string." << endl;
-        return -1; // or any other appropriate error handling.
-    }
+        return -1; 
+    } 
     try {
         string output = squareDigits(input);
         cout << "Squared digits: " << output << endl;
