@@ -1,13 +1,10 @@
 Here is the completed code:
 
-int next_smallest(vector<int> lst){
-    vector<int> copy = lst;
-    if(copy.empty()) return -1; // or any other value that indicates None
-    std::sort(copy.begin(),copy.end());
-    for(int i=0; i<copy.size();i++){
-        if(i==0) continue;
-        else if(i==1) return copy[i];
-        if(copy[i-1] != copy[i]) break;
-    }
-    return -1; // or any other value that indicates None
+int next_smallest(vector<int> lst) {
+    if (lst.size() < 2) return -1; // None in C++ terms
+    sort(lst.begin(), lst.end());
+    vector<int>::iterator it = unique(lst.begin(), lst.end());
+    lst.erase(it, lst.end());
+    if (lst.size() < 2) return -1;
+    return *next(lst.begin(), 1);
 }
