@@ -4,7 +4,7 @@ def decode_shift(s: str):
 while True:
     try:
         input_str = input().strip()
-        if input_str == "":
+        if input_str == '':
             break
         result = decode_shift(input_str)
         print(result)
