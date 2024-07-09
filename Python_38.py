@@ -1,19 +1,10 @@
-```
-s = input()
 def decode_cyclic(s: str):
+    if len(s) == 0:
+        return s
+    last = s[0]
     result = ""
-    temp = ""
     for char in s:
-        temp += char
-        if len(temp) == 3:
-            if len(result) > 0 and result[-1] == temp[0]:
-                result += temp[1]
-            else:
-                result += temp
-            temp = ""
-    if len(temp) > 0:
-        if len(result) > 0 and result[-1] == temp[0]:
-            result += temp[1]
-        else:
-            result += temp
+        if char != last:
+            result += char
+        last = char
     return result
