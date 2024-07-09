@@ -35,3 +35,4 @@ int main() {
     bool result = solveBoolean(input);
     std::cout << (result ? "True" : "False") << std::endl;
     return 0;
+}
