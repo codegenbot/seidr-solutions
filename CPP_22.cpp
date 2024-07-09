@@ -1,10 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <list>
-#include <algorithm>
 #include <cassert>
-
 using namespace std;
+
+bool is_same(const vector<int>& a, const vector<int>& b) {
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
+}
+
+int main_func() {
+    vector<any> values = {3, int(3), 3, 'a', 'b'};
+    assert(is_same(filter_integers({3, 'c', 3, 3, 'a', 'b'}), vector<int>{3, 3, 3}));
+    return 0;
+}
 
 vector<int> filter_integers(list<any> values) {
     vector<int> result; 
@@ -18,14 +23,4 @@ vector<int> filter_integers(list<any> values) {
         }
     }
     return result;
-}
-
-bool is_same(vector<int> a, vector<int> b) {
-    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
-}
-
-int main_func() {
-    vector<any> values = {3, int(3), 3, 'a', 'b'};
-    assert(std::is_same(filter_integers(vector<any>({3, 'c', 3, 3, 'a', 'b'}))), std::vector<int>(std::vector<int>{3, 3, 3})));
-    return 0;
 }
