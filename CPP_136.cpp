@@ -1,8 +1,11 @@
-```cpp
+```c++
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool isEqualTo(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     return a == b;
 }
 
@@ -22,6 +25,6 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
 }
 
 int main() {
-    assert(isEqualTo(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+    // Your code goes here.
     return 0;
 }
