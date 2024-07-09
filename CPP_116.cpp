@@ -21,10 +21,6 @@ vector<int> sort_array(vector<int> arr) {
     });
     return arr;
 }
-
-int main() {
-    vector<int> arr = {2,4,8,16,32};
-    sort_array(arr);
-    assert(issame(arr, {2, 4, 8, 16, 32}));
-    return 0;
-}
+vector<int> arr = {2,4,8,16,32};
+sort_array(arr);
+assert(issame(arr, {2, 4, 8, 16, 32}));
