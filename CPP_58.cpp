@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <set>
 #include <algorithm>
@@ -18,15 +19,26 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
-    cout << "Enter two lists of integers (space separated):" << endl;
-    int n1, n2;
-    cin >> n1 >> n2;
-    vector<int> l1(l1, n1);
-    vector<int> l2(l2, n2);
-    vector<int> res = common(l1, l2);
-    cout << "Common elements: ";
-    for(int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
+    vector<pair<string, int>> inputs;
+    cout << "Enter the number of pairs: ";
+    int n;
+    cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        string s1;
+        int l1;
+        cout << "Enter pair" << (i+1) << ": ";
+        cin >> s1 >> l1;
+        inputs.push_back({s1, l1});
     }
-    cout << endl;
+    
+    for(auto p : inputs) {
+        vector<int> v = common(p.second, {p.second});
+        if(v.size() == 0) cout << "No common elements found." << endl;
+        else {
+            cout << "Common elements: ";
+            for(int x : v) cout << x << " ";
+            cout << endl;
+        }
+    }
 }
