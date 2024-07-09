@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -19,15 +18,10 @@ int main(){
     int n;
     cout << "Enter the number of elements: ";
     cin >> n;
-    
     for(int i = 0; i < n; i++){
-        int num;
         cout << "Enter element " << (i+1) << ": ";
-        cin >> num;
-        input.push_back(num);
+        cin >> input.push_back();
     }
-    
-    cout << "The special filter count is: " << specialFilter(input) << endl;
-    
+    cout << "The count is: " << specialFilter(input);
     return 0;
 }
