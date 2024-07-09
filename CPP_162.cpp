@@ -1,15 +1,15 @@
-```cpp
+#include <iostream>
 #include <string>
-#include <functional>
+#include <vector>
 #include <algorithm>
 
 std::string string_to_md5(const std::string& input) {
-    // implementation of MD5 hash calculation goes here
+    std::string md5;
+    // Implement MD5 calculation using OpenSSL or Crypto++ libraries here.
+    return md5;
 }
 
 int main() {
-    if (!string_to_md5.empty()) {
-        std::cout << "Error: You must define the function before using it." << std::endl;
-    }
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
