@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <iomanip>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> tokens;
@@ -32,14 +31,20 @@ std::string join(const std::vector<std::string>& words, char delimiter) {
 
 std::string spinWords(std::string str) {
     std::vector<std::string> words = split(str, ' ');
+    std::string result; 
     for (int i = 0; i < words.size(); i++) {
+        std::string temp = words[i];
         if (words[i].length() >= 5) {
-            std::string temp = words[i];
             std::reverse(temp.begin(), temp.end());
-            words[i] = temp;
+            if (i > 0) { // add space only for long words
+                result += " ";
+            }
+            result += temp;
+        } else {
+            result += temp + " ";
         }
     }
-    return join(words, ' ');
+    return join(std::vector<std::string>{result}, ' ');
 }
 
 int main() {

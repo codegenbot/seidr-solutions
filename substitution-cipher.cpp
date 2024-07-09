@@ -6,15 +6,11 @@ std::string decipher(std::string cipher1, std::string cipher2, std::string messa
     std::string result = "";
     for (int i = 0; i < message.length(); i++) {
         char c = message[i];
-        if (c >= 'a' && c <= 'z') {
-            int index = c - 'a';
-            if (index < cipher1.length()) {
-                result += cipher2[index];
-            } else {
-                result += c; // non-alphabetic characters remain the same
-            }
+        if(isalpha(toupper(c))) {
+            char cDeciphered = cipher2[cipher1.find(std::tolower(c))];
+            result += std::tolower(cDeciphered);
         } else {
-            result += c; // non-alphabetic characters remain the same
+            result += c;
         }
     }
     return result;
