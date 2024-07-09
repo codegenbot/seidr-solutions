@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -11,19 +10,18 @@ bool correct_bracketing(std::string brackets){
             count--;
         }
     }
-    return count == 0;
-
+    return count == 0; 
 }
 
 int main() {
     std::string input;
-    std::cout << "Enter a string of brackets: ";
-    std::getline(std::cin, input);
+    std::cout << "Enter your string: ";
+    std::cin >> input;
     
     if(correct_bracketing(input)) {
-        std::cout << "The bracketing is correct." << std::endl;
+        std::cout << "Correct bracketing" << std::endl;
     } else {
-        std::cout << "The bracketing is incorrect." << std::endl;
+        std::cout << "Incorrect bracketing" << std::endl;
     }
     
     return 0;
