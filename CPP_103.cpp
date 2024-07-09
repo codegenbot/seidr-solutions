@@ -1,3 +1,4 @@
+```
 #include <cmath>
 #include <string>
 
@@ -12,10 +13,10 @@ string rounded_avg(int n, int m) {
     while (avg > 0) {
         if (avg >= 2) {
             avg /= 2;
-            binary.insert(0, "1");
+            binary = "1" + binary;
         } else {
             avg *= 2;
-            binary.insert(0, "0");
+            binary = "0" + binary;
         }
     }
     return binary;
