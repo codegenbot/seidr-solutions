@@ -8,7 +8,6 @@ using namespace std;
 string decipher(const string& cipher1, const string& cipher2, const string& message) {
     transform(cipher1.begin(), cipher1.end(), cipher1.begin(), ::tolower);
     transform(cipher2.begin(), cipher2.end(), cipher2.begin(), ::tolower);
-
     string result;
     for (char c : message) {
         if (c != '\n') {
