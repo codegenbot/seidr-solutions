@@ -1,7 +1,7 @@
 ```
 #include <algorithm>
 #include <iostream>
-#include <cassert>
+
 using namespace std;
 
 bool issame(vector<int> a,vector<int>b){
@@ -12,9 +12,9 @@ bool issame(vector<int> a,vector<int>b){
 }
 
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.end());
-    sort(result.rbegin(), result.rend());
-    return vector<int>(result.begin(), result.begin()+k);
+    vector<int> result(arr.begin(), arr.begin() + k);
+    sort(result.begin(), result.end());
+    return result;
 }
 
 int main() {
