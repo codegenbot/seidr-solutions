@@ -1,6 +1,5 @@
 import math
 
-
 def max_fill(grid, capacity):
     total_water = sum(sum(row) for row in grid)
-    return max(math.ceil(total_water / capacity), 1)
+    return max(math.ceil(total_water / capacity), 1)  # Ensure at least 1 tank is used
