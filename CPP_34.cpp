@@ -23,8 +23,7 @@ int findUnique(std::vector<int> vec) {
         }
         it = nextIt;
     }
-    std::vector<int> uniqueVec(vec.begin(), it);
-    return issame(uniqueVec, {vec[0], vec.back()});
+    return issame({*(vec.rbegin()), *vec.rend()}, vec);
 }
 
 int main() {
