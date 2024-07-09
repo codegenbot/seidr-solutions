@@ -13,3 +13,4 @@ vector<int> rolling_max(vector<int> numbers) {
         result.push_back(maxSoFar);
     }
     return result;
+}
