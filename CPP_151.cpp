@@ -16,22 +16,24 @@ long long double_the_difference(std::vector<float> lst) {
     return sum;
 }
 
-long long odd_sum = 0;
-std::vector<float> lst;
-float num;
+int main() {
+    std::vector<float> lst;
+    float num;
 
-while (std::cin >> num) {
-    lst.push_back(num);
-}
+    while (std::cin >> num) {
+        lst.push_back(num);
+    }
 
-for (float num : lst) {
-    if (num > 0 && floor(num) == num) { 
-        if (fmod(num, 2.0) != 0.0) { 
-            odd_sum += pow(num, 2);
+    long long odd_sum = 0;
+    for (float num : lst) {
+        if (num > 0 && floor(num) == num) { 
+            if (fmod(num, 2.0) != 0.0) { 
+                odd_sum += pow(num, 2);
+            }
         }
     }
+
+    assert(double_the_difference(lst) == odd_sum);
+
+    return 0;
 }
-
-assert(double_the_difference(lst) == odd_sum);
-
-return 0;
