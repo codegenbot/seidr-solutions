@@ -1,4 +1,3 @@
-```
 #include <vector>
 using namespace std;
 
@@ -11,6 +10,6 @@ int basement(vector<int>& v) {
     return -1;
 }
 
-int main(int argc, char* argv[]) { 
-    return basement({-2,1,3,-5,4,-1,2,1,-5,4}); 
+int main(int argc, char* argv[]) {
+    return basement({-3,2,-5,4,-9});
 }
