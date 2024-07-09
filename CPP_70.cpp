@@ -26,7 +26,7 @@ int main() {
     
     std::vector<int> output = strange_sort_list(input);
     
-    if (output == {1,2,3,4,5,6}) {
+    if (output == std::vector<int>({1,2,3,4,5,6})) {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
