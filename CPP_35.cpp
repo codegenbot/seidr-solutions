@@ -2,16 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-int main() {
-    std::vector<int> v;
-    int n;
-    while (true) {
-        std::cout << "Enter a number (or -1 to finish): ";
-        std::cin >> n;
-        if (n == -1)
-            break;
-        v.push_back(n);
-    }
-    std::cout << *std::max_element(v.begin(), v.end()) << std::endl;
+int maxFunc() {
+    std::vector<int> numbers = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    std::cout << *std::max_element(numbers.begin(), numbers.end()) << std::endl;
     return 0;
 }
