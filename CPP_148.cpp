@@ -28,4 +28,3 @@ vector<string> bf(string planet1, string planet2) {
 int main() {
     assert (issame(bf("Jupiter", "Makemake") , {"The two planets are different."}));
     return 0;
-}
