@@ -1,5 +1,6 @@
-#include <vector>
+```
 #include <set>
+#include <vector>
 #include <string>
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
