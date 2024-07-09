@@ -21,8 +21,8 @@ vector<string> sorted_list_sum(vector<string> lst) {
 
 int main() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> result = sorted_list_sum(input);
-    for (const string& str : result) {
+    vector<string> output = sorted_list_sum(input);
+    for (const string& str : output) {
         cout << str << endl;
     }
 }
