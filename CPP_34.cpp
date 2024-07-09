@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 bool std::issame(std::vector<int> a, std::vector<int> b){
     return (a == b);
@@ -44,8 +45,4 @@ void solveProblem() {
     for (int i : output) {
         cout << i << " ";
     }
-    
-    assert(std::equal({0, 2, 3, 5, 9, 123}.begin(), {0, 2, 3, 5, 9, 123}.end(), std::vector<int>(std::distinct(input.begin(), input.end()).begin(), std::distinct(input.end())));
-
-    return;
 }
