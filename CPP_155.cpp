@@ -19,7 +19,7 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    std::vector<int> result = even_odd_count(12345);
+    std::vector<int> result = even_odd_count(1234);
     for (int x : result) {
         std::cout << x << " ";
     }
