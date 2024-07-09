@@ -1,4 +1,5 @@
 #include <vector>
+
 int count_nums(vector<int> nums) {
     int count = 0;
     for (auto num : nums) {
