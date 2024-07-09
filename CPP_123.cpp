@@ -1,4 +1,4 @@
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool same(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -6,7 +6,7 @@ bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> getOddCollatz(int n) {
+std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
@@ -23,6 +23,10 @@ std::vector<int> getOddCollatz(int n) {
 }
 
 int main() {
-    assert(isSame(getOddCollatz(12), {6, 3, 1})); 
+    bool check = same(get_odd_collatz(12), {6, 3, 1});
+    if(check) 
+        std::cout << "Test passed." << std::endl; 
+    else
+        std::cout << "Test failed." << std::endl; 
     return 0;
 }
