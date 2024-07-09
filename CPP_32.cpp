@@ -8,9 +8,10 @@ double poly(vector<double> xs, double x) {
 }
 
 double find_zero(vector<double> xs){
-    double root = -xs[1]/(2*xs[0]);
+    vector<double> coeffs = {1,xs[0],xs[1]};
+    double root = -coeffs[1]/(2*coeffs[0]);
     
-    if (poly({xs[0], 1},root) < 0)
+    if (poly(coeffs,root) < 0)
         return root;
     else
         return -1.0; 
