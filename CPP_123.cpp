@@ -1,6 +1,22 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <iostream>
+
+std::vector<int> get_odd_collatz(int num) {
+    if (num % 2 != 0)
+        return {1};
+    else if (num == 1)
+        return {};
+    
+    int temp = num;
+    std::vector<int> sequence;
+    while (temp > 1) {
+        if (temp % 2 != 0)
+            sequence.push_back(temp);
+        temp /= 2;
+    }
+    sequence.push_back(1);
+    return sequence;
+}
 
 bool sequenceEqual(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
@@ -14,27 +30,9 @@ bool sequenceEqual(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-void get_odd_collatz(int num) {
-    std::vector<int> sequence;
-    while(num != 1) {
-        if(num % 2 == 0)
-            num = num / 2;
-        else
-            num = 3 * num + 1;
-        sequence.push_back(num);
-    }
-    sequence.push_back(1); // add the last element to the sequence
-    
-    for(int i : sequence)
-        std::cout << i << " ";
-    std::cout << std::endl;
-}
-
 int main() {
     int num;
     std::cin >> num;
-    get_odd_collatz(num);
-    assert(sequenceEqual(get_odd_collatz(1), {1}));
-    std::cout << "Hello World!" << std::endl;
-    return 0;
+    std::vector<int> result = get_odd_collatz(num);
+    assert(sequenceEqual(result, {1}));  
 }
