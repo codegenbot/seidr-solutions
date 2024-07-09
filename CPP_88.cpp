@@ -1,39 +1,33 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
+using namespace std;
 
-bool issame(int x, int y) {
-    if (x == y)
-        return true;
-    else
-        return false;
+bool issame(vector<int>& v1,vector<int>& v2){
+    return (v1.size() == v2.size()) && equal(v1.begin(),v1.end(),v2.begin());
 }
 
-std::vector<int> sort_array(std::vector<int> array) {
+vector<int> sort_array(vector<int>& array) {
     int sum = 0;
-    for(int i=0; i<array.size(); i++)
+    for(int i = 0; i < array.size(); i++)
         sum += array[i];
     
-    if (sum % 2 == 0) {
-        std::sort(array.begin(), array.end(), greater<int>());
-    } else {
-        std::sort(array.begin(), array.end());
+    if(sum % 2 == 0){
+        sort(array.begin(), array.end(), greater<int>());
+    }
+    else{
+        sort(array.begin(), array.end());
     }
     return array;
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> array(n);
-    for(int i=0; i<n; i++) {
-        std::cin >> array[i];
-    }
-
+    vector<int> v1 = {4, 3};
+    vector<int> v2 = {1, 5};
+    
+    if(issame(v1,v2))
+        cout<<"Vectors are same\n";
+    else
+        cout<<"Vectors are not same\n";
+    vector<int> array = {10,7,8,9,1,6,4,3,2,5};
     sort_array(array);
-
-    for(auto x:array)
-        std::cout << x << " ";
     return 0;
 }
