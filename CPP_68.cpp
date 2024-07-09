@@ -1,5 +1,7 @@
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
+Here is the completed code:
+
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     if (arr.empty()) return result;
 
     int minEven = INT_MAX;
@@ -12,6 +14,8 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
 
-    result.push_back({minEven, minIndex});
+    result.push_back(minEven);
+    result.push_back(minIndex);
+
     return result;
 }
