@@ -1,6 +1,5 @@
-```c++
 #include <algorithm>
-#include <limits>
+#include <numeric>
 
 vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
