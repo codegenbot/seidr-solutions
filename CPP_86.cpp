@@ -17,7 +17,9 @@ string anti_shuffle(string s) {
                 j++;
             }
             sort(word.begin(), word.end());
-            result += word;
+            for (char c : word) {
+                result += c;
+            }
         }
     }
     return result;
