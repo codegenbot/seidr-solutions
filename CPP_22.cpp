@@ -1,17 +1,25 @@
-#include <vector>
-#include <any>
+int main 
+{ 
+    int num1, num2; 
+    std::cout << "Enter two numbers: ";
+    std::cin >> num1 >> num2;
+    
+    std::vector<int> vector1 = {num1};
+    std::vector<int> vector2 = {num2};
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> filter_integers(std::vector<std::any> values) {
-    std::vector<int> result;
-    for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            int i = std::any_cast<int>(value);
-            result.push_back(i);
-        }
+    if(isSame(vector1, vector2)) {
+        std::cout << "Vectors are same." << std::endl; 
     }
-    return result;
+    else {
+        std::cout << "Vectors are not same." << std::endl;
+    }
+
+    std::vector<std::any> values = {1, 2.0, 3, 4.5};
+    std::vector<int> filtered = filterIntegers(values);
+    for (const auto& value : filtered) {
+        std::cout << value << " ";
+    }
+    std::cout << std::endl;
+    
+    return 0;
 }
