@@ -1,20 +1,18 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
-std::vector<int> unique_digits(std::vector<int> x){
-    std::vector<int> result;
+vector<int> unique_digits(vector<int> x){
+    vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
@@ -29,11 +27,16 @@ std::vector<int> unique_digits(std::vector<int> x){
             result.push_back(num);
         }
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    // Your main function logic here
+    // Example usage
+    vector<int> input = {123, 456, 789};
+    vector<int> output = unique_digits(input);
+    for (int num : output) {
+        cout << num << " ";
+    }
     return 0;
 }
