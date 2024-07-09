@@ -1,7 +1,5 @@
 #include <iostream>
 
-bool is_happy(int n);
-
 bool is_happy(int n) {
     if (n < 1) return false;
     while (n > 1) {
@@ -16,7 +14,7 @@ bool is_happy(int n) {
     return n == 1;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
