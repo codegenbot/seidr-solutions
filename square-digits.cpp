@@ -6,12 +6,8 @@ using namespace std;
 string squareDigits(string input) {
     string output;
     for (char c : input) {
-        if (isdigit(c)) {
-            int digit = c - '0';
-            output += to_string(digit * digit);
-        } else {
-            output += c;  
-        }
+        int digit = c - '0';
+        output += to_string(digit * digit);
     }
     return output;
 }
@@ -22,11 +18,11 @@ int main() {
     getline(cin, input); 
     if(input.length() == 0) {
         cout << "Error: Input cannot be an empty string." << endl;
-        return -1; // or any other appropriate error handling.
-    }
+        return -1; 
+    } 
     try {
         string output = squareDigits(input);
-        cout << "Squared digits: " << output << endl;
+        cout << "Squared digits: " << squareDigits(input) << endl;
     } catch (const exception& e) {
         cerr << "Error: " << e.what() << endl;
     }
