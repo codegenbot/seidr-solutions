@@ -1,20 +1,48 @@
-```
 def evaluate_expression(expression):
-    if "T" in expression:
-        expression = expression.replace("T", "True")
-    if "F" in expression:
-        expression = expression.replace("F", "False")
+    while "(" in expression and ")" in expression:
+        start = expression.index("(")
+        end = expression.index(")")
+        expression = (
+            str(evaluate_expression(expression[:start]))
+            + ") "
+            + str(evaluate_expression(expression[start + 1 : end].strip()))
+            + " "
+        )
 
-    if "&" in expression:
-        return ((evaluate_expression(expression.split("&")[0]) and 
-                evaluate_expression(expression.split("&")[1])) == True)
-    elif "|" in expression:
-        return ((evaluate_expression(expression.split("|")[0]) or 
-                evaluate_expression(expression.split("|")[1])) == True)
-    else:
-        if expression.lower() == "t":
-            return True
-        elif expression.lower() == "f":
-            return False
+    while "&" in expression:
+        left, right = expression.split("&", 1)
+        if left == "T":
+            left = True
+        elif left == "F":
+            left = False
         else:
-            raise Exception("Invalid Boolean expression")
+            left = evaluate_expression(left) is not False
+
+        if right == "T":
+            right = True
+        elif right == "F":
+            right = False
+        else:
+            right = evaluate_expression(right) is not False
+
+        expression = str(left) + " and " + str(right)
+
+    while "|" in expression:
+        left, right = expression.split("|", 1)
+        if left == "T":
+            left = True
+        elif left == "F":
+            left = False
+        else:
+            left = evaluate_expression(left) is not False
+
+        if right == "T":
+            right = True
+        elif right == "F":
+            right = False
+        else:
+            right = evaluate_expression(right) is not False
+
+        expression = str(left) + " or " + str(right)
+
+    return eval("Boolean(" + str(expression).replace("True", "1").replace("False", "0") + ")")
