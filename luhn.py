@@ -1,4 +1,10 @@
 def luhn(card):
-    card = [int(x) for x in str(card)]
-    total = sum(2 * x if i % 2 else x for i, x in enumerate(reversed(card)))
-    return str((total - 9 * (total // 9)) % 10)
+    card = [int(x) for x in str(card).split()]
+    checksum = 0
+    for i, n in enumerate(card):
+        if (i % 2) == 1:
+            n *= 2
+            if n > 9:
+                n -= 9
+        checksum += n
+    return checksum
