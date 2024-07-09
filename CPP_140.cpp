@@ -29,4 +29,5 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, text);
     std::cout << "Fixed string: " << fix_spaces(text) << std::endl;
+    return 0;
 }
