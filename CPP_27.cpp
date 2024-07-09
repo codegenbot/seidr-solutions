@@ -1,12 +1,17 @@
-string flip_case(string str){
-    string result = "";
+```cpp
+#include <string>
+#include <cctype>
+
+std::string flip_case(std::string str){
+    std::string result = "";
     for(int i=0; i<str.length(); i++){
-        if(str[i] >= 'a' && str[i] <= 'z')
-            result += toupper(str[i]);
-        else if(str[i] >= 'A' && str[i] <= 'Z')
-            result += tolower(str[i]);
+        char ch = str[i];
+        if(ch >= 'a' && ch <= 'z')
+            result += toupper(ch);
+        else if(ch >= 'A' && ch <= 'Z')
+            result += tolower(ch);
         else
-            result += str[i];
+            result += ch;
     }
     return result;
 }
