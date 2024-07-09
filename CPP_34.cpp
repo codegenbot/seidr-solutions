@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,7 +8,7 @@ using namespace std;
 vector<int> unique(vector<int> l) {
     vector<int> result;
     result.reserve(l.size());
-    auto it = unique_copy(l.begin(), l.end(), back_inserter(result));
+    auto it = unique_copy(l.begin(), l.end(), result.end());
     return result;
 }
 
