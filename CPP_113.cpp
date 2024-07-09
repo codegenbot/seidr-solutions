@@ -1,27 +1,38 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <cassert>
 
 using namespace std;
 
-vector<string> countOddElements(vector<string> lst) {
+vector<string> odd_count(vector<string> lst) {
     vector<string> result;
-    for (string str : lst) {
-        int oddCount = 0;
-        for (char c : str) {
+    for (string s : lst) {
+        int odd_count = 0;
+        for (char c : s) {
             if ((c - '0') % 2 != 0) {
-                oddCount++;
+                odd_count++;
             }
         }
-        result.push_back("The number of odd elements " + to_string(oddCount) + " in the string \"" + str + "\" of the input.");
+        string new_str = "the number of odd elements " + to_string(odd_count) + " in the string " + s + " of the input.";
+        result.push_back(new_str);
     }
     return result;
 }
 
-int main() {
-    vector<string> input = {"271", "137", "314"};
-    vector<string> output = countOddElements(input);
-    for (string s : output) {
-        cout << s << endl;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
+    return true;
+}
+
+int main() {
+    assert(issame(odd_count({"271", "137", "314"}),
+            {"the number of odd elements 2 in the string 271 of the input.",
+             "the number of odd elements 2 in the string 137 of the input.",
+             "the number of odd elements 2 in the string 314 of the input."}));
+    cout << "All test cases passed successfully!" << endl;
     return 0;
 }
