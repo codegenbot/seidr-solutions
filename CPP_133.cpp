@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <cassert>
 
 int sum_squares(double arr[], int n){
     int total = 0;
@@ -20,15 +22,9 @@ int main(){
     std::cout << "Sum of squares: " << result << std::endl;
     
     // Add this assert statement if you want to test the function
-    assert (sum_squares(testArray,n) == 14);
+    int nTest = 3;
+    double testArrayTest[] = {-1.0,1.0,0.0};
+    assert (sum_squares(testArrayTest,nTest) == 2);
 
-    return 0;
-}
-
-int mainTest(){
-    double testArray[] = {-1, 1, 0};
-    int n = sizeof(testArray)/sizeof(testArray[0]);
-    int result = sum_squares(testArray, n);
-    assert (result == 2);
     return 0;
 }
