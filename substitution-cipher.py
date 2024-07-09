@@ -1,17 +1,18 @@
-```
-key1 = input("Enter the first key string: ")
-key2 = input("Enter the second key string: ")
+key1 = sorted(input("Enter the first key string: ").lower())
+key2 = sorted(input("Enter the second key string: ").lower())
 
-key1 = key1.lower()
-key2 = key2.lower()
+cipher_dict = {}
+for char1, char2 in zip(key1, key2):
+    cipher_dict[char1] = char2
 
-cipher_dict = {c: k for c, k in zip(key1, key2)}
 result = ""
 message = input("Enter the message to decipher: ")
 for char in message:
-    if char in cipher_dict:
-        result += cipher_dict[char]
-    else:
-        result += char
+    if char.lower() in cipher_dict.values():
+        for k, v in cipher_dict.items():
+            if v == char.lower():
+                result += k
+            else:
+                result += char
 
 print(result)
