@@ -13,9 +13,9 @@ int fizz_buzz(int n) {
 }
 
 int main() {
-    int n;
+    int num;
     cout << "Enter a number: ";
-    cin >> n;
-    cout << "The result is: " << fizz_buzz(n);
+    cin >> num;
+    cout << "The result is: " << fizz_buzz(num) << endl;
     return 0;
 }
