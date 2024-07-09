@@ -20,4 +20,3 @@ vector<int> result;
         }
     }
     return result;
-}
