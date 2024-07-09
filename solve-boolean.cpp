@@ -1,7 +1,10 @@
-#include <bits/stdc++.h>
-using namespace std;
+```c++
+#include <iostream>
+#include <string>
 
-bool solveBoolean(const string& s) {
+std::string input; // Declare input globally
+
+bool solveBoolean(const std::string& s) {
     bool result = true;
     size_t i = 0;
 
@@ -10,6 +13,40 @@ bool solveBoolean(const string& s) {
             result = true;
         } else if (s[i] == 'F') {
             result = false;
+        } else if (s[i] == '|') {
+            bool temp = result;
+            i++;
+            while (i < s.size() && s[i] != '|') {
+                if (s[i] == '&') {
+                    i++;
+                    while (i < s.size() && s[i] != '|') {
+                        if (s[i] == 'T') {
+                            result = temp;
+                        } else {
+                            result = !temp;
+                        }
+                        i++;
+                    }
+                } else {
+                    if (s[i] == 'T') {
+                        result = temp;
+                    } else {
+                        result = !temp;
+                    }
+                    i++;
+                }
+            }
+        } else if (s[i] == '&') {
+            bool temp = result;
+            i++;
+            while (i < s.size() && s[i] != '&') {
+                if (s[i] == 'T') {
+                    result = temp;
+                } else {
+                    result = !temp;
+                }
+                i++;
+            }
         }
         i++;
     }
@@ -17,14 +54,13 @@ bool solveBoolean(const string& s) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a Boolean expression: ";
-    getline(cin, input);
+    std::cout << "Enter a Boolean expression: ";
+    std::getline(std::cin, input); // Input goes here
     bool result = solveBoolean(input);
     if (result) {
-        cout << "The result is True." << endl;
+        std::cout << "The result is True." << std::endl;
     } else {
-        cout << "The result is False." << endl;
+        std::cout << "The result is False." << std::endl;
     }
     return 0;
 }
