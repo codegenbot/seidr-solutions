@@ -1,3 +1,4 @@
+```
 def solution():
     s = "Enter numbers separated by space: "
     lst = list(map(int, input(s).split()))
