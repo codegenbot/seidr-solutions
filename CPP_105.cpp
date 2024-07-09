@@ -1,43 +1,76 @@
-```cpp
+#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
-std::vector<std::string> by_length(const std::vector<int>& input) {
-    vector<string> output;
-    for (int num : input) {
-        if (num >= 1 && num <= 9) {
-            string str = to_string(num);
-            while (str.size() < 2) {
-                str = "0" + str;
-            }
-            output.push_back(str);
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    return output;
+    return true;
 }
 
-int main() {
-    vector<int> input;
-    cout << "Enter the numbers: ";
-    int num;
-    while (cin >> num) {
-        if (num >= 1 && num <= 9) {
-            input.push_back(num);
-        }
-        else {
-            break;
+vector<string> by_length(vector<int> arr, vector<string> b) {
+    vector<int> temp;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9) {
+            temp.push_back(i);
         }
     }
-    vector<string> output = by_length(input);
+
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
+
+    vector<string> result;
+    for (int i : temp) {
+        switch (i) {
+            case 1:
+                result.push_back("One");
+                break;
+            case 2:
+                result.push_back("Two");
+                break;
+            case 3:
+                result.push_back("Three");
+                break;
+            case 4:
+                result.push_back("Four");
+                break;
+            case 5:
+                result.push_back("Five");
+                break;
+            case 6:
+                result.push_back("Six");
+                break;
+            case 7:
+                result.push_back("Seven");
+                break;
+            case 8:
+                result.push_back("Eight");
+                break;
+            case 9:
+                result.push_back("Nine");
+                break;
+        }
+    }
+
+    return result;
+}
+
+int main_1() {
+    vector<int> input = {9, 4, 8};
+    vector<string> output = by_length(input, {""});
     
-    if (issame({"Nine", "Eight", "Four"}, output)) {
+    if (issame({"Nine", "Four", "Eight"}, output)) {
         for (string str : output) {
             cout << str << endl;
         }
+    } else {
+        cout << "Output is incorrect." << endl;
     }
-    return 0;
 }
