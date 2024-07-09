@@ -1,10 +1,20 @@
-vector<int> common(vector<int> l1, vector<int> v2) {
-    set<int> s1(l1.begin(), l1.end());
-    set<int> s2(v2.begin(), v2.end());
+#include <vector>
+#include <set>
 
-    set<int> common_result;  
-    common_result = set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-        inserter(common_result, common_result.begin()));
-    vector<int> result_vector(common_result.begin(), common_result.end());
-    return result_vector;
+bool isSameSet(std::pmr::vector<int> a, std::pmr::vector<int> b) {
+    std::set<int> setA(a.begin(), a.end());
+    std::set<int> setB(b.begin(), b.end());
+    return setA == setB;
+}
+
+int main() {
+    std::pmr::vector<int> l1 = {1,2,3};
+    std::pmr::vector<int> v2 = {4,5,6};
+    bool result = isSameSet(l1, v2);
+    if(result) {
+        std::cout << "The sets are same." << std::endl;
+    } else {
+        std::cout << "The sets are not same." << std::endl;
+    }
+    return 0;
 }
