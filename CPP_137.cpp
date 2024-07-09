@@ -23,9 +23,9 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
             return b;
     }
     else if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
-        if (get<string>(a) > get<string>(b))
+        if (stof(get<string>(a)) > stof(get<string>(b)))
             return a;
-        else if (get<string>(a) < get<string>(b))
+        else if (stof(get<string>(a)) < stof(get<string>(b)))
             return b;
     }
     return {};
@@ -34,7 +34,7 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
 int main() {
     assert(compare_one(string("1"), string("2")) == string("2"));
     assert(compare_one(10, 5) == 10);
-    assert(compare_one(string("1"), string("1")) == string("None"));
+    assert(boost::any_cast<string>(compare_one(string("1"), string("1"))) == "None");
 
     return 0;
 }
