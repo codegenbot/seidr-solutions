@@ -1,4 +1,11 @@
-float hypo = max(max(a, b), c);
-    float sum_squares = (a * a) + (b * b) + (c * c) - (hypo * hypo);
-    return sum_squares == (hypo * hypo);
+if(pow(a, 2) + pow(b, 2) == pow(c, 2) ||
+       pow(b, 2) + pow(c, 2) == pow(a, 2) ||
+       pow(c, 2) + pow(a, 2) == pow(b, 2))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
