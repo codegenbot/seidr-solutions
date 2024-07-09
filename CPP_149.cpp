@@ -1,8 +1,8 @@
+```
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <initializer_list>
-#include <iostream>
 
 using namespace std;
 
@@ -30,11 +30,9 @@ int main() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
     vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
 
-    if (input == expected) {
+    if (sorted_list_sum(input) == expected) {
         cout << "The lists are the same." << endl;
     } else {
         cout << "Error: The lists are not the same." << endl;
     }
-
-    return 0;
 }
