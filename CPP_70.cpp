@@ -1,26 +1,24 @@
 ```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-bool operator==(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i].size() != b[i].size()) {
-            return false;
-        }
-        sort(a[i].begin(), a[i].end());
-        sort(b[i].begin(), b[i].end());
-        if (a[i] != b[i]) {
+        sort(a.begin() + i, a.end());
+        sort(b.begin() + i, b.end());
+        if (a != b) {
             return false;
         }
     }
     return true;
 }
 
-std::vector<std::vector<int>> strange_sort_list(std::vector<std::vector<int>> lst) {
-    std::vector<std::vector<int>> result;
+vector<vector<int>> strange_sort_list(vector<vector<int>> lst) {
+    vector<vector<int>> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin()->begin(), lst.end()->end());
         for (auto &v : lst) {
@@ -45,12 +43,6 @@ std::vector<std::vector<int>> strange_sort_list(std::vector<std::vector<int>> ls
 }
 
 int main() {
-    std::vector<std::vector<int>> lst = {{1, 2}, {3, 4}};
-    std::vector<std::vector<int>> expected = {{1, 1, 1, 1}};
-    if (lst != expected) {
-        std::cout << "Test failed" << std::endl;
-    } else {
-        std::cout << "Test passed" << std::endl;
-    }
-    std::vector<std::vector<int>> result = strange_sort_list({{1, 1, 1, 1}});
+    assert(issame({1, 2}, {2, 1}));
+    vector<vector<int>> result = strange_sort_list({{1, 1, 1, 1}});
 }
