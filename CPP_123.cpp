@@ -13,7 +13,7 @@ bool areSequencesEqual(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-void get_odd_collatz(int n) {
+int get_odd_collatz(int n) {
     std::vector<int> sequence;
     
     while(n != 1) {
@@ -32,9 +32,13 @@ void get_odd_collatz(int n) {
     std::cout << std::endl;
 }
 
-int main() {
+void testFunction() {
     int num;
     std::cin >> num;
     get_odd_collatz(num);
-    assert(areSequencesEqual({1}, {1}));
+    assert(areSequencesEqual({num}, get_odd_collatz(num)));
+}
+
+int main() {
+    testFunction();
 }
