@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <map>
 #include <string>
@@ -10,8 +9,10 @@ bool check_dict_case(map<string,string> dict){
     
     auto [key, _] = *dict.begin();
     
+    string first_key = key;
+    
     for(auto it = dict.begin(); it != dict.end(); ++it){
-        if(std::toupper(key[0]) != std::toupper(it->first[0])) return false;
+        if(std::toupper(first_key[0]) != std::toupper(it->first[0])) return false;
     }
     
     return true;
