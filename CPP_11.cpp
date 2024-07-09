@@ -25,8 +25,10 @@ int main() {
         std::cout << "Enter the second string: ";
         std::getline(std::cin, str2);
 
-        str1.resize(str1.length());
-        str2.resize(str2.length());
+        if (!str1.empty() && !str2.empty()) {  
+            str1.pop_back(); 
+            str2.pop_back();
+        }
 
         try {
             std::string result = string_xor(str1, str2);
