@@ -15,6 +15,8 @@ std::string filp_case(std::string& str) {
 }
 
 int main() {
-    std::cout << filp_case("These violent delights have violent ends") << std::endl;
+    std::string input;
+    std::getline(std::cin, input);
+    std::cout << filp_case(input) << std::endl;
     return 0;
 }
