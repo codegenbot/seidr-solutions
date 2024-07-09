@@ -1,4 +1,4 @@
-double find_zero(vector<double> coeffs, int ncoeff) {
-    double x = -coeffs[1]/(2*abs(coeffs[1]));
-    return poly(coeffs, x, ncoeff);
+double find_zero(vector<double> xs){
+    double x = -xs[1]/(2*abs(xs[1]));
+    return poly(xs,x);
 }
