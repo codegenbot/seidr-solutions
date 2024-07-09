@@ -7,6 +7,10 @@ bool isSame(const std::set<std::string>& s1, const std::set<std::string>& s2) {
     return s1 == s2;
 }
 
+bool sameSets(const std::set<std::string>& a, const std::set<std::string>& b) {
+    return a.size() == b.size() && isSame(a, b);
+}
+
 void solveProblem() {
     std::set<std::string> s1;
     std::set<std::string> s2;
@@ -58,7 +62,7 @@ void solveProblem() {
     }
     std::cout << "\n";
 
-    if(isSame(s1, s2)) {
+    if(sameSets(s1, s2)) {
         std::cout << "Sets are same.\n";
     } else {
         std::cout << "Sets are not same.\n";
