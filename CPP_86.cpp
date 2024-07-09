@@ -1,28 +1,18 @@
+```
 #include <iostream>
 #include <string>
 
 std::string anti_shuffle(std::string s) {
-    int left = 0;
-    int right = s.length() - 1;
-
-    while (left < right) {
-        if (left % 2 == 0) {
-            std::swap(s[left], s[right]);
-            left++;
-            right--;
-        } else {
-            left++;
+    std::string res = ""; // Initialize res as an empty string.
+    for (int i = 0; i < s.length(); i++) {
+        if (i % 2 != 0) {
+            res += s[i];  
         }
     }
-
-    return s;
+    return res;
 }
 
-int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);  
-    std::string res = anti_shuffle(str);
-    std::cout << "Anti-Shuffled String: " << res << std::endl;
-    return 0;
-}
+std::cout << "Enter a string: ";
+std::getline(std::cin, str);  
+std::string res = anti_shuffle(str);
+std::cout << "Anti-Shuffled String: " << res << std::endl;
