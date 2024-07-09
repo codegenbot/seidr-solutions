@@ -1,4 +1,3 @@
-```Python
 def middle_character(s):
     s = ''.join(filter(str.isalnum, s))
     length = len(s)
