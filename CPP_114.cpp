@@ -1,20 +1,18 @@
 #include <iostream>
 #include <vector>
-#include <limits>
-
 using namespace std;
 
 long long minSubArraySum(vector<long long> nums) {
-    long long min_sum = numeric_limits<long long>::max(); // Initialize minimum sum as maximum possible value
+    long long min_sum = INT_MAX; 
     long long current_sum = 0;
     
     for(long long num : nums){ 
         current_sum += num;
         
-        if(current_sum < min_sum) // Update the minimum sum
+        if(current_sum < min_sum)
             min_sum = current_sum;
         
-        if(current_sum > 0) // Reset current sum to 0 when it becomes positive
+        if(current_sum > 0)
             current_sum = 0;    
     }
     
@@ -22,7 +20,12 @@ long long minSubArraySum(vector<long long> nums) {
 }
 
 int main() {
-    vector<long long> nums = {2,3,-1,5,-7,2,3};
-    cout << "The minimum sum of a subarray is: " << minSubArraySum(nums) << endl;
+    int n;
+    cin >> n;
+    vector<long long> nums(n);
+    for(int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+    cout << minSubArraySum(nums) << endl;
     return 0;
 }
