@@ -1,7 +1,7 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-int basement(std::vector<int> nums) {
+int basement(vector<int> nums) {
     int total_sum = 0;
     int idx = -1; 
     for (int i = 0; i < nums.size(); i++) {
@@ -14,6 +14,5 @@ int basement(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {-5, 1, -3, 4, -2};
-    return basement(nums);
+    cout << basement({-5, 1, -3, 4, -2}) << endl;
 }
