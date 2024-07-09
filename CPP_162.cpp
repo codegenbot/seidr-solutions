@@ -1,3 +1,4 @@
+```cpp
 #include <openssl/evp.h>
 #include <iostream>
 #include <string>
@@ -11,10 +12,10 @@ std::string string_to_md5(std::string text) {
     EVP_MD_CTX_init(&ctx);
     const char* p = text.c_str();
     while (*p) {
-        EVP_DigestUpdate(&ctx, p, 1);
+        EVP_DigestUpdate(&ctx, &(*p), 1);
         p++;
     }
-    EVP_DigestFinal(&ctx, md5, nullptr);
+    EVP_DigestFinal(ctx, md5, NULL);
 
     std::string result(32, '0');
     for (int i = 0; i < 16; ++i) {
@@ -23,6 +24,7 @@ std::string string_to_md5(std::string text) {
         result.replace(i*2, 2, buf);
     }
     
+    EVP_MD_CTX_cleanup(&ctx);
     return result;
 }
 
