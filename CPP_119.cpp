@@ -22,7 +22,7 @@ std::string match_parens(std::vector<std::string> lst) {
 }
 
 int main() {
-    std::vector<std::string> lst = {"(())", "()("};
-    std::cout << match_parens(lst);
+    std::vector<std::string> lst = {"())(", "(())"};
+    cout << match_parens(lst);
     return 0;
 }
