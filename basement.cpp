@@ -2,17 +2,14 @@
 using namespace std;
 
 int basement(vector<int>& v) {
+    int sum = 0;
     for (int i = 0; i < v.size(); i++) {
-        int sum = 0;
-        for (int j = 0; j <= i; j++) {
-            sum += v[j];
-            if (sum < 0) return j;
-        }
+        sum += v[i];
+        if (sum < 0) return i;
     }
     return -1;
-
 }
 
-int main() {
-    return 0;
+int main(int argc, char* argv[]) {
+    return basement({-3,2,-5,4,-9});
 }
