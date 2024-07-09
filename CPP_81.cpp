@@ -1,11 +1,7 @@
-#include <vector>
-#include <string>
-
 using namespace std;
 
-namespace std {
-    #include <initializer_list>
-}
+#include <vector>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
