@@ -1,10 +1,11 @@
 #include <vector>
-#include <climits> // Include for INT_MAX
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
-std::vector<int> pluck(std::vector<int> arr){
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr){
+    vector<int> result;
     int min_even = INT_MAX;
     int min_index = INT_MAX;
     
@@ -21,12 +22,4 @@ std::vector<int> pluck(std::vector<int> arr){
     }
     
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
-int main(){
-    assert(issame(pluck({7, 9, 7, 1}), {}));
 }
