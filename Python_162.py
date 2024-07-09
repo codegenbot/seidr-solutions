@@ -6,6 +6,6 @@ def string_to_md5(input_str):
     except UnicodeDecodeError:
         return hashlib.md5(input_str.strip().encode('latin-1')).hexdigest()
 
-input_str = input("Enter a string: ")
+input_str = input().strip()
 result = string_to_md5(input_str)
 print(result)
