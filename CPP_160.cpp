@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <cstdlib>
@@ -43,6 +42,6 @@ int main() {
     vector<string> operators = {"//", "*"};
     vector<int> operands = {7, 3, 4};
     int result = do_algebra(operators, operands);
-    assert(result == 8); // test the function
+    assert(result == 8); 
     return 0;
 }
