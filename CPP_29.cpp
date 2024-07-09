@@ -1,24 +1,21 @@
-```c++
+#include <vector>
+#include <string>
+
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size())
         return false;
-    for(int i=0; i<a.size(); i++){
-        bool flag = true;
-        size_t pos = 0;
-        while(pos < a[i].size()){
-            if(pos < b[i].size() && a[i][pos] == b[i][pos])
-                pos++;
-            else{
-                flag = false;
-                break;
-            }
-        }
-        if(!flag)
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i])
             return false;
     }
     return true;
 }
 
-int main(){
-    // your code here
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
+    for (const auto& str : strings) {
+        if (str.find(prefix) == 0)
+            result.push_back(str);
+    }
+    return result;
 }
