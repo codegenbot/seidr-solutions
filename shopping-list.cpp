@@ -18,7 +18,7 @@ int main() {
 
     float price, discount = 0;
     while (std::cin >> price >> discount) {
-        if(std::cin.fail()) { 
+        if (std::cin.fail()) { 
             break; 
         }
         discounts.push_back(discount / 100.0);
