@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 bool isPrime(int num) {
@@ -12,18 +11,13 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
-    int fibNum = 0, prevFibNum = 1, count = 0;
-    while (true) {
-        int temp = fibNum + prevFibNum;
-        if (isPrime(temp)) {
-            fibNum = prevFibNum;
-            prevFibNum = temp;
-            count++;
-            if (count == n)
-                return temp;
-        }
-        else
-            prevFibNum = temp;
+    int a = 0, b = 1, fib = 0;
+    for (int i = 1; ; i++) {
+        fib = a + b;
+        a = b;
+        b = fib;
+        if (isPrime(fib) && ++i == n)
+            return fib;
     }
 }
 
