@@ -4,7 +4,9 @@
 #include <cassert>
 #include <cctype>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
 
 std::vector<std::string> select_words(std::string s, int n){
     std::vector<std::string> result;
@@ -28,8 +30,4 @@ std::vector<std::string> select_words(std::string s, int n){
         result.push_back(word);
     }
     return result;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return a == b;
 }
