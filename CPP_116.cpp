@@ -1,22 +1,30 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-std::vector<int> sort_array(std::vector<int> arr) {
-    std::sort(arr.begin(), arr.end(), [](int a, int b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
+}
+
+std::vector<int> sort_array(const std::vector<int>& arr) {
+    std::vector<int> sorted_arr = arr;
+    std::sort(sorted_arr.begin(), sorted_arr.end(), [](int a, int b) {
         int count_a = __builtin_popcount(a);
         int count_b = __builtin_popcount(b);
+
         if (count_a == count_b) {
             return a < b;
+        } else {
+            return count_a < count_b;
         }
-        return count_a < count_b;
     });
-    return arr;
+
+    return sorted_arr;
 }
 
 int main() {
-    assert(issame(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32}));
-    // Additional test cases can be added here
+    assert (issame(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32}));
+    
     return 0;
 }
