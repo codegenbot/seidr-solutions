@@ -1,13 +1,16 @@
-Here is the solution:
-
-long long minSubArraySum(vector<long long> nums) {
-    long long sum = 0, min_sum = LONG_LONG_MAX;
-    for (auto num : nums) {
-        sum += num;
-        if (sum < min_sum)
-            min_sum = sum;
-        if (sum > 0) 
-            sum = 0; // reset sum
+long long minSubArraySum(vector<long long> nums){
+    long long min_sum = INT_MAX; // Initialize minimum sum as maximum possible value
+    long long current_sum = 0;
+    
+    for(long long num : nums){ 
+        current_sum += num;
+        
+        if(current_sum < min_sum) // Update the minimum sum
+            min_sum = current_sum;
+        
+        if(current_sum > 0) // Reset current sum to 0 when it becomes positive
+            current_sum = 0;    
     }
+    
     return min_sum;
 }
