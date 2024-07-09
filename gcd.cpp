@@ -1,9 +1,7 @@
-Here is the modified code:
-```c++
+```
 #include <vector>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
