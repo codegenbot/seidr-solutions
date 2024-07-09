@@ -12,12 +12,12 @@ bool issame(vector<int> a,vector<int>b){
 }
 
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.begin() + min(k, arr.size()));
+    vector<int> result(arr.begin(), arr.end());
     sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7) , vector<int>{0,-23,-400,1,2,3,243}));
+    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 7) , {0,-23,-400,1,2,3,243}));
     return 0;
 }
