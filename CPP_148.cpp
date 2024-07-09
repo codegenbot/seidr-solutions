@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -10,7 +11,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    if (!issame(bf("Jupiter", "Makemake"), {{}})) {
+    if (!issame({""}, bf("Jupiter", "Makemake"))) {
         return 1; 
     }
     return 0;
