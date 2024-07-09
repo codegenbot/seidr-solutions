@@ -5,27 +5,29 @@ bool solveBoolean(const std::string& s) {
     while (i < s.length()) {
         if (s[i] == '&') {
             i++;
-            if (s[i] == '&') {
-                result &= (s[i++] == 'T');
+            if (s.substr(i, 1) == "T") {
+                result &= (s.substr(i, 1) == "T");
+                i++;
             } else if (s[i] == '|') {
                 result = false;
                 break;
             } else {
-                result &= (s[i] == 'T');
+                result &= (s.substr(i, 1) == "T");
                 i++;
             }
         } else if (s[i] == '|') {
             i++;
-            if (s[i] == '|') {
-                result |= (s[i++] == 'T');
+            if (s.substr(i, 1) == "|") {
+                result |= (s.substr(i + 1, 1) == "T");
+                i += 2;
             } else if (s[i] == '&') {
                 break;
             } else {
-                result |= (s[i] == 'T');
+                result |= (s.substr(i, 1) == "T");
                 i++;
             }
         } else {
-            result = (s[i] == 'T');
+            result = (s.substr(i, 1) == "T");
             i++;
         }
     }
