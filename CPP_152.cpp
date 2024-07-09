@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++){
@@ -11,7 +8,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+std::vector<int> compareVectors(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
@@ -42,10 +39,10 @@ int main() {
             guess.push_back(temp);
         }
     }
-    if(issame(game, guess)){
+    if(isSame(game, guess)){
         std::cout << "The two vectors are the same.\n";
     } else {
-        std::vector<int> result = compare(game, guess);
+        std::vector<int> result = compareVectors(game, guess);
         for(int i = 0; i < game.size(); i++){
             std::cout << "Element " << i+1 << ": ";
             if(result[i] == 0)
