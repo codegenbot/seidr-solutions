@@ -1,3 +1,3 @@
-path = []
-if path:
-    path.pop()
+path = []  
+if path:   
+    path.pop()  
