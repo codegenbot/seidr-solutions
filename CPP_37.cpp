@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -16,8 +15,8 @@ namespace myspace {
         int evenIndex = 0;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                auto it = std::minmax_element(l.begin(), l.end(),
-                    [](float a, float b){ return a<b; });
+                auto it = std::minmax_element(l.begin(), l.end(), 
+                                              [](float a, float b){return a>b;} );
                 result[i] = *(it.first);
                 for(int j = 0; j < l.size(); j++){
                     if(j%2==0 && l[j] != *(it.first)){
@@ -33,7 +32,7 @@ namespace myspace {
 }
 
 int main() {
-    std::vector<float> input(10);
+    std::vector<float> input(10); // or any other size that suits your needs
     input.push_back(5);
     input.push_back(8);
     input.push_back(-12);
