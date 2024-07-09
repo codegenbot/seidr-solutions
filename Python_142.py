@@ -1,4 +1,3 @@
-```
 def sum_squares():
     while True:
         try:
@@ -10,10 +9,13 @@ def sum_squares():
         except ValueError:
             print("Invalid input. Please enter numbers separated by spaces.")
 
-    result = sum((x**2 if i < len(lst) and (i % 3 == 0 and (i+1)%4 != 0) else 
-                  x**3 if i < len(lst)-2 and i%4 == 0 and (i+2)%3 != 0 else 
-                  x for i, x in enumerate(lst)) or [0])
+    result = sum(
+        (x**2 for x in lst)
+        if all(i % 3 == 0 or i % 4 != 0 for i, _ in enumerate(lst))
+        else sum((x if i % 2 == 0 else -x for i, x in enumerate(lst)))
+    )
 
     return result
+
 
 print(sum_squares())
