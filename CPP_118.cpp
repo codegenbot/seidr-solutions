@@ -1,4 +1,4 @@
-using namespace std;
+#include <string>
 
 string get_closest_vowel(string word) {
     int n = word.size();
