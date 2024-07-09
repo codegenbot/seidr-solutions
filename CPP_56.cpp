@@ -1,3 +1,5 @@
+#include <string>
+
 bool correct_bracketing(string brackets){
     int count = 0;
     for(int i=0; i<brackets.length(); i++){
@@ -10,4 +12,9 @@ bool correct_bracketing(string brackets){
         }
     }
     return count == 0;
+}
+
+int main() {
+    assert(!correct_bracketing("<><><<><>><>>><>"));
+    return 0;
 }
