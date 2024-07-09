@@ -19,6 +19,11 @@ int bowlingScore(std::string s) {
             currentFrame++;
         } else if(s[i] == 'X') {
             score += 10;
+            if(currentFrame < 9) {
+                if(i + 2 < s.length() && s[i+1] != '/') {
+                    score += (s[i+1] - '0');
+                }
+            }
             currentFrame++;
         } else {
             int roll = s[i] - '0';
