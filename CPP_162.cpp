@@ -1,15 +1,23 @@
-if(text.empty()){
-    return "None";
+#include <string>;
+
+string string_to_md5(const string& text) {
+    if (text.empty()) {
+        return "None";
+    }
+
+    unsigned char digest[MD5_DIGEST_LENGTH];
+    MD5((unsigned char*)text.c_str(), text.length(), digest);
+
+    char mdString[33];
+    for(int i = 0; i < 16; i++) {
+        sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
+    }
+
+    return string(mdString, 32);
 }
 
-MD5_CTX mdContext;
-MD5_Init(&mdContext);
-MD5_Update(&mdContext, text.c_str(), text.length());
-unsigned char digest[16];
-MD5_Final(digest, &mdContext);
-char mdString[33];
-for (int i = 0; i < 16; i++)
-    sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
-mdString[32] = '\0';
-return string(mdString);
+int main() {
+    string text = "Hello, World!";
+    string result = string_to_md5(text);
+    return 0;
 }
