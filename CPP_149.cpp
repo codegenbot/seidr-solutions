@@ -2,10 +2,6 @@
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     std::vector<std::string> result;
     for (const auto& str : lst) {
@@ -22,4 +18,9 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
              }
          });
     return result;
+}
+
+int main() {
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == {"cc", "dd", "aaaa", "bbbb"});
+    return 0;
 }

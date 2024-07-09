@@ -26,7 +26,11 @@ int main() {
     std::vector<int> lst;
     std::string str;
     while (std::cin >> str) {
-        lst.push_back(std::stoi(str));
+        try {
+            lst.push_back(std::stoi(str));
+        } catch (...) {
+            break;
+        }
     }
     int result = solutions(lst);
     assert(result == 25);
