@@ -12,6 +12,9 @@ long long minSubArraySum(vector<long long> nums) {
     return min_sum;
 }
 
+#include<iostream>
+using namespace std;
+
 int main() {
     int n;
     cout << "Enter the number of elements: ";
@@ -20,12 +23,11 @@ int main() {
     vector<long long> nums(n);
     
     for(int i=0; i<n; i++) {
-        cout << "Enter element " << i+1 << ": ";
+        cout << "Enter element "<<i+1<<": ";
         cin >> nums[i];
     }
     
     long long result = minSubArraySum(nums);
     cout << "Minimum subarray sum: " << result << endl;
-    
     return 0;
 }
