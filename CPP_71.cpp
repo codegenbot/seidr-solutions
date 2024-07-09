@@ -1,15 +1,17 @@
-#include <cmath>
-#include <assert.h>
-
-float triangle_area(float a, float b, float c) {
-    if ((a + b > c) && (a + c > b) && (b + c > a)) {
-        return 0.5 * sqrt((a * (b * b + c * c - b * c)) / (a * a + b * b + c * c));
-    } else {
-        return -1;
-    }
-}
+#include <iostream>
 
 int main() {
-    assert(abs(triangle_area(2, 2, 10) + 1) < 0.01);
+    float a, b, c;
+    std::cout << "Enter side lengths of a triangle (in cm): ";
+    std::cin >> a >> b >> c;
+    
+    if ((a + b > c) && (a + c > b) && (b + c > a)) {
+        float s = (a + b + c) / 2.0;
+        float area = round((sqrt(s * (s - a) * (s - b) * (s - c))) * 100.0) / 100.0;
+        std::cout << "The area of the triangle is: " << area << " square cm.\n";
+    } else {
+        std::cout << "The inputs do not form a valid triangle.\n";
+    }
+    
     return 0;
 }
