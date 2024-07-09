@@ -1,13 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 bool solveBoolean(const string& s, size_t& i) {
     bool result = true;
 
     while (i < s.size()) {
+        if (!(s[i] == 'T' || s[i] == 'F' || s[i] == '&' || s[i] == '|')) {
+            return false;  // Invalid input
+        }
+
         switch (s[i]) {
             case 'T':
-                i++;  
+                i++;  // skip T
                 return true;
             case 'F':
-                i++;  
+                i++;  // skip F
                 return false;
             case '&': {
                 i++; // skip &
@@ -21,8 +28,28 @@ bool solveBoolean(const string& s, size_t& i) {
                 break;
             }
         }
-        i++;
     }
 
     return result;
+}
+
+int main() {
+    string input;
+    cout << "Enter a Boolean expression: ";
+    getline(cin, input);
+
+    size_t i = 0;
+    bool result = solveBoolean(input, i);
+
+    if (i < input.size()) { 
+        result = false; // invalid input
+    }
+
+    if (result) {
+        cout << "The result is True." << endl;
+    } else {
+        cout << "The result is False." << endl;
+    }
+
+    return 0;
 }
