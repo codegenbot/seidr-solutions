@@ -1,13 +1,13 @@
-```cpp
-#include <cstdlib>
-#include <ctime>
+#include <iostream>
 
 int add(int x, int y) {
     return x + y;
 }
 
 int main() {
-    srand(time(0));
-    int x = rand() % 1000;
+    int a, b;
+    std::cout << "Enter two numbers: ";
+    std::cin >> a >> b;
+    std::cout << "Their sum is: " << add(a, b);
     return 0;
 }
