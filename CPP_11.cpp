@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 std::string string_xor(const std::string &a, const std::string &b) {
     if (a.empty() || b.empty()) {
         return ""; 
@@ -14,9 +9,4 @@ std::string string_xor(const std::string &a, const std::string &b) {
         result += (xored % 2 == 0 ? "0" : "1");
     }
     return result;
-}
-
-int main() {
-    cout << string_xor("0101", "0000") << endl; 
-    return 0; 
 }
