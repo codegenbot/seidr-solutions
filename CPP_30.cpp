@@ -15,7 +15,5 @@ bool issame(float a, float b){
 }
 
 int main() {
-    vector<float> numbers = {1.2, -3.4, 5.6, -7.8, 9.0};
-    vector<float> positive_numbers = get_positive(numbers);
     return 0;
 }
