@@ -1,5 +1,5 @@
 def find_zero(xs: list):
-    n = len(xs) - 1
+    n = len(xs)
     if n % 2 != 0:
         return None
     a = max(xs, key=abs)
