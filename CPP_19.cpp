@@ -7,13 +7,13 @@ string sort_numbers(string numbers) {
     vector<string> num_vector;
     string temp;
     for (char c : numbers) {
-        if (isdigit(c)) continue;
-        temp += c;
-        if (num_map.find(temp) != num_map.end()) {
+        if (!isdigit(c)) temp += c;
+        else if (!temp.empty()) {
             num_vector.push_back(temp);
             temp = "";
         }
     }
+    num_vector.push_back(temp);
     sort(num_vector.begin(), num_vector.end());
     string result;
     for (string s : num_vector) {
