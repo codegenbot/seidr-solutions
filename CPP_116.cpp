@@ -1,7 +1,5 @@
-```
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(vector<int> a, vector<int> b) {
     if(a.size()!=b.size()) return false;
@@ -17,6 +15,7 @@ std::vector<int> sort_array(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
+    assert(issame(sort_array({1,3,5}), {1, 3, 5}));
+    assert(issame(sort_array({-2,0,4}), {-2, 0, 4}));
     return 0;
 }
