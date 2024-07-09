@@ -3,22 +3,18 @@ using namespace std;
 string solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '|') {
-            while (!st.empty() && st.top() != '&') {
-                if (st.top() == 'T')
-                    st.pop();
-                else
-                    return "False";
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            st.pop();
-        } else if (s[i] == '&') {
+            if (st.empty()) return "False";
+            else st.push(stop());
+        } else if (s[i] == '|') {
+            while (!st.empty()) st.pop();
             st.push(s[i]);
         } else {
             st.push(s[i]);
         }
     }
-    if (st.empty())
-        return "True";
-    else
-        return "False";
+    return st.top() == 'T' ? "True" : "False";
 }
