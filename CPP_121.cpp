@@ -1,3 +1,8 @@
+```cpp
+#include <vector>
+#include <cassert>
+using namespace std;
+
 int solution(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
@@ -8,5 +13,8 @@ int solution(vector<int> lst) {
     return sum;
 }
 
-assert(solution({3, 13, 2, 9}) == 16);
-return 0;
+int main(int argc, const char* argv[]) {
+    vector<int> lst = {3, 13, 2, 9};
+    cout << solution(lst) << endl;
+    return 0;
+}
