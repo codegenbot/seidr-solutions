@@ -1,9 +1,9 @@
-# Read input from the user
-numbers = [int(num) for num in input("Enter numbers separated by space: ").split()]
+from typing import List, Tuple
 
-# Call the sum_product function with the input
-result_sum, result_product = sum_product(numbers)
 
-# Print the results
-print("Sum:", result_sum)
-print("Product:", result_product)
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    sum_result = sum(numbers)
+    product_result = 1
+    for num in numbers:
+        product_result *= num
+    return sum_result, product_result
