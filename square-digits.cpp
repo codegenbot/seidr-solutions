@@ -23,12 +23,10 @@ int main() {
         std::cout << "Error: Input cannot be empty." << std::endl;
     } else {
         std::string output = squareDigits(input);
-        if(output.empty()) {
+        if (!output.size()) {
             std::cout << "Error: Input contains a number greater than or equal to 100." << std::endl;
         } else {
-            if (!output.empty()) {
-                std::cout << "Squared digits: " << output << std::endl;
-            }
+            std::cout << "Squared digits: " << output << std::endl;
         }
     }
     return 0;
