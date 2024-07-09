@@ -4,5 +4,10 @@ int multiply(int a, int b) {
 }
 
 int main() {
-    assert(multiply(0, 0) == 0);
+    int num1, num2;
+    std::cout << "Enter the first number: ";
+    std::cin >> num1;
+    std::cout << "Enter the second number: ";
+    std::cin >> num2;
+    std::cout << "The product is: " << multiply(num1, num2) << std::endl;
 }
