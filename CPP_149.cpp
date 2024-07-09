@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
 
-bool assertEqual(vector<string> a, vector<string> b) {
+bool assertEqual(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
@@ -27,6 +26,9 @@ vector<string> sorted_list_sum(vector<string> lst) {
 
 int main() {
     vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    assertEqual(sorted_list_sum(lst), {"cc","dd","aaaa","bbbb"});
+    vector<string> expected = {"cc","dd","aaaa","bbbb"};
+    if (!assertEqual(sorted_list_sum(lst), expected)) {
+        return 1;
+    }
     return 0;
 }
