@@ -1,18 +1,8 @@
-#include <vector>
-#include <iostream>
-
-int fuelCost(int n) {
-    int cost = (n / 3) - 2;
-    if (cost < 0) return 0;
-    return cost;
-}
-
-int main() {
-    std::vector<int> v = {2909, 7270, 6972};
+int fuelCost(std::vector<int> v) {
     int sum = 0;
-    for(int n : v) {
-        sum += fuelCost(n);
+    for (int i : v) {
+        int temp = i / 3;
+        sum += temp - 2;
     }
-    std::cout << "Result: " << sum << std::endl;
-    return 0;
+    return sum;
 }
