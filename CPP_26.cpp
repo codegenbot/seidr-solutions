@@ -1,7 +1,7 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <memory>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() == 0 && b.size() == 0) return true;
@@ -12,25 +12,20 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::pmr::vector<int> removeDuplicates(const std::pmr::vector<int>& numbers) {
-    std::pmr::vector<int> uniqueNumbers = numbers;
-    std::sort(uniqueNumbers.begin(), uniqueNumbers.end());
-    
-    if (!issame(numbers, uniqueNumbers)) {
-        for (int num : uniqueNumbers) {
-            bool found = false;
-            for (int i = 0; i < uniqueNumbers.size(); i++) {
-                if (uniqueNumbers[i] == num) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                uniqueNumbers.push_back(num);
+std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
+    std::vector<int> uniqueNumbers;
+    for (int num : numbers) {
+        bool found = false;
+        for (int i = 0; i < uniqueNumbers.size(); i++) {
+            if (uniqueNumbers[i] == num) {
+                found = true;
+                break;
             }
         }
+        if (!found) {
+            uniqueNumbers.push_back(num);
+        }
     }
-    
     return uniqueNumbers;
 }
 
@@ -60,6 +55,9 @@ int main() {
         std::cout << "All elements are duplicates." << std::endl;
     }
     
-    assert(issame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
-    return 0;
+    if (!issame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5})) {
+        assert(false);
+    } else {
+        return 0;
+    }
 }
