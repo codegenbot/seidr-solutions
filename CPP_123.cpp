@@ -2,19 +2,14 @@
 #include <iostream>
 
 std::vector<int> get_odd_collatz(int num) {
-    if (num % 2 != 0)
-        return {1};
-    else if (num == 1)
-        return {};
-    
-    int temp = num;
     std::vector<int> sequence;
-    while (temp > 1) {
-        if (temp % 2 != 0)
-            sequence.push_back(temp);
-        temp /= 2;
+    while (num != 1) {
+        if (num % 2 == 0)
+            num = num / 2;
+        else
+            num = 3 * num + 1;
+        sequence.push_back(num);
     }
-    sequence.push_back(1);
     return sequence;
 }
 
