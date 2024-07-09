@@ -1,26 +1,3 @@
-#include <iostream>
-#include <vector>
-
-bool check_numbers(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i]) != std::abs(b[i])) {
-            return false;
-        }
-    }
-    return true;
-}
-
-float get_positive(float num) {
-    if (num > 0) {
-        return num;
-    } else {
-        return 0.0f;
-    }
-}
-
 int main() {
     float num1, num2;
     std::cout << "Enter the first number: ";
@@ -36,3 +13,4 @@ int main() {
     }
 
     return 0;
+}
