@@ -8,6 +8,7 @@ int basement(std::vector<int>& v) {
             return i;
     }
     return -1;
+
 }
 
 int main() {
@@ -19,3 +20,4 @@ int main() {
         std::cout << "No such index found." << std::endl;
     }
     return 0;
+}
