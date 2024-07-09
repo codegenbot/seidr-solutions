@@ -1,24 +1,27 @@
-#include <boost/any.hpp>
-#include <string>
-
-using namespace boost;
+#include <iostream>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp>
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_none(a) || is_none(b)) return "None";
-    
-    if (any_cast<int>(a) > any_cast<int>(b))
-        return a;
-    else if (any_cast<float>(a) > any_cast<float>(b))
-        return a;
-    else if (any_cast<std::string>(a) > any_cast<std::string>(b))
-        return a;
-    
-    if (any_cast<int>(b) > any_cast<int>(a))
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
-    else if (any_cast<float>(b) > any_cast<float>(a))
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         return b;
-    else if (any_cast<std::string>(b) > any_cast<std::string>(a))
-        return b;
-    
-    return "None";
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        if (str1 > str2)
+            return a;
+        else if (str1 < str2)
+            return b;
+        else
+            return boost::any("None");
+    }
+    else {
+        return boost::any("None");
+    }
 }
