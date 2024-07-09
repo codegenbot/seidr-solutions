@@ -1,16 +1,9 @@
-Here is the completed code:
-
 string longest(vector<string> strings){
-    if (strings.empty()) {
-        return "";
+    if(strings.empty()) return "";
+    string result = strings[0];
+    for(string str : strings){
+        if(str.length() > result.length()) result = str;
+        else if(str.length() == result.length()) result = str;
     }
-    string longest = strings[0];
-    for (const auto& s : strings) {
-        if (s.length() > longest.length()) {
-            longest = s;
-        } else if (s.length() == longest.length()) {
-            longest = s; // the first one with same length
-        }
-    }
-    return longest;
+    return result;
 }
