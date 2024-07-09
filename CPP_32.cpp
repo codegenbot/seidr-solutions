@@ -22,7 +22,7 @@ int main(){
     double solution;
     solution = find_zero(coeffs);
     assert (std::abs(poly(coeffs, solution)) < 1e-3);
-
+    
     std::cout << "Solution: " << solution << std::endl;
     
     return 0;
