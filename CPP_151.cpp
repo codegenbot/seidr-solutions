@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -15,7 +15,8 @@ long long double_the_difference(std::vector<float> input) {
     return sum;
 }
 
-int main() {
+int main()
+{
     std::vector<float> input;
     float num;
     int n;
@@ -25,8 +26,9 @@ int main() {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
         input.push_back(std::stof(std::to_string(num)));
-    }
+    
     long long result = double_the_difference(input);
     std::cout << "The total sum of squares is: " << result << std::endl;
     
+    return 0;
 }
