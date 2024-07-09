@@ -1,52 +1,34 @@
-#include <vector>
-#include <algorithm>
+#include<string>
+#include<map>
+using namespace std;
 
 string sort_numbers(string numbers) {
-    vector<string> numVec;
-    string numStr;
+    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                {"eight", 8}, {"nine", 9}};
+    vector<string> numVector;
+    string temp;
 
-    for (char c : numbers) {
-        switch (c) {
-            case '0':
-                numStr = "zero";
-                break;
-            case '1':
-                numStr = "one";
-                break;
-            case '2':
-                numStr = "two";
-                break;
-            case '3':
-                numStr = "three";
-                break;
-            case '4':
-                numStr = "four";
-                break;
-            case '5':
-                numStr = "five";
-                break;
-            case '6':
-                numStr = "six";
-                break;
-            case '7':
-                numStr = "seven";
-                break;
-            case '8':
-                numStr = "eight";
-                break;
-            case '9':
-                numStr = "nine";
-                break;
+    for (int i = 0; i < numbers.length(); i++) {
+        if (numbers[i] == ' ') {
+            continue;
+        } else if (i == 0 || numbers[i - 1] != ' ') {
+            temp += numbers[i];
+        } else if (!temp.empty()) {
+            temp += numbers[i];
+            numVector.push_back(temp);
+            temp.clear();
         }
-        numVec.push_back(numStr);
+    }
+    if (!temp.empty()) {
+        temp += numbers.back();
+        numVector.push_back(temp);
     }
 
-    sort(numVec.begin(), numVec.end());
-
+    sort(numVector.begin(), numVector.end());
     string result = "";
-    for (string s : numVec) {
-        result += s + " ";
+    for (const auto &num : numVector) {
+        result += num + " ";
     }
-
     return result;
 }
