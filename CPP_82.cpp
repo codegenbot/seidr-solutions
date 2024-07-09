@@ -1,3 +1,8 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 bool prime_length(string str){
     int len = str.length();
     for(int i=2; i*i <= len; i++){
@@ -5,4 +10,5 @@ bool prime_length(string str){
             return false;
     }
     return true;
+
 }
