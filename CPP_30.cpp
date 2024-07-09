@@ -14,7 +14,7 @@ vector<float> get_positive(vector<float> l){
 }
 
 bool issame(vector<float> a, vector<float> b){
-    return a == b;  
+    return a == b;  // checks if vectors a and b are equal
 }
 
 int main(){
