@@ -1,6 +1,6 @@
-```cpp
-namespace std { class initializer_list; }
+Here is the modified code:
 
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
