@@ -1,22 +1,27 @@
+bool hasOdd(vector<int> v) {
+    for (int num : v) {
+        if (num % 2 != 0)
+            return true;
+    }
+    return false;
+}
+
 string exchange(vector<int> lst1, vector<int> lst2) {
-    bool hasOdd = false;
-    for (int num : lst1) {
-        if (num % 2 != 0) {
-            hasOdd = true;
-            break;
+    if (!hasOdd(lst1))
+        return "YES";
+    if (hasOdd(lst2)) 
+        return "NO";
+    for (int num : lst2) {
+        int found = 0;
+        for (int num2 : lst1) {
+            if (num % 2 == 0 && num2 % 2 != 0) {
+                swap(num, num2);
+                found = 1;
+                break;
+            }
         }
+        if (!found)
+            return "NO";
     }
-    
-    if (!hasOdd) return "YES";
-    
-    for (int num : lst1) {
-        if (find(lst2.begin(), lst2.end(), num) != lst2.end()) {
-            lst2.erase(remove(lst2.begin(), lst2.end(), num), lst2.end());
-        } else {
-            hasOdd = false;
-            break;
-        }
-    }
-    
-    return hasOdd ? "NO" : "YES";
+    return "YES";
 }
