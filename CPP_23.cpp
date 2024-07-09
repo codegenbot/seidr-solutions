@@ -7,6 +7,5 @@ int countCharacters(const std::string& str) {
 
 int main() {
     assert(strlen("asdasnakj") == 9);
-    // Additional code as needed
     return 0;
 }
