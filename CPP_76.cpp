@@ -2,10 +2,10 @@
 #include <string>
 #include <cmath>
 
-bool isSimplePower(int num);
 bool isSimplePower(int base, int power);
+bool isSimplePower(int num);
 
-int simplePowerCheckerMain() {
+int main() {
     std::string input;
     std::cout << "Enter a number: ";
     std::cin >> input;
@@ -32,6 +32,5 @@ bool isSimplePower(int num) {
 }
 
 bool isSimplePower(int base, int power) {
-    int num = (int)pow(base, power);
-    return num == 1; 
+    return (int)pow(base, power) == num; 
 }
