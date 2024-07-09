@@ -1,8 +1,9 @@
 #include <vector>
+#include <iostream>
 #include <algorithm>
 #include <cassert>
 
-int search(std::initializer_list<int> lst) {
+int search(const std::vector<int>& lst) {
     int result = -1;
     for (int num : lst) {
         if (num > 0 && std::count(lst.begin(), lst.end(), num) >= num) {
@@ -12,4 +13,15 @@ int search(std::initializer_list<int> lst) {
     return result;
 }
 
-assert(search({3, 10, 10, 9, 2}) == -1);
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> input(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> input[i];
+    }
+
+    assert(search(input) == -1);
+
+    return 0;
+}
