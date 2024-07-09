@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 #include <sstream>
@@ -11,10 +12,10 @@ string string_to_md5(string text) {
     
     unsigned char result[16];
     EVP_MD_CTX ctx;
-    EVP_DigestInit_ex(EVP_get_digestbyname("MD5"), NULL, NULL);
-    EVP_DigestUpdate(&ctx, text.c_str(), text.size());
+    EVP_DigestInit_ex(&ctx, EVP_md_md5(), NULL);
+    EVP_DigestUpdate(&ctx, (const unsigned char*)text.c_str(), text.size());
     EVP_DigestFinal_ex(&ctx, result, nullptr);
-    
+
     string md5_hash;
     for (int i = 0; i < 16; ++i) {
         ostringstream oss;
@@ -25,17 +26,10 @@ string string_to_md5(string text) {
     return md5_hash;
 }
 
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    getline(cin, input);
-    
-    if (input.empty()) {
-        cout << "MD5 Hash: None" << endl;
-    } else {
-        string md5_hash = string_to_md5(input);
-        
-        cout << "MD5 Hash: " << md5_hash << endl;
-    }
-    return 0;
-}
+string input;
+cout << "Enter a string: ";
+getline(cin, input);
+
+string md5_hash = string_to_md5(input);
+
+cout << "MD5 Hash: " << md5_hash << endl;
