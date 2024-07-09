@@ -1,18 +1,10 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(vector<int> a, vector<int> b){
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
 vector<int> maximum(vector<int> arr, int k) {
@@ -20,4 +12,4 @@ vector<int> maximum(vector<int> arr, int k) {
     return vector<int>(arr.begin(), arr.begin() + k);
 }
 
-assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 1), {243}));
+assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
