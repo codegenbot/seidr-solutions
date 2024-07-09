@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -30,14 +30,14 @@ vector<string> bf(string planet1, string planet2) {
 
     for (int i = 0; i < planets.size(); i++) {
         if (i >= index1 && i <= index2) {
-            for (int j = 0; j < planets.size(); j++) {
-                if (planets[j] == planets[i]) {
-                    result.push_back(planets[j]);
-                    break;
-                }
-            }
+            result.push_back(planets[i]);
         }
     }
 
     return result;
+}
+
+int main() {
+    assert(bf("Jupiter", "Mars") == {"Earth"});
+    return 0;
 }
