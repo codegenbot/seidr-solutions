@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 
-bool is_happy(int n);
-
 bool is_happy(int n) {
     if(n < 10)
         return n % 10 == 1 && n != 1;
@@ -19,14 +17,12 @@ bool is_happy(int n) {
     return n == 1;
 }
 
-int main() {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;  
-    if (is_happy(num)) {
-        std::cout << num << " is a happy number.\n";
-    } else {
-        std::cout << num << " is not a happy number.\n";
-    }
-    return 0;
+int num;
+std::cout << "Enter a number: ";
+std::cin >> num;  
+if (is_happy(num)) {
+    std::cout << num << " is a happy number.\n";
+} else {
+    std::cout << num << " is not a happy number.\n";
 }
+return 0;
