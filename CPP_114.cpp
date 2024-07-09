@@ -1,19 +1,16 @@
-int findMinSum(int start, int end, vector<long long>& nums) {
-    long long sum = 0;
-    for (int i = start; i <= end; i++) {
-        sum += nums[i];
-    }
-    return sum;
-}
-
 long long minSubArraySum(vector<long long> nums){
-    long long min_sum = LLONG_MAX;
-    for(int i=0;i<nums.size();i++){
-        long long sum = 0;
-        for(int j=i;j<nums.size();j++){
-            sum += nums[j];
-            min_sum = min(min_sum, sum);
-        }
+    long long min_sum = INT_MAX; 
+    long long current_sum = 0;
+    
+    for(long long num : nums){ 
+        current_sum += num;
+        
+        if(current_sum < min_sum)  
+            min_sum = current_sum;
+        
+        if(current_sum > 0)  
+            current_sum = 0;    
     }
+    
     return min_sum;
 }
