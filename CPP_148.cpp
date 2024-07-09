@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include < initializer_list>
 
 bool isPlanet(string planet) {
     string planets[] = {"Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -19,8 +19,8 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<std::string> mybf(string planet1, string planet2) { 
-    vector<std::string> result;
+vector<string> mybf(string planet1, string planet2) { 
+    vector<string> result;
     if (isPlanet(planet1) && isPlanet(planet2)) {
         if (planet1 < planet2)
             result.push_back(planet1);
@@ -35,7 +35,7 @@ int main() {
     cout << "Enter two planets separated by space: ";
     string planet1, planet2;
     cin >> planet1 >> planet2;
-    vector<std::string> result = mybf(planet1, planet2); 
+    vector<string> result = mybf(planet1, planet2); 
     if (result.empty()) {
         cout << "Planets not found.\n";
     } else {
@@ -45,7 +45,7 @@ int main() {
         }
         cout << "\n";
 
-        std::vector<std::string> temp = {planet1, planet2};
+        vector<string> temp = {planet1, planet2};
         if(issame(result,temp)){
             cout << "The planets are the same.\n";
         } else {
