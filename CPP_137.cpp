@@ -1,44 +1,23 @@
 #include <boost/any.hpp>
 #include <string>
-#include <iostream>
 
 int main() {
-    std::string a;
-    int i;
-    std::cout << "Enter an integer or string: ";
-    std::cin >> a;
+    boost::any a = "hello";
+    boost::any b = "hi";
 
-    try {
-        i = stoi(a);
-    }
-    catch (std::invalid_argument) {
-        boost::any b = a;
-        boost::any c = "hi";
+    boost::any result = compare_one(a, b);
 
-        boost::any result = compare_one(b, c);
-
-        std::cout << boost::any_cast<std::string>(result) << std::endl;
-
-        return 0;
-    }
-
-    int j = i;
-    boost::any d = i;
-    boost::any e = j;
-
-    boost::any result2 = compare_two(d, e);
-
-    std::cout << boost::any_cast<int>(result2) << std::endl;
+    std::cout << boost::any_cast<std::string>(result) << std::endl;
 
     return 0;
 }
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return "Not comparable";
+        return boost::any(1.5);
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        return "Not comparable";
+        return boost::any("equal");
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
@@ -48,21 +27,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (strA < strB)
             return b;
         else
-            return "Equal";
+            return boost::any("Equal");
     }
     else {
-        return "Not comparable";
+        return boost::any(1.0);
     }
-}
-
-boost::any compare_two(boost::any a, boost::any b) {
-    int i = boost::any_cast<int>(a);
-    int j = boost::any_cast<int>(b);
-
-    if (i > j)
-        return a;
-    else if (i < j)
-        return b;
-    else
-        return "Equal";
 }
