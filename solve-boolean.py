@@ -1,29 +1,20 @@
+```
 def evaluate_expression(expression):
-    while "(" in expression and ")" in expression:
-        start = expression.index("(")
-        end = expression.index(")")
-        expression = (
-            str(evaluate_expression(expression[:start]))
-            + ") "
-            + str(evaluate_expression(expression[start + 1 : end].strip()))
-            + " "
-        )
+    if "T" in expression:
+        expression = expression.replace("T", "True")
+    if "F" in expression:
+        expression = expression.replace("F", "False")
 
-    while "&" in expression:
-        left, right = expression.split("&", 1)
-        if left == "T":
-            left = "True"
-        if right == "T":
-            right = "True"
-        expression = str(evaluate_expression(left)) + " and " + str(evaluate_expression(right))
-
-    while "|" in expression:
-        left, right = expression.split("|", 1)
-        if left == "T":
-            left = "True"
-        if right == "T":
-            right = "True"
-        expression = str(evaluate_expression(left)) + " or " + str(evaluate_expression(right))
-
-    expression = expression.replace("T", "True").replace("F", "False")
-    return eval("Boolean(" + expression + ")")
+    if "&" in expression:
+        return ((evaluate_expression(expression.split("&")[0]) and 
+                evaluate_expression(expression.split("&")[1])) == True)
+    elif "|" in expression:
+        return ((evaluate_expression(expression.split("|")[0]) or 
+                evaluate_expression(expression.split("|")[1])) == True)
+    else:
+        if expression.lower() == "t":
+            return True
+        elif expression.lower() == "f":
+            return False
+        else:
+            raise Exception("Invalid Boolean expression")
