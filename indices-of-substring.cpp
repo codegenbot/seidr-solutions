@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -32,6 +33,7 @@ int main() {
     while (getline(cin, text) && !text.empty()) cin.ignore();
     string target;
     getline(cin, target);
+    cin.ignore(); 
 
     vector<int> indices = indicesOfSubstring(text, target);
 
@@ -39,8 +41,6 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-
-    cin.ignore();  // Flush the input stream after processing each target string
 
     return 0;
 }
