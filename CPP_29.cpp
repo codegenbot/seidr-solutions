@@ -12,6 +12,10 @@ bool equal_vectors(const std::vector<std::string>& a, const std::vector<std::str
     return true;
 }
 
+bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b){
+    return equal_vectors(a, b);
+}
+
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
     std::vector<std::string> result;
     for(auto it = strings.begin(); it != strings.end(); ++it){
@@ -23,5 +27,6 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main_test() {
-    assert (equal_vectors({filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx")}, {"xxx", "xxxAAA", "xxx"}));
+    assert (is_same(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    std::vector<std::string> strings = {"asd", "xxy", "john doe", "xAAs"};
 }
