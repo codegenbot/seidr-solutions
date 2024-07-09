@@ -1,6 +1,14 @@
+```cpp
 vector<string> by_length(vector<int> arr) {
-    vector<string> result;
+    vector<int> sortedArr;
     for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            sortedArr.push_back(num);
+        }
+    }
+    reverse(sortedArr.begin(), sortedArr.end());
+    vector<string> result;
+    for (int num : sortedArr) {
         switch (num) {
             case 1:
                 result.push_back("One");
@@ -40,4 +48,8 @@ bool issame(vector<string> a, vector<string> b) {
         if (a[i] != b[i]) return false;
     }
     return true;
+}
+
+int main() {
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
 }
