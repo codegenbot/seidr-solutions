@@ -1,25 +1,18 @@
 #include <vector>
-using namespace std;
 
 int count_nums(vector<int> n) {
     int count = 0;
-    for (int num : n) {
+    for (auto num : n) {
         if (num < 0) {
             num = -num;
         }
-        int sum = 0;
+        int sum_of_digits = 0;
         while (num > 0) {
-            sum += num % 10;
+            sum_of_digits += num % 10;
             num /= 10;
         }
-        if (sum > 0) {
+        if (sum_of_digits > 0) {
             count++;
         }
     }
     return count;
-}
-
-int main() {
-    assert(count_nums({1}) == 1);
-    // Add more test cases as needed
-}
