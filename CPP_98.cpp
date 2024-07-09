@@ -1,6 +1,6 @@
 int count_upper(string s){
     int count = 0;
-    for(int i=1; i<s.length(); i=i+2){
+    for(int i = 1; i < s.length() && i % 2 == 0; i++){
         if(isupper(s[i])){
             count++;
         }
