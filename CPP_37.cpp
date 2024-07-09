@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -18,7 +19,7 @@ int main() {
             vector<float> evenVals;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
-                    evenVals.push_back(stof(std::to_string(l[j])));
+                    evenVals.push_back(l[j]);
                 }
             }
             sort(evenVals.begin(), evenVals.end());
