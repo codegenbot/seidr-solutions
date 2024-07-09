@@ -1,14 +1,23 @@
-bool is_palindrome(string text) {
-    int start = 0;
-    int end = text.length() - 1;
+#include <string>
 
-    while (start < end) {
-        if (text[start] != text[end]) {
+string toLower(string text) {
+    string result = "";
+    for (char c : text) {
+        if (c >= 'A' && c <= 'Z') {
+            result += (char)(c - ('Z' - 'a'));
+        } else {
+            result += c;
+        }
+    }
+    return result;
+}
+
+bool is_palindrome(string text) {
+    string lowered = toLower(text);
+    for (int i = 0; i < lowered.length() / 2; i++) {
+        if (lowered[i] != lowered[lowered.length() - i - 1]) {
             return false;
         }
-        start++;
-        end--;
     }
-
     return true;
 }
