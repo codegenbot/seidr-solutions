@@ -6,24 +6,11 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
         } else if (operator_[i] == "-") {
             result -= operand[i + 1];
         } else if (operator_[i] == "*") {
-            int temp = 0;
-            for (int j = i + 1; j < operand.size(); j++) {
-                temp += operand[j];
-            }
-            result *= temp;
+            result *= operand[i + 1];
         } else if (operator_[i] == "//") {
-            int temp = 0;
-            for (int j = i + 1; j < operand.size(); j++) {
-                temp += operand[j];
-            }
-            result /= temp;
+            result = result / operand[i + 1];
         } else if (operator_[i] == "**") {
-            int base = operand[i + 1];
-            int exponent = 0;
-            for (int j = i + 2; j < operand.size(); j++) {
-                exponent += operand[j];
-            }
-            result = pow(base, exponent);
+            result = pow(result, operand[i + 1]);
         }
     }
     return result;
