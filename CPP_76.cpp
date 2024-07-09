@@ -1,13 +1,16 @@
+```cpp
 #include <cassert>
-#include <cmath>
 
 bool is_simple_power(int x, int n);
 
 bool is_simple_power(int x, int n){
-    double y = pow(n, 1);
-    while(y <= x){
+    if(n == 1)
+        return true;
+    double y = 1.0;
+    while(y <= x && n > 0){
         if(y == x) return true;
-        y *= n;
+        y *= (double)n;
+        n--;
     }
     return false;
 }
