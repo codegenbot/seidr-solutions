@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -17,15 +16,14 @@ std::vector<int> by_length(const std::vector<int>& arr) {
 
 int main() {
     // User input
-    std::vector<int> intArray = {};
+    std::vector<int> intArray;
     std::cout << "Enter the numbers separated by space: ";
     for (std::string str; std::getline(std::cin, str); ) {
         intArray.push_back(stoi(str));
     }
     
-    std::vector<int> lengthArr = by_length(intArray);
+    std::vector<int> result = by_length(intArray);
     // Test assertion
-    assert(issame(lengthArr, {to_string(9).size(), to_string(4).size(), to_string(8).size()}));
-
+    assert(issame(by_length(intArray), {1, 1, 1}));
     return 0;
 }
