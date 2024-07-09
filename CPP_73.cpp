@@ -1,24 +1,32 @@
 #include <vector>
+#include <string>
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    int left = 0, right = n - 1;
-    int changes = 0;
-    while (left < right) {
-        if (arr[left] != arr[right]) {
-            changes++;
-            left++;
-            right--;
-        } else {
-            left++;
-            right--;
-        }
+    std::string s = "";
+    for (int i : arr) {
+        s += std::to_string(i);
     }
-    return (n % 2 == 0)? changes : 1 - changes;
+    int left = 0, right = s.length() - 1;
+    int changes = 0;
+    bool swapped;
+    do {
+        swapped = false;
+        for (int i = left; i < right; ++i) {
+            if (s[i] != s[s.length() - 1 - i]) {
+                std::swap(s[left], s[right]);
+                changes++;
+                swapped = true;
+                break;
+            }
+        }
+        left++;
+        right--;
+    } while (swapped);
+    return changes;
 }
 
 int main() {
-    std::vector<int> arr = {1, 0};
-    int result = smallest_change(arr);
+    int smallestChanges = smallest_change({5, 6, 3, 4});
     return 0;
 }
