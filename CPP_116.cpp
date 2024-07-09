@@ -1,6 +1,11 @@
-sort(arr.begin(), arr.end(), [](int a, int b){
-    int countA = __builtin_popcount(a);
-    int countB = __builtin_popcount(b);
-    return countA == countB ? a < b : countA < countB;
-});
-return arr;
+sort_array(vector<int> arr){
+    sort(arr.begin(), arr.end(), [](int a, int b) {
+        int count1 = __builtin_popcount(a);
+        int count2 = __builtin_popcount(b);
+        if (count1 == count2) {
+            return a < b;
+        }
+        return count1 < count2;
+    });
+    return arr;
+}
