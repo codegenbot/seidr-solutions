@@ -1,18 +1,20 @@
+#include <iostream>
+using namespace std;
+
 double poly(double c, double s) {
     return c + s;
 }
 
 double find_zero(vector<double> xs) {
-    double initialCoeff;
+    double coeffs = xs[0];
     vector<double> polyCoeffs;
     int n = xs.size();
-    initialCoeff = xs[0];
     for (int i = 1; i < n; i++) {
         if ((i & 1) == 0) {
-            polyCoeffs.insert(polyCoeffs.begin(), -initialCoeff*xs[i]);
+            polyCoeffs.insert(polyCoeffs.begin(), -coeffs*xs[i]);
         } else {
-            initialCoeff = xs[i];
+            coeffs = xs[i];
         }
     }
-    return -polyCoeffs[0] / initialCoeff;
+    return -coeffs / coeffs;
 }
