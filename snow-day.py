@@ -6,8 +6,8 @@ initial_snow = Decimal(float(input("Enter initial amount of snow on the ground: 
 rate_of_snowfall = Decimal(float(input("Enter rate of snow fall per hour: ")))
 while True:
     try:
-        melting_rate = input("Enter proportion of snow melting per hour: ")
-        if 0 <= float(melting_rate) <= 1:
+        melting_rate = float(input("Enter proportion of snow melting per hour: "))
+        if 0 <= melting_rate <= 1:
             break
         else:
             print("Please enter a value between 0 and 1.")
