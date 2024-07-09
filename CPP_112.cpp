@@ -41,7 +41,7 @@ std::vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
