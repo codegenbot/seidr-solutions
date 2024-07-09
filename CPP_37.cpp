@@ -22,15 +22,3 @@ vector<float> sort_even(vector<float> l) {
 
     return result;
 }
-
-int main() {
-    vector<float> v = {3.5, 2.2, 1.1, 4.4, 5.5}; // Sample input
-
-    vector<float> sorted_even = sort_even(v);
-
-    vector<float> expected_result = {1.1, 2.2, 3.5, 4.4, 5.5}; // Expected sorted result
-
-    assert(is_same(sorted_even, expected_result));
-
-    return 0;
-}
