@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 std::vector<std::string> numerical_letter_grade(const std::vector<double>& grades) {
     std::vector<std::string> result;
@@ -28,12 +30,13 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-int main() {
+int main2() {
     std::vector<double> input = {0.0, 0.7};
     std::vector<std::string> result1 = numerical_letter_grade(input);
     
     std::vector<std::string> result2 = {"F", "C"};
-    if (issame(result1, result2)) {
+    std::vector<std::string> b = result2;
+    if (issame({result1[0], result1[1]}, b)) {
         std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
