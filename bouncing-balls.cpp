@@ -1,3 +1,7 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+
 int main() {
     int startHeight, firstBounce, numBounces;
 
@@ -11,8 +15,7 @@ int main() {
 
     std::cout << std::fixed << std::setprecision(2);
     for (int i = 0; i <= numBounces; ++i) {
-        int height = static_cast<int>(firstBounce * pow(0.5, i));
-        firstBounce = height;
+        int height = static_cast<int>(startHeight * bouncinessIndex * pow(0.5, i));
         std::cout << height << " ";
     }
     return 0;
