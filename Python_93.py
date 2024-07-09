@@ -7,10 +7,11 @@ def encode(message):
             result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
         elif char.isdigit():  
             result += char
-        elif not char.isalnum() and char != ' ':  
-            result += '*'
+        elif not char.isalnum(): 
+            ascii_offset = 65 if ord(char) < 96 else 48
+            result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
         else:
-            result += char
+            result += '*'
     return result
 
 print(encode("I DoNt KnOw WhAt tO WrItE"))
