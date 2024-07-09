@@ -1,3 +1,6 @@
+```cpp
+#include <vector>
+
 int basement(std::vector<int>& v) {
     int sum = 0;
     for (int i = 0; i < v.size(); i++) {
@@ -6,4 +9,12 @@ int basement(std::vector<int>& v) {
             return i;
     }
     return -1;
+
+}
+
+int main() {
+    std::vector<int> input = {-2,1,-3,4,-1,2,1,-5,4};
+    int result = basement(input);
+    // use the result
+    return 0;
 }
