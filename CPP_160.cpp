@@ -11,8 +11,9 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
             result -= operand[i + 1];
         } else if (operator_[i] == "*") {
             result *= operand[i + 1];
-        } else if (operator_[i] == "//") {
-            result = result / static_cast<int>(operand[i + 1]);
+        } else if (operator_[i] == "//" || operator_[i] == "/") {
+            if(operand[i+1] == 0) return -1; // handle division by zero
+            result = result / operand[i + 1];
         } else if (operator_[i] == "**") {
             result = pow(result, operand[i + 1]);
         }
