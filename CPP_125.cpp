@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cctype> // Include the missing header for islower
 #include <cassert>
 
-std::vector<std::string> split_words(const std::string& txt) {
+std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> words;
     std::string word;
     for (char& c : txt) {
@@ -31,10 +32,11 @@ std::vector<std::string> split_words(const std::string& txt) {
     return words;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) { // Correct namespace for vector and string
     if (a.size() != b.size()) {
         return false;
     }
+
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
