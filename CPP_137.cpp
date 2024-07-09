@@ -1,42 +1,26 @@
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-using namespace std;
+#include <boost/any.hpp>
+#include <boost/type_traits.hpp>
+
+using namespace boost;
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string sa = boost::any_cast<string>(a);
-        double db = boost::any_cast<double>(b);
-        if (db > (double)stoi(sa))
-            return b;
-        else
-            return a;
-    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        double da = boost::any_cast<double>(a);
-        string sb = boost::any_cast<string>(b);
-        if (da > stod(sb))
-            return b;
-        else
-            return a;
-    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        string sa = boost::any_cast<string>(a);
-        double db = boost::any_cast<double>(b);
-        if (stod(sa) > db)
-            return a;
-        else
-            return b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string sa = boost::any_cast<string>(a);
-        string sb = boost::any_cast<string>(b);
-        if (stod(sa) > stod(sb))
-            return a;
-        else if (stod(sa) < stod(sb))
-            return b;
-        else
+    if (is_same<any_tag, get_type(a)>() && is_same<any_tag, get_type(b)>()) {
+        return a > b ? a : b;
+    } else if (is_same<string_any_tag, get_type(a)>() && is_same<string_any_tag, get_type(b)>()) {
+        string str1 = any_cast<string>(a);
+        string str2 = any_cast<string>(b);
+        return str1 > str2 ? a : b;
+    } else if ((is_same<string_any_tag, get_type(a)>() || is_same<string_any_tag, get_type(b)>())) {
+        string str1 = any_cast<string>(a);
+        string str2 = any_cast<string>(b);
+        if (str1 == str2) {
             return boost::any("None");
+        } else if (str1 > str2) {
+            return a;
+        } else {
+            return b;
+        }
     } else {
-        return boost::any("None");
+        throw bad_any_cast("Invalid types");
     }
 }
