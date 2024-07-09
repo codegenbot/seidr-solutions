@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -57,8 +56,33 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {  
-    vector<string> lst1 = {"apple", "banana"};
-    vector<string> lst2 = {"orange", "grape"};
+    vector<string> lst1;
+    cout << "Enter the strings for list 1, separated by spaces: ";
+    string input;
+    getline(cin, input);
+    size_t pos = 0;
+    while ((pos = input.find(" ")) != string::npos) {
+        string s = input.substr(0, pos);
+        lst1.push_back(s);
+        input.erase(0, pos + 1);
+    }
+    if (!input.empty()) {
+        lst1.push_back(input);
+    }
+
+    vector<string> lst2;
+    cout << "Enter the strings for list 2, separated by spaces: ";
+    getline(cin, input);
+    pos = 0;
+    while ((pos = input.find(" ")) != string::npos) {
+        string s = input.substr(0, pos);
+        lst2.push_back(s);
+        input.erase(0, pos + 1);
+    }
+    if (!input.empty()) {
+        lst2.push_back(input);
+    }
+
     vector<string> result = totalMatch(lst1, lst2);
     cout << "Result: ";
     for (const string& s : result) {
