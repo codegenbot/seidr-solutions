@@ -1,27 +1,20 @@
-int count = 0;
+int consecutive_spaces = 0;
     string result = "";
-
-    for (char c : text) {
-        if (c == ' ') {
-            count++;
-        } else {
-            if (count > 2) {
+    
+    for(char c : text) {
+        if(c == ' ') {
+            consecutive_spaces++;
+            if(consecutive_spaces > 2) {
                 result += '-';
+                consecutive_spaces = 1;
             } else {
-                result += string(count, '_');
+                result += '_';
             }
-            count = 0;
-        }
-        if (c != ' ') {
+        } else {
             result += c;
+            consecutive_spaces = 0;
         }
     }
-
-    if (count > 2) {
-        result += '-';
-    } else {
-        result += string(count, '_');
-    }
-
+    
     return result;
 }
