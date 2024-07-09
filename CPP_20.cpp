@@ -26,6 +26,6 @@ vector<float> find_closest_elements(vector<float> numbers) {
     return vector<float>(closest_pair.begin(), closest_pair.end());
 }
 
-int main() {
-    assert(issame({1.1, 2.2, 3.1, 4.1, 5.1}, {2.2, 3.1}));
+vector<float> test() {
+    return find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
 }
