@@ -1,6 +1,5 @@
-```cpp
 std::string flip_case(const std::string& str) {
-    std::string result = "";
+    std::string result;
     for (char c : str) {  
         if (isalpha(c)) {
             if (isupper(c))
@@ -11,4 +10,3 @@ std::string flip_case(const std::string& str) {
             result += c;
     }
     return result;
-}
