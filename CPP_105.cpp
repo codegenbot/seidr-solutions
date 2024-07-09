@@ -1,38 +1,48 @@
 ```
-vector<string> by_length(vector<int> arr) {
-    vector<string> result;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> numArr;
     for (int i : arr) {
-        string str;
+        if (i >= 1 && i <= 9) {
+            numArr.push_back(i);
+        }
+    }
+    sort(numArr.begin(), numArr.end());
+    reverse(numArr.begin(), numArr.end());
+    std::vector<std::string> result;
+    for (int i : numArr) {
         switch (i) {
             case 1:
-                str = "One";
+                result.push_back("One");
                 break;
             case 2:
-                str = "Two";
+                result.push_back("Two");
                 break;
             case 3:
-                str = "Three";
+                result.push_back("Three");
                 break;
             case 4:
-                str = "Four";
+                result.push_back("Four");
                 break;
             case 5:
-                str = "Five";
+                result.push_back("Five");
                 break;
             case 6:
-                str = "Six";
+                result.push_back("Six");
                 break;
             case 7:
-                str = "Seven";
+                result.push_back("Seven");
                 break;
             case 8:
-                str = "Eight";
+                result.push_back("Eight");
                 break;
             case 9:
-                str = "Nine";
+                result.push_back("Nine");
                 break;
         }
-        result.push_back(str);
     }
     return result;
 }
