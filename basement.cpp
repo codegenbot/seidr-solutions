@@ -1,6 +1,6 @@
 #include <vector>
 
-int basement(std::vector<int>& nums) {
+int basement(vector<int>& nums) {
     int sum = 0;
     int idx = -1; 
     for (int i = 0; i < nums.size(); i++) {
