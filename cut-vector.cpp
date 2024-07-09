@@ -1,12 +1,13 @@
-```cpp
 #include <vector>
 #include <climits>
-
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int splitIndex = 0;
+    if(nums.size() == 1) {
+        return {{},{}};
+    }
     for (int i = 1; i < nums.size(); i++) {
         int diff = abs(nums[i] - nums[i-1]);
         if (diff < minDiff) {
@@ -14,5 +15,5 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
             splitIndex = i;
         }
     }
-    return make_pair({nums.begin(), nums.begin() + splitIndex}, {nums.begin() + splitIndex, nums.end()});
+    return {{nums.begin(), nums.begin() + splitIndex}, {nums.begin() + splitIndex, nums.end()}};
 }
