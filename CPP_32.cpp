@@ -1,15 +1,17 @@
-double poly(vector<double> xs, double x) {
-    int n = coeffs.size();
+#include <vector>
+#include <cmath>
+
+std::vector<double> coeffs;
+
+double poly(const std::vector<double>& xs, double x) {
     double sum = 0;
-    for (int i = 0; i < n; ++i) {
-        sum += coeffs[i] * pow(x, i);
+    for (int i = 0; i < xs.size(); ++i) {
+        sum += xs[i] * pow(x, i);
     }
     return sum;
 }
 
-vector<double> coeffs;
-
-double find_zero(vector<double> xs){
+double find_zero(std::vector<double> xs){
     double x = 1;
     double tol = 1e-6; // tolerance for finding zero
     int max_iter = 1000; // maximum number of iterations
@@ -21,7 +23,7 @@ double find_zero(vector<double> xs){
             return round(x, 2);
         }
         
-        x -= f / poly(vector<double>(xs.begin(), xs.end()), x); // Newton's method
+        x -= f / poly(coeffs, x); // Newton's method
     }
     
     return -1.0; // not found
