@@ -1,6 +1,6 @@
 #include <vector>
 
-int prod_signs(std::vector<int> arr){
+int prod_signs(vector<int> arr){
     long long res = 1;
     int sum = 0;
 
@@ -11,5 +11,5 @@ int prod_signs(std::vector<int> arr){
         }
     }
 
-    return res * sum == 0 ? INT_MIN : res;
+    return res * sum == 0 ? -32768 : res;
 }
