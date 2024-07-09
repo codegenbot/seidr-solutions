@@ -16,4 +16,4 @@ try:
     result = factorize(n)
     print(result)
 except ValueError:
-    print("Invalid input. Please enter a valid integer.")
+    print("Invalid input. Please enter an integer.")
