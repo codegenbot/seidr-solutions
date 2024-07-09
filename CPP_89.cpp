@@ -1,15 +1,14 @@
+#include <iostream>
 #include <string>
-#include <cassert>
+#include <cctype>
 
-using namespace std;
-
-string encrypt(string s){
-    string result = "";
+std::string encrypt(std::string s){
+    std::string result = "";
     int shift = 2 * 2;
     for(char c : s){
-        if(isalpha(c)){
+        if(std::isalpha(c)){
             char encrypted = c + shift;
-            if(islower(c)){
+            if(std::islower(c)){
                 if(encrypted > 'z'){
                     encrypted = 'a' + (encrypted - 'z' - 1);
                 }
@@ -27,6 +26,7 @@ string encrypt(string s){
 }
 
 int main(){
-    assert(encrypt("a") == "e");
+    assert (encrypt("a")=="e");
+    // Add more test cases here
     return 0;
 }
