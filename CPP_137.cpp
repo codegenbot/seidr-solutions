@@ -1,19 +1,21 @@
-#include <iostream>
 #include <string>
 
 int main() {
-    std::string s1 = "Hello";
-    std::string s2 = "world";
-    
-    if (s1.size() > s2.size()) {
-        std::cout << s1 << std::endl;
-    }
-    else if (s1.size() < s2.size()) {
-        std::cout << s2 << std::endl;
-    }
-    else {
-        std::cout << "Equal" << std::endl;
-    }
+    std::string a = "hello";
+    std::string b = "hi";
+
+    std::string result = compare_one(a, b);
+
+    std::cout << result << std::endl;
 
     return 0;
+}
+
+std::string compare_one(std::string a, std::string b) {
+    if (a > b)
+        return a;
+    else if (a < b)
+        return b;
+    else
+        return "None";
 }
