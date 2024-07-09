@@ -1,6 +1,8 @@
-def find_max_sum_subarray(arr):
-    max_sum = current_sum = arr[0]
-    for num in arr[1:]:
-        current_sum = max(num, current_sum + num)
-        max_sum = max(max_sum, current_sum)
-    return max_sum
+def get_largest_number():
+    n = int(input("Enter the number of elements in the array: "))
+    largest_num = -1
+    for _ in range(n):
+        num = float(input(f"Enter {i+1}th element: "))
+        if num > largest_num:
+            largest_num = num
+    return largest_num
