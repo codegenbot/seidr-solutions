@@ -1,6 +1,5 @@
-#include <vector>
-#include <algorithm>
 #include <string>
+#include <vector>
 
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     for (int num : lst1) {
@@ -17,3 +16,4 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
         }
     }
     return "YES";
+}
