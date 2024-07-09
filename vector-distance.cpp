@@ -8,7 +8,7 @@ double calculateEuclideanDistance(const vector<float>& vec1, const vector<float>
     double distance = 0.0;
     for (int i = 0; i < vec1.size(); ++i) {
         float diff = vec1[i] - vec2[i];
-        distance += std::pow(diff, 2);
+        distance += pow(diff, 2);
     }
     return std::sqrt(distance);
 }
@@ -26,4 +26,3 @@ int main() {
     cout << fixed << setprecision(10) << calculateEuclideanDistance(vec1, vec2) << endl;
 
     return 0;
-}
