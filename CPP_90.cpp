@@ -7,19 +7,22 @@ int main() {
     std::cout << "Enter number of elements: ";
     std::cin >> n;
 
-    std::vector<int> lst(n);
+    std::vector<int> lst;
     for (int i = 0; i < n; i++) {
+        int num;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> lst[i];
+        std::cin >> num;
+        lst.push_back(num);
     }
 
     int result = next_smallest(lst);
 
-    if (result == -1) {
-        std::cout << "No smaller number exists.\n";
+    if(result == -1) {
+        std::cout << "No smaller number found.\n";
     } else {
         std::cout << "The next smallest number is: " << result << "\n";
     }
+
     return 0;
 }
 
