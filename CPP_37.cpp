@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 namespace myspace {
     bool issame(const std::vector<float>& a, const std::vector<float>& b) {
