@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -10,12 +11,11 @@ int specialFilter(vector<int> nums) {
     }
     return count;
 
-}
-
-int main() {
+void main() 
+{
     vector<int> nums;
     for(int i = 123; i <= 789; i++) {
         nums.push_back(i);
     }
-    cout << specialFilter(nums) << endl;
+    cout << specialFilter(nums);
 }
