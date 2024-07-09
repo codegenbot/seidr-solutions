@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
