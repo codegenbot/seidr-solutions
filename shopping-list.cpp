@@ -1,5 +1,6 @@
-```
+```c++
 #include <vector>
+#include <initializer_list>
 using namespace std;
 
 double shoppingList(vector<float> prices, vector<float> discounts) {
