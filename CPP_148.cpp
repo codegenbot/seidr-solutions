@@ -1,19 +1,18 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
-#include <pmr/string>
 
-bool isPlanet(std::pmr::string planet);
-bool issame(std::vector<std::pmr::string> a, std::vector<std::pmr::string> b);
-std::vector<std::pmr::string> bf(std::pmr::string planet1, std::pmr::string planet2);
+bool isPlanet(std::string planet);
+bool issame(std::vector<std::string> a, std::vector<std::string> bf);
+std::vector<std::string> bf(std::string planet1, std::string planet2);
 
 void solve() {
-    std::vector<std::pmr::string> planets;
+    std::vector<std::string> planets;
     std::cout << "Enter two planets separated by space: ";
-    std::pmr::string planet1, planet2;
+    std::string planet1, planet2;
     std::cin >> planet1 >> planet2;
-    std::vector<std::pmr::string> result = bf(planet1, planet2); 
+    std::vector<std::string> result = bf(planet1, planet2); 
     if (result.empty()) {
         std::cout << "Planets not found.\n";
     } else {
@@ -33,8 +32,8 @@ void solve() {
     return;
 }
 
-bool isPlanet(std::pmr::string planet) {
-    std::pmr::string planets[] = {"Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+bool isPlanet(std::string planet) {
+    std::string planets[] = {"Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     for (const auto& p : planets) {
         if (p == planet)
             return true;
@@ -42,16 +41,16 @@ bool isPlanet(std::pmr::string planet) {
     return false;
 }
 
-bool issame(std::vector<std::pmr::string> a, std::vector<std::pmr::string> b) { 
-    if (a.size() != b.size()) return false;
+bool issame(std::vector<std::string> a, std::vector<std::string> bf) { 
+    if (a.size() != bf.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != bf[i]) return false;
     }
     return true;
 }
 
-std::vector<std::pmr::string> bf(std::pmr::string planet1, std::pmr::string planet2) { 
-    std::vector<std::pmr::string> result;
+std::vector<std::string> bf(std::string planet1, std::string planet2) { 
+    std::vector<std::string> result;
     if (isPlanet(planet1) && isPlanet(planet2)) {
         if (planet1 < planet2)
             result.push_back(planet1);
