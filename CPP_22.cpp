@@ -1,9 +1,8 @@
-#include <boost/optional.hpp>
+```
 #include <vector>
 #include <list>
 
 using namespace std;
-using namespace boost;
 
 bool issame(vector<any> a, vector<any> b) {
     if (a.size() != b.size())
@@ -28,3 +27,4 @@ vector<int> filter_integers(list<any> values){
         }
     }
     return result;
+}
