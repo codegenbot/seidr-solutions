@@ -1,7 +1,4 @@
 def solve_boolean(expression):
-    replacements = {"T": "True", "F": "False", "|": "or", "&": "and"}
-    for key, value in replacements.items():
-        expression = expression.replace(key, value)
-    return eval(expression)
+    return eval('(' + expression.replace("T", "True").replace("F", "False").replace("|", "or").replace("&", "and") + ')')
 
 print(solve_boolean(input()))
