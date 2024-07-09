@@ -1,39 +1,17 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <numeric>
 
-int max_fill(std::vector<std::vector<int>> grid, int capacity) {
+int max_fill(vector<vector<int>> grid, int capacity) {
     int total_water = 0;
-    for (std::vector<int> well : grid) {
-        total_water += std::accumulate(well.begin(), well.end(), 0);
+    for (const auto &row : grid) {
+        total_water += std::accumulate(row.begin(), row.end(), 0);
     }
     
-    int steps = 0;
-    while (total_water > 0) {
-        steps++;
-        int bucket_space = capacity;
-        
-        for (int i = 0; i < grid.size(); i++) {
-            if (bucket_space <= 0) break;
-            int water_in_well = 0;
-            for (int j = 0; j < grid[i].size(); j++) {
-                if (grid[i][j] == 1 && bucket_space >= 1) {
-                    water_in_well++;
-                    bucket_space--;
-                }
-            }
-            total_water -= water_in_well;
-        }
+    int buckets_needed = total_water / capacity;
+    if (total_water % capacity > 0) {
+        buckets_needed++;
     }
     
-    return steps - 1;
-}
-
-int main() {
-    std::vector<std::vector<int>> grid = {{0, 1, 1}, {1, 1, 1}, {1, 1, 0}};
-    int capacity = 3;
-    int result = max_fill(grid, capacity);
-    std::cout << "Number of steps: " << result << std::endl;
-    return 0;
+    return buckets_needed;
 }
