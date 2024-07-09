@@ -10,13 +10,10 @@ int do_algebra(vector<string> ops, vector<int> nums) {
         } else if (ops[i] == "*") {
             temp *= nums[i];
         } else if (ops[i] == "/") {
+            if(nums[i] == 0) return -1;
             temp /= nums[i];
         } else if (ops[i] == "^") {
-            temp = 1;
-            for(int j=0; j<nums[i]; j++) {
-                result += temp;
-                temp *= nums[i];
-            }
+            temp = pow(temp, nums[i]);
         }
     }
 
