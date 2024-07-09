@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+using namespace std;
 
 int prod_signs(vector<int> inputArr) {
     int product = 1;
@@ -13,7 +15,7 @@ int prod_signs(vector<int> inputArr) {
     }
 
     if (inputArr.empty()) {
-        return -32768;
+        return 0; 
     }
 
     return product * sum;
