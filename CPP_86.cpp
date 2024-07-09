@@ -1,27 +1,22 @@
-#include <bits/stdc++.h>
+```cpp
+#include <iostream>
+#include <string>
 
-string anti_shuffle(string s) {
-    string result = "";
+std::string anti_shuffle(std::string s) {
+    std::string res;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == ' ') {
-            result += " ";
-        } else {
-            string word;
-            for (int j = i; j < s.length() && s[j] != ' '; j++) {
-                word += s[j];
-            }
-            sort(word.begin(), word.end());
-            result += word;
-            i = j - 1;
+        if (i % 2 == 1) {
+            res += s[i];  // Add the character at index i to the end of res
         }
     }
-    return result;
+    return res;
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    cin >> str;
-    string res = anti_shuffle(str);
-    cout << "Anti-Shuffled String: " << res << endl;
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);  
+    std::string res = anti_shuffle(str);
+    std::cout << "Anti-Shuffled String: " << res.c_str() << std::endl;
     return 0;
+}
