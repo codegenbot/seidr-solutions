@@ -1,25 +1,24 @@
 #include <vector>
-#include <iostream>
+#include <string>
 
-std::vector<int> even_odd_count(int num) {
-    int count_even = 0, count_odd = 0;
-    while (num != 0) {
-        int digit = num % 10;
-        if (digit % 2 == 0)
-            count_even++;
+bool same(vector<int> a, vector<int> b) {
+    return (a == b);
+}
+
+vector<int> even_odd_count(int num) {
+    int evens = 0, odds = 0;
+    string str = to_string(abs(num));
+    for (char c : str) {
+        if (stoi(c) % 2 == 0)
+            evens++;
         else
-            count_odd++;
-        num /= 10;
+            odds++;
     }
-    return {count_even, count_odd};
+    return {evens, odds};
 }
 
-bool issame(std::vector<int> a,std::vector<int>b){
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
-
-int main(){
-    assert(even_odd_count(0) == std::vector<int>{1, 0});
-    std::cout << "Test Passed!" << std::endl;
+int main() {
+    vector<int> result = even_odd_count(0);
+    assert(same(result, vector<int>({1, 0})));
     return 0;
 }
