@@ -1,18 +1,17 @@
 #include <vector>
-
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) {
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
         return false;
     }
-    for(int i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
     return true;
 }
 
-vector<int> get_odd_collatz(int n) {
+vector<int> get_odd_collatz(int n){ // Define the get_odd_collatz function if not defined
     vector<int> result;
     while(n != 1){
         result.push_back(n);
@@ -36,5 +35,5 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main(){
-    assert(issame(get_odd_collatz(1), {1}));
+    assert(issame(get_odd_collatz(1), {1})); // Compare using correct function
 }
