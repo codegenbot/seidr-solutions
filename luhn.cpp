@@ -1,3 +1,5 @@
+#include <string>
+
 int luhn(std::string ccNum) {
     long long sum = 0;
     for (char c : ccNum) {

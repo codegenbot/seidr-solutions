@@ -1,8 +1,8 @@
+#include <string>
+#include <iostream>
+
 int pairedDigits(string s) {
     int sum = 0;
-    if(s.length() < 2) {
-        return sum; 
-    }
     for (int i = 0; i < s.length() - 1; i++) {
         if (s[i] == s[i + 1]) {
             int currentSum = (s[i] - '0') * 10 + (s[i+1] - '0');
@@ -13,4 +13,3 @@ int pairedDigits(string s) {
         }
     }
     return sum;
-}
