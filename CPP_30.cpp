@@ -1,20 +1,17 @@
 #include <vector>
+#include <cmath>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
+namespace util {
+    bool issame(float a, float b) {
+        return abs(a - b) < 0.00001;
     }
-    return true;
 }
 
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
-    for (float i : l) {
-        if (i > 0) {
-            result.push_back(i);
+vector<float> get_positive(vector<float> l) {
+    vector<float> result;
+    for (float x : l) {
+        if (x > 0) {
+            result.push_back(x);
         }
     }
     return result;
