@@ -16,7 +16,7 @@ int main() {
 
 bool check_if_last_char_is_a_letter(string str) {
     char lastChar = str.back();
-    if (isalpha(lastChar)) { // Check if the last character is an alphabet
+    if (isalpha(lastChar)) { 
         return true;
     } else {
         return false;
