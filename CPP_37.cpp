@@ -1,14 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b){
-    return a == b;
-}
-
-std::vector<float> sort_even(std::vector<float> l){
-    std::vector<float> l_prime = l;
+std::vector<float> sort_even(const std::vector<float>& l) {
     std::vector<float> even_values;
+    std::vector<float> result;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -21,16 +18,22 @@ std::vector<float> sort_even(std::vector<float> l){
     int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l_prime[i] = even_values[even_index];
+            result.push_back(even_values[even_index]);
             even_index++;
+        } else {
+            result.push_back(l[i]);
         }
     }
 
-    return l_prime;
+    return result;
+}
+
+void test_sort_even() {
+    assert((sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) == std::vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
 }
 
 int main() {
-    assert (issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
-
+    test_sort_even();
+    std::cout << "All test cases pass.";
     return 0;
 }
