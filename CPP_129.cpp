@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
@@ -7,6 +9,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
     vector<int> res;
+    
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (!visited[i][j]) {
@@ -14,23 +17,42 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             }
         }
     }
+    
     return res;
 }
 
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
     int n = grid.size();
     if (k == 0) {
-        return; 
-    }
-    visited[x][y] = true;
-    res.push_back(grid[x][y]);
-    for (int dx = -1; dx <= 1; dx++) {
-        for (int dy = -1; dy <= 1; dy++) {
-            int nx = x + dx, ny = y + dy;
-            if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
-                dfs(grid, visited, nx, ny, k - 1, res);
+        res.insert(res.end(), res.begin(), res.end());
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                visited[i][j] = false;
             }
         }
+    } else {
+        visited[x][y] = true;
+        res.push_back(grid[x][y]);
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dy = -1; dy <= 1; dy++) {
+                int nx = x + dx, ny = y + dy;
+                if(nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                    dfs(grid, visited, nx, ny, k-1, res);
+                }
+            }
+        }
+        visited[x][y] = false;
     }
-    visited[x][y] = false;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1,2,3},{4,5,6}};
+    int k = 1;
+    vector<int> res = minPath(grid, k);
+
+    for (int i : res) {
+        cout << i << " ";
+    }
+
+    return 0;
 }
