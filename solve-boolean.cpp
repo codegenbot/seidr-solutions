@@ -3,27 +3,27 @@
 bool solveBoolean(std::string s) {
     bool result = true;
     for (int i = 0; i < s.size(); ) {
-        if (s[i] == 'T') {
-            i++;
-        } else if (s[i] == 'F') {
+        if (s[i] == 'F') {
             return false;
         } else if (s[i] == '|') {
-            if (i == s.size() - 1) {
-                return true;
-            }
             i++;
+            if (i >= s.size() || s[i] == '&') {
+                return true;
+            } else if (i >= s.size()) {
+                return false;
+            }
         } else if (s[i] == '&') {
             bool foundT = false;
-            for (int j = i; j < s.size(); ) {
-                if (s[j] == 'T') {
+            while (i < s.size()) {
+                if (s[i] == 'T') {
                     foundT = true;
                     break;
-                } else if (s[j] == 'F') {
+                } else if (s[i] == 'F') {
                     return false;
                 }
-                j++;
+                i++;
             }
-            result = foundT && !foundT ? false : result;
+            result = foundT;
         }
     }
     return result;
