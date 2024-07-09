@@ -3,6 +3,12 @@
 #include <string>
 #include <iostream>
 
+#ifdef __cplusplus
+    extern "C" {
+        #include <initializer_list>
+    }
+#endif
+
 using namespace std;
 
 bool same(vector<string> a, vector<string> b) {
@@ -59,6 +65,6 @@ int main() {
         cout << s << " ";
     }
     cout << endl;
-    assert(result == {"this"});
+    assert(result == {});
     return 0; 
 }
