@@ -1,8 +1,7 @@
 #include <string>
-
 int getBonus(int a, int b) {
     if(a + b == 10) {
-        return 20;
+        return 10;
     } else {
         return a + b;
     }
