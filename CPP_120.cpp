@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int>, vector<int>) {
-    // this function is not needed here, but it should be defined if used elsewhere
+bool issame(vector<int> ,vector<int>){ // Declare the function here
+
 }
 
 vector<int> maximum(vector<int> arr, int k) {
