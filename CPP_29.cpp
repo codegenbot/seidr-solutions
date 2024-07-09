@@ -1,10 +1,13 @@
-```cpp
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size())
+    if (a.size() != b.size()) {
         return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (issame(a[i], b[i])) {
+            continue;
+        } else {
             return false;
+        }
     }
     return true;
 }
@@ -16,4 +19,3 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
             result.push_back(str);
     }
     return result;
-}
