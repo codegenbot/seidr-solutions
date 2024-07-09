@@ -1,18 +1,22 @@
+#include <vector>
 #include <algorithm>
-using namespace std;
 
-vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()).end());
-    sort(result.begin(), result.end());
-    return result;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++)
+        if(a[i] != b[i])
+            return false;
+    return true;
 }
 
-vector<int>::iterator unique_copy(iterator first, iterator last) {
-    map<int, bool> seen;
-    for (auto it = first; it != last; ++it) {
-        if (!seen.count(*it)) {
-            *it = make_pair(*it, true);
-        }
-    }
-    return seen.begin(), seen.end();
+std::vector<int> unique(std::vector<int> l) {
+    sort(l.begin(), l.end());
+    l.erase(unique(l.begin(), l.end()), l.end());
+    return l;
+}
+
+int main() {
+    assert(issame(unique({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+    return 0;
 }
