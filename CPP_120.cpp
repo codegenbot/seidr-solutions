@@ -8,11 +8,11 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     }
     
     std::vector<int> result(arr.begin(), arr.begin() + k);
-    sort(result.begin(), result.end());
-    sort(arr.begin(), arr.end());
-    for(int i = 0; i < k; i++) {
-        arr.erase(std::remove(arr.begin(), arr.end(), result[i]), arr.end());
+    std::sort(result.begin(), result.end());
+    for(int i = 0; i < (k/2); i++) {
+        if(result[i] != result[k-i-1]) {
+            return {};
+        }
     }
-    
     return result;
 }
