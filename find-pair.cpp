@@ -17,13 +17,5 @@ std::pair<int,int> find_pair(std::vector<int>& nums, int target) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
-    int target = 7;
-    try {
-        std::pair<int, int> pair = find_pair(nums, target);
-        std::cout << "The two elements that sum to the target (" << target << ") are: " << pair.first << ", and " << pair.second << "." << std::endl;
-    } catch (std::runtime_error& e) {
-        std::cerr << e.what() << std::endl;
-    }
     return 0;
 }
