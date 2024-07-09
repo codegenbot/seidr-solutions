@@ -1,8 +1,8 @@
-```cpp
 #include <iostream>
 using namespace std;
 
-int car_race_collision(int n) {
+int car_race_collision(string s) {
+    int n = stoi(s);
     int collision = 0;
     for (int i = 1; i <= n; i++) {
         if ((i % 4 == 0 && i % 8 != 0) || (i % 8 == 0)) {
@@ -14,9 +14,8 @@ int car_race_collision(int n) {
 }
 
 int main() {
-    std::string s;
-    cin >> s; // Read the input string
-    int n = stoi(s); // Convert the string to an integer
-    cout << "Number of collisions: " << car_race_collision(n) << endl;
+    string s;
+    getline(cin, s);
+    cout << "Number of collisions: " << car_race_collision(s) << endl;
     return 0;
 }
