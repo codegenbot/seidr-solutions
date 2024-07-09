@@ -4,14 +4,14 @@ using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
-    int n = arr.size();
-    int maxLeftSoFar = arr[0];
-    for (int i = 0; i < n; i++) {
-        if (arr[i] >= maxLeftSoFar) {
+    int maxSeenSoFar = 0;
+    for (int i = arr.size() - 1; i >= 0; i--) {
+        if (arr[i] >= maxSeenSoFar) {
             result.push_back(arr[i]);
-            maxLeftSoFar = arr[i];
+            maxSeenSoFar = arr[i];
         }
     }
+    reverse(result.begin(), result.end());
     return result;
 }
 
