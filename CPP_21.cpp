@@ -1,9 +1,7 @@
-#include<stdio.h>
-#include<math.h>
-#include<vector>
+#include <vector>
 using namespace std;
 
-vector<float> rescale_to_unit(vector<float> numbers){
+vector<float> rescale_to_unit(vector<float> numbers) {
     float minVal = *min_element(numbers.begin(), numbers.end());
     float maxVal = *max_element(numbers.begin(), numbers.end());
 
