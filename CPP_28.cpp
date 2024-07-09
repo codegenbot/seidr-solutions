@@ -1,9 +1,10 @@
 ```
 #include <string>
 #include <vector>
+using namespace std;
 
-std::string concatenate(const std::vector<std::string>& strings) {
-    std::string result = "";
+string concatenate(vector<string> strings){
+    string result = "";
     for (const auto& str : strings) {
         result += str;
     }
@@ -11,7 +12,7 @@ std::string concatenate(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    const std::vector<std::string> input = {"x", "y", "z", "w", "k"};
-    std::cout << concatenate(input) << std::endl;
+    vector<string> vec = {"x", "y", "z", "w", "k"};
+    cout << concatenate(vec) << endl;
     return 0;
 }
