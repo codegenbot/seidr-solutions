@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -28,6 +28,6 @@ std::vector<int> unique_digits(std::vector<int> x) {
 }
 
 int main(int argc, char** argv) {
-    assert(issame(std::equal_to<int>()(unique_digits({135, 103, 31}), {31, 135}));
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
     return 0;
 }
