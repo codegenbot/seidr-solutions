@@ -1,8 +1,5 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
-
-using namespace std;
 
 vector<int> remove_duplicates(vector<int>& numbers) {
     sort(numbers.begin(), numbers.end());
@@ -15,11 +12,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 }
 
 int main() {
-    vector<int> numbers = {5, 2, 8, 2, 7, 5, 8};
+    vector<int> numbers = {3, 1, 2, 3, 4, 2};
     numbers = remove_duplicates(numbers);
-    for (int num : numbers) {
-        cout << num << " ";
-    }
-    
     return 0;
 }
