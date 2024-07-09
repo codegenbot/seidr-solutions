@@ -11,7 +11,7 @@ int main() {
 }
 
 std::string string_to_md5(std::string text) { 
-    if (text.empty()) return ""; 
+    if (text.empty()) return "";
     
     unsigned char result[16];
     MD5_CTX md5Context;
