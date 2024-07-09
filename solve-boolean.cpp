@@ -1,4 +1,7 @@
-#include <string>
+Here's the modified code with the `using namespace std;` directive added at the beginning:
+
+```c++
+using namespace std;
 
 string solveBoolean(string s) {
     stack<char> st;
@@ -13,7 +16,8 @@ string solveBoolean(string s) {
             while (!st.empty()) st.pop();
             st.push(s[i]);
         } else {
-            st.push(s[i] == 'T' ? '1' : '0');
+            st.push((s[i] == 'T') ? '1' : '0');
         }
     }
-    return st.top() == '1' ? "True" : "False";
+    return ((char)st.top() == '1') ? "True" : "False";
+}
