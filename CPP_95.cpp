@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <map>
 #include <string>
@@ -11,17 +10,20 @@ bool check_dict_case(map<string,string> dict){
     string first_key = *(dict.begin()->first);
     
     for(auto it = dict.begin(); it != dict.end(); ++it){
-        if(toupper(itostr(first_key)) != toupper(it->first)) return false;
+        if(toupper(first_key) != toupper(it->first)) return false;
     }
     
     return true;
 }
 
-string main(map<string, string> dict) {
-    bool result = check_dict_case(dict);
-    if(result) {
-        cout << "Dictionary is in case-insensitive order." << endl;
-    } else {
-        cout << "Dictionary is not in case-insensitive order." << endl;
+string main() {
+    map<string, string> dict;
+    cin >> dict;
+    if(check_dict_case(dict)){
+        for(auto it = dict.begin(); it != dict.end(); ++it){
+            cout << "Key: " << it->first << ", Value: " << it->second << endl;
+        }
+    } else{
+        return "Invalid Dictionary";
     }
 }
