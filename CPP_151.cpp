@@ -1,13 +1,14 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(std::vector<long long> lst) {
     long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && std::floor(num) == num) { 
-            if (static_cast<long long>(num) % 2 != 0) { 
-                sum += std::pow(num, 2); 
+    for (long long num : lst) {
+        if (num > 0 && num == static_cast<long long>(num)) { 
+            if (num % 2 != 0) { 
+                sum += num * num; 
             }
         }
     }
@@ -15,13 +16,7 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    float x;
-    float y;
-    std::cout << "Enter the first number: ";
-    std::cin >> x;
-    std::cout << "Enter the second number: ";
-    std::cin >> y;
-    std::vector<float> lst = {x, y};
+    std::vector<long long> lst = {1, 8};
     long long odd_sum = double_the_difference(lst);
     return 0;
 }
