@@ -10,3 +10,6 @@ def bouncing_balls():
         height *= bi
     print(bi)
     print(distance)
+
+
+bouncing_balls()
