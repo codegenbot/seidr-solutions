@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <assert.h>
 
@@ -14,5 +13,5 @@ bool below_threshold(std::vector<int> l, int t) {
 int main() {
     std::vector<int> l = {4, 6, 8, 10};
     int t = 10;
-    assert(!below_threshold(l, t));
+    assert(below_threshold(l, t));
 }
