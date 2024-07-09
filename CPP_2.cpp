@@ -1,6 +1,8 @@
-Here is the completed code:
+#include <cmath>
 
-float truncate_number(float number){
+using namespace std;
+
+float truncate_number(float number) {
     int integer_part = (int)number;
-    return number - integer_part;
+    return fmod(number, 1);
 }
