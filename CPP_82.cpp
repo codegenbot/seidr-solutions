@@ -1,5 +1,5 @@
-#include <string> 
-#include <cmath> 
+#include <string>
+#include <cmath>
 
 bool isPrime(int n) {
     if (n <= 1) 
