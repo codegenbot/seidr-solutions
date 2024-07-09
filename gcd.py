@@ -1,4 +1,4 @@
-```
+```python
 
 
 def gcd(a, b):
