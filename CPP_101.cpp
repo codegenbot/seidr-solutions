@@ -25,7 +25,7 @@ vector<string> words_string(string s){
             word += s[i];
         }
     }
-    if(!word.empty() && !result.empty())
+    if(!word.empty() && !word.equals("")) 
         result.push_back(word);
     return result;
 }
