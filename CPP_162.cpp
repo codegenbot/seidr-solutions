@@ -1,22 +1,29 @@
+```cpp
 #include <iostream>
 #include <sstream>
 #include <iomanip>
 #include <string>
+#include <vector>
 
-std::string string_to_md5(const std::string& input) {
-    // Implementation of md5 hashing algorithm
-    // For simplicity, assume a correct implementation
-    return "md5_result";
+std::string stringToMd5(const std::string& str) {
+    // implement your md5 function here
 }
 
 int main() {
-    int i;
-    std::vector<std::string> strings = {"input1", "input2"};
-    for (const auto& str : strings) {
-        std::string md5_str = string_to_md5(str);
+    int i = 0;
+    std::vector<std::string> strings;
+
+    for (i = 0; i < 10; ++i) {
+        std::cout << "Enter a string: ";
+        std::string s;
+        std::cin >> s;
+        strings.push_back(s);
+    }
+
+    for (const auto& s : strings) {
         std::stringstream ss;
-        ss << std::hex << std::setw(4) << std::setfill('0') << md5_str.size();
-        // Process or use the stringstream
+        ss << std::setw(2) << std::hex << (int)s.size();
+        std::cout << ss.str() << "\n";
     }
     return 0;
 }
