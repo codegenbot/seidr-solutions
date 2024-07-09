@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cmath>
 
 using namespace std;
 
@@ -17,12 +18,12 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
 }
 
 int gcd(int a, int b) {
-    while (b != 0) {
-        int t = b;
-        b = a % b;
-        a = t;
+    a = abs(a);
+    b = abs(b);
+    if (b == 0) {
+        return a;
     }
-    return abs(a);
+    return gcd(b, a % b);
 }
 
 int main() {
@@ -34,7 +35,9 @@ int main() {
         cout << gcd(a, b) << endl;
     } else if (choice == 2) {
         string text, target;
-        cin >> text >> target;
+        cin.ignore();
+        getline(cin, text);
+        getline(cin, target);
         vector<int> result = findIndicesOfSubstring(text, target);
         for (int index : result) {
             cout << index << " ";
