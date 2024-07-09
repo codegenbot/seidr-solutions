@@ -2,16 +2,6 @@
 #include <string>
 using namespace std;
 
-bool issame(vector<string> v1,vector<string> v2) {
-    if(v1.size() != v2.size())
-        return false;
-    for(int i = 0; i<v1.size(); i++) {
-        if(v1[i] != v2[i])
-            return false;
-    }
-    return true;
-}
-
 vector<string> bf(vector<string> planets) {
     vector<string> result;
     
@@ -48,7 +38,7 @@ vector<string> bf(vector<string> planets) {
     string str = "Jupiter";
     string str2 = "Makemake";
     vector<string> vecStr = {str};
-    vector<string> result2 = bf(vecStr);
+    vector<string> result1 = bf(vecStr);
     
-    assert (issame(result, result2));
+    return result;
 }
