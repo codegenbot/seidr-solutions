@@ -2,11 +2,10 @@
 #include <vector>
 #include <climits>
 #include <cassert>
-
 using namespace std;
 
 long long minSubArraySum(vector<long long> nums) {
-    long long min_sum = -numeric_limits<long long>::max();
+    long long min_sum = LLONG_MAX;
     for (int i = 0; i < nums.size(); i++) {
         long long sum = 0;
         for (int j = i; j < nums.size(); j++) {
@@ -17,9 +16,4 @@ long long minSubArraySum(vector<long long> nums) {
         }
     }
     return min_sum;
-}
-
-int main() {
-    assert(minSubArraySum({1, -1}) == -1);
-    return 0;
 }
