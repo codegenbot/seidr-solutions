@@ -1,2 +1,6 @@
 def sort_third(l: list):
-    return [sorted(l[i:i+3]) if i % 3 == 0 else l[i] for i in range(len(l))]
+    l_prime = l.copy()
+    for i in range(len(l)):
+        if i % 3 == 0:
+            l_prime[i] = sorted(l[i::3])
+    return l_prime
