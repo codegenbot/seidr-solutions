@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -28,9 +29,7 @@ int main(){
     assert(sameVectors(a, b));
     if(sameVectors(a, b)) cout << "The vectors are the same." << endl;
     else cout << "The vectors are not the same." << endl;
-    
-    vector<float> vec({1.1, 2.2, 3.1, 4.1, 5.1});
-    float result = find_closest_elements(vec);
-    cout << "Closest elements: " << result << endl;
+    float min_diff = find_closest_elements(a);
+    cout << "The closest elements in the vector are at a distance of " << min_diff << "." << endl;
     return 0;
 }
