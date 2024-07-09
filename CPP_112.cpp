@@ -4,9 +4,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::string& a, const std::string& b);
-
-std::vector<std::string> reverse_delete(const std::string& s, const std::string& c);
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
 
 std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
     std::string result = "";
@@ -17,17 +17,16 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
     }
     std::string result_reversed = result;
     std::reverse(result_reversed.begin(), result_reversed.end());
-    return {result, issame(result, result_reversed) ? "True" : "False"};
-}
-
-bool issame(const std::string& a, const std::string& b) {
-    return a == b;
+    return { result, issame({result, result_reversed}, {"", result}) ? "True" : "False" };
 }
 
 int main() {
-    auto result = reverse_delete("mamma", "mia");
-    std::vector<std::string> expected = {"", "True"};
-    for (int i = 0; i < result.size(); ++i) {
-        assert(result[i] == expected[i]);
-    }
+    std::vector<std::string> result = reverse_delete("mamma", "mia");
+
+    std::cout << "Resulting string after deletion: " << result[0] << std::endl;
+    std::cout << "Is resulting string same as its reverse: " << result[1] << std::endl;
+
+    assert(issame(result, std::vector<std::string>{"", "True"}));
+
+    return 0;
 }
