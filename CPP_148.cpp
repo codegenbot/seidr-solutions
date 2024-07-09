@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -33,6 +34,11 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     return result;
 }
 
-bool isSame(const std::vector<std::string>& a, const std::string& b) {
-    return a.empty() || (a.size() == 1 && a[0] == b);
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(isSame(bf("Jupiter", "Makemake"), std::vector<std::string>{}));
+    return 0;
 }
