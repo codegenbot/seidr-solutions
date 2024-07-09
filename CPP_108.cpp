@@ -1,6 +1,3 @@
-#include <vector>
-using namespace std;
-
 int count_nums(vector<int> n) {
     int count = 0;
     for (int num : n) {
@@ -28,10 +25,11 @@ int count_nums(vector<int> n) {
         }
     }
     return count;
+
 }
 
 int main() {
-    vector<int> input = {1};
-    assert(count_nums(input) == 1);
+    vector<int> nums = {1};
+    assert(count_nums(nums) == 1);
     return 0;
 }
