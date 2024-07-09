@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 
@@ -36,32 +35,28 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    std::vector<std::string> user_input;
-    int num_elements;
+    int n;
+    std::cout << "Enter number of strings: ";
+    std::cin >> n;
 
-    // Ask the user for input
-    std::cout << "Enter the number of strings: ";
-    std::cin >> num_elements;
-
-    // Read in all the strings
-    for (int i = 0; i < num_elements; ++i) {
+    std::vector<std::string> list;
+    for (int i = 0; i < n; ++i) {
         std::string str;
         std::cout << "Enter string " << i+1 << ": ";
         std::getline(std::cin, str);
-        user_input.push_back(str);
+        list.push_back(str);
     }
 
-    // Find the sorted list of even-length strings
-    auto result = sorted_list_sum(user_input);
+    std::vector<std::string> sorted = sorted_list_sum(list);
 
-    // Display the results
-    if (result.empty()) {
-        std::cout << "No even-length strings found." << std::endl;
+    if (sorted.empty()) {
+        std::cout << "The sum is 0." << std::endl;
     } else {
-        std::cout << "Sorted list of even-length strings:" << std::endl;
-        for (const auto& str : result) {
-            std::cout << str << std::endl;
+        std::cout << "Sorted strings: ";
+        for (const auto& str : sorted) {
+            std::cout << str << " ";
         }
+        std::cout << std::endl;
     }
 
     return 0;
