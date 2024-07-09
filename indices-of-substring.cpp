@@ -14,8 +14,7 @@ vector<int> findIndices(string text, string target) {
             if (i + j >= n) break; // Check for out-of-bounds access
             if (text[i + j] != target[j]) {
                 found = false;
-                i = i + j; // Move the index to the next potential match
-                continue;
+                break; // Stop searching for this occurrence of the target
             }
         }
         if (found) indices.push_back(i);
