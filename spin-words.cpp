@@ -27,6 +27,5 @@ std::string spinWords(std::string str) {
 }
 
 int main() {
-    // Your code to test the function
     return 0;
 }
