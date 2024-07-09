@@ -1,3 +1,7 @@
+```cpp
+#include <iostream>
+#include <string>
+
 std::string encrypt(std::string s) {
     std::string result = "";
     for(int i=0; i<s.length(); i++){
@@ -9,5 +13,15 @@ std::string encrypt(std::string s) {
         }
         result += c;
     }
-    return s; 
+    return result;
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::string dummy;
+    std::getline(std::cin, dummy);  
+    std::getline(std::cin, str);
+    std::cout << "Encrypted string: " << encrypt(str) << std::endl;
+    return 0;
 }
