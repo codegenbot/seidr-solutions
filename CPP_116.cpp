@@ -21,6 +21,4 @@ int main() {
     std::vector<int> arr = {2, 4, 8, 16, 32};
     sort(arr);
     assert(issame(arr, {2, 4, 8, 16, 32}));
-  
-    return 0;
 }

@@ -1,12 +1,14 @@
-#include <vector>
 #include <string>
+#include <vector>
 
-vector<string> split_words(string txt) {
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
                 result.push_back(word);
                 word = "";
             }
@@ -14,27 +16,17 @@ vector<string> split_words(string txt) {
             word += c;
         }
     }
-    if (!word.empty()) {
+    if(!word.empty()){
         result.push_back(word);
     }
-    if (result.size() == 1) {
-        int count = 0;
-        for (char c : result[0]) {
-            if (islower(c) && ((c - 'a') % 2 == 1)) {
-                count++;
+    if(result.empty()){
+        int oddCount = 0;
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
+                oddCount++;
             }
         }
-        result[0] = to_string(count);
+        result.push_back(to_string(oddCount));
     }
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
-    // Add more test cases here
-    return 0;
 }
