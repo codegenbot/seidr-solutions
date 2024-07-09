@@ -13,6 +13,6 @@ std::vector<float> derivative(std::vector<float> xs){
     return result;
 }
 
-int main() {
-    assert(issame(derivative({1}), std::vector<float>{}));
+int main(){
+    assert(issame(derivative({1.0}), {}));
 }
