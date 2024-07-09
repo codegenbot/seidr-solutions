@@ -1,55 +1,42 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
 
-using namespace std;
+std::vector<std::string> odd_count(std::vector<std::string> lst);
 
-vector<string> odd_count(vector<string> lst);
-
-void displayOutput(vector<string> output) {
-    for (string s : output) {
-        cout << s << endl;
+void displayOutput(std::vector<std::string> output) {
+    for (std::string s : output) {
+        std::cout << s << std::endl;
     }
 }
 
 int main() {
-    vector<string> lst;
-    string temp;
-    while(getline(cin,temp) && !temp.empty()) {
+    std::vector<std::string> lst;
+    std::string temp;
+    while(std::getline(std::cin,temp) && !temp.empty()) {
         lst.push_back(temp);
     }
-    vector<string> output = odd_count(lst);
+    std::vector<std::string> output = odd_count(lst);
     displayOutput(output);
     return 0;
 }
 
-vector<string> odd_count(vector<string> lst) {
-    vector<string> result;
+std::vector<std::string> odd_count(std::vector<std::string> lst) {
+    std::vector<std::string> result;
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
-        string temp = "";
         for (char c : lst[i]) {
             if (c % 2 != 0) {
                 count++;
-                temp += c;
             }
         }
-        if (!temp.empty()) {
-            string finalTemp = "the number of odd elements is ";
-            finalTemp += to_string(count);
-            finalTemp += " in the string";
-            finalTemp += to_string(i + 1);
-            finalTemp += ".";
-            result.push_back(finalTemp);
-            result.push_back(temp);
-        } else {
-            if (count == 0) {
-                string finalTemp = "all characters are even in the string";
-                finalTemp += to_string(i + 1);
-                finalTemp += ".";
-                result.push_back(finalTemp);
-            }
-        }
+        std::string temp = "the number of odd elements is ";
+        temp += std::to_string(count);
+        temp += " in the string";
+        temp += std::to_string(i + 1);
+        temp += ".";
+        result.push_back(temp);
     }
     return result;
 }
