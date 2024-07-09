@@ -1,5 +1,6 @@
 #include <string>
 #include <cassert>
+#include <iostream>
 
 bool is_happy(std::string s) {
     if (s.length() < 3)
@@ -22,3 +23,15 @@ bool is_happy(std::string s) {
             return false;
     }
     return true;
+}
+
+int main() {
+    assert(is_happy("iopaxioi") == false);
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    if (is_happy(s))
+        std::cout << "The string is happy." << std::endl;
+    else
+        std::cout << "The string is not happy." << std::endl;
+    return 0;
