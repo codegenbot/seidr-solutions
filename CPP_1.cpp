@@ -1,5 +1,5 @@
 #include <vector>
-#include <string>
+#include <iostream>
 
 vector<string> separate_paren_groups(string paren_string);
 
@@ -13,6 +13,19 @@ bool issame(vector<string> a, vector<string> b) {
         }
     }
     return true;
+}
+
+int main() {
+    string input_string;
+    cin >> input_string;
+
+    vector<string> result = separate_paren_groups(input_string);
+
+    for (string group : result) {
+        cout << group << endl;
+    }
+
+    return 0;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
