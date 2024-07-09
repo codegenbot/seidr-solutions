@@ -1,3 +1,4 @@
+```
 from typing import List, Optional
 
 def longest(strings: list) -> Optional[str]:
@@ -9,7 +10,7 @@ def longest(strings: list) -> Optional[str]:
     max_len = 0
     longest_str = ""
     for s in strings:
-        if len(s) > 0 and (len(s) > max_len or max_len == 0):
+        if len(s) > max_len:
             max_len = len(s)
             longest_str = s
     return longest_str
