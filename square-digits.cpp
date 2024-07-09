@@ -1,6 +1,6 @@
-#include <iostream>
+```
 #include <string>
-
+#include <iostream>
 using namespace std;
 
 string squareDigits(string input) {

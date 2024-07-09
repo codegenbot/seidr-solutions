@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -16,3 +17,4 @@ int main() {
     double result = hoppingList(prices, discounts);
     std::cout << "The total price of the shopping trip is: " << result << std::endl;
     return 0;
+}
