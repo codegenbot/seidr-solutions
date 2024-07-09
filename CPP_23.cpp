@@ -1,4 +1,10 @@
+#include <cassert>
+#include <string>
+
 int strLength(const char* str){
-    size_t length = strlen(str);
-    return length;
+    return std::string(str).length();
+}
+
+int main() {
+    assert(strLength("asdasnakj") == 13);
 }
