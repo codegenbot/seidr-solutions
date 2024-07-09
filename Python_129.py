@@ -4,8 +4,8 @@ def minPath(grid, k):
     visited = set()
 
     def dfs(x, y, path):
-        if sum(path) == k:
-            return path.copy()
+        if len(path) == k:
+            return path
         visited.add((x, y))
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
@@ -13,10 +13,12 @@ def minPath(grid, k):
                 new_path = dfs(nx, ny, path + [grid[nx][ny]])
                 if new_path:
                     return new_path
-        visited.discard((x, y))
+        visited.remove((x, y))
 
     for i in range(n):
         for j in range(n):
             path = dfs(i, j, [grid[i][j]])
             if path:
                 return path
+
+assert len(minPath([[1, 3], [3, 2]], 10)) == 10
