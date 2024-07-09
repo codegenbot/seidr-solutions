@@ -1,4 +1,3 @@
-```
 def prime_length(string):
     def is_prime(n):
         if n < 2:
@@ -7,4 +6,5 @@ def prime_length(string):
             if n % i == 0:
                 return False
         return True
+
     return is_prime(len(string))
