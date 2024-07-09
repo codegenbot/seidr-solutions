@@ -1,6 +1,22 @@
-```cpp
+```
 #include <vector>
 #include <string>
+
+int main() {
+    std::string a;
+    std::cout << "Enter the first string: ";
+    std::cin >> a;
+    std::string b;
+    std::cout << "Enter the second string: ";
+    std::cin >> b;
+    std::vector<std::string> result = bf(a, b);
+    bool same = issame(result, {a, b});
+    if (same) {
+        std::cout << "The strings are the same." << std::endl;
+    } else {
+        std::cout << "The strings are not the same." << std::endl;
+    }
+}
 
 std::vector<std::string> bf(std::string a, std::string b) {
     if (a.length() > b.length()) {
@@ -12,7 +28,7 @@ std::vector<std::string> bf(std::string a, std::string b) {
             a.insert(0, b);
         }
     }
-    return {a};
+    return {a, b};
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) { 
@@ -21,9 +37,4 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
         if (a[i] != b[i]) return false;
     }
     return true;
-}
-
-int main() {
-    std::vector<std::string> strings = bf("Jupiter", "Makemake");
-    assert(issame(strings, {}));
 }
