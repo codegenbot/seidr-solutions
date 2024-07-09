@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 std::string file_name_check(std::string file_name){
@@ -11,10 +12,13 @@ std::string file_name_check(std::string file_name){
             foundDot = true;
         }else if(foundDot){
             if(file_name.length() < 4) {
-                return "No";
+                return file_name.substr(i, i+file_name.substr(i).length());
             }
             std::string extension = file_name.substr(i);
-            if(file_name.length() < i+extension.length() || extension != "txt" && extension != "exe" && extension != "dll"){
+            if(file_name.length() < i+extension.length()) {
+                return "No";
+            }
+            if(extension != "txt" && extension != "exe" && extension != "dll"){
                 return "No";
             }
         }
