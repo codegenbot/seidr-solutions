@@ -17,3 +17,8 @@ int getMax(int n) {
 
     return *std::max_element(l.begin(), l.end());
 }
+
+int main() {
+    assert (abs(std::max({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10})-{12})<1e-4);
+    return 0;
+}
