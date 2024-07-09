@@ -1,14 +1,13 @@
 #include <vector>
-#include <algorithm>
+#include <string>
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
+bool issame(vector<string> a,vector<string>b) {
+    if(a.size() != b.size()) 
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+    for(int i = 0; i < a.size(); i++) 
+        if(a[i] != b[i])
             return false;
-    }
     return true;
 }
 
@@ -16,29 +15,25 @@ vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
     for (char ch : s) {
-        bool found = false;
+        bool flag = false;
         for (char cc : c) {
             if (ch == cc) {
-                found = true;
+                flag = true;
                 break;
             }
         }
-        if (!found) {
+        if (!flag) {
             temp += ch;
         }
     }
     result.push_back(temp);
     string rev = temp;
     reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
-    }
+    result.push_back((temp == rev) ? "True" : "False");
     return result;
 }
 
 int main() {
-    assert(issame(vector<string>(reverse_delete("mamma", "mia") ), vector<string>({"", "True"})));
+    assert(issame(reverse_delete("mamma", "mia") , {"", "True"}));
     return 0;
 }
