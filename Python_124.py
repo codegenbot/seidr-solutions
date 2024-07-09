@@ -15,6 +15,6 @@ def valid_date(date):
         return False
     if (int_month in [1,3,5,7,8,10,12] and int_day > 31) or \
        (int_month in [4,6,9,11] and int_day > 30) or \
-       (int_month == 2 and (int_year % 4 != 0 or (int_year % 100 == 0 and int_year % 400 != 0)) and int_day > 29):
+       (int_month == 2 and (int_year % 4 != 0 or (int_year % 100 == 0 and int_year % 400 != 0))):
         return False
     return True
