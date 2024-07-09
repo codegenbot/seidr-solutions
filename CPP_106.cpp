@@ -1,14 +1,12 @@
-vector<int> result;
-    int sum = 0;
-    int fact = 1;
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+vector<int> f(int n) {
+    vector<int> result;
     for (int i = 1; i <= n; ++i) {
-        if (i % 2 == 0) {
-            fact *= i;
-            result.push_back(fact);
-        } else {
-            sum += i;
-            result.push_back(sum);
-        }
+        result.push_back(i * 3 / 2);
     }
     return result;
 }
