@@ -1,3 +1,4 @@
+```
 #include <iostream>
 using namespace std;
 
@@ -14,20 +15,12 @@ bool same_chars(string s1, string s2) {
             return false;
         }
     }
-    for (int i = 0; i < s2.size(); i++) {
-        int count = 0;
-        while (i + count <= s2.size() && i + count < s2.size() && s2[i] == s2[i + count]) {
-            count++;
-        }
-        if (count > 1) {
-            return false;
-        }
-    }
     return true;
 
 }
 
-int main() {
+int main 
+{
     string s1, s2;
     cout << "Enter the first string: ";
     cin >> s1;
