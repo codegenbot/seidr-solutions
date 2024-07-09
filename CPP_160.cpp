@@ -1,4 +1,3 @@
-```cpp
 #include <sstream>
 #include <vector>
 #include <utility>
@@ -52,19 +51,24 @@ int main() {
             }
             if (token[0] == '+') {
                 op = '+';
-                operand = std::stoi(token.substr(1));
+                std::istringstream temp(token.substr(1));
+                temp >> operand;
             } else if (token[0] == '-') {
                 op = '-';
-                operand = std::stoi(token.substr(1));
+                std::istringstream temp(token.substr(1));
+                temp >> operand;
             } else if (token[0] == '*') {
                 op = '*';
-                operand = std::stoi(token.substr(1));
+                std::istringstream temp(token.substr(1));
+                temp >> operand;
             } else if (token[0] == '/') {
                 op = '/';
-                operand = std::stoi(token.substr(1));
+                std::istringstream temp(token.substr(1));
+                temp >> operand;
             } else if (token[0] == '^') {
                 op = '^';
-                operand = std::stoi(token.substr(1));
+                std::istringstream temp(token.substr(1));
+                temp >> operand;
             }
         }
     }
@@ -73,7 +77,7 @@ int main() {
     if (op != '+') {
         operators_and_operands.push_back({op, operand});
     }
-    
+
     int result = do_algebra(operators_and_operands);
     return 0;
 }
