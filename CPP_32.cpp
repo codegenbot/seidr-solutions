@@ -25,8 +25,9 @@ int main() {
     int n; 
     std::cin >> n;
 
-    const std::vector<double> coeffs(n);
-    for (int i = 0; i < n; i++) {
+    std::vector<double> coeffs(n+2);
+
+    for (int i = 0; i < n+2; i++) {
         double coeff;
         std::cin >> coeff;
         coeffs[i] = coeff;
