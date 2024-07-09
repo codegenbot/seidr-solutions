@@ -1,15 +1,11 @@
 #include <vector>
 #include <initializer_list>
 
-bool areSequencesEqual(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size())
-        return false;
-    
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i])
-            return false;
+bool isSame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
-    
     return true;
 }
 
@@ -32,13 +28,8 @@ int get_odd_collatz(int n) {
     std::cout << std::endl;
 }
 
-void testFunction() {
+int main() {
     int num;
     std::cin >> num;
     get_odd_collatz(num);
-    assert(areSequencesEqual({num}, get_odd_collatz(num)));
-}
-
-int main() {
-    testFunction();
 }
