@@ -1,10 +1,6 @@
-#include <vector>
-
-using namespace std;
-
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return {};
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
+    if (arr.empty()) return result;
 
     int minEvenValue = INT_MAX;
     int minIndex = -1;
@@ -16,7 +12,10 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
 
-    result.push_back({minEvenValue, minIndex});
+    if (minEvenValue != INT_MAX) {
+        result.push_back(minEvenValue);
+        result.push_back(minIndex);
+    }
 
     return result;
 }
