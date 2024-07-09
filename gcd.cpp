@@ -1,6 +1,7 @@
-#include <iostream>
-#include <string>
 #include <vector>
+#include <string>
+#include <iostream>
+
 using namespace std;
 
 int gcd(int a, int b) {
