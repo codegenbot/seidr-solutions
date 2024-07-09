@@ -1,5 +1,6 @@
+```
 def add(x: int, y: int) -> int:
-    print("This function adds two integers.")
+    print("This program adds two numbers.")
     x = int(input("Enter first integer: "))
     y = int(input("Enter second integer: "))
     return x + y
