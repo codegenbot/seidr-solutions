@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -34,7 +33,6 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    string text, target;
 
     cout << "Enter two positive integers: ";
     while (!(cin >> a >> b) || a < 1 || b < 1) {
@@ -44,12 +42,12 @@ int main() {
         cin >> a >> b;
     }
 
-    cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
+    cout << gcd(a, b) << endl;
 
-    cout << "Enter the text: ";
+    string text;
     getline(cin, text);
-
-    cout << "Enter the target substring: ";
+    
+    string target;
     getline(cin, target);
 
     vector<int> indices = indicesOfSubstring(text, target);
