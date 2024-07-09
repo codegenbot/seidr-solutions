@@ -1,9 +1,13 @@
-```
 def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i > 0) * 2 - max(lst)
+    return sum(i**2 for i in lst if isinstance(i, int) and i > 0) * 2 - max(
+        set(lst), key=lst.count
+    )
 
-def check(lst1, lst2):
-    if len(set(lst1)) == 1 and len(set(lst2)) == 1:
-        return double_the_difference([*lst1, *lst2])
-    else:
-        return "Invalid input"
+
+def check(input_str):
+    try:
+        lst = list(map(int, input_str.split()))
+        result = double_the_difference(lst)
+        print(result)
+    except ValueError:
+        print("Invalid input. Please enter a string of space-separated integers.")
