@@ -22,19 +22,8 @@ def minPath(grid, k):
     
     return res
 
-while True:
-    try:
-        N = int(input("Enter number of rows (columns will be same): "))
-        if N <= 0:
-            print("Grid size must be positive. Try again.")
-            continue
-        grid = [[int(input(f"Enter element for row {i}, column {j}: ")) for j in range(N)] for i in range(N)]
-        k = int(input("Enter k value: "))
-        if N != len(grid) or N <= 0:
-            print("Grid is not a square. Try again.")
-            continue
-        break
-    except ValueError:
-        print("Invalid input. Please enter integers only.")
+N = int(input("Enter number of rows (columns will be same): "))
+grid = [[int(input(f"Enter element for row {i}, column {j}: ")) for j in range(N)] for i in range(N)]
+k = int(input("Enter k value: "))
 
 print(minPath(grid, k))
