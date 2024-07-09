@@ -1,7 +1,3 @@
-#include <vector>
-#include <cassert>
-using namespace std;
-
 int solution(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
@@ -10,9 +6,4 @@ int solution(vector<int> lst) {
         }
     }
     return sum;
-}
-
-int main() {
-    assert(solution({3, 13, 2, 9}) == 16);
-    return 0;
 }
