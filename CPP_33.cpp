@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -5,12 +6,12 @@ using namespace std;
 
 vector<int> sort_third(vector<int> l) {
     int groupCount = 0;
-    vector<int> result(l.size()); // Initialize all elements to 0
+    vector<int> result(l.size()); 
 
     for (int i : l) {
         if(groupCount % 3 == 0 || groupCount >= l.size()) { 
             if(groupCount < l.size())
-                result[groupCount] = i; // assign elements to their correct position
+                result[groupCount] = i; 
             groupCount++;
         } else {
             groupCount++;
@@ -52,3 +53,4 @@ int main() {
     cout << endl;
     
     return 0;
+}
