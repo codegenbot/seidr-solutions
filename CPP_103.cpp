@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -8,8 +9,8 @@ std::string rounded_avg(int n, int m) {
     for (int i = n; i <= m; i++) {
         sum += i;
     }
-    double avg = round((double)sum / (m - n + 1));
-    std::string res;
+    double avg = std::round((double)sum / (m - n + 1));
+    std::string res = "";
     while (avg > 0) {
         if (avg >= 2) {
             res = "1" + res;
