@@ -1,4 +1,4 @@
-#include <vector>
+#include<vector>
 
 vector<float> get_positive(vector<float> l){
     vector<float> result;
@@ -15,10 +15,5 @@ bool issame(float a, float b){
 }
 
 int main() {
-    vector<float> numbers = {1.5, -2.3, 4.0, -0.5, 3.7};
-    vector<float> positive_numbers = get_positive(numbers);
-    for (float num : positive_numbers) {
-        cout << num << " ";
-    }
     return 0;
 }
