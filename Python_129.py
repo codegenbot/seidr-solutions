@@ -1,47 +1,40 @@
-```
 from collections import deque
 
 
 def minPath(grid):
     n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
 
-    def dfs(i, j, path):
-        if grid[i][j] == "0":
-            return None
+    def bfs(i, j, path):
+        if grid[i][j] == 1:
+            return False
+        grid[i][j] = 1
 
-        visited.add((i, j))
-
-        min_path = path[:]
         for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = i + di, j + dj
-            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
-                new_path = dfs(ni, nj, path + [m[ni][nj]])
-                if new_path and (not min_path or new_path < min_path):
-                    min_path = new_path
+            if 0 <= ni < n and 0 <= nj < n:
+                new_path = path + [(i, j), (ni, nj)]
+                if bfs(ni, nj, new_path):
+                    return True
 
-        return min_path
+        return False
 
-    visited = set()
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            if grid[i][j] == 1:
+                start = (i, j)
 
-    start = None
-    for i in range(n):
-        for j in range(n):
-            if grid[i][j] == "1":
-                start = [i, j]
-                break
-        if start is not None:
-            break
+    min_length = float("inf")
+    min_path = []
 
-    path = dfs(*start, [])
+    path = [start]
+    while path:
+        x, y = path[-1]
+        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+            nx, ny = x + dx, y + dy
+            if grid[nx][ny] == 0:
+                new_path = list(path)
+                new_path.append((nx, ny))
+                if bfs(nx, ny, new_path):
+                    return new_path
 
-    return path
-
-
-n = int(input("Enter the number of rows: "))
-m = []
-for i in range(n):
-    row = list(input(f"Enter row {i+1} (separated by spaces): ").split())
-    m.append(row)
-
-print(minPath(m))
+    return min_path
