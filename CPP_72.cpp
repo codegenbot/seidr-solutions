@@ -1,25 +1,38 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
-using namespace std;
 
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
-    if (str != reverse(str).s) {
+    if (str != std::string(str.rbegin(), str.rend())) {
         return false;
     }
-    int sum = 0;
+    long sum = 0;
     for (int i : q) {
         sum += i;
     }
-    return sum <= w;
+    return static_cast<long>(sum) <= w;
 }
 
 int main() {
     assert(will_it_fly({5}, 5) == true);
-    return 0;
+    std::vector<int> q;
+    int w;
+    std::cout << "Enter the number of quails: ";
+    int n;
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter the weight of quail " << i + 1 << ": ";
+        std::cin >> q.push_back(w);
+    }
+    std::cout << "Enter the total weight: ";
+    std::cin >> w;
+    if (will_it_fly(q, w)) {
+        std::cout << "The quails will fly." << std::endl;
+    } else {
+        std::cout << "The quails won't fly." << std::endl;
+    }
 }
