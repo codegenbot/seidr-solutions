@@ -14,5 +14,4 @@ bool is_palindrome(string text){
 
 int main(){
     assert (is_palindrome("xywzx") == false);
-
 }
