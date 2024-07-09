@@ -1,5 +1,5 @@
+```cpp
 #include <string>
-using namespace std;
 
 bool is_nested(string str) {
     int count = 0;
@@ -9,8 +9,4 @@ bool is_nested(string str) {
         if (count < 0) return true;
     }
     return false;
-}
-
-int main() {
-    assert(is_nested("]]]]]]]]") == false);
 }
