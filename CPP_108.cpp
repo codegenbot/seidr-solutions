@@ -1,8 +1,9 @@
+#include <iostream>
 #include <vector>
 
-int count_nums(vector<int> n) {
+int count_nums(std::vector<int> nums) {
     int count = 0;
-    for (int num : n) {
+    for (auto num : nums) {
         if (num < 0) {
             num = -num;
         }
@@ -16,4 +17,10 @@ int count_nums(vector<int> n) {
         }
     }
     return count;
+}
+
+int main() {
+    assert(count_nums({1}) == 1);
+    // add your test cases here
+    return 0;
 }
