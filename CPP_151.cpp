@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 long double_the_difference(const std::vector<int>& input);
 
