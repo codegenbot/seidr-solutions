@@ -1,0 +1,52 @@
+```
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> sort_third(vector<int> l) {
+    vector<int> result;
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 3 == 0) {
+            vector<int> temp;
+            for (int j = i; j < l.size() && j % 3 == 0; j++) {
+                temp.push_back(l[j]);
+            }
+            sort(temp.begin(), temp.end());
+            for (int k = 0; k < temp.size(); k++) {
+                result.push_back(temp[k]);
+            }
+        } else {
+            result.push_back(l[i]);
+        }
+    }
+    return result;
+}
+
+cout << "l1: ";
+for (int i : {1, 2, 3}) {
+    cout << i << " ";
+}
+cout << endl;
+
+cout << "l2: ";
+for (int i : {5, 6, 3, 4, 8, 9, 2}) {
+    cout << i << " ";
+}
+cout << endl;
+
+vector<int> result1 = sort_third({1, 2, 3});
+vector<int> result2 = sort_third({5, 6, 3, 4, 8, 9, 2});
+
+cout << "result1: ";
+for (int i : result1) {
+    cout << i << " ";
+}
+cout << endl;
+
+cout << "result2: ";
+for (int i : result2) {
+    cout << i << " ";
+}
+cout << endl;
