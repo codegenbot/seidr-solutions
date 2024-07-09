@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <memory>
 #include <cassert>
 
 int sumOdd(std::vector<int> lst) {
