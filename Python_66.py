@@ -1,4 +1,2 @@
-def digitSum(n):
-    s = str(n)
-    total_sum = sum(int(digit) for digit in s if digit.isdigit())
-    return total_sum
+def digitSum(s):
+    return sum(int(d) for d in str(sum(ord(c) - 64 for c in s if c.isupper())))
