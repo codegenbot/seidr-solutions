@@ -5,7 +5,7 @@ def modp(n: int, p: int):
             return b, 0, 1
         else:
             gcd, y, x = extended_gcd(b % a, a)
-            return gcd, x - (b // a) * y, y
+            return gcd, y - (b // a) * x, x
 
     gcd, x, _ = extended_gcd(n, p)
     if gcd != 1:
