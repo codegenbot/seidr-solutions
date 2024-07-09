@@ -1,18 +1,12 @@
-```
 from decimal import Decimal, getcontext
 
 getcontext().prec = 28 
 
 def snow_day():
-    while True:
-        try:
-            hours = float(input("Enter number of hours: "))
-            if hours > 0:
-                break
-            else:
-                print("Please enter a positive integer.")
-        except ValueError:
-            print("Invalid input. Please enter a number.")
+    hours = float(input("Enter number of hours: "))
+    while hours <= 0:
+        print("Please enter a positive integer.")
+        hours = float(input("Enter number of hours: "))
 
     initial_snow = Decimal(float(input("Enter initial amount of snow on the ground: ")))
     while True:
@@ -35,7 +29,7 @@ def snow_day():
     total_snow = initial_snow
     for _ in range(int(hours)): 
         total_snow += rate_of_snowfall
-        total_snow -= melting_rate * total_snow
+        total_snow -= melting_rate * total_snow / (1 if total_snow > 0 else 1)
 
     return float(total_snow)
 
