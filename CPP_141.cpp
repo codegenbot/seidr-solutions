@@ -1,4 +1,6 @@
+#include <iostream>
 #include <string>
+using namespace std;
 
 string file_name_check(string file_name) {
     int digit_count = 0;
