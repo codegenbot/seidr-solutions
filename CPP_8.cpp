@@ -1,6 +1,8 @@
-#include <vector> 
+#include <iostream>
+#include <vector>
+#include <tuple>
 
-std::pair<int, int> sum_product(const std::vector<int>& numbers) {
+std::tuple<int, int> sum_product(const std::vector<int>& numbers) {
     int sum = 0;
     int product = 1;
     
@@ -12,10 +14,9 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
     return {sum, product};
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(sum_product({10}), {10, 10})); 
+    auto result = sum_product({10});
+    assert(result == std::make_tuple(10, 10));
+    
+    return 0;
 }
