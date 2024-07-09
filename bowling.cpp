@@ -1,46 +1,23 @@
-#include <vector>
-#include <iostream>
-using namespace std;
-
 int bowlingScore(string s) {
     int score = 0;
-    vector<int> rolls;
-    for (char c : s) {
-        if (c == '/') {
-            score += calculateScore(rolls);
-            rolls.clear();
-        } else if (isdigit(c)) {
-            rolls.push_back(c - '0');
-        }
-    }
-    score += calculateScore(rolls);
-    return score;
-}
-
-int calculateScore(vector<int> rolls) {
-    int frameScore = 0, rollCount = 0;
-    for (int roll : rolls) {
-        if (roll == 10) {
-            frameScore += 10;
-            rollCount++;
-        } else if (roll + rolls[1] >= 10) {
-            frameScore += 10 - rolls[0];
-            rollCount++;
+    int frame = 0;
+    
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == 'X') {
+            score += 10 + (i < s.length()-1 && s[i+1] != '/') ? 10 : 0;
+            frame++;
+        } else if(s[i] == '/') {
+            int temp = 10 - (s[i-1] - '0' + s[i+1] - '0');
+            score += temp + 10;
+            frame++;
         } else {
-            frameScore += roll;
-            rollCount++;
+            int points = s[i] - '0';
+            score += points;
+            if(s[i+1] == '/') {
+                frame++;
+            }
         }
     }
-    return frameScore;
-}
-
-int main() {
-    // test cases
-    cout << bowlingScore("0") << endl; // output: 0
-    cout << bowlingScore("XXXXXXXXXXXX") << endl; // output: 300
-    cout << bowlingScore("5/5/5/5/5/5/5/5/5/5/5") << endl; // output: 150
-    cout << bowlingScore("7115XXX548/279-X53") << endl; // output: 145
-    cout << bowlingScore("532/4362X179-41447/5") << endl; // output: 100
-
-    return 0;
+    
+    return score;
 }
