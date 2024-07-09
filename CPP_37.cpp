@@ -7,8 +7,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) continue;
+    for (int i = 1; i < l.size(); i += 2) {
         l[i] = l[i - 1];
     }
     std::sort(l.begin(), l.end());
