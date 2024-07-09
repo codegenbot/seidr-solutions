@@ -7,13 +7,18 @@ std::string special_factorial(int n) {
         return "1";
 
     std::string result = "";
+    long long mul_result = 1;
     for (int i = 2; i <= n; i++) {
-        long long mul_result = 1;
         for (int j = 2; j <= i; j++)
             mul_result *= j;
 
-        std::string mul_str = std::to_string(mul_result);
-        result += i > 1 ? " * " + mul_str : mul_str;
+        if(i > 1) 
+            result += " * " + std::to_string(mul_result);
+        else
+            result = std::to_string(mul_result);
+
+        // Reset the multiplier to avoid overflow
+        mul_result = 1;
     }
     return "n! = " + result;
 }
