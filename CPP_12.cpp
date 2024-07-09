@@ -1,7 +1,8 @@
-using namespace std;
-string longest(vector<string> strings) {
+#include <string>
+
+std::string longest(std::vector<std::string> strings){
     if(strings.empty()) return "";
-    string result = strings[0];
+    std::string result = strings[0];
     for(auto str : strings){
         if(str.length() > result.length()){
             result = str;
