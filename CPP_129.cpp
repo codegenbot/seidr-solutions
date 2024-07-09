@@ -1,5 +1,7 @@
-```cpp
-std::vector<int> minPath(std::vector<stdvector<int>>& grid, int k) {
+#include <vector>
+#include <limits>
+
+std::vector<int> minPath(std::vector<std::vector<int>>& grid, int k) {
     int n = grid.size();
     std::vector<std::vector<int>> dp(n, std::vector<int>(n));
     for (int i = 0; i < n; i++) {
@@ -37,4 +39,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+int main(){
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), std::vector<int>{1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
+}
