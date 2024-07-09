@@ -22,4 +22,3 @@ int main() {
         printf("No basement found.\n");
     }
     return 0;
-}
