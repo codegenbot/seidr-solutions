@@ -1,6 +1,8 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <cassert>
 
 using namespace std;
 
@@ -10,10 +12,10 @@ bool prime_length(string str){
         if(len%i==0)
             return false;
     }
-    string temp = "";
     return true;
+
 }
 
 int main(){
-    assert (prime_length("0") == false);
+    assert(prime_length("0") == false);
 }
