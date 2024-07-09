@@ -1,8 +1,11 @@
+```cpp
+#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 vector<string> bf(string planet1, string planet2) {
@@ -22,8 +25,8 @@ vector<string> bf(string planet1, string planet2) {
     if (index1 == -1 || index2 == -1)
         return vector<string>();
 
-    int minIndex = min(index1, index2);
-    int maxIndex = max(index1, index2);
+    int minIndex = std::min(index1, index2);
+    int maxIndex = std::max(index1, index2);
 
     vector<string> result;
 
@@ -34,7 +37,7 @@ vector<string> bf(string planet1, string planet2) {
             result.push_back(planets[i]);
         }
         else {
-            result.push_back(planets[i - 1]);
+            result.push_back(planets[minIndex-1]);
         }
     }
 
