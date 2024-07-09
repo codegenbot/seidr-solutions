@@ -1,4 +1,6 @@
-#include <initializer_list>
+```cpp
+#include <cassert>
+#include <vector>
 
 class cpp_160 {
 public:
