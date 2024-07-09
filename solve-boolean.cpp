@@ -1,6 +1,8 @@
 ```c++
-#include <cstddef>
+#include <iostream>
 #include <string>
+
+std::string input; // Declare input globally
 
 bool solveBoolean(const std::string& s) {
     bool result = true;
@@ -52,9 +54,8 @@ bool solveBoolean(const std::string& s) {
 }
 
 int main() {
-    std::string input;
     std::cout << "Enter a Boolean expression: ";
-    std::getline(std::cin, input);
+    std::getline(std::cin, input); // Input goes here
     bool result = solveBoolean(input);
     if (result) {
         std::cout << "The result is True." << std::endl;
