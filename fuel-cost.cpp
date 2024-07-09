@@ -1,13 +1,12 @@
-```c++
+```cpp
 #include <vector>
 
+int fuelCost(std::vector<int> v);
+
 int main() {
-    std::vector<int> v;
-    for (int i : {1, 2, 3}) {
-        v.push_back(i);
-    }
+    std::vector<int> v = {1, 2, 3};
     int result = fuelCost(v);
-    return 0;
+    return result;
 }
 
 int fuelCost(std::vector<int> v) {
