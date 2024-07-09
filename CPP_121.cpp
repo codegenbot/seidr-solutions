@@ -22,6 +22,6 @@ int main() {
         std::cin >> num;
         size++;
     }
-    assert(solution(lst) == 16);
+    assert(solution({3, 13, 2, 9}) == 16);
     return 0;
 }
