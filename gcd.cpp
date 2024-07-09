@@ -1,8 +1,7 @@
-```cpp
-#include <iostream>
-#include <string>
+```c++
 #include <vector>
-#include <algorithm>
+#include <string>
+#include <iostream>
 #include <limits>
 
 using namespace std;
@@ -46,7 +45,6 @@ int main() {
 
     string text;
     getline(cin, text);
-    
     string target;
     getline(cin, target);
 
