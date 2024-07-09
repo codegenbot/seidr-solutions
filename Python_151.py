@@ -11,5 +11,5 @@ def check(func):
             print(f"Test passed")
         else:
             print(f"Test failed. Expected: {output}, Got: {result}")
-    
+
 check(double_the_difference([1, 3, 5]))
