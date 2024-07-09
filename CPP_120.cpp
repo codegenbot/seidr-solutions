@@ -16,7 +16,11 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::priority_queue<int> pq(arr.begin(), arr.end());
+    std::priority_queue<int, std::vector<int>, std::greater<int>> pq;
+
+    for(int i = 0; i < arr.size(); i++) {
+        pq.push(arr[i]);
+    }
 
     std::vector<int> result;
 
@@ -36,13 +40,13 @@ int main() {
     std::cout << "Enter the value of k: ";
     std::cin >> k;
 
-    std::vector<int> arr; 
+    std::vector<int> arr(arr.size()); 
     std::cout << "Enter elements: ";
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
-        arr.push_back(val);
+        arr[i] = val;
     }
 
     std::vector<int> result = maximum(arr, k);
