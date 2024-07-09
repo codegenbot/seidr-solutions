@@ -1,7 +1,9 @@
 #include <iostream>
-using namespace std;
+#include <string>
 
 int fizz_buzz(int n);
+
+using namespace std;
 
 int main() {
     int n;
