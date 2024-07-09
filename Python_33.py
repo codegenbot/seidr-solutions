@@ -1,4 +1,8 @@
 def sort_third(l: list):
     sorted_list = sorted(l)
-    result = [sorted_list[i:i+3] for i in range(0, len(sorted_list), 3)]
-    return [elem for group in result for elem in group]
+    remainder = len(sorted_list) % 3
+    
+    if remainder != 0:
+        sorted_list.extend([None] * (3 - remainder))
+    
+    return [elem for group in zip(*[iter(sorted_list)] * 3) for elem in group]
