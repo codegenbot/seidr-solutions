@@ -1,7 +1,6 @@
-```cpp
-#include <string>
+using namespace std;
 
-int bowlingScore(const std::string& s) {
+int bowlingScore(string s) {
     int score = 0;
     bool firstRollInFrame = true;
     int currentFrame = 1;
