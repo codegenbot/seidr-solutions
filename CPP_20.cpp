@@ -34,8 +34,8 @@ Pair find_closest_elements(std::vector<float> numbers) {
     return closestPair;
 }
 
-int main2() { 
-    std::vector<float> testVec = {1.1f, 2.2f, 3.1f, 4.1f, 5.1f};
-    assert(issame({find_closest_elements(testVec).first, find_closest_elements(testVec).second}, {2.2f, 3.1f}));
+int main() {
+    std::vector<float> numbers = {1.1f, 2.2f, 3.1f, 4.1f, 5.1f};
+    assert(issame({numbers[0], numbers.back()}, {find_closest_elements(numbers).first, find_closest_elements(numbers).second}));
     return 0;
 }
