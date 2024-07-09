@@ -1,39 +1,43 @@
 #include <vector>
 #include <string>
 
-bool issame(float a, float b) {
-    if (abs(a - b) <= 0.01) {
-        return true;
-    } else {
+bool isSame(string s1, string s2) {
+    if (s1.length() != s2.length()) {
         return false;
     }
+    for (int i = 0; i < s1.length(); i++) {
+        if (s1[i] != s2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
         string letterGrade = "";
-        if (issame(grade, 4.0)) {
+        if (grade >= 4.0) {
             letterGrade = "A+";
-        } else if (issame(grade, 3.7)) {
+        } else if (grade > 3.7) {
             letterGrade = "A";
-        } else if (issame(grade, 3.3)) {
+        } else if (grade > 3.3) {
             letterGrade = "A-";
-        } else if (issame(grade, 3.0)) {
-            letterGrade = "B+";
-        } else if (issame(grade, 2.7)) {
+        } else if (grade > 3.0) {
+            letterGrade = "B+");
+        } else if (grade > 2.7) {
             letterGrade = "B";
-        } else if (issame(grade, 2.3)) {
+        } else if (grade > 2.3) {
             letterGrade = "B-";
-        } else if (issame(grade, 2.0)) {
+        } else if (grade > 2.0) {
             letterGrade = "C+";
-        } else if (issame(grade, 1.7)) {
+        } else if (grade > 1.7) {
             letterGrade = "C";
-        } else if (issame(grade, 1.3)) {
+        } else if (grade > 1.3) {
             letterGrade = "C-";
-        } else if (issame(grade, 1.0)) {
+        } else if (grade > 1.0) {
             letterGrade = "D+";
-        } else if (issame(grade, 0.7)) {
+        } else if (grade > 0.7) {
             letterGrade = "D";
         } else {
             letterGrade = "E";
