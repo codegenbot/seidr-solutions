@@ -1,5 +1,3 @@
-#include <string>
-
 int file_name_check(std::string file_name) { 
     int digit_count = 0; 
     bool found_dot = false; 
@@ -19,3 +17,4 @@ int file_name_check(std::string file_name) {
     if(!found_dot) return 0;
     if(digit_count > 3) return 0;
     return 1;
+}
