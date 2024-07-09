@@ -1,22 +1,25 @@
-Here is the solution:
+#include <vector>
+#include <string>
+
+using namespace std;
 
 vector<string> words_string(string s) {
     vector<string> result;
-    string word = "";
+    string temp = "";
     
-    for (char c : s) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ' || s[i] == ',') {
+            if (!temp.empty()) {
+                result.push_back(temp);
+                temp = "";
             }
         } else {
-            word += c;
+            temp += s[i];
         }
     }
     
-    if (!word.empty()) {
-        result.push_back(word);
+    if (!temp.empty()) {
+        result.push_back(temp);
     }
     
     return result;
