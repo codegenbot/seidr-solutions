@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,7 +14,7 @@ int findGCD(int a, int b) {
 }
 
 std::vector<int> findIndices(const std::string& text, const std::string& target) {
-    std::vector<int> indices = std::vector<int>();
+    std::vector<int> indices;  
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
