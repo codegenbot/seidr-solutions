@@ -2,12 +2,15 @@
 #include <set>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
+    set<int> s1(a.begin(), a.end());
+    set<int> s2(b.begin(), b.end());
+    
+    if (s1.size() != s2.size()) {
         return false;
     }
     
-    for (int i = 0; i < a.size(); i++) {
-        if (find(a.begin(), a.end(), b[i]) == a.end()) {
+    for (int x : s1) {
+        if (s2.find(x) == s2.end()) {
             return false;
         }
     }
