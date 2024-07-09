@@ -2,13 +2,16 @@
 #include <vector>
 #include <algorithm>
 
+using namespace std;
+
 // Function to order points by their values
-std::vector<int> order_by_points(std::vector<int> points) {
-    std::sort(points.begin(), points.end());
+vector<int> order_by_points(vector<int> points) {
+    sort(points.begin(), points.end());
     return points;
 }
 
-bool sameVectors(std::vector<int> a, std::vector<int> b) {
+// Function to check if two vectors are same
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -17,10 +20,15 @@ bool sameVectors(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> points = {0,6,6,-76,-21,23,4};
-    std::vector<int> expected = {-76, -21, 0, 4, 6, 6, 23};
+    vector<int> points;
+    int n;
+    cin >> n;
     
-    if (!sameVectors(order_by_points(points), expected)) {
-        // handle error
+    for(int i=0; i<n; i++){
+        int x;
+        cin>>x;
+        points.push_back(x);
     }
+    
+    assert(issame(order_by_points(points), vector<int>({ -76, -21, 0, 4, 6, 6, 23 })));
 }
