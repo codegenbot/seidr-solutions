@@ -1,44 +1,45 @@
 #include <boost/any.hpp>
-#include <string>
-
-using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str_a = boost::any_cast<string>(a);
-        string str_b = boost::any_cast<string>(b);
-        if (str_a > str_b) {
-            return a;
-        } else if (str_a < str_b) {
-            return b;
-        } else {
-            return any("None");
+        return boost::any_cast<float>(b);
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return boost::any_cast<float>(a);
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+
+        istringstream iss(strA);
+        float numA;
+        if (!(iss >> numA)) {
+            numA = stof(strA.substr(0, strA.find(',')));
         }
-    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int num_a = boost::any_cast<int>(a);
-        int num_b = boost::any_cast<int>(b);
-        if (num_a > num_b) {
-            return a;
-        } else if (num_a < num_b) {
-            return b;
-        } else {
-            return any("None");
+
+        istringstream iss2(strB);
+        float numB;
+        if (!(iss2 >> numB)) {
+            numB = stof(strB.substr(0, strB.find(',')));
         }
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float flt_a = boost::any_cast<float>(a);
-        int num_b = boost::any_cast<int>(b);
-        if (flt_a > num_b) {
-            return a;
-        } else if (flt_a < num_b) {
-            return b;
-        } else {
-            return any("None");
+
+        return (numA > numB) ? a : b;
+    }
+    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
+        string strA = boost::any_cast<string>(a);
+        istringstream iss(strA);
+        float numA;
+        if (!(iss >> numA)) {
+            numA = stof(strA.substr(0, strA.find(',')));
         }
+
+        return (boost::any_cast<float>(b) > numA) ? b : a;
+    }
+    else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(string)) {
+        boost::any temp = a;
+        a = b;
+        b = temp;
     }
 
-    return a;
+    return "None";
 }
