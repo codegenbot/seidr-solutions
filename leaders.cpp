@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-std::vector<int> getLeaders(std::vector<int>& arr) {
+std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
     
@@ -20,7 +20,7 @@ std::vector<int> getLeaders(std::vector<int>& arr) {
 
 int main() {
     std::vector<int> input = {18, 48, 517, 190, 204, 169, 784, 446, 770, 327, 555, 908, 56, 410, 987, 629, 467, 142, 858};
-    std::vector<int> leaders = getLeaders(input);
+    std::vector<int> leaders = leaders(input);
     for(int i: leaders)
         std::cout << i << " ";
     return 0;
