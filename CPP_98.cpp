@@ -13,7 +13,6 @@ int count_upper(std::string s) {
 
 int main() {
     assert(count_upper("EEEE") == 4);
-    // Add more test cases here
 
     return 0;
 }
