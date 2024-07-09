@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -9,21 +10,18 @@ vector<int> sort_third(vector<int> l) {
     for (int i = 0; i < l.size(); ) {
         if (i % 3 == 0 && i < l.size() - 2) {
             vector<int> temp;
-            for (int j = i; j < l.size() && j < i + 3; j++) {
+            for (int j = i; j < i + 3; j++) {
                 temp.push_back(l[j]);
             }
             sort(temp.begin(), temp.end());
-            for (int k = 0; k < temp.size(); k++) {
-                result.push_back(temp[k]);
-            }
-            i += 2;
+            result.insert(result.end(), temp.begin(), temp.end());
+            i += 3; 
         } else {
             result.push_back(l[i]);
             i++;
         }
     }
     return result;
-
 }
 
 int main() {
