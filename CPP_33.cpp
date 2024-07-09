@@ -11,7 +11,7 @@ vector<int> sort_third(vector<int> l) {
     for (i = 0; i < l.size(); ) {
         if (i % 3 == 0 && i < l.size() - 2) {
             vector<int> temp;
-            temp.reserve(min(i + 3, l.size()));
+            temp.resize(min(i + 3, l.size()) - i);
             for (int j = i; j < min(i + 3, l.size()); j++) {
                 temp.push_back(l[j]);
             }
