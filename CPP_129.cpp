@@ -1,25 +1,49 @@
-vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<pair<int, pair<int, int>>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    vector<int> result;
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
+    vector<vector<int>> dp(n, vector<int>(n));
+    vector<int> res;
     
-    for (int i = 0; i < k; i++) {
-        int minVal = INT_MAX, minRow = -1, minCol = -1;
-        
-        for (int j = 0; j < grid.size(); j++) {
-            for (int m = 0; m < grid[0].size(); m++) {
-                if (grid[j][m] <= minVal) {
-                    if (grid[j][m] < minVal || (minVal == grid[j][m] && (j == minRow || m == minCol))) {
-                        minVal = grid[j][m];
-                        minRow = j;
-                        minCol = m;
-                    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (k == 1) {
+                dp[i][j] = grid[i][j];
+            } else {
+                int minVal = INT_MAX;
+                if (i > 0) minVal = min(minVal, dp[i - 1][j]);
+                if (j > 0) minVal = min(minVal, dp[i][j - 1]);
+                if (i < n - 1) minVal = min(minVal, dp[i + 1][j]);
+                if (j < n - 1) minVal = min(minVal, dp[i][j + 1]);
+                dp[i][j] = grid[i][j] + minVal;
+            }
+        }
+    }
+    
+    int minVal = INT_MAX;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (dp[i][j] < minVal) {
+                minVal = dp[i][j];
+                res = vector<int>();
+                for (int l = 0; l <= k; l++) {
+                    res.push_back(grid[(i - l + n) % n][(j - l + n) % n]);
                 }
             }
         }
-        
-        result.push_back(minVal);
-        grid[minRow][minCol] = INT_MAX; // mark as visited
     }
     
-    return result;
+    return res;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    return 0;
 }
