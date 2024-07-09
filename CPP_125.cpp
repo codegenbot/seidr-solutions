@@ -1,6 +1,8 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 bool issame(vector<string> a, vector<string> b);
 
 vector<string> split_words(string txt){
@@ -29,4 +31,9 @@ vector<string> split_words(string txt){
         result.push_back(to_string(oddCount));
     }
     return result;
+}
+
+int main() {
+    // Put your main function code here
+    return 0;
 }
