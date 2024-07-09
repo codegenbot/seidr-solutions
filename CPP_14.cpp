@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 std::vector<std::string> all_prefixes(const std::string& str) {
     std::vector<std::string> prefixes;
@@ -10,7 +10,7 @@ std::vector<std::string> all_prefixes(const std::string& str) {
     return prefixes;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); ++i) {
         if(a[i] != b[i]) return false;
@@ -18,5 +18,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> b = {"W", "WW", "WWW"};
-assert(issame(all_prefixes("WWW"), b));
+int main() {
+    std::vector<std::string> b = {"W", "WW", "WWW"};
+    assert(std::equal(all_prefixes("WWW"), b));
+    return 0;
+}
