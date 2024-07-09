@@ -11,8 +11,19 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
-    std::set<int> uniqueSet(numbers.begin(), numbers.end());
-    std::vector<int> result(uniqueSet.begin(), uniqueSet.end());
+    std::vector<int> result;
+    for (int num : numbers) {
+        bool found = false;
+        for (int i = 0; i < result.size(); i++) {
+            if (result[i] == num) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            result.push_back(num);
+        }
+    }
     return result;
 
 }
