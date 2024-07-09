@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 
 vector<int> order_by_points(vector<int> nums) {
