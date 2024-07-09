@@ -1,6 +1,3 @@
-#include <stack>
-#include <string>
-
 using namespace std;
 
 string solveBoolean(string s) {
