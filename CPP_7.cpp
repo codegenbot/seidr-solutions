@@ -1,9 +1,10 @@
+```cpp
 #include <vector>
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    for(const auto& str : a){
-        if(find(b.begin(), b.end(), str) == b.end()){
+    for (const auto& str : a) {
+        if (std::find(b.begin(), b.end(), str) == b.end()) {
             return false;
         }
     }
