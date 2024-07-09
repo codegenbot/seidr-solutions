@@ -16,5 +16,5 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else if (sum1 > sum2)
         return lst2;
     else
-        return lst1;
+        return issame(lst1,lst2)?lst1:vector<string>();
 }
