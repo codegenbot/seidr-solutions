@@ -1,22 +1,24 @@
-bool is_happy(string s) {
-    if (s.length() < 3)
-        return false;
-    for (int i = 0; i <= s.length() - 3; i++) {
-        string sub = s.substr(i, 3);
-        bool unique = true;
-        for (char c : sub) {
-            int count = 0;
-            for (int j = i; j < i + 3; j++) {
-                if (s[j] == c)
-                    count++;
-            }
-            if (count > 1) {
-                unique = false;
-                break;
-            }
+#include <iostream>
+#include <string>
+#include <cassert>
+
+bool is_happy(const std::string& s) {
+    int sum = 0;
+    for (char c : s) {
+        if (c >= 'a' && c <= 'f') {
+            sum += (c - 'a' + 1);
         }
-        if (!unique)
-            return false;
     }
-    return true;
+    return sum == 9 || sum == 18 || sum % 19 == 0;
+}
+
+bool is_valid(const std::string& s) {
+    int result = 0;
+    for (char c : s) {
+        if (c != 'a' && c != 'b' && c != 'c' && c != 'd' && c != 'e' && c != 'f') {
+            result = 1;
+            break;
+        }
+    }
+    return result == 0;
 }
