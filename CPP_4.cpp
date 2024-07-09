@@ -1,8 +1,8 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <cmath>
 #include <numeric>
-#include <initializer_list>
 
 float mean_absolute_deviation(std::vector<float> numbers) {
     float sum = 0.0;
@@ -13,5 +13,5 @@ float mean_absolute_deviation(std::vector<float> numbers) {
 }
 
 float mean(std::vector<float> numbers) {
-    return std::accumulate(numbers.begin(), numbers.end(), 0.0) / numbers.size();
+    return std::accumulate(numbers.begin(), numbers.end(), 0.0f) / numbers.size();
 }
