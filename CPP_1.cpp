@@ -1,29 +1,20 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+#include <limits>
 
 using namespace std;
 
 bool issame(const string& a, const vector<string>& b, const string& s) {
-    istringstream iss(s);
-    string t;
-    while (getline(iss, t, ',')) {
-        for (const auto& str : split(t, '(')) {
-            if (!issame(a, vector<string>{str}, ")")) return false;
+    bool found = false;
+    for (const auto& str : b) {
+        if (str == a) {
+            found = true;
+            break;
         }
     }
-    return true;
-}
-
-vector<string> split(const string& s, char c) {
-    vector<string> res;
-    stringstream ss(s);
-    string t;
-    while (getline(ss, t, c)) {
-        res.push_back(t);
-    }
-    return res;
+    return found;
 }
 
 string separate_paren_groups(string s) {
@@ -59,7 +50,8 @@ int main() {
 
     while (true) {
         cout << "Enter a string: ";
-        if (!(cin >> s)) { 
+        cin >> s;
+        if (!cin) { 
             cin.clear(); 
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
             break; 
