@@ -1,11 +1,11 @@
-Here is the solution:
-
-long long minSubArraySum(vector<long long> nums){
-    long long sum = 0, min_sum = numeric_limits<long long>::max();
-    for(int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
-        if(sum > 0) min_sum = min(min_sum, sum);
-        else sum = 0;
+long long minSubArraySum(vector<long long> nums) {
+    long long res = LLONG_MAX, cur_sum = 0;
+    for (int i = 0; i < nums.size(); ++i) {
+        cur_sum += nums[i];
+        if (cur_sum < res)
+            res = cur_sum;
+        else
+            cur_sum = 0;
     }
-    return min_sum == numeric_limits<long long>::max() ? 0 : min_sum;
+    return min(cur_sum, res);
 }
