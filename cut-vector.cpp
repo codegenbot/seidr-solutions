@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 using namespace std;
 
@@ -36,14 +35,13 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
 int main() {
     vector<int> vec = {1, 2, 3, 4};
     pair<vector<int>, vector<int>> result = cutVector(vec);
-    cout << "Left vector: ";
-    for (int i : result.first) {
-        cout << i << " ";
+    // Print or process the result as needed
+    for (const auto &v : result.first) {
+        cout << v << " ";
     }
     cout << endl;
-    cout << "Right vector: ";
-    for (int i : result.second) {
-        cout << i << " ";
+    for (const auto &v : result.second) {
+        cout << v << " ";
     }
     cout << endl;
     return 0;
