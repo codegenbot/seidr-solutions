@@ -1,6 +1,6 @@
 #include <vector>
 #include <any>
-#include <boost/config.hpp>
+#include <boost/version.hpp>
 #include <boost/any.hpp>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
