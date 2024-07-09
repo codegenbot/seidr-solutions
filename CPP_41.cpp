@@ -1,5 +1,5 @@
-```c++
 #include <iostream>
+#include <string>
 using namespace std;
 
 int car_race_collision(string s) {
@@ -16,7 +16,8 @@ int car_race_collision(string s) {
 
 int main() {
     string s;
-    cin >> s;
+    cin >> s;  
     cout << "Number of collisions: " << car_race_collision(s) << endl;
+    assert(car_race_collision(to_string(10)) == 100);
     return 0;
 }
