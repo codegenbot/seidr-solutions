@@ -5,17 +5,18 @@
 std::vector<int> maxKItems(std::vector<int> arr, int k) {
     std::priority_queue<int> pq;
     
-    for(int i = 0; i < arr.size(); i++) {
-        pq.push(arr[i]);
+    for (int i : arr) {
+        pq.push(i);
+        if (pq.size() > k)
+            pq.pop();
     }
     
-    std::vector<int> result;
-    
-    for(int i = 0; i < k; i++) {
-        result.push_back(pq.top());
+    std::vector<int> result(pq.size());
+    while (!pq.empty()) {
+        result.back() = pq.top();
         pq.pop();
+        result.back()--;
     }
-    
     return result;
 }
 
