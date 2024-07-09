@@ -16,7 +16,7 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 3, 4, 5};
+    std::vector<int> nums({1, 2, 3, 4, 5});
     int target = 7;
     std::pair<int, int> result = findPair(nums, target);
     if (result.first != -1) {
