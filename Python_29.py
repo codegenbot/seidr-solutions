@@ -1,0 +1,1 @@
+filter_strings = lambda strings, prefix: [s for s in strings if s.startswith(prefix)]
