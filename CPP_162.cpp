@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```cpp
 #include <iostream>
 #include <string>
@@ -17,7 +15,9 @@ std::string string_to_md5(const std::string& input) {
 
     std::string output;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        output.push_back((char) md5[i]);
+        char buffer[3];
+        sprintf(buffer, "%02x", md5[i]);
+        output += std::string(buffer);
     }
 
     return output;
