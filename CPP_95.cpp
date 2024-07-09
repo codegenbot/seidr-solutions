@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <map>
 #include <string>
@@ -7,17 +8,29 @@ using namespace std;
 bool check_dict_case(map<string,string> dict){
     if(dict.empty()) return false;
     
-    string first_key = dict.begin()->first;
+    auto [key, _] = *dict.begin();
     
     for(auto it = dict.begin(); it != dict.end(); ++it){
-        if(toupper(first_key) != toupper(it->first)) return false;
+        if(std::toupper(key[0]) != std::toupper(it->first[0])) return false;
     }
     
     return true;
 }
 
 int main() {
-    map<string,string> my_dict;
-    cout << check_dict_case(my_dict);
-    return 0;
+    map<string,string> dictionary;
+    string input;
+    while(true){
+        cout << "Enter a key-value pair (or 'q' to quit): ";
+        cin >> input;
+        if(input == "q") break;
+        string value;
+        cin >> value;
+        dictionary[input] = value;
+    }
+    if(check_dict_case(dictionary)) {
+        cout << "All keys in the same case.\n";
+    } else {
+        cout << "Keys have mixed case.\n";
+    }
 }
