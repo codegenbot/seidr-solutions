@@ -1,20 +1,23 @@
-```cpp
+#include <iostream>
 #include <string>
-using namespace std;
 
-string decimal_to_binary(int decimal){
-    string binary = "";
-    while(decimal > 0){
-        if(decimal % 2 == 0)
+std::string decimal_to_binary(int n) {
+    std::string binary = "";
+    while (n > 0) {
+        if (n % 2 == 0)
             binary.insert(0,"0");
         else
             binary.insert(0,"1");
-        decimal /= 2;
+        n /= 2;
     }
     return "db" + binary + "db";
 }
 
 int main() {
-    assert (decimal_to_binary(15) == "db1111db");
+    int decimal;
+    std::cout << "Enter a decimal number: ";
+    std::cin >> decimal;
+    std::string binary = decimal_to_binary(decimal);
+    std::cout << "Binary representation: " << binary << std::endl;
     return 0;
 }
