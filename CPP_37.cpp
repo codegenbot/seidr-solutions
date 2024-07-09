@@ -1,53 +1,34 @@
 ```cpp
-#include <algorithm>
+#include <iostream>
 #include <vector>
 
-namespace myspace {
-    bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-        if(a.size() != b.size()) return false;
-        for(int i = 0; i < a.size(); i++) {
-            if(a[i] != b[i]) return false;
-        }
-        return true;
+bool isSame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i]) != std::abs(b[i])) return false;
     }
+    return true;
+}
 
-    std::vector<float> sort_even(const std::vector<float>& l) {
-        std::vector<float> result(l.size());
-        int evenIndex = 0;
-        for (int i = 0; i < l.size(); i++) {
-            if (i % 2 == 0) {
-                float min = l[0];
-                for(int j = 0; j < l.size(); j++){
-                    if(j%2==0 && l[j] < min){
-                        min = l[j];
-                    }
-                }
-                result[i] = min;
-                for(int j = 0; j < l.size(); j++){
-                    if(j%2==0 && l[j] != min){
-                        result[evenIndex++] = l[j];
-                    }
-                }
-            } else {
-                result[i] = l[i];
-            }
-        }
-        return result;
+std::vector<float> sort_even(std::vector<float> input) {
+    std::vector<float> even;
+    for (float num : input) {
+        if (num >= 0.0f) even.push_back(num);
     }
+    std::sort(even.begin(), even.end());
+    return even;
 }
 
 int main() {
-    std::vector<float> input(10);
-    input.push_back(5.0f);
-    input.push_back(8.0f);
-    input.push_back(-12.0f);
-    input.push_back(4.0f);
-    input.push_back(23.0f);
-    input.push_back(2.0f);
-    input.push_back(3.0f);
-    input.push_back(11.0f);
-    input.push_back(12.0f);
-    input.push_back(-10.0f);
+    float x, y, z;
+    std::cout << "Enter first number: ";
+    std::cin >> x;
+    std::cout << "Enter second number: ";
+    std::cin >> y;
+    std::cout << "Enter third number: ";
+    std::cin >> z;
+
+    std::vector<float> input({x, y, z});
 
     std::cout << "Original array: ";
     for (float num : input) {
@@ -55,10 +36,12 @@ int main() {
     }
     std::cout << std::endl;
 
-    std::vector<float> sortedEven = myspace::sort_even(input);
+    std::vector<float> sortedEven = sort_even(input);
     std::cout << "Sorted even array: ";
     for (float num : sortedEven) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
+    
+    return 0;
 }
