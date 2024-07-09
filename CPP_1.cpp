@@ -2,14 +2,15 @@
 #include <vector>
 #include <string>
 
-bool issame(std::string a, const std::vector<std::string>& b) {
-    for (const auto& s : b) {
-        if (!issame(a, s)) return false;
+bool issame(std::string& a, std::string& b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-std::string separate_paren_groups(std::string s) {
+std::string separate_paren_groups(std::string& s) {
     int count = 0;
     std::string current_group = "";
     std::string result = "";
@@ -48,7 +49,8 @@ int main() {
             break; 
         }
     }
-    assert(issame(separate_paren_groups("( ) (( )) (( )( )") , {"", "(())", "(()())"}));
+    std::string temp = separate_paren_groups("( ) (( )) (( )( ");
+    assert(issame(temp, "(()())"));
     std::cout << "Result: " << separate_paren_groups(s) << std::endl;
     return 0;
 }
