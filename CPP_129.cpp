@@ -29,11 +29,12 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> res;
 
     while (!pq.empty()) {
-        int val = pq.top().value;
-        int x = pq.top().position.first;
-        int y = pq.top().position.second;
-        res.push_back(val);
+        Element val = pq.top();
         pq.pop();
+
+        res.push_back(val.value);
+        int x = val.position.first;
+        int y = val.position.second;
 
         if (k > 0) {
             --k;
@@ -43,7 +44,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
                     int nx = x + dx;
                     int ny = y + dy;
 
-                    if(nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
                         visited[nx][ny] = true;
                         pq.push({grid[nx][ny], {nx, ny}});
                     }
