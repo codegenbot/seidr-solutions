@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -15,6 +16,6 @@ int main() {
     ios_base::fmtflags flags = cout.flags();
     cout << fixed << setprecision(10);
     cout << snowDay(h, s, r, m) << endl;
-    cout.flags(flags);  // restore original format
+    cout.flags(flags);  
     return 0;
 }
