@@ -5,7 +5,7 @@
 using namespace std;
 
 string squareDigits(string input) {
-    string output;
+    string output = "";
     for (char c : input) {
         int digit = c - '0';
         output += to_string(digit * digit);
@@ -14,10 +14,9 @@ string squareDigits(string input) {
 }
 
 int main() {
-    string input;
+    string output;
     cout << "Enter a positive integer: ";
     getline(cin, input);
-    string output = squareDigits(input);
+    output = squareDigits(input);
     cout << "Squared digits: " << output << endl;
     return 0;
-}
