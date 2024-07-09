@@ -1,10 +1,8 @@
 #include <vector>
 #include <cmath>
 
-namespace util {
-    bool issame(float a, float b) {
-        return abs(a - b) < 0.00001;
-    }
+bool issame(float x, float y) {
+    return (x == y);
 }
 
 vector<float> get_positive(vector<float> l) {
