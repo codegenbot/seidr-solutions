@@ -13,6 +13,7 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    std::string str = "EEEE"; 
+    std::string str = "EEEE";
     assert(count_upper(str) == 2);
     return 0;
+}
