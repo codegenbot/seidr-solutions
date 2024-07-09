@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,20 +7,20 @@ using namespace std;
 
 vector<int> sort_third(vector<int> l) {
     vector<int> result;
-    int group_count = 0;
-    for (int i = 0; i < l.size(); ) {
-        if (group_count % 3 == 0 && i + 2 < l.size()) {
-            vector<int> temp(l.begin() + i, l.begin() + i + 3);
-            sort(temp.begin(), temp.end());
-            for (int j = 0; j < 3; j++) {
-                result.push_back(temp[j]);
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 3 == 0 && i != 0) {
+            vector<int> temp;
+            int j = i - 1;
+            while (j >= 0 && (j % 3 == 2 || j % 3 == 1)) {
+                temp.push_back(l[j]);
+                j--;
             }
-            i += 2;
-        } else if (i < l.size()) {
+            sort(temp.begin(), temp.end());
+            for (int k = temp.size() - 1; k >= 0; k--) {
+                result.push_back(temp[k]);
+            }
+        } else if (i % 3 != 2) {
             result.push_back(l[i]);
-            i++;
-        } else {
-            break;
         }
     }
     return result;
