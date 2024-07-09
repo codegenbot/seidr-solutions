@@ -1,4 +1,4 @@
-from typing import List
+from typing import list
 import math
 
 def max_fill(grid: list, capacity: int) -> float:
