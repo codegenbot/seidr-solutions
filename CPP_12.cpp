@@ -1,7 +1,7 @@
 #include <string>
 using namespace std;
 
-string longest(vector<string> strings){
+std::string longest(std::vector<std::string> strings){
     if(strings.empty()) {
         return "None";
     }
