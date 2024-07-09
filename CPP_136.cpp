@@ -1,6 +1,8 @@
 #include <vector>
 
-bool is_same(std::vector<int> a, std::vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
     int largest_negative = 0;
