@@ -1,3 +1,8 @@
+#include <string>
+#include <sstream>
+
+using namespace std;
+
 string squareDigits(string input) {
     string output = "";
     for (char c : input) {
@@ -6,4 +11,3 @@ string squareDigits(string input) {
         output += str;
     }
     return output;
-}
