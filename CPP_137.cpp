@@ -1,9 +1,8 @@
 #include <boost/any.hpp>
-#include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any(1.5);
+        return boost::any(1.5f);
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         return boost::any("equal");
@@ -16,9 +15,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (strA < strB)
             return b;
         else
-            return boost::any("Equal");
+            return boost::any("equal");
     }
     else {
-        return boost::any(1.0);
+        return boost::any(1.0f);
     }
 }
