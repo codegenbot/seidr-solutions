@@ -1,4 +1,3 @@
-```
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
@@ -8,17 +7,6 @@ long long double_the_difference(vector<float> lst) {
     }
     return sum;
 }
-int main() {
-    vector<float> lst;
-    int odd_sum = 0;
-    // Input list
-    cout << "Enter numbers (space separated): ";
-    cin >> std::fixed >> std::showpoint;
-    for (float &num : lst) {
-        cin >> num;
-    }
-    // Calculate sum of squares of positive integers in the input list
-    long long total_sum = double_the_difference(lst);
-    
-    return 0;
-}
+
+vector<float> lst;
+int odd_sum;
