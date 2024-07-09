@@ -1,22 +1,38 @@
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
+    
+    // Create a set from the characters in c for efficient lookup
+    set<char> c_set(c.begin(), c.end());
+    
+    // Initialize an empty string to store the result
     string temp = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (find(c.begin(), c.end(), s[i]) == c.end()) {
-            temp += s[i];
+    
+    // Iterate over each character in the input string s
+    for (char c : s) {
+        // If the current character is not in the set, add it to the temporary string
+        if (!c_set.count(c)) {
+            temp += c;
         }
     }
-    bool is_palindrome = true;
-    int start = 0, end = temp.length() - 1;
-    while (start < end) {
-        if (temp[start] != temp[end]) {
+    
+    // Check if the temporary string is palindrome or not
+    bool is_palindrome = false;
+    for (int i = 0; i < temp.size(); i++) {
+        if (temp[i] != temp[temp.size() - i - 1]) {
             is_palindrome = false;
             break;
+        } else {
+            is_palindrome = true;
         }
-        start++;
-        end--;
     }
+    
+    // Store the result in a vector and return it
     result.push_back(temp);
-    result.push_back(to_string(is_palindrome));
+    if (is_palindrome) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
+    
     return result;
 }
