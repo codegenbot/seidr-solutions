@@ -1,14 +1,12 @@
 #include <vector>
 #include <utility>
 
-bool issame(std::pair<int,int> a, std::pair<int,int> b);
-
-std::pair<int, int> sum_product(std::vector<int> numbers) {
+bool issame(pair<int, int> a, pair<int, int> b) {
     int sum = 0;
     int prod = 1;
     for (int num : numbers) {
         sum += num;
         prod *= num;
     }
-    return std::pair<int, int>(sum, prod);
+    return make_pair(sum, prod);
 }
