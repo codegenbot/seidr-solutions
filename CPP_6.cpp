@@ -1,28 +1,39 @@
-#include<stdio.h>
-#include<vector>
-#include<string>
+#include <iostream>
+#include <stack>
+#include <vector>
+#include <string>
+
 using namespace std;
 
-vector<int> parse_nested_parens(string paren_string){
+vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
-    int maxDepth = 0;
-    for (int i = 0; i < paren_string.size(); ++i) {
-        if (paren_string[i] == '(') {
-            int depth = 1;
-            for (++i; i < paren_string.size() && paren_string[i] != ')'; ++i) {
-                if (paren_string[i] == '(') depth++;
-                else if (paren_string[i] == ')') depth--;
+    stack<int> nesting_levels;
+    int max_nesting = 0;
+
+    for (char c : paren_string) {
+        if (c == '(') {
+            nesting_levels.push(1);
+            max_nesting = max(max_nesting, 1);
+        } else if (c == ')') {
+            nesting_levels.pop();
+            if (nesting_levels.empty()) {
+                result.push_back(max_nesting);
+                max_nesting = 0;
             }
-            if (depth > maxDepth) maxDepth = depth;
-        } else if (paren_string[i] == ')') {
-            int depth = 1;
-            for (--i; i >= 0 && paren_string[i] != '('; --i) {
-                if (paren_string[i] == ')') depth++;
-                else if (paren_string[i] == '(') depth--;
-            }
-            if (depth > maxDepth) maxDepth = depth;
         }
     }
-    result.push_back(maxDepth);
+
     return result;
+}
+
+int main() {
+    string paren_string = "(()()) ((())) () ((())()())";
+    vector<int> result = parse_nested_parens(paren_string);
+
+    for (int i : result) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
