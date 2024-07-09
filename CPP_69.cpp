@@ -14,6 +14,5 @@ int search(vector<int> lst) {
             return pair.first;
         }
     }
-    cout << "Error: No repeating number found in the list." << endl;
-    return -1;
+    throw runtime_error("No majority element found");
 }
