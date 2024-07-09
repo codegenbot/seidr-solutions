@@ -1,12 +1,23 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> removeDuplicates(std::vector<int>& l) {
-    std::sort(l.begin(), l.end());
-    l.erase(std::unique(l.begin(), l.end()), l.end());
-    return l;
+int countPrimesInRange(int a, int b) {
+    int count = 0;
+    for (int i = a; i <= b; ++i) {
+        bool isPrime = true;
+        if (i <= 1) {
+            isPrime = false;
+        } else {
+            for (int j = 2; j*j <= i; ++j) {
+                if (i % j == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+        if (isPrime) {
+            ++count;
+        }
+    }
+    return count;
 }
