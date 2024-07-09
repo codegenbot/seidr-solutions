@@ -1,18 +1,26 @@
-Here is the completed code:
+#include <vector>
+#include <climits>  // Include <climits>
 
-vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> evens;
+using namespace std;
 
-    for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] % 2 == 0) {
-            evens.push_back({arr[i], i});
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return result;
+    
+    int minEvenIndex = -1;
+    int minValue = INT_MAX;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && arr[i] < minValue) {
+            minEvenIndex = i;
+            minValue = arr[i];
         }
     }
-
-    if (evens.empty()) {
-        return {};
+    
+    if (minEvenIndex != -1) {
+        result.push_back({minValue, minEvenIndex});
+    } else {
+        result.push_back({0, -1});
     }
-
-    sort(evens.begin(), evens.end());
-    return {evens[0].first, evens[0].second};
+    
+    return result;
 }
