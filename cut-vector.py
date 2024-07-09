@@ -10,4 +10,7 @@ def cut_vector(vector):
         if diff < min_diff:
             min_diff = diff
             cut_index = i
-    return [vector[:cut_index], vector[cut_index:]]
+    if sum(vector) % 2 == 0:  
+        return [vector[:len(vector)//2], vector[len(vector)//2:]]
+    else:
+        return [vector[:cut_index], vector[cut_index:]]
