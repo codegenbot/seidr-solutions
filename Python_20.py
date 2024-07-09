@@ -9,7 +9,10 @@ def find_min_difference(numbers):
             result = (numbers[i], numbers[i + 1])
     return result
 
-# Call the function with user input as an argument
-user_input = input("Enter a list of numbers separated by spaces: ")
-numbers = list(map(int, user_input.split()))
-print(find_min_difference(numbers))
+# Get user input
+user_input = input().split()
+numbers = [int(num) for num in user_input]
+
+# Call the function with user input
+output = find_min_difference(numbers)
+output
