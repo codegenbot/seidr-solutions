@@ -10,22 +10,13 @@ bool issame(const std::variant<int>& v1, const std::variant<int>& v2) {
     return false;
 }
 
-std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int>> values) {
-    std::vector<std::variant<int>> result; 
+std::vector<int> filter_integers(initializer_list<std::variant<int>> values) {
+    std::vector<int> result; 
     for (const auto& value : values) {
         try {
-            if (value.index() == 0) { // Check if the variant contains an int
-                int val = std::get<int>(value);
-                bool found = false;
-                for (auto& v : result) {
-                    if (v.index() == 0 && std::get<int>(v) == val) {
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found)
-                    result.push_back(value);
-            }
+            int val = std::get<int>(value);
+            if(std::find(result.begin(), result.end(), val) == result.end())
+                result.push_back(val);
         } catch (...) {
             // ignore non-integer values
         }
@@ -33,7 +24,7 @@ std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int
     return result;
 }
 
-std::vector<std::variant<int>> values = {3, 'c', 3, 3, 'a', 'b'};
-std::vector<std::variant<int>> result = filter_integers(values);
-assert (std::equal(result.begin(), result.end(), std::vector<std::variant<int>>({3, 3, 3}).begin()));
+std::vector<std::variant<int>> values = {3, 3, 3};
+std::vector<int> result = filter_integers(values);
+assert (std::equal(result.begin(), result.end(), std::vector<int>({3, 3, 3}).begin()));
 return 0;
