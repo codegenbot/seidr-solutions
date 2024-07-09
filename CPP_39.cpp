@@ -15,7 +15,8 @@ int main() {
     if (n <= 0) {
         cout << "-1" << endl;
     } else {
-        cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << endl;
+        string str = "The " + to_string(n) + "th prime Fibonacci number is: ";
+        cout << str << prime_fib(n) << endl;
     }
 }
 
