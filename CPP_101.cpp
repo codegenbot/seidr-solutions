@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -13,9 +13,9 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-vector<std::string> words_string(string s){
+vector<string> words_string(string s){
     vector<string> result;
-    std::string word = "";
+    string word = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
             if(!word.empty()){
