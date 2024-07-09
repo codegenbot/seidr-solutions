@@ -1,9 +1,18 @@
 string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(),
-        [&] (const string &s1, const string &s2) {
-            if (s1.size() == s2.size()) return s1 < s2;
-            return s1.size() > s2.size();
+    string result = "";
+    int maxUniqueChars = 0;
+    
+    for(string word : words){
+        set<char> uniqueChars(word.begin(), word.end());
+        if(uniqueChars.size() > maxUniqueChars){
+            maxUniqueChars = uniqueChars.size();
+            result = word;
+        } else if(uniqueChars.size() == maxUniqueChars) {
+            if(result > word) {
+                result = word;
+            }
         }
-    );
-    return max_word;
+    }
+    
+    return result;
 }
