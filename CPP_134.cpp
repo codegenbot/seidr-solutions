@@ -1,8 +1,3 @@
-Here is the completed code:
-
-```cpp
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    string lastChar = txt.substr(txt.size() - 1);
-    return !isspace(lastChar[0]) && isalpha(lastChar[0]);
-}
+size_t last_space = txt.find_last_of(" ");
+return (last_space == string::npos || txt[last_space] != ' ') && 
+       (!txt.empty() && isalpha(txt.back()));
