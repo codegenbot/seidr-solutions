@@ -1,30 +1,16 @@
 def minPath(grid, k):
     n = len(grid)
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    start = min(min(row) for row in grid)
+    result = [start]
+    seen = {(i, j) for i in range(n) for j in range(n) if grid[i][j] == start}
 
-    def dfs(x, y, visited, path):
-        if len(path) == k:
-            return path
+    while len(result) < k:  # Update while loop condition
+        neighbors = [(i, j) for i, j in seen if i > 0 and (i - 1, j) not in seen]
+        neighbors += [(i, j) for i, j in seen if i < n - 1 and (i + 1, j) not in seen]
+        neighbors += [(i, j) for i, j in seen if j > 0 and (i, j - 1) not in seen]
+        neighbors += [(i, j) for i, j in seen if j < n - 1 and (i, j + 1) not in seen]
+        next_cell = min(neighbors, key=lambda x: grid[x[0]][x[1]])
+        result.append(grid[next_cell[0]][next_cell[1]])
+        seen.add(next_cell)
 
-        visited.add((x, y))
-        min_path = None
-
-        for dx, dy in directions:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < n and 0 <= ny < n and (nx, ny) not in visited:
-                new_path = dfs(nx, ny, visited.copy(), path + [grid[nx][ny]])
-                if min_path is None or new_path < min_path:
-                    min_path = new_path
-
-        return min_path
-
-    min_val = float("inf")
-    min_path = None
-    for i in range(n):
-        for j in range(n):
-            path = dfs(i, j, set(), [grid[i][j]])
-            if path is not None and len(path) < len(min_val):
-                min_val = len(path)
-                min_path = path
-
-    return min_path
+    return result
