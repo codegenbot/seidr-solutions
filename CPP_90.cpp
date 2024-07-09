@@ -1,14 +1,11 @@
-Here is the solution:
-
-vector<int> result = {None};
-if (lst.size() < 2) {
-    return None;
-}
-sort(lst.begin(), lst.end());
-for (int i = 1; i < lst.size(); i++) {
-    if (lst[i] != lst[0]) {
-        result.push_back(lst[i]);
-        break;
+int next_smallest(vector<int> lst){
+    if(lst.size() < 2) return -1; // or any other value that represents 'None'
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for(int i = 0; i < sorted.size(); i++){
+        if(i > 0 && sorted[i] != sorted[i-1]){
+            return sorted[i];
+        }
     }
+    return -1; // or any other value that represents 'None'
 }
-return result.empty() ? None : result[0];
