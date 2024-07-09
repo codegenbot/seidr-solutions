@@ -17,17 +17,24 @@ int prime_fib(int n) {
     if (n == 1) {
         return 2;
     }
-    if (n == 2) {
-        return 3;
-    }
+
     std::vector<int> fib = {1, 1};
-    while (fib.size() <= n) {
-        fib.push_back(fib[fib.size() - 1] + fib[fib.size() - 2]);
-        if (isPrime(fib.back())) {
-            if (fib.size() == n) {
-                return fib.back();
+    int i = 2;
+    while (true) {
+        fib.push_back(fib[i - 1] + fib[i - 2]);
+        if (isPrime(fib[i])) {
+            --n;
+            if (n == 0) {
+                return fib[i];
             }
         }
+        ++i;
     }
-    return -1; // Error case
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::cout << prime_fib(n) << std::endl;
+    return 0;
 }
