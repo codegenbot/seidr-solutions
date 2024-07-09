@@ -3,8 +3,8 @@ def match_parens(lst):
     for char in lst:
         if char == '(':
             stack.append('(')
-        elif char == ')' and stack and stack[-1] == '(':
+        elif char == ')':
+            if not stack:
+                return 'No'
             stack.pop()
-        else:
-            return 'No'
     return 'Yes' if not stack else 'No'
