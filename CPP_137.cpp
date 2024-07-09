@@ -1,17 +1,31 @@
-#include <iostream>
+```
+#include <boost/any.hpp>
 #include <string>
 
-std::string compareOne(std::string s1, std::string s2) {
-    if (s1.compare(s2) > 0) {
-        return s1;
-    } else if (s1.compare(s2) < 0) {
-        return s2;
-    } else {
-        return "None";
-    }
-}
+using namespace boost;
 
-int main() {
-    std::cout << compareOne("apple", "banana") << std::endl;
-    return 0;
+boost::any compare_one(boost::any a, boost::any b) {
+    if (is_any_of<a>(int.class)) {
+        int ai = any_cast<int>(a);
+        int bi = any_cast<int>(b);
+        return a.convert_to<int>() < bi ? b : (ai < bi ? a : b);
+    }
+    else if (is_any_of<a>(double.class)) {
+        double ad = any_cast<double>(a);
+        double bd = any_cast<double>(b);
+        return ad < bd ? b : (ad < bd ? a : b);
+    }
+    else {
+        std::string as = any_cast<std::string>(a);
+        std::string bs = any_cast<std::string>(b);
+        if (as < bs) {
+            return b;
+        } 
+        else if (as > bs) {
+            return a;
+        } 
+        else {
+            return boost::any("None");
+        }
+    }
 }
