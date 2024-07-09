@@ -9,3 +9,8 @@ bool simplify(std::string x, std::string n_str) {
 
     return (x_num * n_num) % (x_denom * n_denom) == 0;
 }
+
+int main() {
+    assert(simplify("2/3", "4/6") == 0);
+    return 0;
+}
