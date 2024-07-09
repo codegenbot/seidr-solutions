@@ -4,7 +4,6 @@
 #include <cctype>
 #include <cassert>
 #include <string>
-
 using namespace std;
 
 std::vector<std::string> split_words(std::string txt) {
