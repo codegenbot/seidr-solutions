@@ -1,4 +1,3 @@
-```
 #include <string>
 using namespace std;
 
@@ -31,9 +30,14 @@ string words_in_sentence(string sentence){
 }
 
 int main() {
-    string s;
+    string sentence;
     cout << "Enter a sentence: ";
-    getline(cin, s);
-    cout << "The words with prime length are: " << words_in_sentence(s) << endl;
+    getline(cin, sentence);
+    string result = words_in_sentence(sentence);
+    if(result != ""){
+        cout << "The words in the sentence are: " << result << endl;
+    } else{
+        cout << "No prime length found." << endl;
+    }
     return 0;
 }
