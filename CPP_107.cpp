@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -25,6 +26,8 @@ std::vector<int> even_odd_palindrome(int n){
 }
 
 int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));
+    std::vector<int> expected_result = {0, 1};
+    assert(issame(even_odd_palindrome(1), expected_result));
+    
     return 0;
 }
