@@ -1,3 +1,4 @@
+```
 import re
 
 def parse_music(music_string: str) -> list:
