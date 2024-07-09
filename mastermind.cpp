@@ -14,7 +14,7 @@ int main() {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
-            countedIndices.insert(i); 
+            countedIndices.insert(i);
         } else {
             codeFreq[code[i]]++;
             guessFreq[guess[i]]++;
