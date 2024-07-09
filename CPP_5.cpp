@@ -1,5 +1,7 @@
 #include <vector>
 
+bool issame(int a, int b);
+
 bool issame(int a, int b){
     return a == b;
 }
