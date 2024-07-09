@@ -4,8 +4,8 @@
 #include <pair>
 using namespace std;
 
-vector<pair<int,int>> indicesOfSubstring(string text, string target) {
-    vector<pair<int,int>> result;
+vector< pair<int,int> > indicesOfSubstring(string text, string target) {
+    vector< pair<int,int> > result;
     int n = text.length();
     int m = target.length();
 
@@ -28,9 +28,9 @@ vector<pair<int,int>> indicesOfSubstring(string text, string target) {
 int main() {
     string text = "hello world";
     string target = "world";
-    vector<pair<int,int>> result = indicesOfSubstring(text, target);
+    vector< pair<int,int> > result = indicesOfSubstring(text, target);
     for (auto it : result) {
-        cout << it.first << endl; // or use it.second to print the number of occurrences
+        cout << it.first << endl; 
     }
     return 0;
 }
