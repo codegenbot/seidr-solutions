@@ -2,8 +2,6 @@ bool issame(vector<string> a, vector<string> b) {
     return total_chars(a) == total_chars(b);
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2);
-
 int total_chars(const vector<string>& lst) {
     int total = 0;
     for (const string& str : lst) {
@@ -11,6 +9,8 @@ int total_chars(const vector<string>& lst) {
     }
     return total;
 }
+
+vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     if (total_chars(lst1) < total_chars(lst2)) {
