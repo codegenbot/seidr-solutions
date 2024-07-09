@@ -1,20 +1,19 @@
 string fix_spaces(string text){
     string result = "";
     for(int i=0; i<text.length(); i++){
-        if(text[i] == ' ' && (i==0 || text[i-1] != ' ') && (i == text.length()-1 || text[i+1] != ' ')){
+        if(text[i] == ' ' && (i==0 || text[i-1] != ' ') && (i==text.length()-1 || text[i+1] != ' ')){
             result += '_';
         } else if(text[i] == ' '){
-            int count = 0;
-            while(i < text.length() && text[i] == ' '){
-                i++;
-                count++;
+            bool is_consecutive = true;
+            for(int j=i+1; j<text.length() && j-i > 2; j++){
+                if(text[j] != ' '){
+                    is_consecutive = false;
+                    break;
+                }
             }
-            if(count > 2) {
+            if(is_consecutive){
                 result += '-';
             } else {
-                result += '_';
-            }
-            for(int j=0; j<count-1; j++){
                 result += '_';
             }
         } else{
