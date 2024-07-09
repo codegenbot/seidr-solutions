@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include<iostream>
 using namespace std;
 
 int maxPrimeSum(vector<int> lst){
@@ -27,15 +26,17 @@ bool isPrime(int n) {
             return false;
     }
     return true;
-
 }
+
 int main() {
     vector<int> lst;
-    int num;
-    cout << "Enter the numbers separated by space: ";
-    while(cin >> num) {
-        lst.push_back(num);
+    int n;
+    cout << "Enter the number of elements in the list: ";
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        cout << "Enter element "<<i+1<<": ";
+        cin >> lst.push_back();
     }
-    cout << "Sum of digits of maximum prime number is " << maxPrimeSum(lst) << endl;
+    cout << "Sum of digits of max prime is: " << maxPrimeSum(lst);
     return 0;
 }
