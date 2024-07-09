@@ -20,5 +20,4 @@ int main() {
     for (int i : output) {
         cout << i << " ";
     }
-    return 0;
 }
