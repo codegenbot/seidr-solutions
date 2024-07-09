@@ -17,4 +17,3 @@ std::string int_to_mini_roman(int number) {
     if(number > 0)
         result.append(to_string(number)); 
     return result;
-}
