@@ -22,4 +22,3 @@ int main() {
     std::vector<std::string> b = {"W", "WW", "WWW"};
     assert(std::equal(all_prefixes("WWW"), b));
     return 0;
-}
