@@ -4,17 +4,18 @@ def main():
 
     def indices_of_substring(text, target):
         result = []
-        i = 0
-        while True:
-            pos = text[i:].find(target)
+        pos = 0
+        while pos < len(text):
+            pos = text.find(target, pos)
             if pos == -1:
                 break
-            result.append(i + pos)
-            i += pos + 1
+            result.append(pos + 1)
+            pos += 1
 
         return result
 
     print(indices_of_substring(text, target))
+
 
 if __name__ == "__main__":
     main()
