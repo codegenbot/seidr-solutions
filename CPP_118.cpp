@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <bits/stdc++.h>
 
 std::string get_closest_vowel(const std::string& word) {
     for (char c : word) {
