@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <iostream>
 
-bool is_same(const std::vector<float>& a, const std::vector<float>& b) {
+bool same(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size())
         return false;
     for (size_t i = 0; i < a.size(); ++i)
@@ -17,7 +18,7 @@ int mainFunc() {
         input.push_back(num);
     }
     std::vector<float> result = get_positive(input);
-    assert(is_same(result, {0.5f, 1.0f, 2.0f}));
+    assert(same(result, {0.5f, 1.0f, 2.0f}));
     return 0;
 }
 
