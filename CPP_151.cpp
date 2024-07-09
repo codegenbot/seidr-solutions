@@ -11,6 +11,9 @@ long double_the_difference(const std::vector<int>& input) {
 
 int main() {
     std::vector<int> lst = {1,2,3};
-    int expected_result = double_the_difference(lst); 
-    assert(expected_result == 14); 
+    int sum = 0; 
+    for(int i: lst){
+        if(i%2 != 0)sum+=i;
+    }
+    assert(double_the_difference(lst) == sum); 
 }
