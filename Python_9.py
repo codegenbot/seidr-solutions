@@ -1,14 +1,8 @@
-from typing import List
+```
+def calculate_discounted_price(price, discount_rate):
+    return price * (1 - discount_rate / 100)
 
+price = float(input("Enter the original price of the item: "))
+discount_rate = int(input("Enter the percentage of the discount (e.g., 20 for 20%): "))
 
-def rolling_max(numbers: List[int]) -> List[int]:
-    if len(numbers) == 0:
-        return []
-    elif len(numbers) == 1:
-        return [numbers[0]]
-    result = [numbers[0]]
-    max_so_far = numbers[0]
-    for num in numbers[1:]:
-        max_so_far = max(num, max_so_far + num)
-        result.append(max_so_far)
-    return result
+print(f"The discounted price is {calculate_discounted_price(price, discount_rate)}")
