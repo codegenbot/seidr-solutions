@@ -1,6 +1,7 @@
-```
+```cpp
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 std::string string_xor(std::string a, std::string b) {
     if(a.length() != b.length())
@@ -18,7 +19,8 @@ std::string string_xor(std::string a, std::string b) {
 
 int main() { 
     assert(string_xor("0101", "0000") == "0101");
-    std::string str1, str2;
+    std::string str1;
+    std::string str2;
     std::cout << "Enter the first string: ";
     std::getline(std::cin, str1);
     std::cout << "Enter the second string: ";
