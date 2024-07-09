@@ -1,5 +1,4 @@
-```
-#include <boost/any.hpp>
+```#include <boost/any.hpp>
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -14,9 +13,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         int num = boost::any_cast<int>(b);
         return std::stoi(str) > num ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return boost::any_cast<float>(a) > static_cast<float>(b) ? a : b;
+        return boost::any_cast<float>(a) > (int)b ? a : b;
     } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return boost::any_cast<double>(a) > static_cast<double>(b) ? a : b;
+        return boost::any_cast<double>(a) > (int)b ? a : b;
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         std::string str = boost::any_cast<std::string>(a);
         float num = boost::any_cast<float>(b);
@@ -26,5 +25,4 @@ boost::any compare_one(boost::any a, boost::any b) {
         double num = boost::any_cast<double>(b);
         return std::stod(str) > num ? a : b;
     }
-    return "None";
-}
+    return a;

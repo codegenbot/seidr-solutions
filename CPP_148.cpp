@@ -1,13 +1,8 @@
 #include <vector>
 #include <string>
-using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    return a.size() == b.size() && std::all_of(a.begin(), a.end(), [&](const string& s) { return std::find(b.begin(), b.end(), s) != b.end(); });
-}
-
-vector<string> bf(string planet1, string planet2) {
-    vector<string> result;
+std::vector<std::string> bfs(string planet1, string planet2) {
+    std::vector<string> result;
     string planets[] = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int i = 0;
     while (i < 8) {
