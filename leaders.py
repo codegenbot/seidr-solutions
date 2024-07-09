@@ -1,3 +1,4 @@
+```
 def leaders(input_list):
     leaders = []
     max_seen_so_far = input_list[-1]
@@ -5,4 +6,4 @@ def leaders(input_list):
         if input_list[i] >= max_seen_so_far:
             leaders.append(input_list[i])
             max_seen_so_far = input_list[i]
-    return leaders[::-1]
+    return reversed(leaders)
