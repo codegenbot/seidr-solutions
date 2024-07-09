@@ -1,13 +1,7 @@
-def checkio(text: str) -> list:
-    result = []
-    i = 0
-    while i < len(text):
-        if text[i].isdigit():
-            j = i + 1
-            while j < len(text) and text[j].isdigit():
-                j += 1
-            result.append(int(text[i:j]))
-            i = j
-        else:
-            i += 1
-    return result
+def count_words(input_string: str):
+    words = input_string.split()
+    word_count = {word: 0 for word in set(words)}
+    for word in words:
+        if word.isalpha():
+            word_count[word] += 1
+    return dict(sorted(word_count.items()))
