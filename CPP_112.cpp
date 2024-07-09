@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <memory>
@@ -56,4 +55,3 @@ int main() {
     else
         std::cout << "Test case failed." << std::endl;
     return 0;
-}
