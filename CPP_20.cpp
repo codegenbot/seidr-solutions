@@ -3,7 +3,7 @@
 #include <vector>
 #include <limits>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool operator==(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
@@ -30,6 +30,6 @@ std::vector<float> findClosestElements(std::vector<float> numbers) {
 }
 
 int main() {
-    assert(issame({2.2f, 3.1f}, findClosestElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f})));
+    assert({2.2f, 3.1f} == findClosestElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}));
     return 0;
 }
