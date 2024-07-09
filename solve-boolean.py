@@ -1,9 +1,11 @@
 def solve_boolean(expression):
+    stack = []
     while "&" in expression or "|" in expression:
         expression = expression.replace(
-            "&(.*?)&", r"(True if \1==\"T\" else False) and stack.pop()"
+            "&(.*?)&", r"((\1==False) and (stack.pop()==True))"
         )
         expression = expression.replace(
-            "|(.*?)|", r"(True if \1==\"T\" else False) or stack.pop()"
+            "|(.*?)|", r"((\1==False) or (stack.pop()==True))"
         )
-    return eval("stack.pop()")
+    stack.append(eval(expression))
+    return eval('and'.join(map(str, stack)))
