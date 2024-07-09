@@ -1,3 +1,4 @@
+```cpp
 #include <cassert>
 #include <cmath>
 #include <iostream>
@@ -13,7 +14,8 @@ bool is_prime(int n) {
 
 }
 
-int main() {
+int main 
+{
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
@@ -25,3 +27,4 @@ int main() {
     }
     
     return 0;
+}
