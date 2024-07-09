@@ -1,5 +1,5 @@
-\#include <vector>
-\#include <cassert>
+#include <vector>
+#include <cassert>
 
 std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b) {
     std::vector<int> result(4);
