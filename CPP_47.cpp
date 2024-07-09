@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -15,20 +14,20 @@ float median(std::vector<float> numbers) {
 
 int main() {
     std::vector<float> numbers;
-    std::string input;
     while (true) {
-        std::cin >> input;
+        std::string input;
+        if (!(std::cin >> input)) {  
+            std::cout << "Invalid input. Please try again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
         if (input == "stop") break;
         try {
             float num = std::stof(input);
             numbers.push_back(num);
         } catch(const std::invalid_argument& e) {
             std::cout << "Invalid number. Please enter a valid floating point number." << std::endl;
-            while (!(std::cin >> input)) {  
-                std::cout << "Invalid input. Please try again: ";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            }
         }
     }
     if (numbers.size() == 0) {
