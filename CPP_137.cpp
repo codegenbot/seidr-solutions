@@ -1,55 +1,87 @@
-#include <iostream>
-#include <string>
-#include <boost/any.hpp>
+Here is the completed code:
 
-using namespace std;
+```cpp
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a > (float)b ? a : b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > (int)b ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = any_cast<string>(a);
-        string str2 = any_cast<string>(b);
+        return b;
+    }
+    if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return b;
+    }
+    if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
 
-        int pos1 = str1.find(',');
-        int pos2 = str2.find(',');
+        if (strA.find('.') != string::npos || strA.find(',') != string::npos)
+            strA = strA.substr(0, strA.find('.'));
+        if (strB.find('.') != string::npos || strB.find(',') != string::npos)
+            strB = strB.substr(0, strB.find('.'));
 
-        double num1 = stod(str1.substr(0, pos1));
-        double num2 = stod(str2.substr(0, pos2));
-
-        return (num1 > num2 ? a : b);
-    } else if (a.type() == typeid(string) && b.type() != typeid(string)) {
-        string str = any_cast<string>(a);
-
-        int pos = str.find(',');
-        double num = stod(str.substr(0, pos));
-
-        if ((int)b > num || (float)b > num)
+        if (stod(strA) > stod(strB))
+            return a;
+        else if (stod(strA) < stod(strB))
             return b;
         else
-            return "None";
-    } else if (b.type() == typeid(string) && a.type() != typeid(string)) {
-        string str = any_cast<string>(b);
+            return boost::any("None");
+    }
+    if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int numA = boost::any_cast<int>(a);
+        string strB = boost::any_cast<string>(b);
 
-        int pos = str.find(',');
-        double num = stod(str.substr(0, pos));
+        if (strB.find('.') != string::npos || strB.find(',') != string::npos)
+            strB = strB.substr(0, strB.find('.'));
 
-        if ((int)a > num || (float)a > num)
+        if (stod(strB) > numA)
+            return b;
+        else
+            return boost::any("None");
+    }
+    if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string strA = boost::any_cast<string>(a);
+        int numB = boost::any_cast<int>(b);
+
+        if (strA.find('.') != string::npos || strA.find(',') != string::npos)
+            strA = strA.substr(0, strA.find('.'));
+
+        if (stod(strA) > numB)
             return a;
         else
-            return "None";
-    } else {
-        return "None";
+            return boost::any("None");
     }
-}
+    if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        float numA = boost::any_cast<float>(a);
+        int numB = boost::any_cast<int>(b);
 
-int main() {
-    boost::any a = 1;
-    boost::any b = 2.5;
+        if (numA > numB)
+            return a;
+        else
+            return boost::any("None");
+    }
+    if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        float numA = boost::any_cast<float>(a);
+        string strB = boost::any_cast<string>(b);
 
-    cout << any_cast<boost::any>(compare_one(a, b)) << endl;
+        if (strB.find('.') != string::npos || strB.find(',') != string::npos)
+            strB = strB.substr(0, strB.find('.'));
 
-    return 0;
+        if (stod(strB) > numA)
+            return b;
+        else
+            return boost::any("None");
+    }
+    if (a.type() == typeid(int) && a.convert_to(b))
+        return boost::any("None");
+
+    if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
+        return a;
+    else if (boost::any_cast<int>(a) < boost::any_cast<int>(b))
+        return b;
+
+    return boost::any("None");
 }
