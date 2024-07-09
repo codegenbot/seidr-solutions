@@ -1,10 +1,10 @@
-```cpp
 #include <iostream>
+#include <cassert>
 
-bool iscuber(int n){
+bool iscuber(int a){
     int i = 1;
-    while (i * i * i <= n) {
-        if (i * i * i == n)
+    while (i * i * i <= a) {
+        if (i * i * i == a)
             return true;
         i++;
     }
@@ -12,12 +12,6 @@ bool iscuber(int n){
 }
 
 int main() {
-    for(int a = 0;a<10000;a++){
-       if(iscuber(a)){
-           std::cout << a << " is a perfect cube." <<std::endl;
-       }else{
-           std::cout << a << " is not a perfect cube." <<std::endl;
-       }
-    }
+    assert(iscuber(1729) == false);
     return 0;
 }
