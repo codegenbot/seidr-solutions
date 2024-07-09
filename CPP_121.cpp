@@ -12,4 +12,16 @@ int sumOdd(std::vector<int> lst) {
     return sum;
 }
 
-assert(sumOdd({3, 13, 2, 9}) == 46);
+int solutions(std::vector<int> lst) { 
+    int sum = sumOdd(lst);
+    for (int i : lst) {
+        if (i % 2 == 0 && i > 0)
+            sum -= i; 
+    }
+    return sum;
+}
+
+int main() {
+    assert(solutions({3, 13, 2, 9}) == 25);
+    std::cout << "Test passed.\n";
+}
