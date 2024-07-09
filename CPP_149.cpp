@@ -1,8 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
+#include <memory>
 
 using namespace std;
 
@@ -40,7 +41,7 @@ int main_entry() {
     cout << "Enter the number of strings: ";
     cin >> n;
     
-    vector<std::string> inputStrings; // Modified here
+    vector<string> inputStrings;
     int totalSize = 0;
     for(int i = 0; i < n; i++) {
         string str;
@@ -50,10 +51,8 @@ int main_entry() {
     }
     
     for(int i = 0; i < n; i++) {
-        string str;
         cout << "Enter string " << (i+1) << ": ";
-        getline(cin, str);
-        inputStrings.push_back(str);
+        getline(cin, inputStrings[i]); // Store by reference instead of by value
     }
     
     vector<string> output = sorted_list_sum(inputStrings);
