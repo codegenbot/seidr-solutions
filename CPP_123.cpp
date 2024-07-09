@@ -26,13 +26,14 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    vector<int> output = get_odd_collatz(12);
-    cout << "Output: ";
-    for(int i=0;i<output.size();i++) {
-        if(i != output.size()-1)
-            cout << output[i] << " ";
-        else
-            cout << output[i];
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    vector<int> odd_collatz = get_odd_collatz(num);
+    if (issame(odd_collatz, {1})) {
+        cout << "The Collatz sequence contains only odd numbers." << endl;
+    } else {
+        cout << "The Collatz sequence does not contain only odd numbers." << endl;
     }
     return 0;
 }
