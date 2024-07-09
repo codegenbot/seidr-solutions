@@ -9,7 +9,7 @@ bool is_same(const vector<int>& a, const vector<int>& b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
-vector<int> filter_integers(initializer_list Variant values) {
+vector<int> filter_integers(initializer_list<variant<int>> values) {
     vector<int> result; 
     for (const auto& value : values) {
         try {
@@ -24,7 +24,7 @@ vector<int> filter_integers(initializer_list Variant values) {
 }
 
 int mainTest() {
-    vector Variant values = {(int)3, (int)3, (int)3};
+    vector<variant<int>> values = {3, 3, 3};
     assert(is_same(filter_integers(values), vector<int>({3, 3, 3})));
     return 0;
 }
