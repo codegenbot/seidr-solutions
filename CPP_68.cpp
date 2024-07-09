@@ -4,13 +4,11 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size())
         return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i])
             return false;
-        }
     }
     return true;
 }
@@ -34,6 +32,6 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {})); 
+    assert(isame(pluck({7, 9, 7, 1}), {})); 
     return 0;
 }
