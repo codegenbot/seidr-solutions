@@ -1,21 +1,19 @@
+```cpp
 #include <assert.h>
-#include <iostream>
 
-int double_the_difference(float *lst) {
-    int odd_sum = 0;
-    for (int i = 0; lst[i]; i++) {
-        if ((int)lst[i] % 2 != 0)
-            odd_sum += (int)lst[i] * 2;
-    }
-    return odd_sum;
+int main() {
+    float lst[] = {1.5f, 2.0f, 3.5f};
+    int n = sizeof(lst)/sizeof(lst[0]);
+    int result = double_the_difference(lst, n);
+    assert(result == 7); 
+    return 0;
 }
 
-int main(int argc, char **argv) {
-    float lst[argc];
-    for (int i = 0; i < argc; i++) {
-        std::cin >> lst[i];
+int double_the_difference(float *lst, int n) {
+    float sum = 0;
+    for (int i = 0; i < n; i++) {
+        if ((int)lst[i] % 2 != 0)
+            sum += (int)lst[i] * 2;
     }
-    int result = double_the_difference(lst);
-    std::cout << "Result: " << result << std::endl;
-    return 0;
+    return (int)sum;
 }
