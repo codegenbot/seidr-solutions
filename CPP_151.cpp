@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -9,8 +10,6 @@ long long double_the_difference(const std::vector<long long>& lst) {
             if (num % 2 != 0) { 
                 sum += std::pow(num, 2); 
             }
-        } else {
-            sum += num;
         }
     }
     return sum;
@@ -20,7 +19,7 @@ int main() {
     int n = 0;
     std::vector<long long> lst;
 
-    while (1) {
+    while (true) {
         double input; 
         std::cout << "Enter a number (negative to stop): ";
         std::cin >> input;
@@ -29,10 +28,12 @@ int main() {
         if (input > 0 && input == static_cast<double>(std::floor(input))) {
             if (static_cast<long long>(input) % 2 != 0) { 
                 lst.push_back(static_cast<long long>(std::pow(input, 2))); 
-            } else {
+            }
+            else {
                 lst.push_back(static_cast<long long>(input));
             }
-        } else {
+        }
+        else {
             lst.push_back(static_cast<long long>(input));
         }
         n++;
