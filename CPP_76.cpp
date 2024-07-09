@@ -2,7 +2,7 @@
 #include <iostream>
 
 bool isSimplePower(int x) {
-    for (int i = 2; i <= x; ++i) {
+    for (int i = 2; i <= sqrt(x); ++i) {
         int n = 0;
         while (pow(i, n) <= x) {
             if (pow(i, n) == x) {
@@ -14,7 +14,7 @@ bool isSimplePower(int x) {
     return false;
 }
 
-int main1() {
+int main() {
     int x;
     std::cout << "Enter a number: ";
     std::cin >> x;
