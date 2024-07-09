@@ -33,12 +33,14 @@ int mainFunction() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> numbers(n);  // Initialize with initial size
+    std::vector<int> numbers;  // Declare and initialize the vector
+    numbers.resize(n);  
+
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int num;
         std::cin >> num;
-        numbers[i] = num;  // Assign values to the initialized vector
+        numbers.push_back(num);
     }
 
     std::vector<int> uniqueNumbers = remove_duplicates(numbers);
