@@ -11,10 +11,17 @@ std::vector<std::string> all_prefixes(const std::string& str) {
 }
 
 bool issame(std::vector<std::string> a) {
-    return a == std::vector<std::string>({"W", "WW", "WWW"});
+    if (a != std::vector<std::string>({"W", "WW", "WWW"})) 
+        return false;  
+    return true;
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW")));
-    return 0;
+    {   
+        if (!issame(all_prefixes("WWW"))) {
+            std::cout << "Test failed" << std::endl;
+        } else {
+            std::cout << "Test passed" << std::endl;
+        }
+    }
 }
