@@ -1,16 +1,8 @@
 #include <vector>
 #include <initializer_list>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size())
-        return false;
-    
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i])
-            return false;
-    }
-    
-    return true;
+bool sameVectors(std::vector<int> a, std::vector<int> b) {
+    return (a == b);
 }
 
 int get_odd_collatz(int n) {
