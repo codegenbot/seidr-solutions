@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -37,7 +36,7 @@ vector<int> sort_third(vector<int> l) {
                 }
             }
         } else
-            result.push_back(others[(i % 3) % others.size()]);
+            result.push_back(others[i % others.size()]);
 
     }
 
