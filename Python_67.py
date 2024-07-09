@@ -1,7 +1,3 @@
-```python
-import re
-
-def fruit_distribution(s, n):
-    s = re.sub(r' apples', '', s)
-    s = re.sub(r' oranges', '', s)
-    return n - int(re.sub(r'[a-z ]*and *([0-9]+)', r'\1', s).split()[0]) - 1
+def fruit_distribution(s,n):
+    s = s.replace('apples', 'a').replace('oranges', 'o')
+    return n - int(s.split()[2].split('-')[0].strip().replace('a', '0').replace('o', '0'))
