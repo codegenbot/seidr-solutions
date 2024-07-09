@@ -1,29 +1,18 @@
 #include <boost/any.hpp>
-#include <string>
 #include <cassert>
-#include <iostream>
 
-using namespace std;
+template <typename T>
+T compare_one(const T& a, const T& b) {
+    if (boost::any_cast<T>(a) > boost::any_cast<T>(b)) return a;
+    else if (boost::any_cast<T>(a) < boost::any_cast<T>(b)) return b;
+    else return T();
+}
 
-boost::any compare(boost::any a, boost::any b) {
-    assert(a.type() == b.type());
-
-    if (a.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
-            return a;
-        else if (boost::any_cast<int>(a) < boost::any_cast<int>(b))
-            return b;
-    } else if (a.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
-            return a;
-        else if (boost::any_cast<float>(a) < boost::any_cast<float>(b))
-            return b;
-    } else if (a.type() == typeid(string)) {
-        if (stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b)))
-            return a;
-        else if (stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b)))
-            return b;
-    }
-
-    return boost::any();
+int main() {
+    assert(compare_one<int>(1, 3) == 3);
+    assert(compare_one<float>(1.5, 2.5) == 2.5);
+    assert(compare_one<std::string>("hello", "world") == "world");
+    assert(compare_one<std::string>("123", 100) == "123");
+    
+    return 0;
 }
