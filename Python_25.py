@@ -20,8 +20,13 @@ def factorize(n: int) -> List[int]:
 
 while True:
     try:
-        n = int(input("Enter an integer: "))  
+        n = input("Enter an integer: ")  
+        if not n.replace('.', '', 1).isdigit():
+            print("Invalid input. Please enter an integer.")
+            continue
+        n = int(n)  
         result = factorize(n)  
         print(result)
+        break
     except ValueError:
         print("Invalid input. Please enter an integer.")
