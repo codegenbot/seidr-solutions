@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -21,18 +20,18 @@ int total_sum(std::vector<std::string> lst) {
     return sum;
 }
 
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
-    int sum1 = total_sum(lst1);
-    int sum2 = total_sum(lst2);
-    if (sum1 < sum2) return lst1;
-    else if (sum1 > sum2) return lst2;
-    else return lst1;
+std::vector<int> total_match(int sum1, int sum2) {
+    if (sum1 > sum2) return {sum1};
+    else if (sum1 < sum2) return {sum2};
+    else return {sum1};
 }
 
 int main() {
     std::vector<std::string> lst1 = {"this"};
-    std::vector<std::string> lst2 = {"hello"};
-    if (!issame(lst1, lst1, total_match(lst1, lst2))) {
+    std::vector<std::string> lst2 = {};
+    int sum1 = total_sum(lst1);
+    int sum2 = 0;
+    if (!issame({lst1}, {lst1}, total_match(sum1, sum2))) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
