@@ -1,3 +1,9 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 string solve(string s) {
     bool hasLetter = false;
     for (char &c : s) {
