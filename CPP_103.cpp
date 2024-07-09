@@ -1,11 +1,9 @@
 #include <string>
-#include <cassert>
 #include <bitset>
+#include <cassert>
 
 std::string calculateBinary(int a, int b) {
-    int avg = (a + b) / 2;
-    std::string binary_avg = std::bitset<32>(avg).to_string();
-    return binary_avg.substr(binary_avg.find('1'));
+    return std::bitset<8>(a + b).to_string();
 }
 
 int main() {
