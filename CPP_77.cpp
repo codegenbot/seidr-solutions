@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <cmath>
 #include <cassert>
@@ -24,7 +23,7 @@ int originalFunction(){
     return 0;
 }
 
-int cpp77Main(){
+int main(){
     originalFunction();
     assert (isCube(1729) == false);
 }
