@@ -1,17 +1,13 @@
+```
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
 
-
-def find_indices(text, target):
-    indices = [i for i in range(len(text)) if text.startswith(target, i)]
-    return indices
-
-
 text = input()
 target = input()
 
-print(gcd(int(input()), int(input())))
+indices = [i for i in range(len(text)) if text.startswith(target, i)]
 
-print(find_indices(text, target))
+print(gcd(int(input()), int(input())))
+print(indices)
