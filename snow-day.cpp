@@ -5,30 +5,28 @@ using namespace std;
 int main() {
     int hours;
     cout << "Enter the number of hours: ";
-    cin >> hours;
-    
+    cin >> std::setw(4) >> hours;  
+
     double initialSnow;
     cout << "Enter the total amount of snow initially (in feet): ";
-    cin >> initialSnow;
-    
+    cin >> ws >> initialSnow;
+
     double rateOfSnowFall;
     cout << "Enter the rate of snow fall per hour (in feet/hour): ";
-    cin >> rateOfSnowFall;
-    
+    cin >> ws >> rateOfSnowFall;
+
     double proportionOfSnowMeltingPerHour;
     cout << "Enter the proportion of snow melting per hour: ";
-    cin >> proportionOfSnowMeltingPerHour;
+    cin >> ws >> proportionOfSnowMeltingPerHour;
 
-    double totalSnow = 0;  // Initialize with 0
-
-    double snowAccumulation = initialSnow;
+    double totalSnow = initialSnow;  // Initialize with initialSnow
 
     for (int i = 0; i < hours; i++) {
-        initialSnow = snowAccumulation;
-        snowAccumulation += rateOfSnowFall - proportionOfSnowMeltingPerHour * initialSnow;
+        double newSnow = rateOfSnowFall;
+        totalSnow += newSnow - proportionOfSnowMeltingPerHour * totalSnow;
     }
     
     cout << fixed << setprecision(5);
-    cout << "The amount of snow on the ground after " << hours << " hours is: " << snowAccumulation << " ft" << endl;
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << " ft" << endl;
     return 0;
 }
