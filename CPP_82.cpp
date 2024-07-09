@@ -1,6 +1,4 @@
-int main() {
-    assert(prime_length("0") == false);
-    bool prime_length(string str){
+bool prime_length(string str){
     int len = str.length();
     bool is_prime = true;
 
@@ -12,4 +10,9 @@ int main() {
     }
 
     return is_prime;
+}
+
+int main() {
+    assert(prime_length("0") == false);
+    return 0;
 }
