@@ -16,7 +16,7 @@ int main() {
 
     for (int i = 0; i <= numBounces; ++i) {
         int height = static_cast<int>(startHeight * pow(0.5, i));
-        std::cout << std::to_string(height) << " ";
+        std::cout << height << " ";
         startHeight = height;
     }
     return 0;
