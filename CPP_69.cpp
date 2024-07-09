@@ -1,18 +1,17 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-int search(const std::vector<int>& lst) {
-    int result = -1;
+int search(vector<int>& lst) {
+    unordered_map<int, int> freq;
+    int maxFrequency = -1;
+    
     for (int num : lst) {
-        if (num > 0 && std::count(lst.begin(), lst.end(), num) >= num) {
-            result = std::max(result, num);
+        freq[num]++;
+        maxFrequency = max(maxFrequency, freq[num]);
+    }
+
+    for (auto& pair : freq) {
+        if (pair.first > pair.second && pair.second > maxFrequency) {
+            maxFrequency = pair.second;
         }
     }
-    return result;
-}
 
-int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
-    return 0;
+    return maxFrequency > 0 ? maxFrequency : -1;
 }
