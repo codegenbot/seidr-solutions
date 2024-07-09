@@ -1,33 +1,49 @@
-map<string, int> numMap = {
-    {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-    {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-    {"eight", 8}, {"nine", 9}
-};
+#include<stdio.h>
+#include<string>
+#include<map>
+using namespace std;
 
 string sort_numbers(string numbers) {
-    string result = "";
-    vector<string> nums;
-    int start = 0, end = 0;
-
-    for (int i = 0; i < numbers.length(); i++) {
-        if (numbers[i] == ' ') {
-            end = i - 1;
-            nums.push_back(numbers.substr(start, end - start));
-            start = i + 1;
+    map<string, int> numMap;
+    for (int i = 0; i < 10; ++i) {
+        switch(i) {
+            case 0: numMap["zero"] = i; break;
+            case 1: numMap["one"] = i; break;
+            case 2: numMap["two"] = i; break;
+            case 3: numMap["three"] = i; break;
+            case 4: numMap["four"] = i; break;
+            case 5: numMap["five"] = i; break;
+            case 6: numMap["six"] = i; break;
+            case 7: numMap["seven"] = i; break;
+            case 8: numMap["eight"] = i; break;
+            case 9: numMap["nine"] = i; break;
         }
     }
 
-    end = numbers.length() - 1;
-    nums.push_back(numbers.substr(start, end - start));
+    vector<string> sortedNums;
+    string temp;
+    for (int i = 0; i < numbers.length(); ++i) {
+        if (numbers[i] == ' ') {
+            continue;
+        } else {
+            for (auto it = numMap.begin(); it != numMap.end(); ++it) {
+                if (numbers.substr(i, it->first.length()).compare(it->first) == 0) {
+                    sortedNums.push_back(temp + it->first);
+                    i += it->first.length() - 1;
+                    temp = "";
+                    break;
+                }
+            }
+        }
+    }
 
-    sort(nums.begin(), nums.end(), [&numMap](string a, string b) {
-        return numMap[a] < numMap[b];
-    });
-
-    for (int i = 0; i < nums.size(); i++) {
-        result += nums[i];
-        if (i != nums.size() - 1)
-            result += " ";
+    string result;
+    for (int i = 0; i < sortedNums.size(); ++i) {
+        if (i == 0) {
+            result = sortedNums[i];
+        } else {
+            result += " " + sortedNums[i];
+        }
     }
 
     return result;
