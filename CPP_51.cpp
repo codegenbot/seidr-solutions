@@ -1,8 +1,10 @@
-string remove_vowels(string text){
-    string result = "";
-    for(char c : text){
-        if(!strchr("aeiouAEIOU",c))
-            result += c;
+string::iterator it = text.begin();
+for (; it != text.end(); ++it) {
+    if (tolower(*it) == 'a' || tolower(*it) == 'e' ||
+        tolower(*it) == 'i' || tolower(*it) == 'o' ||
+        tolower(*it) == 'u') {
+        text.erase(it);
+        --it;
     }
-    return result;
 }
+return text;
