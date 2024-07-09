@@ -1,27 +1,13 @@
-```cpp
 #include <vector>
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    if (!b.size()) {
-        return !a.size();
-    }
-    return a == b;
+    return a == b;  
 }
 
 vector<vector<string>> by_length(const vector<int>& arr) {
-    vector<int> num;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            num.push_back(i);
-        }
-    }
-
-    sort(num.begin(), num.end());
-    reverse(num.begin(), num.end());
-
     vector<vector<string>> result;
-    for (int n : num) {
+    for (int n : arr) {
         switch (n) {
             case 1:
                 result.push_back({"One"});
