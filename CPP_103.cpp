@@ -1,5 +1,5 @@
-#include <iostream>
-#include <string>
+```cpp
+#include <bits/stdc++.h>
 using namespace std;
 
 string rounded_avg(int n, int m) {
@@ -24,7 +24,7 @@ string rounded_avg(int n, int m) {
 
 int main() {
     int n, m;
-    cout << "Enter the range: ";
+    cout << "Enter the values of n and m: ";
     cin >> n >> m;
     string result = rounded_avg(n, m);
     if (result == "-1") {
