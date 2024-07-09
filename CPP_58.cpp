@@ -11,25 +11,28 @@ int main() {
     std::cin >> n1 >> m1 >> n2 >> m2;
 
     std::vector<std::string> s1Vec;
+    s1Vec.reserve(n1);
     for(int i = 0; i < n1; i++) {
         std::string x;
         std::cin >> x;
         s1Vec.push_back(x); 
     }
 
+    s1.reserve(n1);
     for(auto &i : s1Vec) {
         if(s1.insert(i).second)  
             continue; 
     }
 
     std::vector<std::string> s2Vec;
-    s2Vec.resize(m1);
+    s2Vec.reserve(m1);
     for(int i = 0; i < m1; i++) {
         std::string y;
         std::cin >> y;
-        s2Vec[i] = y; 
+        s2Vec.push_back(y); 
     }
 
+    s2.reserve(m2);
     for(auto &i : s2Vec) {
         if(s2.insert(i).second)  
             continue; 
