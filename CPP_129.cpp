@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -9,15 +10,14 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
             if (res.size() < k) {
                 res.push_back(grid[i][j]);
             } else {
-                int val = grid[(i + 1) % n][j];
                 if (res.size() < k) {
-                    if (val > res[0]) {
+                    if (grid[(i + 1) % n][j] > res[0]) {
                         res.pop_back();
-                        res.insert(res.begin(), val);
+                        res.insert(res.begin(), grid[(i + 1) % n][j]);
                     }
-                } else if (val > res[0]) {
+                } else if (grid[(i + 1) % n][j] > res[0]) {
                     res.pop_back();
-                    res.insert(res.begin(), val);
+                    res.insert(res.begin(), grid[(i + 1) % n][j]);
                 }
             }
         }
