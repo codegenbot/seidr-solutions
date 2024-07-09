@@ -1,5 +1,7 @@
 #include <algorithm>
 #include <limits>
+#include <vector>
+#include <utility>
 
 using namespace std;
 
@@ -18,5 +20,7 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
             closest = make_pair(numbers[i], numbers[i + 1]);
         }
     }
-    return {closest};
+    vector<pair<float, float>> result;
+    result.push_back(closest);
+    return result;
 }
