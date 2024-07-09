@@ -1,13 +1,10 @@
+Here is the completed code:
+
 int max_fill(vector<vector<int>> grid, int capacity) {
     int total_water = 0;
-    for (const auto& row : grid) {
-        for (int val : row) {
-            if (val == 1) {
-                total_water++;
-            }
-        }
+    for (auto row : grid) {
+        total_water += std::count(row.begin(), row.end(), 1);
     }
-
-    int steps = total_water / capacity + (total_water % capacity > 0);
-    return steps;
+    
+    return total_water / capacity + ((total_water % capacity > 0) ? 1 : 0);
 }
