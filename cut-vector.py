@@ -12,12 +12,12 @@ for i in range(n-1):
     diff = abs(left_sum - right_sum)
     if diff < min_diff:
         min_diff = diff
-        cut_index = i
+        cut_index = i + 1
 
-subvector1 = arr[:cut_index + 1]
-subvector2 = arr[cut_index + 1:]
+subvector1 = arr[:cut_index]
+subvector2 = arr[cut_index:]
 
-if cut_index == n-1 or cut_index == -1:
+if cut_index == n:
     subvector1 = arr
     subvector2 = []
 
