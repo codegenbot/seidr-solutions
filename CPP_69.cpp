@@ -1,6 +1,7 @@
 #include <cassert>
 #include <vector>
 #include <map>
+#include <iostream>
 
 int search(std::vector<int> lst) {
     std::map<int, int> freq;
@@ -23,6 +24,6 @@ int main() {
     assert(search({3, 10, 10, 9, 2}) == -1);
     std::vector<int> lst = {3, 10, 10, 9, 2};
     int result = search(lst);
-    std::cout << "The first number that appears at least as many times as its value is: " << result << std::endl;
+    std::cout << "The result is: " << result << std::endl;
     return 0;
 }
