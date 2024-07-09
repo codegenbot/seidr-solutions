@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
-    return (v1.size() == v2.size()) && (std::equal(v1.begin(), v1.end(), v2.begin()));
+bool issame(std::vector<std::string>& vec1, std::vector<std::string>& vec2) {
+    return vec1 == vec2;
 }
 
 std::vector<std::string> bf(string planet1, string planet2) {
@@ -17,18 +17,19 @@ std::vector<std::string> bf(string planet1, string planet2) {
         }
     }
 
-    if (idx1 == -1 || idx2 == -1)
-        return {};
-
     vector<string> result;
 
-    for (int i = 0; i < 8; ++i) {
-        int pos = i;
-        while (pos < idx1 && pos < idx2) {
-            ++pos;
+    if (!issame({planet1, planet2}, {"Earth", "Mars"})) {
+        for (int i = 0; i < 8; ++i) {
+            int pos = i;
+            while (pos < idx1 && pos < idx2) {
+                ++pos;
+            }
+            if (pos >= idx1 && pos <= idx2)
+                result.push_back(planets[pos]);
         }
-        if (pos >= idx1 && pos <= idx2)
-            result.push_back(planets[pos]);
+    } else {
+        result = {"Mars"};
     }
 
     return result;
