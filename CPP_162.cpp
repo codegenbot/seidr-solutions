@@ -12,10 +12,18 @@ std::string string_to_md5(const std::string& input) {
 }
 
 int main() {
-    vector<string> strings = {"input1", "input2"};
-    for (const auto& str : strings) {
+    vector<string> strings;
+    cout << "Enter the number of inputs: ";
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; ++i) {
+        string str;
+        cout << "Input" << (i+1) << ": ";
+        getline(cin, str);
         string md5_str = string_to_md5(str);
         stringstream ss;
         ss << setw(10) << md5_str.size();
         cout << ss.str() << endl;
     }
+    return 0;
+}
