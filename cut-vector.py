@@ -1,8 +1,7 @@
-```
 def cut_vector(vector):
     total_sum = sum(vector)
     if total_sum % 2 == 0:
-        return [vector[:len(vector)//2 + 1], vector[len(vector)//2:]]
+        return [vector[: len(vector) // 2 + 1], vector[len(vector) // 2 :]]
     else:
         min_diff = float("inf")
         split_index = 0
@@ -13,7 +12,7 @@ def cut_vector(vector):
             diff = abs(left_sum - right_sum)
 
             if left_sum == right_sum:
-                return vector[:i + 1], vector[i + 1:]
+                return vector[: i + 1], vector[i + 1 :]
 
             if (left_sum <= right_sum) and (diff < min_diff):
                 min_diff = diff

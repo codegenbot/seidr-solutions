@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <climits> 
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -17,11 +17,13 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
         if (leftSum == rightSum || abs(leftSum - rightSum) < minDiff) {
             minDiff = leftSum == rightSum ? 0 : abs(leftSum - rightSum);
-            res[0].clear();
+            res[0].erase(res[0].begin(), res[0].end());
+            res[0].reserve(i + 1);
             for (int j = 0; j <= i; j++) {
                 res[0].push_back(v[j]);
             }
-            res[1].clear();
+            res[1].erase(res[1].begin(), res[1].end());
+            res[1].reserve(n - i - 1);
             for (int j = i + 1; j < n; j++) {
                 res[1].push_back(v[j]);
             }
