@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -33,7 +34,7 @@ int main2() {
     std::vector<std::string> result1 = numerical_letter_grade(input);
     
     std::vector<std::string> result2 = {"F", "C"};
-    if (issame({std::string("F"), result1[1]}, result2)) {
+    if (issame({"F", result1[1]}, result2)) {
         std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
