@@ -10,8 +10,8 @@ int sumOfDigits(int n) {
 }
 
 int largestPrime(vector<int> lst) {
-    int result = -1;
-    for (int i = 1; i <= 100000; i++) {
+    int maxVal = -1;
+    for (int i = 2; i <= 100000; i++) {
         bool isPrime = true;
         if (i < 2)
             continue;
@@ -22,22 +22,18 @@ int largestPrime(vector<int> lst) {
             }
         }
         if (isPrime) {
-            int maxVal = 0;
+            bool found = false;
             for (int val : lst) {
                 if (val > maxVal && val == i)
-                    maxVal = val;
+                    maxVal = val, found = true;
             }
-            if (maxVal != 0) {
-                result = sumOfDigits(maxVal);
-                break;
-            }
+            if (found)
+                return sumOfDigits(maxVal);
         }
     }
-    return result;
+    return -1; // no prime found
 }
 
-int main() {
-    vector<int> lst = { };
-    cout << skjkasdkd(lst) << endl;
-    return 0;
+int skjkasdkd(vector<int> lst) {
+    return largestPrime(lst);
 }
