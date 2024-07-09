@@ -1,10 +1,11 @@
 #include <string>
-
 #include <algorithm>
 #include <iostream>
-#include <openssl/md5.h>
 
-std::string string_to_md5(std::string text) {
+#include <string>
+#include <mysql.h>
+
+string string_to_md5(string text) {
     if (text.empty()) return "";
     
     unsigned char md5[16];
@@ -17,7 +18,7 @@ std::string string_to_md5(std::string text) {
     }
     MD5_Final(md5, &ctx);
 
-    std::string result(32, '0');
+    string result(32, '0');
     for (int i = 0; i < 16; ++i) {
         char buf[3];
         sprintf(buf, "%02x", md5[i]);
