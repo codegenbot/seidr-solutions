@@ -1,1 +1,6 @@
-return *max_element(l.begin(), l.end());
+```cpp
+#include <algorithm>
+int main() {
+    int max_val = *std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
+    return max_val;
+}
