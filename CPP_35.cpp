@@ -11,19 +11,17 @@ int findMax(std::vector<int> numbers) {
 }
 
 int main() {
-    using namespace std; 
-    vector<int> numbers;
+    std::vector<int> numbers;
     int num = 0; 
-    cout << "Enter numbers (separated by spaces): ";
-    while(cin >> num) { 
-        while(cin.peek() == ' ') {
-            cin.ignore();
+    std::cout << "Enter numbers (separated by spaces): ";
+    while(std::cin >> num) { 
+        while(std::cin.peek() == ' ') {
+            std::cin.ignore();
         }
         numbers.push_back(num);
-        while(cin.get() != '\n') { 
-            cin.ignore(); 
+        while(std::cin.get() != '\n') { 
+            std::cin.ignore(); 
         }
     }
     findMax(numbers);
-    return 0;
 }
