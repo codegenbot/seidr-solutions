@@ -1,11 +1,11 @@
-```
+```cpp
 #include <cmath>
 #include <vector>
 using namespace std;
 
-long long double_the_difference(vector<double> lst) {
+long long double_the_difference(vector<float> lst) {
     long long sum = 0;
-    for (double num : lst) {
+    for (float num : lst) {
         if (num > 0 && floor(num) == num) { 
             if (fmod(num, 2.0) != 0.0) { 
                 sum += pow(num, 2);
@@ -16,8 +16,8 @@ long long double_the_difference(vector<double> lst) {
 }
 
 int main() {
-    vector<double> lst = {1.5, 2.0, 3.5};
+    vector<float> lst = {1.5f, 2.0f, 3.5f};
     long long odd_sum = double_the_difference(lst);
-    cout << "The sum of squares is: " << odd_sum << endl;
+    assert(double_the_difference(lst) == (long long)odd_sum); 
     return 0;
 }
