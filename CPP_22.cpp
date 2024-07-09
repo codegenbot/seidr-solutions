@@ -26,6 +26,6 @@ bool is_same(vector<int> a, vector<int> b) {
 
 int main_func() {
     list<any> values = {3, int(3), 3, 'a', 'b'};
-    assert(is_same(filter_integers({int(3), 3, int(3)}), vector<int>{3, 3, 3}));
+    assert((is_same(filter_integers(values), vector<int>{3, 3, 3}))); 
     return 0;
 }
