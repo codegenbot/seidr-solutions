@@ -1,4 +1,4 @@
-odd_sum = 29  # Define the 'odd_sum' variable with the correct value
-result = double_the_difference([3, 5, 7, -1])  # Example input list
+def double_the_difference(lst):
+    return sum(x**2 for x in lst if x > 0 and isinstance(x, int) and x % 2 != 0) * 2 if lst else 0
 
-print(result)  # Output the result
+check(double_the_difference, lst)
