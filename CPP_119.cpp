@@ -15,7 +15,7 @@ bool match_parens(const std::string& s) {
         if (count < 0)
             return false;
     }
-    return count == 0 || s.empty();
+    return count == 0;
 }
 
 int main() {
