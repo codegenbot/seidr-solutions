@@ -1,7 +1,4 @@
-#include <cstdlib>
-#include <vector>
-#include <string>
-
+```
 int do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
@@ -10,19 +7,19 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
     }
     expression += to_string(operand.back());
     
-    int result = eval(expression);
+    long long result = eval(expression);
     
-    return result;
+    return static_cast<int>(result);
 }
 
-int eval(const string& s) {
-    int result = 0;
+long long eval(const string& s) {
+    long long result = 0;
     if (s.empty()) {
         return result;
     }
     
     int start = 0, sign = 1;
-    for (int i = 0; i < s.size(); i++) {
+    for (int i = 0; i < (s.size() - 1); i++) {
         if (!isdigit(s[i])) {
             if (s[i] == '+') {
                 sign = 1;
@@ -30,17 +27,15 @@ int eval(const string& s) {
                 sign = -1;
             }
             start = i + 1;
-        } else {
-            result += sign * std::atoi(std::string(1, s[i]).c_str());
+        } 
+        else {
+            while (i < s.size() && isdigit(s[i])) {
+                result += sign * (s[i] - '0');
+                i++;
+            }
+            i--;
         }
     }
     
     return result;
-}
-
-int main() {
-    vector<string> op = {"//", "*"};
-    vector<int> oper = {7, 3, 4};
-    int result = do_algebra(op, oper);
-    return 0;
 }
