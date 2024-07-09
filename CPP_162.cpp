@@ -8,7 +8,6 @@ std::string string_to_md5(const std::string& text) {
     }
 
     EVP_MD_CTX *mdctx;
-    OpenSSL_add_all_digests();
     mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
