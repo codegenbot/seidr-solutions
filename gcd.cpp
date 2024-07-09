@@ -1,6 +1,4 @@
-```c++
-#include <iostream>
-
+```cpp
 int main() {
     int a, b;
     std::cout << "Enter two integers: ";
@@ -10,5 +8,6 @@ int main() {
         b = a % b;
         a = temp;
     }
-    return a; 
+    std::cout << "GCD: " << a << std::endl;
+    return 0;
 }
