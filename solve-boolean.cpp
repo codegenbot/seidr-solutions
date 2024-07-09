@@ -1,37 +1,48 @@
 #include <string>
+#include <iostream>
 
-void processBar(string s, int& i, bool& result) {
+bool solveBoolean(std::string s) {
+    bool result = true;
+    int i = 0;
     while (i < s.size()) {
         switch (s[i]) {
             case 'T':
-                return;
+                i++;
+                break;
             case 'F':
-                i++;  
-                result = false;
-                return;
+                if (result)
+                    result = false;
+                else
+                    return false;
+                i++;
+                break;
             case '|':
-                if (s[i+1] == '&') {
+                i++;
+                result = true;
+                while (i < s.size() && s[i] == '|') {
                     i++;
-                    while (i < s.size() && s[i] != '&' && s[i] != '|') i++;
-                    i++;
-                } else {
-                    while (i < s.size() && s[i] != '|' && s[i] != '&') i++;
                 }
                 break;
             case '&':
-                if (s[i+1] == 'T') {
-                    i++;
-                    while (i < s.size() && s[i] != 'T' && s[i] != 'F' && s[i] != '&') i++;
+                i++;
+                if (!result) {
+                    while (i < s.size() && s[i] == '&') {
+                        i++;
+                    }
+                    return false;
+                } else {
+                    while (i < s.size() && s[i] == '&') {
+                        i++;
+                    }
                     result = true;
-                } else if (s[i+1] == 'F') {
-                    i++;
-                    while (i < s.size() && s[i] != 'T' && s[i] != 'F' && s[i] != '&') i++;
-                    result = false;
                 }
                 break;
-            default:
-                return true;
         }
     }
-    return true;
+    return result;
+}
+
+int main() {
+    std::cout << solveBoolean("T|F&F") << std::endl;
+    return 0;
 }
