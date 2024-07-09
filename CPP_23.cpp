@@ -1,5 +1,5 @@
 #include <cassert>
-#include <cstring>
+#include <string>
 
 int my_strlen(string str){
     return str.length();
