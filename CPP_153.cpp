@@ -16,6 +16,6 @@ string Strongest_Extension(string class_name, vector<string> extensions) {
             strongest_extension = ext;
         }
     }
-    
+
     return class_name + "." + strongest_extension;
 }
