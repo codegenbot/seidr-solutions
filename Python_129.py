@@ -9,16 +9,13 @@ def minPath(grid, k):
         if curr_sum == k:
             return path
 
-        if curr_sum > k:
-            return None
-
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
             if 0 <= nx < n and 0 <= ny < n:
                 new_path = dfs(nx, ny, curr_sum, path)
                 if new_path:
                     return new_path
-
+        
         path.pop()
 
     for i in range(n):
