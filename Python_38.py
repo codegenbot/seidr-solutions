@@ -1,3 +1,5 @@
 s = input().strip()
-result = "".join(chr(ord(char) - 1) for char in s)
+result = ""
+for i in range(len(s)):
+    result += chr((ord(s[i]) - (i+1)) % 26 + ord('A'))
 print(result)
