@@ -1,7 +1,6 @@
-#include <cassert>
 #include <string>
 
-bool is_palindrome(const std::string &text) {
+bool is_palindrome(const string& text) {
     int left = 0;
     int right = text.size() - 1;
     while (left < right) {
