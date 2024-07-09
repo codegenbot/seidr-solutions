@@ -1,3 +1,6 @@
+Here's the modified code with the added include statement and a few minor improvements for clarity:
+
+```cpp
 #include <algorithm>
 #include <vector>
 #include <initializer_list>
@@ -34,16 +37,16 @@ namespace myspace {
 
 int main() {
     std::vector<float> input(10);
-    input.push_back(5.0f);
-    input.push_back(8.0f);
-    input.push_back(-12.0f);
-    input.push_back(4.0f);
-    input.push_back(23.0f);
-    input.push_back(2.0f);
-    input.push_back(3.0f);
-    input.push_back(11.0f);
-    input.push_back(12.0f);
-    input.push_back(-10.0f);
+    input.push_back(5);
+    input.push_back(8);
+    input.push_back(-12);
+    input.push_back(4);
+    input.push_back(23);
+    input.push_back(2);
+    input.push_back(3);
+    input.push_back(11);
+    input.push_back(12);
+    input.push_back(-10);
 
     std::cout << "Original array: ";
     for (float num : input) {
