@@ -27,3 +27,4 @@ int main() {
     std::vector<std::string> input = {"xxx", "asd", "xxy", "john doe", "xxxAffAA", "xxx"};
     assert(issame(filter_by_prefix(input, "xxx") , {"xxx", "xxxAAA", "xxx"}));
     return 0;
+}
