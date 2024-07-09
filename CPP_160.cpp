@@ -1,21 +1,27 @@
+```cpp
 #include <cstdlib>
 #include <vector>
 #include <string>
+#include <sstream>
 
 std::vector<std::string> ops = { "//", "*" }; 
 
 int do_algebra(std::vector<std::string> operators, std::vector<int> operands) {
     std::string expression = "";
     for (int i = 0; i < operators.size(); i++) {
-        expression += std::to_string(operands[i]);
+        expression += to_string(operands[i]);
         expression += ops[i];
     }
-    expression += std::to_string(operands.back());
+    expression += to_string(operands.back());
     
     int result = eval(expression);
     
     return result;
 }
+
+#include <sstream>
+
+std::string to_string(int i) { return std::to_string(i); }
 
 int eval(const std::string& s) {
     int result = 0;
@@ -33,9 +39,15 @@ int eval(const std::string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * std::stoi(std::string(1, s[i]).c_str());
+            result += sign * std::stoi(s.substr(start, i - start + 1));
         }
     }
     
     return result;
+}
+
+int main() {
+    int result = do_algebra(ops, {7, 3, 4});
+    assert(result == 28);
+    return 0;
 }
