@@ -1,9 +1,15 @@
-bool correct_bracketing(string brackets){
-    int count = 0;
-    for(char c : brackets){
-        if(c == '<') count++;
-        else if(c == '>') count--;
-        if(count < 0) return false;
+int i = 0;
+while(i < brackets.size()){
+    if(brackets[i] == '<'){
+        for(int j = i+1; j < brackets.size(); ++j){
+            if(brackets[j] == '>'){
+                i = j + 1;
+                break;
+            }
+        }
+        if(j >= brackets.size()) return false;
+    } else {
+        i++;
     }
-    return count == 0;
 }
+return true;
