@@ -2,7 +2,11 @@
 #include <cassert>
 
 int my_strlen(string str){
-    return str.length();
+    int len = 0;
+    for (char c : str) {
+        len++;
+    }
+    return len;
 }
 
 int main() {
