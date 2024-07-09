@@ -27,14 +27,8 @@ int main() {
     int n;
     cin >> n;
     for (int i = 0; i < n; ++i)
-        input.push_back(0);
-    cin.ignore();
-    while (input.size() < n) {
-        int temp;
-        cin >> temp;
-        input.push_back(temp);
-    }
-    
+        input.push_back(cin >> 0);
+
     cout << smallest_change(input);
     return 0;
 }
