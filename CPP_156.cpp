@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,17 +8,24 @@ std::pair<int, std::string> romanMap[] = {{1000, "M"}, {900, "CM"}, {500, "D"},
                                            {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
 
 std::string int_to_roman(int number) {
-    std::string roman = "";
+    std::string roman = ""; // Initialize the string
     for (const auto& pair : romanMap) {
         while (number >= pair.first) {
             number -= pair.first;
             roman += pair.second;
         }
     }
+    if (number > 0) {
+        throw std::runtime_error("Cannot convert to Roman numeral");
+    }
     return roman;
 }
 
 int main() {
-    std::cout << int_to_roman(1000).c_str() << std::endl;
+    try {
+        std::cout << int_to_roman(1000) << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
     return 0;
 }
