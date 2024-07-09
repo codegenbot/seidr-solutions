@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -39,8 +40,8 @@ vector<pair<int, string>> select_words(string s, int n) {
 }
 
 int main() {
-    vector<pair<int, string>> expected = {{1, "b"}, {1, "c"}, {1, "d"}, {1, "f"}};
+    vector<pair<string, int>> expected = {"{1, \"b\"}", "{1, \"c\"}", "{1, \"d\"}", "{1, \"f\"}"};
     vector<pair<string, int>> output = select_words("a b c d e f", 1);
-    assert(issame(output, expected));
+    assert(issame(expected, output));
     return 0;
 }
