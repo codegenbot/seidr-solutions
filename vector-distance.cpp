@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <cmath>
 #include <stdexcept>
@@ -19,12 +18,8 @@ double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
 }
 
 int main() {
-    vector<float> v1(3);
-    v1[0] = 1; v1[1] = 2; v1[2] = 3;
-
-    vector<float> v2(3);
-    v2[0] = 4; v2[1] = 5; v2[2] = 6;
-    
+    vector<float> v1({1.0f, 2.0f, 3.0f});
+    vector<float> v2({4.0f, 5.0f, 6.0f});
     double distance = vectorDistance(v1, v2);
     cout << "Distance: " << distance << endl;
     return 0;
