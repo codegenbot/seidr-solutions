@@ -4,8 +4,7 @@
 
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
-    for (unsigned int i = 0; i < brackets.size(); ++i) {
-        char c = brackets[i];
+    for (char c : brackets) {
         if (c == '<') {
             count++;
         } else if (c == '>') {
