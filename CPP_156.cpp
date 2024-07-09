@@ -1,7 +1,7 @@
 #include <string>
 
-string int_to_mini_roman(int num) {
-    string roman[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
+std::string int_to_mini_roman(int num) {
+    std::string roman[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
                       "", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
                       "", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX",
                       "", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
@@ -15,7 +15,7 @@ string int_to_mini_roman(int num) {
                       "", "CXLI", "CXLII", "CXLIII", "CXLIV", "CXLV", "CXLVI", "CXLVII", "CXLVIII", "CXlix", "CL",
                       "", "CLI", "CII", "CC", "CCI", "CCC", "CCCI", "CCCII", "CCCIII", "CCCIV", "CCCV", "CCCVI", "CCCvii", "CCcviii", "CCXCIX", "CCCC"};
 
-    string result = "";
+    std::string result = "";
 
     while (num > 0) {
         if (num >= 1000) {
@@ -31,8 +31,8 @@ string int_to_mini_roman(int num) {
             num -= 400;
             result += "CD";
         } else if (num >= 100) {
-            int count = num / 100;
-            for (int i = 0; i < count; i++) {
+            int hundreds = num / 100;
+            for (int i = 0; i < hundreds; i++) {
                 result += "C";
             }
             num %= 100;
@@ -40,8 +40,8 @@ string int_to_mini_roman(int num) {
             num -= 90;
             result += "XC";
         } else if (num >= 50) {
-            int count = num / 50;
-            for (int i = 0; i < count; i++) {
+            int tens = num / 50;
+            for (int i = 0; i < tens; i++) {
                 result += "L";
             }
             num %= 50;
@@ -49,8 +49,8 @@ string int_to_mini_roman(int num) {
             num -= 40;
             result += "XL";
         } else if (num >= 10) {
-            int count = num / 10;
-            for (int i = 0; i < count; i++) {
+            int units = num / 10;
+            for (int i = 0; i < units; i++) {
                 result += "X";
             }
             num %= 10;
@@ -58,8 +58,8 @@ string int_to_mini_roman(int num) {
             num -= 9;
             result += "IX";
         } else if (num >= 5) {
-            int count = num / 5;
-            for (int i = 0; i < count; i++) {
+            int ones = num / 5;
+            for (int i = 0; i < ones; i++) {
                 result += "V";
             }
             num %= 5;
