@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <cmath>
 
+// Define the poly function here
 double poly(vector<double> coeffs, double x) {
     double solution = 0;
     for (int i = 0; i < coeffs.size(); i++) {
