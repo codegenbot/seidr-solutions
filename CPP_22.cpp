@@ -2,6 +2,7 @@
 #include <vector>
 #include <list>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -23,8 +24,8 @@ bool is_same(vector<int> a, vector<int> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
-int main() {
+int main_func() {
     list<any> values = {3, int(3), 3, 'a', 'b'};
-    assert(is_same(filter_integers(values), vector<int>{3, 3, 3}));
+    assert((is_same(filter_integers(values), vector<int>{3, 3, 3}))); 
     return 0;
 }
