@@ -15,17 +15,15 @@ std::string rounded_avg(int n, int m) {
     std::string binary;
     while (val > 0) {
         if(val % 2 == 0) {
-            std::string temp = '0';
-            binary += temp;
+            binary.push_back('0');
         } else {
-            std::string temp = '1';
-            binary += temp;
+            binary.push_back('1');
         }
         val /= 2;
     }
 
     std::reverse(binary.begin(), binary.end());
-    return binary.empty() ? "0" : binary;
+    return binary.empty() ? "0" : std::move(binary);
 }
 
 int main() {
