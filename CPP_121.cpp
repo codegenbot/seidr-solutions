@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 int sumOdd(std::vector<int> lst) {
     int sum = 0;
@@ -22,9 +24,9 @@ int solutions(std::vector<int> lst) {
 
 int main() {
     std::vector<int> lst;
-    for (auto i : {"3", "13", "2", "9"}) {
-        int num = std::stoi(i);
-        lst.push_back(num);
+    std::string str;
+    while (std::cin >> str) {
+        lst.push_back(std::stoi(str));
     }
     int result = solutions(lst);
     assert(result == 25);
