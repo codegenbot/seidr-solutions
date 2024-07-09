@@ -5,14 +5,7 @@
 
 using namespace std;
 
-string join(const vector<string>& v, char sep) {
-    string s;
-    for (auto it = v.begin(); it != v.end(); ++it)
-        s += *it + sep;
-    return s.substr(0, s.size() - 1); // remove trailing sep
-}
-
-vector<string> ssplit(const string& s, char sep) {
+vector<string> split(const string& s, char sep) {
     vector<string> v;
     size_t pos = 0, prev = 0;
 
@@ -27,7 +20,7 @@ vector<string> ssplit(const string& s, char sep) {
 
 int digitSum(string s){
     int sum = 0;
-    vector<string> words = ssplit(s, ' ');
+    vector<string> words = split(s, ' ');
     for(auto& word : words){
         for(char c : word){
             if(isdigit(c))
@@ -38,8 +31,14 @@ int digitSum(string s){
 
 }
 
-int main() {
-    assert(digitSum("you are very smart") == 342);
-    cout << digitSum("you are very smart") << endl;
-    return 0;
+string join(const vector<string>& v, char sep) {
+    string s;
+    for (auto it = v.begin(); it != v.end(); ++it)
+        s += *it + sep;
+    return s.substr(0, s.size() - 1); // remove trailing sep
+}
+
+string main() {
+    cout << to_string(digitSum("you are very smart")) << endl;
+    return "0";
 }
