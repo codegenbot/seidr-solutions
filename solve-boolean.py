@@ -1,17 +1,11 @@
-```
 def solve_boolean(expression):
-    if "&" in expression and "|" in expression:
-        raise ValueError("Invalid expression")
-    
     stack = []
-    for char in reversed(expression):
-        if char in {"&", "|"}:
-            b2, b1 = stack.pop(), stack.pop()
-            if char == "&":
-                stack.append(b1 and b2)
-            else:
-                stack.append(b1 or b2)
-        elif char in {"T", "F"}:
-            stack.append(char == "T")
-    
-    return stack[0]
+    while "&" in expression or "|" in expression:
+        expression = expression.replace(
+            "&(.*?)&", r"((\1==False) and (stack.pop()==True))"
+        )
+        expression = expression.replace(
+            "|(.*?)|", r"((\1==False) or (stack.pop()==True))"
+        )
+    stack.append(eval(expression))
+    return eval('and'.join(map(str, stack)))
