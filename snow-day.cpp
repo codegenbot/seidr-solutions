@@ -11,7 +11,8 @@ int main() {
 
     for(int i = 1; i <= hours; i++) {
         calculatedSnow += rateOfSnowFall;
-        calculatedSnow -= calculatedSnow * proportionMelting / 100.0f;
+        calculatedSnow = std::round(calculatedSnow * 100.0f) / 100.0f;
+        calculatedSnow -= calculatedSnow * proportionMelting;
     }
 
     std::cout << std::fixed << std::setprecision(2) << calculatedSnow << std::endl;
