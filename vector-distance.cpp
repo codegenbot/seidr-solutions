@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <cmath>
 
@@ -20,4 +21,5 @@ double vectorDistance() {
         distance += diff;
     }
 
-    return sqrt(distance);
+    return sqrt(distance); 
+}
