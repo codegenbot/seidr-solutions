@@ -1,17 +1,5 @@
-```c++
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-int sum_squares(std::vector<float> lst){
-    int total = 0;
-    for(float x : lst){
-        total += std::pow(x,2);
-    }
-    return total;
-}
-
-int main() {
+int main 
+{
     std::vector<float> inputVector;
     
     int size;
@@ -22,7 +10,7 @@ int main() {
         std::cout << "Enter element " << (i+1) << ": ";
         std::cin >> val;
         inputVector.push_back(val);
-    }
+   
     
     int result = sum_squares(inputVector);
 
