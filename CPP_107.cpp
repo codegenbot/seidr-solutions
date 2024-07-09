@@ -3,20 +3,20 @@
 bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> even_odd_palindrome(int n) {
-    std::vector<int> result = {0, 0};
+    int even = 0, odd = 0;
     for (int i = 1; i <= n; ++i) {
         std::string num = std::to_string(i);
         std::string rev = num;
         std::reverse(rev.begin(), rev.end());
         if (num == rev) {
             if ((num.back() - '0') % 2 == 0) {
-                result[0]++;
+                even++;
             } else {
-                result[1]++;
+                odd++;
             }
         }
     }
-    return result;
+    return {even, odd};
 }
 
 int main() {
