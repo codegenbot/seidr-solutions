@@ -5,7 +5,7 @@
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
-    float min_diff = std::numeric_limits<float>::max();
+    float min_diff = numeric_limits<float>::max();
     std::pair<float, float> closest_pair;
     
     for (int i = 0; i < numbers.size() - 1; ++i) {
