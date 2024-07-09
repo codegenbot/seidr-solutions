@@ -1,22 +1,23 @@
-string get_closest_vowel(string word) {
-    int left = 0;
-    for(int i = word.size() - 1; i >= 0; i--) {
-        if(!isvowel(word[i])) {
-            left = i + 1;
-            break;
-        }
+string get_closest_vowel(string word){
+    int i = word.size() - 1; // start from the end of the string
+    while(i >= 0 && !isvowel(word[i])) {
+        --i;
     }
-
-    for(int i = left; i < word.size(); i++) {
-        if(isvowel(word[i])) {
-            return string(1, tolower(word[i]));
-        }
+    if (i < 0) return "";
+    
+    for(int j=i-1; j >= 0; --j) {
+        if (!isconsonant(word[j]))
+            return word.substr(j+1, i-j);
     }
-
-    return "";
+    
+    return word.substr(0, i);
 }
 
-bool isvowel(char ch) {
-    ch = tolower(ch);
-    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+bool isvowel(char c){
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+}
+
+bool isconsonant(char c){
+    return !isvowel(c) && (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z');
 }
