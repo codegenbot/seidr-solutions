@@ -47,6 +47,6 @@ int main() {
     std::string input_sentence;
     std::getline(std::cin, input_sentence);
     std::string result = words_in_sentence(input_sentence);
-    std::cout << result << std::endl;
+    std::cout << result;
     return 0;
 }
