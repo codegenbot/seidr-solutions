@@ -21,6 +21,7 @@ std::vector<int> even_odd_palindrome(int n) {
 
 int main() {
     // Your code here
+
     assert(issame(even_odd_palindrome(1), {0, 1})); // Correct function call
 }
 
