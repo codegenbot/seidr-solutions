@@ -3,16 +3,16 @@
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst) {
-    long long sum = 0;
+long double double_the_difference(std::vector<float> lst) {
+    long double sum = 0;
     for (float num : lst) {
         if (num > 0 && std::floor(num) == num) { 
-            if (static_cast<long long>(num) % 2 != 0) { 
-                sum += static_cast<long long>(std::pow(num, 2)); 
+            if (static_cast<long double>(num) % 2 != 0) { 
+                sum += pow(num, 2); 
             }
         }
     }
-    return static_cast<long long>(sum);
+    return sum;
 }
 
 int main() {
@@ -29,6 +29,6 @@ int main() {
         n++;
     }
     
-    long long odd_sum = double_the_difference(lst);
+    long double odd_sum = double_the_difference(lst);
     return 0;
 }
