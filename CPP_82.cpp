@@ -1,4 +1,8 @@
-bool isPrime(int n) {
+#include <iostream>
+#include <string>
+
+bool prime_length(const std::string& str) {
+    int n = str.length();
     if (n <= 1)
         return false;
     for (int i = 2; i * i <= n; i++) {
@@ -6,9 +10,11 @@ bool isPrime(int n) {
             return false;
     }
     return true;
+
 }
 
-bool prime_length(string str) {
-    int length = str.length();
-    return isPrime(length);
+int main() {
+    assert(prime_length("0") == false);
+    // ... rest of your code ...
+    return 0;
 }
