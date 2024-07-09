@@ -1,9 +1,8 @@
 ```cpp
-#include <iostream>
 #include <string>
 
-std::string encrypt(std::string s){
-    std::string result = "";
+int encrypt(string s){
+    string result = "";
     for(int i=0; i<s.length(); i++){
         char c = s[i];
         if(c >= 'a' && c <= 'm'){
@@ -13,10 +12,9 @@ std::string encrypt(std::string s){
         }
         result += c;
     }
-    return result;
+    return 0;
 }
 
-int main() {
-    assert(encrypt("a") == "e");
-    return 0;
+int main(){
+    assert (encrypt("a")=="e");
 }
