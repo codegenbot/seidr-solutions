@@ -1,4 +1,3 @@
-```cpp
 string anti_shuffle(string s) {
     vector<string> words;
     string word = "";
