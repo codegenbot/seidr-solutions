@@ -1,5 +1,6 @@
 import sys
 
+
 def decode_cyclic(s: str):
     groups = [s[(3 * i) : min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
     groups = [
@@ -9,6 +10,7 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-s = input().strip()
+
+s = input()
 result = decode_cyclic(s)
 print(result)
