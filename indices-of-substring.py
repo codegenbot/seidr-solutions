@@ -5,5 +5,5 @@ def indices_of_substring(text, target):
         i = text.find(target, i)
         if i == -1: break
         result.append(i)
-        i += 1
+        i += 1  # Start searching from the next character after the found target
     return result
