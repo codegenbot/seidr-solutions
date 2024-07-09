@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -16,7 +17,7 @@ string primeFib(int num) {
         a = b;
         b = fibNum;
         if (isPrime(fibNum)) {
-            if (fibNum > num) return to_string(fibNum);
+            if (fibNum > num) return std::to_string(fibNum);
         }
     }
 }
