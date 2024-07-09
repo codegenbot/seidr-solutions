@@ -1,4 +1,3 @@
-```cpp
 int main() {
     std::string str = "++7*3+4";
     std::istringstream iss(str);
