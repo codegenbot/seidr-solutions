@@ -1,8 +1,6 @@
-```
 def gcd(a, b):
-    if b == 0:
-        return abs(a)
-    else:
-        return gcd(b, a % b)
+    while b != 0:
+        a, b = b, a % b
+    return abs(a)
 
-print(gcd(48, 18))
+print(gcd(155420, 669108))
