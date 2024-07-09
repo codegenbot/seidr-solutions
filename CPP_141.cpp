@@ -1,25 +1,22 @@
-int digits = 0;
+using namespace std;
+
+string check_file_name(string file_name) {
+    int digit_count = 0;
     for (char c : file_name) {
-        if (isdigit(c)) digits++;
+        if (isdigit(c)) {
+            digit_count++;
+        }
     }
-    
+
     size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
+    if (digit_count > 3 || dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
         return "No";
     }
-    
-    string extension = file_name.substr(dot_pos + 1);
-    if (extension != "txt" && extension != "exe" && extension != "dll") {
+
+    string file_extension = file_name.substr(dot_pos + 1);
+    if (file_extension != "txt" && file_extension != "exe" && file_extension != "dll") {
         return "No";
     }
-    
-    if (digits > 3) {
-        return "No";
-    }
-    
-    if (!isalpha(file_name[0])) {
-        return "No";
-    }
-    
+
     return "Yes";
 }
