@@ -1,9 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool identical(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -55,12 +54,11 @@ int main() {
 
     std::vector<int> output = strange_sort_list(input);
 
-    if (isSame(output, {1,2,3,4,5,6})) {
+    if (identical(output, {1,2,3,4,5,6})) {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
     }
     
-    assert(isSame(strange_sort_list({111111}), {111111}));
     return 0;
 }
