@@ -1,14 +1,7 @@
-double find_zero(vector<double> x, vector<double> c){
-    double result = 0;
-    int n = x.size();
-    for(int i=2; i<n; i++){
-        if(c[i] != 0)
-            return 0;
-    }
-    if(n > 1) {
-        result = -c[1]/c[0];
-    } else {
-        result = -c[0];
-    }
-    return result;
+double find_zero(vector<double> coeffs){
+    double poly = 0;
+    for (int i = 2; i < coeffs.size(); i++)
+        if (coeffs[i] != 0)
+            return -1.0 * pow(-1, (i+1) / 2) * coeffs[i];
+    return -1.0 * coeffs[0];
 }
