@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -25,7 +26,9 @@ vector<pair<int, string>> select_words(string s, int n) {
                 int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
                     count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
                 if (vowelCount <= n) {
-                    result.push_back({make_pair(vowelCount, word)});
+                    result.push_back({{std::count(word.begin(), word.end(), 'a') + std::count(word.begin(), word.end(), 'e') +
+                    std::count(word.begin(), word.end(), 'i') + std::count(word.begin(), word.end(), 'o') + 
+                    std::count(word.begin(), word.end(), 'u'), word}});
                 }
                 word = "";
             }
@@ -37,8 +40,12 @@ vector<pair<int, string>> select_words(string s, int n) {
     if (!word.empty()) {
         int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
             count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
-        if (vowelCount <= n) {
-            result.push_back({make_pair(vowelCount, word)});
+        if (std::count(word.begin(), word.end(), 'a') + std::count(word.begin(), word.end(), 'e') +
+            std::count(word.begin(), word.end(), 'i') + std::count(word.begin(), word.end(), 'o') + 
+            std::count(word.begin(), word.end(), 'u') <= n) {
+            result.push_back({{std::count(word.begin(), word.end(), 'a') + std::count(word.begin(), word.end(), 'e') +
+            std::count(word.begin(), word.end(), 'i') + std::count(word.begin(), word.end(), 'o') + 
+            std::count(word.begin(), word.end(), 'u'), word}});
         }
     }
     return result;
