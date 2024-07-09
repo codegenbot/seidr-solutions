@@ -1,30 +1,42 @@
+#include <iostream>
+#include <string>
 #include <boost/any.hpp>
 
+using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a > (float)b ? a : b;
-    }
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a > (double)b ? a : b;
+        return max((int)a.convert_to<int>(), (double)b.convert_to<double>());
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return max((double)a.convert_to<double>(), (int)b.convert_to<int>());
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if ((string)a.convert_to<string>() > (string)b.convert_to<string>())
+            return a;
+        else if ((string)b.convert_to<string>() > (string)a.convert_to<string>())
+            return b;
+        else
+            return boost::any("None");
+    } else if (a.type() == typeid(string) && b.type() != typeid(string)) {
+        if (b.type() == typeid(double)) {
+            string s = to_string((double)b.convert_to<double>());
+            if ((string)a.convert_to<string>() > s)
+                return a;
+            else
+                return boost::any("None");
+        } else {
+            return boost::any("None");
+        }
+    } else if (b.type() == typeid(string) && a.type() != typeid(string)) {
+        if (a.type() == typeid(double)) {
+            string s = to_string((double)a.convert_to<double>());
+            if ((string)b.convert_to<string>() > s)
+                return b;
+            else
+                return boost::any("None");
+        } else {
+            return boost::any("None");
+        }
+    } else {
+        return boost::any("None");
     }
-    if (a.type() == typeid(int) && b.type() == typeid(long double)) {
-        return (int)a > (long double)b ? a : b;
-    }
-    if (a.type() == typeid(float) && b.type() == typeid(double)) {
-        return (float)a > (double)b ? a : b;
-    }
-    if (a.type() == typeid(double) && b.type() == typeid(long double)) {
-        return (double)a > (long double)b ? a : b;
-    }
-    if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = any_cast<string>(a);
-        string str2 = any_cast<string>(b);
-        int num1 = std::stoi(str1.substr(0, str1.find(',')));
-        int num2 = std::stoi(str2.substr(0, str2.find(',')));
-        return (num1 > num2) ? a : b;
-    }
-    if (a.type() == typeid(string)) {
-        return "None";
-    }
-    return a > b ? a : b;
 }
