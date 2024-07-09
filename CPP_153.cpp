@@ -10,9 +10,9 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
     for (const std::string& ext : extensions) {
         int cap_count = 0, sm_count = 0;
         for (char c : ext) {
-            if (std::isupper(c)) {
+            if (isupper(c)) {
                 cap_count++;
-            } else if (std::islower(c)) {
+            } else if (islower(c)) {
                 sm_count++;
             }
         }
