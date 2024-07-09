@@ -1,10 +1,12 @@
+Here is the modified code:
+
 ```cpp
 #include <vector>
 
 int main() {
-    std::vector<int> lst = {1,2,3,4,5};
-    int result = solution(lst);
-    std::cout << "The sum of the odd numbers at even indices is: " << result << std::endl;
+    vector<int> lst = {1,2,3,4,5};
+    int sum = solution(lst);
+    cout << "The sum is: " << sum << endl;
     return 0;
 }
 
