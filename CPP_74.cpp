@@ -50,13 +50,13 @@ int main() {
 
     std::istringstream iss(user_input1);
     std::string str;
-    while (std::getline(iss >> std::skipws >> str >> std::ws >> std::skipws)) {
-        lst1.push_back(str);
+    while (std::getline(iss, str, ' ')) {
+        lst1.emplace_back(str); // emplace_back instead of push_back for vectors
     }
 
     std::istringstream iis(user_input2);
-    while (std::getline(iis >> std::skipws >> str >> std::ws >> std::skipws)) {
-        lst2.push_back(str);
+    while (std::getline(iis, str, ' ')) {
+        lst2.emplace_back(str);
     }
 
     if (!lst1.empty() && !lst2.empty()) {
