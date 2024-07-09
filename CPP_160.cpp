@@ -40,7 +40,7 @@ int main() {
     
     std::vector<std::pair<char, int>> operators_and_operands;
     char op = '+';
-    int operand = 0; // initialize operand variable
+    int operand = 0; 
     while (iss >> token) {
         if (!token.empty()) {
             if (op != '+') {
@@ -66,6 +66,7 @@ int main() {
             }
         }
     }
+    
     // add the last operator and operand to vector
     if (op != '+') {
         operators_and_operands.push_back({op, operand});
