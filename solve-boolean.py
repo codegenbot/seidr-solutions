@@ -1,36 +1,48 @@
-```
-def solve_boolean():
-    user_expression = input("Enter your Boolean expression: ")
-    return evaluate_expression(user_expression)
-
 def evaluate_expression(expression):
-    if expression.isnumeric():
-        return int(expression) == 1
-    elif expression.isdigit():
-        return bool(int(expression))
-    if "(" in expression:
+    while "(" in expression and ")" in expression:
+        start = expression.index("(")
         end = expression.index(")")
-        return evaluate_expression("(" + expression[:end+1])
+        expression = (
+            str(evaluate_expression(expression[:start]))
+            + ") "
+            + str(evaluate_expression(expression[start + 1 : end].strip()))
+            + " "
+        )
 
-    while "&" in expression and "|" in expression:
-        while "&" in expression:
-            left, right = expression.split("&", 1)
-            expression = str(evaluate_expression(left)) + " & "
-        while "|" in expression:
-            left, right = expression.split("|", 1)
-            expression = left + " | " + right
+    while "&" in expression:
+        left, right = expression.split("&", 1)
+        if left == "T":
+            left = True
+        elif left == "F":
+            left = False
+        else:
+            left = evaluate_expression(left) is not False
 
-    if "&" in expression and "|" not in expression:
-        return eval("(" + expression.replace("&", ") and (") + ")")
+        if right == "T":
+            right = True
+        elif right == "F":
+            right = False
+        else:
+            right = evaluate_expression(right) is not False
 
-    if "|" in expression and "&" not in expression:
-        return eval("(" + expression.replace("|", ") or (") + ")")
+        expression = str(left) + " and " + str(right)
 
-    if "&" in expression and "|" in expression:
-        left, right = expression.split("&")
-        return eval("((" + str(evaluate_expression(left)) + ") and (" + evaluate_expression(right) + "))")
+    while "|" in expression:
+        left, right = expression.split("|", 1)
+        if left == "T":
+            left = True
+        elif left == "F":
+            left = False
+        else:
+            left = evaluate_expression(left) is not False
 
-    if "T" in expression or "True" in expression:
-        return True
-    elif "F" in expression or "False" in expression:
-        return False
+        if right == "T":
+            right = True
+        elif right == "F":
+            right = False
+        else:
+            right = evaluate_expression(right) is not False
+
+        expression = str(left) + " or " + str(right)
+
+    return eval("Boolean(" + str(expression).replace("True", "1").replace("False", "0") + ")")

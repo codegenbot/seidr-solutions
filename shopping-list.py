@@ -1,9 +1,6 @@
-```
 def main():
-    prices = list(map(float, input().split()))
-    discounts = [float(d) / 100 for d in map(float, input().split())]
-    total_price = sum([price * (1 - discount) for price, discount in zip(prices, discounts)])
+    n = int(input())
+    items = list(map(float, input().split()))
+    discounts = [float(x) for x in input().split()]
+    total_price = sum([item * (1 - discount / 100) for item, discount in zip(items, discounts)])
     print("{:.2f}".format(total_price))
-
-if __name__ == "__main__":
-    main()

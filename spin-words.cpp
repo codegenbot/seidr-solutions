@@ -1,56 +1,51 @@
-```c++
-#include <iostream>
 #include <string>
 #include <algorithm>
 #include <vector>
+#include <iostream>
 
-std::vector<std::string> split(const std::string& str, char c) {
-    std::vector<std::string> words;
-    std::string word;
-    for (int i = 0; i < str.length(); i++) {
-        if (i == str.length() || str[i] == c) {
-            if (i < str.length()) {
-                word += str[i];
-            }
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
-            }
-            if (i < str.length()) {
-                word = "";
-            }
+std::vector<std::string> split(const std::string& str, char delimiter) {
+    std::vector<std::string> tokens;
+    std::string token;
+    for (char c : str) {
+        if (c == delimiter) {
+            tokens.push_back(token);
+            token = "";
         } else {
-            word += str[i];
+            token += c;
         }
     }
-    return words;
+    tokens.push_back(token);
+    return tokens;
 }
 
-std::string join(const std::vector<std::string>& vec, char c) {
+std::string join(const std::vector<std::string>& words, char delimiter) {
     std::string result;
-    for (int i = 0; i < vec.size(); i++) {
+    for (int i = 0; i < words.size(); i++) {
         if (i > 0) {
-            result += c;
+            result += delimiter;
         }
-        result += vec[i];
+        result += words[i];
     }
     return result;
 }
 
 std::string spinWords(std::string str) {
     std::vector<std::string> words = split(str, ' ');
+    std::string result; 
     for (int i = 0; i < words.size(); i++) {
+        std::string temp = words[i];
         if (words[i].length() >= 5) {
-            std::reverse(words[i].begin(), words[i].end());
+            std::reverse(temp.begin(), temp.end());
+            result += temp;
+        } else {
+            result += temp + " ";
         }
     }
-    return join(words, ' ');
+    return join(std::vector<std::string>{result}, ' ');
 }
 
 int main() {
-    std::cout << "Enter a string: ";
-    std::string str;
-    std::getline(std::cin, str);
+    std::string str = "Hello World";
     std::cout << spinWords(str) << std::endl;
     return 0;
 }
