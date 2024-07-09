@@ -25,8 +25,13 @@ int main() {
         std::cout << "Enter the second string: ";
         std::getline(std::cin, str2);
 
-        str1 = str1.substr(0, str1.length() - 1); // Remove the last character from str1
-        str2 = str2.substr(0, str2.length() - 1); // Remove the last character from str2
+        if (!str1.empty() && !str2.empty()) {  
+            if (!str1.empty()) {  // check if str1 is not empty
+                str1.pop_back(); 
+            }
+            if (!str2.empty()) {  // check if str2 is not empty
+                str2.pop_back();
+            }
 
         try {
             std::string result = string_xor(str1, str2);
