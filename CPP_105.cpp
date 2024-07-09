@@ -1,8 +1,7 @@
-```c++
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a,vector<string>b){
     return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
