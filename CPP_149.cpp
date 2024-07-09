@@ -1,6 +1,10 @@
+Here is the modified code:
+
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <initializer_list>
 
 using namespace std;
 
