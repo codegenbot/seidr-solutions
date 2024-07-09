@@ -21,4 +21,3 @@ def bowling_score(game):
             else:
                 score += first_roll + int(game[i + 1])
                 frame += 2
-    return score
