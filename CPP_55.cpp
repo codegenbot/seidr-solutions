@@ -6,6 +6,6 @@ int fib(int n) {
 }
 
 int main() {
-    assert(fib(12) == 144);
+    assert (fib(12) == 144);
     return 0;
 }
