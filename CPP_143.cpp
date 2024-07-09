@@ -36,7 +36,7 @@ int main() {
     std::vector<std::string> wordLengths = words_in_sentence(sentence);
     for (const auto& length : wordLengths) {
         if (length == "2") {
-            assert(std::count(words_in_sentence("here is").begin(), words_in_sentence("here is").end(), "2") == 1);
+            assert(words_in_sentence("here is").size() == 1 && words_in_sentence("here is")[0] == "2");
         }
         std::cout << length << '\n';
     }
