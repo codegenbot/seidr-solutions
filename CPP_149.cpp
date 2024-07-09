@@ -1,6 +1,7 @@
+```
 #include <algorithm>
 #include <vector>
-#include <initializer_list>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -13,15 +14,10 @@ bool issame(vector<string> a, vector<string> b) {
             return false;
     }
     return true;
-
-}
-
-vector<string> sorted_list_sum(vector<string> input) {
-    sort(input.begin(), input.end());
-    return input;
 }
 
 int main() {
-    vector<string> b={"aaaa", "bbbb", "dd", "cc"};
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    vector<string> b = {"aaaa", "bbbb", "dd", "cc"};
+    assert(issame({"aaaa", "bbbb", "dd", "cc"}, b));
     return 0;
+}
