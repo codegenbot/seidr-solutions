@@ -25,26 +25,23 @@ int main() {
     int n; 
     std::cin >> n;
 
-    if(n > 0) {
-        std::vector<double> coeffs;
-        for (int i = 0; i < n; i++) {
-            double coeff;
-            std::cin >> coeff;
-            coeffs.push_back(coeff);
-        }
+    double coeffs[n]; 
 
-        double x; 
-        std::cin >> x;
-        
-        // Call poly function with input values
-        double sum = poly(coeffs, x);
-        std::cout << "The polynomial evaluation at x = " << x << " is: " << sum << std::endl;
-
-        // Calculate the root using find_zero function
-        double solution = find_zero(coeffs);
-
-        std::cout << "The root of the polynomial is: " << solution << std::endl;
+    for (int i = 0; i < n; i++) {
+        double coeff;
+        std::cin >> coeff;
+        coeffs[i] = coeff;
     }
+
+    double x; 
+    std::cin >> x;
+    
+    // Call poly function with input values
+    double sum = poly({coeffs[0], coeffs[1], coeffs[2]}, x);
+    std::cout << "The polynomial evaluation at x = " << x << " is: " << sum << std::endl;
+
+    // Calculate the root using find_zero function
+    double solution = find_zero({coeffs[0], coeffs[1], coeffs[2]});
 
     return 0;
 }
