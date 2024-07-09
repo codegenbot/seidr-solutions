@@ -1,9 +1,10 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cctype>
+#include <cassert>
 
-std::vector<std::string> extensions;
-std::string class_name = "Sp";
+std::string Strongest_Extension(std::string, std::vector<std::string>);
 
 int main() {
     extensions.push_back("671235");

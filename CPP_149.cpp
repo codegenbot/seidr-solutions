@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -20,7 +21,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     return result;
 }
 
-int main() {
+int checkMain() {
     assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == std::vector<std::string>({"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
