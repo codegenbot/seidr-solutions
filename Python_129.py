@@ -1,18 +1,20 @@
 def minPath(grid, k):
-    n = len(grid)
-    start = min(min(row) for row in grid)
-    path = [start]
-    while len(path) < k:
-        r, c = divmod(
-            grid.index([cell for row in grid for cell in row if cell == start]), n
-        )
-        neighbors = [(r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)]
-        start = min(
-            (
-                grid[r][c]
-                for r, c in neighbors
-                if 0 <= r < n and 0 <= c < n and grid[r][c] not in path
-            )
-        )
-        path.append(start)
-    return path
+    N = len(grid)
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+
+    def dfs(i, j, path, remain_steps):
+        if remain_steps == 0:
+            return path
+
+        for di, dj in directions:
+            ni, nj = i + di, j + dj
+            if 0 <= ni < N and 0 <= nj < N and grid[ni][nj] not in path:
+                new_path = dfs(ni, nj, path + [grid[ni][nj]], remain_steps - 1)
+                if new_path:
+                    return new_path
+
+    for i in range(N):
+        for j in range(N):
+            path = dfs(i, j, [grid[i][j]], k - 1)
+            if path:
+                return path
