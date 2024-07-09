@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -13,6 +14,7 @@ std::string find_max(vector<string> words){
 }
 
 int main() {
-   vector<string> wordList = {"apple", "banana", "cherry"};
-   cout << find_max(wordList) << endl; 
+    vector<string> words = {"apple", "banana", "cherry"};
+    std::cout << "The longest word is: " << find_max(words) << std::endl;
+    return 0;
 }
