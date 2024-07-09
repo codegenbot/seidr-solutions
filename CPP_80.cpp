@@ -12,7 +12,7 @@ bool is_happy(const std::string& s) {
 }
 
 int main() {
-    assert (is_happy("iopaxioi") == false);
+    assert(is_happy("iopaxioi") == false);
     
     // Additional test cases can be added here
     
