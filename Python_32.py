@@ -2,5 +2,12 @@ def find_zero(xs: list):
     n = len(xs)
     if n % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
-    max_coeff_idx = xs.index(max(filter(None, xs)))
-    return -sum(x for x in xs[max_coeff_idx+1:]) / sum(x for x in xs[:max_coeff_idx])
+    max_coeff_idx = None
+    for i in range(len(xs)):
+        coeff = filter(None, xs)[i]
+        if coeff == max(filter(None, xs), default=None):
+            max_coeff_idx = i
+            break
+    if max_coeff_idx is None:
+        raise ValueError("xs must have at least one non-zero coefficient")
+    return -xs[max_coeff_idx] / xs[(max_coeff_idx+1) % n]
