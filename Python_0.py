@@ -5,8 +5,8 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
-numbers = [int(x) for x in input("Enter numbers separated by space: ").split()]
-threshold = int(input("Enter threshold value: "))
+numbers = [int(x) for x in input().split()]
+threshold = int(input())
 
 result = check_numbers(numbers, threshold)
 print(result)
