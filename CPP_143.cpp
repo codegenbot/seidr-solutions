@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -38,12 +37,10 @@ std::vector<std::string> words_in_sentence(std::string sentence) {
 
             if (isPrime) {
                 result += word + " ";
-                if (!wordLengths.empty()) {
-                    wordLengths.push_back(std::to_string(length));
-                } else {
-                    wordLengths = {std::to_string(length)};
-                }
+                wordLengths.push_back(std::to_string(length));
             }
+        } else if (length > 0) {
+            wordLengths.push_back(std::to_string(length));
         }
     }
 
