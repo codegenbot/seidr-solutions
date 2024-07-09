@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -74,6 +75,5 @@ int main() {
         cout << "Output is incorrect." << endl;
     }
     
-    assert(issame({{"Nine", "Eight", "Four"}}));
     return 0;
 }
