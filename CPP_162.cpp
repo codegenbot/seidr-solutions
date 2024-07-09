@@ -1,28 +1,21 @@
-```
+Here is the solution:
+
+```cpp
+#include <openssl/md5.h>
 #include <string>
-#include <sstream>
 
-using namespace std;
-
-string string_to_md5(string text) {
-    if (text.empty()) return "";
-
-    MD5_CTX md5Context;
-    unsigned char md5Digest[16];
-    const EVP_MD* evpMd = EVP_md5();
-    EVP_MD_CTX_init(&md5Context);
-
-    const void *data = reinterpret_cast<const void*>(text.c_str());
-    size_t dataLen = text.length();
-
-    EVP_DigestInit_ex(&md5Context, evpMd, 0);
-    EVP_DigestUpdate(&md5Context, data, dataLen);
-    EVP_DigestFinal_ex(&md5Context, md5Digest, nullptr);
-
-    stringstream ss;
-    for (size_t i = 0; i < sizeof(md5Digest); ++i) {
-        ss << setfill('0') << setw(2) << hex << static_cast<int>(md5Digest[i]);
+std::string string_to_md5(std::string text) {
+    if (text.empty()) {
+        return "";
     }
 
-    return ss.str();
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5((const unsigned char*)text.c_str(), text.size(), result);
+
+    std::string hash;
+    for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        sprintf(&hash[2*i],"%02x",result[i]);
+    }
+    
+    return hash;
 }
