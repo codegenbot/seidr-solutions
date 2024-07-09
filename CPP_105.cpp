@@ -11,10 +11,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    int numArray[] = {9, 4, 8};
-    std::vector<std::string> stringArray = {"Nine", "Four", "Eight"};
-    std::vector<int> by_length(std::begin(numArray), std::end(numArray));
-
-    assert(issame(by_length, stringArray));
-    return 0;
+    int by_length[3] = {9,4,8};
+    std::vector<std::string> vec = {"Nine", "Eight", "Four"};
+    assert(issame({""},vec));
 }
