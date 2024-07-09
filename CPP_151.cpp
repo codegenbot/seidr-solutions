@@ -12,18 +12,15 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst; 
-    float odd_sum = 0.0f; 
+    vector<float> lst; // Declare the input vector
+    float odd_sum = 0.0f; // Initialize variable for sum of squares
 
-    int n;
+    int n; // Input number of elements in list
     cin >> n;
-    
-    for (int i = 0; i < n; ++i) {
-        float x;
+
+    for(int i=0; i<n; i++){
+        float x; // Read each element from user
         cin >> x;
-        if (x > 0 && floor(x) == x) { 
-            odd_sum += pow(x, 2);
-        }
         lst.push_back(x);
     }
 
