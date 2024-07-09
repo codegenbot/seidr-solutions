@@ -1,7 +1,6 @@
-```cpp
-int max_fill(vector<vector<int>> grid, int capacity) {
+int max_fill(vector<vector<vector<int>>> grid, int capacity) {
     int total_water = 0;
-    for (vector<int> well : grid) {
+    for (vector<vector<int>> well : grid) {
         total_water += accumulate(well.begin(), well.end(), 0);
     }
     
@@ -14,7 +13,7 @@ int max_fill(vector<vector<int>> grid, int capacity) {
             if (bucket_space <= 0) break;
             int water_in_well = 0;
             for (int j = 0; j < grid[i].size(); j++) {
-                if (grid[i][j] == 1 && bucket_space >= 1) {
+                if (grid[i][j][0] == 1 && bucket_space >= 1) {
                     water_in_well++;
                     bucket_space--;
                 }
