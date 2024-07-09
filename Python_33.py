@@ -1,4 +1,3 @@
-```
 def sort_third():
     n = int(input("Enter the number of elements: "))
     l = []
@@ -8,5 +7,3 @@ def sort_third():
         l.append(x)
         
     return sorted(l, key=lambda x: (x % 3, x))
-
-print(sort_third())
