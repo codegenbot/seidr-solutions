@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <map>
 #include <sstream>
+#include <map>
+
 using namespace std;
 
 map<char,int> histogram(string test){
