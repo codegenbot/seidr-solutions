@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
 int starts_one_ends(int n);
@@ -9,8 +9,7 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     int count = starts_one_ends(n);
-    string output = "The count of the numbers of " + to_string(n) + "-digit positive integers that start or end with 1 is: ";
-    output += to_string(count);
+    string output = "The count of the numbers of " + to_string(n) + "-digit positive integers that start or end with 1 is: " + to_string(count);
     cout << output << endl;
     return 0;
 }
@@ -28,3 +27,4 @@ int starts_one_ends(int n) {
         }
     }
     return count;
+}
