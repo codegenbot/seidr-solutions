@@ -1,4 +1,4 @@
-```Python
+```
 def cut_vector(vector):
     total_sum = sum(vector)
     if total_sum % 2 == 0:
