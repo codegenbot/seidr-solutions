@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -35,4 +36,5 @@ int main() {
     if (index % 2 == 0 || index == -1) {
         assert(areEqual({}, emptyVector)); 
     }
+    return 0;
 }
