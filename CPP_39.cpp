@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -9,7 +10,7 @@ int main() {
     int n;
     cout << "Enter the number: ";
     cin >> n;
-    cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << endl; 
+    cout << "The " << to_string(n) << "th prime Fibonacci number is: " << prime_fib(n) << endl; 
 }
 
 bool isPrime(int num) {
@@ -27,11 +28,10 @@ int prime_fib(int n) {
 
     int a = 0, b = 1, count = 0;
     while (true) {
-        string str = to_string(b); // Convert int to string
-        if (isPrime(stoi(str))) // Convert string back to int for isPrime()
+        if (isPrime(b))
             count++;
         if (count == n)
-            return stoi(str); // Convert int back to string and return
+            return b;
         a += b;
         b = a - b;
     }
