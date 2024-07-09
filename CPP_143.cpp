@@ -1,5 +1,7 @@
-string words_in_sentence(string sentence){
-    string result = "";
+#include <string>
+
+std::string words_in_sentence(std::string sentence) {
+    std::string result = "";
     for (int i = 0; i < sentence.size(); i++) {
         if (sentence[i] == ' ') {
             continue;
