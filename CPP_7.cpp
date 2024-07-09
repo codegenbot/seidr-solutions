@@ -1,7 +1,14 @@
-```cpp
+```
 #include <vector>
 #include <string>
-#include <initializer_list>
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
     std::vector<std::string> result;
@@ -13,18 +20,9 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
     return result;
 }
 
-bool issame(std::initializer_list<std::vector<std::string>> a, std::vector<std::string> b) {
-    bool same = true;
-    for(auto v : a) {
-        if(v != b) {
-            same = false;
-            break;
-        }
-    }
-    return same;
-}
-
 int main() {
-    assert(issame({{filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") }}, {"grunt", "prune"}));
+    vector<string> expected = {"grunt", "prune"};
+    vector<string> actual = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    assert(issame(actual, expected));
     return 0;
 }

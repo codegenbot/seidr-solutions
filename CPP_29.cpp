@@ -6,7 +6,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
         return false;
     }
     for(int i = 0; i < a.size(); i++) {
-        vector<string> b(i);
         if(a[i] != b[i]) {
             return false;
         }
@@ -25,6 +24,6 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAffAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
+    std::vector<std::string> input = {"xxx", "asd", "xxy", "john doe", "xxxAffAA", "xxx"};
+    assert(issame(filter_by_prefix(input, "xxx") , {"xxx", "xxxAAA", "xxx"}));
     return 0;
-}
