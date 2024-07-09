@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -14,7 +15,11 @@ int hex_key(std::string num) {
     return count;
 }
 
-int main() {
-    assert(hex_key("") == 0);
+int main_function() {
+    std::string input;
+    std::cout << "Enter a hexadecimal number: ";
+    std::cin >> input;
+    int result = hex_key(input);
+    std::cout << "Number of characters in the given string is: " << result << "\n";
     return 0;
 }
