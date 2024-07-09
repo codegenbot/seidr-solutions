@@ -16,11 +16,9 @@ bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> result = numbers;
-    std::sort(result.begin(), result.end()); 
-    auto it = std::unique(result.begin(), result.end()); 
-    result.erase(it, result.end()); 
-    return result;
+    std::set<int> uniqueNumbers;
+    std::copy(numbers.begin(), numbers.end(), std::inserter(uniqueNumbers, uniqueNumbers.end()));
+    return std::vector<int>(uniqueNumbers);
 }
 
 int mainFunction() {
