@@ -11,33 +11,29 @@ int main() {
     std::cin >> n1 >> m1 >> n2 >> m2;
 
     std::vector<std::string> s1Vec;
-    s1Vec.reserve(n1);
+    s1Vec.resize(n1);
     for(int i = 0; i < n1; i++) {
         std::string x;
         std::cin >> x;
-        s1Vec.push_back(x);
+        s1Vec[i] = x; 
     }
 
-    s1.insert("dummy");  
     for(auto &i : s1Vec) {
-        if (s1.find(i) == s1.end()) {  // Check if i is not in s1 before inserting
-            s1.insert(i);  
-        }
+        if(s1.insert(i).second)  
+            continue; 
     }
 
     std::vector<std::string> s2Vec;
-    s2Vec.reserve(m1);
+    s2Vec.resize(m1);
     for(int i = 0; i < m1; i++) {
         std::string y;
         std::cin >> y;
-        s2Vec.push_back(y);
+        s2Vec[i] = y; 
     }
 
-    s2.insert("dummy");  
     for(auto &i : s2Vec) {
-        if (s2.find(i) == s2.end()) {  // Check if i is not in s2 before inserting
-            s2.insert(i);  
-        }
+        if(s2.insert(i).second)  
+            continue; 
     }
 
     std::vector<std::string> diff(s1.begin(), s1.end());
