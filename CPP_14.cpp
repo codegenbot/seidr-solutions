@@ -1,14 +1,14 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string> a, const vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<vector<string>> all_prefixes(string str) {
-    vector<vector<string>> result;
+vector<string> all_prefixes(const string& str) {
+    vector<string> result;
     for (int i = 1; i <= str.size(); ++i) {
-        result.push_back({str.substr(0, i)});
+        result.push_back(str.substr(0, i));
     }
     return result;
 }
