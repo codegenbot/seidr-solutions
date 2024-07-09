@@ -1,31 +1,16 @@
-#include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
-
-string match_parens(vector<string> lst) {
+bool match_parens(const string& s1, const string& s2) {
     int balance = 0;
-    for (const string& str : lst) {
-        for (char c : str) {
-            if (c == '(') {
-                balance++;
-            } else {
-                if (balance == 0) {
-                    return "No";
-                }
-                balance--;
-            }
-        }
+    for (char c : s1) {
+        if (c == '(') balance++;
+        else balance--;
     }
-    return (balance == 0) ? "Yes" : "No";
+    for (char c : s2) {
+        if (c == '(') balance++;
+        else balance--;
+    }
+    return balance == 0;
 }
 
-int main() {
-    vector<string> input = {"()(", ")"};
-    cout << match_parens(input) << endl;
-
-    input = {")", ")"};
-    cout << match_parens(input) << endl;
-
-    return 0;
+string match_parens(vector<string> lst) {
+    return match_parens(lst[0], lst[1]) ? "Yes" : "No";
 }
