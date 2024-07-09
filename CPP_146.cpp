@@ -13,19 +13,14 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums;
-    int n;
+    int num;
     
-    std::cout << "Enter the number of elements in the array: ";
-    std::cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        int x;
-        std::cin >> x;
-        nums.push_back(x);
+    std::cout << "Enter numbers separated by space: ";
+    while(std::cin >> num) {
+        nums.push_back(num);
     }
     
-    std::cout << "The special filter count is: " << specialFilter(nums) << std::endl;
+    std::cout << "Special filtered count is: " << specialFilter(nums) << std::endl;
 
     return 0;
 }
