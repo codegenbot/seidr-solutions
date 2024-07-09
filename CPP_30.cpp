@@ -1,7 +1,8 @@
+```
 #include <iostream>
 #include <vector>
 
-bool std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -21,4 +22,29 @@ std::vector<float> getPositive(const std::vector<float>& l) {
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(getPositive({}), {}) == true);
+    std::vector<float> v1, v2;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        float num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        if (i == 0) {
+            v1.push_back(num);
+            v2.push_back(num);
+        } else {
+            v1.push_back(num);
+            v2 = getPositive(v2);
+        }
+    }
+    if (issame(v1, v2)) {
+        std::cout << "The two vectors are the same.\n";
+    } else {
+        std::cout << "The two vectors are not the same.\n";
+    }
 }
