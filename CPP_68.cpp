@@ -1,5 +1,5 @@
-#include <climits>
 #include <vector>
+#include <climits>
 
 using namespace std;
 
@@ -18,10 +18,6 @@ vector<pair<int, int>> pluck(vector<int> arr) {
             minEven = arr[i];
             minIndex = i;
         }
-    }
-    
-    if (minEven == INT_MAX) {
-        return {{}};
     }
     
     result.push_back({minEven, minIndex});
