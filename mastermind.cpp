@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+```cpp
 #include <string>
 #include <unordered_map>
 
@@ -25,5 +28,5 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
         }
     }
 
-    return std::pair<int,int>(white, black);
+    return make_pair(white, black);
 }
