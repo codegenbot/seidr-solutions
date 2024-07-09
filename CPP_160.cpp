@@ -3,7 +3,7 @@
 
 class cpp_160 {
 public:
-    int do_algebra(const std::vector<std::string>& ops, const std::vector<int>& nums) {
+    int main(const std::vector<std::string>& ops, const std::vector<int>& nums) {
         if (ops.size() != nums.size()) {
             return -1;
         }
@@ -11,9 +11,13 @@ public:
         int result = nums[0];
         for (int i = 0; i < ops.size(); i++) {
             if (ops[i] == "*") {
-                result *= nums[i + 1];
+                for (int j = 0; j < nums[i + 1]; j++) {
+                    result *= nums[i + 2];
+                }
             } else if (ops[i] == "//") {
-                result /= nums[i + 1];
+                while (result % nums[i + 1] != 0) {
+                    result++;
+                }
             }
         }
         
@@ -23,5 +27,6 @@ public:
 
 int main() {
     cpp_160 obj;
-    assert(obj.do_algebra({{"//", "*"}}, {7, 3, 4}) == 8);
+    assert(obj.main({{"//", "*"}}, {7, 3, 4}) == 8);
+    return 0;  
 }
