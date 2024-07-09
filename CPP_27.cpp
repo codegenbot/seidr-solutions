@@ -1,9 +1,6 @@
-#include <iostream>
-#include <cctype>
-#include <string>
-
-std::string filp_case(std::string str){
-    std::string result = "";
+```cpp
+string filp_case(string str){
+    string result = "";
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z')
@@ -15,9 +12,6 @@ std::string filp_case(std::string str){
 }
 
 int main() {
-    std::string s;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
-    std::cout << "The flipped case is: " << filp_case(s) << std::endl;
-    return 0;
+    assert(filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    
 }
