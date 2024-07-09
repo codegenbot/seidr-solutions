@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <string>
 #include <vector>
@@ -17,7 +16,7 @@ const vector<string> all_prefixes(const string& str) {
     return result;
 }
 
-int testMain() {
+int main() { 
     assert(all_prefixes("WWW") == vector<string>({"W", "WW", "WWW"}));
     return 0;
 }
