@@ -32,9 +32,3 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     
     return result;
 }
-
-bool assertEqual(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
-assert(assertEqual(bf("Jupiter", "Mars"), {}));
