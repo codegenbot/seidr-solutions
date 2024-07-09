@@ -1,8 +1,3 @@
-```
-#include <vector>
-#include <iostream>
-#include <string>
-
 int pairedDigits(const std::string& input) {
     int sum = 0;
     for (int i = 0; i <= input.length() - 1; i++) {
