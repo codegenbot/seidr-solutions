@@ -1,26 +1,30 @@
-vector<string> words;
-        vector<string> result;
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
+#include<sstream>
+using namespace std;
 
-        int numConsonants = 0;
-        string currentWord = "";
+bool is_consonant(char c) {
+    c = tolower(c);
+    return !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || !isalpha(c));
+}
 
-        for (char c : s) {
-            if (c == ' ') {
-                if (numConsonants == n) {
-                    result.push_back(currentWord);
-                }
-                currentWord = "";
-                numConsonants = 0;
-            } else if (isalpha(c)) {
-                currentWord += c;
-                if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
-                    numConsonants++;
-                }
-            }
-        }
-
-        if (numConsonants == n) {
-            result.push_back(currentWord);
-        }
-
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    if (s.empty()) {
         return result;
+    }
+
+    stringstream ss(s);
+    string word;
+
+    while (ss >> word) {
+        int consonants = count_if(word.begin(), word.end(), is_consonant);
+        if (consonants == n) {
+            result.push_back(word);
+        }
+    }
+
+    return result;
+}
