@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <numeric>
 #include <limits>
+#include <cmath>
 
 std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     int n = v.size();
@@ -44,4 +44,16 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     }
     
     return res;
+}
+
+int main() {
+    std::vector<int> input = {1, 2, 3, 4, 5};
+    std::vector<std::vector<int>> result = cutVector(input);
+    for (const auto& sub : result) {
+        for (int num : sub) {
+            std::cout << num << " ";
+        }
+        std::cout << "\n";
+    }
+    return 0;
 }
