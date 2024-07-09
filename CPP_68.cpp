@@ -1,8 +1,8 @@
 #include <vector>
-#include <algorithm>
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
-    std::vector<std::pair<int, int>> result = {};
+    std::vector<std::pair<int, int>> result;
+    
     if (arr.empty()) return result;
     
     int minEvenIndex = -1;
