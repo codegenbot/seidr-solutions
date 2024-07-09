@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-int findMax(std::vector<int> numbers) {
+int findMaximum(std::vector<int> numbers) {
     int maxNum = (numbers.empty()) ? -1 : *std::max_element(numbers.begin(), numbers.end());
     if (maxNum != -1)
         std::cout << maxNum << std::endl;
@@ -22,6 +23,6 @@ int main() {
             std::cin.ignore(); 
         }
     }
-    findMax(numbers);
+    findMaximum(numbers);
     return 0;
 }
