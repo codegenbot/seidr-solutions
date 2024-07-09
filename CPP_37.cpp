@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 
@@ -10,7 +11,7 @@ namespace myspace {
         return true;
     }
 
-    std::vector<float> sort_even(const std::vector<float>& l) {
+    std::vector<float> sort_even(std::vector<float>& l) {
         std::vector<float> result(l.size());
         int evenIndex = 0;
         for (int i = 0; i < l.size(); i++) {
@@ -29,4 +30,27 @@ namespace myspace {
         }
         return result;
     }
+}
+
+int main() {
+    std::vector<float> inputVec;
+    float num;
+    
+    while(std::cin >> num) {
+        inputVec.push_back(num);
+    }
+
+    if (myspace::issame(inputVec, myspace::sort_even(inputVec))) {
+        for(float f : inputVec) {
+            std::cout << f << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        for(float f : inputVec) {
+            std::cout << f << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
 }
