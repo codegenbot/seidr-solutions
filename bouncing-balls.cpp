@@ -3,32 +3,24 @@
 #include <sstream>
 
 int main() {
-    int startHeight = 0;
-    double firstBounce = 0.0;
-    int numBounces = 0;
-
     std::string input;
-    for (std::getline(std::cin, input); ; ) {
-        if (input.empty()) break;
-        if (startHeight == 0) {
-            startHeight = std::stoi(input);
-        } else if (firstBounce == 0.0) {
-            firstBounce = std::stod(input);
-        } else {
-            numBounces = std::stoi(input);
-            break;
-        }
-    }
+    std::getline(std::cin, input);
+    int startHeight = std::stoi(input.substr(0, input.find(' ')));
+    double firstBounce = std::stod(input.substr(input.find(' ') + 1, input.find('\n') - input.find(' ') - 1));
+    int numBounces = std::stoi(input.substr(input.find('\n') + 1));
+
+    startHeight = static_cast<double>(startHeight);
+    firstBounce = static_cast<double>(firstBounce);
 
     double bouncinessIndex = firstBounce / startHeight;
 
-    double totalDistance = 2.0 * (firstBounce + startHeight); // initial bounce
-    for (int i = 1; i < numBounces; ++i) {
-        totalDistance += 2.0 * startHeight;
-        startHeight *= bouncinessIndex;
-    }
+    std::stringstream ss;
+    ss << std::to_string(startHeight);
+    ss << " ";
+    ss << std::to_string(firstBounce);
+    ss << "\n";
+    ss << std::to_string(numBounces);
 
-    std::cout << "The total distance traveled by the ball is: " << static_cast<int>(totalDistance) << std::endl;
-
+    std::cout << ss.str();
     return 0;
 }
