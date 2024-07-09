@@ -2,22 +2,34 @@
 using namespace std;
 
 int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+    int whitePegs = 0;
+    int blackPegs = 0;
     
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
-            black++;
+            blackPegs++;
         } else {
             bool found = false;
             for(int j=0; j<4; j++) {
                 if(guess[j] == code[i] && !found) {
+                    whitePegs++;
                     found = true;
-                    white++;
                 }
             }
         }
     }
     
-    return black + white;
+    return blackPegs + whitePegs;
+}
+
+int main() {
+    string code, guess;
+    cout << "Enter the Mastermind code: ";
+    cin >> code;
+    cout << "Enter your guess: ";
+    cin >> guess;
+    int result = mastermind(code, guess);
+    cout << "Black pegs: " << result - (result/4) << endl;
+    cout << "White pegs: " << result/4 << endl;
+    return 0;
 }
