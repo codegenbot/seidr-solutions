@@ -1,21 +1,11 @@
-#include <vector>
-#include <iostream>
-
-using namespace std;
-
 int basement(vector<int>& nums) {
     int sum = 0;
+    int idx = -1; 
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
-        if (sum < 0)
-            return i;
+        if (sum < 0 && idx == -1) { 
+            idx = i;
+        }
     }
-    return -1;
-
+    return idx;
 }
-
-int main() {
-    vector<int> nums = {-2, 3, -4};
-    int result = basement(nums);
-    cout << "Basement index: " << result << endl;
-    return 0;
