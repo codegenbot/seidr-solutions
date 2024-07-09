@@ -6,13 +6,6 @@ bool issame(vector<string> a,vector<string>b){
     return (a==b);
 }
 
-int testMain() {
-    vector<string> v1 = splitString("ahmed     , gamal");
-    sort(v1.begin(), v1.end()); 
-    assert(issame(v1, {"ahmed", "gamal"}));
-    return 0;
-}
-
 vector<string> words_string(string s) {
     vector<string> tokens;
     size_t start = 0, end;
@@ -26,4 +19,11 @@ vector<string> words_string(string s) {
         start = end + 1;
     } while (1);
     return tokens;
+}
+
+int testMain() {
+    vector<string> v1 = words_string("ahmed     , gamal");
+    sort(v1.begin(), v1.end()); 
+    assert(issame(v1, {"ahmed", "gamal"}));
+    return 0;
 }
