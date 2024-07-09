@@ -1,20 +1,24 @@
-```
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-bool prime_length(string str){
-    int len = str.length();
-    for(int i=2; i*i <= len; i++){
-        if(len%i==0)
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
             return false;
     }
     return true;
 }
 
-int main(){
-    string input;
-    cout << "Enter a string: ";
-    getline(cin, input);
-    cout << boolalpha << (prime_length(input) ? "Prime" : "Not Prime") << endl;
+bool prime_length(const string& str) {
+    int len = str.length();
+    return isPrime(len);
+}
+
+int main() {
+    cout << boolalpha << (prime_length("10") ? "Prime" : "Not Prime") << endl;
+    assert(!isPrime(0));
     return 0;
 }
