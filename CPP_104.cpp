@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -35,6 +34,6 @@ std::vector<int> unique_digits(std::vector<int> x){
 }
 
 int main() {
-    // Your main function implementation if needed
+    // Your main function logic here
     return 0;
 }
