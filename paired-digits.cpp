@@ -1,6 +1,5 @@
 #include <string>
 #include <iostream>
-#include <ostream>
 
 int pairedDigits(std::string s) {
     int sum = 0;
@@ -9,11 +8,11 @@ int pairedDigits(std::string s) {
             sum += s[i] - '0';
         }
     }
-    if (s.length() % 2 != 0) {
-        if (s[s.length() - 1] == s[s.length() - 2]) {
-            sum += s[s.length() - 1] - '0';
-        } else {
-            return -1;
+    for (int i = 0; i < s.length(); i++) {
+        if (i < s.length() - 1 && s[i] == s[i + 1]) {
+            sum += s[i] - '0';
+        } else if (s[i] == s[i]) {
+            sum += s[i] - '0';
         }
     }
     return sum;
@@ -23,7 +22,6 @@ int pairedDigits(std::string s) {
 int main() {
     std::string input;
     std::cout << "Enter a string of digits: ";
-    std::cin.ignore();
     std::cin >> input;
     int result = pairedDigits(input);
     if (result == -1) {
