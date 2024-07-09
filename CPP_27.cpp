@@ -1,4 +1,4 @@
-using std::string;
+using namespace std;
 
 string flip_case(string str){
     string result = "";
