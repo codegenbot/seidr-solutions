@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-#include <unordered_map>
-
+}
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
