@@ -1,6 +1,14 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-vector<int> tri(int n){
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> completeCode(int n) {
     vector<int> result;
     if (n == 0) {
         result.push_back(0);
@@ -10,10 +18,11 @@ vector<int> tri(int n){
     if (n == 1) {
         return result;
     }
-    result.push_back(2);
+    result.push_back(1);
     if (n == 2) {
         return result;
     }
+    result.push_back(2);
     for (int i = 3; i <= n; ++i) {
         if (i % 2 == 0) {
             result.push_back(1 + i / 2);
