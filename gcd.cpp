@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 
 int findGCD(int a, int b) {
@@ -8,4 +9,13 @@ int findGCD(int a, int b) {
         a = temp;
     }
     return std::abs(b); 
+}
+
+int main() {
+    int a, b;
+    std::cout << "Enter two numbers: ";
+    std::cin >> a >> b;
+    int result = findGCD(a, b);
+    std::cout << "The GCD is: " << result << std::endl;
+    return 0;
 }
