@@ -16,7 +16,7 @@ int smallest_change(std::vector<int> arr) {
             if (arr[start] == arr[end]) {
                 dp[start][end] = dp[start + 1][end - 1];
             } else {
-                dp[start][end] = 1 + min({dp[start + 1][end], dp[start][end - 1], dp[start + 1][end - 1]});
+                dp[start][end] = 1 + std::min({dp[start + 1][end], dp[start][end - 1], dp[start + 1][end - 1]});
             }
         }
     }
@@ -25,6 +25,10 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    std::cout << smallest_change({0, 1}) << std::endl;
+    if (smallest_change({0, 1}) != 1) {
+        std::cout << "Error: Test failed" << std::endl;
+        return 1;
+    }
+    
     return 0;
 }
