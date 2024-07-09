@@ -2,11 +2,13 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
-#include <openssl/evp.h>
 #include <openssl/objects.h>
 #include <openssl/modes.h>
 
 using namespace std;
+
+#include <openssl/evp.h>
+#include <openssl/md5.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "None";
@@ -27,7 +29,7 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    string test = "Hello, World!";
-    cout << "MD5 of '" << test << "' is: " << string_to_md5(test) << endl;
+    string text = "Hello, World!";
+    cout << "MD5 of '" << text << "' is: " << string_to_md5(text) << endl;
     return 0;
 }
