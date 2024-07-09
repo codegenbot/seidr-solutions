@@ -1,11 +1,10 @@
-Here is the solution:
+Here is the completed code:
 
 vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
-    int left = min(total - 1000, remaining);
-    if (left < 0) {
+    if (total > remaining) {
         return {total, 0};
     } else {
-        return {total, max(remaining - left, 0)};
+        return {total, remaining - need};
     }
 }
