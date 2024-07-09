@@ -1,6 +1,8 @@
 int gcd(int a, int b) {
+    a = abs(a);
+    b = abs(b);
     if (b == 0) {
-        return abs(a);
+        return a;
     }
-    return gcd(b, abs(a) % abs(b));
+    return gcd(b, a % b);
 }
