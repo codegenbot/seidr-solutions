@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cfenv>
 
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
@@ -13,9 +12,9 @@ long long double_the_difference(std::vector<float> lst) {
     return sum;
 }
 
-int main() {
+int main_function() {
     std::vector<float> lst = {1.5f, 3.8f, 6.9f, 7.4f, -8.2f};
-    float odd_sum = 0.0f;
+    long long odd_sum = 0;
 
     for (float num : lst) {
         if (num > 0 && modf(num, &num) == 0) { 
