@@ -6,10 +6,10 @@
 
 using namespace std;
 
-std::vector<int> parse_nested_parens(string paren_string);
+vector<int> parse_nested_parens(string paren_string);
 
-std::vector<int> parse_nested_parens(string paren_string) {
-    std::vector<int> depths;
+vector<int> parse_nested_parens(string paren_string) {
+    vector<int> depths;
     int max_depth = 0;
     int depth = 0;
     for (char c : paren_string) {
@@ -28,7 +28,7 @@ std::vector<int> parse_nested_parens(string paren_string) {
     return depths;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
