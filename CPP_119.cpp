@@ -19,7 +19,6 @@ int main() {
     vector<string> lst;
     int n;
     cin >> n;
-    string s;
     while (getline(cin, s)) {
         lst.push_back(s);
     }
