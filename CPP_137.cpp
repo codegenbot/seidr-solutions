@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
 #include <boost/any.hpp>
 
 using namespace std;
@@ -81,6 +81,17 @@ boost::any compare_one(boost::any a, boost::any b) {
 }
 
 int main() {
-    // Your code to read input from user and test the function
+    // Your code here
+    cout << "Enter two values: ";
+    boost::any a, b;
+    cin >> a >> b;
+    boost::any result = compare_one(a, b);
+    if (result.type() == typeid(string)) {
+        cout << "The comparison is None." << endl;
+    }
+    else {
+        cout << "The comparison is: " << result << endl;
+    }
+
     return 0;
 }
