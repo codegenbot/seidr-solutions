@@ -9,7 +9,7 @@ std::string fizzBuzz(int x) {
 }
 
 int main() {
-    int x; 
+    int x;
     std::cout << "Enter an integer: ";
     std::cin >> x;
     std::cout << fizzBuzz(x) << std::endl;
