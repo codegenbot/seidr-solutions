@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 std::vector<int> even_odd_palindrome(int n) {
@@ -20,7 +21,7 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> expected = {};
+    std::vector<int> expected;
     for(int i = 0; i <= 5; ++i) {
         if(i % 2 == 0)
             expected.push_back(0);
