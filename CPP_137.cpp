@@ -5,41 +5,65 @@
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string str = (string)b.convert_to<string>();
-        size_t pos = str.find(',');
-        if (pos != string::npos) {
-            str = str.substr(0, pos);
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return max(a.convert_to<int>(), b.convert_to<int>());
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return max(a.convert_to<float>(), b.convert_to<float>());
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = a.convert_to<string>();
+        string str2 = b.convert_to<string>();
+
+        int num1, num2;
+        bool isNum1Valid = true, isNum2Valid = true;
+
+        size_t pos = 0;
+        while ((pos = str1.find_first_of({',','.'})) != string::npos) {
+            if (str1.substr(0, pos).length() > 0) {
+                try {
+                    num1 = stoi(str1.substr(0, pos));
+                } catch (...) {
+                    isNum1Valid = false;
+                    break;
+                }
+            } else {
+                isNum1Valid = false;
+                break;
+            }
         }
-        return max((float)a.convert_to<float>(), stof(str));
+
+        if (isNum1Valid) {
+            str1.erase(0, pos);
+        }
+
+        pos = 0;
+        while ((pos = str2.find_first_of({',','.'})) != string::npos) {
+            if (str2.substr(0, pos).length() > 0) {
+                try {
+                    num2 = stoi(str2.substr(0, pos));
+                } catch (...) {
+                    isNum2Valid = false;
+                    break;
+                }
+            } else {
+                isNum2Valid = false;
+                break;
+            }
+        }
+
+        if (isNum2Valid) {
+            str2.erase(0, pos);
+        }
+
+        if (isNum1Valid && isNum2Valid) {
+            return (num1 > num2 ? &str1 : &str2);
+        } else if (!isNum1Valid && !isNum2Valid) {
+            return "None";
+        } else if (isNum1Valid) {
+            return str1;
+        } else {
+            return str2;
+        }
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        size_t pos1 = (string)a.convert_to<string>().find(',');
-        size_t pos2 = (string)b.convert_to<string>().find(',');
-        string str1 = (pos1 != string::npos) ? (string)a.convert_to<string>().substr(0, pos1) : (string)a.convert_to<string>();
-        string str2 = (pos2 != string::npos) ? (string)b.convert_to<string>().substr(0, pos2) : (string)b.convert_to<string>();
-        return max(stof(str1), stof(str2));
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        size_t pos = (string)b.convert_to<string>().find(',');
-        string str = (pos != string::npos) ? (string)b.convert_to<string>().substr(0, pos) : (string)b.convert_to<string>();
-        return max((int)a.convert_to<int>(), stof(str));
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        size_t pos = (string)a.convert_to<string>().find(',');
-        string str = (pos != string::npos) ? (string)a.convert_to<string>().substr(0, pos) : (string)a.convert_to<string>();
-        return max(stof(str), (int)b.convert_to<int>());
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any("None");
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return max((float)a.convert_to<float>(), (float)b.convert_to<float>());
-    }
-    else {
-        return boost::any("None");
-    }
+
+    return "None";
 }
