@@ -1,4 +1,3 @@
-```c++
 #include <cassert>
 #include <iostream>
 
@@ -18,6 +17,7 @@ int main() {
     std::cout << "Enter a cube number (like 1729): ";
     std::cin >> num;
     
-    assert(std::to_string(num) == std::to_string(1729)); 
+    assert(isCube(num) == isCube(1729)); 
+    std::cout << "You entered: " << num << std::endl; 
     return 0;
 }
