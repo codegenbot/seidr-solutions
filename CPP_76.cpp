@@ -3,7 +3,6 @@
 #include <string>
 #include <cmath>
 
-bool isSimplePower(int base, int power);
 bool isSimplePower(int num);
 
 int main() {
@@ -16,6 +15,7 @@ int main() {
     } else {
         std::cout << input << " is not a simple power.\n";
     }
+    return 0;
 }
 
 bool isSimplePower(int num) {
@@ -31,6 +31,6 @@ bool isSimplePower(int num) {
     return false;
 }
 
-bool isSimplePower(int base, int power) {
+bool isPowerOfSimpleInt(int base, int power) {
     return (int)pow(base, power) == base * power;
 }
