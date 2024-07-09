@@ -1,11 +1,10 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter number of elements: ";
     std::cin >> n;
 
     std::vector<int> lst(n);
@@ -17,11 +16,10 @@ int main() {
     int result = next_smallest(lst);
 
     if (result == -1) {
-        std::cout << "No smaller number found.\n";
+        std::cout << "No smaller number exists.\n";
     } else {
-        std::cout << "The smallest larger number is: " << result << "\n";
+        std::cout << "The next smallest number is: " << result << "\n";
     }
-
     return 0;
 }
 
