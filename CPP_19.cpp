@@ -39,6 +39,6 @@ string sort_numbers(string numbers){
         result += pair.second + " ";
     }
     
-    result.pop_back(); // Remove extra space at the end
+    result.pop_back();
     return result;
 }
