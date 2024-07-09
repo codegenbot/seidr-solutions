@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <set>
 
-// Declare vector and issame here
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> common(vector<int> l1, vector<int> l2) {
