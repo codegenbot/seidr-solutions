@@ -1,14 +1,14 @@
 ```cpp
-#include <iostream>
 #include <vector>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> result;
-    const std::string planets[] = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+vector<string> bf(string planet1, string planet2) {
+    vector<string> result;
+    const string planets[] = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
 
     for (int i = 0; i < 8; ++i) {
@@ -28,23 +28,4 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
 
     return result;
-}
-
-int main() {
-    std::cout << "Enter the two planets: ";
-    std::string planet1, planet2;
-    std::cin >> planet1 >> planet2;
-
-    std::vector<std::string> res = bf(planet1, planet2);
-
-    if (!issame(res, {""})) {
-        for (const auto &planet : res) {
-            std::cout << planet << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "Planets not found." << std::endl;
-    }
-
-    return 0;
 }
