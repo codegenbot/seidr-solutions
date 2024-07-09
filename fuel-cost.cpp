@@ -5,10 +5,11 @@ using namespace std;
 int fuelCost(vector<int> v) {
     int sum = 0;
     for (int i : v) {
-        int num = floor((double)i / 3);
+        int num = static_cast<int>(floor((double)i / 3));
         if (num > 0) {
-            num--;
-            sum += num;
+            sum += num - 1;
+        } else {
+            sum -= 2;
         }
     }
     return sum;
