@@ -1,13 +1,12 @@
 def decode_cyclic(s: str) -> str:
-    groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range(len(s) // 3 + 1]
+    groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range(len(s) // 3 + 1)]
     groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
     return "".join(groups)
 
 while True:
     input_str = input("Enter a string: ")
-    if all(char.isdigit() or char.isalpha() for char in input_str):
+    if input_str.isalpha():
+        print(decode_cyclic(input_str))
         break
     else:
-        print("Invalid input. Please enter a string containing only letters and digits.")
-
-print(decode_cyclic(input_str))
+        print("Invalid input. Please enter a valid string.")
