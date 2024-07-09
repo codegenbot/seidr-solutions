@@ -28,7 +28,7 @@ def solve_boolean(boolean_expression):
             temp = ''
         elif char == '(':
             if not result:
-                result = solve_boolean(temp + ')')
+                result = solve_boolean(temp)
             else:
                 return None
 
