@@ -1,7 +1,6 @@
-```
 #include <iostream>
-using namespace std;
 #include <string>
+using namespace std;
 
 int car_race_collision(int n) {
     int collisions = (n*(n-1))/2;
