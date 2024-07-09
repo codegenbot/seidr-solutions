@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,10 +19,8 @@ int main() {
     vector<string> lst;
     int n;
     cin >> n;
-    for(int i = 0; i < n; i++) {
-        string s;
-        getline(cin, s);
-        cin.ignore(10000, '\n');  
+    string s;
+    while (getline(cin, s)) {
         lst.push_back(s);
     }
     if(match_parens(lst))
