@@ -15,9 +15,9 @@ int car_race_collision(string s) {
 }
 
 int main() {
-    string s;
-    cout << "Enter the number of cars: ";
-    getline(cin, s);
-    int num_cars = car_race_collision(s);
-    cout << "Number of collisions: " << num_cars << endl;
+    std::string s;
+    std::cin >> s;
+    int n = stoi(s);
+    cout << "Number of collisions: " << car_race_collision(n) << endl;
     return 0;
+}
