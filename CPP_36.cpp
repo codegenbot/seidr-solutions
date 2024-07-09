@@ -1,24 +1,18 @@
-#include <iostream>
+Here is the solution:
 
-using namespace std;
-
+```cpp
 int fizz_buzz(int n) {
     int count = 0;
-    for (int i = 1; i < n; i++) {
-        if ((i % 11 == 0 || i % 13 == 0) && countSeven(i)) {
-            count++;
+    for (int i = 11; i < n; i += 11) {
+        if (i % 13 == 0 || i % 7 == 0) {
+            while (i > 0) {
+                if (i % 10 == 7) {
+                    count++;
+                    break;
+                }
+                i /= 10;
+            }
         }
     }
     return count;
-}
-
-bool countSeven(int n) {
-    while (n > 0) {
-        int digit = n % 10;
-        if (digit == 7) {
-            return true;
-        }
-        n /= 10;
-    }
-    return false;
 }
