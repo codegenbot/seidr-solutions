@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -8,15 +7,15 @@ bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) 
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::string> temp;
+    std::vector<string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
             temp.push_back(to_string(i));
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
-    std::vector<std::string> result;
-    for (std::string s : temp) {
+    std::vector<string> result;
+    for (string s : temp) {
         switch (stoi(s)) {
             case 1: result.push_back("One"); break;
             case 2: result.push_back("Two"); break;
@@ -33,6 +32,11 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<std::string> b = by_length({9, 4, 8});
-    assert(same(by_length({9, 4, 8}), b));
+    std::vector<int> arr = {9, 4, 8};
+    std::string b;
+    if (same(by_length(arr), {"Nine", "Eight", "Four"})) {
+        std::cout << "True";
+    } else {
+        std::cout << "False";
+    }
 }
