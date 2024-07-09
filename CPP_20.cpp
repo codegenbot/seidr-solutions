@@ -30,6 +30,8 @@ std::vector<float> findClosestElements(std::vector<float> numbers) {
     return std::vector<float>{closestPair.first, closestPair.second};
 }
 
+bool isSame(std::vector<float> a, std::vector<float> b);
+
 int main() {
     assert(isSame(findClosestElements({1.1, 2.2, 3.1, 4.1, 5.1}) , {2.2, 3.1}));
     return 0;

@@ -1,15 +1,24 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool isSame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int> numbers){
-    std::vector<int> result;
+vector<int> remove_duplicates(vector<int> numbers) {
+    vector<int> result;
     for(int num : numbers){
-        if(std::find(result.begin(), result.end(), num) == result.end()){
+        if(std::find(std::begin(result), std::end(result), num) == std::end(result)){
             result.push_back(num);
         }
     }
@@ -17,6 +26,23 @@ std::vector<int> remove_duplicates(std::vector<int> numbers){
 }
 
 int main() {
-    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    vector<int> numbers(n);
+    for(int i = 0; i < n; i++){
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> numbers[i];
+    }
+
+    vector<int> result = remove_duplicates(numbers);
+
+    if (isSame(result, numbers)) {
+        std::cout << "The resulting vector is the same as the original." << std::endl;
+    } else {
+        std::cout << "The resulting vector is different from the original." << std::endl;
+    }
+
     return 0;
 }
