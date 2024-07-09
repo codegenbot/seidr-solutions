@@ -18,17 +18,3 @@ vector<string> words_string(string s){
     }
     return words;
 }
-
-int main(){
-    string input_str;
-    getline(cin, input_str);
-
-    vector<string> input_words = words_string(input_str);
-
-    for (const auto& word : input_words) {
-        cout << word << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
