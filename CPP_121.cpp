@@ -22,8 +22,7 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    int arr[] = {3, 13, 2, 9};
-    int size = sizeof(arr) / sizeof(arr[0]);
-    assert(solutions(std::vector<int>(arr, arr + size)) == 25);
+    std::vector<int> lst = {3, 13, 2, 9};
+    assert(solutions(lst) == 25);
     std::cout << "Test passed.\n";
 }
