@@ -1,5 +1,13 @@
+```
+from typing import List, Optional
+
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    max_len = max(len(s) for s in strings)
-    return [s for s in strings if len(s) == max_len][0]
+    max_len = 0
+    result = None
+    for s in strings:
+        if len(s) > max_len and all(c.isupper() or c.isspace() for c in s):
+            max_len = len(s)
+            result = s
+    return result
