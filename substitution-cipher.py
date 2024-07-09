@@ -9,4 +9,3 @@ def substitution_cipher(cipher1, cipher2, message):
                 result += cipher2[index].lower()
         else:
             result += char
-    return result
