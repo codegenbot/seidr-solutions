@@ -1,5 +1,2 @@
-from typing import List
-
-def remove_duplicates(numbers: List[int]) -> List[int]:
-    num_count = {num: numbers.count(num) for num in set(numbers)}
-    return [num for num in num_count if num_count[num] == 1]
+def remove_duplicates(numbers: Set[int]) -> Set[int]:
+    return {num for num in numbers if sum(1 for n in numbers if n == num) == 1}
