@@ -1,20 +1,18 @@
-```cpp
 #include <string>
 
-int is_bored(string S) {
-    int boredom_count = 0;
-    string sentence;
-
-    for (char c : S) {
-        if (c == '.' || c == '?' || c == '!') {
-            if (sentence.find("I") != std::string::npos) {
-                boredom_count++;
-            }
-            sentence.clear();
-        } else {
-            sentence += c;
+int is_bored(std::string S){
+    int count = 0;
+    std::string word;
+    for(int i=0; i<S.length(); i++){
+        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
+            if(word.find("I") == 0)
+                count++;
+            word.clear();
+        }else{
+            word += S[i];
         }
     }
-
-    return boredom_count;
+    if(word.find("I") == 0)
+        count++;
+    return count;
 }
