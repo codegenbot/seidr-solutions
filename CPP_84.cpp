@@ -10,7 +10,11 @@ int solve(int n) {
             binary = "1" + binary;
         n /= 2;
     }
-    return binary.length() ? stoi(binary, 0, 2) : 0;
+    if (binary.length() == 0) {
+        cout << "Error: Input is not a positive integer." << endl;
+        return -1;
+    }
+    return stoi(binary, 0, 2);
 }
 
 int main() {
