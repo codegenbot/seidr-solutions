@@ -1,8 +1,8 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a,std::vector<int>b){
+bool issame(std::vector a, std::vector b){
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); ++i) {
         if(a[i] != b[i]) return false;
@@ -10,8 +10,8 @@ bool issame(std::vector<int> a,std::vector<int>b){
     return true;
 }
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
+std::vector make_a_pile(int n) {
+    std::vector pile;
     for (int i = 2 * n; i > 0; --i) {
         pile.push_back(i);
     }
