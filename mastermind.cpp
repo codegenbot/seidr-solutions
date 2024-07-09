@@ -1,5 +1,3 @@
-#include <string>
-
 int mastermind(string code, string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
@@ -25,4 +23,3 @@ int mastermind(string code, string guess) {
     }
 
     return blackPegs + whitePegs;
-}
