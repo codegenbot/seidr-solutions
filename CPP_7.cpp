@@ -3,6 +3,9 @@
 #include <algorithm>
 #include <string>
 
+bool issame(vector<string> a, vector<string> b);
+vector<vector<string>> filter_by_substring(vector<vector<string>> input, string sub);
+
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
