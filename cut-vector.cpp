@@ -16,21 +16,13 @@ int main() {
         sum += nums[i];
     }
 
-    int target = sum / 2;
-    if (sum % 2 != 0) {
-        ++target;
-    }
-    
+    int target = sum / 2 + sum % 2;
     int prefixSum = 0;
     int index = 0;
 
     while (prefixSum < target) {
         prefixSum += nums[index];
         ++index;
-
-        if (cin.eof()) {
-            break;
-        }
     }
 
     if (prefixSum == target) {
@@ -41,6 +33,10 @@ int main() {
         for (int i = 0; i < index; ++i) {
             cout << nums[i] << endl;
         }
+    }
+
+    if (cin.eof()) {
+        break;
     }
 
     return 0;
