@@ -1,9 +1,3 @@
-```cpp
-#include <string>
-#include <map>
-
-using namespace std;
-
 int mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
@@ -39,11 +33,17 @@ int main() {
     string code = "abcd";
     string guess = "abcd";
 
-    map<char, int> code_count;
-    int black = 0;
-
     int result = mastermind(code, guess);
-    cout << "Black pegs: " << result - (code_count.count('a') - 1) << ", White pegs: " << result - black << endl;
+    
+    map<char, int> code_count;
+    for (char c : code) {
+        code_count[c]++;
+    }
+    
+    int black = 0;
+    int white = result - black;
+
+    cout << "Black pegs: " << black << ", White pegs: " << white << endl;
 
     return 0;
 }
