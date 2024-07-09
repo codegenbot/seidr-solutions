@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -14,6 +13,6 @@ int add(vector<int> lst) {
 
 int main() {
     vector<int> lst = {4, 4, 6, 8};
-    cout << add(lst) << endl; // prints 12
+    std::cout << add(lst) << std::endl; // prints 12
     return 0;
 }
