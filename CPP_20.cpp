@@ -35,7 +35,7 @@ Pair find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() { 
-    std::vector<float> testVec(10); // Initialize with a default value
+    std::vector<float> testVec(10, 0.0f);
     for (int i = 0; i < 10; ++i) {
         testVec[i] = static_cast<float>(i + 1.1f);
     }
