@@ -4,7 +4,7 @@ def solve_boolean(expression):
     elif expression == "F":
         return False
     else:
-        stack = [False]
+        stack = []
         for char in reversed(expression):
             if char in ["&", "|"]:
                 right = stack.pop()
@@ -14,7 +14,10 @@ def solve_boolean(expression):
                 elif char == "|":
                     stack.append(left or right)
             else:
-                stack.append(char == "T")
+                if char == "T":
+                    stack.append(True)
+                else:
+                    stack.append(False)
         return stack[0]
 
 print(solve_boolean("f&t&f&f|f|t|f|f|f"))
