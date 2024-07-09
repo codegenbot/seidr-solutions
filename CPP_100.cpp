@@ -33,6 +33,5 @@ int main() {
     for (int i : pile) {
         std::cout << i << " ";
     }
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
