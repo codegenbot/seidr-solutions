@@ -32,6 +32,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         return (stod(strA) > numB) ? a : b;
     }
     else {
-        return a;
+        return a; // Return the original value
     }
 }
