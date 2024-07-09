@@ -1,13 +1,6 @@
 #include <string>
 
-int closest_integer(string value) {
+int closest_integer(std::string value) {
     double num = stod(value);
-    int integer = lround(num);
-
-    if (num - integer >= 0.5)
-        return integer + 1;
-    else
-        return integer;
-
-    return 0;
+    return (num >= 0) ? ceil(num) : floor(num);
 }
