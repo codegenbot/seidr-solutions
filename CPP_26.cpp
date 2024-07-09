@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <memory>
 
 bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() == 0 && b.size() == 0) return true;
@@ -15,7 +14,7 @@ bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
     if (numbers.empty()) return std::vector<int>();
 
-    std::vector<int> uniqueNumbers;
+    std::vector<int> uniqueNumbers = {};
     for (int num : numbers) {
         bool found = false;
         for (int i = 0; i < uniqueNumbers.size(); i++) {
@@ -42,7 +41,7 @@ int main() {
         int num;
         std::cin >> num;
         if (numbers.size() == numbers.capacity()) {
-            numbers.reserve(numbers.capacity() * 2); 
+            std::vector<int>(numbers).reserve(numbers.capacity() * 2); 
         }
         numbers.push_back(num);
     }
