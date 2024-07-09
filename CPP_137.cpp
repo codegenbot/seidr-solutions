@@ -23,6 +23,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         std::string str = boost::any_cast<std::string>(a);
         double num = boost::any_cast<double>(b);
         return (std::stod(str) > num) ? a : b;
+    } else {
+        return "None";
     }
-    return boost::any();
 }
