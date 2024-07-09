@@ -3,9 +3,9 @@ def fix_spaces(text):
     previous_char_was_space = True
     for char in text:
         if char != " ":
-            if previous_char_was_space:
+            if not previous_char_was_space:
                 result += "-"
-            result += char.replace(" ", "_")
+            result += char
             previous_char_was_space = False
         else:
             previous_char_was_space = True
