@@ -1,28 +1,23 @@
-```cpp
-#include <stack>
-#include <string>
-
 bool solveBoolean(std::string s) {
-    std::stack<char> st;
+    std::stack<char> s;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            if (st.empty()) return false;
-            st.push('&');
+            if (s.empty()) return false;
+            s.push('&');
         } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+            while (!s.empty() && s.top() == '|') {
+                s.pop();
             }
-            if (st.empty()) return true;
-            st.push('|');
+            if (s.empty()) return true;
+            s.push('|');
         } else {
-            st.push(s[i]);
+            s.push(s[i]);
         }
     }
-    while (!st.empty()) {
-        st.pop();
+    while (!s.empty()) {
+        s.pop();
     }
-    return st.empty();
-}
+    return s.empty();
