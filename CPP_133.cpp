@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -14,19 +15,13 @@ int sum_squares(std::vector<float> lst){
 int main(){
     assert (sum_squares({-1,1,0})==2);
     std::vector<float> numbers;
-    float n;
+    float num;
     
-    while(std::cin >> n && n != -1.0f){
-        numbers.push_back(n);
+    while(std::cin >> num){
+        numbers.push_back(num);
     }
-
+    
     int result = sum_squares(numbers);
-
-    if (!std::cin.fail()) {
-        std::cout << "Sum of squares: " << result << std::endl;
-    } else {
-        std::cerr << "Invalid input." << std::endl;
-    }
-    
+    std::cout << "Sum of squares: " << result << "\n";
     return 0;
 }
