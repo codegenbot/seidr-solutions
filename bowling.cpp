@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int getBonus(int a, int b) {
@@ -15,16 +14,9 @@ int bowlingScore(std::string s) {
     for(int i = 0; i < s.length(); i++) {
         if(s[i] == 'X') {
             score += 10;
-            if(currentFrame < 9) {
-                char nextChar = (i+2<s.length())?s[i+2]:'/'; // Check the length to avoid out-of-range
-                if(nextChar == '/') {
-                    score += getBonus(10, (s[i+1] - '0'));
-                    currentFrame++;
-                } else {
-                    score += 10 + (s[i+1] - '0');
-                    currentFrame+=2;
-                }
-            } else {
+            currentFrame++;
+            if(currentFrame <= 9 && (i + 2) >= s.length() || s[i+2] != '/') {
+                score += 10;
                 currentFrame++;
             }
         } else if(s[i] == '/') {
@@ -35,11 +27,18 @@ int bowlingScore(std::string s) {
             int roll = s[i] - '0';
             score += roll;
             if(currentFrame < 10) {
-                if(i+2<s.length() && s[i+1] == '/') {
-                    currentFrame+=2;
-                } else if(i+1<s.length()) {
-                    score += getBonus(roll, (s[i+1] - '0'));
-                    currentFrame++;
+                if(i+1 < s.length() && s[i+1] != '/') {
+                    if(s[i+1] == 'X') {
+                        score += 10 + roll;
+                        currentFrame++;
+                        if(currentFrame <= 9 && (i + 2) >= s.length() || s[i+2] != '/') {
+                            score += 10;
+                            currentFrame++;
+                        }
+                    } else {
+                        score += getBonus(roll, s[i+1] - '0');
+                        currentFrame++;
+                    }
                 } else {
                     break;
                 }
@@ -47,4 +46,3 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
-}
