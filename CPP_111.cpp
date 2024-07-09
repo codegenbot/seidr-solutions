@@ -11,7 +11,7 @@ bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
 }
 
 int main() {
-    assert(issame(histogram("a"), {{ 'a', 1 } }));
+    assert(issame(histogram("a"), std::map<char, int>{{'a', 1}}));
     return 0;
 }
 
@@ -21,5 +21,4 @@ std::map<char, int> histogram(const std::string& s) {
         if (hist.count(c)) hist[c]++;
         else hist[c] = 1;
     }
-    return hist;
-}
+    return hist; }
