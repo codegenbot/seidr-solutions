@@ -1,4 +1,4 @@
-```
+```cpp
 #include <string>
 #include <iostream>
 
@@ -11,17 +11,17 @@ bool simplify(string x, string n) {
     a = stoi(x.substr(0, pos));
     b = stoi(x.substr(pos + 1));
 
-    pos = n.find('/');
+    pos = n.find '/';
     c = stoi(n.substr(0, pos));
-    d = stoi(n.substr(pos + 1));
+    d = stoi(n.substr(pos+1));
 
-    return (a * d) == (b * c);
+    return (a*d) == (b*c);
 }
 
 int main() {
-    cout << simplify("1/5", "5/1") << endl; 
-    cout << simplify("1/6", "2/1") << endl; 
-    cout << simplify("7/10", "10/2") << endl; 
+    cout << simplify("1/5", "5/1") << endl; // true
+    cout << simplify("1/6", "2/1") << endl; // false
+    cout << simplify("7/10", "10/2") << endl; // false
 
     return 0;
 }
