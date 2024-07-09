@@ -1,5 +1,9 @@
+```cpp
 #include <sstream>
 #include <iomanip>
 
-std::stringstream ss;
-ss << std::setfill(2) << std::setw(2) << std::hex << (int)md5[i];
+int main() {
+    std::stringstream ss;
+    ss << std::setfill(2) << std::setw(2) << std::hex << (int)md5[i];
+    return 0;
+}
