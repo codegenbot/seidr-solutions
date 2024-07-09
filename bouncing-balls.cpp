@@ -1,20 +1,23 @@
-```cpp
+```c++
+#include <iostream>
+#include <iomanip>
+
 int main() {
-    std::string line;
-    double startHeight, firstBounce;
-    int numBounces;
+    int startHeight, firstBounce, numBounces;
 
-    std::getline(std::cin, line);
-    std::istringstream iss(line);
+    std::cin >> startHeight >> firstBounce >> numBounces;
+    
+    if (!(std::cin)) {
+        return 1;
+    }
 
-    iss >> startHeight >> firstBounce >> numBounces;
+    double bouncinessIndex = static_cast<double>(firstBounce) / static_cast<double>(startHeight);
 
-    double bouncinessIndex = firstBounce / startHeight;
-
-    std::cout << bouncinessIndex << " ";
+    std::cout << std::fixed << std::setprecision(2) << bouncinessIndex << " ";
     for (int i = 1; i <= numBounces; ++i) {
+        startHeight = static_cast<double>(firstBounce);
         firstBounce *= 0.5;
-        std::cout << firstBounce << " ";
+        std::cout << std::setw(4) << std::setprecision(2) << startHeight << " ";
     }
     return 0;
 }
