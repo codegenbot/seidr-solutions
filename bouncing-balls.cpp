@@ -17,7 +17,11 @@ int main() {
         startHeight *= bouncinessIndex; 
     }
 
-    std::cout << "The total distance traveled by the ball is: " << std::fixed << std::showpoint(false) << totalDistance << std::endl;
+    std::cout << "The total distance traveled by the ball is: ";
+    std::cout << std::fixed;
+    std::cout << std::setprecision(0);
+    std::cout << totalDistance;
+    std::cout << std::endl;
 
     return 0;
 }
