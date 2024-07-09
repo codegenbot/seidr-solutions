@@ -21,8 +21,8 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    vector<string> expected = {"grunt", "prune"};
-    vector<string> actual = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    std::vector<std::string> expected = {"grunt", "prune"};
+    std::vector<std::string> actual = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
     assert(issame(actual, expected));
     return 0;
 }
