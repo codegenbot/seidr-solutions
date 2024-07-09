@@ -1,42 +1,39 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool checkResults(vector<string> a, vector<string> b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size();i++){
-        if(a[i] != b[i])return false;
-    }
-    return true;
-}
-
-vector<string> numerical_letter_grade(vector<string> grades) {
-    vector<string> result;
-    for (string grade : grades) {
-        float f = stof(grade);
-        if (f < 0.9)
-            result.push_back("F");
-        else if (f >= 0.9 && f < 1.0)
+std::vector<std::string> numerical_letter_grade(const std::vector<double>& grades) {
+    std::vector<std::string> result;
+    for (double grade : grades) {
+        if (grade >= 0.9)
             result.push_back("A");
-        else if (f >= 0.8 && f < 0.9)
+        else if (grade >= 0.8)
             result.push_back("B");
-        else if (f >= 0.7 && f < 0.8)
+        else if (grade >= 0.7)
             result.push_back("C");
+        else if (grade >= 0.6)
+            result.push_back("D");
         else
-            result.push_back("D+");
+            result.push_back("F");
     }
     return result;
 }
 
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
+}
+
 int main() {
-    vector<string> grades1 = {"0.0", "0.7"};
-    vector<string> result1 = numerical_letter_grade({grades1[0], grades1[1]});
+    std::vector<std::string> result1 = numerical_letter_grade({0.0, 0.7});
     
-    if (checkResults({result1[0]}, {result1[1]})) { 
-        cout << "The two vectors are the same." << endl;
+    if (issame({{"F"}, {"D+"}}, {result1[0], result1[1]})) {
+        std::cout << "The two vectors are the same." << std::endl;
     } else {
-        cout << "The two vectors are not the same." << endl;
+        std::cout << "The two vectors are not the same." << std::endl;
     }
 }
