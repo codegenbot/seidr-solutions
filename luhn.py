@@ -1,4 +1,3 @@
-```
 def luhn():
     card_number = [int(x) for x in str(input("Enter your credit card number: "))]
     total = 0
