@@ -1,21 +1,13 @@
-#include <string>
-#include <cctype>
-
-std::string flip_case(const std::string& s) {
-    std::string result;
-    for (char c : s) {
-        if (islower(c)) {
-            result += toupper(c);
-        } else if (isupper(c)) {
-            result += tolower(c);
+string flip_case(string s) {
+    string result = "";
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] >= 'a' && s[i] <= 'z') {
+            result += char(toupper(s[i]));
+        } else if(s[i] >= 'A' && s[i] <= 'Z') {
+            result += char(int('a') + (s[i] - 'A'));
         } else {
-            result += c;
+            result += s[i];
         }
     }
     return result;
-}
-
-int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    // ... rest of your code ...
 }
