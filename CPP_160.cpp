@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```c++
 #include <sstream>
 #include <vector>
@@ -45,11 +47,13 @@ int main() {
     char op = '+';
     while (std::getline(iss, token)) {
         if (!token.empty()) {
+            // if operator is not '+' then add previous operand and operator to vector
             if (op != '+') {
                 operators_and_operands.push_back({op, operand});
                 op = '+';
                 operand = 0;
             }
+            // process the current token as operand or operator
             if (token[0] == '+') {
                 op = '+';
                 operand = std::stoi(token.substr(1));
