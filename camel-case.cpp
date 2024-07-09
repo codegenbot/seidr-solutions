@@ -1,34 +1,30 @@
+Here is the completed code:
+
 #include <iostream>
-#include <string>
+using namespace std;
 
-std::string camelCase(std::string s) {
-    std::vector<std::string> parts;
-    size_t pos = 0;
-
-    while ((pos = s.find(" ")) != std::string::npos) {
-        parts.push_back(s.substr(0, pos));
-        s.erase(0, pos + 1);
-    }
-
-    if (!s.empty()) {
-        parts.push_back(s);
-    }
-
-    for (size_t i = 0; i < parts.size(); ++i) {
-        std::string part = parts[i];
-        if (i > 0) {
-            part[0] = toupper(part[0]);
+string camelCase(string s) {
+    string result = "";
+    int count = 0;
+    
+    for(int i=0; i<s.size(); i++) {
+        if(s[i] == '-') {
+            result += char(toupper(s[++i]));
+            count++;
+        } else if(count > 0) {
+            result += s[i];
+            count--;
+        } else {
+            result += s[i];
         }
-        s += part;
     }
-
-    return s;
+    
+    return result;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
-    }
+    string input;
+    cin >> input;
+    cout << camelCase(input) << endl;
     return 0;
 }
