@@ -1,8 +1,7 @@
-```
 #include <vector>
 #include <string>
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> vec2) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& vec2) {
     if (a.size() != vec2.size()) return false;
     for (size_t i = 0; i < a.size(); i++) {
         if (a[i] != vec2[i]) return false;
@@ -10,7 +9,7 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> vec2) {
     return true;
 }
 
-std::vector<std::string> totalMatch(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+std::vector<std::string> total_match(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
     int sum1 = 0, sum2 = 0;
     for (const auto& s : lst1) {
         sum1 += s.length();
@@ -20,5 +19,5 @@ std::vector<std::string> totalMatch(std::vector<std::string> lst1, std::vector<s
     }
     if (sum1 < sum2) return lst1;
     else if (sum1 > sum2) return lst2;
-    else return lst1;
+    else return {lst1.begin(), lst1.end()};
 }
