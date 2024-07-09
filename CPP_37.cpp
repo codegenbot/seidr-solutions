@@ -1,4 +1,16 @@
-vector<float> sort_even(vector<float> l) {
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void sort_even(vector<float>& l) {
     vector<float> even_indices;
     for (int i = 0; i < l.size(); i += 2) {
         even_indices.push_back(l[i]);
@@ -15,17 +27,5 @@ vector<float> sort_even(vector<float> l) {
             even_index++;
         }
     }
-    return result;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    l = result;
 }
