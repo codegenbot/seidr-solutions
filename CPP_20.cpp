@@ -1,11 +1,9 @@
+```cpp
 #include <initializer_list>
-#include <vector>
 
 // Function to check if two vectors have same elements
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     // Check if both vectors have the same size and all elements match
-    if (a.size() != b.size()) 
-        return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i])
             return false;
