@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <variant>
@@ -35,8 +34,8 @@ std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int
 }
 
 int main() {
-    std::vector<std::variant<int>> values = {3, 123, 3, 3, 1, 2};
-    std::vector<int> integers = filter_integers({3, 123, 3, 3, 1, 2});
-    bool same = issame(integers, {3, 3});
+    auto values = {3, 123, 3, 3, 1, 2};
+    auto integers = filter_integers({values});
+    bool same = issame(integers, {std::variant<int>(3), std::variant<int>(3)});
     return 0;
 }
