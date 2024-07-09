@@ -1,4 +1,4 @@
-```
+```c++
 #include <iostream>
 #include <string>
 
@@ -15,12 +15,9 @@ string anti_shuffle(string s) {
 }
 
 int main() {
-    string str;
+    string s;
     cout << "Enter a string: ";
-    getline(cin, str);  
-    if (!str.empty()) {
-        string res = anti_shuffle(str);
-        cout << "Anti-Shuffled String: " << res << endl;
-    }
+    getline(cin, s);
+    cout << "Anti-shuffled string: " << anti_shuffle(s) << endl;
     return 0;
 }
