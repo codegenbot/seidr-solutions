@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -49,15 +49,14 @@ int main() {
     std::getline(std::cin, user_input2);
 
     std::istringstream iss(user_input1);
-    std::vector<std::string> lst5;
-    while (std::getline(iss, user_input1, ' ')) {
-        lst5.push_back(user_input1);
+    std::string str;
+    while (std::getline(iss, str, ' ')) {
+        lst1.push_back(str);
     }
 
     std::istringstream iis(user_input2);
-    std::vector<std::string> lst6;
-    while (std::getline(iis, user_input2)) {
-        lst6.push_back(user_input2);
+    while (std::getline(iis, str, ' ')) {
+        lst2.push_back(str);
     }
 
     if (!lst1.empty() && !lst2.empty()) {
@@ -70,8 +69,8 @@ int main() {
         }
     }
 
-    if (!lst5.empty() && !lst6.empty()) {
-        if (issame(lst5, lst6)) {
+    if (!lst1.empty() && !lst2.empty()) {
+        if (issame({lst1[0], lst1[1], lst1[2]}, {lst2[0], lst2[1], lst2[2]})) {
             std::cout << "The lists are the same." << std::endl;
         } else {
             std::cout << "The lists are different." << std::endl;
