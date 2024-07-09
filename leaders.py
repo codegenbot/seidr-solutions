@@ -1,4 +1,3 @@
-```
 def leaders(input):
     return [
         x
