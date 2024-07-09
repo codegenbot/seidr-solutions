@@ -18,7 +18,7 @@ std::vector<std::string> numerical_letter_grade(const std::vector<double>& grade
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool std::operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -29,13 +29,24 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main2() {
-    std::vector<double> input = {0.0, 0.7};
+    std::vector<double> input;
+    int n;
+    std::cout << "Enter the number of grades: ";
+    std::cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        double grade;
+        std::cout << "Enter grade " << i+1 << ": ";
+        std::cin >> grade;
+        input.push_back(grade);
+    }
+    
     std::vector<std::string> result1 = numerical_letter_grade(input);
     
-    std::vector<std::string> result2 = {"F", "C"};
-    if (issame({"F", result1[1]}, result2)) {
-        std::cout << "The two vectors are the same." << std::endl;
-    } else {
-        std::cout << "The two vectors are not the same." << std::endl;
+    for (int i = 0; i < n; i++) {
+        if (result1[i] == "F")
+            std::cout << "Student " << i+1 << " failed." << std::endl;
+        else
+            std::cout << "Student " << i+1 << " passed with grade " << result1[i] << "." << std::endl;
     }
 }
