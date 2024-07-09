@@ -4,13 +4,12 @@
 using namespace std;
 
 bool below_threshold(vector<int>, int) {
-    for (int num : ...) {
-        if (num >= ...) {
+    for (int num : l) {
+        if (num >= t) {
             return false;
         }
     }
     return true;
-}
 
 int main() {
     vector<int> numbers;
