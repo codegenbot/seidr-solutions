@@ -1,8 +1,8 @@
-#include <cmath>
 #include <vector>
-using namespace std;
+#include <cmath>
+#include <cassert>
 
-long long double_the_difference(vector<float> lst) {
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num) { 
@@ -15,7 +15,6 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst = {1.5f, 2.8f, 3.4f};
-    cout << double_the_difference(lst) << endl;
+    std::vector<float> lst = {1.5f, 2.0f, 3.5f}; 
+    assert(double_the_difference(lst) == 14);
     return 0;
-}
