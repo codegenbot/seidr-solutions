@@ -1,27 +1,29 @@
 import re
 
 user_input = input()
-frames = [
-    int("".join(filter(str.isdigit, frame)))
-    for frame in user_input.split("\n")
-    if len(frame.replace("-", "")) > 0
-]
+total_score = 0
+current_frame = 1
+frames = user_input.split("\n")
 
-total_score = sum(
-    [
-        (
-            min(10, k) + (k - 1) * 1
-            if k < 10
-            else k + 30 if "X" in frame.replace("X", "33") else min(k // 2, k)
-        )
-        for k, frame in zip(
-            frames,
-            [
-                str(k).rjust(2) * 0 if len(frame) > 1 else str(k)
-                for k, f in zip(map(int, user_input.split("\n")), frames)
-            ],
-        )
-    ]
-)
+for frame in frames:
+    if len(frame) == 2 and frame[0] == 'X':  
+        total_score += 10 + sum(map(int, frames[:current_frame+1][:2]))
+        current_frame += 1
+    elif '-' in frame:  
+        total_score += 5 + map(int, frame.split('-'))[1]
+        current_frame += 1
+    else:
+        strike_count = 0
+        for roll in map(int, frame.split()):
+            if strike_count == 2:
+                break
+            elif strike_count > 0:  
+                total_score += roll + 10 * (strike_count - 1)
+                current_frame += 1
+                break
+            else:
+                total_score += roll
+        if len(frame.split()) < 2:
+            continue
 
 print(total_score)
