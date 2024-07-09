@@ -1,9 +1,20 @@
 #include <cstddef>
 #include <string>
+#include <iostream>
+
+int mastermind(const std::string& code, const std::string& guess);
 
 int main() {
     std::string code; 
     std::string guess;
+    
+    for(int i=0; i<4; i++) {
+        int c;
+        std::cin >> c;
+        code += (char)(c + '0');
+        guess += (char)(c + '0');
+    }
+    
     int result = mastermind(code, guess);
     return 0;
 }
@@ -33,3 +44,4 @@ int mastermind(const std::string& code, const std::string& guess) {
     }
 
     return blackPegs + whitePegs;
+}
