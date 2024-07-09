@@ -1,6 +1,10 @@
 #include <vector>
 using namespace std;
 
+bool issame(vector<string> a) {
+    return a.size() == 0;
+}
+
 vector<string> bf(string planet1, string planet2) {
     vector<string> result;
 
