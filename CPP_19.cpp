@@ -1,14 +1,33 @@
-Here is the solution:
+#include <algorithm>
+using namespace std;
 
-```cpp
 string sort_numbers(string numbers) {
-    map<string,int> numMap = {{"zero",0},{"one",1},{"two",2},{"three",3},{"four",4},
-                              {"five",5},{"six",6},{"seven",7},{"eight",8},{"nine",9}};
-    vector<string> nums;
-    for (char& c : numbers) {
-        if (!isdigit(c)) {
-            nums.push_back(numMap.begin()->first + (numMap.find(string(1,c))+map<string,int>::iterator::value)->first);
-        }
+    string result = "";
+    map<string, int> numMap;
+    for (int i = 0; i <= 9; i++) {
+        char ch = '0' + i;
+        if (i == 0)
+            numMap["zero"] = i;
+        else
+            numMap[string(1, ch)] = i;
     }
-    sort(nums.begin(),nums.end());
-    return string("#{" + string(&nums[0]) + "}");
+    
+    string nums[numbers.size()];
+    int index = 0;
+    for (int i = 0; i < numbers.size(); i++) {
+        if (numbers[i] == ' ') {
+            index++;
+            continue;
+        }
+        int j = i + 1;
+        while (j <= numbers.size() && numbers[j] != ' ')
+            j++;
+        string str = numbers.substr(i, j - i - 1);
+        nums[index++] = str;
+    }
+    
+    sort(nums, nums + index);
+    for (int i = 0; i < index; i++)
+        result += nums[i] + " ";
+    return result.substr(0, result.size() - 1);
+}
