@@ -1,13 +1,42 @@
-if(date.empty()) return false;
+// Check if the date string is not empty
+    if(date.empty()){
+        return false;
+    } 
+    
+    // Check the format of the date string
+    if(date.size() < 10 || date[2] != '-' || date[5] != '-'){
+        return false;
+    }
 
-    int days, months, year;
-    if(sscanf(date.c_str(), "%d-%d-%d", &months, &days, &year) != 3) return false;
+    int month = stoi(date.substr(0, 2));
+    int day = stoi(date.substr(3, 2));
+    int year = stoi(date.substr(6, 4));
 
-    if(months < 1 || months > 12) return false;
+    // Validate the month
+    if(month < 1 || month > 12){
+        return false;
+    }
 
-    if((months == 1 || months == 3 || months == 5 || months == 7 || months == 8 || months == 10 || months == 12) && (days < 1 || days > 31)) return false;
-    if((months == 4 || months == 6 || months == 9 || months == 11) && (days < 1 || days > 30)) return false;
-    if(months == 2 && (days < 1 || days > 29)) return false;
+    // Validate the day based on month
+    if(day < 1 || day > 31){
+        return false;
+    } 
+
+    if((month == 4 || month == 6 || month == 9 || month == 11) && day > 30){
+        return false;
+    } 
+
+    if(month == 2){
+        if((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)){
+            if(day > 29){
+                return false;
+            }
+        } else {
+            if(day > 28){
+                return false;
+            }
+        }
+    }
 
     return true;
 }
