@@ -7,6 +7,7 @@ vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group = "";
     int open_count = 0;
+    string last_group = "";
 
     for (char c : paren_string) {
         if (c == '(') {
@@ -20,6 +21,17 @@ vector<string> separate_paren_groups(string paren_string) {
                 current_group = "";
             }
         }
+    }
+
+    // add the last group
+    if (open_count > 0) {
+        while (open_count > 0) {
+            last_group += '(';
+            open_count--;
+        }
+        result.push_back(last_group + ')');
+    } else {
+        result.push_back(last_group);
     }
 
     return result;
