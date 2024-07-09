@@ -1,3 +1,4 @@
+```
 #include <boost/any.hpp>
 #include <iostream>
 #include <string>
@@ -8,27 +9,23 @@ boost::any compare_one(boost::any a, boost::any b) {
         return ((int)boost::any_cast<int>(a) > boost::any_cast<float>(b)) ? a : b;
     } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
         return ((int)boost::any_cast<int>(a) > boost::any_cast<double>(b)) ? a : b;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         std::string str = boost::any_cast<std::string>(a);
         int num = boost::any_cast<int>(b);
         return (std::stoi(str) > num) ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (boost::any_cast<float>(a) > static_cast<float>(boost::any_cast<int>(b))) ? a : b;
+        return ((float)boost::any_cast<int>(b) < boost::any_cast<float>(a)) ? a : b;
     } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (boost::any_cast<double>(a) > static_cast<double>(boost::any_cast<int>(b))) ? a : b;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        return ((double)boost::any_cast<int>(b) < boost::any_cast<double>(a)) ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         std::string str = boost::any_cast<std::string>(a);
         float num = boost::any_cast<float>(b);
         return (std::stof(str) > num) ? a : b;
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
+    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
         std::string str = boost::any_cast<std::string>(a);
         double num = boost::any_cast<double>(b);
         return (std::stod(str) > num) ? a : b;
-    } else if ((boost::any_cast<int>(a) > boost::any_cast<int>(b)) || 
-               (boost::any_cast<float>(a) > boost::any_cast<float>(b)) || 
-               (boost::any_cast<double>(a) > boost::any_cast<double>(b))) {
-        return a;
     } else {
-        return b;
+        throw std::runtime_error("Invalid type");
     }
 }
