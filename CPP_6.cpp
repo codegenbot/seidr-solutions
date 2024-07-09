@@ -1,11 +1,5 @@
 #include <vector>
-
-bool issame(int i1, int i2) {
-    if(i1 == i2)
-        return true;
-    else
-        return false;
-}
+#include <stack>
 
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
