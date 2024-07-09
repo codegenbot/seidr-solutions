@@ -1,18 +1,6 @@
 #include <vector>
 #include <string>
 
-bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& strings, const std::string& substring) {
     std::vector<std::string> result;
     for (const auto& s : strings) {
@@ -23,12 +11,13 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
 }
 
 int main() {
-    std::vector<std::string> strings = {"grunt", "trumpet", "prune", "gruesome"};
-    std::string substr = "run";
-    
-    std::vector<std::string> result = filter_by_substring(strings, substr);
-    
-    for (const auto& s : result) {
-        std::cout << s << std::endl;
+    std::vector<std::string> a = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    std::vector<std::string> b = {"grunt", "prune"};
+    if (a == b) {
+        for (const auto& s : a) {
+            std::cout << s << std::endl;
+        }
+    } else {
+        std::cout << "Result is not the same as expected." << std::endl;
     }
 }
