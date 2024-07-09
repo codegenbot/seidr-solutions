@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -34,10 +35,10 @@ Pair find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() { 
-    std::vector<float> testVec(10); // initialize with 10 elements
+    std::vector<float> testVec(10); // not (testVec.size())
     for (int i = 0; i < 10; ++i) {
-        testVec[i] = i + 1.1f;
+        testVec.push_back(i + 1.1f);
     }
     std::vector<float> numbers = testVec;
-    assert(issame({find_closest_elements(numbers).first, find_closest_elements(numbers).second}, {2.2f, 2.3f}));
+    assert(issame({find_closest_elements(numbers).first, find_closest_elements(numbers).second}, {4.2f, 5.3f}));
 }
