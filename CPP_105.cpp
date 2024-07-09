@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -23,34 +22,33 @@ vector<vector<string>> by_length(const vector<int>& arr) {
     for (int n : num) {
         switch (n) {
             case 1:
-                result.push_back({"One"});
+                result.emplace_back({"One"});
                 break;
             case 2:
-                result.push_back({"Two"});
+                result.emplace_back({"Two"});
                 break;
             case 3:
-                result.push_back({"Three"});
+                result.emplace_back({"Three"});
                 break;
             case 4:
-                result.push_back({"Four"});
+                result.emplace_back({"Four"});
                 break;
             case 5:
-                result.push_back({"Five"});
+                result.emplace_back({"Five"});
                 break;
             case 6:
-                result.push_back({"Six"});
+                result.emplace_back({"Six"});
                 break;
             case 7:
-                result.push_back({"Seven"});
+                result.emplace_back({"Seven"});
                 break;
             case 8:
-                result.push_back({"Eight"});
+                result.emplace_back({"Eight"});
                 break;
             case 9:
-                result.push_back({"Nine"});
+                result.emplace_back({"Nine"});
                 break;
         }
     }
 
     return result;
-}
