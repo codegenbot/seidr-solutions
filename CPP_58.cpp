@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool original_issame(vector<int> a, vector<int> b) {
+bool areSameSets(vector<int> a, vector<int> b) {
     set<int> setA(a.begin(), a.end());
     set<int> setB(b.begin(), b.end());
     return setA == setB;
@@ -18,7 +18,7 @@ int main2() {
     vector<int> v2;
     v2.assign({4, 5, 6, 7});
 
-    bool result = original_issame(l1, v2);
+    bool result = areSameSets(l1, v2);
     if(result) {
         cout << "The sets are same." << endl;
     } else {
