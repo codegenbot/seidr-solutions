@@ -1,4 +1,4 @@
-```cpp
+```
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -42,5 +42,4 @@ int main() {
     vector<vector<int>> lst = {{1, 1, 1, 1}};
     assert(issame({1, 2}, {2, 1}));
     vector<vector<int>> result = strange_sort_list(lst);
-    return 0;
 }
