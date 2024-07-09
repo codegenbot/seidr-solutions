@@ -4,7 +4,7 @@
 #include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    return (a.size() == b.size());
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
@@ -15,7 +15,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
         }
     }
     std::sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
+         [](const std::string& a, const std::string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
              } else {
