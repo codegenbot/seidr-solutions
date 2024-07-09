@@ -16,7 +16,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
+std::vector<std::string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
     for (int i = 0; i < s.length(); i++) {
