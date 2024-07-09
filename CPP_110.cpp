@@ -19,8 +19,14 @@ string exchange(vector<int> lst1, vector<int> lst2) {
 }
 
 int main() {
-    vector<int> lst1 = {1, 3, 4};
-    vector<int> lst2 = {2, 4, 6, 8};
+    vector<int> lst1;
+    for (int i : {1, 3, 4}) {
+        lst1.push_back(i);
+    }
+    vector<int> lst2;
+    for (int i : {2, 4, 6, 8}) {
+        lst2.push_back(i);
+    }
     string result = exchange(lst1, lst2);
     if (result == "YES") cout << "YES"; else cout << "NO";
     return 0;
