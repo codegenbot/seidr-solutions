@@ -1,31 +1,43 @@
-#include <stdio.h>
-#include <vector>
 #include <string>
 #include <algorithm>
-using namespace std;
+#include <vector>
 
 vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
-    for (int i = 0; i < s.length(); i++) {
+    vector<char> charArr(s.begin(), s.end());
+    
+    for (char &ch : charArr) {
         bool found = false;
-        for (int j = 0; j < c.length(); j++) {
-            if (s[i] == c[j]) {
+        for (char cc : c) {
+            if (cc == ch) {
                 found = true;
                 break;
             }
         }
+        
         if (!found) {
-            temp += s[i];
+            continue;
+        }
+        
+        size_t pos = 0;
+        while ((pos = charArr.begin() + find(charArr.begin(), charArr.end(), ch) - charArr.begin()) != charArr.end()) {
+            charArr.erase(charArr.begin() + pos);
         }
     }
-    result.push_back(temp);
-    string palindromCheck = temp;
-    reverse(palindromCheck.begin(), palindromCheck.end());
-    if (palindromCheck == temp) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
+    
+    string resultStr((char*)charArr.data());
+    bool isPalindrome = true;
+    size_t start = 0, end = resultStr.length();
+    while (start < end) {
+        if (resultStr[start] != resultStr[end - 1]) {
+            isPalindrome = false;
+            break;
+        }
+        start++;
+        end--;
     }
+    
+    vector<string> result;
+    result.push_back(resultStr);
+    result.push_back(isPalindrome ? "True" : "False");
     return result;
 }
