@@ -12,7 +12,7 @@ int main() {
 }
 
 vector<int> largest_smallest_integers(vector<int> lst) {
-    int largest_negative = 0, smallest_positive = 0;
+    int largest_negative = lst[0], smallest_positive = 0;
     for (int num : lst) {
         if (num < 0 && num < largest_negative) {
             largest_negative = num;
