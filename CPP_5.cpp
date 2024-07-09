@@ -1,10 +1,10 @@
-vector<int> interspersed;
-    if(numbers.empty()){
-        return interspersed;
+vector<int> intersperse(vector<int> numbers, int delimiter){ 
+    vector<int> result;
+    for (int i = 0; i < numbers.size(); ++i) {
+        result.push_back(numbers[i]);
+        if (i < numbers.size() - 1) {
+            result.push_back(delimiter);
+        }
     }
-    interspersed.push_back(numbers[0]);
-    for(int i=1; i<numbers.size(); i++){
-        interspersed.push_back(delimeter);
-        interspersed.push_back(numbers[i]);
-    }
-    return interspersed;
+    return result;
+}
