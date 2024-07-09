@@ -19,17 +19,4 @@ vector<int> count_up_to(int n) {
         }
     }
     return primes;
-
-}
-
-int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    vector<int> result = count_up_to(n);
-    cout << "Primes up to " << n << ": ";
-    for (int prime : result) {
-        cout << prime << " ";
-    }
-    cout << endl;
 }
