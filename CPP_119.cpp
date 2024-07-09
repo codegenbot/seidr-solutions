@@ -1,16 +1,13 @@
-int countParens(const string& s) {
-    int balance = 0;
-    for (char c : s) {
-        if (c == '(') {
-            balance++;
-        } else {
-            balance--;
+int sum = 0;
+    for (string s : lst) {
+        for (char c : s) {
+            if (c == '(') {
+                sum++;
+            } else {
+                if (sum == 0) return "No";
+                sum--;
+            }
         }
     }
-    return balance;
-}
-
-string match_parens(vector<string> lst) {
-    int balance = countParens(lst[0]) + countParens(lst[1]);
-    return (balance == 0) ? "Yes" : "No";
+    return sum == 0 ? "Yes" : "No";
 }

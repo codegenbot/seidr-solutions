@@ -7,7 +7,6 @@ bool issame(vector<int> a, vector<int> b) {
         }
         return countX < countY;
     });
-    
     sort(b.begin(), b.end(), [](int x, int y) {
         int countX = __builtin_popcount(x);
         int countY = __builtin_popcount(y);
@@ -16,6 +15,5 @@ bool issame(vector<int> a, vector<int> b) {
         }
         return countX < countY;
     });
-
     return a == b;
 }
