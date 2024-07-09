@@ -1,7 +1,8 @@
-```cpp
-#include <algorithm>
+#include <iostream>
 #include <string>
+#include <vector>
 #include <sstream>
+#include <algorithm>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::stringstream ss(str);
@@ -15,23 +16,23 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     return tokens;
 }
 
-void spinWords(const std::string& str) {
+std::string spinWords(const std::string& str) {
     std::vector<std::string> words = split(str, ' ');
     std::string result;
 
     for (int i = 0; i < words.size(); i++) {
+        std::string temp = words[i];
         if (words[i].length() >= 5) {
-            std::string temp = words[i];
             std::reverse(temp.begin(), temp.end());
             result += temp + " ";
         } else {
-            result += words[i] + " ";
+            result += temp + " ";
         }
     }
 
-    std::cout << result.substr(0, result.size() - 1) << std::endl;
+    return result.substr(0, result.size() - 1);
 }
 
 int main() {
-    spinWords("Hello World");
+    std::cout << spinWords("Hello World") << std::endl;
 }
