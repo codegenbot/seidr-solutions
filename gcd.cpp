@@ -14,7 +14,7 @@ int findGCD(int a, int b) {
 }
 
 std::vector<int> findIndices(const std::string& text, const std::string& target) {
-    std::vector<int> indices;  
+    std::vector<int> indices(std::numeric_limits<std::size_t>::max());  // Set max size to the possible value for an unsigned integer
     size_t pos = 0;
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
