@@ -1,7 +1,7 @@
 #include <vector>
+#include <climits>
 #include <algorithm>
 #include <iostream>
-#include <climits>
 using std::vector;
 using namespace std;
 
