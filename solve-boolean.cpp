@@ -1,4 +1,3 @@
-```c++
 #include <cstddef>
 #include <string>
 
@@ -52,14 +51,13 @@ bool solveBoolean(const std::string& s) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a Boolean expression: ";
-    std::getline(std::cin, input);
-    bool result = solveBoolean(input);
-    if (result) {
-        std::cout << "The result is True." << std::endl;
-    } else {
-        std::cout << "The result is False." << std::endl;
-    }
+    std::string s;
+    std::cout << "Enter Boolean expression (T/F/|/&): ";
+    std::getline(std::cin, s);
+    bool result = solveBoolean(s);
+    if(result)
+        std::cout << "True" << std::endl;
+    else
+        std::cout << "False" << std::endl;
     return 0;
 }
