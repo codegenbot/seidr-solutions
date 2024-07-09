@@ -1,7 +1,3 @@
-#include <iostream>
-#include <iomanip>
-using namespace std;
-
 float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     float totalSnow = 0;
     
