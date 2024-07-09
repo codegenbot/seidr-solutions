@@ -2,10 +2,10 @@ float max_element(vector<float> l);
 #include <cmath>
 
 float max_element(vector<float> l){
-    float max = l[0];
+    float max = abs(l[0]);
     for(int i=1; i<l.size(); i++){
-        if(l[i] > max)
-            max = l[i];
+        if(abs(l[i]) > max)
+            max = abs(l[i]);
     }
     return max;
 }
