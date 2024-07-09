@@ -1,7 +1,8 @@
 #include <vector>
 #include <cassert>
 
-vector<int> stones;
+std::vector<int> contestProblem(int n){
+    std::vector<int> stones;
     stones.push_back(n);
     for(int i=1; i<n; ++i){
         if(n%2 == 0){
@@ -13,3 +14,4 @@ vector<int> stones;
         stones.push_back(n);
     }
     return stones;
+}
