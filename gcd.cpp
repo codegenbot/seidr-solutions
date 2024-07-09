@@ -1,3 +1,5 @@
+#include <iostream>
+
 int main() {
     int a, b;
     std::cout << "Enter two integers: ";
@@ -8,11 +10,11 @@ int main() {
 }
 
 int findGCD(int a, int b) {
-    if (b == 0) return labs(a);
+    if (b == 0) return std::abs(a);
     while (b != 0) {
         int temp = b;
-        b = labs(a) % labs(b);
+        b = std::abs(a) % std::abs(b);
         a = temp;
     }
-    return labs(b); 
+    return std::abs(b); 
 }
