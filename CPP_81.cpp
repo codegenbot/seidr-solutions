@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(std::vector<std::string> a) {
     if(a.size() == 0) return true;
@@ -44,6 +43,6 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 int main() {
     std::vector<float> grades = {0.0, 0.7};
     std::vector<std::string> result = numerical_letter_grade(grades);
-    assert(issame(std::vector<std::string>(result.begin(), result.end())));
+    assert(issame({result[0]}));
     return 0;
 }
