@@ -1,18 +1,13 @@
-Here is the solution:
+Here is the completed code:
 
 vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
-    vector<pair<float, float>> closestPair;
-    float minDiff = numeric_limits<float>::max();
+    pair<float, float> closest_pair = make_pair(numbers[0], numbers[1]);
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = abs(numbers[i] - numbers[j]);
-            if (diff < minDiff) {
-                minDiff = diff;
-                closestPair = {{numbers[i], numbers[j]}};
-            } else if (diff == minDiff) {
-                closestPair.push_back({{numbers[i], numbers[j]}});
+            if (abs(numbers[j] - numbers[i]) < abs(closest_pair.second - closest_pair.first)) {
+                closest_pair = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
             }
         }
     }
-    return closestPair[0];
+    return vector<pair<float, float>>{closest_pair};
 }
