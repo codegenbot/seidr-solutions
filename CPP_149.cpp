@@ -20,24 +20,13 @@ int main() {
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    sort(lst.begin(), lst.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
-    
-    vector<int> lengths;
-    for(const auto& str : lst) {
-        lengths.push_back(str.length());
+    sort(lst.begin(), lst.end());
+    long sum = 0;
+    for (const auto& str : lst) {
+        sum += str.length();
     }
-    
-    int sum = 0;
-    for(int i = 0; i < lengths.size(); i++) {
-        sum += lengths[i];
-    }
-    
-    return lst;
+    std::string res = "Sum: ";
+    res += to_string(sum);
+    vector<std::string> result{res};
+    return result;
 }
