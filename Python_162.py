@@ -1,21 +1,29 @@
 ```
-def calculate_md5_and_length(text):
-    if not text:
-        return None
-    md5_hash = hashlib.md5(text.encode()).hexdigest()
-    length = len(text)
-    return md5_hash, length
+def calculate_grade(points):
+    if points < 0:
+        return "Invalid number of points"
+    elif points < 50:
+        return "F"
+    elif points < 60:
+        return "D-"
+    elif points < 70:
+        return "D"
+    elif points < 80:
+        return "C-"
+    elif points < 90:
+        return "C"
+    else:
+        return "A"
 
 if __name__ == "__main__":
     while True:
-        user_input = input("Enter a string (or 'q' to quit): ")
+        user_input = input("Enter the number of points (or 'q' to quit): ")
         if user_input.lower() == "q":
             break
         try:
-            result = calculate_md5_and_length(user_input)
-            if not result[0]:
+            if not user_input: 
                 print("Program did not receive expected input")
             else:
-                print(f"MD5 of '{user_input}': {result[0]}  Length: {result[1]}")
+                print(f"Grade for {user_input} points is: {calculate_grade(int(user_input))}")
         except Exception as e:
             print(f"Error: {e}")
