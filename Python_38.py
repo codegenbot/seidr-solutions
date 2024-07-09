@@ -8,4 +8,4 @@ def decode_cyclic(s: str):
         else:
             result += s[i - 1]
         i += 1
-    return result.
+    return result
