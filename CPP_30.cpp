@@ -1,14 +1,14 @@
 #include <vector>
 #include <float.h>
 
-bool issame(vector<float> a,vector<float>b){
-    if(a.size() != b.size())
+bool issame(vector<float> a, vector<float> b) {
+    if(a.size() != b.size()) 
         return false;
-    for(float num : a) {
-        if(std::find(b.begin(),b.end(),num) == b.end())
+    for(int i = 0; i<a.size(); i++) 
+        if(fabs(a[i] - b[i]) > FLT_EPSILON) 
             return false;
-    }
     return true;
+}
 
 vector<float> get_positive(vector<float> l){
     vector<float> result;
