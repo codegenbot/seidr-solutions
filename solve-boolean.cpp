@@ -1,3 +1,4 @@
+#include <stack>
 #include <string>
 
 string solveBoolean(string s) {
@@ -13,8 +14,8 @@ string solveBoolean(string s) {
             while (!st.empty()) st.pop();
             st.push(s[i]);
         } else {
-            st.push(s[i] == 'T' ? '1' : '0');
+            st.push(s[i]);
         }
     }
-    return st.top() == '1' ? "True" : "False";
+    return st.top() == 'T' ? "True" : "False";
 }
