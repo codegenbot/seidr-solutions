@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -35,4 +32,5 @@ int solution() {
 
 int main() {
     solution();
+    return 0;
 }
