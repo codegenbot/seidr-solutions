@@ -1,4 +1,14 @@
-```cpp
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<string> a, vector<string>b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 vector<string> sorted_list_sum(vector<string> lst) {
     // Filter out strings with odd lengths
     vector<string> evenLengthStrings;
@@ -21,7 +31,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return evenLengthStrings;
 }
 
-int test() {
+int main() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
     vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
     assert(sorted_list_sum(input) == expected);
