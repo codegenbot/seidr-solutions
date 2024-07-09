@@ -1,7 +1,7 @@
 ```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    quarters, nickles, dimes, pennies = 0, 0, 0, 0
+    quarters = nickles = dimes = pennies = 0
     while cents > 0:
         if cents >= 25:
             quarters += cents // 25
