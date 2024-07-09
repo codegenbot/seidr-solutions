@@ -1,28 +1,31 @@
-```c++
-int sum = 0;
-int digit;
+```cpp
+#include <iostream>
+#include <string>
 
-std::cout << "Enter 16 digits: ";
-while (!(std::cin >> digit) || digit < 0 || digit > 9) {
-    std::cout << "Invalid input. Please enter a digit between 0 and 9: ";
-    std::cin.clear();
-    std::cin.ignore(10000, '\n');
-    std::cin >> std::ws;
+int luhn(std::string ccNum) {
+    int sum = 0;
+    for (int i = 0; i < ccNum.length(); i++) {
+        int digit = ccNum[i] - '0';
+        if ((i % 2 == 1)) {
+            digit *= 2;
+            if (digit > 9)
+                digit -= 9;
+        }
+        sum += digit;
+    }
+    return sum;
 }
 
-int temp = 0;
-bool isDouble = false;
+int main() {
+    std::string ccNum;
+    std::cout << "Enter a credit card number: ";
+    std::cin >> ccNum;
 
-for (int i = 0; i < 16; ++i) {
-    digit = digit * 10 + sum;
-    if (digit > 9) {
-        digit -= 9;
-    }
-    sum += digit;
-    if (isDouble) {
-        temp += digit;
-    }
-    isDouble = !isDouble;
+    int result = luhn(ccNum);
+    if (result % 10 == 0)
+        std::cout << "The credit card number is valid." << std::endl;
+    else
+        std::cout << "The credit card number is invalid." << std::endl;
+
+    return 0;
 }
-
-std::cout << "The sum of all the new digits is: " << sum << std::endl;
