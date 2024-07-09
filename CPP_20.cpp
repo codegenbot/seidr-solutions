@@ -9,11 +9,11 @@ vector<float> find_closest_elements(vector<float> numbers) {
             float diff = abs(numbers[i] - numbers[j]);
             if (diff < min_diff) {
                 min_diff = diff;
-                closest_pair = make_pair(min(max(numbers[i], numbers[j]), min_diff), max(min(numbers[i], numbers[j]), min_diff));
+                closest_pair = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
             }
         }
     }
     vector<float> result;
-    result.push_back((numbers[closest_pair.first] + numbers[closest_pair.second]) / 2);
+    result.push_back((closest_pair.second + closest_pair.first) / 2);
     return vector<float>(1, result[0]);
 }
