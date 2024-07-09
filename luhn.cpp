@@ -17,10 +17,13 @@ int luhn(std::vector<int> ccNum) {
 }
 
 int main() {
-    std::vector<int> ccNum(16); 
+    std::vector<int> ccNum;
+    ccNum.resize(16); 
     std::cout << "Enter a credit card number: ";
     for (int i = 0; i < 16; ++i) {
-        std::cin >> ccNum[i];
+        int num;
+        std::cin >> num;
+        ccNum[i] = num;
     }
     int result = luhn(ccNum);
     std::cout << "The Luhn check value is: " << result << std::endl;
