@@ -33,38 +33,32 @@ string int_to_mini_roman(int num) {
             num -= 400;
             result += "CD";
         } else if (num >= 100) {
-            for(int i = 3; num >= i * 100; i *= 10) {
-                num -= i * 100;
+            for(int i = 0; ; ++i) {
+                if((i * 10) > num) break;
+                num -= i * 10;
+                result += "C";
                 for(int j = 0; j < i - 1; ++j) {
                     result += "X";
                 }
-                result += "C";
             }
         } else if (num >= 90) {
             num -= 90;
             result += "XC";
         } else if (num >= 50) {
-            for(int i = 3; num >= i * 50; i *= 10) {
-                num -= i * 50;
-                for(int j = 0; j < i - 1; ++j) {
-                    result += "X";
-                }
-                result += "L";
-            }
+            num -= 50;
+            result += "L";
         } else if (num >= 40) {
             num -= 40;
             result += "XL";
         } else if (num >= 10) {
-            for(int i = 3; num >= i * 10; i *= 10) {
+            for(int i = 0; ; ++i) {
+                if((i * 10) > num) break;
                 num -= i * 10;
+                result += "X";
                 for(int j = 0; j < i - 1; ++j) {
-                    result += "X";
+                    result += "I";
                 }
-                result += "I";
             }
-        } else if (num >= 9) {
-            num -= 9;
-            result += "IX";
         } else {
             while(num > 0) {
                 if(num >= 3) {
