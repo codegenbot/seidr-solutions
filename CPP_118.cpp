@@ -1,12 +1,6 @@
 #include <string>
-#include <cctype>
 
 using namespace std;
-
-bool isvowel(char c) {
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
-}
 
 string get_closest_vowel(string word) {
     int n = word.size();
@@ -19,9 +13,4 @@ string get_closest_vowel(string word) {
         if (isvowel(word[i])) return word.substr(i);
     }
     return "";
-}
-
-int main() {
-    assert(get_closest_vowel("Above") == "o");
-    return 0;
 }
