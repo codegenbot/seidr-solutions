@@ -28,7 +28,7 @@ int main() {
 
     std::vector<int> lst;
     for (int i = 0; i < n; ++i) {
-        int num; 
+        int num;
         while (!(std::cout << "Enter element " << i + 1 << ": ")) {
             if (!std::cin)
                 std::cout << "Invalid input. Please enter a positive integer.\n";
