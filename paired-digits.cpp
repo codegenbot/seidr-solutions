@@ -1,3 +1,7 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
 int pairedDigits(string s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
@@ -6,4 +10,11 @@ int pairedDigits(string s) {
         }
     }
     return sum;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << pairedDigits(s) << endl;
+    return 0;
 }
