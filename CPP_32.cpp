@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -18,10 +19,10 @@ double find_zero(std::vector<double> coeffs, double x){
 
 int main() {
     // Declare and initialize the coeffs vector
-    std::vector<double> coeffs;
-    
+    std::vector<double> coeffs = {1.0, -5.0, 6.0, -3.0};
+
     // Call find_zero function here
-    double solution = find_zero(coeffs, 1.5);
+    double solution = find_zero(coeffs, 0);
 
     // Ensure that poly is used after its declaration
     for(int i = 0; i < 10; i++) {
