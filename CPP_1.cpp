@@ -1,14 +1,26 @@
-bool issame(const string& s1, const string& s2) {
-    return s1 == s2;
+bool issame(string a, string b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return a == b;
 }
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    string input_str;
-    cin >> input_str;
+    string input;
+    cout << "Enter a string with parentheses: ";
+    cin >> input;
+    vector<string> groups = separate_paren_groups(input);
 
-    vector<string> groups = separate_paren_groups(input_str);
+    for (string group : groups) {
+        string first_part = group.substr(0, group.size() / 2);
+        string second_part = group.substr(group.size() / 2);
+        if (issame(first_part, second_part)) {
+            cout << group << " has the property.\n";
+        } else {
+            cout << group << " does not have the property.\n";
+        }
+    }
 
     return 0;
 }
