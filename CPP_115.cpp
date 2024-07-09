@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,12 +14,12 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
 
     int steps = -(-total_water / capacity);
     return steps;
-
 }
 
 int main() {
-    std::vector<std::vector<int>> grid = {{0, 0, 0}, {1, 1, 0}, {0, 1, 0}};
+    std::vector<std::vector<int>> grid = {{0, 0, 0}, {1, 1, 0}, {1, 1, 0}};
     int capacity = 2;
-    std::cout << "Maximum number of steps to fill the grid: " << max_fill(grid, capacity) << std::endl;
+    int maxStep = max_fill(grid, capacity);
+    std::cout << "Maximum steps to fill the container: " << maxStep << std::endl;
     return 0;
 }
