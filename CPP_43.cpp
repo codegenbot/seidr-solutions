@@ -7,7 +7,7 @@ bool pairs_sum_to_zero(std::vector<std::pair<int, int>> l) {
     std::set<int> s;
     for (const auto& p : l) {
         if(p.second != -p.first)
-            return false; // Each pair must sum to zero.
+            return false; 
         s.insert(p.first);
     }
     for (auto it = s.begin(); it != s.end(); ++it) { 
@@ -16,7 +16,7 @@ bool pairs_sum_to_zero(std::vector<std::pair<int, int>> l) {
             return true;
         }
     }
-    return false; // No pairs sum to zero.
+    return false; 
 }
 
 int main() {
