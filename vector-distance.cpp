@@ -1,9 +1,3 @@
-#include <iostream>
-#include <cmath>
-#include <iomanip>
-
-using namespace std;
-
 double vectorDistance() {
     int n;
     cin >> n;
@@ -22,10 +16,4 @@ double vectorDistance() {
     delete[] v1;
     delete[] v2;
     return sqrt(distance);
-}
-
-int main() {
-    cout << fixed << setprecision(10) << vectorDistance() << endl;
-
-    return 0;
 }
