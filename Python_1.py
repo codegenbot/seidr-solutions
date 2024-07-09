@@ -1,18 +1,8 @@
-```
-def find_max_min():
-    n = int(input("Enter the number of elements: "))
-    min_val = float('inf')
-    max_val = float('-inf')
-    
-    for _ in range(n):
-        num = float(input(f"Enter element {i+1}: "))
-        if num < min_val:
-            min_val = num
-        elif num > max_val:
-            max_val = num
-    
-    return min_val, max_val
+def solve_task():
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+    result = num1 + num2
+    print(result)
+    return result
 
-min_val, max_val = find_max_min()
-print("Minimum value is", min_val)
-print("Maximum value is", max_val)
+solve_task()
