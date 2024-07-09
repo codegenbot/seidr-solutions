@@ -13,7 +13,13 @@ bool has_close_elements(std::vector<float> numbers, float threshold){
 }
 
 int main(){
-    std::vector<float> a={1e-9 + 1.0, 1e-9 + 2.0, 1e-9 + 3.9, 1e-9 + 4.0, 1e-9 + 5.0, 1e-9 + 2.2};
-    assert(has_close_elements({1e-9 + 1.1, 1e-9 + 2.2, 1e-9 + 3.1, 1e-9 + 4.1, 1e-9 + 5.1}, 0.5) == false);
+    std::vector<float> a;
+    a.push_back(1.0); 
+    a.push_back(2.0);
+    a.push_back(3.9);
+    a.push_back(4.0);
+    a.push_back(5.0);
+    a.push_back(2.2);
+    assert(has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.5) == false);
     return 0;
 }
