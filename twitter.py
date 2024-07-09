@@ -1,6 +1,6 @@
-```
 def validate_tweet(tweet):
-    if len(''.join(filter(str.isalnum, tweet)).replace('\\', '').replace('\\x', '')) > 140:
+    tweet = ''.join(e for e in tweet if e.isalnum() or e.isspace())
+    if len(tweet) > 140:
         return "Too many characters"
     elif tweet == "":
         return "You didn't type anything"
