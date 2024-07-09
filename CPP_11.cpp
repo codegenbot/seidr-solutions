@@ -22,10 +22,14 @@ int main() {
     std::string str1, str2;
     std::cout << "Enter the first string: ";
     std::getline(std::cin, str1);
-    std::cin.ignore(); // Fix
+
+    // Clear the buffer
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     std::cout << "Enter the second string: ";
     std::getline(std::cin, str2);
-    std::cin.ignore(); // Fix
+    std::cin.ignore(); 
+
     try {
         std::string result = string_xor(str1, str2);
         std::cout << "XOR of the two strings is: " << result << std::endl;
