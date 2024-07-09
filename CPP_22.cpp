@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <list>
 
@@ -20,9 +19,17 @@ std::vector<int> filter_integers(std::list<bool> values) {
         if (value) {
             int num;
             // Check that the next value in the list is an integer
-            if (values.begin()->second.type() == typeid(int)) {
-                num = std::any_cast<int>(std::any(values.begin()->second));
-                result.push_back(num);
+            for (auto it = values.begin(); it != values.end(); ++it) {
+                if (std::any_cast<bool>(*it)) {
+                    continue;
+                }
+                try {
+                    num = std::any_cast<int>(*it);
+                    result.push_back(num);
+                    break;
+                } catch(const std::bad_any_cast& e) {
+                    // handle error
+                }
             }
         }
     }
