@@ -1,3 +1,18 @@
+```cpp
+#include <algorithm>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+string join(const vector<string>& vec, const string& sep) {
+    string result;
+    for (const auto& s : vec) {
+        result += s + sep;
+    }
+    return result.substr(0, result.size() - 1);
+}
+
 string split(const string& str, char sep) {
     vector<string> tokens;
     size_t pos = 0;
@@ -9,10 +24,23 @@ string split(const string& str, char sep) {
     return join(tokens, " ");
 }
 
-string join(const vector<string>& vec, const string& sep) {
-    string result;
-    for (const auto& s : vec) {
-        result += s + sep;
+string anti_shuffle(string s) {
+    vector<string> words;
+    string word = "";
+    for (const auto& c : s) {
+        if (c == ' ') {
+            words.push_back(word);
+            word = "";
+        } else {
+            word += c;
+        }
+    }
+    words.push_back(word);
+
+    string result = "";
+    for (const auto& word : words) {
+        sort(word.begin(), word.end());
+        result += word + " ";
     }
     return result.substr(0, result.size() - 1);
 }
