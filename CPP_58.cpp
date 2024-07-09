@@ -1,10 +1,15 @@
-vector<int> common(vector<int> l1, vector<int> v2) {
-    set<int> s1(l1.begin(), l1.end());
-    set<int> s2(v2.begin(), v2.end());
+#include <vector>
+#include <set>
 
-    set<int> common_result;  
-    common_result = set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    std::vector<int> l1 = {1,2,3};
+    std::vector<int> v2 = {4,5,6};
+    std::set<int> common_result;
+    common_result = set_intersection(l1.begin(), l1.end(), v2.begin(), v2.end(),
         inserter(common_result, common_result.begin()));
-    vector<int> result_vector(common_result.begin(), common_result.end());
-    return result_vector;
+    return 0;
 }
