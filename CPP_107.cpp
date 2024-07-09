@@ -1,5 +1,12 @@
-```cpp
 #include <vector>
+
+bool isSame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[std::abs(i - (a.size() - 1))]) return false;
+    }
+    return true;
+}
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result;
@@ -12,20 +19,13 @@ std::vector<int> even_odd_palindrome(int n) {
     return result;
 }
 
-bool arePals(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[std::abs(i - (a.size() - 1))]) return false;
-    }
-    return true;
-}
-
 int main() {
-    int n = 5;
-    std::vector<int> expected({0, 1, 0, 1, 0});
-    for(int i=0; i<n; i++){
-        if(i%2 == 0) expected.push_back(0);
-        else expected.push_back(1);
+    std::vector<int> expected = {};
+    for(int i = 0; i <= 5; ++i) {
+        if(i % 2 == 0)
+            expected.push_back(0);
+        else
+            expected.push_back(1);
     }
-    assert(arePals(even_odd_palindrome(n), expected));
+    assert(isSame(even_odd_palindrome(5), expected));
 }
