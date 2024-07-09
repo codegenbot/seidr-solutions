@@ -1,11 +1,9 @@
 #include <vector>
 
 bool issame(vector<int> a,vector<int>b){
-    if(a.size() != b.size())
-        return false;
+    if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
-            return false;
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
@@ -21,7 +19,6 @@ vector<int> pluck(vector<int> arr){
     for(int i=0; i<arr.size(); i++){
         if(arr[i] % 2 == 0 && arr[i] < smallest_even){
             smallest_even = arr[i];
-            result.clear();
             result.push_back(smallest_even);
             result.push_back(i);
         }
