@@ -2,47 +2,21 @@
 #include <string>
 using namespace std;
 
-bool evaluateBoolExpression(string expr) {
-    if (expr == "T") {
-        return true;
-    } else if (expr == "F") {
-        return false;
+bool evaluateBooleanExpression(string expression) {
+    if (expression.find('&') != string::npos) {
+        return expression.find('T') != string::npos && expression.find('F') != string::npos ? false : true;
+    } else if (expression.find('|') != string::npos) {
+        return expression.find('T') != string::npos || expression.find('F') != string::npos ? true : false;
+    } else {
+        return expression == "T" ? true : false;
     }
-
-    bool result = false;
-    bool operand1, operand2;
-    char op = ' ';
-    
-    for (char c : expr) {
-        if (c == 'T') {
-            result = true;
-        } else if (c == 'F') {
-            result = false;
-        } else if (c == '|' || c == '&') {
-            op = c;
-        } else if (op == '|') {
-            result = (result || (c == 'T'));
-            op = ' ';
-        } else if (op == '&') {
-            result = (result && (c == 'T'));
-            op = ' ';
-        }
-    }
-    
-    return result;
 }
 
 int main() {
     string input;
     getline(cin, input);
-    
-    bool result = evaluateBoolExpression(input);
 
-    if (result) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    cout << (evaluateBooleanExpression(input) ? "True" : "False") << endl;
 
     return 0;
 }
