@@ -1,6 +1,7 @@
 def main():
     n = int(input("Enter an integer: "))
-    result = "".join(str(int(i) ** 2).rjust(1) for i in str(n))
+    result = "".join(str(int(i) ** 2) for i in str(n).lstrip('0'))
     print(result)
 
-main()
+if __name__ == "__main__":
+    main()
