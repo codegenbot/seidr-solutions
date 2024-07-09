@@ -2,8 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<std::string> a) {
-    return std::equal(a.begin(), a.end());
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return (a == b);
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
@@ -31,7 +31,10 @@ int main() {
     }
     cout << endl;
     
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})) == true); 
-
+    if(issame({"cc","dd","aaaa","bbbb"},sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})))
+    std::cout << "Vectors are the same" << std::endl;  
+    else 
+    std::cout << "Vectors are not the same" << std::endl;  
+    
     return 0;
 }
