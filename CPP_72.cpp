@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 using namespace std;
@@ -19,16 +18,18 @@ bool will_it_fly(vector<int> q, int w) {
 int main() {
     vector<int> q;
     int w;
-    cout << "Enter the weight: ";
+    cout << "Enter the number of queries: ";
     cin >> w;
-    cout << "Enter the query weights: ";
-    for(int i=0; i<q.size();i++){
-        cin >> q[i];
+    cout << "Enter the weights: ";
+    for (int i = 0; i < w; i++) {
+        int weight;
+        cin >> weight;
+        q.push_back(weight);
     }
-    if(will_it_fly(q, w)){
-        cout << "The aircraft will fly.";
-    } else {
-        cout << "The aircraft won't fly.";
-    }
+    if(will_it_fly(q, w)) 
+        cout << "The package will fly." << endl;
+    else
+        cout << "The package won't fly." << endl;
+    
     return 0;
 }
