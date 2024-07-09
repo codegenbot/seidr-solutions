@@ -1,11 +1,9 @@
 #include <vector>
 using namespace std;
+#include <climits>
+#include <cmath>
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    #include <climits>
-    #include <cmath>
-
-    pair<vector<int>, vector<int>> result;
     int min_diff = INT_MAX;
     int cut_index = 0;
     for (int i = 1; i <= vec.size(); i++) {
@@ -17,9 +15,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
             right_sum += vec[k];
         }
         if (left_sum == right_sum) {
-            result.first = {};
-            result.second = vec;
-            return result;
+            return {{}, vec};
         }
         int diff = abs(left_sum - right_sum);
         if (diff < min_diff) {
@@ -35,6 +31,5 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     for (int i = cut_index; i < vec.size(); i++) {
         right.push_back(vec[i]);
     }
-    result = {left, right};
-    return result;
+    return {left, right};
 }
