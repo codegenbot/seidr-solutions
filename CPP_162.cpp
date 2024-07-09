@@ -1,28 +1,44 @@
 ```cpp
-std::string string_to_md5(const std::string& text) {
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cstring>
+#include <openssl/ssl.h>
+#include <openssl/crypto.h>
+
+std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
 
+    unsigned char md5[16];
     EVP_MD_CTX mdctx;
-    unsigned char md[16];
-    const EVP_MD* md_type = EVP_md5();
-    int result = EVP_DigestInit_ex(&mdctx, md_type, NULL);
-    assert(result == 1);
-
+    EVP_PKEY *md5_sig = EVP_get_digestbyname("MD5");
+    EVP_DigestInit(&mdctx, md5_sig);
     const char* p = text.c_str();
     while (*p) {
-        EVP_DigestUpdate(&mdctx, &(*p), 1);
+        EVP_DigestUpdate(&mdctx, p, 1);
         p++;
     }
+    unsigned char *digest;
+    int len;
+    EVP_DigestFinal(&mdctx, md5, &len);
+    digest = (unsigned char *)malloc(len);
+    memcpy(digest, md5, len);
 
-    EVP_DigestFinal_ex(&mdctx, md, (unsigned int*)&result);
-    assert(result == 0);
-
-    std::string result_str(32, '0');
+    std::string result(32, '0');
     for (int i = 0; i < 16; ++i) {
         char buf[3];
-        sprintf(buf, "%02x", md[i]);
-        result_str.replace(i * 2, 2, buf);
+        sprintf(buf, "%02x", digest[i]);
+        result.replace(i*2, 2, buf);
     }
 
-    return result_str;
+    free(digest);
+    return result;
+}
+
+int main() {
+    std::string text;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, text);
+    std::cout << "MD5: " << string_to_md5(text) << std::endl;
+    return 0;
 }
