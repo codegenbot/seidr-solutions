@@ -1,7 +1,3 @@
-bool issame(pair<string, int> p1, pair<string, int> p2) {
-    return p1.second == p2.second;
-}
-
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1;
