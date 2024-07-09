@@ -1,8 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cctype>
-#include <cassert>
-#include <initializer_list>
 
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int max_strength = 0;
@@ -31,4 +30,3 @@ int main() {
     assert(Strongest_Extension("Student", extensions) == "Student.671235");
     return 0;
 }
-#include <initializer_list>
