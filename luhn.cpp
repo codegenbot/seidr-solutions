@@ -1,20 +1,19 @@
+#include <initializer_list>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 int luhn(std::vector<int> digits) {
     int sum = 0;
-    bool isOdd = true; 
     for (int i = 0; i < digits.size(); i++) {
         int digit = digits[i];
-        if (isOdd) { 
+        bool isDouble = (i % 2 != 0);
+        if (isDouble) { 
             digit *= 2;
             if (digit > 9) {
                 digit -= 9;
             }
         }
         sum += digit;
-        isOdd = !isOdd; 
     }
     return sum;
 }
