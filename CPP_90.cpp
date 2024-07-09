@@ -1,14 +1,11 @@
-Here is the solution:
-
-```cpp
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // or any other value that indicates "None"
-    
+    if (lst.empty()) return -1; 
+
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
     
@@ -16,5 +13,5 @@ int next_smallest(vector<int> lst) {
         if (sorted[i] != sorted[i+1]) return sorted[i+1];
     }
     
-    return -1; // or any other value that indicates "None"
+    return -1; 
 }
