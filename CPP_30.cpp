@@ -18,5 +18,6 @@ int main() {
         input.push_back(num);
     }
     std::vector<float> result = get_positive(input);
+
     return 0;
 }
