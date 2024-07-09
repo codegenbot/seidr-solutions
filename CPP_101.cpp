@@ -3,6 +3,8 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++){
@@ -19,9 +21,6 @@ std::vector<std::string> words_string(std::string s){
             if(!word.empty()){
                 result.push_back(word);
                 word = "";
-                if(result.capacity() < result.size() + 1) {
-                    result.reserve(result.size() * 2 + 1);
-                }
             }
         }else{
             word += s[i];
