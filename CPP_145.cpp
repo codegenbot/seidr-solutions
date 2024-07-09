@@ -1,21 +1,41 @@
 #include <algorithm>
+#include <vector>
 
-vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), [&] (int a, int int b) {
-        if (getSumOfDigits(a) == getSumOfDigits(b)) {
-            return a > b;
-        }
-        return getSumOfDigits(a) < getSumOfDigits(b);
-    });
-    
-    return nums;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-int getSumOfDigits(int num) {
-    int sum = 0;
-    while (num != 0) {
-        sum += num % 10;
-        num /= 10;
+vector<int> order_by_points(vector<int> nums) {
+    vector<pair<int, int>> pairs;
+    for (int i = 0; i < nums.size(); i++) {
+        int sumOfDigits = 0;
+        int num = abs(nums[i]);
+        while (num > 0) {
+            sumOfDigits += num % 10;
+            num /= 10;
+        }
+        pairs.push_back({sumOfDigits, i});
     }
-    return sum;
+
+    sort(pairs.begin(), pairs.end());
+
+    vector<int> result;
+    for (int i = 0; i < nums.size(); i++) {
+        if (pairs[i].second == i) {
+            result.push_back(nums[i]);
+        } else {
+            int j = i;
+            while (j > 0 && pairs[j-1].second != i) {
+                pairs[j] = pairs[--j];
+            }
+            result.push_back(nums[i]);
+        }
+    }
+
+    return result;
+}
+
+int main() {
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
