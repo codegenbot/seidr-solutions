@@ -1,5 +1,24 @@
+```cpp
+#include <vector>
+#include <any>
+
+bool isSame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> filterIntegers(std::vector<std::any> values) {
+    std::vector<int> result;
+    for (const auto& value : values) {
+        if (value.type() == typeid(int)) {
+            int i = std::any_cast<int>(value);
+            result.push_back(i);
+        }
+    }
+    return result;
+}
+
 int main 
-{ 
+{
     int num1, num2; 
     std::cout << "Enter two numbers: ";
     std::cin >> num1 >> num2;
