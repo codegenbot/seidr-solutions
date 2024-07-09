@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool checkSame(const std::vector<float>& v1, const std::vector<float>& v2) {
+bool issame(const std::vector<float>& v1, const std::vector<float>& v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -40,7 +40,7 @@ int main() {
         numbers.push_back(num);
 }
 
-    if (checkSame(numbers, get_positive(numbers))) {
+    if (issame(numbers, get_positive(numbers))) {
         std::cout << "The input vector and the positive vector are the same." << std::endl;
     } else {
         std::cout << "The input vector and the positive vector are not the same." << std::endl;
