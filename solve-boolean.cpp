@@ -2,21 +2,39 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool result = (s[0] == 'T');
-    for(int i = 1; i < s.size(); i++) {
-        if(s[i] == '&') {
-            result &= (s[i-1] == 'T');
-        } else if(s[i] == '|') {
-            result |= (s[i-1] == 'T');
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return false;
+            }
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if (st.empty()) {
+                return true;
+            }
+        } else {
+            st.push(s[i]);
         }
     }
-    return result;
+    if (st.size() > 0) {
+        return st.top() == 'T';
+    }
+    return false;
 }
 
 int main() {
-    // Your code goes here
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
+    // Test cases
+    cout << boolalpha << solveBoolean("t") << endl;  // True
+    cout << boolalpha << solveBoolean("f") << endl;  // False
+    cout << boolalpha << solveBoolean("f&f") << endl;  // False
+    cout << boolalpha << solveBoolean("f&t") << endl;  // False
+    cout << boolalpha << solveBoolean("t&f") << endl;  // False
+
     return 0;
 }
