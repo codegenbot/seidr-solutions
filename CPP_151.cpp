@@ -1,7 +1,3 @@
-```cpp
-#include <vector>
-#include <cmath>
-
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
     for (float x : lst) {
@@ -10,24 +6,4 @@ long long double_the_difference(vector<float> lst) {
         }
     }
     return sum;
-}
-
-int main() {
-    vector<float> lst; 
-    float odd_sum = 0.0f; 
-
-    int n; // Input number of elements in the list
-    cin >> n;
-
-    for (int i = 0; i < n; ++i) {
-        float x; 
-        cin >> x;
-        if (x > 0 && floor(x) == x) { 
-            odd_sum += pow(x, 2);
-        }
-        lst.push_back(x); 
-    }
-
-    assert(double_the_difference(lst) == odd_sum); 
-    return 0;
 }
