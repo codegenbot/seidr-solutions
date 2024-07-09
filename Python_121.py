@@ -1,3 +1,2 @@
-```
 def solution(lst):
-    return sum(i for i in lst[1::2] if i % 2 != 0 and i != lst[-1])
+    return sum(i for i in lst[1::2] if i % 2 != 0) or 0
