@@ -22,4 +22,4 @@ int main() {
     cout << fixed << total_price << endl;
 
     return 0;
-}  
+}
