@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -11,12 +12,17 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int filter_integers(std::vector<int> v) {
-    std::vector<int> result;
-    for (int num : v) {
-        if (std::holds_alternative<int>(num)) {
-            result.push_back(std::get<int>(num));
+int main() {
+    std::vector<int> v = {3, 'c', 3, 3, 'a', 'b'};
+    std::vector<int> filter_integers(std::vector<int> input) {
+        std::vector<int> result;
+        for(int i : input) {
+            if (std::isalnum(i)) {
+                result.push_back(i);
+            }
         }
+        return result;
     }
-    return 0;
+
+    assert(issame(filter_integers(v), {3, 3, 3}));
 }
