@@ -31,8 +31,6 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> input = {9, 4, 8};
-    vector<string> output = by_length(input);
-    assert(issame(output, {"Nine", "Eight", "Four"}));
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
     return 0;
 }
