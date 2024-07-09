@@ -17,9 +17,6 @@ int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    
-    std::string md5_hash = string_to_md5(str);
-    std::cout << "MD5 hash: " << md5_hash << std::endl;
-    
+    std::cout << "MD5 of the entered string is: " << string_to_md5(str) << std::endl;
     return 0;
 }
