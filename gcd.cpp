@@ -1,9 +1,8 @@
-#include <cstdlib>
-#include <vector>
+#include <cmath>
 
 int gcd(int a, int b) {
-    a = abs(a);
-    b = abs(b);
+    a = std::abs(a);
+    b = std::abs(b);
     if (b == 0) {
         return a;
     }
