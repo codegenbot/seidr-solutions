@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
@@ -12,4 +13,14 @@ std::vector<int> leaders(std::vector<int>& arr) {
     }
     
     return res;
+}
+
+int main() {
+    std::vector<int> test = {5, 2, 3, 4};
+    std::cout << "Leaders: ";
+    for (int leader : leaders(test)) {
+        std::cout << leader << " ";
+    }
+    std::cout << std::endl;
+    return 0;
 }
