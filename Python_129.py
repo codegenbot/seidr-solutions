@@ -6,11 +6,8 @@ def minPath(grid, k):
         curr_sum += grid[x][y]
         path.append(grid[x][y])
 
-        if curr_sum == k:
+        if curr_sum >= k:
             return path
-
-        if curr_sum > k:
-            return None
 
         for dx, dy in directions:
             nx, ny = x + dx, y + dy
@@ -18,8 +15,9 @@ def minPath(grid, k):
                 new_path = dfs(nx, ny, curr_sum, path)
                 if new_path:
                     return new_path
-
-        path.pop()
+        
+        path.pop()  # Backtrack by removing the last element from the path before returning None
+        return None
 
     for i in range(n):
         for j in range(n):
