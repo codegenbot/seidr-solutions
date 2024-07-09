@@ -1,8 +1,7 @@
-```
 #include <string>
 #include <iomanip>
-#include <sstream>
 #include <openssl/md5.h>
+#include <sstream>
 
 using namespace std;
 
@@ -15,7 +14,7 @@ string string_to_md5(string text) {
     md5_context ctx;
     MD5_CTX_init(&ctx);
     const char* cstr = text.c_str();
-    MD5_CTX_update(&ctx, (unsigned char*)cstr, text.size());
+    MD5_CTX_update(&ctx, cstr, text.size());
     MD5_CTX_finish(&ctx, md5);
 
     ostringstream oss;
