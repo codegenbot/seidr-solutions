@@ -13,6 +13,9 @@ def solve_boolean(expression):
     if '&' in expression and '|' in expression:
         left, right = expression.split('&')
         return bool(eval(left)) and solve_boolean(right)
+    elif '&' in expression:
+        left, right = expression.split('&')
+        return bool(eval(left)) and solve_boolean(right)
     elif '|' in expression:
         return any(solve_boolean(arg) for arg in expression.split('|'))
     else:
