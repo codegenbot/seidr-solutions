@@ -1,10 +1,13 @@
 Here is the completed code:
 
-bool is_sorted(vector<int> lst) {
-    for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] >= lst[i + 1]) return false;
+```cpp
+bool is_sorted(vector<int> lst){
+    if (lst.size() <= 1)
+        return true;
+
+    for(int i = 0; i < lst.size() - 1; i++) {
+        if(lst[i] >= lst[i+1]) 
+            return false;
     }
-    vector<int> temp(lst.begin(), lst.end());
-    sort(temp.begin(), temp.end());
-    return temp == lst;
+    return true;
 }
