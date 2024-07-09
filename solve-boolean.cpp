@@ -1,8 +1,10 @@
 #include <string>
+#include <stack>
 #include <iostream>
 using namespace std;
 
 bool solveBoolean(const string& s, size_t& i) {
+    stack<char> ops;
     bool result = false;
     while (i < s.size()) {
         switch (s[i]) {
@@ -12,19 +14,29 @@ bool solveBoolean(const string& s, size_t& i) {
             case 'F':
                 i++;  
                 return false;
-            case '&': {
-                i++; // skip &
-                if (!solveBoolean(s, i)) return false;  // short-circuit
+            case '&': 
+                i++;
+                ops.push('&');
                 break;
-            }
-            case '|': {
-                i++; // skip |
-                result = result || solveBoolean(s, i);
-                if (result) return true;  // short-circuit
+            case '|': 
+                i++;
+                ops.push('|');
                 break;
-            }
         }
-        i++;
+    }
+
+    while (!ops.empty()) {
+        char op = ops.top();
+        ops.pop();
+        if (op == '|') {
+            bool left = solveBoolean(s, i);
+            bool right = !solveBoolean(s, i);
+            return left || right;
+        } else {
+            bool left = solveBoolean(s, i);
+            bool right = solveBoolean(s, i);
+            return left && right;
+        }
     }
 
     return result;
