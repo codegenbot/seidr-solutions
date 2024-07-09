@@ -11,7 +11,7 @@ int findMax(vector<int> l) {
 }
 
 int main() {
-    assert(abs(findMax(vector<int>({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}))) < 1e-4);
+    assert(abs(findMax({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10})) < 1e-4);
     vector<int> v = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
     int maximum = *max_element(v.begin(), v.end());
     return 0;
