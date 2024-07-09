@@ -10,11 +10,11 @@ bool issame(vector<int> a,vector<int>b){
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
-    if(issame(game,guess)) {
+    if(issame(game,guess)){
         for (int i = 0; i < game.size(); i++) {
             result.push_back(0);
         }
-    } else {
+    }else{
         for (int i = 0; i < game.size(); i++) {
             if (game[i] == guess[i]) {
                 result.push_back(0);
