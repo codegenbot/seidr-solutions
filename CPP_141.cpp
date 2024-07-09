@@ -1,1 +1,1 @@
-std::string extension = std::string(file_name.c_str() + i);
+std::string extension = file_name.substr(i);
