@@ -8,7 +8,7 @@ for i in range(1, len(digits), 2):
     else:
         total += double_digit
 
-for i in range(1, len(digits), 2):
+for i in range(1, len(digits), 2):  # Modify the range start index
     total += digits[i]
 
 print(total)
