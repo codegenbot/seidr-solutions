@@ -1,12 +1,21 @@
+```cpp
+#include <iostream>
 #include <sstream>
-#include <iomanip>
+#include <string>
+#include <algorithm>
 
-std::stringstream ss;
+std::string string_to_md5(const std::string& s) {
+    // Your implementation here...
+}
 
-void string_to_md5(const std::string& str) {
-    unsigned char md5[16];
-    // Your implementation here
-    for (int i = 0; i < 16; i++) {
-        ss << std::setfill(2) << std::setw(2) << std::hex << (int)md5[i];
+int main() {
+    std::stringstream ss;
+    std::string s;
+    std::cin >> s;
+    for (char c : s) {
+        unsigned int md5 = (unsigned int)c;
+        ss << std::setfill(2) << std::setw(2) << std::hex << (int)md5;
     }
+    std::cout << ss.str() << std::endl;
+    return 0;
 }
