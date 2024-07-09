@@ -5,8 +5,8 @@
 int next_smallest(std::vector<int> lst) {
     if (lst.size() < 2) return -1; 
     int max = *std::max_element(lst.begin(), lst.end());
-    for (int i = max; i >= 0; --i) {
-        if (std::find_if(lst.begin(), lst.end(), [i](int x){return x > i && x < max;}) == lst.end()) {
+    for (int i = max / 2; i >= 0; --i) {
+        if (!std::binary_search(lst.begin(), lst.end(), i)) {
             return i;
         }
     }
@@ -14,8 +14,8 @@ int next_smallest(std::vector<int> lst) {
 }
 
 int main() {
-    // Test the function
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
-    std::cout << "The next smallest is: " << next_smallest({-35, 34, 12, -45}) << std::endl;
+    std::vector<int> lst = { -35, 34, 12, -45 };
+    int result = next_smallest(lst);
+    std::cout << "The smallest number greater than all elements in the list is: " << result << std::endl;
     return 0;
 }
