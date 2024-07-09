@@ -1,5 +1,11 @@
 #include <vector>
 
+vector<int> generate_integers(int a, int b);
+
+bool issame(int x, int y){
+    return x == y;
+}
+
 vector<int> generate_integers(int a, int b){
     vector<int> result;
     for(int i=a; i<=b; i++){
@@ -8,8 +14,4 @@ vector<int> generate_integers(int a, int b){
         }
     }
     return result;
-}
-
-bool issame(const vector<int>& v1, const vector<int>& v2){
-    return v1 == v2;
 }
