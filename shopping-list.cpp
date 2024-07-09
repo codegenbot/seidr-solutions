@@ -4,14 +4,11 @@ int main() {
     std::vector<float> discounts;
 
     float price, discount;
-    while (std::cin >> price >> std::skipws >> std::cin.peek()) { 
-        if (std::cin.peek() != '\n') { 
-            prices.push_back(price);
-            std::cin >> discount; // read the discount value
-            discounts.push_back(discount / 100.0); 
-        } else {
-            break; 
-        }
+    while (std::cin >> price >> discount) {
+        prices.push_back(price);
+        discounts.push_back(discount / 100.0); 
+        char c = std::cin.peek();
+        if(c == '\n') break; // we've reached the end of the file
     }
 
     std::cout << std::fixed << std::setprecision(2) << shoppingList(prices, discounts) << std::endl;
