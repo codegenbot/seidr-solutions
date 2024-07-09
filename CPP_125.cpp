@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cctype>
-#include <cassert>
+#include <cassert> // Add assert header
 
-std::vector<std::string> split_words(std::string txt) {
+std::vector<std::string> split_words(const std::string& txt) {
     std::vector<std::string> words;
     std::string word;
     for (char& c : txt) {
@@ -23,7 +22,7 @@ std::vector<std::string> split_words(std::string txt) {
     if (words.empty()) {
         int count = 0;
         for (char& c : txt) {
-            if (std::islower(c) && (c - 'a') % 2 == 1) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
@@ -32,7 +31,7 @@ std::vector<std::string> split_words(std::string txt) {
     return words;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -46,7 +45,9 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
+    // Test cases using assert
     assert(issame(split_words(""), {"0"}));
-    
+    assert(!issame(split_words("hello"), split_words("world")));
+
     return 0;
 }
