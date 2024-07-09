@@ -1,10 +1,11 @@
+```
 def solve_boolean(expression):
-    result = True
-    prev_value = 'T'  
+    stack = []
     for char in expression:
-        if char == '&':
-            result &= (prev_value == 'T')
+        if char == 'T' or char == 'F':
+            stack.append(char)
         elif char == '|':
-            result |= (prev_value == 'T')
-        prev_value = 'T' if char == 'T' else 'F'
-    return result
+            stack.pop() or= (stack.pop() == 'T')
+        else:
+            stack.pop() and= (stack.pop() == 'T')
+    return stack[0] == 'T'
