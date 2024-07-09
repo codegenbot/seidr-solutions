@@ -7,6 +7,6 @@ def rolling_max(numbers: List[int]) -> List[int]:
         result.append(max_num)
     return result
 
-# Test the rolling_max function with a list of integers
-numbers = [10, 5, 7, 8, 3]
+# Example usage
+numbers = [4, 5, 3, 7, 1, 9, 2]
 print(rolling_max(numbers))
