@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int basement(std::vector<int> nums) {
+int basement(const std::vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
@@ -9,7 +9,7 @@ int basement(std::vector<int> nums) {
             return i;
         }
     }
-    return 0;
+    return -1; // If no negative sum found
 }
 
 int main() {
