@@ -1,3 +1,7 @@
+```c++
+#include <iostream>
+#include <string>
+
 std::string validateTweet(const std::string& tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
@@ -12,4 +16,6 @@ int main() {
     std::string tweet;
     std::cout << "Enter a tweet: ";
     std::getline(std::cin, tweet);
-    std::cout << validateTweet(tweet)
+    std::string result = validateTweet(tweet);
+    std::cout << result << std::endl;
+    return 0;
