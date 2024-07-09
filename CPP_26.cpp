@@ -1,3 +1,26 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() == 0 && b.size() == 0) return true;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
+    if (numbers.empty()) return std::vector<int>();
+
+    std::set<int> uniqueNumbersSet(numbers.begin(), numbers.end(), std::allocator<int>());
+    std::vector<int> uniqueNumbers(uniqueNumbersSet.begin(), uniqueNumbersSet.end());
+    std::sort(uniqueNumbers.begin(), uniqueNumbers.end());
+
+    return uniqueNumbers;
+}
+
 int main() {
     int n;    
     std::cout << "Enter the number of elements: ";
@@ -10,8 +33,6 @@ int main() {
         std::cin >> num;
         numbers.push_back(num);
     }
-
-    if (numbers.empty() || removeDuplicates(numbers).empty()) return 0;
 
     if (!isEqualVector(numbers, removeDuplicates(numbers))) {
         std::cout << "Unique numbers: ";
