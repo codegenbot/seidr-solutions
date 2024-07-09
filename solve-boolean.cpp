@@ -1,39 +1,27 @@
 #include <string>
-#include <iostream>
-using namespace std;
 
-bool solveBoolean(const string& s, size_t& i) {
-    bool result = false;
-    while (i < s.size()) {
+bool solveBoolean(std::string s) {
+    bool result = true;
+    for (int i = 0; i < s.size(); i++) {
         switch (s[i]) {
             case 'T':
-                i++;  
-                return true;
+                break;
             case 'F':
-                i++;  
-                return false;
-            case '&': {
-                i++; // skip &
-                if (!solveBoolean(s, i)) return false;  // short-circuit
+                if (result)
+                    result = false;
+                else
+                    return false;
                 break;
-            }
-            case '|': {
-                i++; // skip |
-                result = solveBoolean(s, i);
-                if (result) return true;  // short-circuit
+            case '|':
+                result = true;
                 break;
-            }
+            case '&':
+                return result;
         }
-        i++;
     }
-
     return result;
 }
 
 int main() {
-    const string input = "TF|";  
-    size_t i = 0;
-    bool result = solveBoolean(input, i);
-    cout << (result ? "True" : "False");  
-    return 0;
+    return solveBoolean("input_string");
 }

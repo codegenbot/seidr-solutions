@@ -1,30 +1,31 @@
-#include <cmath>
+```c++
 #include <vector>
+#include <cmath>
+#include <stdexcept>
 #include <iostream>
 
-double vectorDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
+using namespace std;
+
+double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
     if(v1.size() != v2.size()) {
-        throw std::runtime_error("Vectors of different sizes");
+        throw runtime_error("Vectors of different sizes");
     }
     
     double sum = 0;
     for (int i = 0; i < v1.size(); i++) {
         sum += pow((v1[i] - v2[i]), 2);
     }
-    return std::sqrt(sum);
+    return sqrt(sum);
 }
 
 int main() {
-    std::vector<float> v1 = {1.0, 2.0, 3.0};
-    std::vector<float> v2 = {4.0, 5.0, 6.0};
+    vector<float> v1(3);
+    v1[0] = 1; v1[1] = 2; v1[2] = 3;
+
+    vector<float> v2(3);
+    v2[0] = 4; v2[1] = 5; v2[2] = 6;
     
-    try {
-        double distance = vectorDistance(v1, v2);
-        std::cout << "The Euclidean distance between the two vectors is: " << distance << std::endl;
-    } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-        return 1;
-    }
-    
+    double distance = vectorDistance(v1, v2);
+    cout << "Distance: " << distance << endl;
     return 0;
 }
