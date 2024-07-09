@@ -1,15 +1,23 @@
-```c++
-case '|': 
-    while (i < s.size()) { 
-        switch (s[i]) { 
+#include <string>
+
+bool solveBoolean(std::string s) {
+    bool result = true;
+    for (int i = 0; i < s.size(); i++) {
+        switch (s[i]) {
             case 'T':
-                result = true;
                 break;
             case 'F':
-                i++;  
-                result = false;
-                return result; 
+                if (result)
+                    result = false;
+                else
+                    return false;
+                break;
+            case '|':
+                result = true;
+                break;
+            case '&':
+                return result;
         }
-        i++;
-    } 
+    }
     return result;
+}
