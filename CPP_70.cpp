@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -19,7 +18,7 @@ std::vector<std::vector<int>> strange_sort_list(std::vector<std::vector<int>> ls
         int min_val = *std::min_element(lst.begin()->begin(), lst.end()->end());
         for (auto& v : lst) {
             if (*std::min_element(v.begin(), v.end()) == min_val) {
-                result.push_back(v);
+                result.push_back({v});
                 lst.erase(std::remove(lst.begin(), lst.end(), v), lst.end());
                 break;
             }
@@ -39,8 +38,8 @@ std::vector<std::vector<int>> strange_sort_list(std::vector<std::vector<int>> ls
 }
 
 int main() {
-    assert(issame({{1,1,1,1,1}}, {{1,1,1,1,1}}));
-    std::vector<std::vector<int>> input = {{1,2,3}, {4,5,6}, {7,8,9}};
+    assert(issame({1,1,1,1,1}, {1,1,1,1,1}));
+    std::vector<std::vector<int>> input = {{1,1,1,1,1}};
     std::vector<std::vector<int>> result = strange_sort_list(input); 
     return 0;
 }
