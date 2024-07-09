@@ -1,11 +1,6 @@
-# Define lst variable
-lst = [1, 2, 3, 4, 5]
+def double_the_difference(lst):
+    return sum(x**2 for x in lst if x > 0 and x % 2 != 0) * 2
 
-# Call the check function with the provided functions and lst
-result = check(double_the_difference, lst)
-
-# Define odd_sum variable
-odd_sum = result
-
-# Print the result
-print(result)
+lst = list(map(int, input("Enter a list of numbers separated by space: ").split()))
+odd_sum = double_the_difference(lst)
+print(odd_sum)
