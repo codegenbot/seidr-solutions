@@ -1,11 +1,10 @@
 #include <vector>
 #include <assert>
 #include <iostream>
-#include <set>
 
 using namespace std;
 
-bool issame(vector<int> a,vector<int> b){
+bool isSame(vector<int> a,vector<int> b){
     return a == b;
 }
 
@@ -23,23 +22,21 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 int main() {
     vector<int> l1;
     int n;
-    cout << "Enter the number of elements in list 1: ";
+    cout << "Enter number of elements in list 1: ";
     cin >> n;
-    
     for(int i = 0; i < n; i++) {
         int x;
-        cout << "Enter element " << (i+1) << ": ";
+        cout << "Enter element: ";
         cin >> x;
         l1.push_back(x);
     }
     
     vector<int> l2;
-    cout << "Enter the number of elements in list 2: ";
+    cout << "Enter number of elements in list 2: ";
     cin >> n;
-    
     for(int i = 0; i < n; i++) {
         int x;
-        cout << "Enter element " << (i+1) << ": ";
+        cout << "Enter element: ";
         cin >> x;
         l2.push_back(x);
     }
