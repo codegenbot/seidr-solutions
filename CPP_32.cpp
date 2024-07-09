@@ -1,16 +1,14 @@
-#include <vector>
-#include <cmath>
-
+```cpp
 double find_zero(vector<double> xs){
-    if(xs.size() % 2 != 0) return -1; 
+    if(xs.size() % 2 != 0) return -1; // Return -1 if number of coefficients is odd
     double root = -xs[1]/(2*xs[0]); 
     return std::round(root);
 }
 
-double poly(vector<double> xs, double x) {
-    double result = xs[0];
-    for(int i=1; i<xs.size(); i++) {
-        result += xs[i] * pow(x, i);
+double poly(vector<double> xs, double solution) {
+    double value = 0;
+    for (int i = 0; i < xs.size(); i++) {
+        value += xs[i] * pow(solution, i);
     }
-    return result;
+    return value;
 }
