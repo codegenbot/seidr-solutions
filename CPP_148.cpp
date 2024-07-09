@@ -12,7 +12,7 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
     std::vector<std::string> result;
     
     int start = -1, end = -1;
-    for (int i = 0; i < planets.size(); ++i) {
+    for (size_t i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
             start = i;
         } else if (planets[i] == planet2) {
