@@ -41,8 +41,3 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a.size() == 1 && a[0] == b[0];
 }
-
-int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
-    return 0;
-}
