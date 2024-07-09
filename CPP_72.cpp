@@ -1,14 +1,14 @@
-bool will_it_fly(vector<int> q,int w){
-    string str = "";
-    for(int i=0;i<q.size();i++){
-        str+=to_string(q[i]);
+#include <vector>
+#include <algorithm>
+
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
+    for (int i : q) {
+        str += std::to_string(i);
     }
-    if(str!=reverse(str).str()){
-        return false;
+    bool balanced = false;
+    if (str == std::string(str.rbegin(), str.rend())) {
+        balanced = true;
     }
-    int sum = 0;
-    for(int i=0;i<q.size();i++){
-        sum+=q[i];
-    }
-    return sum<=w;
+    return balanced && std::accumulate(q.begin(), q.end(), 0) <= w;
 }
