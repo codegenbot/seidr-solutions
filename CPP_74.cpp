@@ -9,7 +9,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-vector<string> total_match(vector<string> a, vector<string> b) {
+std::vector<std::string> total_match(std::vector<std::string> a, std::vector<std::string> b) {
     int sum1 = 0, sum2 = 0;
     for (const auto& s : a) {
         sum1 += s.length();
