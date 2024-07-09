@@ -1,4 +1,8 @@
 ```cpp
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+
 int getMax(int n) {
     std::vector<int> l;
     std::cout << "Enter the number of elements: ";
@@ -10,6 +14,8 @@ int getMax(int n) {
         std::cin >> x;
         l.push_back(x);
     }
+
+    assert (abs(std::max_element(l.begin(), l.end())- 12)<1e-4);
 
     return *std::max_element(l.begin(), l.end());
 }
