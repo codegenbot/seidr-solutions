@@ -1,5 +1,6 @@
-int main { 
+Here is the modified code:
 
+```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,20 +16,24 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     return lst;
 }
 
-std::cin >> n;
-
-std::vector<std::string> lst;
-
-for(int i = 0; i < n; i++) {
-    std::cin >> lst[i];
+int main()
+{
+    int n; 
+    std::cin >> n;
+    
+    std::vector<std::string> lst;
+    
+    for(int i = 0; i < n; i++) {
+        std::cin >> lst.push_back(std::to_string(i));
+    }
+    
+    std::vector<std::string> result = sorted_list_sum(lst);
+    
+    std::cout << "Sorted List Sum: ";
+    for(auto str : result) {
+        std::cout << str << " ";
+    }
+    std::cout << endl;
+    
+    return 0;
 }
-
-std::vector<std::string> result = sorted_list_sum(lst);
-
-std::cout << "Sorted List Sum: ";
-for(auto str : result) {
-    std::cout << str << " ";
-}
-std::cout << endl;
-
-return 0;
