@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if(a.empty()) return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.empty()) return b.empty(); 
     if((a.front() + a.back()) % 2 == 0) {
         std::sort(a.begin(), a.end(), std::greater<int>());
     } else {
