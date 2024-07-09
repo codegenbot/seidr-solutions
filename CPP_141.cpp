@@ -1,31 +1,16 @@
-int digits = 0;
-    int dotIndex = -1;
-    for (int i = 0; i < file_name.length(); ++i) {
-        if (file_name[i] >= '0' && file_name[i] <= '9') {
-            digits++;
-        }
-        else if (file_name[i] == '.') {
-            if (dotIndex != -1) {
-                return "No";
-            }
-            dotIndex = i;
-        }
-    }
-    
-    if (digits > 3 || dotIndex == -1 || dotIndex == 0 || dotIndex == file_name.length() - 1) {
-        return "No";
-    }
-    
-    string beforeDot = file_name.substr(0, dotIndex);
-    string afterDot = file_name.substr(dotIndex + 1);
+if (file_name.empty()) return "No";
+int dotPos = file_name.find(".");
+if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.size() - 1) return "No";
+string beforeDot = file_name.substr(0, dotPos);
+string afterDot = file_name.substr(dotPos + 1);
 
-    if (!(beforeDot[0] >= 'a' && beforeDot[0] <= 'z') && !(beforeDot[0] >= 'A' && beforeDot[0] <= 'Z')) {
-        return "No";
-    }
+int digitCount = 0;
+for (char c : beforeDot) {
+    if (isdigit(c)) digitCount++;
+}
+if (digitCount > 3 || !isalpha(beforeDot[0])) return "No";
 
-    if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
-        return "No";
-    }
+if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll") return "No";
 
-    return "Yes";
+return "Yes";
 }
