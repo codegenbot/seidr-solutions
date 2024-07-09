@@ -1,42 +1,41 @@
 #include <iostream>
-#include <string>
 #include <map>
 #include <sstream>
+#include <cassert>
 
-bool issame(std::map<char, int> a, std::map<char, int> b) {
+using namespace std;
+
+bool issame(map<char, int> a, map<char, int> b) {
     return a == b;
 }
 
-std::map<char, int> histogram(std::string test);
+map<char, int> histogram(string test);
 
 int main() {
-    std::string test = "hello world";
-    std::map<char, int> result = histogram(test);
-    for (auto& pair : result) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
-    }
-
+    assert(issame(histogram("a"), {{'a', 1}}));
     return 0;
 }
 
-std::map<char, int> histogram(std::string test){
-    std::map<char, int> result;
-    std::istringstream iss(test);
-    std::string word;
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    istringstream iss(test);
+    string word;
     while (iss >> word) {
-        for(char& c : word){
+        for (char c : word) {
             result[c]++;
         }
     }
     int maxCount = 0;
-    for(auto& pair : result){
-        maxCount = std::max(maxCount, pair.second);
-    }
-    std::map<char, int> res;
-    for(auto& pair : result){
-        if(pair.second == maxCount){
-            res[pair.first] = pair.second;
+    for (const auto& entry : result) {
+        if (entry.second > maxCount) {
+            maxCount = entry.second;
         }
     }
-    return res;
+    map<char, int> maxCountLetters;
+    for (const auto& entry : result) {
+        if (entry.second == maxCount) {
+            maxCountLetters[entry.first] = entry.second;
+        }
+    }
+    return maxCountLetters;
 }
