@@ -14,8 +14,7 @@ int main() {
     string output;
     std::ostringstream oss;
     oss << "Numbers of " << n << "-digit positive integers that start or end with 1: " << result;
-    output = oss.str();
-    cout << output << endl;
+    cout << oss.str() << endl;
     return 0;
 }
 
