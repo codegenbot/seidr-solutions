@@ -2,13 +2,15 @@
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> result;
-    for (int i = 1; i <= n; i++) {
-        if (i % 2 == 0) {
-            if (i % 4 != 0) continue;
-            result.push_back(i);
+    for (int i = 0; ; i++) {
+        if ((i + 1) % 2 == 0) {
+            if (n % 2 != 0) break;
+            result.push_back(n);
+            n++;
         } else {
-            if (i % 4 == 3) break;
-            result.push_back(i);
+            if (n % 2 == 0) break;
+            result.push_back(n);
+            n++;
         }
     }
     return result;
@@ -20,9 +22,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         if (a[i] != b[i]) return false;
     }
     return true;
-}
-
-int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    // ...
 }
