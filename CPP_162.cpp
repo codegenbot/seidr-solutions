@@ -1,21 +1,17 @@
-```cpp
 #include <iostream>
 #include <string>
 
-std::string string_to_md5(const std::string& text) {
+int string_to_md5(const std::string& text) {
     const unsigned int md5Len = 16;
     unsigned char result[md5Len];
     for (int i = 0; i < md5Len; ++i)
         result[i] = (text[i % text.length()] + i) % 256;
 
     std::string md5Hash;
-    for (unsigned int i = 0; i < md5Len; ++i) {
-        char buffer[3];
-        sprintf(buffer, "%02x", &result[i]);
-        md5Hash += std::string(buffer);
-    }
+    for (unsigned int i = 0; i < md5Len; ++i)
+        md5Hash += std::to_string((int)result[i]).substr(1);
 
-    return md5Hash;
+    return (int)md5Hash;
 }
 
 int main() {
@@ -24,7 +20,7 @@ int main() {
     std::getline(std::cin, text);
 
     try {
-        std::string hashedText = string_to_md5(text);
+        int hashedText = string_to_md5(text);
         std::cout << "MD5: " << hashedText << std::endl;
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
