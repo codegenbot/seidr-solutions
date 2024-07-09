@@ -28,3 +28,14 @@ std::vector<std::string> words_in_sentence(std::string sentence) {
 
     return wordLengths; 
 }
+
+int main() {
+    std::string sentence;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, sentence);
+
+    std::vector<std::string> wordLengths = words_in_sentence(sentence);
+    for (const auto& length : wordLengths) {
+        std::cout << length << '\n';
+    }
+}
