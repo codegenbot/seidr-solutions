@@ -1,7 +1,4 @@
-from statistics import mean, stdev
+def mean_absolute_deviation(y_true, y_pred):
+    return np.mean(np.abs((y_true - y_pred)))
 
-def mean_absolute_deviation(data):
-    return sum(abs(x - mean(data)) for x in data) / len(data)
-
-data = list(map(float, input().split()))
-check(mean_absolute_deviation(data))
+check(mean_absolute_deviation([1, 2, 3], [0, 1, 4]))
