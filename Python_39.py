@@ -13,4 +13,4 @@ def prime_fib(n: int):
     
     prime_fib_list = [num for num in fib if is_prime(num]
     
-    return prime_fib_list[n-2]
+    return prime_fib_list[n - 2]
