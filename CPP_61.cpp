@@ -1,22 +1,21 @@
 #include <iostream>
-#include <stack>
 #include <string>
-#include <cassert>
 
 bool correct_bracketing(const std::string& s) {
-    std::stack<char> stack; 
+    int count = 0;
     for (char c : s) {
         if (c == '(') {
-            stack.push(c);
+            ++count;
         } else if (c == ')') {
-            if (stack.empty()) return false;
-            stack.pop();
+            if (count <= 0) return false;
+            --count;
         }
     }
-    return stack.empty();
+    return count == 0;
 }
 
 int main() {
     assert(correct_bracketing("()()(()())")); 
     std::cout << "Correct bracketing test passed." << std::endl;
     return 0;
+}
