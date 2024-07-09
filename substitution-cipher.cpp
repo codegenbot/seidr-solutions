@@ -3,32 +3,21 @@
 #include <string>
 
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
-    std::string decipheredMessage;
-    
+    std::string result;
     for (char c : message) {
         for (int i = 0; i < cipher1.length(); i++) {
             if (c == cipher1[i]) {
-                decipheredMessage += cipher2[i];
+                result += cipher2[i];
                 break;
             }
         }
     }
-    
-    return decipheredMessage;
+    return result;
 }
 
 int main() {
     std::string cipher1, cipher2, message;
-    std::cout << "Enter the first string: ";
-    std::cin >> cipher1;
-    std::cout << "Enter the second string: ";
-    std::cin >> cipher2;
-    std::cout << "Enter the third string: ";
-    std::cin >> message;
-    
-    std::string decipheredMessage = substitutionCipher(cipher1, cipher2, message);
-    
-    std::cout << "Deciphered message: " << decipheredMessage << std::endl;
-    
+    std::cin >> cipher1 >> cipher2 >> message;
+    std::cout << substitutionCipher(cipher1, cipher2, message) << std::endl;
     return 0;
 }
