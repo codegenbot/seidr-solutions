@@ -1,6 +1,6 @@
 #include <iostream>
+#include <iomanip>
 #include <vector>
-#include <initializer_list>
 using namespace std;
 
 double shoppingList(vector<float> prices, vector<float> discounts) {
@@ -24,6 +24,5 @@ int main() {
     for (float &discount : discounts) {
         cin >> discount;
     }
-    cout << fixed << setprecision(2) << shoppingList(prices, discounts) << endl;
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
-}
