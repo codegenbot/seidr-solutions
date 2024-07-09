@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -10,4 +9,4 @@ def concatenate(strings: List[str]) -> str:
 
 
 strings = ["hello", "world"]
-print(concatenate(strings))  # This will print "helloworld"
+print(concatenate(strings))
