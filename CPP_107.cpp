@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <initializer_list>
 
 bool std::issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
@@ -12,7 +11,7 @@ bool std::issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(std::issame(std::vector<int>(std::even_odd_palindrome(1)), {0, 1}));
+    assert(std::issame(std::vector<int>(std::even_odd_palindrome(1)), std::vector<int>()));
 }
 
 std::vector<int> std::even_odd_palindrome(int n) {
@@ -27,3 +26,4 @@ std::vector<int> std::even_odd_palindrome(int n) {
         temp /= 10;
     }
     return result;
+}
