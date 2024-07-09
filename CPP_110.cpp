@@ -4,21 +4,14 @@ string exchange(vector<int> lst1, vector<int> lst2) {
         if (num % 2 == 0)
             evenCount++;
     }
-    for (int i = 0; i < lst1.size(); i++) {
-        bool found = false;
-        for (int j = 0; j < lst2.size(); j++) {
-            if (lst1[i] % 2 != 0 && lst2[j] % 2 == 0) {
-                swap(lst1[i], lst2[j]);
-                found = true;
-                break;
-            }
+    
+    for (int num : lst2) {
+        if (find(lst1.begin(), lst1.end(), num) != lst1.end()) {
+            continue;
+        } else if (num % 2 == 0) {
+            evenCount++;
         }
-        if (!found)
-            return "NO";
     }
-    for (int num : lst1) {
-        if (num % 2 != 0)
-            return "NO";
-    }
-    return "YES";
+    
+    return (evenCount == lst1.size()) ? "YES" : "NO";
 }
