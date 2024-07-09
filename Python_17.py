@@ -1,1 +1,1 @@
-input_list = list(map(int, input().strip().split("|")))
+input_list = [line for line in iter(input, '')]
