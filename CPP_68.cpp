@@ -43,7 +43,7 @@ int mainFunction() {
         input.push_back(i);
     }
     vector<int> output = pluck(input);
-    assert(issame({0}, output));
+    assert(issame({0}, pluck({7, 9, 7, 1})));
     cout << "Output: ";
     for (int i : output) {
         cout << i << " ";
