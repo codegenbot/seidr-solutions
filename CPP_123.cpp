@@ -6,7 +6,7 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -28,13 +28,8 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Test the get_odd_collatz function
-    vector<int> test_input = {6, 7, 8};
-    vector<vector<int>> expected_results = {{3, 5}, {7, 11, 17}, {}}; // Collatz sequences for 6, 7, 8
-    for (size_t i = 0; i < test_input.size(); ++i) {
-        vector<int> result = get_odd_collatz(test_input[i]);
-        assert(issame(result, expected_results[i]));
-    }
-
+    vector<int> test = get_odd_collatz(10);
+    vector<int> expected = {1, 5, 7, 9, 15, 21, 25, 27};
+    assert(issame(test, expected));
     return 0;
 }
