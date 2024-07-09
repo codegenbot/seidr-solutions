@@ -1,26 +1,18 @@
+```
 key1 = input("Enter the first key string: ")
 key2 = input("Enter the second key string: ")
 
 cipher_dict = {}
-for char in key1:
-    cipher_dict[char] = char
-for char in key2:
-    if char.isalpha():
-        cipher_dict[char.lower()] = (
-            cipher_dict.get(char.lower(), char).upper()
-            if char.isupper()
-            else cipher_dict.get(char.lower(), char)
-        )
+for char1, char2 in zip(key1, key2):
+    if char1 != ' ' and char2 != ' ':  
+        if char2.isalpha():
+            cipher_dict[char1] = char2
 
 result = ""
 message = input("Enter the message to decipher: ")
 for char in message:
-    if char.isalpha():
-        result += (
-            cipher_dict.get(char.lower(), char).upper()
-            if char.isupper()
-            else cipher_dict.get(char.lower(), char)
-        )
+    if char in cipher_dict:
+        result += cipher_dict[char]
     else:
         result += char
 
