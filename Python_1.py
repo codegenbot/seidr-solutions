@@ -22,7 +22,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             while stack and stack[-1] != '(':
                 group += char
                 stack.pop()
-            stack.pop()
-            group += char
+            if stack:
+                group += char
+                stack.pop()
+            else:
+                group += char
 
     return groups
