@@ -1,3 +1,8 @@
+Here is the modified code:
+
+```cpp
+#include <iostream>
+
 int main() {
     int a, b;
     std::cout << "Enter two integers: ";
