@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <set>
@@ -35,16 +36,10 @@ std::vector<string> reverse_delete(string s, string c) {
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+        if (a[i] != b[i]) return false;
     }
-    
     return true;
 }
 
