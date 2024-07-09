@@ -1,8 +1,11 @@
-```
-#include <vector>
-#include <string>
+Here is the corrected code:
+
+```cpp
 #include <iostream>
+#include <string>
+#include <vector>
 #include <algorithm>
+#include <limits>
 
 using namespace std;
 
@@ -37,7 +40,7 @@ int main() {
 
     while (!(cin >> a >> b) || a < 1 || b < 1) {
         cin.clear();
-        cin.ignore();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Invalid input. Please enter two positive integers: ";
     }
 
