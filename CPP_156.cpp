@@ -1,4 +1,4 @@
-```cpp
+```
 string int_to_roman(int number) {
     vector<pair<int, string>> roman_numerals = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
                                                  {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
@@ -16,6 +16,6 @@ string int_to_roman(int number) {
 }
 
 int main() {
-    cout << int_to_roman(1000);
+    cout << int_to_roman(1000) << endl;
     return 0;
 }
