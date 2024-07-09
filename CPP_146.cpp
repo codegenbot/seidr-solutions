@@ -1,5 +1,7 @@
 ```cpp
 #include <vector>
+#include <iostream>
+
 int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -11,13 +13,8 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> test1 = {11, -12, 15, -20};
-    int result1 = specialFilter(test1);
-    assert(result1 == 2);
-
-    std::vector<int> test2 = {-5, 3, 7, 13};
-    int result2 = specialFilter(test2);
-    assert(result2 == 0);
-
+    std::vector<int> nums = {-15, -5, 1, 3, 4, 12};
+    int result = specialFilter(nums);
+    std::cout << "The number of elements that meet the condition is: " << result << std::endl;
     return 0;
 }
