@@ -5,8 +5,8 @@
 std::string anti_shuffle(std::string s) {
     std::string res;
     for (int i = 0; i < s.length(); i++) {
-        if (i % 2 == 0) {
-            res += s[i];  
+        if (i % 2 == 1) {
+            res += s[i % s.length()];  // Add the character at index (i % s.length()) to the end of res
         }
     }
     return res;
