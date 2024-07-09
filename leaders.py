@@ -1,4 +1,3 @@
-```
 def leaders(input_list):
     leaders = []
     max_seen_so_far = input_list[-1]
