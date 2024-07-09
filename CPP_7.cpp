@@ -16,10 +16,10 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> words, con
     return result;
 }
 
+using namespace std;
+
 int main() {
-    std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
-    const std::string sub = "run";
-    std::vector<std::string> result = filter_by_substring(words, sub);
-    assert(issame(result, std::vector<std::string>{"grunt", "prune"}));
+    vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    assert(issame({result.begin(), result.end()}, {{"grunt", "prune"}.begin(), {"grunt", "prune"}.end()}));
     return 0;
 }
