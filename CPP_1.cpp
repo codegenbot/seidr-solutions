@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-bool issame(std::string& a, std::string& b) {
+bool issame(const std::string& a, const std::string& b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -50,7 +50,7 @@ int main() {
             break; 
         }
     }
-    assert(separate_paren_groups("( ) (( )) (( )( ") == "(()())");
     std::cout << "Result: " << separate_paren_groups(s) << std::endl;
+    assert (issame(std::string(separate_paren_groups("( ) (( )) (( )( "))),"()","((()))"));
     return 0;
 }
