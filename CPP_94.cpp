@@ -1,5 +1,5 @@
 int skjkasdkd(vector<int> lst) {
-    int maxPrime = -1; // Initialize to a non-zero value
+    int maxPrime = -1;
     for (int num : lst) {
         if (num < 2) continue;
         bool isPrime = true;
@@ -13,7 +13,7 @@ int skjkasdkd(vector<int> lst) {
             maxPrime = num;
         }
     }
-    if (maxPrime == -1) return 0; // Handle case when no prime number found in the list
+    if (maxPrime == -1) return 0;
     int sum = 0;
     while (maxPrime > 0) {
         sum += maxPrime % 10;
