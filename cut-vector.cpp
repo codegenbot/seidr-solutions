@@ -8,10 +8,10 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int minDiff = numeric_limits<int>::max();
     pair<vector<int>, vector<int>> result;
     
-    for(int i = 1; i <= v.size(); i++) {
+    for(int i = 1; i <= v.size(); i++) { 
         int leftSum = 0, rightSum = 0;
         
-        for(int j = 0; j <= i - 1; j++) {
+        for(int j = 0; j <= i; j++) {
             leftSum += v[j];
         }
         
