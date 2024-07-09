@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -29,6 +29,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         if (k > 0) {
             --k;
 
+            // explore neighbors
             for (int dx : {-1, 0, 1}) {
                 for (int dy : {-1, 0, 1}) {
                     int nx = x + dx;
