@@ -4,7 +4,7 @@
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
     for (float x : lst) {
-        if (x > 0 && floor(x) == x) { // check if number is positive and integer
+        if (x > 0 && floor(x) == x) { 
             sum += pow(x, 2);
         }
     }
@@ -17,11 +17,10 @@ int main() {
 
     int n;
     cin >> n;
-    
-    for(int i=0; i<n; i++) {
+    for (int i = 0; i < n; i++) {
         float x;
         cin >> x;
-        if(x > 0 && floor(x) == x) { // check if number is positive and integer
+        if (x > 0 && floor(x) == x) { 
             odd_sum += pow(x, 2);
         }
     }
