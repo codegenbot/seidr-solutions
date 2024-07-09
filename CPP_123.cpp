@@ -1,4 +1,4 @@
-```c++
+```
 #include <vector>
 
 bool checkIfSame(std::vector<int> a,std::vector<int>b){
@@ -10,7 +10,7 @@ bool checkIfSame(std::vector<int> a,std::vector<int>b){
     return true;
 }
 
-std::vector<int> get_odd_collatz(int n) {
+std::vector<int> getOddCollatz(int n) {
     std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
@@ -26,6 +26,6 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    std::vector<int> test = get_odd_collatz(12); 
+    std::vector<int> test = getOddCollatz(12); 
     assert(checkIfSame(test , std::vector<int>{1}));
 }
