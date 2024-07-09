@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 
 bool isCube(int n) {
@@ -11,20 +10,7 @@ bool isCube(int n) {
     return false;
 }
 
-void originalFunction() {
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-
-    if(isCube(num)) {
-        std::cout << num << " is a cube." << std::endl;
-    } else {
-        std::cout << num << " is not a cube." << std::endl;
-    }
-}
-
-int main(){
-    originalFunction();
+int main() {
     assert(isCube(1729) == false);
     return 0;
 }
