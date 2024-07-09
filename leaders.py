@@ -1,11 +1,6 @@
 def leaders(arr):
-    n = len(arr)
-    leader_vector = [arr[n - 1]]
-
-    for i in range(n - 2, -1, -1):
-        if arr[i] >= arr[-1]:
-            leader_vector.insert(0, arr[i])
-        else:
-            break
-
-    return leader_vector
+    return [
+        arr[i]
+        for i in range(len(arr) - 1, -1, -1)
+        if all(x <= arr[i] for x in arr[i + 1 :])
+    ]
