@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
+bool issame(vector<string> v1, vector<string> v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
@@ -13,17 +13,19 @@ bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& 
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
-    std::vector<std::string> result;
+vector<string> sorted_list_sum(const vector<string>& lst) {
+    vector<string> result;
 
+    // Remove strings with odd lengths
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
             result.push_back(str);
         }
     }
 
+    // Sort the resulted vector by length and then alphabetically
     std::sort(result.begin(), result.end(),
-              [](const std::string& a, const std::string& b) {
+              [](const string& a, const string& b) {
                   if (a.length() != b.length()) {
                       return a.length() < b.length();
                   } else {
@@ -32,4 +34,13 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
               });
 
     return result;
+}
+
+int main() {
+    vector<string> lst = {"apple", "banana", "cherry", "date", "elderberry"};
+    if (issame(sorted_list_sum(lst), {"cher", "dat"})) {
+        cout << "The function works correctly." << endl;
+    } else {
+        cout << "There is a problem in the code." << endl;
+    }
 }
