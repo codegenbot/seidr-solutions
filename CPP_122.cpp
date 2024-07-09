@@ -1,3 +1,6 @@
+#include <vector>
+#include <initializer_list>
+
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
     for (int i = 0; i < k; i++) {
