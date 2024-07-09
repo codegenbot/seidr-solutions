@@ -1,5 +1,4 @@
 ```
-from typing import List, Any
-
-def filter_integers(values: List[Any]) -> List[int]:
-    return [value for value in values if isinstance(value, int)]
+values = input("Enter values separated by space: ")
+filtered_values = (int(i) for i in filter(None, map(str, values.split())))
+print(list(filtered_values))
