@@ -1,30 +1,42 @@
-Here is the completed code:
-
+#include <vector>
 #include <iostream>
-using namespace std;
+#include <string>
 
-string camelCase(string s) {
-    string result = "";
-    int count = 0;
-    
-    for(int i=0; i<s.size(); i++) {
-        if(s[i] == '-') {
-            result += char(toupper(s[++i]));
-            count++;
-        } else if(count > 0) {
-            result += s[i];
-            count--;
+std::string camelCase(std::string str) {
+    std::vector<std::string> tokens;
+    size_t pos = 0;
+    while ((pos = str.find("-")) != std::string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
+    }
+    if (!str.empty()) {
+        tokens.push_back(str);
+    }
+
+    std::string result;
+    for (const auto& token : tokens) {
+        if (!result.empty()) {
+            result += char(std::toupper(token[0]));
+            for (size_t i = 1; i < token.size(); ++i) {
+                result += char(std::tolower(token[i]));
+            }
         } else {
-            result += s[i];
+            for (char c : token) {
+                result += c;
+            }
         }
     }
-    
+
     return result;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << camelCase(input) << endl;
+    std::string str;
+    while (true) {
+        std::cout << "Enter a string (or 'q' to quit): ";
+        std::cin >> str;
+        if (str == "q") break;
+        std::cout << camelCase(str) << '\n';
+    }
     return 0;
 }
