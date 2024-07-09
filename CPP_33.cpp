@@ -9,14 +9,13 @@ vector<int> sort_third(vector<int> l) {
     vector<int> result;
     int i = 0;
     for (i = 0; i < l.size(); ) {
-        if (i % 3 == 0 && i < l.size() - 2) {
+        if (i % 3 == 0 && i + 3 <= l.size()) {
+            int block_size = 3;
             vector<int> temp;
-            temp.resize(min(i + 3, l.size()) - i);
-            for (int j = i; j < min(i + 3, l.size()); j++) {
+            for (int j = i; j < i + block_size && j < l.size(); j++) {
                 temp.push_back(l[j]);
             }
             sort(temp.begin(), temp.end());
-            int k = 0;
             for (int t : temp) {
                 result.push_back(t); 
                 i++;
