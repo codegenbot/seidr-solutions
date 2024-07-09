@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
@@ -16,3 +15,5 @@ void sort(std::vector<int>& arr) {
         return count_a < count_b;
     });
 }
+
+```
