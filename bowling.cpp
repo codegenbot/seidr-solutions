@@ -1,18 +1,25 @@
+```
 #include <iostream>
-#include <string>
+using namespace std;
 
-int bowlingScore(std::string frame) {
+int scoreGame(string game) {
     int score = 0;
-    for (char c : frame) {
-        if (c >= 'A' && c <= 'Z') {
-            int num = (c - 'X') * 10;
-            score += num;
-        } else if (c >= '1' && c <= '9') {
-            int num = c - '0';
-            if (num == 10) {
-                score += 10;
+    int roll = 0;
+    for (char c : game) {
+        if (c == '/') {
+            if (roll < 10) {
+                score += 10 - roll;
+                roll = 0;
             } else {
-                score += num;
+                roll = 0;
+            }
+        } else if (isdigit(c)) {
+            int currentRoll = stoi(string(1, c));
+            if (currentRoll + roll > 10) {
+                score += 10 - (roll = 0);
+                roll = 0;
+            } else {
+                roll += currentRoll;
             }
         }
     }
@@ -20,12 +27,10 @@ int bowlingScore(std::string frame) {
 }
 
 int main() {
-    std::cout << "Enter a string representing the individual bowls in a 10-frame round of 10 pin bowling: ";
-    std::string input;
-    std::cin >> input;
-
-    int score = bowlingScore(input);
-    std::cout << "The score is: " << score << std::endl;
-
+    string game;
+    cout << "Enter the game: ";
+    cin >> game;
+    int result = scoreGame(game);
+    cout << "The score is: " << result << endl;
     return 0;
 }
