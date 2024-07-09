@@ -1,4 +1,4 @@
-def minPath(grid,k):
+def minPath(grid, k):
     N = len(grid)
     visited = [[False]*N for _ in range(N)]
     queue = [(0, 0, [grid[0][0]])]
