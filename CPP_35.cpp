@@ -14,7 +14,10 @@ int main() {
     std::vector<int> numbers;
     int num = 0; 
     std::cout << "Enter numbers (separated by spaces): ";
-    while(std::cin >> num) { 
+    while(std::cin >> num) {
+        if (!(std::cin >> ws)) { 
+            break; // invalid input or end of file
+        }
         numbers.push_back(num);
     }
     findMax(numbers);
