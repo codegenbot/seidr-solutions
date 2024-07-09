@@ -1,4 +1,4 @@
 def dice_game(n, m):
-    return sum(
-        1 / n / m for i in range(min(n, m)) if (i + 1) * n > m * max(m, 1)
-    ) / min(n, m)
+    total_outcomes = n * m
+    favorable_outcomes = sum(i > j for i in range(1, n) for j in range(1, m))
+    return favorable_outcomes / total_outcomes
