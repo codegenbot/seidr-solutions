@@ -4,3 +4,4 @@ bool isSame(vector<float> a, vector<float> b){
         if(abs(a[i] - b[i]) > 1e-6) return false;
     }
     return true;
+}
