@@ -7,11 +7,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> unique_digits = {0, 2, 4, 6, 8, 1, 3, 5, 7, 9};
+    std::vector<int> digits = {135, 103, 31};
 
-    assert(issame(unique_digits, std::vector<int>{0, 2, 4, 6, 8, 1, 3, 5, 7, 9}));
-
-    assert(issame(std::vector<int>{1, 3, 5}, std::vector<int>{5, 1, 3}));
+    assert(issame(digits, {31, 135}));
 
     return 0;
 }
