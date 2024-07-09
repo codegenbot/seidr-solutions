@@ -1,12 +1,10 @@
-Here is the modified code:
-
 ```cpp
 #include <vector>
 
 int main() {
-    vector<int> lst = {1,2,3,4,5};
-    int sum = solution(lst);
-    cout << "The sum is: " << sum << endl;
+    std::vector<int> lst = {1, 2, 3, 4, 5};
+    int result = solution(lst);
+    std::cout << "The sum is: " << result << std::endl;
     return 0;
 }
 
