@@ -1,30 +1,31 @@
 #include <vector>
 #include <cmath>
-using namespace std;
 
-vector<double> coeffs;
+std::vector<double> coeffs;
 double coeff;
 int n;
 
-double find_zero(vector<double> coeffs);
-double poly(vector<double> coeffs, double solution);
+double find_zero(std::vector<double> coeffs);
+double poly(std::vector<double> coeffs, double solution);
 
 int main() {
-    cout << "Enter the number of coefficients: ";
-    cin >> n;
+    std::cout << "Enter the number of coefficients: ";
+    std::cin >> n;
 
     for (int i = 0; i < n; ++i) {
-        cout << "Enter coefficient " << i+1 << ": ";
-        cin >> coeff;
-        coeffs.push_back(coeff);
+        std::cout << "Enter coefficient " << i+1 << ": ";
+        std::cin >> coeff;
+        std::vector<double> coeffsTemp; 
+        coeffsTemp.push_back(coeff);
+        coeffs.insert(coeffs.end(), coeffsTemp.begin(), coeffsTemp.end()); 
     }
 
     double solution = find_zero(coeffs); 
-    assert(abs(poly(coeffs, solution)) < 1e-3); 
+    assert(std::abs(poly(coeffs, solution)) < 1e-3); 
     return 0;
 }
 
-double find_zero(vector<double> coeffs) {
+double find_zero(std::vector<double> coeffs) {
     double sum = 0.0;
     for (int i = 0; i < coeffs.size(); ++i) {
         sum += coeffs[i] / pow(2, i);
@@ -32,7 +33,7 @@ double find_zero(vector<double> coeffs) {
     return -sum;
 }
 
-double poly(vector<double> coeffs, double solution) {
+double poly(std::vector<double> coeffs, double solution) {
     double result = 0.0;
     for (int i = 0; i < coeffs.size(); ++i) {
         result += coeffs[i] * pow(solution, i);
