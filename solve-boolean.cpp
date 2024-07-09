@@ -1,27 +1,20 @@
 using namespace std;
 
-string solveBoolean(string s) {
-    string result = "True";
+std::string solveBoolean(std::string s) {
+    stack<char> st;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'F') return "False";
-        else if (s[i] == '&') {
-            while (i > 0 && s[i - 1] == '&') i--;
-            int left = 0, right = 0;
-            for (; i < s.length() && s[i] != '|'; i++) {
-                if (s[i] == 'T') right++;
-                else left++;
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            i--;
-            result = (left > right) ? "False" : "True";
+            if (st.empty()) return "False";
+            else st.pop();
         } else if (s[i] == '|') {
-            int left = 0, right = 0;
-            for (; i < s.length() && s[i] != '&'; i++) {
-                if (s[i] == 'T') right++;
-                else left++;
-            }
-            i--;
-            result = (left > right) ? "True" : "False";
+            while (!st.empty()) st.pop();
+            st.push(s[i]);
+        } else {
+            st.push(s[i] == 'T' ? '1' : '0');
         }
     }
-    return result;
+    return st.top() == '1' ? "True" : "False";
 }
