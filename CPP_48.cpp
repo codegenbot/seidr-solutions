@@ -6,7 +6,7 @@ bool is_palindrome(std::string text) {
     int end = text.size() - 1;
 
     while (start < end) {
-        if (text[start] != text[end]) {
+        if (std::tolower(text[start]) != std::tolower(text[end])) {
             return false;
         }
         start++;
