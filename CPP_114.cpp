@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <limits.h>
 #include <cassert>
@@ -17,6 +16,6 @@ long long minSubArraySumFunction(vector<long long> nums) {
     return min_sum;
 }
 
-int main() {
+void mainTest() {
     assert(minSubArraySumFunction({1, -1}) == -1);
 }
