@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <climits>
 
 using namespace std;
 
@@ -33,7 +34,7 @@ int main() {
     for (unsigned int i : pile) {
         cout << i << " ";
     }
-    if(isSame(make_a_pile(8), make_a_pile(8))) {
+    if(isSame(make_a_pile(8), vector<unsigned int>{8, 10, 12, 14, 16, 18, 20, 22})) {
         cout << "\nThe piles are the same.\n";
     } else {
         cout << "\nThe piles are not the same.\n";
