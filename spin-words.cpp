@@ -1,3 +1,4 @@
+```c++
 #include <string>
 #include <algorithm>
 
