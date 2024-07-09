@@ -3,7 +3,11 @@
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -22,25 +26,15 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else if (total_chars1 > total_chars2) {
         return lst2;
     } else {
-        return lst1;
+        if (issame(lst1, lst2)) {
+            return lst1;
+        } else {
+            return lst2;
+        }
     }
 }
 
 int main() {
     vector<string> result = total_match({"this"}, {});
     assert(issame(result, {}));
-    
-    // Example usage
-    vector<string> list1 = {"hello", "world"};
-    vector<string> list2 = {"goodbye", "cruel", "world"};
-    vector<string> output = total_match(list1, list2);
-    if (issame(output, list1)) {
-        cout << "List 1 is the same length as List 2." << endl;
-    } else if (issame(output, list2)) {
-        cout << "List 2 is the same length as List 1." << endl;
-    } else {
-        cout << "Neither lists are the same length." << endl;
-    }
-    
-    return 0;
 }
