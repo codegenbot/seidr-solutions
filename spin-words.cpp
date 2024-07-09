@@ -1,4 +1,3 @@
-```c++
 #include <string>
 #include <algorithm>
 
@@ -12,7 +11,8 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             if (word.length() >= 5) {
                 result += word;
-                string reversedWord = word; reverse(reversedWord.begin(), reversedWord.end());
+                string reversedWord = word;
+                reverse(reversedWord.begin(), reversedWord.end());
                 result += " ";
                 word = "";
             } else {
@@ -26,7 +26,8 @@ string spinWords(string str) {
     }
 
     if (word.length() >= 5) {
-        string reversedWord = word; reverse(reversedWord.begin(), reversedWord.end());
+        string reversedWord = word;
+        reverse(reversedWord.begin(), reversedWord.end());
         result += reversedWord;
     } else {
         result += word;
