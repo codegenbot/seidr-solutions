@@ -21,12 +21,9 @@ int main() {
     vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAAC", "xxx"};
     string prefix = "xxx";
     vector<string> result = filter_by_prefix(strings, prefix);
-    cout << "Filtered strings: ";
-    for(auto s : result)
-        cout << s << " ";
-    cout << endl;
-    if (issame(result, {"xxx", "xxxAAA", "xxx"}))
-        cout << "Strings are the same" << endl;
-    else
-        cout << "Strings are not the same" << endl;
+    if (!issame(result, {"xxx", "xxxAAA", "xxx"})) {
+        cout << "Test failed\n";
+    } else {
+        cout << "Test passed\n";
+    }
 }
