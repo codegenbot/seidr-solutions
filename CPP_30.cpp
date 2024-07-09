@@ -1,6 +1,7 @@
+```
 #include <vector>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool isSame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -12,7 +13,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-vector<float> get_positive(std::vector<float> l) {
+vector<float> getPositive(vector<float> l) {
     vector<float> result;
     for (float num : l) {
         if (num > 0) {
@@ -20,3 +21,4 @@ vector<float> get_positive(std::vector<float> l) {
         }
     }
     return result;
+}
