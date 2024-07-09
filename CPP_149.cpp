@@ -19,7 +19,7 @@ int main() {
     return 0;
 }
 
-vector<vector<string>> sorted_list_sum(vector<string> lst) {
+vector<string> sorted_list_sum(vector<string> lst) {
     sort(lst.begin(), lst.end(),
          [](const string& a, const string& b) {
              if (a.length() != b.length()) {
@@ -29,12 +29,15 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
              }
          });
     
-    vector<vector<string>> result;
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            vector<string> temp = {str};
-            result.push_back(temp);
-        }
+    vector<int> lengths;
+    for(const auto& str : lst) {
+        lengths.push_back(str.length());
     }
-    return result;
+    
+    int sum = 0;
+    for(int i = 0; i < lengths.size(); i++) {
+        sum += lengths[i];
+    }
+    
+    return lst;
 }
