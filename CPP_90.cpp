@@ -1,7 +1,17 @@
-Here is the solution:
+#include <iostream>
+#include <vector>
+using namespace std;
 
-if (lst.size() < 2) return -1; // or return None
-vector<int> sorted = lst;
-sort(sorted.begin(), sorted.end());
-int res = *next(iterate(sorted.begin()+1, sorted.end()));
-return res;
+int next_smallest(vector<int> lst) {
+    vector<int> v = lst;
+    sort(v.begin(), v.end());
+    for (int i = 1; i < v.size(); i++) {
+        if (v[i] > v[0]) return v[i];
+    }
+    return -1; 
+}
+
+int main() {
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    return 0;
+}
