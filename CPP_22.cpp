@@ -1,27 +1,28 @@
-#include <vector>
-#include <list>
+```cpp
 #include <boost/any.hpp>
+#include <list>
+#include <vector>
+#include <algorithm>
 
-using namespace boost;
-
-namespace std {
-
+namespace boost {
 template <typename T>
-struct is_same : public integral_constant<bool, false> {};
-
+bool is_same(boost::any const& a, boost::any const& b) {
+    return typeid(T) == boost::any_cast<T>(a).type() &&
+           typeid(T) == boost::any_cast<T>(b).type();
+}
 }
 
 std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value)) {
-            result.push_back(any_cast<int>(value));
+        if (boost::any_cast<int>(value, 0)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
 }
 
 int main() {
-    assert(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}) == std::vector<int>({3, 3, 3}));
+    assert(std::equal(filter_integers({3, 'c', 3, 3, 'a', 'b'}).begin(), filter_integers({3, 'c', 3, 3, 'a', 'b'}).end(), {3, 3, 3}.begin()));
     // ...
 }
