@@ -1,8 +1,15 @@
+#include <algorithm>
+
 vector<int> sort_array(vector<int> array) {
-    int first = array.empty() ? 0 : array[0];
-    int last = array.empty() ? 0 : array.back();
-    if ((first + last) % 2 == 1)
-        return vector<int>(array);
+    if (array.empty()) return array;
+
+    int sum = array[0] + array.back();
+    vector<int> result = array;
+
+    if (sum % 2 == 1)
+        std::sort(result.begin(), result.end());
     else
-        return vector<int>(array.rbegin(), array.rend());
+        std::sort(result.begin(), result.end(), std::greater<int>());
+
+    return result;
 }
