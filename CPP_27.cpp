@@ -1,11 +1,16 @@
-#include <algorithm>
+#include <string>
+using namespace std;
 
-string filp_case(string str){
+std::string myFlipCase(std::string str){
+    string result = "";
     for(int i=0; i<str.length(); i++){
-        if(str[i] >= 'a' && str[i] <= 'z')
-            str[i] = toupper(str[i]);
-        else if(str[i] >= 'A' && str[i] <= 'Z')
-            str[i] = tolower(str[i]);
+        char c = str[i];
+        if(c >= 'a' && c <= 'z')
+            result += (c - ('a' - 'A'));
+        else if(c >= 'A' && c <= 'Z')
+            result += (c - ('A' - 'a'));
+        else
+            result += c;
     }
-    return str;
+    return result;
 }
