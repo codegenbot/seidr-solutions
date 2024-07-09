@@ -17,7 +17,9 @@ bool match_parens(const std::string& s) {
     return count == 0;
 }
 
-void processInput(int n) {
+int main() {
+    int n;
+    std::cin >> n;
     lst = std::vector<std::string>(); 
     for(int i=0; i<n; ++i){
         std::string s;
@@ -30,15 +32,9 @@ void processInput(int n) {
                 lst.push_back("No");
             }
         } else {
-            lst.push_back("No");
+            lst.push_back("No");  // Changed from empty string
         }
     }
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-    processInput(n);
     for (const auto& str : lst) {
         std::cout << str << std::endl;
     }
