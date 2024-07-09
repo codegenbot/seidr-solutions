@@ -1,22 +1,21 @@
 ```
 def solve_boolean(expression):
     def eval_expr(expression):
-        stack = []
-        left = ''
-        operators = {'&': lambda x, y: x and y, '|': lambda x, y: x or y}
-        while expression:
-            if expression[0] in 'TF':
-                yield bool(expression[0])
-                expression = expression[1:]
-            elif expression[0] in '&|(':
-                if expression[0] == '(':
-                    stack.append(left + operators.get(expression[0], lambda x: x)(left, left))
-                    left = ''
-                else:
-                    left = operators[expression[0]](left, eval_expr(expression[1])[0])
-            elif expression[0] == ')':
-                result = stack.pop()
-                left = str(result)
-        return bool(left)
+        if not expression: return None
+        i = 0
+        while i < len(expression):
+            if expression[i] in ["T", "F"]:
+                result = True if expression[i] == "T" else False
+                i += 1
+            elif expression[i] in ["&", "|"]:
+                operator = expression[i]
+                i += 1
+                left = eval_expr(expression[:i].rstrip()) or None
+                right = eval_expr(expression[i:].lstrip())
+                if not left: return not right
+                if not right: return not left
+                if operator == "&": return left and right
+                else: return left or right
+        return result
 
-    return next(eval_expr(expression))
+    return eval_expr(expression)
