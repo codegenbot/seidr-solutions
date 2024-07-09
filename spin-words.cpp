@@ -1,6 +1,6 @@
+```cpp
 #include <string>
-#include <algorithm>
-
+#include <algorithm> 
 using namespace std;
 
 string spinWords(string str) {
@@ -11,7 +11,7 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             if (word.length() >= 5) {
                 result += word;
-                word = std::string(word.rbegin(), word.rend());
+                reverse(word.begin(), word.end());
                 result += " ";
                 word = "";
             } else {
@@ -26,10 +26,18 @@ string spinWords(string str) {
 
     if (word.length() >= 5) {
         result += word;
-        word = std::string(word.rbegin(), word.rend());
+        reverse(word.begin(), word.end());
     } else {
         result += word;
     }
 
     return result;
+}
+
+int main() {
+    string input;
+    cout << "Enter a sentence: ";
+    cin >> input;
+    cout << "Spin words: " << spinWords(input) << endl;
+    return 0;
 }
