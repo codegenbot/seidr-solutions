@@ -1,14 +1,18 @@
-int sum = 0;
-    for (int num : q) {
-        sum += num;
-    }
-    
-    if (sum > w) {
+bool will_it_fly(vector<int> q, int w) {
+    if (q.size() % 2 != 0) {
         return false;
     }
     
-    vector<int> reversed_q = q;
-    reverse(reversed_q.begin(), reversed_q.end());
+    for (int i = 0; i < q.size() / 2; i++) {
+        if (q[i] != q[q.size() - i - 1]) {
+            return false;
+        }
+    }
     
-    return q == reversed_q;
+    int sum = 0;
+    for (int i = 0; i < q.size(); i++) {
+        sum += q[i];
+    }
+    
+    return sum <= w;
 }
