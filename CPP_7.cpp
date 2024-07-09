@@ -20,16 +20,18 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
+    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
+    string substring = "run";
     vector<string> expected = {"grunt", "prune"};
-    vector<string> actual = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    std::vector<std::string> strings = {"grunt", "trumpet", "prune", "gruesome"};
-    std::string substring = "run";
-    vector<string> result = filter_by_substring(strings, substring);
-    if(issame(result, expected)) {
-        cout << "Filtering is working correctly." << endl;
-    }
-    else {
-        cout << "Filtering is not working correctly." << endl;
+    vector<string> actual = filter_by_substring(strings, substring);
+    if (!issame(actual, expected)) {
+        for (const auto& s : strings) {
+            if (s.find(substring) != std::string::npos) {
+                cout << s << endl;
+            }
+        }
+    } else {
+        cout << "All elements in the actual vector are present in the expected vector." << endl;
     }
     return 0;
 }
