@@ -11,8 +11,10 @@ vector<int> sort_third(vector<int> l) {
     for (int i : l) {
         if(groupCount % 3 == 0 || groupCount >= l.size()) { 
             result.push_back(i);
-            groupCount++;
         } else {
+            if(result.size() * 2 > l.size())
+                result.resize(l.size());
+            result.push_back(i);
             groupCount++;
         }
     }
