@@ -1,37 +1,38 @@
-from collections import deque
-
-
-def minPath(grid):
+def minPath(grid, k):
     n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
+    m = [[i * j for j in range(1, n + 1)] for i in range(1, n + 1)]
 
-    def dfs(i, j, path):
-        if grid[i][j] == "0":
-            return None
+    memo = {}
 
-        visited.add((i, j))
+    def dfs(i, j, path, cnt):
+        if (i, j) in memo:
+            return memo[(i, j)]
 
-        min_path = path[:]
-        for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            ni, nj = i + di, j + dj
-            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
-                new_path = dfs(ni, nj, path + [m[ni][nj]])
-                if new_path and (not min_path or new_path < min_path):
-                    min_path = new_path
+        if cnt == k:
+            return path
 
-        return min_path
+        res = []
+        for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ni, nj = i + x, j + y
+            if 1 <= ni < n and 1 <= nj < n and (ni, nj) not in memo:
+                res.append(dfs(ni, nj, path + [m[ni][nj]], cnt + 1))
 
-    visited = set()
+        res.sort()
+        memo[(i, j)] = res[0]
+        return memo[(i, j)]
 
-    start = None
-    for i in range(n):
+    min_path = []
+    for i in range(1, n):
         for j in range(n):
-            if grid[i][j] == "1":
-                start = [i, j]
+            if (i, j) not in memo:
+                path = dfs(i, j, [], 0)
+                while k > 0 and path[-1] != grid[i][j]:
+                    k -= 1
+                    path.pop()
+                min_path.append(path[:])
                 break
-        if start is not None:
-            break
+        else:
+            continue
+        break
 
-    path = dfs(*start, [])
-
-    return path
+    return min_path[0]
