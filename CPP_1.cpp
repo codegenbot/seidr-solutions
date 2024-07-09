@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
 vector<string> separate_paren_groups(string paren_string);
 
 bool issame(vector<string> a, vector<string> b) {
@@ -18,37 +14,15 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
-    int open_count = 0;
-
-    for (char c : paren_string) {
-        if (c == '(') {
-            if (open_count > 0) {
-                current_group += c;
-            }
-            open_count++;
-        } else if (c == ')') {
-            open_count--;
-            if (open_count > 0) {
-                current_group += c;
-            } else if (open_count == 0) {
-                result.push_back(current_group);
-                current_group = "";
-            }
-        }
-    }
-
-    return result;
-}
+#include "header_file_with_separate_paren_groups_declaration"
 
 int main() {
-    // test the separate_paren_groups function
-    vector<string> groups = separate_paren_groups("((group1)(group2))((group3))");
-    for (const auto& group : groups) {
-        std::cout << group << std::endl;
-    }
+    // Sample code to test the functions
+    vector<string> input1 = separate_paren_groups("((ab)(cd))");
+    vector<string> input2 = separate_paren_groups("((ab)(cd))");
+
+    bool result = issame(input1, input2);
+    cout << "Are the two vector<string> same? " << (result ? "Yes" : "No") << endl;
 
     return 0;
 }
