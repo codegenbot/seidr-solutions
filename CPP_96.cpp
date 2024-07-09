@@ -3,6 +3,7 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    // Return true if vectors a and b have the same content
     return a == b;
 }
 
