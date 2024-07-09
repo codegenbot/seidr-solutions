@@ -10,7 +10,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
         }
     }
     
-    sort(result.begin(), result.end(),
+    sort(result.begin(), result.end(), 
          [](const string& a, const string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
@@ -20,9 +20,4 @@ vector<string> sorted_list_sum(vector<string> lst) {
          });
     
     return result;
-}
-
-int main() {
-    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == vector<string> {"cc", "dd", "aaaa", "bbbb"});
-    return 0;
 }
