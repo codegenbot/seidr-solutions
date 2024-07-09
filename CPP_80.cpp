@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 bool is_happy(int n);
