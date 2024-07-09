@@ -1,45 +1,32 @@
 #include <vector>
-#include <climits>
+#include <climits> // Include for INT_MAX
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> pluck(vector<int> arr);
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) {
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
-
-vector<int> pluck(vector<int> arr){
-    vector<int> result;
-    int smallest_even = INT_MAX;
-    int smallest_index = INT_MAX;
+std::vector<int> pluck(std::vector<int> arr){
+    std::vector<int> result;
+    int min_even = INT_MAX;
+    int min_index = INT_MAX;
     
     for(int i = 0; i < arr.size(); i++){
-        if(arr[i] % 2 == 0 && arr[i] < smallest_even){
-            smallest_even = arr[i];
-            smallest_index = i;
+        if(arr[i] % 2 == 0 && arr[i] < min_even){
+            min_even = arr[i];
+            min_index = i;
         }
     }
     
-    if(smallest_even != INT_MAX){
-        result.push_back(smallest_even);
-        result.push_back(smallest_index);
+    if(min_index != INT_MAX){
+        result.push_back(min_even);
+        result.push_back(min_index);
     }
     
     return result;
 }
 
-int main() {
-    // Test the code here if needed
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
+int main(){
+    assert(issame(pluck({7, 9, 7, 1}), {}));
 }
