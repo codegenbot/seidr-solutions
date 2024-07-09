@@ -4,23 +4,23 @@
 
 using namespace std;
 
-map<char, int> histogram(string test) {
-    unordered_map<char, int> count;
+map<pair<char, int>, int> histogram(string test) {
+    unordered_map<char, int> letterCount;
     for (char c : test) {
         if (c != ' ') {
-            count[c]++;
+            letterCount[c]++;
         }
     }
 
-    map<char, int> result;
+    map<pair<char, int>, int> result;
     int maxCount = 0;
-    for (auto& pair : count) {
-        if (pair.second > maxCount) {
-            maxCount = pair.second;
+    for (auto& p : letterCount) {
+        if (p.second > maxCount) {
+            maxCount = p.second;
             result.clear();
-            result[pair.first] = pair.second;
-        } else if (pair.second == maxCount) {
-            result[pair.first] = pair.second;
+            result[make_pair(p.first, p.second)] = 1;
+        } else if (p.second == maxCount) {
+            result[make_pair(p.first, p.second)] = 1;
         }
     }
 
