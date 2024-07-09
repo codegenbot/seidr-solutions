@@ -20,6 +20,6 @@ int pluck(std::vector<int> arr) {
 
 int main() {
     int index = pluck({7, 9, 7, 1});
-    if (index % 2 == 0 || index == -1) 
+    assert(index % 2 == 0 || index == -1); 
     return 0;
 }
