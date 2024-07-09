@@ -9,14 +9,3 @@ int how_many_times(std::string s1, std::string s2) {
     }
     return count;
 }
-
-int main() {
-    std::string str1, str2;
-    std::cout << "Enter the first string: ";
-    std::cin >> str1;
-    std::cout << "Enter the second string: ";
-    std::cin >> str2;
-    int result = how_many_times(str1, str2);
-    std::cout << "The substring appears " << result << " times." << std::endl;
-    return 0;
-}
