@@ -1,6 +1,6 @@
-output = []
-for num in numbers[:-1]:
-    output.extend([num, delimeter])
-if numbers:
-    output.append(numbers[-1])
-return output
+result = []
+for i in range(len(numbers)):
+    result.append(numbers[i])
+    if i < len(numbers) - 1:
+        result.append(delimeter)
+return result
