@@ -1,18 +1,21 @@
 #include <boost/any.hpp>
-#include <string>
 
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<a>(boost::type_id<double>())) {
-        double da = boost::any_cast<double>(a);
-        double db = boost::any_cast<double>(b);
-        return (da > db) ? a : ((da < db) ? b : boost::any("None"));
-    } else if (is_any_of<a>(boost::type_id<std::string>())) {
-        std::string sa = boost::any_cast<std::string>(a);
-        std::string sb = boost::any_cast<std::string>(b);
-        return (sa > sb) ? a : ((sa < sb) ? b : boost::any("None"));
-    } else {
-        throw "Invalid input";
+    if (is_any_of<a>(int.class)) {
+        int x = any_cast<int>(a);
+        int y = any_cast<int>(b);
+        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
+    } else if (is_any_of<a>(double.class)) {
+        double x = any_cast<double>(a);
+        double y = any_cast<double>(b);
+        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
+    } else if (is_any_of<a>(string.class)) {
+        string x = any_cast<string>(a);
+        string y = any_cast<string>(b);
+        double ax = stod(x);
+        double ay = stod(y);
+        return (ax > ay) ? a : ((ax < ay) ? b : boost::any("None"));
     }
 }
