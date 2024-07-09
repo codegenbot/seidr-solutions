@@ -19,6 +19,7 @@ std::string int_to_roman(int number) {
 }
 
 int main() {
-    std::cout << int_to_roman(1000);
+    std::string roman = int_to_roman(1000);
+    std::cout << (const std::string&) roman;
     return 0;
 }
