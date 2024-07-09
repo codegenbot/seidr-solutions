@@ -1,22 +1,21 @@
-#include <iostream>
+```cpp
 #include <string>
 #include <cctype>
 #include <cassert>
 
-int count_upper(std::string s) {
-    int count = 0;
-    for (int i = 0; i < s.length(); i++) {
-        if ((i % 2 == 0 && std::isupper(s[i])) && (s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U')) {
-            count++;
-        }
-    }
-    return count;
-}
-
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    assert(count_upper(str) == 4); // Fix this line to test the correct result
+    std::cin >> str;
+
+    int count = 0;
+    for (int i = 0; i < str.length(); i++) {
+        if ((i % 2 == 0 && std::isupper(str[i])) && (str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U')) {
+            count++;
+        }
+    }
+
+    assert(count == count_upper(str));
+    std::cout << "Number of Uppercase Vowels at even positions: " << count << std::endl;
     return 0;
 }
