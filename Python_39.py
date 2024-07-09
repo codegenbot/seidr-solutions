@@ -1,23 +1,22 @@
 def is_prime(num):
     if num < 2:
         return False
-    for i in range(2, int(num**0.5) + 1):
+    for i in range(2, int(num ** 0.5) + 1):
         if num % i == 0:
             return False
     return True
 
 def prime_fib(n: int):
-    def fibonacci(n):
-        if n <= 1:
-            return n
-        else:
-            return fibonacci(n-1) + fibonacci(n-2)
+    def is_fib(num):
+        a, b = 0, 1
+        while a < num:
+            a, b = b, a + b
+        return a == num
 
     count = 0
-    num = 1
+    num = 2
     while count < n:
-        num += 1
-        fib_num = fibonacci(num)
-        if is_prime(fib_num):
+        if is_fib(num) and is_prime(num):
             count += 1
-    return fib_num
+        num += 1
+    return num - 1
