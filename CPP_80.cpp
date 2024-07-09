@@ -1,10 +1,9 @@
-```
 #include <iostream>
 #include <string>
 
 bool is_happy(int n);
 
-int main() {
+int main2() {
     std::cout << "Enter a happy number: ";
     std::string num_str;
     std::cin >> num_str;  
