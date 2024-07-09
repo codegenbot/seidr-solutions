@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <unordered_map>
 
@@ -29,10 +28,9 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "abcde"; // or any other 4-character string consisting of 6 possible characters
-    std::string guess = "abcd"; // or any other 4-character string consisting of 6 possible characters
+    std::string code = "AAAA";
+    std::string guess = "ABCD";
     auto result = mastermind(code, guess);
-    int white = result.first;
-    int black = result.second;
+    std::cout << "White pegs: " << result.first << ", Black pegs: " << result.second << std::endl;
     return 0;
 }
