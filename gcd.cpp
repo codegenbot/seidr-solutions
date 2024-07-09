@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -38,12 +39,12 @@ int main() {
     bool isValidInput = false;
     while (!isValidInput) {
         cin >> a >> b;
-        if (!(a < 0 || b < 0)) {
+        if (cin && a > 0 && b > 0) { 
             isValidInput = true;
         } else {
             cout << "Invalid input. Please enter two positive integers: ";
             cin.clear();
-            cin.ignore((numeric_limits<streamsize>::max()), '\n');
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
     }
 
@@ -53,15 +54,16 @@ int main() {
     bool isValidInput2 = false;
     while (!isValidInput2) {
         cin >> text >> target;
-        if (cin) {
+        if (cin && !text.empty() && !target.empty()) { 
             isValidInput2 = true;
         } else {
             cout << "Invalid input. Please enter valid strings: ";
             cin.clear();
-            cin.ignore((numeric_limits<streamsize>::max()), '\n');
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
     }
 
     vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices)
         cout << i << " ";
+}
