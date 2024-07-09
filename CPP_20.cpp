@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <algorithm>
 #include <vector>
@@ -27,4 +28,9 @@ std::vector<float> findClosestElements(std::vector<float> numbers) {
     }
     
     return std::vector<float>{closestPair.first, closestPair.second};
+}
+
+int main() {
+    assert(isSame(findClosestElements({1.1, 2.2, 3.1, 4.1, 5.1}) , {2.2, 3.1}));
+    return 0;
 }
