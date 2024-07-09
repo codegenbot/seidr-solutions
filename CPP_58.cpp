@@ -3,6 +3,10 @@
 #include <vector>
 #include <algorithm>
 
+bool isSame(const std::set<std::string>& s1, const std::set<std::string>& s2) {
+    return s1 == s2;
+}
+
 int main() {
     std::set<std::string> s1;
     std::set<std::string> s2;
@@ -53,6 +57,12 @@ int main() {
         std::cout << i << " ";
     }
     std::cout << "\n";
+
+    if(isSame(s1, s2)) {
+        std::cout << "Sets are same.\n";
+    } else {
+        std::cout << "Sets are not same.\n";
+    }
 
     return 0;
 }
