@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <initializer_list>
 
@@ -6,7 +7,8 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 }
 
 int get_odd_collatz(int n) {
-    int sequence[50] = {0};
+    std::vector<int> sequence;
+    
     int i = 0;
     
     while(n != 1 && i < 49) {
@@ -15,7 +17,8 @@ int get_odd_collatz(int n) {
         else
             n /= 2;
         
-        sequence[i++] = n;
+        sequence.push_back(n);
+        i++;
     }
     
     for(int j = 0; j < i; j++) {
