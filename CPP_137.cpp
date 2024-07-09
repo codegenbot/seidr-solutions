@@ -1,37 +1,25 @@
+Here is the completed code:
+
 #include <boost/any.hpp>
-using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = any_cast<string>(a);
-        string strB = any_cast<string>(b);
-
-        int i = strA.find('.');
-        if (i != -1)
-            strA.erase(i, 1);
-
-        i = strB.find(',');
-        if (i != -1)
-            strB[i] = '.';
-
-        return (stod(strA) > stod(strB)) ? a : b;
-    }
-    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
-        string strA = any_cast<string>(a);
-        int i = strA.find('.');
-        if (i != -1)
-            strA.erase(i, 1);
-
-        double numB = any_cast<double>(b);
-        return (stod(strA) > numB) ? a : b;
-    }
-    else {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return (int)a > (int)b ? a : (int)b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return (float)a > (float)b ? a : (float)b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return a.convert<string>() > b.convert<string>() ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)a > (float)b ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > (int)b ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string str = boost::any_cast<string>(b);
+        return str.compare(0, str.length(), "0") < 0 ? a : b.convert<string>() > "0" ? a : "None";
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string str = boost::any_cast<string>(b);
+        return str.compare(0, str.length(), "0") < 0 ? a : a.convert<string>() > str ? a : "None";
+    } else {
         return "None";
     }
 }
