@@ -1,9 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
 bool issame(int a, int b) {
-    return a == b;
+    return a % 3 == b % 3;
 }
 
 void sort_third(std::vector<int>& v) {
@@ -12,8 +11,7 @@ void sort_third(std::vector<int>& v) {
     }
 }
 
-std::vector<int> fix_code(std::vector<int> l)
-{
+std::vector<int> sortEveryThird(std::vector<int> l) {
     std::vector<int> res = l;
     sort_third(res);
     return res;
