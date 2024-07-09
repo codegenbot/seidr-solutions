@@ -1,10 +1,14 @@
-string remove_vowels(string text){
-    string result = "";
-    for(char c : text){
-        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && 
-           tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && 
-           tolower(c) != 'o' && tolower(c) != 'u'){
-            result += c;
+#include <string>
+#include <cctype>
+
+std::string remove_vowels(const std::string& text) {
+    std::string result;
+    for (char c : text) {
+        if (!std::isspace(c)) {  
+            c = std::tolower(c);  
+            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
+                result += c;  
+            }
         }
     }
     return result;
