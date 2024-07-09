@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 int solve(int n) {
     string binary = "";
     while(n > 0) {
@@ -14,7 +17,8 @@ int solve(int n) {
     return stoi(binary, 0, 2);
 }
 
-int solveMain() {
+int main() {
     int expected = solve(963); 
+    assert(expected == 10 || cout << "Expected: " << expected << " got " << expected<< endl;);
     return 0;
 }
