@@ -1,2 +1,2 @@
-def check(lst):
-    return sum(i ** 2 for i in lst if isinstance(i, int) and i > 0)
+def check(func):
+    return func([1, 2, 3])
