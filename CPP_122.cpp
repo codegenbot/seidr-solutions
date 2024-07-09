@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 int add_elements(vector<int> arr, int k) {
@@ -25,4 +26,3 @@ int main() {
     cin >> k;
     int result = add_elements(arr, k);
     cout << "Sum of elements: " << result << endl;
-}
