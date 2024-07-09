@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,7 +11,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> v) {
-    std::vector<int> result(v.size()); // Initialize with size 0
+    std::vector<int> result; // Initialize as an empty vector
     for(int i = 0; i < v.size(); i++) {
         if(std::find(result.begin(), result.end(), v[i]) == result.end()) {
             result.push_back(v[i]);
