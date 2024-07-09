@@ -1,5 +1,6 @@
 ```c++
 #include <iostream>
+#include <string>
 using namespace std;
 
 int fizz_buzz(int n) {
@@ -23,5 +24,3 @@ int main() {
         cout << "The result is: " << fizz_buzz(n);
     }
 }
-
-#include <string>
