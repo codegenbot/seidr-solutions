@@ -1,22 +1,24 @@
-bool is_happy(string s) {
-    if (s.length() < 3)
+#include <cstring>
+#include <cassert>
+
+bool is_happy(char* s) {
+    if (strlen(s) < 3)
         return false;
-    for (int i = 0; i <= s.length() - 3; i++) {
-        string sub = s.substr(i, 3);
-        bool unique = true;
-        for (char c : sub) {
-            int count = 0;
-            for (int j = i; j < i + 3; j++) {
-                if (s[j] == c)
-                    count++;
-            }
-            if (count > 1) {
-                unique = false;
+    for (int i = 0; i < strlen(s) - 2; i++) {
+        char c = s[i];
+        bool found = true;
+        for (int j = 1; j <= 2; j++) {
+            if (s[i + j] != c)
+                found = false;
                 break;
-            }
         }
-        if (!unique)
+        if (!found)
             return false;
     }
     return true;
+}
+
+int main_check() { 
+    assert(is_happy("iopaxioi") == false);
+    return 0;
 }
