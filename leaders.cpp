@@ -10,18 +10,14 @@ vector<int> findLeaders(vector<int> nums) {
     int n = nums.size();
     
     int maxRight = INT_MIN;
-    for (int i = 0; i < n; i++) {
-        bool isLeader = true;
-        for (int j = i + 1; j < n; j++) {
-            if (nums[i] < nums[j]) {
-                isLeader = false;
-                break;
-            }
-        }
-        if (isLeader) {
+    for (int i = n - 1; i >= 0; i--) {
+        if (nums[i] >= maxRight) {
             leaders.push_back(nums[i]);
+            maxRight = nums[i];
         }
     }
+
+    reverse(leaders.begin(), leaders.end());
     
     return leaders;
 }
