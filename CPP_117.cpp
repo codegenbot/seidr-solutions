@@ -1,6 +1,9 @@
 ```cpp
 #include <vector>
 #include <algorithm>
+#include <string>
+#include <cctype>
+
 using namespace std;
 
 bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
@@ -13,7 +16,7 @@ bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
 
 vector<pair<int, string>> select_words(string s, int n) {
     vector<pair<int, string>> result;
-    int wordCount = 0;
+    size_t wordCount = 0;
     string word = "";
     for (char c : s) {
         if (c == ' ') {
@@ -21,11 +24,11 @@ vector<pair<int, string>> select_words(string s, int n) {
                 int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
                     count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
                 if (vowelCount <= n) {
-                    result.push_back({vowelCount, word});
+                    result.push_back({static_cast<int>(std::size_type(1)), word});
                 }
                 word = "";
             }
-            wordCount++;
+            ++wordCount;
         } else {
             word += c;
         }
@@ -34,7 +37,7 @@ vector<pair<int, string>> select_words(string s, int n) {
         int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
             count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
         if (vowelCount <= n) {
-            result.push_back({vowelCount, word});
+            result.push_back({static_cast<int>(std::size_type(1)), word});
         }
     }
     return result;
