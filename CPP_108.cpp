@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -21,26 +20,8 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums;
-    int n;
-    
-    // Input the number of integers
-    std::cout << "Enter the number of integers: ";
-    std::cin >> n;
-
-    // Read input from user and store it in a vector
-    for (int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter integer #"<<i+1<<": ";
-        std::cin >> num;
-        nums.push_back(num);
-    }
-
-    // Call the function to count numbers
+    std::vector<int> nums = {1, -2, 3, -4};
     int result = count_nums(nums);
-
-    // Print output
-    std::cout << "Number of integers with an odd sum of digits: " << result << endl;
-
+    std::cout << "Number of elements that are odd and non-negative: " << result << std::endl;
     return 0;
 }
