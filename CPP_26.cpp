@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <memory>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() == 0 && b.size() == 0) return true;
@@ -11,20 +12,25 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
-    std::vector<int> uniqueNumbers;
-    for (int num : numbers) {
-        bool found = false;
-        for (int i = 0; i < uniqueNumbers.size(); i++) {
-            if (uniqueNumbers[i] == num) {
-                found = true;
-                break;
+std::pmr::vector<int> removeDuplicates(const std::pmr::vector<int>& numbers) {
+    std::pmr::vector<int> uniqueNumbers = numbers;
+    std::sort(uniqueNumbers.begin(), uniqueNumbers.end());
+    
+    if (!issame(numbers, uniqueNumbers)) {
+        for (int num : uniqueNumbers) {
+            bool found = false;
+            for (int i = 0; i < uniqueNumbers.size(); i++) {
+                if (uniqueNumbers[i] == num) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                uniqueNumbers.push_back(num);
             }
         }
-        if (!found) {
-            uniqueNumbers.push_back(num);
-        }
     }
+    
     return uniqueNumbers;
 }
 
