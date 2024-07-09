@@ -1,30 +1,36 @@
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        bool hasPositiveSum = false;
+        bool has_positive_sum = false;
         if (num >= 0) {
             int sum = 0;
             while (num > 0) {
-                int digit = num % 10;
-                sum += digit;
+                sum += num % 10;
                 num /= 10;
             }
-            hasPositiveSum = sum > 0;
+            if (sum > 0) {
+                has_positive_sum = true;
+            }
         } else {
-            num = -num; // make it positive
-            int sum = 0;
-            bool isNegative = true;
-            while (num > 0) {
-                int digit = num % 10;
-                if (!isNegative && digit == 5) { // treat 5 as negative in a negative number
-                    hasPositiveSum = false;
+            int sum = 0, temp = abs(num);
+            bool is_negative = false;
+            while (temp > 0) {
+                if (is_negative) {
+                    sum -= temp % 10;
+                } else {
+                    sum += temp % 10;
+                }
+                temp /= 10;
+                if (temp == 0 && is_negative) {
                     break;
                 }
-                sum += digit;
-                num /= 10;
+                is_negative = !is_negative;
+            }
+            if (sum > 0) {
+                has_positive_sum = true;
             }
         }
-        if (hasPositiveSum) {
+        if (has_positive_sum) {
             count++;
         }
     }
