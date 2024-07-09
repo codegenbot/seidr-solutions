@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -49,10 +48,7 @@ int main() {
         std::cout << "Both lists have the same sum." << std::endl;
     }
     
-    std::vector<std::string> result;
-    if (!total_match(lst3, lst4).empty()) {
-        result = total_match(lst3, lst4);
-    }
+    std::vector<std::string> result = total_match(lst3, lst4);
     if (total_sum({result[0]}) < total_sum({result[1]})) {
         std::cout << "List 3 has the highest sum." << std::endl;
     } else if (total_sum({result[0]}) > total_sum({result[1]})) {
