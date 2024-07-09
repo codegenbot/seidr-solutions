@@ -11,15 +11,8 @@ vector<int> eat(int number, int need, int remaining) {
     return {eaten, left};
 }
 
-void myAssert(bool expr) {
-    if (!expr) {
-        cout << "Assertion failed." << endl;
-        exit(1);
-    }
-}
-
 int main() {
-    myAssert(eat(4, 5, 1) == vector<int>{5, 0});
+    assert(eat(4, 5, 1) == vector<int>{5, 0});
     
     return 0;
 }
