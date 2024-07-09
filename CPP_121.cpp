@@ -2,10 +2,9 @@
 #include <iostream>
 #include <vector>
 
-int sumOdd(std::vector<std::string> lst) {
+int sumOdd(std::vector<int> lst) {
     int sum = 0;
-    for (std::string i : lst) {
-        int num = std::stoi(i);
+    for (int num : lst) {
         if (num % 2 != 0) {
             sum += num;
         }
@@ -14,7 +13,7 @@ int sumOdd(std::vector<std::string> lst) {
 }
 
 int solutions(std::vector<std::string> lst) { 
-    int sum = sumOdd(lst);
+    int sum = sumOdd({std::stoi(i) for std::string i : lst});
     for (std::string i : lst) {
         int num = std::stoi(i);
         if (num % 2 == 0 && num > 0)
