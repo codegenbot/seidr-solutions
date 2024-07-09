@@ -27,19 +27,14 @@ std::vector<std::string> total_match(const std::vector<std::string>& lst1, const
 }
 
 int main() {
-    std::vector<std::string> lst1;
-    lst1.push_back("a");
-    lst1.push_back("b");
-    lst1.push_back("c");
-
-    std::vector<std::string> lst2;
-    lst2.push_back("d");
-    lst2.push_back("e");
-    lst2.push_back("f");
+    std::vector<std::string> lst1 = {"apple", "banana", "cherry"};
+    std::vector<std::string> lst2 = {"date", "elderberry", "fig"};
+    std::vector<std::string> lst3 = {"grape", "honeydew", "ice cream"};
+    std::vector<std::string> lst4 = {"jackfruit", "kiwi", "lemon"};
 
     assert(issame({"this"}, {"this", "", ""}));
     std::cout << "Test passed" << std::endl;
-
+    
     if (total_sum(lst1) < total_sum(lst2)) {
         std::cout << "List 1 has the highest sum." << std::endl;
     } else if (total_sum(lst1) > total_sum(lst2)) {
@@ -47,6 +42,15 @@ int main() {
     } else {
         std::cout << "Both lists have the same sum." << std::endl;
     }
-
+    
+    std::vector<std::string> result = total_match(lst3, lst4);
+    if (total_sum(result) < total_sum(lst3)) {
+        std::cout << "List 3 has the highest sum." << std::endl;
+    } else if (total_sum(result) > total_sum(lst3)) {
+        std::cout << "List 4 has the highest sum." << std::endl;
+    } else {
+        std::cout << "Both lists have the same sum." << std::endl;
+    }
+    
     return 0;
 }
