@@ -1,3 +1,5 @@
+#include <vector>
+#include <algorithm>
 #include <initializer_list>
 
 int smallest_change(std::vector<int> arr) {
@@ -24,6 +26,7 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
-    assert(smallest_change({0, 1}) == 1);
+    int result = smallest_change({0, 1});
+    assert(result == 1);
     return 0;
 }
