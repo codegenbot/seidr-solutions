@@ -1,5 +1,5 @@
+```cpp
 #include <string>
-
 std::string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
     for (int num : lst1) {
@@ -7,5 +7,5 @@ std::string exchange(vector<int> lst1, vector<int> lst2) {
             oddCount++;
         }
     }
-    return (oddCount == 0 ? "YES" : "NO");
+    return (oddCount > 0) ? "NO" : "YES";
 }
