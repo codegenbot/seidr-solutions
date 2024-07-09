@@ -1,6 +1,14 @@
 #include <vector>
+#include <cmath>
 
 using namespace std;
+
+bool issame(float a, float b) {
+    if (abs(a - b) > 1e-6) {
+        return false;
+    }
+    return true;
+}
 
 vector<float> derivative(vector<float> xs) {
     vector<float> result(xs.size() - 1);
