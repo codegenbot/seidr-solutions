@@ -1,5 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
+#include <iostream>
 
 int main() {
     boost::any a = "hello";
