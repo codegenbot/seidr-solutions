@@ -1,25 +1,19 @@
-```cpp
-#include <initializer_list>
-#include <set>
+#include <iostream>
+#include <vector>
 
-bool pairs_sum_to_zero(const std::vector<std::pair<int, int>>& l) {
-    std::set<int> s;
-    for (const auto& p : l) {
-        if(p.second != -p.first)
-            return false; 
-        s.insert(p.first);
-    }
-    for (auto it = s.begin(); it != s.end(); ++it) { 
-        int complement = -(*it);
-        if (s.find(complement) == s.end()) {
-            return false;
+bool pairs_sum_to_zero(const std::vector<int>& nums) {
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[i] + nums[j] == 0) {
+                return true;
+            }
         }
     }
-    return true; 
+    return false;
 }
 
 int main() {
-    std::vector<std::pair<int, int>> input({{-3, 9}, {-1, 4}, {-2, 2}, {31, -31}});
-    assert(pairs_sum_to_zero(input) == false);
+    std::vector<int> input = {-3, 9, -1, 4, 2, 31};
+    std::cout << (pairs_sum_to_zero(input) ? "True" : "False");
     return 0;
 }
