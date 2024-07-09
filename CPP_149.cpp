@@ -1,4 +1,4 @@
-```c++
+```
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -41,3 +41,4 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
          });
 
     return result;
+}
