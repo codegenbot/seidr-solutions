@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-bool correct_bracketing(const std::vector<char>& brackets) {
+bool correct_bracketing(const std::string& brackets) {
     int count = 0;
     for (char bracket : brackets) {
         if (bracket == '<') {
@@ -18,10 +18,8 @@ bool correct_bracketing(const std::vector<char>& brackets) {
 }
 
 int main() {
-    assert(correct_bracketing({'<', '>', '>', '<', '>'}));
-    assert(!correct_bracketing({'>', '<', '>'}));
-    assert(correct_bracketing({'<', '>', '<', '>', '<', '>'}));
-    assert(!correct_bracketing({'<', '<', '>', '>'}));
-    
+    assert(correct_bracketing("<<>><><>") == true);
+    assert(correct_bracketing(">><<><<<>") == false);
+
     return 0;
 }
