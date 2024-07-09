@@ -1,5 +1,4 @@
 #include <vector>
-#include <cmath>
 
 int prod_signs(std::vector<int> arr){
     int sign_product = 1;
@@ -10,11 +9,11 @@ int prod_signs(std::vector<int> arr){
             return -32768; // empty array or contains zero
         }
         int sign = (num > 0) ? 1 : ((num < 0) ? -1 : 0);
-        sum_of_magnitudes += std::abs(num); 
+        sum_of_magnitudes += abs(num); 
         sign_product *= sign;
     }
 
-    return static_cast<int>(sum_of_magnitudes) * sign_product;
+    return sum_of_magnitudes * sign_product;
 }
 
 int main() {
