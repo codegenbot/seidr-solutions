@@ -10,8 +10,7 @@ std::string solveBoolean(std::string s) {
             }
             if (st.empty()) {
                 return "False";
-            }
-            else {
+            } else {
                 st.pop();
             }
         } 
@@ -21,8 +20,7 @@ std::string solveBoolean(std::string s) {
             }
             if (st.empty()) {
                 return "True";
-            }
-            else {
+            } else {
                 st.push(s[i]);
             }
         } 
@@ -32,8 +30,7 @@ std::string solveBoolean(std::string s) {
     }
     if (st.empty()) {
         return "False";
-    }
-    else {
+    } else {
         return st.top() == 'T' ? "True" : "False";
     }
 }
