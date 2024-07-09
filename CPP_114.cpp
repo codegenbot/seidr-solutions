@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
 #include <limits.h>
+#include <cassert>
 
-long long minSum(vector<long long> nums) {
+long long minSubArraySum(vector<long long> nums) {
     long long sum = 0, min_sum = LLONG_MAX;
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
@@ -14,4 +14,8 @@ long long minSum(vector<long long> nums) {
         }
     }
     return min_sum;
+}
+
+int main() {
+    assert(minSubArraySum({1, -1}) == -1);
 }
