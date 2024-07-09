@@ -19,11 +19,6 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    if(n <= 0) {
-        std::cout << "Invalid input. Please enter a positive number.\n";
-        return -1; 
-    }
-
     std::vector<int> lst;
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
@@ -35,19 +30,21 @@ int main() {
             continue;
         }
 
-        lst.push_back(num); 
+        if (num > 0) {
+            lst.push_back(num);
+        }
+        else {
+            std::cout << "Invalid input. Please enter a positive number.\n";
+            continue;
+        }
     }
 
-    if(lst.empty()) {
+    int result = search(lst);
+
+    if (result == -1)
         std::cout << "No such number exists in the list.\n";
-    } else {
-        int result = search(lst);
-
-        if (result == -1)
-            std::cout << "No such number exists in the list.\n";
-        else
-            std::cout << "The first number that is a multiple of its frequency is: " << result << "\n";
-    }
+    else
+        std::cout << "The first number that is a multiple of its frequency is: " << result << "\n";
 
     return 0;
 }
