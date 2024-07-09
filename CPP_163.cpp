@@ -5,11 +5,13 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) {
         return false;
     }
+    
     for(int i = 0; i < a.size(); ++i) {
         if(a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
@@ -24,6 +26,6 @@ std::vector<int> generate_integers(int a, int b) {
 }
 
 int main() {
-    // Main function implementation containing code to use the above functions
+    // Code to test the functions
     return 0;
 }
