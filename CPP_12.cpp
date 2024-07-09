@@ -1,9 +1,13 @@
-#include <iostream>
-#include <vector>
 #include <string>
-#include <cassert>
 
-std::string longest(const std::vector<std::string>& strings){
+std::string longest(std::vector<std::string> strings);
+
+int main() {
+    assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    return 0;
+}
+
+std::string longest(std::vector<std::string> strings){
     if(strings.empty()) {
         return "None";
     }
@@ -16,10 +20,4 @@ std::string longest(const std::vector<std::string>& strings){
     }
     
     return longestStr;
-}
-
-int main(){
-    assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
-    
-    return 0;
 }
