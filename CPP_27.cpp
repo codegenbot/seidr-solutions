@@ -1,21 +1,13 @@
-#include <string>
-#include <cctype>
-
-std::string flip_case(const std::string& s) {
-    std::string result;
+```
+string flip_case(string s) {
+    string result = "";
     for (char c : s) {
-        if (islower(c)) {
-            result += toupper(c);
-        } else if (isupper(c)) {
-            result += tolower(c);
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'a' : 'A';
+            result += tolower(c) == base ? toupper(c) : tolower(c);
         } else {
             result += c;
         }
     }
     return result;
-}
-
-int main() {
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    // ... rest of your code ...
 }
