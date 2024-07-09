@@ -1,7 +1,6 @@
-```cpp
+```
 #include <iostream>
 #include <string>
-#include <cassert>
 
 std::string string_xor(std::string a, std::string b) {
     if(a.length() != b.length())
