@@ -12,16 +12,11 @@ int file_name_check(std::string file_name) {
         else if(file_name[i] == '.'){
             found_dot = true;
         }
-        else if(found_dot && (i != file_name.length()-4 || !std::string(file_name.substr(i)).compare("txt") || !std::string(file_name.substr(i)).compare("exe") || !std::string(file_name.substr(i)).compare("dll"))){
+        else if(found_dot && (i != file_name.length()-4 || file_name.substr(i).compare("txt") == 0 || file_name.substr(i).compare("exe") == 0 || file_name.substr(i).compare("dll") == 0)){
             return 0;
         }
     }
     if(!found_dot) return 0;
     if(digit_count > 3) return 0;
     return 1;
-
-}
-
-int main() {
-    return 0;
 }
