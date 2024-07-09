@@ -23,8 +23,8 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     if (index1 == -1 || index2 == -1)
         return vector<string>();
 
-    int minIndex = std::min(index1, index2);
-    int maxIndex = std::max(index1, index2);
+    int minIndex = min(index1, index2);
+    int maxIndex = max(index1, index2);
 
     vector<string> result;
 
@@ -35,9 +35,14 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
             result.push_back(planets[i]);
         }
         else {
-            result.push_back(planets[(i - 1 + planets.size()) % planets.size()]);
+            result.push_back(planets[i - 1]);
         }
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(bf("Jupiter", "Makemake"), {}));  
+    return 0;
 }
