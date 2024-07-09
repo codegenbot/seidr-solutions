@@ -1,32 +1,41 @@
-```cpp
 #include <iostream>
-using namespace std;
+#include <cassert>
 
-int prime_fib(int n) {
-    int a = 0, b = 1;
-    int count = 0;
-    while (true) {
-        int fib = a + b;
-        if (fib > n) break;
-        a = b;
-        b = fib;
-        bool isPrime = true;
-        for (int j = 2; j * j <= fib; j++) {
-            if (fib % j == 0) {
-                isPrime = false;
-                break;
-            }
-        }
-        if (isPrime) count++;
-        if (count == n) return fib;
-    }
-    return 0;
-}
+int prime_fib(int n); // forward declaration
 
 int main() {
     int n;
-    cout << "Enter the number: ";
-    cin >> n;
-    int num = n; 
-    cout << "The " << num << "th prime Fibonacci number is: " << prime_fib(num) << endl;
+    std::cout << "Enter the number: ";
+    std::cin >> n;
+    std::cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << std::endl;
+}
+
+int prime_fib(int n) {
+    if (n <= 0) {
+        return -1; // invalid input
+    }
+    int a = 1, b = 1, count = 1;
+    while (true) {
+        if (isPrime(b)) {
+            if (count == n) {
+                return b;
+            }
+            count++;
+        }
+        int temp = a + b;
+        a = b;
+        b = temp;
+    }
+}
+
+bool isPrime(int num) {
+    if (num <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
 }
