@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::pair<std::vector<float>::value_type, std::vector<float>::value_type>& a, const std::pair<std::vector<float>::value_type, std::vector<float>::value_type>& b) {
-    return a == b;
+bool issame(const std::pair<std::vector<float>::value_type, std::vector<float>::value_type>& p1, const std::pair<std::vector<float>::value_type, std::vector<float>::value_type>& p2) {
+    return p1 == p2;
 }
 
 std::pair<std::vector<float>::value_type, std::vector<float>::value_type> find_closest_elements(const std::vector<std::vector<float>::value_type>& numbers) {
