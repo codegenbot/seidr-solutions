@@ -25,3 +25,4 @@ bool assert_palindrome(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     assert(assert_palindrome(even_odd_palindrome(5), std::vector<int>({0, 1, 0, 1, 0})));
+}
