@@ -8,16 +8,16 @@ int main() {
     double favorable_outcomes = 0.0;
     
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= m - 1; ++j) { // Modify this line
+        for (int j = 1; j <= m; ++j) {
             if (i > j) {
                 favorable_outcomes += 1.0;
             }
         }
     }
     
-    double probability = favorable_outcomes / static_cast<double>(n * m);
+    double probability = favorable_outcomes / static_cast<double>(n) / static_cast<double>(m);
     
-    std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
+    std::cout << std::fixed << std::setprecision(9) << probability << std::endl;
     
     return 0;
 }
