@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```c++
 #include <iostream>
 #include <vector>
 #include <string>
@@ -44,3 +43,4 @@ int main() {
     displayOutput(output);
 
     return 0;
+}
