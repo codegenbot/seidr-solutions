@@ -4,13 +4,17 @@
 #include <string>
 
 bool check_dict_case(const std::map<std::string, std::string>& dict) {
-    std::string case_key = first_key;
+    if (dict.empty()) {
+        return true;
+    }
+
+    std::string first_key = dict.begin()->first;
     for (const auto& pair : dict) {
-        if (std::toupper(case_key[0]) != std::toupper(pair.first[0])) {
+        if (std::toupper(first_key[0]) != std::toupper(pair.first[0])) {
             return false;
         }
-        case_key = pair.first;
     }
+
     return true;
 }
 
