@@ -40,13 +40,9 @@ std::string separate_paren_groups(std::string s) {
 }
 
 int main() {
-    std::string s;
-    while (true) {
-        std::cout << "Enter a string: ";
-        if (!(std::cin >> s)) {
-            break; // Input failed, probably due to parentheses.
-        }
-    }
+    std::string s = "";
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, s);
     std::cout << "Result: " << separate_paren_groups(s) << std::endl;
     return 0;
 }
