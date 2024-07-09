@@ -1,16 +1,29 @@
-int do_algebra(vector<string> operator_, vector<int> operands) {
-    int result = operands[0];
+int do_algebra(vector<string> operator_, vector<int> operand) {
+    int result = operand[0];
     for (int i = 0; i < operator_.size(); i++) {
         if (operator_[i] == "+") {
-            result += operands[i + 1];
+            result += operand[i + 1];
         } else if (operator_[i] == "-") {
-            result -= operands[i + 1];
+            result -= operand[i + 1];
         } else if (operator_[i] == "*") {
-            result *= operands[i + 1];
-        } else if (operator_[i] == "/") {
-            result /= operands[i + 1];
+            int temp = 0;
+            for (int j = i + 1; j < operand.size(); j++) {
+                temp += operand[j];
+            }
+            result *= temp;
+        } else if (operator_[i] == "//") {
+            int temp = 0;
+            for (int j = i + 1; j < operand.size(); j++) {
+                temp += operand[j];
+            }
+            result /= temp;
         } else if (operator_[i] == "**") {
-            result = pow(result, operands[i + 1]);
+            int base = operand[i + 1];
+            int exponent = 0;
+            for (int j = i + 2; j < operand.size(); j++) {
+                exponent += operand[j];
+            }
+            result = pow(base, exponent);
         }
     }
     return result;
