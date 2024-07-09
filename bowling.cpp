@@ -1,9 +1,8 @@
-Here is the modified code:
-
 ```cpp
 #include <string>
-
 int getBonus(int a, int b);
+#include <cctype>
+
 int bowlingScore(std::string s) {
     int score = 0;
     int currentFrame = 1;
