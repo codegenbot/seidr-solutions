@@ -1,5 +1,5 @@
-```cpp
 #include <string>
+#include <iostream>
 
 int pairedDigits(std::string s) {
     int sum = 0;
@@ -22,8 +22,7 @@ int pairedDigits(std::string s) {
 int main() {
     std::string input;
     std::cout << "Enter a string of digits: ";
-    std::cin.ignore(); // Add this line to ignore any remaining characters.
-    std::cin >> input;
+    getline(std::cin, input);
     int result = pairedDigits(input);
     if (result == -1) {
         std::cerr << "Error: The input string must have an even number of digits." << std::endl;
