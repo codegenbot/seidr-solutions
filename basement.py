@@ -1,3 +1,4 @@
+```python
 def basement(nums):
     for i in range(len(nums)):
         s = 0
