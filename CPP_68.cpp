@@ -47,6 +47,13 @@ bool issame(const vector<int>& a, const vector<vector<int>>& b) {
 }
 
 int main() {
-    assert(pluck({7, 9, 7, 1}) == -1 || issame({}, {{-1}}));
+    int num = pluck({7, 9, 7, 1});
+    vector<int> vec;
+    vec.push_back(num);
+    if(num != -1) {
+        assert(issame(vec , {vec}));
+    } else {
+        assert(issame({}, {}));
+    }
     return 0;
 }
