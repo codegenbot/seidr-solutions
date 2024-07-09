@@ -58,8 +58,3 @@ void solveProblem() {
 
     return;
 }
-
-int main() {
-    solveProblem();
-    return 0;
-}
