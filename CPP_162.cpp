@@ -17,8 +17,7 @@ string string_to_md5(const string& text) {
 }
 
 int main() {
-    string text = "Hello, World!";
-    string md5_hash = string_to_md5(text);
-    cout << "MD5 Hash: " << md5_hash << endl;
+    string input_text = "example_text";
+    string md5_hash = string_to_md5(input_text);
     return 0;
 }
