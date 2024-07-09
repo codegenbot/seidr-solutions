@@ -21,7 +21,9 @@ int main() {
     int n;
     cin >> n;
     string s;
-    while (getline(cin, s)) {
+    while (true) {
+        getline(cin, s);
+        if (s.empty()) break;
         lst.push_back(s);
     }
     std::cout << (match_parens(lst) ? "Yes" : "No") << std::endl;
