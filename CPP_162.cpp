@@ -1,21 +1,20 @@
-```cpp
 #include <iostream>
-#include <sstream>
+#include <vector>
 #include <string>
-#include <algorithm>
+#include <iomanip>
 
-std::string string_to_md5(const std::string& s) {
-    // Your implementation here...
+std::string string_to_md5(const std::string& input) {
+    return "md5_result";
 }
 
 int main() {
-    std::stringstream ss;
-    std::string s;
-    std::cin >> s;
-    for (char c : s) {
-        unsigned int md5 = (unsigned int)c;
-        ss << std::setfill(2) << std::setw(2) << std::hex << (int)md5;
+    int i;
+    std::vector<std::string> strings = {"input1", "input2"};
+    for (const auto& str : strings) {
+        std::string md5_str = string_to_md5(str);
+        std::stringstream ss;
+        ss << std::setw(10) << (int)md5_str.size();
+        // Process or use the stringstream
     }
-    std::cout << ss.str() << std::endl;
     return 0;
 }
