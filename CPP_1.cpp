@@ -5,9 +5,9 @@
 
 using namespace std;
 
-bool issame(string& a) {
+bool issame(const string& s) {
     bool found = false;
-    if (a == "( ) (( ") || a == "(())") {
+    if (s == "( ) (( ") || s == "(())") {
         found = true;
     }
     return found;
@@ -54,7 +54,7 @@ int main() {
         }
     }
 
-    assert(issame("( ) (( "));
+    assert(issame("( ) (( ") || issame("(())"));
 
     cout << "Result: " << separate_paren_groups(s) << endl;
     return 0;
