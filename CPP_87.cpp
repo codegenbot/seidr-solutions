@@ -2,9 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issamematrix(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
     return a == b;
 }
 
@@ -31,7 +29,9 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) 
 }
 
 int main() {
-    std::vector<std::vector<int>> lst = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    auto result = get_row(lst, 5);
-    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3)[0], {2, 2}));
+    std::vector<std::vector<int>> test {{1, 2, 3}, {3, 2, 1}, {4, 5, 6}, {3, 6, 9}};
+    std::vector<std::vector<int>> result = get_row(test, 3);
+    assert(issamematrix(result, {{0, 2}, {1, 0}, {3, 0}}));
+    
+    return 0;
 }
