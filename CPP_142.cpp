@@ -10,3 +10,4 @@ int sum_squares(std::vector<int> lst){
             total += std::pow(lst[i], 3);
     }
     return total;
+}
