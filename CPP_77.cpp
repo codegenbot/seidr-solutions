@@ -1,14 +1,5 @@
-Here is the completed code:
-
+#include <cmath>
 bool iscuber(int a){
-    int i = 1;
-    while (true) {
-        if (pow(i, 3) == a) {
-            return true;
-        }
-        if (i * i > a) {
-            return false;
-        }
-        i++;
-    }
+    int c = round(cbrt(a));
+    return (double)c*c*c == a;
 }
