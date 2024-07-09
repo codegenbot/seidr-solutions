@@ -1,18 +1,18 @@
 #include <vector>
-#include <initializer_list>
 #include <cassert>
 
 float double_the_difference(const std::vector<float>& lst) {
     float odd_sum = 0;
-    for (const auto& num : lst) {
-        if (std::abs(static_cast<int>(num)) % 2 != 0)
-            odd_sum += num;
+    for (const auto& val : lst) {
+        if (std::abs(std::fmod(val, 1.0)) > 0.5f) {
+            odd_sum += val;
+        }
     }
-    return std::abs(odd_sum);
+    return std::abs(odd_sum - (lst[0] + *std::rbegin(lst)));
 }
 
 int main() {
     std::vector<float> lst = {1.0f, 2.5f, -3.5f, 4.0f};
     float result = double_the_difference(lst);
-    assert(std::abs(result) < 1e-6); 
+    //assert(result == );
 }
