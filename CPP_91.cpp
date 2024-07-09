@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int is_bored(string S){
@@ -15,3 +16,4 @@ int is_bored(string S){
     if(word.length() > 0 && word[0] == 'I')
         count++;
     return count;
+}
