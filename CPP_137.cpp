@@ -1,22 +1,23 @@
-```cpp
-#include <boost/lexical_cast.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return a.get<int>() > b.get<int>() ? a : b;
-    } else if ((a.type() == typeid(float) || a.type() == typeid(double)) &&
-               (b.type() == typeid(float) || b.type() == typeid(double))) {
-        return a.get<double>() > b.get<double>() ? a : b;
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        return str1 > str2 ? a : b;
-    } else if (a.type() != typeid(int) && a.type() != typeid(float) &&
-               a.type() != typeid(double) && a.type() == typeid(string)) {
-        return "None";
-    } else if (b.type() != typeid(int) && b.type() != typeid(float) &&
-               b.type() != typeid(double) && b.type() == typeid(string)) {
-        return "None";
+    if (is_any_of<string>(a)) {
+        string str_a = any_cast<string>(a);
+        if (is_any_of<string>(b)) {
+            string str_b = any_cast<string>(b);
+            return str_b > str_a ? b : (str_b == str_a ? "None" : a);
+        } else {
+            return any_cast<double>(b) > std::stod(str_a) ? b : (any_cast<double>(b) == std::stod(str_a) ? "None" : a);
+        }
+    } else if (is_any_of<string>(b)) {
+        string str_b = any_cast<string>(b);
+        return std::stod(str_b) > any_cast<double>(a) ? b : (std::stod(str_b) == any_cast<double>(a) ? "None" : a);
+    } else {
+        double da = any_cast<double>(a);
+        double db = any_cast<double>(b);
+        return db > da ? b : (db == da ? "None" : a);
     }
-    return "None";
 }
