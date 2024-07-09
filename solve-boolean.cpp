@@ -1,5 +1,6 @@
-#include <string>
+#include <sstream>
 #include <stack>
+#include <string>
 
 string solveBoolean(string s) {
     stack<char> st;
