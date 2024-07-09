@@ -1,15 +1,7 @@
+```cpp
+#include <iostream>
 #include <vector>
-using namespace std;
-
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int n = text.size(), m = target.size();
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target)
-            result.push_back(i);
-    }
-    return result;
-}
+#include <string>
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -20,15 +12,38 @@ int gcd(int a, int b) {
     return a;
 }
 
-int main() {
-    int num1, num2;
-    cin >> num1 >> num2;
-    cout << gcd(num1, num2) << endl;
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result;
+    int index = 0;
 
-    string text, target;
-    cin >> text >> target;
-    vector<int> indices = indicesOfSubstring(text, target);
-    for (int i : indices)
-        cout << i << " ";
+    while (index <= text.length() - target.length()) {
+        size_t found = text.find(target);
+        if (found != std::string::npos) {
+            result.push_back(found);
+            index = found + 1;
+        } else {
+            break;
+        }
+    }
+
+    return result;
+}
+
+int main() {
+    std::cout << "GCD of two numbers: ";
+    int a, b;
+    std::cin >> a >> b;
+    std::cout << gcd(a, b) << "\n";
+    
+    // Example usage for indicesOfSubstring function
+    std::string text = "banana";
+    std::string target = "ana";
+    std::vector<int> result = indicesOfSubstring(text, target);
+    std::cout << "Indices of substring 'ana' in 'banana': ";
+    for (int i : result) {
+        std::cout << i << " ";
+    }
+    std::cout << "\n";
+    
     return 0;
 }
