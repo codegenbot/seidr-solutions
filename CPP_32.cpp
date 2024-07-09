@@ -1,18 +1,13 @@
-vector<double> coeffs;
-double poly(vector<double> xs, double x) {
-    double result = 0;
-    for (int i = 0; i < xs.size(); i++) {
-        result += xs[i] * pow(x, i);
-    }
-    return result;
-}
+using namespace std;
 
-double find_zero(vector<double> xs){
-    vector<double> coeffs = {1,xs[0],xs[1]};
-    double root = -coeffs[1]/(2*coeffs[0]);
-    
-    if (poly(coeffs,root) < 0)
-        return root;
-    else
-        return -1.0; 
+std::vector<double> coeffs;
+double poly(std::vector<double>, double);
+
+double find_zero(std::vector<double> xs) {
+    double a = xs[0];
+    double b = 0;
+    for (int i = 1; i < xs.size(); i += 2) {
+        b -= xs[i] / pow(xs[i-1], i/2.0);
+    }
+    return -b / a;
 }
