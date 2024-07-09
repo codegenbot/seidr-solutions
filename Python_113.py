@@ -1,0 +1,2 @@
+def odd_count(lst):
+    return ["the number of odd elements {}n the str{}ng {} of the {}nput.".format(len([i for i in s if int(i) % 2 != 0]), str(i), i, "input" if j == 0 else "nput") for j, s in enumerate(lst)]
