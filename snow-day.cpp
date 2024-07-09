@@ -1,7 +1,7 @@
 #include <iostream>
-using namespace std;
-
 #include <iomanip>
+
+using namespace std;
 
 float snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionMelting) {
     return initialSnow + (rateOfSnowfall * hours) - (proportionMelting * hours);
