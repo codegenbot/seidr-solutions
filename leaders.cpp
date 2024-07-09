@@ -1,4 +1,3 @@
-#include <initializer_list>
 #include <vector>
 
 std::vector<int> leaders(std::vector<int>& inputVector) {
@@ -20,3 +19,4 @@ int main() {
     }
     return 0;
 }
+#include <initializer_list>
