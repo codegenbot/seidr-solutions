@@ -3,18 +3,20 @@
 #include <cmath>
 
 int do_algebra(vector<string> ops, vector<int> nums) {
-    int result = std::stoll(nums[0].c_str());
-    long long temp = 1;
+    int result = nums[0];
+    long long temp = nums[0];
 
-    for (int i = 0; i < ops.size(); i++) {
+    for (int i = 1; i < ops.size(); i++) {
         if (ops[i] == "+") {
-            result += temp * std::stoll(nums[i+1].c_str());
+            result += temp;
         } else if (ops[i] == "-") {
-            result -= temp * std::stoll(nums[i+1].c_str());
+            result -= temp;
         } else if (ops[i] == "*") {
-            temp *= std::stoll(nums[i+1].c_str());
+            temp *= std::stoll(nums[i].c_str());
         } else if (ops[i] == "/") {
-            temp /= std::stoll(nums[i+1].c_str());
+            temp /= std::stoll(nums[i].c_str());
+        } else if (ops[i] == "^") {
+            temp = pow(temp, std::stoll(nums[i].c_str()));
         }
     }
 
