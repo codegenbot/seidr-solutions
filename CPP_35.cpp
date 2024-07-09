@@ -9,12 +9,18 @@ float max_element(const std::vector<float>& l){
             max = l[i];
         }
     }
-    return max;
+    return abs(max);
 }
 
 int main() {
-    std::vector<float> v = {5.2, 10.3, -2.7, 11.8};
-    float result = max_element(v);
-    std::cout << "The maximum element is: " << abs(result) << std::endl;
+    vector<float> input;
+    cout << "Enter elements (enter 'q' to finish):" << endl;
+    while(true) {
+        float num;
+        cin >> num;
+        if(num == 'q') break;
+        input.push_back(num);
+    }
+    cout << "The maximum element is: " << max_element(input) << endl;
     return 0;
 }
