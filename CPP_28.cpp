@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <iostream>
 
 std::string concatenate(const std::vector<std::string>& strings) {
     std::string result = "";
@@ -10,7 +11,7 @@ std::string concatenate(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    std::vector<std::string> input = {"x", "y", "z", "w", "k"};
-    std::cout << concatenate(input) << std::endl;
+    std::vector<std::string> strings = {"x", "y", "z", "w", "k"};
+    std::cout << concatenate(strings) << std::endl;
     return 0;
 }
