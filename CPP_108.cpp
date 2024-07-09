@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -36,22 +37,7 @@ int count_nums(std::vector<int> nums) {
         }
     }
     if (count == 0) {
-        return -1; // No numbers with positive digit sums
+        return -1; 
     }
     return count;
-
-}
-
-int main {
-    int n;
-    std::vector<int> nums;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
-        nums.push_back(num);
-    }
-    std::cout << "Count of numbers with positive digit sums: " << count_nums(nums) << std::endl;
 }
