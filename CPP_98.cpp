@@ -1,5 +1,5 @@
-```c++
 #include <string>
+#include <iostream>
 
 int count_upper(std::string s){
     int count = 0;
@@ -12,10 +12,10 @@ int count_upper(std::string s){
 }
 
 int main(){
-    std::string input;
+    std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> input;
-    int result = count_upper(input);
-    std::cout << "Number of characters at even positions that are vowels (A-E or U) is: " << result << std::endl;
+    std::cin >> str;
+    int result = count_upper(str);
+    std::cout << "Number of characters that meet the condition is: " << result << std::endl;
     return 0;
 }
