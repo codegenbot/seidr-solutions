@@ -1,17 +1,8 @@
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
-
-float snowDay(int hours, float onGround, float rate, float melt) {
-    return onGround + (rate * hours - melt * hours);
-}
-
+```cpp
 int main() {
-    int h;
-    cin >> h;
-    float s, r, m;
-    cin >> s >> r >> m;
-    cout << fixed << setprecision(10) << snowDay(h, s, r, m) << endl;
-    return 0;
-}
+    int hours;
+    cin >> hours;
+    float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
+    cin >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
+    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
+    return 0; }

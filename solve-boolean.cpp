@@ -1,34 +1,30 @@
-```cpp
-#include <stack>
+```c++
 #include <string>
+#include <stack>
 
-using namespace std;
+int main() {
+    std::string s = "input_string_here"; 
+    std::cout << solveBoolean(s) << std::endl;
+    return 0;
+}
 
-bool solveBoolean(string s) {
-    stack<char> st;
-    bool result = false;
-
+std::string solveBoolean(std::string s) {
+    std::stack<char> st;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
-            if (!st.empty() && st.top() == '|') {
-                st.pop();
-                result = true;
-            } else {
-                result = false;
-            }
+            if (st.empty()) return "False";
+            else st.pop();
+        } 
+        else if (s[i] == '|') {
+            while (!st.empty()) st.pop();
             st.push(s[i]);
-        } else if (s[i] == '|') {
-            while (!st.empty()) {
-                st.pop();
-            }
-            st.push(s[i]);
-        } else {
+        } 
+        else {
             st.push(s[i]);
         }
     }
-
-    return result;
+    return st.top() == 'T' ? "True" : "False";
 }
