@@ -1,12 +1,11 @@
-#include<string>
-#include<sstream>
-#include<cmath>
+#include <functional>
 using namespace std;
 
 bool simplify(string x, string n) {
     int a = 1, b = 1, c = 1, d = 1;
     istringstream xx(x);
-    istringstream nn(n); 
+    istringstream nn(n);
+
     xx >> a >> c;
     nn >> b >> d;
     
@@ -15,6 +14,6 @@ bool simplify(string x, string n) {
     
     if(denominator == 0) return false;
     
-    int gcd = __gcd(abs(numerator), abs(denominator)); 
+    int gcd = gcd(abs(numerator), abs(denominator));
     return (numerator / gcd == denominator / gcd);
 }
