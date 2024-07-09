@@ -2,7 +2,11 @@
 #include <cassert>
 
 std::vector<int> completeCode(int n) {
-    return {1, n, 2};
+    std::vector<int> result(n);
+    for (int i = 0; i < n; ++i) {
+        result[i] = i + 1;
+    }
+    return result;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -11,4 +15,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     assert(issame(completeCode(3), {1, 3, 2}));
-} 
+}
