@@ -3,7 +3,7 @@ N = int(input("Enter number of rows (columns will be same): "))
 grid = [[int(input(f"Enter element for row {i}, column {j}: ")) for j in range(N)] for i in range(N)]
 k = int(input("Enter k value: "))
 
-print(def minPath(grid, k):
+def minPath(grid, k):
     N = len(grid)
     visited = [[False]*N for _ in range(N)]
     queue = [(0, 0, [grid[0][0]])]
@@ -24,4 +24,6 @@ print(def minPath(grid, k):
                 visited[nx][ny] = True
                 queue.append((nx, ny, path + [grid[nx][ny]]))
     
-    return res)
+    return res
+
+print(minPath(grid, k))
