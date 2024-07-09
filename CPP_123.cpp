@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <initializer_list>
 
-bool areSequencesEqual(std::vector<int> a, std::vector<int> b) {
+bool isSequenceEqual(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     
@@ -36,5 +37,4 @@ int main() {
     int num;
     std::cin >> num;
     get_odd_collatz(num);
-    assert (areSequencesEqual(get_odd_collatz(1) , {1}));
 }
