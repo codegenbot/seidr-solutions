@@ -1,4 +1,3 @@
-```
 #include <variant>
 #include <string>
 
@@ -10,4 +9,9 @@ variant<string, int, double, float> compare_one(variant<string, int, double, flo
         string strB = get<string>(b);
         return strA > strB ? a : b;
     }
-    if ((holds_alternative<int>(a) && holds_alternative<string>(b)) || (holds_alternative<string>(a) && holds_alternation
+    if ((holds_alternative<int>(a) && holds_alternative<string>(b)) || (holds_alternative<string>(a) && holds_alternative<int>(b))) {
+        int val1 = get<int>(a);
+        int val2 = get<int>(b);
+        return val1 > val2 ? a : b;
+    }
+    if ((holds_alternative<double>(a) && holds_alternative<string>(b)) || (holds_alternative<string>(a) && holds_alternation
