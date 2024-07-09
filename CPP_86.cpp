@@ -2,21 +2,16 @@ string anti_shuffle(string s){
     string result = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' '){
-            result += ' ';
+            result += " ";
             continue;
         }
-        char temp = s[i];
-        for(char c : s.substr(i+1)){
-            if(c <= temp){
-                temp = c;
-            }
+        string word = s.substr(i);
+        string new_word = "";
+        for(int j=0; j<word.length(); j++){
+            new_word += to_string(word[j]);
         }
-        while(temp != s[i]){
-            result += temp;
-            i++;
-            temp--;
-        }
-        result += s[i];
+        sort(new_word.begin(), new_word.end());
+        result += new_word;
     }
     return result;
 }
