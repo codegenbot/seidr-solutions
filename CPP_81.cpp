@@ -1,3 +1,15 @@
+```cpp
+#include <vector>
+#include <string>
+
+bool isSame(vector<string> a, vector<string>b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> letter_grades;
     for(float g: grades){
@@ -14,7 +26,7 @@ vector<string> numerical_letter_grade(vector<float> grades){
         else if(g > 1.0) letter = "D+";
         else if(g > 0.7) letter = "D";
         else if(g > 0.0) letter = "D-";
-        else letter = "F";
+        else letter = "E";
         letter_grades.push_back(letter);
     }
     return letter_grades;
