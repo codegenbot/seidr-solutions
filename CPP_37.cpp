@@ -1,11 +1,11 @@
 ```cpp
 #include <vector>
-#include <cassert>
-#include <cmath>
+#include <iostream>
 #include <algorithm>
+
 using namespace std;
 
-std::vector<float> make_vector(const vector<float>& v) {
+vector<float> make_vector(const vector<float>& v) {
     return v;
 }
 
@@ -37,9 +37,7 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() { 
-    vector<float> input(10);
-    input[0] = 5.0f; input[1] = 8.0f; input[2] = -12.0f; input[3] = 4.0f; input[4] = 23.0f;
-    input[5] = 2.0f; input[6] = 3.0f; input[7] = 11.0f; input[8] = 12.0f; input[9] = -10.0f;
+    vector<float> input({5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f});
     vector<float> expected = { -12.0f, 8.0f, 3.0f, 4.0f, 5.0f, 2.0f, 12.0f, 11.0f, 23.0f, -10.0f};
     assert(isSame(sort_even(input), expected));
     return 0;
