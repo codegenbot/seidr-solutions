@@ -2,7 +2,6 @@ from typing import List
 
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
-    if len(set(numbers)) == 1:
-        return [0.0] * len(numbers)
-    else:
-        return [(x - min(numbers)) / (max(numbers) - min(numbers)) for x in numbers]
+    if len(numbers) < 2:
+        return []
+    return [(x - min(numbers)) / (max(numbers) - min(numbers)) for x in numbers]

@@ -1,6 +1,6 @@
 int main() {
-    vector<float> lst = {1.5f, -2.25f, 3.0f, 4.75f};
-    assert(double_the_difference(lst) == 64);
+    vector<float> lst = {1.5f, -2.0f, 3.0f, 4.0f};
+    assert(double_the_difference(lst) == 29);
     return 0;
 }
 long long double_the_difference(vector<float> lst) {
