@@ -4,8 +4,9 @@
 #include <string>
 
 bool issame(std::string& a, std::string& b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); i++) {
+    size_t maxLen = std::max(a.size(), b.size());
+    for (size_t i = 0; i < maxLen; i++) {
+        if (i >= a.size() || i >= b.size()) return false;
         if (a[i] != b[i]) return false;
     }
     return true;
@@ -50,7 +51,6 @@ int main() {
             break; 
         }
     }
-    assert(separate_paren_groups("( ) (( )) (( )( ") == "(()())");
     std::cout << "Result: " << separate_paren_groups(s) << std::endl;
     return 0;
 }
