@@ -28,7 +28,7 @@ int mainFunction() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> numbers;  // Don't initialize, just create an empty vector
+    std::vector<int> numbers;  // Initialize without specifying size
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int num;
