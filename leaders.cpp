@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
@@ -8,7 +7,7 @@ vector<int> findLeaders(vector<int> nums) {
     int maxRight = INT_MIN;
     for (int i = n - 1; i >= 0; i--) {
         if (nums[i] >= maxRight) {
-            maxRight = nums[i]; 
+            maxRight = nums[i];
             leaders.push_back(nums[i]);
         }
     }
