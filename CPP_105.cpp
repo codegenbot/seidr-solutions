@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
@@ -9,12 +10,16 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 std::vector<std::string> by_length(const std::vector<int>& input) {
     vector<string> output;
     for (int num : input) {
-        if (num >= 1 && num <= 9) {
-            string str = to_string(num);
-            while (str.size() < 2) {
-                str = "0" + str;
-            }
-            output.push_back(str);
+        switch(num) {
+            case 1:  output.push_back("One"); break;
+            case 2:  output.push_back("Two"); break;
+            case 3:  output.push_back("Three"); break;
+            case 4:  output.push_back("Four"); break;
+            case 5:  output.push_back("Five"); break;
+            case 6:  output.push_back("Six"); break;
+            case 7:  output.push_back("Seven"); break;
+            case 8:  output.push_back("Eight"); break;
+            case 9:  output.push_back("Nine"); break;
         }
     }
     return output;
