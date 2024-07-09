@@ -1,13 +1,20 @@
-```cpp
-#include <string>
+```c++
+#include<iostream>
 using namespace std;
 
-bool check_if_last_char_is_a_letter(const string& str) {
-    if(str.empty()) return false;
-    return isalpha(str.back());
+int calculate(int x, int y) {
+    if(x>y)
+        return x-y;
+    else
+        return y-x;
 }
 
 int main() {
-    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
+    int x,y;
+    cout<<"Enter first number: ";
+    cin>>x;
+    cout<<"Enter second number: ";
+    cin>>y;
+    cout<<"The difference is: "<<calculate(x,y);
     return 0;
 }
