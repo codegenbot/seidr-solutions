@@ -1,8 +1,10 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) { // Update function signature with a space before 'b'
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
-vector<int> common(vector<int> l1, vector<int> l2) { // Define the missing 'common' function
+vector<int> common(vector<int> l1, vector<int> l2) {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
 
@@ -15,7 +17,7 @@ vector<int> common(vector<int> l1, vector<int> l2) { // Define the missing 'comm
 }
 
 int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {})); // Fix the assert statement
-
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    
     return 0;
 }
