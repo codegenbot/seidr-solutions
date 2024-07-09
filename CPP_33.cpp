@@ -6,7 +6,7 @@ using namespace std;
 
 vector<int> sort_third(vector<int> l) {
     int groupCount = 0;
-    vector<int> result(l.size()); 
+    vector<int> result(groupCount); 
 
     for (int i : l) {
         if(groupCount % 3 == 0 || groupCount >= l.size()) { 
