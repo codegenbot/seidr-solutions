@@ -1,7 +1,8 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <cmath>
 
-bool has_close_elements(std::vector<double> numbers, double threshold) {
+bool has_close_elements(std::vector<float> numbers, float threshold) {
     for(int i = 0; i < numbers.size(); i++){
         for(int j = i + 1; j < numbers.size(); j++){
             if(abs(numbers[i] - numbers[j]) <= threshold)
@@ -12,8 +13,9 @@ bool has_close_elements(std::vector<double> numbers, double threshold) {
 }
 
 int main() {
-    std::vector<double> a={1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    if(has_close_elements(a, 0.5))
+    float numbers[] = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
+    std::vector<float> a(numbers, numbers + sizeof(numbers)/sizeof(numbers[0]));
+    if(has_close_elements(a, 0.5f))
         std::cout << "True";
     else
         std::cout << "False";
