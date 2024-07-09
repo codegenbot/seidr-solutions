@@ -14,7 +14,7 @@
         return b;
     }
     # else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        # if (stod(a.convert_to<string>()) > stod(b.convert_to<string>())) {
+        if (stod(a.convert_to<string>()) > stod(b.convert_to<string>())) {
             return a;
         }
         # else if (stod(a.convert_to<string>()) < stod(b.convert_to<string>())) {
@@ -27,7 +27,7 @@
     # else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         double a_num = stod(a.convert_to<string>());
         double b_num = stod(b.convert_to<string>());
-        # if (a_num > b_num) {
+        if (a_num > b_num) {
             return a;
         }
         # else if (a_num < b_num) {
@@ -40,7 +40,7 @@
     # else if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int a_int = boost::any_cast<int>(a);
         int b_int = boost::any_cast<int>(b);
-        # if (a_int > b_int) {
+        if (a_int > b_int) {
             return a;
         }
         # else if (a_int < b_int) {
@@ -53,7 +53,7 @@
     # else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         double a_num = boost::any_cast<double>(a);
         int b_int = boost::any_cast<int>(b);
-        # if (a_num > b_int) {
+        if (a_num > b_int) {
             return a;
         }
         # else if (a_num < b_int) {
@@ -66,7 +66,7 @@
     # else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         double a_num = boost::any_cast<double>(a);
         double b_num = boost::any_cast<double>(b);
-        # if (a_num > b_num) {
+        if (a_num > b_num) {
             return a;
         }
         # else if (a_num < b_num) {
@@ -79,4 +79,3 @@
     # else {
         return boost::any("None");
     }
-# }
