@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 bool isPrime(int n) {
@@ -10,22 +10,22 @@ bool isPrime(int n) {
     return true;
 }
 
-string primeFib(int num) {
+string prime_fib(int num) {
     int a = 0, b = 1, fibNum = 0;
     while (true) {
         fibNum = a + b;
         a = b;
         b = fibNum;
         if (isPrime(fibNum)) {
-            if (fibNum > num) return std::to_string(fibNum);
+            if (fibNum > num) return std::to_string(fibNum).c_str();
         }
     }
 }
 
-int main() {
+void solveProblem() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    cout << "The first prime Fibonacci number greater than " << num << " is " << primeFib(num) << endl;
-    assert(primeFib(10) == "433494437");
+    cout << "The first prime Fibonacci number greater than " << num << " is " << prime_fib(num) << endl;
+    assert(prime_fib(10) == "433494437");
 }
