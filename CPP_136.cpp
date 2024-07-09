@@ -3,7 +3,17 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
@@ -19,6 +29,8 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst){
         }
     }
     
-    std::vector<int> result = {largest_negative, smallest_positive};
+    std::vector<int> result;
+    result.push_back(largest_negative);
+    result.push_back(smallest_positive);
     return result;
 }
