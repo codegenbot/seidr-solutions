@@ -19,19 +19,26 @@ bool is_happy(int n) {
     return n == 1;
 }
 
+bool is_happy(int num) {
+    if(num < 10)
+        return num % 10 == 1 && num != 1;
+    int sum = 0, remainder;
+    do{
+        while (num != 0){
+            remainder = num % 10;
+            sum += remainder * remainder;
+            num /= 10;
+        }
+        num = sum;
+        sum = 0;
+    }while(num > 9);
+    return num == 1;
+}
+
 int main() {
     int num;
-    while(true) {
-        std::cout << "Enter a number: ";
-        std::cin >> num;  
-        if (std::cin.fail()) {
-            std::cout << "Invalid input. Please enter an integer.\n";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        } else {
-            break;
-        }
-    }
+    std::cout << "Enter a number: ";
+    std::cin >> num;  
     if (is_happy(num)) {
         std::cout << num << " is a happy number.\n";
     } else {
