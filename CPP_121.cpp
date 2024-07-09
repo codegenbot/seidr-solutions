@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -21,8 +22,8 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst;
     int num;
+    std::vector<int> lst;  
     while (std::cin >> num) {
         lst.push_back(num);
     }
