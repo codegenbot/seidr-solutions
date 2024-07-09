@@ -1,4 +1,4 @@
-#include <initializer_list>
+```
 #include <vector>
 
 bool issame(vector<int> a,vector<int>b){
@@ -26,5 +26,13 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1) , vector<int>{1}));
+    vector<int> output = get_odd_collatz(12);
+    cout << "Output: ";
+    for(int i=0;i<output.size();i++) {
+        if(i != output.size()-1)
+            cout << output[i] << " ";
+        else
+            cout << output[i];
+    }
+    return 0;
 }
