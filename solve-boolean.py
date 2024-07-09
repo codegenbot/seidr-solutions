@@ -1,15 +1,18 @@
 ```
 def solve_boolean(expression):
-    result = True
     stack = []
-    for char in expression[::-1]:
+    for char in expression + '&':
         if char in '&|':
-            prev_value = stack.pop()
-            operator = stack.pop()
-            if operator == '&':
-                stack.append(prev_value and True)
-            else:
-                stack.append(prev_value or True)
+            if len(stack) >= 2:
+                prev_value = stack.pop()
+                operator = stack.pop()
+                result = prev_value
+                if operator == '|':
+                    if operator == '&':
+                        result = prev_value and True
+                    else:
+                        result = prev_value or True
+                stack.append(result)
         elif char in 'TF':
             stack.append(char == 'T')
     return stack[0]
