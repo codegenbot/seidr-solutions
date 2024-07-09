@@ -1,10 +1,9 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
 bool issame(const std::vector<std::unique_ptr<float>>& a, const std::vector<std::unique_ptr<float>>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin(),
-        [](const auto& a, const auto& b) { return *a == *b; });
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<std::unique_ptr<float>> get_positive(const std::vector<std::unique_ptr<float>>& numbers) {
@@ -18,9 +17,10 @@ std::vector<std::unique_ptr<float>> get_positive(const std::vector<std::unique_p
 }
 
 int main() {
-    int n;
+    std::string line;
     std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    std::getline(std::cin, line);
+    int n = stoi(line);
 
     if(n > 0) {
         std::vector<std::unique_ptr<float>> numbers;
