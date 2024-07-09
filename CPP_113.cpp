@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,7 +17,7 @@ void displayOutput(vector<string> output) {
 int main() {
     vector<string> lst;
     string temp;
-    while(getline(cin,temp))
+    while(getline(cin,temp)) 
         lst.push_back(temp);
     vector<string> output = odd_count(lst);
     displayOutput(output);
@@ -28,11 +29,11 @@ vector<string> odd_count(vector<string> lst) {
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
         for (char c : lst[i]) {
-            if ((int(c) % 2 != 0)) {
+            if (c % 2 != 0) {
                 count++;
             }
         }
-        string temp = "The number of odd elements is ";
+        string temp = "the number of odd elements is ";
         temp += to_string(count);
         temp += " in the string";
         temp += to_string(i + 1);
