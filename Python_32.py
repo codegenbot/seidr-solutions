@@ -8,6 +8,7 @@ def find_zero(xs: list):
     else:
         return 1.0
 
+
 # Read input from the user
 input_list = list(map(float, input().split()))
 
