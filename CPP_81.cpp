@@ -1,11 +1,12 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a,vector<string>b){
+bool issame(vector<string> a, vector<string> b){
     return a==b;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades){
+vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
     for(float g:grades){
         string letterGrade = "";
@@ -39,4 +40,10 @@ vector<string> numerical_letter_grade(vector<float> grades){
         result.push_back(letterGrade);
     }
     return result;
+}
+
+int main() {
+    vector<float> grades = {0, 0.7};
+    assert(numerical_letter_grade(grades) == vector<string>({"E", "D-" }));
+    // ...
 }
