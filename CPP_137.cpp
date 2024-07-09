@@ -1,4 +1,6 @@
 #include <boost/any.hpp>
+#include <boost/functional/hash.hpp>
+#include <string>
 
 using namespace boost;
 
