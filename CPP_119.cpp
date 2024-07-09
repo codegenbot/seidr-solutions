@@ -20,7 +20,10 @@ int main() {
     vector<string> lst;
     int n;
     cin >> n;
-    while (getline(cin, string s)) {
+    for(int i = 0; i < n; i++) {
+        string s;
+        getline(cin, s);
+        cin.ignore(10000, '\n');  
         lst.push_back(s);
     }
     if(match_parens(lst))
