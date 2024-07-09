@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 
-bool pairs_sum_to_zero(const std::vector<int>& arr) {
-    for (int i = 0; i < arr.size(); ++i) {
-        for (int j = i + 1; j < arr.size(); ++j) {
-            if (arr[i] + arr[j] == 0) {
+bool pairs_sum_to_zero(const std::vector<int>& nums) {
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[i] + nums[j] == 0) {
                 return true;
             }
         }
@@ -13,7 +13,7 @@ bool pairs_sum_to_zero(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {-3, 9, -2, 5, 1};
-    std::cout << (pairs_sum_to_zero(arr) ? "True" : "False");
+    std::vector<int> input = {-3, 9, -1, 4, 2, 31};
+    std::cout << (pairs_sum_to_zero(input) ? "True" : "False");
     return 0;
 }
