@@ -25,11 +25,8 @@ bool isPrime(int n){
     return true;
 
 int main(){
-    std::vector<int> input;
-    int num;
-    while(std::cin >> num){
-        input.push_back(num);
-    }
-    std::cout << skjkasdkd(input) << std::endl;
+    std::vector<int> lst = {10, 15, 20};
+    int result = skjkasdkd(lst);
+    std::cout << "The sum of the digits of the maximum prime number is: " << result << std::endl;
     return 0;
 }
