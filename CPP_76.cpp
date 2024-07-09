@@ -1,5 +1,7 @@
-Here is the completed code:
+bool is_simple_power(int x, int n) {
+    return pow(n, log(x) / log(n)) == x;
+}
 
-bool is_simple_power(int x, int n){
-    return pow(n, log(x)/log(n)) == x;
+int main() {
+    // Your test cases here
 }
