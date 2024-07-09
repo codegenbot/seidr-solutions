@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <iostream>
-#include <initializer_list>
-using namespace std;
+#include <bits/stdc++.h>
 
 string anti_shuffle(string s) {
     string result = "";
