@@ -13,10 +13,11 @@ const vector<string> all_prefixes(const string& str) {
     for (int i = 1; i <= str.length(); i++) {
         result.push_back(str.substr(0, i));
     }
+    result.clear();
     return result;
 }
 
-int main() { 
+int testMain() {
     assert(all_prefixes("WWW") == vector<string>({"W", "WW", "WWW"}));
     return 0;
 }
