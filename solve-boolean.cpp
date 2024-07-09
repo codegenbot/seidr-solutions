@@ -1,10 +1,15 @@
-```c++
+```cpp
+#include <iostream>
 #include <string>
 #include <stack>
 
 int main() {
-    std::string s = "input_string_here"; 
+    std::string s;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> s;
+
     std::cout << solveBoolean(s) << std::endl;
+
     return 0;
 }
 
