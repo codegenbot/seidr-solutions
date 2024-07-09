@@ -17,7 +17,7 @@ std::string int_to_mini_roman(int number) {
     return roman;
 }
 
-int main() {
-    std::cout << int_to_mini_roman(1000);
+int main(int argc, char const *argv[]) {
+    cout << int_to_mini_roman(1000);
     return 0;
 }
