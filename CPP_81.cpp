@@ -2,6 +2,10 @@
 #include <string>
 #include <cassert>
 
+std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades);
+
+bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b);
+
 std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
     std::vector<std::string> letter_grades;
     for (float gpa : grades) {
@@ -34,10 +38,6 @@ std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades
         }
     }
     return letter_grades;
-}
-
-bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
 }
 
 int main() {
