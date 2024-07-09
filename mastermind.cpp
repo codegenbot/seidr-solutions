@@ -1,3 +1,8 @@
+#include <string>
+#include <map>
+
+using namespace std;
+
 int mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
@@ -19,5 +24,22 @@ int mastermind(string code, string guess) {
         }
     }
 
+    for (auto it = code_count.begin(); it != code_count.end(); ++it) {
+        while(it->second > 0) {
+            white++;
+            it->second--;
+        }
+    }
+
     return black + white;
+}
+
+int main() {
+    string code = "abcd";
+    string guess = "abcd";
+
+    int result = mastermind(code, guess);
+    cout << "Black pegs: " << result - (code_count.count('a') - 1) << ", White pegs: " << result - black << endl;
+
+    return 0;
 }
