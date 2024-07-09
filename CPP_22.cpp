@@ -4,23 +4,23 @@
 #include <algorithm>
 
 using namespace std;
-using namespace boost;
 
-bool is_same(const vector<int>& v1, const vector<int>& v2) {
-    return v1.size() == v2.size() && all_of(v1.begin(), v1.end(), [&v2](int x) { return count_if(v2.begin(), v2.end(), bind2nd(BOOST_ISTREAM_EQ(), x)) > 0; });
+template<typename T1, typename T2>
+bool is_same() {
+    return (std::is_same<T1, T2>::value);
 }
 
-vector<int> filter_integers(list<any> values) {
+vector<int> filter_integers(list< boost::any > values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value)) {
-            result.push_back(any_cast<int>(value));
+        if (boost::any_cast<int>(value)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
 }
 
 int main() {
-    assert(is_same(filter_integers({3, any('c'), 3, 3, any('a'), any('b')}), {3, 3, 3}));
+    assert(is_same<list<boost::any>, vector<int>>::value == true);
     // ...
 }
