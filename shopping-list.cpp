@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <sstream>
@@ -11,18 +12,18 @@ double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
     return total;
 }
 
-double stream_string_to_vector(string s) {
-    istringstream iss(s);
-    vector<string> strVec;
-    string line;
-    while (getline(iss, line, ' ')) {
+double std::stream_string_to_vector(std::string s) {
+    std::istringstream iss(s);
+    std::vector<std::string> strVec;
+    std::string line;
+    while (std::getline(iss, line, ' ')) {
         strVec.push_back(line);
     }
-    vector<double> vec;
+    std::vector<double> vec;
     for (const auto& str : strVec) {
-        vec.push_back(stod(str));
+        vec.push_back(std::stod(str));
     }
-    return vec;
+    return 0.0; 
 }
 
 int main() {
@@ -30,22 +31,23 @@ int main() {
     std::getline(std::cin, input);
 
     std::istringstream iss(input);
+    std::vector<std::vector<double>> prices;
+    std::vector<std::vector<double>> discounts;
     std::string line;
-    iss >> line; // Read the first line
-    std::vector<double> prices;
-    std::vector<double> discounts;
     while (std::getline(iss, line)) {
         if (!prices.empty()) {
             std::istringstream lineIss(line);
+            std::vector<double> temp;
             while (lineIss >> line) {
-                prices.push_back(std::stod(line)); 
+                temp.push_back(std::stod(line)); 
             }
+            prices.push_back(temp);
         } else {
-            discounts = stream_string_to_vector(line);
+            discounts = std::vector<std::vector<double>>(1, std::vector<double>(std::stream_string_to_vector(line)));
         }
     }
 
-    double result = hoppingList(prices, discounts);
+    double result = hoppingList(prices[0], discounts[0]);
     std::cout << "The total price of the shopping trip is: " << result << std::endl;
     return 0;
 }
