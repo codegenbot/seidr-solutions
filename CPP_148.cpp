@@ -1,15 +1,13 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); ++i) {
@@ -37,8 +35,3 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::sort(result.begin(), result.end());
     
     return result;
-}
-
-int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {})); 
-}
