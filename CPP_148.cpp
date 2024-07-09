@@ -1,67 +1,67 @@
 #include <vector>
 using namespace std;
 
+bool issame(vector<string> v1, vector<string> v2) {
+    return v1.size() == v2.size() && equal(v1.begin(), v1.end(), v2.begin());
+}
+
+int main() {
+    vector<string> result = bf("Mars", "Saturn");
+    for (const string& s : result) {
+        cout << s << endl;
+    }
+    
+    assert(issame(bf("Mars", "Saturn"), {"Earth"})); 
+    return 0;
+}
+
 vector<string> bf(string planet1, string planet2) {
     vector<string> result;
+
+    string planets[] = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     
-    int distance1 = -1;
-    int distance2 = -1;
+    int index1 = -1;
+    int index2 = -1;
+    bool exists1 = false, exists2 = false;
 
-    if (planet1 == "Makemake" || planet2 == "Makemake") 
-        return vector<string>();
+    for (int i = 0; i < 8; i++) {
+        if (planets[i] == planet1) {
+            index1 = i;
+            exists1 = true;
+        }
+        else if (planets[i] == planet2) {
+            index2 = i;
+            exists2 = true;
+        }
 
-    if (planet1 == "Mercury") {
-        distance1 = 57.9;
-    }
-    else if (planet1 == "Venus") {
-        distance1 = 67.2;
-    }
-    else if (planet1 == "Earth") {
-        distance1 = 0;
-    }
-    else if (planet1 == "Mars") {
-        distance1 = 225;
-    }
-    else if (planet1 == "Jupiter") {
-        distance1 = 778;
-    }
-    else if (planet1 == "Saturn") {
-        distance1 = 1433;
-    }
-    else if (planet1 == "Uranus") {
-        distance1 = 2870;
-    }
-    else if (planet1 == "Neptune") {
-        distance1 = 4495;
+        if (index1 != -1 && index2 != -1)
+            break;
     }
 
-    if (planet2 == "Mercury") {
-        distance2 = 57.9;
-    }
-    else if (planet2 == "Venus") {
-        distance2 = 67.2;
-    }
-    else if (planet2 == "Earth") {
-        distance2 = 0;
-    }
-    else if (planet2 == "Mars") {
-        distance2 = 225;
-    }
-    else if (planet2 == "Jupiter") {
-        distance2 = 778;
-    }
-    else if (planet2 == "Saturn") {
-        distance2 = 1433;
-    }
-    else if (planet2 == "Uranus") {
-        distance2 = 2870;
-    }
-    else if (planet2 == "Neptune") {
-        distance2 = 4495;
+    if (!exists1 || !exists2) {
+        return result;
     }
 
-    if (distance1 != -1 && distance2 != -1) {
-        result.push_back((distance1 < distance2 ? planet1 : planet2));
+    int dist = abs(index1 - index2);
+
+    if(dist > 3) {
+        string temp = planet1;
+        planet1 = planet2;
+        planet2 = temp;
+
+        dist = abs(index1 - index2);
     }
+    
+    for (int i = 0; i < 8; i++) {
+        int j = (i + dist) % 8;
+        
+        if ((index1 <= index2 && i >= index1 && i <= index2) || 
+            (index1 > index2 && (i >= index1 && i < index2) || i >= 0 && i <= index2 - index1)) {
+            result.push_back(planets[i]);
+        }
+    }
+
+    sort(result.begin(), result.end());
 
     return result;
+}
