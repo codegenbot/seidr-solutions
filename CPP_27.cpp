@@ -5,7 +5,7 @@ std::string flip_case(std::string str) {
     for(int i=0; i<str.length(); i++){
         char ch = str[i];
         if(ch >= 'a' && ch <= 'z')
-            result += toupper((char)tounger(ch));
+            result += toupper(ch);
         else if(ch >= 'A' && ch <= 'Z')
             result += tolower(ch);
         else
