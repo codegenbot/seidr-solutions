@@ -9,6 +9,7 @@ def find_zero(xs: list):
     except:
         return "Please provide a valid input format"
 
+
 # Read input from user
 try:
     xs = list(map(float, input().split()))
