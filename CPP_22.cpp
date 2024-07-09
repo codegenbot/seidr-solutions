@@ -14,8 +14,7 @@ int main() {
         return 1; 
     }
 
-    std::vector<int> a;
-    std::vector<int> b;
+    std::vector<int> a, b;
 
     for(int i = 0; i < n; ++i) {
         int x;
@@ -28,7 +27,6 @@ int main() {
                 break; 
             }
         }
-        a.reserve(a.size() + 1);
         a.push_back(x);
     }
 
@@ -43,7 +41,6 @@ int main() {
                 break; 
             }
         }
-        b.reserve(b.size() + 1);
         b.push_back(x);
     }
 

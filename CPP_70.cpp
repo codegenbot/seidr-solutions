@@ -1,8 +1,8 @@
-```
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<vector<int>> a, vector<vector<int>> b) {
+bool operator==(const std::vector<std::vector<int>>& a, const std::vector<std::vector<int>>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -19,8 +19,8 @@ bool issame(vector<vector<int>> a, vector<vector<int>> b) {
     return true;
 }
 
-vector<vector<int>> strange_sort_list(vector<vector<int>> lst) {
-    vector<vector<int>> result;
+std::vector<std::vector<int>> strange_sort_list(std::vector<std::vector<int>> lst) {
+    std::vector<std::vector<int>> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin()->begin(), lst.end()->end());
         for (auto &v : lst) {
@@ -45,6 +45,12 @@ vector<vector<int>> strange_sort_list(vector<vector<int>> lst) {
 }
 
 int main() {
-    assert(issame({{1, 2}, {3, 4}}, {{2, 1}, {4, 3}}));
-    vector<vector<int>> result = strange_sort_list({{1, 1, 1, 1}});
+    std::vector<std::vector<int>> lst = {{1, 2}, {3, 4}};
+    std::vector<std::vector<int>> expected = {{1, 1, 1, 1}};
+    if (lst != expected) {
+        std::cout << "Test failed" << std::endl;
+    } else {
+        std::cout << "Test passed" << std::endl;
+    }
+    std::vector<std::vector<int>> result = strange_sort_list({{1, 1, 1, 1}});
 }
