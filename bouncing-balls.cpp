@@ -1,17 +1,24 @@
 ```cpp
 #include <iostream>
+#include <sstream>
 
 int main() {
-    int startHeight, firstBounce, numBounces;
+    std::string line;
+    std::getline(std::cin, line);
+    std::istringstream iss(line);
 
-    std::cin >> startHeight >> firstBounce >> numBounces;
-    
-    if (!(std::cin)) {
-        // Handle invalid input (e.g., print error message and exit)
+    std::string str;
+    iss >> str;
+    double firstBounce = std::stod(str);
+    int startHeight, numBounces;
+    if (!(iss >> startHeight >> numBounces)) {
         return 1;
     }
 
-    double bouncinessIndex = static_cast<double>(firstBounce) / static_cast<double>(startHeight);
+    startHeight = static_cast<double>(startHeight);
+    firstBounce = static_cast<double>(firstBounce);
+
+    double bouncinessIndex = firstBounce / startHeight;
 
     std::cout << bouncinessIndex << " ";
     for (int i = 1; i <= numBounces; ++i) {
