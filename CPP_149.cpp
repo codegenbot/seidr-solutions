@@ -1,18 +1,20 @@
-#include <vector>
-#include <string>
-#include <algorithm>
+Here is the completed code:
 
-using namespace std;
-
-vector<string> vector_sort(vector<string> lst) {
-    auto it = remove_if(lst.begin(), lst.end(),
-                         [&](const string& s) { return s.length() % 2 != 0; });
-    lst.erase(it, lst.end());
-    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
-        if (a.length() == b.length())
-            return a < b;
-        else
-            return a.length() < b.length();
-    });
+vector<string> sorted_list_sum(vector<string> lst) {
+    auto it = lst.begin();
+    while (it != lst.end()) {
+        if (it->length() % 2 == 1) {
+            it = lst.erase(it);
+            if (it == lst.end())
+                break;
+        } else
+            ++it;
+    }
+    sort(lst.begin(), lst.end(),
+         [](const string& a, const string& b) {
+             if (a.length() != b.length())
+                 return a.length() < b.length();
+             return a < b;
+         });
     return lst;
 }
