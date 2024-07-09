@@ -1,4 +1,3 @@
-```
 def filter_integers(values):
     try:
         return [int(value) for value in values]
