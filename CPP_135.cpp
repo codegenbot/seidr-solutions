@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+```
+#include <vector>
 using namespace std;
 
 int can_arrange(vector<int> arr){
@@ -10,13 +11,14 @@ int can_arrange(vector<int> arr){
 }
 
 int main(){
-    vector<int> arr;
+    vector<int> input;
     int n;
     cin >> n;
-    for(int i = 0; i < n; i++){
-        int temp;
-        cin >> temp;
-        arr.push_back(temp);
+    for (int i = 0; i < n; i++) {
+        int val;
+        cin >> val;
+        input.push_back(val);
     }
-    cout << can_arrange(arr) << endl;
+    cout << can_arrange(input) << endl;
+    return 0;
 }
