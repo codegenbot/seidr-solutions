@@ -1,3 +1,4 @@
+int hex_key(string num);
 int hex_key(string num) {
     int count = 0;
     for (char c : num) {
@@ -8,7 +9,6 @@ int hex_key(string num) {
         }
     }
     return count;
-
 }
 
 int main() {
