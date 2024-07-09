@@ -8,22 +8,24 @@ int bowlingScore(string s) {
     string::iterator it = s.begin();
     while (it != s.end()) {
         if (*it == 'X') {
-            score += 30;
-            if ((it + 1) != s.end() && (*(it + 1) == '/' || *(it + 1) == 'X')) {
-                score -= 10;
+            score += 10;
+            it++;
+            if (it != s.end() && (*it == 'X' || *it == '/')) {
+                score += 15;
             }
-            it += 2;
         } else if (*it == '/') {
-            score += 10 + stoi(string(1, *++it));
-            break;
+            score += 10;
+            int roll = stoi(string(1, *++it));
+            score += roll;
         } else {
             int roll = 0;
             while (it != s.end() && !(*it == '/' || *it == 'X')) {
                 roll = roll * 10 + (*it - '0');
                 it++;
             }
-            if (*it == '/') {
-                score += roll + 10;
+            if (roll > 10) {
+                score += 10;
+                score += roll - 10;
             } else {
                 score += roll;
             }
