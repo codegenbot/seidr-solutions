@@ -1,8 +1,10 @@
 from typing import List, Optional
 
 
-def longest() -> Optional[str]:
-    strings = input("Enter a list of strings (comma-separated): ").split(",")
-    if not all(isinstance(s, str) for s in strings):
-        raise ValueError("Input must contain only strings")
-    return max(map(str.strip, strings), key=len)
+def longest(strings: List[Optional[str]]) -> Optional[str]:
+    if not strings:
+        return None
+    for s in strings:
+        if not isinstance(s, str):
+            raise ValueError("Input must contain only strings")
+    return max(map(str, filter(None, strings)), key=len)
