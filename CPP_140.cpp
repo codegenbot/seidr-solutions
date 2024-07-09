@@ -1,29 +1,19 @@
-string fix_spaces(string text){
-    string result = "";
-    bool prevSpace = false;
+#include <string>
 
-    for(int i=0; i<text.length(); i++){
-        if(text[i] == ' '){
-            if(prevSpace || !result.empty()){
-                if(result.length() > 2 && result.back() == ' ' && result.back()-1 == ' ' && result.back()-2 == ' ') {
-                    result += "-";
-                } else {
-                    result += '_';
-                }
-                prevSpace = true;
+using namespace std;
+
+string fix_spaces(string text) {
+    string result = "";
+    for(int i=0; i<text.length(); i++) {
+        if(text[i] == ' ') {
+            if(i+1 < text.length() && text[i+1] == ' ' && i+2 < text.length() && text[i+2] == ' ') {
+                result += "-";
             } else {
-                result += ' ';
-                prevSpace = false;
+                result += "_";
             }
         } else {
-            if(prevSpace) {
-                result += text[i];
-                prevSpace = false;
-            } else {
-                result += text[i];
-            }
+            result += text[i];
         }
     }
-
     return result;
 }
