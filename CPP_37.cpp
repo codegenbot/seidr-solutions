@@ -1,6 +1,10 @@
+```cpp
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<float> a,vector<float>b){
+namespace std;
+
+bool checkIfSame(std::vector<float> a, std::vector<float> b){
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++){
         if(abs(a[i]) != abs(b[i])) return false;
@@ -8,15 +12,15 @@ bool issame(vector<float> a,vector<float>b){
     return true;
 }
 
-vector<float> sort_even(vector<float> l) {
-    vector<float> result(l.size());
+std::vector<float> sortEven(std::vector<float> l) {
+    std::vector<float> result(l.size());
     int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             for(int k=i; k< l.size(); k=k+2){
                 result[j++] = l[k];
             }
-            sort(result.begin(),result.end());
+            std::sort(result.begin(),result.end());
             for(int i=0; i<4 && j<i+4;i++){
                 result[i] = 0;
             }
