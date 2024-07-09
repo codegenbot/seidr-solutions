@@ -1,7 +1,9 @@
-Here is the solution:
-
-if (lst.size() < 2) return -1; // or return None
-vector<int> sorted = lst;
-sort(sorted.begin(), sorted.end());
-int res = *next(iterate(sorted.begin()+1, sorted.end()));
-return res;
+int next_smallest(vector<int> lst) {
+    if (lst.size() < 2) return -1; // Return None (or in this case -1) if there are less than 2 elements.
+    vector<int> v(lst);
+    sort(v.begin(), v.end());
+    for (int i = 0; i < v.size() - 1; i++) {
+        if (v[i] != v[i + 1]) return v[i + 1];
+    }
+    return -1;
+}
