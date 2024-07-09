@@ -17,7 +17,10 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
-    tweet.erase(remove(tweet.begin(), tweet.end(), ' '), end(tweet));
+    auto it = std::remove(tweet.begin(), tweet.end(), ' ');
+    tweet.erase(it, tweet.end()); 
+    auto it2 = std::remove(tweet.begin(), tweet.end(), '\r');
+    tweet.erase(it2, tweet.end());
     cout << validateTweet(tweet) << endl;
     return 0;
 }
