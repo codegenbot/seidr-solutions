@@ -1,24 +1,30 @@
-#include <vector>
-#include <algorithm>
+bool issame(vector<string> a,vector<string> b){
+    return (a == b);
+}
 
-bool issame(std::vector<std::string>, std::vector<std::string>);
-
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::vector<std::string>> result;
+vector<string> by_length(vector<int> arr) {
+    vector<string> result;
     for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            result.push_back({(i == 1 ? "One" : i == 2 ? "Two" : i == 3 ? "Three" : i == 4 ? "Four" : i == 5 ? "Five" : i == 6 ? "Six" : i == 7 ? "Seven" : i == 8 ? "Eight" : "Nine")});
+        string num = "";
+        switch (i) {
+            case 1: num = "One"; break;
+            case 2: num = "Two"; break;
+            case 3: num = "Three"; break;
+            case 4: num = "Four"; break;
+            case 5: num = "Five"; break;
+            case 6: num = "Six"; break;
+            case 7: num = "Seven"; break;
+            case 8: num = "Eight"; break;
+            case 9: num = "Nine"; break;
+        }
+        result.push_back(num);
     }
-    std::sort(result.begin(), result.end());
-    std::reverse(result.begin(), result.end());
-    std::vector<std::string> final_result;
-    for (std::vector<std::string> strings : result) {
-        final_result.insert(final_result.end(), strings.begin(), strings.end());
-    }
-    return final_result;
+    sort(result.begin(), result.end());
+    reverse(result.begin(), result.end());
+    return result;
 }
 
 int main() {
-    assert(issame({{"Nine"}}, {{"Nine"}}));
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
     return 0;
 }
