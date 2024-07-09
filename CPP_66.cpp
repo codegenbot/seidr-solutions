@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -7,8 +8,8 @@ using namespace std;
 int digitSum(string s){
     int sum = 0;
     for(char c : s){
-        if(islower(c)){
-            sum += (c - 'a' + 1);
+        if(isupper(c)){
+            sum += (int)c - 55; 
         }
     }
     return sum;
@@ -16,12 +17,7 @@ int digitSum(string s){
 }
 
 int main() {
-    assert(digitSum("you are very smart") == 21);
-    cout << digitSum(input()) << endl;
-}
-
-string input() {
-    string s;
-    cin >> s;
-    return s;
+    assert(digitSum("You arE Very Smart") == 327);
+    cout << "Program ended successfully" << endl;
+    return 0;
 }
