@@ -1,10 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
 
 bool isSimplePower(int num) {
-    if (num <= 1)
-        return false;
     for (int base = 2; base * base <= num; ++base) {
         int power = 1;
         while (power * base <= num) {
@@ -24,9 +21,7 @@ int main() {
         std::cout << "Invalid input. Please enter a numeric value.\n";
     } else {
         bool isValidInput = true;
-        std::string numStr = std::to_string(num);
-        
-        for (char c : numStr) { 
+        for (auto c : std::to_string(num)) { 
             if (!std::isdigit(c)) {
                 isValidInput = false;
                 break;
