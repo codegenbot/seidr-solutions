@@ -23,8 +23,8 @@ vector<int> filter_integers(initializer_list<any> values) {
     return result;
 }
 
-int main() {
+int main_func() {
     vector<any> values = {3, any(3), 3, 'a', 'b'};
-    assert(is_same(vector<int>({any(3), 'c', 3, 3, 'a', 'b'})), vector<int>({any(3), 'c', 3, 3, 'a', 'b'}));
+    assert(is_same(vector<any>({any(3), 'c', 3, 3, 'a', 'b'})), filter_integers({any(3), any('c'), 3, 3, any('a'), any('b')})));
     return 0;
 }
