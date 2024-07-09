@@ -5,7 +5,7 @@
 #include <sstream>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
-    std::stringstream ss(str);
+    std::istringstream ss(str);
     std::string token;
     std::vector<std::string> tokens;
 
