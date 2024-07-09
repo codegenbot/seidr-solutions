@@ -21,7 +21,7 @@ def calculate_frame_score(frame, subsequent_frames):
             else 10
         )
     elif len(frame) == 2:
-        return int(frame[0]) + int(frame[1])
+        return calculate_roll(frame) + calculate_roll(frame)
     else:
         return 10 + (
             calculate_roll(subsequent_frames[0])
@@ -31,4 +31,4 @@ def calculate_frame_score(frame, subsequent_frames):
 
 
 def calculate_roll(roll):
-    return int(roll)
+    return int(roll[0])
