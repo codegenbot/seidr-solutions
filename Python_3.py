@@ -1,1 +1,1 @@
-operation = int(input())
+operations = list(map(int, input().strip().split()))
