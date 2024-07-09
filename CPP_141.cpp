@@ -1,5 +1,4 @@
 using namespace std;
-
 string check_file_name(string file_name) {
     int digit_count = 0;
     for (char c : file_name) {
