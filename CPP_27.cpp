@@ -1,3 +1,4 @@
+```
 #include <cctype>
 #include <string>
 #include <iostream>
@@ -16,5 +17,4 @@ std::string filp_case(const std::string& str) {
 
 int main() {
     std::cout << filp_case("These violent delights have violent ends") << std::endl;
-    return 0;
 }
