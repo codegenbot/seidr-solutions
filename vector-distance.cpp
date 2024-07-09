@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 
@@ -17,6 +18,6 @@ double vectorDistance() {
         double diff = pow((v2[i] - v1[i]), 2);
         distance += diff;
     }
-
+    
     return sqrt(distance); 
 }
