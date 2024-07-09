@@ -1,9 +1,17 @@
-int pluck(int num) {
-    if (num % 2 == 0 && num < INT_MAX) {
-        return num;
-    } else {
-        return -1;
+int pluck(const vector<int>& arr) {
+    if (arr.empty()) return -1;
+    
+    int minEven = INT_MAX;
+    int minIndex = -1;
+    
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0 && arr[i] < minEven) {
+            minEven = arr[i];
+            minIndex = i;
+        }
     }
+    
+    return minIndex;
 }
 
 bool areEqual(const vector<int>& a, const vector<int>& b) {
@@ -35,13 +43,9 @@ bool issame(const vector<int>& a, const vector<vector<int>>& b) {
 
 int main() {
     vector<int> arr = {7, 9, 7, 1};
-    int num = pluck(7);
+    int num = pluck(arr);
     vector<int> vec;
     vec.push_back(num);
-    if(num != -1) {
-        assert(issame({num}, arr));
-    } else {
-        assert(issame({}, arr));
-    }
+    assert(num == -1 || issame(vector<int>(1, num), arr));
     return 0;
 }
