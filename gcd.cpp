@@ -28,6 +28,7 @@ int main() {
     int choice;
     cin >> choice;
     cin.ignore(); // to consume the newline character left after choice input
+
     if (choice == 1) {
         int a, b;
         cin >> a >> b;
