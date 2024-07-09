@@ -18,4 +18,5 @@ int main {
         stringstream ss;
         ss << setw(10) << md5_str.size();
         cout << ss.str() << endl;
+    }
 }
