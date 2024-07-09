@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -11,13 +11,13 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-std::vector<std::string> total_match(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0;
-    for (const auto& s : lst1) {
+    for (const string& s : lst1) {
         sum1 += s.length();
     }
     int sum2 = 0;
-    for (const auto& s : lst2) {
+    for (const string& s : lst2) {
         sum2 += s.length();
     }
     if (sum1 < sum2) return lst1;
@@ -26,6 +26,12 @@ std::vector<std::string> total_match(const std::vector<std::string>& lst1, const
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    vector<string> lst1 = {"this"};
+    vector<string> lst2 = {};
+    if (!issame(total_match(lst1, lst2), {})) {
+        std::cout << "Test failed" << std::endl;
+    } else {
+        std::cout << "Test passed" << std::endl;
+    }
     return 0;
 }
