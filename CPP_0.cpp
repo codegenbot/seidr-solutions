@@ -28,19 +28,9 @@ bool has_close_elements(std::vector<std::vector<float>> numbers, float tol) {
 }
 
 int main() {
-    std::vector<float> row1 = {1.0f};
-    std::vector<float> row2 = {2.0f, 3.9f, 4.0f, 5.0f};
-    std::vector<float> row3 = {2.2f};
-    std::vector<float> row4 = {0.0f};
-
-    std::vector<std::vector<float>> numbers = {row1, row2, row3, row4};
-
+    std::vector<std::vector<float>> numbers = {{1.0f},{1.0f}, {2.0f},{2.0f}, {3.9f},{3.9f}, {4.0f},{4.0f}, {5.0f},{5.0f}};
+    std::vector<std::vector<float>> numbers2 = {{1.1f},{1.1f}, {2.2f},{2.2f}, {3.1f},{3.1f}, {4.1f},{4.1f}, {5.1f},{5.1f}};
     assert(has_close_elements(numbers, 0.5) == false);
-
-    std::vector<float> row5 = {1.1f};
-    std::vector<float> row6 = {2.2f, 3.1f, 4.1f, 5.1f};
-
-    std::vector<std::vector<float>> numbers2 = {row5, row6};
     
     assert(has_close_elements(numbers2, 0.5) == false);
 }
