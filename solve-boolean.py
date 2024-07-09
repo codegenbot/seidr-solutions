@@ -16,7 +16,6 @@ def evaluate_expression(expression):
         while "&" in expression:
             left, right = expression.split("&", 1)
             expression = str(evaluate_expression(left)) + " & "
-
         while "|" in expression:
             left, right = expression.split("|", 1)
             expression = left + " | " + right
