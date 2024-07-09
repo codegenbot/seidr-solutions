@@ -1,2 +1,6 @@
-def complete_code(numbers, delimiter):
-    return [x for sublist in [[num, delimiter] for num in numbers] for x in sublist[:-1]]
+def concatenate_with_delimeter(numbers, delimeter):
+    result = []
+    for num in numbers:
+        result.extend([num, delimeter])
+    result.pop()
+    return result
