@@ -1,6 +1,22 @@
+#include <algorithm>
+#include <cassert>
+#include <iostream>
+#include <vector>
 #include <string>
-#include <unordered_set>
 
-bool issame(vector<string> a, vector<string> b) {
-    return unordered_set<string>(a.begin(), a.end()) == unordered_set<string>(b.begin(), b.end());
+vector<string> by_length(vector<int> arr){
+    vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    vector<int> sorted_filtered;
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            sorted_filtered.push_back(num);
+        }
+    }
+    sort(sorted_filtered.begin(), sorted_filtered.end());
+    reverse(sorted_filtered.begin(), sorted_filtered.end());
+    vector<string> result;
+    for (int num : sorted_filtered) {
+        result.push_back(names[num - 1]);
+    }
+    return result;
 }
