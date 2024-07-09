@@ -1,4 +1,12 @@
-vector<string> res;
+#include <vector>
+#include <string>
+
+bool issame(char a, char b) {
+    return a == b;
+}
+
+vector<string> odd_count(vector<string> lst) {
+    vector<string> res;
     for (string s : lst) {
         int count = 0;
         for (char c : s) {
@@ -6,7 +14,7 @@ vector<string> res;
                 count++;
             }
         }
-        string output = "the number of odd elements " + to_string(count) + "n the str" + to_string(count) + "ng " + s + " of the " + to_string(count) + "nput.";
+        string output = "The number of odd elements " + to_string(count) + " in the string " + s + " of the input.";
         res.push_back(output);
     }
     return res;
