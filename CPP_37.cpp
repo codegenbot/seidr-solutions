@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <cassert>
 #include <cmath>
-#include <initializer_list>
+#include <algorithm>
 using namespace std;
 
 std::vector<float> make_vector(const vector<float>& v) {
@@ -36,8 +37,8 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() { 
-    vector<float> input = make_vector({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
-    vector<float> expected = { -12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
+    vector<float> input({5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f});
+    vector<float> expected = { -12.0f, 8.0f, 3.0f, 4.0f, 5.0f, 2.0f, 12.0f, 11.0f, 23.0f, -10.0f};
     assert(isSame(sort_even(input), expected));
     return 0;
 }
