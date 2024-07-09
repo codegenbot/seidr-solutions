@@ -15,5 +15,5 @@ string solveBoolean(std::string s) {
             st.push(s[i]);
         }
     }
-    return (char)st.top() == 'T' ? "True" : "False";
+    return st.top() == 'T' ? "True" : "False";
 }
