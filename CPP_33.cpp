@@ -9,12 +9,18 @@ vector<int> sort_third(vector<int> l) {
     int groupCount = 0;
 
     for (int i : l) {
-        if(groupCount % 3 == 0 || groupCount >= l.size()) { 
+        if(groupCount % 3 == 0) { 
             result.push_back(i);
-            groupCount++;
+        } else if(groupCount % 3 == 1) {
+            if(result.empty() || result.back() <= i) {
+                result.push_back(i);
+            }
         } else {
-            groupCount++;
+            if(!result.empty() && result.back() >= i) {
+                result.push_back(i);
+            }
         }
+        groupCount++;
     }
 
     return result;
