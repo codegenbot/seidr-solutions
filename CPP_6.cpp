@@ -1,10 +1,17 @@
 #include <vector>
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
-
-vector<int> parse_nested_parens(string paren_string);  // Function prototype
 
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> depths;
@@ -24,4 +31,15 @@ vector<int> parse_nested_parens(string paren_string) {
     }
     depths.push_back(max_depth);
     return depths;
-}  
+}
+
+int main() {
+    vector<int> a = {2, 3, 1, 4, 0};
+    vector<int> b = parse_nested_parens("() ( ()() )");
+    if (issame(a, b)) {
+        cout << "Same depths";
+    } else {
+        cout << "Different depths";
+    }
+    return 0;
+}
