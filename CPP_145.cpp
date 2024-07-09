@@ -1,11 +1,11 @@
 #include <algorithm>
 #include <initializer_list>
 
-bool issame(vector<int> a, vector<int> b) -> bool {
+bool compareVectors(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-vector<int> order_by_points(vector<int> nums) -> vector<int> {
+vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); ++i) {
         int sumOfDigits = 0;
@@ -25,4 +25,9 @@ vector<int> order_by_points(vector<int> nums) -> vector<int> {
     }
 
     return result;
+}
+
+int main() {
+    assert(order_by_points({0, 6, 6, -76, -21, 23, 4}) == vector<int>({-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
