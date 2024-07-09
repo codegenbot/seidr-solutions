@@ -1,3 +1,4 @@
+```cpp
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
