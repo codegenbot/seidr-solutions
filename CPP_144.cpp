@@ -1,19 +1,18 @@
-int gcd(int a, int b) {
-    return b == 0 ? a : gcd(b, a % b);
-}
+long long gcd(long long a, long long b) {
+        if (b == 0) return a;
+        return gcd(b, a % b);
+    }
 
-bool simplify(string x, string n) {
-    int num1 = stoi(x.substr(0, x.find('/')));
-    int den1 = stoi(x.substr(x.find('/') + 1));
-    int num2 = stoi(n.substr(0, n.find('/')));
-    int den2 = stoi(n.substr(n.find('/') + 1));
+    bool simplify(string x, string n) {
+        long long num1 = stoll(x.substr(0, x.find('/')));
+        long long den1 = stoll(x.substr(x.find('/') + 1));
+        long long num2 = stoll(n.substr(0, n.find('/')));
+        long long den2 = stoll(n.substr(n.find('/') + 1));
 
-    int num = num1 * num2;
-    int den = den1 * den2;
+        long long num = num1 * num2;
+        long long den = den1 * den2;
 
-    int common = gcd(num, den);
-    num /= common;
-    den /= common;
+        long long common = gcd(num, den);
 
-    return den == 1;
-}
+        return (den / common == 1);
+    }
