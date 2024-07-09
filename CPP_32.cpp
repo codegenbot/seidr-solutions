@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cmath>
 
@@ -10,23 +9,34 @@ double poly(vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(vector<double> xs){
-    if(xs.size() % 2 != 0) return -1; 
-    vector<double> coeffs = {(double)xs.size(), 0};
-    double root = -xs[1]/(2*xs[0]);
-    return std::round(poly(coeffs, root));
-}
-
 int main() {
-    vector<double> xs;
-    int n;
-    cin >> n;
-    for(int i=0; i<n; i++) {
-        double x;
-        cin >> x;
-        xs.push_back(x);
+    vector<double> coeffs;
+    double root;
+
+    int numCoeffs;
+    cout << "Enter the number of coefficients: ";
+    cin >> numCoeffs;
+
+    for(int i = 0; i < numCoeffs; i++) {
+        double coeff;
+        cout << "Enter coefficient " << i + 1 << ": ";
+        cin >> coeff;
+        coeffs.push_back(coeff);
     }
-    double solution = find_zero(xs);
-    cout << solution << endl;
+
+    vector<double> xs(3); // Assuming the equation is a cubic.
+    for(int i = 0; i < 3; i++) {
+        cout << "Enter x-coordinate " << i + 1 << ": ";
+        cin >> xs[i];
+    }
+
+    if(xs.size() % 2 != 0) root = -1; 
+    else {
+        coeffs = {};
+        root = -xs[1]/(2*xs[0]);
+        solution = std::round(poly(coeffs, root));
+    }
+    
+    cout << "The zero is: " << solution << endl;
     return 0;
 }
