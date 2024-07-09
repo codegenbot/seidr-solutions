@@ -1,4 +1,4 @@
-```
+```cpp
 #include <initializer_list>
 #include <cassert>
 #include <vector>
@@ -19,5 +19,5 @@ bool will_it_fly(std::vector<int> q, int w) {
 
 int main() {
     std::vector<int> q = {5, 10, 15};
-    assert(will_it_fly({5, 10, 15}, 5));
+    assert(will_it_fly(q, 5) == true);
 }
