@@ -12,10 +12,10 @@ std::string rounded_avg(int n, int m) {
     while (avg > 0) {
         if (avg >= 2) {
             avg /= 2;
-            binary.append("1");
+            binary.push_back('1');
         } else {
             avg = round(avg);
-            binary.append("0");
+            binary.push_back('0');
         }
     }
     reverse(binary.begin(), binary.end());
@@ -23,5 +23,5 @@ std::string rounded_avg(int n, int m) {
 }
 
 int main() {
-    assert(rounded_avg(5, 5) == "101"); 
+    assert(rounded_avg(5, 5) == "101");
 }
