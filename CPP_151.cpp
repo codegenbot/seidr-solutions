@@ -17,14 +17,12 @@ int main() {
     float odd_sum = 0; 
     int n;
     cin >> n;
-    for(int i=0;i<n;i++){
-        float x;
-        cin>>x;
-        if(x > 0 && floor(x) == x){
-            lst.push_back(x);
-        }
+    for(int i=0; i<n; i++) {
+        float num;
+        cin >> num;
+        lst.push_back(num);
     }
-    long long result = double_the_difference(lst);
-    cout<<result<<endl;
+    odd_sum = double_the_difference(lst);
+    cout << "The sum is: " << odd_sum << endl;
     return 0;
 }
