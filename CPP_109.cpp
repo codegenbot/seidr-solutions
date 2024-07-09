@@ -1,11 +1,16 @@
+```cpp
 #include <vector>
 
-bool move_one_ball(vector<int> arr) {
-    int max = *max_element(arr.begin(), arr.end());
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] > max - i) {
+bool move_one_ball(const std::vector<int>& arr) {
+    int n = arr.size();
+    if (n == 0)
+        return true;
+
+    for (int i = 1; i < n; i++) {
+        if (arr[i] <= arr[0]) {
             return false;
         }
     }
+
     return true;
 }
