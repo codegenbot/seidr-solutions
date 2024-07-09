@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int digitSum(string s){
+int digitSum(string s) {
     int sum = 0;
     vector<string> words = ssplit(s, " ");
     for(auto& word : words){
@@ -17,14 +17,14 @@ int digitSum(string s){
 
 }
 
-string join(const vector<string>& v, const string& sep) {
+string join(const vector<string>& v, const char& sep) {
     string s;
     for (auto it = v.begin(); it != v.end(); ++it)
         s += *it + sep;
     return s.substr(0, s.size() - 1); // remove trailing sep
 }
 
-string ssplit(const string& s, const string& sep) {
+string ssplit(const string& s, const char& sep) {
     vector<string> v;
     size_t pos = 0, prev = 0;
 
@@ -37,7 +37,8 @@ string ssplit(const string& s, const string& sep) {
     return join(v, " ");
 }
 
-int main() {
+int main() 
+{
     assert(digitSum("you are very smart") == 342);
     cout << digitSum("you are very smart") << endl;
     return 0;
