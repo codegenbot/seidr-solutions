@@ -1,6 +1,5 @@
 ```cpp
 #include <vector>
-#include <iostream>
 
 int basement(std::vector<int>& v) {
     int sum = 0;
@@ -13,8 +12,11 @@ int basement(std::vector<int>& v) {
 }
 
 int main() {
-    std::vector<int> v = {-2, 1, 3};
+    std::vector<int> v = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
     int result = basement(v);
-    std::cout << "The first index with a negative sum is: " << result << std::endl;
+    if (result != -1)
+        printf("The basement is at index %d.\n", result);
+    else
+        printf("There is no basement.\n");
     return 0;
 }
