@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,10 +14,6 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string>& lst) {
                 return a < b;
             }
         });
-    int sum = 0;
-    for(const auto& s : lst) {
-        sum += stoi(s);
-    }
     return lst;
 }
 
@@ -33,13 +30,10 @@ int main() {
     std::vector<std::string> result = sorted_list_sum(lst);
     
     cout << "Sorted List Sum: ";
-    int total_sum = 0;
     for(auto str : result) {
-        total_sum += stoi(str);
         cout << str << " ";
     }
     cout << endl;
-    cout << "Total Sum: " << total_sum << endl;
     
     return 0;
 }
