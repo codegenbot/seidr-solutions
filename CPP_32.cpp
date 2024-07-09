@@ -1,4 +1,3 @@
-```cpp
 double find_zero(vector<double> xs) {
     double coeffs = xs[0];
     vector<double> polyCoeffs;
@@ -10,13 +9,15 @@ double find_zero(vector<double> xs) {
             coeffs = xs[i];
         }
     }
-    double solution = 0;
-    for (int i = 0; i < polyCoeffs.size(); i++) {
-        if (i % 2 == 1) {
-            solution -= polyCoeffs[i];
-        } else {
-            solution += polyCoeffs[i];
+    double solution;
+    if (polyCoeffs.size() > 1) {
+        double sum = 0.0;
+        for (int i = 0; i < polyCoeffs.size(); i++) {
+            sum += pow(xs[0],i)*polyCoeffs[i];
         }
+        solution = -sum / xs[0];
+    } else {
+        solution = 0.0;
     }
-    return -solution / coeffs;
+    return solution;
 }
