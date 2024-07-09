@@ -46,7 +46,7 @@ int main() {
     vector<int> vec;
     vec.push_back(num);
     if(num != -1) {
-        assert(issame({num}, {}));
+        assert(issame(vec , vec));
     } else {
         assert(issame({}, {}));
     }
