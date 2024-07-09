@@ -1,7 +1,7 @@
 def add(numbers):
     return sum(numbers)
 
-
-numbers = list(map(int, input().split()))
+print("Enter numbers separated by space:")
+numbers = [int(num) for num in input().split()]
 result = add(numbers)
 print(result)
