@@ -4,7 +4,7 @@
 
 std::string camelCase(const std::string& str) {
     std::string result = "";
-    bool capitalizeNext = true;
+    bool capitalizeNext = false;
 
     for (char c : str) {
         if (c == '-') {
@@ -13,7 +13,11 @@ std::string camelCase(const std::string& str) {
             result += toupper(c);
             capitalizeNext = false;
         } else {
-            result += tolower(c);
+            if (!result.size()) {
+                result += tolower(c);
+            } else {
+                result += c;
+            }
         }
     }
 
