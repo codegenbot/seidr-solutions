@@ -5,7 +5,9 @@ using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if (arr.empty()) return vector<pair<int, int>>(); // Modified to correctly return an empty vector
+    if (arr.empty()) {
+        return vector<pair<int, int>>(); // Correct way to initialize an empty vector
+    }
 
     int minEvenValue = INT_MAX;
     int minIndex = -1;
