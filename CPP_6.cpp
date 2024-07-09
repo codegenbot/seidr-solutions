@@ -1,8 +1,9 @@
-using namespace std;
-
+#include <iostream>
+#include <vector>
 #include <algorithm>
+#include <cassert>
 
-std::vector<int> parse_nested_parens(string paren_string);
+using namespace std;
 
 std::vector<int> parse_nested_parens(string paren_string) {
     std::vector<int> depths;
