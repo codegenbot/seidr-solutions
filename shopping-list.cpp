@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
     double total = 0;
@@ -11,10 +11,9 @@ double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
 }
 
 int main() {
-    std::vector<double> prices(std::vector<double>{10.0, 20.0, 30.0});
-    std::vector<double> discounts(std::vector<double>{0.1, 0.2, 0.3});
+    std::vector<double> prices({10.0, 20.0, 30.0});
+    std::vector<double> discounts({0.1, 0.2, 0.3});
 
     double result = hoppingList(prices, discounts);
     std::cout << "The total price of the shopping trip is: " << result << std::endl;
     return 0;
-}
