@@ -1,10 +1,7 @@
-#include <vector>
-using namespace std;
-
-int solution(vector<int> numbers) {
+int calculateFuelCost(vector<int> nums) {
     int sum = 0;
-    for (int number : numbers) {
-        int result = (number / 3) - 2;
+    for (int num : nums) {
+        int result = (num / 3) - 2; // divide by 3, round down to nearest integer and subtract 2
         sum += result;
     }
     return sum;
