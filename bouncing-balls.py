@@ -1,9 +1,8 @@
-```python
 def bouncing_balls():
-    starting_height = float(input())
-    first_bounce_height = float(input())
+    starting_height = float(input("Enter starting height: "))
+    first_bounce_height = float(input("Enter first bounce height: "))
     bounciness_index = first_bounce_height / starting_height
-    num_bounces = int(input())
+    num_bounces = int(input("Enter number of bounces: "))
 
     total_distance = 0
     current_height = starting_height
@@ -14,11 +13,10 @@ def bouncing_balls():
         else:
             break
 
-    while current_height > 0 and first_bounce_height > current_height:
+    while current_height < first_bounce_height:
         total_distance += 2 * abs(current_height)
         current_height *= bounciness_index
 
     print(total_distance)
-
 
 bouncing_balls()
