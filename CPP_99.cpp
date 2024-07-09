@@ -1,16 +1,18 @@
 #include <iostream>
+#include <cassert>
 #include <cmath>
 
 int closest_integer(std::string value) {
-    double num = std::stod(value);
-    int intNum = static_cast<int>(std::round(num));
-    if (num - intNum < 0) {
-        return static_cast<int>(std::ceil(num));
-    } else {
-        return static_cast<int>(std::floor(num));
+    double num = stod(value);
+    int closestInt = round(num);
+    if (num - closestInt == 0.5) {
+        closestInt = ceil(num);
+    } else if (num - closestInt == -0.5) {
+        closestInt = floor(num);
     }
+    return closestInt;
 }
 
 int main() {
-    assert(closest_integer("0") == 0);
+    assert (closest_integer("0") == 0);
 }
