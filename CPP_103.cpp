@@ -11,13 +11,15 @@ std::string rounded_avg(int n, int m) {
     }
     double avg = static_cast<double>(sum) / (m - n + 1);
     avg = std::nearbyint(avg + 0.5); 
-    std::string binary;
+    std::string binary = "";
     while (avg > 0) {
         binary = ((static_cast<int>(avg)) & 1) ? "1" + binary : "0" + binary;
         avg /= 2;
     }
     if (binary.empty()) binary = "0";
-    std::reverse(binary.begin(), binary.end());
+    if (!binary.empty()) {
+        std::reverse(binary.begin(), binary.end());
+    }
     return binary;
 }
 
