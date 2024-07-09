@@ -3,7 +3,7 @@
 using namespace std;
 
 string solve(int N) {
-    string::string binary = "";  
+    string binary = "";
     while (N > 0) {
         if (N % 2 == 0)
             binary = "0" + binary;
@@ -11,7 +11,7 @@ string solve(int N) {
             binary = "1" + binary;
         N /= 2;
     }
-    return binary;
+    std::string result = binary; return result;
 }
 
 int main() {
