@@ -28,7 +28,9 @@ int main() {
     std::vector<int> lst;
     std::cout << "Enter numbers (terminate with 0): ";
     int count = 0;
-    while (std::cin >> num && num != 0 && ++count <= 100) {
+    while (std::cin >> num && ++count <= 100) {
+        if(num == 0)
+            break;
         lst.push_back(num);
     }
     int result = solutions(lst);
