@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
-#include <vector>
 #include <iomanip>
+#include <vector>
 
 using namespace std;
 
@@ -16,6 +16,7 @@ double vectorDistance() {
     }
 
     double distance = 0.0;
+
     for (int i = 0; i < n; i++) {
         double diff = pow(v2[i] - v1[i], 2);
         distance += diff;
