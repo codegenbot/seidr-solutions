@@ -1,8 +1,7 @@
-#include <cassert>
-#include <algorithm>
 #include <vector>
-#include <string>
+#include <algorithm>
 #include <map>
+#include <cassert>
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
