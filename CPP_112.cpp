@@ -1,22 +1,47 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
-    for (char x : s) {
-        bool flag = false;
-        for (char y : c) {
-            if (x == y) {
-                flag = true;
+    
+    for (char i : s) {
+        bool found = false;
+        for (char j : c) {
+            if (i == j) {
+                found = true;
                 break;
             }
         }
-        if (!flag) {
-            temp += x;
+        if (!found) {
+            temp += i;
         }
     }
+    
+    string check = temp;
+    reverse(check.begin(), check.end());
+    
     result.push_back(temp);
-    string reversed = temp;
-    reverse(reversed.begin(), reversed.end());
-    result.push_back((temp == reversed) ? "True" : "False");
+    result.push_back((check == temp) ? "True" : "False");
+    
     return result;
+}
+
+int main() {
+    string s, c;
+    cout << "Enter the first string: ";
+    cin >> s;
+    cout << "Enter the second string: ";
+    cin >> c;
+    
+    vector<string> res = reverse_delete(s, c);
+    
+    cout << "Result string: " << res[0] << endl;
+    cout << "Is palindrome? " << res[1] << endl;
+    
+    return 0;
+}
