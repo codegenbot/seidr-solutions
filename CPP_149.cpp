@@ -1,9 +1,5 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2) {
     if (v1.size() != v2.size()) {
@@ -39,24 +35,6 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
-
-    std::vector<std::string> lst(n);
-
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter string " << i + 1 << ": ";
-        std::getline(std::cin, lst[i]);
-    }
-
-    auto result = sorted_list_sum(lst);
-    
-    std::cout << "Sorted list with even length strings: ";
-    for (const auto& str : result) {
-        std::cout << str << " ";
-    }
-    std::cout << std::endl;
-    
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
