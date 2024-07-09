@@ -1,20 +1,13 @@
 #include <vector>
-#include <iostream>
+#include <cassert>
 
-bool same = (even_odd_count(0) == {1, 0});
-
-int main() {
-    std::vector<int> result;
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    result = even_odd_count(num);
-    if (same)
-        std::cout << "Number of even and odd digits are same.\n";
-    else
-        std::cout << "Number of even and odd digits are not the same.\n";
-    
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i])
+            return false;
+    return true;
 }
 
 std::vector<int> even_odd_count(int num) {
@@ -28,4 +21,10 @@ std::vector<int> even_odd_count(int num) {
         num /= 10;
     }
     return result;
+}
+
+int main() {
+    std::vector<int> expected({1, 0});
+    assert(issame(even_odd_count(0), expected));
+    return 0;
 }
