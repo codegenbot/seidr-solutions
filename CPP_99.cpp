@@ -1,13 +1,11 @@
 #include <string>
 
-using namespace std;
-
-int closest_integer(string value) {
+int closest_integer(std::string value) {
     double num = stod(value);
-    int integer = lround(num);
-
-    if (num - integer >= 0.5)
-        return integer + 1;
-    else
-        return integer;
+    int integerPart = (int)num;
+    if (std::abs(num - integerPart) < 0.5) {
+        return integerPart + ((num > 0) ? 1 : -1);
+    } else {
+        return integerPart;
+    }
 }
