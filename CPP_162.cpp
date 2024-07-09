@@ -1,5 +1,9 @@
 using namespace std;
 
+#include <string>
+#include <algorithm>
+#include <iostream>
+
 string string_to_md5(string text) {
     if (text.empty()) return "";
     
@@ -21,3 +25,4 @@ string string_to_md5(string text) {
     }
     
     return result;
+}
