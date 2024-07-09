@@ -1,5 +1,14 @@
 double find_zero(vector<double> xs){
-    int n = xs.size();
-    double x = -xs[1]/(2*xs[0]);
-    return poly(xs,x);
+    double sum = 0;
+    double product = 1;
+    
+    for (int i = 0; i < xs.size(); i++) {
+        if (i % 2 == 1) {
+            sum += xs[i] * product;
+        } else {
+            product *= xs[i];
+        }
+    }
+    
+    return -sum / product;
 }
