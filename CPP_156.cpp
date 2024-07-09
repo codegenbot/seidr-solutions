@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -22,4 +21,15 @@ int main() {
     for(int i = 1; i <= 3999; i++) { 
         std::cout << i << ": " << int_to_mini_romank(i) << std::endl;
     }
+}
+
+std::string int_to_mini_romank(int number) {
+    std::string roman = ""; // Initialize the string
+    for (const auto& pair : romanMap) {
+        while (number >= pair.first) {
+            number -= pair.first;
+            roman += pair.second;
+        }
+    }
+    return roman;
 }
