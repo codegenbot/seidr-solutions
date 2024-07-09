@@ -16,11 +16,11 @@ bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> numbers) {
-    std::vector<int> copy = numbers;
-    std::sort(copy.begin(), copy.end()); // sort the copy in ascending order
-    auto it = std::unique(copy.begin(), copy.end()); // find the end of the consecutive sequence of equal elements
-    copy.erase(it, copy.end()); // remove duplicates
-    return copy;
+    std::vector<int> result = numbers;
+    std::sort(result.begin(), result.end()); 
+    auto it = std::unique(result.begin(), result.end()); 
+    result.erase(it, result.end()); 
+    return result;
 }
 
 int mainFunction() {
