@@ -4,7 +4,7 @@
 
 int main() {
     std::string input;
-    std::cout << "Enter the number: ";
+    std::cout << "Enter an integer: ";
     std::cin >> input;
 
     std::string output = "";
