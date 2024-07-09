@@ -24,8 +24,13 @@ int main() {
         std::cin >> num;
         lst.push_back(num);
     }
-    long long sum = double_the_difference(lst);
-    assert(double_the_difference(lst) == sum); 
-    std::cout << "The result is: " << sum << std::endl;
+    long long odd_sum = 0;
+    for (float num : lst) {
+        if (num > 0 && modf(num, &num) == 0) { 
+            odd_sum += pow(num, 2); 
+        }
+    }
+    assert(double_the_difference(lst) == odd_sum); 
+    std::cout << "The result is: " << double_the_difference(lst) << std::endl;
     return 0;
 }
