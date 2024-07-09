@@ -9,14 +9,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     
     std::vector<int> result(arr.begin(), arr.begin() + k);
     std::sort(result.begin(), result.end());
-    bool areUnique = true;
-    for(int i = 1; i < result.size(); ++i) {
-        if(result[i] == result[i - 1]) {
-            areUnique = false;
-            break;
-        }
-    }
-    return areUnique ? result : {};
+    return result;
 }
 
 int main() {
