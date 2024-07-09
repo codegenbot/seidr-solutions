@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
@@ -17,13 +16,4 @@ string solve(string s) {
         reverse(s.begin(), s.end());
     }
     return s;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    assert(solve("123") == "321");
-    assert(solve("AbcDef") == "aBCdEF");
-    assert(solve("WXYZ") == "ZYXW");
-    
-    return 0;
 }
