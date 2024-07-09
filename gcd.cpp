@@ -33,11 +33,8 @@ int main() {
     // Calculate the GCD of two numbers
     cout << gcd(num1, num2) << endl;
 
-    string text;
-    cin >> text;
-
-    string target;
-    cin >> target;
+    string text, target;
+    cin >> text >> target;
 
     // Find indices of substring in the given text
     vector<int> indices = indicesOfSubstring(text, target);

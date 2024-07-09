@@ -24,13 +24,12 @@ vector<int> findIndices(string text, string target) {
 }
 
 int main() {
+    int n;
+    cin >> n;
     string text;
-    string target;
     cin >> text;
-    cin >> target;
 
-    vector<int> result = findIndices(text, target);
-
+    vector<int> result = findIndices(text, to_string(n));
     for(int i: result) cout << i << " ";
     return 0;
 }
