@@ -1,14 +1,14 @@
-def main():
-    num_strings = int(input("Enter the number of strings: "))
-    strings = []
-
-    for i in range(num_strings):
-        string = input(f"Enter string {i+1}: ")
-        strings.append(string)
-
-    result = concatenate(strings)
-    print(result)
+from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    return "".join(strings)
+    print(
+        "Enter the strings to be concatenated, each on a new line. Type 'done' when you're finished."
+    )
+    input_strings = []
+    while True:
+        user_input = input()
+        if user_input.lower() == "done":
+            break
+        input_strings.append(user_input)
+    return "".join(input_strings)
