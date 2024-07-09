@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
 bool issame(vector<string> a) {
-    if (a.size() == 1) {
+    if (a.size() == 0) {
         return true;
     }
     for (int i = 1; i < a.size(); i++) {
@@ -74,6 +73,4 @@ int main() {
     } else {
         cout << "Output is incorrect." << endl;
     }
-    
-    return 0;
 }
