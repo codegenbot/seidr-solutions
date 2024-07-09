@@ -1,7 +1,5 @@
-```
-#include <vector>
-#include <string>
-#include <initializer_list>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 vector<int> findIndices(std::string text, std::string target) {
