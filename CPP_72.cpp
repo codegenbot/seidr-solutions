@@ -1,8 +1,8 @@
 ```cpp
-#include <cassert>
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 bool will_it_fly(std::vector<int> q, int w) {
     std::string str = "";
@@ -19,4 +19,5 @@ bool will_it_fly(std::vector<int> q, int w) {
 
 int main() {
     assert(will_it_fly({5}, 5) == true);
+    return 0;
 }
