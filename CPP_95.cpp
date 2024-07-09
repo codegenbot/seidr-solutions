@@ -11,9 +11,7 @@ bool check_dict_case(map<string,string> dict){
     string first_key = *(dict.begin()->first);
     
     for(auto it = dict.begin(); it != dict.end(); ++it){
-        transform(it->first.begin(), it->first.end(), it->first.begin(), ::toupper);
-        if(string(first_key).compare(0u, string(first_key).size(), it->first) != 0)
-            return false;
+        if(any_of(it->first.begin(), it->first.end(), ::tolower) != any_of(first_key.begin(), first_key.end(), ::tolower)) return false;
     }
     
     return true;
