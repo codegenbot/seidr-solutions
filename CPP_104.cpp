@@ -1,29 +1,30 @@
-```cpp
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-bool hasEvenDigit(int num) {
-    int temp = num;
-    while (temp > 0) {
-        int digit = temp % 10;
-        if (digit % 2 == 0)
-            return true;
-        temp /= 10;
+bool issame(vector<int> a,vector<int>b){
+    if(a.size()!=b.size()) return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i]) return false;
     }
-    return false;
+    return true;
 }
 
-std::vector<int> unique_digits(std::vector<int> x) {
-    std::vector<int> result;
+vector<int> unique_digits(vector<int> x) {
+    vector<int> result;
     for (int num : x) {
-        if (!hasEvenDigit(num))
+        bool hasEvenDigit = false;
+        int temp = num;
+        while (temp != 0) {
+            if ((temp % 10) % 2 == 0) {
+                hasEvenDigit = true;
+                break;
+            }
+            temp /= 10;
+        }
+        if (!hasEvenDigit) {
             result.push_back(num);
+        }
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    assert(std::equal(unique_digits({135, 103, 31}), {31, 135}, [](int a, int b){return a == b; }));
-    return 0;
 }
