@@ -1,10 +1,16 @@
-Here is the completed code:
-
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int n = grid.size();
-    int total_water = 0;
-    for (const auto& row : grid) {
-        total_water += std::accumulate(row.begin(), row.end(), 0);
+    int ans = 0;
+    for (vector<int> well : grid) {
+        int water = 0;
+        for (int unit : well) {
+            if (unit == 1) {
+                water += unit;
+                while (water > 0 && capacity > 0) {
+                    water -= min(water, capacity);
+                    ans++;
+                }
+            }
+        }
     }
-    return total_water / capacity + ((total_water % capacity) ? 1 : 0);
+    return ans;
 }
