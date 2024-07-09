@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -27,4 +26,5 @@ int main(){
     std::cout << "Enter two numbers: ";
     std::cin >> n >> m;
     std::cout << rounded_avg(n,m);
+    return 0;
 }
