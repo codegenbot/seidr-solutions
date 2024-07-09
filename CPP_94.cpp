@@ -29,7 +29,7 @@ int largestPrime(vector<int> lst) {
             return sumOfDigits(maxVal);
         }
     }
-    return -1; 
+    return -1; // no prime found
 }
 
 int skjkasdkd(vector<int> lst) {
