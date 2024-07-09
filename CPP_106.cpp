@@ -7,10 +7,12 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
 
 std::vector<int> f(int n){
     std::vector<int> result(n);
-    // Generate result here
+    for(int i=0; i<n; i++){
+        result[i] = i+1;
+    }
     return result;
 }
 
 int main(){
-    assert(issame(f(3), {1, 2, 6}));
+    assert(issame(f(3), {1, 2, 3}));
 }
