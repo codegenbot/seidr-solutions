@@ -15,8 +15,17 @@ int specialFilter(vector<int> nums){
 }
 
 int main(){
-    assert(specialFilter({}) == 0);
-    vector<int> numbers = {12,23,34,45,56,67,78};
-    cout << specialFilter(numbers) << endl;
-    return 0;
+    int input; 
+    vector<int> numbers; 
+
+    cout << "Enter number of integers to filter: ";
+    cin >> input;
+
+    for(int i = 0 ; i < input ; i++){
+        cout << "Enter integer: ";
+        cin >> numbers.push_back(i);
+    }
+
+    cout << "Special filtered count is: " << specialFilter(numbers) << endl;
+    
 }
