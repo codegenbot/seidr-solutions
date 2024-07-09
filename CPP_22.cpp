@@ -12,18 +12,24 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
+    unordered_map<int, int> map;
     for (const auto& value : values) {
-        if (any_cast<int>(value)) {
+        if (any_cast<int>(value).is_of_type<type_index::int_>()) {
             int val = any_cast<int>(value);
-            bool found = false;
-            for (int num : result) {
-                if (issame({num}, {val})) {
-                    found = true;
-                    break;
+            if (map.count(val)) {
+                bool same = false;
+                for (int num : result) {
+                    if (issame({num}, {val})) {
+                        same = true;
+                        break;
+                    }
                 }
-            }
-            if (!found)
+                if (!same)
+                    continue;
+            } else {
+                map[val]++;
                 result.push_back(val);
+            }
         }
     }
     return result;
