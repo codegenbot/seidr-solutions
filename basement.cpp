@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <iostream>
 
 int basement(std::vector<int>& v) {
     int sum = 0;
@@ -10,14 +8,16 @@ int basement(std::vector<int>& v) {
             return i;
     }
     return -1;
+
 }
 
 int main() {
-    std::vector<int> v = {1, 2, -5}; // test vector
+    std::vector<int> v = {2, -3, 4};
     int result = basement(v);
-    if (result == -1) 
-        std::cout << "No such index exists." << std::endl;
-    else 
-        std::cout << "First negative sum at index: " << result << std::endl;
+    if (result != -1) {
+        std::cout << "The first index with a negative sum is: " << result << std::endl;
+    } else {
+        std::cout << "No such index found." << std::endl;
+    }
     return 0;
 }
