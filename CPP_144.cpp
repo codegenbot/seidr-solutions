@@ -1,32 +1,26 @@
-#include <iostream>
-#include <sstream>
-#include <cctype>
-#include <string>
-#include <cstdlib>
+bool simplify(std::string x, std::string n) {
+    int numerator = 0, denominator = 0;
+    char slash;
 
-bool simplify(string x, string n) {
-    std::string temp;
-    temp = x.substr(0,x.find('/'));
-    std::string numerator = temp; // assign the substring to a std::string
+    for (int i = 0; i < x.length(); i++) {
+        if (x[i] == '/') {
+            slash = x[i];
+            break;
+        }
+        if (isdigit(x[i])) {
+            if (i == 0) numerator = numerator * 10 + (x[i] - '0');
+            else denominator = denominator * 10 + (x[i] - '0');
+        }
+    }
 
-    temp.erase(0,temp.find('/')); // remove the part before '/'
-    numerator += "/" + temp; // concatenate the result with a slash
-    n = n.substr(n.find('/')); // extract the denominator
+    int gcd = gcdFunc(numerator, denominator);
+    return (numerator / gcd) == (denominator / gcd);
 
-    return (atoi(numerator.substr(0, numerator.find('/')).data()) * (numerator[1] - '0') == atoi(std::string(1, numerator[3]).data()) * (numerator[4] - '0'));
 }
 
-int mainFunction() {
-    std::string x, n;
-    std::cout << "Enter the numerator: ";
-    std::cin >> x;
-    std::cout << "Enter the denominator: ";
-    std::cin >> n;
-
-    if(simplify(x, n))
-        std::cout << "The fraction is simplified." << std::endl;
+int gcdFunc(int a, int b) {
+    if (b == 0)
+        return a;
     else
-        std::cout << "The fraction cannot be simplified." << std::endl;
-
-    return 0;
+        return gcdFunc(b, a % b);
 }
