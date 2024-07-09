@@ -1,5 +1,3 @@
-vector<string> lst;
-
 int match_parens(vector<string> lst) {
     int countOpen = 0, countClose = 0;
 
@@ -12,8 +10,10 @@ int match_parens(vector<string> lst) {
         }
     }
 
-    if (countOpen == countClose)
+    if (countOpen == countClose && !lst.empty())
         return "Yes";
+    else if (!lst.empty())
+        return "No matching parenthesis found";
     else
-        return "No parenthesis matches. Error!";
+        return "Input string is empty";
 }
