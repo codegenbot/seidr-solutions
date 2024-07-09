@@ -15,6 +15,12 @@ std::string solve(int N) {
 }
 
 int main() {
-    // Add your test cases here
+    // Input
+    int N;
+    std::cin >> N;
+
+    // Output
+    std::cout << solve(N);
+
     return 0;
 }
