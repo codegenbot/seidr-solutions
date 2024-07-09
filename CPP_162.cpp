@@ -1,15 +1,14 @@
 ```cpp
-#include <string>
-#include <functional>
-#include <algorithm>
+#include <cstdlib>
+#include <cctype>
 
-std::string string_to_md5(const std::string& input) {
-    // implementation of MD5 hash calculation goes here
+using namespace std;
+
+string string_to_md5(string s) {
+    // implement this function
 }
 
 int main() {
-    if (!string_to_md5.empty()) {
-        std::cout << "Error: You must define the function before using it." << std::endl;
-    }
+    assert(string_to_md5("Hello") == "some_value"); 
     return 0;
 }
