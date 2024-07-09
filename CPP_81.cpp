@@ -2,8 +2,10 @@
 #include <string>
 
 bool issame(std::vector<std::string> a) {
+    if(a.size() == 0) return true;
+    std::string first = a[0];
     for(int i = 1; i < a.size(); i++) {
-        if(a[i] != a[0]) return false;
+        if(a[i] != first) return false;
     }
     return true;
 }
@@ -41,8 +43,9 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 
 int main() {
     std::vector<float> grades = {4.0};
-    if (issame(numerical_letter_grade({grades}))) {
-        for (std::string s : numerical_letter_grade({grades})) {
+    std::vector<std::string> result = numerical_letter_grade(grades);
+    if (issame(result)) {
+        for (std::string s : result) {
             if (s != "E") {
                 return 1;
             }
