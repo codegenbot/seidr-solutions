@@ -1,10 +1,8 @@
-```cpp
 #include <string>
 #include <cstring>
-#include <cassert>
 
-int myStringLen(const std::string& str) {
-    return str.length();
+int myStringLen(const char* str) {
+    return std::string(str).length();
 }
 
 int main() {
