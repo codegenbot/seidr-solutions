@@ -21,7 +21,9 @@ int main() {
     if(result == -1.0f) {
         std::cout << "The given values do not form a valid triangle.";
     } else {
-        std::cout << "The area of the triangle is: " << result;
+        std::cout << "The area of the triangle is: ";
+        std::cout << std::fixed << std::setprecision(2);
+        std::cout << result;
     }
 
     return 0;
