@@ -1,15 +1,15 @@
 #include <iostream>
 #include <vector>
 
-float get_positive(float num) {
-    return (num > 0.0f) ? num : -num;
-}
-
 bool check_numbers(std::vector<float> a, std::vector<float> b) {
     if (a.size() != 1 || b.size() != 1) {
         return false;
     }
     return a[0] == b[0];
+}
+
+float get_positive(float num) {
+    return (num > 0.0f) ? num : -num;
 }
 
 int main() {
