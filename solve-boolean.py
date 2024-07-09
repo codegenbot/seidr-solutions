@@ -11,18 +11,26 @@ def evaluate_expression(expression):
 
     while "&" in expression:
         left, right = expression.split("&", 1)
-        if left == "T":
-            left = "True"
-        if right == "T":
-            right = "True"
-        expression = str(evaluate_expression(left)) + " and " + str(evaluate_expression(right))
+        if left.lower() == "t":
+            left = eval(left)
+        else:
+            left = eval("not " + left) if left.lower() == "f" else eval(left)
+        if right.lower() == "t":
+            right = eval(right)
+        else:
+            right = eval("not " + right) if right.lower() == "f" else eval(right)
+        expression = str(left) + " and " + str(right)
 
     while "|" in expression:
         left, right = expression.split("|", 1)
-        if left == "T":
-            left = "True"
-        if right == "T":
-            right = "True"
-        expression = str(evaluate_expression(left)) + " or " + str(evaluate_expression(right))
+        if left.lower() == "t":
+            left = eval(left)
+        else:
+            left = eval("not " + left) if left.lower() == "f" else eval(left)
+        if right.lower() == "t":
+            right = eval(right)
+        else:
+            right = eval("not " + right) if right.lower() == "f" else eval(right)
+        expression = str(left) + " or " + str(right)
 
-    return eval("Boolean(" + expression + ")")
+    return eval(expression)
