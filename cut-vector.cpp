@@ -32,5 +32,6 @@ int main() {
     for (int num : result.second) {
         cout << num << " ";
     }
-    cout << endl;
+    cout << std::endl;
     return 0;
+}
