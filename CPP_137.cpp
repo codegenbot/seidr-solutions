@@ -1,27 +1,51 @@
-#include <boost/any.hpp>
-#include <boost/type_traits.hpp>
+```cpp
 #include <string>
+#include <algorithm>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_same<boost::any_tag, get_type(a)>() && is_same<boost::any_tag, get_type(b)>()) {
-        return a > b ? a : b;
-    } else if (is_same<string_any_tag, get_type(a)>() && is_same<string_any_tag, get_type(b)>()) {
-        std::string str1 = any_cast<std::string>(a);
-        std::string str2 = any_cast<std::string>(b);
-        return str1 > str2 ? a : b;
-    } else if (is_same<string_any_tag, get_type(a)>() || is_same<string_any_tag, get_type(b)>()) {
-        std::string str1 = any_cast<std::string>(a);
-        std::string str2 = any_cast<std::string>(b);
-        if (str1 == str2) {
-            return boost::any("None");
-        } else if (str1 > str2) {
-            return a;
-        } else {
-            return b;
-        }
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        int x = boost::any_cast<int>(a);
+        float y = boost::any_cast<float>(b);
+        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int x = boost::any_cast<int>(a);
+        string y = boost::any_cast<string>(b);
+        if (boost::any_cast<string>(b).find_first_not_of("0123456789.") == string::npos)
+            return ((stof(y) > x) ? b : ((x > stof(y)) ? a : boost::any("None")));
+        else
+            return boost::any("Invalid input");
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        float x = boost::any_cast<float>(a);
+        string y = boost::any_cast<string>(b);
+        if (boost::any_cast<string>(b).find_first_not_of("0123456789.") == string::npos)
+            return ((stof(y) > x) ? b : ((x > stof(y)) ? a : boost::any("None")));
+        else
+            return boost::any("Invalid input");
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string x = boost::any_cast<string>(a);
+        int y = boost::any_cast<int>(b);
+        if (boost::any_cast<string>(a).find_first_not_of("0123456789.") == string::npos)
+            return ((stof(x) > y) ? a : ((y > stof(x)) ? b : boost::any("None")));
+        else
+            return boost::any("Invalid input");
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string x = boost::any_cast<string>(a);
+        float y = boost::any_cast<float>(b);
+        if (boost::any_cast<string>(a).find_first_not_of("0123456789.") == string::npos)
+            return ((stof(x) > y) ? a : ((y > stof(x)) ? b : boost::any("None")));
+        else
+            return boost::any("Invalid input");
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string x = boost::any_cast<string>(a);
+        string y = boost::any_cast<string>(b);
+        if (boost::any_cast<string>(x).find_first_not_of("0123456789.") == string::npos &&
+            boost::any_cast<string>(y).find_first_not_of("0123456789.") == string::npos)
+            return ((stof(x) > stof(y)) ? a : ((stof(y) > stof(x)) ? b : boost::any("None")));
+        else
+            return boost::any("Invalid input");
     } else {
-        throw bad_any_cast();
+        return boost::any("None");
     }
 }
