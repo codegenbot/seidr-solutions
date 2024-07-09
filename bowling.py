@@ -1,15 +1,22 @@
 ```
 def bowling_score(frames):
+    frames = [int(x) for x in frames.replace('/', '+')]
     score = 0
-    i = 0
-    while i < len(frames):
-        if frames[i] == '-':
-            score += 10 + int(frames[i+2])
-            i += 3
-        elif int(frames[i]) + int(frames[i+1]) == 10:
-            score += 10
-            i += 2
+    for i in range(0, len(frames), 2):
+        if i + 1 < len(frames):
+            roll1, roll2 = frames[i], frames[i+1]
         else:
-            score += int(frames[i]) + int(frames[i+1])
-            i += 2
+            roll1, = frames[i],
+        
+        if roll1 + roll2 == 10:  
+            score += 10
+            if i < 8:
+                score += frames[i+2]
+        elif roll1 == 10:  
+            score += 10
+            if i < 8:
+                score += frames[i+1] + frames[i+2]
+        else:  
+            score += roll1 + roll2
+    
     return score
