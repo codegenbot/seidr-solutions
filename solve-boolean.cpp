@@ -34,11 +34,11 @@ int main() {
     std::string input;
     std::cout << "Enter a Boolean expression: ";
     std::getline(std::cin, input);
-    bool output = solveBoolean(input);
-    if (output) {
-        std::cout << "The result is TRUE." << std::endl;
+    bool result = solveBoolean(input);
+    if (result) {
+        std::cout << "True" << std::endl;
     } else {
-        std::cout << "The result is FALSE." << std::endl;
+        std::cout << "False" << std::endl;
     }
     return 0;
 }
