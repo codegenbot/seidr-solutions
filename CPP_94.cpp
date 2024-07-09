@@ -1,3 +1,4 @@
+```cpp
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -28,13 +29,14 @@ bool isPrime(int n) {
 
 int main() {
     vector<int> lst;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "Enter the elements: ";
-    for(int i = 0; i < n; i++) {
-        cin >> lst[i];
+    int num;
+    cout<<"Enter number of elements: ";
+    cin>>num;
+    cout<<"Enter "<<num<<" elements:" <<endl;
+    for(int i = 1; i <= num; i++) {
+        cin >> num;
+        lst.push_back(num);
     }
-    cout << "Sum Of Digits is: " << skjkasdkd(lst);
+    cout<<"Sum of digits is: "<<skjkasdkd(lst)<<endl;
     return 0;
 }
