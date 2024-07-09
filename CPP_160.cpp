@@ -1,19 +1,23 @@
+```cpp
 #include <vector>
-#include <string>
+#include <cmath>
+using namespace std;
 
-int do_algebra(vector<string> operator_, vector<int> operand) {
-    int result = operand[0];
-    for (int i = 0; i < operator_.size(); i++) {
-        if (operator_[i] == "+") {
-            result += operand[i + 1];
-        } else if (operator_[i] == "-") {
-            result -= operand[i + 1];
-        } else if (operator_[i] == "*") {
-            result *= operand[i + 1];
-        } else if (operator_[i] == "//") {
-            result = result / operand[i + 1];
-        } else if (operator_[i] == "**") {
-            result = pow(result, operand[i + 1]);
+int do_algebra(vector<int> operands, vector<string> operato){
+    int result = operands[0];
+    for(int i=0; i<operato.size(); i++){
+        if(operato[i] == "+"){
+            result += operands[i+1];
+        } else if(operato[i] == "-"){
+            result -= operands[i+1];
+        } else if(operato[i] == "*"){
+            result *= operands[i+1];
+        } else if(operato[i] == "//" || operato[i] == "**"){
+            if(operato[i] == "//") {
+                result = result / (int)round((double)operands[i+1]);
+            } else {
+                result = pow(result, operands[i+1]);
+            }
         }
     }
     return result;

@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 
+using namespace std;
+
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
@@ -23,20 +25,21 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
     int n = grid.size();
     if (k == 0) {
-        return; // No need to insert the same path
+        for(int i=0; i<res.size(); i++){
+            for(int j=i+1; j<res.size(); j++){
+                if(res[i] != res[j]) return;
+            }
+        }
+        return;
     }
     visited[x][y] = true;
     res.push_back(grid[x][y]);
     for (int dx = -1; dx <= 1; dx++) {
         for (int dy = -1; dy <= 1; dy++) {
             int nx = x + dx, ny = y + dy;
-            if(nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+            if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
                 dfs(grid, visited, nx, ny, k - 1, res);
-                if(issame(res, vector<int>(k+1,res[0]))) {
-                    for(int i=0; i<k+1; i++) {
-                        res.pop_back();
-                    }
-                } 
+                return;
             }
         }
     }
