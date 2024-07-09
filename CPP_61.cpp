@@ -1,5 +1,3 @@
-```cpp
-#include <cassert>
 #include <iostream>
 #include <stack>
 #include <string>
