@@ -1,8 +1,6 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 string squareDigits(string input) {
@@ -19,6 +17,6 @@ int main() {
     string input;
     cout << "Enter a positive integer: ";
     getline(cin, input);
-    cout << squareDigits(input) << endl;
+    cout << squareDigits(input) << std::endl;
     return 0;
 }
