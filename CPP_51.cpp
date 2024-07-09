@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 
 std::string remove_vowels(std::string text){
     std::string result = "";
@@ -9,6 +10,7 @@ std::string remove_vowels(std::string text){
             result += c;
     }
     return result;
+
 }
 
 int main(){
