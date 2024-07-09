@@ -4,7 +4,6 @@
 using namespace std;
 
 vector<int> factorize(int n);
-
 bool issame(vector<int> a, vector<int> b);
 
 bool issame(vector<int> a, vector<int> b){
@@ -35,10 +34,12 @@ vector<int> factorize(int n){
 
 int main(){
     int num;
+    cout << "Enter a number to factorize: ";
     cin >> num;
     vector<int> factors = factorize(num);
-    for(int i = 0; i < factors.size(); i++){
-        cout << factors[i] << " ";
+    for(int factor : factors){
+        cout << factor << " ";
     }
+    cout << endl;
     return 0;
 }
