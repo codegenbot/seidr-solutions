@@ -41,7 +41,7 @@ std::string int_to_mini_roman(int number) {
             case 5: return "V";
             default:
                 if (number % 4 == 0)
-                    return "XL";
+                    return "XL" + int_to_mini_roman(number - 40);
                 else
                     return "";
         }
