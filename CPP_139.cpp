@@ -22,10 +22,9 @@ std::string special_factorial(int n) {
     return "n! = " + result;
 }
 
-{ 
-int n; 
-std::cout << "Enter a number: "; 
-std::cin >> n; 
-std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl; 
-return 0; 
+{
+    int n;
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
 }
