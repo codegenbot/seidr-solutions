@@ -3,20 +3,17 @@
 #include <vector>
 #include <string>
 
-std::vector<std::pair<int, std::string>> romanMap = {{std::make_pair(1000, "M"), std::make_pair(900, "CM")}, {std::make_pair(500, "D"), std::make_pair(400, "CD")},
-                                           {std::make_pair(100, "C"), std::make_pair(90, "XC")},
-                                           {std::make_pair(50, "L"), std::make_pair(40, "XL")}, 
-                                           {std::make_pair(10, "X"), std::make_pair(9, "IX")},
-                                           {std::make_pair(5, "V"), std::make_pair(4, "IV"), std::make_pair(1, "I")}};
+std::vector<std::pair<int, std::string>> romanMap = {{1000, "M"}, {900, "CM"}, {500, "D"},
+                                           {400, "CD"}, {100, "C"}, {90, "XC"},
+                                           {50, "L"}, {40, "XL"}, {10, "X"},
+                                           {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
 
 std::string int_to_roman(int number) {
     std::string roman = ""; // Initialize the string
     for (const auto& pair : romanMap) {
-        for(const auto& p: pair) {
-            while (number >= p.first) {
-                number -= p.first;
-                roman += p.second;
-            }
+        while (number >= pair.first) {
+            number -= pair.first;
+            roman += pair.second;
         }
     }
     return roman;
