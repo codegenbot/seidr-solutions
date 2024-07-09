@@ -1,5 +1,4 @@
 def rolling_max(numbers: List[int]) -> List[int]:
-    numbers = list(map(int, input().split()))
     max_num = float("-inf")
     result = []
     for num in numbers:
