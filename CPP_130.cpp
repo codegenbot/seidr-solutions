@@ -6,7 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> completeCode(int n) {
-    std::vector<int> result = {1, 3}; 
+    std::vector<int> result = {1, 3};
     for (int i = 2; i <= n; ++i) {
         if (i % 2 == 0) {
             result.push_back(1 + i / 2);
