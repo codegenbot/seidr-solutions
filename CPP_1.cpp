@@ -3,8 +3,12 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a.size() != b.size();
+bool issame(std::vector<std::string> a, std::vector<std::string>& b) {
+    if (a[0].size() != b[0].size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::string separate_paren_groups(std::string s) {
