@@ -41,10 +41,10 @@ int main() {
         while(true) {
             std::cout << "Enter element " << i+1 << ": ";
             std::cin >> temp;
-            if(temp >= 0)
+            if(temp >= 0 && temp <= n-1)
                 break;
             else{
-                std::cerr << "Error: Number should be non-negative." << std::endl;
+                std::cerr << "Error: Number of elements should be non-negative." << std::endl;
                 return -1; 
             }
         }
@@ -58,10 +58,10 @@ int main() {
         while(true) {
             std::cout << "Enter element " << i+1 << ": ";
             std::cin >> temp;
-            if(temp >= 0)
+            if(temp >= 0 && temp <= n-1)
                 break;
             else{
-                std::cerr << "Error: Number should be non-negative." << std::endl;
+                std::cerr << "Error: Number of elements should be non-negative." << std::endl;
                 return -1; 
             }
         }
