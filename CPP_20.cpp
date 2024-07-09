@@ -1,7 +1,7 @@
-```c++
 bool issame(vector<float> a,vector<float>b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
+
 vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     vector<pair<float, float>> closestPair;
     float minDiff = numeric_limits<float>::max();
