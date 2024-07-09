@@ -1,5 +1,7 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
+#include <iostream>
 
 int next_smallest(std::vector<int> lst) {
     if (lst.size() < 2) return -1; 
