@@ -1,6 +1,5 @@
-```
+#include <algorithm>
 #include <vector>
-#include <numeric>
 #include <limits>
 #include <utility>
 
@@ -22,5 +21,5 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
         }
     }
 
-    return std::vector<float>{closest_pair.first, closest_pair.second};
+    return {closest_pair.first, closest_pair.second};
 }
