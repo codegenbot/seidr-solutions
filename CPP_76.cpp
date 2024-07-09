@@ -1,9 +1,8 @@
-```
 #include <cmath>
 #include <iostream>
 
 bool isSimplePower(int x) {
-    for (int i = 2; i <= x; ++i) {
+    for (int i = 2; i <= sqrt(x); ++i) {
         int n = 0;
         while (pow(i, n) <= x) {
             if (pow(i, n) == x) {
