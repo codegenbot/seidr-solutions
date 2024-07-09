@@ -3,8 +3,10 @@ def match_parens(lst):
     for char in lst:
         if char == '(':
             count += 1
-        elif char == ')':
-            if count <= 0:
-                return 'No'
+        elif char == ')' and count > 0:
             count -= 1
+        elif char == ')' and count == 0:
+            return 'No'
+        else:
+            return 'No'
     return 'Yes' if count == 0 else 'No'
