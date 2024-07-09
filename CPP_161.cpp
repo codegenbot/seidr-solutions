@@ -1,12 +1,12 @@
 string solve(string s){
-    string result = "";
-    for(int i=0; i<s.length();i++){
+    string res = "";
+    for(int i = 0; i < s.length(); i++){
         if(isalpha(s[i])){
-            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+            res += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
         }else{
-            result += s[i];
+            res += s[i];
         }
     }
-    reverse(result.begin(),result.end());
-    return result;
+    return (res.find_first_of("abcdefghijklmnopqrstuvwxyz") == string::npos) ? 
+           std::string(res.rbegin(), res.rend()) : res;
 }
