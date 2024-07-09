@@ -1,4 +1,3 @@
-```
 from typing import List
 import math
 
@@ -15,11 +14,10 @@ def max_fill(grid: List[List[int]], capacity: int) -> int:
             raise ValueError("Capacity should be a positive integer")
         
         total_water = 0
+        remaining_capacity = capacity
         for row in grid:
-            water_per_row = min(capacity, sum(row))
+            water_per_row = min(remaining_capacity, sum(row))
             total_water += water_per_row
-            capacity -= water_per_row if water_per_row > 0 else 0
+            remaining_capacity -= water_per_row if water_per_row > 0 else 0
         
-        return math.ceil(total_water / max(1, capacity))
-    except ValueError as e:
-        print(f"Error: {e}")
+        return math.ceil(total_water / max(1, remaining_capacity)) if remaining_capacity > 0 else total_water
