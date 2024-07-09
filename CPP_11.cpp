@@ -26,17 +26,14 @@ int main() {
         std::getline(std::cin, str2);
 
         if (!str1.empty() && !str2.empty()) {  
-            str1.pop_back(); 
-            str2.pop_back();
-        }
-
-        try {
-            std::string result = string_xor(str1, str2);
-            if (!result.empty()) { // Add this check
+            try {
+                std::string result = string_xor(str1, str2);
                 std::cout << "XOR of the two strings is: " << result << std::endl;
+            } catch (const std::invalid_argument& e) {
+                std::cout << "Error: " << e.what() << std::endl;
             }
-        } catch (const std::invalid_argument& e) {
-            std::cout << "Error: " << e.what() << std::endl;
+        } else {
+            std::cout << "An error occurred." << std::endl;
         }
     } catch (...) { 
         std::cout << "An error occurred." << std::endl;
