@@ -6,9 +6,9 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result(l.size()); 
+    vector<int> result;
     int initialCapacity = l.size();
-    result.reserve(initialCapacity);
+    result.reserve(l.size());
     int i = 0;
     for (i = 0; i < l.size(); ) {
         if (i % 3 == 0 && i + 3 <= l.size()) {
