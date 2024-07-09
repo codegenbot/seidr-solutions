@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cassert>
 
@@ -12,6 +13,6 @@ int solve(int n) {
             binary = "1" + binary;
         n /= 2;
     }
-    assert(solve(963) == 18);
+    assert(binary == "10010");
     return binary.length() ? stoi(binary) : 0;
 }
