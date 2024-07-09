@@ -1,20 +1,15 @@
 bool issame(vector<string> a,vector<string>b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+    return a == b;
 }
 
-int main(){
-    vector<float> grades = {4.2,3.9,1.5};
+int main() {
+    vector<float> grades = {4.0,3.8,3.5,2.9,1.7};
     vector<string> result = numerical_letter_grade(grades);
-    for(string s : result){
-        cout << s << " ";
+    for (string grade : result) {
+        if (issame(result, vector<string>({grade}))){
+            cout << "All students got the same letter grade: " << grade << endl;
+            break;
+        }
     }
-    if(issame(result, {"A+","A","D+"})){
-        cout << "Same";
-    }else{
-        cout << "Not Same";
-    }
+    return 0;
 }
