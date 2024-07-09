@@ -5,10 +5,10 @@ string flip_case(string str){
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z')
-            c += ('a' - 'A');
+            c = toupper((char)c);
         else if(c >= 'A' && c <= 'Z')
-            c -= ('a' - 'A');
-        result += c;
+            c = tolower((char)c);
+        result += (char)c;
     }
     return result;
 }
