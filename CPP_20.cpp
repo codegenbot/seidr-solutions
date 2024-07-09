@@ -1,4 +1,5 @@
-#include <iostream>
+#include <initializer_list>
+#include <algorithm>
 #include <vector>
 #include <limits>
 
@@ -12,28 +13,23 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-struct Pair {
-    float first, second;
-};
-
-Pair findClosestElements(std::vector<float> numbers) {
+std::vector<float> findClosestElements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
     float minDiff = std::numeric_limits<float>::max();
-    Pair closestPair;
+    std::pair<float, float> closestPair;
     
     for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < minDiff) {
             minDiff = diff;
-            closestPair.first = numbers[i];
-            closestPair.second = numbers[i + 1];
+            closestPair = {numbers[i], numbers[i + 1]};
         }
     }
     
-    return closestPair;
+    return std::vector<float>{closestPair.first, closestPair.second};
 }
 
 int main() {
-    assert(issame({2.2f, 3.1f}, {findClosestElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}).first, findClosestElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}).second}));
+    assert(issame({2.2f, 3.1f}, findClosestElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f})));
     return 0;
 }
