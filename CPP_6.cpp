@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -34,12 +33,6 @@ vector<int> parse_nested_parens(string paren_string) {
 }
 
 int main() {
-    vector<int> a = {2, 3, 1, 4, 0};
-    vector<int> b = parse_nested_parens("() ( ()() )");
-    if (issame(a, b)) {
-        cout << "Same depths";
-    } else {
-        cout << "Different depths";
-    }
+    // Test your functions here
     return 0;
 }
