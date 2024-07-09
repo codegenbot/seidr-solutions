@@ -11,11 +11,7 @@ double vectorDistance() {
 
     double distance = 0.0;
     for (int i = 0; i < n; i++) {
-        double diff = pow((v2[i] - v1[i]), 2);
-        distance += diff;
+        distance += pow((v2[i] - v1[i]), 2);
     }
-    delete[] v1;
-    delete[] v2;
-
     return sqrt(distance);
 }
