@@ -8,7 +8,7 @@ std::string middleCharacter(std::string s) {
     
     if (len % 2 == 0) { 
         int middleIndex = len / 2; 
-        return s.substr(middleIndex - 1, 1) + s.substr(middleIndex, 1); 
+        return s.substr(middleIndex, 2); 
     } else {
         return s.substr(len/2, 1);
     }
@@ -19,7 +19,7 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);  
     if(input.empty()) {
-        std::cout << "";
+        return middleCharacter("");
     } else {
         std::cout << middleCharacter(input) << std::endl;  
     }
