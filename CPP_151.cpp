@@ -1,11 +1,16 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <ostream>
 
-unsigned long double_the_difference(const std::vector<unsigned long>& input);
+unsigned long double_the_difference(const std::vector<unsigned long>& input) {
+    unsigned long sum = 0;
+    for (const auto& num : input) {
+        sum += num * num;
+    }
+    return sum;
+}
 
-int newMain() {
+int main() {
     int n;
     std::vector<unsigned long> input;
     std::cout << "Enter the number of elements: ";
@@ -20,12 +25,4 @@ int newMain() {
     }
     size_t result = double_the_difference(input);
     std::cout << "The total sum of squares is: " << static_cast<int>(result) << std::endl;
-}
-
-unsigned long double_the_difference(const std::vector<unsigned long>& input) {
-    unsigned long sum = 0;
-    for (const auto& num : input) {
-        sum += num * num;
-    }
-    return sum;
 }
