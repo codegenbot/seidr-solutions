@@ -1,12 +1,12 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), [&nums](int a, int b) {
+    sort(nums.begin(), nums.end(), [&nums](int a, int b) {
         if (abs(a) == abs(b)) return a > b;
         return abs(a) < abs(b);
     });
