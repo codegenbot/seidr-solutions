@@ -4,8 +4,3 @@ def decode_cyclic(s: str):
         (group[-1] + group[:-1]) if len(group) == 3 else group for group in groups if group
     ]
     return "".join(groups)
-
-if __name__ == "__main__":
-    s = input("Enter the string to decode: ")
-    result = decode_cyclic(s)
-    print(result)
