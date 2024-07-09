@@ -18,4 +18,3 @@ int main() {
     int n = stoi(s); 
     cout << "Number of collisions: " << car_race_collision(n) << endl;
     return 0;
-}
