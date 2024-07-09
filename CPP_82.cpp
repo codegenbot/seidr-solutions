@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 bool isPrime(int n) {
@@ -8,7 +9,12 @@ bool isPrime(int n) {
     return true;
 }
 
-bool prime_length(const char* str) {
-    int len = strlen(str);
+bool prime_length(std::string str) {
+    int len = str.length();
     return isPrime(len);
+}
+
+int main() {
+    assert(prime_length(std::string("0")) == false);
+    return 0;
 }
