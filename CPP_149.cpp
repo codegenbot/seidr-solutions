@@ -21,24 +21,10 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
 }
 
 int main() {
-    // Read input from user
-    int n; 
-    cin >> n;
-    
-    vector<string> lst(n);
-    
-    for(int i = 0; i < n; i++) {
-        cin >> lst[i];
+    std::vector<std::string> lst = {{"apple", "banana"}, {"hello", "world"}};
+    std::cout << "[ ";
+    for (const auto& s : sorted_list_sum(lst)) {
+        std::cout << "\"" << s << "\" ";
     }
-    
-    std::vector<std::string> result = sorted_list_sum(lst);
-    
-    // Return output
-    cout << "Sorted List Sum: ";
-    for(auto str : result) {
-        cout << str << " ";
-    }
-    cout << endl;
-    
-    return 0;
+    std::cout << "]\n";
 }
