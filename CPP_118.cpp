@@ -1,14 +1,26 @@
-bool is_vowel(char c) {
-        return c=='a' || c=='e' || c=='i' || c=='o' || c=='u' ||
-               c=='A' || c=='E' || c=='I' || c=='O' || c=='U';
-    }
+#include <iostream>
+#include <string>
+using namespace std;
 
-    string get_closest_vowel(string word) {
-        int n = word.size();
-        for (int i = n - 2; i > 0; --i) {
-            if (!is_vowel(word[i]) && !is_vowel(word[i+1]) && is_vowel(word[i-1])) {
-                return string(1, word[i]);
+string get_closest_vowel(string word) {
+    string vowels = "aeiouAEIOU";
+    string result = "";
+
+    for (int i = word.length() - 2; i > 0; i--) {
+        if (vowels.find(word[i]) != string::npos) {
+            for (int j = i - 1; j > 0; j--) {
+                if (vowels.find(word[j]) != string::npos) {
+                    result = word[j];
+                    return result;
+                }
             }
         }
-        return "";
     }
+
+    return result;
+}
+
+int main() {
+    assert(get_closest_vowel("Above") == "o");
+    return 0;
+}
