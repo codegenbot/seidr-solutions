@@ -22,8 +22,10 @@ int main() {
     double totalSnow = initialSnow;  // Initialize with initial snow
     
     for (int i = 0; i < hours; i++) {
-        double newTotalSnow = totalSnow + rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
-        totalSnow = newTotalSnow;
+        double snowToBeAdded = rateOfSnowFall - (proportionOfSnowMeltingPerHour * totalSnow);
+        if (snowToBeAdded > 0) { // Only add if it's a positive amount of snow
+            totalSnow += snowToBeAdded;
+        }
     }
     
     cout << fixed << setprecision(5);
