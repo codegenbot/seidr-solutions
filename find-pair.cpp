@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <utility>
 #include <unordered_map>
+#include <iostream>
 
 std::pair<int, int> findPair(std::vector<int>& nums, int target) {
     std::unordered_map<int, int> numMap;
@@ -16,7 +16,7 @@ std::pair<int, int> findPair(std::vector<int>& nums, int target) {
 }
 
 int main() {
-    std::vector<int> nums(1, 2, 3, 4, 5);
+    std::vector<int> nums = {1, 2, 3, 4, 5};
     int target = 7;
     std::pair<int, int> result = findPair(nums, target);
     if (result.first != -1) {
@@ -24,5 +24,4 @@ int main() {
     } else {
         std::cout << "No pair found with sum " << target << "." << std::endl;
     }
-    return 0;
 }
