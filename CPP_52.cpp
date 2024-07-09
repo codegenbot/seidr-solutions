@@ -1,12 +1,17 @@
-int main() {
-    vector<int> l;
-    int t;
-    cin >> t;
-    int n;
-    while (cin >> n) {
-        l.push_back(n);
+```cpp
+#include <vector>
+
+using namespace std;
+
+bool below_threshold(vector<int> l, int t) {
+    for (int num : l) {
+        if (num >= t) {
+            return false;
+        }
     }
-    bool result = below_threshold(l, t);
-    cout << (result ? "True" : "False");
-    return 0;
+    return true;
+
+}
+
+int main() {
 }
