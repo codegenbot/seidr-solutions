@@ -2,7 +2,7 @@
 #include <string>
 
 bool issame(std::vector<std::string> a) {
-    return std::all_of(a.begin(), a.end(), [&](const std::string& s){ return s == a[0]; });
+    return std::all_of(a.begin(), a.end(), [](const std::string& s){ return s == a[0]; });
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
