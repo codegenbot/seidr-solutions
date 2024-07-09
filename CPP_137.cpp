@@ -6,9 +6,9 @@ boost::any compare_one(boost::any a, boost::any b) {
     if (is_same<any_tag, get_type(a)>() && is_same<any_tag, get_type(b)>()) {
         return a > b ? a : b;
     } else if (is_same<string_any_tag, get_type(a)>() && is_same<string_any_tag, get_type(b)>()) {
-        boost::any str1 = a;
-        boost::any str2 = b;
-        return boost::any(str1.convert_to<string>().operator> >(str2.convert_to<string>()));
+        string str1 = any_cast<string>(a);
+        string str2 = any_cast<string>(b);
+        return str1 > str2 ? a : b;
     } else if (is_same<string_any_tag, get_type(a)>() || is_same<string_any_tag, get_type(b)>()) {
         string str1 = any_cast<string>(a);
         string str2 = any_cast<string>(b);
