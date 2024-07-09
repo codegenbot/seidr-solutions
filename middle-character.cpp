@@ -6,7 +6,7 @@ std::string middleCharacter(std::string s) {
     if(n % 2 == 1) {
         return s.substr(n / 2, 1);
     } else {
-        return s.substr((n - 1) / 2, 2); 
+        return s.substr((n / 2) - 1, 2); 
     }
 }
 
