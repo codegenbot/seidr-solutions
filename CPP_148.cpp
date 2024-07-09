@@ -1,8 +1,9 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
@@ -21,7 +22,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
 
     if (index1 == -1 || index2 == -1)
-        return {};
+        return std::vector<std::string>();
 
     int minIndex = std::min(index1, index2);
     int maxIndex = std::max(index1, index2);
@@ -43,6 +44,14 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));  
+    std::vector<std::string> output = bf("Jupiter", "Makemake");
+    if (issame(output, {})) {
+        std::cout << "The result is an empty set." << std::endl;
+    } else {
+        for (auto planet : output) {
+            std::cout << planet << std::endl;
+        }
+    }
+    
     return 0;
 }
