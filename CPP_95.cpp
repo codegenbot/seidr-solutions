@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool check_dict_case(map<string,string> dict){
+bool check_dict_case(map<string, string> dict) {
     if(dict.empty()) return false;
     
     string first_key = *(dict.begin()->first);
