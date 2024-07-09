@@ -2,20 +2,16 @@
 #include <cassert>
 
 bool compare(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
+    std::vector<int> result(a.size());
+
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+        result[i] = a[i] - b[i];
     }
 
-    return true;
+    return result;
 }
 
 int main() {
-    assert(compare({1, 2, 3, 5}, {-1, 2, 3, 4}) == false);
+    assert(compare({1, 2, 3, 5}, {-1, 2, 3, 4}) == std::vector<int>{2, 0, 0, 1});
     return 0;
 }
