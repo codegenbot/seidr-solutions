@@ -5,6 +5,6 @@ int length(const std::string& str) {
     return str.length();
 }
 
-int main() {
+int mainFunc() {
     assert(length("asdasnakj") == 13);
 }
