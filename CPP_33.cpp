@@ -7,22 +7,17 @@ using namespace std;
 
 vector<int> sort_third(vector<int> l) {
     vector<int> result;
-    result.reserve(l.size() * 3);
     int i = 0;
     for (i = 0; i < l.size(); ) {
         if (i % 3 == 0 && i < l.size() - 2) {
-            vector<int> temp;
-            for (int j = i; j < min(i + 3, l.size()); j++) {
-                temp.push_back(l[j]);
-            }
+            vector<int> temp(l.begin() + i, l.begin() + min(i + 3, l.size()));
             sort(temp.begin(), temp.end());
-            int k = 0;
             for (int t : temp) {
-                result.push_back(t); 
+                result.push_back(t);
                 i++;
             }
         } else {
-            result.push_back(l[i]); 
+            result.push_back(l[i]);
             i++;
         }
     }
