@@ -1,9 +1,7 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <iostream>
-
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
