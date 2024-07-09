@@ -10,18 +10,15 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
         }
     }
     if (!foundOdd) return "YES";
+    int oddCount = 0;
+    for (int num : lst1) {
+        if (num % 2 != 0) {
+            oddCount++;
+        }
+    }
     for (int num : lst2) {
         if (num % 2 == 0) {
-            int foundOddInLst1 = 0;
-            bool oddFound = false;
-            for (int num2 : lst1) {
-                if (num2 % 2 != 0) {
-                    foundOddInLst1++;
-                    oddFound = true;
-                    break;
-                }
-            }
-            if (!oddFound) return "NO";
+            if (oddCount > 0) return "NO";
         }
     }
     return "YES";
