@@ -1,9 +1,6 @@
 #include <vector>
-using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return common(a, b).size() == a.size();
-}
+#include <set>
 
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s1(l1.begin(), l1.end());
@@ -11,7 +8,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     
     set<int> result;
     for (int i : s1) {
-        if (s2.count(i)) {
+        if (s2.find(i) != s2.end()) {
             result.insert(i);
         }
     }
