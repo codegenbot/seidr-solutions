@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
+#include <iostream>
 
 std::vector<std::string> separate_paren_groups(const std::string& s) {
     std::vector<std::string> result;
@@ -17,3 +19,8 @@ std::vector<std::string> separate_paren_groups(const std::string& s) {
     }
 
     return result;
+}
+
+int main() { 
+    return 0; 
+}
