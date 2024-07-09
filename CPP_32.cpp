@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include <initializer_list>
 using namespace std;
 
 double poly(vector<double> coeffs, double solution) {
@@ -19,7 +19,7 @@ double find_zero(vector<double> xs){
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
             sum += xs[i] / coeff;
-            vector<double> temp1(xs.begin() + i, xs.begin() + i+1);
+            vector<double> temp1({xs.begin() + i, xs.begin() + i+1});
             temp.push_back(temp1);
         }
         else{
