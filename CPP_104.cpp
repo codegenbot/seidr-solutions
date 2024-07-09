@@ -24,7 +24,12 @@ std::vector<int> unique_digits(std::vector<int> values) {
         }
     }
     
-    return std::vector<int>(uniqueSet.begin(), uniqueSet.end());
+    std::vector<int> uniqueDigits;
+    for (int digit : uniqueSet) {
+        uniqueDigits.push_back(digit);
+    }
+    
+    return uniqueDigits;
 }
 
 int main() {
