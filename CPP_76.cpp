@@ -1,3 +1,4 @@
 bool is_simple_power(int x, int n) {
-    return round(pow(n, 1.0)) == x;
+    double root = pow(n, 1.0);
+    return round(root) == x;
 }
