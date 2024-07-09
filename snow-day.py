@@ -1,3 +1,4 @@
+```
 def snow_day(hours, ground_snow, rate_snowfall, melt_rate):
     total_snow = ground_snow
     for _ in range(hours):
