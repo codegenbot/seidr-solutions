@@ -1,17 +1,19 @@
-int main() {
-    int n;
-    cin >> n;
-    vector<vector<int>> grid(n);
+int max_fill(vector<vector<int>> grid, int capacity) {
+    int n = grid.size();
+    int ans = 0;
     for (int i = 0; i < n; i++) {
-        int m;
-        cin >> m;
-        grid[i].resize(m);
-        for (int j = 0; j < m; j++) {
-            cin >> grid[i][j];
+        int water = 0;
+        for (int j = 0; j < grid[i].size(); j++) {
+            if (grid[i][j] == 1) {
+                water += 1;
+            }
+        }
+        while (water > 0) {
+            int bucket = min(water, capacity);
+            water -= bucket;
+            ans++;
+            capacity = max(0, capacity - bucket);
         }
     }
-    int capacity;
-    cin >> capacity;
-    cout << max_fill(grid, capacity) << endl;
-    return 0;
+    return ans;
 }
