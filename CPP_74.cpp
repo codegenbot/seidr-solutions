@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -9,7 +9,7 @@ bool same(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
+vector<string> totalMatch(initializer_list<string> lst1, initializer_list<string> lst2) {
     int sum1 = 0;
     for (const string& s : lst1) {
         sum1 += s.length();
