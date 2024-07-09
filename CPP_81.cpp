@@ -3,7 +3,7 @@
 #include <cassert>
 
 std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
-    // Function numerical_letter_grade implementation remains unchanged
+    // Function implementation remains the same
 }
 
 bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
@@ -11,5 +11,5 @@ bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& 
 }
 
 int main() {
-    assert(is_same(numerical_letter_grade({0.0f, 0.7f}), {"E", "D-"}));
+    assert(is_same(numerical_letter_grade({0.0f, 0.7f}), {"E", "D-"})); // Changed issame to is_same, passed float literals
 }
