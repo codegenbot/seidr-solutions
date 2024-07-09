@@ -19,5 +19,3 @@ int main() {
         ss << setw(10) << md5_str.size();
         cout << ss.str() << endl;
     }
-    return 0;
-}
