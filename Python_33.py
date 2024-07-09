@@ -1,5 +1,12 @@
+```
 def sort_third(l: list):
-    return [
-        x if i % 3 != 0 else y
-        for i, x in enumerate(sorted([y for pair in zip(l, range(len(l))) for y, _ in sorted((pair[0],) + [(z, i) for z in l if z % 3 == 0])))
-    ]
+    not_divisible_by_3 = sorted([x for x in l if x % 3 != 0])
+    result = []
+    not_divisible_index = 0
+    for i, x in enumerate(l):
+        if x % 3 == 0:
+            result.append(not_divisible_by_3[not_divisible_index])
+            not_divisible_index += 1
+        else:
+            result.append(x)
+    return result
