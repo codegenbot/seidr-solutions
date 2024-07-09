@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -51,5 +52,5 @@ std::vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(bf("Jupiter", "Mars") == vector<string>{"Venus", "Earth"});  // Correct the usage of bf
+    assert(bf("Jupiter", "Makemake") == {});
 }
