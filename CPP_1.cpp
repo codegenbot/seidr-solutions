@@ -1,18 +1,22 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(std::string a, const std::vector<std::string>& b) {
-    for (const auto& s : b) {
-        if (!issame(a, s)) return false;
+using namespace std;
+
+bool issame(const string& a, const vector<string>& b, const string& s) {
+    for (const auto& str : b) {
+        if (!issame(a, vector<string>{str}, s)) return false;
     }
     return true;
 }
 
-std::string separate_paren_groups(std::string s) {
+string separate_paren_groups(string s) {
     int count = 0;
-    std::string current_group = "";
-    std::string result = "";
+    string current_group = "";
+    string result = "";
 
     for (char c : s) {
         if (c == '(') {
@@ -38,17 +42,19 @@ std::string separate_paren_groups(std::string s) {
 }
 
 int main() {
-    std::string s;
+    string s;
 
     while (true) {
-        std::cout << "Enter a string: ";
-        if (!(std::cin >> s)) { 
-            std::cin.clear(); 
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+        cout << "Enter a string: ";
+        if (!(cin >> s)) { 
+            cin.clear(); 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
             break; 
         }
     }
-    assert(issame(separate_paren_groups("( ) (( )) (( )( )") , {"", "(())", "(()())"}));
-    std::cout << "Result: " << separate_paren_groups(s) << std::endl;
+
+    assert(issame(separate_paren_groups("( ) (( )) (( )( )"), {"", "(())", "(()())"}));
+
+    cout << "Result: " << separate_paren_groups(s) << endl;
     return 0;
 }
