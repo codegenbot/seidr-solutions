@@ -1,12 +1,23 @@
+#include <vector>
+#include <string>
+
+bool issame(vector<int> a,vector<int>b) {
+    return (a == b);
+}
+
 vector<int> even_odd_count(int num) {
-    int count_even = 0, count_odd = 0;
-    while (num != 0) {
-        int digit = num % 10;
-        if (digit % 2 == 0)
-            count_even++;
+    int evens = 0, odds = 0;
+    string str = to_string(abs(num));
+    for (char c : str) {
+        if (stoi(c) % 2 == 0)
+            evens++;
         else
-            count_odd++;
-        num /= 10;
+            odds++;
     }
-    return {count_even, count_odd};
+    return {evens, odds};
+}
+
+int main() {
+    assert (issame(even_odd_count(0), vector<int>({1, 0})));
+    return 0;
 }
