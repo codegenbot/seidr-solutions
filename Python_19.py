@@ -1,5 +1,4 @@
-num_dict = {}
-for num in input_string.split():
-    if num not in num_dict:
-        num_dict[num] = len(num_dict) + 1
-return " ".join(str(num_dict[i]) for i in sorted(map(int, input_string.split())))
+def sort_numbers(numbers: str) -> str:
+    nums = [int(num_dict[num]) for num in numbers.split()]
+    sorted_nums = sorted(nums)
+    return " ".join(str(num) for num in sorted_nums)

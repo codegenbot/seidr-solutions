@@ -1,36 +1,67 @@
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool issame(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    for (int i = 0; i < planets.size(); i++) {
+        if (planet1 == planets[i]) {
+            return planet2 == planets[(i + 7) % 8];
+        }
+    }
+    return false;
+}
+
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    int index1 = -1, index2 = -1;
-    
+    int index1 = -1;
+    int index2 = -1;
+
     for (int i = 0; i < planets.size(); i++) {
-        if (planets[i] == planet1) {
+        if (planet1 == planets[i]) {
             index1 = i;
-        } else if (planets[i] == planet2) {
+        }
+        else if (planet2 == planets[i]) {
             index2 = i;
         }
-        
-        if (index1 != -1 && index2 != -1)
-            break;
     }
-    
-    if (index1 == -1 || index2 == -1)
-        return vector<string>();
-    
-    int start = min(index1, index2);
-    int end = max(index1, index2);
-    
+
+    if (index1 == -1 || index2 == -1) {
+        return {};
+    }
+
     vector<string> result;
+
     for (int i = 0; i < planets.size(); i++) {
-        if (i >= start && i <= end) {
-            for (int j = i + 1; j < planets.size(); j++) {
-                if (planets[j] == planet2)
-                    break;
-                result.push_back(planets[j]);
-            }
-        } else if (i > end) {
-            break;
+        if ((i > index1 && i < index2) || (i > index2 && i < index1)) {
+            result.push_back(planets[i]);
         }
     }
-    
+
+    sort(result.begin(), result.end());
+
     return result;
+}
+
+int main() {
+    string planet1, planet2;
+    cout << "Enter the first planet: ";
+    cin >> planet1;
+    cout << "Enter the second planet: ";
+    cin >> planet2;
+
+    vector<string> result = bf(planet1, planet2);
+
+    if (!result.empty()) {
+        cout << "The planets between " << planet1 << " and " << planet2 << " are: ";
+        for (string planet : result) {
+            cout << planet << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "The planets " << planet1 << " and " << planet2 << " are the same." << endl;
+    }
+
+    return 0;
 }
