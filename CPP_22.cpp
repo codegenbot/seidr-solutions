@@ -2,19 +2,19 @@
 #include <vector>
 #include <variant>
 
-bool issame(const std::vector<std::variant<int>>& v1, const std::vector<std::variant<int>>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (!issame(v1[i], v2[i])) return false;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
 std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int>> values) {
-    std::vector<std::variant<int>> result; 
+    std::vector<std::variant<int>> result;
     for (const auto& value : values) {
         try {
-            if (value.index() == 0) { // Check if the variant contains an int
+            if (value.index() == 0) { 
                 int val = std::get<int>(value);
                 bool found = false;
                 for (auto& v : result) {
@@ -34,8 +34,10 @@ std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int
 }
 
 int main() {
-    auto values = {3, 123, 3, 3, 1, 2};
-    auto integers = filter_integers({values});
-    bool same = issame(integers, {std::variant<int>(3), std::variant<int>(3)});
-    return 0;
+    std::vector<std::variant<int>> integers = filter_integers({1, 2, 3});
+    if (issame({1, 2}, integers | std::views::filter([](auto v) { return v.index() == 0; })) ) {
+        std::cout << "The two vectors are the same." << std::endl;
+    } else {
+        std::cout << "The two vectors are not the same." << std::endl;
+    }
 }
