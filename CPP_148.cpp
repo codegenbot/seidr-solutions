@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
@@ -34,7 +35,4 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
     return result;
 }
 
-int main() {
-    // Add test cases or function calls here
-    return 0;
-}
+assert(issame(bf("Jupiter", "Makemake"), {}));
