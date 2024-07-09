@@ -1,7 +1,15 @@
-Here is the solution:
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-if (lst.size() < 2) return -1; // or return None
-vector<int> sorted = lst;
-sort(sorted.begin(), sorted.end());
-int res = *next(iterate(sorted.begin()+1, sorted.end()));
-return res;
+int next_smallest(std::vector<int> lst) {
+    std::vector<int> v = lst;
+    std::sort(v.begin(), v.end());
+    if (v.size() < 2) return -1; 
+    return v[1];
+}
+
+int main() {
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    return 0;
+}
