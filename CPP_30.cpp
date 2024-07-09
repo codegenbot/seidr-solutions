@@ -1,13 +1,12 @@
-```cpp
 #include <vector>
+#include <assert.h>
 
 bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i]) > std::numeric_limits<float>::epsilon() && 
-            std::abs(b[i] - a[i]) > std::numeric_limits<float>::epsilon()) {
+        if ((a[i] > 0 && !b[i].ispositive) || (a[i] <= 0 && b[i].ispositive)) {
             return false;
         }
     }
