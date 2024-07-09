@@ -1,7 +1,5 @@
-// Remove parameter type declarations in function definition
 bool issame(vector<int> a, vector<int> b);
 
-// Define the order_by_points function before the main function
 vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
@@ -15,7 +13,8 @@ vector<int> order_by_points(vector<int> nums) {
             sum_b += b % 10;
             b /= 10;
         }
-        if (sum_a == sum_b) return a < b;
+        if (sum_a == sum_b)
+            return a < b;
         return sum_a < sum_b;
     });
 
