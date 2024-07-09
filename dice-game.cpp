@@ -1,12 +1,12 @@
 #include <iostream>
-using namespace std;
 
 double probability(int n, int m) {
-    return 1.0 - 1.0/(double)n * (1.0*(m+1));
+    double total = (double)(n*m);
+    return (m-1.0)/total;
 }
 
 int main() {
-    cout << "The probability that Peter rolls strictly higher than Colin is: "
-         << fixed << setprecision(8) << probability(34,24) << endl;
+    std::cout << "The probability that Peter rolls strictly higher than Colin is: "
+              << probability(34, 24) << std::endl;
     return 0;
 }
