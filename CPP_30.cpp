@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <iostream>
 
 bool issame(vector<float> a, vector<float> b) {
-    // Your implementation here
+    // Function implementation is not provided in this problem statement
 }
 
 std::vector<float> get_positive(std::vector<float> l) {
@@ -16,16 +17,5 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main() {
-    std::vector<float> numbers = {1, -2, 3, -4, 5};
-    auto pos_numbers = get_positive(numbers);
-    
-    for (float x : pos_numbers) {
-        if (!issame({x}, {pos_numbers[0]})) {
-            std::cout << "Error: Element " << x << " is not the same as the first element.\n";
-        } else {
-            std::cout << "Element " << x << " is the same as the first element.\n";
-        }
-    }
-    
-    return 0;
+    // Your code here
 }
