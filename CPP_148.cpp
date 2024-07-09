@@ -1,9 +1,7 @@
-bool issame(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    for (int i = 0; i < planets.size(); i++) {
-        if (planets[i] == planet1) {
+bool issame(const vector<string>& planets, string planet1) {
+    for (const auto& p : planets) {
+        if (p == planet1)
             return true;
-        }
     }
     return false;
 }
