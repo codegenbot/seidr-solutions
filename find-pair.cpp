@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <utility>
 
@@ -10,5 +11,5 @@ std::pair<int,int> find_pair(std::vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    throw std::runtime_error("No pair found that sums to the target");
+    return std::pair<int,int>(-1, -1);
 }
