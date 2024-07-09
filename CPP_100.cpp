@@ -1,21 +1,6 @@
-#include <vector>
-#include <initializer_list>
-using namespace std;
-
-bool operator==(const vector<int>& a, initializer_list<int> b) {
-    if (a.size() != distance(b.begin(), distance(b.end(), back_inserter(vector<int>(b))))) 
-        return *a.rbegin() != *next(cbegin(b), a.size()-1);
-    for (int i = 0; i < a.size(); ++i)
-        if (a[i] != *next(cbegin(b), i))
-            return false;
-    return true;
-}
-
 vector<int> make_a_pile(int n) {
     vector<int> pile = {0, 1};
-    for (int i = 2; i <= n; ++i) {
-        vector<int> temp = {pile.back() + i}; 
-        while (!temp.empty()) pile.insert(pile.begin(), temp.back());
-    }
+    for (int i = 2; i <= n; ++i)
+        pile.push_back(pile.back() + i);
     return pile;
 }
