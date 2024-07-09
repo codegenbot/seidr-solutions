@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <vector>
+```cpp
 #include <initializer_list>
 
 namespace myspace {
@@ -16,7 +15,8 @@ namespace myspace {
         int evenIndex = 0;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                auto it = std::minmax_element(l.begin(), l.end());
+                auto it = std::minmax_element(l.begin(), l.end(),
+                    [](float a, float b){return a<b;} );
                 result[i] = *(it.first);
                 for(int j = 0; j < l.size(); j++){
                     if(j%2==0 && l[j] != *(it.first)){
