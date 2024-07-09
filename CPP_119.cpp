@@ -20,10 +20,10 @@ bool match_parens(vector<string> lst) {
 int main() {
     vector<string> lst;
     int n;
-    cin >> n;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin >> n;
     string s;
-    for(int i=0; i<n; ++i++){
+    for(int i=0; i<n; i++){
         getline(cin, s);
         lst.push_back(s);
     }
