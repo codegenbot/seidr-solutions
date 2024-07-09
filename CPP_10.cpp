@@ -1,20 +1,17 @@
-#include <algorithm>
+#include <string>
 using namespace std;
 
-string make_palindrome(string str) {
-    string prefix = "";
-    for (int i = str.length() - 1; i >= 0; --i) {
-        if (str.find(str[i]) != string::npos) {
-            prefix = str[i] + prefix;
-            break;
-        }
-    }
-    return prefix + str + string(reverse(prefix));
+bool is_palindrome(string str){
+    string s(str.rbegin(),str.rend());
+    return s==str;
 }
 
-string reverse(string str) {
-    string rev = "";
-    for (int i = str.length() - 1; i >= 0; --i)
-        rev += str[i];
-    return rev;
+string make_palindrome(string str){
+    if(is_palindrome(str)) return str;
+    for(int i=str.length()-1; i>=0; --i){
+        if(!is_palindrome(str.substr(0, i+1))){
+            return str + string(str.rbegin(), str.rend()).substr(i);
+        }
+    }
+    return str;
 }
