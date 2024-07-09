@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool issame(vector<unsigned int> a, vector<unsigned int> b) {
+bool isSame(vector<unsigned int> a, vector<unsigned int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -33,10 +33,10 @@ int main() {
     for (unsigned int i : pile) {
         cout << i << " ";
     }
-    if(issame(make_a_pile(8), vector<unsigned int>({static_cast<unsigned int>(8), static_cast<unsigned int>(10), static_cast<unsigned int>(12), static_cast<unsigned int>(14), static_cast<unsigned int>(16), static_cast<unsigned int>(18), static_cast<unsigned int>(20), static_cast<unsigned int>(22)}))) { 
-        cout << "\nThe piles are the same.\n";
+    if(isSame(make_a_pile(8), vector<unsigned int>{unsigned int(8), unsigned int(10), unsigned int(12), unsigned int(14), unsigned int(16), unsigned int(18), unsigned int(20), unsigned int(22)})) {
+        cout << "The piles are the same." << endl;
     } else {
-        cout << "\nThe piles are not the same.\n";
+        cout << "The piles are not the same." << endl;
     }
     return 0;
 }
