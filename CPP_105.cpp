@@ -11,40 +11,45 @@ bool isSame(vector<string> a, vector<string> b) {
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> result;
+    vector<string> temp;
     for (int i : arr) {
-        string s = "";
-        switch (i) {
-            case 1:
-                s = "One";
-                break;
-            case 2:
-                s = "Two";
-                break;
-            case 3:
-                s = "Three";
-                break;
-            case 4:
-                s = "Four";
-                break;
-            case 5:
-                s = "Five";
-                break;
-            case 6:
-                s = "Six";
-                break;
-            case 7:
-                s = "Seven";
-                break;
-            case 8:
-                s = "Eight";
-                break;
-            case 9:
-                s = "Nine";
-                break;
+        if (i >= 1 && i <= 9) {
+            switch(i){
+                case 1:
+                    temp.push_back("One");
+                    break;
+                case 2:
+                    temp.push_back("Two");
+                    break;
+                case 3:
+                    temp.push_back("Three");
+                    break;
+                case 4:
+                    temp.push_back("Four");
+                    break;
+                case 5:
+                    temp.push_back("Five");
+                    break;
+                case 6:
+                    temp.push_back("Six");
+                    break;
+                case 7:
+                    temp.push_back("Seven");
+                    break;
+                case 8:
+                    temp.push_back("Eight");
+                    break;
+                case 9:
+                    temp.push_back("Nine");
+                    break;
+            }
         }
-        result.push_back(s);
     }
+    
+    sort(temp.begin(), temp.end());
+    
+    vector<string> result = temp;
+    reverse(result.begin(), result.end());
     
     return result;
 }
