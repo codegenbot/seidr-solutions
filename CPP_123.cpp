@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <initializer_list>
 
-bool sameVectors(std::vector<int> a, std::vector<int> b) {
+bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
     return (a == b);
 }
 
