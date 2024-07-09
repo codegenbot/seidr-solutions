@@ -1,13 +1,11 @@
 vector<int> make_a_pile(int n) {
-    vector<int> result;
-    int numStones = 1;
+    vector<int> pile;
+    int current = 1;
     for (int i = 0; i < n; i++) {
-        if ((numStones & 1) == 0) { // even number
-            result.push_back(numStones + 2);
-        } else { // odd number
-            result.push_back(numStones + 1);
+        if ((i + 1) % 2 == 0) {
+            current++;
         }
-        numStones += (numStones % 2 ? 1 : 2);
+        pile.push_back(current);
     }
-    return result;
+    return pile;
 }
