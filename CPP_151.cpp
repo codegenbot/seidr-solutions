@@ -1,10 +1,5 @@
 int main() {
-    vector<float> lst = {0.5f, 1.2f, -3.7f, 4.0f, 5.5f};
+    vector<float> lst = {1.2f, -3.4f, 5.6f, 0.7f, -8.9f};
     float odd_sum = 0;
-    for (float num : lst) {
-        if (num > 0 && modf(num, &int_part) == 0) {
-            odd_sum += pow(int_part, 2);
-        }
-    }
-    assert(double_the_difference(lst) == odd_sum);
+    assert(double_the_difference(lst) == (pow(fmod(1.2, 1), 2) + pow(fmod(-3.4, 1), 2) + pow(fmod(5.6, 1), 2)));
 }
