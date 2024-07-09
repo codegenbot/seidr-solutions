@@ -1,6 +1,7 @@
+```c++
 #include <vector>
 #include <numeric>
-#include <iostream>
+#include <initializer_list>
 
 int main() {
     std::vector<int> v(5);

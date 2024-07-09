@@ -1,4 +1,4 @@
-```cpp
+#include <initializer_list>
 #include <vector>
 #include <iostream>
 
@@ -19,8 +19,8 @@ int luhn(std::vector<int> digits) {
 }
 
 int main() {
-    vector<int> digits = {4,3,2,1,8,7,6,5,4,3,2,1,8,7,6,5};
+    std::vector<int> digits = {4,3,2,1,8,7,6,5,4,3,2,1,8,7,6,5};
     int result = luhn(digits);
-    cout << "The Luhn check digit is: " << result << endl;
+    std::cout << "The Luhn check digit is: " << result << std::endl;
     return 0;
 }
