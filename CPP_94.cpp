@@ -1,8 +1,6 @@
 #include <vector>
 
-using namespace std;
-
-int skjkasdkd(vector<int> lst){
+int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
     for(int num : lst){
         if(num < 2) continue;
@@ -13,8 +11,8 @@ int skjkasdkd(vector<int> lst){
                 break;
             }
         }
-        if(isPrime && num > maxPrime){
-            maxPrime = num;
+        if(isPrime){
+            maxPrime = std::max(maxPrime, num);
         }
     }
     int sumDigits = 0;
