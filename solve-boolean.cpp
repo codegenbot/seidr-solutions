@@ -1,8 +1,8 @@
 #include <string>
 
-bool solveBoolean(std::string s) {
+bool solveBoolean(string s) {
     stack<char> st;
-    
+
     for(int i = 0; i < s.length(); i++) {
         if(s[i] == '&') {
             while(!st.empty() && st.top() == '&') {
@@ -22,6 +22,6 @@ bool solveBoolean(std::string s) {
             st.push(s[i]);
         }
     }
-    
+
     return (s[0] == 'T');
 }
