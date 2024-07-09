@@ -13,9 +13,7 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    bool b_;
-    b_ = (a == b);
-    return b_;
+    return (a == b);
 }
 
 int main() {
