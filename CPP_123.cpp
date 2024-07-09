@@ -1,7 +1,8 @@
+Here is your required code:
+
 ```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -17,7 +18,6 @@ vector<int> get_odd_collatz(int n) {
             result.push_back(n);
         }
     }
-    sort(result.begin(), result.end());
     return result;
 }
 
@@ -29,4 +29,5 @@ int main() {
     for (int i : res) {
         cout << i << " ";
     }
+    return 0;
 }
