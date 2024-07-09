@@ -1,8 +1,9 @@
+```
 #include <string>
 
 std::string int_to_mini_roman(int number) {
     if (number >= 1000) {
-        return "M" + int_to_mini_roman(number - 1000);
+        return "M";
     } else if (number >= 900) {
         return "CM" + int_to_mini_roman(number - 900);
     } else if (number >= 500) {
@@ -23,9 +24,46 @@ std::string int_to_mini_roman(int number) {
                     case 6: return "VI";
                     default:
                         switch (number % 10) {
-                            case 5: return "V" + int_to_mini_roman(number - 5);
+                            case 5: return "V";
                             case 4: return "IV";
                             case 3: return "III" + int_to_mini_roman(number - 3);
+                            case 2: return "II";
+                            case 1: return "I";
+                            default: return "";
+                        }
+                }
+        }
+    } else if (number >= 4000) {
+        return "MMMM";
+    } else if (number >= 3000) {
+        return "MMM" + int_to_mini_roman(number - 3000);
+    } else if (number >= 2000) {
+        return "MM";
+    } else if (number >= 1000) {
+        return "M";
+    } else if (number >= 900) {
+        return "CM";
+    } else if (number >= 500) {
+        return "D";
+    } else if (number >= 400) {
+        return "CD";
+    } else if (number >= 100) {
+        switch (number % 100) {
+            case 90: return "XC";
+            case 80: return "LXXX";
+            case 70: return "LXX";
+            case 60: return "LX";
+            default:
+                switch (number % 10) {
+                    case 9: return "IX";
+                    case 8: return "VIII";
+                    case 7: return "VII";
+                    case 6: return "VI";
+                    default:
+                        switch (number % 10) {
+                            case 5: return "V";
+                            case 4: return "IV";
+                            case 3: return "III";
                             case 2: return "II";
                             case 1: return "I";
                             default: return "";
@@ -41,7 +79,7 @@ std::string int_to_mini_roman(int number) {
             case 5: return "V";
             default:
                 if (number % 4 == 0)
-                    return "XL" + int_to_mini_roman(number - 40);
+                    return "XL";
                 else
                     return "";
         }
