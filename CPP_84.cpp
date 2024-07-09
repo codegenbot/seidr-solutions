@@ -3,10 +3,12 @@ int sum = 0;
         sum += N % 2;
         N /= 2;
     }
-    string binarySum = "";
+    
+    string binary = "";
     while (sum > 0) {
-        binarySum = to_string(sum % 2) + binarySum;
+        binary = to_string(sum % 2) + binary;
         sum /= 2;
     }
-    return binarySum.empty() ? "0" : binarySum;
+    
+    return binary;
 }
