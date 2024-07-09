@@ -1,12 +1,16 @@
-bool is_palindrome(const string &text) {
-    int left = 0;
-    int right = text.size() - 1;
-    while (left < right) {
-        if (text[left] != text[right]) {
+#include <iostream>
+#include <string>
+#include <cassert>
+
+bool is_palindrome(const std::string& text) {
+    int start = 0;
+    int end = text.length() - 1;
+    while (start < end) {
+        if (text[start] != text[end]) {
             return false;
         }
-        left++;
-        right--;
+        start++;
+        end--;
     }
     return true;
 }
