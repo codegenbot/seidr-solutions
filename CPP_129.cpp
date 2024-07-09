@@ -1,16 +1,15 @@
 ```cpp
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && a == b;
+    return a == b;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
-    vector<int> res;
+    std::vector<std::vector<bool>> visited(n, std::vector<bool>(n, false));
+    std::vector<int> res;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (!visited[i][j]) {
@@ -21,7 +20,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     return res;
 }
 
-void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
+void dfs(std::vector<std::vector<int>>& grid, std::vector<std::vector<bool>>& visited, int x, int y, int k, std::vector<int>& res) {
     int n = grid.size();
     if (k == 0) {
         return;
@@ -40,16 +39,4 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y,
         }
     }
     visited[x][y] = false;
-}
-
-int main() {
-    vector<vector<int>> grid = {{1,2},{3,4}};
-    int k = 2;
-    vector<int> result = minPath(grid,k);
-    if (issame(result,{1,2})) {
-        cout << "The minimum path is [" << result[0] << ", " << result[1] << "]" << endl;
-    } else {
-        cout << "No such path found" << endl;
-    }
-    return 0;
 }
