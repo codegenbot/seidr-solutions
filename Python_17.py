@@ -1,16 +1,7 @@
-```
+```Python
+import re
+
 def parse_music(music_string: str) -> List[int]:
-    notes = {'o': 4, 'o|': 2, '.|': 1}
-    result = []
-    note = ''
-    for char in music_string:
-        if char in notes:
-            if note:
-                result.append(notes[note])
-            note = char
-        elif note:
-            result.append(notes[note])
-            note = ''
-    if note:
-        result.append(notes[note])
-    return result
+    beats_per_note = {"o": 4, "o|": 2, ".|": 1}
+    music_notes = re.split('\s+', music_string)
+    return [beats_per_note.get(note, 0) for note in music_notes]
