@@ -32,7 +32,16 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> lst[i];
+        int num;
+        std::cin >> num; // Take input as integer
+
+        if (num == 0) {
+            // Ask user to enter a different value
+            std::cout << "Invalid input. Please enter a non-zero number.\n";
+            continue;
+        }
+
+        lst[i] = num; // Store the valid input into vector
     }
 
     int result = search(lst);
