@@ -35,9 +35,7 @@ int main() {
     vector<string> lst(n);
 
     for(int i = 0; i < n; i++) {
-        string str;
-        getline(cin, str);
-        lst[i] = str;
+        cin >> lst[i];
     }
 
     vector<string> output = odd_count(lst);
