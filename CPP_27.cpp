@@ -2,18 +2,16 @@
 #include <string>
 #include <cctype>
 
-std::string flip_case(std::string str) {
+std::string flip_case(std::string str){
     std::string result = "";
-    for (char c : str) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+    for(char c : str){
+        if(isalpha(c)){
+            result += (islower(c)) ? toupper(c) : tolower(c);
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }
 
-int main() {
-    std::cout << flip_case("These violent delights have violent ends") << std::endl;
-    return 0;
-}
+assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
