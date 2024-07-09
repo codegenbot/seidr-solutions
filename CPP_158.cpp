@@ -1,13 +1,10 @@
-vector<string> words;
-cin >> ws; // read whitespace characters to clear input buffer
-for (string s; cin >> s;) {
-    words.push_back(s);
+string find_max(vector<string> words){
+    string result = *max_element(words.begin(), words.end(),
+        [&] (const string& a, const string& b) {
+            int uniqueA = a.size() - count(a.begin(), a.end(), '*');
+            int uniqueB = b.size() - count(b.begin(), b.end(), '*');
+            if(uniqueA == uniqueB) return a < b;
+            return uniqueA > uniqueB;
+        });
+    return result;
 }
-
-sort(words.begin(), words.end());
-auto it = max_element(words.begin(), words.end(),
-    [](const string& a, const string& b) {
-        return count(a.begin(), a.end(), '*') > count(b.begin(), b.end(), '*');
-    });
-
-cout << *it;
