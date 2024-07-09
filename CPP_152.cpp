@@ -1,22 +1,34 @@
-```
-#include <vector>
 #include <iostream>
-
-bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
-        return false;
-}
+#include <vector>
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
-        if (issame(game[i], guess[i])) {
-            result.push_back(0);
+        if (game[i] == guess[i]) {
+            std::cout << "Matched number: " << game[i] << std::endl;
         } else {
-            result.push_back(abs(game[i] - guess[i]));
+            std::cout << "Mismatched number: " << game[i] << ", Actual: " << guess[i] << std::endl;
         }
     }
-    return result;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+
+    std::vector<int> game(n);
+    for (auto &i : game) {
+        std::cin >> i;
+    }
+
+    int m;
+    std::cin >> m;
+
+    std::vector<int> guess(m);
+    for (auto &i : guess) {
+        std::cin >> i;
+    }
+
+    compare(game, guess);
+
+    return 0;
 }
