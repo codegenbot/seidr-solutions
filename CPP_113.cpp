@@ -5,39 +5,32 @@
 
 using namespace std;
 
-vector<string> odd_count(vector<string> lst);
-
-void displayOutput(vector<string> output) {
-    for (string s : output) {
-        cout << s << endl;
-    }
-}
-
-int main() {
-    vector<string> lst;
-    string temp;
-    while(getline(cin,temp))
-        lst.push_back(temp);
-    vector<string> output = odd_count(lst);
-    displayOutput(output);
-    return 0;
-}
-
 vector<string> odd_count(vector<string> lst) {
     vector<string> result;
     for (int i = 0; i < lst.size(); i++) {
         int count = 0;
+        string temp; // Fix: allocate memory here
         for (char c : lst[i]) {
             if (c % 2 != 0) {
                 count++;
             }
         }
-        string temp = "the number of odd elements is ";
+        temp = "the number of odd elements ";
         temp += to_string(count);
-        temp += " in the string";
+        temp += " in the string ";
         temp += to_string(i + 1);
-        temp += ".";
         result.push_back(temp);
     }
+    for (string s : lst) {
+        cout << s << endl;
+    }
     return result;
+}
+
+int main() {
+    vector<string> lst = {"1234567"};
+    odd_count(lst);
+    for (vector<string> output : odd_count(lst)) {
+        cout << output << endl;
+    }
 }
