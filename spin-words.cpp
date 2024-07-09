@@ -21,12 +21,12 @@ std::string spinWords(const std::string& str) {
     std::string result;
 
     for (int i = 0; i < words.size(); i++) {
-        std::string temp = words[i];
-        if (temp.length() >= 5) {
+        if (words[i].length() >= 5) {
+            std::string temp = words[i];
             std::reverse(temp.begin(), temp.end()); 
             result += temp + " ";
         } else {
-            result += temp + " ";
+            result += words[i] + " ";
         }
     }
 
