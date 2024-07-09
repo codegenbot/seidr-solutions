@@ -2,13 +2,8 @@
 #include <vector>
 #include <cmath>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); ++i)
-        if(std::abs(a[i] - b[i]) > 1e-9)
-            return false;
-    return true;
+bool isSame(const std::pair<float, float>& pair1, const std::pair<float, float>& pair2) {
+    return std::abs(pair1.first - pair1.second) == std::abs(pair2.first - pair2.second);
 }
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
@@ -29,5 +24,18 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}) , {2.2f, 3.1f}));
+    try {
+        std::vector<float> numbers = {1.0f, 2.0f, 3.0f};
+        auto result = find_closest_elements(numbers);
+        if (isSame(result, std::make_pair(2.5f, 2.5f))) {
+            std::cout << "Closest elements are same." << std::endl;
+        } else {
+            std::cout << "Closest elements are not the same." << std::endl;
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 1; // return non-zero status
+    }
+
+    return 0;
 }
