@@ -1,12 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
 bool issame(std::string& a, std::string& b) {
-    size_t maxLen = std::max(a.size(), b.size());
-    for (size_t i = 0; i < maxLen; i++) {
-        if (i >= a.size() || i >= b.size()) return false;
+    if (a.size() != b.size()) return false;
+    for (size_t i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
     }
     return true;
@@ -51,6 +49,8 @@ int main() {
             break; 
         }
     }
+    std::string temp = separate_paren_groups("( ) (( )) (( )( ");
+    assert(issame(temp, "(()())"));
     std::cout << "Result: " << separate_paren_groups(s) << std::endl;
     return 0;
 }
