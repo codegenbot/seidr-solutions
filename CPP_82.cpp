@@ -1,0 +1,9 @@
+#include <string>
+
+bool prime_length(const std::string& str) {
+    int len = str.length();
+    for(int i=2; i*i<=len; i++){
+        if(len%i==0) return false;
+    }
+    return true;
+}
