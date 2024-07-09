@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
     for (float num : lst) {
-        if (num > 0 && std::floor(num) == num) {
+        if (num > 0 && floor(num) == num) {
             sum += pow(num, 2);
         }
     }
@@ -12,12 +13,18 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst; // declare the vector
-    float odd_sum; // declare the variable
-
-    // fill your code here to calculate and store values in 'lst' and 'odd_sum'
-
-    assert(double_the_difference(lst) == odd_sum);
-
+    std::vector<float> lst; 
+    float odd_sum = 0; 
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        float num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        lst.push_back(num);
+    }
+    odd_sum = double_the_difference(lst);
+    std::cout << "The sum of the squares of the positive integers in the list is: " << odd_sum << std::endl;
     return 0;
 }
