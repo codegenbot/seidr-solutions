@@ -51,7 +51,7 @@ int main() {
         } catch (invalid_argument e) {
             cout << "Invalid input. Please enter an integer." << endl;
             i--;  
-            continue;  
+            continue;  // Skip to the next iteration
         }
     }
 
