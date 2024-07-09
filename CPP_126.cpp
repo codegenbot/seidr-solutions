@@ -1,24 +1,22 @@
-Here is the completed code:
+#include <vector>
+using namespace std;
 
 bool is_sorted(vector<int> lst){
+    if(lst.empty()) {
+        return true;
+    }
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
-            vector<int> temp;
-            bool duplicate = false;
-            for(int j = 0; j < lst.size(); j++){
-                if(j == i) continue;
-                if(temp.empty() || temp.back() != lst[j]){
-                    temp.push_back(lst[j]);
-                }else{
-                    duplicate = true;
-                    break;
-                }
+            return false;
+        }
+        int count = 0;
+        for(int j = 0; j < lst.size(); j++){
+            if(lst[j] == lst[i]){
+                count++;
             }
-            if(!duplicate && temp.size() == lst.size()-1){
-                return true;
-            }else{
-                return false;
-            }
+        }
+        if(count > 1){
+            return false;
         }
     }
     return true;
