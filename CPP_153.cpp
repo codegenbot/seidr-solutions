@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 int Strongest_Extension(std::string className, const std::vector<std::string>& extensions) {
     int strongest = 0;
@@ -15,10 +16,7 @@ int Strongest_Extension(std::string className, const std::vector<std::string>& e
 
 int main() {
     std::vector<std::string> extensions = {"671235", "Bb"};
-    int result = Strongest_Extension("Sp", extensions);
-    if (result == 1)
-        std::cout << "The strongest extension is Sp.671235" << std::endl;
-    else
-        std::cout << "No matching extension found" << std::endl;
+    int strongest = Strongest_Extension("Sp", extensions);
+    assert(std::to_string(strongest) == "1");
     return 0;
 }
