@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 std::pair<int, int> sum_product(const std::vector<int>& numbers) {
