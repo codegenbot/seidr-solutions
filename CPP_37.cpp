@@ -1,25 +1,42 @@
+Here is the modified code:
+
 ```cpp
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i]) % 2 == 1 && std::abs(b[i]) % 2 == 1)
-            return false;
-    }
-    return true;
-}
+#include <algorithm>
+#include <vector>
 
 namespace myspace {
-    std::vector<float> sort_even(std::vector<float>& input) {
-        std::sort(input.begin(), input.end());
-        std::vector<float> even;
-        for (float num : input) {
-            if (std::abs(num) % 2 == 0) {
-                even.push_back(num);
+    bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+        if(a.size() != b.size()) return false;
+        for(int i = 0; i < a.size(); i++) {
+            if(a[i] != b[i]) return false;
+        }
+        return true;
+    }
+
+    std::vector<float> sort_even(const std::vector<float>& l) {
+        std::vector<float> result(l.size());
+        int evenIndex = 0;
+        for (int i = 0; i < l.size(); i++) {
+            if (i % 2 == 0) {
+                auto it = l.begin();
+                for (int j = 0; j < l.size(); j++) {
+                    if (l[j] < *it) {
+                        it = &l[j];
+                    }
+                }
+                result[i] = *it;
+                for(int j = 0; j < l.size(); j++){
+                    if(j%2==0 && l[j] != *it){
+                        result[evenIndex++] = l[j];
+                    }
+                }
+            } else {
+                result[i] = l[i];
             }
         }
-        return even;
+        return result;
     }
-};
+}
 
 int main() {
     std::vector<float> input(10);
@@ -46,6 +63,4 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-
-    return 0;
 }
