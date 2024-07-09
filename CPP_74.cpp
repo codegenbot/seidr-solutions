@@ -1,17 +1,30 @@
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    int total_chars_lst1 = 0, total_chars_lst2 = 0;
-    
-    for (const string& str : lst1) {
-        total_chars_lst1 += str.length();
-    }
-    
-    for (const string& str : lst2) {
-        total_chars_lst2 += str.length();
-    }
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
 
-    if (total_chars_lst1 < total_chars_lst2) {
-        return lst1;
-    } else {
-        return lst2;
+using namespace std;
+
+int sum_chars(vector<string> lst) {
+    int sum = 0;
+    for (string s : lst) {
+        sum += s.size();
     }
+    return sum;
+}
+
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+    if (sum_chars(lst1) < sum_chars(lst2)) {
+        return lst1;
+    }
+    return lst2;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
+int main() {
+    assert(issame(total_match({"this"}, {}), {}));
+    return 0;
 }
