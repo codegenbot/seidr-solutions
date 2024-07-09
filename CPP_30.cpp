@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <memory>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<std::vector<float>>& a, const std::vector<std::vector<float>>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -21,7 +22,7 @@ int main() {
 
         std::vector<float> positive_numbers = get_positive(numbers);
 
-        if(issame(get_positive(numbers), positive_numbers)) {
+        if(issame({get_positive(numbers)}, {positive_numbers})) {
             std::cout << "The list of positive numbers is: ";
             for (float num : positive_numbers) {
                 std::cout << num << " ";
