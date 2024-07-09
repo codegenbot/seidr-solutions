@@ -1,14 +1,14 @@
-#include <cctype>
 #include <string>
+#include <cctype>
 
-string filp_case(string str){
-    string result = "";
+std::string filp_case(std::string str){
+    std::string result = "";
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z')
-            result += toupper(c);
+            result += std::toupper(c);
         else if(c >= 'A' && c <= 'Z')
-            result += tolower(c);
+            result += std::tolower(c);
         else
             result += c;
     }
@@ -16,9 +16,6 @@ string filp_case(string str){
 }
 
 int main() {
-    string s;
-    cout << "Enter a string: ";
-    cin >> s;
-    cout << "Flipped case: " << filp_case(s) << endl;
+    std::cout << filp_case("hello world") << std::endl;
     return 0;
 }
