@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 bool issame(string planet1, string planet2) {
@@ -16,7 +15,6 @@ bool issame(string planet1, string planet2) {
 
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    sort(planets.begin(), planets.end());
     int index1 = -1;
     int index2 = -1;
 
@@ -38,6 +36,15 @@ vector<string> bf(string planet1, string planet2) {
     for (int i = 0; i < planets.size(); i++) {
         if ((i > index1 && i < index2) || (i > index2 && i < index1)) {
             result.push_back(planets[i]);
+        }
+    }
+
+    for (int i = 0; i < result.size(); i++) {
+        for (int j = i + 1; j < result.size(); j++) {
+            if (result[i] == result[j]) {
+                result.erase(result.begin() + j);
+                j--;
+            }
         }
     }
 
