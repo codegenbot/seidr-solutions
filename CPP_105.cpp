@@ -18,7 +18,9 @@ bool issame(vector<string> a) {
 vector<string> by_length(vector<int> arr) {
     vector<string> temp;
     for (int i : arr) {
-        temp.push_back(to_string(i).substr(0,1)); // convert int to string and then get the first character
+        if (i >= 1 && i <= 9) {
+            temp.push_back(to_string(i).substr(0,1)); // Replace this line
+        }
     }
 
     sort(temp.begin(), temp.end());
