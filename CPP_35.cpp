@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,14 +12,14 @@ int findMax(std::vector<int> numbers) {
 
 int main() {
     std::vector<int> numbers;
-    for(int i=0; i<5; i++){
+    for(int i=0; ;i++){
         int num;
-        if (!(num>>std::ws, std::cin).fail()) {  
-            numbers.push_back(num);
-        } else {
-            break;  
-        }
+        std::cin >> num;
+        numbers.push_back(num);
+        if(i == 4) break; 
     }
     findMax(numbers);
+    assert (std::abs(std::max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 12)<1e-4);
+
     return 0;
 }
