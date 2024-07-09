@@ -1,5 +1,5 @@
+```c++
 #include <iostream>
-#include <string>
 using namespace std;
 
 void fizz_buzz(int n) {
