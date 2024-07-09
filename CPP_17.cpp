@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 using namespace std;
@@ -16,3 +17,5 @@ vector<int> parse_music(string music_string) {
         }
     }
     return result;
+
+int main;
