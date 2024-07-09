@@ -1,9 +1,8 @@
 bool correct_bracketing(string brackets){
-    int open = 0;
-    for (char c : brackets) {
-        if (c == '(') open++;
-        else if (c == ')') open--;
-        if (open < 0) return false;
+    int count = 0;
+    for(int i=0; i<brackets.length();i++){
+        if(brackets[i]=='(')count++;
+        else if(brackets[i]==')')if(count>0)count--;else return false;
     }
-    return open == 0;
+    return count==0;
 }
