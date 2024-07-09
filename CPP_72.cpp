@@ -17,20 +17,14 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    vector<int> q;
-    int w;
-    cout << "Enter the number of quackers: ";
-    cin >> w;
-    cout << "Enter the weights of quackers: ";
-    for (int i = 0; i < w; i++) {
-        int weight;
-        cin >> weight;
-        q.push_back(weight);
-    }
-    if (will_it_fly(q, w)) {
-        cout << "The bag will fly." << endl;
+    vector<int> quadcopter_weights = {10, 20, 30, 40, 50};
+    int weight_limit = 100;
+
+    if(will_it_fly(quadcopter_weights, weight_limit)) {
+        cout << "The quadcopter will fly." << endl;
     } else {
-        cout << "The bag won't fly." << endl;
+        cout << "The quadcopter won't fly." << endl;
     }
+
     return 0;
 }
