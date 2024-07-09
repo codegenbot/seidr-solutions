@@ -22,4 +22,4 @@ def prime_fib(n: int):
             if n == 0:
                 return num
 
-    return fib[-1]
+    return fib[-1]  # Add this line to return the last Fibonacci number when 'n' is greater than the length of the generated Fibonacci sequence

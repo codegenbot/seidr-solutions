@@ -8,8 +8,6 @@ def decode_shift(s: str):
     )
 
 
-# Read input from user
 input_str = input()
-
-# Call the function with the input and print the result
-print(decode_shift(input_str))
+result = decode_shift(input_str)
+print(result)
