@@ -1,16 +1,13 @@
-#include <vector>
-#include <cassert>
-
 bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
 vector<int> rolling_max(vector<int> numbers){
     vector<int> result;
-    if(numbers.empty()) return result;
-    
     int max_num = numbers[0];
-    for(int i=0; i<numbers.size(); i++){
+    result.push_back(max_num);
+    
+    for(int i = 1; i < numbers.size(); i++){
         max_num = max(max_num, numbers[i]);
         result.push_back(max_num);
     }
