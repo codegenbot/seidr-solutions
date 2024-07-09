@@ -12,6 +12,7 @@ vector<int> unique(vector<int> l) {
             result.push_back(i);
     }
     return result;
+
 }
 
 int main() {
