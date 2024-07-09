@@ -1,30 +1,31 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
 int main() {
-    string code, guess;
-    cin >> code >> guess;
+    std::string code, guess;
+    std::cin >> code >> guess;
     
     int black = 0, white = 0;
-    vector<int> codeCount(6, 0);
-    vector<int> guessCount(6, 0);
+    std::vector<int> freq(6, 0);
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
         } else {
-            codeCount[code[i] - 'A']++;
-            guessCount[guess[i] - 'A']++;
+            freq[code[i] - 'A']++;
         }
     }
     
-    for (int i = 0; i < 6; ++i) {
-        white += std::min(codeCount[i], guessCount[i]);
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != guess[i] && freq[guess[i] - 'A'] > 0) {
+            white++;
+            freq[guess[i] - 'A']--;
+        }
     }
+
+    using namespace std; // Add this line for concise output
     
-    cout << white << '\n' << black << '\n';
+    std::cout << white << '\n' << black << '\n';
     
     return 0;
 }
