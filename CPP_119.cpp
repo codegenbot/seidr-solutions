@@ -1,15 +1,16 @@
-int countOpen = 0, countClose = 0;
-
-for (auto str : lst) {
-    for (char c : str) {
-        if (c == '(')
+int countOpen = 0;
+for (const auto& s : lst) {
+    int countClose = 0;
+    for (char c : s) {
+        if (c == '(') {
             countOpen++;
-        else
-            countClose++;
+        } else if (c == ')') {
+            if (countOpen > 0) {
+                countOpen--;
+            } else {
+                countClose++;
+            }
+        }
     }
 }
-
-if (countOpen == countClose)
-    return "Yes";
-else
-    return "No";
+return countOpen == 0 ? "Yes" : "No";
