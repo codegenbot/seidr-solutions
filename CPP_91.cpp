@@ -1,11 +1,15 @@
+```cpp
 #include <iostream>
 #include <string>
 
-bool is_bored(std::string S) {
+int originalMain() {
     int count = 0;
     std::string boredom = "I";
-    size_t pos = 0;
+    std::string S;
+    std::cout << "Enter a sentence: ";
+    std::cin >> S;
 
+    size_t pos = 0;
     while ((pos = S.find(" ", pos)) != std::string::npos) {
         if (S.substr(0, pos).compare(boredom) == 0 && S.size() > pos + boredom.length()) {
             count++;
@@ -13,16 +17,12 @@ bool is_bored(std::string S) {
         pos++;
     }
 
-    return count;
+    std::cout << "Count: " << count << std::endl;
+
+    return 0;
 }
 
 int main() {
-    std::cout << "Enter a sentence: ";
-    std::string S;
-    std::cin >> S;
-
-    int result = is_bored(S);
-    std::cout << "Count: " << result << std::endl;
-
+    originalMain();
     return 0;
 }
