@@ -24,6 +24,5 @@ double vectorDistance() {
 
 int main() {
     cout << fixed << setprecision(10) << vectorDistance() << endl;
-
     return 0;
 }
