@@ -44,7 +44,7 @@ int main_entry() {
     for(int i = 0; i < n; i++) {
         std::string str;
         std::cout << "Enter string " << (i+1) << ": ";
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Add this line to ignore the newline character left in the buffer
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
         std::getline(std::cin, str);
         totalSize += str.size() + 1; 
     }
@@ -52,7 +52,7 @@ int main_entry() {
     for(int i = 0; i < n; i++) {
         std::string str;
         std::cout << "Enter string " << (i+1) << ": ";
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Add this line to ignore the newline character left in the buffer
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
         std::getline(std::cin, str);
         inputStrings.push_back(str);
     }
