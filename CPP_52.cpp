@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -28,8 +27,8 @@ bool getNumbers(vector<int>& numbers, int& threshold) {
 }
 
 int main() {
-    int threshold;
     vector<int> numbers(5); 
+    int threshold;
 
     if(getNumbers(numbers, threshold)) {
         if(below_threshold(numbers, threshold)) {
