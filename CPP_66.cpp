@@ -1,6 +1,5 @@
-int main 
-{
-    assert(digitSum("you are very smart") == 12);
-    cout << digitSum("you are very smart") << endl;
+int main {
+    string s = "you are very smart";
+    cout << digitSum(s) << endl;
     return 0;
 }
