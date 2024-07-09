@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -15,10 +16,11 @@ namespace myspace {
         int evenIndex = 0;
         for (int i = 0; i < l.size(); i++) {
             if (i % 2 == 0) {
-                auto it = std::max_element(l.begin(), l.end()); // Changed minmax to max_element
-                result[i] = *it;
+                auto it = std::minmax_element(l.begin(), l.end(), 
+                                              [](float a, float b){return a>b;} );
+                result[i] = *(it.first);
                 for(int j = 0; j < l.size(); j++){
-                    if(j%2==0 && l[j] != *it){ // Changed (it.first) to (*it)
+                    if(j%2==0 && l[j] != *(it.first)){
                         result[evenIndex++] = l[j];
                     }
                 }
@@ -30,7 +32,7 @@ namespace myspace {
     }
 }
 
-int cpp_main() { // Renamed main to cpp_main
+int main() {
     std::vector<float> input(10); 
     input.push_back(5);
     input.push_back(8);
@@ -56,5 +58,6 @@ int cpp_main() { // Renamed main to cpp_main
     }
     std::cout << std::endl;
 
+    assert (myspace::issame(myspace::sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) , {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
