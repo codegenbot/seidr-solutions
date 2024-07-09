@@ -7,7 +7,6 @@ std::string decimal_to_binary(int decimal){
         binary = (decimal & 1) ? "1" + binary : "0" + binary;
         decimal >>= 1;
     }
-    assert(binary == "1111");
     return "db" + binary + "db";
 }
 

@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -25,4 +24,3 @@ std::vector<int> unique_digits(std::vector<int> x) {
     }
     std::sort(result.begin(), result.end());
     return result;
-}
