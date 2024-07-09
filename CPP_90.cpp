@@ -1,10 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 int main() {
-    vector<int> lst;
-    int num;
-    while (cin >> num) {
+    int n;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> lst;
+    for (int i = 0; i < n; i++) {
+        int num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
         lst.push_back(num);
     }
-    cout << next_smallest(lst) << endl;
+
+    int result = next_smallest(lst);
+
+    if (result == -1) {
+        std::cout << "No smaller number exists in the list." << std::endl;
+    } else {
+        std::cout << "The next smallest number is: " << result << std::endl;
+    }
+
     return 0;
 }
 
