@@ -1,12 +1,5 @@
-```
 def simplify(x, n):
-    x_numerator, x_denominator = map(int, x.split('/'))
-    y_numerator, y_denominator = map(int, n.split('/'))
+    x_num, x_den = map(int, x.split("/"))
+    n_num, n_den = map(int, n.split("/"))
 
-    numerator = x_numerator * y_denominator
-    denominator = x_denominator * y_numerator
-
-    if numerator % denominator != 0:
-        return False
-    else:
-        return True
+    return (x_num * n_den) % (x_den * n_den) == 0
