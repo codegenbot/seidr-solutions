@@ -1,7 +1,5 @@
-```cpp
 #include <string>
-
-namespace std { using namespace std; }
+using namespace std;
 
 int bowlingScore(string input) {
     int score = 0;
