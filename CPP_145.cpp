@@ -3,7 +3,7 @@
 #include <cassert>
 
 std::vector<int> order_by_points(const std::vector<int>& nums) {
-    std::vector<int> nums_copy = nums;
+    std::vector<int> nums_copy(nums.begin(), nums.end());
     std::sort(nums_copy.begin(), nums_copy.end(), [](int a, int b) {
         int sum_digits_a = 0, sum_digits_b = 0;
         if (a < 0) a *= -1;
