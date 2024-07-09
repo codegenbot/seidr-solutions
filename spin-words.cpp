@@ -1,8 +1,8 @@
+```c++
 #include <algorithm>
 #include <string>
 #include <sstream>
 #include <iostream>
-#include <initializer_list>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::stringstream ss(str);
