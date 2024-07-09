@@ -9,9 +9,7 @@ vector<float> get_positive(vector<float> l) {
         if (x > 0) {
             result.push_back(x);
         } else if (x < 0) {
-            if (abs(x) > 0) {
-                result.push_back(abs(x));
-            }
+            result.push_back(abs(x));
         }
     }
     return result;
