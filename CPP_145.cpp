@@ -1,10 +1,12 @@
+Here is the corrected code:
+
+```cpp
 #include <algorithm>
 #include <initializer_list>
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
-
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); ++i) {
