@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
@@ -12,18 +11,14 @@ float triangle_area(float a, float b, float c) {
 }
 
 int main() {
-    float side1, side2, side3;
-
+    float a, b, c;
     std::cout << "Enter the lengths of three sides of a triangle: ";
-    std::cin >> side1 >> side2 >> side3;
-
-    float area = triangle_area(side1, side2, side3);
-
-    if (area != -1.0f) {
-        std::cout << "The area of the triangle is: " << area << "\n";
+    std::cin >> a >> b >> c;
+    float area = triangle_area(a, b, c);
+    if (area == -1.0f) {
+        std::cout << "Not a valid triangle.\n";
     } else {
-        std::cout << "These sides do not form a triangle.\n";
+        std::cout << "The area of the triangle is: " << area << "\n";
     }
-
     return 0;
 }
