@@ -1,5 +1,4 @@
 ```cpp
-#include <initializer_list>
 #include <cassert>
 #include <vector>
 #include <string>
@@ -18,6 +17,9 @@ bool will_it_fly(std::vector<int> q, int w) {
 }
 
 int main() {
-    std::vector<int> q = {5, 10, 15};
+    std::vector<int> q;
+    for (int i : {5}) {
+        q.push_back(i);
+    }
     assert(will_it_fly(q, 5) == true);
 }
