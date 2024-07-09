@@ -1,9 +1,21 @@
-vector<int> filter_integers(list_any values) {
-    vector<int> result;
+#include <boost/any.hpp>
+#include <vector>
+#include <list>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        boost::any_cast<int>(value);
-        if (!boost::any_cast<bool>(value)) continue;
-        result.push_back(boost::any_cast<int>(value));
+        if (!boost::holds_alternative<int>(value)) continue;
+        int v = boost::get<int>(value);
+        result.push_back(v);
     }
     return result;
 }
