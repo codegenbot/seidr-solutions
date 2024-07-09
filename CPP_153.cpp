@@ -1,5 +1,5 @@
 int Strongest_Extension(string class_name,vector<string> extensions){
-    int strongest = 0;
+    int strongest = -1;
     string strongest_extension;
     for(auto extension : extensions){
         int cap = 0, sm = 0;
