@@ -23,4 +23,4 @@ def prime_fib(n: int):
         i += 1
     return fibonacci(i - 1)
 
-prime_fib(n)
+print(prime_fib(n))
