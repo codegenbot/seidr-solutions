@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -7,25 +8,12 @@ bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-
-    for (int i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
     return true;
-}
-
-int main() {
-    // Include the necessary header file where separate_paren_groups function is declared
-    vector<string> result = separate_paren_groups("((group1)(group2)(group3))");
-
-    for (const string& group : result) {
-        cout << group << endl;
-    }
-
-    return 0;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -51,4 +39,9 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    // Test the functions here
+    return 0;
 }
