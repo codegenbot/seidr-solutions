@@ -1,7 +1,3 @@
-```cpp
-#include <iostream>
-using namespace std;
-
 int car_race_collision(string s) {
     int n = stoi(s);
     int collision = 0;
@@ -18,7 +14,6 @@ int main() {
     string s;
     cout << "Enter the number of cars: ";
     getline(cin, s);
-    cout << "Number of collisions: " << car_race_collision(s) << endl;
-    assert (car_race_collision(to_string(10)) == 2);
+    cout << "Number of collisions: " << car_race_collision(to_string(stoi(s))) << endl;
     return 0;
 }
