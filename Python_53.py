@@ -1,11 +1,4 @@
-```Python
-def add(x: int, y: int):
-    return x + y
-
-def main():
+def add():
     x = int(input("Enter first number: "))
     y = int(input("Enter second number: "))
-    print(f"The sum of {x} and {y} is {add(x,y)}")
-
-if __name__ == "__main__":
-    main()
+    return x + y
