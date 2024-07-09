@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <openssl/opensslconf.h>
 #include <openssl/evp.h>
 
 using namespace std;
