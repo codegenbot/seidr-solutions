@@ -39,9 +39,8 @@ string anti_shuffle(string s) {
 
     string result = "";
     for (const auto& word : words) {
-        string w = word;
-        sort(w.begin(), w.end());
-        result += w + " ";
+        sort(word.begin(), word.end());
+        result += word + " ";
     }
     return result.substr(0, result.size() - 1);
 }
