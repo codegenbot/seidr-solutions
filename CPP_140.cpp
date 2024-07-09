@@ -1,17 +1,23 @@
+Here is the solution:
+
+```cpp
 string fix_spaces(string text){
-    for(int i=0; i<text.length();i++){
-        if(text[i] == ' '){
-            if(i+1 < text.length() && text[i+1] == ' '){
-                int j = i;
-                while(j+1 < text.length() && text[j+1] == ' ')
-                    j++;
-                for(int k=j; k>=i;k--)
-                    text[k] = '-';
-                return text;
-            }
+    string new_text = "";
+    bool space_seen = false;
+
+    for(char c : text){
+        if(c == ' '){
+            if(space_seen)
+                new_text += '-';
             else
-                text[i] = '_';
+                new_text += '_';
+            space_seen = true;
+        }
+        else {
+            if(space_seen) 
+                space_seen = false;
+            new_text += c;
         }
     }
-    return text;
+    return new_text;
 }
