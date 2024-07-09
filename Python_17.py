@@ -1,4 +1,1 @@
-input_list = []
-num_test_cases = int(input().strip())
-for _ in range(num_test_cases):
-    input_list.append(input().strip().split("|"))
+input_list = [input().strip().split("|") for _ in range(int(input().strip()))]
