@@ -1,9 +1,14 @@
+#include <vector>
+#include <queue>
+#include <iostream>
+
+using namespace std;
+
 vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
     vector<pair<int, int>> dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> pq;
-    vector<int> res;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -13,6 +18,8 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
             }
         }
     }
+
+    vector<int> res;
 
     while (!pq.empty()) {
         auto [dist, pos] = pq.top();
@@ -35,4 +42,8 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
     }
 
     return res;
+}
+
+int main() {
+    // your code here
 }
