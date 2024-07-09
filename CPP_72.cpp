@@ -1,8 +1,8 @@
 ```cpp
+#pragma GCC C++11
 #include <cassert>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 bool will_it_fly(std::vector<int> q, int w) {
     std::string str = "";
