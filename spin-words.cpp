@@ -9,9 +9,8 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     std::string token;
     std::vector<std::string> tokens;
 
-    while (std::getline(ss, token)) {
-        if (!token.empty()) 
-            tokens.push_back(token);
+    while (std::getline(ss, token, delimiter)) {
+        tokens.push_back(token); 
     }
 
     return tokens;
