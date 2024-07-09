@@ -1,8 +1,7 @@
-if(x == 1)
-        return true;
-    for(int i=2; i<sqrt(x)+1; i++){
-        if(pow(i, n) == x)
-            return true;
+if (x <= 0 || n <= 0) {
+        return false;
     }
-    return false;
+    
+    int root = round(pow(x, 1.0/n));
+    return (pow(root, n) == x);
 }
