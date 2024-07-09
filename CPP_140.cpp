@@ -1,11 +1,20 @@
-for (int i = 0; i < text.size(); ++i) {
-        if (text[i] == ' ') {
-            if (i < text.size() - 2 && text[i+1] == ' ' && text[i+2] == ' ') {
-                text.replace(i, 3, "-");
+int consecutive_spaces = 0;
+    string result = "";
+    
+    for(char c : text) {
+        if(c == ' ') {
+            consecutive_spaces++;
+            if(consecutive_spaces > 2) {
+                result += '-';
+                consecutive_spaces = 1;
             } else {
-                text[i] = '_';
+                result += '_';
             }
+        } else {
+            result += c;
+            consecutive_spaces = 0;
         }
     }
-    return text;
+    
+    return result;
 }
