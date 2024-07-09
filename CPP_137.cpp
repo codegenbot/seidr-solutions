@@ -1,28 +1,45 @@
+#include <boost/any.hpp>
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
+        return boost::any_cast<float>(b);
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        if ((boost::any_cast<string>(b)).find(',') != string::npos)
-            return a;
-        else
-            return b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(double)) {
-        return boost::any_cast<double>(b);
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return boost::any_cast<float>(a);
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (boost::any_cast<string>(a) > boost::any_cast<string>(b))
-            return a;
-        else if (boost::any_cast<string>(a) < boost::any_cast<string>(b))
-            return b;
-        else
-            return boost::any("None");
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+
+        istringstream iss(strA);
+        float numA;
+        if (!(iss >> numA)) {
+            numA = stof(strA.substr(0, strA.find(',')));
+        }
+
+        istringstream iss2(strB);
+        float numB;
+        if (!(iss2 >> numB)) {
+            numB = stof(strB.substr(0, strB.find(',')));
+        }
+
+        return (numA > numB) ? a : b;
     }
-    else {
-        return boost::any("None");
+    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
+        string strA = boost::any_cast<string>(a);
+        istringstream iss(strA);
+        float numA;
+        if (!(iss >> numA)) {
+            numA = stof(strA.substr(0, strA.find(',')));
+        }
+
+        return (boost::any_cast<float>(b) > numA) ? b : a;
     }
+    else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(string)) {
+        boost::any temp = a;
+        a = b;
+        b = temp;
+    }
+
+    return "None";
 }
