@@ -1,31 +1,34 @@
 #include <vector>
 #include <cassert>
 
-bool issame(int a, int b, int k) {
-    if (std::abs(a - b) <= k) {
-        return true;
-    } else {
-        return false;
-    }
+bool issame(int a, int b) {
+    return a == b;
 }
 
 vector<int> minPath(vector<vector<int>> grid, int k){
-
     int m = grid.size();
     int n = grid[0].size();
-    vector<int> dp(n, INT_MAX);
-    dp[0] = 0;
-
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            if (j > 0) {
-                dp[j] = std::min(dp[j], dp[j - 1] + grid[i][j]);
+    
+    vector<vector<int>> dp(m, vector<int>(n, INT_MAX));
+    
+    dp[0][0] = grid[0][0];
+    
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (i > 0) {
+                dp[i][j] = min(dp[i][j], dp[i - 1][j] + grid[i][j]);
             }
-            if (issame(grid[i][j], dp[j], k) && i > 0) {
-                dp[j] = std::min(dp[j], dp[j] + grid[i][j]);
+            if (j > 0) {
+                dp[i][j] = min(dp[i][j], dp[i][j - 1] + grid[i][j]);
             }
         }
     }
-
-    return dp;
+    
+    vector<int> result;
+    int pathsum = dp[m - 1][n - 1];
+    if (issame(pathsum, k)) {
+        result.push_back(pathsum);
+    }
+    
+    return result;
 }
