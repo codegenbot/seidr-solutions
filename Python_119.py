@@ -1,11 +1,14 @@
-def check_brackets(string):
+def match_parens(s):
     stack = []
-    for char in string:
-        if char == "(":
+    for char in s:
+        if char == '(':
             stack.append(char)
-        elif char == ")":
+        elif char == ')':
             if len(stack) == 0:
-                return False
+                return 'No'
             else:
                 stack.pop()
-    return len(stack) == 0
+    if len(stack) == 0:
+        return 'Yes'
+    else:
+        return 'No'
