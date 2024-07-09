@@ -1,18 +1,13 @@
 def solve_boolean(expression):
-    stack = []
-    for char in expression:
-        if char in ['T', 'F']:
-            stack.append(char == 'T')
-        elif char in ['|', '&']:
-            while len(stack) > 1 and stack[-2] is not None: 
-                operator_value = stack.pop()
-                stack.append({
-                    '|': lambda x, y: x or y,
-                    '&': lambda x, y: x and y
-                }[char].__call__(stack.pop(), operator_value))
-        elif char == '(':
-            stack.append(None)
-        elif char == ')':
-            while len(stack) > 1 and stack[-2] is not None:
-                stack.pop()
-    return stack[0]
+    while '(' in expression:
+        start = 0
+        end = 0
+        for i, char in enumerate(expression):
+            if char == '(':
+                start = i
+            elif char == ')':
+                end = i
+                break
+        result = bool(eval(expression[start+1:end]))
+        expression = expression[:start] + str(result) + expression[end+1:]
+    return eval(f"({'+'.join(str(solve_boolean(arg)) if '()' in arg else str(arg) for arg in expression.split('|'))})")
