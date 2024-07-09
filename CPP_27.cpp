@@ -1,4 +1,4 @@
-```cpp
+```
 #include <string>
 #include <cctype>
 #include <iosfwd> 
@@ -18,12 +18,9 @@ std::string flip_case(const std::string& str) {
     return result;
 }
 
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+std::cout << "Enter a string: ";
+std::getline(std::cin, input);
 
-    std::cout << "Flipped case: " << flip_case(input) << std::endl;
+std::cout << "Flipped case: " << flip_case(input) << std::endl;
 
-    return 0;
-}
+return 0;
