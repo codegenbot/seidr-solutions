@@ -1,8 +1,8 @@
 #include <algorithm>
 #include <cassert>
-#include <initializer_list>
 #include <string>
 #include <vector>
+#include <initializer_list>
 
 using namespace std;
 
