@@ -1,9 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
 #include <algorithm>
-#include <iomanip>
 
 float median(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
@@ -20,17 +18,25 @@ int main() {
     while (true) {
         std::cin >> input;
         if (input == "stop") break;
+        bool isValid = true;
         try {
-            float num = 0.0f; // Initialize num to a default value
-            std::cin >> std::fixed >> num; // Use std::cin >> instead of std::stof
+            float num = std::stof(input);
             numbers.push_back(num);
-        } catch(...) { 
-            std::cout << "Invalid input. Please try again: ";
-            while (!(std::cin >> input)) {  
+        } catch(const std::invalid_argument& e) {
+            isValid = false;
+            std::cout << "Invalid number. Please enter a valid floating point number." << std::endl;
+            while (std::cin.fail()) {  
                 std::cout << "Invalid input. Please try again: ";
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                if (!(std::cin >> input)) {
+                    std::cout << "Invalid input. Please enter a valid floating point number." << std::endl;
+                    break;
+                }
             }
+        }
+        if (!isValid) {
+            numbers.pop_back(); // remove the invalid entry from the vector
         }
     }
     if (numbers.size() == 0) {
