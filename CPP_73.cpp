@@ -25,10 +25,16 @@ int smallest_change(std::vector<int> arr) {
 int main() {
     std::vector<int> input;
     int n;
-    std::cin >> n;
+    cin >> n;
     for (int i = 0; i < n; ++i)
-        input.push_back(std::cin >> 0);
-
-    std::cout << smallest_change(input);
+        input.push_back(0);
+    cin.ignore();
+    while (input.size() < n) {
+        int temp;
+        cin >> temp;
+        input.push_back(temp);
+    }
+    
+    cout << smallest_change(input);
     return 0;
 }
