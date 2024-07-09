@@ -5,25 +5,23 @@ vector<int> strange_sort_vector(vector<int> lst) {
     if (lst.empty()) return lst;
     
     vector<int> result;
-    sort(lst.begin(), lst.end());
-    int min = *min_element(lst.begin(), lst.end());
-    int max = *max_element(lst.begin(), lst.end());
+    vector<int> temp = lst;
+    sort(temp.begin(), temp.end());
+    int min = *min_element(temp.begin(), temp.end());
+    int max = *max_element(temp.begin(), temp.end());
 
-    for (int i = 0; i < lst.size(); i++) {
-        if (lst[i] == min) {
+    while (!temp.empty()) {
+        if (temp[0] == min) {
             result.push_back(min);
-            while (i < lst.size() && lst[i] == min) {
-                lst.erase(lst.begin() + i);
-                i--;
-            }
-        } else if (lst[i] == max) {
+            temp.erase(temp.begin());
+            min = *min_element(temp.begin(), temp.end());
+        } else if (temp[0] == max) {
             result.push_back(max);
-            while (i < lst.size() && lst[i] == max) {
-                lst.erase(lst.begin() + i);
-                i--;
-            }
+            temp.erase(temp.begin());
+            max = *max_element(temp.begin(), temp.end());
         } else {
-            result.push_back(lst[i]);
+            result.push_back(temp[0]);
+            temp.erase(temp.begin());
         }
     }
 
