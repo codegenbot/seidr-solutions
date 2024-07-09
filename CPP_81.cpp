@@ -1,16 +1,13 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    // implement your logic here to check if two vectors are same
 }
 
-std::vector<std::string> numericalLetterGrade(std::vector<float> grades){
-    std::vector<std::string> result;
+std::vector<string> numerical_letter_grade(std::vector<float> grades){
+    vector<string> result;
     for(float grade : grades){
         if(grade >= 4.0) result.push_back("A+");
         else if(grade > 3.7) result.push_back("A");
