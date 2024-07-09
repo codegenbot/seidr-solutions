@@ -1,30 +1,27 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::size_t pos = 0;
-    while ((pos = str.find(" ")) != std::string::npos) {
-        std::size_t nextPos = str.find(" ", pos + 1);
-        if (nextPos == std::string::npos) {
-            nextPos = str.length();
-        }
-        std::string word = str.substr(pos, nextPos - pos);
+std::string spinWords(std::string input) {
+    std::string output = "";
+    std::istringstream iss(input);
+    std::string word;
+    
+    while (iss >> word) {
         if (word.length() >= 5) {
             std::reverse(word.begin(), word.end());
         }
-        result += word + " ";
-        pos = nextPos;
+        
+        output += word + " ";
     }
-    return result;
+    
+    return output.substr(0, output.size()-1); // remove the extra space at the end
 }
 
 int main() {
-    // You can test your function here
-    std::cout << spinWords("a") << std::endl; // Should print: a
-    std::cout << spinWords("this is a test") << std::endl; // Should print: this is a test
-    std::cout << spinWords("this is another test") << std::endl; // Should print: this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // Should print: hi
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+    
     return 0;
 }
