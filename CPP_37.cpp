@@ -1,21 +1,28 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i]) != std::abs(b[i])) return false;
+        if (std::abs(a[i]) != std::abs(b[i])) {
+            return false;
+        }
     }
     return true;
 }
 
 std::vector<float> sort_even(std::vector<float> input) {
-    std::vector<float> even;
+    std::vector<float> evenNumbers;
     for (float num : input) {
-        if (num >= 0.0f) even.push_back(num);
+        if (num >= 0.0f) {
+            evenNumbers.push_back(num);
+        }
     }
-    std::sort(even.begin(), even.end());
-    return even;
+    std::sort(evenNumbers.begin(), evenNumbers.end());
+    return evenNumbers;
 }
 
 int main() {
