@@ -13,5 +13,8 @@ bool correct_bracketing(string brackets){
             return false;
         }
     }
-    return (balance == 0);
+    if (balance != 0) {
+        return false;
+    }
+    return true;
 }
