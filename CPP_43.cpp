@@ -1,3 +1,6 @@
+#include <vector>
+#include <set>
+
 bool pairs_sum_to_zero(vector<vector<int>> l) {
     set<int> s;
     for (const auto& v : l) {
