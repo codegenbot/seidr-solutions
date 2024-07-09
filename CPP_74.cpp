@@ -11,10 +11,9 @@ bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
         for (const auto& s : lst2) {
             sum2 += s.length();
         }
-        if (sum1 < sum2) return lst1;
-        else if (sum1 > sum2) return lst2;
-        else return lst1;
+        if (sum1 < sum2) return std::vector<std::string>(v1);
+        else if (sum1 > sum2) return std::vector<std::string>(v2);
+        else return v1;
     }
-    
     return total_match(v1, v2);
 }
