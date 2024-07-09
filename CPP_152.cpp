@@ -42,8 +42,9 @@ int main() {
     std::vector<int> guess(n);
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
-        int;
-        std::cin >> guess[i];
+        int temp;
+        std::cin >> temp;
+        guess[i] = temp;
     }
     
     if(issame(game, guess))

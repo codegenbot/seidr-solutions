@@ -1,25 +1,23 @@
-```cpp
-#include <cassert>
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-int Strongest_Extension(std::string className, const std::vector<std::string>& extensions) {
+int strongestExtension(std::string className, const std::vector<std::string>& extensions) {
     int strongest = 0;
     for (const auto& extension : extensions) {
         if (extension.find(className) != std::string::npos) {
-            return 1; 
+            strongest = 1;
+            break;
         }
     }
     return strongest;
+
 }
 
 int main() {
-#ifndef NDEBUG 
-#include <cassert>
-#endif
     std::vector<std::string> extensions = {"671235", "Bb"};
-    int strongest = Strongest_Extension("Sp", extensions);
-    if (!std::isocpp_libcxx)  
-        assert (strongest == 1);  
+    int strongest = strongestExtension("Sp", extensions);
+    assert(std::to_string(strongest) == "1");
     return 0;
 }
