@@ -6,7 +6,7 @@ int prod_signs(vector<int> arr) {
 
     for (int num : arr) {
         if (num == 0) {
-            return -32768; // 0 in the middle of numbers
+            return -32768; 
         }
         sign_product *= ((num > 0) ? 1 : ((num < 0) ? -1 : 0));
         sum += abs(num);
