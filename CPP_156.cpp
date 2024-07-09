@@ -1,26 +1,26 @@
 ```cpp
-#include <vector>
 #include <string>
-#include <cassert>
 
-using namespace std;
+std::string int_to_mini_roman(int n);
 
-std::string int_to_mini_roman(int number) {
-    vector<pair<int, string>> romans = {{1000,"M"},{900,"CM"},{500,"D"},{400,"CD"},{100,"C"},{90,"XC"},
-                                         {50,"L"},{40,"XL"},{10,"X"},{9,"IX"},{5,"V"},{4,"IV"},{1,"I"}};
-    std::string roman = "";
-    for (auto p : romans) {
-        while (number >= p.first) {
-            number -= p.first;
-            roman += p.second;
-        }
-    }
-    return roman;
+int main() {
+    std::string roman = int_to_mini_roman(1000);
+    // ...
 }
 
-int main {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    cout << "Mini Roman representation of the number is : " << int_to_mini_roman(n) << endl;
+std::string int_to_mini_roman(int n) {
+    if (n <= 0)
+        return "";
+    
+    static const char* Roman[15] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+    static int Val[15] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    
+    std::string res;
+    for (int i = 0; i < 13; ++i)
+        while (n >= Val[i]) {
+            n -= Val[i];
+            res += Roman[i];
+        }
+    
+    return res;
 }
