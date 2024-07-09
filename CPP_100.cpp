@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 bool issame(vector<int> a, vector<int> b);
 
@@ -33,6 +32,6 @@ int main() {
     for (auto i : a) std::cout << i << " ";
     std::cout << std::endl;
     
-    assert (issame(a, vector<int>({8, 10, 12, 14, 16, 18, 20, 22})));
+    assert (issame(a, {8, 10, 12, 14, 16, 18, 20, 22})); 
     return 0;
 }
