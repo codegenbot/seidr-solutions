@@ -1,4 +1,7 @@
-```cpp
+#include <vector>
+#include <string>
+#include <algorithm>
+
 bool issame(vector<string> a,vector<string> b){
     return (a == b);
 }
@@ -26,6 +29,6 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    assert(issame(vector<string>(by_length({9, 4, 8})), vector<string>({"Nine", "Eight", "Four"})));
     return 0;
 }
