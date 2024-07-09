@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <cctype> // Include cctype header for islower function
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> words;
@@ -22,7 +23,7 @@ std::vector<std::string> split_words(std::string txt) {
     if (words.empty()) {
         int count = 0;
         for (char& c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
+            if (std::islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
@@ -31,7 +32,7 @@ std::vector<std::string> split_words(std::string txt) {
     return words;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) { // Change reference to value
     if (a.size() != b.size()) {
         return false;
     }
@@ -45,6 +46,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
+    // Test cases using assert
     assert(issame(split_words(""), {"0"}));
     assert(!issame(split_words("hello"), {"world"}));
 
