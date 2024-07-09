@@ -1,3 +1,2 @@
-int starts_one_ends(int n){
-    return n * 2 - 1;
+return 2 * 9 * (int)pow(10, n-2);
 }
