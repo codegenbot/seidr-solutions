@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     def eval_expr(expression):
         if expression == "T":
@@ -5,17 +6,27 @@ def solve_boolean(expression):
         elif expression == "F":
             return False
         elif expression[0] in ["&", "|"]:
-            if "&" == expression[0]:
-                return all(eval_bool(sub) for sub in expression[1:].split("&"))
+            i = expression.find("(")
+            j = expression.find(")")
+            if i != -1:  
+                left = eval_expr(expression[i+1:j])
+                expression = expression[:i] + expression[j+1:]
+                right = eval_expr(expression)
+                return left and right or left
             else:
-                return any(eval_bool(sub) for sub in expression[1:].split("|"))
+                left = eval_expr(expression[1])
+                right = eval_expr(expression[2:])
+                if expression[0] == "&":
+                    return left and right
+                else:
+                    return left or right
 
-    def eval_bool(expression):
-        if "T" in expression and "F" in expression:
-            raise ValueError("Invalid Boolean expression")
-        return eval_expr(expression)
+        else:  
+            i = expression.find("(")
+            j = expression.find(")")
+            if i != -1:  
+                return eval_expr(expression[i+1:j])
+            elif j != -1:
+                return eval_expr(expression[:j])
 
-    try:
-        return eval_bool(expression)
-    except ValueError as e:
-        print(e)
+    return eval_expr(expression)

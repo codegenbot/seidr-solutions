@@ -1,3 +1,8 @@
+#include <string>
+#include <map>
+#include <unordered_map>
+#include <utility>
+
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -22,3 +27,4 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
     }
 
     return std::make_pair(white, black);
+}
