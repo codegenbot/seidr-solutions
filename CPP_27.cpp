@@ -1,9 +1,9 @@
 #include <iostream>
 #include <cctype>
-using namespace std;
+#include <string>
 
-string filp_case(string str){
-    string result = "";
+std::string filp_case(std::string str){
+    std::string result = "";
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z')
@@ -15,10 +15,9 @@ string filp_case(string str){
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    string flipped = filp_case(str);
-    cout << "Flipped case: " << flipped << endl;
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    std::cout << "Flip Case of the string is : " << filp_case(s) << std::endl;
     return 0;
 }
