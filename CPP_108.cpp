@@ -1,11 +1,4 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
-int count_nums(vector<int> nums) {
+int count_nums(std::vector<int>(nums)) {
     int sign = 1;
     int count = 0;
     for (int num : nums) {
@@ -28,4 +21,3 @@ int main() {
     assert(count_nums({1}) == 1);
     cout << "Count: " << count_nums({-1234, 5678, -9012}) << endl;
     return 0;
-}

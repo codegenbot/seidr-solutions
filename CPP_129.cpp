@@ -1,6 +1,6 @@
-```
+```cpp
 #include <vector>
-#include <climits>
+#include <algorithm>
 
 bool issame(vector<int> a,vector<int>b){
     if(a.size() != b.size()) return false;
@@ -30,12 +30,22 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (dp[i][j] == cur) {
-                for(int x=0;x<k;x++){
-                    res[x] = grid[i][j];
+                for(int m=0;m<k;m++){
+                    res[m]=grid[i][j];
                 }
                 return res;
             }
         }
     }
     return {};
+}
+
+int main(){
+    assert(issame({1, 3}, {1, 3})); 
+    vector<int> res = minPath({{1, 3}, {3, 2}}, 10); 
+    assert(res.size() == 10); 
+    for(int i=0; i<res.size();i++){
+        cout<<res[i]<<" ";
+    }
+    return 0;
 }
