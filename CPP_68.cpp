@@ -35,8 +35,3 @@ bool issame(std::vector<int> a, std::vector<int> b){
     
     return true;
 }
-
-int main(){
-    // Your test code goes here
-    return 0;
-}
