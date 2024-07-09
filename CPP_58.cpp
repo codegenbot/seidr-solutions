@@ -1,11 +1,19 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    std::vector<int> result;
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    std::set_intersection(a.begin(), a.end(), b.begin(), b.end(), std::back_inserter(result));
-    result.erase(std::unique(result.begin(), result.end()), result.end());
-    return result.empty();
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    vector<int> result;
+    set_intersection(a.begin(), a.end(), b.begin(), b.end(), back_inserter(result));
+    result.erase(unique(result.begin(), result.end()), result.end());
+    return (result.empty());
+}
+
+int main() {
+    assert(issame({4, 3, 2, 8}, {}));
+    return 0;
 }
