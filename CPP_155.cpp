@@ -1,13 +1,11 @@
-```cpp
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    return (a == b);
+    return (a[0] == b[0]) && (a[1] == b[1]);
 }
 
 vector<int> even_odd_count(int num) {
-    int count_even = 0;
-    int count_odd = 0;
+    vector<int> result = {0, 0};
 
     if (num < 0)
         num = -num;
@@ -15,12 +13,12 @@ vector<int> even_odd_count(int num) {
     while (num != 0) {
         int digit = num % 10;
         if (digit % 2 == 0)
-            count_even++;
+            result[0]++;
         else
-            count_odd++;
+            result[1]++;
 
         num /= 10;
     }
 
-    return {count_even, count_odd};
+    return result;
 }
