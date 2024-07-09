@@ -16,6 +16,8 @@ int main() {
 
     cout << "Enter a dictionary of word-meanings (format: word meaning, each pair on a new line). Type 'stop' to finish input." << endl;
 
+    key = "";
+    
     while(true){
         cin >> key >> string();
         if(key == "stop") break;
