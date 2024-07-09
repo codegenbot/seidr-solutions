@@ -13,5 +13,4 @@ bool issame(vector<int> a,vector<int>b){
 
 int main(){
     assert(issame(get_odd_collatz(1) , vector<int>{1}));
-    // rest of your code
 }
