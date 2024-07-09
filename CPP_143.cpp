@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,11 +16,11 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     return tokens;
 }
 
-std::vector<int> words_in_sentence(std::string sentence) {
+std::vector<std::string> words_in_sentence(std::string sentence) {
     if (sentence.empty()) {
         return {};
     }
-    std::vector<int> wordLengths; 
+    std::vector<std::string> wordLengths; 
     std::string result = "";
 
     for (const auto& word : split(sentence, ' ')) {
@@ -38,11 +37,7 @@ std::vector<int> words_in_sentence(std::string sentence) {
 
             if (isPrime) {
                 result += word + " ";
-                if (!wordLengths.empty()) {
-                    wordLengths.push_back(length);
-                } else {
-                    wordLengths = {length};
-                }
+                wordLengths.push_back(std::to_string(length));
             }
         }
     }
