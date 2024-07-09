@@ -1,3 +1,4 @@
-int my_strlen(string str){
+```
+int custom_strlen(string str){
     return str.length();
 }
