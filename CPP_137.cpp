@@ -1,35 +1,9 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <boost/any.hpp>
-
-using namespace std;
-using namespace boost;
-
-int main() {
-    int a = 0;
-    float b = 0.0f;
-    cout << "Enter the first number (integer or float): ";
-    cin >> boost::any_cast<int>(&a);
-    
-    cout << "Enter the second number (integer or float): ";
-    cin >> boost::any_cast<float>(&b);
-
-    boost::any result = compare_one(boost::any(a), boost::any(b));
-    if (boost::any_cast<string>(result) == "None")
-        cout << "The numbers are equal.\n";
-    else
-        cout << "The larger number is: " << boost::any_cast<string>(result) << ".\n";
-
-    return 0;
-}
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (boost::any_cast<float>(b) > boost::any_cast<int>(a)) ? b : a;
+        return b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (boost::any_cast<int>(a) > boost::any_cast<float>(b)) ? a : b;
+        return a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str1 = boost::any_cast<string>(a);
@@ -61,7 +35,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (num1 < num2)
             return b;
         else
-            return "None";
+            return boost::any("None");
     }
     else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
         string str = boost::any_cast<string>(a);
@@ -84,14 +58,17 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (num1 < num2)
             return b;
         else
-            return "None";
+            return boost::any("None");
     }
     else {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b))
+        float num1 = boost::any_cast<float>(a);
+        float num2 = boost::any_cast<float>(b);
+
+        if (num1 > num2)
             return a;
-        else if (boost::any_cast<float>(a) < boost::any_cast<float>(b))
+        else if (num1 < num2)
             return b;
         else
-            return "None";
+            return boost::any("None");
     }
 }
