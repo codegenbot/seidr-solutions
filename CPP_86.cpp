@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <string>
 #include <vector>
@@ -23,10 +22,10 @@ string split(const string& str, char sep) -> string {
     return join(tokens, " ");
 }
 
-string anti_shuffle(string s) -> string {
+string anti_shuffle(string s) {
     string result = "";
     for (const auto& word : split(s, ' ')) {
-        string temp = word + "";
+        string temp = word + ""; // Fix
         sort(temp.begin(), temp.end());
         result += temp + " ";
     }
