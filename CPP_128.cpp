@@ -1,6 +1,6 @@
 #include <vector>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 using namespace std;
 
@@ -25,5 +25,4 @@ int prod_signs(vector<int> arr) {
 
 int main() {
     assert (prod_signs({-1, 1, 1, 0}) == 0);
-    return 0; 
 }
