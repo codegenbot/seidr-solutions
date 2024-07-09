@@ -1,59 +1,37 @@
-```cpp
 #include <vector>
 #include <algorithm>
-bool issame(vector<string>, vector<string>);
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> sortedArr;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            sortedArr.push_back(num);
-        }
-    }
-    reverse(sortedArr.begin(), sortedArr.end());
-    vector<string> result;
-    for (int num : sortedArr) {
-        switch (num) {
-            case 1:
-                result.push_back("One");
-                break;
-            case 2:
-                result.push_back("Two");
-                break;
-            case 3:
-                result.push_back("Three");
-                break;
-            case 4:
-                result.push_back("Four");
-                break;
-            case 5:
-                result.push_back("Five");
-                break;
-            case 6:
-                result.push_back("Six");
-                break;
-            case 7:
-                result.push_back("Seven");
-                break;
-            case 8:
-                result.push_back("Eight");
-                break;
-            case 9:
-                result.push_back("Nine");
-                break;
-        }
-    }
-    return result;
+bool issame(vector<string> a, vector<string>b) {
+    return a == b;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) {
-        return false;
+int main() {
+    int size;
+    std::cout << "Enter the number of elements in array: ";
+    std::cin >> size;
+
+    std::vector<int> arr(size);
+    for (auto& num : arr) {
+        std::cout << "Enter element " << (size > 1 ? ++num : "1") << ": ";
+        std::cin >> num;
     }
-    for(int i=0; i<a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
+
+    vector<string> result = by_length(arr);
+
+    int choice;
+    std::cout << "Press 1 to reverse the array, any other key to compare with itself: ";
+    std::cin >> choice;
+
+    if (choice == 1) {
+        std::reverse(result.begin(), result.end());
     }
-    return true;
+
+    vector<string> test_result = by_length(arr);
+    std::cout << "Final output: ";
+    for (const auto& str : result) {
+        std::cout << str << " ";
+    }
+    std::cout << "\nIs same with original? " << (issame(result, test_result) ? "Yes" : "No") << std::endl;
+
+    return 0;
 }
