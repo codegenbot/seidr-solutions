@@ -1,28 +1,29 @@
-Here is the completed code:
-
-int count_nums(vector<int> n) {
+int count_nums(vector<int> nums) {
     int count = 0;
-    for (int num : n) {
+    for (int num : nums) {
+        bool has_positive_sum = false;
         if (num >= 0) {
             int sum = 0;
             while (num > 0) {
-                sum += num % 10;
+                int digit = num % 10;
+                sum += digit;
                 num /= 10;
             }
-            if (sum > 0) {
-                count++;
-            }
+            has_positive_sum = sum > 0;
         } else {
-            num = -num; // convert to positive
-            int sum = 0;
-            while (num > 0) {
-                sum += num % 10;
+            int sum = 0, sign_digit = 0;
+            bool is_negative = true;
+            while (num < 0) {
+                int digit = --sign_digit * -1; // Get the absolute value of the digit
                 num /= 10;
+                if (digit > 0) {
+                    is_negative = false;
+                }
+                sum += digit;
             }
-            if (sum > 0) {
-                count++;
-            }
+            has_positive_sum = !is_negative && sum > 0;
         }
+        if (has_positive_sum) count++;
     }
     return count;
 }
