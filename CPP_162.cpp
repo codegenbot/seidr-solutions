@@ -1,10 +1,26 @@
 #include <string>
 #include <algorithm>
-#include <iostream>
+#include <hash.h>
+
+struct MD5_CTX {
+    unsigned int bytes[4];
+};
+
+unsigned int MD5_Init(MD5_CTX *ctx) {
+    // your code here...
+}
+
+void MD5_Update(MD5_CTX *ctx, const char *inbuf, unsigned int inlen) {
+    // your code here...
+}
+
+void MD5_Final(unsigned char *mdigest, MD5_CTX *context) {
+    // your code here...
+}
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
+
     unsigned char md5[16];
     MD5_CTX ctx;
     MD5_Init(&ctx);
