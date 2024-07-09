@@ -2,24 +2,20 @@
 #include <string>
 #include <cmath>
 
-int do_algebra(std::vector<std::string> operatoR, std::vector<int> operand){
+int do_algebra(std::vector<std::string> operator, std::vector<int> operand){
     int result = operand[0];
-    for (int i = 0; i < operatoR.size(); ++i) {
-        if (operatoR[i] == "+") {
+    for (int i = 0; i < operator.size(); ++i) {
+        if (operator[i] == "+") {
             result += operand[i + 1];
-        } else if (operatoR[i] == "-") {
+        } else if (operator[i] == "-") {
             result -= operand[i + 1];
-        } else if (operatoR[i] == "*") {
+        } else if (operator[i] == "*") {
             result *= operand[i + 1];
-        } else if (operatoR[i] == "//") {
+        } else if (operator[i] == "//") {
             result /= operand[i + 1];
-        } else if (operatoR[i] == "**") {
+        } else if (operator[i] == "**") {
             result = std::pow(result, operand[i + 1]);
         }
     }
     return result;
-}
-
-int main() {
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
 }
