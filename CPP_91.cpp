@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 
 int is_bored(string S){
     int count = 0;
@@ -16,4 +15,3 @@ int is_bored(string S){
     if(word.find("I") == 0)
         count++;
     return count;
-}
