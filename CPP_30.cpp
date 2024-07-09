@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool operator==(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -24,6 +24,6 @@ std::vector<float> getPositive(const std::vector<float>& l) {
 }
 
 int main() {
-    assert(getPositive({}).empty());
+    assert(issame(getPositive({}), {}) == true);
     return 0;
 }
