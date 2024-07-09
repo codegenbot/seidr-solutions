@@ -17,5 +17,4 @@ int main() {
     std::cin >> a >> b;
     int result = findGCD(a, b);
     std::cout << "The GCD is: " << result << std::endl;
-    return 0;
 }
