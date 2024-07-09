@@ -1,5 +1,8 @@
-Here's the completed code:
+#include <cmath>
+
+using namespace std;
 
 bool is_simple_power(int x, int n) {
-    return pow(n, ceil(log(x)/log(n))) == x;
+    double log_val = log(x) / log(n);
+    return floor(log_val + 0.5) == log_val;
 }
