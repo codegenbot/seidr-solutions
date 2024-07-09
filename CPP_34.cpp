@@ -24,10 +24,10 @@ It std::distinct(It first, It last) {
             result.push_back(*first);
     }
 
-    return result.begin();
+    return result.end();
 }
 
-int main() {
+void solveProblem() {
     std::vector<int> input;
     int n;
     cin >> n;
@@ -45,7 +45,7 @@ int main() {
         cout << i << " ";
     }
     
-    assert(std::equal({0, 2, 3, 5, 9, 123}.begin(), {0, 2, 3, 5, 9, 123}.end(), std::vector<int>(std::distinct(input.begin(), input.end()).begin(), std::distinct(input.end())));
+    assert(std::equal({0, 2, 3, 5, 9, 123}.begin(), {0, 2, 3, 5, 9, 123}.end(), std::vector<int>(std::distinct(input.begin(), input.end()), std::distinct(input.end())));
 
-    return 0;
+    return;
 }
