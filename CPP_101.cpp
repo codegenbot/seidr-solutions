@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,6 +19,13 @@ std::vector<std::string> words_string(std::string s){
             if(word.size() <= 30){ 
                 result.push_back(word);
                 word = "";
+            }else{
+                int j = word.find_last_of(" ");
+                if(j != std::string::npos) {
+                    word = word.substr(0, j+1);
+                }
+                result.push_back(word);
+                word = "";
             }
         }else{
             word += s[i];
@@ -30,5 +38,4 @@ std::vector<std::string> words_string(std::string s){
 
 int main(){
     assert(issame(words_string("ahmed     , gamal"), std::vector<std::string>{"ahmed", "gamal"}));
-    return 0;
 }
