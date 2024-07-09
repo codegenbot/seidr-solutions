@@ -5,7 +5,8 @@
 int hex_key(std::string num) {
     int count = 0;
     for (char c : num) { 
-        if (((c >= '2' && c <= '7') || (c == 'B' || c == 'D' || c == 'F'))){ 
+        c = tolower(c); // Convert to lowercase
+        if ((c >= '2' && c <= '7') || (c == 'b' || c == 'd' || c == 'f')){ 
             count++;
         }
     }
