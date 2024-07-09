@@ -1,6 +1,6 @@
-#include <iostream>
 #include <initializer_list>
 #include <vector>
+#include <iostream>
 
 std::vector<int> leaders(std::vector<int>& inputVector) {
     std::vector<int> result;
@@ -8,6 +8,18 @@ std::vector<int> leaders(std::vector<int>& inputVector) {
     for (int i = n - 1; i >= 0; i--) {
         if (i == n - 1 || inputVector[i] >= inputVector[i + 1]) {
             result.push_back(inputVector[i]);
+        }
+    }
+    return result;
+}
+
+std::vector<int> leaders(std::vector<int>& inputVector) {
+    std::vector<int> result;
+    int max = inputVector.back();
+    for (int i = inputVector.size() - 1; i >= 0; i--) {
+        if (inputVector[i] >= max) {
+            result.push_back(inputVector[i]);
+            max = inputVector[i];
         }
     }
     return result;
