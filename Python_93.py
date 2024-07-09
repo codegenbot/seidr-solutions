@@ -8,7 +8,7 @@ def encode(message):
                 encoded_message += chr((ord(char) - ord("a") + 1) % 26 + ord("A"))
             else:
                 encoded_message += char.swapcase()
-        elif char == " ":
+        elif char.isspace():
             encoded_message += " "
         else:
             encoded_message += char
