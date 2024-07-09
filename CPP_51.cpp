@@ -1,4 +1,3 @@
-```c
 #include <string>
 #include <iostream>
 using namespace std;
@@ -16,5 +15,4 @@ int main() {
         }
     }
     cout << "String after removing vowels: " << result << endl;
-    return 0;
 }
