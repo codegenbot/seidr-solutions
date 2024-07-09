@@ -1,30 +1,38 @@
-#include <iostream>
 #include <string>
+#include <vector>
+
 using namespace std;
 
 int fruit_distribution(string s, int n) {
-    size_t pos = 0;
-    int totalApples = 0, totalOranges = 0;
-
-    while ((pos = s.find(" apples", pos)) != string::npos) {
-        int numApples = stoi(s.substr(0, pos - 6));
-        totalApples += numApples;
-        s.erase(0, pos);
+    vector<string> words = split(s, ' ');
+    int total_apples = 0;
+    for (int i = 0; i < words.size(); i++) {
+        if (words[i].find("apples") != string::npos) {
+            total_apples = stoi(words[i - 1]) + total_apples;
+            break;
+        }
     }
 
-    while ((pos = s.find(" oranges", 0)) != string::npos) {
-        int numOranges = stoi(s.substr(0, pos - 7));
-        totalOranges += numOranges;
-        s.erase(0, pos);
+    int total_oranges = 0;
+    for (int i = 0; i < words.size(); i++) {
+        if (words[i].find("oranges") != string::npos) {
+            total_oranges = stoi(words[i - 1]) + total_oranges;
+            break;
+        }
     }
 
-    return n - totalApples - totalOranges;
+    return n - total_apples - total_oranges;
 }
 
-int main() {
-    cout << fruit_distribution("5 apples and 6 oranges", 19) << endl;
-    cout << fruit_distribution("0 apples and 1 oranges", 3) << endl;
-    cout << fruit_distribution("2 apples and 3 oranges", 100) << endl;
-    cout << fruit_distribution("100 apples and 1 oranges", 120) << endl;
-    return 0;
+vector<string> split(const string& str, char delim) {
+    vector<string> tokens;
+    size_t prev = 0, pos = 0;
+    do {
+        pos = str.find(delim, prev);
+        if (pos == string::npos) pos = str.length();
+        string token = str.substr(prev, pos - prev);
+        if (!token.empty()) tokens.push_back(token);
+        prev = pos + 1;
+    } while (pos < str.length());
+    return tokens;
 }
