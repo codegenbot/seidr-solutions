@@ -1,5 +1,6 @@
 def car_race_collision(car: int, speed: int):
     if speed > 0:
-        return (car * (3*car - 1)) // 2
+        total_distance = (car * (2 * car - 1)) // 2
+        return total_distance
     else:
-        return (car * (2*car + 1)) // 2
+        return 0
