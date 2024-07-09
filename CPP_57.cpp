@@ -3,11 +3,12 @@ bool monotonic(vector<float> l) {
     bool decreasing = true;
 
     for (int i = 1; i < l.size(); i++) {
-        if (l[i] > l[i - 1]) {
-            decreasing = false;
-        } else if (l[i] < l[i - 1]) {
-            increasing = false;
-        }
+        if ((l[i] > l[i-1]) && !increasing)
+            return false;
+        if ((l[i] < l[i-1]) && !decreasing)
+            return false;
+        increasing |= l[i] >= l[i-1];
+        decreasing &= l[i] <= l[i-1];
     }
 
     return increasing || decreasing;
