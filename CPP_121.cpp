@@ -1,6 +1,8 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <memory>
+#include <cassert>
 
 int sumOdd(std::vector<int> lst) {
     int sum = 0;
@@ -22,14 +24,14 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    int num, n = 0;
     std::vector<int> lst;
-    std::cout << "Enter numbers (terminate with 0): ";
+    int num;
     while (std::cin >> num) {
-        if(num == 0)
-            break;
-        lst.push_back(num);
-        n++;
+        if(lst.size() < 1000){ 
+            lst.push_back(num);
+        } else {
+            break; 
+        }
     }
     int result = solutions(lst);
     assert(result == 25);
