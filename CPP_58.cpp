@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cassert>
 using namespace std;
@@ -20,10 +19,14 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
-    vector<int> input1 = {1, 2, 3, 4, 5};
-    vector<int> input2 = {3, 4, 5, 6, 7};
-    vector<int> output = common(input1, input2);
-    for(int i=0; i < output.size();i++) {
-        cout<<output[i]<<" ";
-    }
+    
+    // Test case 1
+    vector<int> list1 = {1, 2, 3, 4};
+    vector<int> list2 = {3, 4, 5, 6};
+    assert(issame(common(list1, list2), vector<int>({3, 4})));
+    
+    // Test case 2
+    vector<int> list3 = {7, 8, 9};
+    vector<int> list4 = {};
+    assert(issame(common(list3, list4), vector<int>())); 
 }
