@@ -1,21 +1,20 @@
 #include <vector>
 
-std::vector<int> even_odd_count(int num) {
-    int even_count = 0;
-    int odd_count = 0;
-    std::string num_str = std::to_string(std::abs(num));
+vector<int> even_odd_count(int num) {
+    vector<int> result(2, 0);
+    string num_str = to_string(abs(num));
 
     for (char c : num_str) {
         if ((c - '0') % 2 == 0) {
-            even_count++;
+            result[0]++;
         } else {
-            odd_count++;
+            result[1]++;
         }
     }
 
-    return {even_count, odd_count};
+    return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame_vectors(vector<int> a, vector<int> b) {
     return a == b;
 }
