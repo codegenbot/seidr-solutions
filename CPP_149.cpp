@@ -2,11 +2,12 @@
 #include <string>
 #include <algorithm>
 #include <cassert>
+#include <set>
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b){
-    return a == b;
+bool issame(vector<string> a, vector<string> b){
+    return set<string>(a.begin(), a.end()) == set<string>(b.begin(), b.end());
 }
 
 vector<string> sorted_list_sum(vector<string> lst){
