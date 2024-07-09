@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -7,7 +8,8 @@ int main() {
     double startHeight, firstBounceHeight;
     int numBounces;
 
-    cin >> startHeight >> firstBounceHeight >> ws >> numBounces;
+    cin >> startHeight >> firstBounceHeight >> ignore;
+    cin >> numBounces;
 
     double bouncinessIndex = firstBounceHeight / startHeight;
 
@@ -19,3 +21,4 @@ int main() {
     cout << fixed << setprecision(5) << showpoint << totalDistance << endl;
 
     return 0;
+}
