@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -8,9 +7,7 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    string rev_str = str;
-    reverse(rev_str.begin(), rev_str.end());
-    if (str != rev_str) return false;
+    if (str != string(str.rbegin(), str.rend())) return false;
     int sum = 0;
     for (int i : q) {
         sum += i;
