@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result;
+    vector<int> result(2);
     int even = 0;
     int odd = 0;
 
@@ -27,16 +26,15 @@ vector<int> even_odd_palindrome(int n) {
         }
     }
 
-    result.push_back(even);
-    result.push_back(odd);
+    result[0] = even;
+    result[1] = odd;
 
     return result;
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> res = even_odd_palindrome(n);
-    cout << "(" << res[0] << ", " << res[1] << ")" << endl;
+    cin >> n; 
+    cout << "(" << even_odd_palindrome(n)[0] << ", " << even_odd_palindrome(n)[1] << ")" << endl; 
     return 0;
 }
