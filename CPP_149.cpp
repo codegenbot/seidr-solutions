@@ -2,12 +2,12 @@
 #include <algorithm>
 #include <string>
 
-bool isSame(const std::string& a, const std::string& b) {
+bool issame(const std::string& a, const std::string& b) {
     return a == b;
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    auto it = unique(lst.begin(), lst.end(),
+    auto it = unique(lst.begin(), lst.end(), 
                       [](const string& a, const string& b) { return a.length() % 2 == 1; });
     lst.erase(it, lst.end());
     sort(lst.begin(), lst.end(),
