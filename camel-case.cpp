@@ -1,29 +1,33 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
+std::string camelCase(const std::string& input) {
+    std::string output;
     bool capitalizeNext = true;
-    
-    for (char c : str) {
+
+    for (char c : input) {
         if (c == '-') {
             capitalizeNext = true;
         } else if (capitalizeNext) {
-            result += toupper(c);
+            output += std::toupper(c);
             capitalizeNext = false;
         } else {
-            result += tolower(c);
+            output += c;
         }
     }
-    
-    return result;
+
+    return output;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
+    int nTests;
+    cin >> nTests;
+
+    for (int i = 0; i < nTests; ++i) {
+        std::string str;
+        cin >> str;
+        cout << camelCase(str) << endl;
     }
+
     return 0;
 }
