@@ -25,4 +25,3 @@ vector<int> order_by_points(vector<int> nums) {
     }
 
     return result;
-}
