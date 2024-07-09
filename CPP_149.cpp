@@ -1,36 +1,33 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
+using namespace std;
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    std::vector<std::string> evenLengthStrings;
-    for (const auto& str : lst) {
+vector<string> sorted_list_sum(vector<string> lst) {
+    vector<string> evenLengthStrings;
+    for (const string& str : lst) {
         if (str.length() % 2 == 0) {
             evenLengthStrings.push_back(str);
         }
     }
 
-    std::sort(evenLengthStrings.begin(), evenLengthStrings.end(),
-              [](const auto& a, const auto& b) {
-                  if (a.length() != b.length()) {
-                      return a.length() < b.length();
-                  } else {
-                      return a < b;
-                  }
-              });
+    sort(evenLengthStrings.begin(), evenLengthStrings.end(),
+         [](const string& a, const string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
+         });
 
     return evenLengthStrings;
 }
 
 int main() {
-    std::vector<std::string> input = {"aaaa", "bbbb", "dd", "cc"};
-    auto expected = {"cc", "dd", "aaaa", "bbbb"};
-
-    if (sorted_list_sum(input) == expected) {
-        std::cout << "The lists are the same.\n";
+    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
+    if (sorted_list_sum(input) == {"cc", "dd", "aaaa", "bbbb"}) {
+        cout << "The lists are the same." << endl;
     } else {
-        std::cout << "The lists are not the same: actual - " << sorted_list_sum(input)
-                  << ", expected - " << expected << '\n';
+        cout << "The lists are not the same: actual - " << sorted_list_sum(input) << ", expected - {" << "cc" << ", " << "dd" << ", " << "aaaa" << ", " << "bbbb" << "}" << endl;
     }
 }
