@@ -1,5 +1,4 @@
-```cpp
-#include <iostream>
+```#include <iostream>
 #include <set>
 #include <vector>
 
@@ -11,7 +10,9 @@ bool issame(vector<int> v1, vector<int> v2) {
     return setA == setB;
 }
 
-int main {
+int
+main()
+{
     int n1, n2, n3, n4, n5, n6, n7;
 
     cout << "Enter the first 7 numbers: ";
@@ -26,4 +27,5 @@ int main {
     } else {
         cout << "The sets are not same." << endl;
     }
+    return 0;
 }
