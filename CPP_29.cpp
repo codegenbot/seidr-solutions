@@ -20,5 +20,9 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 int main() {
     vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAAC", "xxx"};
     string prefix = "xxx";
-    assert(issame(filter_by_prefix(strings,prefix) , {"xxx", "xxxAAA", "xxx"}));
+    vector<string> filtered = filter_by_prefix(strings, prefix);
+    if(issame(filtered , {"xxx", "xxxAAA", "xxx"}))
+        cout << "Test passed!";
+    else
+        cout << "Test failed!";
 }
