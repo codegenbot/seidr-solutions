@@ -1,6 +1,11 @@
-vector<int>::iterator it = unique(lst.begin(), lst.end());
-if (lst.size() > 1 && it != lst.end()) {
-    return *it;
-} else {
-    return -1; // or None if you prefer
+int next_smallest(vector<int> lst){
+    vector<int> vec(lst);
+    sort(vec.begin(), vec.end());
+    if (vec.size() < 2) return -1;
+    for(int i = 0; i < vec.size() - 1; i++) {
+        if (vec[i] != vec[i+1]) {
+            return vec[i+1];
+        }
+    }
+    return -1;
 }
