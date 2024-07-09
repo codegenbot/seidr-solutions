@@ -1,7 +1,8 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <cmath>
 
-double poly(std::vector<double> coeffs, double x) {
+double poly(const std::vector<double>& coeffs, double x) {
     double sum = 0;
     for (int i = 0; i < coeffs.size(); i++) {
         sum += coeffs[i] * pow(x, i);
@@ -9,26 +10,26 @@ double poly(std::vector<double> coeffs, double x) {
     return sum;
 }
 
-double find_zero(std::vector<double> coeffs) {
+double find_zero(const std::vector<double>& coeffs) {
     double x = 1.0;
     while (true) {
         double y = poly(coeffs, x);
         if (std::abs(y) < 1e-6) {
             return x;
         }
-        x -= y / poly(std::vector<double>(coeffs.begin() + 1, coeffs.end()), x);
+        x -= y / poly({coeffs[1], -coeffs[0]}, x);
     }
 }
 
 int main() {
+    std::vector<double> coeffs;
     int n; 
     std::cin >> n;
 
-    std::vector<double> coeffs(n); 
     for (int i = 0; i < n; i++) {
         double coeff;
         std::cin >> coeff;
-        coeffs[i] = coeff;
+        coeffs.push_back(coeff);
     }
 
     double x; 
