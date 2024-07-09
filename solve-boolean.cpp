@@ -1,17 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <stack>
-
-int main() {
-    std::string s;
-    std::cout << "Enter a Boolean expression (T/F/|&): ";
-    std::cin >> s;
-
-    std::cout << solveBoolean(s) << std::endl;
-
-    return 0;
-}
 
 std::string solveBoolean(std::string s) {
     std::stack<char> st;
@@ -32,4 +21,14 @@ std::string solveBoolean(std::string s) {
         }
     }
     return st.top() == 'T' ? "True" : "False";
+}
+
+int main() {
+    std::string s;
+    std::cout << "Enter a Boolean expression: ";
+    std::cin >> s;
+
+    std::cout << solveBoolean(s) << std::endl;
+
+    return 0;
 }
