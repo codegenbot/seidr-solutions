@@ -1,11 +1,20 @@
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return std::is_permutation(a.begin(), a.end(), b.begin());
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+std::vector<int> unique_digits(std::vector<int> a) {
+    std::vector<int> result = a;
+    for (int &num : result) {
+        std::sort(std::begin(result), std::end(result));
+        result.erase(std::unique(std::begin(result), std::end(result)), std::end(result));
+    }
+    return result;
 }
 
 int main() {
-    std::vector<int> unique_digits = {0, 2, 4, 6, 8, 1, 3, 5, 7, 9};
+    std::vector<int> digits = {135, 103, 31};
 
-    assert(issame(unique_digits, {0, 2, 4, 6, 8, 1, 3, 5, 7, 9}));
+    assert(unique_digits(digits) == std::vector<int>{31, 103, 135});
 
     return 0;
 }
