@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -20,7 +20,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else if (sum1 > sum2)
         return lst2;
     else
-        return (issame(lst1, lst2)?lst1:total_match(total_match(lst1, lst2), {}));
+        return issame(lst1, lst2)?lst1:total_match(total_match(lst1, {}), {});
 }
 
 int main() {

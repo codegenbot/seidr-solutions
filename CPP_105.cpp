@@ -1,36 +1,37 @@
+```cpp
 #include <vector>
+#include <map>
 #include <algorithm>
-#include <string>
-
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    return (a.size() == b.size()) && all_of(a.begin(), a.end(), [&](const string& s){return find(b.begin(), b.end(), s) != b.end();});
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
+    map<int, string> num_map = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, 
+                                 {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
     for (int i : arr) {
-        switch (i) {
-            case 1: result.push_back("One"); break;
-            case 2: result.push_back("Two"); break;
-            case 3: result.push_back("Three"); break;
-            case 4: result.push_back("Four"); break;
-            case 5: result.push_back("Five"); break;
-            case 6: result.push_back("Six"); break;
-            case 7: result.push_back("Seven"); break;
-            case 8: result.push_back("Eight"); break;
-            case 9: result.push_back("Nine"); break;
-        }
+        if (i >= 1 && i <= 9)
+            result.push_back(num_map[i]);
     }
-
     sort(result.begin(), result.end());
     reverse(result.begin(), result.end());
-
     return result;
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
+    vector<int> arr = {9, 4, 8};
+    assert(issame(by_length(arr), {"Nine", "Eight", "Four"}));
     return 0;
 }
