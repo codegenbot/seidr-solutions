@@ -25,4 +25,5 @@ def evaluate_expression(expression):
             right = "True"
         expression = str(evaluate_expression(left)) + " or " + str(evaluate_expression(right))
 
+    expression = expression.replace("T", "True").replace("F", "False")
     return eval("Boolean(" + expression + ")")
