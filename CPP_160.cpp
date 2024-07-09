@@ -2,9 +2,9 @@
 #include <cmath>
 #include <utility>
 
-int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
+int do_algebra(vector<pair<char, int>> operators_and_operands) {
     int result = operators_and_operands[0].second;
-    for (int i = 1; i < operators_and_operands.size(); i++) {
+    for (int i = 0; i < operators_and_operands.size(); i++) {
         if (operators_and_operands[i].first == '+') {
             result += operators_and_operands[i].second;
         } else if (operators_and_operands[i].first == '-') {
@@ -12,9 +12,9 @@ int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
         } else if (operators_and_operands[i].first == '*') {
             result *= operators_and_operands[i].second;
         } else if (operators_and_operands[i].first == '/') {
-            result /= operators_and_operands[i].second;
+            result = result / operators_and_operands[i].second;
         } else if (operators_and_operands[i].first == '^') {
-            result = std::pow(result, operators_and_operands[i].second);
+            result = pow(result, operators_and_operands[i].second);
         }
     }
     return result;
