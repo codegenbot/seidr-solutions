@@ -1,4 +1,3 @@
-```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
     sum = 0
@@ -12,3 +11,11 @@ def luhn(card_number):
             else:
                 sum += temp
     return sum
+
+def main():
+    card_number = int(input("Enter a credit card number: "))
+    result = luhn(card_number)
+    print(result)
+
+if __name__ == "__main__":
+    main()
