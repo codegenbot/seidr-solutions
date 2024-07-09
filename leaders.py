@@ -7,6 +7,6 @@ def leaders(arr):
             leaders.append(max_right)
             max_right = arr[i]
         else:
-            leaders.append(max_right)
+            leaders.append(arr[i])
 
-    return leaders[::-1]
+    return [max_right] + leaders[::-1]
