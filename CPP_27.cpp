@@ -1,4 +1,7 @@
-string flip_case(string str){
+#include <string>
+using namespace std;
+
+string std::string flip_case(string str){
     string result = "";
     for(char c : str){
         if(c >= 'a' && c <= 'z')
@@ -10,4 +13,8 @@ string flip_case(string str){
     }
     return result;
 }
-assert (flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+
+int main() {
+    assert (flip_case("These violent delights have violent ends") == "tHEse ViOleNt DeLiGhTs HaVe ViOleNt EnDs");
+    return 0;
+}
