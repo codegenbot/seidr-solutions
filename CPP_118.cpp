@@ -1,14 +1,15 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
 
-std::string get_closest_vowel(std::string& word) {
-    for (int i = 0; i < word.size(); i++) {
-        if (std::tolower(word[i]) == 'a' || std::tolower(word[i]) == 'e' || std::tolower(word[i]) == 'i' || std::tolower(word[i]) == 'o' || std::tolower(word[i]) == 'u') {
-            return word.substr(i, 1);
+std::string get_closest_vowel(const std::string& word) {
+    for (char c : word) {
+        if (std::tolower(c) == 'a' || std::tolower(c) == 'e' || std::tolower(c) == 'i' || std::tolower(c) == 'o' || std::tolower(c) == 'u') {
+            return std::string(1, c);
         }
     }
-    return "";
+    return std::string(1, 'a');
 }
 
 int main() {
