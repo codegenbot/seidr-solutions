@@ -6,7 +6,7 @@ bool isPlanet(std::string planet);
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
 std::vector<std::string> bf(std::string planet1, std::string planet2);
 
-void solve() {
+int main() {
     std::vector<std::string> planets;
     std::cout << "Enter two planets separated by space: ";
     std::string planet1, planet2;
@@ -28,7 +28,7 @@ void solve() {
         }
     }
 
-    return;
+    return 0;
 }
 
 bool isPlanet(std::string planet) {
@@ -58,9 +58,4 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
     return result;
 
-}
-
-int main() {
-    solve();
-    return 0;
 }
