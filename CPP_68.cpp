@@ -5,7 +5,7 @@ using namespace std;
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
-    
+
     int minEvenIndex = -1;
     int minValue = INT_MAX;
     for (int i = 0; i < arr.size(); i++) {
@@ -14,12 +14,12 @@ vector<pair<int, int>> pluck(vector<int> arr) {
             minValue = arr[i];
         }
     }
-    
+
     if (minEvenIndex != -1) {
         result.push_back({minValue, minEvenIndex});
     } else {
         result.push_back({0, -1});
     }
-    
+
     return result;
 }
