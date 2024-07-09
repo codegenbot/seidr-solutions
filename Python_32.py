@@ -1,4 +1,5 @@
 xs = list(map(int, input().split()))
+
 def find_zero(xs: list):
     assert len(xs) % 2 == 0
     assert any(xs)
