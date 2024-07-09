@@ -5,9 +5,8 @@ using namespace std;
 int fuelCost(vector<int> vec) {
     int total = 0;
     for (int i : vec) {
-        int val = i / 3;
-        val = floor(val);
-        val = val - 2;
+        int val = static_cast<int>(i / 3.0);
+        val -= 2;
         total += val;
     }
     return total;
