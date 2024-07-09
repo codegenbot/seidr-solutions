@@ -1,6 +1,15 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
+
+bool issame(const std::string& s1, const std::string& s2) {
+    if (s1.size() != s2.size())
+        return false;
+    for (int i = 0; i < s1.size(); ++i)
+        if (s1[i] != s2[i])
+            return false;
+    return true;
+}
 
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
     std::vector<std::string> result;
@@ -13,30 +22,14 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
 }
 
 int main() {
-    int num_strings;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> num_strings;
+    std::vector<std::string> words = {"hello", "world", "hello world", "cpp"};
+    std::string sub = "ello";
+    std::vector<std::string> filtered_words = filter_by_substring(words, sub);
 
-    std::vector<std::string> strings(num_strings);
-
-    for (auto& str : strings) {
-        std::cout << "Enter string " << &str << ": ";
-        std::getline(std::cin, str);
-    }
-
-    std::string substring;
-    std::cout << "Enter the substring: ";
-    std::cin >> substring;
-
-    auto filtered_strings = filter_by_substring(strings, substring);
-
-    if (filtered_strings.empty()) {
-        std::cout << "No strings contain the substring.\n";
-    } else {
-        std::cout << "Strings containing the substring:\n";
-        for (const auto& str : filtered_strings) {
-            std::cout << str << "\n";
-        }
+    for (const auto& word : filtered_words) {
+        if (!issame(word, sub))
+            break;
+        std::cout << word << std::endl;
     }
 
     return 0;
