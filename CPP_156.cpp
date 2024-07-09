@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -8,16 +9,10 @@ std::string int_to_mini_romank(int number) {
     for (const auto& pair : romanMap) {
         while (number >= pair.first) {
             number -= pair.first;
-            return pair.second;
+            std::cout << pair.second;
         }
     }
-    if (number > 0) {
-        return "I";
-    } else if (number < 0) {
-        return "-";
-    } else {
-        return "";
-    }
+    return "";
 }
 
 int main() {
