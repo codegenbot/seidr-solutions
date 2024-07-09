@@ -3,7 +3,7 @@
 #include <vector>
 #include <algorithm>
 
-std::string file_name_check(std::string file_name){
+std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     bool found_dot = false;
     std::string before_dot;
@@ -29,13 +29,13 @@ std::string file_name_check(std::string file_name){
     int start = file_name.find('.');
     std::string after_dot = file_name.substr(start+1);
     std::vector<std::string> valid_extensions = {"txt", "exe", "dll"};
-    if(std::find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end())
+    if(find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end())
         return "No";
 
     return "Yes";
 }
 
 int main() {
-    std::cout << (file_name_check("s.") == "No") << std::endl; 
+    std::cout << (file_name_check("s.") == "No") << std::endl; // Print if the condition is true or not
     return 0;
 }
