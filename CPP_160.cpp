@@ -3,6 +3,19 @@
 #include <string>
 #include <vector>
 
+int do_algebra(vector<string> operator_, vector<int> operand) {
+    string expression = "";
+    for (int i = 0; i < operator_.size(); i++) {
+        expression += to_string(operand[i]);
+        expression += operator_[i];
+    }
+    expression += to_string(operand[operator_.size()]);
+
+    int result = eval(expression);
+
+    return result;
+}
+
 long long eval(const string& s) {
     int n = s.size();
     stack<int> st;
@@ -91,24 +104,12 @@ long long eval(const string& s) {
                 st.pop();
             }
             res += num;
+        } else if (op == '+') {
+            i++;
         }
-        op = s[i++];
     }
 
     return res;
-}
-
-int do_algebra(vector<string> operator_, vector<int> operand) {
-    string expression = "";
-    for (int i = 0; i < operator_.size(); i++) {
-        expression += to_string(operand[i]);
-        expression += operator_[i];
-    }
-    expression += to_string(operand[operator_.size()]);
-
-    int result = eval(expression);
-
-    return result;
 }
 
 int main() {
