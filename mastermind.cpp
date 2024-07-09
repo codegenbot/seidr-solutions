@@ -34,4 +34,3 @@ int main() {
     auto result = mastermind(code, guess);
     std::cout << "White pegs: " << result.first << ", Black pegs: " << result.second << std::endl;
     return 0;
-}
