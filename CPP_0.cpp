@@ -2,9 +2,9 @@
 #include <iostream>
 #include <vector>
 
-bool has_close_elements(float numbers[], int size, float threshold) {
-    for(int i = 0; i < size; i++){
-        for(int j = i + 1; j < size; j++){
+bool has_close_elements(std::vector<float> numbers, float threshold) {
+    for(int i = 0; i < numbers.size(); i++){
+        for(int j = i + 1; j < numbers.size(); j++){
             if(abs(numbers[i] - numbers[j]) <= threshold)
                 return true;
         }
@@ -14,7 +14,8 @@ bool has_close_elements(float numbers[], int size, float threshold) {
 
 int main() {
     float numbers[] = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    if(has_close_elements(numbers, sizeof(numbers)/sizeof(numbers[0]), 0.5f))
+    std::vector<float> a(std::begin(numbers), std::end(numbers));
+    if(has_close_elements(a, 0.5f))
         std::cout << "True";
     else
         std::cout << "False";
