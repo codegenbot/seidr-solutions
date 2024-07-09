@@ -6,7 +6,7 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result(10); // Initialize with some value
+    vector<int> result(l);
     int groupCount = 0;
 
     for (int i : l) {
@@ -16,9 +16,6 @@ vector<int> sort_third(vector<int> l) {
             if(groupCount % 3 != 0) { 
                 // Sort and reverse the current group
                 sort(result.begin() + groupCount - (groupCount % 3), result.begin() + groupCount);
-                vector<int> temp = result;
-                result.clear(); 
-                result.reserve(temp.size()); 
                 for (int j = temp.size() - 1; j >= 0; j--) {
                     result.push_back(temp[j]);
                 }
