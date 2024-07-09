@@ -1,5 +1,6 @@
-#include <boost/variant.hpp>
+Here is the modified code:
 
+#include <boost/variant.hpp>
 using namespace boost;
 
 variant<string, int, double, float> compare_one(variant<string, int, double, float> a, variant<string, int, double, float> b) {
@@ -27,4 +28,3 @@ variant<string, int, double, float> compare_one(variant<string, int, double, flo
     }
     else
         return boost::none;
-}
