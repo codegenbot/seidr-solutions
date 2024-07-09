@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -15,10 +15,9 @@ std::string string_xor(std::string a, std::string b) {
         result += res == 1 ? "1" : "0";
     }
     return result;
-
 }
 
-int main() {
+int main() { 
     assert(string_xor("0101", "0000") == "0101");
     std::string str1, str2;
     std::cout << "Enter the first string: ";
