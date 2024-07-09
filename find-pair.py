@@ -1,4 +1,3 @@
-```
 def find_pair(n, numbers):
     numbers.sort()
     left, right = 0, len(numbers) - 1
