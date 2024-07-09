@@ -11,6 +11,12 @@ vector<int> eat(int number, int need, int remaining) {
     return {eaten, left};
 }
 
-bool issame(vector<int> v1, vector<int> v2) {
+bool is_same(const vector<int>& v1, const vector<int>& v2) {
     return v1 == v2;
+}
+
+int main() {
+    assert(is_same(eat(4, 5, 1), vector<int>{5, 0}));
+    
+    return 0;
 }
