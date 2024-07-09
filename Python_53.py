@@ -2,13 +2,10 @@ def add(x, y):
     return x + y
 
 try:
-    print("Enter the first integer:")
-    x = int(input())
-
-    print("Enter the second integer:")
-    y = int(input())
+    print("Enter two integers separated by space:")
+    x, y = map(int, input().strip().split())
 
     result = add(x, y)
     print(result)
-except ValueError:
-    print("Invalid input. Please enter valid integers.")
+except (ValueError, TypeError):
+    print("Invalid input. Please enter valid integers separated by space.")
