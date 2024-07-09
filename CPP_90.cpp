@@ -1,10 +1,10 @@
 Here is the completed code:
 
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // None in C++ terms
+vector<int> next_smallest(vector<int> lst){
+    if(lst.size() < 2) return vector<int>();
     sort(lst.begin(), lst.end());
-    vector<int>::iterator it = unique(lst.begin(), lst.end());
-    lst.erase(it, lst.end());
-    if (lst.size() < 2) return -1;
-    return *next(lst.begin(), 1);
+    for(int i = 0; i < lst.size() - 1; i++){
+        if(lst[i] != lst[i+1]) return vector<int>({lst[i]});
+    }
+    return vector<int>();
 }
