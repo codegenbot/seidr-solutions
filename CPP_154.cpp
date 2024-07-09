@@ -1,6 +1,8 @@
+#include <iostream>
 #include <string>
+#include <cassert>
 
-bool cycpattern_check(std::string a, std::string b) {
+bool cycpattern_check(const std::string& a, const std::string& b) {
     int n = a.size();
     int m = b.size();
     if (n != m) return false;
@@ -8,10 +10,8 @@ bool cycpattern_check(std::string a, std::string b) {
     return temp.find(b) != std::string::npos;
 }
 
-// Test function
 int main() {
-    assert(cycpattern_check("abcde", "deabc"));
-    assert(!cycpattern_check("abcde", "edcba"));
-
+    assert(cycpattern_check("winemtt", "tinem") == true);
+    
     return 0;
 }
