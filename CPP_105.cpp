@@ -1,8 +1,14 @@
 #include <vector>
-#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
+}
+
+int main() {
+    int arr[] = {9, 4, 8};
+    vector<vector<string>> result = by_length({arr[0], arr[1], arr[2]});
+    assert(issame(result, {{ "Nine", "Eight", "Four" }}));
+    return 0;
 }
 
 vector<vector<string>> by_length(vector<int> arr) {
@@ -38,63 +44,6 @@ vector<vector<string>> by_length(vector<int> arr) {
                     num.push_back("Nine");
                     break;
             }
-        } else if (i >= 10) {
-            switch (i % 10) {
-                case 1:
-                    num.push_back(num[0] + "teen");
-                    break;
-                case 2:
-                    num.push_back(num[i / 10 - 1] + "teen");
-                    break;
-                case 3:
-                    num.push_back(num[i / 10 - 1] + "teen");
-                    break;
-                case 4:
-                    if (i % 10 == 9) {
-                        num.push_back("Ninety" + (num[0] == "One" ? "y" : ""));
-                    } else {
-                        num.push_back(num[i / 10 - 1] + "ty");
-                    }
-                    break;
-                case 5:
-                    if (i % 10 != 0) {
-                        num.push_back("Ninety" + (num[0] == "One" ? "y" : ""));
-                        num.push_back("Five");
-                    } else {
-                        num.push_back(num[i / 10 - 1] + "ty");
-                    }
-                    break;
-                case 6:
-                    if (i % 10 != 0) {
-                        num.push_back(num[i / 10 - 1] + "ty and Six");
-                    } else {
-                        num.push_back(num[i / 10 - 1] + "ty");
-                    }
-                    break;
-                case 7:
-                    if (i % 10 != 0) {
-                        num.push_back("Seven" + (num[0] == "One" ? "y" : ""));
-                    } else {
-                        num.push_back(num[i / 10 - 1] + "ty");
-                    }
-                    break;
-                case 8:
-                    if (i % 10 != 0) {
-                        num.push_back("Eight" + (num[0] == "One" ? "y" : ""));
-                    } else {
-                        num.push_back(num[i / 10 - 1] + "ty");
-                    }
-                    break;
-                case 9:
-                    if (i % 10 != 0) {
-                        num.push_back("Nine" + (num[0] == "One" ? "y" : ""));
-                    } else {
-                        num.push_back(num[i / 10 - 1] + "ty");
-                    }
-                    break;
-            }
-        } else if (i == 0) {
-            num.push_back("Zero");
         }
     }
 
