@@ -1,5 +1,8 @@
+```cpp
 #include <string>
-#include <cassert> 
+#include <cassert>
+#include <iostream>
+
 using namespace std;
 
 int how_many_times(const string& str, const string& substring) {
