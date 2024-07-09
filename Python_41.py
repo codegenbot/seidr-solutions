@@ -1,7 +1,6 @@
-```
-def car_race_collision(distance):
-    cars = int(input("Enter number of cars: "))
-    speed = int(input("Enter speed of the car: "))
-    time_taken = distance / speed
-    collisions = cars * (cars - 1) // 2
-    return time_taken, collisions
+def car_race_collision():
+    num_cars = int(input("Enter number of cars: "))
+    distance = int(input("Enter the distance traveled: "))
+    speed_limit = int(input("Enter the speed limit: "))
+    collision_point = distance // (speed_limit + 1)
+    return min(collision_point, num_cars - 1)
