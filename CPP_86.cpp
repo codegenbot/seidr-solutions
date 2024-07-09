@@ -3,7 +3,7 @@
 #include <string>
 
 std::string anti_shuffle(std::string s) {
-    std::string res(s.length(), ' '); // Initialize res with same length as s and fill with spaces.
+    std::string res(s.length(), ' ');
     for (int i = 0; i < s.length(); i++) {
         if (i % 2 == 0) {
             res[i] = s[i];  
