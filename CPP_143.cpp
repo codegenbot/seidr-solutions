@@ -43,10 +43,12 @@ std::string words_in_sentence(std::string sentence){
     return result;
 }
 
-int main() {
-    std::string input_sentence;
-    std::getline(std::cin, input_sentence);
-    std::string result = words_in_sentence(input_sentence);
-    std::cout << result << std::endl;
+int main(){
+    std::string sentence;
+    std::getline(std::cin, sentence);
+    
+    std::string output = words_in_sentence(sentence);
+    std::cout << output;
+
     return 0;
 }
