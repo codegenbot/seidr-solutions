@@ -1,22 +1,17 @@
-```cpp
 #include <iostream>
-#include <string>
+#include <cassert>
 
 using namespace std;
 
-string solve(int N) {
-    int sum = 0;
-    while (N > 0) {
-        sum += N % 2;
-        N /= 2;
+int solve(int n) {
+    string binary = "";
+    while(n > 0) {
+        if(n % 2 == 0)
+            binary = "0" + binary;
+        else
+            binary = "1" + binary;
+        n /= 2;
     }
-    return to_string(sum);
-}
-
-int main() {
-    int N;
-    cout << "Enter a number: ";
-    cin >> N;
-    cout << "The binary representation of the number is: " << solve(N) << endl;
-    return 0;
+    assert(solve(963) == stoi("10010"));
+    return binary.length() ? stoi(binary) : 0;
 }
