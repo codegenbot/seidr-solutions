@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -25,5 +26,7 @@ int main() {
     } else {
         std::cout << num << " is not a simple power.\n";
     }
+    
+    assert(isSimplePower(1, 12) == true);
     return 0;
 }
