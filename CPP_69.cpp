@@ -36,13 +36,19 @@ int main() {
             std::cin.clear();
             while (std::cin.get() != '\n') {}
         }
-        while (!(std::cin >> num) || (num <= 0)) {
+        while (!(std::cin >> num)) {
             if (!std::cin)
-                std::cout << "Invalid input. Please enter a positive integer greater than zero.\n";
+                std::cout << "Invalid input. Please enter a positive integer.\n";
             else
                 std::cout << "Please enter a positive integer greater than zero.\n";
             std::cin.clear();
             while (std::cin.get() != '\n') {}
+            std::cin >> num;  // clear the buffer before asking for new input
+        }
+        if(num <= 0) {
+            std::cout << "Please enter a positive integer greater than zero.\n";
+            i--;
+            continue;
         }
         lst.push_back(num); 
     }
