@@ -3,13 +3,6 @@
 
 int score(std::string s);
 
-int main() {
-    std::string s;
-    std::cin >> s;
-    std::cout << score(s) << std::endl;
-    return 0;
-}
-
 int score(std::string s) {
     int total = 0;
     int frame = 0;
@@ -29,4 +22,11 @@ int score(std::string s) {
         }
     }
     return total;
+}
+
+int main() {
+    std::string s;
+    std::cin >> s;
+    std::cout << score(s) << std::endl;
+    return 0;
 }
