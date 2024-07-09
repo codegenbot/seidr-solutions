@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include <openssl/ssl.h>
+#include <openssl/evp.h>
+#include <openssl/aes.h>
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
@@ -14,16 +15,20 @@ std::string string_to_md5(std::string text) {
         EVP_DigestUpdate(&mdctx, p, 1);
         p++;
     }
-    unsigned int len;
+    unsigned char *digest;
+    int len;
     EVP_DigestFinal(&mdctx, md5, &len);
+    digest = (unsigned char *)malloc(len);
+    memcpy(digest, md5, len);
 
-    std::string result;
+    std::string result(32, '0');
     for (int i = 0; i < 16; ++i) {
         char buf[3];
-        sprintf(buf, "%02x", md5[i]);
-        result.append(2, buf);
+        sprintf(buf, "%02x", digest[i]);
+        result.replace(i*2, 2, buf);
     }
 
+    free(digest);
     return result;
 }
 
@@ -31,13 +36,6 @@ int main() {
     std::string text;
     std::cout << "Enter a string: ";
     std::getline(std::cin, text);
-
-    try {
-        std::string hashedText = string_to_md5(text);
-        std::cout << "MD5: " << hashedText << std::endl;
-    } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-    }
-
+    std::cout << "MD5: " << string_to_md5(text) << std::endl;
     return 0;
 }
