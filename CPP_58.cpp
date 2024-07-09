@@ -1,19 +1,23 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <set>
 
-// Function to find the common elements of two lists
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
-    // Convert the vectors into sets for efficient operations
-    std::set<int> s1(l1.begin(), l1.end());
-    std::set<int> s2(l2.begin(), l2.end());
+    set<int> s1(l1.begin(), l1.end());
+    set<int> s2(l2.begin(), l2.end());
 
-    // Find the common elements by performing set intersection
-    std::set<int> result = s1;
-    result.intersection(s2);
+    set<int> result = s1;
+    for (auto it = s2.begin(); it != s2.end(); ++it) {
+        if (result.find(*it) != result.end()) {
+            result.erase(it);
+        }
+    }
 
-    // Convert the resulting set back into a vector and return it
-    std::vector<int> final_result(result.begin(), result.end());
+    vector<int> final_result(result.begin(), result.end());
     return final_result;
 }
 
