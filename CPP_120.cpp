@@ -29,17 +29,17 @@ int main() {
     int n, k;
     std::cout << "Enter the size of array: ";
     std::cin >> n;
-
     std::cout << "Enter the value of k: ";
     std::cin >> k;
 
-    std::vector<int> arr;
-    std::cout << "Enter elements: ";
+    for(int i=0; i<n; ++i) {
+        arr.push_back(0); 
+    }
+
+    std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
-        int val;
-        std::cin >> val;
-        arr.push_back(val);
+        std::cin >> arr[i];
     }
 
     std::vector<int> result = maximum(arr, k);
