@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -17,11 +16,11 @@ std::string file_name_check(std::string file_name) {
     if (!found_dot || file_name.find('.') == string::npos)
         return "No";
     size_t pos = file_name.find('.');
-    std::string before_dot = file_name.substr(0, pos);
-    std::string after_dot = file_name.substr(pos + 1);
+    string before_dot = file_name.substr(0, pos);
+    string after_dot = file_name.substr(pos + 1);
     if (before_dot.empty() || !isalpha(before_dot[0]))
         return "No";
-    std::vector<std::string> valid_extensions = {"txt", "exe", "dll"};
+    vector<string> valid_extensions = {"txt", "exe", "dll"};
     if (find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end())
         return "No";
     return "Yes";
