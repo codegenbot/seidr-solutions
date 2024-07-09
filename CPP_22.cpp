@@ -13,9 +13,6 @@ int main() {
     std::vector<int> a;
     std::vector<int> b;
 
-    std::vector<int>().swap(a);
-    std::vector<int>().swap(b);
-
     for(int i = 0; i < n; ++i)
         {
             int x;
