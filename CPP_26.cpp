@@ -28,7 +28,7 @@ std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
     return uniqueNumbers;
 }
 
-int cpp_main() {
+int main() {
     int n;    
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -54,6 +54,9 @@ int cpp_main() {
         std::cout << "All elements are duplicates." << std::endl;
     }
     
-    assert(issame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
-    return 0;
+    if (!issame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5})) {
+        assert(false);
+    } else {
+        return 0;
+    }
 }
