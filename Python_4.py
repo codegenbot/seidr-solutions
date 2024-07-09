@@ -1,7 +1,6 @@
-def mean_absolute_deviation(numbers: List[float]) -> float:
-    mean = sum(numbers) / len(numbers)
-    return sum(abs(x - mean) for x in numbers) / len(numbers)
+from typing import List
 
-numbers = list(map(float, input().split()))
-result = mean_absolute_deviation(numbers)
-print(result)
+def mean_absolute_deviation(numbers: List[float]) -> float:
+    assert all(isinstance(x, float) for x in numbers), 'Input must be a list of float numbers.'
+    mean = sum(numbers) / len(numbers)
+    return sum(abs(x - mean) for x in numbers) / len(numbers) 
