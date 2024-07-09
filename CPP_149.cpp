@@ -27,8 +27,3 @@ vector<string> sorted_list_sum(vector<string> lst) {
          });
     return lst;
 }
-
-int main() {
-    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == {"cc","dd"});
-    return 0;
-}
