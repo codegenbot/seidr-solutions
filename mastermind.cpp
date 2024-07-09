@@ -21,7 +21,7 @@ int main() {
     }
 
     if (blackPegs == 4) {
-        cout << blackPegs << endl << 0 << endl;
+        cout << blackPegs << endl << whitePegs << endl;
         return 0;
     }
 
@@ -32,4 +32,4 @@ int main() {
     cout << whitePegs << endl << blackPegs << endl;
 
     return 0;
-}
+} 
