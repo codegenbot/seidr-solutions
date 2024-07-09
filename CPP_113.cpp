@@ -1,11 +1,9 @@
 #include <vector>
 #include <string>
 
-bool issame(const string &s) {
-    // Implement the 'issame' function as needed
+bool issame(string s1, string s2) {
+    return s1 == s2;
 }
-
-vector<string> odd_count(vector<string> lst);
 
 vector<string> odd_count(vector<string> lst) {
     vector<string> res;
@@ -20,4 +18,8 @@ vector<string> odd_count(vector<string> lst) {
         res.push_back(output);
     }
     return res;
+}
+
+int main() {
+    assert(issame("abc", "abc"));
 }
