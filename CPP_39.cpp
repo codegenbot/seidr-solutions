@@ -1,3 +1,4 @@
+```
 #include <iostream>
 using namespace std;
 
@@ -11,14 +12,13 @@ bool isPrime(int n) {
 
 int prime_fib(int n) {
     int a = 0, b = 1, fib = 0;
-    while (true) {
+    for (int i = 2; ; i++) {
         fib = a + b;
-        if (fib > n) break;
+        if (fib > n) return i - 1;
         a = b;
         b = fib;
-        if (isPrime(fib)) return 2; // return the current index
+        if (isPrime(fib)) return i - 1;
     }
-    return -1; // or any other value to indicate no prime found
 }
 
 int main() {
