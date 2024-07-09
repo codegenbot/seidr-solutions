@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -11,7 +12,7 @@ std::vector<std::string> bf(std::string a, std::string b) {
             a.insert(0, b);
         }
     }
-    return {a, b};
+    return {a};
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) { 
@@ -23,8 +24,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    std::string b;
-    std::cout << "Enter the second string: ";
-    std::cin >> b;
-    assert(issame(bf("Jupiter", b), {}));
+    std::vector<std::string> strings = bf("Jupiter", "Makemake");
+    assert(issame(strings, {}));
 }

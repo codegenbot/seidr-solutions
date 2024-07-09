@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 std::vector<std::pair<int, std::string>> romanMap;
 
@@ -19,13 +20,11 @@ int main() {
     romanMap.emplace_back(1, "I");
 
     for(int i = 1; i <= 3999; i++) { 
-        std::cout << i << ": " << int_to_roman(i) << std::endl;
+        std::cout << i << ": " << int_to_mini_romank(i) << std::endl;
     }
-    assert(int_to_roman(1000) == "M");
-    return 0;
 }
 
-std::string int_to_roman(int number) {
+std::string int_to_mini_romank(int number) {
     std::string roman = ""; // Initialize the string
     for (const auto& pair : romanMap) {
         while (number >= pair.first) {

@@ -21,6 +21,10 @@ std::vector<std::string> words_in_sentence(const std::string& sentence) {
             }
         }
 
+        if (!wordLengths.empty() && std::find(wordLengths.begin(), wordLengths.end(), std::to_string(length)) != wordLengths.end()) {
+            continue; 
+        }
+
         if (isPrime) {
             wordLengths.push_back(std::to_string(length));
         }
