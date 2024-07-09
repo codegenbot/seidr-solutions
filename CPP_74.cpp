@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,7 +10,7 @@ bool issame(const std::vector<std::string>& s1, const std::vector<std::string>& 
 int total_sum(const std::vector<std::string>& lst) {
     int sum = 0;
     for (const auto& s : lst) {
-        for (char c : std::string(s)) {
+        for (char c : s) {
             sum += static_cast<int>(c);
         }
     }
@@ -48,7 +49,10 @@ int main() {
         std::cout << "Both lists have the same sum." << std::endl;
     }
     
-    std::vector<std::string> result = total_match(lst3, lst4);
+    std::vector<std::string> result;
+    if (!total_match(lst3, lst4).empty()) {
+        result = total_match(lst3, lst4);
+    }
     if (total_sum({result[0]}) < total_sum({result[1]})) {
         std::cout << "List 3 has the highest sum." << std::endl;
     } else if (total_sum({result[0]}) > total_sum({result[1]})) {
