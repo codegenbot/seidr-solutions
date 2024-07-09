@@ -14,7 +14,7 @@ void displayOutput(std::vector<std::string> output) {
 int main() {
     std::vector<std::string> lst;
     std::string temp;
-    while(std::getline(std::cin,temp) && !temp.empty()) {
+    while (std::getline(std::cin, temp) && !temp.empty()) {
         lst.push_back(temp);
     }
     std::vector<std::string> output = odd_count(lst);
