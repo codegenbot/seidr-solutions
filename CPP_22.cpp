@@ -13,6 +13,9 @@ int main() {
     std::vector<int> a;
     std::vector<int> b;
 
+    a.reserve(n);
+    b.reserve(n);
+
     for(int i = 0; i < n; ++i)
         {
             int x;
