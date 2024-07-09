@@ -1,35 +1,24 @@
-#include<stdio.h>
-#include<string>
-#include<map>
-using namespace std;
+map<string,int> num_map = {{"zero",0},{"one",1},{"two",2},{"three",3},{"four",4},{"five",5},
+                             {"six",6},{"seven",7},{"eight",8},{"nine",9}};
 
-string sort_numbers(string numbers) {
-    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                {"eight", 8}, {"nine", 9}};
-    vector<string> numVec;
+string sort_numbers(string numbers){
+    istringstream iss(numbers);
+    vector<string> num_list;
     string temp;
+    
+    while(iss >> temp)
+        num_list.push_back(temp);
 
-    for (int i = 0; i < numbers.size(); i++) {
-        if (numbers[i] == ' ') {
-            continue;
-        }
-        temp += numbers[i];
-        for (int j = i + 1; j < numbers.size(); j++) {
-            if (numbers[j] != ' ') {
-                break;
-            }
-            i = j - 1;
-        }
-        numVec.push_back(temp);
-        temp.clear();
+    sort(num_list.begin(),num_list.end());
+    return join(num_list," ");
+}
+
+string join(vector<string>& v, const char* s) {
+    ostringstream oss;
+    for (auto it = v.begin(); it != v.end(); ++it) {
+        if (it != v.begin())
+            oss << s;
+        oss << *it;
     }
-
-    sort(numVec.begin(), numVec.end());
-
-    string result;
-    for (auto str : numVec) {
-        result += str + " ";
-    }
-    return result.substr(0, result.size() - 1);
+    return oss.str();
 }
