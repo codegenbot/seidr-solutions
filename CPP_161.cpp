@@ -1,17 +1,8 @@
-Here is the modified code:
-
-```c++
-#include <string>
-#include <algorithm>
-
-std::string solve(std::string s) {
-    std::string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            result += tolower(c) == 'a' ? toupper(c) : tolower(c);
-        } else {
-            result += c;
-        }
-    }
-    return !result.empty() ? result : s;
+```
+int solve(string s) {
+    string result = "";
+    for(char c : s.rbegin() + (s.size()/2),e=s.rend()) 
+        if((s.size()%2 && i==e) || !s.size()%2)
+            result+=c;
+    return s.substr(0,s.size()-result.length());
 }
