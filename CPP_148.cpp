@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -9,12 +8,13 @@ std::vector<std::string> bf(const std::string& str1, const std::string& str2) {
         return {};
 }
 
-bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
-    return vec1 == vec2;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
-int main() {
-    if (!issame(bf("Jupiter", "Makemake"), {})) {
+int main_func() {
+    std::vector<std::string> b;
+    if (!issame(bf("Jupiter", "Makemake"), b)) {
         return 1; 
     }
     return 0;
