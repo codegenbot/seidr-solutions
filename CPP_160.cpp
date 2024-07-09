@@ -18,18 +18,18 @@ int eval(const string& s) {
     }
     
     int start = 0, sign = 1;
-    for (int i = 0; i < std::stoi(s).size(); i++) {
-        if (!isdigit(std::stoi(s)[i])) {
-            if (std::stoi(s)[i] == '+') {
+    for (int i = 0; i < s.size(); i++) {
+        if (!isdigit(s[i])) {
+            if (s[i] == '+') {
                 sign = 1;
-            } else if (std::stoi(s)[i] == '-') {
+            } else if (s[i] == '-') {
                 sign = -1;
             }
             start = i + 1;
-        } else if (i == std::stoi(s).size() - 1) {
-            result += sign * (std::stoi(s)[i] - '0');
-        } else if (!isdigit(std::stoi(s)[i + 1])) {
-            result += sign * (std::stoi(s)[i] - '0');
+        } else if (i == s.size() - 1) {
+            result += sign * (int)(s[i] - '0');
+        } else if (!isdigit(s[i + 1])) {
+            result += sign * (int)(s[i] - '0');
             i++;
         }
     }
