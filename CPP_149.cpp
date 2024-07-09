@@ -43,15 +43,7 @@ int main_entry() {
     cin >> n;
     
     vector<string> inputStrings;
-    int totalSize = 0;
-    for(int i = 0; i < n; i++) {
-        string str;
-        cout << "Enter string " << (i+1) << ": ";
-        getline(cin, str);
-        totalSize += str.size() + 1; // Calculate the size of each string and add 1 for null character
-    }
-    
-    inputStrings.reserve(totalSize);  
+    inputStrings.resize(n);  // Modify this line
     for(int i = 0; i < n; i++) {
         string str;
         cout << "Enter string " << (i+1) << ": ";
