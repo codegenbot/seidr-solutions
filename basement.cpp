@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int basement(std::vector<int>& v) {
@@ -13,18 +14,11 @@ int basement(std::vector<int>& v) {
 
 int main() {
     std::vector<int> v;
-    int n;
-    while (!(std::cin >> n) || n == 3) {
-        if (!v.empty())
-            break;
-        for (; ;) {
-            v.push_back(n);
-            std::cin >> n;
-            if (n == 3)
-                break;
-        }
+    int num;
+    while(std::cin >> num) {
+        v.push_back(num);
     }
     int result = basement(v);
-    // do something with the result
+    std::cout << "The basement is at index " << result << "." << std::endl;
     return 0;
 }
