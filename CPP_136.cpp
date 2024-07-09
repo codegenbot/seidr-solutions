@@ -1,8 +1,10 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b);
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
-std::vector<int> largest_smallest_integers(std::vector<int> lst){
+vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = 0;
     int smallest_positive = 0;
     
@@ -18,4 +20,8 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst){
     return {largest_negative, smallest_positive};
 }
 
-largest_smallest_integers({-6, -4, -4, -3, -100, 1});
+int main(){
+    vector<int> result = largest_smallest_integers({-6, -4, -4, -3, -100, 1});
+
+    return 0;
+}  
