@@ -1,3 +1,4 @@
+```cpp
 #include <numeric>
 #include <algorithm>
 #include <cmath>
