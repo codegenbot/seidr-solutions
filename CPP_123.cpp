@@ -1,3 +1,19 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+bool sequenceEqual(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i])
+            return false;
+    }
+    
+    return true;
+}
+
 std::vector<int> get_odd_collatz(int num) {
     std::vector<int> sequence;
     while(num != 1) {
@@ -9,9 +25,18 @@ std::vector<int> get_odd_collatz(int num) {
     }
     sequence.push_back(1); // add the last element to the sequence
     
+    return sequence;
+}
+
+int main() {
+    int num;
+    std::cin >> num;
+    std::vector<int> sequence = get_odd_collatz(num);
     for(int i : sequence)
         std::cout << i << " ";
     std::cout << std::endl;
-    
-    return sequence;
+    if (sequence.size() != 1 && !sequenceEqual(sequence, get_odd_collatz(1))) {
+        std::cerr << "Invalid input. Sequence must start with 1.\n";
+    }
+    return 0;
 }
