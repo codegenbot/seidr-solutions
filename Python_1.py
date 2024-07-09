@@ -1,7 +1,7 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if paren_string.count("(") != paren_string.count(")"):
+    if set(paren_string) != {"(", ")"}:
         return []
 
     result = []
@@ -22,8 +22,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 temp += char
 
     return result
-
-if __name__ == "__main__":
-    input_string = input("Enter a string: ")
-    result = separate_paren_groups(input_string)
-    print(result)
