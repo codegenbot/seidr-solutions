@@ -27,12 +27,12 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         Pair p;
         p.first = arr[i];
         p.second = i;
-        pq.push(std::make_pair(arr[i], i));
+        pq.push(std::make_pair(arr[i], arr[i]));
     }
 
     // Keep popping elements from the priority queue until k elements are popped
     while (!pq.empty() && k--) {
-        int idx = pq.top().second;
+        int idx = pq.top().first;
         pq.pop();
         if (idx < arr.size()) {
             arr[idx] = -1;  // Mark this index as processed, don't pop it directly
