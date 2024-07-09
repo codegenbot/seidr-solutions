@@ -1,29 +1,14 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string>, std::vector<std::string>);
-
-int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
-    return 0;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    for (const auto& s : a) {
-        if (std::find(b.begin(), b.end(), s) == b.end()) {
-            return false;
-        }
-    }
+bool issame(const std::vector<std::string>& s1, const std::vector<std::string>& s2) {
+    if (s1.size() != s2.size()) return false;
+    for (size_t i = 0; i < s1.size(); ++i)
+        if (s1[i] != s2[i]) return false;
     return true;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
-    for (const auto& s : strings) {
-        if (s.find(prefix) == 0) {
-            result.push_back(s);
-        }
-    }
-    return result;
+int main() {
+    std::vector<std::string> strings = {"dog", "cat", "bird"};
+    bool issame(strings, strings);
 }
