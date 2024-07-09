@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -18,30 +17,35 @@ int main() {
 
     for(int i = 0; i < n; ++i) {
         int x;
-        while(true) { 
-            if (!(std::cin >> x)) {
-                if (std::cin.fail()) {
+        while (true) {
+            try {
+                std::cin >> x;
+                a.push_back(x);
+                break; // successfully read the integer
+            } catch (...) {
+                if (!std::cin) { // input stream is invalid
                     std::cerr << "Invalid input. Please enter an integer." << std::endl;
                     std::cin.clear(); 
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-                } else {
-                    break; // successfully read the integer
                 }
             }
-            a.push_back(x);
         }
+    }
 
-        while(true) { 
-            if (!(std::cin >> x)) {
-                if (std::cin.fail()) {
+    for(int i = 0; i < n; ++i) {
+        int x;
+        while (true) {
+            try {
+                std::cin >> x;
+                b.push_back(x);
+                break; // successfully read the integer
+            } catch (...) {
+                if (!std::cin) { // input stream is invalid
                     std::cerr << "Invalid input. Please enter an integer." << std::endl;
                     std::cin.clear(); 
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-                } else {
-                    break; // successfully read the integer
                 }
             }
-            b.push_back(x);
         }
     }
 
