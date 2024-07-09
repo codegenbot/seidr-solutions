@@ -8,14 +8,10 @@ for c in code:
         code_chars["ROYGBI".index(c)] += 1
 
 black, white = 0, 0
-code_count = [0] * 6
-for i in range(4):
-    if code[i] == guess[i]:
+for c, g in zip(code, guess):
+    if c == g:
         black += 1
-    elif code_count["ROYGBI".index(code[i])] > 0:
-        code_count["ROYGBI".index(guess[i])] -= 1
+    elif g in code[: code.index(g)] and g in code[code.index(g) + 1 :]:
         white += 1
-
-white += sum([x for x in code_count if x > 0])
 
 print(f"Black: {black}, White: {4 - black}")
