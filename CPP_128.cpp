@@ -27,7 +27,9 @@ int prod_signs(std::string str1, std::string str2, std::string str3) {
 }
 
 int main() {
-    std::vector<std::string> signs = {"-" + std::to_string(-1), "1", "1"};
-    assert(prod_signs(signs[0], signs[1], signs[2]) == 0);
-    std::cout << prod_signs(signs[0].substr(1), signs[1], signs[2]) << std::endl; 
+    std::string sign1 = "-" + std::to_string(-1);
+    std::string sign2 = "1";
+    std::string sign3 = "1";
+    assert(prod_signs(sign1, sign2, sign3) == 0);
+    std::cout << prod_signs(sign1, sign2, sign3) << std::endl; 
 }
