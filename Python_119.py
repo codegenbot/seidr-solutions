@@ -1,3 +1,4 @@
+```python
 def match_parens(lst):
     open_count = 0
     close_count = 0
@@ -15,3 +16,5 @@ def match_parens(lst):
         return 'Yes'
     else:
         return 'No'
+
+print(match_parens([]))
