@@ -1,27 +1,24 @@
-string file_name_check(string file_name) {
-    int digitCount = 0;
-    bool hasDot = false;
-    string beforeDot;
+Here is the completed code:
 
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            digitCount++;
-            if (digitCount > 3)
-                return "No";
-        } else if (c == '.') {
-            hasDot = true;
-            break;
-        } else if (!hasDot) {
-            beforeDot += c;
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool found_dot = false;
+    for(int i=0; i<file_name.length(); i++){
+        if(isdigit(file_name[i])){
+            digit_count++;
+        } else if (file_name[i] == '.'){
+            found_dot = true;
+        } else if (!found_dot && !isalpha(file_name[i])){
+            return "No";
         }
     }
-
-    if (!hasDot || beforeDot.empty() || !isalpha(beforeDot[0]))
+    if(digit_count > 3 || !found_dot) {
         return "No";
-
-    string afterDot = file_name.substr(file_name.find('.') + 1);
-    if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll")
+    }
+    size_t pos = file_name.find('.');
+    string extension = file_name.substr(pos+1);
+    if(extension != "txt" && extension != "exe" && extension != "dll"){
         return "No";
-
+    }
     return "Yes";
 }
