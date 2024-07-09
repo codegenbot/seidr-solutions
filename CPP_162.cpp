@@ -1,31 +1,26 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <openssl/ssl.h>
+#include <iomanip>
+#include <algorithm>
+#include <hash_functions/md5.h>
 
-std::string string_to_md5(std::string text) {
-    if (text.empty()) return "";
+std::string string_to_md5(const std::string& text) {
+    MD5_CTX ctx;
+    unsigned char result[16];
+    md5_init(&ctx);
+    const char* ptr = text.c_str();
+    size_t length = text.length();
+    md5_update(&ctx, (unsigned char*)ptr, length);
+    md5_final(&ctx, result);
 
-    unsigned char md5[16];
-    EVP_MD_CTX mdctx;
-    EVP_PKEY *md5_sig = EVP_get_digestbyname("MD5");
-    EVP_DigestInit(&mdctx, md5_sig);
-    const char* p = text.c_str();
-    while (*p) {
-        EVP_DigestUpdate(&mdctx, p, 1);
-        p++;
-    }
-    unsigned int len;
-    EVP_DigestFinal(&mdctx, md5, &len);
-
-    std::string result;
-    for (int i = 0; i < 16; ++i) {
-        char buf[3];
-        sprintf(buf, "%02x", md5[i]);
-        result.append(buf);
+    std::string output;
+    for(int i=0; i<16; i++) {
+        std::stringstream ss;
+        ss << std::setw(2) << std::setfill('0') << std::hex << (int)(result[i]);
+        output += ss.str();
     }
 
-    return result;
+    return output;
 }
 
 int main() {
