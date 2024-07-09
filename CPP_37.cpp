@@ -1,4 +1,3 @@
-```c++
 #include <algorithm>
 #include <vector>
 
@@ -19,7 +18,7 @@ namespace myspace {
                 auto it = std::minmax_element(l.begin(), l.end(),
                     [](float a, float b){ return a<b; });
                 result[i] = *(it.first);
-                for(int j = evenIndex; j < l.size(); j++){
+                for(int j = 0; j < l.size(); j++){
                     if(j%2==0 && l[j] != *(it.first)){
                         result[evenIndex++] = l[j];
                     }
@@ -32,32 +31,7 @@ namespace myspace {
     }
 }
 
-int main() 
-{
-    std::vector<float> input(10);
-    input.push_back(5.0f);
-    input.push_back(8.0f);
-    input.push_back(-12.0f);
-    input.push_back(4.0f);
-    input.push_back(23.0f);
-    input.push_back(2.0f);
-    input.push_back(3.0f);
-    input.push_back(11.0f);
-    input.push_back(12.0f);
-    input.push_back(-10.0f);
-
-    std::cout << "Original array: ";
-    for (float num : input) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
-    std::vector<float> sortedEven = myspace::sort_even(input);
-    std::cout << "Sorted even array: ";
-    for (float num : sortedEven) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
+int main() {
+    assert(myspace::issame(myspace::sort_even({1.0f, 2.5f, 3.25f, 4.9f}), {2.5f, 3.25f, 4.9f, 1.0f}));
     return 0;
 }
