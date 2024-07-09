@@ -1,13 +1,17 @@
-Here is the completed code:
+```cpp
+#include <vector>
+#include <algorithm>
 
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // None in Python
-    vector<int> sortedList = lst;
-    sort(sortedList.begin(), sortedList.end());
-    for (int i = 0; i < sortedList.size() - 1; i++) {
-        if (sortedList[i] != sortedList[i + 1]) {
-            return sortedList[i + 1];
-        }
-    }
-    return -1; // None in Python
+int next_smallest(std::vector<int> lst) {
+    if (lst.empty()) return -1; 
+    std::vector<int> sorted_lst = lst;
+    std::sort(sorted_lst.begin(), sorted_lst.end());
+    auto it = prev(std::end(sorted_lst), 1);
+    if (*it == *std::begin(sorted_lst)) return -1; 
+    return *it;
+}
+
+int main() {
+    assert(next_smallest({-35, 34, 12, -45}) == -35); 
+    return 0;
 }
