@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,7 +8,7 @@ int gcd(int a, int b) {
         b = a % b;
         a = temp;
     }
-    return a;
+    return b;
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
@@ -17,7 +16,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     int index = 0;
 
     while (index <= text.length() - target.length()) {
-        size_t found = text.find(target, index);
+        size_t found = text.find(target);
         if (found != std::string::npos) {
             result.push_back(found);
             index = found + 1;
@@ -35,6 +34,7 @@ int main() {
     std::cin >> a >> b;
     std::cout << gcd(a, b) << "\n";
     
+    // Example usage for indicesOfSubstring function
     std::string text = "banana";
     std::string target = "ana";
     std::vector<int> result = indicesOfSubstring(text, target);
