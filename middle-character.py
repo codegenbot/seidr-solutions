@@ -1,8 +1,4 @@
-Here is the solution to the problem:
-
 def middle_character(s):
-    length = len(s)
-    if length % 2 != 0:
-        return s[length//2]
-    else:
-        return s[(length-1)//2 : (length+1)//2]
+    s = str(s)
+    n = len(s) // 2
+    return s[n] if len(s) % 2 else s[n-1:n+1]
