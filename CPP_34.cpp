@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 bool issame(vector<int> a, vector<int>b){
     return (a == b);
