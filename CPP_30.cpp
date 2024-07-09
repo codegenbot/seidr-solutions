@@ -9,31 +9,25 @@ vector<float> get_positive(vector<float> l){
 }
 
 bool issame(vector<float> v1, vector<float> v2) {
-    if(v1.size() != v2.size()) {
+    if(v1.size() != v2.size())
         return false;
-    }
     for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i]) {
+        if(v1[i] != v2[i])
             return false;
-        }
     }
     return true;
 }
 
 int main() {
-    vector<float> l1 = {1.5, -3.4, 7.8};
-    vector<float> l2 = {-1.2, 3.9, -6.7};
-    vector<float> l3 = {0.0, 1.1, 2.2};
-
-    vector<float> pos_l1 = get_positive(l1);
-    vector<float> pos_l2 = get_positive(l2);
-    vector<float> pos_l3 = get_positive(l3);
-
-    if(issame(pos_l1, pos_l2) || issame(pos_l1, pos_l3)) {
-        cout << "Yes";
-    } else {
-        cout << "No";
+    vector<float> l;
+    cout << "Enter the numbers (space-separated): ";
+    while (cin >> l.push_back) {
+        break;
     }
-
+    vector<float> pos = get_positive(l);
+    if(issame(pos, l))
+        cout << "The list of positive numbers is same as the original list.\n";
+    else
+        cout << "The list of positive numbers is different from the original list.\n";
     return 0;
 }
