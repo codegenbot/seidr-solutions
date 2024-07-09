@@ -12,7 +12,7 @@ int main() {
 }
 
 vector<vector<string>> by_length(vector<int> arr) {
-    vector<string> num;
+    vector<std::string> num;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
             switch (i) {
