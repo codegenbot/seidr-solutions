@@ -1,9 +1,10 @@
+#include <iostream>
 #include <vector>
+#include <string>
 
-vector<string> issame(vector<string> paren_string);
-vector<string> issame(vector<string> paren_string) {
-    vector<string> result;
-    string group;
+std::vector<std::string> separate_paren_groups(std::string paren_string) {
+    std::vector<std::string> result;
+    std::string group;
     int open_count = 0;
 
     for (char c : paren_string) {
@@ -24,4 +25,17 @@ vector<string> issame(vector<string> paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    std::string input_string;
+    std::cin >> input_string;
+
+    std::vector<std::string> groups = separate_paren_groups(input_string);
+
+    for (const std::string& group : groups) {
+        std::cout << group << std::endl;
+    }
+
+    return 0;
 }
