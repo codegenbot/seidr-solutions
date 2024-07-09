@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -18,10 +18,10 @@ std::vector<int> count_up_to(int n) {
     if (n <= 1) {
         return result;
     }
-
+    
     std::vector<bool> isPrime(n, true);
     isPrime[0] = isPrime[1] = false;
-
+    
     for (int i = 2; i < n; ++i) {
         if (isPrime[i]) {
             result.push_back(i);
@@ -30,5 +30,6 @@ std::vector<int> count_up_to(int n) {
             }
         }
     }
+    
     return result;
 }
