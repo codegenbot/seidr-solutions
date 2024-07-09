@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <iomanip>
-#include <sstream>
 using namespace std;
 
 int main() {
@@ -28,9 +27,8 @@ int main() {
         totalSnow -= initialSnow * proportionOfSnowMeltingPerHour;
     }
     
-    std::ostringstream oss;
-    oss << fixed << setprecision(2) << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << " ft";
-    cout << oss.str() << endl;
+    cout << std::setprecision(6) << fixed;
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << " ft" << endl;
 
     return 0;
 }
