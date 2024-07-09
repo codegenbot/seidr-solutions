@@ -1,7 +1,8 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 
-using namespace std;
+namespace boost;
 
 any compareOne(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -27,7 +28,7 @@ any compareOne(any a, any b) {
     else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         string x = boost::any_cast<string>(a);
         float y = boost::any_cast<float>(b);
-        return (stod(x) > y) ? a : ((y > stod(x)) ? b : any(typeid(void)));
+        return (stof(x) > y) ? a : ((y > stof(x)) ? b : any(typeid(void)));
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
         int x = boost::any_cast<int>(a);
