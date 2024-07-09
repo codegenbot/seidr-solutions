@@ -3,11 +3,11 @@
 #include <limits>
 
 bool issame(std::vector<std::vector<float>> a, std::vector<std::vector<float>> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); ++i)
-        if (!issame(a[i], b[i]))
-            return false;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i].size() != b[i].size()) return false;
+        if (a[i][0] != b[i][0]) return false;
+    }
     return true;
 }
 
@@ -25,4 +25,5 @@ std::vector<std::vector<float>> find_closest_elements(std::vector<float> numbers
         }
     }
     
-    return {{closest.first}, {closest.second}};
+    return {{closest.first}, {closest.second}}; // return a vector of vectors
+}
