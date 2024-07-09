@@ -15,7 +15,6 @@ bool is_happy(std::string s){
         if(!unique) return false;
     }
     return true;
-}
 
 int main(){
     std::string s;
