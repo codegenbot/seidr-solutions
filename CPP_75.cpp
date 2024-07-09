@@ -1,25 +1,27 @@
-bool is_multiply_prime(int a){
-    for(long long i=2; i*i<=a; i++){
-        long long j=i;
-        while(j*j<=a){
-            if(a%i==0 && is_prime(i)){
-                int k=a/i;
-                if(is_prime(k) && is_prime(j)){
+#include <cmath>
+
+bool is_multiply_prime(int a) {
+    for (int i = 2; i <= sqrt(a); i++) {
+        int count = 0;
+        for (int j = 2; j <= i / 2; j++) {
+            if (i % j == 0) {
+                count++;
+            }
+        }
+        if (count == 0) {
+            for (int k = i; k <= a / i; k++) {
+                int temp = k * i;
+                count = 0;
+                for (int j = 2; j <= temp / 2; j++) {
+                    if (temp % j == 0) {
+                        count++;
+                    }
+                }
+                if (count == 0 && temp == a) {
                     return true;
                 }
             }
-            j++;
         }
     }
     return false;
-}
-
-bool is_prime(int a){
-    if(a<2)
-        return false;
-    for(long long i=2; i*i<=a; i++){
-        if(a%i==0)
-            return false;
-    }
-    return true;
 }
