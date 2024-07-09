@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -18,6 +19,9 @@ std::string int_to_mini_roman(int number) {
 }
 
 int main() {
-    assert(int_to_mini_roman(1000) == "M");
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::cout << "Roman numeral: " << int_to_mini_roman(num) << std::endl;
     return 0;
 }
