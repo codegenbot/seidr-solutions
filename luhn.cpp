@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 using namespace std;
 
 int luhnAlgorithm(vector<int> cardNumber) {
