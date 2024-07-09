@@ -1,4 +1,3 @@
-```c++
 string spinWords(string str) {
     string result = "";
     string word = "";
