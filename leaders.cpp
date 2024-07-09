@@ -18,8 +18,11 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
-vector<int> arr = {5, 2, 3, 4};
-vector<int> result = leaders(arr);
-for (int i : result) {
-    cout << i << endl;
+int main() {
+    vector<int> arr = {5, 2, 3, 4};
+    vector<int> result = leaders(arr);
+    for (int i : result) {
+        cout << i << endl;
+    }
+    return 0;
 }
