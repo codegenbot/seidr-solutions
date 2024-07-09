@@ -12,17 +12,37 @@ def evaluate_expression(expression):
     while "&" in expression:
         left, right = expression.split("&", 1)
         if left == "T":
-            left = "True"
+            left = True
+        elif left == "F":
+            left = False
+        else:
+            left = evaluate_expression(left) is not False
+
         if right == "T":
-            right = "True"
-        expression = str(evaluate_expression(left)) + " and " + str(evaluate_expression(right))
+            right = True
+        elif right == "F":
+            right = False
+        else:
+            right = evaluate_expression(right) is not False
+
+        expression = str(left) + " and " + str(right)
 
     while "|" in expression:
         left, right = expression.split("|", 1)
         if left == "T":
-            left = "True"
-        if right == "T":
-            right = "True"
-        expression = str(evaluate_expression(left)) + " or " + str(evaluate_expression(right))
+            left = True
+        elif left == "F":
+            left = False
+        else:
+            left = evaluate_expression(left) is not False
 
-    return eval("Boolean(" + expression + ")")
+        if right == "T":
+            right = True
+        elif right == "F":
+            right = False
+        else:
+            right = evaluate_expression(right) is not False
+
+        expression = str(left) + " or " + str(right)
+
+    return eval("Boolean(" + str(expression).replace("True", "1").replace("False", "0") + ")")

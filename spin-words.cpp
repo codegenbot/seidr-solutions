@@ -1,12 +1,11 @@
 #include <string>
 #include <algorithm>
 #include <vector>
-#include <cctype>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> tokens;
-    std::string token;
-    for (char c : str) {
+    std::string token = "";
+    for (auto& c : str) {
         if (c == delimiter) {
             tokens.push_back(token);
             token = "";
@@ -39,4 +38,10 @@ std::string spinWords(std::string str) {
         }
     }
     return join(words, ' ');
+}
+
+int main() {
+    std::string str = "Hello World";
+    std::cout << spinWords(str) << std::endl;
+    return 0;
 }
