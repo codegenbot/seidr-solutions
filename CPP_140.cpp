@@ -1,18 +1,27 @@
-string output = "";
-    bool consecutive = false;
+int count = 0;
+    string result = "";
+
     for (char c : text) {
         if (c == ' ') {
-            if (consecutive) {
-                output.pop_back();
-                output += "-";
-            } else {
-                output += "_";
-            }
-            consecutive = true;
+            count++;
         } else {
-            output += c;
-            consecutive = false;
+            if (count > 2) {
+                result += '-';
+            } else {
+                result += string(count, '_');
+            }
+            count = 0;
+        }
+        if (c != ' ') {
+            result += c;
         }
     }
-    return output;
+
+    if (count > 2) {
+        result += '-';
+    } else {
+        result += string(count, '_');
+    }
+
+    return result;
 }
