@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -18,9 +18,12 @@ int do_algebra(vector<string> ops, vector<int> nums) {
         } else if (ops[i] == "*") {
             temp *= nums[i];
         } else if (ops[i] == "/") {
-            temp /= stoi(to_string(nums[i]));
+            if(nums[i] != 0) 
+                temp /= nums[i];
+            else
+                cout << "Error: Division by zero." << endl;
         } else if (ops[i] == "^") {
-            temp = pow(temp, stoi(to_string(nums[i])));
+            temp = pow(temp, nums[i]);
         }
     }
 
@@ -28,7 +31,7 @@ int do_algebra(vector<string> ops, vector<int> nums) {
 }
 
 int main() {
-    vector<string> ops(string());
+    vector<string> ops;
     vector<int> nums;
 
     cout << "Enter number of operations: ";
@@ -49,7 +52,8 @@ int main() {
             ops.push_back(op);
             nums.push_back(num);
         } catch (invalid_argument e) {
-            // Handle non-integer values
+            cout << "Invalid input. Please enter an integer." << endl;
+            i--;
         }
     }
 
