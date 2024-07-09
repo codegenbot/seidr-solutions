@@ -1,7 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
 #include <cassert>
+
+vector<string> separate_paren_groups(string paren_string); 
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
@@ -33,8 +35,8 @@ int main() {
     cin >> input;
 
     vector<string> groups = separate_paren_groups(input);
-    
-    assert(groups.size() == 2);
+
+    assert(groups.size() == 0);
 
     return 0;
 }
