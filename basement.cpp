@@ -8,10 +8,11 @@ int basement(vector<int>& v) {
         if (sum < 0) return i;
     }
     return -1;
+
 }
 
 int main() {
-    vector<int> v = {-2, 3, 1, -5, 4};
+    vector<int> v = {-2, 3, 5, -1};
     int result = basement(v);
     cout << "Result: " << result << endl; 
     return 0;
