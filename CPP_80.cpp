@@ -7,7 +7,3 @@ bool is_happy(string s){
     }
     return true;
 }
-
-int main(){
-    assert (is_happy("iopaxioi") == false );
-}
