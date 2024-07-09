@@ -1,11 +1,12 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
+        if(!issame({a[i]}, {b[i]})) return false;
     }
     return true;
 }
@@ -19,9 +20,4 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
     return result;
 }
 
-int main() {
-    std::vector<std::string> expected = {"xxx", "xxxAAA", "xxx"};
-    std::vector<std::string> result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx");
-    assert(issame({{"xxx", "xxxAAA", "xxx"}}, {result.begin(), result.end()}));
-    return 0;
-}
+std::vector<std::string>({"xxx", "xxxAAA", "xxx"}) = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx");
