@@ -1,3 +1,12 @@
+#include <vector>
 bool isSame(std::vector<float> a, std::vector<float> b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i] - b[i]) > 1e-5) {
+            return false;
+        }
+    }
+    return true;
 }
