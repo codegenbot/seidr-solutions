@@ -13,15 +13,10 @@ int main() {
     std::cout << "Enter the number of coefficients: ";
     std::cin >> n;
 
-    std::vector<double> coeffs;
-    coeffs = std::vector<double>();
-
-    coeffs.resize(n);
-
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter coefficient " << i+1 << ": ";
         std::cin >> coeff;
-        coeffs[i] = coeff;
+        coeffs.push_back(coeff);
     }
 
     double solution = find_zero(coeffs); 
