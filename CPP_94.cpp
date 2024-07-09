@@ -1,4 +1,4 @@
-int maxPrime(vector<int> numbers) {
+int calculateSumOfDigits(vector<int> numbers) {
     int maxPrime = 0;
     for (int num : numbers) {
         if (isPrime(num)) {
