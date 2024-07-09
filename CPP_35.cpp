@@ -14,13 +14,16 @@ float max_element(vector<float> l){
 }
 
 int main() {
+    vector<float> numbers;
     int n;
     cin >> n;
-    vector<float> v(n);
-    for (float &val : v) 
-        val = abs(val); // Read input here
-    float result = max_element(v);
-    cout << fixed << showpoint << setprecision(6) << result << endl;
+    for(int i=0; i<n; i++){
+        float num;
+        cin >> num;
+        numbers.push_back(num);
+    }
+    
+    cout << "Maximum element is: " << max_element(numbers) << endl;
     
     return 0;
 }
