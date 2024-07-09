@@ -14,12 +14,11 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     return lst;
 }
 
-int main() { 
+int main() {
     int n;
     std::cin >> n;
 
-    // Initialize lst with the correct size
-    std::vector<std::string> lst(n);
+    std::vector<std::string> lst;
 
     for(int i = 0; i < n; i++) {
         std::cin >> lst[i];
