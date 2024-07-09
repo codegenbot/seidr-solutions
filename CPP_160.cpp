@@ -1,15 +1,15 @@
 ```cpp
-#include <cstdlib>
 #include <vector>
 #include <string>
+#include <cstdlib>
 
-int do_algebra(vector<int> operand, vector<string> operator_) {
+int do_algebra(vector<string> operators, vector<int> operands) {
     string expression = "";
-    for (int i = 0; i < operator_.size(); i++) {
-        expression += to_string(operand[i]);
-        expression += operator_[i];
+    for (int i = 0; i < operators.size(); i++) {
+        expression += to_string(operands[i]);
+        expression += operators[i];
     }
-    expression += to_string(operand.back());
+    expression += to_string(operands.back());
     
     int result = eval(expression);
     
@@ -32,7 +32,7 @@ int eval(const string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * std::atoi(std::string(1, s[i]).c_str());
+            result += sign * std::atoi(&s[i]);
         }
     }
     
@@ -40,8 +40,9 @@ int eval(const string& s) {
 }
 
 int main() {
-    vector<int> oper = {7, 3, 4};
-    vector<string> op = {"//", "*"};
-    int result = do_algebra(oper, op);
+    vector<string> operators = {"//", "*"};
+    vector<int> operands = {7, 3, 4};
+    int result = do_algebra(operators, operands);
+    assert(result == 8); // test the function
     return 0;
 }
