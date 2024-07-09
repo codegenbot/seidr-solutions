@@ -3,9 +3,9 @@
 #include <cmath>
 
 int main() {
-    std::vector<float> lst = {1.0f, -2.5f, 3.0f, -4.25f, 5.0f};
+    std::vector<float> lst = {1.0f, -2.5f, 3.0f, -4.0f};
     long long result = double_the_difference(lst);
-    std::cout << "The difference is: " << result << std::endl;
+    std::cout << "The sum of squares of the positive numbers in the list is: " << result << std::endl;
     return 0;
 }
 
