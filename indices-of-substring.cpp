@@ -30,6 +30,7 @@ int main() {
     cin >> target;
 
     vector<int> result = findIndices(text, target);
+
     for(int i: result) cout << i << " ";
     return 0;
 }
