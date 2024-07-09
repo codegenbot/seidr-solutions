@@ -16,7 +16,7 @@ int bowlingScore(std::string s) {
             } else {
                 score += pins;
                 while (c == 'X' || c == '/') {
-                    c = s[s.size() - 1];
+                    c = s.back();
                     s.pop_back();
                 }
                 int bonus = stoi(c + c);
