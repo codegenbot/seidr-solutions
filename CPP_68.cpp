@@ -1,23 +1,17 @@
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
 int main(){
-    std::vector<int> arr;
-    int num;
-    
-    while(std::cin >> num){
-        arr.push_back(num);
-    }
-    
+    std::vector<int> arr = {3, 8, 2, 5, 12};
     std::vector<int> result = pluck(arr);
     
-    if(result.size() == 2){
-        std::cout << result[0] << " " << result[1] << std::endl;
-    }
-    else{
-        std::cout << "No even numbers found." << std::endl;
-    }
+    assert(result.size() == 2);
+    assert(result[0] == 2);
+    assert(result[1] == 2);
+    
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = {1, 2, 3};
+    assert(issame(a, b));
+    
+    std::vector<int> c = {1, 2, 4};
+    assert(!issame(a, c));
     
     return 0;
 }
