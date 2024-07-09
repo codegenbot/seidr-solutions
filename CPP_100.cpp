@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -41,4 +40,3 @@ int main() {
         cout << "\nThe piles are not the same.\n";
     }
     return 0;
-}
