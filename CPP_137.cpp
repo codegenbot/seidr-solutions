@@ -1,34 +1,37 @@
+Here is the completed code:
+
+```cpp
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace boost;
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b) > boost::any_cast<int>(a) ? b : a;
+    if (is_any_of<a>(std::string("int")) && is_any_of<b>(std::string("float")))
+        return b;
+    else if (is_any_of<a>(std::string("float")) && is_any_of<b>(std::string("int")))
+        return a;
+    else if (is_any_of<a>(std::string("float")) && is_any_of<b>(std::string("float"))) {
+        float fa = boost::any_cast<float>(a);
+        float fb = boost::any_cast<float>(b);
+        return fb > fa ? b : fa == fb ? boost::any("None") : a;
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b) > boost::any_cast<float>(a) ? b : a;
+    else if (is_any_of<a>(std::string("float")) && is_any_of<b>(std::string("string"))) {
+        float fa = boost::any_cast<float>(a);
+        std::string sb = boost::any_cast<std::string>(b);
+        return stof(sb) > fa ? b : fa == stof(sb) ? boost::any("None") : a;
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::get<int>(a) > boost::get<int>(b) ? a : b;
+    else if (is_any_of<a>(std::string("int")) && is_any_of<b>(std::string("string"))) {
+        int fa = boost::any_cast<int>(a);
+        std::string sb = boost::any_cast<std::string>(b);
+        return stof(sb) > fa ? b : fa == stof(sb) ? boost::any("None") : a;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        float b_float = boost::any_cast<float>(b);
-        string a_str = boost::any_cast<string>(a);
-        return stof(a_str) > b_float ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        int b_int = boost::get<int>(b);
-        string a_str = boost::any_cast<string>(a);
-        return stof(a_str) > b_int ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string a_str = boost::any_cast<string>(a);
-        string b_str = boost::any_cast<string>(b);
-        return stof(a_str) > stod(b_str) ? a : b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float a_float = boost::any_cast<float>(a);
-        int b_int = boost::get<int>(b);
-        return a_float > b_int ? a : b;
-    }
+    else if (is_any_of<a>(std::string("int")) && is_any_of<b>(std::string("float")))
+        return b;
     else {
-        return "None";
+        int fa = boost::any_cast<int>(a);
+        float fb = boost::any_cast<float>(b);
+        return fb > fa ? b : fa == fb ? boost::any("None") : a;
     }
 }
