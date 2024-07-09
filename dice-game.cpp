@@ -1,11 +1,11 @@
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
+
+#include <iomanip>
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
-    return ((n - 1) * m + (m - 1) * n) / (total);
+    return (n - 1) / total;
 }
 
 int main() {
@@ -13,3 +13,4 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(6) << diceGame(n, m);
     return 0;
+}
