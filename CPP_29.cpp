@@ -1,6 +1,12 @@
 ```cpp
-bool issame(vector<string> a,vector<string> b,vector<string> c){
-    for(auto s : a) if(find(b.begin(),b.end(),s) == b.end() || find(c.begin(),c.end(),s) == c.end()) return false;
+#include <vector>
+#include <string>
+
+bool issame(std::vector<std::string> a,std::vector<std::string>, std::vector<std::string> b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(b[i].find(a[i]) == std::string::npos) return false;
+    }
     return true;
 }
 
