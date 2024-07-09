@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -15,6 +14,7 @@ std::vector<float> rescale_to_unit(std::vector<float> numbers) {
         result.push_back((num - minVal) / (maxVal - minVal));
     }
     return result;
+
 }
 
 int main() {
