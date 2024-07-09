@@ -1,35 +1,35 @@
 #include <string>
 #include <map>
+#include <sstream>
+
 using namespace std;
 
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return result;
+    istringstream iss(test);
+    string word;
+    int count = 0;
 
-    string letters = test;
-    for (int i = 0; i < letters.length(); ++i) {
-        char c = letters[i];
-        if (result.find(c) == result.end())
-            result[c] = 1;
-        else
-            result[c]++;
+    while (iss >> word) {
+        if (result.find(word[0]) == result.end()) {
+            result[word[0]] = 1;
+        } else {
+            result[word[0]]++;
+        }
     }
 
-    int maxCount = 0;
-    vector<pair<char, int>> maxLetterPairs;
+    map<char, int> maxMap;
+    int maxValue = 0;
 
-    for (auto p : result) {
-        if (p.second > maxCount) {
-            maxCount = p.second;
-            maxLetterPairs.clear();
-            maxLetterPairs.push_back(p);
-        } else if (p.second == maxCount)
-            maxLetterPairs.push_back(p);
+    for (auto& pair : result) {
+        if (pair.second > maxValue) {
+            maxMap.clear();
+            maxMap[pair.first] = pair.second;
+            maxValue = pair.second;
+        } else if (pair.second == maxValue) {
+            maxMap[pair.first] = pair.second;
+        }
     }
 
-    map<char, int> finalResult;
-    for (auto p : maxLetterPairs)
-        finalResult[p.first] = p.second;
-
-    return finalResult;
+    return maxMap;
 }
