@@ -1,5 +1,6 @@
-#include <string>
+Here is the completed code:
 
+#include <iostream>
 using namespace std;
 
 string string_sequence(int n) {
