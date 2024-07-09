@@ -1,36 +1,34 @@
 #include <vector>
 #include <string>
 
-using string = std::string;
-
-bool issame(std::vector<string> a) {
-    return std::all_of(a.begin(), a.end(), [&](const string& s) { return s == a[0]; });
+bool issame(std::vector<std::string> a) {
+    return std::all_of(a.begin(), a.end(), [](const std::string& s){ return s == a[0]; });
 }
 
-std::vector<string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<string> result;
-    for (float grade : grades) {
-        if (grade >= 4.0)
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> result;
+    for (int i = 0; i < grades.size(); i++) {
+        if (grades[i] >= 4.0)
             result.push_back("A+");
-        else if (grade > 3.7 || grade >= 4.0)
+        else if (grades[i] > 3.7)
             result.push_back("A");
-        else if (grade > 3.3 || grade > 3.7)
+        else if (grades[i] > 3.3)
             result.push_back("A-");
-        else if (grade > 3.0 || grade > 3.3)
+        else if (grades[i] > 3.0)
             result.push_back("B+");
-        else if (grade > 2.7 || grade > 3.0)
+        else if (grades[i] > 2.7)
             result.push_back("B");
-        else if (grade > 2.3 || grade > 2.7)
+        else if (grades[i] > 2.3)
             result.push_back("B-");
-        else if (grade > 2.0 || grade > 2.3)
+        else if (grades[i] > 2.0)
             result.push_back("C+");
-        else if (grade > 1.7 || grade > 2.0)
+        else if (grades[i] > 1.7)
             result.push_back("C");
-        else if (grade > 1.3 || grade > 1.7)
+        else if (grades[i] > 1.3)
             result.push_back("C-");
-        else if (grade > 1.0 || grade > 1.3)
+        else if (grades[i] > 1.0)
             result.push_back("D+");
-        else if (grade > 0.7 || grade > 1.0)
+        else if (grades[i] > 0.7)
             result.push_back("D");
         else
             result.push_back("E");
@@ -40,9 +38,9 @@ std::vector<string> numerical_letter_grade(std::vector<float> grades) {
 
 int main() {
     std::vector<float> grades = {4.0};
-    std::vector<string> result = numerical_letter_grade(grades);
+    std::vector<std::string> result = numerical_letter_grade(grades);
     if (issame({result[0]})) {
-        for (string s : result) {
+        for (std::string s : result) {
             if (s != "E") {
                 return 1;
             }
