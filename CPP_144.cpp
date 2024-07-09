@@ -1,33 +1,39 @@
 #include <iostream>
 #include <sstream>
 #include <cctype>
-#include <string>
-#include <cstdlib>
 
-bool simplify(string x, string n) {
-    char arr1[6], arr2[4];
-    stringstream s1(x), s2(n);
-    getline(s1, arr1);
-    char slash;
-    s2 >> arr2;
-    slash = s2.peek();
-    s2.get(); // Consume the slash
-    s2 >> arr2[1];
-
-    return (atoi(arr1) * (slash - '0') == atoi(std::string(1, arr2[0]).data()) * (slash - '0'));
+bool simplify(int x, int y) {
+    if (y == 0)
+        return false;
+    int gcd = __gcd(x, y);
+    return (x / gcd == y / gcd);
 }
 
 int mainFunction() {
-    string x, n;
+    int numerator, denominator;
     cout << "Enter the numerator: ";
-    cin >> x;
+    cin >> numerator;
+    char slash;
+    cin >> slash;
+    if(slash != '/')
+        return 1; // invalid input
+    cin.ignore();
     cout << "Enter the denominator: ";
-    cin >> n;
+    cin >> denominator;
 
-    if(simplify(x, n))
+    if(simplify(numerator, denominator))
         cout << "The fraction is simplified." << std::endl;
     else
         cout << "The fraction cannot be simplified." << std::endl;
 
     return 0;
+}
+
+int __gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
