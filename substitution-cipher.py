@@ -1,4 +1,5 @@
 ```
+python
 key1 = input("Enter the first key string: ")
 key2 = input("Enter the second key string: ")
 
