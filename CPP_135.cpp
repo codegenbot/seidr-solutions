@@ -1,4 +1,5 @@
 #include <vector>
+
 #include <algorithm>
 
 int can_arrange(vector<int> arr){
@@ -6,9 +7,4 @@ int can_arrange(vector<int> arr){
         if(arr[i] <= arr[i-1]) return i - 1;
     }
     return -1;
-}
-
-int main() {
-    assert(can_arrange({}) == -1);
-    return 0;
 }
