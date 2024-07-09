@@ -1,13 +1,13 @@
-```cpp
-#include <set>
-// ...
+#include <vector>
+#include <algorithm>
+#include <initializer_list>
 
 bool same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 std::vector<int> unique_digits(std::vector<int> x) {
-    std::set<int> result;
+    std::vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
@@ -20,10 +20,9 @@ std::vector<int> unique_digits(std::vector<int> x) {
             temp /= 10;
         }
         if (!hasEvenDigit) {
-            result.insert(num);
+            result.push_back(num);
         }
     }
-    std::vector<int> vec(result.begin(), result.end());
-    sort(vec.begin(), vec.end());
-    return vec;
+    std::sort(result.begin(), result.end());
+    return result;
 }
