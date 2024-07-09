@@ -1,19 +1,19 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
-int maxPrimeSum(vector<int> lst) {
+int maxPrimeSum(vector<int> lst){
     int maxPrime = 0;
-    for (int i = 0; i < lst.size(); i++) {
-        if (isPrime(lst[i])) {
-            if (maxPrime < lst[i]) {
+    for(int i = 0; i < lst.size(); i++){
+        if(isPrime(lst[i])){
+            if(maxPrime < lst[i]){
                 maxPrime = lst[i];
             }
         }
     }
     int sumOfDigits = 0;
-    while (maxPrime > 0) {
+    while(maxPrime > 0){
         sumOfDigits += maxPrime % 10;
         maxPrime /= 10;
     }
@@ -28,17 +28,15 @@ bool isPrime(int n) {
             return false;
     }
     return true;
-
 }
 
 int main() {
     vector<int> lst;
     int num;
-    cout << "Enter the numbers: ";
+    cout << "Enter numbers separated by space: ";
     while (cin >> num) {
         lst.push_back(num);
     }
-
-    cout << "The sum of digits for max prime is: " << maxPrimeSum(lst);
-
+    cout << "Sum of digits of maximum prime is: " << maxPrimeSum(lst) << endl;
+    return 0;
 }
