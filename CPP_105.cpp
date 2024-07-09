@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -7,23 +8,14 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    vector<string> result;
+    vector<string> temp;
     for (int i : arr) {
-        switch (i) {
-            case 1: result.push_back("One"); break;
-            case 2: result.push_back("Two"); break;
-            case 3: result.push_back("Three"); break;
-            case 4: result.push_back("Four"); break;
-            case 5: result.push_back("Five"); break;
-            case 6: result.push_back("Six"); break;
-            case 7: result.push_back("Seven"); break;
-            case 8: result.push_back("Eight"); break;
-            case 9: result.push_back("Nine"); break;
-        }
+        if (i >= 1 && i <= 9)
+            temp.push_back(to_string(i));
     }
-    sort(result.begin(), result.end());
-    reverse(result.begin(), result.end());
-    return result;
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
+    return temp;
 }
 
 int main() {
