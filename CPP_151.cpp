@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -19,3 +20,4 @@ int main() {
     assert(odd_sum == double_the_difference(lst)); 
     std::cout << "The result is: " << odd_sum << std::endl;
     return 0;
+}
