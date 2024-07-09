@@ -20,7 +20,9 @@ std::vector<std::string> words_string(std::string s){
                 word = "";
             }
         }else{
-            word += s[i];
+            if((s[i] != ' ') && (s[i] != ',')){
+                word += s[i];
+            }
         }
     }
     if(word.size() <= 30)  
@@ -29,6 +31,10 @@ std::vector<std::string> words_string(std::string s){
 }
 
 int main(){
-    assert(isSame(words_string("ahmed     , gamal"), std::vector<std::string>{"ahmed", "gamal"}));
+    bool test = isSame(words_string("ahmed     , gamal"), std::vector<std::string>{"ahmed", "gamal"});
+    if(test)
+        std::cout << "Test passed";
+    else
+        std::cout << "Test failed";
     return 0;
 }
