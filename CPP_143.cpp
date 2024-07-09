@@ -1,4 +1,4 @@
-```
+```c++
 #include <string>
 
 std::string words_in_sentence(std::string sentence){
@@ -7,7 +7,6 @@ std::string words_in_sentence(std::string sentence){
     for (int i = 0; i < sentence.size(); i++) {
         if (sentence[i] == ' ') {
             len = 0;
-            result += "\n";
         } else {
             len++;
         }
