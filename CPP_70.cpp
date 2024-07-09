@@ -1,8 +1,9 @@
+```
 #include <algorithm>
 #include <vector>
 
 int main() {
-    assert(issame(vector<int>({111111}), vector<int>({111111})));
+    assert(issame(vector<int>(1,111111)), vector<int>(1,111111));
     return 0;
 }
 
