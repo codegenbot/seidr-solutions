@@ -16,6 +16,7 @@ int main() {
     } else {
         std::cout << input << " is not a simple power.\n";
     }
+    return 0;
 }
 
 bool isSimplePower(int num) {

@@ -1,4 +1,4 @@
-```
+#include <iostream>
 #include <string>
 
 int is_bored(std::string S){
@@ -13,3 +13,12 @@ int is_bored(std::string S){
         pos++;
     }
     return count;
+
+int main(){
+    std::string input;
+    std::cout << "Enter a sentence: ";
+    std::cin >> input;
+    int result = is_bored(input);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
+}
