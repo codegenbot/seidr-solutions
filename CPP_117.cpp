@@ -1,9 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <string>
-#include <cctype>
-#include <map>
-
+#include <initializer_list>
 using namespace std;
 
 bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
@@ -16,50 +13,30 @@ bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
 
 vector<pair<int, string>> select_words(string s, int n) {
     vector<pair<int, string>> result;
+    int wordCount = 0;
     string word = "";
-    bool isVowel = false;
-    
     for (char c : s) {
         if (c == ' ') {
             if (!word.empty()) {
-                int vowelCount = 0;
-                for(char i: word)
-                {
-                    if(i == 'a' || i == 'e' || i == 'i' || i == 'o' || i == 'u' ||
-                       (i >= 'A' && i <= 'U') ) 
-                        vowelCount++;
-                }
+                int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+                    count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
                 if (vowelCount <= n) {
                     result.push_back({vowelCount, word});
                 }
                 word = "";
             }
+            wordCount++;
         } else {
-            bool isUpper = c >= 'A' && c <= 'Z';
-            char cLower = tolower(c);
-            if (isUpper)
-                c = cLower;
-            if ((cLower == 'a' || cLower == 'e' || cLower == 'i' || cLower == 'o' || cLower == 'u')) {
-                isVowel = true;
-            } else
-                isVowel = false;
             word += c;
         }
     }
-    
     if (!word.empty()) {
-        int vowelCount = 0;
-        for(char i: word)
-        {
-            if(i == 'a' || i == 'e' || i == 'i' || i == 'o' || i == 'u' ||
-               (i >= 'A' && i <= 'U') ) 
-                vowelCount++;
-        }
+        int vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
+            count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
         if (vowelCount <= n) {
             result.push_back({vowelCount, word});
         }
     }
-    
     return result;
 }
 
@@ -68,4 +45,3 @@ int main() {
     vector<pair<int, string>> output = select_words("a b c d e f", 1);
     assert(issame(output, expected));
     return 0;
-}
