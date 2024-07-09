@@ -1,20 +1,21 @@
-#include <initializer_list>
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
+using namespace std;
+
 bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size())
-        return false;
+    if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
-            return false;
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
-vector<string> words_string(string s){
+vector<std::string> words_string(string s){
     vector<string> result;
-    string word = "";
+    std::string word = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
             if(!word.empty()){
@@ -31,5 +32,6 @@ vector<string> words_string(string s){
 }
 
 int main(){
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert (issame(words_string("ahmed     , gamal") , {"ahmed", "gamal"}));
+    return 0;
 }
