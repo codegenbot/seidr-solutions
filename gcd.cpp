@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -36,9 +37,8 @@ int main() {
 
     while (!(cin >> a >> b) || a < 1 || b < 1) {
         cin.clear();
-        cout << "Invalid input. Please enter two positive integers: ";
         cin.ignore();
-        cin >> a >> b;
+        cout << "Invalid input. Please enter two positive integers: ";
     }
 
     cout << gcd(a, b) << endl;
