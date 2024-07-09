@@ -4,9 +4,9 @@ using namespace std;
 
 bool evaluateBooleanExpression(string expression) {
     if (expression.find('&') != string::npos) {
-        return expression.find('F') != string::npos ? false : true;
+        return expression.find('F') == string::npos;
     } else if (expression.find('|') != string::npos) {
-        return expression.find('T') != string::npos ? true : false;
+        return expression.find('T') != string::npos;
     } else {
         return expression == "T";
     }
