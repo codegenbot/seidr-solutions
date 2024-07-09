@@ -1,18 +1,30 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <variant>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a == b ? true : false);
+bool issame(const std::vector<std::variant<int>> &a, const std::vector<std::variant<int>> &b) {
+    auto a_integers = filter_integers(a);
+    auto b_integers = filter_integers(b);
+
+    return a_integers == b_integers;
+}
+
+std::vector<std::string> filter_integers(const std::vector<std::variant<int>>& vec) {
+    std::vector<std::string> result;
+    for (auto i : vec) {
+        if (std::holds_alternative<int>(i)) {
+            result.push_back(std::to_string(std::get<int>(i)));
+        }
+    }
+    return result;
 }
 
 int main() {
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = {1, 4, 3};
+    std::vector<std::variant<int>> a = {1, 2, 3};
+    std::vector<std::variant<int>> b = {1, 4, 3};
 
-    if(issame(a, b))
-        std::cout << "The two vectors are the same." << std::endl;
-    else
-        std::cout << "The two vectors are not the same." << std::endl;
+    assert(issame(a, b));
 
-    return (a == b ? 0 : 1);
+    return 0;
 }
