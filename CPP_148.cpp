@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -32,25 +31,4 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::sort(result.begin(), result.end());
 
     return result;
-}
-
-int main() {
-    std::string planet1, planet2;
-    std::cout << "Enter the first planet: ";
-    std::cin >> planet1;
-    std::cout << "Enter the second planet: ";
-    std::cin >> planet2;
-
-    std::vector<std::string> result = bf(planet1, planet2);
-    if (!result.empty()) {
-        std::cout << "The planets between are: ";
-        for (const auto& planet : result) {
-            std::cout << planet << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "Planets not found." << std::endl;
-    }
-
-    return 0;
 }
