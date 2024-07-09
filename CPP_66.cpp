@@ -34,7 +34,7 @@ string join(const vector<string>& v, const char& sep) {
     string s;
     for (auto it = v.begin(); it != v.end(); ++it)
         s += *it + sep;
-    return s.substr(0, s.size() - 1); 
+    return s.substr(0, s.size() - 1); // remove trailing sep
 }
 
 int main() {
