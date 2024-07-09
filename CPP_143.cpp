@@ -1,8 +1,9 @@
+```cpp
 #include <string>
 #include <cstddef>
 
-string words_in_sentence(string sentence) {
-    string result = "";
+std::string words_in_sentence(std::string sentence) {
+    std::string result = "";
     size_t start = 0;
     for (size_t end = 0; end <= sentence.size(); ) {
         if (!is_prime(sentence.find(' ', end))) {
