@@ -1,8 +1,10 @@
 int sum = 0;
-    int prod = 1;
+    int product = 1;
+    
     for (int num : numbers) {
         sum += num;
-        prod *= num;
+        product *= num;
     }
-    return {sum, prod};
+    
+    return {sum, product};
 }
