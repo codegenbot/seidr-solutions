@@ -1,16 +1,26 @@
+```cpp
+#include <iostream>
+using namespace std;
+
+float triangle_area(float a, float b, float c);
+
 int main() {
     float a, b, c;
-    std::cout << "Enter three sides of the triangle: ";
-    std::cin >> a >> b >> c;
+    cout << "Enter three sides of the triangle: ";
+    cin >> a >> b >> c;
 
     if(triangle_area(a, b, c) == -1.0f) {
-        std::cout << "The given values do not form a valid triangle.";
+        cout << "The given values do not form a valid triangle.";
     } else {
         float result = triangle_area(a, b, c);
-        std::cout << "The area of the triangle is: ";
-        std::cout << std::fixed << std::setprecision(2);
-        std::cout << result;
+        cout << "The area of the triangle is: ";
+        cout << fixed << setprecision(2);
+        cout << result;
     }
 
     return 0;
+}
+
+float triangle_area(float a, float b, float c) {
+    // implement your logic here
 }
