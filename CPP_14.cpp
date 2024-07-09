@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -12,16 +11,12 @@ std::vector<std::string> all_prefixes(const std::string& str) {
 
 bool issame(std::vector<std::string> a) {
     if (a != std::vector<std::string>({"W", "WW", "WWW"})) 
-        return false;  
+        return false;  // or you can handle the comparison as per your requirement
+    
     return true;
 }
 
 int main() {
-    {   
-        if (!issame(all_prefixes("WWW"))) {
-            std::cout << "Test failed" << std::endl;
-        } else {
-            std::cout << "Test passed" << std::endl;
-        }
-    }
+    assert(issame(all_prefixes("WWW")));
+    return 0;
 }
