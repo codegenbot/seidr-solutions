@@ -1,6 +1,6 @@
 #include <algorithm>
+#include <numeric>
 #include <limits>
-#include <utility>
 
 bool issame(float a, float b) {
     return std::abs(a - b) < std::numeric_limits<float>::epsilon();
@@ -12,6 +12,9 @@ vector<float> find_closest_elements(vector<float> numbers) {
     pair<float, float> closest_pair;
     
     for (int i = 0; i < numbers.size() - 1; ++i) {
+        if (issame(numbers[i], numbers[i + 1])) {
+            return vector<float>(numbers.begin(), numbers.end());
+        }
         float diff = numbers[i + 1] - numbers[i];
         if (diff < min_diff) {
             min_diff = diff;
