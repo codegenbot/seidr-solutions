@@ -1,6 +1,6 @@
 #include <vector>
-#include <cassert>
 #include <initializer_list>
+#include <cassert>
 
 float double_the_difference(const std::vector<float>& lst) {
     float odd_sum = 0;
