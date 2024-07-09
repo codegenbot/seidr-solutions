@@ -35,15 +35,12 @@ int main() {
             int temp;
             std::cin >> temp;
             game.push_back(temp);
-            guess.push_back(temp); 
+            guess.push_back(temp);
         } else {
-            int temp1, temp2; 
-            std::cout << "Enter element " << i+1 << " (Game): ";
-            std::cin >> temp1;
-            game.push_back(temp1);
-            std::cout << "Enter element " << i+1 << " (Guess): ";
-            std::cin >> temp2;
-            guess.push_back(temp2); 
+            int temp;
+            std::cin >> temp;
+            game.push_back(temp);
+            guess[i] = temp;  // Read input only once and store it in both game and guess
         }
     }
     if(issame(game, guess)){
