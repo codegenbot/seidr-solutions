@@ -28,3 +28,4 @@ vector<float> get_positive(vector<float> l){
             result.push_back(num);
     }
     return result;
+}
