@@ -1,21 +1,14 @@
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
 
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_float(a) || is_float(b)) {
-        float fa = boost::any_cast<float>(a);
-        float fb = boost::any_cast<float>(b);
-        return fa > fb ? a : b;
-    } else if (is_string(a) && is_string(b)) {
-        string sa = boost::any_cast<string>(a);
-        string sb = boost::any_cast<string>(b);
-        double da = stod(sa), db = stod(sb);
-        return da > db ? a : b;
-    } else if (!is_float(a) && !is_float(b)) {
-        return "None";
-    }
+    if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) 
+        return a;
+    else if ((boost::any_cast<string>(a)).compare((boost::any_cast<string>(b))) > 0)
+        return a;
+    else
+        return b;
 }
