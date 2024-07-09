@@ -1,15 +1,13 @@
 #include <string>
-#include <cctype>
 
-string solve(string s) {
-    string result = "";
+std::string solve(std::string s) {
+    std::string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            if (islower(c))
-                result += toupper(c);
-            else
-                result += tolower(c);
-        } else
+        if (c >= '0' && c <= '9') {
+            result += "0";
+        } else {
             result += c;
+        }
     }
     return result;
+}
