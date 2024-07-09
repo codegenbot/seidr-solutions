@@ -1,13 +1,16 @@
 double num = stod(value);
-    int intNum = static_cast<int>(num);
-    if (num - intNum >= 0.5) {
+    int intPart = static_cast<int>(num);
+    if (num - intPart >= 0.5) {
         return ceil(num);
-    } else if (num - intNum <= -0.5) {
+    }
+    else if (num - intPart <= -0.5) {
         return floor(num);
-    } else {
+    }
+    else {
         if (num >= 0) {
             return ceil(num);
-        } else {
+        }
+        else {
             return floor(num);
         }
     }
