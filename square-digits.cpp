@@ -1,15 +1,16 @@
-```cpp
 #include <string>
 #include <iostream>
 
 std::string squareDigits(std::string input) {
+    long num = std::stol(input); 
     std::string output = "";
-    for (char c : input) { 
-        int digit = c - '0'; 
+    while (num > 0) {
+        int digit = num % 10; 
         digit *= digit; 
-        output += std::to_string(digit); 
+        output += std::to_string(digit);
+        num /= 10;
     }
-    return output;
+    return std::string(output.rbegin(), output.rend()); 
 }
 
 int main() { 
