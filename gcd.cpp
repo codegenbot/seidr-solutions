@@ -1,11 +1,8 @@
-Here's the modified code:
-
 #include <vector>
-#include <string>
 
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
+vector<int> findIndices(std::string text, std::string target) {
     vector<int> indices;
     int length = target.length();
     for(int i=0; i<=text.length()-length; i++) {
