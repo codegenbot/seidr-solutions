@@ -1,4 +1,7 @@
 #include <boost/any.hpp>
+#include <string>
+
+using namespace std;
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -8,9 +11,9 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
         return b;
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string strA = any_cast<std::string>(a);
-        std::string strB = any_cast<std::string>(b);
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = any_cast<string>(a);
+        string strB = any_cast<string>(b);
 
         int i = strA.find('.');
         if (i != -1)
@@ -18,20 +21,20 @@ boost::any compare_one(boost::any a, boost::any b) {
 
         i = strB.find(',');
         if (i != -1)
-            strB[i] = '.';
+            strB.replace(i, 1, ".");
 
-        return (std::stod(strA) > std::stod(strB)) ? a : b;
+        return (stod(strA) > stod(strB)) ? a : b;
     }
-    else if (a.type() == typeid(std::string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
-        std::string strA = any_cast<std::string>(a);
+    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
+        string strA = any_cast<string>(a);
         int i = strA.find('.');
         if (i != -1)
             strA.erase(i, 1);
 
         double numB = any_cast<double>(b);
-        return (std::stod(strA) > numB) ? a : b;
+        return (stod(strA) > numB) ? a : b;
     }
     else {
-        return boost::any(typeid(int));
+        return a;
     }
 }
