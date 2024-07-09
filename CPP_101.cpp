@@ -1,10 +1,13 @@
+```cpp
 #include <cassert>
 #include <string>
 #include <vector>
 
-std::vector<std::string> splitString(std::string str) {
-    std::vector<std::string> words;
-    std::string word;
+using namespace std;
+
+vector<string> splitString(string str) {
+    vector<string> words;
+    string word;
     for(int i = 0; i < str.length(); i++) {
         if(str[i] == ' ') {
             words.push_back(word);
@@ -17,7 +20,7 @@ std::vector<std::string> splitString(std::string str) {
     return words;
 }
 
-bool isSameVectors(std::vector<std::string> a, std::vector<std::string> b) { 
+bool isSameVectors(vector<string> a, vector<string> b) { 
     if(a.size() != b.size()) {
         return false;
     }
@@ -30,10 +33,6 @@ bool isSameVectors(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    // Original code
-}
-
-int testMain() {
     assert(isSameVectors(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
