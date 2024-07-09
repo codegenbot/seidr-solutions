@@ -24,6 +24,14 @@ boost::any compare_one(boost::any a, boost::any b) {
         return stof(b_str) > stof(a_str)
             ? a
             : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        return stof(any_cast<string>(b)) > any_cast<float>(a)
+            ? b
+            : boost::any(0);
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        return any_cast<float>(a) > stof(any_cast<string>(b))
+            ? a
+            : boost::any(0);
     }
     return boost::any(0);
 }
