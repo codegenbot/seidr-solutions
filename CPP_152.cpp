@@ -1,20 +1,20 @@
 #include <vector>
-#include <algorithm>
+#include <iostream>
 #include <cassert>
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
-    for (size_t i = 0; i < game.size(); ++i) {
-        result.push_back(std::abs(game[i] - guess[i]));
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] == b[i]) {
+            result.push_back(1);
+        } else {
+            result.push_back(0);
+        }
     }
     return result;
 }
 
-bool issame(const std::vector<int> &a, const std::vector<int> &b){
-    return a == b;
-}
-
 int main() {
-    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
+    assert (issame({1,2,3,5},{-1,2,3,4}) == std::vector<int>({0, 1, 1, 0}));
     return 0;
 }
