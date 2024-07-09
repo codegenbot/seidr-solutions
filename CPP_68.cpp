@@ -1,3 +1,15 @@
+#include <vector>
+#include <cassert>
+
+bool issame(vector<int> a, vector<int> b) {
+    // your equality check implementation here
+}
+
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}), std::vector<int>{})); 
+    return 0;
+}
+
 vector<int> pluck(vector<int> arr) {
     vector<int> result;
     if (arr.empty()) return result;
