@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <variant>
+#include <cmath>
 
 long long double_the_difference(std::vector<std::variant<float, long long>> lst) {
     long long sum = 0;
@@ -11,36 +12,31 @@ long long double_the_difference(std::vector<std::variant<float, long long>> lst)
                 if (static_cast<long long>(f) % 2 != 0) { 
                     sum += static_cast<long long>(std::pow(f, 2)); 
                 }
+            } else {
+                sum += static_cast<long long>(f);
             }
+        } else {
+            long long ll = std::get<long long>(num);
+            sum += ll;
         }
     }
-    return static_cast<long long>(sum);
+    return sum;
 }
 
 int main() {
-    float input; 
     int n = 0;
     std::vector<std::variant<float, long long>> lst;
 
     while (1) {
         std::cout << "Enter a number (negative to stop): ";
+        float input; 
         std::cin >> input;
         
         if (input < 0) break;
-        if (input > 0 && std::floor(input) == input) {
-            if (static_cast<long long>(input) % 2 != 0) { 
-                lst.push_back(static_cast<long long>(std::pow(input, 2))); 
-            }
-            else {
-                lst.push_back(input);
-            }
-        }
-        else {
-            lst.push_back(input);
-        }
+        lst.push_back(input);
         n++;
     }
-
+    
     long long odd_sum = double_the_difference(lst);
     return 0;
 }
