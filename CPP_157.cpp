@@ -1,5 +1,6 @@
-if(a*a + b*b == c*c || a*a + c*c == b*b || b*b + c*c == a*a)
+float sides[3] = {a, b, c};
+    sort(sides, sides + 3);
+    if (pow(sides[0], 2) + pow(sides[1], 2) == pow(sides[2], 2))
         return true;
-    else
-        return false;
+    return false;
 }
