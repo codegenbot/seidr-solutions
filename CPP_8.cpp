@@ -1,23 +1,30 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 #include <utility>
+#include <cassert>
 
-bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+using namespace std;
+
+bool issame(const pair<int, int>& a, const pair<int, int>& b) {
     return a == b;
 }
 
-std::pair<int, int> sum_product(const std::vector<int>& numbers) {
+pair<int, int> sum_product(const vector<int>& numbers);
+
+int main() {
+    assert(issame(sum_product({10}), {10, 10}));
+    
+    cout << "Test passed!";
+    
+    return 0;
+}
+
+pair<int, int> sum_product(const vector<int>& numbers) {
     int sum = 0;
     int prod = 1;
     for (int num : numbers) {
         sum += num;
         prod *= num;
     }
-    return std::pair<int, int>(sum, prod);
-}
-
-int main() {
-    assert(issame(sum_product({10}), std::pair<int, int>(10, 10)));
-    
-    return 0;
+    return make_pair(sum, prod);
 }
