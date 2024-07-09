@@ -24,12 +24,10 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> input = {3.5, 2.1, 4.2, 1.8, 5.6};
-    vector<float> expected_output = {2.1, 1.8, 4.2, 3.5, 5.6};
+    vector<float> input = {3.2, 1.5, 4.7, 2.1, 5.3};
+    vector<float> expected_output = {1.5, 3.2, 2.1, 4.7, 5.3};
 
     vector<float> output = sort_even(input);
 
     assert(equal(output.begin(), output.end(), expected_output.begin()));
-
-    return 0;
 }
