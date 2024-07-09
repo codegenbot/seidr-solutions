@@ -10,9 +10,12 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         arr.erase(it);
     }
     return result;
+
 }
 
 int main() {
+    // Your code here
+    // For example:
     std::vector<int> test = maximum({1, 2, 3, -23, 243, -400, 0}, 3);
     for (int i : test) {
         std::cout << i << " ";
