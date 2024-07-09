@@ -1,49 +1,31 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
+    vector<vector<bool>> visited(n, vector<bool>(n));
     vector<int> res;
-    
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (k == 1) {
-                dp[i][j] = grid[i][j];
-            } else {
-                int minVal = INT_MAX;
-                if (i > 0) minVal = min(minVal, dp[i - 1][j]);
-                if (j > 0) minVal = min(minVal, dp[i][j - 1]);
-                if (i < n - 1) minVal = min(minVal, dp[i + 1][j]);
-                if (j < n - 1) minVal = min(minVal, dp[i][j + 1]);
-                dp[i][j] = grid[i][j] + minVal;
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+            if (grid[i][j] == 1) {
+                int val = dfs(grid, visited, i, j, k, 0);
+                if (!res.size() || res.back() > val) res = vector<int>(k + 1);
+                for (int x = k; x >= 0; --x)
+                    if (val <= res[x])
+                        res[x] = val;
             }
-        }
-    }
-    
-    int minVal = INT_MAX;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (dp[i][j] < minVal) {
-                minVal = dp[i][j];
-                res = vector<int>();
-                for (int l = 0; l <= k; l++) {
-                    res.push_back(grid[(i - l + n) % n][(j - l + n) % n]);
-                }
-            }
-        }
-    }
-    
     return res;
 }
 
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    return 0;
+int dfs(vector<vector<int>> grid, vector<vector<bool>> &visited, int i, int j, int k, int val) {
+    if (k == 0) return val;
+    visited[i][j] = true;
+    int minV = INT_MAX;
+    for (int dx = -1; dx <= 1; ++dx)
+        for (int dy = -1; dy <= 1; ++dy)
+            if (abs(dx) + abs(dy) == 1 && i + dx >= 0 && i + dx < grid.size() && j + dy >= 0 && j + dy < grid.size()) {
+                int x = i + dx;
+                int y = j + dy;
+                if (!visited[x][y] && grid[x][y] > val) {
+                    minV = min(minV, dfs(grid, visited, x, y, k - 1, val));
+                }
+            }
+    return minV;
 }
