@@ -13,9 +13,11 @@ int next_smallest(vector<int> lst) {
         }
     }
     return -1;
+
 }
 
 int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == -45);
+    int result = next_smallest({-35, 34, 12, -45});
+    assert(result == -35);
     return 0;
 }
