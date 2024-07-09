@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-bool isSame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -34,7 +34,7 @@ int main() {
     for (int i : pile) {
         cout << i << " ";
     }
-    if(isSame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22})) {
+    if(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22})) {
         cout << "\nThe piles are the same.\n";
     } else {
         cout << "\nThe piles are not the same.\n";
