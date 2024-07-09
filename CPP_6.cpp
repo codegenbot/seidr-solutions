@@ -1,13 +1,9 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(int a, int b) {
-    if(a == b)
-        return true;
-    else
-        return false;
+bool issame(char a, char b) {
+    return (a == 's' && b == 's') || (a == 't' && b == 't');
 }
 
 std::vector<int> parse_nested_parens(std::string paren_string) {
