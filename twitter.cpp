@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -13,11 +12,13 @@ std::string validateTweet(const std::string& tweet) {
 }
 
 int main() {
-    std::string tweet;
-    std::cout << "Enter a tweet: ";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::getline(std::cin, tweet);
-    std::string result = validateTweet(tweet);
-    std::cout << result << std::endl;
+    while(true) {
+        std::string tweet;
+        std::cout << "Enter a tweet: ";
+        std::getline(std::cin, tweet);
+        if (tweet == "stop") break;
+        std::string result = validateTweet(tweet);
+        std::cout << result << std::endl;
+    }
     return 0;
 }
