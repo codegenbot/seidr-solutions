@@ -1,3 +1,16 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
+    float total = 0.0;
+    for (int i = 0; i < prices.size(); ++i) {
+        total += prices[i] * (1.0 - discounts[i] / 100.0);
+    }
+    return total;
+}
+
 int main() {
     int n;
     cin >> n;
@@ -11,11 +24,7 @@ int main() {
         cin >> discounts[i];
     }
 
-    float total_price = 0.0;
-    for (int i = 0; i < n; ++i) {
-        total_price += prices[i] * (1.0 - discounts[i] / 100.0);
-    }
-
+    float total_price = calculateTotalPrice(prices, discounts);
     cout << total_price << endl;
 
     return 0;
