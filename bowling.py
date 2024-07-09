@@ -14,10 +14,7 @@ def bowling_score(game):
             score += first + second
             if first + second == 10:
                 roll += 1
-                if len(game[3:]) > 0 and len(game.split('/')[1]) > 1:
-                    score += next(iter(map(int, game[3:].split('/')[0]))) or 10
-                else:
-                    score += 10
+                score += int(game[3:].split('/')[0].strip()) or 10
             else:
                 third = int(frame[2])
                 score += third
