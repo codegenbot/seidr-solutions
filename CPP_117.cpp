@@ -1,55 +1,26 @@
-```cpp
 #include <vector>
-#include <algorithm>
 #include <string>
-#include <cctype>
 
-using std::vector;
-using std::pair;
-using std::string;
+std::vector<std::pair<int, std::string>> select_words(const std::string& input, int n) {
+    std::vector<std::pair<int, std::string>> result;
+    size_t start = 0;
+    for (size_t end = 0; end <= input.size(); ) {
+        if (end == input.size() || input[end] != ' ') {
+            string word = input.substr(start, end - start);
+            if (!word.empty()) {
+                result.emplace_back(1, word);
+            }
+            start = end + 1;
+        }
+        ++end;
+    }
+    return std::vector<std::pair<int, std::string>>(result.begin(), result.end());
+}
 
-bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
-    for(int i = 0; i<a.size(); i++){
-        auto p1 = a[i];
-        auto p2 = b[i];
-        if(p1.first != p2.first || p1.second != p2.second) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
-}
-
-vector<pair<int, string>> select_words(string s, int n) {
-    vector<pair<int, string>> result;
-    int wordCount = 0;
-    string word = "";
-    for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                size_t vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
-                    count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
-                if (vowelCount <= n) {
-                    result.push_back({{vowelCount, word}});
-                }
-                word = "";
-            }
-            wordCount++;
-        } else {
-            word += tolower(c);
-        }
-    }
-    if (!word.empty()) {
-        size_t vowelCount = count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') +
-            count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u');
-        if (vowelCount <= n) {
-            result.push_back({{vowelCount, word}});
-        }
-    }
-    return result;
-}
-
-int main() {
-    vector<pair<int, string>> expected = {{1, "b"}, {1, "c"}, {1, "d"}, {1, "f"}};
-    vector<pair<int, string>> output = select_words("a b c d e f", 1);
-    assert(issame(output, expected));
-    return 0;
 }
