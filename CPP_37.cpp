@@ -1,29 +1,25 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
+```cpp
 bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i]) != std::abs(b[i])) {
+        if (std::abs(a[i]) % 2 == 1 && std::abs(b[i]) % 2 == 1)
             return false;
-        }
     }
     return true;
 }
 
-std::vector<float> sort_even(std::vector<float> input) {
-    std::vector<float> evenNumbers;
-    for (float num : input) {
-        if (num >= 0.0f) {
-            evenNumbers.push_back(num);
+namespace myspace {
+    std::vector<float> sort_even(std::vector<float>& input) {
+        std::sort(input.begin(), input.end());
+        std::vector<float> even;
+        for (float num : input) {
+            if (std::abs(num) % 2 == 0) {
+                even.push_back(num);
+            }
         }
+        return even;
     }
-    std::sort(evenNumbers.begin(), evenNumbers.end());
-    return evenNumbers;
-}
+};
 
 int main() {
     std::vector<float> input(10);
@@ -44,7 +40,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    std::vector<float> sortedEven = sort_even(input);
+    std::vector<float> sortedEven = myspace::sort_even(input);
     std::cout << "Sorted even array: ";
     for (float num : sortedEven) {
         std::cout << num << " ";
