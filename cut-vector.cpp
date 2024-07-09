@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <climits> 
+#include <climits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
@@ -9,30 +9,43 @@ vector<vector<int>> cutVector(vector<int> v) {
     
     res[0].resize(0);
     res[1].resize(0);
-    int minDiff = INT_MAX;
+    long long totalSum = 0;
     for (int i = 0; i < n; i++) {
-        int leftSum = 0, rightSum = 0;
-        for (int j = 0; j <= i; j++) {
-            leftSum += v[j];
-        }
-        for (int j = i + 1; j < n; j++) {
-            rightSum += v[j];
-        }
-        int currDiff = abs(leftSum - rightSum);
-        if (currDiff < minDiff) {
-            res[0].clear();
-            for (int j = 0; j <= i; j++) {
-                res[0].push_back(v[j]);
+        totalSum += v[i];
+    }
+    int minDiff = INT_MAX;
+    int leftIndex = 0;
+    
+    long long halfSum = totalSum / 2;
+    if (totalSum % 2 != 0) {
+        halfSum++;
+    }
+    
+    for (int i = 0; i < n; i++) {
+        while (i < n && v[i] <= halfSum) {
+            leftIndex = i + 1;
+            totalSum -= v[i];
+            if (totalSum == 0 || abs(totalSum - halfSum) < minDiff) {
+                minDiff = abs(totalSum - halfSum);
+                break;
             }
-            res[1] = res[0];
-            minDiff = currDiff;
-        } else if (currDiff == minDiff) {
-            res[1].clear();
-            for (int j = i + 1; j < n; j++) {
-                res[1].push_back(v[j]);
-            }
+            i++;
         }
     }
+    
+    res[0].clear();
+    for (int j = 0; j <= leftIndex; j++) {
+        res[0].push_back(v[j]);
+    }
+    if (totalSum != 0) {
+        res[1].clear();
+        for (int j = leftIndex; j < n; j++) {
+            res[1].push_back(v[j]); 
+        }
+    } else {
+        res[1] = res[0];
+    }
+    
     return res;
 }
 
