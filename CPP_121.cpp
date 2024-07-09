@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -24,19 +23,19 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst;
+    std::vector<int> lst(10); // Initialize with a minimum size (10 in this case)
     int num, n = 1;
-    int sumOdd = 0;
     while (true) {
         std::cout << "Enter numbers (terminate with 0): ";
-        int num;
         std::cin >> num;
         if(num != 0)
             lst.push_back(num); 
         else
             break;
 
-        sumOdd += num; // Replace sumOdd(lst) with num
+        if (num % 2 != 0) {
+            sumOdd += num; // Initialize sumOdd here
+        }
         if(sumOdd > 25)
             break;
     }
