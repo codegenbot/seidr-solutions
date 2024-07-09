@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <cassert>
 
 string join(const vector<string>& vec, const string& sep) {
     string result;
