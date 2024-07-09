@@ -1,7 +1,8 @@
 #include <cassert>
+#include <string>
 
-string decimal_to_binary(int decimal){
-    string binary = "";
+std::string decimal_to_binary(int decimal){
+    std::string binary = "";
     while (decimal > 0) {
         binary = (decimal & 1) ? "1" + binary : "0" + binary;
         decimal >>= 1;
@@ -9,7 +10,7 @@ string decimal_to_binary(int decimal){
     return "db" + binary + "db";
 }
 
-int testMain() {
+int main() {
     assert(decimal_to_binary(15) == "db1111db");
     return 0;
 }

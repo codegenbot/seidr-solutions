@@ -1,8 +1,6 @@
-#include <algorithm>
 #include <string>
+#include <algorithm>
 using namespace std;
-
-void process_string(string s);
 
 string anti_shuffle(string s) {
     string result = "";
@@ -10,19 +8,20 @@ string anti_shuffle(string s) {
         if (s[i] == ' ') {
             result += ' ';
         } else {
-            char temp = s[i];
-            while (temp != ' ') {
-                temp = (temp >= 'a' && temp <= 'z') ? temp : ((temp >= 'A' && temp <= 'Z') ? (char)((temp - 1) + 'A') : (char)((temp - 1) + 'a'));
+            string word = "";
+            bool first = true;
+            for (int j = i; j < s.length() && s[j] != ' '; j++) {
+                char c = s[j];
+                if (!first) {
+                    word += c;
+                }
+                first = false;
             }
-            result += temp;
+            for (char c : word) {
+                result += *min_element(word.begin(), word.end());
+            }
+            i += word.length() - 1;
         }
     }
     return result;
-}
-
-int main() {
-    string str = "Hello World";
-    process_string(str);
-    cout << anti_shuffle(str) << endl;
-    return 0;
 }
