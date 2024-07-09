@@ -8,13 +8,9 @@ def solve_boolean(expression):
     else:
         stack = []
         for char in reversed(expression):
-            if char in ["&", "|"]:
-                right = stack.pop()
-                left = stack.pop()
-                if char == "&":
-                    stack.append(left and right)
-                elif char == "|":
-                    stack.append(left or right)
-            else:
+            if char in {"&", "|"}:
+                b2, b1 = stack.pop(), stack.pop()
+                stack.append(char == "&" and b1 and b2 or char == "|" and b1 or b2)
+            elif char in {"T", "F"}:
                 stack.append(char == "T")
         return stack[0]
