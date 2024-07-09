@@ -8,11 +8,11 @@ std::string flip_case(const std::string& input) {
     for (char c : input) {
         if (isalpha(c)) {
             if (islower(c))
-                result.push_back(std::toupper(c));
+                result += toupper((char)c);
             else
-                result.push_back(std::tolower(c));
+                result += tolower((char)c);
         } else
-            result.push_back(c);
+            result += c;
     }
     return result;
 }
