@@ -1,3 +1,4 @@
+```c++
 #include <string>
 
 int getBonus(int a, int b) {
@@ -7,7 +8,6 @@ int getBonus(int a, int b) {
         return a + b;
     }
 }
-
 int bowlingScore(std::string s) {
     int score = 0;
     int currentFrame = 1;
