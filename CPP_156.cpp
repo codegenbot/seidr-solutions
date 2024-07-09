@@ -1,6 +1,7 @@
-```cpp
 int main() {
-    int main();
-    assert(int_to_mini_roman(1000) == "M");
+    int number;
+    cout << "Enter a positive integer: ";
+    cin >> number;
+    cout << int_to_mini_roman(number) << endl;
     return 0;
 }
