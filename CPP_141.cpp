@@ -1,4 +1,13 @@
-```cpp
+#include <iostream>
+using namespace std;
+
+string file_name_check(string file_name);
+
+int main() {
+    assert (file_name_check("s.") == "No");
+    return 0;
+}
+
 string file_name_check(string file_name){
     int digit_count = 0;
     bool has_dot = false;
@@ -19,8 +28,8 @@ string file_name_check(string file_name){
 
     if(!before_dot.length()) return "No";
 
-    for(int i=0; i(before dot length(); i++){
-        if(before dot[i] < 'a' || before dot[i] > 'z' && before dot[i] < 'A' || before dot[i] > 'Z') return "No";
+    for(int i=0; i(before_dot.length(); i++){
+        if(before_dot[i] < 'a' || before_dot[i] > 'z' && before_dot[i] < 'A' || before_dot[i] > 'Z') return "No";
     }
 
     string after_dot = file_name.substr(file_name.find('.')+1);
