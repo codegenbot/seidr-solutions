@@ -16,7 +16,7 @@ int luhn(const vector<int>& digits) {
                 sum += doubled;
             }
         } else {
-            sum += digits[i - 1];
+            sum += digits[i];
         }
         doubleNext = !doubleNext;
     }
