@@ -6,9 +6,5 @@ def string_to_md5(text):
     else:
         return None
 
-if __name__ == "__main__":
-    try:
-        text = input("Enter a string: ")
-        print(string_to_md5(text))
-    except EOFError:
-        pass
+text = input("Enter a string: ")
+print(string_to_md5(text))

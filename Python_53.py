@@ -2,11 +2,7 @@ def add(x, y):
     return x + y
 
 try:
-    print("Enter the first integer:")
-    x = int(input())
-
-    print("Enter the second integer:")
-    y = int(input())
+    x, y = map(int, input("Enter two integers separated by space: ").split())
 
     result = add(x, y)
     print(result)
