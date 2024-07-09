@@ -1,8 +1,7 @@
-int sum = 0;
-    for(int elem : q)
-        sum += elem;
-    
-    if (sum <= w && equal(q.begin(), q.begin() + q.size()/2, q.rbegin()))
-        return true;
-    return false;
+bool will_it_fly(const vector<int>& q, int w) {
+    int sum = 0;
+    for (int n : q) {
+        sum += n;
+    }
+    return (q == vector<int>(q.rbegin(), q.rend())) && (sum <= w);
 }
