@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -16,5 +17,6 @@ bool prime_length(string str){
 }
 
 int main(){
-    assert(prime_length("0") == false);
+    assert (prime_length("0") == false);
+    return 0;
 }
