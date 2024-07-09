@@ -23,12 +23,12 @@ int findUnique(std::vector<int> vec) {
         }
         it = nextIt;
     }
-    return issame({*vec.begin(), *(vec.end()-1)}, vec);
+    return *(vec.end()-1);
 }
 
 int main() {
     std::vector<int> uniqueVec = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    if (!findUnique(uniqueVec)) {
+    if (findUnique(uniqueVec) != 123) {
         return 1;
     }
     return 0;
