@@ -1,5 +1,5 @@
-```cpp
 #include <cstring>
+#include <assert.h>
 
 int myStrlen(const std::string& str) {
     int len = 0;
@@ -7,4 +7,9 @@ int myStrlen(const std::string& str) {
         len++;
     }
     return len;
+}
+
+int main() {
+    assert(myStrlen("asdasnakj") == 11);
+    return 0;
 }
