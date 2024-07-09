@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -18,7 +19,7 @@ long long minSubArraySum(vector<long long> nums) {
 
 int main() {
     int n;
-    cout << "Enter the size of the array: ";
+    cout << "Enter the number of elements in the array: ";
     cin >> n;
     
     vector<long long> nums(n);
@@ -27,7 +28,6 @@ int main() {
         cin >> nums[i];
     }
     
-    long long result = minSubArraySum(nums);
-    cout << "The minimum sum of all subarrays is: " << result;
+    cout << "Minimum subarray sum is: " << minSubArraySum(nums) << endl;
     return 0;
 }
