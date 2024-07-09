@@ -1,13 +1,11 @@
-int count = 0;
-    for(char c : brackets){
-        if(c == '('){
-            count++;
-        } else {
-            count--;
-        }
-        if(count < 0){
-            return false;
-        }
+stack<char> s;
+for (char bracket : brackets) {
+    if (bracket == '(') {
+        s.push(bracket);
+    } else if (bracket == ')' && !s.empty() && s.top() == '(') {
+        s.pop();
+    } else {
+        return false;
     }
-    return count == 0;
 }
+return s.empty();
