@@ -4,4 +4,3 @@ def join_with_delimeter(numbers, delimeter):
         result.extend([num, delimeter])
     result.pop()
     return result
-```
