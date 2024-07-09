@@ -1,4 +1,7 @@
+```cpp
 #include <cmath>
+#include <iostream>
+
 bool iscuber(int a){
     int i = 1;
     while (true) {
@@ -11,13 +14,14 @@ bool iscuber(int a){
         i++;
     }
 }
+
 int main(){
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    if(iscuber(num))
-        cout << num << " is a perfect cube." << endl;
+    int n;
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    if(iscuber(n))
+        std::cout << n << " is a cube.\n";
     else
-        cout << num << " is not a perfect cube." << endl;
+        std::cout << n << " is not a cube.\n";
     return 0;
 }
