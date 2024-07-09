@@ -12,10 +12,9 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    bool b_;
-    b_ = (a == b);
-    return b_;
+bool issame(vector<string> a, vector<string> b) {
+    bool b; // Declare 'b' inside the function
+    return a == b;
 }
 
 int main() {
