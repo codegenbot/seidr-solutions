@@ -1,22 +1,46 @@
-map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-multimap<int, string> sorted_numbers;
+#include <iostream>
+#include <map>
+#include <algorithm>
+#include <vector>
+#include <sstream>
 
-string result = "";
-string number = "";
-for (char c : numbers) {
-    if (c == ' ') {
-        sorted_numbers.insert({num_map[number], number});
-        number = "";
-    } else {
-        number += c;
+using namespace std;
+
+map<string, int> number_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
+
+string sort_numbers(string numbers){
+    vector<string> number_list;
+    stringstream ss(numbers);
+    string token;
+    while (ss >> token) {
+        number_list.push_back(token);
     }
-}
-sorted_numbers.insert({num_map[number], number});
+    
+    sort(number_list.begin(), number_list.end(), [&](const string &a, const string &b) {
+        return number_map[a] < number_map[b];
+    });
 
-for (auto& it : sorted_numbers) {
-    result += it.second + " ";
+    string result;
+    for (const auto &num : number_list) {
+        result += num + " ";
+    }
+    
+    result.pop_back(); // Remove extra space at the end
+    return result;
 }
-result.pop_back(); // Remove extra space at the end
 
-return result;
+int main(){
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
 }
