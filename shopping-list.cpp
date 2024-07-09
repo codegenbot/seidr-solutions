@@ -5,28 +5,30 @@ using namespace std;
 
 float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
     float total = 0.0;
-    
     for (int i = 0; i < prices.size(); ++i) {
-        cout << "Discount for item " << i+1 << ": " << discounts[i] << endl;
         total += prices[i] * (1.0 - discounts[i] / 100.0);
     }
-    
     return total;
 }
 
 int main() {
     int n;
     cin >> n;
+    
     vector<float> prices(n);
     for (int i = 0; i < n; ++i) {
         cin >> prices[i];
     }
-
+    
     vector<float> discounts(n);
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
+        if (discounts[i] == 100.0) {
+            cout << "Discount cannot be 100%." << endl;
+            return 1;
+        }
     }
-
+    
     float total_price = calculateTotalPrice(prices, discounts);
     cout << total_price << endl;
 
