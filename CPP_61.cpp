@@ -1,11 +1,12 @@
-stack<char> s;
-for (char bracket : brackets) {
-    if (bracket == '(') {
-        s.push(bracket);
-    } else if (bracket == ')' && !s.empty() && s.top() == '(') {
-        s.pop();
+int count = 0;
+for(char c : brackets){
+    if(c == '('){
+        count++;
     } else {
-        return false;
+        if(count == 0){
+            return false;
+        }
+        count--;
     }
 }
-return s.empty();
+return count == 0;
