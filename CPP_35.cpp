@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <cassert>
 #include <vector>
@@ -12,5 +13,7 @@ int findMax(vector<int> l) {
 
 int main() {
     vector<int> v = {1, 2, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    assert(abs(*max_element(v)) - 12) < 1e-4;
+    assert(abs(findMax(v)) < 1e-4);
+
+    int maximum = *max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}.begin(), {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}.end());
 }
