@@ -1,40 +1,32 @@
-Here is the completed code:
-
-```cpp
 #include <boost/any.hpp>
 #include <string>
+#include <vector>
+#include <algorithm>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
+    // Extract values from any type
+    double da = 0.0;
+    string sa;
+    if (a.type() == typeid(double)) {
+        da = boost::any_cast<double>(a);
+    } else if (a.type() == typeid(string)) {
+        sa = boost::any_cast<string>(a);
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return b;
+
+    double db = 0.0;
+    string sb;
+    if (b.type() == typeid(double)) {
+        db = boost::any_cast<double>(b);
+    } else if (b.type() == typeid(string)) {
+        sb = boost::any_cast<string>(b);
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        if (str1 > str2)
-            return a;
-        else if (str1 < str2)
-            return b;
-        else
-            return any("None");
-    }
-    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
-        string str = boost::any_cast<string>(a);
-        int num = boost::any_cast<int>(b);
-        double dnum = boost::any_cast<double>(b);
-        if (str > std::to_string(num))
-            return a;
-        else if (str > std::to_string(dnum))
-            return a;
-        else
-            return any("None");
-    }
-    else {
-        return any("None");
-    }
+
+    // Compare values
+    if (da > db) return a;
+    if (db > da) return b;
+
+    // Values are equal, return "None"
+    return boost::any("None");
 }
