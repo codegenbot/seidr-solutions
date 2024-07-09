@@ -1,24 +1,46 @@
-```cpp
-#include <iostream>
+#include <cstdlib>
 #include <vector>
-using namespace std;
+#include <string>
 
-int do_algebra(vector<string> ops, vector<int> operands) {
-    int result = operands[0];
-    for (int i = 0; i < ops.size(); i++) {
-        if (ops[i] == "//") {
-            result /= operands[i + 1];
+std::vector<std::string> ops = { "//", "*" }; 
+
+int do_algebra(std::vector<string> operators, vector<int> operands) {
+    string expression = "";
+    for (int i = 0; i < operators.size(); i++) {
+        expression += to_string(operands[i]);
+        expression += operators[i];
+    }
+    expression += to_string(operands.back());
+    
+    int result = eval(expression);
+    
+    return result;
+}
+
+int eval(const string& s) {
+    int result = 0;
+    if (s.empty()) {
+        return result;
+    }
+    
+    int start = 0, sign = 1;
+    for (int i = 0; i < s.size(); i++) {
+        if (!isdigit(s[i])) {
+            if (s[i] == '+') {
+                sign = 1;
+            } else if (s[i] == '-') {
+                sign = -1;
+            }
+            start = i + 1;
         } else {
-            result *= operands[i + 1];
+            result += sign * std::atoi(std::string(1, s[i]).c_str());
         }
     }
+    
     return result;
 }
 
 int main() {
-    vector<string> ops = {"//", "*"};
-    vector<int> operands = {7, 3, 4};
-    int result = do_algebra(ops, operands);
-    cout << "The final result is: " << result << endl;
+    int result = do_algebra(ops, {7, 3, 4});
     return 0;
 }
