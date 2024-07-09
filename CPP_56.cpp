@@ -1,5 +1,5 @@
+```
 #include <string>
-#include <cassert>
 
 bool correct_bracketing(string brackets){
     int count = 0;
