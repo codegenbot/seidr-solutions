@@ -28,13 +28,8 @@ string int_to_mini_roman(int num) {
     }
     if (num >= 100) {
         while (num >= 100) {
-            if (num >= 900) {
-                roman += "CM";
-                num -= 900;
-            } else {
-                roman += "C";
-                num -= 100;
-            }
+            roman += "C";
+            num -= 100;
         }
     }
     if (num >= 90) {
@@ -57,13 +52,8 @@ string int_to_mini_roman(int num) {
     }
     if (num >= 10) {
         while (num >= 10) {
-            if (num >= 90) {
-                roman += "XC";
-                num -= 90;
-            } else {
-                roman += "X";
-                num -= 10;
-            }
+            roman += "X";
+            num -= 10;
         }
     }
     if (num >= 9) {
@@ -85,10 +75,8 @@ string int_to_mini_roman(int num) {
         }
     }
     if (num > 0) {
-        while (num > 0) {
-            roman += "I";
-            num -= 1;
-        }
+        roman += "I";
+        num -= 1;
     }
     return roman;
 }
