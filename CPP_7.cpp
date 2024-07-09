@@ -1,7 +1,7 @@
-```
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
+#include <cstdint>
 
 bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
@@ -22,5 +22,9 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& str
 
 int main() {
     std::vector<std::string> strings = {"grunt", "prune"};
+    std::vector<std::string> filtered_strings = filter_by_substring(strings, "ru");
+    for (const auto& s : filtered_strings) {
+        std::cout << s << "\n";
+    }
     return 0;
 }
