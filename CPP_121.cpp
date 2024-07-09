@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cassert>
 #include <iostream>
@@ -23,6 +22,7 @@ int main() {
         std::cin >> num;
         size++;
     }
+    assert(size > 0);
     std::cout << "Sum of odd numbers: " << solution(lst) << "\n"; 
     return 0;
 }
