@@ -1,47 +1,47 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
 #include <string>
+using namespace std;
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+bool same(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<std::string> by_length(const std::vector<int>& arr) {
+    std::vector<std::string> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            numbers.push_back(num);
+            numbers.push_back(std::to_string(num));
         }
     }
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
-    vector<string> result;
-    for (int num : numbers) {
-        string str = "";
-        switch (num) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
-        }
-        result.push_back(str);
+    return numbers;
+}
+
+int main_function() {    
+    vector<int> arr;    
+    for(int i=0; i<5; i++) {
+        int n;
+        cout << "Enter a number: ";
+        cin >> n;
+        arr.push_back(n);
     }
-    return result;
+    vector<std::string> numbers = by_length(arr);
+    for (const auto& str : numbers) {
+        cout << str << endl;
+    }
+    if (!same({{"One", "Nine", "Eight"}}, {"Eight", "Four", "Nine"})) { 
+        cout << "Assertion failed" << endl;
+    }
+    return 0;
 }
