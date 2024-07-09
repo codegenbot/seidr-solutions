@@ -1,26 +1,26 @@
-```cpp
 #include <iostream>
 #include <cmath>
+#include <string>
 
 int sum_squares(double arr[], int n){
     int total = 0;
+    std::string str = "";
     for(int i=0; i<n; i++){
-        double x = static_cast<double>(arr[i]);
-        if(x >= 0) {
-            total += std::pow(static_cast<int>(x),2);
-        }
+        std::string str1 = std::to_string(arr[i]) + " ";
+        str += str1;
+        total += std::pow(static_cast<int>(arr[i]),2);
     }
     return total;
 }
 
 int main(){
-    double testArray[] = {-1.0, 1.0, 0.0};
-    int n = static_cast<int>(sizeof(testArray)/sizeof(testArray[0]));
-    if(n < 1) {
-        std::cout << "Error: Array is empty." << std::endl;
-    } else {
-        int result = sum_squares(testArray, n);
-        std::cout << "Sum of squares: " << result << std::endl;
-    }
+    double testArray[] = {1.0, 2.0, 3.0};
+    int n = sizeof(testArray)/sizeof(testArray[0]);
+    int result = sum_squares(testArray, n);
+    std::cout << "Sum of squares: " << result << std::endl;
+    
+    // Add this assert statement if you want to test the function
+    assert (sum_squares(testArray,n) == 14);
+
     return 0;
 }
