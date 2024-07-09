@@ -3,10 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b){
-    sort(a.begin(), a.end(), [](int x, int y){
+bool issame(std::vector<int> a, std::vector<int> b){
+    std::sort(a.begin(), a.end(), [](int x, int y){
         int sum_x = 0, sum_y = 0;
         int temp_x = abs(x), temp_y = abs(y);
         while(temp_x > 0){
@@ -18,9 +16,11 @@ bool issame(vector<int> a, vector<int> b){
             temp_y /= 10;
         }
         if(sum_x == sum_y){
-            return find(a.begin(), a.end(), x) < find(a.begin(), a.end(), y);
+            return std::find(a.begin(), a.end(), x) < std::find(a.begin(), a.end(), y);
         }
         return sum_x < sum_y;
     });
     return a == b;
 }
+
+assert(issame(std::vector<int>{0,6,6,-76,-21,23,4}, std::vector<int>{-76, -21, 0, 4, 23, 6, 6}));
