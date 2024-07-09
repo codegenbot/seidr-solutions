@@ -1,31 +1,48 @@
 bool solveBoolean(const std::string& s) {
     bool result = true;
-    int i = 0;
+    size_t i = 0;
 
-    while (i < s.length()) {
-        if (s.at(i) == '&') {
+    while (i < s.size()) {
+        if (s[i] == 'T') {
+            result = true;
+        } else if (s[i] == 'F') {
+            result = false;
+        } else if (s[i] == '|') {
+            bool temp = result;
             i++;
-            while (i < s.length() && s.at(i) != '|') {
-                if (s.at(i) != 'T') {
-                    result = false;
-                    break;
+            while (i < s.size() && s[i] != '|') {
+                if (s[i] == '&') {
+                    i++;
+                    while (i < s.size() && s[i] != '|') {
+                        if (s[i] == 'T') {
+                            result = temp;
+                        } else {
+                            result = !temp;
+                        }
+                        i++;
+                    }
+                } else {
+                    if (s[i] == 'T') {
+                        result = temp;
+                    } else {
+                        result = !temp;
+                    }
+                    i++;
+                }
+            }
+        } else if (s[i] == '&') {
+            bool temp = result;
+            i++;
+            while (i < s.size() && s[i] != '&') {
+                if (s[i] == 'T') {
+                    result = temp;
+                } else {
+                    result = !temp;
                 }
                 i++;
             }
-        } else if (s.at(i) == '|') {
-            i++;
-            while (i < s.length() && s.at(i) != '&') {
-                if (s.at(i) != 'T') {
-                    result = true;
-                    break;
-                }
-                i++;
-            }
-        } else {
-            result = (s.at(i) == 'T');
-            i++;
         }
+        i++;
     }
-
     return result;
 }
