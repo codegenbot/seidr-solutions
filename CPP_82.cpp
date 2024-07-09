@@ -1,6 +1,10 @@
 int main() {
     assert(prime_length("0") == false);
-    bool prime_length(string str){
+    // Your code here...
+    return 0;
+}
+
+bool prime_length(string str){
     int len = str.length();
     bool is_prime = true;
 
