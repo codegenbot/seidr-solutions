@@ -1,8 +1,4 @@
-```
 def add():
-    x = int(input("Enter the first number: "))
-    y = int(input("Enter the second number: "))
-    return x + y
-
-result = add()
-print(result)
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+    print(f"The sum of {num1} and {num2} is {num1 + num2}")
