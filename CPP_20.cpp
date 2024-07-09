@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
 
-bool isSame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
@@ -16,7 +17,7 @@ struct Pair {
     float first, second;
 };
 
-Pair findClosestElements(std::vector<float> numbers) {
+Pair find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
     float minDiff = std::numeric_limits<float>::max();
     Pair closestPair;
@@ -33,7 +34,12 @@ Pair findClosestElements(std::vector<float> numbers) {
     return closestPair;
 }
 
-int main() {
-    assert(isSame({2.2f, 3.1f}, {findClosestElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}).first, findClosestElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}).second}));
+int main() { 
+    std::vector<float> testVec = {1.1f, 2.2f, 3.1f, 4.1f, 5.1f};
+    std::vector<float> numbers;
+    for (float num : testVec) {
+        numbers.push_back(num);
+    }
+    assert(issame({find_closest_elements(numbers).first, find_closest_elements(numbers).second}, {2.2f, 3.1f}));
     return 0;
 }
