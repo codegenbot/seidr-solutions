@@ -27,4 +27,3 @@ std::vector<int> std::even_odd_palindrome(int n) {
         temp /= 10;
     }
     return result;
-}
