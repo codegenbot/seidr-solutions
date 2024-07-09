@@ -1,8 +1,19 @@
-# Read input from the user
-xs = list(
-    map(float, input("Enter the elements of the list separated by spaces: ").split())
-)
+def find_zero(xs: list):
+    try:
+        n = len(xs)
+        if n < 2:
+            return "Input list should have at least 2 elements"
+        a = xs[-1]
+        b = xs[-2]
+        return -b / a
+    except:
+        return "Please provide a valid input format"
 
-# Call the function with user input
+try:
+    xs = list(map(float, input().split()))
+except ValueError:
+    print("Please provide a valid input format")
+    exit()
+
 result = find_zero(xs)
 print(result)
