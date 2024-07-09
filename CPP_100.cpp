@@ -13,6 +13,6 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(checkIfSame(make_a_pile(8), make_a_pile(8)));
+    assert(checkIfSame(make_a_pile(8), vector<int>({0, 1, 3, 6, 10, 15, 21, 28})));
     return 0;
 }
