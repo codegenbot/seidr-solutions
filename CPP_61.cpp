@@ -1,8 +1,8 @@
+```
 #include <cassert>
 #include <stack>
 #include <string>
 #include <iostream>
-#include <ostream>
 
 bool correct_bracketing(const std::string& s) {
     std::stack<char> stack;
