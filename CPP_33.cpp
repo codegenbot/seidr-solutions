@@ -6,12 +6,12 @@ using namespace std;
 
 vector<int> sort_third(vector<int> l) {
     int groupCount = 0;
-    vector<int> result(l.size(), 0); // Initialize all elements to 0
+    vector<int> result; // allocate enough space for the result
 
     for (int i : l) {
         if(groupCount % 3 == 0 || groupCount >= l.size()) { 
             if(groupCount < l.size())
-                result[groupCount] = i; // assign elements to their correct position
+                result.push_back(i); // assign elements to their correct position
             groupCount++;
         } else {
             groupCount++;
