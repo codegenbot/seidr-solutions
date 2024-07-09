@@ -3,26 +3,20 @@ Here is the completed code:
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
-    for (char ch : s) {
+    for (char i : s) {
         bool found = false;
-        for (char cc : c) {
-            if (ch == cc) {
+        for (char j : c) {
+            if (i == j) {
                 found = true;
                 break;
             }
         }
         if (!found) {
-            temp += ch;
+            temp += i;
         }
     }
     result.push_back(temp);
-    string reverse = temp;
-    reverse.resize(reverse.size());
-    std::reverse(reverse.begin(), reverse.end());
-    if (temp == reverse) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
-    }
+    string reversed = temp;
+    reverse(reversed.begin(), reversed.end());
+    result.push_back((temp == reversed) ? "True" : "False");
     return result;
-}
