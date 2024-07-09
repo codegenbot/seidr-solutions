@@ -21,12 +21,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    struct Compare {
-        bool operator()(const std::pair<int, int>& a, const std::pair<int, int>& b) const {
-            return a.first < b.first;
-        }
-    };
-    std::priority_queue<std::pair<int,int>, std::vector<std::pair<int,int>>, decltype(Compare{})> pq(Compare());
+    std::priority_queue<std::pair<int,int>, std::vector<std::pair<int,int>>, std::greater<pair<int,int>> > pq;
 
     for(int i = 0; i < arr.size(); i++) {
         pq.push({arr[i], i});
