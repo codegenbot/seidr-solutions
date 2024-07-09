@@ -7,7 +7,7 @@ int vowels_count(std::string s) {
     
     for (char c : s) {
         if ((c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') 
-            || (c == 'y')) {
+            || (c == 'y' && (int)s.find('y') != std::string::npos)) {
             count++;
         }
     }
@@ -28,4 +28,5 @@ int main() {
     } catch(const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
+    return 0;
 }
