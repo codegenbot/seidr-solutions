@@ -1,22 +1,15 @@
 double find_zero(vector<double> xs) {
-    double coeffs = xs[0];
-    vector<double> polyCoeffs;
     int n = xs.size();
-    for (int i = 1; i < n; i++) {
-        if ((i & 1) == 0) {
-            coeffs = -coeffs * xs[i];
-            polyCoeffs.push_back(coeffs);
-        } else {
-            coeffs *= xs[i];
+    double coeffs[100];
+    for (int i = 0; i < n; i++) {
+        coeffs[i] = xs[i];
+    }
+    double poly(double c, double s) { return c + s; }
+    double zero = 1;
+    for(int i=0; i<n; i++){
+        if(i%2==0){
+            zero=poly(zero, -coeffs[i]/coeffs[(i+1)%n]);
         }
     }
-    double res = 0;
-    for (int i = 0; i < polyCoeffs.size(); i++) {
-        if (i % 2 == 1) {
-            res -= polyCoeffs[i];
-        } else {
-            res += polyCoeffs[i];
-        }
-    }
-    return -res / coeffs;
+    return zero;
 }
