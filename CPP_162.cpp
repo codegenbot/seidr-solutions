@@ -7,10 +7,7 @@ std::string string_to_md5(const std::string& text) {
         return "None";
     }
 
-    OpenSSL_add_all_digests(); 
-
-    EVP_MD_CTX *mdctx;
-    mdctx = EVP_MD_CTX_new();
+    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx, EVP_md5(), NULL);
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
 
@@ -24,7 +21,7 @@ std::string string_to_md5(const std::string& text) {
         sprintf(&mdString[i * 2], "%02x", digest[i]);
     }
 
-    EVP_cleanup();
+    mdString[32] = '\0'; // Add null terminator at the end
 
-    return mdString;
+    return std::string(mdString);
 }
