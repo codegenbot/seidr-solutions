@@ -26,8 +26,9 @@ int main() {
         } else {
             suffix = "th";
         }
-        std::cout << "The " << std::to_string(result) << " " << suffix << " prime Fibonacci number is: ";
-        std::cout << std::to_string(result) << std::endl;
+        std::string str = std::to_string(result);
+        std::cout << "The " << str << suffix << " prime Fibonacci number is: ";
+        std::cout << result << std::endl;
     }
 }
 
