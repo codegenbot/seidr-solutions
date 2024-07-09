@@ -1,11 +1,16 @@
+```
 def sort_even(l):
-    return [
-        (
-            i
-            if j < len(l) and (j % 2 != 0 or not l[i])
-            else sorted([x for x in l if (j - i) % 2 == 0])[::-1][i % 2]
-        )
-        for i, _ in enumerate(l)
-        if i < len(l)
-        for j in range(i + 1)
-    ]
+    result = []
+    for i in range(len(l)):
+        if l[i] % 2 == 0:
+            even_numbers = [x for x in l if x % 2 == 0]
+            odd_numbers = [x for x in l if x % 2 != 0]
+            sorted_even = sorted(even_numbers)[::-1]
+            result.append(sorted_even[0])
+            even_numbers.remove(sorted_even[0])
+            while even_numbers:
+                result.append(min(even_numbers))
+                even_numbers.remove(min(even_numbers))
+        else:
+            result.append(l[i])
+    return result
