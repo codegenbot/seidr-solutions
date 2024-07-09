@@ -1,8 +1,8 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
-float max_element(std::vector<float> l) {
+float max_element(const std::vector<float>& l){
     float max = l[0];
     for (int i = 1; i < l.size(); i++) {
         if (l[i] > max) {
@@ -17,15 +17,14 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<float> arr(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> arr[i];
+    std::vector<float> vec(n);
+    for (float &i : vec) {
+        std::cout << "Enter element " << i + 1 << ":";
+        std::cin >> i;
     }
 
-    float max_val = max_element(arr);
-
-    std::cout << "The maximum element is: " << max_val << std::endl;
+    float result = max_element(vec);
+    std::cout << "Maximum element is: " << result << "\n";
 
     return 0;
 }
