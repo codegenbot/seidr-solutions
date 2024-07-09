@@ -2,19 +2,13 @@
 #include <cstdlib>
 #include <cctype>
 
-#include <string>
-#include <algorithm>
+using namespace std;
 
-std::string string_to_md5(std::string s) {
-    // implement your MD5 algorithm here
+string string_to_md5(string s) {
+    // implement this function
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-
-    assert(string_to_md5(input).size() > 0);
-
+    assert(string_to_md5("Hello") == "some_value"); 
     return 0;
 }
