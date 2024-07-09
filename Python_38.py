@@ -1,3 +1,6 @@
-s = input().strip()
-result = "".join(chr(ord(char) - 1) for char in s)
+print("Enter a string:")
+s = input()
+result = ""
+for char in s:
+    result += chr(ord(char) - 1)
 print(result)
