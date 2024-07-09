@@ -42,13 +42,14 @@ bool issame(const vector<int>& a, const vector<vector<int>>& b) {
 }
 
 int main() {
-    int num = pluck({7, 9, 7, 1});
+    vector<int> arr = {7, 9, 7, 1};
+    int num = pluck(arr);
     vector<int> vec;
     vec.push_back(num);
     if(num != -1) {
-        assert(issame(vec , vec));
+        assert(issame({num}, arr));
     } else {
-        assert(issame({}, {}));
+        assert(issame({}, arr));
     }
     return 0;
 }
