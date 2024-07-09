@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b, std::vector<std::string> c) {
     if (a.size() != b.size() || a.size() != c.size()) return false;
@@ -31,10 +31,27 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    std::vector<std::string> lst1 = {"this", "is", "a"};
-    std::vector<std::string> lst2 = {"hello", "from", "c++"};
+    std::stringstream ss1, ss2;
+    ss1 << "this";
+    ss2 << "hello";
 
-    if (!issame({lst1}, {lst1}, {total_match(lst1, lst2)})) {
+    std::vector<std::string> lst1;
+    std::vector<std::string> lst2;
+
+    std::string s1, s2;
+    getline(ss1, s1);
+    while (s1 != "") {
+        lst1.push_back(s1);
+        getline(ss1, s1);
+    }
+
+    getline(ss2, s2);
+    while (s2 != "") {
+        lst2.push_back(s2);
+        getline(ss2, s2);
+    }
+    
+    if (!issame(lst1, lst1, total_match(lst1, lst2))) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
