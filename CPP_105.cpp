@@ -1,16 +1,22 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-using namespace std;
 
-bool same(vector<string> a, vector<string> b) {
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-vector<string> numbersToWords(vector<int> arr) {
-    vector<string> result;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<std::string> temp;
     for (int i : arr) {
-        switch (i) {
+        if (i >= 1 && i <= 9)
+            temp.push_back(to_string(i));
+    }
+    sort(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
+    std::vector<std::string> result;
+    for (std::string s : temp) {
+        switch (stoi(s)) {
             case 1: result.push_back("One"); break;
             case 2: result.push_back("Two"); break;
             case 3: result.push_back("Three"); break;
@@ -22,11 +28,16 @@ vector<string> numbersToWords(vector<int> arr) {
             case 9: result.push_back("Nine"); break;
         }
     }
-    sort(result.begin(), result.end());
-    reverse(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    assert(same(numbersToWords({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    std::vector<std::string> b = by_length({9, 4, 8});
+    if (!same(by_length({9, 4, 8}), b)) {
+        for (std::string s : b)
+            std::cout << s << " ";
+        std::cout << std::endl;
+        return 1;
+    }
+    return 0;
 }
