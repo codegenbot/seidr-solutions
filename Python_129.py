@@ -1,20 +1,16 @@
 def minPath(grid, k):
-    N = len(grid)
-    directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-
-    def dfs(i, j, path):
-        if len(path) == k:
-            return path
-        for dx, dy in directions:
-            x, y = i + dx, j + dy
-            if 0 <= x < N and 0 <= y < N and (x, y) not in path:
-                next_path = dfs(x, y, path + [(x, y)])
-                if next_path:
-                    return next_path
-        return None
-
-    for i in range(N):
-        for j in range(N):
-            path = dfs(i, j, [(i, j)])
-            if path:
-                return [grid[x][y] for x, y in path]
+    n = len(grid)
+    start = min(min(row) for row in grid)
+    if all(all(cell == start for cell in row) for row in grid):
+        return [start] * k
+    result = [start]
+    seen = {(i, j) for i in range(n) for j in range(n) if grid[i][j] == start}
+    while len(result) < k:
+        neighbors = [(i, j) for i, j in seen if i > 0 and (i - 1, j) not in seen]
+        neighbors += [(i, j) for i, j in seen if i < n - 1 and (i + 1, j) not in seen]
+        neighbors += [(i, j) for i, j in seen if j > 0 and (i, j - 1) not in seen]
+        neighbors += [(i, j) for i, j in seen if j < n - 1 and (i, j + 1) not in seen]
+        next_cell = min(neighbors, key=lambda x: grid[x[0]][x[1]])
+        result.append(grid[next_cell[0]][next_cell[1]])
+        seen.add(next_cell)
+    return result
