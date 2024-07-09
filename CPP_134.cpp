@@ -1,8 +1,8 @@
-Here is the solution:
-
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    char lastChar = txt.back();
-    bool isLetter = isalpha(lastChar);
-    return !isLetter || (!std::isspace(txt.back()));
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()) return false;
+    for(int i = 0; i < txt.length() - 1; i++){
+        if(txt[i] == ' ')
+            return !isalpha(txt.back());
+    }
+    return isalpha(txt.back());
 }
