@@ -1,8 +1,13 @@
 #include <vector>
 #include <string>
 
-bool issame(char a, char b){
-    return a == b;
+bool issame(const vector<string>& prefixes){
+    for(int i = 1; i < prefixes.size(); ++i){
+        if(prefixes[i] != prefixes[i-1]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> all_prefixes(string str){
