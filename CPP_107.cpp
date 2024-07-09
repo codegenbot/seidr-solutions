@@ -20,6 +20,6 @@ bool checkPalindrome(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(checkPalindrome(even_odd_palindrome(5), stdvector<int>({0, 1, 0, 1, 0})));
+    assert(checkPalindrome(even_odd_palindrome(5), std::vector<int>({0, 1, 0, 1, 0})));
     return 0;
 }
