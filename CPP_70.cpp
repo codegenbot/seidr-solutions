@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -56,5 +57,6 @@ int main() {
         std::cout << "False" << std::endl;
     }
 
+    assert(areEqual(strange_sort_list({111}), {111}));
     return 0;
 }

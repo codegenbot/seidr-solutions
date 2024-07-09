@@ -5,14 +5,8 @@
 bool is_bored(std::string S) {
     int count = 0;
     std::string boredom = "I";
-    size_t pos = 0;
-
-    while (pos != std::string::npos) {
-        pos = S.find(" ", pos);
-        if (pos == std::string::npos)
-            break;
-        ++pos; 
-        if (S.substr(0, pos).compare(boredom) == 0 && S.size() > pos + boredom.length()) {
+    for (int i = 0; i < S.size(); i++) {
+        if (S.substr(i, boredom.size()) == boredom && i + boredom.size() < S.size()) {
             count++;
         }
     }
