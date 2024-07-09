@@ -32,4 +32,5 @@ int main() {
         cout << prime << " ";
     }
     cout << endl;
+    return 0;
 }
