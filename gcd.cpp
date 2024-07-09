@@ -18,7 +18,19 @@ vector<int> indicesOfSubstring(string text, string target) {
                 break;
             }
         }
-        if (found) result.push_back(i);
+        if (found) {
+            result.push_back(i);
+            // Add the remaining length of the target string to i
+            for (int k = 0; k < m - 1; k++) {
+                i += 1;
+                if (text[i] == target[k]) {
+                    found = true;
+                    break;
+                }
+                found = false;
+                break;
+            }
+        }
     }
 
     return result;
@@ -33,13 +45,11 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    cin >> a >> ws;
-    cin >> b >> ws;
+    cin >> a >> b;
     cout << gcd(a, b) << endl;
 
     string text, target;
-    getline(cin, text); 
-    cin >> target >> ws; 
+    cin >> text >> target;
     vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices)
         cout << i << " ";
