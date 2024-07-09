@@ -1,9 +1,15 @@
-```cpp
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+```c
+#include <string>
+#include <vector>
+
+std::string isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if(a == b)
+        return "True";
+    else
+        return "False";
 }
 
-vector<string> all_prefixes(string str) {
+std::vector<std::string> all_prefixes(std::string str) {
     vector<string> result;
     for (int i = 1; i <= str.length(); i++) {
         result.push_back(str.substr(0, i));
@@ -12,6 +18,5 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    return 0;
+    assert(isSame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
 }
