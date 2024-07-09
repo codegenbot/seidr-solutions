@@ -1,61 +1,40 @@
-#include <sstream>
+#include <iostream>
+#include <string>
+
 using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    istringstream iss(s);
-    char c;
-
-    int currentRoll1 = 0;
-    int currentRoll2 = 0;
-    while (iss >> c) {
-        if (c == 'X') {
+    string::iterator it = s.begin();
+    while (it != s.end()) {
+        if (*it == 'X') {
             score += 30;
-            if (currentRoll1 > 0 || currentRoll2 > 0) { 
-                score -= 10; 
+            if ((it + 1) != s.end() && (*(it + 1) == '/' || *(it + 1) == 'X')) {
+                score -= 10;
             }
-        } else if (c == '/') {
-            score += currentRoll1 + 10;
-            currentRoll1 = 0;
-            currentRoll2 = 0;
+            it += 2;
+        } else if (*it == '/') {
+            score += 10 + stoi(string(1, *++it));
+            break;
         } else {
-            int roll = c - '0';
-            if (currentRoll1 > 0) { 
-                currentRoll2 = roll;
-            } else { 
-                currentRoll1 = roll;
+            int roll = 0;
+            while (it != s.end() && !(*it == '/' || *it == 'X')) {
+                roll = roll * 10 + (*it - '0');
+                it++;
             }
-            if (iss.peek() == '/' || iss.peek() == 'X') {
-                score += roll * 2; 
+            if (*it == '/') {
+                score += roll + 10;
             } else {
                 score += roll;
             }
         }
     }
-
-    if (currentRoll1 > 0) {
-        if (currentRoll1 + currentRoll2 >= 10) { 
-            score += 10;
-            if (currentRoll1 + currentRoll2 == 10) {
-                score += currentRoll1; 
-            } else {
-                score += currentRoll1 + currentRoll2; 
-            }
-        } else { 
-            score += 10;
-            if (currentRoll1 == 9) {
-                score += 1 * 2; 
-            } else {
-                score += 10 + currentRoll1 * 2; 
-            }
-        }
-    }
-
     return score;
 }
 
 int main() {
     string s = "X/X/5-4/10/-9/-8/X/X/6+3/7-2";
     int result = bowlingScore(s);
-    return result;
+    cout << result << endl;
+    return 0;
 }
