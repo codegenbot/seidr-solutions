@@ -1,4 +1,3 @@
-```cpp
 #include <boost/variant.hpp>
 #include <string>
 
@@ -21,6 +20,6 @@ variant<string, int, double, float> compare_one(variant<string, int, double, flo
 }
 
 int main() {
-    assert(compare_one(string("1"), 1) == "None"); // replace with the correct output
+    assert(compare_one(string("1"), 1) == string("None"));
     return 0;
 }
