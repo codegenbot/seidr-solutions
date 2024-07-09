@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -12,15 +13,16 @@ std::string special_factorial(int n) {
         for (int j = 2; j <= i; j++)
             mul_result *= j;
 
-        result += " * " + std::to_string(mul_result);
+        if(i > 1)
+            result += " * " + std::to_string(mul_result);
     }
-    return result;
+    return "n! = " + result;
 }
 
 int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    std::cout << "Special factorial of " << std::to_string(n) << " is " << special_factorial(n) << std::endl;
+    std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
     return 0;
 }
