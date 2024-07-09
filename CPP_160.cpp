@@ -5,11 +5,11 @@
 class _160 {
 public:
     int do_algebra(int ops, const std::vector<int>& nums) { 
-        if (std::string(1, ops) == "*")
+        if (strcmp(&ops, "*") == 0)
             return nums[0] * nums[1];
         else
             return nums[0] / nums[1];
-    }
+    };
 };
 
 int cppMain() {
