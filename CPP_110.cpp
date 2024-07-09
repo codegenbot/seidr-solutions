@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 
 string exchange(vector<int> lst1, vector<int> lst2) {
     for (int num : lst1) {
