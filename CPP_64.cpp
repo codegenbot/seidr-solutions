@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -7,7 +6,7 @@ int vowels_count(std::string s) {
     
     for (char c : s) {
         if ((c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') 
-            || (c == 'y' && s.find('y') != std::string::npos)) {
+            || (c == 'y' && (int)s.find('y') != std::string::npos)) {
             count++;
         }
     }
@@ -15,8 +14,7 @@ int vowels_count(std::string s) {
     return count;
 }
 
-int main
-{
+int main() {
     std::string input;
     try {
         std::cout << "Enter a string: ";
