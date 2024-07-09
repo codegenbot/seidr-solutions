@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 
 int luhn(std::vector<int> ccNum) {
@@ -23,3 +24,5 @@ int luhn(std::vector<int> ccNum) {
     }
     return static_cast<int>(result);
 }
+
+return luhn(std::vector<int>());
