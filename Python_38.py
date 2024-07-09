@@ -1,10 +1,21 @@
-def decode_cyclic(s: str) -> str:
-    n = len(s)
+def decode_cyclic(s: str):
     result = ""
     temp = ""
     for char in s:
-        temp += char
-        if len(temp) == 3 or (len(temp) > 3 and temp[0] == temp[-1]):
-            result += temp[1:-1]
-            temp = temp[0] + temp[-1]
-    return result if n % 2 != 0 else "NO UNIQUE DECODE EXISTS"
+        if len(temp) < 2:
+            temp += char
+        else:
+            if len(result) > 0 and result[-1] == temp[0]:
+                result += temp[1]
+            else:
+                result += temp[:-1]
+            temp = temp[-1]
+    if len(temp) > 0:
+        if len(result) > 0 and result[-1] == temp:
+            return result
+        else:
+            if len(temp) > 1:
+                result += temp[1]
+            else:
+                result += temp
+    return result
