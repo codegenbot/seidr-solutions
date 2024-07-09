@@ -1,10 +1,4 @@
-```
-#include <cassert>
-#include <string>
-
-int strLength(char* str){
-    return strlen(str);
-}
-
-int main() {
+int strLength(const char* str){
+    size_t length = strlen(str);
+    return length;
 }
