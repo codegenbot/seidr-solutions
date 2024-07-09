@@ -1,15 +1,17 @@
+```cpp
 #include <string>
+#include <iostream>
 
-using namespace std;
-
-std::string squareDigits(std::string input) {
-    string output = "";
+int main() {
+    std::string input;
+    std::cout << "Enter an integer: ";
+    std::cin >> input;
+    std::string output = "";
     for (char c : input) {
         int digit = c - '0';
         int squared = digit * digit;
         output += to_string(squared);
     }
-    return output;
+    std::cout << output << std::endl;
+    return 0; 
 }
-
-int main() { return 0; }
