@@ -1,9 +1,9 @@
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any(b.convert_to<double>());
+        return b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return boost::any(a.convert_to<double>());
+        return a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str1 = boost::any_cast<string>(a);
@@ -61,12 +61,12 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
     }
     else {
-        double d1 = boost::any_cast<double>(a);
-        double d2 = boost::any_cast<double>(b);
+        float val1 = boost::any_cast<float>(a);
+        float val2 = boost::any_cast<float>(b);
 
-        if (d1 > d2)
+        if (val1 > val2)
             return a;
-        else if (d1 < d2)
+        else if (val1 < val2)
             return b;
         else
             return boost::any("None");
