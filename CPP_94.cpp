@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -24,13 +25,9 @@ bool isPrime(int n){
     }
     return true;
 
-int main(){
-    std::vector<int> lst;
-    int num;
-    while(std::cin >> num){
-        lst.push_back(num);
-    }
+int main() {
+    std::vector<int> lst = {11, 13, 17};
     int result = skjkasdkd(lst);
-    std::cout << "The sum of digits is: " << result << std::endl;
+    std::cout << "The sum of the digits of the largest prime number is: " << result << std::endl;
     return 0;
 }
