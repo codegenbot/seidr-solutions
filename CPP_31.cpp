@@ -1,6 +1,6 @@
-```c++
 #include <cassert>
 #include <cmath>
+#include <iostream>
 
 bool is_prime(int n) {
     if (n <= 1)
@@ -11,12 +11,18 @@ bool is_prime(int n) {
     }
     return true;
 
+}
+
 int main() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
-    if(is_prime(num))
-        std::cout << num << " is a prime number.\n";
-    else
-        std::cout << num << " is not a prime number.\n";
+    
+    if(is_prime(num)) {
+        std::cout << num << " is a prime number." << std::endl;
+    } else {
+        std::cout << num << " is not a prime number." << std::endl;
+    }
+    
+    return 0;
 }
