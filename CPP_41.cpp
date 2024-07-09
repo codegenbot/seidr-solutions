@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <iostream>
 using namespace std;
 
 int car_race_collision(int n) {
@@ -11,7 +11,6 @@ int car_race_collision(int n) {
         }
     }
     return collisions;
-
 }
 
 int main() {
