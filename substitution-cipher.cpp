@@ -1,3 +1,4 @@
+```cpp
 string decipher(const string& cipher1, const string& cipher2, const string& message) {
     string result = "";
     for (char c : message) {
