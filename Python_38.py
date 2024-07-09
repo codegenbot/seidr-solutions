@@ -9,6 +9,7 @@ def decode_cyclic(s: str):
     groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
     return "".join(groups)
 
+
 if __name__ == "__main__":
     input_string = input("Enter a string: ")
     encoded_string = encode_cyclic(input_string)
