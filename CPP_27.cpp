@@ -11,6 +11,6 @@ string flip_case(string str){
     return str;
 }
 
-int main() {
+int main(){
     return 0;
 }
