@@ -2,7 +2,6 @@
 #include <cassert>
 #include <vector>
 #include <initializer_list>
-#include <iterator>
 using namespace std;
 
 int findMax(vector<int> l) {
@@ -13,5 +12,5 @@ int findMax(vector<int> l) {
 
 int main() {
     vector<int> v = {1, 2, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    assert(abs(*std::max_element(v.begin(), v.end()))- 12)<1e-4);
+    assert(abs(*std::max_element({1, 2, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}.begin(), {1, 2, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}.end()))- 12)<1e-4);
 }
