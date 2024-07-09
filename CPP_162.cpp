@@ -1,14 +1,19 @@
-#include <openssl/ssl.h>
-#include <openssl/x509v3.h>
+#include <iostream>
+#include <string>
+#include <digest/md5.h>
+
+using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) return "None";
-    
-    unsigned char md[16];
-    MD5((unsigned const char*)text.c_str(), text.size(), md);
-    string result;
-    for(int i = 0; i < 16; i++) {
-        sprintf(result + 2*i, "%02x", md[i]);
+    if (text.empty()) return "";
+
+    unsigned char hash[MD5_DIGEST_LENGTH];
+    MD5((unsigned const char*)text.c_str(), text.size(), hash);
+
+    stringstream ss;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << hex << setfill('0') << setw(2) << (int)hash[i];
     }
-    return result;
+
+    return ss.str();
 }
