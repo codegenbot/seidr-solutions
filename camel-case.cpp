@@ -1,30 +1,36 @@
-Here is the completed code:
-
+#include <vector>
 #include <iostream>
-using namespace std;
+#include <string>
 
-string camelCase(string s) {
-    string result = "";
-    int count = 0;
-    
-    for(int i=0; i<s.size(); i++) {
-        if(s[i] == '-') {
-            result += char(toupper(s[++i]));
-            count++;
-        } else if(count > 0) {
-            result += s[i];
-            count--;
+std::string camelCase(const std::string& str) {
+    std::string result = "";
+    bool capitalizeNext = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            if (!result.empty()) {  // Check if we've already processed a word
+                result += toupper(c);  // Capitalize the first letter of the next word
+            }
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            if (result.empty() || c != '-') {  // Ignore the first character if it's '-'
+                result += toupper(c);
+            } else {
+                result += tolower(c);  // Otherwise, lowercase the first letter
+                capitalizeNext = false;
+            }
         } else {
-            result += s[i];
+            result += tolower(c);
         }
     }
-    
+
     return result;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << camelCase(input) << endl;
+    std::string str;
+    std::cin >> str;
+    std::cout << camelCase(str) << std::endl;
+
     return 0;
 }
