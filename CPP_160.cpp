@@ -13,6 +13,6 @@ public:
 
 int main() {
     _160 obj;
-    assert(obj.do_algebra(1, {7, 3, 4}) == 8); 
+    assert(obj.do_algebra("*", {7, 3}) == 21); 
     return 0;
 }

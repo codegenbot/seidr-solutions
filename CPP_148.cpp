@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
@@ -10,7 +10,7 @@ int main() {
     std::cout << "Enter the second string: ";
     std::cin >> b;
     std::vector<std::string> result = bf(a, b);
-    bool same = issame(result, {a, b});
+    bool same = issame({a}, {b});
     if (same) {
         std::cout << "The strings are the same." << std::endl;
     } else {
@@ -31,7 +31,7 @@ std::vector<std::string> bf(std::string a, std::string b) {
     return {a, b};
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) { 
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) { 
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
