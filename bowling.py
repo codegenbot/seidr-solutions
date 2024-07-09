@@ -1,27 +1,19 @@
 ```
-def bowling(score):
-    score = score.replace('/', '')
-    total_score = 0
-    frame_score = 0
-    for i in range(len(score)):
-        if score[i].isdigit():
-            if score[i] == 'X':
-                frame_score += 10
-            elif score[i] == '7' or score[i] == '8' or score[i] == '9':
-                if len(score) - i > 1 and score[i+1].isdigit() and int(score[i+1]) < 10:
-                    frame_score += int(score[i]) + int(score[i+1])
-                else:
-                    frame_score += int(score[i]) + 3
-            elif score[i] == '0':
-                if len(score) - i > 1 and score[i+1].isdigit() and int(score[i+1]) < 10:
-                    frame_score += 10
-                else:
-                    frame_score = 10
+def bowling_score(score):
+    score = score.replace("/", "-")
+    frames = [list(map(int, frame.split("-"))) for frame in score.split("X")]
+    if len(frames) < 10:
+        while len(frames) < 10:
+            frames.append([1])
+    total = 0
+    for i, frame in enumerate(frames):
+        if len(frame) == 2 and frame[1] != 10:
+            if frame[0] + 10 - frame[1] > 10:
+                total += 10 + sum(frames[i+1:i+3])
             else:
-                frame_score += int(score[i])
+                total += 10
+        elif len(frame) == 1 and frame[0] == 10:
+            total += 10 + sum(frames[i+1:i+2])
         else:
-            if score[i] == '-':
-                total_score += frame_score
-                frame_score = 0
-    total_score += frame_score
-    return total_score
+            total += sum(frame)
+    return total
