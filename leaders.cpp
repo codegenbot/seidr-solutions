@@ -3,16 +3,13 @@
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
-    std::vector<int> res;
+    std::vector<int> res(arr.back()); // initialize result with the last element
     
-    for(int i=n-1; i>=0; i--) {
-        bool isLeader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[i] < arr[j])
-                isLeader = false;
-        }
-        if(isLeader)
+    for(int i=n-2; i>=0; i--) {
+        if(res.back() <= arr[i]) 
             res.push_back(arr[i]);
+        else
+            break;
     }
     
     return res;
