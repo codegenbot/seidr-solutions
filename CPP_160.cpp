@@ -1,10 +1,9 @@
-```cpp
+#include <initializer_list>
 #include <cassert>
-#include <vector>
 
 class cpp_160 {
 public:
-    int doAlgebra(const std::vector<std::string>& ops, const std::vector<int>& nums) {
+    int do_algebra(const std::vector<std::string>& ops, const std::vector<int>& nums) {
         if (ops.size() != nums.size()) {
             return -1;
         }
@@ -24,5 +23,5 @@ public:
 
 int main() {
     cpp_160 obj;
-    assert(obj.doAlgebra({{"//", "*"}}, {7, 3, 4}) == 8);
+    assert(obj.do_algebra({{"//", "*"}}, {7, 3, 4}) == 8);
 }
