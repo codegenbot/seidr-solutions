@@ -1,9 +1,7 @@
 #include <vector>
-#include <cmath>
-
-std::vector<int> countEvenOddDigits(int num) {
-    std::vector<int> counts(2, 0);
-    std::string numStr = std::to_string(std::abs(num));
+vector<int> counts(int num) {
+    vector<int> counts(2, 0);
+    string numStr = to_string(abs(num));
     for (char c : numStr) {
         if (c % 2 == 0) {
             counts[0]++;
