@@ -1,16 +1,13 @@
 vector<int> remove_duplicates(vector<int> numbers){
-    vector<int> uniqueNumbers;
+    unordered_map<int, bool> mp;
+    vector<int> result;
+
     for(int i = 0; i < numbers.size(); i++){
-        bool isUnique = true;
-        for(int j = 0; j < uniqueNumbers.size(); j++){
-            if(numbers[i] == uniqueNumbers[j]){
-                isUnique = false;
-                break;
-            }
-        }
-        if(isUnique){
-            uniqueNumbers.push_back(numbers[i]);
+        if(mp.find(numbers[i]) == mp.end()){
+            mp[numbers[i]] = true;
+            result.push_back(numbers[i]);
         }
     }
-    return uniqueNumbers;
+
+    return result;
 }
