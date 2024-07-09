@@ -25,8 +25,9 @@ std::pmr::vector<int> strange_sort_list(std::pmr::pmr_vector<int> lst) {
 }
 
 int main() {
-    std::pmr::polymorphic_allocator<int> global_mr;
-    std::pmr::vector<int> input(global_mr);
+    std::pmr::memory_resource mr;
+    std::pmr::polymorphic_allocator<void> global_mr = &mr;
+    std::pmr::vector<int> input(&mr);
     for (int i = 0; i < 6; ++i) {
         int num;
         std::cin >> num;
