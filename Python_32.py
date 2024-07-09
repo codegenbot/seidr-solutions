@@ -1,10 +1,13 @@
 def find_zero(xs: list):
-    assert len(xs) % 2 == 0
-    n = len(xs) - 1
-    a = xs[0]
-    b = xs[n]
-    return -a / b
+    n = len(xs)
+    if n % 2 != 0:
+        return None
+    a = max(xs, key=abs)
+    b = -a
+    return b
 
-xs = list(map(int, input("Enter a list of numbers separated by spaces: ").split()))
-result = find_zero(xs)
-print(result)
+
+if __name__ == "__main__":
+    xs = list(map(int, input().split()))
+    result = find_zero(xs)
+    print(result)
