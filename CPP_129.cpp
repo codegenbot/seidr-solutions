@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
 bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
@@ -42,35 +38,4 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y,
         }
     }
     visited[x][y] = false;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<vector<int>> grid(n, vector<int>(n));
-    for(int i=0; i<n; i++) {
-        for(int j=0; j<n; j++) {
-            cin >> grid[i][j];
-        }
-    }
-    int k;
-    cin >> k;
-    
-    vector<int> res = minPath(grid, k);
-    
-    if(res.size() == 1) {
-        cout << "No Path Found" << endl;
-    } else if(res.size() > 0) {
-        for(int i = 0; i < res.size(); i++) {
-            if(i != res.size()-1)
-                cout << res[i] << " ";
-            else
-                cout << res[i];
-        }
-        cout << endl;
-    } else {
-        cout << "No Path Found" << endl;
-    }
-    
-    return 0;
 }
