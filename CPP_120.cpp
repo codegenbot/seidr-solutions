@@ -20,7 +20,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> maximum(std::vector<std::vector<int>>& arr, int k) {
+std::vector<int> maximum(std::vector<int>& arr, int k) {
     struct Compare {
         bool operator()(const std::pair<int,int>& a, const std::pair<int,int>& b) const {
             return a.first < b.first;
@@ -29,28 +29,25 @@ std::vector<int> maximum(std::vector<std::vector<int>>& arr, int k) {
     std::priority_queue<std::pair<int,int>, std::vector<std::pair<int,int>>, decltype(Compare{})> pq(Compare());
 
     for(int i = 0; i < arr.size(); i++) {
-        for(int j = 0; j < arr[i].size(); j++) {
-            pq.push({arr[i][j], i});
-        }
+        pq.push({arr[i], i});
     }
 
     // Keep popping elements from the priority queue until k elements are popped
     while (!pq.empty() && k-- > 0) {
         int idx = pq.top().second;
         pq.pop();
+        if (k >= arr.size()) {
+            break;  // If k is greater than or equal to the size of array, stop processing
+        }
         if (idx < arr.size()) {
-            for(int j = 0; j < arr[idx].size(); j++) {
-                arr[idx][j] = -1;  // Mark this index as processed, don't pop it directly
-            }
+            arr[idx] = -1;  // Mark this index as processed, don't pop it directly
         }
     }
 
     std::vector<int> result;
-    for(auto i : arr) {
-        for(auto val : i) {
-            if(val != -1) {
-                result.push_back(val);
-            }
+    for(int i : arr) {
+        if(i != -1) {
+            result.push_back(i);
         }
     }
     return result;
@@ -64,12 +61,12 @@ int main() {
     std::cout << "Enter the value of k: ";
     std::cin >> k;
 
-    std::vector<std::vector<int>> arr; 
+    std::vector<int> arr; 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
-        arr.push_back({val});
+        arr.push_back(val);
     }
 
     std::vector<int> result = maximum(arr, k);
