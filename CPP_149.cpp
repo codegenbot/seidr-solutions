@@ -1,7 +1,10 @@
+```
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <initializer_list>
 #include <iostream>
+
 using namespace std;
 
 vector<string> sorted_list_sum(vector<string> lst) {
@@ -31,6 +34,6 @@ int main() {
     if (sorted_list_sum(input) == expected) {
         cout << "The lists are the same." << endl;
     } else {
-        cout << "The lists are not the same: actual - " << sorted_list_sum(input) << ", expected - " << expected << endl;
+        cout << "Error: The lists are not the same." << endl;
     }
 }
