@@ -23,19 +23,25 @@ vector<int> findLeaders(vector<int> nums) {
 }
 
 int main() {
-    int n;
-    cin >> n;
+    vector<int> nums;
+    int num;
     
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+    cout << "Enter positive integers (enter -1 to stop):\n";
+    while (true) {
+        cin >> num;
+        if (num == -1) {
+            break;
+        }
+        nums.push_back(num);
     }
     
     vector<int> result = findLeaders(nums);
     
-    for (int num : result) {
-        cout << num << " ";
+    cout << "Leaders: ";
+    for (int leader : result) {
+        cout << leader << " ";
     }
+    cout << endl;
     
     return 0;
 }
