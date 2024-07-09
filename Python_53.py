@@ -1,4 +1,4 @@
-Here's the corrected code:
+Here is the corrected code:
 
 def add(x: int, y: int):
     x = int(input("Enter first integer: "))
