@@ -1,13 +1,14 @@
 #include <vector>
 #include <iostream>
 #include <cassert>
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> completeCode(int n) {
-    std::vector<int> result = {1, 3};
+vector<int> completeCode(int n) {
+    vector<int> result = {1, 3};
     for (int i = 2; i < n; ++i) {
         if (i % 2 == 0) {
             result.push_back(1 + i / 2);
@@ -19,6 +20,6 @@ std::vector<int> completeCode(int n) {
 }
 
 int main() {
-    assert(issame(completeCode(3), {1, 3, 2})); // Fix index value and compare vector
+    assert(issame(completeCode(2), {1, 3, 2}));
     return 0;
 }
