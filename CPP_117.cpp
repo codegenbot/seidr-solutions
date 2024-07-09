@@ -39,6 +39,7 @@ vector<pair<int, string>> select_words(string s, int n) {
 }
 
 int main() {
+    vector<pair<int, string>> expected = {{1, "b"}, {1, "c"}, {1, "d"}, {1, "f"}};
     assert(issame(select_words("a b c d e f", 1), vector<pair<int, string>>({{1, "b"}, {1, "c"}, {1, "d"}, {1, "f"}})));
     return 0;
 }
