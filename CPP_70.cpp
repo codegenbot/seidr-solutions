@@ -1,3 +1,23 @@
+#include <vector>
+#include <algorithm>
+
+bool same(vector<vector<int>>& a, vector<vector<int>>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i].size() != b[i].size()) {
+            return false;
+        }
+        sort(a[i].begin(), a[i].end());
+        sort(b[i].begin(), b[i].end());
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     while (!lst.empty()) {
