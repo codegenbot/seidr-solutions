@@ -1,10 +1,10 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 #include <cctype>
 
-using std::vector;
+using std::count;
+using std::size_t;
 using std::pair;
 using std::string;
 
