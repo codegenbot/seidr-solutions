@@ -1,25 +1,11 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <set>
 
-bool operator()(const int& a, const int& b) const {
-    return a > b;
-}
-
-bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() == 0 && b.size() == 0) return true;
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
     if (numbers.empty()) return std::vector<int>();
 
-    std::set<int, decltype(*this)(const int& a, const int& b) const> uniqueNumbersSet(*this);
+    std::set<int> uniqueNumbersSet;
     for (int num : numbers) {
         uniqueNumbersSet.insert(num);
     }
