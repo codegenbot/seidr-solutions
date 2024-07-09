@@ -2,13 +2,13 @@
 #include <iostream>
 #include <string>
 
-int how_many_times(const std::string& str, const std::string& substring) {
+int how_many_times(std::string str, std::string substring) {
     int count = 0;
     size_t pos = 0;
-    std::string temp = str; // Create a copy of the original string
-    while ((pos = temp.find(substring)) != std::string::npos) {
+    while ((pos = str.find(substring)) != std::string::npos) {
         count++;
-        temp.erase(pos, substring.length());
+        size_t newPos = 0;
+        str.replace(pos, substring.length(), "", &newPos);
     }
     return count;
 }
