@@ -11,20 +11,12 @@ if(a.type() == typeid(int) && b.type() == typeid(int)){
         return b;
     }
 } else if(a.type() == typeid(string) && b.type() == typeid(string)){
-    if(a.type() == typeid(string) && b.type() == typeid(string)){
-        string str_a = boost::any_cast<string>(a);
-        string str_b = boost::any_cast<string>(b);
-        if(str_a.find_first_of(".,") != string::npos){
-            replace(str_a.begin(), str_a.end(), ',', '.');
-        }
-        if(str_b.find_first_of(".,") != string::npos){
-            replace(str_b.begin(), str_b.end(), ',', '.');
-        }
-        if(stod(str_a) > stod(str_b)){
-            return a;
-        } else if(stod(str_a) < stod(str_b)){
-            return b;
-        }
+    float fa = stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, "."));
+    float fb = stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, "."));
+    if(fa > fb){
+        return a;
+    } else if(fa < fb){
+        return b;
     }
 }
 return "None";
