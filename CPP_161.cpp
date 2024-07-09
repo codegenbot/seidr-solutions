@@ -13,3 +13,4 @@ string solve(string s) {
     }
     reverse(result.begin(), result.end());
     return result;
+}
