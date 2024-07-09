@@ -22,4 +22,5 @@ bool solveBoolean(string s) {
     while (!st.empty()) {
         st.pop();
     }
-    return !st.empty();
+    return st.empty();
+}
