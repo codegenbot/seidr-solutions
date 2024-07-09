@@ -1,10 +1,11 @@
+```cpp
 #include <vector>
 #include <string>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) 
-        if(to_string(a[i]).size() != to_string(b[i]).size()) 
+        if(to_string(a[i]).size() != b[i]) 
             return false;
     return true;
 }
@@ -16,6 +17,7 @@ std::vector<int> by_length(const std::vector<int>& arr) {
         result.push_back(length);
     }
     return result;
+
 }
 
 int main() {
