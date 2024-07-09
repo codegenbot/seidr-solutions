@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <unordered_set>
+#include <set>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
@@ -16,23 +16,18 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> unique_digits(std::vector<int> values) {
-    std::unordered_set<int> uniqueSet;
+    std::set<int> uniqueSet;
     for (int num : values) {
-        while (num > 0) {
+        while (num) {
             uniqueSet.insert(num % 10);
             num /= 10;
         }
     }
-    
-    std::vector<int> uniqueDigits;
-    for (int digit : uniqueSet) {
-        uniqueDigits.push_back(digit);
-    }
-    
+    std::vector<int> uniqueDigits(uniqueSet.begin(), uniqueSet.end());
     return uniqueDigits;
 }
 
 int main() {
-    assert(issame(unique_digits({135, 103, 31}), {1, 3, 5}));
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
     return 0;
 }
