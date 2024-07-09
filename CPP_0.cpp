@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <cassert> 
 using namespace std;
 
 bool has_close_elements(vector<float> a, float tol) {
@@ -22,3 +22,4 @@ int main() {
     assert(has_close_elements(numbers2, 0.5) == false);
     
     return 0;
+}
