@@ -29,15 +29,14 @@ bool isPrime(int n) {
     return true;
 
 }
-
-int main() {
+int main(){
     vector<int> lst;
     int num;
-    cout << "Enter the number of elements: ";
-    cin >> num;
-    for(int i = 0; i < num; i++){
-        cout << "Enter element "<<i+1<<":";
-        cin >> lst.push_back(i);
+    cout << "Enter the numbers (enter -1 to stop): ";
+    while(true){
+        cin >> num;
+        if(num == -1) break;
+        lst.push_back(num);
     }
     cout << "The sum of digits in the maximum prime number is: " << maxPrimeSum(lst) << endl;
     return 0;
