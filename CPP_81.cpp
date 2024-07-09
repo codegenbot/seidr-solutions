@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -19,6 +19,6 @@ std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades
 }
 
 int main() {
-    assert(isSame(numerical_letter_grade({0.0f, 0.7f}), std::vector<std::string>{"E", "D-"}));
+    assert(numerical_letter_grade({0.0f, 0.7f}) == std::vector<std::string>{"E", "D-"});
     return 0;
 }
