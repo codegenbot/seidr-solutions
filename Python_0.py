@@ -5,5 +5,6 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
+
 has_close_elements = check_numbers([1, 5, 9, 12], 4)
 print(has_close_elements)
