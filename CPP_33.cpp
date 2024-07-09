@@ -7,19 +7,16 @@ using namespace std;
 
 vector<int> sort_third(vector<int> l) {
     vector<int> result;
-    int groupCount = 0;
-
     for (int i : l) {
-        if(groupCount % 3 == 0) { 
-            for(int j : vector<int>{i}) {
-                result.push_back(j);
-            }
-        } else {
-            result.push_back(i);
-            groupCount++;
+        if(result.size() % 3 == 0) {
+            sort(result.begin(), result.end());
+            result.clear();
         }
+        result.push_back(i);
     }
-
+    if(result.size() % 3 != 0) {
+        sort(result.begin(), result.end());
+    }
     return result;
 }
 
