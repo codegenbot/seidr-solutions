@@ -23,6 +23,6 @@ def prime_fib(n: int):
 
     return fib_num
 
-n = int(input("Enter the value of n: "))  # Moved input line above function call
+n = int(input("Enter the value of n: "))
 result = prime_fib(n)
 print(result)
