@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,12 +14,17 @@ bool areVectorsEqual(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> remove_duplicates(std::vector<int>& numbers) {
+std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
     std::sort(numbers.begin(), numbers.end()); 
     auto it = std::unique(numbers.begin(), numbers.end()); 
-    std::vector<int> uniqueNumbers(it, numbers.end());  // Remove duplicates
+    numbers.erase(it, numbers.end());  // Remove duplicates
 
-    return uniqueNumbers;
+    std::vector<int> result;
+    for (int i : numbers) {  // Create a new vector with unique elements
+        if (std::find(result.begin(), result.end(), i) == result.end())
+            result.push_back(i);
+    }
+    return result;
 }
 
 int mainFunction() {
@@ -43,8 +47,6 @@ int mainFunction() {
     } else {
         std::cout << "The resulting vector is different from the original." << std::endl;
     }
-
-    uniqueNumbers.swap(numbers);  // Move the unique elements to the original vector
 
     return 0;
 }
