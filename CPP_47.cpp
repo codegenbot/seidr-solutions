@@ -1,19 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <limits>
-#include <algorithm>
 
-float median(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
-    int size = numbers.size();
-    if (size % 2 == 0)
-        return (numbers[size / 2 - 1] + numbers[size / 2]) / 2.0;
-    else
-        return numbers[size / 2];
-}
+float median(vector<float> numbers);
 
 int testMedian() {
-    std::vector<float> numbers;
+    vector<float> numbers;
     std::cout << "Enter the numbers (enter 'stop' to finish): ";
     std::string input;
     while (true) {
@@ -34,4 +27,19 @@ int testMedian() {
     float result = median(numbers);
     std::cout << "The median of the given numbers is: " << result << std::endl;
     return 0;
+}
+
+float median(vector<float> numbers) {
+    int n = numbers.size();
+    if (n == 0) {
+        return 0.0f;
+    }
+    else if (n % 2 == 1) {
+        return numbers[n/2];
+    }
+    else {
+        float mid1 = numbers[n/2 - 1];
+        float mid2 = numbers[n/2];
+        return (mid1 + mid2) / 2.0f;
+    }
 }
