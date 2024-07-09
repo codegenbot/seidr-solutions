@@ -1,11 +1,8 @@
-
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+bool is_same(const std::vector<int>& a, const std::vector<int>& b);
 
 std::vector<int> count_up_to(int n) {
     std::vector<int> primes;
