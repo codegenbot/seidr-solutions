@@ -1,25 +1,35 @@
 #include <string>
+using namespace std;
 
 int mastermind(string code, string guess) {
-    int black = 0;
-    int white = 0;
-
-    map<char, int> code_count;
-    for (char c : code) {
-        code_count[c]++;
-    }
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            black++; // Correct color, correct place - black peg
+    int whitePegs = 0;
+    int blackPegs = 0;
+    
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            blackPegs++;
         } else {
-            int count = code_count[guess[i]];
-            if (count > 0) {
-                white++;
-                code_count[guess[i]]--; // Decrement the count
+            bool found = false;
+            for(int j=0; j<4; j++) {
+                if(guess[j] == code[i] && !found) {
+                    whitePegs++;
+                    found = true;
+                }
             }
         }
     }
+    
+    return blackPegs + whitePegs;
+}
 
-    return black + white;
+int main() {
+    string code, guess;
+    cout << "Enter the Mastermind code: ";
+    cin >> code;
+    cout << "Enter your guess: ";
+    cin >> guess;
+    int result = mastermind(code, guess);
+    cout << "Black pegs: " << result - (result/4) << endl;
+    cout << "White pegs: " << result/4 << endl;
+    return 0;
 }
