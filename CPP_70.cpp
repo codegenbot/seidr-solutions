@@ -2,11 +2,11 @@
 #include <vector>
 #include <algorithm>
 
-bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
+bool isEqual(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
+std::vector<int> strangeSortList(std::vector<int> lst) {
     std::vector<int> result;
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
@@ -46,7 +46,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     return result;
 }
 
-int main_ {
+int main() {
     std::vector<int> input;
     for (int i = 0; i < 6; ++i) {
         int num;
@@ -54,15 +54,13 @@ int main_ {
         input.push_back(num);
     }
 
-    std::vector<int> output = strange_sort_list(input);
+    std::vector<int> output = strangeSortList(input);
 
-    if (areEqual(output, {1,2,3,4,5,6})) {
+    if (isEqual(output, {1,2,3,4,5,6})) {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
     }
 
-    assert(areEqual(strange_sort_list({111111}), {111111}));
-
+    assert(isEqual(strangeSortList({111}), {111}));
     return 0;
-}
