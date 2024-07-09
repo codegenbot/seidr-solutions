@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -8,29 +9,21 @@ std::string kebabToCamel(const std::string& s) {
 
     for (char c : s) {
         if (c == '-') {
-            if (capitalize) {
-                result += toupper(s[0]);
-                capitalize = false;
-                s.erase(0, 1);
-            }
-            while (s.size() > 0 && s[0] == '-') {
-                s.erase(0, 1);
-            }
+            capitalize = true;
         } else if (capitalize) {
-            result += toupper(c);
+            result += std::toupper(c);
             capitalize = false;
         } else {
-            result += tolower(c);
+            result += std::tolower(c);
         }
     }
 
-    return result + (s.size() > 0 ? " " + s : "");
+    return result;
 }
 
 int main() {
     std::string input;
-    std::cin >> input;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::getline(std::cin, input);
     std::cout << kebabToCamel(input) << std::endl;
 
     return 0;
