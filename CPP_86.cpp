@@ -43,11 +43,12 @@ string anti_shuffle(string s) {
 
     string result = "";
     for (const auto& word : words) {
-        sort(word.begin(), word.end());
+        string w = word;
+        sort(w.begin(), w.end());
         if (!result.empty()) {
             result += " ";
         }
-        result += word;
+        result += w;
     }
     return result;
 }
