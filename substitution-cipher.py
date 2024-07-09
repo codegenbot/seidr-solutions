@@ -8,5 +8,5 @@ def substitution_cipher(cipher1, cipher2, message):
             else:
                 result += cipher2[index].lower()
         else:
-            result += char
+            result += char  # Leave non-alphabet characters unchanged
     return result
