@@ -1,3 +1,17 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    assert(std::equal(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"}, "xxx").begin(), filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"}, "xxx").end(), {"xxx", "xxxAAA", "xxx"}.begin()));
+    return 0;
+}
+
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
     for(string s : strings){
@@ -5,19 +19,4 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
             result.push_back(s);
     }
     return result;
-
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) 
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (!(find(a[i].begin(), a[i].end(), ' ') == string::npos)) {
-            int pos1 = find(a[i].begin(), a[i].end(), ' ');
-            int pos2 = find(b[i].begin(), b[i].end(), ' ');
-            if (pos1 != pos2) 
-                return false;
-        }
-    }
-    return true;
 }
