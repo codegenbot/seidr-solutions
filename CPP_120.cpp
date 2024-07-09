@@ -2,7 +2,17 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    // Your function implementation here
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<int> maximum(vector<int> arr, int k) {
@@ -10,4 +20,4 @@ vector<int> maximum(vector<int> arr, int k) {
     return vector<int>(arr.begin(), arr.begin() + k);
 }
 
-assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
+assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 1), {243}));
