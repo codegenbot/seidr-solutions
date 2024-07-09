@@ -22,7 +22,7 @@ def minPath(grid, k):
         for j in range(n):
             dfs(i, j, [], 0)
 
-    if not paths:
+    if len(paths) == 0:
         return None
     paths.sort()
     return paths[0]
