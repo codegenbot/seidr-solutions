@@ -1,9 +1,6 @@
 #include <vector>
 #include <algorithm>
-
-bool issame(int a, int b) {
-    return a == b;
-}
+#include <cassert>
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
@@ -14,11 +11,13 @@ std::vector<int> get_odd_collatz(int n) {
         n = (n % 2 == 0) ? n / 2 : 3 * n + 1;
     }
     result.push_back(1);
-    sort(result.begin(), result.end(), issame);
+    std::sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    assert(issame(get_odd_collatz(1)[0], 1));
+    std::vector<int> expected = {1, 3, 5, 7, 9};
+    assert(get_odd_collatz(10) == expected);
+
     return 0;
 }
