@@ -11,5 +11,5 @@ int main1() {
 }
 
 int main2() {
-    
+    // Other code for main function
 }
