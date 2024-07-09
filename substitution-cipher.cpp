@@ -2,35 +2,21 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(const std::string& cipherText, const std::string& mapping) {
-    std::string deciphered = "";
-    for (char c : cipherText) {
-        int idx = mapping.find(c);
-        if (idx != std::string::npos) {
-            deciphered += mapping[idx];
+std::string substitutionCipher(std::string s1, std::string s2, std::string s3) {
+    string result = "";
+    for (int i = 0; i < s3.length(); i++) {
+        if (i >= s1.length()) {
+            result += s2[i % s2.length()];
         } else {
-            deciphered += c; // If the character is not found in the mapping, leave it as it is
+            result += s2[s1.find(s3[i])];
         }
     }
-    return deciphered;
+    return result;
 }
 
 int main() {
-    std::string cipherText1, cipherText2, deciphered;
-    std::cout << "Enter the first two strings (cipher): ";
-    std::cin >> cipherText1 >> cipherText2;
-    std::cout << "Enter the string to be deciphered: ";
-    std::cin >> deciphered;
-
-    std::string mapping = "";
-    for (char c : cipherText1) {
-        if (!mapping.empty() && mapping[mapping.size()-1] == c) {
-            break; // We have reached the end of the mapping
-        }
-        mapping += c;
-    }
-
-    std::cout << "Deciphered message: " << decipher(deciphered, mapping) << std::endl;
-
+    string s1, s2, s3;
+    cin >> s1 >> s2 >> s3;
+    cout << substitutionCipher(s1, s2, s3) << endl;
     return 0;
 }
