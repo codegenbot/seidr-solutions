@@ -1,12 +1,10 @@
-```cpp
 #include <iostream>
 #include <string>
 
 int hex_key(std::string num) {
     int count = 0;
-    for (char c : num) { 
-        c = tolower(c); // Convert to lowercase
-        if ((c >= '2' && c <= '7') || (c == 'b' || c == 'd' || c == 'f')){ 
+    for (auto c : num) { 
+        if ((c >= '2' && c <= '7') || (c == 'B' || c == 'D' || c == 'F')){ 
             count++;
         }
     }
