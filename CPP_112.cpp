@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -47,7 +46,7 @@ vector<string> reverse_delete(string s, string c) {
     // Return the result
     vector<string> final_result;
     final_result.push_back(res_str);
-    final_result.push_back((is_palindrome ? "True" : "False"));
+    final_result.push_back(to_string(is_palindrome));
     return final_result;
 }
 
