@@ -27,12 +27,12 @@ int findUnique(std::vector<int> vec) {
     return issame(uniqueVec, {vec[0], vec.back()});
 }
 
-int newMain(){
-    assert(findUnique({0, 2, 3, 5, 9, 123}) == 1);
+int main(){
+    test();
     return 0;
 }
 
-int main(){
-    newMain();
+int test(){
+    assert(std::equal(std::unique({0, 2, 3, 5, 9, 123}), std::unique({0, 2, 3, 5, 9, 123}).base(), std::unique({0, 2, 3, 5, 9, 123}).end()));
     return 0;
 }
