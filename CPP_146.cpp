@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <initializer_list> 
 #include <iostream>
@@ -14,7 +13,6 @@ int specialFilter(vector<int> nums) {
     }
     return count;
 
-{
 int main() {
     vector<int> nums;
     for(int i = 123; i <= 789; i++) {
