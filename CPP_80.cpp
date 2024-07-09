@@ -1,4 +1,5 @@
 ```cpp
+#include <cassert>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -7,13 +8,13 @@
 bool is_happy(const std::string& s) {
     if (s.length() < 3)
         return false;
-    for (int i = 0; i <= s.length(); i++) {
+    for (int i = 0; i <= s.length() - 3; i++) {
         bool unique = true;
         std::string subStr = s.substr(i, 3); 
         size_t pos = s.find(subStr);
         while (pos != std::string::npos) {
-            if (i + 3 > s.length()) return false;
-            pos = s.find(subStr, pos + 1);
+            if (s.length() < i + 3) return false;
+            pos = s.find(subStr, pos);
         }
     }
     return true;
