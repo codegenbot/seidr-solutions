@@ -1,17 +1,18 @@
+#include <string>
+
+using namespace std;
+
 string encode(string message) {
     string result = "";
     for (char c : message) {
         if (isalpha(c)) {
-            c = toupper(c);
-            if (c >= 'A' && c <= 'E') {
-                c = (c - 65 + 3) % 26 + 65;
-            } else if (c >= 'I' && c <= 'O') {
-                c = (c - 79 + 2) % 26 + 79;
-            } else if (c >= 'U' && c <= 'Y') {
-                c = (c - 85 + 3) % 26 + 85;
+            char base = isupper(c) ? 'A' : 'a';
+            c = (c >= base && c <= base + 2) || (c >= base + 22 && c <= base + 24) ? tolower(c) : toupper(c);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                c = (base == 'A' && c == 'a') ? 'c' : (base == 'a' && c == 'a') ? 'e' : ((base == 'A' && c == 'e') || (base == 'a' && c == 'e')) ? 'g' : ((base == 'A' && c == 'i') || (base == 'a' && c == 'i')) ? 'k' : ((base == 'A' && c == 'o') || (base == 'a' && c == 'o')) ? 'q' : ((base == 'A' && c == 'u') || (base == 'a' && c == 'u')) ? 'w' : 'y';
             }
         }
-        result += tolower(c);
+        result += c;
     }
     return result;
 }
