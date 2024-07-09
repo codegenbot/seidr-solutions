@@ -17,33 +17,30 @@ std::string int_to_roman(int n) {
         return "CD" + int_to_roman(n - 400);
     }
     else if (n >= 100) {
-        std::string result;
         if (n >= 90) {
-            result = "CM";
-        } 
-        else if (n >= 50) {
-            result = "L";
-        } 
-        else if (n >= 40) {
-            result = "XL";
-        } 
-        else if (n >= 10) {
+            return "CM";
+        } else if (n >= 50) {
+            return "L";
+        } else if (n >= 40) {
+            return "XL";
+        } else if (n >= 10) {
             if (n >= 9) {
-                result = "IX";
-            } 
-            else if (n >= 5) {
-                result = "V";
-            } 
-            else if (n >= 4) {
-                result = "IV";
-            } 
-            else {
-                result = "I";
+                return "IX";
+            } else if (n >= 5) {
+                return "V";
+            } else if (n >= 4) {
+                return "IV";
+            } else {
+                return "I";
             }
         }
-        return result;
     }
     else {
         return "";
     }
+}
+
+int main() {
+    assert(std::string("M") == int_to_roman(1000));
+    return 0;
 }
