@@ -1,24 +1,25 @@
-#include <openssl/evp.h>
-#include <string>
-
-using namespace std;
+#include <sstream>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md5[16];
-    string result = "";
-    EVP_MD_CTX ctx;
-    EVP_PKEY *pkey = EVP_pkey_new();
-    EVP_PKEY_set1_RSA(pkey, RSA_generate_key_ex(1024, RSA_F4, NULL, NULL));
-    EVP_DigestInit_ex(&ctx, EVP_md5(), 0);
-    EVP_DigestUpdate(&ctx, text.c_str(), text.size());
-    EVP_DigestFinal_ex(&ctx, md5, nullptr);
-    for (int i = 0; i < 16; ++i) {
-        char temp[3];
-        sprintf(temp, "%02x", md5[i]);
-        result += temp;
+    MD5_CTX md5sum;
+    MD5_Init(&md5sum);
+
+    const char* cstr = text.c_str();
+    size_t len = text.size();
+
+    MD5_Update(&md5sum, cstr, len);
+    MD5_Final(md5, &md5sum);
+
+    string result;
+
+    for (int i = 0; i < 16; i++) {
+        char buff[3];
+        sprintf(buff, "%02x", md5[i]);
+        result += buff;
     }
-    EVP_PKEY_free(pkey);
+
     return result;
 }
