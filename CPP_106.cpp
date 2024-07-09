@@ -1,15 +1,8 @@
-#include <vector>
-#include <cassert>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a == b;
-}
-
 std::vector<int> f(int n){
-    return std::vector<int>{1, 2, 6};
-}
-
-int main(){
-    assert(issame(f(3), {1, 2, 6}));
-    return 0;
+    std::vector<int> result;
+    for(int i=1; i<=n; i++){
+        result.push_back(i);
+    }
+    result.push_back(2*n);
+    return result;
 }
