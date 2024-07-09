@@ -1,27 +1,30 @@
-int dotPos = file_name.find('.');
-    if(dotPos == string::npos || dotPos == 0 || dotPos == file_name.size() - 1){
-        return "No";
-    }
-    string nameBeforeDot = file_name.substr(0, dotPos);
-    string extAfterDot = file_name.substr(dotPos + 1);
-    if(nameBeforeDot.size() == 0 || extAfterDot.size() == 0 || 
-       extAfterDot != "txt" && extAfterDot != "exe" && extAfterDot != "dll"){
-        return "No";
-    }
-    int digitsCount = 0;
-    for(char c : file_name){
-        if(c >= '0' && c <= '9'){
-            digitsCount++;
+string file_name_check(string file_name) {
+    int digits_count = 0;
+    int dot_count = 0;
+    int dot_pos;
+    
+    for(int i = 0; i < file_name.size(); ++i) {
+        if(isdigit(file_name[i])) {
+            digits_count++;
+        } else if(file_name[i] == '.') {
+            dot_count++;
+            dot_pos = i;
         }
     }
-    if(digitsCount > 3){
+    
+    if (digits_count > 3 || dot_count != 1 || dot_pos == 0 || dot_pos == file_name.size() - 1) {
         return "No";
     }
     
-    if((nameBeforeDot[0] >= 'a' && nameBeforeDot[0] <= 'z') || 
-       (nameBeforeDot[0] >= 'A' && nameBeforeDot[0] <= 'Z')){
-        return "Yes";
-    } else {
+    string extension = file_name.substr(dot_pos + 1);
+    
+    if (extension != "txt" && extension != "exe" && extension != "dll") {
         return "No";
     }
+    
+    if (!isalpha(file_name[0])) {
+        return "No";
+    }
+    
+    return "Yes";
 }
