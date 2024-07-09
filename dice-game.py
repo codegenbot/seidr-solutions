@@ -1,4 +1,7 @@
+```
+import math
+
 def roll_dice(n, m):
-    p_favorable = sum(1 for _ in range(min(n-1, m)) if n - 1 > i)
-    probability = p_favorable / (n * m)
+    total_outcomes = n * m
+    probability = sum((i + 1) / (n * m) for i in range(min(n - 1, m))) 
     return probability
