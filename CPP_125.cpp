@@ -6,36 +6,21 @@ using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prev_pos = 0;
-    
-    while ((pos = txt.find_first_of(" ,")) != string::npos) {
-        if (pos == 0) {
-            if (txt.find(',') == string::npos) {
-                return {to_string(count_lowercase(txt))};
+    int start = 0;
+    for (int i = 0; i <= txt.size(); i++) {
+        if ((i == txt.size() || !isspace(txt[i])) && 
+            (start == 0 || !isspace(txt[i-1]))) {
+            if (i > start) {
+                result.push_back(txt.substr(start, i - start));
+            } else if (txt.empty()) {
+                if (isalpha(txt[0]) && txt.size() % 2 != 0) {
+                    string s = to_string(txt.size());
+                    result.push_back(s);
+                    return result;
+                }
             }
-            result.push_back(txt.substr(0, pos));
-            txt.erase(0, pos + 1);
-            prev_pos = pos;
-        } else {
-            result.push_back(txt.substr(prev_pos, pos - prev_pos));
-            txt.erase(0, pos - prev_pos);
-            prev_pos = pos;
+            start = i;
         }
     }
-    
-    if (!txt.empty()) {
-        result.push_back(txt);
-    }
-    
     return result;
-}
-
-int count_lowercase(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (islower(c)) {
-            count++;
-        }
-    }
-    return count;
 }
