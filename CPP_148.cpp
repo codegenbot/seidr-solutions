@@ -1,34 +1,34 @@
-```cpp
 #include <vector>
 #include <string>
 
 bool isPlanet(string planet);
 bool issame(vector<string> a, vector<string> b);
-vector<string> mybf(string planet1, string planet2);
+vector<string> result(string planet1, string planet2);
 
-bool main() {
+int main() {
     cout << "Enter two planets separated by space: ";
     string planet1, planet2;
     cin >> planet1 >> planet2;
-    vector<string> result = mybf(planet1, planet2); 
-    if (result.empty()) {
+    vector<string> b;
+    vector<string> resultVector = result(planet1, planet2); 
+    if (resultVector.empty()) {
         cout << "Planets not found.\n";
     } else {
         cout << "Planets in order are: ";
-        for (const string& planet : result) {
+        for (const string& planet : resultVector) {
             cout << planet << " ";
         }
         cout << "\n";
 
-        vector<string> b = {planet1, planet2};
-        if(issame(result,b)){
+        vector<string> temp = {planet1, planet2};
+        if(issame(resultVector,temp)){
             cout << "The planets are the same.\n";
         } else {
             cout << "The planets are different.\n";
         }
     }
 
-    return !result.empty();
+    return 0;
 }
 
 bool isPlanet(string planet) {
@@ -48,7 +48,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> mybf(string planet1, string planet2) { 
+vector<string> result(string planet1, string planet2) { 
     vector<string> result;
     if (isPlanet(planet1) && isPlanet(planet2)) {
         if (planet1 < planet2)
