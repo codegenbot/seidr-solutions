@@ -5,18 +5,26 @@ using namespace boost;
 boost::any compare_one(boost::any a, boost::any b) {
     if (is_none(a) || is_none(b)) return none;
     
-    if (any_cast<int>(a) > any_cast<int>(b))
+    int i = any_cast<int>(a);
+    float f = any_cast<float>(a);
+    std::string s = any_cast<std::string>(a);
+
+    if (i > any_cast<int>(b))
         return a;
-    else if (any_cast<float>(a) > any_cast<float>(b))
+    else if (f > any_cast<float>(b))
         return a;
-    else if (any_cast<std::string>(a) > any_cast<std::string>(b))
+    else if (s > any_cast<std::string>(b))
         return a;
     
-    if (any_cast<int>(b) > any_cast<int>(a))
+    i = any_cast<int>(b);
+    f = any_cast<float>(b);
+    s = any_cast<std::string>(b);
+
+    if (i > any_cast<int>(a))
         return b;
-    else if (any_cast<float>(b) > any_cast<float>(a))
+    else if (f > any_cast<float>(a))
         return b;
-    else if (any_cast<std::string>(b) > any_cast<std::string>(a))
+    else if (s > any_cast<std::string>(a))
         return b;
     
     return none;
