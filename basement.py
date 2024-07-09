@@ -1,5 +1,7 @@
-def basement(input_list):
-    for i in range(len(input_list)):
-        if sum(input_list[:i+1]) < 0:
+def basement(vector):
+    cumulative_sum = 0
+    for i in range(len(vector)):
+        cumulative_sum += vector[i]
+        if cumulative_sum < 0:
             return i
     return -1
