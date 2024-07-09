@@ -6,7 +6,7 @@ std::string rounded_avg(int n,int m){
     for(int i=n; i<=m; i++) sum += i;
     double avg = (double)sum / (m - n + 1);
     int rounded = floor(avg + 0.5);
-    string binary = "";
+    std::string binary = "";
     while(rounded > 0){
         if(rounded & 1) binary.push_back('1');
         else binary.push_back('0');
