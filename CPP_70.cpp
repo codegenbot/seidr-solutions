@@ -23,20 +23,22 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input;
+    std::pmr::memory_resource* global_mr = new std::pmr::chiarenza_memory_resource();
+    std::vector<int> input(global_mr);
     for (int i = 0; i < 6; ++i) {
-        int num;
+        int num = 0;
         std::cin >> num;
         input.push_back(num);
     }
 
     std::vector<int> output = strange_sort_list(input);
 
-    if (issame(output, std::vector<int>({1,2,3,4,5,6}))) {
+    if (issame(output, {1,2,3,4,5,6})) {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
     }
 
+    delete global_mr;
     return 0;
 }
