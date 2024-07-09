@@ -17,7 +17,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 std::vector<string> sorted_list_sum(std::vector<std::string> lst) {
-    std::vector<std::string> result;
+    std::vector<string> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
