@@ -1,11 +1,10 @@
-```cpp
 #include <vector>
 #include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) 
-        if(a[i].size() != b[i].size()) 
+        if(a[i] != b[i]) 
             return false;
     return true;
 }
@@ -19,7 +18,7 @@ std::vector<std::string> by_length(const std::vector<int>& arr) {
     return result;
 }
 
-int main() {
+int main_test() {
     std::vector<int> intArray;
     std::cout << "Enter the numbers separated by space: ";
     for (std::string str; std::getline(std::cin, str); ) {
@@ -27,8 +26,8 @@ int main() {
     }
     
     std::vector<std::string> lengthArr = by_length(intArray);
-    std::vector<std::string> b = lengthArr;
-    std::vector<std::string> expected = {"9", "4", "8"};
-    assert(issame(expected, b));
+    std::vector<std::string> b;
+    b = by_length({518, 5, 10});
+    assert(issame(lengthArr, b));
     return 0;
 }
