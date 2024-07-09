@@ -18,7 +18,7 @@ int main() {
     std::cin >> input;
 
     int output = hex_key(input);
-    printf("%d\n", output);
+    std::cout << output << "\n";
 
     return 0;
 }
