@@ -1,4 +1,3 @@
-```cpp
 double poly(vector<double> coeffs, double x) {
     double sum = 0;
     for (int i = 0; i < coeffs.size(); i++) {
@@ -13,10 +12,10 @@ double find_zero(vector<double> coeffs){
     double precision = 0.00001;
 
     while (true) {
-        double poly_val = poly(solution_coeffs, root);
+        double poly_val = poly(coeffs, root);
         if (abs(poly_val) < precision)
             break;
-        root -= poly_val / poly(solution_coeffs, root);
+        root -= poly_val / poly(coeffs, root);
     }
     return root;
 }
