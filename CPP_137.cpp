@@ -1,27 +1,18 @@
-if (a.type() == typeid(int) && b.type() == typeid(int)) {
-    int x = boost::any_cast<int>(a);
-    int y = boost::any_cast<int>(b);
-    if (x > y)
-        return a;
-    else if (x < y)
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return b;
-    else
-        return boost::any("None");
-} else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-    float x = boost::any_cast<float>(a);
-    float y = boost::any_cast<float>(b);
-    if (x > y)
-        return a;
-    else if (x < y)
-        return b;
-    else
-        return boost::any("None");
-} else if ((a.type() == typeid(string) && b.type() != typeid(int)) ||
-           (a.type() != typeid(string) && b.type() == typeid(string))) {
-    if (boost::any_cast<string>(a) > boost::any_cast<string>(b))
-        return a;
-    else
-        return b;
-} else {
-    return boost::any("None");
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return (boost::any_cast<float>(b) > boost::any_cast<float>(a)) ? b : a;
+    } else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
+               (b.type() == typeid(string) || b.type() == typeid(wstring))) {
+        return (boost::any_cast<string>(b) > boost::any_cast<string>(a)) ? b : a;
+    } else if ((a.type() == typeid(int) && b.type() != typeid(int)) ||
+               (a.type() != typeid(int) && b.type() == typeid(int))) {
+        return "None";
+    }
+    return b;
 }
