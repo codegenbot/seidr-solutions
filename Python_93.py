@@ -9,3 +9,5 @@ def encode(message):
         else:
             result += char
     return result
+
+print(encode("I DoNt KnOw WhAt tO WrItE"))
