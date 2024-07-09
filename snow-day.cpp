@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     int hours;
-    cout << "Enter the number of hours: ";
+    cout << "Enter the number of hours: " << std::ws;
     cin >> hours;
     
     float initialSnow;
