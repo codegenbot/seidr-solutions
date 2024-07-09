@@ -1,4 +1,4 @@
-string decimal_to_binary(int n){
+string decimal_to_binary(int n) {
     string binary = "";
     while(n > 0) {
         if (n % 2 == 0)
@@ -12,7 +12,8 @@ string decimal_to_binary(int n){
 
 int main() {
     int decimal;
-    cin >> decimal;
-    cout << decimal_to_binary(decimal) << endl;
+    std::cout << "Enter a decimal number: ";
+    std::cin >> decimal;
+    std::cout << "Binary representation: " << decimal_to_binary(decimal) << std::endl;
     return 0;
 }
