@@ -1,9 +1,16 @@
 vector<int> remove_duplicates(vector<int> numbers){
-    vector<int> result;
-    for(int num : numbers) {
-        if(find_if(result.begin(), result.end(), bind(greater<int>(), placeholders::_1, num)) == result.end()) {
-            result.push_back(num);
+    vector<int> uniqueNumbers;
+    for(int i = 0; i < numbers.size(); i++){
+        bool isUnique = true;
+        for(int j = 0; j < uniqueNumbers.size(); j++){
+            if(numbers[i] == uniqueNumbers[j]){
+                isUnique = false;
+                break;
+            }
+        }
+        if(isUnique){
+            uniqueNumbers.push_back(numbers[i]);
         }
     }
-    return result;
+    return uniqueNumbers;
 }
