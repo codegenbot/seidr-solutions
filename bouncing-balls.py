@@ -12,4 +12,3 @@ def bouncing_balls():
         start_height = new_start_height
 
     return round(total_distance, 4)
-print(bouncing_balls())
