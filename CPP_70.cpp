@@ -3,6 +3,8 @@
 #include <cassert>
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> strange_sort_list(vector<int> lst);
 
 bool issame(vector<int> a, vector<int> b) {
