@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-int next_smallest(const vector<int>& lst) {
+int next_smallest(const std::vector<int>& lst) {
     if (lst.size() < 2) {
         return -1;
     }
@@ -18,9 +18,9 @@ int next_smallest(const vector<int>& lst) {
 }
 
 int main() {
-    vector<int> numbers = {5, 7, 2, 8, 4, 6};
+    std::vector<int> numbers = {4, 1, 7, 2, 5};
     int result = next_smallest(numbers);
-    cout << "Next smallest number: " << result << endl;
+    std::cout << "Next smallest number: " << result << std::endl;
     
     return 0;
 }
