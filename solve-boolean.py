@@ -12,7 +12,7 @@ def solve_boolean(expression):
                 left = eval_expr(expression[i+1:j])
                 expression = expression[:i] + expression[j+1:]
                 right = eval_expr(expression)
-                return (expression[0] == "&") and left and right or left
+                return left and right or left
             else:
                 left = eval_expr(expression[1])
                 right = eval_expr(expression[2:])
