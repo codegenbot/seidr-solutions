@@ -13,5 +13,8 @@ int basement(std::vector<int>& nums) {
 }
 
 int main() {
-    return basement({-5, 1, -3, 4, -2});
+    std::vector<int> nums = {-3,2,-2,4,5};
+    int result = basement(nums);
+    std::cout << "First index of basement: " << result << std::endl;
+    return 0;
 }
