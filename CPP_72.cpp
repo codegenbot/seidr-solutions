@@ -1,4 +1,4 @@
-```cpp
+```
 #include <initializer_list>
 #include <cassert>
 #include <vector>
@@ -15,4 +15,14 @@ bool will_it_fly(std::vector<int> q, int w) {
         sum += i;
     }
     return sum <= w;
+}
+
+int main() {
+    std::vector<int> q = {5, 10, 15};
+    if (!will_it_fly(q, 20)) {
+        std::cout << "The quadcopter will not fly." << std::endl;
+    } else {
+        std::cout << "The quadcopter will fly." << std::endl;
+    }
+    return 0; 
 }
