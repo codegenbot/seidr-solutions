@@ -22,8 +22,9 @@ int main() {
     double totalSnow = initialSnow;
     
     for (int i = 0; i < hours; i++) {
+        totalSnow += rateOfSnowFall;  // Add snow fall, not add and subtract
         double currentSnow = totalSnow - (proportionOfSnowMeltingPerHour * totalSnow);
-        totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour;
+        totalSnow = currentSnow;  
     }
     
     cout << fixed << std::setprecision(2);
