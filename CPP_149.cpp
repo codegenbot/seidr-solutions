@@ -1,4 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
@@ -7,7 +7,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
             result.push_back(str);
         }
     }
-    sort(result.begin(), result.end(),
+    sort(result.begin(), result.end(), 
          [](const string& a, const string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
