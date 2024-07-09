@@ -1,6 +1,23 @@
-```cpp
 #include <vector>
 #include <iostream>
+
+int main() {
+    vector<int> n;
+    int size;
+    cout << "Enter the number of elements: ";
+    cin >> size;
+    n.resize(size);
+    
+    for(int i = 0; i < size; i++) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> n[i];
+    }
+    
+    int result = count_nums(n);
+    
+    cout << "Number of nums: " << result << endl;
+    return 0;
+}
 
 int count_nums(vector<int> n) {
     int count = 0;
@@ -24,11 +41,4 @@ int count_nums(vector<int> n) {
         }
     }
     return count;
-}
-
-int main() {
-    vector<int> numbers = {123, 456, 789};
-    int result = count_nums(numbers);
-    cout << "The number of positive integers with sum greater than zero is: " << result << endl;
-    return 0;
 }
