@@ -1,4 +1,12 @@
-bool issame(vector<string> a, vector<string> b) {
+#include <vector>
+#include <algorithm>
+#include <string>
+
+bool isSame(vector<string> a, vector<string> b) {
+    for (int i = 0; i < a.size(); i++) {
+        a[i] = a[i].erase(std::remove_if(a[i].begin(), a[i].end(), ::isspace), a[i].end());
+        b[i] = b[i].erase(std::remove_if(b[i].begin(), b[i].end(), ::isspace), b[i].end());
+    }
     return a == b;
 }
 
