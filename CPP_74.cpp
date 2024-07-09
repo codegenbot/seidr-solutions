@@ -1,21 +1,7 @@
 #include <vector>
 #include <string>
-#include <cassert>
-#include <iostream>
-using namespace std;
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2);
-
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    if (totalChars(lst1) < totalChars(lst2)) {
-        return lst1;
-    }
-    return lst2;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
 
 int totalChars(vector<string> lst) {
     int total = 0;
@@ -25,6 +11,25 @@ int totalChars(vector<string> lst) {
     return total;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+    if (totalChars(lst1) < totalChars(lst2)) {
+        return lst1;
+    }
+    return lst2;
+}
+
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    vector<string> vec1 = { "apple", "banana", "orange" };
+    vector<string> vec2 = { "pear", "grape", "kiwi" };
+
+    vector<string> result = total_match(vec1, vec2);
+
+    for (const string& str : result) {
+        cout << str << " ";
+    }
+    return 0;
 }
