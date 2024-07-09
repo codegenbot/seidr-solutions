@@ -2,23 +2,23 @@
 #include <string>
 #include <cassert>
 
-using namespace std; // Add this line
+using namespace std;
 
-string string_xor(const string& a, const string& b) { // Add function signature
+string string_xor(const string& a, const string& b) {
 
     string result = "";
-    for (size_t i = 0; i < a.size(); i++) { // Change int to size_t, Add function logic
+    for (size_t i = 0; i < a.size(); i++) {
         if (a[i] == b[i]) {
             result += "0";
         } else {
             result += "1";
         }
     }
-    return result; // Move return statement inside the function
+    return result;
 
 }
 
-int main() { // Add main function
-    assert(string_xor("0101", "0000") == "0101"); // Add test cases using assert
+int main() {
+    assert(string_xor("0101", "0000") == "0101");
     return 0;
 }
