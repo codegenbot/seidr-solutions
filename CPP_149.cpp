@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -16,8 +17,7 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
-    for (int i = 0; i < lst.size(); i++) {
-        string s = lst[i];
+    for (const auto& s : lst) {
         if (s.length() % 2 == 0) {
             result.push_back(s);
         }
@@ -40,9 +40,9 @@ int main() {
     }
     vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
     if (!issame(sorted_list_sum(lst), expected)) {
-        cout << "Test failed" << endl;
+        std::cout << "Test failed" << std::endl;
     } else {
-        cout << "Test passed" << endl;
+        std::cout << "Test passed" << std::endl;
     }
     return 0;
 }
