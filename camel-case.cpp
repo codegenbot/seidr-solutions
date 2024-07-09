@@ -1,9 +1,9 @@
-```c++
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
 #include <limits>
-#include <initializer_list>
+#include <cctype>
 
 std::string kebabToCamel(const std::string& s) {
     std::string result;
@@ -11,12 +11,16 @@ std::string kebabToCamel(const std::string& s) {
 
     for (char c : s) {
         if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
+            if (capitalize) {
+                result += toupper(c);
+                capitalize = false;
+            } else {
+                result += ' ';
+                capitalize = true;
+            }
         } else {
-            result += tolower(c);
+            result += (capitalize ? toupper(c) : tolower(c));
+            capitalize = !capitalize;
         }
     }
 
