@@ -1,5 +1,8 @@
-Here is the completed code:
-
+#include <cmath>
 bool is_simple_power(int x, int n) {
-    return (int)pow(n, log(x) / log(n)) == x;
+    if (n == 0)
+        return false;
+
+    double y = pow(n, round(log(double(x))/log(double(n))));
+    return (y == x);
 }
