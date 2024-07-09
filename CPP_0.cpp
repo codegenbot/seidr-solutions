@@ -14,8 +14,7 @@ bool has_close_elements(std::vector<float> numbers, float threshold) {
 
 int main() {
     float numbers[] = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    std::vector<float> a(std::begin(numbers), std::end(numbers));
-    if(has_close_elements(a, 0.5f))
+    if(has_close_elements(std::vector<float>(numbers, numbers + sizeof(numbers)/sizeof(*numbers)), 0.5f))
         std::cout << "True";
     else
         std::cout << "False";
