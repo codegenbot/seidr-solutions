@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -8,7 +9,7 @@ std::string fix_spaces(std::string text) {
             if (i > 0 && result[result.length() - 1] == ' ' && result.length() >= 2) {
                 result += "-";
             } else {
-                result += "_";
+                result += '_';
             }
         } else {
             result += text[i];
@@ -18,9 +19,9 @@ std::string fix_spaces(std::string text) {
 }
 
 int main() {
-    std::string input;
+    std::string str;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::cout << "Fixed string: " << fix_spaces(input) << std::endl;
+    std::getline(std::cin, str);
+    std::cout << "Fixed string: " << fix_spaces(str) << std::endl;
     return 0;
 }
