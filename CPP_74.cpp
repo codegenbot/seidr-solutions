@@ -15,5 +15,5 @@ bool issame(std::vector<std::string> lst1, std::vector<std::string> lst2) {
 }
 
 int main() {
-    return 0;
+    // your code goes here
 }
