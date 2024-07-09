@@ -1,13 +1,12 @@
 ```cpp
 #include <vector>
-#include <string>
-
+#include <algorithm>
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != string(str.rbegin(), str.rend()).s) return false;
+    if (str != std::string(str.rbegin(), str.rend()).s) return false;
     int sum = 0;
     for (int i : q) {
         sum += i;
