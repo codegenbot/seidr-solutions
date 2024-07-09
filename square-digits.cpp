@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -17,11 +16,11 @@ int main() {
     string input;
     cout << "Enter a positive integer: ";
     getline(cin, input); 
-    try {
-        string output = squareDigits(input);
-        cout << "Squared digits: " << output << endl;
-    } catch (const exception& e) {
-        cerr << "Error: " << e.what() << endl;
+    try{
+    string output = squareDigits(input);
+    cout << "Squared digits: " << output << endl;
+    }catch(...){
+        cerr << "Error: Please enter a valid number." << endl;
     }
     return 0;
 }
