@@ -2,6 +2,10 @@
 #include <algorithm>
 #include <string>
 
+#include <vector>
+#include <algorithm>
+#include <string>
+
 string exchange(vector<int> lst1, vector<int> lst2) {
     for (int num : lst1) {
         if (num % 2 != 0) {
@@ -17,3 +21,4 @@ string exchange(vector<int> lst1, vector<int> lst2) {
         }
     }
     return "YES";
+}
