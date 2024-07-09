@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int luhn(const std::vector<int>& card) {
@@ -20,4 +19,4 @@ int luhn(const std::vector<int>& card) {
     return sum;
 }
 
-int main() { return luhn({4,7,8,7,1,1,6,5,3,9,2,8,0,8,0,6}); }
+int main() { return luhn({4,3,2,1,6,7,8,9,4,5,3,9,8,7,6,1}); }
