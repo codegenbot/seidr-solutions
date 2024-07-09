@@ -1,9 +1,8 @@
 Here is the completed code:
 
 bool any_int(float a, float b, float c) {
-    if (round(a) == round(b) + round(c) || round(a) + round(b) == round(c) || round(a) + round(c) == round(b)) {
+    if (abs(a - (b + c)) < 0.01f && abs(b - (a + c)) < 0.01f && abs(c - (a + b)) < 0.01f) {
         return true;
-    } else {
-        return false;
     }
+    return false;
 }
