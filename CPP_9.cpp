@@ -1,15 +1,23 @@
+#include <iostream>
 #include <vector>
-
 using namespace std;
 
 vector<int> rolling_max(vector<int> numbers) {
-    vector<int> maxs;
-    int currentMax = INT_MIN;
+    vector<int> result;
+    int max = INT_MIN;
+    
     for (int num : numbers) {
-        if (num > currentMax) {
-            currentMax = num;
+        if (num > max) {
+            max = num;
         }
-        maxs.push_back(currentMax);
+        result.push_back(max);
     }
-    return maxs;
+    
+    return result;
+}
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 2, 3, 4, 2};
+    for(int i: rolling_max(numbers)) cout << i << " ";
+    return 0;
 }
