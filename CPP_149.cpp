@@ -28,11 +28,11 @@ int main() {
     
     std::vector<std::string> result = sorted_list_sum(lst);
     
-    cout << "Sorted List Sum: ";
+    std::cout << "Sorted List Sum: ";
     for(auto str : result) {
-        cout << str << " ";
+        std::cout << str << " ";
     }
-    cout << endl;
+    std::cout << endl;
     
     return 0;
 }
