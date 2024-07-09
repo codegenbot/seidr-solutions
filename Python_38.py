@@ -1,5 +1,5 @@
-```
 s = input()
+
 def decode_cyclic(s):
     result = ""
     temp = ""
