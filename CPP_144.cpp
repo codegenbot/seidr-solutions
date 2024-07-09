@@ -1,7 +1,18 @@
-int x_num = stoi(x.substr(0, x.find('/')));
-    int x_den = stoi(x.substr(x.find('/') + 1));
-    int n_num = stoi(n.substr(0, n.find('/')));
-    int n_den = stoi(n.substr(n.find('/') + 1));
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
 
-    return (x_num * n_num) % (x_den * n_den) == 0;
+bool simplify(string x, string n) {
+    int numerator_x = stoi(x.substr(0, x.find('/')));
+    int denominator_x = stoi(x.substr(x.find('/') + 1));
+    int numerator_n = stoi(n.substr(0, n.find('/')));
+    int denominator_n = stoi(n.substr(n.find('/') + 1));
+
+    int product_numerator = numerator_x * numerator_n;
+    int product_denominator = denominator_x * denominator_n;
+
+    int common_divisor = gcd(product_numerator, product_denominator);
+
+    return product_denominator / common_divisor == 1;
 }
