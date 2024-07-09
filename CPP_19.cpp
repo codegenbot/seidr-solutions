@@ -33,7 +33,7 @@ string sort_numbers(string numbers){
         result += pair.second + " ";
     }
     
-    result.pop_back();
+    result.pop_back(); // Remove extra space at the end
     return result;
 }
 
