@@ -1,7 +1,7 @@
 #include <stack>
 #include <string>
 
-std::string solveBoolean(std::string s) {
+string solveBoolean(string s) {
     stack<char> st;
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '&') {
@@ -10,7 +10,8 @@ std::string solveBoolean(std::string s) {
             }
             if (st.empty()) {
                 return "False";
-            } else {
+            }
+            else {
                 st.pop();
             }
         } 
@@ -20,7 +21,8 @@ std::string solveBoolean(std::string s) {
             }
             if (st.empty()) {
                 return "True";
-            } else {
+            }
+            else {
                 st.push(s[i]);
             }
         } 
@@ -30,7 +32,8 @@ std::string solveBoolean(std::string s) {
     }
     if (st.empty()) {
         return "False";
-    } else {
+    }
+    else {
         return st.top() == 'T' ? "True" : "False";
     }
 }
