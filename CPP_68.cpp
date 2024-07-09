@@ -1,23 +1,32 @@
-#include <vector>
-using namespace std;
+Here is the completed code:
 
-vector<pair<int, int>> pluck(vector<int> arr) {
+vector<int> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
-    if (arr.empty()) {
-        return {{}, 0};
-    }
-    
-    int smallest_even = INT_MAX;
-    int index_smallest_even = -1;
-    
+
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest_even) {
-            smallest_even = arr[i];
-            index_smallest_even = i;
+        if (arr[i] % 2 == 0) {
+            bool found = false;
+            for (auto& p : result) {
+                if (p.first == arr[i]) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                result.push_back({arr[i], i});
+            }
         }
     }
-    
-    result.push_back({smallest_even, index_smallest_even});
-    
-    return result;
+
+    if (result.empty()) {
+        return {{}, 0};
+    }
+
+    auto min_even = *min_element(result.begin(), result.end(),
+                                  [](const pair<int, int>& a, const pair<int, int>& b) {
+                                      return a.first < b.first;
+                                  });
+
+    vector<int> output({min_even.first, min_even.second});
+    return output;
 }
