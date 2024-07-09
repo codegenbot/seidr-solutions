@@ -1,7 +1,8 @@
 #include <vector>
 #include <algorithm>
+#include <string>
 
-std::vector<std::string> bf(std::string, std::string) {
+std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
     
@@ -27,15 +28,11 @@ std::vector<std::string> bf(std::string, std::string) {
             result.push_back(planets[i]);
     }
     
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     
     return result;
 }
 
-bool std::assertEqual(std::vector<std::string> a, std::vector<std::string> b) {
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
-}
-int main() {
-    assertEqual(bf("Jupiter", "Makemake"), {});
-    return 0;
 }
