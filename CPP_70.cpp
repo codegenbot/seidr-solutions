@@ -2,7 +2,7 @@
 
 bool issame(vector<int> a, vector<int> b);
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -27,4 +27,4 @@ vector<int> strange_sort_list(vector<int> lst){
         right--;
     }
     return result;
-}
+}  
