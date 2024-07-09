@@ -1,17 +1,24 @@
-Here is the completed code:
-
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& v) {
+vector<int> leaders(vector<int>& arr) {
+    int n = arr.size();
     vector<int> res;
-    int rightmost = v.back();
-    for (int i = v.size() - 2; i >= 0; i--) {
-        if (v[i] >= rightmost) {
-            res.push_back(v[i]);
-            rightmost = v[i];
+    
+    for(int i=n-1; i>=0; i--) {
+        bool flag = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[j] >= arr[i]) {
+                flag = false;
+                break;
+            }
+        }
+        if(flag) {
+            res.push_back(arr[i]);
         }
     }
-    res.push_back(rightmost);
+    
+    reverse(res.begin(), res.end());
+    
     return res;
 }
