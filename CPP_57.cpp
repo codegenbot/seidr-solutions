@@ -1,6 +1,5 @@
-#include <iostream>
 #include <vector>
-#include <assert.h>
+#include <cassert>
 
 bool monotonic(const std::vector<float>& l) {
     bool increasing = true;
@@ -18,19 +17,5 @@ bool monotonic(const std::vector<float>& l) {
 }
 
 int main() {
-    int n;
-    std::vector<float> l;
-
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        float x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        l.push_back(x);
-    }
-
-    assert(monotonic(l) == true);
-
-    return 0;
+    assert(monotonic({9.0, 9.0, 9.0, 9.0}) == true);
 }
