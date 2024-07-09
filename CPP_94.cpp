@@ -1,19 +1,15 @@
+#include <iostream>
 #include <vector>
-#include <assert.h>
 
-bool isPrime(int n) {
-    if (n <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            return false;
-        }
-    }
-    return true;
+using namespace std;
+
+int main() {
+    vector<int> numbers = {127, 97, 8192};
+    int sumOfDigits = skjkasdkd(numbers);
+    cout << "Sum of digits: " << sumOfDigits;
 }
 
-int maxPrimeSum(vector<int> lst){
+int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
     for(int i = 0; i < lst.size(); i++){
         if(isPrime(lst[i])){
@@ -30,7 +26,14 @@ int maxPrimeSum(vector<int> lst){
     return sumOfDigits;
 }
 
-int main() {
-    assert(maxPrimeSum({127, 97, 8192}) == 10);
-    return 0;
+bool isPrime(int n) {
+    if (n <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
 }
