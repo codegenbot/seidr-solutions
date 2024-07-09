@@ -10,8 +10,8 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     int result = starts_one_ends(n);
-    string output = "";
-    output = "Numbers of " + to_string(n) + "-digit positive integers that start or end with 1: " + to_string(result);
+    std::string output = "";
+    output += to_string(result) + " numbers of " + to_string(n) + "-digit positive integers that start or end with 1";
     cout << output << endl;
     return 0;
 }
