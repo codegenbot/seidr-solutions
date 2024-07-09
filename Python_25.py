@@ -3,15 +3,14 @@ def factorize(n):
     for i in range(1, n + 1):
         if n % i == 0:
             factors.append(i)
-    return factors
+    return sorted(factors)
 
-try:
-    print("Please enter an integer:")
-    n = int(input().strip())
-    if isinstance(n, int):
+
+def factorize_input():
+    try:
+        print("Please enter an integer:")
+        n = int(input().strip())
         result = factorize(n)
         print(result)
-    else:
+    except ValueError:
         print("Invalid input. Please enter an integer.")
-except ValueError:
-    print("Invalid input. Please enter an integer.")
