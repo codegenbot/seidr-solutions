@@ -34,4 +34,3 @@ int eval(string s) {
     }
     
     return result;
-}
