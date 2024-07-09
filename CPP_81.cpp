@@ -7,7 +7,7 @@ std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades
     for (float grade : grades) {
         // Convert grade to letter grade and add to letter_grades vector
     }
-    return {"E", "D-"}; // Hardcoded for demonstration purposes
+    return letter_grades;
 }
 
 bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
