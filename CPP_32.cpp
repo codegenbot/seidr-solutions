@@ -1,2 +1,1 @@
-```
 return round(poly(xs, x), 2);
