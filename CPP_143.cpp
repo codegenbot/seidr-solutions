@@ -1,3 +1,22 @@
+```cpp
+#include <iostream>
+#include <sstream>
+#include <vector>
+
+using namespace std;
+
+void words_in_sentence(string sentence);
+
+int main() {
+    string sentence;
+    cout << "Enter a sentence: ";
+    getline(cin, sentence);
+    
+    words_in_sentence(sentence);
+    cout << endl;
+    return 0;
+}
+
 void words_in_sentence(string sentence) {
     vector<string> words;
     string word;
@@ -19,9 +38,10 @@ void words_in_sentence(string sentence) {
         }
     }
 
-    words.push_back(word);
-    cout << "The words in the sentence are: ";
-    for (string w : words) {
-        cout << w << endl;
+    if (isWord) {
+        if (!word.empty()) {
+            cout << word << endl;
+        } else {
+            cout << sentence << endl;
+        }
     }
-}
