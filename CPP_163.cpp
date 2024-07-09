@@ -9,3 +9,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     }
     return result;
 }
+
+// Define the generate_integers function before calling it in the main function
+
+```
