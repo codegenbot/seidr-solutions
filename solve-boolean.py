@@ -1,20 +1,22 @@
+```Python
 def solve_boolean(expression):
     def eval_expr(expression):
-        if not expression: return None
-        i = 0
-        while i < len(expression):
-            if expression[i] in ["T", "F"]:
-                result = True if expression[i] == "T" else False
+        if expression == "T":
+            return True
+        elif expression == "F":
+            return False
+        elif len(expression) > 1 and expression[0] in ["&", "|"]:
+            i = 1
+            j = len(expression) - 1
+            while i <= j and (expression[i] in ["&", "|"]):
                 i += 1
-            elif expression[i] in ["&", "|"]:
-                operator = expression[i]
-                i += 1
-                left = eval_expr(expression[:i].rstrip()) or None
-                right = eval_expr(expression[i:].lstrip())
-                if not left: return not right
-                if not right: return not left
-                if operator == "&": return left and right
-                else: return left or right
-        return result
+            left = eval_expr(expression[:i-1])
+            right = eval_expr(expression[i:])
+            if expression[0] == "&":
+                return left and right
+            else:
+                return left or right
+
+        return {"T": True, "F": False}[expression]
 
     return eval_expr(expression)

@@ -1,16 +1,23 @@
-```cpp
+#include <string>
+#include <iostream>
+
 bool solveBoolean(std::string s) {
     bool result = true;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'F') {
             return false;
         } else if (s[i] == '|') {
-            if (i == s.size() - 1 || s[i + 1] == '&') {
-                return true;
-            } else if (s[i + 1] == 'F' || s.find('T', i + 2) != std::string::npos) {
-                return true;
+            bool left = i == 0 || solveBoolean(s.substr(0, i));
+            int j = i + 1;
+            while (j < s.size() && (s[j] == '&' || s[j] == '|')) {
+                j++;
             }
-            i++;
+            if (j < s.size()) {
+                bool right = solveBoolean(s.substr(i + 1, j - i - 1));
+                return left || right;
+            } else {
+                return left;
+            }
         } else if (s[i] == '&') {
             bool foundT = false;
             for (int j = i; j < s.size(); j++) {

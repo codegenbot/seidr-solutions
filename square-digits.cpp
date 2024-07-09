@@ -3,6 +3,15 @@
 
 using namespace std;
 
+int main() {
+    int input;
+    cout << "Enter a positive integer: ";
+    cin >> input;
+    string output = squareDigits(to_string(input));
+    cout << "Squared digits: " << output << endl;
+    return 0;
+}
+
 string squareDigits(string input) {
     string output = "";
     for (char c : input) {
@@ -10,12 +19,3 @@ string squareDigits(string input) {
         output += to_string(digit * digit);
     }
     return output;
-}
-
-int main() {
-    string input;
-    cout << "Enter a positive integer: ";
-    cin >> input;
-    string output = squareDigits(input);
-    cout << "Squared digits: " << output << endl;
-    return 0;
