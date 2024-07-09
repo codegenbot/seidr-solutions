@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <string> // Include the necessary header for std::string
+#include <string>
 using namespace std;
 
 int main() {
@@ -13,7 +13,7 @@ int main() {
     } else {
         int num = n; // store n as an integer
         int result = prime_fib(num);
-        std::string suffix; // Use std::string instead of string
+        string suffix;
         if (num == 1) {
             suffix = "st";
         } else if (num == 2) {
@@ -23,8 +23,8 @@ int main() {
         } else {
             suffix = "th";
         }
-        cout << "The " << result << suffix << " prime Fibonacci number is: ";
-        cout << result << endl;
+        cout << "The " << to_string(result) << suffix << " prime Fibonacci number is: ";
+        cout << to_string(result) << endl;
     }
 
     return 0;
