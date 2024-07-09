@@ -1,6 +1,6 @@
 #include <openssl/evp.h>
 #include <string>
-#include <sstream> 
+#include <sstream>
 #include <iomanip>
 
 using namespace std;
