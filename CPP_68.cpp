@@ -1,19 +1,19 @@
-#include <vector>
-using namespace std;
+Here is the completed code:
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return result;
+vector<int> pluck(vector<int> arr) {
+    vector<pair<int, int>> evenNodes;
 
-    int minEven = INT_MAX;
-    int minIndex = 0;
-    for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
-            minIndex = i;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0) {
+            evenNodes.emplace_back(arr[i], i);
         }
     }
 
-    result.push_back({minEven, minIndex});
-    return result;
+    if (evenNodes.empty()) {
+        return {};
+    }
+
+    sort(evenNodes.begin(), evenNodes.end());
+
+    return {{evenNodes[0].first, evenNodes[0].second}};
 }
