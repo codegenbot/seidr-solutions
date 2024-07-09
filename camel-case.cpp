@@ -22,7 +22,8 @@ std::string kebabToCamel(const std::string& s) {
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
+    std::getline(std::cin, input); 
     std::cout << kebabToCamel(input) << std::endl;
 
     return 0;
+}
