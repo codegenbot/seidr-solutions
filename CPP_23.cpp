@@ -6,6 +6,6 @@ int customStringLength(std::string str) {
 }
 
 int main() {
-    assert(customStringLength("asdasnakj") == 9);
+    assert (customStringLength("asdasnakj") == 9);
     return 0;
 }
