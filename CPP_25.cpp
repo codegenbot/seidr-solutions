@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-vector<int> factorize(int n) {
+vector<int> primeFactors(int n) {
     vector<int> factors;
     for (int i = 2; i <= n; ++i) {
         while (n % i == 0) {
