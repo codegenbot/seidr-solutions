@@ -26,25 +26,42 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    while (!(std::cin >> n) || n < 0) {
+        std::cerr << "Error: Number of elements should be non-negative.\n";
+        std::cout << "Enter number of elements again: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+
+    if (n < 0) {
+        std::cerr << "Error: Number of elements should be non-negative." << std::endl;
+        return -1; 
+    }
 
     // Create a new vector and fill space
-    std::vector<int> game(n); 
+    std::vector<int> game; 
     for(int i = 0; i < n; i++){
-        std::cout << "Enter element " << i+1 << ": ";
         int temp;
-        std::cin >> temp;
-        game[i] = temp;
+        while (!(std::cin >> temp) || temp < 0) {
+            std::cerr << "Error: Element should be non-negative.\n";
+            std::cout << "Enter element again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        game.push_back(temp);
     }
     
     // Create a new vector and fill space
-    std::vector<int> guess(n); 
+    std::vector<int> guess; 
     for(int i = 0; i < n; i++){
-        std::cout << "Enter element " << i+1 << ": ";
         int temp;
-        std::cin >> temp;
-        guess[i] = temp;
+        while (!(std::cin >> temp) || temp < 0) {
+            std::cerr << "Error: Element should be non-negative.\n";
+            std::cout << "Enter element again: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        guess.push_back(temp);
     }
     
     if(issame(game, guess))
