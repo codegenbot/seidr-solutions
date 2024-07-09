@@ -1,47 +1,45 @@
-```cpp
-#include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 
-bool isPlanet(std::string planet);
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
-std::vector<std::string> bf(std::string planet1, std::string planet2);
+bool isPlanet(string planet);
+bool issame(vector<string> a, vector<string> b);
+vector<string> bf(string planet1, string planet2);
 
 int main() {
-    std::vector<std::string> b;
-    std::cout << "Enter two planets separated by space: ";
-    std::string planet1, planet2;
-    std::cin >> planet1 >> planet2;
-    std::vector<std::string> result = bf(planet1, planet2); 
+    cout << "Enter two planets separated by space: ";
+    string planet1, planet2;
+    cin >> planet1 >> planet2;
+    vector<string> result = bf(planet1, planet2); 
     if (result.empty()) {
-        std::cout << "Planets not found.\n";
+        cout << "Planets not found.\n";
     } else {
-        std::cout << "Planets in order are: ";
-        for (const auto& planet : result) {
-            std::cout << planet << " ";
+        cout << "Planets in order are: ";
+        for (const string& planet : result) {
+            cout << planet << " ";
         }
-        std::cout << "\n";
+        cout << "\n";
 
-        if(issame(result,{planet1,planet2})){
-            std::cout << "The planets are the same.\n";
+        vector<string> samePlanets = {planet1, planet2};
+        if(issame(result,samePlanets)){
+            cout << "The planets are the same.\n";
         } else {
-            std::cout << "The planets are different.\n";
+            cout << "The planets are different.\n";
         }
     }
 
     return 0;
 }
 
-bool isPlanet(std::string planet) {
-    std::string planets[] = {"Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    for (const auto& p : planets) {
+bool isPlanet(string planet) {
+    string planets[] = {"Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    for (const string& p : planets) {
         if (p == planet)
             return true;
     }
     return false;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) { 
+bool issame(vector<string> a, vector<string> b) { 
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -49,8 +47,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) { 
-    std::vector<std::string> result;
+vector<string> bf(string planet1, string planet2) { 
+    vector<string> result;
     if (isPlanet(planet1) && isPlanet(planet2)) {
         if (planet1 < planet2)
             result.push_back(planet1);
