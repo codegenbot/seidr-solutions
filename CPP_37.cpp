@@ -22,15 +22,7 @@ int main() {
     std::vector<float> result(vec.size());
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
-            while (!sort_even(vec).empty()) {
-                if (sort_even(vec).size() > 1) {
-                    result[i] = sort_even(vec)[0];
-                    sort_even(vec).erase(sort_even(vec).begin());
-                } else {
-                    result[i] = sort_even(vec)[0];
-                    sort_even(vec).pop_back();
-                }
-            }
+            result[i] = sort_even(vec)[0];
         } else {
             result[i] = vec[i];
         }
@@ -39,20 +31,14 @@ int main() {
     std::vector<float> sortedEven = sort_even(vec);
     for (int i = 0; i < vec.size(); i++) {
         if (i % 2 == 0) {
-            while (!sortedEven.empty()) {
-                if (sortedEven.size() > 1) {
-                    result[i] = sortedEven[0];
-                    sortedEven.erase(sortedEven.begin());
-                } else {
-                    result[i] = sortedEven[0];
-                    sortedEven.pop_back();
-                }
-            }
+            result[i] = sortedEven[0];
+            sortedEven.erase(sortedEven.begin());
         } else {
             result[i] = vec[i];
         }
     }
     
-    assert(sameVectors(sort_even(vec), { -12, 8, 3, 4, 5, 2, 12, 11, 23, -10 }));
+    std::vector<float> expected = { -12, 8, 3, 4, 5, 2, 12, 11, 23, -10 };
+    assert(sameVectors(sort_even(vec), expected));
     return 0;
 }
