@@ -2,6 +2,8 @@ bool issame(vector<string> a, vector<string> b) {
     // Your implementation of issame function here
 }
 
+vector<string> separate_paren_groups(string paren_string);
+
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
