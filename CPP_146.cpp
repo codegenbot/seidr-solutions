@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 
 int specialFilter(vector<int> nums){
     int count = 0;
@@ -9,4 +8,3 @@ int specialFilter(vector<int> nums){
         }
     }
     return count;
-}
