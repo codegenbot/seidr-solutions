@@ -1,17 +1,19 @@
 ```cpp
+#include <vector>
 #include <iostream>
 #include <string>
 
 int pairedDigits(const std::string& input) {
     int sum = 0;
-    bool pairedFound = false;
     for (int i = 0; i < input.length(); i++) {
-        if (i > 0 && input[i] == input[i - 1]) {
+        if (i < input.length() - 1 && input[i] == input[i + 1]) {
             sum += input[i] - '0';
-            pairedFound = true;
+        } else if (i == input.length() - 1) {
+            if (input[i] == input[0]) {
+                sum += input[i] - '0';
+            }
         }
     }
-    if (!pairedFound) return 0;
     return sum;
 }
 
