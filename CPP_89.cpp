@@ -1,3 +1,11 @@
+#include <string>
+#include <cctype>
+#include <cassert>
+
+using namespace std;
+
+string encrypt(string s);
+
 string encrypt(string s){
     string encrypted = "";
     for(char c : s){
