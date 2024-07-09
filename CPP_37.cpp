@@ -26,7 +26,9 @@ vector<float> sort_even(vector<float> l) {
                 result[j++] = l[k];
             }
             sort(result.begin(),result.end());
-            j += 4;
+            for(int i=0; i<4 && j<i+4;i++){
+                result[i] = 0;
+            }
         } else {
             result[i] = l[i];
         }
