@@ -1,7 +1,8 @@
+```c++
 #include <vector>
 #include <string>
 
-bool compareVectors(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -9,7 +10,7 @@ bool compareVectors(const std::vector<std::string>& a, const std::vector<std::st
     return true;
 }
 
-std::vector<string> numerical_letter_grade(std::vector<float> grades) {
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> result;
     for (float grade : grades) {
         if (grade >= 4.0)
@@ -40,7 +41,6 @@ std::vector<string> numerical_letter_grade(std::vector<float> grades) {
     return result;
 }
 
-int main() {
-    assert(compareVectors(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
-    return 0;
+int main {
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
 }
