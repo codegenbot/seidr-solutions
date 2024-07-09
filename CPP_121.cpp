@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -19,7 +20,7 @@ int main() {
     while (cin >> num) {
         input.push_back(num);
     }
-    cin.ignore();  
+    cin.ignore();  // To consume the newline character
     cout << "The result is: " << solution(input) << endl;
     return 0;
 }
