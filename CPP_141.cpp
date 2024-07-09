@@ -1,5 +1,4 @@
-#include <string>
-
+```cpp
 int file_name_check(std::string file_name) { 
     int digit_count = 0; 
     bool found_dot = false; 
@@ -11,10 +10,11 @@ int file_name_check(std::string file_name) {
         else if(file_name[i] == '.'){
             found_dot = true;
         }
-        else if(found_dot && (i != file_name.length()-4 || !std::string(file_name.substr(i)).compare("txt") || !std::string(file_name.substr(i)).compare("exe") || !std::string(file_name.substr(i)).compare("dll"))){
+        else if(found_dot && (i != file_name.length()-4 || !file_name.compare(i, 3, "txt") || !file_name.compare(i, 3, "exe") || !file_name.compare(i, 3, "dll"))){
             return 0;
         }
     }
     if(!found_dot) return 0;
     if(digit_count > 3) return 0;
     return 1;
+}
