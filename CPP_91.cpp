@@ -1,27 +1,26 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
 int main() {
     int count = 0;
     string boredom = "I";
-    string S;
     cout << "Enter a sentence: ";
-    cin >> S;
+    getline(cin, boredom);
 
     size_t pos = 0;
-    while ((pos = S.find(" ", pos)) != string::npos) {
-        if (S.substr(0, pos).compare(boredom) == 0) {
+    while ((pos = boredom.find(" ", pos)) != string::npos) {
+        if (boredom.substr(0, pos).compare(boredom) == 0) {
             count++;
             break;
         }
         pos++;
     }
 
-    cout << "Count: " << count << endl;
+    cout << "Count: " << count << std::endl;
 
-    return 0;
+    return is_bored(boredom);
 }
 
 int is_bored(string S){
@@ -35,5 +34,5 @@ int is_bored(string S){
         }
         pos++;
     }
-    return 0; // this function doesn't need to return the result
+    return count;
 }
