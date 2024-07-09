@@ -1,24 +1,35 @@
-Here is the completed code:
+#include <string>
 
-string file_name_check(string file_name) {
-    int count = 0;
-    bool foundDot = false;
-    for (int i = 0; i < file_name.length(); i++) {
-        if (isdigit(file_name[i])) {
-            count++;
-        } else if (file_name[i] == '.') {
-            foundDot = true;
-        } else if (!foundDot && !isalpha(file_name[i])) {
-            return "No";
+std::string file_name_check(std::string file_name) {
+    bool hasDigit = false;
+    int dotCount = 0;
+
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            if (!hasDigit) hasDigit = true; 
+            else return "No";
+        } else if (c == '.') {
+            dotCount++;
+            if (dotCount > 1) return "No"; 
+        } else if (c == ' ' || c < 'a' || c > 'z' && c < 'A' || c > 'Z') {
+            return "No"; 
         }
     }
-    if (count > 3 || !foundDot) {
-        return "No";
+
+    std::string suffix;
+    int i = 0;
+    while (i < file_name.size()) {
+        if (file_name[i] == '.') break;
+        i++;
     }
-    size_t pos = file_name.find('.');
-    string ext = file_name.substr(pos + 1);
-    if (ext != "txt" && ext != "exe" && ext != "dll") {
-        return "No";
-    }
-    return "Yes";
+    suffix = file_name.substr(i + 1);
+
+    if (suffix != "txt" && suffix != "exe" && suffix != "dll") return "No";
+
+    return hasDigit ? "No" : "Yes";
+}
+
+int main() {
+    assert (file_name_check("s.") == "No");
+    return 0;
 }
