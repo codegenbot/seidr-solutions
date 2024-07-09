@@ -14,11 +14,13 @@ bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
     if (numbers.empty()) return std::vector<int>();
 
-    std::set<int> uniqueNumbersSet(removeDuplicates(numbers).begin(), removeDuplicates(numbers).end());
+    std::set<int> uniqueNumbersSet(numbers.begin(), numbers.end()); // initialize set with vector's allocator
     std::vector<int> uniqueNumbers;
     for (int num : uniqueNumbersSet) {
         uniqueNumbers.push_back(num);
     }
+    std::sort(uniqueNumbers.begin(), uniqueNumbers.end());
+
     return uniqueNumbers;
 }
 
@@ -45,7 +47,7 @@ int main() {
         std::cout << "All elements are duplicates." << std::endl;
     }
 
-    if (!isEqualVector({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
+    if (!isEqualVector(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5})) {
         std::cout << "All elements are not duplicates." << std::endl;
     } else {
         std::cout << "All elements are duplicates." << std::endl;
