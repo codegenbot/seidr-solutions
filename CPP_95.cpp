@@ -12,7 +12,7 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
     bool allUpper = true;
 
     for (auto& pair : dict) {
-        if (!std::islower(pair.first[0]) && !std::isupper(pair.first[0])) {
+        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
             return false;
         }
         if (!allLower && !allUpper) break;
