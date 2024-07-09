@@ -1,13 +1,20 @@
-def encode(message):
+def decode(message):
     result = ""
     for char in message:
         if char.isalpha():
             ascii_offset = 65 if char.isupper() else 97
-            result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
-        elif not char.isalnum() and char != ' ':
-            result += '*'
+            new_char_code = ord(char) - ascii_offset + 3
+            if (
+                new_char_code > 90
+                and ascii_offset == 65
+                or new_char_code > 122
+                and ascii_offset == 97
+            ):
+                new_char_code -= 26
+            result += chr(new_char_code + ascii_offset)
         else:
             result += char
     return result
 
-print(encode("I DoNt KnOw WhAt tO WrItE"))
+
+print(decode("K HoW tO WrItE sOmEtHiNg InThIs fOrMaT"))
