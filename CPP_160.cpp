@@ -10,17 +10,18 @@ int do_algebra(vector<string> ops, vector<int> nums) {
 
     for (int i = 0; i < ops.size(); i++) {
         if (ops[i] == "+") {
-            result += temp * (int)nums[i];
+            result += temp * nums[i];
         } else if (ops[i] == "-") {
-            result -= temp * (int)nums[i];
+            result -= temp * nums[i];
         } else if (ops[i] == "*") {
-            temp *= (int)nums[i];
+            temp *= nums[i];
         } else if (ops[i] == "//") {
-            temp = temp / (int)nums[i];
+            temp = temp / nums[i];
         } else if (ops[i] == "**") {
-            temp = pow((double)temp, (double)(int)nums[i]);
+            temp = pow(temp, nums[i]);
         }
     }
 
     return result;
 }
+#include <math.h>

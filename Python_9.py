@@ -1,14 +1,12 @@
-from typing import List
+```
+def calculate_total_expenses(expenses):
+    total_expense = 0
+    for category, amount in expenses:
+        total_expense += amount
+    return total_expense
 
+def main():
+    print(calculate_total_expenses())
 
-def rolling_max(numbers: List[int]) -> List[int]:
-    if len(numbers) == 0:
-        return []
-    elif len(numbers) == 1:
-        return [numbers[0]]
-    result = [numbers[0]]
-    max_so_far = numbers[0]
-    for num in numbers[1:]:
-        max_so_far = max(num, max_so_far + num)
-        result.append(max_so_far)
-    return result
+if __name__ == "__main__":
+    main()

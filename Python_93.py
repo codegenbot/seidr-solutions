@@ -1,15 +1,12 @@
-```
+```Python
 def encode(message):
     result = ""
     for char in message:
-        if char.isalnum():
-            if char.isalpha():
-                if char.isupper():
-                    result += chr((ord(char) - 65 + 3) % 26 + 65)
-                else:
-                    result += chr((ord(char) - 97 + 3) % 26 + 97)
-            else:
-                result += char
+        if char.isalpha():
+            ascii_offset = 65 if char.isupper() else 97
+            result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
         else:
-            result += char
+            result += chr(ord(char) + 3)
     return result
+
+print(encode("I DoNt KnOw WhAt tO WrItE"))
