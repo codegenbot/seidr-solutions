@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -35,4 +36,7 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
 
 bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
+}
+int main() {
+    assert(isSame(bf("Jupiter", "Makemake") , {})); 
 }
