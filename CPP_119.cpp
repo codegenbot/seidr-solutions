@@ -1,22 +1,24 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-std::string match_parens(std::vector<std::string> lst) {
+bool match_parens(const std::vector<std::string>& lst) {
     int open = 0, close = 0;
-    for(int i=0; i<lst.size(); i++){
-        for(char c: lst[i]){
-            if(c == '(') open++;
-            else if(c == ')') close++;
+    for (const auto& str : lst) {
+        for (char c : str) {
+            if (c == '(') open++;
+            else close++;
         }
     }
-    return (open==close) ? "Yes" : "No";
+    return open == close;
 }
 
 int main() {
-    std::vector<std::string> lst;
-    // add your code here to populate the list
-    for(std::string str : lst){
-        match_parens(lst);
+    std::vector<std::string> lst = {"hello()", "world"};
+    if (match_parens(lst)) {
+        std::cout << "Yes" << std::endl;
+    } else {
+        std::cout << "No" << std::endl;
     }
     return 0;
 }
