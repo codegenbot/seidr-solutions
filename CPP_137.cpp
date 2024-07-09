@@ -1,17 +1,14 @@
-```cpp
 #include <string>
 #include <algorithm>
 
 using namespace std;
 
-string compareOne(string a, string b) {
-    float numA = stof(a);
-    float numB = stof(b);
-
-    if (numA > numB)
-        return a;
-    else if (numA < numB)
-        return b;
-    else
-        return "None";
+bool compare_one(const string& a, const string& b) {
+    if (stoi(a) > stoi(b)) {
+        return true;
+    } else if (stoi(a) < stoi(b)) {
+        return false;
+    } else {
+        return false;
+    }
 }
