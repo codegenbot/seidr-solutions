@@ -1,6 +1,6 @@
-```
 #include <iostream>
 #include <vector>
+#include <string>
 
 int findGCD(int a, int b) {
     if (b == 0) return std::abs(a);
@@ -40,4 +40,3 @@ int main() {
         std::cout << i << " ";
     }
     std::cout << std::endl;
-}
