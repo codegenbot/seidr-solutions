@@ -1,13 +1,14 @@
-#include <vector>
-#include <cmath>
-
-double find_zero(std::vector<double> xs){
-    double solution = xs[0];
-    for (int i = 1; i < xs.size(); i++){
-        solution = xs[i] / xs[0] - solution;
-        while (std::abs(solution) > 1e-6){
-            solution = xs[i] / xs[0] - solution;
-        }
+double find_zero(vector<double> x, vector<double> c){
+    double result = 0;
+    int n = x.size();
+    for(int i=2; i<n; i++){
+        if(c[i] != 0)
+            return 0;
     }
-    return solution;
+    if(n > 1) {
+        result = -c[1]/c[0];
+    } else {
+        result = -c[0];
+    }
+    return result;
 }
