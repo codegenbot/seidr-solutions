@@ -1,4 +1,4 @@
-```cpp
+#include <cassert>
 int how_many_times(const std::string& str, const std::string& substring) {
     int count = 0;
     size_t pos = 0;
@@ -8,6 +8,9 @@ int how_many_times(const std::string& str, const std::string& substring) {
         str.erase(0, pos + substring.length());
     }
     return count;
-
 }
-assert(how_many_times(std::string("john doe"), std::string("john")) == 1);
+
+int main() {
+    assert(how_many_times(std::string("john doe"), std::string("john")) == 1);
+    return 0;
+}
