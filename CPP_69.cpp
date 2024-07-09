@@ -1,10 +1,21 @@
+#include <vector>
+#include <unordered_map>
 
-int search(const std::vector<int>& lst) {
+int search(std::vector<int> lst) {
     int result = -1;
+    std::unordered_map<int, int> freq;
+    
     for (int num : lst) {
-        if (num > 0 && std::count(lst.begin(), lst.end(), num) >= num) {
-            result = std::max(result, num);
+        freq[num]++;
+    }
+    
+    for (auto it = freq.begin(); it != freq.end(); ++it) {
+        if (it->first > it->second && it->first > result) {
+            result = it->first;
         }
     }
+    
     return result;
 }
+
+assert(search({3, 10, 10, 9, 2}) == -1);
