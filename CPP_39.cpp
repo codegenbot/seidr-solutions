@@ -1,5 +1,9 @@
+```c++
 #include <iostream>
-int prime_fib(int n); // Declare your function
+
+int prime_fib(int n) {
+    // Your implementation here
+}
 
 int main() { 
     int n;
