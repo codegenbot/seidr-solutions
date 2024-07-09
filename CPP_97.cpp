@@ -5,5 +5,4 @@ int multiply(int a, int b) {
 
 int main() {
     assert(multiply(0, 0) == 0);
-    return 0;
 }
