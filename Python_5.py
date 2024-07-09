@@ -1,12 +1,12 @@
-def insert_delimeter(numbers, delimeter):
+def process_numbers(numbers, delimiter):
     result = []
     for num in numbers:
-        result.extend([num, delimeter])
-    result.pop()
+        result.extend([num, delimiter])
+    result.pop() if result else None
     return result
 
-# Call the function with appropriate arguments
-numbers = [1, 2, 3, 4, 5]
-delimeter = ","
-output = insert_delimeter(numbers, delimeter)
+# Call the function with the required input
+numbers = [1, 2, 3]
+delimiter = ','
+output = process_numbers(numbers, delimiter)
 print(output)
