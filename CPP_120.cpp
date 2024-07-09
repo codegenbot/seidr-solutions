@@ -24,11 +24,9 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 
     std::vector<int> result;
 
-    int j = 0;
-    while (!pq.empty() && j < k) {
+    for(int i = 0; i < k && !pq.empty(); i++) {
         result.push_back(pq.top());
         pq.pop();
-        j++;
     }
 
     return result;
@@ -48,7 +46,9 @@ int main() {
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
-        arr.push_back(val);
+        if (!arr.empty()) { 
+            arr.push_back(val);
+        }
     }
 
     std::vector<int> result = maximum(arr, k);
