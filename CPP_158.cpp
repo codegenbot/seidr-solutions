@@ -1,17 +1,9 @@
-Here is the solution:
-
 string find_max(vector<string> words){
-    string max_word = *words.begin();
-    int max_unique_chars = 0;
-    
-    for (const auto& word : words) {
-        int unique_chars = 0;
-        set<char> char_set(word.begin(), word.end());
-        if (char_set.size() > max_unique_chars) {
-            max_unique_chars = char_set.size();
-            max_word = word;
+    string max_word = *max_element(words.begin(), words.end(),
+        [&] (const string &s1, const string &s2) {
+            if (s1.size() == s2.size()) return s1 < s2;
+            return s1.size() > s2.size();
         }
-    }
-    
+    );
     return max_word;
 }
