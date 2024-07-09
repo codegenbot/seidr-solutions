@@ -1,20 +1,14 @@
-Here is the completed code:
+Here's the solution:
 
 string exchange(vector<int> lst1, vector<int> lst2) {
-    for (int x : lst1) {
-        if (x % 2 != 0) {
-            return "NO";
-        }
-    }
-    for (int y : lst2) {
-        bool found = false;
-        for (int x : lst1) {
-            if (y == x) {
-                found = true;
-                break;
+    for (int num : lst1) {
+        if (num % 2 != 0) {
+            for (int i = 0; i < lst2.size(); i++) {
+                if (lst2[i] % 2 == 0) {
+                    swap(lst1[num], lst2[i]);
+                    return "YES";
+                }
             }
-        }
-        if (!found) {
             return "NO";
         }
     }
