@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 bool is_palindrome(string text){
     int start = 0;
     int end = text.length() - 1;
@@ -15,10 +13,4 @@ bool is_palindrome(string text){
     }
 
     return true;
-}
-
-int main(){
-    assert (is_palindrome("xywzx") == false);
-    cout << "Test passed.\n";
-    return 0;
 }
