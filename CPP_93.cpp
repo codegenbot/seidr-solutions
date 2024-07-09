@@ -3,10 +3,11 @@ string encode(string message) {
     for (char c : message) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
-            c = (c <= base + 3 && c >= base) ? c : 
-                (isupper(c) ? 'z' - 3 : 'Z') - 2;
+            c = ((c - base + 2) % 26) + base;
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+                c = 'z' - 'a' + c; // replace vowel with the letter that appears 2 places ahead
         }
-        result += tolower(c);
+        result += c;
     }
     return result;
 }
