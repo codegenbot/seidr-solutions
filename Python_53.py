@@ -1,4 +1,8 @@
+```
 def add(a=0, b=0): 
-    x = int(input(f"Enter the first number: {a} " + (str(a) if not a else ''))) 
-    y = int(input(f"Enter the second number: {b} " + (str(b) if not b else ''))) 
-    print(x + y)
+    try: 
+        x = int(input(f"Enter the first number: {a} ") or str(a)) 
+        y = int(input(f"Enter the second number: {b} ") or str(b)) 
+        print(x + y) 
+    except ValueError: 
+        print("Invalid input. Please enter a valid integer.")
