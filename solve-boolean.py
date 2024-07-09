@@ -10,7 +10,7 @@ def solve_boolean(expression):
         result = True
         for char in expression:
             if char == "&":
-                result &= stack.pop() 
+                result &= stack.pop()
             elif char == "|":
                 result |= stack.pop()
             else:
