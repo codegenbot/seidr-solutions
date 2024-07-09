@@ -1,14 +1,12 @@
-```cpp
-bool issame(vector<int> a, vector<int> b) {
-    return a == b; 
-}
-
-vector<int> filter_integers(vector<int> values) {
+vector<int> filter_integers(list_any values) {
     vector<int> result;
-    for (int value : values) {
-        if (value >= 0) { 
-            result.push_back(value);
+    for (const auto& value : values) {
+        if (boost::any_cast<int>(value).good()) {
+            result.push_back(boost::any_cast<int>(value).get());
         }
     }
     return result;
+}
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
