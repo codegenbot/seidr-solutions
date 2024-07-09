@@ -1,12 +1,12 @@
 ```cpp
 #include <vector>
-#include <algorithm>
+#include <limits>
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
     if (arr.empty()) return result;
 
-    int minEven = INT_MAX;
+    int minEven = std::numeric_limits<int>::max();
     int index = -1;
 
     for (int i = 0; i < arr.size(); i++) {
