@@ -1,4 +1,3 @@
-#include <boost/variant.hpp>
 #include <variant>
 #include <string>
 
@@ -24,6 +23,6 @@ variant<string, int, double, float> compare_one(variant<string, int, double, flo
 }
 
 int main() {
-    assert(boost::get<std::string>(compare_one(std::string("1"), 1)) == "None");
+    assert(get<string>(compare_one(string("1"), 1)) == "None");
     return 0;
 }
