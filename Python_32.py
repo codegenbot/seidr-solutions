@@ -1,3 +1,4 @@
+```
 def find_zero(a, b, c):
     discriminant = b**2 - 4*a*c
     if discriminant < 0:
