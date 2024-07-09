@@ -3,14 +3,6 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::set<std::string> s1, std::set<std::string> s2) {
-    if(s1.size() != s2.size()) return false;
-    for(auto &i : s1) {
-        if(!s2.count(i)) return false;
-    }
-    return true;
-}
-
 int main() {
     std::set<std::string> s1;
     std::set<std::string> s2;
@@ -62,7 +54,7 @@ int main() {
     }
     std::cout << "\n";
 
-    if(issame(s1, s2)) {
+    if(s1 == s2) {
         std::cout << "Sets are same.\n";
     } else {
         std::cout << "Sets are not same.\n";
