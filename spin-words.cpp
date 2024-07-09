@@ -1,32 +1,19 @@
-#include <string>
-#include <algorithm>
-#include <vector>
-#include <iostream>
-
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> tokens;
+    std::stringstream ss(str);
     std::string token;
-    for (char c : str) {
-        if (c == delimiter) {
-            tokens.push_back(token);
-            token = "";
-        } else {
-            token += c;
-        }
+    while (std::getline(ss, token, delimiter)) {
+        tokens.push_back(token);
     }
-    tokens.push_back(token);
     return tokens;
 }
 
-std::string join(const std::vector<std::string>& words, char delimiter) {
+std::string join(const std::vector<std::string>& vec, char delimiter) {
     std::string result;
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            result += delimiter;
-        }
-        result += words[i];
+    for (const auto& s : vec) {
+        result += s + delimiter;
     }
-    return result;
+    return result.substr(0, result.size() - 1);
 }
 
 std::string spinWords(std::string str) {
@@ -45,10 +32,4 @@ std::string spinWords(std::string str) {
         }
     }
     return join(std::vector<std::string>{result}, ' ');
-}
-
-int main() {
-    std::string str = "Hello World";
-    std::cout << spinWords(str) << std::endl;
-    return 0;
 }
