@@ -1,28 +1,49 @@
-#include <boost/any_cast.hpp>
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    float fa;
-    double da;
-    long la;
-    int ia;
-    bool fba = boost::any_cast<float>(&fa);
-    bool dba = boost::any_cast<double>(&da);
-    bool laba = boost::any_cast<long>(&la);
-    bool iaba = boost::any_cast<int>(&ia);
-
-    if (fba && dba) {
-        return (fa > da) ? a : b;
-    } else if (laba && iaba) {
-        return (la > ia) ? a : b;
-    } else if (fba || laba) {
-        return (fa > la) ? a : b;
-    } else if (dba) {
-        return (da > 0.0) ? a : b;
+    if (is_any_of <int>(a)) {
+        if (is_any_of <float>(b)) return b;
+        else if (is_any_of <string>(b)) {
+            float fa = any_cast<int>(a);
+            string fb = any_cast<string>(b);
+            if (fa > atof(fb.c_str())) return a;
+            else if (fa < atof(fb.c_str())) return b;
+            else return boost::any("None");
+        }
+    } 
+    else if (is_any_of <float>(a)) {
+        if (is_any_of <int>(b)) return a;
+        else if (is_any_of <string>(b)) {
+            float fa = any_cast<float>(a);
+            string fb = any_cast<string>(b);
+            if (fa > atof(fb.c_str())) return a;
+            else if (fa < atof(fb.c_str())) return b;
+            else return boost::any("None");
+        }
+    } 
+    else if (is_any_of <string>(a)) {
+        if (is_any_of <int>(b)) {
+            float fa = atof(any_cast<string>(a).c_str());
+            int fb = any_cast<int>(b);
+            if (fa > fb) return a;
+            else if (fa < fb) return b;
+            else return boost::any("None");
+        } 
+        else if (is_any_of <float>(b)) {
+            float fa = atof(any_cast<string>(a).c_str());
+            float fb = any_cast<float>(b);
+            if (fa > fb) return a;
+            else if (fa < fb) return b;
+            else return boost::any("None");
+        } 
+        else if (is_any_of <string>(b)) {
+            string fa = any_cast<string>(a);
+            string fb = any_cast<string>(b);
+            if (atof(fa.c_str()) > atof(fb.c_str())) return a;
+            else if (atof(fa.c_str()) < atof(fb.c_str())) return b;
+            else return boost::any("None");
+        }
     }
 
-    string sa, sb;
-    boost::any_cast<string>(&sa);
-    boost::any_cast<string>(&sb);
-
-    return (sa > sb) ? a : b;
+    return boost::any();
 }
