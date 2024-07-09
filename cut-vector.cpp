@@ -30,12 +30,12 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
         }
     }
     
-    res.push_back(std::vector<int>());
+    res.push_back({}); // Initialize with an empty vector
     for (int j = 0; j <= leftIndex; j++) {
         res.back().push_back(v[j]);
     }
     if (totalSum != halfSum) {
-        res.push_back(std::vector<int>());
+        res.push_back({}); 
         for (int j = leftIndex; j < n; j++) {
             res.back().push_back(v[j]); 
         }
