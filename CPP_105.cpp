@@ -5,18 +5,17 @@
 bool issame(vector<string>, vector<string>);
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+    vector<string> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            numbers.push_back(num);
+            numbers.push_back(to_string(num));
         }
     }
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
     vector<string> result;
-    for (int num : numbers) {
-        string str = "";
-        switch (num) {
+    for (string str : numbers) {
+        switch (stoi(str)) {
             case 1: str = "One"; break;
             case 2: str = "Two"; break;
             case 3: str = "Three"; break;
