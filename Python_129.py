@@ -1,41 +1,32 @@
+```
 from collections import deque
 
 
 def minFallingRainWater(grid):
     n = len(grid)
     m = [[0 for _ in range(n)] for _ in range(n)]
-    queue = deque()
+
+    def dfs(i, j, path, visited):
+        if len(path) == n * n:
+            return path
+
+        visited.add((i, j))
+
+        min_path = path[:]
+        for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ni, nj = i + di, j + dj
+            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
+                new_path = dfs(ni, nj, path + [grid[ni][nj]], visited.copy())
+                if new_path and (not min_path or new_path < min_path):
+                    min_path = new_path
+
+        return min_path
 
     for i in range(n):
         for j in range(n):
-            if grid[i][j] == "1":
-                queue.append((i, j))
-                m[i][j] = 1
-            else:
-                m[i][j] = 0
+            grid[i][j] = str(grid[i][j])
 
-    dx = [1, -1, 0, 0]
-    dy = [0, 0, 1, -1]
+    start = [i for i, row in enumerate(map(str,grid)) if "1" in "".join(row)][0]
+    path = dfs(start, 0, [grid[start][0]], set())
 
-    while queue:
-        x, y = queue.popleft()
-        for i in range(4):
-            nx, ny = x + dx[i], y + dy[i]
-            if 0 <= nx < n and 0 <= ny < n and m[nx][ny] == 0:
-                m[nx][ny] = min(
-                    m[x][y] + 1,
-                    int(min(grid[r][c] for r in range(n) for c in range(n))),
-                )
-                queue.append((nx, ny))
-    res = -1
-    maxH = -1
-
-    for i in range(n):
-        for j in range(n):
-            if m[i][j] > maxH:
-                maxH = m[i][j]
-                res = int(min(grid[r][c] for r in range(i) for c in range(n)))
-            elif m[i][j] == maxH and grid[i][j] < res:
-                res = grid[i][j]
-
-    return str(res)
+    return path
