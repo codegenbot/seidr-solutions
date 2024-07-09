@@ -1,44 +1,42 @@
 #include <iostream>
 #include <map>
-#include <string>
+#include <algorithm>
+#include <sstream>
+#include <vector>
 
-using namespace std;
+std::string sort_numbers(const std::string &numbers_str) {
+    std::map<std::string, int> number_map = {
+        {"zero", 0},
+        {"one", 1},
+        {"two", 2},
+        {"three", 3},
+        {"four", 4},
+        {"five", 5},
+        {"six", 6},
+        {"seven", 7},
+        {"eight", 8},
+        {"nine", 9}
+    };
 
-map<string, int> number_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
+    std::stringstream ss(numbers_str);
+    std::vector<std::string> numbers;
+    std::string word;
+    while (ss >> word) {
+        numbers.push_back(word);
+    }
 
-string sort_numbers(string numbers);
+    std::sort(numbers.begin(), numbers.end(), [&](const std::string &a, const std::string &b) {
+        return number_map[a] < number_map[b];
+    });
+
+    std::string result;
+    for (const auto &num : numbers) {
+        result += num + " ";
+    }
+
+    return result;
+}
 
 int main() {
     assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-}
-
-string sort_numbers(string numbers){
-    string result = "";
-    map<int, string> sorted_numbers;
-    
-    size_t pos = 0;
-    while ((pos = numbers.find(" ")) != string::npos) {
-        string token = numbers.substr(0, pos);
-        sorted_numbers[number_map[token]] = token;
-        numbers.erase(0, pos + 1);
-    }
-    sorted_numbers[number_map[numbers]] = numbers;
-    
-    for (const auto& pair : sorted_numbers) {
-        result += pair.second + " ";
-    }
-    
-    result.pop_back(); // Remove extra space at the end
-    return result;
 }
