@@ -7,5 +7,5 @@ long long double_the_difference(std::vector<float> lst){
             odd_sum += (long long)pow(num, 2);
         }
     }
-    return 2 * odd_sum;
+    return odd_sum;
 }
