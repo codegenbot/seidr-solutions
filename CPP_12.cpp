@@ -1,8 +1,10 @@
-if(strings.empty()) return "";
-string result = *min_element(strings.begin(), strings.end(),
-    [](const string &a, const string &b) {
-        if(a.size() == b.size())
-            return &a < &b;
-        return a.size() < b.size();
-});
-return result;
+string longest(vector<string> strings){
+    if(strings.empty()) return "";
+    string result = strings[0];
+    for(auto str : strings){
+        if(str.length() > result.length()){
+            result = str;
+        }
+    }
+    return result;
+}
