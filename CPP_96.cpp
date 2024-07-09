@@ -22,3 +22,13 @@ vector<int> count_up_to(int n) {
     return primes;
 
 }
+
+cout << "Enter a number: ";
+int n;
+cin >> n;
+vector<int> result = count_up_to(n);
+cout << "Primes up to " << n << ": ";
+for (int prime : result) {
+    cout << prime << " ";
+}
+cout << endl;
