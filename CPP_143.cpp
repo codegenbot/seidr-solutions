@@ -1,35 +1,33 @@
-#include <vector>
-#include<string>
-
-using namespace std;
-
-bool isPrime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
-            return false;
-    }
-    return true;
-}
-
-string words_in_sentence(string sentence) {
-    vector<string> words;
-    string word;
-    int len;
-
-    stringstream ss(sentence);
-    while (ss >> word) {
-        len = word.length();
-        if (isPrime(len))
-            words.push_back(word);
-    }
-
-    string result;
-    for (int i = 0; i < words.size(); i++) {
-        result += words[i];
-        if (i != words.size() - 1)
-            result += " ";
+string words_in_sentence(string sentence){
+    string result = "";
+    int length;
+    for(int i=0; i<sentence.length(); i++){
+        if(sentence[i] == ' '){
+            continue;
+        }
+        else{
+            length = 0;
+            while(i < sentence.length() && sentence[i] != ' '){
+                i++;
+                length++;
+            }
+            string word = sentence.substr(0, length);
+            int num = stoi(word);
+            bool isPrime = true;
+            if(num > 1){
+                for(int j=2; j*j<=num; j++){
+                    if(num%j == 0){
+                        isPrime = false;
+                        break;
+                    }
+                }
+            }else{
+                isPrime = false;
+            }
+            if(isPrime){
+                result += word + " ";
+            }
+        }
     }
     return result;
 }
