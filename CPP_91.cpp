@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -11,7 +11,7 @@ bool is_bored(std::string S) {
         if (S.substr(0, pos).compare(boredom) == 0 && S.size() > pos + boredom.length()) {
             count++;
         }
-        pos += 1; 
+        ++pos;
     }
 
     return count;
