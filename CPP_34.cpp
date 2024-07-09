@@ -1,11 +1,24 @@
-Here is the solution:
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.begin(), unique_element(l));
+    vector<int> result(l.begin(), unique_copy(l.begin(), l.end()));
+    sort(result.begin(), result.end());
     return result;
 }
 
-int unique_element(const vector<int>& v) {
-    set<int> s(v.begin(), v.end());
-    return vector<int>(s.begin(), s.end());
+int main() {
+    vector<int> test = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    for (int i : test) {
+        cout << i << " ";
+    }
+    cout << endl;
+    test = unique(test);
+    for (int i : test) {
+        cout << i << " ";
+    }
+    cout << endl;
+    return 0;
 }
