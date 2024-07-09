@@ -1,29 +1,24 @@
-Here is the completed code:
+#include <vector>
 
-vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> evenNodes;
+using namespace std;
+
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return result;
+
+    int minEvenValue = INT_MAX;
+    int minIndex = -1;
 
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0) {
-            evenNodes.push_back({arr[i], i});
+        if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
+            minEvenValue = arr[i];
+            minIndex = i;
         }
     }
 
-    if (evenNodes.empty()) {
-        return {};
+    if (minIndex != -1) {
+        result.push_back({minEvenValue, minIndex});
     }
 
-    int minEvenValue = evenNodes[0].first;
-    int minIndex = evenNodes[0].second;
-
-    for (int i = 1; i < evenNodes.size(); i++) {
-        if (evenNodes[i].first < minEvenValue) {
-            minEvenValue = evenNodes[i].first;
-            minIndex = evenNodes[i].second;
-        } else if (evenNodes[i].first == minEvenValue) {
-            minIndex = min(minIndex, evenNodes[i].second);
-        }
-    }
-
-    return {{minEvenValue, minIndex}};
+    return result;
 }
