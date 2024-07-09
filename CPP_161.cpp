@@ -1,9 +1,9 @@
+#include <iostream>
 #include <string>
-#include <algorithm>
 
-int main() {
+int main {
+    std::cout << "Please enter a sentence: ";
     std::string s;
-    std::cout << "Enter a string: ";
     std::cin >> s;
 
     std::string result = "";
