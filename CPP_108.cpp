@@ -1,25 +1,4 @@
-#include <vector>
-#include <iostream>
-
-int main() {
-    vector<int> n;
-    int size;
-    cout << "Enter the number of elements: ";
-    cin >> size;
-    n.resize(size);
-    
-    for(int i = 0; i < size; i++) {
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> n[i];
-    }
-    
-    int result = count_nums(n);
-    
-    cout << "Number of nums: " << result << endl;
-    return 0;
-}
-
-int count_nums(vector<int> n) {
+int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
         if (num > 0) {
