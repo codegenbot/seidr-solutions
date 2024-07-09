@@ -3,11 +3,17 @@
 #include <string>
 
 bool issame(std::vector<std::string> a) {
-    return std::all_of(a.begin(), a.end(), [](const std::string& s){return s == "Nine";});
+    std::sort(a.begin(), a.end());
+    for (int i = 0; i < a.size() - 1; i++) {
+        if (a[i] == a[i + 1]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    vector<string> result;
+    std::vector<std::string> result;
     for (int i : arr) {
         switch (i) {
             case 1: result.push_back("One"); break;
@@ -21,8 +27,8 @@ std::vector<std::string> by_length(std::vector<int> arr) {
             case 9: result.push_back("Nine"); break;
         }
     }
-    sort(result.begin(), result.end());
-    reverse(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
+    std::reverse(result.begin(), result.end());
     return result;
 }
 
