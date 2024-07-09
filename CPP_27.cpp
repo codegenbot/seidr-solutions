@@ -1,3 +1,5 @@
+#include <string>
+
 string flip_case(string str){
     for(char &c : str){
         if(islower(c)){
@@ -7,4 +9,8 @@ string flip_case(string str){
         }
     }
     return str;
+}
+
+int main(){
+    return 0;
 }
