@@ -4,10 +4,9 @@ def file_name_check(file_name):
         return 'No'
     if file_name.count('.') != 1:
         return 'No'
-    name, extension = file_name.rsplit('.', 1)
-    if not name or not name[0].isalpha():
+    if file_name.split('.')[0][0].lower() not in 'abcdefghijklmnopqrstuvwxyz':
         return 'No'
-    allowed_extensions = ['txt', 'exe', 'dll']
-    if extension.lower() not in allowed_extensions:
+    extensions = ['txt', 'exe', 'dll']
+    if file_name.split('.')[1] not in extensions:
         return 'No'
     return 'Yes'
