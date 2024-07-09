@@ -1,12 +1,14 @@
-string solve(string s) {
+Here is the solution:
+
+```cpp
+string solve(string s){
     string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            result += tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i'
-                || tolower(c) == 'o' || tolower(c) == 'u' ? toupper(c) : tolower(c);
-        } else {
+        if (!isalnum(c)) {
             result += c;
+        } else {
+            result += (islower(c) ? toupper(c) : tolower(c));
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    return result;
 }
