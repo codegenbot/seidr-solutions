@@ -1,17 +1,13 @@
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
+#include <boost/any.hpp>
 
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
-    for (const auto& value : values) {
-        if (boost::any_cast<int>(value) != 0) {
-            result.push_back(boost::any_cast<int>(value));
+    for (auto& value : values) {
+        try {
+            int num = boost::any_cast<int>(value);
+            result.push_back(num);
+        } catch (...) {
+            // ignore non-integer values
         }
     }
     return result;
-}
