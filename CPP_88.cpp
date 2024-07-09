@@ -17,4 +17,4 @@ int main() {
     input = sort_array(input);
     assert(issame(input, std::vector<int>{23, 21, 14, 11}));
     return 0;
-} 
+}
