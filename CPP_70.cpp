@@ -13,34 +13,33 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<std::vector<int>> strange_sort_list(std::vector<std::vector<int>>& lst) {
-    std::vector<std::vector<int>> result;
+std::vector<std::vector<int>>& strange_sort_list(std::vector<std::vector<int>>& lst) {
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin()->begin(), lst.end()->end());
         for (auto& v : lst) {
             if (*std::min_element(v.begin(), v.end()) == min_val) {
+                std::vector<std::vector<int>> result;
+                while (!lst.empty() && !result.back().empty()) {
+                    int max_val = *std::max_element(result.back()->begin(), result.back()->end());
+                    for (auto& v : result) {
+                        if (*std::max_element(v->begin(), v->end()) == max_val) {
+                            v->pop_back();
+                            break;
+                        }
+                    }
+                    result.back().pop_back();
+                }
                 result.push_back(v);
                 lst.erase(std::remove(lst.begin(), lst.end(), v), lst.end());
                 break;
             }
         }
-        while (!lst.empty() && !result.back().empty()) {
-            int max_val = *std::max_element(result.back()->begin(), result.back()->end());
-            for (auto& v : result) {
-                if (*std::max_element(v->begin(), v->end()) == max_val) {
-                    v->pop_back();
-                    break;
-                }
-            }
-            result.back().pop_back();
-        }
     }
-    return result;
+    return lst;
 }
 
 int main() {
     std::vector<std::vector<int>> lst = {{1, 1, 1, 1}};
-    assert(issame({1, 2}, {2, 1}));
-    std::vector<std::vector<int>> result = strange_sort_list(std::vector<std::vector<int>> {{111111}});
+    assert(issame({{1}, {2}}, strange_sort_list(lst)));
     return 0;
 }
