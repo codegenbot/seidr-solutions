@@ -12,7 +12,8 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             if (word.length() >= 5) {
                 result += word;
-                std::reverse(word.begin(), word.end());
+                vector<char> v(word.rbegin(), word.rend());
+                word = string(v.begin(), v.end());
                 result += " ";
                 word = "";
             } else {
@@ -27,7 +28,8 @@ string spinWords(string str) {
 
     if (word.length() >= 5) {
         result += word;
-        std::reverse(word.begin(), word.end());
+        vector<char> v(word.rbegin(), word.rend());
+        word = string(v.begin(), v.end());
     } else {
         result += word;
     }
