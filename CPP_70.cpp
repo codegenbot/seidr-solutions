@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <vector>
-#include <cstddef>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
@@ -11,16 +11,15 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
+std::vector<int> strange_sort_list(std::initializer_list<int> lst) {
     std::vector<int> result;
     if (lst.empty()) return result;
 
-    sort(lst.begin(), lst.end());
-    while (!lst.empty()) {
-        result.push_back(*lst.begin());
-        lst.erase(lst.begin());
-        if (!lst.empty())
-            sort(lst.begin(), lst.end());
+    auto sorted = lst.begin();
+    for (; sorted != lst.end(); ++sorted) {
+        while (!result.empty() && *sorted < result.back())
+            result.pop_back();
+        result.push_back(*sorted);
     }
 
     return result;
