@@ -2,14 +2,6 @@
 #include <algorithm>
 #include <string>
 
-int issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return 0;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return 0;
-    }
-    return 1;
-}
-
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     std::vector<std::string> result;
     for (const auto& str : lst) {
@@ -26,4 +18,9 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
              }
          });
     return result;
+}
+
+int main() {
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == std::vector<std::string>({"cc", "dd", "aaaa", "bbbb"}));
+    return 0;
 }
