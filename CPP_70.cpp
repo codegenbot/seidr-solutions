@@ -5,9 +5,7 @@
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        std::sort(a.begin() + i, a.end());
-        std::sort(b.begin() + i, b.end());
-        if (a != b) return false;
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
