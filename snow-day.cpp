@@ -1,12 +1,11 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
-    double totalSnow = static_cast<double>(initialSnow);
-    for (double i = 0; i < static_cast<double>(hours); i++) {
-        totalSnow = std::nearbyint(totalSnow + rateOfSnowFall) - static_cast<int>(totalSnow * proportionOfSnowMeltingPerHour);
+    double totalSnow = initialSnow;
+    for (int i = 0; i < hours; i++) {
+        totalSnow += rateOfSnowFall - totalSnow * proportionOfSnowMeltingPerHour;
     }
     return totalSnow;
 }
@@ -16,6 +15,8 @@ int main() {
     cin >> hours;
     float initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour;
     cin >> initialSnow >> rateOfSnowFall >> proportionOfSnowMeltingPerHour;
-    cout << fixed << setiosflags(ios::fixed) << snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour) << endl;
+    
+    double totalSnow = snowDay(hours, initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour);
+    cout << fixed << setprecision(2) << totalSnow << endl;
     return 0;
 }
