@@ -41,8 +41,8 @@ int main_entry() {
         std::string str;
         std::cout << "Enter string " << (i+1) << ": ";
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-        totalSize += str.size() + 1; // Fix: Add the newline character to totalSize
         std::getline(std::cin, str);
+        totalSize += str.size() + 1; 
     }
     
     for(int i = 0; i < n; i++) {

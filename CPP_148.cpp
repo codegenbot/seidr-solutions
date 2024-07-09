@@ -1,60 +1,27 @@
-```cpp
-#include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 
-bool isPlanet(std::string planet);
-bool issame(std::vector<std::string> a, std::vector<std::string> bf);
-std::vector<std::string> bf(std::string planet1, std::string planet2);
-
-void solve() {
-    std::vector<std::string> planets;
-    std::cout << "Enter two planets separated by space: ";
-    std::string planet1, planet2;
-    std::cin >> planet1 >> planet2;
-    std::vector<std::string> result = bf(planet1, planet2); 
-    if (result.empty()) {
-        std::cout << "Planets not found.\n";
-    } else {
-        std::cout << "Planets in order are: ";
-        for (const auto& planet : result) {
-            std::cout << planet << " ";
+std::vector<std::string> bf(std::string a, std::string b) {
+    if (a.length() > b.length()) {
+        for (size_t i = 0; i <= b.length(); ++i) {
+            b.insert(0, a);
         }
-        std::cout << "\n";
-
-        if(issame({planet1,planet2},result)){
-            std::cout << "The planets are the same.\n";
-        } else {
-            std::cout << "The planets are different.\n";
+    } else if (b.length() > a.length()) {
+        for (size_t i = 0; i <= a.length(); ++i) {
+            a.insert(0, b);
         }
     }
-
-    return;
+    return {a, b};
 }
 
-bool isPlanet(std::string planet) {
-    std::string planets[] = {"Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    for (const auto& p : planets) {
-        if (p == planet)
-            return true;
-    }
-    return false;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> bf) { 
-    if (a.size() != bf.size()) return false;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) { 
+    if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != bf[i]) return false;
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) { 
-    std::vector<std::string> result;
-    if (isPlanet(planet1) && isPlanet(planet2)) {
-        std::string p = planet1 < planet2 ? planet1 : planet2;
-        result.push_back(p);
-    }
-    return result;
-
+int main() {
+    assert(issame(bf("Jupiter", "Makemake"), {}));
 }
