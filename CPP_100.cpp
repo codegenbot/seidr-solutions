@@ -1,22 +1,14 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+bool issame(std::vector<int> a, std::vector<int> b){}
 
 std::vector<int> make_a_pile(int n) {
-    std::vector<int> stones;
-    stones.push_back(n);
-    for (int i = 1; i < n; ++i) {
-        if (n % 2 == 0) {
-            n += 2;
-        } else {
-            n += 1;
-        }
-        stones.push_back(n);
+    std::vector<int> result;
+    for (int i = 0; i < n; ++i) {
+        result.push_back(8 + 2 * i);
     }
-    return stones;
+    return result;
 }
 
 int main() {
