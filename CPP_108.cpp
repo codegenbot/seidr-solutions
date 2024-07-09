@@ -1,3 +1,4 @@
+#include <iostream>
 int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -33,4 +34,18 @@ int count_nums(std::vector<int> nums) {
         }
     }
     return count;
+}
+int main() {
+    int count = 0;
+    std::vector<int> nums;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i=0; i<n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> nums.push_back(i);
+    }
+    count = count_nums(nums);
+    std::cout << "The number of positive sums is: " << count;
+    return 0;
 }
