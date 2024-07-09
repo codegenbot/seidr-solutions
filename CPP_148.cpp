@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -37,7 +36,7 @@ vector<string> bf(string planet1, string planet2) {
             result.push_back(planets[i]);
         }
         else {
-            result.push_back(planets[minIndex-1]);
+            result.push_back(planets[i - 1]);
         }
     }
 
