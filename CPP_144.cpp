@@ -1,59 +1,41 @@
-Here is the completed code:
-
-```cpp
 #include <string>
-#include <vector>
+#include <iostream>
 
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = 0, b = 1, c = 0, d = 1;
+    int a = 0, b = 0, c = 0, d = 0;
     
-    // convert strings to integers
-    vector<string> tokensX = split(x, '/');
-    vector<string> tokensN = split(n, '/');
-
-    a = stoi(tokensX[0]);
-    b = stoi(tokensX[1]);
-    c = stoi(tokensN[0]);
-    d = stoi(tokensN[1]);
-
-    // find greatest common divisor
-    int gcd = abs(a*d - b*c);
+    // Extract numerator and denominator from both fractions
+    size_t pos1 = x.find('/');
+    size_t pos2 = n.find('/');
     
-    for(int i = 2; i <= gcd; i++) {
-        if(gcd % i == 0) {
-            if((a/i)*(d/i) == (c/i)*(b/i)) {
-                return false;
-            }
-        }
-    }
-
-    // simplify the fractions
-    int numerator = a / gcd;
-    int denominator = b / gcd;
-
-    // check if the simplified fraction is equal to x * n
-    if(((long long)numerator)*denominator == ((long long)c)*b) {
-        return true;
-    } else {
-        return false;
-    }
+    a = stoi(x.substr(0, pos1));
+    b = stoi(x.substr(pos1 + 1));
+    c = stoi(n.substr(0, pos2));
+    d = stoi(n.substr(pos2 + 1));
+    
+    // Calculate the greatest common divisor of both denominators
+    int gcd = abs(b) > abs(d) ? gcd(abs(b), abs(d)) : gcd(abs(d), abs(b));
+    
+    // Check if the product of the two fractions is a whole number
+    return (a * c / gcd) == (b * d / gcd);
 }
 
-vector<string> split(string str, char ch) {
-    vector<string> tokens;
-    string token;
-    
-    for (int i = 0; i < str.length(); i++) {
-        if(str[i] == ch) {
-            tokens.push_back(token);
-            token = "";
-        } else {
-            token += str[i];
-        }
+// Helper function to calculate the greatest common divisor
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    tokens.push_back(token);
+    return a;
+}
+
+int main() {
+    cout << simplify("1/5", "5/1") << endl;  // true
+    cout << simplify("1/6", "2/1") << endl;  // false
+    cout << simplify("7/10", "10/2") << endl;  // false
     
-    return tokens;
+    return 0;
 }
