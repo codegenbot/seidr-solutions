@@ -19,13 +19,19 @@ std::vector<std::string> words_string(std::string s){
             if(word.size() <= 30){ 
                 result.push_back(word);
                 word = "";
+            } else {
+                if (word.size() > 0) {
+                    result.push_back(word);
+                    word = "";
+                }
             }
         }else{
-            if(s[i] != ' ' && s[i] != ',')  
-                word += s[i];
+            word += s[i];
         }
     }
     if(word.size() <= 30)  
+        result.push_back(word);
+    else if (word.size() > 0)
         result.push_back(word);
     return result;
 }
