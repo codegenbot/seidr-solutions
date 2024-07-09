@@ -24,12 +24,27 @@ vector<int> sort_third(vector<int> l) {
 
     vector<int> result;
     for (int i = 0; i < l.size(); i++) {
-        if (i % 3 == 0 && !multiplesOfThree.empty()) {
-            result.push_back(multiplesOfThree[0]);
-            multiplesOfThree.erase(multiplesOfThree.begin());
-        } else
+        if (i % 3 == 0)
+            result.push_back(multiplesOfThree[i / 3 % multiplesOfThree.size()]);
+        else
             result.push_back(others[i % others.size()]);
 
+        if (multiplesOfThree.size() > l.size() / 2) {
+            break;
+        }
+    }
+
+    sort(others.begin(), others.end());
+
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 3 == 0)
+            result.push_back(multiplesOfThree[i / 3 % multiplesOfThree.size()]);
+        else
+            result.push_back(others[i % others.size()]);
+
+        if (multiplesOfThree.size() > l.size() / 2) {
+            break;
+        }
     }
 
     return result;
