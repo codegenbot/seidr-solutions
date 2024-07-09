@@ -1,34 +1,22 @@
-Here is the completed code:
-
-string file_name_check(string file_name) {
-    int digit_count = 0;
-    bool found_dot = false;
-    bool name_startsWith_letter = true;
-
-    for (int i = 0; i < file_name.size(); i++) {
-        char c = tolower(file_name[i]);
-
-        if (!found_dot && c == '.') {
-            found_dot = true;
-            continue;
-        }
-
-        if (!isalpha(c) && !isdigit(c)) {
-            name_startsWith_letter = false;
-        }
-
-        if (isdigit(c)) {
-            digit_count++;
-            if (digit_count > 3) {
-                return "No";
-            }
+string file_name_check(string file_name){
+    bool oneDot = false;
+    int digitCount = 0;
+    for(int i=0; i<file_name.size(); i++){
+        char c = file_name[i];
+        if(c == '.'){
+            oneDot = true;
+        }else if(isdigit(c)){
+            digitCount++;
+            if(digitCount > 3) return "No";
+        }else{
+            if(i == 0 && !isalpha(c)) return "No"; // check the first letter
         }
     }
-
-    string extension = file_name.substr(file_name.find('.') + 1);
-    if (extension != "txt" && extension != "exe" && extension != "dll") {
+    if(!oneDot || file_name.find('.') == string::npos)
+        return "No"; 
+    int dotIndex = file_name.find('.');
+    string ext = file_name.substr(dotIndex+1);
+    if(ext != "txt" && ext != "exe" && ext != "dll")
         return "No";
-    }
-
-    return found_dot ? "Yes" : "No";
+    return "Yes";
 }
