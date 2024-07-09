@@ -22,7 +22,7 @@ string primeFib(int num) {
     }
 }
 
-void solveProblem() {
+int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
