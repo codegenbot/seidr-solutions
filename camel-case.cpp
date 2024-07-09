@@ -9,7 +9,13 @@ std::string kebabToCamel(const std::string& s) {
 
     for (char c : s) {
         if (c == '-') {
-            capitalize = true;
+            if (capitalize) {
+                result += toupper(c);
+                capitalize = false;
+            } else {
+                result += ' ';
+                capitalize = true;
+            }
         } else if (capitalize) {
             result += toupper(c);
             capitalize = false;
@@ -28,3 +34,4 @@ int main() {
     std::cout << kebabToCamel(input) << std::endl;
 
     return 0;
+}
