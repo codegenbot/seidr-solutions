@@ -12,9 +12,10 @@ int main(){
     int n;
     cin >> n;
     vector<float> a(n), b(n);
-    for(int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         cin >> a[i] >> b[i];
     }
-    if(isSame(a, b)) cout << "The two vectors are the same." << endl;
-    else cout << "The two vectors are not the same." << endl;
+    if(isSame(a, b)) cout << "The vectors are the same." << endl;
+    else cout << "The vectors are not the same." << endl;
+    return 0;
 }
