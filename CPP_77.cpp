@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <cmath>
 
@@ -16,7 +17,7 @@ int main(){
     std::cout << "Enter an integer: ";
     std::cin >> n;
     if(iscuber(n))
-        std::cout << n << " is a perfect cube.\n";
+        std::cout << std::to_string(n) << " is a perfect cube.\n";
     else
-        std::cout << n << " is not a perfect cube.\n";
-    return 0;
+        std::cout << std::to_string(n) << " is not a perfect cube.\n";
+}
