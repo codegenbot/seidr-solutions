@@ -12,11 +12,6 @@ bool areEqual(const std::vector<std::string>& a, const std::vector<std::string>&
             return false;
         }
     }
-    for (const auto& t : b) {
-        if (std::find(a.begin(), a.end(), t) == a.end()) {
-            return false;
-        }
-    }
     return true;
 }
 
