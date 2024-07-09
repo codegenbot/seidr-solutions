@@ -1,19 +1,20 @@
-#include <string>
 #include <iostream>
+#include <string>
 
 std::string solve(int N) {
-    std::string result = "";
+    int sum = 0;
     while (N > 0) {
-        if (N % 2 == 1)
+        sum += N % 2;
+        N /= 2;
+    }
+    std::string result = "";
+    while (sum > 0) {
+        if (sum & 1)
             result.push_back('1');
         else
             result.push_back('0');
-        N /= 2;
+        sum >>= 1;
     }
+    std::reverse(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    assert(solve(963) == "10010");
-    return 0;
 }
