@@ -1,6 +1,7 @@
-```cpp
-#include <boost/any.hpp>
+#include <iostream>
 #include <string>
+#include <boost/any.hpp>
+#include <boost/type_traits.hpp>
 
 int main() {
     std::string a;
@@ -39,48 +40,49 @@ int main() {
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        if (boost::any_cast<int>(a) < boost::any_cast<float>(b))
-            return boost::any("int is less than float");
-        else
-            return boost::any("int is greater than or equal to float");
+        return boost::any(convert_to_string("int is less than float"));
     }
     else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
         if (boost::any_cast<int>(a) < 0)
-            return boost::any("Negative integer is less than string");
+            return boost::any(convert_to_string("Negative integer is less than string"));
         else
-            return boost::any("Positive integer is greater than or equal to string");
+            return boost::any(convert_to_string("Positive integer is greater than or equal to string"));
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int x = boost::any_cast<int>(a);
         int y = boost::any_cast<int>(b);
         if(x < y)
-            return boost::any("Integer 1 is less than Integer 2");
+            return boost::any(convert_to_string("Integer 1 is less than Integer 2"));
         else if(x > y)
-            return boost::any("Integer 1 is greater than Integer 2");
+            return boost::any(convert_to_string("Integer 1 is greater than Integer 2"));
         else
-            return boost::any("Integers are equal");
+            return boost::any(convert_to_string("Integers are equal"));
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         float x = boost::any_cast<float>(a);
         float y = boost::any_cast<float>(b);
         if(x < y)
-            return boost::any("Float 1 is less than Float 2");
+            return boost::any(convert_to_string("Float 1 is less than Float 2"));
         else if(x > y)
-            return boost::any("Float 1 is greater than Float 2");
+            return boost::any(convert_to_string("Float 1 is greater than Float 2"));
         else
-            return boost::any("Floats are equal");
+            return boost::any(convert_to_string("Floats are equal"));
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
         std::string strB = boost::any_cast<std::string>(b);
         if (strA > strB)
-            return boost::any("String 1 is greater than String 2");
+            return boost::any(convert_to_string("String 1 is greater than String 2"));
         else if (strA < strB)
-            return boost::any("String 1 is less than String 2");
+            return boost::any(convert_to_string("String 1 is less than String 2"));
         else
-            return boost::any("Strings are equal");
+            return boost::any(convert_to_string("Strings are equal"));
     }
     else {
-        return boost::any("Invalid input");
+        return boost::any(convert_to_string("Invalid input"));
     }
+}
+
+std::string convert_to_string(std::string s) {
+    return s;
 }
