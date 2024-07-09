@@ -1,12 +1,13 @@
-int next_smallest(vector<int> lst){
-    vector<int> copy = lst;
-    if(copy.empty()){
-        return -1; // or some value that represents None
+int next_smallest(vector<int> lst) {
+    if (lst.size() < 2) return -1; // If there are less than two elements in the list or no elements at all, return None
+    vector<int> sorted_lst = lst;
+    sort(sorted_lst.begin(), sorted_lst.end()); // Sort the list
+    for(int i=0; i<sorted_lst.size()-1; i++) {
+        if (sorted_lst[i] < sorted_lst[i+1]) { 
+            for(int j=i+2; j<sorted_lst.size(); j++) {
+                if(sorted_lst[j]<sorted_lst[i+1]) return sorted_lst[i+1]; // Return the 2nd smallest element
+            }
+        }
     }
-    sort(copy.begin(), copy.end());
-    copy.erase(unique(copy.begin(), copy.end()), copy.end());
-    if(copy.size() < 2){
-        return -1; // or some value that represents None
-    }
-    return copy[1];
+    return -1; // If no such element is found, return None
 }
