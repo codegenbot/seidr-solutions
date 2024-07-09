@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <limits>
+#include <cassert>
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
     if (numbers.size() < 2) {
