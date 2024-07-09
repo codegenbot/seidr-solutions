@@ -1,6 +1,6 @@
 #include <vector>
-#include <algorithm>  // for min and max functions
-#include <cassert>    // for assert function
+#include <algorithm>
+#include <cassert>
 
 std::vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
