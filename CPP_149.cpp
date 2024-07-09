@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -32,6 +31,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == {"cc", "dd", "aaaa", "bbbb"});
+    vector<string> test = {"aaaa", "bbbb", "dd", "cc"};
+    assert(sorted_list_sum(test) == vector<string>({"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
