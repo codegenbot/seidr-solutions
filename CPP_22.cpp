@@ -1,12 +1,5 @@
-```cpp
-#include <iostream>
-#include <vector>
-
-bool filter_integers(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-int main() { 
+int main 
+{
     int n;
     std::cin >> n;
 
@@ -25,4 +18,3 @@ int main() {
         std::cout << "The two vectors are not the same." << std::endl;
 
     return 0;
-}
