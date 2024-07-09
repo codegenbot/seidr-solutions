@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -13,9 +12,9 @@ int fizz_buzz(int n) {
 }
 
 int main() {
-    int num;
+    int n;
     cout << "Enter a number: ";
-    cin >> num;
-    cout << "The result is: " << fizz_buzz(num) << endl;
+    cin >> n;
+    cout << "The result is: " << fizz_buzz(n);
     return 0;
 }

@@ -2,7 +2,10 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> numbers = {};
-int maxNum = *std::max_element(numbers.begin(), numbers.end());
-assert(abs(maxNum) < 1e-4);
-std::cout << maxNum << std::endl;
+int main() {
+    std::vector<int> numbers;
+    int maxNum = (numbers.empty()) ? -1 : *std::max_element(numbers.begin(), numbers.end());
+    if (maxNum != -1)
+        std::cout << maxNum << std::endl;
+    return 0;
+}

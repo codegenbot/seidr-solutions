@@ -1,6 +1,3 @@
-#include <iostream>
-#include <vector>
-
 int main() {
     int n;
     std::cout << "Enter the number of elements: ";
@@ -17,7 +14,7 @@ int main() {
 
         std::vector<float> positive_numbers = getPositive(numbers);
 
-        if(issame(positive_numbers, positive_numbers)) {
+        if(issame(getPositive(numbers), {positive_numbers[0]})) {
             std::cout << "The list of positive numbers is: ";
             for (float num : positive_numbers) {
                 std::cout << num << " ";
@@ -35,15 +32,15 @@ int main() {
 
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool issame(const std::vector<float>& a, const float& b) {
+    return a.size() == 1 && a[0] == b;
 }
 
 std::vector<float> getPositive(const std::vector<std::unique_ptr<float>>& numbers) {
     std::vector<float> positive_numbers;
-    for (auto& num : numbers[0]->get()) { 
-        if (num > 0) {
-            positive_numbers.push_back(num);
+    for (auto& num : numbers) { 
+        if (*num > 0) {
+            positive_numbers.push_back(*num);
         }
     }
     return positive_numbers;
