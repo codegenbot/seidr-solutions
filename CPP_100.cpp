@@ -1,5 +1,6 @@
 #include <vector>
-#include <initializer_list>
+
+bool issame(vector<int> a, vector<int> b);
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -26,5 +27,7 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    vector<int> a = make_a_pile(8);
+    assert (issame(a, vector<int>{8,10,12,14,16,18,20,22}));
     return 0;
+}
