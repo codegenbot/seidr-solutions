@@ -1,7 +1,12 @@
-vector<float> derivative(vector<float> xs){
-    vector<float> res(xs.size() - 1);
-    for(int i = 1; i < xs.size(); ++i){
-        res[i-1] = xs[i] * (float)i;
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
+
+vector<float> derivative(vector<float> xs) {
+    vector<float> result;
+    for (int i = 1; i < xs.size(); i++) {
+        result.push_back(i * xs[i]);
     }
-    return res;
+    return result;
 }
