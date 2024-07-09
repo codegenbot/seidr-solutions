@@ -1,23 +1,34 @@
 #include <vector>
-#include <limits>
+#include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
-    std::vector<std::pair<int, int>> result;
+    std::vector<std::pair<int, int>> result = {};
     if (arr.empty()) return result;
 
-    int minEvenIndex = -1;
-    int minEvenValue = std::numeric_limits<int>::max();
-
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
-            minEvenValue = arr[i];
-            minEvenIndex = i;
+        if (arr[i] % 2 == 0) {
+            bool found = false;
+            for (const auto& pair : result) {
+                if (pair.first == arr[i]) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                result.push_back({arr[i], i});
+            }
         }
     }
 
-    if (minEvenIndex != -1) {
-        result.push_back({minEvenValue, minEvenIndex});
-    }
+    std::sort(result.begin(), result.end());
 
     return result;
 }
