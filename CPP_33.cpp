@@ -6,7 +6,7 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result;
+    vector<int> result; 
     int i = 0; 
     while (i < l.size()) {
         if (i + 2 < l.size() - 1) { 
@@ -15,9 +15,8 @@ vector<int> sort_third(vector<int> l) {
                 block.push_back(l[i + j]);
             }
             sort(block.begin(), block.end());
-            while (!block.empty()) {
-                result.push_back(block.back());
-                block.pop_back();
+            for (int k : block) {
+                result.push_back(k);
             }
             i += 3;
         } else {
