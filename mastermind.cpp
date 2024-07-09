@@ -1,46 +1,22 @@
-int numBlackPegs(string code, string guess) {
+int mastermind(string code, string guess) {
+    int white = 0;
     int black = 0;
+
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
         }
     }
-    return black;
-}
 
-int numWhitePegs(string code, string guess) {
-    int white = 0;
-    vector<char> c(6);
-    for (char ch : code) {
-        c[ch - 'A']++;
-    }
-    for (int i = 0; i < 4; i++) {
-        bool isWhite = false;
-        for (int j = 0; j < 6; j++) {
-            if (c[j] > 0 && code.find((char)(j + 'A')) != string::npos) {
-                c[j]--;
-                isWhite = true;
-                break;
-            }
-        }
-        if (!isWhite) {
-            for (int j = 0; j < 6; j++) {
-                if (c[j] > 0 && guess.find((char)(j + 'A')) != string::npos) {
-                    c[j]--;
-                    isWhite = true;
-                    break;
-                }
-            }
-        }
-        white += isWhite;
-    }
-    return white - numBlackPegs(code, guess);
-}
+    set<char> code_set(code.begin(), code.end());
+    set<char> guess_set(guess.begin(), guess.end());
 
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << numWhitePegs(code, guess) << endl;
-    cout << numBlackPegs(code, guess) << endl;
-    return 0;
+    for (char c : code_set) {
+        if (guess_set.count(c)) {
+            white++;
+            guess_set.erase(c);
+        }
+    }
+
+    return make_pair(white, black).second;
 }
