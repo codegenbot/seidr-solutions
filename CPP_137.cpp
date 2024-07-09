@@ -1,10 +1,9 @@
-```cpp
 #include <string>
 #include <algorithm>
 
 using namespace std;
 
-string compareOne(string a, string b) {
+string compare_one(string a, string b) {
     float numA = stof(a);
     float numB = stof(b);
 
