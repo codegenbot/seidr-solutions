@@ -1,3 +1,4 @@
+```
 import decimal
 
 def shopping_list():
