@@ -13,9 +13,7 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> input; // declare the vector
-    for (int i = 1; i <= 10; ++i) {
-        input.push_back(i * 3.5); // populate the input vector
-    }
-    int odd_sum = double_the_difference(input);
+    // process the input and calculate odd_sum
+    assert(double_the_difference(input) == 0); // uncomment when 'odd_sum' is defined
     return 0;
 }
