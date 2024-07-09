@@ -1,5 +1,7 @@
 #include <string>
 #include <algorithm>
+#include <limits>
+#include <stream>
 
 using namespace std;
 
@@ -12,12 +14,14 @@ bool same_chars(string s0, string s1) {
 int main() {
     string s0, s1;
     cout << "Enter the first string: ";
-    cin >> s0;
+    getline(cin, s0);
+    cin.ignore(numeric_limits<streamsize>::max());
     cout << "Enter the second string: ";
-    cin >> s1;
-    if (same_chars(s0, s1))
+    getline(cin, s1);
+    if (same_chars(s0, s1)) {
         cout << "The strings have the same characters.\n";
-    else
+    } else {
         cout << "The strings do not have the same characters.\n";
+    }
     return 0;
 }
