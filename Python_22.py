@@ -1,8 +1,15 @@
 ```
-def filter_integers(values):
-    integer_values = [value for value in values if value.isdigit()]
-    return ' '.join(integer_values)
+from typing import List, Any
 
-values = input("Enter values separated by space: ")
-filtered_values = filter_integers(values.split())
-print(filtered_values)
+def filter_integers(values: List[Any]) -> List[int]:
+    result = []
+    while True:
+        user_input = input("Enter a list of values (or 'stop' to finish): ")
+        if user_input.lower() == 'stop':
+            break
+        try:
+            temp_values = [int(x) for x in user_input.split()]
+            result.extend(temp_values)
+        except ValueError:
+            print("Invalid input. Please enter only integers separated by spaces.")
+    return [value for value in result if isinstance(value, int)]
