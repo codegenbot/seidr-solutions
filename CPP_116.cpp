@@ -1,9 +1,8 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool std::vector<int> a, std::vector<int> b) {
     if(a.size()!=b.size()) return false;
     for(int i=0;i<a.size();i++){
         if(a[i]!=b[i]) return false;
@@ -11,10 +10,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> sort_array(const auto& arr) {
-    std::vector<int> temp = arr; // to avoid modifying the original array
-    std::sort(temp.begin(), temp.end());
-    return temp;
+std::vector<int> sort_array(std::vector<int> arr) {
+    std::sort(arr.begin(), arr.end());
+    return arr;
 }
 
 int main_test() {
