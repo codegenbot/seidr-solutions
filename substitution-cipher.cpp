@@ -5,11 +5,16 @@
 std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
     std::string result = "";
     for (int i = 0; i < message.length(); i++) {
-        int index = message[i] - 'a';
-        if (index >= 0 && index < cipher1.length()) {
-            result += cipher2[index];
+        char c = message[i];
+        if(isalpha(c)) {
+            int index = tolower(c) - 'a';
+            if(index >= 0 && index < cipher1.length()) {
+                result += cipher2[index];
+            } else {
+                result += c;
+            }
         } else {
-            result += message[i];
+            result += c;
         }
     }
     return result;
