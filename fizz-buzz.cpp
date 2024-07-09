@@ -1,4 +1,11 @@
+```cpp
 #include <string>
+#include <iostream>
+
+int main() {
+    std::cout << fizzBuzz(100) << std::endl;
+    return 0;
+}
 
 std::string fizzBuzz(int x) {
     std::string result;
@@ -11,3 +18,4 @@ std::string fizzBuzz(int x) {
     else
         result = std::to_string(x);
     return result;
+}
