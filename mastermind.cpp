@@ -1,10 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 int main() {
-    string code, guess;
-    cin >> code >> guess;
+    std::string code, guess;
+    std::cin >> code >> guess;
     
     int black = 0, white = 0;
-    vector<int> codeCount(6, 0);
-    vector<int> guessCount(6, 0);
+    std::vector<int> codeCount(6, 0);
+    std::vector<int> guessCount(6, 0);
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
@@ -16,10 +20,10 @@ int main() {
     }
     
     for (int i = 0; i < 6; ++i) {
-        white += min(codeCount[i], guessCount[i]);
+        white += std::min(codeCount[i], guessCount[i]);
     }
     
-    cout << white << endl << black << endl;
+    std::cout << white << std::endl << black << std::endl;
     
     return 0;
 }
