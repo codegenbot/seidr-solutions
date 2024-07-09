@@ -1,48 +1,24 @@
+```c++
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
-vector<string> total_match(vector<string> lst1, vector<string> lst2);
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
+bool issame(std::vector<std::string> a, std::vector<std::string> vec2) {
+    if (a.size() != vec2.size()) return false;
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != vec2[i]) return false;
     }
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
     return true;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    int sum1 = 0;
-    for (const string& s : lst1) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+    int sum1 = 0, sum2 = 0;
+    for (const auto& s : lst1) {
         sum1 += s.length();
     }
-    
-    int sum2 = 0;
-    for (const string& s : lst2) {
+    for (const auto& s : lst2) {
         sum2 += s.length();
     }
-
-    if (sum1 < sum2) {
-        return lst1;
-    } else if (sum1 > sum2) {
-        return lst2;
-    } else {
-        vector<string> temp = lst1;
-        for (const string& s : lst2) {
-            temp.push_back(s);
-        }
-        return total_sort(temp);
-    }
-}
-
-vector<string> total_sort(vector<string> a) {
-    sort(a.begin(), a.end());
-    return a;
+    if (sum1 < sum2) return lst1;
+    else if (sum1 > sum2) return lst2;
+    else return lst1;
 }
