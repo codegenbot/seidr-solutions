@@ -1,15 +1,16 @@
-int count_nums(vector<int> n) {
+int count_nums(vector<int> nums) {
     int count = 0;
-    for (int num : n) {
-        if (num < 0)
-            num = -num;
+    for (auto num : nums) {
+        int sign = (num < 0) ? -1 : 1;
+        long abs_num = labs(num);
         long sum = 0;
-        while (num > 0) {
-            sum += num % 10;
-            num /= 10;
+        while (abs_num > 0) {
+            sum += abs_num % 10;
+            abs_num /= 10;
         }
-        if (sum > 0)
+        if (sign * sum > 0) {
             count++;
+        }
     }
     return count;
 }
