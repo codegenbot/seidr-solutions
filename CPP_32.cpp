@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <initializer_list>
 using namespace std;
 
 double poly(vector<double> coeffs, double solution) {
@@ -28,8 +29,8 @@ double find_zero(vector<double> xs){
     }
     vector<double> coeffs;
     for(int i=0; i<temp.size(); i++){
-        for(int j = 0; j < temp[i].size(); j++) {
-            coeffs.push_back(temp[i][j]);
+        for(double x : temp[i]){
+            coeffs.push_back(x);
         }
     }
     return -sum / coeff;
