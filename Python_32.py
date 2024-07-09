@@ -6,6 +6,7 @@ def find_zero(xs: list):
     b = xs[-2]
     return -b / a
 
+
 # Read input as string and split to create a list of floats
 xs = [float(x) for x in input().split()]
 
