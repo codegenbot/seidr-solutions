@@ -1,20 +1,11 @@
 using namespace std;
 
 string solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) return "False";
-            else st.push(stop());
-        } else if (s[i] == '|') {
-            while (!st.empty()) st.pop();
-            st.push(s[i]);
-        } else {
-            st.push(s[i]);
-        }
+    int res = s[0] == 'T';
+    for(int i=1;i<s.length();i++){
+        if(s[i]=='|') res|=s[i+1]=='T';
+        else if(s[i]&1) res^=(bool)s[i+1]-'F';
+        i+=s[i]=='F'? 0:1;
     }
-    return st.top() == 'T' ? "True" : "False";
+    return res?"True":"False";
 }
