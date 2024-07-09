@@ -11,19 +11,20 @@ variant<string, int, double, float> compare_one(variant<string, int, double, flo
         return strA > strB ? a : b;
     }
     else if ((holds_alternation<int>(a) && holds_alternation<string>(b)) || (holds_alternation<string>(a) && holds_alternation<int>(b))) {
-        int val1 = 0, val2 = get<int>(b);
-        return val1 > val2 ? a : b;
+        int val1 = 0; // assume string to int conversion is allowed
+        return get<int>(a) > 0 ? a : b;
     }
     else if ((holds_alternation<string>(a) && holds_alternation<int>(b)) || (holds_alternation<string>(a) && holds_alternation<int>(b))) {
-        string strA = get<string>(a), strB = std::to_string(get<int>(b));
-        return strA > strB ? a : b;
+        string strA = get<string>(a);
+        int val2 = 0; // assume string to int conversion is allowed
+        return strA > std::to_string(val2) ? a : b;
     }
     else {
-        return "";
+        return "None";
     }
 }
 
 int main() {
-    assert(boost::get<std::string>(compare_one(std::string("1"), 1)) == "");
+    assert(boost::get<std::string>(compare_one(std::string("1"), 1)) == "None");
     return 0;
 }
