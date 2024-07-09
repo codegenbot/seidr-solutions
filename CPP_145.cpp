@@ -1,20 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 bool issame(vector<int> a, vector<int> b) {
-    int sum_a = accumulate(a.begin(), a.end(), 0);
-    int sum_b = accumulate(b.begin(), b.end(), 0);
-    
-    return sum_a == sum_b;
+    return a == b;
 }
 
-void order_by_points(vector<int>& nums) {
+vector<int> order_by_points(vector<int> nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sum_a = accumulate_digits(a);
-        int sum_b = accumulate_digits(b);
-        
-        if (sum_a == sum_b) {
-            return a < b;
+        int sum_a = 0, sum_b = 0;
+        int temp_a = abs(a), temp_b = abs(b);
+        while(temp_a > 0){
+            sum_a += temp_a % 10;
+            temp_a /= 10;
+        }
+        while(temp_b > 0){
+            sum_b += temp_b % 10;
+            temp_b /= 10;
+        }
+        if(sum_a == sum_b){
+            return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
         }
         return sum_a < sum_b;
     });
+    return nums;
 }
 
-return nums;
+int main() {
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    
+    return 0;
+}
