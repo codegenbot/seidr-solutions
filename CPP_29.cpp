@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,14 +15,10 @@ bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
+    std::string strPrefix = prefix; // variable declaration
     std::vector<std::string> result;
-    for(string s : strings){
-        if(s.find(prefix) == 0)
+    for(std::string s : strings){
+        if(s.find(strPrefix) == 0)
             result.push_back(s);
     }
-    string prefix;
-    cout << "Enter a prefix: ";
-    cin >> prefix;
-    
-    return filter_by_prefix(strings, prefix);
-}
+    return result;
