@@ -1,9 +1,11 @@
-try:
-    x, y = map(int, input("Enter two integers separated by space: ").strip().split())
-except ValueError:
-    print("Invalid input. Please enter two valid integers separated by space.")
-    exit()
+def add(x, y):
+    return x + y
 
-# Existing code to calculate and print the result
-result = add(x, y)
-print(result)
+try:
+    print("Enter two integers separated by space:")
+    x, y = map(int, raw_input().strip().split())
+
+    result = add(x, y)
+    print(result)
+except (ValueError, TypeError):
+    print("Invalid input. Please enter valid integers separated by space.")
