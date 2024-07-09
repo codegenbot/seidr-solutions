@@ -17,6 +17,7 @@ bool getNumbers(vector<int>& numbers, int& threshold) {
     cout << "Enter the threshold: ";
     cin >> threshold;
 
+    numbers.resize(5);
     for(int i=0; i<5; i++) {
         cout << "Enter number #"<<i+1<<": ";
         cin >> numbers[i];
@@ -26,7 +27,7 @@ bool getNumbers(vector<int>& numbers, int& threshold) {
 }
 
 int main() {
-    vector<int> numbers(5); 
+    vector<int> numbers; 
     int threshold;
 
     if(getNumbers(numbers, threshold)) {
