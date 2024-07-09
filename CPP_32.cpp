@@ -1,8 +1,21 @@
-double find_zero(vector<double> xs){
-    double a = xs[0];
-    double b = 0;
-    for (int i = 1; i < xs.size(); i += 2) {
-        b -= xs[i] / pow(xs[i-1], i/2);
+#include <vector>
+#include <cmath>
+
+double poly(const std::vector<double>& xs, double x) {
+    double result = xs[0] + xs[1] * x;
+    return result;
+}
+
+double find_zero(std::vector<double> xs){
+    if (xs.size() != 2) {
+        return -1.0; 
     }
-    return -b / a;
+    
+    double sum = 0;
+    double root = -xs[1]/(2*xs[0]);
+    
+    if (poly(xs,root) < 0)
+        return root;
+    else
+        return -1.0; 
 }
