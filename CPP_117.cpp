@@ -45,3 +45,4 @@ int main() {
     vector<pair<int, string>> output = select_words("a b c d e f", 1);
     assert(issame(output, expected));
     return 0;
+}
