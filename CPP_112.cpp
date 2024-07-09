@@ -1,12 +1,16 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
 
-bool issame(const std::string& s1, const std::string& s2) {
-    return s1 == s2;
+bool isSame(const std::string& s1, const std::string& s2) {
+    if (s1.length() != s2.length()) return false;
+    for (int i = 0; i < s1.length(); ++i) {
+        if (s1[i] != s2[i]) return false;
+    }
+    return true;
 }
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
     std::string result = "";
     for (char ch : s) {
         bool found = false;
@@ -22,22 +26,10 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     }
     std::string reversed = result;
     std::reverse(reversed.begin(), reversed.end());
-    return {result, (reversed == result ? "True" : "False")};
+    return {result, (isSame(result, reversed) ? "True" : "False")};
 }
 
 int main() {
-    std::string str1 = "hello";
-    std::string str2 = "olleh";
-    bool b = issame(str1, str2);
-    if(b) {
-        std::cout << "Strings are same." << std::endl;
-    } else {
-        std::cout << "Strings are not same." << std::endl;
-    }
-    
-    std::vector<std::string> res = reverse_delete("hello", "o");
-    for(auto s : res) {
-        std::cout << s << std::endl;
-    }
+    std::cout << reverse_delete("hello", "lo").at(1) << std::endl;
     return 0;
 }
