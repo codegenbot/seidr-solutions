@@ -1,7 +1,7 @@
 #include <string>
 #include <cassert>
 
-std::string make_palindrome(std::string str){
+std::string make_palindrome(std::string str) {
     std::string rev_str(str.rbegin(), str.rend());
     std::string palindrome = str;
     for (int i = 0; i < str.length(); ++i) {
@@ -13,7 +13,7 @@ std::string make_palindrome(std::string str){
     return palindrome;
 }
 
-int main(){
+int main() {
     assert(make_palindrome("jerry") == "jerryrrej");
     return 0;
 }
