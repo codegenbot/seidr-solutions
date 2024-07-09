@@ -1,4 +1,6 @@
-def find_min_difference(numbers):
+from typing import List, Tuple
+
+def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     numbers.sort()
     min_diff = float("inf")
     result = ()
@@ -8,11 +10,3 @@ def find_min_difference(numbers):
             min_diff = diff
             result = (numbers[i], numbers[i + 1])
     return result
-
-# Get user input
-user_input = input().split()
-numbers = [int(num) for num in user_input]
-
-# Call the function with user input
-output = find_min_difference(numbers)
-output
