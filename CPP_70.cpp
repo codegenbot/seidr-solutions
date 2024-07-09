@@ -13,25 +13,29 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
         int min_val = *std::min_element(lst.begin(), lst.end());
         result.push_back(min_val);
 
-        auto temp_lst_copy = lst; 
-        auto it = temp_lst_copy.begin();
-        while (it != temp_lst_copy.end()) {
+        auto temp_lst = lst; 
+        auto it = temp_lst.begin();
+        while (it != temp_lst.end()) {
             if (*it == min_val) {
-                lst.erase(it);
+                it = temp_lst.erase(it);
+                if (it != temp_lst.end())
+                    ++it;
                 break;
             } else {
                 ++it;
             }
         }
 
-        if (!lst.empty()) {
-            int max_val = *std::max_element(lst.begin(), lst.end());
+        if (!temp_lst.empty()) {
+            int max_val = *std::max_element(temp_lst.begin(), temp_lst.end());
             result.push_back(max_val);
 
-            auto it2 = lst.begin();
-            while (it2 != lst.end()) {
+            auto it2 = temp_lst.begin();
+            while (it2 != temp_lst.end()) {
                 if (*it2 == max_val) {
-                    lst.erase(it2);
+                    it2 = temp_lst.erase(it2);
+                    if (it2 != temp_lst.end())
+                        ++it2;
                     break;
                 } else {
                     ++it2;
