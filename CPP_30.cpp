@@ -1,11 +1,12 @@
-#include <vector>
+```
 #include <iostream>
+#include <vector>
 
 bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -13,12 +14,21 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
+vector<float> get_positive(vector<float> l) {
+    vector<float> result;
     for (float x : l) {
         if (x > 0) {
             result.push_back(x);
         }
     }
     return result;
+}
+
+int main() {
+    std::vector<float> v1 = { -2.0f, 3.0f, -4.0f, 5.0f };
+    vector<float> res = get_positive(v1);
+    for (float x : res) {
+        std::cout << x << " ";
+    }
+    return 0;
 }
