@@ -2,16 +2,14 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b){
+	return a == b;
 }
 
 std::vector<int> unique_digits(std::vector<int> a) {
     std::vector<int> result = a;
-    for (int &num : result) {
-        std::sort(std::begin(result), std::end(result));
-        result.erase(std::unique(std::begin(result), std::end(result)), std::end(result));
-    }
+    std::sort(result.begin(), result.end());
+    result.erase(std::unique(result.begin(), result.end()), result.end());
     return result;
 }
 
