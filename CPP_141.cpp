@@ -1,28 +1,26 @@
-Here is the completed code:
+#include <cctype>
+using namespace std;
 
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool has_dot = false;
-    string before_dot;
+string file_name_check(string file_name) {
+    int digitCount = 0, dotCount = 0;
+    bool valid = true;
 
-    for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-            if(digit_count > 3) return "No";
-        }
-        else if(file_name[i] == '.'){
-            has_dot = true;
-            break;
-        }
-        else{
-            before_dot += file_name[i];
-        }
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digitCount++;
+            if (digitCount > 3)
+                return "No";
+        } else if (c == '.') {
+            dotCount++;
+            if (dotCount > 1)
+                return "No";
+        } else if (!isalpha(c) && !isspace(c))
+            valid = false;
     }
 
-    if(!has_dot || before_dot.empty() || !isalpha(before_dot[0])) return "No";
-
-    string after_dot = file_name.substr(file_name.find('.')+1);
-    if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll") return "No";
+    if (!valid || file_name.find(".txt") == string::npos &&
+       file_name.find(".exe") == string::npos && file_name.find(".dll") == string::npos)
+        return "No";
 
     return "Yes";
 }
