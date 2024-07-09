@@ -1,39 +1,35 @@
 #include <string>
-#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    string word;
-    
-    for (char c : str) {
-        if (c == ' ') {
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
             if (word.length() >= 5) {
-                for (int i = word.length() - 1; i >= 0; --i)
-                    result += word[i];
-            } else
                 result += word;
-            word = "";
+                word = std::string(word.rbegin(), word.rend());
+                result += " ";
+                word = "";
+            } else {
+                result += word;
+                result += " ";
+                word = "";
+            }
         } else {
-            word += c;
+            word += str[i];
         }
     }
-    
-    if (word.length() >= 5) {
-        for (int i = word.length() - 1; i >= 0; --i)
-            result += word[i];
-    } else
-        result += word;
-    
-    return result;
-}
 
-int main() {
-    string str;
-    cout << "Enter a string of one or more words (separated by spaces): ";
-    cin >> str;
-    string result = spinWords(str);
-    cout << "Result: " << result << endl;
-    return 0;
+    if (word.length() >= 5) {
+        result += word;
+        word = std::string(word.rbegin(), word.rend());
+    } else {
+        result += word;
+    }
+
+    return result;
 }
