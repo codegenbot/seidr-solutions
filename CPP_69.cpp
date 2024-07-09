@@ -1,5 +1,9 @@
-int search(vector<int> lst) {
-    map<int, int> freqMap;
+#include <iostream>
+#include <vector>
+#include <map>
+
+int search(std::vector<int> lst) {
+    std::map<int, int> freqMap;
     for (int num : lst) {
         if (freqMap.find(num) == freqMap.end()) {
             freqMap[num] = 1;
