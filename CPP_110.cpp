@@ -1,16 +1,12 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
 string exchange(vector<int> lst1, vector<int> lst2) {
+    int oddCount = 0;
     for (int num : lst1) {
-        if (num % 2 != 0) {
-            int found = 0;
-            for (int num2 : lst2) {
-                if (num2 % 2 == 0 && num2 != num) {
-                    swap(lst1[find(lst1.begin(), lst1.end(), num)], num2);
-                    found = 1;
-                    break;
-                }
-            }
-            if (!found) return "NO";
-        }
+        if (num % 2 != 0)
+            oddCount++;
     }
-    return "YES";
+    return to_string(oddCount) == "0" ? "YES" : "NO";
 }
