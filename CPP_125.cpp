@@ -3,11 +3,10 @@
 #include <string>
 #include <cctype>
 #include <cassert>
-#include <cstring>
 
-std::vector<std::basic_string<char>> split_words(std::basic_string<char> txt) {
-    std::vector<std::basic_string<char>> words;
-    std::basic_string<char> word;
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> words;
+    std::string word;
     for (char& c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -33,13 +32,13 @@ std::vector<std::basic_string<char>> split_words(std::basic_string<char> txt) {
     return words;
 }
 
-bool issame(const std::vector<std::basic_string<char>>& a, const std::vector<std::basic_string<char>>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
 
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i].compare(b[i]) != 0) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
