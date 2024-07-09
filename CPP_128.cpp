@@ -1,18 +1,15 @@
-int prod_signs(vector<int> arr) {
-    int sign_product = 1;
-    long long sum_magnitudes = 0;
+#include <vector>
+#include <algorithm>
 
+int prod_signs(std::vector<int> arr) {
+    if (arr.empty()) return -32768;
+    int product = 1;
     for (int num : arr) {
-        if (num == 0) {
-            return 0; // If zero found, product of signs will be zero
-        }
-        sign_product *= ((num > 0) ? 1 : -1);
-        sum_magnitudes += abs(num);
+        product *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
     }
-
-    if (arr.empty()) {
-        return INT_MIN;
+    int sum = 0;
+    for (int num : arr) {
+        sum += abs(num);
     }
-
-    return static_cast<int>(sum_magnitudes * sign_product);
+    return product * sum;
 }
