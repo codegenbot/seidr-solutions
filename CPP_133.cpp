@@ -5,8 +5,11 @@
 int sum_squares(float arr[], int n){
     int total = 0;
     for(int i=0; i<n; i++){
-        int ceil_x = std::ceil(arr[i]);
-        total += std::pow(ceil_x,2);
+        float x = arr[i];
+        if(x >= 0) {
+            int ceil_x = std::ceil(x);
+            total += std::pow(ceil_x,2);
+        }
     }
     return total;
 }
