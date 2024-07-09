@@ -1,2 +1,1 @@
-print("Enter the value for n:")
-n = int(input())
+n = int(input().strip())
