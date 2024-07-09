@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <bitset>
-#include <cassert>
 
 std::string solve(int N) {
     int sum = 0;
@@ -12,4 +11,13 @@ std::string solve(int N) {
     return std::bitset<32>(sum).to_string().substr(32 - sum);
 }
 
-assert(solve(963) == "10010");
+int main() {
+    std::string result = solve(963);
+    if (result == "10010") {
+        std::cout << "Test Passed!" << std::endl;
+    } else {
+        std::cout << "Test Failed!" << std::endl;
+    }
+
+    return 0;
+}
