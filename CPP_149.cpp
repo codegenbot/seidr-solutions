@@ -1,4 +1,7 @@
-vector<string> sorted_list_sum(vector<string> lst) {
+#include <vector>
+#include <algorithm>
+
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     auto it = unique(lst.begin(), lst.end(),
         [](const string& a, const string& b) { return (a.size() % 2 == 1 && b.size() % 2 == 0) || (a.size() % 2 == 0 && b.size() % 2 == 1); });
     lst.erase(it, lst.end());
@@ -8,3 +11,4 @@ vector<string> sorted_list_sum(vector<string> lst) {
             return a < b;
         });
     return lst;
+}
