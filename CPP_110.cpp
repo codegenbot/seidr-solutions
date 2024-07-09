@@ -1,20 +1,18 @@
+bool hasOdd(int x) {
+    return (x & 1);
+}
+
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int evenCount = 0;
-    for (int num : lst1) {
-        if (num % 2 == 0)
-            evenCount++;
-    }
-    if (evenCount == lst1.size())
-        return "YES";
-    else {
-        bool possible = false;
-        for (int num : lst2) {
-            if (num % 2 == 0 && !possible) {
-                possible = true;
-            } else if (num % 2 != 0 && possible) {
-                possible = false;
-            }
+    int oddCount = 0;
+    for (int x : lst1) {
+        if (hasOdd(x)) {
+            oddCount++;
         }
-        return possible ? "YES" : "NO";
+    }
+
+    if (oddCount > (lst2.size() / 2)) {
+        return "NO";
+    } else {
+        return "YES";
     }
 }
