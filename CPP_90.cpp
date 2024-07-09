@@ -1,14 +1,13 @@
-Here is the solution:
+Here is the completed code:
 
-vector<int> result = {lst[0]};
-
-for(int i=1; i<lst.size(); i++){
-    if(lst[i] < result[0]){
-        result.clear();
-        result.push_back(lst[i]);
-        result.push_back(result[0]);
+int next_smallest(vector<int> lst) {
+    if (lst.empty()) return -1; // or any other value that represents None
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for (int i = 0; i < sorted.size() - 1; i++) {
+        if (sorted[i] != sorted[i + 1]) {
+            return sorted[i + 1];
+        }
     }
+    return -1; // or any other value that represents None
 }
-
-if(result.size() == 1) return nullptr;
-return result[1];
