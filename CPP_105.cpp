@@ -1,38 +1,39 @@
-```
 vector<string> by_length(vector<int> arr) {
     vector<string> result;
     for (int i : arr) {
-        string str;
-        switch (i) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
+        if (i >= 1 && i <= 9) {
+            string numStr = "";
+            switch (i) {
+                case 1:
+                    numStr = "One";
+                    break;
+                case 2:
+                    numStr = "Two";
+                    break;
+                case 3:
+                    numStr = "Three";
+                    break;
+                case 4:
+                    numStr = "Four";
+                    break;
+                case 5:
+                    numStr = "Five";
+                    break;
+                case 6:
+                    numStr = "Six";
+                    break;
+                case 7:
+                    numStr = "Seven";
+                    break;
+                case 8:
+                    numStr = "Eight";
+                    break;
+                case 9:
+                    numStr = "Nine";
+                    break;
+            }
+            result.push_back(numStr);
         }
-        result.push_back(str);
     }
     return result;
 }
