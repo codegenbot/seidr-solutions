@@ -20,5 +20,5 @@ double find_zero(vector<double> xs){
     {
         x+=0.1;
     }
-    return (int)(x*100 + 0.5))/100.0;
+    std::fixed; std::cout << std::setprecision(2) << x << endl;
 }
