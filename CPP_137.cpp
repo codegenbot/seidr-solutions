@@ -1,31 +1,55 @@
-#include <string>
-#include <algorithm>
 #include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
+using namespace boost;
 
-using namespace std;
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any(b);
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return boost::any(a);
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-        if (stod(strA) > stod(strB))
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return b;
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (lexical_cast<double>(any_cast<string>(a)) > lexical_cast<double>(any_cast<string>(b))) {
             return a;
-        else if (stod(strA) < stod(strB))
+        }
+        else if (lexical_cast<double>(any_cast<string>(a)) < lexical_cast<double>(any_cast<string>(b))) {
             return b;
-        else
+        }
+        else {
             return boost::any("None");
-    } else {
-        double numA = boost::any_cast<double>(a);
-        double numB = boost::any_cast<double>(b);
-        if (numA > numB)
+        }
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        if (lexical_cast<double>(any_cast<string>(a)) > b) {
             return a;
-        else if (numA < numB)
-            return b;
-        else
+        }
+        else if (lexical_cast<double>(any_cast<string>(a)) < b) {
+            return boost::any(b);
+        }
+        else {
             return boost::any("None");
+        }
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        if (a > lexical_cast<double>(any_cast<string>(b))) {
+            return a;
+        }
+        else if (a < lexical_cast<double>(any_cast<string>(b))) {
+            return boost::any(b);
+        }
+        else {
+            return boost::any("None");
+        }
+    }
+    else {
+        if (a.convert_to<double>() > b.convert_to<double>()) {
+            return a;
+        }
+        else if (a.convert_to<double>() < b.convert_to<double>()) {
+            return b;
+        }
+        else {
+            return boost::any("None");
+        }
     }
 }
