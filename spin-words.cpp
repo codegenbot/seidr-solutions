@@ -1,4 +1,5 @@
-```#include <algorithm>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 string spinWords(string s) {
@@ -24,3 +25,4 @@ string spinWords(string s) {
     result += tempWord;
     
     return result;
+}
