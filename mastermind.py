@@ -1,4 +1,3 @@
-```
 def mastermind(code, guess):
     white = 0
     black = 0
