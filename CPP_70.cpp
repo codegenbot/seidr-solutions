@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -17,8 +16,18 @@ std::vector<std::vector<int>> strange_sort_list(std::vector<int> num) {
     std::vector<std::vector<int>> result;
     while (!num.empty()) {
         int min_val = *std::min_element(num.begin(), num.end());
+        int val;
+        bool found = false;
         for (int i = 0; i < num.size(); i++) {
-            if (*std::min_element(&num[i], &num[i] + 1) == min_val) {
+            val = *std::min_element(num.begin() + i, num.end());
+            if (val == min_val) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) return {};
+        for (int i = 0; i < num.size(); i++) {
+            if (*std::min_element(&num[i], num.end()) == min_val) {
                 std::vector<int> temp(num.begin(), num.end());
                 result.push_back(temp);
                 num.erase(std::remove(num.begin(), num.end(), *result.rbegin()), num.end());
@@ -30,10 +39,10 @@ std::vector<std::vector<int>> strange_sort_list(std::vector<int> num) {
 }
 
 int main() {
-    int n = 6; // or whatever your desired number of elements in the vector is
-    std::vector<int> vec(n); // initialize the vector with n elements
+    int n = 6; 
+    std::vector<int> vec(n); 
     for (int i = 0; i < n; i++) {
-        vec[i] = i + 1; // fill the vector with numbers from 1 to n
+        vec[i] = i + 1; 
     }
     assert(issame(std::vector<std::vector<int>>{{vec.begin(), vec.end()}}, {{vec.begin(), vec.end()}}));
     return 0;
