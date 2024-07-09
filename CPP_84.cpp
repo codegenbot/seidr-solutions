@@ -1,4 +1,3 @@
-```c++
 #include <cassert>
 #include <string>
 #include <stdexcept>
@@ -13,4 +12,9 @@ long long solve(int n) {
         n /= 2;
     }
     return binary.length() == 0 ? -1 : std::stoi(binary, 0, 2);
+}
+
+int main() {
+    assert(solve(963) == 18); 
+    return 0;
 }
