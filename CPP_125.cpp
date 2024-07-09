@@ -1,9 +1,14 @@
 #include <vector>
 #include <string>
 
-vector<string> split_words(string txt) {
-    vector<string> result;
-    string word = "";
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+    return a == b;
+}
+
+std::vector<std::string> split_words(const std::string& txt) {
+    std::vector<std::string> result;
+    std::string word = "";
+
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -24,17 +29,14 @@ vector<string> split_words(string txt) {
                 count++;
             }
         }
-        result[0] = to_string(count);
+        result[0] = std::to_string(count);
     }
+
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(split_words(""), {"0"}));
-    // Add more test cases here
+    assert(issame(split_words(""), {"0}));
+
     return 0;
 }
