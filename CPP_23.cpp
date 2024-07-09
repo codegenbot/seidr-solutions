@@ -1,4 +1,4 @@
-```c++
+```
 #include <string>
 
 int str_length(string str){
