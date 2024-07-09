@@ -27,7 +27,7 @@ auto compare_one(const variant<int, float, string>& a, const variant<int, float,
 }
 
 int main() {
-    assert(get<string>(compare_one(string("1"), string("2"))) == "2"); // Test case for comparing two strings
+    assert(get<string>(compare_one(string("1"), string("2"))) == string("2")); // Test case for comparing two strings
     assert(get<int>(compare_one(10, 5)) == 10); // Test case for comparing two integers
     assert(get<float>(compare_one(3.14f, 2.718f)) == 3.14f); // Test case for comparing two floats
 
