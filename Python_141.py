@@ -1,13 +1,12 @@
 ```
 def file_name_check(file_name):
-    if len([c for c in file_name if c.isdigit()]) > 3:
+    if len([i for i in file_name if i.isdigit()]) > 3:
         return 'No'
     if file_name.count('.') != 1:
         return 'No'
-    prefix, suffix = file_name.rsplit('.', 1)
-    if not prefix or not prefix[0].isalpha():
+    name_parts = file_name.split('.')
+    if not name_parts[0][0].isalpha():
         return 'No'
-    allowed_suffixes = ['txt', 'exe', 'dll']
-    if suffix not in allowed_suffixes:
+    if name_parts[-1] not in ['txt', 'exe', 'dll']:
         return 'No'
     return 'Yes'
