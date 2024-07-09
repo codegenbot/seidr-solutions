@@ -24,7 +24,7 @@ vector<string> bf(string planet1, string planet2) {
     }
     
     vector<string> result;
-    for (int i = start + 1; i < end; ++i) {
+    for (int i = start + 1; i <= end; ++i) {
         result.push_back(planets[i]);
     }
     
