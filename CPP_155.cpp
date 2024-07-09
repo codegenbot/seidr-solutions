@@ -1,20 +1,29 @@
-```cpp
 #include <vector>
-using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    return (a[0] == b[0]) && (a[1] == b[1]);
+    return (a == b);
 }
 
 vector<int> even_odd_count(int num) {
-    vector<int> result(2);
+    vector<int> result;
+    int count_even = 0;
+    int count_odd = 0;
+
+    if (num < 0)
+        num = -num;
+
     while (num != 0) {
         int digit = num % 10;
         if (digit % 2 == 0)
-            result[0]++;
+            count_even++;
         else
-            result[1]++;
+            count_odd++;
+
         num /= 10;
     }
+
+    result.push_back(count_even);
+    result.push_back(count_odd);
+
     return result;
 }
