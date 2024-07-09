@@ -1,6 +1,6 @@
-Here is the modified code without the triple backticks at the beginning and end of the function definition:
+Here is the modified code:
 
-```
+```python
 def bowling_score(frames):
     score = 0
     for frame in frames.split('/'):
