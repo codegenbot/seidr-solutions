@@ -1,4 +1,11 @@
+```cpp
 #include <string>
+
+int main() {
+    std::string s = "test"; // input string
+    std::cout << middleCharacter(s) << std::endl; 
+    return 0;
+}
 
 std::string middleCharacter(std::string s) {
     int len = s.length();
