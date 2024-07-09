@@ -1,9 +1,4 @@
 #include <vector>
-#include <cassert>
-
-std::vector<int> tri(int x) {
-    return {x, 3};
-}
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -11,6 +6,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     assert(issame(tri(1), {1, 3}));
-
-    return 0;
 }
