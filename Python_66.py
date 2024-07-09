@@ -1,6 +1,4 @@
-def digitSum(s):
-    total_sum = 0
-    for char in s:
-        if char.isdigit():
-            total_sum += int(char)
+def digitSum(n):
+    s = str(n)
+    total_sum = sum(int(digit) for digit in s if digit.isdigit())
     return total_sum
