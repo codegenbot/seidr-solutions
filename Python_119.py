@@ -1,3 +1,6 @@
+Here is the solution:
+
+```python
 def match_parens(lst):
     stack = []
     for s in lst:
