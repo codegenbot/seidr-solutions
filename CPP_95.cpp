@@ -1,20 +1,21 @@
-Here is the solution:
+#include <iostream>
+#include <map>
+#include <string>
 
-bool check_dict_case(map<string, string> dict) {
-    if (dict.empty()) return false;
+using namespace std;
 
-    bool allLower = true;
-    bool allUpper = true;
-
-    for (auto& pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            allLower = false;
-            allUpper = false;
-            break;
-        } else if (!allLower && !allUpper) continue;
-        else if (!allLower) allUpper = true;
-        else allLower &= islower(pair.first[0]);
+bool check_dict_case(map<string,string> dict){
+    if(dict.empty()) return false;
+    
+    string first_key = *(dict.begin()->first);
+    
+    for(auto it = dict.begin(); it != dict.end(); ++it){
+        if(toupper(first_key) != toupper(it->first)) return false;
     }
+    
+    return true;
+}
 
-    return allLower || allUpper;
+int main() {
+    // Your code here
 }
