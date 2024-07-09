@@ -6,12 +6,12 @@ using namespace std;
 vector<int> factorize(int n);
 bool issame(vector<int> a, vector<int> b);
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
@@ -32,12 +32,14 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> result = factorize(n);
-    for (int num : result) {
-        cout << num << " ";
+int main(){
+    int num;
+    cout << "Enter a number to factorize: ";
+    cin >> num;
+    vector<int> factors = factorize(num);
+    for(int factor : factors){
+        cout << factor << " ";
     }
+    cout << endl;
     return 0;
 }
