@@ -14,6 +14,4 @@ int car_race_collision(string s) {
 
 }
 
-cin >> s;
-cout << "Number of collisions: " << car_race_collision(s) << endl;
-return 0;
+cin.get();
