@@ -1,10 +1,5 @@
-```cpp
 #include <vector>
-#include <cmath>
-
-bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
+#include <iostream>
 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> result(2, 0);
