@@ -1,7 +1,8 @@
+```cpp
 #include <map>
 #include <string>
 
-bool same(const std::map<char, int>& a, const std::map<char, int>& b) {
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     if (a.size() != b.size()) return false;
     for (const auto& p : a) {
         if (!b.count(p.first) || b.at(p.first) != p.second) return false;
@@ -10,7 +11,7 @@ bool same(const std::map<char, int>& a, const std::map<char, int>& b) {
 }
 
 int main() {
-    assert(same(histogram("a"), {{'a', 1}}));
+    assert(issame(histogram("a"), {{'a', 1}}));
     return 0;
 }
 
