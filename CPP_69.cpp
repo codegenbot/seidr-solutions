@@ -9,7 +9,7 @@ int search(std::vector<int> lst) {
     }
     int prev = -1; 
     for (auto p = freq.begin(); p != freq.end(); ++p) {
-        if (p->second >= p->first && (p == freq.begin() || p->first > prev)) { 
+        if (p->second >= p->first && p->first > prev) { 
             return p->first;
         }
         prev = p->first; 
