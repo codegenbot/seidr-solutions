@@ -6,44 +6,45 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<vector<string>> by_length(vector<int> arr) {
-    vector<string> num;
+    vector<vector<string>> result;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
+            string num;
             switch (i) {
                 case 1:
-                    num.push_back("One");
+                    num = "One";
                     break;
                 case 2:
-                    num.push_back("Two");
+                    num = "Two";
                     break;
                 case 3:
-                    num.push_back("Three");
+                    num = "Three";
                     break;
                 case 4:
-                    num.push_back("Four");
+                    num = "Four";
                     break;
                 case 5:
-                    num.push_back("Five");
+                    num = "Five";
                     break;
                 case 6:
-                    num.push_back("Six");
+                    num = "Six";
                     break;
                 case 7:
-                    num.push_back("Seven");
+                    num = "Seven";
                     break;
                 case 8:
-                    num.push_back("Eight");
+                    num = "Eight";
                     break;
                 case 9:
-                    num.push_back("Nine");
+                    num = "Nine";
                     break;
             }
-        } 
-    }
-
-    vector<vector<string>> result;
-    for (int i = 0; i < arr.size(); i++) {
-        if (i > 0) result.push_back(num);
+            if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8) {
+                result.push_back({num});
+            } else {
+                result.push_back({num, num});
+            }
+        }
     }
     return result;
 }
