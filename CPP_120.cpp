@@ -1,8 +1,12 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 bool issame(int x, int y) {
-    return x == y;
+    if(x == y)
+        return true;
+    else
+        return false;
 }
 
 vector<int> maximum(vector<int> arr,int k){
