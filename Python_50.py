@@ -11,14 +11,11 @@ def decode_shift():
             print("Invalid input! Please enter a number. Try again.")
 
     while True:
-        try:
-            s = input("Enter the encoded string: ")
-            if all(c.isalpha() or c.isspace() for c in s):
-                break
-            else:
-                print("Invalid input! String should only contain alphabets and spaces. Try again.")
-        except ValueError:
-            pass
+        s = input("Enter the encoded string: ")
+        if all(c.isalpha() or c.isspace() for c in s):
+            break
+        else:
+            print("Invalid input! String should only contain alphabets and spaces. Try again.")
 
     decoded_s = ""
     for ch in s:
