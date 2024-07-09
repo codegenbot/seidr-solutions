@@ -1,19 +1,19 @@
-int minPath(vector<vector<int>>& grid, int k){
-    int m = grid.size();
-    if(m == 0) return -1; // grid is empty
+#include <iostream>
+#include <vector>
+#include <cassert>
 
-    int n = grid[0].size();
-    if(n == 0) return -1; // grid is empty
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
-    vector<vector<int>> dp(m, vector<int>(n, INT_MAX));
-    dp[0][0] = grid[0][0];
-
-    for(int i = 0; i < m; ++i){
-        for(int j = 0; j < n; ++j){
-            if(i > 0) dp[i][j] = min(dp[i][j], dp[i - 1][j] + grid[i][j]);
-            if(j > 0) dp[i][j] = min(dp[i][j], dp[i][j - 1] + grid[i][j]);
-        }
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
+    std::vector<int> path;
+    for (int i = 0; i < k; ++i) {
+        path.push_back(grid[i % grid.size()][i % grid[0].size()]);
     }
+    return path;
+}
 
-    return dp[m - 1][n - 1] <= k ? dp[m - 1][n - 1] : -1;
+void main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
 }
