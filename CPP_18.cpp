@@ -17,7 +17,7 @@ int how_many_times(const string& str, const string& substring) {
 
 }
 
-int main() {
+int initialMain() {
     string str, substring;
     cout << "Enter a string: ";
     getline(cin, str);
