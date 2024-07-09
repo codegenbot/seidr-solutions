@@ -4,7 +4,7 @@ def double_the_difference(lst):
     return 2 * odd_sum - sum(lst)
 
 def check(func):
-    test_cases = [([1, 3, 5], 2)]
+    test_cases = [(1, 3, 5), (4,)]
     for i, (input, output) in enumerate(test_cases):
         result = func(input)
         if result == output:
