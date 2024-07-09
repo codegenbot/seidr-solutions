@@ -1,5 +1,5 @@
 ```
-def parse_music(music_string: str) -> list[int]:
+def parse_music(music_string: str) -> List[int]:
     notes = {'o': 4, 'o|': 2, '.|': 1}
     result = []
     i = 0
