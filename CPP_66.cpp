@@ -39,6 +39,6 @@ string join(const vector<string>& v, char sep) {
 }
 
 string main() {
-    cout << to_string(digitSum("you are very smart")) << endl;
+    cout << digitSum("you are very smart") << endl;
     return "0";
 }
