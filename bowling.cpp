@@ -1,9 +1,7 @@
 ```cpp
-#include <sstream>
-
 int bowlingScore(std::string s) {
     int score = 0;
-    std::istringstream iss(stringToCharArray(s));
+    std::istringstream iss(s);
     char c;
 
     int currentRoll1 = 0;
@@ -52,12 +50,6 @@ int bowlingScore(std::string s) {
     }
 
     return score;
-}
-
-char* stringToCharArray(const std::string& str) {
-    char* c_str = new char[str.length() + 1];
-    strcpy(c_str, str.c_str());
-    return c_str;
 }
 
 int main() {
