@@ -3,6 +3,8 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <openssl/ssl.h>
+#include <openssl/crypto.h>
 #include <openssl/evp.h>
 #include <openssl/md5.h>
 
@@ -19,7 +21,7 @@ string string_to_md5(string text) {
 
     EVP_DigestUpdate(&md, (unsigned char*)text.c_str(), text.size());
     unsigned char *digest = (unsigned char *)OPENSSL_malloc(MD5_DIGEST_LENGTH);
-    EVP_DigestFinal_ex(&md, digest, NULL);
+    EVP_DigestFinal_CTX(&md, digest, NULL);
 
     stringstream ss;
     for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
