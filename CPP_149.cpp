@@ -1,7 +1,7 @@
 vector<string> sorted_list_sum(vector<string> lst) {
     auto it = lst.begin();
     while (it != lst.end()) {
-        if (it->length() % 2 != 0) {
+        if (stoi(it->back()) % 2 != 0) {
             it = lst.erase(it);
             if (it == lst.end())
                 break;
@@ -10,8 +10,8 @@ vector<string> sorted_list_sum(vector<string> lst) {
     }
     std::sort(lst.begin(), lst.end(),
           [](const string& a, const string& b) {
-              if (a.length() == b.length())
+              if (stoi(a.back()) == stoi(b.back()))
                   return a < b;
-              return a.length() < b.length();
+              return stoi(a.back()) < stoi(b.back());
           });
     return lst;
