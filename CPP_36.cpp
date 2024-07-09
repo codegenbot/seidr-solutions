@@ -2,6 +2,8 @@
 #include <iostream>
 using namespace std;
 
+int fizz_buzz(int n);
+
 int main() {
     int n;
     cout << "Enter a number: ";
