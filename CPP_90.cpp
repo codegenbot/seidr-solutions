@@ -1,10 +1,8 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
-#include <cassert>
+using namespace std;
 
-int next_smallest(std::vector<int> lst) {
-    std::sort(lst.begin(), lst.end());
+int next_smallest(vector<int> lst) {
+    sort(lst.begin(), lst.end());
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] != lst[0]) return lst[i];
     }
