@@ -35,9 +35,7 @@ int main() {
         cout << gcd(a, b) << endl;
     } else if (choice == 2) {
         string text, target;
-        cin.ignore();
-        getline(cin, text);
-        getline(cin, target);
+        cin >> text >> target;
         vector<int> result = findIndicesOfSubstring(text, target);
         for (int index : result) {
             cout << index << " ";
