@@ -5,11 +5,11 @@ bool issame(int a, int b) {
     return a == b;
 }
 
-std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    std::vector<int> result;
+vector<int> strange_sort_vector(vector<int> lst) {
+    vector<int> result;
     while (!lst.empty()) {
-        auto minVal = *std::min_element(lst.begin(), lst.end());
-        auto maxVal = *std::max_element(lst.begin(), lst.end());
+        int minVal = *min_element(lst.begin(), lst.end());
+        int maxVal = *max_element(lst.begin(), lst.end());
         if (issame(minVal, maxVal)) {
             result.push_back(minVal);
             lst.erase(std::remove(lst.begin(), lst.end(), minVal), lst.end());
