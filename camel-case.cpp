@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <limits>
 #include <cctype>
 
 std::string kebabToCamel(const std::string& s) {
@@ -10,7 +8,14 @@ std::string kebabToCamel(const std::string& s) {
 
     for (char c : s) {
         if (c == '-') {
-            capitalize = true;
+            if (capitalize) {
+                result += toupper(s[0]);
+                capitalize = false;
+                s.erase(0, 1);
+            }
+            while (s.size() > 0 && s[0] == '-') {
+                s.erase(0, 1);
+            }
         } else if (capitalize) {
             result += toupper(c);
             capitalize = false;
@@ -19,7 +24,7 @@ std::string kebabToCamel(const std::string& s) {
         }
     }
 
-    return result;
+    return result + (s.size() > 0 ? " " + s : "");
 }
 
 int main() {
