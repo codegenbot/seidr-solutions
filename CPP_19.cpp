@@ -1,50 +1,31 @@
-#include<stdio.h>
-#include<string>
-#include<map>
-using namespace std;
+#include <algorithm>
 
 string sort_numbers(string numbers) {
-    map<string, int> numMap;
-    for (int i = 0; i < 10; ++i) {
-        switch(i) {
-            case 0: numMap["zero"] = i; break;
-            case 1: numMap["one"] = i; break;
-            case 2: numMap["two"] = i; break;
-            case 3: numMap["three"] = i; break;
-            case 4: numMap["four"] = i; break;
-            case 5: numMap["five"] = i; break;
-            case 6: numMap["six"] = i; break;
-            case 7: numMap["seven"] = i; break;
-            case 8: numMap["eight"] = i; break;
-            case 9: numMap["nine"] = i; break;
-        }
-    }
+    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                {"eight", 8}, {"nine", 9}};
 
-    vector<string> sortedNums;
+    vector<string> numVec;
     string temp;
-    for (int i = 0; i < numbers.length(); ++i) {
+
+    for (int i = 0; i < numbers.length(); i++) {
         if (numbers[i] == ' ') {
             continue;
-        } else {
-            for (auto it = numMap.begin(); it != numMap.end(); ++it) {
-                if (numbers.substr(i, it->first.length()).compare(it->first) == 0) {
-                    sortedNums.push_back(temp + it->first);
-                    i += it->first.length() - 1;
-                    temp = "";
-                    break;
-                }
-            }
+        }
+        temp += numbers[i];
+        if (i == numbers.length() - 1 || numbers[i + 1] != ' ') {
+            numVec.push_back(temp);
+            temp = "";
         }
     }
+
+    sort(numVec.begin(), numVec.end(), [&numMap](string a, string b) {
+        return numMap[a] < numMap[b];
+    });
 
     string result;
-    for (int i = 0; i < sortedNums.size(); ++i) {
-        if (i == 0) {
-            result = sortedNums[i];
-        } else {
-            result += " " + sortedNums[i];
-        }
+    for (auto &num : numVec) {
+        result += num + " ";
     }
-
-    return result;
+    return result.substr(0, result.length() - 1);
 }
