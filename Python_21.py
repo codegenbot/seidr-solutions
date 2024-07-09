@@ -1,4 +1,4 @@
-````
+```
 from typing import List
 
 
@@ -19,5 +19,5 @@ def rescale_to_unit() -> List[float]:
 
 
 print('''''')
+print("Enter a list of floating point numbers separated by space, and the function will rescale them to have values between 0 and 1.")
 print(rescale_to_unit())
-```
