@@ -14,7 +14,7 @@ std::string special_factorial(int n) {
             mul_result *= j;
 
         if(i > 1) 
-            result = std::to_string(mul_result);
+            result += " * " + std::to_string(mul_result);
         else
             result = std::to_string(mul_result);
     }
