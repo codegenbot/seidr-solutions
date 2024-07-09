@@ -7,12 +7,12 @@
 std::vector<std::string> split(const std::string& str, char c) {
     std::vector<std::string> words;
     std::string word;
-    for (int i = 0; i <= str.length(); i++) {
+    for (int i = 0; i < str.length(); i++) {
         if (i == str.length() || str[i] == c) {
             if (i < str.length()) {
                 word += str[i];
             }
-            if (!word.empty() && i < str.length()) {
+            if (!word.empty()) {
                 words.push_back(word);
                 word.clear();
             }
