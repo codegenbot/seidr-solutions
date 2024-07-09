@@ -1,8 +1,8 @@
 using namespace std;
 
-myVector<myVector<int>> cutVector(myVector<int> v) {
+vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    myVector<myVector<int>> res(2);
+    vector<vector<int>> res(2);
     
     res[0].resize(0);
     res[1].resize(0);
