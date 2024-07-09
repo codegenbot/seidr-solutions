@@ -1,4 +1,3 @@
-#include <boost/any.hpp>
 #include <iostream>
 #include <string>
 
@@ -20,8 +19,6 @@ int main() {
     else {
         cout << "Both numbers are equal." << endl;
     }
-
-    boost::any compare_one(boost::any_cast<string>(to_string(a)), 1); 
 
     return 0;
 }
