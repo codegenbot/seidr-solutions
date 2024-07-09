@@ -11,11 +11,7 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     int result = starts_one_ends(n);
-    string output;
-    std::ostringstream oss;
-    oss << "Numbers of " << n << "-digit positive integers that start or end with 1: " << result;
-    output = oss.str();
-    cout << output << endl;
+    cout << "Numbers of " << n << "-digit positive integers that start or end with 1: " << result << endl;
     return 0;
 }
 

@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -12,12 +11,13 @@ bool is_happy(const std::string& s) {
         char c1 = s[i];
         char c2 = s[i + 1];
         char c3 = s[i + 2];
-        while(i+3 < s.length()) {
-            if (s[i] == c1 || s[i] == c2 || s[i] == c3) {
+        auto it = s.begin() + i; // create a string iterator
+        while(it + 3 <= s.end()) {
+            if (*it == c1 || *(it+1) == c2 || *(it+2) == c3) {
                 unique = false;
                 break;
             }
-            i++;
+            it += 3;
         }
         if (!unique)
             return false;
