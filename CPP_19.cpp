@@ -1,13 +1,14 @@
 #include <string>
-#include <map>
 #include <vector>
+#include <map>
+#include <algorithm>
 
-std::string sort_numbers(std::string numbers) {
-    std::map<std::string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                          {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                          {"eight", 8}, {"nine", 9}};
-    std::vector<std::string> num_vector;
-    std::string temp;
+string sort_numbers(string numbers) {
+    map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                 {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                 {"eight", 8}, {"nine", 9}};
+    vector<string> num_vector;
+    string temp;
     for (char c : numbers) {
         if (isdigit(c)) continue;
         temp += c;
@@ -16,9 +17,9 @@ std::string sort_numbers(std::string numbers) {
             temp = "";
         }
     }
-    std::sort(num_vector.begin(), num_vector.end());
-    std::string result;
-    for (std::string s : num_vector) {
+    sort(num_vector.begin(), num_vector.end());
+    string result;
+    for (string s : num_vector) {
         result += s + " ";
     }
     return result;
