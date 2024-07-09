@@ -1,8 +1,17 @@
 ```
-def gcd(a, b):
-    if b == 0:
-        return abs(a)
-    else:
-        return gcd(b, a % b)
+    def gcd(a, b):
+        if b == 0:
+            return abs(a)
+        else:
+            return gcd(b, a % b)
 
-print(gcd(48, 18))
+    def indices_of_substring(text, target):
+        result = []
+        start = 0
+        while True:
+            pos = text.find(target, start)
+            if pos == -1: 
+                break
+            result.append(pos)
+            start = pos + 1
+        return result
