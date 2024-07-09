@@ -1,34 +1,27 @@
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 bool solveBoolean(const string& s, size_t& i) {
     bool result = true;
-    stack<bool> exprStack;
 
     while (i < s.size()) {
         switch (s[i]) {
             case 'T':
+                i++;  // skip T
                 return true;
             case 'F':
+                i++;  // skip F
                 return false;
             case '&': {
                 i++; // skip &
-                bool leftExprValid = exprStack.top() && solveBoolean(s, ++i);
-                exprStack.pop();
-                if (!leftExprValid) {
-                    result = false;
-                    break;
-                }
+                if (!solveBoolean(s, i)) return false;  // short-circuit
                 break;
             }
             case '|': {
                 i++; // skip |
-                bool leftExprValid = exprStack.top() || solveBoolean(s, ++i);
-                exprStack.pop();
-                if (!leftExprValid) {
-                    result = false;
-                    break;
-                }
+                result = result || solveBoolean(s, i);
+                if (result) return true;  // short-circuit
                 break;
             }
         }
@@ -52,3 +45,4 @@ int main() {
     }
 
     return 0;
+}
