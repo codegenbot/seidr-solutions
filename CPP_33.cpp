@@ -7,11 +7,11 @@ using namespace std;
 
 vector<int> sort_third(vector<int> l) {
     vector<int> result;
-    int i = 0; 
+    int i = 0;
     while (i < l.size()) {
-        if (i + 2 < l.size() - 1) { 
+        if (i + 2 < l.size()) {
             vector<int> block;
-            for (int j = 0; j < 3; j++) {
+            for (int j = 0; j < 3 && i + j < l.size(); j++) {
                 block.push_back(l[i + j]);
             }
             sort(block.begin(), block.end());
@@ -20,7 +20,7 @@ vector<int> sort_third(vector<int> l) {
             }
             i += 3;
         } else {
-            if (i < l.size() - 1) {
+            if (i < l.size()) {
                 result.push_back(l[i]);
             }
             i++;
