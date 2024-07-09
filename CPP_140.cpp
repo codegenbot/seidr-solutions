@@ -1,20 +1,18 @@
-string result;
-    int consecutive_spaces = 0;
-
-    for (char& c : text) {
+string output = "";
+    bool consecutive = false;
+    for (char c : text) {
         if (c == ' ') {
-            consecutive_spaces++;
-            if (consecutive_spaces > 2) {
-                result.pop_back(); // Remove the last space or hyphen
-                result += '-';
+            if (consecutive) {
+                output.pop_back();
+                output += "-";
             } else {
-                result += '_';
+                output += "_";
             }
+            consecutive = true;
         } else {
-            result += c;
-            consecutive_spaces = 0;
+            output += c;
+            consecutive = false;
         }
     }
-
-    return result;
+    return output;
 }
