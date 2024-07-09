@@ -2,14 +2,14 @@
 #include <vector>
 #include <algorithm>
 
-int findMax(std::vector<int> numbers) {
+int findMaximum(std::vector<int> numbers) {
     int maxNum = (numbers.empty()) ? -1 : *std::max_element(numbers.begin(), numbers.end());
     if (maxNum != -1)
-        std::cout << "The maximum number is: " << maxNum << std::endl;
+        std::cout << maxNum << std::endl;
     return 0;
 }
 
-int main_user_input() {
+int main() {
     std::vector<int> numbers;
     int num = 0; 
     std::cout << "Enter numbers (separated by spaces): ";
@@ -22,6 +22,6 @@ int main_user_input() {
             std::cin.ignore(); 
         }
     }
-    findMax(numbers);
+    findMaximum(numbers);
     return 0;
 }
