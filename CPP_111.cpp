@@ -1,13 +1,15 @@
+#include <iostream>
 #include <map>
+#include <cassert>
 
-std::map<char, int> histogram(std::string s) {
-    std::map<char, int> hist;
-    for (char c : s) {
-        hist[c]++;
+std::map<char, int> histogram(std::string str) {
+    std::map<char, int> result;
+    for (char c : str) {
+        result[c]++;
     }
-    return hist;
+    return result;
 }
 
-bool issame(std::map<char, int> a, std::map<char, int> b) {
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
 }
