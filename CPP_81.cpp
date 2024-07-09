@@ -1,31 +1,35 @@
 #include <vector>
-#include <string>
+using namespace std;
 
-std::vector<std::string> issame(std::vector<float> grades) {
-    std::vector<std::string> result;
+bool issame(float a, float b) {
+    return abs(a - b) < 0.01;
+}
+
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> result;
     for (float g : grades) {
-        std::string letterGrade;
+        string letterGrade;
         if (g >= 4.0)
             letterGrade = "A+";
-        else if (g > 3.7)
+        else if (issame(g, 3.7))
             letterGrade = "A";
-        else if (g > 3.3)
+        else if (issame(g, 3.3))
             letterGrade = "A-";
         else if (g > 3.0)
             letterGrade = "B+";
-        else if (g > 2.7)
+        else if (issame(g, 2.7))
             letterGrade = "B";
-        else if (g > 2.3)
+        else if (issame(g, 2.3))
             letterGrade = "B-";
         else if (g > 2.0)
             letterGrade = "C+";
-        else if (g > 1.7)
+        else if (issame(g, 1.7))
             letterGrade = "C";
-        else if (g > 1.3)
+        else if (issame(g, 1.3))
             letterGrade = "C-";
         else if (g > 1.0)
             letterGrade = "D+";
-        else if (g > 0.7)
+        else if (issame(g, 0.7))
             letterGrade = "D";
         else
             letterGrade = "E";
