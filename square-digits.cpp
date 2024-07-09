@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 
@@ -15,7 +16,8 @@ string squareDigits(string input) {
 int main() {
     string input;
     cout << "Enter a positive integer: ";
-    getline(cin, input);
+    cin >> input;  // Remove spaces from the input string
     string output = squareDigits(input);
-    cout << "Squared digits: " << output.c_str() << endl;
+    cout << "Squared digits: " << output << endl;
     return 0;
+}

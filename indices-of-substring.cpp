@@ -8,10 +8,10 @@ vector<int> findIndices(string text, string target) {
     int n = text.size();
     int m = target.size();
 
-    for (int i = 0; i <= n - m; i++) {
+    for (int i = 0; i <= n - m + 1; i++) {
         bool found = true;
         for (int j = 0; j < m; j++) {
-            if (text[i + j] != target[j]) {
+            if (text[i + j - 1] != target[j]) {
                 found = false;
                 break;
             }

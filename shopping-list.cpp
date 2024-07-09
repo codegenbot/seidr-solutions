@@ -1,10 +1,2 @@
-```
-#include <iostream>
-
-float shoppingList(float* prices, float* discounts) {
-    float total = 0;
-    for (int i = 0; i < 5; i++) {
-        total += prices[i] * (1 - discounts[i]);
-    }
-    return total;
-}
+std::vector<typename std::allocator<float>::rebind[float]::type> prices = {(float)10.99, (float)5.99, (float)7.99};
+std::vector<typename std::allocator<float>::rebind[float]::type> discounts = {(float)0, (float)20, (float)15};
