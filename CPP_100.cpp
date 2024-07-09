@@ -1,15 +1,14 @@
-Here is the completed code:
-
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    int i = 1;
-    while (i <= n) {
-        if (n % 2 == 0) {
-            pile.push_back(i + 1);
-        } else {
-            pile.push_back(i * 2 - 1);
+    int stones = n;
+    while (stones > 0) {
+        if (n % 2 == 1) { // If n is odd
+            pile.push_back(2*stones + 1);
+        } else { // If n is even
+            pile.push_back(2*stones);
         }
-        i += (n % 2 == 0 ? 2 : 1);
+        stones /= 2;
+        n = stones;
     }
     return pile;
 }
