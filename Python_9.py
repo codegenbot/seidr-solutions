@@ -8,9 +8,6 @@ def rolling_max(numbers: List[int]) -> List[int]:
         result.append(max_num)
     return result
 
-# Read input from user
 numbers = list(map(int, input().split()))
-
-# Call the function with user input
 output = rolling_max(numbers)
 print(output)
