@@ -1,17 +1,19 @@
-Here is the completed code:
-
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int count = 0;
-    int total_water = 0;
-
-    for (vector<int> well : grid) {
-        total_water += accumulate(well.begin(), well.end(), 0);
+    int totalWater = 0;
+    for (const auto& row : grid) {
+        for (int water : row) {
+            if (water == 1) {
+                totalWater += water;
+            }
+        }
     }
 
-    while (total_water > 0) {
-        count++;
-        total_water -= min(capacity, total_water);
+    int steps = 0;
+    while (totalWater > 0) {
+        int filled = min(totalWater, capacity);
+        totalWater -= filled;
+        steps++;
     }
 
-    return count;
+    return steps;
 }
