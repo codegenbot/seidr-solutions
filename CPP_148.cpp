@@ -3,7 +3,7 @@
 #include <vector>
 
 bool isPlanet(std::string planet);
-bool issame(std::vector<std::string> a, std::vector<std::string> c);
+bool issame(std::vector<std::string> a, std::vector<std::string> bf);
 std::vector<std::string> bf(std::string planet1, std::string planet2);
 
 void solve() {
@@ -40,10 +40,10 @@ bool isPlanet(std::string planet) {
     return false;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> c){ 
-    if (a.size() != c.size()) return false;
+bool issame(std::vector<std::string> a, std::vector<std::string> bf) { 
+    if (a.size() != bf.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != c[i]) return false;
+        if (a[i] != bf[i]) return false;
     }
     return true;
 }
@@ -51,16 +51,9 @@ bool issame(std::vector<std::string> a, std::vector<std::string> c){
 std::vector<std::string> bf(std::string planet1, std::string planet2) { 
     std::vector<std::string> result;
     if (isPlanet(planet1) && isPlanet(planet2)) {
-        if (planet1 < planet2)
-            result.push_back(planet1);
-        else
-            result.push_back(planet2);
+        std::string p = planet1 < planet2 ? planet1 : planet2;
+        result.push_back(p);
     }
     return result;
 
-}
-
-int main() {
-    solve();
-    return 0; 
 }
