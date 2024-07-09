@@ -2,7 +2,7 @@ n = int(input())
 arr = [int(x) for x in input().split()]
 total_sum = sum(arr)
 left_sum = 0
-min_diff = total_sum
+min_diff = float('inf')
 cut_index = 0
 
 for i in range(n):
@@ -13,9 +13,9 @@ for i in range(n):
         min_diff = diff
         cut_index = i + 1
 
-if cut_index == 0 or cut_index == n:
-    subvector1 = [arr[0]]
-    subvector2 = arr[1:]
+if min_diff == 0 or (min_diff == 1 and len(arr) <= 2):
+    subvector1 = arr[:cut_index+1]
+    subvector2 = arr[cut_index+1:]
 else:
     subvector1 = arr[:cut_index]
     subvector2 = arr[cut_index:]
