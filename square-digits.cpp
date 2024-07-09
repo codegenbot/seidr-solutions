@@ -1,17 +1,19 @@
+```cpp
 #include <string>
 #include <iostream>
 using namespace std;
 
 string squareDigits(string input) {
-    long long num = 0; 
+    string output = "";
     for (char c : input) {
-        num = num * 10 + (c - '0');
+        int digit = c - '0';
+        string str = to_string(digit * digit);
+        output += str;
     }
-    string output = to_string(num * num);
     return output;
 }
 
 int main() {
-    string input = "932545";
+    string input = "34";
     cout << squareDigits(input) << endl;
 }
