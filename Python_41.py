@@ -1,4 +1,4 @@
-```Python
+```
 def car_race_collision():
-    n = int(input("Enter the number of cars: "))
+    n = int(input("Enter the value of n: "))
     return n * (n - 1) // 2
