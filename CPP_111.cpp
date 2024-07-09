@@ -1,8 +1,8 @@
 #include <iostream>
-#include <vector>
-#include <string>
 #include <map>
+#include <vector>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 
@@ -43,18 +43,11 @@ vector<string> split(string str, char delimiter) {
 }
 
 bool issame(map<char,int> a, map<char,int> b) {
-    return a == b;
+   return a == b;
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    // Your test case code here
-    string s;
-    cout << "Enter the input: ";
-    cin >> s;
-    map<char, int> result = histogram(s);
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        cout << it->first << ": " << it->second << endl;
-    }
-    return 0;
+   assert(issame(histogram("a"), {{'a', 1}}));
+   // Your test case code here
+   return 0;
 }
