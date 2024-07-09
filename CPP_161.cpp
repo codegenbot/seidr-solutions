@@ -1,15 +1,19 @@
-string solve(string s) {
+string solve(string s){
     string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            c = tolower(c);
+    for (int i = 0; i < s.length(); i++) {
+        if (isalpha(s[i])) {
+            char c = tolower(s[i]);
             if (c >= 'a' && c <= 'z') {
-                c -= ('a' - 'A');
+                c = toupper(c);
             }
-        } else {
-            c = tolower(c);
+            else {
+                c = tolower(c);
+            }
+            result += c;
+        } 
+        else {
+            result += s[i];
         }
-        result += c;
     }
     return result;
 }
