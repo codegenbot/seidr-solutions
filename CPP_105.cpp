@@ -1,9 +1,8 @@
-```cpp
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<vector<string>> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr) {
     vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
@@ -14,10 +13,10 @@ vector<vector<string>> by_length(vector<int> arr) {
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
 
-    vector<vector<string>> result(10, vector<string>());
-    for (int i = 0; i < 9; i++) {
+    vector<string> result;
+    for (int num : numbers) {
         string name = "";
-        switch (numbers[i]) {
+        switch (num) {
             case 1:
                 name = "One";
                 break;
@@ -46,8 +45,19 @@ vector<vector<string>> by_length(vector<int> arr) {
                 name = "Nine";
                 break;
         }
-        result[numbers[i]].push_back(name);
+        result.push_back(name);
     }
 
-    return result;
+    vector<string> sorted_names;
+    for (int i = 0; i < arr.size(); i++) {
+        if (i % 3 == 0) {
+            sorted_names.push_back("One");
+        } else if (i % 3 == 1) {
+            sorted_names.push_back("Two");
+        } else {
+            sorted_names.push_back("Three");
+        }
+    }
+
+    return sorted_names;
 }
