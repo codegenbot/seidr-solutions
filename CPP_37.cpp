@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 
@@ -12,14 +11,15 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 
 std::vector<float> sort_even(const std::vector<float>& l) {
     std::vector<float> result(l.size());
-    int j = 0;
+    int evens_index = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            float min = l[0];
-            for (int k = 1; k <= i && k < l.size(); k += 2) {
-                if (l[k] < min) min = l[k];
+            for(int j = 0; j < l.size(); j++) {
+                if (j % 2 == 0) {
+                    result[evens_index++] = l[j];
+                }
             }
-            result[j++] = min;
+            std::sort(result.begin(), result.begin() + evens_index);
         } else {
             result[i] = l[i];
         }
@@ -29,9 +29,11 @@ std::vector<float> sort_even(const std::vector<float>& l) {
 
 int main() {
     std::vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
+    std::cout << "Sorted Even: ";
     for (float num : sort_even(input)) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
+    
     return 0;
 }
