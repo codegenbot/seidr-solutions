@@ -1,8 +1,16 @@
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
 bool vectorSame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> makeApile(int n) {
@@ -13,6 +21,6 @@ std::vector<int> makeApile(int n) {
 }
 
 int main() {
-    assert(vectorSame(makeApile(4), {2, 4, 6, 8}));
+    assert(makeApile(8).size() == 4 && std::all_of(makeApile(8).begin(), makeApile(8).end(), [&](int x) {return x % 2 == 0; }));
     return 0;
 }

@@ -1,4 +1,5 @@
-```cpp
+#define _SCL_SECURE_NO_WARNINGS
+
 #include <vector>
 #include <cassert>
 
@@ -13,6 +14,8 @@ int solution(std::vector<int> lst) {
 }
 
 int main() {
-    assert(solution(std::vector<int>{3, 13, 2, 9}) == 16);
+    int array[] = {3, 13, 2, 9};
+    std::vector<int> lst(array, array + sizeof(array)/sizeof(array[0]));
+    assert(solution(lst) == 16);
     return 0;
 }
