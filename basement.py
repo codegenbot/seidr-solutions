@@ -4,5 +4,7 @@ def basement(nums):
     for i in range(len(nums)):
         total_sum += nums[i]
         if total_sum < 0:
-            return i
-    return -1
+            continue
+        if total_sum > 0:
+            break
+    return i + 1 if total_sum < 0 else -1
