@@ -7,11 +7,15 @@ int main() {
 
     std::cin >> hours >> groundSnow >> rateOfSnowFall >> proportionMelting;
 
-    for (int h = 0; h < hours; ++h) {
-        groundSnow += rateOfSnowFall - groundSnow * proportionMelting / 100.0f;
+    float calculatedSnow = groundSnow;
+
+    for(int i = 1; i <= hours; i++) {
+        calculatedSnow = std::round(calculatedSnow * 100) / 100;
+        calculatedSnow += rateOfSnowFall;
+        calculatedSnow -= calculatedSnow * proportionMelting / 100.0f;
     }
 
-    std::cout << std::fixed << std::setprecision(9) << groundSnow << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << calculatedSnow << std::endl;
 
     return 0;
 }

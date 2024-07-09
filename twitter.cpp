@@ -1,9 +1,4 @@
 ```cpp
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
@@ -13,10 +8,3 @@ string validateTweet(string tweet) {
     }
     return "Your tweet has " + to_string(tweet.length()) + " characters";
 }
-
-int main() {
-    string tweet;
-    std::cout << "Enter a tweet: ";
-    std::getline(std::cin, tweet);
-    std::cout << validateTweet(tweet) << std::endl;
-    return 0}
