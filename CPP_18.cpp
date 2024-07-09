@@ -1,3 +1,4 @@
+```c++
 #include <string>
 #include <cassert>
 #include <iostream>
@@ -17,7 +18,7 @@ int how_many_times(const string& str, const string& substring) {
 
 }
 
-int initialMain() {
+int main() {
     string str, substring;
     cout << "Enter a string: ";
     getline(cin, str);
@@ -27,7 +28,7 @@ int initialMain() {
     if (str.find(substring) == string::npos) {
         cout << "The substring is not found in the string.\n";
     } else {
-        int result = how_many_times(str, substring);
-        cout << "The substring appears " << result << " times.\n";
+        cout << "The substring appears " << how_many_times(str, substring) << " times.\n";
     }
+    return 0;
 }
