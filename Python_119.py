@@ -10,4 +10,3 @@ def match_parens(lst):
         else:
             return "No"
     return "Yes" if not stack else "No"
-```
