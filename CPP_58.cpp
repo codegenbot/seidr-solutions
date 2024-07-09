@@ -1,8 +1,10 @@
+```cpp
 #include <vector>
+#include <set>
 #include <cassert>
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a,vector<int> b){
     return a == b;
 }
 
@@ -20,12 +22,13 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
     
-    vector<int> list1 = {10,20,30};
-    vector<int> list2 = {10,20,30,40,50};
-    vector<int> common_elements = common(list1, list2);
-    
-    for(auto i : common_elements)
+    vector<int> list1 = {1, 2, 3, 4};
+    vector<int> list2 = {3, 4, 5, 6};
+    vector<int> result = common(list1, list2);
+    for (int i : result) {
         cout << i << " ";
-        
+    }
+    cout << endl;
+    
     return 0;
 }
