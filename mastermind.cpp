@@ -1,13 +1,9 @@
-#include <string>
-#include <map>
-#include <unordered_map>
-
 std::pair<int, int> mastermind(std::string code, std::string guess) {
+    map<char, int> codeCount;
+    map<char, int> guessCount;
     int white = 0;
     int black = 0;
 
-    std::unordered_map<char, int> codeCount;
-    std::unordered_map<char, int> guessCount;
     for (int i = 0; i < 4; ++i) {
         codeCount[code[i]]++;
         guessCount[guess[i]]++;
@@ -25,5 +21,5 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
         }
     }
 
-    return make_pair(white, black);
+    return std::make_pair(white, black);
 }
