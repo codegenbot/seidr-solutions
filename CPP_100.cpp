@@ -15,13 +15,13 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
-    for (int i = 2 * n; i > 0; i -= 2) {
-        pile.push_back(i);
+    std::vector<int> pile(n, n);
+    for (int i = n; i > 0; i--) {
+        pile[i-1] = i * 2;
     }
     return pile;
 }
 
 int main() {
-    assert(issame(make_a_pile(8), std::vector<int>(std::vector<int>({8, 10, 12, 14, 16, 18, 20, 22})) ));
+    assert(issame(make_a_pile(4), {4, 6, 8, 10}));
 }
