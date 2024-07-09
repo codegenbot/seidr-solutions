@@ -1,16 +1,18 @@
-#include <string>
 #include <iostream>
+#include <string>
 
-std::string spinWords(std::string sentence) {
-    std::string result = "";
+using namespace std;
+
+string spinWords(string sentence) {
+    string result = "";
     int start = 0;
     
     for(int i = 0; i <= sentence.length(); i++) {
         if(i == sentence.length() || sentence[i] == ' ') {
-            std::string word = sentence.substr(start, i - start);
+            string word = sentence.substr(start, i - start);
             
             if(word.length() >= 5) {
-                std::string reversedWord = "";
+                string reversedWord = "";
                 for(int j = word.length() - 1; j >= 0; j--) {
                     reversedWord += word[j];
                 }
@@ -27,11 +29,9 @@ std::string spinWords(std::string sentence) {
 }
 
 int main() {
-    // Test cases
-    std::cout << spinWords("a") << std::endl; 
-    std::cout << spinWords("this is a test") << std::endl; 
-    std::cout << spinWords("this is another test") << std::endl; 
-    std::cout << spinWords("hi") << std::endl; 
-
+    cout << spinWords("a") << endl; 
+    cout << spinWords("this is a test") << endl; 
+    cout << spinWords("this is another test") << endl; 
+    cout << spinWords("hi") << endl; 
     return 0;
 }
