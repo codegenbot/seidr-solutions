@@ -1,24 +1,15 @@
 def solve_boolean(expression):
+    expression.processed = True
     if "(" in expression:
         end = expression.index(")")
-        return solve_boolean("(" + expression[:end+1])
+        return solve_boolean(Expression("(" + expression[:end+1]")))
 
     if "&" in expression:
         left, right = expression.split("&")
-        return eval(left) and solve_boolean(right)
+        return eval(left) and solve_boolean(Expression(right))
 
     if "|" in expression:
         left, right = expression.split("|")
-        return eval(left) or solve_boolean(right)
+        return eval(left) or solve_boolean(Expression(right))
 
-    if "T" in expression or "F" in expression:
-        result = ""
-        for char in expression:
-            if char == "T":
-                result += "True"
-            elif char == "F":
-                result += "False"
-            else:
-                result += char
-        return eval(result)
     return eval(expression)
