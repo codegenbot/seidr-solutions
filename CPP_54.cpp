@@ -1,17 +1,20 @@
-```
-#include <cassert>
-#include <string>
+```cpp
 #include <iostream>
-#include <algorithm>
-
 using namespace std;
 
-bool same_chars(string s0, string s1) {
-    if(s0.size() != s1.size()) {
+bool same_chars(string s1, string s2) {
+    if (s1.length() != s2.length()) {
         return false;
     }
-    for(int i = 0; i < s0.size(); i++) {
-        if(std::count(s0.begin(), s0.end(), s1[i]) != 1) {
+    for (int i = 0; i < s1.length(); i++) {
+        int count1 = 0, count2 = 0;
+        while (i + count1 < s1.length() && s1[i] == s1[i + count1]) {
+            count1++;
+        }
+        while (i + count2 < s2.length() && s2[i] == s2[i + count2]) {
+            count2++;
+        }
+        if (count1 != count2) {
             return false;
         }
     }
@@ -19,15 +22,6 @@ bool same_chars(string s0, string s1) {
 }
 
 int main() {
-    string s0, s1;
-    cout << "Enter the first string: ";
-    cin >> s0;
-    cout << "Enter the second string: ";
-    cin >> s1;
-    if(same_chars(s0, s1)) {
-        cout << "True";
-    } else {
-        cout << "False";
-    }
+    cout << (same_chars("aabb", "aaccc") ? "True" : "False");
     return 0;
 }
