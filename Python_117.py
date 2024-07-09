@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 def select_words(s, n):
     words = s.split()
     result = []
