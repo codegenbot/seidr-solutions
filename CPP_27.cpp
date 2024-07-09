@@ -1,21 +1,22 @@
+```cpp
 #include <cassert>
 #include <string>
 
-std::string flip_case(const std::string& str) {
-    std::string result;
-    for (char c : str) {
-        if (::isupper(c)) {
-            result += ::tolower(c);
-        } else if (::islower(c)) {
-            result += ::toupper(c);
+std::string flip_case(const std::string& input) {
+    std::string output = "";
+    for (char c : input) {
+        if (isupper(c)) {
+            output += tolower(c);
+        } else if (islower(c)) {
+            output += toupper(c);
         } else {
-            result += c;
+            output += c;
         }
     }
-    return result;
+    return output;
 }
 
-int main() {
+int testMain() {
     assert(flip_case("These violent delights have violent ends") == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
 }
