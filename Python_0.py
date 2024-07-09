@@ -1,2 +1,2 @@
-numbers = list(map(int, input().split()))
-threshold = int(input())
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+threshold = int(input("Enter the threshold: "))
