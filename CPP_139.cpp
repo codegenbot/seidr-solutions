@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <cmath>
+#include <string>
 
 std::string special_factorial(int n) {
     if (n <= 1)
@@ -22,12 +24,8 @@ std::string special_factorial(int n) {
 
 int main() {
     int n;
-    try {
-        std::cout << "Enter a number: ";
-        std::cin >> n;
-        std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
-    } catch (const std::error_code& ec) {
-        
-    }
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
     return 0;
 }
