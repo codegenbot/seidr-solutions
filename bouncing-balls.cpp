@@ -16,6 +16,6 @@ int main() {
         totalDistance += startHeight * pow(bouncinessIndex, i);
     }
 
-    cout << fixed << showpoint << setprecision(5) << totalDistance << endl;
+    cout << fixed << setprecision(5) << showpoint << totalDistance << endl;
 
-    return 0;}
+    return 0;
