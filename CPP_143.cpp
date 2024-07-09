@@ -17,12 +17,12 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
     return tokens;
 }
 
-std::vector<std::string> words_in_sentence(std::string sentence) {
+std::vector<int> words_in_sentence(std::string sentence) {
     if (sentence.empty()) {
         return {};
     }
-    std::vector<std::string> wordLengths; // Initialize here
-    std::string result = "";
+    std::vector<int> wordLengths; // Initialize here
+    wordLengths.reserve(sentence.find(' ') + 1); 
 
     for (const auto& word : split(sentence, ' ')) {
         int length = word.length();
@@ -37,13 +37,12 @@ std::vector<std::string> words_in_sentence(std::string sentence) {
             }
 
             if (isPrime) {
-                result += word + " ";
-                wordLengths.push_back(std::to_string(length));
+                wordLengths.push_back(length);
             }
         }
     }
 
-    return wordLengths; // Return the actual vector
+    return wordLengths; 
 }
 
 int main() {
