@@ -1,5 +1,8 @@
 ```cpp
-#include <iostream>
+#include <ostream>
+
+namespace std { class initializer_list; }
+
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -9,11 +12,6 @@ using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
     return (a == b);
-}
-
-bool issame(initializer_list<string> a, initializer_list<string> b) {
-    vector<string> v1(a), v2(b);
-    return (v1 == v2);
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
@@ -35,7 +33,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main_entry() {
-    assert(issame(vector<string>(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})), vector<string>({"cc","dd","aaaa","bbbb"})));
+    assert(issame(vector<string>({"cc","dd","aaaa","bbbb"}), vector<string>({"cc","dd","aaaa","bbbb"})));
     
     int n;
     cout << "Enter the number of strings: ";
