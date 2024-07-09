@@ -1,8 +1,8 @@
 int fib4(int n) {
     if (n <= 3) return 0;
-    int a = 2, b = 0, c = 0, d = 0;
+    int a = 0, b = 1, c = 1, d = 2;
     for (int i = 4; i <= n; ++i) {
-        int temp = a + b + c;
+        int temp = (a + 2*b) % 1000000007;
         a = b;
         b = c;
         c = d;
