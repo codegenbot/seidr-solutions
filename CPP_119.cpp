@@ -1,11 +1,10 @@
-bool match_parens(vector<string> lst){
-    int count = 0;
+int count = 0;
     for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') {
                 count++;
             } else {
-                if (count <= 0) {
+                if (count == 0) {
                     return "No";
                 }
                 count--;
