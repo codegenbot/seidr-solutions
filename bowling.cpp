@@ -1,34 +1,35 @@
-#include <string>
+```c++
+int getBonus(int a, int b) {
+    if(a + b == 10) {
+        return 10;
+    } else {
+        return a + b;
+    }
+}
 
-int bowlingScore(string s) {
+int bowlingScore(std::string s) {
     int score = 0;
-    for (int i = 0; i < 10; ++i) {
-        if (s[i] == 'X') {
-            score += 30;
-        } else if (isdigit(s[i])) {
-            int strike = 1, spare = 0;
-            for (int j = i; j < i + 2 && j < s.size(); ++j) {
-                if (s[j] == '/') {
-                    spare = 1;
-                    break;
-                }
-                strike++;
-            }
-            if (strike > 1 || spare) {
-                score += 10 - strike;
-            } else {
-                score += 10;
-            }
+    int currentFrame = 1;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '/') {
+            int firstRoll = (s[i-1] - '0');
+            int secondRoll = (s[i+1] - '0');
+            score += getBonus(firstRoll, secondRoll);
+            currentFrame++;
+        } else if(s[i] == 'X') {
+            score += 10;
+            currentFrame++;
         } else {
-            int strike = 1, spare = 0;
-            for (int j = i; j < s.size(); ++j) {
-                if (s[j] == '/') {
-                    spare = 1;
+            int roll = s[i] - '0';
+            score += roll;
+            if(currentFrame < 10) {
+                if(i+1 < s.length() && s[i+1] != '/') {
+                    score += getBonus(roll, (s[i+1] - '0'));
+                    currentFrame++;
+                } else {
                     break;
                 }
-                strike++;
             }
-            score += strike * 10;
         }
     }
     return score;
