@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -22,8 +21,6 @@ std::vector<std::string> all_prefixes(std::string str) {
 }
 
 int main() {
-    std::vector<std::string> a = all_prefixes("WWW");
-    std::vector<std::string> b({"W", "WW", "WWW"});
-    assert(issame(a, b));
+    assert(issame(all_prefixes("WWW"), vector<string>{"W", "WW", "WWW"}));
     return 0;
 }
