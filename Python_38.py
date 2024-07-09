@@ -1,7 +1,3 @@
 s = input().strip()
-
-def decode_cyclic(s):
-    return s[::-1]
-
-result = decode_cyclic(s)
+result = "".join(chr(ord(char) - 1) for char in s)
 print(result)
