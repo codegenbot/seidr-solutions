@@ -1,13 +1,18 @@
 double find_zero(vector<double> xs) {
+    vector<double> coeffs;
     int n = xs.size();
-    double coeffs[100]; // assuming the maximum number of coefficients is 100
-    double x = xs[0];
+    if (n > 0)
+        coeffs.push_back(1);
     for (int i = 1; i < n; i++) {
         if ((i & 1) == 0) {
-            coeffs[i/2] = -x*xs[i];
+            coeffs.push_back(-xs[0]*xs[i]);
         } else {
-            x = xs[i];
+            xs[0] = xs[i];
         }
     }
-    return -coeffs[0] / x;
+    double solution = 0;
+    int degree = coeffs.size() - 1;
+    for (int i = degree; i >= 0; --i)
+        solution += coeffs[i] * pow(xs[0], i);
+    return solution;
 }
