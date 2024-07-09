@@ -1,5 +1,6 @@
 #include <map>
 #include <string>
+#include <algorithm>
 
 int main() {
     std::map<std::string, std::string> dict;
@@ -8,21 +9,18 @@ int main() {
     std::cout << "Enter the number of key-value pairs: ";
     std::cin >> n;
 
-    for(int i=0; i<n; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::string key, value;
-        std::cout << "Enter key " << i+1 << ": ";
+        std::cout << "Enter key " << i + 1 << ": ";
         std::getline(std::cin, key);
-        std::cout << "Enter value for " << key << ": ";
+        std::cout << "Enter value: ";
         std::getline(std::cin, value);
+
         dict.insert({key, value});
     }
 
     bool result = check_dict_case(dict);
-
-    if(result)
-        std::cout << "The dictionary has both upper and lower case keys." << std::endl;
-    else
-        std::cout << "The dictionary does not have both upper and lower case keys." << std::endl;
+    std::cout << (result ? "All keys are either all uppercase or all lowercase." : "Not all keys are either all uppercase or all lowercase.") << std::endl;
 
     return 0;
 }
