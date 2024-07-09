@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <set>
 #include <vector>
@@ -8,7 +7,7 @@ bool isSame(const std::set<std::string>& s1, const std::set<std::string>& s2) {
     return s1 == s2;
 }
 
-int main() {
+void solveProblem() {
     std::set<std::string> s1;
     std::set<std::string> s2;
     int n1, m1, n2, m2;
@@ -65,5 +64,10 @@ int main() {
         std::cout << "Sets are not same.\n";
     }
 
+    return;
+}
+
+int main() {
+    solveProblem();
     return 0;
 }
