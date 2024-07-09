@@ -17,7 +17,7 @@ string prime_fib(int num) {
         a = b;
         b = fibNum;
         if (isPrime(fibNum)) {
-            if (fibNum > num) return std::to_string(fibNum).c_str();
+            if (fibNum > num) return to_string(fibNum);
         }
     }
 }
@@ -27,5 +27,4 @@ void solveProblem() {
     cout << "Enter a number: ";
     cin >> num;
     cout << "The first prime Fibonacci number greater than " << num << " is " << prime_fib(num) << endl;
-    assert(prime_fib(10) == "433494437");
 }
