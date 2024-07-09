@@ -1,29 +1,21 @@
 #include <vector>
-#include <initializer_list>
+#include <algorithm>
 
-bool vectorEqual(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
 }
 
 std::vector<int> get_odd_collatz(int n) {
-    std::vector<int> sequence;
-    while(n > 1) {
-        if(n % 2 != 0) {
-            sequence.push_back(n);
-        }
-        n = (n * 3) + 1;
+    std::vector<int> res;
+    while (n > 1) {
+        if (n % 2 != 0)
+            res.push_back(n);
+        n = n / 2;
     }
-    return sequence;
+    return res;
 }
 
 int main() {
-    int number;
-    std::cout << "Enter a number: ";
-    std::cin >> number;
-    auto collatz_sequence = get_odd_collatz(number);
-    assert(collatz_sequence.size() > 0);
-    for(int i : collatz_sequence) {
-        std::cout << i << " ";
-    }
+    assert(issame(get_odd_collatz(1), {1}));
     return 0;
 }
