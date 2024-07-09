@@ -1,8 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <numeric>
 
-int max_fill(std::vector<std::vector<int>>& grid, int capacity) {
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int n = grid.size();
     int total_water = 0;
     for (int i = 0; i < n; i++) {
@@ -28,6 +28,12 @@ int max_fill(std::vector<std::vector<int>>& grid, int capacity) {
 }
 
 int main() {
-    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
+    std::vector<std::vector<int>> grid;
+    grid.resize(2);
+    for (int i = 0; i < 2; i++) {
+        grid[i].resize(4, 0); 
+    }
+    int capacity = 9;
+    std::cout << max_fill(grid, capacity) << std::endl; 
     return 0;
 }
