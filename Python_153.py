@@ -1,3 +1,4 @@
+```
 def Strongest_Extension(class_name, extensions):
     max_strength = 0
     strongest_extensions = []
