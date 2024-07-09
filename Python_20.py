@@ -8,7 +8,3 @@ def find_min_difference(numbers):
             min_diff = diff
             result = (numbers[i], numbers[i + 1])
     return result
-
-# Call the function
-numbers = [4, 2, 8, 10, 7]
-print(find_min_difference(numbers))
