@@ -1,13 +1,22 @@
-vector<float> sort_even(vector<float> l) {
-    vector<float> result;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) { // even index
-            vector<float> evens(l.begin() + i, l.begin() + i + 1);
-            sort(evens.begin(), evens.end());
-            result.push_back(evens[0]);
-        } else { // odd index
-            result.push_back(l[i]);
+bool issame(const vector<float>& a,const vector<float>&b){
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
         }
     }
-    return result;
+    return true;
+}
+
+vector<float> sort_even(vector<float> l){
+    vector<float> l_prime;
+    for(int i = 0; i < l.size(); i++){
+        if(i % 2 == 0){
+            vector<float> even(l.begin() + i, l.begin() + i + 1);
+            sort(even.begin(), even.end());
+            l_prime.push_back(even[0]);
+        }else{
+            l_prime.push_back(l[i]);
+        }
+    }
+    return l_prime;
 }
