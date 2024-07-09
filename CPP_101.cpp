@@ -1,4 +1,5 @@
-Here is the completed code:
+#include <string>
+using namespace std;
 
 vector<string> words_string(string s) {
     vector<string> result;
