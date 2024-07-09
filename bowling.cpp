@@ -1,3 +1,4 @@
+```c++
 #include <string>
 
 int getBonus(int a, int b) {
