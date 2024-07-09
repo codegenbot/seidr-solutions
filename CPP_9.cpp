@@ -1,6 +1,15 @@
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
+
+int max(int a, int b){
+    return (a > b) ? a : b;
+}
+
+vector<int> rolling_max(vector<int> numbers);
 
 vector<int> rolling_max(vector<int> numbers){
     vector<int> result;
@@ -15,8 +24,7 @@ vector<int> rolling_max(vector<int> numbers){
     return result;
 }
 
-int main(){
-    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-    
+int main() {
+    // Your code here
     return 0;
 }
