@@ -24,14 +24,14 @@ int main() {
             if (c != '0' && c != '1') {
                 throw std::invalid_argument("Input strings must contain only 0's and 1's.");
             }
-            str1 += c;
+            str1 += (char)c;
         }
         
         for (char c; std::cin >> c && !std::cin.fail();) {
             if (c != '0' && c != '1') {
                 throw std::invalid_argument("Input strings must contain only 0's and 1's.");
             }
-            str2 += c;
+            str2 += (char)c;
         }
 
         if (!str1.empty() && !str2.empty()) {  
