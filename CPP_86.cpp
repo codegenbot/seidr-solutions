@@ -13,8 +13,9 @@ string anti_shuffle(string s) {
 
     string result = "";
     for (const auto& word : words) {
-        sort(word.begin(), word.end());
-        result += std::tolower(word[0]) == ' ' ? "" : (word + " ");
+        vector<char> charWord(word.begin(), word.end());
+        sort(charWord.begin(), charWord.end()); 
+        result += std::string(charWord.begin(), charWord.end()) + " ";
     }
     return result.substr(0, result.size() - 1);
 }
