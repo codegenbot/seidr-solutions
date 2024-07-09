@@ -19,23 +19,22 @@ int main() {
     return 0;
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
-    }
-    
-    sort(result.begin(), result.end(),
+vector<vector<string>> sorted_list_sum(vector<string> lst) {
+    sort(lst.begin(), lst.end(),
          [](const string& a, const string& b) {
-             return a.length() < b.length();
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
          });
     
-    long sum = 0;
-    for (const auto& str : result) {
-        sum += str.length();
+    vector<vector<string>> result;
+    for (const auto& str : lst) {
+        if (str.length() % 2 == 0) {
+            vector<string> temp = {str};
+            result.push_back(temp);
+        }
     }
-    
     return result;
 }
