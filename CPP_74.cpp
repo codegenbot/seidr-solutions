@@ -48,22 +48,15 @@ int main() {
     std::getline(std::cin, user_input1);
     std::getline(std::cin, user_input2);
 
-    std::stringstream ss1(user_input1);
-    std::vector<std::string> temp1;
-    while (ss1 >> user_input1) {
-        temp1.push_back(user_input1);
-    }
-    for (const auto& s : temp1) {
-        lst1.push_back(s);
+    std::istringstream iss(user_input1);
+    std::string str;
+    while (std::getline(iss >> std::skipws >> str >> std::ws >> std::skipws)) {
+        lst1.push_back(str);
     }
 
-    std::stringstream ss2(user_input2);
-    std::vector<std::string> temp2;
-    while (ss2 >> user_input2) {
-        temp2.push_back(user_input2);
-    }
-    for (const auto& s : temp2) {
-        lst2.push_back(s);
+    std::istringstream iis(user_input2);
+    while (std::getline(iis >> std::skipws >> str >> std::ws >> std::skipws)) {
+        lst2.push_back(str);
     }
 
     if (!lst1.empty() && !lst2.empty()) {
