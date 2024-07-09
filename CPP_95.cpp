@@ -1,24 +1,29 @@
-```cpp
 #include <map>
 #include <string>
 
 int main() {
     std::map<std::string, std::string> dict;
 
-    while (true) {
-        std::cout << "Enter a key-value pair (or 'q' to quit): ";
+    int n;
+    std::cout << "Enter the number of key-value pairs: ";
+    std::cin >> n;
+
+    for(int i=0; i<n; ++i) {
         std::string key, value;
-        std::cin >> key >> value;
-        if (key == "q") break;
+        std::cout << "Enter key " << i+1 << ": ";
+        std::getline(std::cin, key);
+        std::cout << "Enter value for " << key << ": ";
+        std::getline(std::cin, value);
         dict.insert({key, value});
     }
 
     bool result = check_dict_case(dict);
-    if (result) {
-        std::cout << "All keys are either all upper case or all lower case." << std::endl;
-    } else {
-        std::cout << "Not all keys follow the rule." << std::endl;
-    }
+
+    if(result)
+        std::cout << "The dictionary has both upper and lower case keys." << std::endl;
+    else
+        std::cout << "The dictionary does not have both upper and lower case keys." << std::endl;
+
     return 0;
 }
 
