@@ -1,4 +1,4 @@
-Here is the solution:
+Here is the completed code:
 
 ```cpp
 int greatest_common_divisor(int a, int b) {
