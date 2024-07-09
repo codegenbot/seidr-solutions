@@ -1,5 +1,5 @@
+```cpp
 #include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -26,5 +26,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         double num = boost::any_cast<double>(b);
         return std::stod(str) > num ? a : b;
     }
-    return "None";
+    return boost::any();
 }
