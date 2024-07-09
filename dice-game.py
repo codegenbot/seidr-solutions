@@ -1,4 +1,4 @@
-```python
 def roll_dice(n, m):
-    common_rolls = sum(1 for i in range(min(n, m)))+1
-    return (n - common_rolls) / n * (m - common_rolls) / m
+    if n > m:
+        n, m = m, n
+    return sum(1 for _ in range(m - i) + range(i + 1, min(n, m) + 1)) / (n * m)

@@ -1,3 +1,5 @@
+#include <string>
+
 int bowlingScore(string input) {
     int score = 0;
     for (int i = 0; i < 10; i++) {
