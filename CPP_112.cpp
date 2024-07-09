@@ -3,8 +3,8 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool issame(const std::pair<std::string, std::string>& a, const std::pair<std::string, std::string>& b) {
+    return a.first == b.first && a.second == b.second;
 }
 
 std::pair<std::string, std::string> reverse_delete(const std::string& s, const std::string& c) {
