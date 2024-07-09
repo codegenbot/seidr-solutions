@@ -1,36 +1,34 @@
+```cpp
 #include <vector>
 #include <string>
-#include <iostream>
 
-using namespace std;
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) 
-        if(a[i] != b[i]) 
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) 
+        if (a[i] != b[i]) 
             return false;
     return true;
 }
 
-vector<string> by_length(const vector<int>& arr) {
-    vector<string> result;
+std::vector<std::string> by_length(const std::vector<int>& arr) {
+    std::vector<std::string> result;
     for (int num : arr) {
-        int length = to_string(num).size();
-        result.push_back(to_string(length));
+        int length = std::to_string(num).size();
+        result.push_back(std::to_string(length));
     }
     return result;
 }
 
 int main_test() {
-    vector<int> intArray;
-    cout << "Enter the numbers separated by space: ";
-    string str;
-    while(getline(cin, str)) {
-        intArray.push_back(stoi(str));
+    std::vector<int> intArray;
+    std::cout << "Enter the numbers separated by space: ";
+    for (std::string str; std::getline(std::cin, str); ) {
+        intArray.push_back(std::stoi(str));
     }
     
-    vector<string> lengthArr = by_length(intArray);
-    vector<string> b = by_length({518, 5, 10});
+    std::vector<std::string> lengthArr = by_length(intArray);
+    std::vector<std::string> b;
+    b = by_length({518, 5, 10});
     assert(issame(lengthArr, b));
     return 0;
 }
