@@ -4,7 +4,7 @@
 bool evaluate(char op, bool operand1, bool operand2) {
     if (op == '|') {
         return operand1 || operand2;
-    } else {
+    } else { 
         return operand1 && operand2;
     }
 }
