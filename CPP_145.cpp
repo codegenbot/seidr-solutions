@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 #include <cassert>
 
 bool issame(const vector<int>& a, const vector<int>& b) {
