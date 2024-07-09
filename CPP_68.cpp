@@ -1,26 +1,18 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
-int main() {
-    std::vector<int> vec;
-
-    // Define the pluck function
-    std::vector<int> pluck(std::vector<int> nums) {
-        std::vector<int> result;
-        for (int num : nums) {
-            if (num == 7) {
-                result.push_back(num);
-            }
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
+            return false;
         }
-        return result;
     }
+    return true;
+}
 
-    // Define the issame function
-    bool issame(std::vector<int> a, std::vector<int> b) {
-        return a.size() == b.size();
-    }
-
-    assert(issame(pluck({7, 9, 7, 1}), {}) == true);
-
-    return 0;
+std::vector<int> pluck(const std::vector<std::vector<int>>& arr, int index) {
+    return arr[index];
 }
