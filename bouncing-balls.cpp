@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -20,4 +19,3 @@ int main() {
     cout << fixed << setprecision(5) << showpoint << totalDistance << endl;
 
     return 0;
-}
