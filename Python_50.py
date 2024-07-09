@@ -1,6 +1,5 @@
 def decode_shift(s: str):
-    return "".join([chr((ord(ch) - 5) % 26 + ord("a")) for ch in s])
-
+    return "".join([chr(((ord(ch) - ord("a")) % 26) + ord("a")) for ch in s])
 
 try:
     while True:
@@ -11,5 +10,5 @@ try:
         print(result)
 except EOFError:
     pass
-except Exception as e:
-    print("Invalid input. Please enter a valid string.")
+except:
+    pass
