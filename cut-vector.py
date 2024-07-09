@@ -1,9 +1,10 @@
 def cut_vector(vector):
-    min_diff = abs(sum(vector[:-1]) - sum(vector))
+    total_sum = sum(vector)
+    min_diff = float("inf")
     split_index = 0
     for i in range(1, len(vector)):
         left_sum = sum(vector[:i])
-        right_sum = sum(vector[i:])
+        right_sum = total_sum - left_sum
         diff = abs(left_sum - right_sum)
         if diff < min_diff:
             min_diff = diff
