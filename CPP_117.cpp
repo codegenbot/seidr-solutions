@@ -8,9 +8,7 @@ using namespace std;
 bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
     if (a.size() != b.size()) return false;
     for(int i = 0; i<a.size(); i++){
-        pair<int, string> p1 = a[i];
-        pair<int, string> p2 = b[i];
-        if(p1.first != p2.first || p1.second != p2.second) return false;
+        if(a[i].first != b[i].first || a[i].second != b[i].second) return false;
     }
     return true;
 }
@@ -47,6 +45,6 @@ vector<pair<int, string>> select_words(string s, int n) {
 int main() {
     vector<pair<int, string>> expected = {{1, "b"}, {1, "c"}, {1, "d"}, {1, "f"}};
     vector<pair<int, string>> output = select_words("a b c d e f", 1);
-    assert(issame(output, expected));
+    assert(issame(select_words("a b c d e f", 1), expected));
     return 0;
 }
