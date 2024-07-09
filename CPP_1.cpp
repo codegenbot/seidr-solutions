@@ -1,27 +1,28 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
-vector<string> separate_paren_groups(const string& paren_string) {
+vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string group;
-    int open_count = 0;
+    int balance = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            open_count++;
-            if (open_count > 1) {
+            if (balance > 0) {
                 group += c;
             }
+            balance++;
         } else if (c == ')') {
-            open_count--;
-            if (open_count == 0) {
+            balance--;
+            if (balance >= 0) {
+                group += c;
+            } else if (balance < 0) {
+                balance = 0;
                 result.push_back(group);
                 group = "";
-            } else {
-                group += c;
             }
         }
     }
@@ -29,17 +30,21 @@ vector<string> separate_paren_groups(const string& paren_string) {
     return result;
 }
 
-int main() {
-    string input_string;
-    cout << "Enter a string with parentheses:";
-    cin >> input_string;
-
-    vector<string> separated_groups = separate_paren_groups(input_string);
-
-    cout << "Separated groups are: ";
-    for (const auto& group : separated_groups) {
-        cout << group << " ";
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
 
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
     return 0;
 }
