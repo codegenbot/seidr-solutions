@@ -13,7 +13,7 @@ string string_to_md5(string text) {
 
     stringstream ss;
     for (size_t i = 0; i < 16; ++i) {
-        ss << setfill(2) << setw(2) << hex << buffer[i];
+        ss << setfill(2) << setw(2) << hex << static_cast<int>(buffer[i]);
     }
 
     return ss.str();
