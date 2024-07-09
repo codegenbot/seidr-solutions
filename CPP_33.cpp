@@ -6,11 +6,12 @@ using namespace std;
 
 vector<int> sort_third(vector<int> l) {
     int groupCount = 0;
-    vector<int> result;
+    vector<int> result(l.size()); 
 
     for (int i : l) {
         if(groupCount % 3 == 0 || groupCount >= l.size()) { 
-            result.push_back(i); 
+            if(groupCount < l.size())
+                result[groupCount] = i; 
             groupCount++;
         } else {
             groupCount++;
@@ -21,8 +22,8 @@ vector<int> sort_third(vector<int> l) {
 }
 
 int main() {
-    vector<int> l1 = {1, 2, 3, 4, 5};
-    vector<int> l2 = {5, 6, 3, 4, 8, 9, 2, 10};
+    vector<int> l1 = {1, 2, 3};
+    vector<int> l2 = {5, 6, 3, 4, 8, 9, 2};
 
     cout << "l1: ";
     for (int i : l1) {
