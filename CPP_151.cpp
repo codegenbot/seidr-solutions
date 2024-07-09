@@ -35,8 +35,7 @@ int main() {
             lst.push_back(static_cast<long long>(input));
         }
         n++;
-    }
-    
+    }    
     long long odd_sum = double_the_difference(lst);
     return 0;
 }
