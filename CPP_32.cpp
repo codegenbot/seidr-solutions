@@ -3,16 +3,19 @@
 
 double poly(vector<double> coeffs, double x) {
     double result = 0;
-    for(int i=0; i<coeffs.size(); i++) {
+    int n = coeffs.size();
+    for(int i=0; i<n; i++) {
         result += coeffs[i] * pow(x, i);
     }
     return result;
 }
 
 double find_zero(vector<double> xs){
+    if(xs.size() % 2 != 0) return -1; 
+    vector<double> coeffs(xs.size(), 0);
     int n = xs.size();
-    if(n % 2 != 0) return -1; 
-    vector<double> coeffs(n, 0);
-    double root = (-1*coeffs[1])/(2*coeffs[0]);
-    return std::round(poly(coeffs, root));
+    for(int i=0; i<n; i++) {
+        coeffs[i] = -xs[2*i]/(2*xs[2*i+1]);
+    }
+    return std::round(poly(coeffs, 0));
 }
