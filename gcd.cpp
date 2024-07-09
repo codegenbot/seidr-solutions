@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <string>
 
 int findGCD(int a, int b) {
     if (b == 0) return std::abs(a);
