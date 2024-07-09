@@ -1,20 +1,9 @@
-```
 def solve_boolean(expression):
-    while '&' in expression and '|' in expression:
-        start = 0
-        end = 0
-        for i, char in enumerate(expression):
-            if char == '&':
-                start = i
-            elif char == '|':
-                end = i
-                break
-        result = eval(f"({expression[:start]}) & ({expression[start+1:end]})")
-        expression = f"({result}){expression[end:]}".replace("True", "1").replace("False", "0")
-    if '&' in expression:
-        left, right = expression.split('&')
-        return bool(eval(f"{left} & {right}"))
-    elif '|' in expression:
-        return any(solve_boolean(arg) for arg in expression.split('|'))
-    else:
-        return eval(expression.replace("True", "1").replace("False", "0"))
+    if "&" in expression:
+        return eval(f"{expression.replace('&', 'and').replace('|', 'or')}")
+    elif "|" in expression:
+        parts = expression.split("|")
+        for i, part in enumerate(parts):
+            while "&" in part:
+                parts[i] = f"({part.replace('&', 'and')})"
+        return any(solve_boolean(arg) for arg in parts)
