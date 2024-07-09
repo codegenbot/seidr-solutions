@@ -10,9 +10,9 @@ vector<int> sort_third(vector<int> l) {
     int i = 0;
     while (i < l.size()) {
         if (i + 2 < l.size()) {
-            vector<int> block;
+            vector<int> block(3);
             for (int j = 0; j < 3; j++) {
-                block.push_back(l[i + j]);
+                block[j] = l[i + j];
             }
             sort(block.begin(), block.end());
             for (int k : block) {
