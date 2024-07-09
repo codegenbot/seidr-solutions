@@ -1,4 +1,4 @@
 def leaders(input):
-    return [
-        x for i, x in enumerate(reversed(input)) if all(x >= y for y in input[i + 1 :])
-    ]
+    max_so_far = max(input)
+    leaders = [x for x in reversed(input) if x >= max_so_far]
+    return leaders
