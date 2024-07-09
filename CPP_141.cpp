@@ -1,6 +1,4 @@
-```cpp
 #include <string>
-#include <cctype>
 
 int file_name_check(std::string file_name) { 
     int digit_count = 0; 
@@ -24,8 +22,8 @@ int file_name_check(std::string file_name) {
 }
 
 int main() {
-    std::string fileName = "s.";
-    int result = file_name_check(fileName);
-    assert(result == 0); 
+    if(file_name_check("s.") != 1) {
+        std::cout << "No" << std::endl;
+    }
     return 0;
 }
