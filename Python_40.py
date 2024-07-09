@@ -1,7 +1,7 @@
 ```
 def triples_sum_to_zero(l: list):
     l.sort()
-    for i in range(len(l) - 2):
+    for i in range(len(l)-2):
         if i > 0 and l[i] == l[i-1]:
             continue
         left, right = i+1, len(l)-1
