@@ -28,9 +28,13 @@ bool isPrime(int n) {
 
 int main() {
     vector<int> lst;
-    int num;
-    while (cin >> num) 
-        lst.push_back(num);
-    cout << skjkasdkd(lst) << endl;
+    int n;
+    cout << "Enter the number of elements in the list: ";
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        cout << "Enter element "<<i+1<<": ";
+        cin >> lst.push_back(i);
+    }
+    cout << "Sum of digits of maximum prime is : " << skjkasdkd(lst) << endl;
     return 0;
 }
