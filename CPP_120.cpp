@@ -16,10 +16,15 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::vector<int> copy = arr; // Create a copy of the original array
-    std::sort(copy.begin(), copy.end()); // Sort the copied array
-    copy.resize(k); // Take k largest elements from the sorted array
-    return copy;
+    std::vector<int> result;
+    for (int i = 0; i < std::min(k, arr.size()); i++) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        if (i < arr.size()) {
+            result.push_back(*it);
+            arr.erase(it);
+        }
+    }
+    return result;
 }
 
 int main() {
