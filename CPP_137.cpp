@@ -14,8 +14,14 @@ boost::any compare_one(boost::any a, boost::any b) {
         float f1 = stof(sa), f2 = stof(sb);
         if(f1 > f2) return a;
         else if(f1 < f2) return b;
-        else return boost::any(string("None"));
+        else if(sa == sb) return boost::any("None");
+        else {
+            string s1 = to_string(stof(sa)), s2 = to_string(stof(sb));
+            if(s1 > s2) return a;
+            else if(s1 < s2) return b;
+            else return boost::any("None");
+        }
     } else {
-        return boost::any(string("None"));
+        return boost::any("None");
     }
 }
