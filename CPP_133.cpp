@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -9,13 +10,15 @@ double sum_of_squares(double arr[], int n){
     return total;
 }
 
-int main(){
+int main() {
     double* testArray = new double[] {1.0, 2.0, 3.0};
     int n = sizeof(testArray)/sizeof(testArray[0]);
     double result = sum_of_squares(testArray, n);
     std::cout << "Sum of squares: " << result << std::endl;
     
     delete [] testArray; 
+
+    assert (sum_of_squares({-1,1,0})==2);
 
     return 0;
 }
