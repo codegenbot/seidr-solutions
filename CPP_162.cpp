@@ -1,4 +1,5 @@
-#include <openssl/ssl.h>
+#include <iomanip>
+#include <sstream>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
@@ -6,17 +7,14 @@ string string_to_md5(string text) {
     unsigned char md[MD5_DIGEST_LENGTH];
     MD5_CTX ctx;
     MD5_Init(&ctx);
-    const char* str = text.c_str();
-    size_t len = text.length();
-    MD5_Update(&ctx, str, len);
+    const char* ptr = text.c_str();
+    size_t len = text.size();
+    while(len-- > 0) MD5_Update(&ctx, &ptr[len], 1);
     MD5_Final(md, &ctx);
 
-    string out;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        stringstream ss;
-        ss << hex << setw(2) << setfill('0') << (int)md[i];
-        out += ss.str();
-    }
-    
-    return out;
+    ostringstream oss;
+    for(int i = 0; i < MD5_DIGEST_LENGTH; ++i)
+        oss << setfill('0') << setw(2) << hex << (int)md[i];
+
+    return oss.str();
 }
