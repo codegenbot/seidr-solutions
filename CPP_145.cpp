@@ -1,12 +1,18 @@
-// Remove parameter type declarations in function definition
-bool issame(vector<int> a, vector<int> b);
+bool issame(const vector<int>& a, const vector<int>& b);
 
-// Define the order_by_points function before the main function
-vector<int> order_by_points(vector<int> nums) {
+bool issame(const vector<int>& a, const vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+void order_by_points(vector<int>& nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
-        if (a < 0) a = -a;
-        if (b < 0) b = -b;
+        if (a < 0) a *= -1;
+        if (b < 0) b *= -1;
         while (a > 0) {
             sum_a += a % 10;
             a /= 10;
@@ -15,18 +21,12 @@ vector<int> order_by_points(vector<int> nums) {
             sum_b += b % 10;
             b /= 10;
         }
-        if (sum_a == sum_b) return a < b;
+        if (sum_a == sum_b) return &a < &b;
         return sum_a < sum_b;
     });
-
-    return nums;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
 
 int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
