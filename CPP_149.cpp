@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -51,6 +51,7 @@ int main_entry() {
         totalSize += str.size() + 1; // Calculate the size of each string and add 1 for null character
     }
     
+    inputStrings.reserve(totalSize, std::allocator<std::string>());  
     for(int i = 0; i < n; i++) {
         string str;
         cout << "Enter string " << (i+1) << ": ";
