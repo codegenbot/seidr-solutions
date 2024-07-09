@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,18 +13,14 @@ int specialFilter(std::vector<int> nums) {
 
 int main() {
     std::vector<int> nums;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    int num;
     
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        int num;
-        std::cin >> num;
+    std::cout << "Enter numbers (enter -1 to stop):" << std::endl;
+    while ((std::cin >> num) && (num != -1)) {
         nums.push_back(num);
     }
     
-    std::cout << "The number of elements satisfying the condition is: " << specialFilter(nums) << std::endl;
+    std::cout << "Count of special numbers: " << specialFilter(nums) << std::endl;
     
     return 0;
 }
