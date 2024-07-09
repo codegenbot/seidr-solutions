@@ -1,6 +1,6 @@
-```
 #include <string>
 #include <vector>
+#include <cassert>
 
 std::string longest(std::vector<std::string> strings){
     if(strings.empty()) return "";
@@ -11,4 +11,3 @@ std::string longest(std::vector<std::string> strings){
         }
     }
     return result;
-}
