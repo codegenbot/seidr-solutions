@@ -1,26 +1,30 @@
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    if (v1.size() != v2.size()) {
+bool issame(const vector<int>& a, const vector<int>& b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
 vector<int> count_up_to(int n);
 
 int main() {
-    vector<int> prime_expected = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 
-                                  61, 67, 71, 73, 79, 83, 89, 97};    
-    vector<int> prime_output = count_up_to(101);
+    vector<int> expected_result = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
     
-    if (issame(prime_output, prime_expected)) {
-        cout << "output is correct\n";
+    vector<int> result = count_up_to(101);
+    
+    if (issame(result, expected_result)) {
+        for (int prime : result) {
+            cout << prime << " ";
+        }
     } else {
-        cout << "output is incorrect\n";
+        cout << "Incorrect implementation";
     }
     
     return 0;
