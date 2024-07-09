@@ -1,7 +1,9 @@
-```
+```python
 def match_parens(lst):
     stack = []
     for s in lst:
+        if "(" in s:
+            return "No"
         for char in s:
             if char == "(":
                 stack.append(char)
