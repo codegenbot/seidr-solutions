@@ -19,17 +19,19 @@ vector<vector<string>> filter_by_substring(vector<vector<string>> strings, strin
     vector<vector<string>> result;
     for (vector<string> s : strings) {
         bool same = true;
+        vector<string> temp;
         for (string str : s) {
             size_t found = str.find(substring);
             if (found == string::npos) {
                 same = false;
                 break;
             }
+            temp.push_back(str);
         }
         if (same) {
             result.push_back({{substring}});
         } else {
-            result.push_back(s);
+            result.push_back(temp);
         }
     }
     return result;
