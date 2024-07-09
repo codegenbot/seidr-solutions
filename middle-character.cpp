@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -7,7 +8,8 @@ std::string middleCharacter(std::string s) {
     if(n % 2 == 1) {
         result += s.substr(n / 2, 1);
     } else {
-        result = s.substr(n / 2 - 1, 2); 
+        result += s.substr((n-1)/2, 1);
+        result += s.substr(n/2, 1);
     }
     return result;
 }
@@ -16,6 +18,6 @@ int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);
-    std::cout << middleCharacter(str) << std::endl;
+    std::cout << "Middle character(s): " << middleCharacter(std::move(str)) << std::endl;
     return 0;
 }
