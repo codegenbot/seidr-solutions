@@ -1,16 +1,20 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
-    int result = operand[0];
-    for (int i = 0; i < operator_.size(); i++) {
-        if (operator_[i] == "+") {
-            result += operand[i + 1];
-        } else if (operator_[i] == "-") {
-            result -= operand[i + 1];
-        } else if (operator_[i] == "*") {
-            result *= operand[i + 1];
-        } else if (operator_[i] == "//") {
-            result = result / operand[i + 1];
-        } else if (operator_[i] == "**") {
-            result = pow(result, operand[i + 1]);
+```
+#include <vector>
+#include <cmath>
+
+int do_algebra(vector<pair<char, int>> operators_and_operands) {
+    int result = operators_and_operands[0].second;
+    for (int i = 0; i < operators_and_operands.size(); i++) {
+        if (operators_and_operands[i].first == '+') {
+            result += operators_and_operands[i].second;
+        } else if (operators_and_operands[i].first == '-') {
+            result -= operators_and_operands[i].second;
+        } else if (operators_and_operands[i].first == '*') {
+            result *= operators_and_operands[i].second;
+        } else if (operators_and_operands[i].first == '/') {
+            result = result / operators_and_operands[i].second;
+        } else if (operators_and_operands[i].first == '^') {
+            result = pow(result, operators_and_operands[i].second);
         }
     }
     return result;
