@@ -1,5 +1,6 @@
-```cpp
 #include <vector>
+#include <cmath>
+
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
@@ -11,8 +12,16 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5f, 2.0f, 3.7f, 4.8f};
-    float odd_sum = double_the_difference(lst);
-    assert(odd_sum == 16);
+    std::vector<float> lst = {1.5, 2.5, -3.5, 4.5, 5.5};
+    float odd_sum = 0;
+    
+    for (float num : lst) {
+        if (num > 0 && modf(num, &num) == 0) {
+            odd_sum += num * num;
+        }
+    }
+    
+    assert(double_the_difference(lst) == odd_sum);
+    
     return 0;
 }
