@@ -11,13 +11,11 @@ int main() {
 
     double bouncinessIndex = firstBounceHeight / startHeight;
 
-    totalDistance = 0.0;
+    double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        startHeight *= (1 - bouncinessIndex);
-        totalDistance += startHeight;
+        totalDistance += startHeight * pow(bouncinessIndex, i);
     }
 
     cout << fixed << setprecision(5) << showpoint << totalDistance << endl;
 
     return 0;
-}

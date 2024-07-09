@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -17,7 +18,19 @@ vector<int> indicesOfSubstring(string text, string target) {
                 break;
             }
         }
-        if (found) result.push_back(i);
+        if (found) {
+            result.push_back(i);
+            // Add the remaining length of the target string to i
+            for (int k = 0; k < m - 1; k++) {
+                i += 1;
+                if (text[i] == target[k]) {
+                    found = true;
+                    break;
+                }
+                found = false;
+                break;
+            }
+        }
     }
 
     return result;
@@ -32,24 +45,11 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-
-    while (!(cin >> a >> b) || a < 0 || b < 0) {
-        cout << "Invalid input. Please enter two positive integers: ";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cin >> a >> b;
-    }
-
+    cin >> a >> b;
     cout << gcd(a, b) << endl;
 
     string text, target;
-    while (!(cin >> text >> target)) {
-        cout << "Invalid input. Please enter valid strings: ";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cin >> text >> target;
-    }
-
+    cin >> text >> target;
     vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices)
         cout << i << " ";
