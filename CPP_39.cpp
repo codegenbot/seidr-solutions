@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 using namespace std;
 
@@ -20,6 +20,7 @@ int prime_fib(int n) {
         if (isPrime) count++;
         if (count == n) return fib;
     }
+    return 0;
 }
 
 int main() {
