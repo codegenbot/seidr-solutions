@@ -1,7 +1,8 @@
+```
 #include <algorithm>
 #include <vector>
 
-bool isSame(vector<float> a, vector<float> b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -9,17 +10,17 @@ bool isSame(vector<float> a, vector<float> b) {
     return true;
 }
 
-vector<float> sortEven(vector<float> l) {
-    vector<float> result(l.size());
+std::vector<float> sort_even(const std::vector<float>& l) {
+    std::vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            vector<float> evens;
+            std::vector<float> evens;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
                     evens.push_back(l[j]);
                 }
             }
-            sort(evens.begin(), evens.end());
+            std::sort(evens.begin(), evens.end());
             result[i] = evens[0];
         } else {
             result[i] = l[i];
@@ -29,20 +30,19 @@ vector<float> sortEven(vector<float> l) {
 }
 
 int main() {
-    vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
-    
+    std::vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
+    std::cout << "Original array: ";
     for (float num : input) {
-        cout << num << " ";
+        std::cout << num << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
-    vector<float> result = sortEven(input);
-    if (isSame(result, input)) {
-        for (float num : result) {
-            cout << num << " ";
-        }
-        cout << endl;
-    } else {
-        cout << "Test failed" << endl;
+    std::vector<float> sortedEven = sort_even(input);
+    std::cout << "Sorted even array: ";
+    for (float num : sortedEven) {
+        std::cout << num << " ";
     }
+    std::cout << std::endl;
+
+    return 0;
 }
