@@ -5,5 +5,11 @@ def concatenate(strings: List[str]) -> str:
     return "".join(strings)
 
 
-strings = input("Enter string(s) (separated by space): ").split()
+strings = input("Enter strings (separated by space): ")
+while True:
+    try:
+        strings = [s.strip() for s in strings.split()]
+        break
+    except ValueError:
+        print("Invalid input. Please enter strings separated by spaces.")
 print(concatenate(strings))
