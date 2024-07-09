@@ -8,8 +8,8 @@ bool issame(const std::string& a, const std::string& b) {
 
 int sorted_list_sum(const std::vector<std::string>& lst) {
     int sum = 0;
-    for (const std::string& str : lst) {
-        sum += str.length();
+    for (const std::string& s : lst) {
+        sum += std::stoi(s);
     }
     return sum;
 }
