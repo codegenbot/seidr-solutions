@@ -1,21 +1,18 @@
+```cpp
 #include <vector>
 #include <cmath>
+#include <numeric> // Include this for std::accumulate
 
-float mean_absolute_deviation(vector<float> numbers) {
-    float sum = 0.0f;
-    for (auto num : numbers) {
-        sum += abs(num - mean(numbers));
-    }
-    return sum / numbers.size();
-}
+using namespace std;
 
-float mean(vector<float> numbers) {
+float mean(const vector<float>& numbers) {
     return accumulate(numbers.begin(), numbers.end(), 0.0f) / numbers.size();
 }
 
-int main() {
-    vector<float> numbers = {1,2,3,4,5};
-    cout << "Mean: " << mean(numbers) << endl;
-    cout << "Mean Absolute Deviation: " << mean_absolute_deviation(numbers) << endl;
-    return 0;
+float mean_absolute_deviation(vector<float> numbers) {
+    float sum = 0;
+    for (float num : numbers) {
+        sum += abs(num - mean(numbers));
+    }
+    return sum / numbers.size();
 }
