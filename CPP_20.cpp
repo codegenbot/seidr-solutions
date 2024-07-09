@@ -1,9 +1,9 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <limits>
-#include <initializer_list>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool isSame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
