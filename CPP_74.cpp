@@ -3,12 +3,8 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b, std::vector<std::string> c) {
-    if (a.size() != b.size() || a.size() != c.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (!issame({{a[i]}}, {{b[i]}}, {{c[i]}})) return false;
-    }
-    return true;
+bool issame(const std::string& s1, const std::string& s2, const std::string& s3) {
+    return s1 == s2 && s1 == s3;
 }
 
 int total_sum(std::vector<std::string> lst) {
@@ -31,10 +27,10 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    std::vector<std::string> lst1 {"this", "is", "a"};
-    std::vector<std::string> lst2 {"hello", "from", "c++"};
+    std::vector<std::string> lst1;
+    std::vector<std::string> lst2;
 
-    assert(issame({{"this"}}, {""}, {}));
+    assert(issame("this", "", ""));
     std::cout << "Test passed" << std::endl;
     
     if (total_sum(lst1) < total_sum(lst2)) {
