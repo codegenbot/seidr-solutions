@@ -21,9 +21,3 @@ int count_nums(vector<int> nums) {
     }
     return count;
 }
-
-int main() {
-    vector<int> nums = {-1234, 5678, -9012};
-    cout << "Count: " << count_nums(nums) << endl;
-    return 0;
-}
