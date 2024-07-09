@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 
@@ -20,9 +21,10 @@ bool simplify(string x, string n) {
 }
 
 int main() {
-    cout << simplify("1/5", "5/1") << endl; 
-    cout << simplify("1/6", "2/1") << endl; 
-    cout << simplify("7/10", "10/2") << endl; 
+    cout << simplify("1/5", "5/1") << endl; // true
+    cout << simplify("1/6", "2/1") << endl; // false
+    cout << simplify("7/10", "10/2") << endl; // false
 
     return 0;
 }
+// int main() {
