@@ -6,7 +6,7 @@ int calculateFuelCost(vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
         int result = (num / 3);
-        int newNum = floor(double(result)) - 2; // Modified this line
+        int newNum = floor(result) - 2;
         sum += newNum;
     }
     return sum;
