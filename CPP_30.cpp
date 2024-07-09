@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <memory>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
@@ -14,8 +13,8 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-std::pmr::vector<float> getPositive(const std::vector<float>& l) {
-    std::pmr::vector<float> result(std::pmr::get_default_resource());
+std::vector<float> getPositive(const std::vector<float>& l) {
+    std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
             result.push_back(num);

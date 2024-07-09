@@ -1,8 +1,8 @@
 #include <vector>
 #include <set>
 
-bool pairs_sum_to_zero(vector<vector<int>> l) {
-    set<int> s;
+bool pairs_sum_to_zero(std::vector<std::vector<int>> l) {
+    std::set<int> s;
     for (const auto& v : l) {
         for (int i : v) {
             s.insert(i);
