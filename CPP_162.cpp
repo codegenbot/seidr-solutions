@@ -18,6 +18,6 @@ string string_to_md5(const string& text) {
 
 int main() {
     string input = "Hello, World!";
-    string result = string_to_md5(input);
+    string output = string_to_md5(input);
     return 0;
 }
