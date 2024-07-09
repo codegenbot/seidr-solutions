@@ -1,5 +1,3 @@
-#include <string>
-
 std::string middleCharacter(std::string s) {
     int len = s.length();
     if(len == 0)
