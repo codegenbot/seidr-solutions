@@ -1,3 +1,4 @@
+#include <vector>
 bool isSame(std::vector<float> a, std::vector<float> b) {
     if(a.size() != b.size()) {
         return false;
