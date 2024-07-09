@@ -1,21 +1,22 @@
 #include<string>
 using namespace std;
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
-}
-
 bool simplify(string x, string n) {
-    int numerator1 = stoi(strtok(x.substr(1).c_str(), "/"));
-    int denominator1 = stoi(x.substr(0, 1));
-    int numerator2 = stoi(strtok(n.substr(1).c_str(), "/"));
-    int denominator2 = stoi(n.substr(0, 1));
+    int num1 = 0, denom1 = 0, num2 = 0, denom2 = 0;
+    
+    // Find numerator and denominator of first fraction
+    size_t pos = x.find('/');
+    num1 = stoi(x.substr(0, pos));
+    denom1 = stoi(x.substr(pos + 1));
 
-    int newNumerator = numerator1 * denominator2;
-    int newDenominator = denominator1 * numerator2;
+    // Find numerator and denominator of second fraction
+    pos = n.find('/');
+    num2 = stoi(n.substr(0, pos));
+    denom2 = stoi(n.substr(pos + 1));
 
-    return gcd(newNumerator, newDenominator) == 1;
+    // Check if the product is a whole number
+    int productNumerator = (num1 * denom2) + (num2 * denom1);
+    int productDenominator = denom1 * denom2;
+
+    return (productNumerator % productDenominator == 0);
 }
