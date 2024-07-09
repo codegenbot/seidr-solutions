@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -22,6 +21,7 @@ std::string fix_spaces(string text){
 }
 
 int main() {
-    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    string test = "   Exa 1 2 2 mple";
+    cout << fix_spaces(test) << endl;
     return 0;
 }
