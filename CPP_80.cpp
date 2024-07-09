@@ -17,17 +17,16 @@ int main() {
 }
 
 bool is_happy(int n) {
-    if(n < 10)
-        return n % 10 == 1 && n != 1;
-    int sum = 0, remainder;
-    do{
-        while (n != 0){
-            remainder = n % 10;
-            sum += remainder * remainder;
-            n /= 10;
-        }
-        n = sum;
-        sum = 0;
-    }while(n > 9);
-    return n == 1;
+    if(n < 10) return n != 1;
+    int sum = 0, temp = n;
+    while(temp!=0){
+        int digit = temp%10;
+        sum += digit * digit;
+        temp /= 10;
+    }
+    if(sum==1) return true;
+    else{
+        n=sum;
+        return is_happy(n);
+    }
 }
