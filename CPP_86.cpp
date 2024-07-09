@@ -1,4 +1,3 @@
-```cpp
 string split(const string& str, char sep) {
     vector<string> tokens;
     string s = str; // Make a copy of the string
