@@ -1,7 +1,10 @@
 #include <vector>
-#include <algorithm>
+#include <list>
+#include <boost/any.hpp>
+using namespace std;
+using namespace boost;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a,vector<int>b){
     if(a.size() != b.size()) return false;
     sort(a.begin(),a.end());
     sort(b.begin(),b.end());
@@ -11,12 +14,12 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int filter_integers(std::vector<int> v) {
-    std::vector<int> result;
-    for (int num : v) {
-        if (std::holds_alternative<int>(num)) {
-            result.push_back(std::get<int>(num));
+vector<int> filter_integers(list<any> values) {
+    vector<int> result;
+    for (const auto& value : values) {
+        if (any_cast<int>(value).good()) {
+            result.push_back(any_cast<int>(value));
         }
     }
-    return 0;
+    return result;
 }
