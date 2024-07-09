@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -9,11 +8,11 @@ vector<int> sort_third(vector<int> l) {
     vector<int> result;
     int groupCount = 0;
 
-    for (int i = 0; i < l.size(); i++) { 
-        if(groupCount % 3 == 0) { 
-            result.push_back(l[i]);
+    for (int i : l) {
+        if(groupCount % 3 == 0 || groupCount >= l.size()) { 
+            result.push_back(i);
         } else {
-            result.push_back(l[i]);
+            result.push_back(i);
             groupCount++;
         }
     }
