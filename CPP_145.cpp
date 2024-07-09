@@ -21,7 +21,10 @@ int main() {
         points.push_back(x);
     }
     
-    vector<int> ordered_points = order_by_points(points);
-    
-    return 0;
+    vector<int> orderedPoints = order_by_points(points);
+    // Print the ordered points
+    for (int point : orderedPoints) {
+        cout << point << " ";
+    }
+    cout << endl;
 }
