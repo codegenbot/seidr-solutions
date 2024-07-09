@@ -14,6 +14,11 @@ int main() {
 
     double bouncinessIndex = firstBounce / startHeight;
 
-    std::cout << startHeight << " " << firstBounce << "\n" << numBounces;
+    double totalDistance = (numBounces * 2) + 1; // calculate total distance based on numBounces
+
+    std::stringstream ss;
+    ss << startHeight << " " << firstBounce << "\n" << numBounces << " " << totalDistance;
+
+    std::cout << ss.str();
     return 0;
 }
