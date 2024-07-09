@@ -18,7 +18,6 @@ int next_smallest(vector<int>& lst) {
     }
     return -1;
 }
-
 // Invoke next_smallest with input vector { -35, 34, 12, -45 }
-vector<int> input = { -35, 34, 12, -45 };
+std::vector<int> input = { -35, 34, 12, -45 };
 int result = next_smallest(input);
