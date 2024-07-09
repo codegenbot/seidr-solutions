@@ -1,3 +1,4 @@
+```Python
 def fix_spaces(text):
     previous_char_was_space = False  
     result = ""
@@ -6,6 +7,6 @@ def fix_spaces(text):
             result += char
         else:
             result += "-"
-        global previous_char_was_space  
+        nonlocal previous_char_was_space 
         previous_char_was_space = char == " "
     return result
