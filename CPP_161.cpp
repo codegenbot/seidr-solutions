@@ -1,12 +1,17 @@
-string solve(string s) {
-    string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            result += tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i'
-                || tolower(c) == 'o' || tolower(c) == 'u' ? toupper(c) : tolower(c);
-        } else {
-            result += c;
+Here is the solution:
+
+```cpp
+string solve(string s){
+    string result;
+    for(int i=0; i<s.size(); i++){
+        if(isalpha(s[i])){
+            if(islower(s[i]))
+                result += toupper(s[i]);
+            else
+                result += tolower(s[i]);
         }
+        else
+            result += s[i];
     }
-    return result.empty() ? string(s).reverse() : result;
+    return (result.empty() ? string(1, s.back()) + s.substr(0, s.size()-1) : result);
 }
