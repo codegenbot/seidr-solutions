@@ -1,6 +1,6 @@
+```cpp
 #include <string>
 #include <vector>
-#include <iostream>
 
 std::string concatenate(const std::vector<std::string>& strings) {
     std::string result = "";
