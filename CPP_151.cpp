@@ -1,15 +1,9 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-int main() {
-    vector<float> lst = {1.0, 2.0, 3.0, 4.5, 6.7};
-    long long result = double_the_difference(lst);
-    cout << "The difference is: " << result << endl;
-    return 0;
-}
-
-long long double_the_difference(vector<float> lst) {
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && modf(num, &num) == 0) {
@@ -17,4 +11,11 @@ long long double_the_difference(vector<float> lst) {
         }
     }
     return sum;
+}
+
+int main() {
+    std::vector<float> lst = {1.5f, 3.0f, -4.0f, 6.0f, -7.0f};
+    int odd_sum = 0;
+    assert(double_the_difference(lst) == odd_sum);
+    return 0;
 }
