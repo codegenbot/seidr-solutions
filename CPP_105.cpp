@@ -3,53 +3,47 @@
 using namespace std;
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+    vector<string> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            numbers.push_back(num);
+            numbers.push_back(to_string(num));
         }
     }
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
     vector<string> result;
-    for (int num : numbers) {
-        string str; // declare string before using it
-        switch (num) {
+    for (string str : numbers) {
+        string res = "";
+        switch (stoi(str)) {
             case 1:
-                str = "One";
+                res = "One";
                 break;
             case 2:
-                str = "Two";
+                res = "Two";
                 break;
             case 3:
-                str = "Three";
+                res = "Three";
                 break;
             case 4:
-                str = "Four";
+                res = "Four";
                 break;
             case 5:
-                str = "Five";
+                res = "Five";
                 break;
             case 6:
-                str = "Six";
+                res = "Six";
                 break;
             case 7:
-                str = "Seven";
+                res = "Seven";
                 break;
             case 8:
-                str = "Eight";
+                res = "Eight";
                 break;
             case 9:
-                str = "Nine";
+                res = "Nine";
                 break;
         }
-        result.push_back(str);
+        result.push_back(res);
     }
     return result;
-}
-
-int main() {
-    vector<string> expected_result = {"Nine", "Eight", "Four"};
-    assert (by_length({9, 4, 8}) == expected_result);
-    return 0;
 }
