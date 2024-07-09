@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 int car_race_collision(string s) {
@@ -15,9 +14,9 @@ int car_race_collision(string s) {
 }
 
 int main() {
-    string s;
-    cin >> s;  
+    int n;
+    cin >> n;  
+    string s = to_string(n);  
     cout << "Number of collisions: " << car_race_collision(s) << endl;
-    assert(car_race_collision(to_string(10)) == 100);
     return 0;
 }
