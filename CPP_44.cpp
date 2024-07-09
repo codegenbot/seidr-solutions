@@ -1,9 +1,8 @@
-#include <string> // Include the string header
-
-std::string change_base(int x, int base){ // Use std::string instead of string
+#include <string>
+std::string change_base(int x, int base){
     std::string result = "";
     while(x > 0){
-        result = std::to_string(x % base) + result; // Use std::to_string
+        result = std::to_string(x % base) + result;
         x /= base;
     }
     return result;
@@ -11,6 +10,6 @@ std::string change_base(int x, int base){ // Use std::string instead of string
 
 int main(){
     int x = 10;
-    assert(change_base(x, x + 1) == std::to_string(x)); // Use std::to_string
+    assert(change_base(x, x + 1) == std::to_string(x));
     return 0;
 }
