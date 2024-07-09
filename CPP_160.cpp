@@ -1,6 +1,4 @@
-```cpp
-#include <vector>
-#include <string>
+#include <initializer_list>
 
 int doAlgebra(std::vector<std::string> operators, std::vector<int> operands) {
     int result = operands[0];
