@@ -31,7 +31,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     for (int i = cut_index; i < vec.size(); i++) {
         right.push_back(vec[i]);
     }
-    return {left, right};
+    return {vector<int>(left.begin(), left.end()), vector<int>(right.begin(), right.end())};
 }
 
 int main() {
