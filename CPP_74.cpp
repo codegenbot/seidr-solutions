@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -9,7 +10,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> vec2) {
     return true;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int sum1 = 0, sum2 = 0;
     for (const auto& s : lst1) {
         sum1 += s.length();
@@ -19,41 +20,35 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
     if (sum1 < sum2) return lst1;
     else if (sum1 > sum2) return lst2;
-    else return lst1;
+    else {
+        std::vector<std::string> res;
+        if (!issame(lst1, lst2)) return {};
+        for (const auto& s : lst1) {
+            res.push_back(s);
+        }
+        return res;
+    }
 }
 
 int main() {
-    int b; // declare variable b
-    vector<string> lst3, lst4;
-    cin >> b;  // read value of 'b'
-    
-    string temp;
-    for(int i = 0; i < b; i++) { 
-        cin >> temp;
-        if(i == 0) {
-            lst1.push_back(temp);
-        } else if(i == 1) {
-            lst2.push_back(temp);
-        } else if(i > 1) {
-            if(issame(lst1, lst2)) {
-                if(sum_match(total_match(lst1, lst2)) >= sum_match(lst3) && sum_match(total_match(lst1, lst2)) <= sum_match(lst4)) {
-                    lst3 = total_match(lst1, lst2);
-                } else {
-                    lst4 = total_match(lst1, lst2);
-                }
-            } 
-        }
+    int n;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> n;
+
+    std::vector<std::string> a, b;
+    for (int i = 0; i < n; i++) {
+        std::string temp;
+        std::cout << "Enter string " << i+1 << ": ";
+        std::getline(std::cin, temp);
+        if (i == 0) a.push_back(temp);
+        else b.push_back(temp);
     }
-    
-    if(!issame(lst1, lst2)) { // check if lists are the same
-        cout << "The two lists are not identical." << endl;
-    } else {
-        if(sum_match(total_match(lst1, lst2)) >= sum_match(lst3) && sum_match(total_match(lst1, lst2)) <= sum_match(lst4)) {
-            cout << "The total match list is the same as one of the lists: " << lst3[0] << endl;
-        } else {
-            cout << "The total match list is not the same as either of the lists." << endl;
-        }
+
+    std::vector<std::string> result = total_match(a, b);
+
+    std::cout << "The matching strings are: \n";
+    for (const auto& s : result) {
+        std::cout << s << "\n";
     }
-    
-    return 0; 
+    return 0;
 }
