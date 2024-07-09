@@ -6,7 +6,7 @@
 std::vector<std::string> split_words(const std::string& txt) {
     std::vector<std::string> words;
     std::string word;
-    for (char& c : txt) {
+    for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 words.push_back(word);
@@ -21,7 +21,7 @@ std::vector<std::string> split_words(const std::string& txt) {
     }
     if (words.empty()) {
         int count = 0;
-        for (char& c : txt) {
+        for (char c : txt) {
             if (islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
