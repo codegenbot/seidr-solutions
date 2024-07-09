@@ -4,13 +4,13 @@
 
 using namespace std;
 
-vector<float> sort_even(vector<float> l); 
+vector<float> sort_even(vector<float> l); // Declare sort_even function before main
 
 bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
 
-vector<float> sort_even(vector<float> l) {
+vector<float> sort_even(vector<float> l) { // Define the sort_even function
     vector<float> even_indices;
     for (int i = 0; i < l.size(); i += 2) {
         even_indices.push_back(l[i]);
