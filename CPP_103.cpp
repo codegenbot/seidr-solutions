@@ -2,13 +2,15 @@
 #include <bitset>
 #include <cassert>
 
-int calculateBinary(int a, int b) {
-    return std::stoi(std::bitset<3>(a + b).to_string(), nullptr, 2);
+std::string calculateBinary(int a, int b) {
+    return std::bitset<3>(a + b).to_string();
 }
 
 int main() {
-    int rounded_avg = calculateBinary(2, 1);
+    int rounded_avg = std::stoi(calculateBinary(2, 1), nullptr, 2);
     assert(rounded_avg == 3);
+    assert(calculateBinary(2, 1) == "011");
+    assert(std::stoi(calculateBinary(5, 5), nullptr, 2) == 10);
 
     return 0;
 }
