@@ -1,12 +1,19 @@
-#include <iostream>
-#include <vector>
+#include <initializer_list>
 #include <algorithm>
-#include <utility>
+#include <vector>
 
-using namespace std;
+namespace std;
 
-bool same(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> order_by_points(vector<int> nums) {
@@ -30,21 +37,3 @@ vector<int> order_by_points(vector<int> nums) {
 
     return result;
 }
-
-int main() {
-    vector<int> nums = {12, 34, 5};
-    cout << "Input: ";
-    for (auto num : nums) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    vector<int> res = order_by_points(nums);
-
-    cout << "Output: ";
-    for (auto num : res) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    return 0;
