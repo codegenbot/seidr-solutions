@@ -1,5 +1,6 @@
-#include <vector>
+```
 #include <initializer_list>
+#include <vector>
 #include <cassert>
 #include <iostream>
 
@@ -26,6 +27,6 @@ public:
 
 int main() {
     cpp_160 obj;
-    int output = obj.do_algebra({{"*","//"}}, {7, 3, 4});
+    int output = obj.do_algebra({"*","//"}, {7, 3, 4});
     std::cout << output << std::endl;
 }
