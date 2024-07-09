@@ -1,4 +1,7 @@
+```cpp
 #include <iostream>
+using namespace std;
+
 int luhn(int* numbers) {
     int sum = 0;
     for (int i = 0; i < 16; i++) {
@@ -14,8 +17,7 @@ int luhn(int* numbers) {
 }
 
 int main() {
-    // Example usage: input an array of credit card numbers
-    int creditCardNumbers[] = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 1, 1, 7, 3, 9, 1};
-    std::cout << "Luhn value: " << luhn(creditCardNumbers) << std::endl;
+    int cardNumber[16] = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 1, 6, 4, 3, 9, 0};
+    cout << "Luhn check result: " << luhn(cardNumber) << endl;
     return 0;
 }
