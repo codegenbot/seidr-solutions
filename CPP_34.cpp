@@ -2,12 +2,12 @@
 #include <vector>
 #include <iostream>
 
-bool std::issame(std::vector<int> a, std::vector<int> b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return (a == b);
 }
 
 template<typename It>
-It std::distinct(It first, It last) {
+It distinct(It first, It last) {
     if (first == last)
         return first;
 
@@ -24,7 +24,7 @@ It std::distinct(It first, It last) {
             result.push_back(*first);
     }
 
-    return result.end();
+    return result.begin();
 }
 
 void solveProblem() {
@@ -45,7 +45,7 @@ void solveProblem() {
         cout << i << " ";
     }
     
-    assert(std::equal({0, 2, 3, 5, 9, 123}.begin(), {0, 2, 3, 5, 9, 123}.end(), std::vector<int>(std::distinct(input.begin(), input.end()), std::distinct(input.end())));
+    assert(std::equal({0, 2, 3, 5, 9, 123}.begin(), {0, 2, 3, 5, 9, 123}.end(), std::vector<int>(std::distinct(input.begin(), input.end()).begin(), std::distinct(input.end())));
 
     return;
 }
