@@ -1,23 +1,22 @@
-Here is the solution:
-
 string get_closest_vowel(string word) {
-    string vowels = "aeiouAEIOU";
-    for (int i = 0; i < word.size(); i++) {
-        if (!isalpha(word[i])) continue;
-        bool found_left = false, found_right = false;
-        int left = i - 1;
-        while (left >= 0 && !isalpha(word[left]) && !vowels.find(toupper(word[left])) != string::npos) {
-            left--;
+    int left = 0;
+    for(int i = word.size() - 1; i >= 0; i--) {
+        if(!isVowel(word[i])) {
+            left = i + 1;
+            break;
         }
-        if (left < 0) continue;
-        while (i < word.size() && !isalpha(word[i]) && !vowels.find(toupper(word[i])) != string::npos) {
-            i++;
-        }
-        int right = i + 1;
-        while (right < word.size() && !isalpha(word[right]) && !vowels.find(toupper(word[right])) != string::npos) {
-            right++;
-        }
-        if (i > left && i < right) return string(1, toupper(word[i]));
     }
+
+    for(int i = left; i < word.size(); i++) {
+        if(isVowel(word[i])) {
+            return string(1, tolower(word[i]));
+        }
+    }
+
     return "";
+}
+
+bool isVowel(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
