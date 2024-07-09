@@ -1,4 +1,8 @@
-string do_algebra(vector<string> operator_, vector<int> operand) {
+#include <vector>
+#include <string>
+#include <cstdlib>
+
+int do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
         expression += to_string(operand[i]);
@@ -6,25 +10,37 @@ string do_algebra(vector<string> operator_, vector<int> operand) {
     }
     expression += to_string(operand.back());
     
-    int result = stoi(eval(expression));
+    int result = eval(expression);
     
     return result;
 }
 
-string eval(const string& s) {
-    string temp = "";
+int eval(const string& s) {
+    int result = 0;
+    if (s.empty()) {
+        return result;
+    }
+    
+    int start = 0, sign = 1;
     for (int i = 0; i < s.size(); i++) {
-        if (isdigit(s[i])) {
-            temp += s[i];
-        } else if (s[i] == '+') {
-            int num = stoi(temp);
-            temp = "";
-            result += num;
-        } else if (s[i] == '-') {
-            int num = stoi(temp);
-            temp = "";
-            result -= num;
+        if (!isdigit(s[i])) {
+            if (s[i] == '+') {
+                sign = 1;
+            } else if (s[i] == '-') {
+                sign = -1;
+            }
+            start = i + 1;
+        } else {
+            result += sign * std::atoi(&s[i]);
         }
     }
-    int num = stoi(temp);
-    return to_string(num);
+    
+    return result;
+}
+
+int main() {
+    vector<string> op = {"//", "*"};
+    vector<int> oper = {7, 3, 4};
+    int result = do_algebra(op, oper);
+    return 0;
+}
