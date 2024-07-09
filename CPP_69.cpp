@@ -37,7 +37,15 @@ int main() {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        std::cin >> num; lst.push_back(num); 
+        while (!(std::cin >> num) || num < 1) {
+            if (!std::cin)
+                std::cout << "Invalid input. Please enter a positive integer greater than 0.\n";
+            else
+                std::cout << "Please enter a positive integer greater than 0.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        lst.push_back(num); 
     }
 
     if(lst.empty()) {
