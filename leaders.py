@@ -1,13 +1,10 @@
-```
 def leaders(arr):
-    leaders = []
+    leaders = [arr[-1]]
     max_right = arr[-1]
 
-    for i in range(len(arr) - 1, -1, -1):
+    for i in range(len(arr) - 1, 0, -1):
         if arr[i] >= max_right:
-            leaders.append(max_right)
-            max_right = i
-        else:
-            leaders.append(arr[i])
+            leaders.insert(0, arr[i])
+            max_right = arr[i]
 
-    return reversed(leaders)
+    return leaders
