@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <initializer_list>
@@ -27,15 +26,7 @@ int find_max_prime_and_sum_digits(std::vector<int> lst){
 }
 
 int main() {
-    std::vector<int> lst;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i < n; i++){
-        int num;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> num;
-        lst.push_back(num);
-    }
-    std::cout << "Maximum prime and sum of digits: " << find_max_prime_and_sum_digits(lst) << std::endl;
+    int result = find_max_prime_and_sum_digits({127, 97, 8192});
+    assert(result == 10);
+    std::cout << result;
 }
