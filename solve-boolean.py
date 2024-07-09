@@ -6,7 +6,5 @@ def solve_boolean(expression):
             expression = str(bool(a)) + "&"
         elif "|" in expression:
             a, b = expression.split("|")
-            expression = str(bool(a)) + "|"
-        else:
-            break
-    return expression.replace("True", "t").replace("False", "f") == "t"
+            expression = str(int(str(bool(a)).lower() == "true") | int(str(bool(b)).lower() == "true"))+"|"
+    return bool(expression)
