@@ -3,8 +3,7 @@ using namespace std;
 
 bool check_if_last_char_is_a_letter(const string& str) {
     if(str.empty()) return false;
-    int c = str.back(); 
-    return ::isalpha(c);  
+    return isalpha(str.back());
 }
 
 int main() {
