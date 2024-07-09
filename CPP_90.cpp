@@ -1,18 +1,21 @@
 int main() {
     vector<int> lst;
-    int n;
-    cout << "Enter number of elements: ";
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int val;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> val;
-        lst.push_back(val);
+    int num;
+    while (cin >> num) {
+        lst.push_back(num);
     }
-    int result = next_smallest(lst);
-    if (result == -1) 
-        cout << "No smaller number is found in the list." << endl;
-    else
-        cout << "The smallest number greater than all previous numbers is: " << result << endl;
+    cout << next_smallest(lst) << endl;
     return 0;
+}
+
+int next_smallest(vector<int> lst) {
+    if (lst.empty()) return -1; 
+    vector<int> sorted_lst = lst;
+    sort(sorted_lst.begin(), sorted_lst.end());
+    for (int i = 0; i < sorted_lst.size() - 1; i++) {
+        if (sorted_lst[i] != sorted_lst[i + 1]) {
+            return sorted_lst[i + 1];
+        }
+    }
+    return -1; 
 }
