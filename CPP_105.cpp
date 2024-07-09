@@ -1,14 +1,9 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
@@ -32,5 +27,5 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    assert(isSame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    assert(by_length({9, 4, 8}) == std::vector<std::string> {"Eight", "Four", "Nine"});
 }
