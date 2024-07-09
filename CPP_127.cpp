@@ -1,10 +1,13 @@
+#include <iostream>
 #include <string>
+#include <vector>
 
-string intersection(vector<int> interval1, vector<int> interval2) {
-    int start = max(interval1[0], interval2[0]);
-    int end = min(interval1[1], interval2[1]);
+std::string intersection(std::vector<int> interval1, std::vector<int> interval2) {
+    int start = std::max(interval1[0], interval2[0]);
+    int end = std::min(interval1[1], interval2[1]);
 
-    if (start > end) return "Interval intervals do not intersect";
+    if (start > end) 
+        return "Interval does not overlap. Please check your intervals again!";
 
     int length = end - start + 1;
     bool isPrime = true;
@@ -16,5 +19,5 @@ string intersection(vector<int> interval1, vector<int> interval2) {
         }
     }
 
-    return isPrime ? "Interval is prime" : "Interval is not prime";
+    return isPrime ? "The intersection interval is prime! Well done!" : "The intersection interval is not prime. Better luck next time!";
 }
