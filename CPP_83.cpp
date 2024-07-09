@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <string>
 
 bool starts_one_ends(int n) {
     int count = 0;
     for (int i = 1; i <= n; ++i) {
-        if ((i / pow(10, floor(log10(i))) % 10 == 1) || (n / pow(10, floor(log10(n))) % 10 == i))
+        if (std::to_string(i).find("1") != std::string::npos || std::to_string(n).find(std::to_string(i)) != std::string::npos)
             ++count;
     }
     return count;
