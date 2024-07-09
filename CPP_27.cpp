@@ -1,3 +1,7 @@
+#include <string>
+
+using namespace std;
+
 std::string myFlipCase(std::string str){
     string result = "";
     for(int i=0; i<str.length(); i++){
