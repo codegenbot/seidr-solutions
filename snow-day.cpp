@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -6,7 +7,13 @@ double snowDay(int hours, float groundSnow, float rateOfFall, float meltingRate)
     double totalSnow = 0.0;
     
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfFall - groundSnow * meltingRate;
+        totalSnow += rateOfFall;
+        if (meltingRate > 0.0) {
+            totalSnow -= groundSnow * meltingRate;
+            if (totalSnow < 0.0) {
+                totalSnow = 0.0;
+            }
+        }
     }
     
     return totalSnow;
