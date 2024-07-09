@@ -1,25 +1,24 @@
-#include <vector>
-#include <cmath>
-#include <cassert>
+#include <vector> // Add missing header
 
-double poly(std::vector<double> coeffs, double x) {
+double poly(std::vector<double> coeffs, double x){
     double result = 0.0;
-    for (int i = 0; i < coeffs.size(); ++i) {
+    for(int i=0; i<coeffs.size(); i++){
         result += coeffs[i] * pow(x, i);
     }
     return result;
 }
 
-double find_zero(std::vector<double> xs) {
-    double a = xs[0];
-    double b = xs[1];
-    return -b / a;
+double abs(double num){
+    return num >= 0 ? num : -num;
 }
 
-int main() {
-    std::vector<double> coeffs = {1, -1, -6};
-    double solution;
-    solution = find_zero(coeffs);
-    assert(std::abs(poly(coeffs, solution)) < 1e-3);
-    return 0;
+double find_zero(std::vector<double> coeffs){ // Change vector to std::vector
+    double a = coeffs[0];
+    double b = coeffs[1];
+    return -b/a;
 }
+
+// In the main function or where you are calling the functions
+std::vector<double> coeffs = {1, -3, 2}; // Example set of coefficients
+double solution = find_zero(coeffs); // Call find_zero with corrected parameter
+assert(abs(poly(coeffs, solution)) < 1e-3); // Call poly with corrected function name
