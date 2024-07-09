@@ -3,7 +3,6 @@
 #include <sstream>
 #include <iomanip>
 #include <openssl/evp.h>
-#include <openssl/md5.h>
 #include <openssl/hmac.h>
 
 using namespace std;
