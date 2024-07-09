@@ -1,9 +1,6 @@
+```cpp
 #include <vector>
 #include <algorithm>
-
-bool issame(vector<int> a, vector<int> b) {
-    // your logic to check if vectors are same goes here
-}
 
 vector<int> maximum(vector<int> arr, int k) {
     if(k > arr.size()) {
@@ -14,4 +11,9 @@ vector<int> maximum(vector<int> arr, int k) {
     vector<int> result(arr.begin(), arr.begin() + k);
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    assert(maximum({1, 2, 3, -23, 243, -400, 0}, 7) == vector<int>({0, 2, 3}));
+    return 0;
 }
