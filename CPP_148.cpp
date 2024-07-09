@@ -3,7 +3,7 @@
 #include <vector>
 
 bool isPlanet(std::string planet);
-bool areSame(std::vector<std::string> a, std::vector<std::string> b);
+bool areSame(std::vector<std::string> a, std::vector<std::string> result);
 std::vector<std::string> bf(std::string planet1, std::string planet2);
 
 void solve() {
@@ -40,10 +40,10 @@ bool isPlanet(std::string planet) {
     return false;
 }
 
-bool areSame(std::vector<std::string> a, std::vector<std::string> b) { 
-    if (a.size() != b.size()) return false;
+bool areSame(std::vector<std::string> a, std::vector<std::string> result) { 
+    if (a.size() != result.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != result[i]) return false;
     }
     return true;
 }
@@ -58,9 +58,4 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
     return result;
 
-}
-
-int main() {
-    solve();
-    return 0;
 }

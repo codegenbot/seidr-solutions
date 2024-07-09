@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -15,19 +16,12 @@ std::string int_to_roman(int number) {
             roman += pair.second;
         }
     }
-    if (number > 0) {
-        throw std::runtime_error("Cannot convert to Roman numeral");
-    }
     return roman;
 }
 
 int main() {
-    try {
-        for(int i = 1; i <= 4000; i++) {
-            std::cout << i << ": " << int_to_roman(i) << std::endl;
-        }
-    } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+    for(int i = 1; i <= 4000; i++) {
+        std::cout << i << ": " << int_to_roman(i) << std::endl;
     }
     return 0;
 }

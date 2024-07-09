@@ -1,10 +1,8 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
-#include <memory>
 
 using namespace std;
 
@@ -42,7 +40,7 @@ int main_entry() {
     cout << "Enter the number of strings: ";
     cin >> n;
     
-    vector<string> inputStrings;
+    vector<std::string> inputStrings; // Modified here
     int totalSize = 0;
     for(int i = 0; i < n; i++) {
         string str;
@@ -51,7 +49,6 @@ int main_entry() {
         totalSize += str.size() + 1; // Calculate the size of each string and add 1 for null character
     }
     
-    inputStrings.reserve(totalSize, std::allocator<std::string>());  
     for(int i = 0; i < n; i++) {
         string str;
         cout << "Enter string " << (i+1) << ": ";
