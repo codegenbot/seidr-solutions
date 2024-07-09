@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -6,11 +7,13 @@ bool is_bored(std::string S) {
     std::string boredom = "I";
     size_t pos = 0;
 
-    while ((pos = S.find(" ", pos)) != std::string::npos) {
+    while (pos != S.npos) {
+        pos = S.find(" ", pos);
         if (S.substr(0, pos).compare(boredom) == 0 && S.size() > pos + boredom.length()) {
             count++;
         }
-        pos += 1; 
+        if (pos != S.npos)
+            pos += 1;
     }
 
     return count;
