@@ -6,8 +6,9 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     res[0].push_back(v[0]);
+    int diff = INT_MAX;
     for (int i = 1; i < n; ++i) {
-        if (v[i] - v[0] <= 0) {
+        if (abs(v[i] - v[0]) <= diff) {
             res[0].push_back(v[i]);
         } else {
             res[0].pop_back();
