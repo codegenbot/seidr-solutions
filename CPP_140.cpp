@@ -1,4 +1,7 @@
-for (int i = 0; i < text.size(); ++i) {
+#include <string>
+
+std::string fix_spaces(std::string text) {
+    for (int i = 0; i < text.size(); ++i) {
         if (text[i] == ' ') {
             text[i] = '_';
             int count = 1;
