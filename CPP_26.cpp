@@ -1,11 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <set>
-
-bool operator()(const int& a, const int& b) const {
-    return a > b;
-}
 
 bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() == 0 && b.size() == 0) return true;
@@ -19,7 +14,8 @@ bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
     if (numbers.empty()) return std::vector<int>();
 
-    std::set<int, decltype(*this)(int, int)> uniqueNumbersSet(numbers.begin(), numbers.end());
+    std::set<int> uniqueNumbersSet(numbers.begin(), numbers.end());
+    std::vector<int>(uniqueNumbersSet.begin(), uniqueNumbersSet.end()); 
     std::vector<int> uniqueNumbers(uniqueNumbersSet.begin(), uniqueNumbersSet.end());
     std::sort(uniqueNumbers.begin(), uniqueNumbers.end());
 
