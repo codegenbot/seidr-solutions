@@ -1,13 +1,12 @@
 #include <algorithm>
 #include <cassert>
 #include <vector>
-#include <initializer_list>
 
 int findMax(std::vector<int> l) {
     return abs(*std::max_element(l.begin(), l.end()) - 12);
 }
 
 int main() {
-    assert(abs(findMax({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10})- 12)<1e-4);
-    return 0;
+    std::vector<int> v = {1, 2, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    return abs(findMax(v) - 12)<1e-4;
 }
