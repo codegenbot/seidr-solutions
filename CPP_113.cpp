@@ -1,6 +1,8 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -29,18 +31,15 @@ vector<string> odd_count(vector<string> lst) {
 }
 
 int main() {
-    vector<string> output;
     int n;
-    cout << "Enter the number of strings: ";
     cin >> n;
-    vector<string> lst;
+    vector<string> strVec(n);
     for (int i = 0; i < n; i++) {
-        string str;
-        cout << "Enter string " << i + 1 << ": ";
-        getline(cin, str);
-        lst.push_back(str);
+        getline(cin, strVec[i]);
     }
-    output = odd_count(lst);
+    
+    vector<string> output = odd_count(strVec);
     displayOutput(output);
+
     return 0;
 }
