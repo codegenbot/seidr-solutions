@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int mastermind(string code, string guess) {
+int mastermind(std::string code, std::string guess) {
     int whitePegs = 0;
     int blackPegs = 0;
 
@@ -23,7 +23,7 @@ int mastermind(string code, string guess) {
 }
 
 int main() {
-    string code, guess;
+    std::string code, guess;
     std::cout << "Enter the Mastermind code: ";
     std::getline(std::cin, code);
     std::cout << "Enter your guess: ";
