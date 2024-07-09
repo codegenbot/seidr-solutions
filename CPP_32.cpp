@@ -1,7 +1,8 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <initializer_list>
+#include <cassert>
 using namespace std;
 
 double poly(vector<double> coeffs, double solution) {
@@ -49,5 +50,6 @@ int main() {
         }
     }
     assert(abs(poly(coeffs, solution))< 1e-3);
+    cout << "The zero of the polynomial is: " << solution << endl;
     return 0;
 }
