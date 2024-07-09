@@ -10,22 +10,41 @@ double poly(vector<double> coeffs, double x) {
     return result;
 }
 
-double find_zero(vector<vector<double>> coeffs){
+double find_zero(vector<double> coeffs){
+    double x = 1;
     double tol = 1e-6; // tolerance for finding zero
     int max_iter = 1000; // maximum number of iterations
     
-    double x = 1;
+    vector<double> xs(coeffs); // assuming coeffs is the vector of coefficients
     
     for(int i=0; i<max_iter; i++){
-        vector<double> polyCoeffs = coeffs[0];
-        double f = poly(polyCoeffs, x);
+        double f = poly(xs, x);
         
         if(abs(f) < tol){
             return round(x, 2);
         }
         
-        x -= f / poly(coeffs[1], x); // Newton's method
+        x -= f / (poly(xs, x)); 
     }
     
     return -1.0; // not found
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of coefficients: ";
+    std::cin >> n;
+    vector<double> coeffs(n);
+    for(int i = 0; i < n; i++){
+        std::cout << "Enter coefficient " << (i+1) << ": ";
+        std::cin >> coeffs[i];
+    }
+    
+    double result = find_zero(coeffs);
+    if(result != -1.0)
+        std::cout << "The zero of the polynomial is: " << result << endl;
+    else
+        std::cout << "The polynomial does not have a zero." << endl;
+    
+    return 0;
 }
