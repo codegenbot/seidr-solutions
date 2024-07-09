@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -6,7 +7,7 @@
 float shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
     float totalPrice = 0;
     for (size_t i = 0; i < prices.size(); ++i) {
-        float discountedPrice = prices[i] * (1 - discounts[i] / 100);
+        float discountedPrice = prices[i] * (1 - discounts[i]);
         totalPrice += discountedPrice;
     }
     return totalPrice;
@@ -18,9 +19,8 @@ int main() {
 
     float price, discount;
     while (std::cin >> price >> discount) {
-        if (!(std::cin >> ws).good()) break; 
         prices.push_back(price);
-        discounts.push_back(discount / 100.0); 
+        discounts.push_back(discount); 
     }
 
     std::cout << std::fixed << std::setprecision(2) << shoppingList(prices, discounts) << std::endl;
