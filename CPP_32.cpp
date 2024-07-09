@@ -1,17 +1,22 @@
+```cpp
 double find_zero(vector<double> xs){
-    double x = 1;
-    double tol = 1e-6; // tolerance for finding zero
-    int max_iter = 1000; // maximum number of iterations
-    
-    for(int i=0; i<max_iter; i++){
-        double f = poly(xs, x);
-        
-        if(abs(f) < tol){
-            return round(x, 2);
+    vector<vector<double>> poly;
+    vector<double> coeff;
+    for (int i = 1; i < xs.size(); i += 2) {
+        double x = xs[i];
+        int power = (i - 1) / 2;
+        if (poly.size() <= power) {
+            poly.resize(power + 1);
         }
-        
-        x -= f / poly(vector<double>(xs.begin(), xs.end()), x); // Newton's method
+        poly[power].push_back(x);
     }
-    
-    return -1.0; // not found
+    for (int i = 0; i < poly.size(); i++) {
+        coeff.insert(coeff.begin(), 0);
+        for (int j = 0; j <= i; j++) {
+            if (j < poly[i].size()) {
+                coeff[0] -= poly[i][j];
+            }
+        }
+    }
+    return -coeff[0] / xs[0];
 }
