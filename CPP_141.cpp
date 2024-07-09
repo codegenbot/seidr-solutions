@@ -10,7 +10,7 @@ int file_name_check(std::string file_name) {
         else if(file_name[i] == '.'){
             found_dot = true;
         }
-        else if(found_dot && (i != file_name.length()-4 || !file_name.compare(i, 3, "txt") || !file_name.compare(i, 3, "exe") || !file_name.compare(i, 3, "dll"))){
+        else if(found_dot && (i != file_name.length()-4 || file_name.substr(i) == "txt" || file_name.substr(i) == "exe" || file_name.substr(i) == "dll")){
             return 0;
         }
     }
