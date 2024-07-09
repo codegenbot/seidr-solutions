@@ -15,13 +15,12 @@ int main() {
     std::vector<int> intArray(numArray, numArray + sizeof(numArray) / sizeof(numArray[0]));
     std::vector<std::string> stringArray;
 
-    for (int i : intArray) {
+    for (auto i : intArray) {
         if (i == 9) stringArray.push_back("Nine");
         else if (i == 4) stringArray.push_back("Four");
         else if (i == 8) stringArray.push_back("Eight");
     }
 
-    std::vector<std::string> strArr = {std::to_string(i) for i in intArray};
-    assert(issame(strArr, stringArray));
+    assert(issame({std::to_string(i) for i in intArray}, vector<string>(stringArray.begin(), stringArray.end())));
     return 0;
 }
