@@ -1,8 +1,8 @@
 def leaders(arr):
-    leaders = []
-    max_right = arr[-1]
-    for i in range(len(arr)-1, 0, -1):
-        if arr[i] >= max_right:
-            leaders.append(arr[i])
-            max_right = arr[i]
-    return [arr[-1]] + leaders
+    leaders = [arr[-1]]
+    max_left = arr[0]
+    for i in range(1, len(arr)):
+        if arr[i] >= max_left:
+            leaders.insert(0, arr[i])
+            max_left = arr[i]
+    return leaders
