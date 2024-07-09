@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <cctype>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
@@ -17,7 +18,7 @@ std::vector<std::string> select_words(std::string s, int n){
             word = "";
             count = 0;
         } else if (isalpha(c)) {
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
+            if (std::tolower(c) != 'a' && std::tolower(c) != 'e' && std::tolower(c) != 'i' && std::tolower(c) != 'o' && std::tolower(c) != 'u') {
                 count++;
             }
             word += c;
