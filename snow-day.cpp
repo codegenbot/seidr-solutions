@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double snowDay(int hours, float groundSnow, float rateFall, float meltRate) {
@@ -9,7 +8,7 @@ double snowDay(int hours, float groundSnow, float rateFall, float meltRate) {
         groundSnow += rateFall;
         groundSnow -= groundSnow * meltRate;
     }
-    return round(groundSnow * 100.0) / 100.0;
+    return groundSnow;
 }
 
 int main() {
@@ -19,4 +18,3 @@ int main() {
     cin >> groundSnow >> rateFall >> meltRate;
     cout << fixed << setprecision(10) << snowDay(hours, groundSnow, rateFall, meltRate) << endl;
     return 0;
-}
