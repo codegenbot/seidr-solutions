@@ -6,7 +6,7 @@ using namespace std;
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
     int n = nums.size();
-    
+
     leaders.push_back(nums[n-1]); // Rightmost element is always a leader
     
     for (int i = n - 2; i >= 0; i--) {
