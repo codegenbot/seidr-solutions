@@ -21,9 +21,9 @@ int how_many_times(string& str, const string& substring) {
 int main() {
     string str, substring;
     cout << "Enter a string: ";
-    cin >> str;
+    getline(cin, str);
     cout << "Enter a substring: ";
-    cin >> substring;
+    getline(cin, substring);
     
     if (str.find(substring) == string::npos) {
         cout << "The substring is not found in the string.\n";
