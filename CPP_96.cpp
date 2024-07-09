@@ -1,15 +1,12 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return a == b;
 }
 
-vector<int> count_up_to(int n){
-    vector<int> primes;
+std::vector<int> count_up_to(int n){
+    std::vector<int> primes;
     for(int i=2; i<n; i++){
         bool is_prime = true;
         for(int j=2; j*j<=i; j++){
@@ -25,10 +22,7 @@ vector<int> count_up_to(int n){
     return primes;
 }
 
-int main(){
-    assert(issame(count_up_to(101), {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 
-                                     41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
-    cout << "Test passed successfully!" << endl;
-    
+int main() {
+    assert(issame(count_up_to(101), {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
     return 0;
 }
