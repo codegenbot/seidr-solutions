@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-std::vector<float> my_get_positive(std::vector<float> l) {
+std::vector<float> vector_get_positives(std::vector<float> l) {
     std::vector<float> result;
     for(float num : l){
         if(num > 0)
@@ -23,6 +23,6 @@ bool same(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    assert(my_get_positive({}).size() == 0);
+    assert(same(vector_get_positives({}), {}));
     return 0;
 }
