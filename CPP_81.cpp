@@ -1,9 +1,17 @@
-```cpp
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+bool std::operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size())
+        return false;
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+
+    return true;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
@@ -39,4 +47,7 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     return letter_grades;
 }
 
-assert(numerical_letter_grade({0, 0.7}) == std::vector<std::string>({"E", "D"}));
+int main() {
+    assert(std::equal(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    return 0;
+}
