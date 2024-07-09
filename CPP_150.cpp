@@ -1,12 +1,23 @@
 #include <iostream>
-#include <cmath>
+
+bool isPrime(int n) {
+    if (n <= 1) {
+        return false;
+    }
+    for (int i = 2; i <= n / 2; ++i) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
 
 int x_or_y(int n, int x, int y) {
-    if (n <= 1) return y;
-    for (int i = 2; i <= sqrt(n); ++i) {
-        if (n % i == 0) return y;
+    if (isPrime(n)) {
+        return x;
+    } else {
+        return y;
     }
-    return x;
 }
 
 int main() {
