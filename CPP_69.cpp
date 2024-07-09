@@ -20,4 +20,5 @@ int search(vector<int> lst) {
 
 int main() {
     assert(search({3, 10, 10, 9, 2}) == -1);
+    // your other code here
 }
