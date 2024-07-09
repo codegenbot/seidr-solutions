@@ -11,32 +11,11 @@ string anti_shuffle(string s) {
     }
     words.push_back(word);
 
-    unordered_map<string, int> wordCount;
-    vector<string> tempWords;
-
-    for (const auto& w : words) {
-        if (wordCount.find(w) == wordCount.end()) {
-            wordCount[w] = 0;
-            tempWords.push_back(w);
-        }
-        wordCount[w]++;
-    }
-
     string result = "";
-    while (!tempWords.empty()) {
-        int maxCount = 0;
-        string maxWord = "";
-
-        for (const auto& w : tempWords) {
-            if (wordCount[w] > maxCount) {
-                maxCount = wordCount[w];
-                maxWord = w;
-            }
-        }
-
-        result += maxWord + " ";
-        wordCount[maxWord]--;
+    for (const auto& word : words) {
+        vector<char> v = word;
+        sort(v.begin(), v.end());
+        result += string(v.begin(), v.end()) + " ";
     }
-
     return result.substr(0, result.size() - 1);
 }
