@@ -2,7 +2,7 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> by_length(vector<int> arr) {
+vector<bool> by_length(vector<int> arr) {
     vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
@@ -48,5 +48,40 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(name);
     }
 
-    return result;
+    vector<bool> resultBool;
+    for (string str : result) {
+        bool same = false;
+        for (int i = 0; i < arr.size(); i++) {
+            if (issame(vector<string>(1, str), vector<string>(1, get_name(arr[i], str))) ) {
+                same = true;
+                break;
+            }
+        }
+        resultBool.push_back(same);
+    }
+
+    return resultBool;
+}
+
+string get_name(int num, string target) {
+    if (num == 1 && target == "One") {
+        return "One";
+    } else if (num == 2 && target == "Two") {
+        return "Two";
+    } else if (num == 3 && target == "Three") {
+        return "Three";
+    } else if (num == 4 && target == "Four") {
+        return "Four";
+    } else if (num == 5 && target == "Five") {
+        return "Five";
+    } else if (num == 6 && target == "Six") {
+        return "Six";
+    } else if (num == 7 && target == "Seven") {
+        return "Seven";
+    } else if (num == 8 && target == "Eight") {
+        return "Eight";
+    } else if (num == 9 && target == "Nine") {
+        return "Nine";
+    }
+    return "";
 }
