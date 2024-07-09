@@ -21,13 +21,3 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
 
     return result;
-}
-
-int main() {
-    string text = "abcabc";
-    string target = "abc";
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result)
-        cout << i << " ";
-    return 0;
-}
