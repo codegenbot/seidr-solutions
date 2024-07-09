@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
@@ -18,9 +19,10 @@ def minPath(grid, k):
                 dfs(ni, nj, path, length + 1)
         visited[i][j] = False
 
-    for i in range(1, n):
+    for i in range(n):
         for j in range(n):
-            dfs(i, j, [], 0)
+            if grid[i][j] == 'O':  # Start from open cells
+                dfs(i, j, [], 0)
 
     paths.sort()
-    return paths[0]
+    return min(paths) if paths else [0]
