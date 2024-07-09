@@ -1,7 +1,4 @@
-```c++
-#include <string>
-
-int mastermind(std::string code, std::string guess) {
+int mastermind(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
     int blackPegs = 0;
 

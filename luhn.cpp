@@ -1,45 +1,30 @@
 ```cpp
-#include <iostream>
-#include <vector>
+int sum = 0;
+bool alternate = false;
+int cardNumber;
 
-int luhn(std::vector<int> cardNumber) {
-    int sum = 0;
-    bool doubleNext = false;
-
-    for (int i = cardNumber.size() - 1; i >= 0; --i) {
-        int digit = cardNumber[i];
-        if (doubleNext) {
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
-            }
-        }
-        sum += digit;
-        doubleNext = !doubleNext;
-    }
-
-    return sum % 10 == 0;
+while (!(std::cin >> cardNumber) || cardNumber < 0 || cardNumber > 9) {
+    std::cout << "Invalid input. Please enter a digit between 0 and 9: ";
+    std::cin.clear();
+    std::cin.ignore(10000, '\n');
+    std::cin >> std::ws;
 }
 
-int main() {
-    std::vector<int> cardNumber;
-    int digit;
+cardNumber *= 10; // convert to integer
 
-    for (int i = 0; i < 16; ++i) {
-        while (!(std::cin >> digit) || digit < 0 || digit > 9) {
-            std::cout << "Invalid input. Please enter a digit between 0 and 9: ";
-            std::cin.clear();
-            std::cin.ignore(10000, '\n');
-            std::cin >> std::ws;
+while (cardNumber > 0) {
+    int digit = cardNumber % 10;
+    if (alternate) {
+        if (digit * 2 > 9) {
+            sum += (digit * 2) - 9;
+        } else {
+            sum += digit * 2;
         }
-        cardNumber.push_back(digit);
-    }
-
-    if (luhn(cardNumber)) {
-        std::cout << "The credit card number is valid." << std::endl;
     } else {
-        std::cout << "The credit card number is not valid." << std::endl;
+        sum += digit;
     }
-
-    return 0;
+    alternate = !alternate;
+    cardNumber /= 10;
 }
+
+return sum;
