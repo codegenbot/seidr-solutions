@@ -1,6 +1,6 @@
-#include <cstdlib>
 #include <vector>
 #include <string>
+#include <cstdlib>
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
@@ -31,7 +31,7 @@ int eval(const string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * std::atoi(std::string(1, s[i]).c_str());
+            result += sign * std::atoi(&s[i]);
         }
     }
     
