@@ -1,5 +1,5 @@
-```cpp
 #include <cassert>
+#include <iostream>
 #include <string>
 
 std::string flip_case(const std::string& input) {
@@ -7,9 +7,9 @@ std::string flip_case(const std::string& input) {
     for (char c : input) {
         if (isalpha(c)) {
             if (islower(c))
-                result += toupper(c);
+                result += toupper((char)c);
             else
-                result += tolower(c);
+                result += tolower((char)c);
         } else
             result += c;
     }
