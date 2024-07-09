@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-string exchange(vector<int> lst1, vector<int> lst2) {
+bool exchange(vector<int> lst1, vector<int> lst2) {
     for (int num : lst1) {
         if (num % 2 != 0) {
             bool found = false;
@@ -12,15 +12,16 @@ string exchange(vector<int> lst1, vector<int> lst2) {
                     found = true;
                 }
             }
-            if (!found) return "NO";
+            if (!found) return false;
         }
     }
-    return "YES";
+    return true;
 }
 
 int main() {
     vector<int> lst1 = {1, 3, 4};
     vector<int> lst2 = {2, 4, 6, 8};
-    cout << exchange(lst1, lst2);
+    string result = (exchange(lst1, lst2)) ? "YES" : "NO";
+    cout << result;
     return 0;
 }
