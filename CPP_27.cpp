@@ -1,6 +1,4 @@
-#include <string>
-using namespace std;
-
+```cpp
 string flip_case(string str) {
     string result = "";
     for (char c : str) {
