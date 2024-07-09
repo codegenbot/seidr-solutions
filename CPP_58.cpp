@@ -1,9 +1,14 @@
-```cpp
 #include <iostream>
 #include <set>
 #include <vector>
 
 using namespace std;
+
+bool issame(vector<int> v1, vector<int> v2) {
+    set<int> setA(v1.begin(), v1.end());
+    set<int> setB(v2.begin(), v2.end());
+    return setA == setB;
+}
 
 int main() {
     int n1, n2, n3, n4, n5, n6, n7;
@@ -25,10 +30,4 @@ int main() {
         cout << "The sets are not same." << endl;
     }
     return 0;
-}
-
-bool issame(vector<int> v1, vector<int> v2) {
-    set<int> setA(v1.begin(), v1.end());
-    set<int> setB(v2.begin(), v2.end());
-    return setA == setB;
 }
