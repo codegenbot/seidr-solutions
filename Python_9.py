@@ -1,15 +1,15 @@
-from typing import List
+def calculate_total_expenses():
+    expenses = []
+    while True:
+        category = input("Enter expense category (or 'stop' to finish): ")
+        if category.lower() == 'stop':
+            break
+        amount = float(input("Enter the expense amount: "))
+        expenses.append((category, amount))
+    return calculate_total_expenses(expenses)
 
+def main():
+    print(calculate_total_expenses())
 
-def rolling_max(numbers: List[int]) -> List[int]:
-    """"""
-    if len(numbers) == 0:
-        return []
-    elif len(numbers) == 1:
-        return [numbers[0]]
-    result = [max(num for num in numbers[:])]
-    max_so_far = numbers[0]
-    for num in numbers[1:]:
-        max_so_far = max(num, max_so_far + num)
-        result.append(max_so_far)
-    return result
+if __name__ == "__main__":
+    main()
