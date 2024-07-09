@@ -5,7 +5,7 @@ def double_the_difference(lst):
 
 def check(func):
     test_cases = [[1, [1, 3, 5], 2]]
-    for i, (input_val, input_list, output) in enumerate(test_cases):
+    for i, (input_list, output) in enumerate(test_cases):
         result = func(input_list)
         if result == output:
             print(f"Test {i+1} passed")
