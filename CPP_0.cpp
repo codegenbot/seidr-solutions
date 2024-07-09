@@ -17,7 +17,9 @@ int main() {
     float threshold;
 
     cout << "Enter the elements of the vector (space-separated): ";
-    for(float x : cin >> x) a.push_back(x);
+    for(float x : getline(cin) >> skipws >> noskipws) {
+        a.push_back(x);
+    }
 
     cout << "Enter the threshold: ";
     cin >> threshold;
