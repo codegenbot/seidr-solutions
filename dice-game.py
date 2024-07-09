@@ -1,4 +1,3 @@
-```
 def dice_game(n, m):
     if n == 1 or m == 1:
         return 0
