@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -39,7 +38,8 @@ std::vector<std::vector<int>> strange_sort_list(std::vector<std::vector<int>> ls
 }
 
 int main() {
-    assert(issame({1}, {1}));
-    std::vector<std::vector<int>> result = strange_sort_list(std::vector<std::vector<int>>({{11111}})); 
+    std::vector<std::vector<int>> lst = {{1, 1, 1, 1}};
+    assert(issame({1, 2}, {2, 1}));
+    std::vector<std::vector<int>> result = strange_sort_list(std::vector<std::vector<int>>({11111})); 
     return 0;
 }
