@@ -1,8 +1,3 @@
-```cpp
-#include <openssl/evp.h>
-#include <string>
-#include <cassert>
-
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
     
