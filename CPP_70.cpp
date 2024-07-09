@@ -1,19 +1,19 @@
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
-    if (lst.empty()) {
-        return result;
-    }
-    
-    sort(lst.begin(), lst.end());
+    if (lst.empty()) return result;
+
+    auto first = *min_element(lst.begin(), lst.end());
+    auto last = *max_element(lst.begin(), lst.end());
+
     while (!lst.empty()) {
-        result.push_back(*lst.begin());
-        lst.erase(lst.begin());
+        result.push_back(first);
+        lst.erase(std::remove_if(lst.begin(), lst.end(),
+            [first, &last](int x) { return x < first || x > last; }), lst.end());
         if (!lst.empty()) {
-            auto it = max_element(lst.begin(), lst.end());
-            result.push_back(*it);
-            lst.erase(it);
+            first = *min_element(lst.begin(), lst.end());
+            last = *max_element(lst.begin(), lst.end());
         }
     }
-    
+
     return result;
 }
