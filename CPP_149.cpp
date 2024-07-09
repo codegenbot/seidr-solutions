@@ -38,9 +38,9 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
 int main() {
     std::vector<std::string> lst = {"aaaa", "bbbb", "dd", "cc"};
     if (issame(sorted_list_sum(lst), {"cc", "dd", "aaaa", "bbbb"})) {
-        std::cout << "Test passed." << std::endl;
+        std::cout << "The lists are the same.\n";
     } else {
-        std::cout << "Test failed." << std::endl;
+        std::cout << "The lists are not the same.\n";
     }
     return 0;
 }
