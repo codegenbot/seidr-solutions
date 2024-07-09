@@ -1,4 +1,3 @@
-```
 vector<float> get_positive(vector<float> l){
     vector<float> result;
     for(float i : l){
@@ -9,29 +8,25 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-bool issame(float a, float b, int precision) {
-    return abs(a - b) <= (1.0 / pow(10.0, precision));
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-int main() {
-    vector<float> numbers = {1.2f, 3.4f, -5.6f, 7.8f};
+int main(){
+    vector<float> l1 = {1.2, -3.4, 5.6};
+    vector<float> l2 = {-7.8, 9.10, 11.12};
     
-    vector<float> positive_numbers = get_positive(numbers);
+    vector<float> pos_l1 = get_positive(l1);
+    vector<float> pos_l2 = get_positive(l2);
     
-    for(float number : positive_numbers) {
-        bool same = true;
-        for(int i = 0; i < positive_numbers.size(); i++) {
-            if(!issame(number, positive_numbers[i], 2)) {
-                same = false;
-                break;
-            }
-        }
-        
-        if(same) {
-            cout << number << " is the only positive number.\n";
-        } else {
-            cout << number << " is not the only positive number.\n";
-        }
+    if(issame(pos_l1, pos_l2)) {
+        cout << "The two lists are the same." << endl;
+    } else {
+        cout << "The two lists are not the same." << endl;
     }
     
     return 0;
