@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-std::vector<float> get_positive(const std::vector<float>& l) {
+std::vector<float> extract_positive(std::vector<float> l) {
     std::vector<float> result;
     for(float num : l){
         if(num > 0)
@@ -10,13 +10,19 @@ std::vector<float> get_positive(const std::vector<float>& l) {
     return result;
 }
 
-int main() {
-    std::vector<float> input;
-    float num;
-    while(std::cin >> num) {
-        input.push_back(num);
+bool same(const std::vector<float>& a, const std::vector<float>& b) {
+    if(a.size() != b.size()) {
+        return false;
     }
-    std::vector<float> result = get_positive(input);
-    //assert(issame(result, {0.5f, 1.0f, 2.0f}));
+    for(size_t i = 0; i < a.size(); ++i) {
+        if(std::abs(a[i] - b[i]) > 1e-5) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    assert(same(extract_positive({}), {}));
     return 0;
 }
