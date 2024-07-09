@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
@@ -14,7 +13,7 @@ float triangle_area(float a, float b, float c) {
 int main() {
     float a, b, c;
     std::cout << "Enter three sides of the triangle: ";
-    std::cin >> a >> std::ws >> b >> std::ws >> c;
+    std::cin >> a >> b >> c;
 
     float result = triangle_area(a, b, c);
 
