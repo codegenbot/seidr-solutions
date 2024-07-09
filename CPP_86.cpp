@@ -16,7 +16,6 @@ int main() {
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str);  
-    std::string res = anti_shuffle(str);
-    std::cout << "Anti-Shuffled String: " << std::move(res) << std::endl;
+    std::cout << "Anti-Shuffled String: " << anti_shuffle(str) << std::endl;
     return 0;
 }
