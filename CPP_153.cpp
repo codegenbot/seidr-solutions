@@ -3,7 +3,7 @@
 #include <string>
 #include <cctype>
 
-int Strongest_Extension(string class_name, vector<string> extensions){
+int Strongest_Extension(string class_name,vector<string> extensions){
     string strongest_ext = "";
     int max_strength = 0;
     
