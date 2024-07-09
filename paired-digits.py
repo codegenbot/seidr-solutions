@@ -1,8 +1,9 @@
+```
 def paired_digits(s):
     total = 0
-    prev = None
+    prev = s[0]
     for d in s:
-        if prev and int(d) == prev:  
+        if int(d) == int(prev):
             total += int(d)
         prev = d
     return total
