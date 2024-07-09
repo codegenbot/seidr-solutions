@@ -1,5 +1,6 @@
 #include <cmath>
 #include <iostream>
+#include <iomanip>
 
 long double probability(int n, int m) {
     long double total = 0; 
@@ -15,7 +16,7 @@ long double probability(int n, int m) {
 }
 
 int main() {
-    std::cout << "The probability that Peter rolls strictly higher than Colin is: "
+    std::cout << std::setprecision(10) << "The probability that Peter rolls strictly higher than Colin is: "
               << probability(34, 24) << '\n';
     return 0;
 }
