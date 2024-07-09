@@ -1,11 +1,13 @@
 vector<int> even_odd_count(int num) {
-    int count_even = 0, count_odd = 0;
-    if (num < 0) num = -num; // handle negative numbers
-    while(num > 0) {
-        int digit = num % 10;
-        if (digit % 2 == 0) ++count_even;
-        else ++count_odd;
-        num /= 10;
+    vector<int> result(2);
+    int n = abs(num); // convert to positive for simplicity
+    while (n > 0) {
+        int digit = n % 10;
+        if (digit % 2 == 0)
+            result[0]++;
+        else
+            result[1]++;
+        n /= 10;
     }
-    return {count_even, count_odd};
+    return result;
 }
