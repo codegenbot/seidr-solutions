@@ -10,12 +10,10 @@ double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
 }
 
 int main() {
-    std::vector<double> prices(3);
-    prices[0] = 10.0; prices[1] = 20.0; prices[2] = 30.0;
-
-    std::vector<double> discounts(3);
-    discounts[0] = 0.1; discounts[1] = 0.2; discounts[2] = 0.3;
-    
-    double result = hoppingList(prices, discounts);
+    double prices[] = {10.0, 20.0, 30.0};
+    double discounts[] = {0.1, 0.2, 0.3};
+    std::vector<double> vec_prices(prices, prices + sizeof(prices) / sizeof(prices[0]));
+    std::vector<double> vec_discounts(discounts, discounts + sizeof(discounts) / sizeof(discounts[0]));
+    double result = hoppingList(vec_prices, vec_discounts);
     return 0;
 }
