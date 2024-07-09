@@ -1,18 +1,15 @@
-#include <iostream>
-#include <string>
-
+```cpp
 std::string kebabToCamel(const std::string& s) {
     std::string result;
     bool capitalize = true;
 
     for (char c : s) {
         if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
+            result += ' '; // Add a space after each '-'
+            capitalize = true; // Start the next group with capitalization
         } else {
-            result += tolower(c);
+            result += capitalize ? std::toupper(c) : std::tolower(c);
+            capitalize = false; // Turn off capitalization within groups
         }
     }
 
@@ -21,9 +18,8 @@ std::string kebabToCamel(const std::string& s) {
 
 int main() {
     std::string input;
-    while ((std::cin >> input).good()) {
-        std::cout << kebabToCamel(input) << std::endl;
-    }
+    std::cin >> input;
+    std::cout << kebabToCamel(input) << std::endl;
 
     return 0;
 }
