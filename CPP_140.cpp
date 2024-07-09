@@ -3,7 +3,7 @@
 
 using namespace std;
 
-std::string fix_spaces(std::string text){
+std::string fix_spaces(string text){
     string result = "";
     for(int i=0; i < text.length(); i++){
         if(text[i] == ' ' && (i==0 || text[i-1] != ' ')){
@@ -21,6 +21,6 @@ std::string fix_spaces(std::string text){
 }
 
 int main() {
-    cout << fix_spaces("   Exa 1 2 2 mple") << endl;
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
     return 0;
 }
