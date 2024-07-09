@@ -1,9 +1,9 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(vector<std::string> a, vector<std::string> b) {
+bool issame(vector<string>& a, vector<string>& b) {
     if(a.size() != b.size()) {
         return false;
     }
