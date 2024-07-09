@@ -1,17 +1,19 @@
-```
-long long double_the_difference(std::vector<float> lst) {
-    long long sum = 0;
+```cpp
+#include <vector>
+#include <assert.h>
+
+int double_the_difference(std::vector<float> lst) {
+    int odd_sum = 0;
     for (float num : lst) {
-        if (num > 0 && floor(num) == num) { 
-            if (fmod(num, 2.0) != 0.0) { 
-                sum += pow(num, 2);
-            }
-        }
+        if ((int)num % 2 != 0)
+            odd_sum += (int)num * 2;
     }
-    return sum;
+    return odd_sum;
 }
 
 int main() {
-    std::vector<float> lst = {1.5f, 2.0f, 3.5f};
-    long long odd_sum = double_the_difference(lst);
+    std::vector<float> lst = {1.5, 2.0, 3.5};
+    int result = double_the_difference(lst);
+    // assert(result == 7); 
+    return 0;
 }
