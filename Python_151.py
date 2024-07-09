@@ -1,4 +1,2 @@
-def check(function, lst):
-    return function(lst) 
-
-check(double_the_difference, lst)  # Pass lst as an argument
+def double_the_difference(lst, odd_sum):
+    return sum(x**2 for x in lst if x > 0 and x % 2 != 0)
