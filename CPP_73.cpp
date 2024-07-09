@@ -1,31 +1,22 @@
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    string s = "";
-    for (int i : arr) {
-        s += to_string(i);
+    vector<vector<int>> dp(n, vector<int>(n));
+    
+    for (int i = 0; i < n; i++) {
+        dp[i][i] = arr[i];
     }
-    int count = 0;
-    int left = 0, right = n - 1;
-    while (left < right) {
-        if (s[left] != s[right]) {
-            bool found = false;
-            for (int i = 0; i < n; i++) {
-                if (arr[i] == s[right]) {
-                    arr[i] = s[left];
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                count++;
+    
+    for (int len = 2; len <= n; len++) {
+        for (int i = 0; i <= n - len; i++) {
+            int j = i + len - 1;
+            
+            if (arr[i] == arr[j]) {
+                dp[i][j] = dp[i + 1][j - 1];
             } else {
-                left++;
-                right--;
+                dp[i][j] = 1 + min(dp[i + 1][j], dp[i][j - 1]);
             }
-        } else {
-            left++;
-            right--;
         }
     }
-    return count;
+    
+    return dp[0][n - 1];
 }
