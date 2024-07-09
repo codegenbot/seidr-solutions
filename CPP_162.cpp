@@ -1,7 +1,9 @@
+```
 #include <iostream>
+#include <limits>
 #include <string>
-#include <openssl/evp.h>
-#include <openssl/ssl.h>
+#include <iomanip>
+#include <sstream>
 
 using namespace std;
 
@@ -10,27 +12,21 @@ string string_to_md5(string text) {
     
     unsigned char result[16];
     EVP_MD_CTX md_ctx;
-    int ret = EVP_DigestInit_ex(&md_ctx, EVP_sha1(), NULL);
-    if (ret != 1) {
-        // Handle error
-    }
-    
     unsigned char* d = nullptr;
     size_t len = 0;
-    ret = EVP_Digest(text.c_str(), text.size(), &d, &len, md_ctx.digest());
-    if (ret != 1) {
-        // Handle error
-    }
-    
+    EVP_MD_CTX_init(&md_ctx);
+    EVP_DigestInit_ex(&md_ctx, EVP_sha256(), NULL);
+    EVP_DigestUpdate(&md_ctx, text.c_str(), text.size());
+    EVP_DigestFinal_ex(&md_ctx, &d, &len);
     string md5_hash;
-    for (int i = 0; i < 16; ++i) {
+    for (int i = 0; i < len; ++i) {
         ostringstream oss;
         oss << hex << setfill('0') << setw(2) << static_cast<unsigned int>(d[i]);
         md5_hash += oss.str();
     }
     
     free(d);
-    EVP_MD_CTX_free(&md_ctx);
+    EVP_MD_CTX_cleanup(&md_ctx);
     
     return md5_hash;
 }
