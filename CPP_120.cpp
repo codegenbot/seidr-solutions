@@ -3,19 +3,11 @@
 #include <algorithm>
 
 std::vector<int> maxKItems(std::vector<int> arr, int k) {
-    std::priority_queue<int> pq;
-    
-    for (int i : arr) {
-        pq.push(i);
-        if (pq.size() > k)
-            pq.pop();
-    }
-    
-    std::vector<int> result(pq.size());
-    while (!pq.empty()) {
-        result.back() = pq.top();
-        pq.pop();
-        result.back()--;
+    std::vector<int> result;
+    for(int i = 0; i < k; i++) {
+        auto it = *std::max_element(arr.begin(), arr.end());
+        result.push_back(it);
+        arr.erase(std::remove(arr.begin(), arr.end(), it), arr.end());
     }
     return result;
 }
