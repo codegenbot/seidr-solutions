@@ -1,8 +1,4 @@
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
+```cpp
 vector<int> common(vector<int> l1, vector<int> s2) {
     set<int> s1(l1.begin(), l1.end());
     set<int> s2(s2.begin(), s2.end());
