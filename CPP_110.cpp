@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -9,12 +8,8 @@ string exchange(vector<int> lst1, vector<int> lst2) {
             bool found = false;
             for (int i = lst2.size() - 1; !found && i >= 0; --i) {
                 if (lst2[i] % 2 == 0) {
-                    if (i < lst2.size()) { 
-                        swap(lst1.back(), lst2[i]);
-                        found = true;
-                    } else {
-                        return "NO";
-                    }
+                    swap(lst1.back(), lst2[i]);
+                    found = true;
                 }
             }
             if (!found) return "NO";
