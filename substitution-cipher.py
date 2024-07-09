@@ -7,6 +7,6 @@ def substitution_cipher(cipher1, cipher2, message):
                 result += cipher_dict.get(char, char).lower()
             else:
                 result += cipher_dict.get(char.lower(), char).upper()
-        else:
+        else:  
             result += char
     return result
