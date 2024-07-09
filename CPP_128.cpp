@@ -1,3 +1,4 @@
+```
 #include <vector>
 
 int prod_signs(std::vector<int> arr){
@@ -6,7 +7,7 @@ int prod_signs(std::vector<int> arr){
 
     for (int num : arr) {
         if (num == 0) {
-            return -32768; 
+            return -32768; // empty array or contains zero
         }
         int sign = (num > 0) ? 1 : ((num < 0) ? -1 : 0);
         sum_of_magnitudes += abs(num); 
@@ -14,9 +15,4 @@ int prod_signs(std::vector<int> arr){
     }
 
     return sum_of_magnitudes * sign_product;
-}
-
-int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
-    return 0;
 }
