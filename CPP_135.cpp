@@ -1,6 +1,6 @@
 ```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 
 int can_arrange(std::vector<int> arr) {
     for (int i = 1; i < arr.size(); i++) {
@@ -12,12 +12,11 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> vec = {2, 5, 3, 7};
-    int result = can_arrange(vec);
-    if(result == -1) {
-        std::cout << "The array is already arranged." << std::endl;
-    } else {
-        std::cout << "The first number that cannot be placed is at index: " << result << std::endl;
-    }
+    std::vector<int> arr = {4, 3, 2, 7};
+    int result = can_arrange(arr);
+    if(result == -1)
+        std::cout << "Array is already arranged" << std::endl;
+    else
+        std::cout << "The first number that doesn't fit into the sequence: " << result << std::endl;
     return 0;
 }
