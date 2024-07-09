@@ -1,22 +1,29 @@
-std::string anti_shuffle(const std::string& str) {
-    if (str.length() <= 1)
-        return str;
-    
-    int n = str.length();
-    char temp[n];
-    strcpy(temp, str.c_str());
-    
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = i + 1; j > 0; j--) {
-            if (temp[i] > temp[j]) {
-                char c = temp[i];
-                temp[i] = temp[j];
-                temp[j] = c;
-            }
-            else
-                break;
+#include <iostream>
+#include <string>
+
+using std::cout;
+using std::getline;
+using std::string;
+
+string anti_shuffle(string str) {
+    string result = "";
+    int start = 0;
+    for(int i = 0; i < str.length(); i++) {
+        if(i > start && isalpha(str[i])) {
+            result += str[i];
+            start = i;
         }
     }
-    
-    return std::string(temp);
+    return result;
 }
+
+int main() {
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    if(str.empty()) {
+        cout << "Error: Please enter a valid sentence." << endl;
+    } else {
+        cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
+    }
+    return 0;
