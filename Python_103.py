@@ -1,6 +1,5 @@
-```
 def rounded_avg(n, m):
     if n > m:
         return -1
-    avg = (n + m) / 2
-    return bin(int(round(avg))).replace("0b", "")
+    avg = (n + m) // 2
+    return str(bin(int(avg))).lstrip("0b") or "0"

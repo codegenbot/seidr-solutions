@@ -1,3 +1,2 @@
-```
 def solve(N):
-    return bin(sum(int(i) for i in bin(N)[2:])).replace("0b", "")
+    return "0b" + bin(sum(int(i) for i in str(bin(N)[2:])))[2:].zfill(len(str(bin(2**len(str(bin(N))[2:])-1)))[2:])
