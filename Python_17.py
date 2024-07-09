@@ -1,6 +1,9 @@
 from typing import List
 
-
 def parse_music(music_string: str) -> List[int]:
     durations = {"o": 4, "o|": 2, ".|": 1}
-    return [durations.get(note, 0) for note in music_string.split()]
+    return [durations[note] for note in music_string.split()]
+
+music_input = input("Please enter music notes separated by space: ")
+result = parse_music(music_input)
+print(result)
