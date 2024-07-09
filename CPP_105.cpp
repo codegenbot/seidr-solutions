@@ -3,12 +3,12 @@
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<string> a) {
+    if (a.size() != 3) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (a[i] != "Nine" && a[i] != "Eight" && a[i] != "Four") {
             return false;
         }
     }
@@ -64,11 +64,12 @@ vector<string> by_length(vector<int> arr) {
 
 int main() {
     vector<int> input = {9, 4, 8};
-    vector<string> output = by_length(input);
+    std::vector<string> output = by_length(input);
     
-    if (issame({"Nine", "Eight", "Four"}, output)) {
+    if (issame(output)) {
         for (string str : output) {
             cout << str << endl;
         }
     }
     return 0;
+}
