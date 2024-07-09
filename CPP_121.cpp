@@ -1,4 +1,5 @@
-```cpp
+Here is the modified code:
+
 #include <iostream>
 #include <vector>
 
@@ -36,4 +37,3 @@ int main() {
     int result = solutions(lst);
     if(result == 25)
         std::cout << "Test passed.\n";
-}
