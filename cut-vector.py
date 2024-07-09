@@ -4,6 +4,9 @@ def cut_vector(vector):
     for i in range(1, len(vector)):
         left_sum = sum(vector[:i])
         right_sum = sum(vector[i:])
+        if not vector:
+            left_sum = 0
+            right_sum = 0
         diff = abs(left_sum - right_sum)
         if diff < min_diff:
             min_diff = diff
