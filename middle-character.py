@@ -1,7 +1,10 @@
 def middle_character(s):
     length = len(s)
-    mid = (length-1)//2
     if length % 2 == 0:
-        return "_" + s[mid:mid+2] + "_"
+        return "_" + s[length//2-1:length//2+1] + "_"
     else:
-        return "_" + s[mid] + "_"
+        mid_char = s[length//2]
+        if mid_char.isalnum():
+            return "_" + mid_char + "_"
+        else:
+            return "_" + s[length//2] + "_"
