@@ -1,14 +1,15 @@
+#include <algorithm>
+using namespace std;
+
 string solve(string s) {
-    string result;
+    string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            result += toupper(c);
+            c = (c >= 'a' && c <= 'z') ? c + ('A' - 'a') : c + ('a' - 'A');
         } else {
             result += c;
         }
     }
-    if (result.empty()) {
-        reverse(result.begin(), result.end());
-    }
+    reverse(result.begin(), result.end());
     return result;
 }
