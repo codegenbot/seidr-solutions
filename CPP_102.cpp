@@ -3,17 +3,15 @@
 using namespace std;
 
 int choose_num(int x, int y) {
-    for (int i = x; i <= y; i++) {
-        if (i % 2 == 0)
-            return i;
+    if (x % 2 == 0 && y % 2 == 0) {
+        return max(x, y);
+    } else if ((x % 2 != 0 && y % 2 == 0) || (x % 2 == 0 && y % 2 != 0)) {
+        return -1;
+    } else if (x % 2 != 0 && y % 2 != 0) {
+        int maxEven = ((y-x)/2)*2;
+        if (maxEven >= x)
+            return maxEven;
+        else
+            return -1;
     }
-    return -1;
-}
-
-int main() {
-    int x, y;
-    cout << "Enter two positive numbers: ";
-    cin >> x >> y;
-    cout << "The biggest even number is: " << choose_num(x, y) << endl;
-    return 0;
 }
