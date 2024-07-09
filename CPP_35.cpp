@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <cmath>
 
@@ -15,4 +16,10 @@ int getMax() {
     }
     
     return *std::max_element(l.begin(), l.end());
+}
+
+int main() {
+    int result = getMax();
+    std::cout << "Max value: " << result << std::endl;
+    return 0;
 }
