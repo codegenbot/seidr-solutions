@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 using namespace std;
 
