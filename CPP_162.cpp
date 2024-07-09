@@ -30,7 +30,7 @@ std::string string_to_md5(std::string text) {
         sprintf(buf, "%02x", digest[i]);
         result.replace(i*2, 2, buf);
     }
-
+    
     free(digest);
     return result;
 }
