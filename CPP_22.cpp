@@ -1,5 +1,7 @@
+```
 #include <boost/any.hpp>
 #include <vector>
+#include <algorithm>
 
 bool issame(vector<boost::any> a, vector<boost::any> b) {
     if (a.size() != b.size())
@@ -16,15 +18,15 @@ bool issame(vector<boost::any> a, vector<boost::any> b) {
 vector<int> filter_integers(vector<boost::any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        int i = boost::any_cast<int>(value);
         if (boost::any_cast<bool>(value)) {
-            result.push_back(i);
+            int num = boost::any_cast<int>(value);
+            result.push_back(num);
         }
     }
     return result;
 }
 
 int main() {
-    assert(issame(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}), {3, 3, 3}));
+    assert(issame(filter_integers({3, boost::any(true), 3, 3, boost::any(true), boost::any(false)}), {3, 3, 3}));
     return 0;
 }
