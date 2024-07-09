@@ -12,7 +12,7 @@ int next_smallest(vector<int> lst) {
         if (v[i] > v[0]) return v[i];
     }
     assert(0);
-    return -1;
+    return -1; 
 }
 
 int main() {
