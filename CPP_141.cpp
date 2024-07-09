@@ -1,34 +1,33 @@
-int count_digits(string str) {
+string file_name_check(string file_name){
     int count = 0;
-    for (char c : str) {
-        if (c >= '0' && c <= '9') {
+    bool foundDot = false;
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] >= '0' && file_name[i] <= '9'){
             count++;
+            if(count > 3) return "No";
+        }
+        else if(file_name[i] == '.'){
+            foundDot = true;
+        }
+        else if(foundDot && (file_name[i] == 't' || file_name[i] == 'x' || file_name[i] == 'd' || 
+                              file_name[i] == 'l' || file_name[i] == 'e')){
+            return "Yes";
         }
     }
-    return count;
-}
-
-bool check_extension(string file_name) {
-    size_t dot_pos = file_name.find('.');
-    string extension = file_name.substr(dot_pos + 1);
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    return (find(valid_extensions.begin(), valid_extensions.end(), extension) != valid_extensions.end());
-}
-
-bool check_filename(string file_name) {
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || count_digits(file_name.substr(0, dot_pos)) > 1) {
-        return false;
+    if(!foundDot) return "No";
+    string beforeDot = "";
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] == '.'){
+            break;
+        }
+        else{
+            beforeDot += file_name[i];
+        }
     }
-    if (count_digits(file_name.substr(dot_pos + 1)) > 0) {
-        return false;
+    if(beforeDot.empty()) return "No";
+    for(int i=0; i<beforeDot.length(); i++){
+        if(!(beforeDot[i] >= 'a' && beforeDot[i] <= 'z') && 
+           !(beforeDot[i] >= 'A' && beforeDot[i] <= 'Z')) return "No";
     }
-    if (!isalpha(file_name[0])) {
-        return false;
-    }
-    return check_extension(file_name);
-}
-
-string file_name_check(string file_name) {
-    return check_filename(file_name) ? "Yes" : "No";
+    return "Yes";
 }
