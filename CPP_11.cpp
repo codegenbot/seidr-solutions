@@ -1,15 +1,14 @@
+```cpp
 #include <iostream>
 #include <string>
 
 std::string string_xor(const std::string &a, const std::string &b) {
-    int result = 0;
-    for (int i = 0; i < a.length(); i++) {
-        if (a[i] == '1' && b[i] == '1')
-            result |= 1 << (7 - i);
-        else if (a[i] == '1' || b[i] == '1')
-            result ^= 1 << (7 - i);
+    std::string result;
+    for (int i = 0; i < a.size(); i++) {
+        int xored = (a[i] - '0') ^ (b[i] - '0');
+        result += (xored % 2 == 0 ? "0" : "1");
     }
-    return std::bitset<8>(result).to_string();
+    return result;
 }
 
 int main() {
