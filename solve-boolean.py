@@ -16,3 +16,5 @@ def solve_boolean(expression):
             else:
                 stack.append(char == "T")
         return stack[0]
+
+print(solve_boolean("f&t&f&f|f|t|f|f|f"))
