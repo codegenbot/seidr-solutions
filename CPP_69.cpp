@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 int search(const std::vector<int>& lst) {
     int result = -1;
