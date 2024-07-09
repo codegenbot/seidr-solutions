@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <list>
 #include <optional>
@@ -28,6 +27,6 @@ std::vector<int> filter_integers(const std::list<std::any> &values) {
 }
 
 int main() {
-    assert(issame(filter_integers({true, std::any(3), true, 3, true, 3, false, 'a', false, 'b'}), {3, 3, 3}));
+    assert(issame(filter_integers({std::any(true), std::any(3), std::any(true), 3, std::any(true), 3, std::any(false), 'a', std::any(false), 'b'}), {3, 3, 3}));
     return 0;
 }
