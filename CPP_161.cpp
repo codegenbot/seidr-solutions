@@ -1,3 +1,5 @@
+#include <string>
+
 string solve(string s) {
     string result = "";
     for (char c : s) {
@@ -8,4 +10,3 @@ string solve(string s) {
         }
     }
     return result.empty() ? string(s).reverse() : result;
-}
