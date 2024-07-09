@@ -3,28 +3,28 @@
 #include <string>
 #include <stdexcept>
 
-boost::variant<int, float, double, std::string> compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return ((int)boost::any_cast<int>(a) > boost::any_cast<float>(b)) ? static_cast<boost::variant<int, float, double, std::string>>(a) : static_cast<boost::variant<int, float, double, std::string>>(b);
-    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return ((int)boost::any_cast<int>(a) > boost::any_cast<double>(b)) ? static_cast<boost::variant<int, float, double, std::string>>(a) : static_cast<boost::variant<int, float, double, std::string>>(b);
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        std::string str = boost::any_cast<std::string>(a);
-        int num = boost::any_cast<int>(b);
-        return (std::stoi(str) > num) ? static_cast<boost::variant<int, float, double, std::string>>(a) : static_cast<boost::variant<int, float, double, std::string>>(b);
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (boost::any_cast<float>(a) > static_cast<float>(boost::any_cast<int>(b))) ? static_cast<boost::variant<int, float, double, std::string>>(a) : static_cast<boost::variant<int, float, double, std::string>>(b);
-    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (boost::any_cast<double>(a) > static_cast<double>(boost::any_cast<int>(b))) ? static_cast<boost::variant<int, float, double, std::string>>(a) : static_cast<boost::variant<int, float, double, std::string>>(b);
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
-        std::string str = boost::any_cast<std::string>(a);
-        float num = boost::any_cast<float>(b);
-        return (std::stof(str) > num) ? static_cast<boost::variant<int, float, double, std::string>>(a) : static_cast<boost::variant<int, float, double, std::string>>(b);
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
-        std::string str = boost::any_cast<std::string>(a);
-        double num = boost::any_cast<double>(b);
-        return (std::stod(str) > num) ? static_cast<boost::variant<int, float, double, std::string>>(a) : static_cast<boost::variant<int, float, double, std::string>>(b);
+boost::variant<int, float, double, std::string> compare_one(boost::variant<int, float, double, std::string> a, boost::variant<int, float, double, std::string> b) {
+    if (std::holds_alternative<int>(a) && std::holds_alternative<float>(b)) {
+        return (std::get<int>(a) > std::get<float>(b)) ? a : b;
+    } else if (std::holds_alternative<int>(a) && std::holds_alternative<double>(b)) {
+        return (std::get<int>(a) > std::get<double>(b)) ? a : b;
+    } else if (std::holds_alternative<std::string>(a) && std::holds_alternative<int>(b)) {
+        std::string str = std::get<std::string>(a);
+        int num = std::get<int>(b);
+        return (std::stoi(str) > num) ? a : b;
+    } else if (std::holds_alternative<float>(a) && std::holds_alternative<int>(b)) {
+        return (std::get<float>(a) > static_cast<float>(std::get<int>(b))) ? a : b;
+    } else if (std::holds_alternative<double>(a) && std::holds_alternative<int>(b)) {
+        return (std::get<double>(a) > static_cast<double>(std::get<int>(b))) ? a : b;
+    } else if (std::holds_alternative<std::string>(a) && std::holds_alternative<float>(b)) {
+        std::string str = std::get<std::string>(a);
+        float num = std::get<float>(b);
+        return (std::stof(str) > num) ? a : b;
+    } else if (std::holds_alternative<std::string>(a) && std::holds_alternative<double>(b)) {
+        std::string str = std::get<std::string>(a);
+        double num = std::get<double>(b);
+        return (std::stod(str) > num) ? a : b;
     } else {
-        return 0; 
+        return boost::variant<int, float, double, std::string>(0); 
     }
 }
