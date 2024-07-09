@@ -4,7 +4,9 @@ def minPath(grid, k):
     visited = set()
 
     def dfs(x, y, path):
-        if len(path) == k:
+        if sum(path) > k:
+            return None
+        if sum(path) == k:
             return path
         visited.add((x, y))
         for dx, dy in directions:
@@ -20,3 +22,7 @@ def minPath(grid, k):
             path = dfs(i, j, [grid[i][j]])
             if path:
                 return path
+
+
+# Test the function with the corrected assertion
+assert minPath([[1, 3], [3, 2]], 10) == [1, 3, 1, 3]
