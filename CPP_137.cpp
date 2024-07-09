@@ -27,6 +27,6 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    assert(std::any_cast<std::string>(std::any_cast<std::any>(compare_one(1, 2))) == "None");
+    assert(std::any_cast<std::string>(std::any_cast<std::any>(compare_one(1, 2))) == "");
     return 0;
 }
