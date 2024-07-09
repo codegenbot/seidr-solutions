@@ -9,7 +9,7 @@ std::vector<std::string> all_prefixes(const std::string& str) {
     return prefixes;
 }
 
-bool checkIfSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool verifyPrefixes(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); ++i) {
         if(a[i] != b[i]) return false;
@@ -20,6 +20,6 @@ bool checkIfSame(const std::vector<std::string>& a, const std::vector<std::strin
 
 int main() {
     std::vector<std::string> b = {"W", "WW", "WWW"};
-    assert(checkIfSame(all_prefixes("WWW"), b));
+    assert(verifyPrefixes(all_prefixes("WWW"), b));
     return 0;
 }
