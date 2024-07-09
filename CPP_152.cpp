@@ -40,13 +40,17 @@ int main() {
         int temp;
         while(true) {
             std::cout << "Enter element " << i+1 << ": ";
-            std::cin >> temp;
-            if(temp >= 0 && temp <= n-1)
-                break;
-            else{
+            if (!(std::cin >> temp)) { // Check for invalid input
+                std::cerr << "Error: Please enter a non-negative integer." << std::endl;
+                std::cin.clear(); // Clear the error flag
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the rest of the line
+                return -1; 
+            }
+            if(temp < 0) {
                 std::cerr << "Error: Number of elements should be non-negative." << std::endl;
                 return -1; 
             }
+            break;
         }
         game.push_back(temp);
     }
@@ -57,13 +61,17 @@ int main() {
         int temp;
         while(true) {
             std::cout << "Enter element " << i+1 << ": ";
-            std::cin >> temp;
-            if(temp >= 0 && temp <= n-1)
-                break;
-            else{
+            if (!(std::cin >> temp)) { // Check for invalid input
+                std::cerr << "Error: Please enter a non-negative integer." << std::endl;
+                std::cin.clear(); // Clear the error flag
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the rest of the line
+                return -1; 
+            }
+            if(temp < 0) {
                 std::cerr << "Error: Number of elements should be non-negative." << std::endl;
                 return -1; 
             }
+            break;
         }
         guess.push_back(temp);
     }
