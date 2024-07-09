@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <iomanip>
 #include <cmath>
@@ -7,7 +7,7 @@ using namespace std;
 
 float triangle_area(float a, float b, float c);
 
-int main_cpp() {
+int main() {
     float a, b, c;
     cout << "Enter three sides of the triangle: ";
     cin >> a >> b >> c;
