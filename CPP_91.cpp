@@ -24,7 +24,7 @@ int main() {
     return 0;
 }
 
-int is_bored(string S){
+void checkBoredom(string S){
     int count = 0;
     string boredom = "I";
     size_t pos = 0;
@@ -35,5 +35,4 @@ int is_bored(string S){
         }
         pos++;
     }
-    return 0; // this function doesn't need to return the result
 }
