@@ -5,13 +5,13 @@
 
 std::vector<std::string> ops = {"//", "*"};
 
-int do_algebra(std::vector<std::string> operator_, std::vector<std::string> operand_strs) {
+int do_algebra(std::vector<std::string> operator_, std::vector<int> operand) {
     std::string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
-        expression += operand_strs[i];
-        expression += operator_[i];
+        expression += to_string(operand[i]);
+        expression += ops[std::distance(operator_.begin(), std::find(ops.begin(), ops.end(), operator_[i])) == 1 ? " *" : " //"];
     }
-    expression += operand_strs.back();
+    expression += to_string(operand.back());
     
     int result = eval(expression);
     
@@ -34,11 +34,7 @@ int eval(const std::string& s) {
             }
             start = i + 1;
         } else {
-            result += sign * std::atoi(&s[start]);
-            while (i < s.size() && isdigit(s[i])) {
-                start++;
-                i--;
-            }
+            result += sign * std::atoi(std::string(1, s[i]).c_str());
         }
     }
     
@@ -46,6 +42,6 @@ int eval(const std::string& s) {
 }
 
 int main() {
-    int result = do_algebra(ops, {"7", "3", "4"});
+    int result = do_algebra(ops, {7, 3, 4});
     return 0;
 }
