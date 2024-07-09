@@ -34,14 +34,14 @@ int main_entry() {
     int n;
     std::cout << "Enter the number of strings: ";
     std::cin >> n;
-    
+
     std::vector<std::string> inputStrings; 
-    for(int i = 0; i < n; i++) {
+    for(int i = 1; i <= n; i++) {
         std::string str;
-        std::cout << "Enter string " << (i+1) << ": ";
-        std::string temp;
-        std::getline(std::cin, temp); // read the whole line first
-        str = temp; // then store it in your string variable
+        std::cout << "Enter string " << i << ": ";
+        for(int j = 0; j < i; j++)
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+        std::getline(std::cin, str);
         inputStrings.push_back(str);
     }
     
