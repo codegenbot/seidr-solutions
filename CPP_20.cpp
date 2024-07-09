@@ -34,6 +34,6 @@ Pair findClosestElements(std::vector<float> numbers) {
 }
 
 int main() {
-    assert(issame({2.2f, 3.1f}, {findClosestElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}).first, findClosestElements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}).second}));
+    assert(issame({2.2f,3.1f},{findClosestElements({1.1f,2.2f,3.1f,4.1f,5.1f}).first,findClosestElements({1.1f,2.2f,3.1f,4.1f,5.1f}).second}));
     return 0;
 }
