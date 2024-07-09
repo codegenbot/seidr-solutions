@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+#include <limits>
 
 using namespace std;
 
@@ -19,13 +19,13 @@ bool match_parens(vector<string> lst) {
 int main() {
     vector<string> lst;
     int n;
-    cin >> n;  
+    cin >> n;
     string s;
-    while (n--) {  
+    for(int i=0; i<n; ++i){
         getline(cin, s);
-        if (s.empty()) break;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         lst.push_back(s);
     }
-    std::cout << (match_parens(lst) ? "Yes" : "No") << std::endl;
+    cout << (match_parens(lst) ? "Yes" : "No") << endl;
     return 0;
 }
