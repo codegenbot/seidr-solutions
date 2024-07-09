@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <map>
 #include <string>
@@ -18,12 +19,18 @@ bool check_dict_case(map<string,string> dict){
 
 string main() {
     map<string, string> dict;
-    cin >> dict;
-    if(check_dict_case(dict)){
-        for(auto it = dict.begin(); it != dict.end(); ++it){
-            cout << "Key: " << it->first << ", Value: " << it->second << endl;
-        }
-    } else{
-        return "Invalid Dictionary";
+    cout << "Enter key-value pairs in the format 'key value'. Enter 'stop' to finish. ";
+    string line;
+    while(getline(cin, line)){
+        if(line == "stop") break;
+        size_t space = line.find(' ');
+        string key = line.substr(0, space);
+        string value = line.substr(space+1);
+        dict[key] = value;
     }
+    
+    if(check_dict_case(dict))
+        return "All keys are in the same case.";
+    else
+        return "Some keys are not in the same case as the first one.";
 }
