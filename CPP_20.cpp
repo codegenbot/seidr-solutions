@@ -1,9 +1,12 @@
+Here is the modified code:
+
 ```cpp
 #include <algorithm>
 #include <vector>
 #include <limits>
+#include <initializer_list>
 
-bool isSame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
@@ -13,18 +16,18 @@ bool isSame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> findClosestElements(std::vector<float> numbers) {
+std::vector<float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
-    float minDiff = std::numeric_limits<float>::max();
-    std::pair<float, float> closestPair;
+    float min_diff = std::numeric_limits<float>::max();
+    std::pair<float, float> closest_pair;
     
     for (int i = 0; i < numbers.size() - 1; ++i) {
         float diff = numbers[i + 1] - numbers[i];
-        if (diff < minDiff) {
-            minDiff = diff;
-            closestPair = {numbers[i], numbers[i + 1]};
+        if (diff < min_diff) {
+            min_diff = diff;
+            closest_pair = {numbers[i], numbers[i + 1]};
         }
     }
     
-    return std::vector<float>(closestPair.begin(), closestPair.end());
+    return std::vector<float>{closest_pair.first, closest_pair.second};
 }
