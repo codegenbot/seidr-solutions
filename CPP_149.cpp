@@ -44,9 +44,7 @@ int main_entry() {
             std::cin >> c;
             if(c == '\n') break;
             if(j < i) str += c;
-        }
-        if(str.empty()) { // Add this check
-            continue; // Skip adding the empty string to the vector
+            else if(str.length() > 0) str += c;
         }
         inputStrings.push_back(str);
     }
