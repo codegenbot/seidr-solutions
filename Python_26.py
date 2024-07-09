@@ -1,9 +1,7 @@
-import sys
+from collections import Counter
 
-from typing import List
+def remove_duplicates(numbers):
+    return [num for num, count in Counter(numbers).items() if count == 1]
 
-def remove_duplicates(numbers: List[int]) -> List[int]:
-    return [num for num in set(numbers) if numbers.count(num) == 1]
-
-numbers = list(map(int, sys.stdin.readline().split()))
+numbers = list(map(int, input().split()))
 print(remove_duplicates(numbers))
