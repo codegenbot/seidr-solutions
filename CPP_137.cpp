@@ -1,6 +1,5 @@
 #include <variant>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -18,11 +17,9 @@ auto compare_one(const variant<int, float, string>& a, const variant<int, float,
             return b;
     }
     else if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
-        float a_float = stof(get<string>(a));
-        float b_float = stof(get<string>(b));
-        if (a_float > b_float)
+        if (get<string>(a) > get<string>(b))
             return a;
-        else if (a_float < b_float)
+        else if (get<string>(a) < get<string>(b))
             return b;
     }
     return variant<int, float, string>(); // Return default-constructed std::variant
