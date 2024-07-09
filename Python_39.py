@@ -21,5 +21,7 @@ def prime_fib(n: int):
             n -= 1
             if n == 0:
                 return fib_num
+        i += 1
 
-prime_fib(n)
+result = prime_fib(n)
+print(result)
