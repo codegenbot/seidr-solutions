@@ -1,8 +1,10 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 std::vector<int> pluck(std::vector<int> arr) {
-    if (arr.empty()) return {};
+    std::vector<int> result;
+    if (arr.empty()) return result;
 
     int smallest_even = INT_MAX;
     int index = -1;
@@ -14,5 +16,17 @@ std::vector<int> pluck(std::vector<int> arr) {
         }
     }
 
-    return {smallest_even, index};
+    result.push_back(smallest_even);
+    result.push_back(index);
+
+    return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}), {}));
+    return 0;
 }
