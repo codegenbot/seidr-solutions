@@ -1,12 +1,7 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <cassert>
 #include <iostream>
-
-// Declare functions before using them
-
-vector<int> pluck(vector<int> arr); 
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -34,12 +29,13 @@ vector<int> pluck(vector<int> arr) {
     result.push_back(minIndex);
 
     return result;
+
 }
 
 int main() {
     vector<int> input = {7, 9, 7, 1};
     vector<int> output = pluck(input);
-    assert(issame(output, {}));
+    assert(issame(output, vector<int>{}));
     std::cout << "Output: ";
     for (int i : output) {
         std::cout << i << " ";
