@@ -1,43 +1,36 @@
-int n = grid.size();
-    vector<int> path;
-    vector<vector<int>> visited(n, vector<int>(n, 0));
-    pair<int, int> start;
-    
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(grid[i][j] == 1){
-                start = {i, j};
-                break;
-            }
-        }
-    }
-    
-    path.push_back(1);
-    visited[start.first][start.second] = 1;
-    
-    while(path.size() < k){
-        int curRow = start.first;
-        int curCol = start.second;
-        pair<int, int> nextPos;
-        int minVal = n * n + 1;
+vector<int> minPath(vector<vector<int>>& grid, int k) {
+        vector<int> path;
+        int n = grid.size();
+        vector<vector<bool>> visited(n, vector<bool>(n, false));
 
-        for(int dr = -1; dr <= 1; dr++){
-            for(int dc = -1; dc <= 1; dc++){
-                int newRow = curRow + dr;
-                int newCol = curCol + dc;
-                if(newRow >= 0 && newRow < n && newCol >= 0 && newCol < n && !visited[newRow][newCol]){
-                    if(grid[newRow][newCol] < minVal){
-                        minVal = grid[newRow][newCol];
-                        nextPos = {newRow, newCol};
-                    }
+        function<bool(int, int, int)> dfs = [&](int i, int j, int len) {
+            if (i < 0 || i >= n || j < 0 || j >= n || visited[i][j]) {
+                return false;
+            }
+
+            visited[i][j] = true;
+            path.push_back(grid[i][j]);
+
+            if (len == k) {
+                return true;
+            }
+
+            if (dfs(i, j + 1, len + 1) || dfs(i + 1, j, len + 1) || dfs(i, j - 1, len + 1) || dfs(i - 1, j, len + 1)) {
+                return true;
+            }
+
+            visited[i][j] = false;
+            path.pop_back();
+            return false;
+        };
+
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (dfs(i, j, 1)) {
+                    return path;
                 }
             }
         }
-        
-        path.push_back(minVal);
-        visited[nextPos.first][nextPos.second] = 1;
-        start = nextPos;
+
+        return path;
     }
-    
-    return path;
-}
