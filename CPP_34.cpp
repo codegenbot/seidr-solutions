@@ -5,9 +5,9 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result;
-    auto it = unique_copy(l.begin(), l.end(), back_inserter(result));
-    return result;
+    vector<int> result(l.size()); 
+    auto it = unique_copy(l.begin(), l.end(), result.begin());
+    return vector<int>(it, result.end());
 }
 
 int main() {
