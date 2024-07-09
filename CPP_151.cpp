@@ -14,15 +14,19 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    float sum = 0.0f;
-    int odd_sum = 0;
+    float sum = 0.0, odd_sum = 0.0;
 
+    // use lst, sum, and odd_sum as intended...
     for (float num : lst) {
         if (num >= 0 && floor(num) == num) {
             sum += pow(num - floor(num), 2);
+        } else {
+            odd_sum += num;
         }
     }
 
-    std::cout << "The double difference is: " << sum << std::endl;
+    std::cout << "Sum: " << sum << "\n";
+    std::cout << "Odd Sum: " << odd_sum << "\n";
+
     return 0;
 }
