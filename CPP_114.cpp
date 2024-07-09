@@ -1,10 +1,5 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <climits>
-
-long long minSubArraySum(std::vector<long long> nums) {
-    long long min_sum = LLONG_MAX;
+long long minSubArraySum(vector<long long> nums) {
+    long long min_sum = INT_MAX;
     for (int start = 0; start < nums.size(); start++) {
         long long sum = 0;
         for (int end = start; end < nums.size(); end++) {
@@ -18,19 +13,17 @@ long long minSubArraySum(std::vector<long long> nums) {
 }
 
 int main() {
+    vector<long long> nums;
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<long long> nums(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> nums[i];
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        long long num;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> num;
+        nums.push_back(num);
     }
-
     long long result = minSubArraySum(nums);
-
-    std::cout << "Minimum subarray sum: " << result << std::endl;
-
+    cout << "Minimum subarray sum: " << result << endl;
     return 0;
 }
