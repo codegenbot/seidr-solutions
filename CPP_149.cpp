@@ -1,9 +1,9 @@
 #include <iostream>
-#include <vector>
+#include <string>
 #include <algorithm>
 
 bool issame(const string& a, const string& b) {
-    return a.length() == b.length() && a == b;
+    return a.length() == b.length();
 }
 
 int sorted_list_sum(const vector<string>& lst) {
@@ -17,7 +17,7 @@ int sorted_list_sum(const vector<string>& lst) {
 vector<string> main(vector<string> lst) {
     lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
     sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
-        if (a.length() != b.length()) {
+        if (!issame(a, b)) {
             return a.length() < b.length();
         } else {
             return a < b;
