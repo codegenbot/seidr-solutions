@@ -5,12 +5,9 @@ using namespace std;
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> evenLengthStrings;
-    evenLengthStrings.clear();
-    evenLengthStrings.reserve(0);
     for (const string& str : lst) {
         if (str.length() % 2 == 0) {
-            evenLengthStrings.clear();
-            evenLengthStrings.reserve(1);
+            evenLengthStrings.reserve(evenLengthStrings.size() + 1);
             evenLengthStrings.push_back(str);
         }
     }
@@ -27,7 +24,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return evenLengthStrings;
 }
 
-int main() {
+int main_test() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
     vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
 
