@@ -5,8 +5,8 @@
 std::string anti_shuffle(std::string s) {
     std::string res;
     for (int i = 0; i < s.length(); i++) {
-        if (i % 2 == 1) {
-            res += s[i];  // Add the character at index i to the end of res
+        if (i % 2 == 0) {
+            res += static_cast<char>(s[i]);  
         }
     }
     return res;
