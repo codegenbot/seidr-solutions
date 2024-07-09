@@ -1,7 +1,5 @@
 #include <algorithm>
 #include <map>
-#include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -9,10 +7,11 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> by_length(vector<int> arr){
+vector<string> by_length(vector<int> arr) {
     vector<string> result;
     vector<int> sorted_arr;
-    for (int num : arr) {
+    for (int i = 0; i < arr.size(); i++) {
+        int num = arr[i];
         if (num >= 1 && num <= 9) {
             sorted_arr.push_back(num);
         }
@@ -29,7 +28,4 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
-int main() {
-    assert(issame(by_length({9, 4, 8}), vector<string>{"Nine", "Eight", "Four"}));
-    return 0;
-}
+assert(issame(by_length({9, 4, 8}), vector<string>{"Nine", "Eight", "Four"}));
