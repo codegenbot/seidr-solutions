@@ -1,5 +1,4 @@
-#include <string>
-#include <sstream>
+#include <stringstream>
 #include <md5.h>
 #include <iomanip>
 
@@ -10,6 +9,8 @@ string string_to_md5(string text) {
 
     MD5_CTX ctx;
     unsigned char mdValue[16];
+
+    #include <openssl/md5.h> // Add this line
 
     MD5_Init(&ctx);
     const char *ptr = text.c_str();
