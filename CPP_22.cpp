@@ -24,7 +24,7 @@ bool is_same(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    list<any> values = {any(3, 'c'), 3, 3, any('a', 'b')};
+    list<any> values = {3, int(3), 3, 'a', 'b'};
     assert(is_same(filter_integers(values), vector<int>{3, 3, 3}));
     return 0;
 }
