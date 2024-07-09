@@ -1,4 +1,3 @@
-```
 def calculate_bounciness(start_height, first_bounce_height):
     return first_bounce_height / start_height
 
