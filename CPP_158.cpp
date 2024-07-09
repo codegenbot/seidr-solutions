@@ -1,14 +1,28 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <set>
+#include <cassert>
+
+using namespace std;
+
 string find_max(vector<string> words){
-    string max_word = "";
-    int max_unique_chars = 0;
+    string maxWord = "";
+    int maxUniqueChars = 0;
     
-    for(const string& word : words){
-        int unique_chars = unordered_set<char>(begin(word), end(word)).size();
-        if(unique_chars > max_unique_chars || (unique_chars == max_unique_chars && word < max_word)){
-            max_word = word;
-            max_unique_chars = unique_chars;
+    for(const auto& word : words){
+        int uniqueChars = set<char>(word.begin(), word.end()).size();
+        if(uniqueChars > maxUniqueChars || (uniqueChars == maxUniqueChars && word < maxWord)){
+            maxUniqueChars = uniqueChars;
+            maxWord = word;
         }
     }
     
-    return max_word;
+    return maxWord;
+}
+
+int main() {
+    assert ((find_max({"play", "play", "play"}) == "play"));
+    
+    return 0;
 }
