@@ -7,9 +7,6 @@
 
 using namespace std;
 
-#include <openssl/evp.h>
-#include <openssl/ssl.h>
-
 string string_to_md5(string text) {
     if (text.empty()) return "None";
     
@@ -17,29 +14,19 @@ string string_to_md5(string text) {
     EVP_MD_CTX md_ctx;
     unsigned char* d = nullptr;
     size_t len = 0;
-    EVP_PassphraseCallback callback = NULL;
-    const EVP_MD *md = EVP_sha256();
-    
-    int ret = EVP_DigestInit_ex(&md_ctx, md, NULL);
-    if (ret != 1) {
-        // error handling
-    }
-    ret = EVP_DigestUpdate(&md_ctx, text.c_str(), text.size());
-    if (ret != 1) {
-        // error handling
-    }
-    
-    unsigned char* out = new unsigned char[EVP_MAX_DIGEST_SIZE];
-    len = EVP_DigestFinal_ex(&md_ctx, out, nullptr);
+    EVP_MD_CTX_init(&md_ctx);
+    EVP_DigestInit_ex(&md_ctx, EVP_sha256(), NULL);
+    EVP_DigestUpdate(&md_ctx, text.c_str(), text.size());
+    EVP_DigestFinal_ex(&md_ctx, &d, &len);
     string md5_hash;
     for (int i = 0; i < len; ++i) {
         ostringstream oss;
-        oss << hex << setfill('0') << setw(2) << static_cast<unsigned int>(out[i]);
+        oss << hex << setfill('0') << setw(2) << static_cast<unsigned int>(d[i]);
         md5_hash += oss.str();
     }
     
-    delete[] out;
-    EVP_MD_CTX_free(&md_ctx);
+    free(d);
+    EVP_MD_CTX_cleanup(&md_ctx);
     
     return md5_hash;
 }
