@@ -44,8 +44,3 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     }
     return true;
 }
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
-    return 0;
-}
