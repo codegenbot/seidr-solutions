@@ -7,7 +7,7 @@ using namespace std;
 
 int gcd(int a, int b) {
     if (b == 0) {
-        return abs(a);
+        return a;
     }
     return gcd(abs(b), abs(a % b));
 }
@@ -31,25 +31,4 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
     }
     
     return indices;
-}
-
-int main() {
-    int choice;
-    cin >> choice;
-    
-    if (choice == 1) {
-        int a, b;
-        cin >> a >> b;
-        cout << gcd(a, b) << endl;
-    } else if (choice == 2) {
-        string text, target;
-        cin >> text >> target;
-        vector<int> result = findIndicesOfSubstring(text, target);
-        for (int i : result) {
-            cout << i << " ";
-        }
-        cout << endl;
-    }
-    
-    return 0;
 }
