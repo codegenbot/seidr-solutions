@@ -1,5 +1,5 @@
 #include <string>
-#include <stringstream>
+#include <sstream>
 #include <md5.h>
 #include <iomanip>
 
@@ -11,11 +11,10 @@ string string_to_md5(string text) {
     MD5_CTX ctx;
     unsigned char mdValue[16];
 
-    #include<md5.h>
+    MD5_Init(&ctx);
     const char *ptr = text.c_str();
     size_t len = text.length();
 
-    MD5_Init(&ctx);
     MD5_Update(&ctx, ptr, len);
 
     MD5_Final(mdValue, &ctx);
