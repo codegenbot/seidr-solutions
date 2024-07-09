@@ -44,4 +44,3 @@ int main() {
     
     cout << "MD5 Hash: " << md5_hash << endl;
     return 0;
-}
