@@ -8,9 +8,7 @@ vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
     vector<vector<int>> res(2);
     
-    for (int i = 0; i < 2; i++) {
-        res[i].resize(0); // initialize each inner vector by resizing it to 0
-    }
+    res[0].resize(n); res[1].resize(n);
     int minDiff = INT_MAX;
     for (int i = 0; i < n; i++) {
         int leftSum = 0, rightSum = 0;
