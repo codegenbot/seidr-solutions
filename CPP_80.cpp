@@ -12,9 +12,11 @@ bool is_happy(const std::string& s) {
         char c1 = s[i];
         char c2 = s[i + 1];
         char c3 = s[i + 2];
-        for (char c = s[i]; c == c1 || c == c2 || c == c3; ++c) {
-            if (c != c1 && c != c2 && c != c3)
+        char c = s[i];
+        while(c == c1 || c == c2 || c == c3) {
+            if (i+3 >= s.length())
                 return false;
+            c = s[++i];
         }
     }
     return true;
