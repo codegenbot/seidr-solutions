@@ -16,6 +16,7 @@ long long minSubArraySumFunction(vector<long long> nums) {
     return min_sum;
 }
 
-int otherMain() {
+int test_minSubArraySumFunction() {
     assert(minSubArraySumFunction({1, -1}) == -1);
+    return 0;
 }
