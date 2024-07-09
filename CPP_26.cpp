@@ -12,6 +12,8 @@ bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
+    if (numbers.empty()) return std::vector<int>();
+
     std::vector<int> uniqueNumbers;
     for (int num : numbers) {
         bool found = false;
@@ -33,16 +35,14 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    if (n > 1000) {
-        std::cout << "Error: Input size exceeded." << std::endl;
-        return 1;
-    }
-
     std::vector<int> numbers;
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
         std::cin >> num;
+        if (numbers.size() == numbers.capacity()) {
+            numbers.reserve(numbers.capacity() * 2); 
+        }
         numbers.push_back(num);
     }
 
