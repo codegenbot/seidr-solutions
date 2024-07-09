@@ -1,1 +1,4 @@
-string& input_string = getline(cin, input_string);
+```cpp
+string anti_shuffle(string& s) {
+    return s;
+}
