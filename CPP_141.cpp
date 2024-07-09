@@ -1,8 +1,8 @@
 #include <string>
-#include <cctype>
+using namespace std;
 
-int file_name_check(std::string file_name) { 
-    int digit_count = 0; 
+int file_name_check(string file_name) {
+    int digit_count = 0;
     bool found_dot = false;
     for(int i=0; i<file_name.length(); i++){
         if(isdigit(file_name[i])){
