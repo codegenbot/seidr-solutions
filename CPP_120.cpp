@@ -17,7 +17,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
-    for (int i = 0; i < std::min(k, arr.size()); i++) {
+    for (int i = 0; i < k; i++) {
         auto it = std::max_element(arr.begin(), arr.end());
         if (i < arr.size()) {
             result.push_back(*it);
@@ -35,13 +35,14 @@ int main() {
     std::cout << "Enter the value of k: ";
     std::cin >> k;
 
-    std::vector<int> arr;
+    // Initialize the vector with an initial size to avoid exceeding maximum size
+    std::vector<int> arr(n);
     std::cout << "Enter elements: ";
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
-        arr.push_back(val);
+        arr[i] = val;
     }
 
     std::vector<int> result = maximum(arr, k);
