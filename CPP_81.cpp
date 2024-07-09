@@ -27,3 +27,4 @@ std::vector<std::string> numericalLetterGrade(std::vector<float> grades){
         else result.push_back("E");
     }
     return result;
+}
