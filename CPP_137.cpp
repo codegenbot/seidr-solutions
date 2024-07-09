@@ -2,12 +2,13 @@
 #include <string>
 #include <iostream>
 #include <cassert>
+#include <boost/assert.hpp>
 
 using namespace std;
 
 variant<int, float, string> compare_one(const variant<int, float, string>& a, const variant<int, float, string>& b) {
     if (a.index() != b.index())
-        return {};
+        return {}; 
 
     if (holds_alternative<int>(a) && holds_alternative<int>(b)) {
         if (get<int>(a) > get<int>(b))
@@ -31,9 +32,9 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
 }
 
 int main() {
-    assert(get<string>(compare_one(string("1"), string("2"))) == "2");
-    assert(get<int>(compare_one(10, 5)) == 10);
-    assert(compare_one(string("None"), string("None")) == variant<int, float, string>::index_npos);
+    BOOST_ASSERT(boost::any_cast<int>(compare_one(10, 5)) == 10);
+    BOOST_ASSERT_MSG(boost::any_cast<string>(compare_one(string("one"), string("two"))) == "two", "String comparison failed");
+    BOOST_ASSERT_MSG(boost::any_cast<string>(compare_one(string("None"), string("None"))) == "None", "String comparison failed");
 
     return 0;
 }
