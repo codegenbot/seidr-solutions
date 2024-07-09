@@ -16,8 +16,15 @@ int main() {
         std::cout << "-1" << std::endl; 
     } else {
         int result = prime_fib(n);
-        std::cout << "The " << (n == 1 ? "first" : n == 2 ? "second" : n == 3 ? "third" : "the " + std::to_string(n) + "th") << " prime Fibonacci number is: ";
-        std::cout << result << std::endl;
+        std::string str = "The ";
+        switch (n) {
+            case 1: str += "first"; break;
+            case 2: str += "second"; break;
+            case 3: str += "third"; break;
+            default: str += "the " + std::to_string(n) + "th";
+        }
+        str += " prime Fibonacci number is: ";
+        std::cout << str << std::to_string(result) << std::endl;
     }
 }
 
