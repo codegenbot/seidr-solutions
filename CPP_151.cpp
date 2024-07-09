@@ -1,7 +1,6 @@
-```cpp
+#include <initializer_list>
 #include <cassert>
 #include <vector>
-#include <initializer_list>
 
 long double_the_difference(const std::vector<int>& input) {
     long average = 0;
@@ -12,11 +11,11 @@ long double_the_difference(const std::vector<int>& input) {
 }
 
 int main_function() { 
-    auto lst = {1,2,3}; 
+    auto odd_sum = {1,2,3}; 
     int sum_of_odds = 0; 
-    for (int num : lst) {
+    for (int num : odd_sum) {
         if(num % 2 != 0)
             sum_of_odds += num;
     }
-    assert(double_the_difference(lst) == sum_of_odds);
+    assert(double_the_difference(odd_sum) == sum_of_odds);
 }
