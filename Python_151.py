@@ -1,2 +1,3 @@
 ```
-check(double_the_difference([1, 2, 3, -4, -5]))
+def check(f):
+    print(f([1, 2, 3, -4, -5]))
