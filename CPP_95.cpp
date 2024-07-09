@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <map>
 #include <string>
@@ -19,6 +18,7 @@ bool check_dict_case(map<string,string> dict){
 
 int main() {
     map<string,string> my_dict;
+    // Add keys and values to the dictionary
     my_dict["apple"] = "red";
     my_dict["banana"] = "yellow";
     my_dict["cherry"] = "red";
