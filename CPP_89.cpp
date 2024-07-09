@@ -11,7 +11,7 @@ int encrypt(string s){
         }
         result += c;
     }
-    return int(result.length());
+    return 0;
 }
 
 int main(){
