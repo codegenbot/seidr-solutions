@@ -1,14 +1,17 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
 
-bool issame(const vector<string>& v, const string& target) {
-    for (const auto& s : v) {
-        if (s == target) return true;
+bool issame(string s1, string s2) {
+    for (int i = 0; i < s1.size(); i++) {
+        if (s1[i] != s2[i]) {
+            return false;
+        }
     }
-    return false;
+    return true;
 }
 
 vector<string> bf(string planet1, string planet2) {
