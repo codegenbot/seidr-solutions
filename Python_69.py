@@ -14,5 +14,5 @@ def search(lst):
             break
     return max_num
 
-numbers = input("Enter a list of numbers separated by space: ").split()
-print(search(list(map(int, numbers))) or 0)
+lst = list(map(int, input("Enter the numbers separated by space: ").split()))
+print(search(lst))
