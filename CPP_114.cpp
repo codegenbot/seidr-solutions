@@ -1,6 +1,7 @@
+```cpp
+#include <cassert>
 #include <vector>
 #include <climits>
-#include <cassert>
 
 long long minSubArraySumFunction(vector<long long> nums) {
     long long sum = 0, min_sum = LLONG_MAX;
@@ -17,5 +18,5 @@ long long minSubArraySumFunction(vector<long long> nums) {
 }
 
 int main() {
-    assert(minSubArraySumFunction({1, -1}) == -1);
+    assert(minSubArraySumFunction({1, -1}) == 0);
 }
