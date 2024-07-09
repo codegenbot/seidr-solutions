@@ -1,11 +1,8 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-using namespace std;
 
-using std::pow;
-using std::sqrt;
-using std::setprecision;
+using namespace std;
 
 double vectorDistance(int n, const vector<float>& v1, const vector<float>& v2) {
     double sum = 0;
