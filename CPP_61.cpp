@@ -1,5 +1,8 @@
-```cpp
 #include <cassert>
+#include <stack>
+#include <string>
+#include <iostream>
+
 bool correct_bracketing(const std::string& s) {
     std::stack<char> stack;
     for (char c : s) {
@@ -14,7 +17,7 @@ bool correct_bracketing(const std::string& s) {
 }
 
 int main() {
-    assert(!correct_bracketing("()()(()())"));
+    assert(!correct_bracketing("()()(()())")); 
     std::cout << "Correct bracketing test passed." << std::endl;
     return 0;
 }
