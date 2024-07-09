@@ -1,5 +1,5 @@
-```
 #include <vector>
+#include <bits/stdc++.h>
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
