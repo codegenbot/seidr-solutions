@@ -2,8 +2,8 @@
 #include <string>
 
 int main() {
-    std::string a = "hello";
-    std::string b = "hi";
+    boost::any a = "hello";
+    boost::any b = "hi";
 
     boost::any result = compare_one(a, b);
 
@@ -14,10 +14,13 @@ int main() {
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any(1.5);
+        return boost::any(std::to_string((int)b.cast_to<float>()));
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        return boost::any("equal");
+        if (((float)a).cast_to<int>() > std::stoi(boost::any_cast<std::string>(b))))
+            return a;
+        else
+            return b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
@@ -27,9 +30,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (strA < strB)
             return b;
         else
-            return boost::any("Equal");
+            return "Equal";
     }
     else {
-        return boost::any(1.0);
+        return typeid(int);
     }
 }
