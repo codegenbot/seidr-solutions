@@ -1,7 +1,15 @@
-if (x <= 0 || n <= 0) {
-        return false;
+if (n == 1 && x == 1) {
+    return false;
+}
+if (x < n) {
+    return false;
+}
+int p = 1;
+while (p <= x) {
+    if (p == x) {
+        return true;
     }
-    
-    int root = round(pow(x, 1.0/n));
-    return (pow(root, n) == x);
+    p *= n;
+}
+return false;
 }
