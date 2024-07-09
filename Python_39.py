@@ -21,5 +21,5 @@ def prime_fib(n: int):
         i += 1
     return fibonacci(i - 1)
 
-n = int(input("Enter a number: "))
+n = int(input('Enter a number: '))
 print(prime_fib(n))
