@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool isPlanet(string planet);
 bool issame(vector<string> a, vector<string> b);
@@ -21,7 +19,8 @@ bool main() {
         }
         cout << "\n";
 
-        vector<string> b = {planet1, planet2};
+        vector<string> b = vector<string>(1,planet1);
+        b.push_back(planet2);
         if(issame(result,b)){
             cout << "The planets are the same.\n";
         } else {
