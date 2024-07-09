@@ -24,11 +24,17 @@ vector<string> bf(string a, string b) {
     if(a.length() != b.length()) {
         return {};
     }
-    vector<string> result = {a, b};
-    return result;
+    vector<string> result;
+    for(int i = 0; i < a.length(); i++) {
+        if(tolower(a[i]) != tolower(b[i])) {
+            return {};
+        }
+    }
+    return {a, b};
 }
 
 int main() {
     assert(compareVectors(bf("Jupiter", "Makemake"), {"Jupiter", "Makemake"}));
+    cout << "Hello, World!" << endl;
     return 0;
 }
