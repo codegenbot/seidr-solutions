@@ -1,16 +1,8 @@
-```
 #include <vector>
-#include <iostream>
+#include <initializer_list>
 
-int main() {
-    std::vector<int> arr = {2,4,3};
-    int result = pluck(arr).size();
-    std::cout << "Number of elements: " << result << std::endl;
-    return 0;
-}
-
-std::vector<std::vector<int>> pluck(std::vector<int> arr) {
-    std::vector<std::vector<int>> result;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
     if (arr.empty()) return result;
 
     int smallest_even = INT_MAX;
@@ -23,11 +15,8 @@ std::vector<std::vector<int>> pluck(std::vector<int> arr) {
         }
     }
 
-    std::vector<int> output;
-    output.push_back(smallest_even);
-    output.push_back(index);
-
-    result.push_back(output);
+    result.push_back(smallest_even);
+    result.push_back(index);
 
     return result;
 }
