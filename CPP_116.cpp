@@ -1,14 +1,17 @@
 #include <vector>
 #include <algorithm>
+#include <numeric>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+namespace std {
+    bool issame(std::vector<int> a, std::vector<int> b){
+        return a == b;
+    }
 }
 
 std::vector<int> sort_array(std::vector<int> arr){
     std::sort(arr.begin(), arr.end(), [](int a, int b){
-        int countA = __builtin_popcount(a);
-        int countB = __builtin_popcount(b);
+        int countA = std::bitset<16>(a).count();
+        int countB = std::bitset<16>(b).count();
         if (countA == countB) {
             return a < b;
         }
