@@ -36,18 +36,15 @@ int main_entry() {
     std::cin >> n;
     
     std::vector<std::string> inputStrings; 
-    int totalSize = 0;
-    for(int i = 0; i < n; i++) {
+    std::string str1;
+    std::cout << "Enter string 1: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+    std::getline(std::cin, str1);
+    inputStrings.push_back(str1);
+
+    for(int i = 2; i <= n; i++) {
         std::string str;
-        std::cout << "Enter string " << (i+1) << ": ";
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-        std::getline(std::cin, str);
-        totalSize += str.size() + 1; 
-    }
-    
-    for(int i = 0; i < n; i++) {
-        std::string str;
-        std::cout << "Enter string " << (i+1) << ": ";
+        std::cout << "Enter string " << i << ": ";
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
         std::getline(std::cin, str);
         inputStrings.push_back(str);
