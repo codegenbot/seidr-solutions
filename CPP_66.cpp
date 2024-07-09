@@ -1,22 +1,19 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-int digitSum(string s){
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    getline(cin, s);
     int sum = 0;
-    for(int i = 0; i < s.length(); i++){
-        if(islower(s[i])){
-            sum += (s[i] - 'a' + 1);
+    for(char c : s){
+        if(islower(c)){
+            sum += (c - 'a' + 1);
         }
     }
-    return sum;
-
-}
-
-int main() {
-    assert(digitSum("you are very smart") == 342);
-    cout << digitSum("you are very smart") << endl;
+    cout << "The digit sum is: " << sum << endl;
     return 0;
 }
