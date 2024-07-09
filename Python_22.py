@@ -1,7 +1,11 @@
-def find_pairs_sum_to_k(pairs: List[tuple], k: int) -> List[List]:
+def filter_integers(values: List[Any]) -> List[int]:
     result = []
-    for i in range(len(pairs)):
-        for j in range(i + 1, len(pairs)):
-            if pairs[i][0] + pairs[j][0] == k:
-                result.append([pairs[i], pairs[j]])
-    return result
+    while True:
+        user_input = input("Enter a list of values (or 'stop' to finish): ")
+        if user_input.lower() == "stop":
+            break
+        try:
+            values = [int(x) for x in user_input.split()]
+        except ValueError:
+            print("Invalid input. Please enter only integers separated by spaces.")
+    return [value for value in values if isinstance(value, int)]
