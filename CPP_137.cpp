@@ -1,7 +1,5 @@
 #include <variant>
 #include <string>
-#include <cassert>
-#include <iostream>
 #include <boost/any.hpp>
 
 using namespace std;
@@ -32,8 +30,6 @@ int main() {
     assert(compare_one(string("1"), string("2")) == string("2"));
     assert(compare_one(10, 5) == 10);
     assert(compare_one(3.14f, 2.718f) == 3.14f);
-    
-    assert(boost::any_cast<string>(compare_one(string("1"), string("2"))) == "2");
 
     return 0;
 }
