@@ -1,6 +1,6 @@
+```
 #include <iostream>
 #include <string>
-#include <cassert>
 
 int vowels_count(std::string s) {
     int count = 0;
@@ -16,7 +16,10 @@ int vowels_count(std::string s) {
 }
 
 int main() {
-    assert(vowels_count("ACEDY") == 3);
-    // test your code here
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    int result = vowels_count(input);
+    std::cout << "Number of vowels in the string is: " << result << std::endl;
     return 0;
 }
