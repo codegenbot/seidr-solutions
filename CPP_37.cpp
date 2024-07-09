@@ -32,6 +32,7 @@ namespace myspace {
 }
 
 int main() {
-    assert(myspace::issame(myspace::sort_even({1.0f, 2.5f, 3.25f, 4.9f}), {2.5f, 3.25f, 4.9f, 1.0f}));
+    std::vector<float> input = {1.5, 4.0, 2.3, 8.6};
+    assert(myspace::issame(myspace::sort_even(input), std::vector<float>{2.3, 4.0, 1.5, 8.6}));
     return 0;
 }
