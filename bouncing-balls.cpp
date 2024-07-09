@@ -3,10 +3,9 @@
 #include <sstream>
 
 int main() {
-    std::string line;
-    std::getline(std::cin, line);
-    std::istringstream iss(line);
-
+    std::string input;
+    std::getline(std::cin, input);
+    std::stringstream iss(input);
     int startHeight;
     double firstBounce;
     int numBounces;
