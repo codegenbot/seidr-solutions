@@ -1,4 +1,4 @@
-int main() { 
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,23 +14,24 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     return lst;
 }
 
-int n;
+int main() { 
+    int n;
+    std::cin >> n;
 
-std::cin >> n;
+    // Initialize lst with the correct size
+    std::vector<std::string> lst(n);
 
-// Initialize lst with the correct size
-std::vector<std::string> lst(n);
+    for(int i = 0; i < n; i++) {
+        std::cin >> lst[i];
+    }
 
-for(int i = 0; i < n; i++) {
-    std::cin >> lst[i];
+    std::vector<std::string> result = sorted_list_sum(lst);
+
+    std::cout << "Sorted List Sum: ";
+    for(auto str : result) {
+        std::cout << str << " ";
+    }
+    std::cout << endl;
+
+    return 0;
 }
-
-std::vector<std::string> result = sorted_list_sum(lst);
-
-std::cout << "Sorted List Sum: ";
-for(auto str : result) {
-    std::cout << str << " ";
-}
-std::cout << endl;
-
-return 0;
