@@ -1,7 +1,7 @@
+```c++
 #include <string>
 #include <algorithm>
 #include <vector>
-#include <cctype>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::vector<std::string> tokens;
@@ -39,4 +39,10 @@ std::string spinWords(std::string str) {
         }
     }
     return join(words, ' ');
+}
+
+int main() {
+    std::string str = "Hello World";
+    std::cout << spinWords(str) << std::endl;
+    return 0;
 }
