@@ -1,13 +1,17 @@
+```cpp
 #include <vector>
 #include <string>
+
 using namespace std;
 
 int main() {
     int a, b;
-    cout << "Enter two numbers: ";
-    cin >> a >> b;
-    cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << endl;
-    
+    cout << "Enter first integer: ";
+    cin >> a;
+    cout << "Enter second integer: ";
+    cin >> b;
+    cout << "GCD of these two integers is: " << gcd(a, b) << endl;
+
     return 0;
 }
 
