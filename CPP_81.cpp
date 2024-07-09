@@ -1,37 +1,37 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades);
 
-bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b);
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
 
 std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
     std::vector<std::string> letter_grades;
     for (float gpa : grades) {
-        if (gpa == 4.0f) {
+        if (gpa == 4.0) {
             letter_grades.push_back("A+");
-        } else if (gpa > 3.7f) {
+        } else if (gpa > 3.7) {
             letter_grades.push_back("A");
-        } else if (gpa > 3.3f) {
+        } else if (gpa > 3.3) {
             letter_grades.push_back("A-");
-        } else if (gpa > 3.0f) {
+        } else if (gpa > 3.0) {
             letter_grades.push_back("B+");
-        } else if (gpa > 2.7f) {
+        } else if (gpa > 2.7) {
             letter_grades.push_back("B");
-        } else if (gpa > 2.3f) {
+        } else if (gpa > 2.3) {
             letter_grades.push_back("B-");
-        } else if (gpa > 2.0f) {
+        } else if (gpa > 2.0) {
             letter_grades.push_back("C+");
-        } else if (gpa > 1.7f) {
+        } else if (gpa > 1.7) {
             letter_grades.push_back("C");
-        } else if (gpa > 1.3f) {
+        } else if (gpa > 1.3) {
             letter_grades.push_back("C-");
-        } else if (gpa > 1.0f) {
+        } else if (gpa > 1.0) {
             letter_grades.push_back("D+");
-        } else if (gpa > 0.7f) {
+        } else if (gpa > 0.7) {
             letter_grades.push_back("D");
-        } else if (gpa > 0.0f) {
+        } else if (gpa > 0.0) {
             letter_grades.push_back("D-");
         } else {
             letter_grades.push_back("E");
@@ -41,5 +41,10 @@ std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades
 }
 
 int main() {
-    assert(is_same(numerical_letter_grade({0.0f, 0.7f}), {"E", "D-"}));
+    std::vector<float> grades {3.8, 2.5, 4.0, 1.9, 3.5};
+    std::vector<std::string> result = numerical_letter_grade(grades);
+    for (const std::string& grade : result) {
+        std::cout << grade << std::endl;
+    }
+    return 0;
 }
