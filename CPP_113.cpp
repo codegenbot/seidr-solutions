@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,22 +14,20 @@ vector<string> odd_count(vector<string> lst) {
                 count++;
             }
         }
-        string temp = "the number of odd elements ";
+        string temp = to_string(count);
+        temp += " strings in the input have ";
         temp += to_string(count);
-        temp += " in the string ";
-        temp += to_string(i + 1);
+        temp += " odd characters.";
         result.push_back(temp);
-    }
-    for (string s : lst) {
-        cout << s << endl;
     }
     return result;
 }
 
 int main() {
     vector<string> lst = {"1234567"};
-    odd_count(lst);
-    for (vector<string> output : odd_count(lst)) {
-        cout << output << endl;
+    vector<string> output = odd_count(lst);
+    for (string s : output) {
+        cout << s << endl;
     }
+    return 0;
 }
