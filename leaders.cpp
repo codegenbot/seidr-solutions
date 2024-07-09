@@ -1,8 +1,10 @@
+```cpp
 #include <vector>
 
 std::vector<int> leaders(std::vector<int>& numbers) {
     std::vector<int> result;
     int n = numbers.size();
+    
     if(n == 0) return result; 
 
     for(int i = n-1; i >= 0; i--) {
@@ -10,14 +12,8 @@ std::vector<int> leaders(std::vector<int>& numbers) {
         if(i == 0) result.push_back(numbers[0]);
         else result.push_back(numbers[i]);
     }
+    
     return result;
 }
 
-int main() {
-    std::vector<int> numbers = {16,17,4,3,5,2};
-    std::vector<int> leadersVector = leaders(numbers);
-    for (int i : leadersVector) {
-        std::cout << i << " ";
-    }
-    return 0;
-}
+int main() { leaders(std::vector<int>()); return 0; }
