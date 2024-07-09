@@ -1,7 +1,10 @@
-vector<int> filter_integers(list_any values){
+#include <boost/algorithm/string.hpp>
+
+vector<int> filter_integers(list_any values) {
     vector<int> result;
-    for(auto &value : values) {
-        boost::any_cast<int>(value);
+    for (const auto& value : values) {
+        if (any_cast<int>(value).none()) continue;
+        result.push_back(any_cast<int>(value));
     }
     return result;
 }
