@@ -6,12 +6,9 @@ bool same_chars(string s1, string s2) {
     if (s1.length() != s2.length()) {
         return false;
     }
-    for (int i = 0; i < s1.size(); ++i) {
-        int count = 0;
-        while (i + count < s1.size() && s1[i] == s1[i + count]) {
-            count++;
-        }
-        if (s1[i] != s2[i + count - 1]) {
+    for(int i = 0; i < s1.size(); i++){
+        char c = s1[i]; // store each character in a single char variable
+        if(c != s2[i]) { // compare with the corresponding character in s2
             return false;
         }
     }
