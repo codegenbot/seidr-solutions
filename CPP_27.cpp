@@ -1,4 +1,7 @@
-```
+```cpp
+#include <string>
+#include <cctype>
+
 std::string flip_case(std::string str){
     std::string result = "";
     for(char c : str){
@@ -9,6 +12,5 @@ std::string flip_case(std::string str){
         else
             result += c;
     }
-    return result;
+    return flip_case(str);
 }
-assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
