@@ -16,15 +16,10 @@ int main() {
 
     vector<int> v;
     set<int> common;
-    
-    // Initialize an empty set
-    common.insert(n1);
-    common.insert(n2);
-    common.insert(n3);
-    common.insert(n4);
-    common.insert(n5);
-    common.insert(n6);
-    common.insert(n7);
+    for (int i : {n1, n2, n3, n4, n5, n6, n7}) {
+        v.push_back(i);
+        common.insert(i);  
+    }
 
     bool result = isSame(common, common);
     if(result) {
