@@ -3,20 +3,11 @@
 #include <initializer_list>
 
 bool issame(vector<string> a,vector<string> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
-}
-
-int main() {
-    assert(issame({"this"}, {})); 
-    return 0;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -29,5 +20,10 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else if (sum1 > sum2)
         return lst2;
     else
-        return issame(lst1, lst2) ? lst1 : lst2;
+        return (issame(lst1, lst2)?lst1:total_match(total_move(std::move(lst1), {}), std::move(lst2)));
+}
+
+int main() {
+    assert(issame(total_match({"this"}, {}), {}));
+    return 0;
 }
