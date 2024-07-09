@@ -22,5 +22,5 @@ int main() {
         }
     }
     assert(double_the_difference(lst) == 2 * odd_sum);
-    return 2 * odd_sum;
+    return 0;
 }
