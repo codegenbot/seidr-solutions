@@ -2,7 +2,7 @@ vector<string> by_length(vector<int> arr) {
     vector<string> result;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            string numStr = "";
+            string numStr;
             switch (i) {
                 case 1:
                     numStr = "One";
