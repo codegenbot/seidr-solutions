@@ -1,4 +1,3 @@
-```
 def compare_one(a, b):
     if isinstance(a, str) and isinstance(b, (int, float)):
         a = float(a.replace(',', '.'))
