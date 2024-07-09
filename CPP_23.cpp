@@ -1,3 +1,4 @@
+```c++
 #include <string>
 
 int str_len(string str){
