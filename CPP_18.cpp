@@ -4,11 +4,12 @@
 
 int how_many_times(const std::string& str, const std::string& substring) {
     int count = 0;
-    size_t pos = 0;
-    std::string tempStr = str; // Create a non-const copy
-    while ((pos = tempStr.find(substring)) != std::string::npos) {
+    for (auto it = str.rbegin();; --it) {
+        auto pos = std::distance(it, str.rend()) - 1;
+        if (pos >= substring.length() && !std::equal(substring.rbegin(), substring.rend(), it)) {
+            break;
+        }
         count++;
-        tempStr = tempStr.substr(pos + substring.length());
     }
     return count;
 }
