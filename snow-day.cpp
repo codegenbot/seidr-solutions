@@ -4,14 +4,14 @@
 using namespace std;
 
 float snowDay(int hours, float initialSnow, float rateOfFall, float meltingRate) {
-    float totalSnow = 0;
+    float totalSnow = initialSnow;
     
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfFall;
-        if (totalSnow > initialSnow) {
-            totalSnow -= (totalSnow - initialSnow);
+        totalSnow += rateOfFall - totalSnow * meltingRate;
+        
+        if (totalSnow < 0.0f) {
+            totalSnow = 0.0f;
         }
-        totalSnow *= (1 - meltingRate);
     }
     
     return totalSnow;
@@ -23,7 +23,7 @@ int main() {
 
     cin >> hours >> initialSnow >> rateOfFall >> meltingRate;
 
-    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfFall, meltingRate);
+    cout << fixed << setprecision(6) << snowDay(hours, initialSnow, rateOfFall, meltingRate);
 
     return 0;
 }
