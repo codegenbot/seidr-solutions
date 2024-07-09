@@ -1,10 +1,4 @@
-#include <vector>
-#include <string>
-#include <stdexcept>
-
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b){
+bool areEqual(vector<string> a, vector<string> b){
     if(a.size() != b.size())
         throw runtime_error("Vectors are not the same size");
     for(int i = 0; i < a.size(); i++){
