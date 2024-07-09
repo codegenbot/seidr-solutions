@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <system_error>
 
 std::vector<std::string> words_in_sentence(const std::string& sentence) {
     if (sentence.empty()) {
@@ -38,8 +39,5 @@ int main() {
     std::vector<std::string> wordLengths = words_in_sentence(sentence);
     for (const auto& length : wordLengths) {
         std::cout << length << '\n';
-        if (length == "2") {
-            // Do what you want when the length is 2
-        }
     }
 }
