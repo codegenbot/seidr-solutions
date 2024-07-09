@@ -1,8 +1,17 @@
 #include <vector>
 #include <string>
 
-// Function declaration for issame()
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    
+    return true;
+}
 
 vector<string> by_length(vector<int> arr) {
     vector<int> temp;
@@ -29,19 +38,7 @@ vector<string> by_length(vector<int> arr) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    assert(by_length({9, 4, 8}) == vector<string>({"Nine", "Eight", "Four"}));
+    assert(issame(by_length({9, 4, 8}), vector<string>({"Nine", "Four", "Eight"})));
     return 0;
 }
