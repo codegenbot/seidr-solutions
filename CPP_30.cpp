@@ -1,28 +1,15 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<float> a, vector<float> b);
-std::vector<float> get_positive(std::vector<float> l);
-
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    return (a.size() == b.size()) && std::all_of(a.begin(), a.end(), [y](float x) { return abs(x - y) < 0.0001; });
 }
 
 std::vector<float> get_positive(std::vector<float> l) {
     std::vector<float> result;
-    for(float num : l){
-        if(num > 0)
+    for (float num : l) {
+        if (num > 0)
             result.push_back(num);
     }
     return result;
-}
-
-int main() {
-    std::vector<float> pos_nums = get_positive({-1, 0, 2, -3, 4});
-    return 0;
 }
