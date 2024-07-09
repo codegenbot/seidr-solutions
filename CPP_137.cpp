@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <boost/any.hpp>
 
@@ -8,7 +7,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
     } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return a;
+        return b;
     } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         return a;
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
