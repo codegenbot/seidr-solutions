@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -10,7 +9,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> vec2) {
     return true;
 }
 
-bool total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int sum1 = 0, sum2 = 0;
     for (const auto& s : lst1) {
         sum1 += s.length();
@@ -18,36 +17,18 @@ bool total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     for (const auto& s : lst2) {
         sum2 += s.length();
     }
-    if (sum1 < sum2) return true;
-    else if (sum1 > sum2) return false;
-    else return true;
-}
-
-int main() {
-    int b = 0;
-    std::vector<std::string> vec1, vec2;
-    
-    // Read input from user
-    for(int i=0; i<5; i++) {
-        std::cout << "Enter string " << i+1 << ": ";
-        std::string s;
-        std::cin >> s;
-        if(i < 2) vec1.push_back(s);
-        else vec2.push_back(s);
-    }
-    
-    // Check for total_match
-    bool result = issame(vec1, vec2);
-    if(result)
-        cout << "Strings are same." << endl;
+    if (sum1 < sum2) return lst1;
+    else if (sum1 > sum2) return lst2;
     else {
-        cout << "Calculating..." << endl;
-        std::vector<std::string> matched = total_match(vec1, vec2);
-        if(issame(vec1, matched)) 
-            cout << "After removing strings with length less than the average of both vectors, strings are same." << endl; 
-        else
-            cout << "Strings are not same after removal." << endl;
+        if (issame(lst1, lst2)) {
+            int b = 0; // declaring variable 'b'
+            for (const auto& s : lst1) {
+                if (s.length() == 3) {
+                    b++;
+                }
+            }
+            if (b > sum1 / 2) return lst1;
+            else return lst2;
+        } 
     }
-    
-    return 0;
 }
