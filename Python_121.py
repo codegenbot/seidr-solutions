@@ -1,6 +1,2 @@
-def sum_of_odd_numbers(lst):
-    total = 0
-    for i in lst:
-        if i % 2 != 0:
-            total += i
-    return total
+def odd_sum_even_skips(lst):
+    return sum(i for i in lst[1::2] if i % 2 != 0)
