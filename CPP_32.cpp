@@ -1,8 +1,8 @@
 #include <cmath>
 #include <vector>
 
-double poly(double a, double b) {
-    return a + b;
+double poly(double coeffs, double solution) {
+    // your polynomial calculation here
 }
 
 double find_zero(vector<double> xs){
