@@ -12,7 +12,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    assert (issame(common({4, 3, 2, 8}, {}) , {}));
     // additional test cases here
     return 0;
 }
