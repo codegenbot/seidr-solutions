@@ -28,7 +28,7 @@ int main() {
     cin >> n;
     for (int i = 0; i < n; ++i)
         input.push_back(cin >> 0);
-
+    
     cout << smallest_change(input);
     return 0;
 }
