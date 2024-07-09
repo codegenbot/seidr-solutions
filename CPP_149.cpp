@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -16,8 +13,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     return lst;
 }
 
-int main()
-{
+int main() {
     int n; 
     std::cin >> n;
     
@@ -34,6 +30,4 @@ int main()
         std::cout << str << " ";
     }
     std::cout << endl;
-    
-    return 0;
-}
+};
