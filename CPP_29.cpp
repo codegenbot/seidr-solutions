@@ -1,6 +1,8 @@
-```cpp
-bool issame(vector<string> a,vector<string> b,vector<string> c){
-    for(auto s : a) if(find(b.begin(),b.end(),s) == b.end() || find(c.begin(),c.end(),s) == c.end()) return false;
+bool issame(vector<string> a,vector<string> b, vector<string> c){
+    for(auto s : a | b | c) {
+        if(find(c.begin(), c.end(), s) == c.end()) 
+            return false;
+    }
     return true;
 }
 
