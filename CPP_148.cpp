@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 std::vector<std::string> findPlanets(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1;
@@ -27,4 +31,9 @@ std::vector<std::string> findPlanets(std::string planet1, std::string planet2) {
     std::sort(result.begin(), result.end());
 
     return result;
+}
+
+int main() {
+    assert(findPlanets("Jupiter", "Makemake") == {});
+    return 0;
 }
