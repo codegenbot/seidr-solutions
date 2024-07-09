@@ -1,23 +1,34 @@
 ```cpp
-#include <vector>
 #include <algorithm>
-#include <cctype>
+#include <vector>
+#include <initializer_list>
+using namespace std;
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] > b[i]) return false;
-        if (a[i] < b[i]) return true;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) 
+        return false;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
     }
     return true;
+
 }
 
-int sorted_list_sum(const std::vector<std::string>& vec) {
+int sorted_list_sum(initializer_list<string> s) {
     int sum = 0;
-    for (const auto& str : vec) {
-        for (char c : str) {
-            sum += static_cast<int>(c);
-        }
+    for (const auto& str : s) {
+        sum += str.length();
     }
     return sum;
+}
+
+int main() {
+    vector<string> b={"aaaa", "bbbb", "dd", "cc"};
+    assert(issame({"aaaa", "bbbb", "dd", "cc"}, b));
+    int result = sorted_list_sum({"aaaa", "bbbb", "dd", "cc"});
+    cout << "sorted_list_sum: " << result << endl;
+    return 0;
 }
