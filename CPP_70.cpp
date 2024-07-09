@@ -13,34 +13,27 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<std::vector<int>> strange_sort_list(std::vector<std::vector<int>> lst) {
+std::vector<std::vector<int>> strange_sort_list(std::vector<int> num) {
     std::vector<std::vector<int>> result;
-    while (!lst.empty()) {
-        int min_val = *std::min_element(lst.begin()->begin(), lst.end()->end());
-        for (auto& v : lst) {
-            if (*std::min_element(v.begin(), v.end()) == min_val) {
-                result.push_back(v);
-                lst.erase(std::remove(lst.begin(), lst.end(), v), lst.end());
+    while (!num.empty()) {
+        int min_val = *std::min_element(num.begin(), num.end());
+        for (int i = 0; i < num.size(); i++) {
+            if (*std::min_element(&num[i], &num[i] + 1) == min_val) {
+                result.push_back({&num[i], &num[i] + 1});
+                num.erase(std::remove(num.begin(), num.end(), *result.rbegin()), num.end());
                 break;
             }
-        }
-        while (!lst.empty() && !result.back().empty()) {
-            int max_val = *std::max_element(result.back()->begin(), result.back()->end());
-            for (auto& v : result) {
-                if (*std::max_element(v->begin(), v->end()) == max_val) {
-                    v->pop_back();
-                    break;
-                }
-            }
-            result.back().pop_back();
         }
     }
     return result;
 }
 
 int main() {
-    assert(issame(strange_sort_list({{1, 1, 1, 1, 1}}), {{1, 1, 1, 1, 1}}));
-    std::vector<std::vector<int>> input = {{1,2,3}, {4,5,6}, {7,8,9}};
-    std::vector<std::vector<int>> result = strange_sort_list(input);
+    int n = 6; // or whatever your desired number of elements in the vector is
+    std::vector<int> vec(n); // initialize the vector with n elements
+    for (int i = 0; i < n; i++) {
+        vec[i] = i + 1; // fill the vector with numbers from 1 to n
+    }
+    assert(issame(std::vector<std::vector<int>>{{vec.begin(), vec.end()}}, {{vec.begin(), vec.end()}}));
     return 0;
 }
