@@ -1,14 +1,15 @@
-def decipher_cipher(cipher_map, message):
-    result = ""
+def substitution_cipher(cipher_text1, cipher_text2, message):
+    cipher_dict = {}
+    for i in range(len(cipher_text1)):
+        if cipher_text1[i] != cipher_text2[i]:
+            return "Invalid cipher"
+
+    deciphered_message = ""
     for char in message:
-        if char in cipher_map[0]:
-            index = cipher_map[0].index(char)
-            result += cipher_map[1][index]
+        if char in cipher_text1:
+            index = cipher_text1.index(char)
+            deciphered_message += cipher_text2[index]
         else:
-            result += char
-    return result
+            deciphered_message += char
 
-
-cipher_map = [input(), input()]
-message = input()
-print(decipher_cipher((cipher_map,), message))
+    return deciphered_message
