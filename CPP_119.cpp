@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -39,8 +38,7 @@ int main() {
     int n;
     std::cin >> n;
     processInput(n);
-    for (const auto& str : lst) {
-        std::cout << str << std::endl;
+    for (const auto& s : lst) {
+        std::cout << s << std::endl;
     }
     return 0;
-}
