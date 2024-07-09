@@ -7,4 +7,3 @@ int basement(std::vector<int> nums) {
         }
     }
     return -1;
-}
