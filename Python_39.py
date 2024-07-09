@@ -1,5 +1,6 @@
 def prime_fib():
     n = int(input("Enter a number:"))
+
     def is_fib(num):
         a, b = 0, 1
         while a < num:
