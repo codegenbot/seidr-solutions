@@ -1,13 +1,12 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums(n);
+    std::cin >> n;
+    std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
     
     int sum = 0;
@@ -26,14 +25,14 @@ int main() {
         }
     }
     
-    vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
-    vector<int> subvector2(nums.begin() + idx + 1, nums.end());
+    std::vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
+    std::vector<int> subvector2(nums.begin() + idx + 1, nums.end());
     
     for (int num : subvector1) {
-        cout << num << "\n";
+        std::cout << num << "\n";
     }
     for (int num : subvector2) {
-        cout << num << "\n";
+        std::cout << num << "\n";
     }
     
     return 0;
