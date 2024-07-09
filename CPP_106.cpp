@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert> 
+#include <cassert>
 
 using namespace std;
 
@@ -12,6 +12,6 @@ vector<int> f(int n) {
 }
 
 int main() {
-    assert(f(3) == vector<int>{1, 2, 6}); 
+    assert(f(3) == vector<int>{1, 2, 6});
     return 0;
 }
