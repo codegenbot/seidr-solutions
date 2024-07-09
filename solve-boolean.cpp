@@ -1,6 +1,5 @@
-#include <string>
 #include <stack>
-using namespace std;
+#include <string>
 
 string solveBoolean(string s) {
     stack<char> st;
@@ -11,7 +10,7 @@ string solveBoolean(string s) {
             }
             if (st.empty()) {
                 return "False";
-            }
+            } 
             else {
                 st.pop();
             }
@@ -22,7 +21,7 @@ string solveBoolean(string s) {
             }
             if (st.empty()) {
                 return "True";
-            }
+            } 
             else {
                 st.push(s[i]);
             }
@@ -33,7 +32,7 @@ string solveBoolean(string s) {
     }
     if (st.empty()) {
         return "False";
-    }
+    } 
     else {
         return st.top() == 'T' ? "True" : "False";
     }
