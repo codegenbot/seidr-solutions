@@ -1,9 +1,6 @@
-```
 def closest_integer(value):
-    value = float(value)
-    if value == int(value):
-        return int(value)
-    elif value > 0:
-        return round(value)
+    num = float(value)
+    if num % 1 >= 0.5:
+        return int(num) + 1
     else:
-        return -round(-value)
+        return int(round(num))
