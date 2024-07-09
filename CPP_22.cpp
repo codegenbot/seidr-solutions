@@ -1,4 +1,8 @@
+```
+#include <vector>
+#include <algorithm>
 #include <boost/any.hpp>
+using namespace std;
 using namespace boost;
 
 bool issame(vector<int> a,vector<int>b){
