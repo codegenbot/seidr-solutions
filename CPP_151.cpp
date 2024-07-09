@@ -16,10 +16,10 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst; 
     float odd_sum = 0.0; 
-    int n;
-    cin >> n;
+    int n; // input number of elements
+    cin >> n; 
     for (int i = 0; i < n; i++) {
-        float x;
+        float x; 
         cin >> x;
         if (x > 0 && floor(x) == x) { 
             if (x % 2 != 0) { 
