@@ -7,13 +7,12 @@ def solve_task():
         except ValueError:
             print("Invalid input. Please enter numeric values.")
     result = num1 + num2
-    
     while True:
-        response = input("Are you sure? (y/N): ").lower()
-        if response == "y":
-            print(f"Result: {result}")
-            return result
-        elif response != "n":
+        response = input("Are you sure? (y/N): ")
+        if response.lower() == "y":
+            break
+        else:
             print("Invalid input. Please enter y or N.")
-    
-solve_task()
+    print(f"Result: {result}")
+    final_response = input("Press Enter to continue... ")
+    return result
