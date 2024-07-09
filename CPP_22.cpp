@@ -1,8 +1,10 @@
-vector<int> filter_integers(list_any values) {
+vector<int> filter_integers(list_any values){
     vector<int> result;
-    for (const auto& value : values) {
-        if (boost::any_cast<int>(value).type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(value));
+    for (auto &value : values) {
+        boost::any any_value = value;
+        int value_as_int = any_value.get<int>();
+        if (!boost::get<bool>(any_value)) {
+            result.push_back(value_as_int);
         }
     }
     return result;
