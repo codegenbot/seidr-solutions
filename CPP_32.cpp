@@ -20,7 +20,7 @@ double find_zero(std::vector<double> coeffs){
 }
 
 int main() {
-    srand(time(nullptr));
+    srand(time(nullptr)); 
     int ncoeff = 2 * (1 + rand() % 4);
     std::vector<double> coeffs(ncoeff, 0.0);
     for(int i = 0; i < ncoeff; i++){
