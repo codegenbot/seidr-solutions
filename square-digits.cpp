@@ -1,4 +1,3 @@
-```cpp
 string squareDigits(string input) {
     string output;
     for (char c : input) {
@@ -6,4 +5,3 @@ string squareDigits(string input) {
         output += to_string(digit * digit);
     }
     return output;
-}
