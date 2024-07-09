@@ -1,11 +1,13 @@
-def fizz_buzz(x):
-    output = ""
-    if x % 3 == 0 and x % 5 == 0:
-        output = "FizzBuzz"
-    elif x % 3 == 0:
-        output = "Fizz"
-    elif x % 5 == 0:
-        output = "Buzz"
-    else:
-        output = str(x)
-    return output
+```
+def fizz_buzz(n):
+    result = []
+    for i in range(1, n+1):
+        if i % 15 == 0:
+            result.append("FizzBuzz")
+        elif i % 5 == 0:
+            result.append("Buzz")
+        elif i % 3 == 0:
+            result.append("Fizz")
+        else:
+            result.append(str(i))
+    return result
