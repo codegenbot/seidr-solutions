@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -30,19 +29,18 @@ vector<string> odd_count(vector<string> lst) {
 }
 
 int main() {
-    vector<string> input;
-    cout << "Enter the number of strings: ";
+    vector<string> output;
     int n;
+    cout << "Enter the number of strings: ";
     cin >> n;
-    
+    vector<string> lst;
     for (int i = 0; i < n; i++) {
-        string s;
-        cin >> s;
-        input.push_back(s);
+        string str;
+        cout << "Enter string " << i + 1 << ": ";
+        getline(cin, str);
+        lst.push_back(str);
     }
-    
-    vector<string> output = odd_count(input);
+    output = odd_count(lst);
     displayOutput(output);
-
     return 0;
 }
