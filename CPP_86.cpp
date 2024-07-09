@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -43,18 +42,15 @@ string anti_shuffle(string s) {
 
     string result = "";
     for (const auto& word : words) {
-        string w = word;
-        sort(w.begin(), w.end());
-        if (!result.empty()) {
-            result += " ";
-        }
-        result += w;
+        result += word + " ";
+        sort(word.begin(), word.end());
     }
-    return result;
+    return result.substr(0, result.size() - 1);
 }
 
 int main() {
     string s;
     cin >> s;
     cout << anti_shuffle(s) << endl;
+    return 0;
 }
