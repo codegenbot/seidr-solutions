@@ -1,7 +1,7 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b){
-    return a == b;
+    // Add your implementation here
 }
 
 vector<int> make_a_pile(int n){
@@ -19,5 +19,5 @@ vector<int> make_a_pile(int n){
 }
 
 int main(){
-    // Test cases to be added here
+    // Add your test cases here
 }
