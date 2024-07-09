@@ -1,10 +1,16 @@
 Here is the completed code:
 
-vector<int> maximum(vector<int> arr, int k){
-    vector<int> result;
-    sort(arr.begin(), arr.end());
-    for(int i = 0; i < k; i++){
-        result.push_back(arr[arr.size() - 1 - i]);
+```cpp
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+vector<int> maximum(vector<int> arr, int k) {
+    vector<int> res;
+    for (int i = 0; i < k; i++) {
+        auto it = max_element(arr.begin(), arr.end());
+        res.push_back(*it);
+        arr.erase(it);
     }
-    return result;
+    return res;
 }
