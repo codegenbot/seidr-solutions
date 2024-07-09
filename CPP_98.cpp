@@ -12,7 +12,8 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    std::string str = "EEEE"; 
-    assert(count_upper(str) == 2);
+    std::string s;
+    std::getline(std::cin, s);
+    int result = count_upper(s);
     return 0;
 }
