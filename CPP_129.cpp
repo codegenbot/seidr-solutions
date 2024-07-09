@@ -1,35 +1,35 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
-    vector<int> res;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (grid[i][j] == 1) {
-                res.push_back(grid[i][j]);
-                int cnt = 0;
-                while (cnt < k && i + 1 < n) {
-                    grid[i][j]--;
-                    res.push_back(grid[i][j]);
-                    cnt++;
-                    i++;
-                }
-                i--;
-                break;
+    vector<vector<int>> dp(n, vector<int>(n, 0));
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (i == 0 && j == 0) {
+                dp[i][j] = grid[i][j];
+            } else if (i > 0 && j > 0) {
+                dp[i][j] = min({grid[i][j], dp[i-1][j], dp[i][j-1]});
+            } else if (i > 0) {
+                dp[i][j] = dp[i-1][j];
+            } else {
+                dp[i][j] = dp[i][j-1];
             }
         }
     }
-    return res;
-}
-
-int main() {
-    vector<vector<int>> grid = {{5,9,3}, {4,1,6}, {7,8,2}};
-    int k = 1;
-    vector<int> result = minPath(grid, k);
-    for (auto i : result) {
-        cout << i << " ";
+    vector<int> res;
+    int i = n - 1, j = n - 1;
+    while (k > 0) {
+        res.push_back(grid[i][j]);
+        if (i < n - 1 && j > 0) {
+            if (dp[i+1][j] <= dp[i][j-1]) {
+                i++;
+            } else {
+                j--;
+            }
+        } else if (i < n - 1) {
+            i++;
+        } else {
+            j--;
+        }
+        k--;
     }
-    return 0;
+    return res;
 }
