@@ -1,3 +1,4 @@
+```cpp
 int count_nums(std::vector<int> n) {
     int count = 0;
     for (int num : n) {
