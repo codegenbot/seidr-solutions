@@ -1,18 +1,27 @@
 #include <vector>
-#include <algorithm>
+#include <iostream>
 
-using namespace std;
+int main() {
+    int n;
+    std::cin >> n;
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> arr[i];
     }
-    return true;
+
+    std::vector<vector<int>> result = pluck(arr);
+
+    for (const auto& v : result) {
+        std::cout << v[0] << " at index " << v[1] << std::endl;
+    }
+
+    return 0;
 }
 
-vector<vector<int>> pluck(vector<int> arr) {
-    vector<vector<int>> result;
+std::vector<vector<int>> pluck(std::vector<int> arr) {
+    std::vector<vector<int>> result;
+
     if (arr.empty()) return result;
 
     int smallest_even = INT_MAX;
@@ -25,16 +34,11 @@ vector<vector<int>> pluck(vector<int> arr) {
         }
     }
 
-    vector<int> output;
+    std::vector<int> output;
     output.push_back(smallest_even);
     output.push_back(index);
 
     result.push_back(output);
 
     return result;
-}
-
-int main() {
-    // You can test your pluck function here
-    return 0;
 }
