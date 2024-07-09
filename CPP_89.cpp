@@ -1,12 +1,9 @@
-string alphabet = "abcdefghijklmnopqrstuvwxyz";
-    string encrypted = "";
-    for(char ch : s){
-        if(isalpha(ch)){
-            size_t pos = alphabet.find(tolower(ch));
-            pos = (pos + 2) * 2 % 26;
-            encrypted += isupper(ch) ? toupper(alphabet[pos]) : alphabet[pos];
+string encrypted = "";
+    for(char c : s){
+        if(c >= 'a' && c <= 'z'){
+            encrypted += (char)((((c - 'a') + 2) * 2 + 'a') % 26 + 'a');
         } else {
-            encrypted += ch;
+            encrypted += c;
         }
     }
     return encrypted;
