@@ -1,12 +1,11 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <iomanip>
-#include <limits>
-
 float shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
     float totalPrice = 0;
     for (size_t i = 0; i < prices.size(); ++i) {
+        if(discounts[i] > 100) {
+            std::cout << "Invalid discount. Please enter a valid discount percentage.\n";
+            return -1;
+        }
         float discountedPrice = prices[i] * (1 - discounts[i] / 100);
         totalPrice += discountedPrice;
     }
@@ -17,24 +16,17 @@ int main() {
     std::vector<float> prices;
     std::vector<float> discounts;
 
-    float price, discount;
-
+    std::stringstream ss;
     while (true) {
-        if (!(std::cout << "Enter price and discount (or 'q' to quit): ").get()) break; 
-
-        if (!(std::cin >> price >> discount)) { 
-            if (std::cin.fail() && std::cin.peek() == 'q') {
-                std::cout << "Quit entered. Goodbye!\n";
-                break;
-            }
-            else {
-                std::cout << "Invalid input. Please enter a valid price and discount.\n";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            }
+        ss.str("");
+        if (!(ss << "Enter price and discount (or 'q' to quit): ").get()) break; // Ask for input
+        float price, discount;
+        if ((ss >> price >> discount).fail()) { // Check for invalid input
+            std::cout << "Invalid input. Please enter a valid price and discount.\n";
+            continue;
         }
         prices.push_back(price);
-        discounts.push_back(discount / 100.0); 
+        discounts.push_back(discount); 
     }
 
     std::cout << std::fixed << std::setprecision(2) << shoppingList(prices, discounts) << std::endl;
