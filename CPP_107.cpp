@@ -20,12 +20,9 @@ vector<int> even_odd_palindrome(int n) {
 int main() {
     int n;
     cin >> n;
-
     vector<int> result = even_odd_palindrome(n);
-
-    for (int i = 0; i < 2; ++i) {
-        cout << result[i] << " ";
+    for (int i : result) {
+        cout << i << " ";
     }
-
     return 0;
 }
