@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <climits>
 #include <cassert>
@@ -15,7 +14,6 @@ long long minSubArraySumFunction(const std::vector<long long>& nums) {
         }
     }
     return min_sum;
-
 }
 
 int testMain() {
