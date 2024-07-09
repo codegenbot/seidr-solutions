@@ -1,9 +1,11 @@
-int i=0;
-while(i<str.length()){
-    if(str[i] >= 'a' && str[i] <= 'z')
-        str.replace(i,1,toupper(str[i]));
-    else
-        str.replace(i,1_tolower(str[i]));
-    i++;
+#include <algorithm>
+
+string filp_case(string str){
+    for(int i=0; i<str.length(); i++){
+        if(str[i] >= 'a' && str[i] <= 'z')
+            str[i] = toupper(str[i]);
+        else if(str[i] >= 'A' && str[i] <= 'Z')
+            str[i] = tolower(str[i]);
+    }
+    return str;
 }
-return str;
