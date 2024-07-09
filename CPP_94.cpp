@@ -1,7 +1,7 @@
-#include<iostream>
-using namespace std;
+#include <vector>
+#include <cassert>
 
-int maxPrimeSum(vector<int> lst){
+int skjkasdkd(std::vector<int> lst) {
     int maxPrime = 0;
     for(int i = 0; i < lst.size(); i++){
         if(isPrime(lst[i])){
@@ -26,17 +26,8 @@ bool isPrime(int n) {
             return false;
     }
     return true;
-}
 
 int main() {
-    vector<int> lst;
-    int n;
-    cout << "Enter the number of elements in the list: ";
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        cout << "Enter element "<<i+1<<": ";
-        cin >> lst.push_back();
-    }
-    cout << "Sum of digits of max prime is: " << maxPrimeSum(lst);
+    assert(skkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
