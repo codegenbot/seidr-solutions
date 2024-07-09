@@ -1,19 +1,10 @@
-def coin_sums():
-    cents = int(input())
+def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    counts = [0, 0, 0, 0]
+    coin_counts = [0, 0, 0, 0]
 
     for i in range(len(coins)):
         while cents >= coins[i]:
             cents -= coins[i]
-            counts[i] += 1
+            coin_counts[i] += 1
 
-    return (
-        str(counts[3])
-        + "\n"
-        + str(counts[2])
-        + "\n"
-        + str(counts[1])
-        + "\n"
-        + str(counts[0])
-    )
+    return coin_counts[3], coin_counts[2], coin_counts[1], coin_counts[0]
