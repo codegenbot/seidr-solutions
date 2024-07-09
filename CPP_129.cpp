@@ -3,45 +3,45 @@
 #include <queue>
 using namespace std;
 
-int n;
-vector<vector<int>> grid;
-int k;
-
-vector<int> minPath(vector<vector<int>> grid1, int k1) {
-    n = grid1.size();
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
     vector<vector<bool>>(n, vector<bool>(n, false)) visited;
-
-    vector<pair<int, pair<int, int>>> pq;
-
+    
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
-                pq.push_back({grid1[i][j], {i, j}});
+                //push the value and position into pq
+                pair<int, pair<int, int>> pqInfo;
+                pqInfo.first = grid[i][j];
+                pqInfo.second.first = i;
+                pqInfo.second.second = j;
                 visited[i][j] = true;
+                queue<pair<int, pair<int, int>>> myQueue;
+                myQueue.push(pqInfo);
             }
         }
     }
 
     vector<int> res;
 
-    while (!pq.empty()) {
-        int val = pq.back().first;
-        int x = pq.back().second.first;
-        int y = pq.back().second.second;
+    while (!myQueue.empty()) {
+        int val = myQueue.back().first;
+        int x = myQueue.back().second.first;
+        int y = myQueue.back().second.second;
         res.push_back(val);
-        pq.pop_back();
+        myQueue.pop();
 
-        if (k1 > 0) {
-            --k1;
+        if (k > 0) {
+            --k;
 
             for (int dx : {-1, 0, 1}) {
                 for (int dy : {-1, 0, 1}) {
                     int nx = x + dx;
                     int ny = y + dy;
 
-                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
+                    if(nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
                         visited[nx][ny] = true;
-                        pq.push_back({grid1[nx][ny], {nx, ny}});
+                        myQueue.push({grid[nx][ny], {nx, ny}});
                     }
                 }
             }
