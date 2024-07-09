@@ -1,7 +1,4 @@
 from collections import OrderedDict
 
-
 def sort_even(l: list):
-    even_list = [x for x in l if x % 2 == 0]
-    odd_list = [x for x in l if x % 2 != 0]
-    return sorted(even_list) + sorted(odd_list)
+    return list(OrderedDict((i,x) if i % 2 == 0 else (i,x) for i, x in enumerate(l)).values()) + [x for i, x in enumerate(l) if i % 2 != 0]
