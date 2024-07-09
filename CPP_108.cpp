@@ -1,6 +1,6 @@
 #include <vector>
 
-int count_nums(vector<int> nums) {
+int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num < 0) {
@@ -16,3 +16,4 @@ int count_nums(vector<int> nums) {
         }
     }
     return count;
+}
