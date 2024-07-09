@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -8,10 +9,6 @@ bool isPlanet(string planet) {
             return true;
     }
     return false;
-}
-
-bool issame(vector<string> a, vector<string>b){
-    return a == b;
 }
 
 vector<string> bf(string planet1, string planet2) {
@@ -26,6 +23,9 @@ vector<string> bf(string planet1, string planet2) {
 
 }
 
+bool issame(vector<string> a, vector<string>b){
+    return a == b;
+}
 int main() {
     cout << "Enter two planets separated by space: ";
     string planet1, planet2;
@@ -41,7 +41,7 @@ int main() {
         cout << "\n";
 
         vector<string> temp = {planet1, planet2};
-        if(issame(result,temp)){
+        if(result == temp){
             cout << "The planets are the same.\n";
         } else {
             cout << "The planets are different.\n";
