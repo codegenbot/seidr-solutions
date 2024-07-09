@@ -8,6 +8,4 @@ def match_parens(lst):
                 stack.pop()
             else:
                 return 'No'
-        else:
-            return 'No'
-    return 'No' if stack else 'Yes'
+    return 'Yes' if not stack else 'No'
