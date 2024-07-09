@@ -1,7 +1,7 @@
 #include <vector>
 #include <set>
 #include <initializer_list>
-#include <memory>
+#include <pmr>
 
 bool isSameSet(std::pmr::vector<int> a, std::pmr::vector<int> b) {
     std::set<int> setA(a.begin(), a.end());
