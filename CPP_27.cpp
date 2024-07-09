@@ -1,18 +1,16 @@
 #include <cassert>
 #include <string>
 
-std::string flip_case(const std::string& str) {
-    std::string result;
-    for (unsigned char c : str) {
-        if (isupper(c)) {
-            result += tolower(c);
-        } else if (islower(c)) {
-            result += toupper(c);
-        } else {
-            result += c;
+int flip_case(char* str) {
+    std::string s(str);
+    for (char & c : s) {
+        if (c >= 'a' && c <= 'z') {
+            c = c - ('a' - 'A');
+        } else if (c >= 'A' && c <= 'Z') {
+            c = c - ('A' - 'a');
         }
     }
-    return result;
+    return std::string(s).c_str();
 }
 
 int main() {
