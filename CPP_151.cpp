@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -15,7 +14,7 @@ long long double_the_difference(const std::vector<float>& lst) {
 }
 
 int main() {
-    std::vector<float> numbers = {1.5f, 2.0f, 3.5f};
-    long long result = double_the_difference(numbers);
+    std::vector<float> lst = {1.5f, 2.0f, 3.5f};
+    long long result = double_the_difference(lst);
     return 0;
 }
