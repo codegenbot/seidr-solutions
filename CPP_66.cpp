@@ -17,7 +17,14 @@ int digitSum(string s){
 
 }
 
-string ssplit(const string& s, const char& sep) {
+string join(const vector<string>& v, const string& sep) {
+    string s;
+    for (auto it = v.begin(); it != v.end(); ++it)
+        s += *it + sep;
+    return s.substr(0, s.size() - 1); // remove trailing sep
+}
+
+string ssplit(const string& s, const string& sep) {
     vector<string> v;
     size_t pos = 0, prev = 0;
 
@@ -28,16 +35,6 @@ string ssplit(const string& s, const char& sep) {
 
     v.push_back(s.substr(prev));
     return join(v, " ");
-}
-
-string join(const vector<string>& v, const char& sep) {
-    string s;
-    for (auto it = v.begin(); it != v.end(); ++it)
-        if(it != v.begin())
-            s += sep;
-        else
-            s += *it;
-    return s;
 }
 
 int main() {
