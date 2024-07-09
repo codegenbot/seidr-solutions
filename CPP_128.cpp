@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 int prod_signs(std::vector<int> arr){
     long long res = 1;
@@ -12,4 +13,9 @@ int prod_signs(std::vector<int> arr){
     }
 
     return res * sum == 0 ? -32768 : res;
+}
+
+int main() {
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    return 0;
 }
