@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
 
 int next_smallest(std::vector<int> lst) {
