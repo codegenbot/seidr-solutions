@@ -8,4 +8,4 @@ def fizz_buzz(x):
         output = "Buzz"
     else:
         output = str(x)
-    return str(output)
+    return output
