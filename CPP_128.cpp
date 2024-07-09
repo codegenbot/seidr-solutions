@@ -1,13 +1,18 @@
-Here is the solution:
+#include <vector>
 
-int prod_signs(vector<int> arr){
-    if(arr.empty()) return -32768;
-    int sign = 1;
-    long long sum = 0;
-    for(int i : arr){
-        if(i == 0) continue;
-        sum += abs(i);
-        sign *= (i > 0 ? 1 : -1);
+using namespace std;
+
+int prod_signs(vector<int> arr) {
+    long long product = 1;
+    int sum = 0;
+    
+    for (int num : arr) {
+        if (num == 0) {
+            return -32768; // or any other value to indicate an empty array
+        }
+        product *= abs(num);
+        sum += num;
     }
-    return sign * sum;
+    
+    return product * (sum > 0 ? 1 : (sum < 0 ? -1 : 0));
 }
