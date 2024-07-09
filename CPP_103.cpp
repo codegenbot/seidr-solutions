@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 #include<string>
-#include<algorithm> 
+#include<algorithm>
 using namespace std;
 
 string rounded_avg(int n,int m){
@@ -12,9 +12,11 @@ string rounded_avg(int n,int m){
     avg = floor(avg);
     string res = "";
     while(avg > 0){
-        if((int)avg & 1) res.push_back('1');
+        int avgInt = avg; 
+        if(avgInt & 1) res.push_back('1');
         else res.push_back('0');
-        avg /= 1; 
+        avgInt /= 2;
+        avg = avgInt;
     }
     reverse(res.begin(), res.end());
     return res;
