@@ -20,10 +20,9 @@ int main() {
     vector<string> lst;
     int n;
     cin >> n;
-    string s;
-    while (true) {
+    for (int i = 0; i < n; i++) {
+        string s;
         getline(cin, s);
-        if (s.empty()) break;
         lst.push_back(s);
     }
     std::cout << (match_parens(lst) ? "Yes" : "No") << std::endl;
