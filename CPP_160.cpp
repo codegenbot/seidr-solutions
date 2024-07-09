@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <string>
 
 using namespace std;
 
@@ -36,13 +37,12 @@ int main() {
     
     for (int i = 0; i < n; i++) {
         string op;
-        string strNum;
+        int num;
         
         cout << "Enter operation (+, -, *, /, ^): ";
         cin >> op;
         cout << "Enter number: ";
-        cin >> strNum;
-        int num = std::stoi(strNum);
+        cin >> num;
         
         ops.push_back(op);
         nums.push_back(num);
