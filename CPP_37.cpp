@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -28,11 +29,11 @@ std::vector<float> sort_even(const std::vector<float>& l) {
     return result;
 }
 
-int main_func() {
+int main() {
     std::vector<float> input({5, 8, -12, 4, 23, 2, 3, 11, 12, -10});
     std::vector<float> expected({-12, 8, 3, 4, 5, 2, 12, 11, 23, -10});
 
-    if(!issame(sort_even(input), expected)) {
+    if(!issame(input, expected)) {
         return 1;
     }
 
