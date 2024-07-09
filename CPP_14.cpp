@@ -13,11 +13,9 @@ vector<string> all_prefixes(string str){
     return prefixes;
 }
 
-bool areEqual(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 int main() {
-    assert(areEqual(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    assert(all_prefixes("WWW") == vector<string>{"W", "WW", "WWW"});
+    assert(all_prefixes("abc") == vector<string>{"a", "ab", "abc"});
+
     return 0;
 }
