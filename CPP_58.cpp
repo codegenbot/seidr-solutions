@@ -1,11 +1,10 @@
 #include <iostream>
 #include <set>
 #include <vector>
-#include <utility>
 
 using namespace std;
 
-bool isSame(set<pair<int, int>> s1, set<pair<int, int>> s2) {
+bool isSame(set<int> s1, set<int> s2) {
     return s1 == s2;
 }
 
@@ -16,9 +15,12 @@ int main() {
     cin >> n1 >> n2 >> n3 >> n4 >> n5 >> n6 >> n7;
 
     vector<int> v;
-    set<pair<int, int>> common;
+    set<int> common({}); // Initialize with an empty constructor
     for (int i : {n1, n2, n3, n4, n5, n6, n7}) {
-        common.insert(make_pair(i, i));  
+        v.push_back(i);
+        if (common.count(i) == 0) {
+            common.insert(i);  
+        }
     }
 
     bool result = isSame(common, common);
