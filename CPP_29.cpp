@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -17,5 +18,4 @@ vector<string> filter_by_prefix(vector<string> words, string prefix) {
         }
     }
     return result;
-
 }
