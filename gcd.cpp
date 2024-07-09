@@ -1,7 +1,8 @@
+```
 #include <vector>
 #include <string>
 #include <iostream>
-#include <limits>
+#include <initializer_list>
 
 using namespace std;
 
@@ -33,23 +34,35 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    while (!(cin >> a >> b) || a < 0 || b < 0) {
-        cout << "Invalid input. Please enter two positive integers: ";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    bool isValidInput = false;
+    while (!isValidInput) {
         cin >> a >> b;
+        if (!(a < 0 || b < 0)) {
+            isValidInput = true;
+        } else {
+            cout << "Invalid input. Please enter two positive integers: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
     }
+
     cout << gcd(a, b) << endl;
 
     string text, target;
-    while (!(cin >> text >> target)) {
-        cout << "Invalid input. Please enter a string and a substring: ";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    bool isValidInput2 = false;
+    while (!isValidInput2) {
         cin >> text >> target;
+        if (cin) {
+            isValidInput2 = true;
+        } else {
+            cout << "Invalid input. Please enter valid strings: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
     }
+
     vector<int> indices = indicesOfSubstring(text, target);
     for (int i : indices)
         cout << i << " ";
-    return 0;
 }
