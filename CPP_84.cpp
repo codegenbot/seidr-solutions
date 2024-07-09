@@ -1,20 +1,8 @@
+```cpp
 #include <cassert>
 #include <string>
 #include <stdexcept>
 
-long long solve(int n) {
-    std::string binary = "";
-    while(n > 0) {
-        if(n % 2 == 0)
-            binary = "0" + binary;
-        else
-            binary = "1" + binary;
-        n /= 2;
-    }
-    return binary.length() == 0 ? -1 : std::stoi(binary, 0, 2);
-}
-
-int main() {
-    assert(solve(963) == 18); 
-    return 0;
+long long solve(std::string binary) {
+    return binary.length() == 0 ? -1 : std::stoll(binary, nullptr, 2);
 }
