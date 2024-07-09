@@ -1,7 +1,5 @@
 #include <vector>
-#include <assert.h>
 
-bool issame(vector<int> a, vector<int> b);
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -24,10 +22,4 @@ vector<int> make_a_pile(int n) {
         }
     }
     return pile;
-}
-
-int main() {
-    vector<int> a = make_a_pile(8);
-    assert (issame(a, vector<int>({8, 10, 12, 14, 16, 18, 20, 22})));
-    return 0;
 }
