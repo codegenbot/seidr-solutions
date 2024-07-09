@@ -1,10 +1,13 @@
-```cpp
 #include <vector>
 #include <set>
 #include <algorithm>
 #include <cassert>
 
 using namespace std;
+
+bool issame(vector<int> a,vector<int> b){
+    return a == b;
+}
 
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s1(l1.begin(), l1.end());
@@ -19,26 +22,27 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
 int main() {
     assert(issame(common({4, 3, 2, 8}, {}), {}));
-    vector<pair<string, int>> inputs;
-    cout << "Enter the number of pairs: ";
-    int n;
-    cin >> n;
     
-    for(int i = 0; i < n; i++) {
-        string s1;
-        int l1;
-        cout << "Enter pair" << (i+1) << ": ";
-        cin >> s1 >> l1;
-        inputs.push_back({s1, l1});
+    int n1, n2; // Number of elements in the two vectors
+    cin >> n1 >> n2;
+
+    vector<int> l1(n1);
+    for(int i=0;i<n1;++i) {
+        cin >> l1[i];
+    }
+
+    vector<int> l2(n2);
+    for(int i=0;i<n2;++i) {
+        cin >> l2[i];
     }
     
-    for(auto p : inputs) {
-        vector<int> v = common(p.second, {p.second});
-        if(v.size() == 0) cout << "No common elements found." << endl;
-        else {
-            cout << "Common elements: ";
-            for(int x : v) cout << x << " ";
-            cout << endl;
-        }
-    }
+    vector<int> result = common(l1, l2);
+
+    // Print the output
+    cout << "[";
+    for(auto i: result)
+        cout << i << " ";
+    cout << "]"<<endl;
+    
+    return 0;
 }
