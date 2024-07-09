@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <sstream>
+#include <vector>
 
 using namespace std;
 
@@ -10,21 +12,36 @@ int main() {
     cout << "Enter a sentence: ";
     getline(cin, sentence);
     
-    istringstream ss(sentence);
-    words_in_sentence(ss);
+    words_in_sentence(sentence);
     cout << endl;
     return 0;
 }
 
-void words_in_sentence(istringstream ss) {
+void words_in_sentence(string sentence) {
+    vector<string> words;
     string word;
-    int count = 0;
+    bool isWord = false;
 
-    while (getline(ss, word, ' ')) {
-        if (count > 0) {
-            cout << ", ";
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (!isWord) {
+                continue; // skip multiple spaces
+            }
+            isWord = false;
+        } else {
+            if (!isWord) {
+                word += c;
+                isWord = true;
+            } else {
+                word += c;
+            }
         }
-        cout << word;
-        count++;
     }
-}
+
+    if (isWord) {
+        if (!word.empty()) {
+            cout << word << endl;
+        } else {
+            cout << sentence << endl;
+        }
+    }
