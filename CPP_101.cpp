@@ -1,7 +1,15 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+
+std::vector<std::string> words_string(std::string s, std::vector<std::string> split_chars);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
+
+int main(){
+    std::vector<std::string> split_chars = {" ", ","};
+    assert(issame(words_string("ahmed     , gamal", split_chars), std::vector<std::string>{"ahmed", "gamal"}));
+    return 0;
+}
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size()) return false;
@@ -29,12 +37,3 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> sp
     if(word.size() <= 30)  
         result.push_back(word);
     return result;
-}
-
-int main(){
-    std::string str = "ahmed     , gamal";
-    std::vector<std::string> split_chars = {" ", ","};
-    std::vector<std::string> result = words_string(str, split_chars);
-    assert(issame(result, std::vector<std::string>{ "ahmed", "gamal" }));
-    return 0;
-}
