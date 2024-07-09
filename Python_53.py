@@ -1,7 +1,3 @@
-def add(x: int, y: int):
+```
+def add(x: int = 0, y: int = 0):
     return x + y
-
-a = int(input("Enter first integer: "))
-b = int(input("Enter second integer: "))
-
-print(add(a, b))
