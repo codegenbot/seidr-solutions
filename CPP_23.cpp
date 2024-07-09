@@ -1,13 +1,9 @@
 #include <string>
 #include <cassert>
+using namespace std;
 
-int my_strlen(const char* str) {
-    int len = 0;
-    while (*str != '\0') {
-        len++;
-        str++;
-    }
-    return len;
+int my_strlen(std::string str){
+    return str.length();
 }
 
 int main() {
