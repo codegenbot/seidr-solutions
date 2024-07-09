@@ -1,16 +1,37 @@
 #include <iostream>
 #include <string>
-using namespace std;
+
+bool evaluate(char op, bool operand1, bool operand2) {
+    if (op == '|') {
+        return operand1 || operand2;
+    } else {
+        return operand1 && operand2;
+    }
+}
 
 int main() {
-    string input;
-    cin >> input;
+    std::string s;
+    std::cin >> s;
+
+    bool result = true;
+    char op = '&'; 
+    bool operand = true;
     
-    if (input == "T") {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
+    for (char c : s) {
+        if (c == 'T' || c == 'F') {
+            operand = (c == 'T');
+        } else if (c == '|' || c == '&') {
+            op = c;
+        } else {
+            result = evaluate(op, result, operand);
+        }
     }
-    
+
+    if (result) {
+        std::cout << "True" << std::endl;
+    } else {
+        std::cout << "False" << std::endl;
+    }
+
     return 0;
 }
