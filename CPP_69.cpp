@@ -1,14 +1,18 @@
-Here is the completed code:
-
-```cpp
 int search(vector<int> lst) {
-    int result = 0;
+    map<int, int> count;
     for (int i : lst) {
-        if (i > 0 && i <= count) {
-            return i;
+        if (!count.count(i)) {
+            count[i] = 1;
+        } else {
+            count[i]++;
         }
-        count = accumulate(cbegin(lst), cend(lst), 0, 
-                            [](int a, int b){return a + (b == i);});
     }
-    return -1;
+    int result = -1;
+    for (auto p : count) {
+        if (p.first > 0 && p.second >= p.first) {
+            result = p.first;
+            break;
+        }
+    }
+    return result;
 }
