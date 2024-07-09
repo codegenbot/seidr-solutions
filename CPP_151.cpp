@@ -14,15 +14,16 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst; 
-    float odd_sum = 0.0; 
+    std::vector<float> lst;
+    float odd_sum = 0.0;
     for (float x : lst) {
+        cin >> x;
         if (x > 0 && floor(x) == x) { 
             if (x % 2 != 0) { 
                 odd_sum += pow(x, 2);
             }
         }
     }
-    assert(double_the_difference(lst) == odd_sum); 
+    cout << double_the_difference(lst) << " " << odd_sum << endl;
     return 0;
 }
