@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```cpp
 #include <algorithm>
 #include <vector>
