@@ -1,6 +1,6 @@
 #include <vector>
 #include <limits.h>
-#include <assert>
+#include <cassert>
 #include <initializer_list>
 
 long long minSubArraySumFunction(vector<long long> nums) {
