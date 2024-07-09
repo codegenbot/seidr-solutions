@@ -1,15 +1,12 @@
-int i = 0;
-while(i < brackets.size()){
-    if(brackets[i] == '<'){
-        for(int j = i+1; j < brackets.size(); ++j){
-            if(brackets[j] == '>'){
-                i = j + 1;
-                break;
-            }
+bool correct_bracketing(string brackets){
+    int count = 0;
+    for(int i=0; i<brackets.length(); i++){
+        if(brackets[i] == '<'){
+            count++;
+        }else if(brackets[i] == '>'){
+            if(count <= 0) return false;
+            count--;
         }
-        if(j >= brackets.size()) return false;
-    } else {
-        i++;
     }
+    return count == 0;
 }
-return true;
