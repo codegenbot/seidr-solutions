@@ -1,11 +1,6 @@
-def solve():
-    t = int(input())
-    results = []
-    for _ in range(t):
-        a, b, c = map(int, input().split())
-        results.append(-c / b)
-    return results
+a, b, c = map(int, input().split())
+def solve(a, b, c):
+    return -c / b
 
-results = solve()
-for result in results:
-    print(result)
+result = solve(a, b, c)
+print(result)
