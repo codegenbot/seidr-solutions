@@ -9,8 +9,13 @@ def search():
             else:
                 freq_dict[num] = 1
     if not freq_dict:
-        print(-1)
-    else:
-        print(max(freq_dict.keys()))
+        return -1
+    max_num = max(freq_dict.keys())
+    return max_num if max_num > 0 else -1
 
-search()
+while True:
+    try:
+        print(search())
+        break
+    except ValueError:
+        print("Invalid input. Please enter numbers separated by spaces.")
