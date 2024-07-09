@@ -1,5 +1,10 @@
-int count = 0;
-    for (int num : n) {
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int count_nums(const vector<int>& nums) {
+    int count = 0;
+    for (int num : nums) {
         int sum = 0;
         int temp = abs(num);
         while (temp != 0) {
