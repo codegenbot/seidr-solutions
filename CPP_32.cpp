@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
-double find_zero(std::vector<double> coeffs){
+double find_zero(const std::vector<double> coeffs){
     double sum = 0;
     for (int i = 1; i < coeffs.size(); i++) {
         if (i % 2 == 0) {
@@ -12,7 +13,7 @@ double find_zero(std::vector<double> coeffs){
     return -sum / coeffs[0];
 }
 
-double poly(std::vector<double> coeffs, double x) {
+double poly(const std::vector<double> coeffs, double x) {
     double result = 0;
     for(int i = 0; i < coeffs.size(); i++) {
         if(i % 2 == 1) {
@@ -22,8 +23,8 @@ double poly(std::vector<double> coeffs, double x) {
     return result;
 }
 
-int main(){
-    std::vector<double> coeffs(4);            
+int main() {
+    std::vector<double> coeffs(4, 0);            
     coeffs[0] = 1.0; coeffs[1] = -7.0; coeffs[2] = 12.0; coeffs[3] = -6.0;
     double solution = find_zero(coeffs);
     if (abs(poly(coeffs, solution)) > 1e-3) {
