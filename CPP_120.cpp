@@ -40,17 +40,14 @@ int main() {
     std::cout << "Enter the value of k: ";
     std::cin >> k;
 
-    std::vector<int> arr;
+    int val[n];  
     std::cout << "Enter elements: ";
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";
-        int val;
-        std::cin >> val;
-        if (!arr.empty()) { 
-            arr.push_back(val);
-        }
+        std::cin >> val[i];
     }
 
+    std::vector<int> arr(val, val + n); 
     std::vector<int> result = maximum(arr, k);
     std::cout << "Maximum elements: ";
     for (int i : result) {
