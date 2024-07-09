@@ -1,10 +1,11 @@
 def add(numbers):
     return sum(numbers)
 
-numbers = []
-while not numbers:
-    print("Enter numbers separated by spaces:")
-    numbers = [int(num) for num in input().split()]
-
-result = add(numbers)
-print(result)
+print("Enter numbers separated by spaces:")
+input_str = input()
+if input_str:
+    numbers = [int(num) for num in input_str.split()]
+    result = add(numbers)
+    print(result)
+else:
+    print("No input provided")
