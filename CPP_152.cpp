@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -24,7 +24,7 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     return result;
 }
 
-void startGame() {
+void startProgram() {
     int n;
     std::cout << "Enter the number of elements: ";
     if (!(std::cin >> n)) { 
@@ -55,7 +55,7 @@ void startGame() {
             game.push_back(temp);
             break;
         }
-    }
+   
     
     // Create a new vector and fill space
     std::vector<int> guess; 
@@ -89,5 +89,6 @@ void startGame() {
 }
 
 int main() {
-    startGame();
+    startProgram();
+    return 0;
 }
