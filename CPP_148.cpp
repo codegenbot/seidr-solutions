@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -23,8 +24,8 @@ vector<string> bf(string planet1, string planet2) {
     if (index1 == -1 || index2 == -1)
         return vector<string>();
 
-    int minIndex = min(index1, index2);
-    int maxIndex = max(index1, index2);
+    int minIndex = std::min(index1, index2);
+    int maxIndex = std::max(index1, index2);
 
     vector<string> result;
 
@@ -40,3 +41,4 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
+}
