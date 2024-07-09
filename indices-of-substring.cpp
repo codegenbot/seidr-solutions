@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -17,10 +16,7 @@ vector<int> findIndices(string text, string target) {
                 break;
             }
         }
-        if (found) {
-            indices.push_back(i);
-            i += (m - 1); // to avoid duplicate matches
-        }
+        if (found && i < n - m) indices.push_back(i);
     }
 
     return indices;
