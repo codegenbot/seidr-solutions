@@ -1,4 +1,4 @@
-vector<string> convertGrades(vector<float> grades) {
+vector<string> calculateLetterGrades(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
         string letterGrade = "";
