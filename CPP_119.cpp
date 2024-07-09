@@ -1,9 +1,7 @@
+vector<string> lst;
+
 int match_parens(vector<string> lst) {
     int countOpen = 0, countClose = 0;
-
-    if (lst.empty()) {
-        return "Please enter a valid input";
-    }
 
     for (auto str : lst) {
         for (char c : str) {
@@ -17,5 +15,5 @@ int match_parens(vector<string> lst) {
     if (countOpen == countClose)
         return "Yes";
     else
-        return "No";
+        return "No parenthesis matches. Error!";
 }
