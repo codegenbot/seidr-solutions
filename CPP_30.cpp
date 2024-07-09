@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) return false;
@@ -8,7 +9,7 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-vector<float> get_positive(vector<float> l) {
+vector<float> get_positive(vector<float> l){
     vector<float> result;
     for(float num : l) {
         if(num > 0)
