@@ -1,27 +1,38 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
-bool issame(std::vector<int> v1, std::vector<int> v2) {
-    if (v1.size() != v2.size())
-        return false;
-    
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i])
-            return false;
+std::vector<int> issame(const std::vector<int>& v) {
+    if (v.empty()) {
+        return {};
     }
-    
-    return true;
+
+    int sameValue = v[0];
+    bool isSame = true;
+
+    for (int i = 1; i < v.size(); ++i) {
+        if (v[i] != sameValue) {
+            isSame = false;
+            break;
+        }
+    }
+
+    if (!isSame) {
+        return {};
+    }
+
+    std::vector<int> result;
+    result.push_back(sameValue);
+    return result;
 }
 
-std::vector<int> pluck(std::vector<int> arr) {
+std::vector<int> pluck(std::vector<int>& arr) {
     std::vector<int> result;
-    if (arr.empty()) return result;
 
     int minEvenValue = INT_MAX;
     int minIndex = -1;
 
-    for (int i = 0; i < arr.size(); i++) {
+    for (int i = 0; i < arr.size(); ++i) {
         if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
             minEvenValue = arr[i];
             minIndex = i;
@@ -37,18 +48,24 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> v1 = {2, 4, 3};
-    std::vector<int> v2 = {2, 4, 3};
-
-    if (issame(v1, v2)) {
-        std::vector<int> output = pluck(v1);
-        for (int i : output) {
-            std::cout << i << " ";
+    std::vector<int> v = {1, 2, 3, 4};
+    for (const auto& x : pluck(v)) {
+        if (std::holds_alternative<int>(x)) {
+            std::cout << x << " ";
+        } else {
+            std::cout << v[std::get<int>(x)] << " ";
         }
-        std::cout << "\n";
-    } else {
-        std::cout << "The vectors are not same\n";
     }
+    std::cout << "\n";
+
+    for (const auto& x : issame(v)) {
+        if (std::holds_alternative<int>(x)) {
+            std::cout << x << " ";
+        } else {
+            std::cout << v[std::get<int>(x)] << " ";
+        }
+    }
+    std::cout << "\n";
 
     return 0;
 }
