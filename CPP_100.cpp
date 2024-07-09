@@ -1,5 +1,5 @@
-```
 #include <vector>
+#include <cassert>
 
 bool compareVectors(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -9,13 +9,13 @@ bool compareVectors(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> make_a_pile(int n, std::vector<int> pile) {
-    while (pile.empty() || pile.back() <= n) {
-        pile.push_back(pile.empty() ? 2 : pile.back() + 2);
+std::vector<int> make_a_pile(int n, std::vector<int> pile = {}) {
+    while (pile.back() <= n) {
+        pile.push_back(pile.back() + 2);
     }
     return pile;
 }
 
 int main() {
-    assert(compareVectors(make_a_pile(8), {2,4,6,8,10,12,14,16,18,20,22}));
+    assert(compareVectors(make_a_pile(8), {8,10,12,14,16,18,20,22}));
 }
