@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -20,8 +19,9 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), {1, 0}));
-    std::vector<int> output = even_odd_count(123456);
+    assert(issame(even_odd_count(0), std::vector<int>({1, 0})));
+    int n = 123456;
+    std::vector<int> output = even_odd_count(n);
     for (int i : output) {
         std::cout << i << " ";
     }
