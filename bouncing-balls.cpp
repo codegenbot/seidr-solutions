@@ -1,29 +1,21 @@
 ```cpp
 #include <iostream>
-#include <sstream>
 
 int main() {
-    std::string line;
-    std::getline(std::cin, line);
-    std::istringstream iss(line);
+    int startHeight, firstBounce, numBounces;
 
-    std::string str;
-    iss >> str;
-    double firstBounce = std::stod(str);
-    int startHeight, numBounces;
-    if (!(iss >> startHeight >> numBounces)) {
+    std::cin >> startHeight >> firstBounce >> numBounces;
+    
+    if (!(std::cin)) {
         return 1;
     }
 
-    startHeight = static_cast<double>(startHeight);
-    firstBounce = static_cast<double>(firstBounce);
-
-    double bouncinessIndex = firstBounce / startHeight;
+    double bouncinessIndex = static_cast<double>(firstBounce) / static_cast<double>(startHeight);
 
     std::cout << bouncinessIndex << " ";
     for (int i = 1; i <= numBounces; ++i) {
         firstBounce *= 0.5;
-        std::cout << firstBounce << " ";
+        std::cout << static_cast<double>(firstBounce) << " ";
     }
     return 0;
 }
