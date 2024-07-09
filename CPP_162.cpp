@@ -1,29 +1,32 @@
 ```cpp
 #include <string>
-#include <sstream>
-#include <iomanip>
+#include <vector>
+#include <openssl/evp.h>
 
 using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) return "";
-    
-    MD5_CTX md5ctx;
-    unsigned char hash[MD5_DIGEST_LENGTH];
-    MD5_Init(&md5ctx);
-    stringstream ss(text);
-    string temp;
-    int i = 0;
-    while(getline(&ss, temp)) {
-        const char *cstr = temp.c_str();
-        MD5_Update(&md5ctx, cstr, strlen(cstr));
-    }
-    MD5_Final(hash,&md5ctx);
-
-    ostringstream oss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        oss << setfill('0') << setw(2) << hex << (int)hash[i];
+    if (text.empty()) {
+        return "";
     }
 
-    return oss.str();
+    unsigned char result[16];
+    const EVP_MD *md = EVP_get_md5();
+    const unsigned char *data = (const unsigned char *)text.c_str();
+    size_t dataLen = text.size();
+
+    unsigned int len = 0;
+    unsigned char mdValue[EVP_MAX_BLOCK_LENGTH];
+
+    EVP_Digest(data, dataLen, mdValue, &len, md, NULL);
+
+    string strResult;
+
+    for(int i=0; i<len; i++) {
+        stringstream sstream;
+        sstream << hex << (int)mdValue[i];
+        strResult += sstream.str();
+    }
+
+    return strResult;
 }
