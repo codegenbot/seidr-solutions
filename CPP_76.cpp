@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 
 bool isSimplePower(int num) {
     for(int base = 2; base * base <= num; ++base) {
@@ -15,14 +16,14 @@ bool isSimplePower(int num) {
 }
 
 int main() {
-    int num;
+    std::string input;
     std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::string strNum = std::to_string(num); 
+    std::cin >> input; 
+    int num = std::stoi(input); 
     if (isSimplePower(num)) {  
-        std::cout << strNum << " is a simple power.\n";
+        std::cout << num << " is a simple power.\n";
     } else {
-        std::cout << strNum << " is not a simple power.\n";
+        std::cout << num << " is not a simple power.\n";
     }
     return 0;
 }
