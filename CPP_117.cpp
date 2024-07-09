@@ -1,13 +1,17 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    if(a.size() != b.size()) 
+    if (a.size() != b.size()) {
         return false;
-    for(int i=0; i<a.size(); i++) 
-        if(a[i] != b[i]) 
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
+        }
+    }
     return true;
 }
 
@@ -29,7 +33,7 @@ vector<string> select_words(string s, int n) {
         count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
         result.push_back(word);
     }
-    if(result.empty()) return vector<string>(); // Return empty vector if input string is empty.
+    if (s.empty()) return vector<string>();
     return result;
 }
 
