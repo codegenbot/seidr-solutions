@@ -39,6 +39,5 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 
 int main() {
     assert(issame(bf("Jupiter", "Makemake"), {}));
-    // Additional test cases can be added here
     return 0;
 }
