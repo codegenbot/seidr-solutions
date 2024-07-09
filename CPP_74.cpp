@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -9,7 +9,7 @@ bool same(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> totalMatch(initializer_list<string> lst1, initializer_list<string> lst2) {
+vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0;
     for (const string& s : lst1) {
         sum1 += s.length();
@@ -19,8 +19,8 @@ vector<string> totalMatch(initializer_list<string> lst1, initializer_list<string
         sum2 += s.length();
     }
 
-    if (sum1 < sum2) return vector<string>(lst1);
-    else if (sum1 > sum2) return vector<string>(lst2);
+    if (sum1 < sum2) return vector<string>(vector<string>(lst1));
+    else if (sum1 > sum2) return vector<string>(vector<string>(lst2));
     else if (!lst1.size() && !lst2.size()) {
         if (same(vector<string>(lst1), vector<string>(lst2))) return vector<string>(lst1);
         for (const string& s : lst1) {
@@ -43,8 +43,8 @@ vector<string> totalMatch(initializer_list<string> lst1, initializer_list<string
             }
             if (!found) return vector<string>(lst2);
         }
-    } else if (!lst1.size()) return vector<string>(lst1);
-    else return vector<string>(lst2);
+    } else if (!lst1.size()) return vector<string>(vector<string>(lst1));
+    else return vector<string>(vector<string>(lst2));
 
     return {};
 }
