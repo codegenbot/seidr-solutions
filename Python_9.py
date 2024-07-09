@@ -2,11 +2,5 @@ from typing import List
 
 
 def rolling_max(numbers: List[int]) -> List[int]:
-    max_val = numbers[0]
-    result = [max_val]
-
-    for num in numbers[1:]:
-        max_val = max(num, max_val)
-        result.append(max_val)
-
+    result = [max([numbers[i], numbers[0]] if i == 0 else numbers[i]) for i in range(len(numbers))]
     return result
