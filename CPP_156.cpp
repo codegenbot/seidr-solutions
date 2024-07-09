@@ -1,17 +1,17 @@
-#include <vector>
-#include <string>
-using namespace std;
+Here is the completed code:
 
+```cpp
 string int_to_mini_roman(int number) {
-    vector<string> romanNumerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-    vector<int> values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    
-    string result = "";
-    for (int i = 0; i < values.size(); i++) {
-        while (number >= values[i]) {
-            number -= values[i];
-            result += romanNumerals[i];
+    vector<pair<int, string>> romans = {{1000, "M"}, {900, "CM"}, {500, "D"},
+                                         {400, "CD"}, {100, "C"}, {90, "XC"},
+                                         {50, "L"}, {40, "XL"}, {10, "X"},
+                                         {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
+    string result;
+    for (const auto &roman : romans) {
+        while (number >= roman.first) {
+            number -= roman.first;
+            result += roman.second;
         }
     }
-    return to_string(result).transform(std::function<int(int)>([this](char c){return std::tolower(c);})).str();
+    return result;
 }
