@@ -1,18 +1,20 @@
 #include <vector>
 #include <list>
-#include <any>
-#include <cassert>
+#include <boost/any.hpp>
 
-using namespace std;
+using namespace boost;
 
-bool issame(vector<int> a,vector<int>b){
-    return a==b;
+namespace std {
+
+template <typename T>
+struct is_same : public integral_constant<bool, false> {};
+
 }
 
-vector<int> filter_integers(list<any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value) != 0) {
+        if (any_cast<int>(value)) {
             result.push_back(any_cast<int>(value));
         }
     }
@@ -20,6 +22,6 @@ vector<int> filter_integers(list<any> values) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, any('c'), 3, 3, any('a'), any('b')}) ,{3, 3, 3}));
-    return 0;
+    assert(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}) == std::vector<int>({3, 3, 3}));
+    // ...
 }
