@@ -1,17 +1,27 @@
-bool hasEvenDigit(int num) {
-    while (num > 0) {
-        int digit = num % 10;
-        if (digit % 2 == 0)
-            return true;
-        num /= 10;
+int findSumOfDigits(vector<int> numbers) {
+    int maxPrime = 0;
+    for (int num : numbers) {
+        if (isPrime(num)) {
+            maxPrime = num;
+            break;
+        }
     }
-    return false;
+    int sumOfDigits = 0;
+    while (maxPrime > 0) {
+        sumOfDigits += maxPrime % 10;
+        maxPrime /= 10;
+    }
+    return sumOfDigits;
 }
 
-int main() {
-    vector<int> lst;
-    for (int i = 1; i <= 100; ++i) {
-        lst.push_back(i);
+bool isPrime(int num) {
+    if (num <= 1) {
+        return false;
     }
-    cout << skjkasdkd(lst);
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
 }
