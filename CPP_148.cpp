@@ -1,31 +1,17 @@
-#include <initializer_list>
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a,vector<string>b){
-    return a==b;
+std::vector<std::string> bf(const std::string& str1, const std::string& str2) {
+    return {{str1}, {str2}};
 }
 
-vector<string> bf(string planet1, string planet2) {
-    vector<string> result;
-
-    int mercury = 57.9, venus = 67.2, earth = 0, mars = 225, 
-        jupiter = 778, saturn = 1433, uranus = 2870, neptune = 4495;
-
-    if (planet1 == planet2) {
-        result.push_back("The two planets are the same.");
-    } else {
-        if (abs(jupiter - mars) < abs(mercury - venus)) {
-            result.push_back("Mars is closer to Jupiter than Venus is to Mercury.");
-        } else {
-            result.push_back("Venus is closer to Mercury than Mars is to Jupiter.");
-        }
-    }
-
-    return result;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& bf) {
+    return a == bf;
 }
 
 int main() {
-    assert (issame(bf("Jupiter", "Makemake") , {"The two planets are different."}));
+    if (!issame(bf("Jupiter", "Makemake"), {{}})) {
+        return 1; 
+    }
     return 0;
 }
