@@ -11,10 +11,9 @@ int Strongest_Extension(std::string className, const std::vector<std::string>& e
             strongest = extension.length();
         }
     }
-    return strongest == -1 ? 0 : className + "." + extensions[0];
+    return strongest == -1 ? -1 : std::to_string(strongest);
 }
 
 int main() {
-    int result = Strongest_Extension("Sp", {"671235", "Bb"});
-    std::cout << "Result: " << (result > 0 ? "Strongest Extension exists" : "No strongest extension") << std::endl;
+    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
 }
