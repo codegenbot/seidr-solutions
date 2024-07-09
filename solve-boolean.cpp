@@ -1,13 +1,13 @@
 bool solveBoolean(string s) {
-    bool result = true;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'F') return false;
-        else if (s[i] == '|') {
-            while(i + 1 < s.size() && s[i+1] != '&')i++;
-        }
-        else if (s[i] == '&') {
-            while(i + 1 < s.size() && s[i+1] != '|')i++;
-        }
+    stack<char> st;
+    for (char c : s) {
+        if (c == 'T' || c == 'F') {
+            if (st.top() == '&') return c != 'F';
+            else if (st.top() == '|') return true;
+            st.pop();
+        } 
+        else if (c == '&') st.push(c);
+        else if (c == '|') st.push(c);
     }
-    return result;
+    return true;
 }
