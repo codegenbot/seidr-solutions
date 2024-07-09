@@ -45,7 +45,6 @@ int main_entry() {
             if(c == '\n') break;
             if(j < i) str += c;
         }
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         inputStrings.push_back(str);
     }
     
