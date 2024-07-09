@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool namespace_vector::issame(vector<int>& a, vector<int>& b) {
     if(a.size()!=b.size()) return false;
     for(int i=0; i<a.size(); i++){
         if(a[i]!=b[i]) return false;
@@ -11,8 +10,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> even_odd_count(int num) {
-    std::vector<int> result = {0, 0};
+vector<int> even_odd_count(int num) {
+    vector<int> result = {0, 0};
     while (num != 0) {
         int digit = num % 10;
         if (digit % 2 == 0)
@@ -25,6 +24,6 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), {1, 0}));
+    assert(issame(even_odd_count(0), {0, 1}));
     return 0;
 }
