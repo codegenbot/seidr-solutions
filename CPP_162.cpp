@@ -1,31 +1,16 @@
-#include <openssl/evp.h>
-using namespace std;
+```cpp
+#include <digest.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    unsigned char buffer[1024];
-    unsigned int len = 0;
-    MD5_CTX c;
-    EVP_MD_CTX ctx;
-    const EVP_MD* md = EVP_md5();
-    unsigned char result[16];
+    unsigned char hash[MD5_DIGEST_LENGTH];
+    MD5(text.c_str(), text.size(), hash);
 
-    // initialize the context
-    EVP_MD_CTX_init(&ctx);
+    stringstream ss;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << setfill('0') << setw(2) << hex << (int)hash[i];
+    }
 
-    if (!EVP_DigestInit_ex(&ctx, md, NULL))
-        return "";
-
-    // update the context with the message
-    EVP_DigestUpdate(&ctx, text.c_str(), text.length());
-
-    // finalization of the context
-    EVP_DigestFinal_ex(&ctx, result, &len);
-
-    string res = "";
-    for (int i = 0; i < len; ++i)
-        sprintf(res.c_str() + strlen(res.c_str()), "%02x", result[i]);
-
-    return res;
+    return ss.str();
 }
