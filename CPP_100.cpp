@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool areEqual(vector<int> a, vector<int> b) {
+bool samePiles(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -13,6 +13,8 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(areEqual(make_a_pile(8), make_a_pile(8)));
+    int n = 8;
+    vector<int> pile = make_a_pile(n);
+    assert(samePiles(pile, make_a_pile(n)));
     return 0;
 }
