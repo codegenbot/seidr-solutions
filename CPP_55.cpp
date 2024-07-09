@@ -1,3 +1,6 @@
+#include <iostream>
+#include <cassert>
+
 int fib(int n) {
     if (n <= 1)
         return n;
@@ -6,5 +9,6 @@ int fib(int n) {
 
 int main() {
     assert(fib(12) == 144);
+    
     return 0;
 }
