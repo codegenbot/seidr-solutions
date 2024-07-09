@@ -1,5 +1,5 @@
-#include <vector>
 #include <string>
+#include <vector>
 
 bool issame(vector<string> a, vector<string> b);
 
@@ -28,4 +28,8 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(separate_paren_groups("()"), separate_paren_groups("(())"), separate_paren_groups("(()())")));
 }
