@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -8,9 +7,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     temp = ""
 
     for char in paren_string:
-        if char.isspace():
+        if char == " ":
             continue
-        elif char == "(":
+        if char == "(":
             stack.append(char)
             temp += char
         elif char == ")":
@@ -19,19 +18,13 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if not stack:
                 result.append(temp)
                 temp = ""
-        else:  # Non-whitespace characters are part of the group
-            while stack and char != stack[-1]:
-                temp += stack.pop()
-            if char == ")":
-                temp += ")"
-            elif char == "(":
-                temp += "("
-            temp += char
     if stack:
         while stack:
-            temp += "("
             stack.pop()
+        temp += ")"
         result.append(temp)
-    result.append(temp)  # Add this line to handle unmatched opening parentheses
+
+    if not stack and temp:
+        result.append(temp)
 
     return [x for x in result]
