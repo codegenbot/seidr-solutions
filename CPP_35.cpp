@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,7 +16,7 @@ int main() {
     std::cout << "Enter numbers (separated by spaces): ";
     while(std::cin >> num) { 
         numbers.push_back(num);
-        if (!(std::cin >> num)) break; // Break when non-digit is encountered
+        std::cin.ignore(); // Add this line to remove the extra space
     }
     findMaximum(numbers);
     return 0;
