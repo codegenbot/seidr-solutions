@@ -1,14 +1,13 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
 
-using namespace std;
-
-long long minSubArraySum(vector<long long> nums){
-    long long min_sum = numeric_limits<long long>::max(); // Initialize minimum sum as maximum possible value
+long long minSubArraySum(const std::vector<long long>& nums) {
+    long long min_sum = LONG_LONG_MAX; // Initialize minimum sum as maximum possible value
     long long current_sum = 0;
-    
-    for(long long num : nums){ 
+
+    for(long long num : nums) { 
         current_sum += num;
         
         if(current_sum < min_sum) // Update the minimum sum
@@ -22,19 +21,27 @@ long long minSubArraySum(vector<long long> nums){
 }
 
 int main() {
-    vector<long long> nums;
+    std::vector<long long> nums;
     int n;
-    cout << "Enter the number of elements in the array: ";
-    cin >> n;
-    for(int i=0; i<n; i++) {
+
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    for(int i = 0; i < n; ++i) {
         long long num;
-        cout << "Enter element " << (i+1) << ": ";
-        cin >> num;
+
+        std::cout << "Enter element " << (i + 1) << ": ";
+        std::cin >> num;
+        
         nums.push_back(num);
     }
-    
+
     long long min_sum = minSubArraySum(nums);
-    cout << "Minimum sum of subarray is: " << min_sum << endl;
+
+    if(min_sum == LONG_LONG_MAX)
+        std::cout << "No negative subarray found.\n";
+    else
+        std::cout << "Minimum sum of a negative subarray is: " << min_sum << "\n";
 
     return 0;
 }
