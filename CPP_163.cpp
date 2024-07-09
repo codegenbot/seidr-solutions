@@ -2,7 +2,7 @@
 
 vector<int> generate_integers(int a, int b);
 
-bool issame(int x, int y) {
+bool issame(int x, int y){
     return x == y;
 }
 
