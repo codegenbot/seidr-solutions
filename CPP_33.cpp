@@ -1,7 +1,6 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -10,17 +9,12 @@ vector<int> sort_third(vector<int> l) {
     int groupCount = 0;
 
     for (int i : l) {
-        if(groupCount % 3 == 0) { 
-            reverse(result.begin(), result.end());
-            groupCount++;
+        if(groupCount % 3 == 0 || groupCount >= l.size()) { 
+            result.push_back(i);
         } else {
             result.push_back(i);
             groupCount++;
         }
-    }
-
-    if(groupCount % 3 != 0) {
-        reverse(result.begin(), result.end());
     }
 
     return result;
@@ -56,4 +50,6 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
+    
+    return 0;
 }
