@@ -1,26 +1,64 @@
-```cpp
 #include <string>
 
-std::string int_to_mini_roman(int n);
-
-int main() {
-    std::string roman = int_to_mini_roman(1000);
-    // ...
-}
-
-std::string int_to_mini_roman(int n) {
-    if (n <= 0)
-        return "";
-    
-    static const char* Roman[15] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-    static int Val[15] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    
-    std::string res;
-    for (int i = 0; i < 13; ++i)
-        while (n >= Val[i]) {
-            n -= Val[i];
-            res += Roman[i];
+std::string int_to_mini_roman(int number) {
+    if (number >= 1000) {
+        return "M" + int_to_mini_roman(number - 1000);
+    } else if (number >= 900) {
+        return "CM" + int_to_mini_roman(number - 900);
+    } else if (number >= 500) {
+        return "D" + int_to_mini_roman(number - 500);
+    } else if (number >= 400) {
+        return "CD" + int_to_mini_roman(number - 400);
+    } else if (number >= 100) {
+        switch (number % 100) {
+            case 90: return "XC" + int_to_mini_roman(number - 90);
+            case 80: return "LXXX";
+            case 70: return "LXX" + int_to_mini_roman(number - 70);
+            case 60: return "LX";
+            default:
+                switch (number % 10) {
+                    case 9: return "IX" + int_to_mini_roman(number - 9);
+                    case 8: return "VIII";
+                    case 7: return "VII" + int_to_mini_roman(number - 7);
+                    case 6: return "VI";
+                    default:
+                        switch (number % 10) {
+                            case 5: return "V" + int_to_mini_roman(number - 5);
+                            case 4: return "IV";
+                            case 3: return "III" + int_to_mini_roman(number - 3);
+                            case 2: return "II";
+                            case 1: return "I";
+                            default: return "";
+                        }
+                }
         }
-    
-    return res;
+    } else if (number >= 40) {
+        switch (number % 10) {
+            case 9: return "IX";
+            case 8: return "VIII";
+            case 7: return "VII";
+            case 6: return "VI";
+            case 5: return "V";
+            default:
+                if (number % 4 == 0)
+                    return "XL";
+                else
+                    return "";
+        }
+    } else {
+        switch (number) {
+            case 9: return "IX";
+            case 8: return "VIII";
+            case 7: return "VII";
+            case 6: return "VI";
+            case 5: return "V";
+            case 4: return "IV";
+            default:
+                switch (number % 3) {
+                    case 2: return "III";
+                    case 1: return "I";
+                    default: return "";
+                }
+        }
+    }
 }
