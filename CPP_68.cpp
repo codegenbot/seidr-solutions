@@ -1,9 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <limits>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == 0 && b.size() == 0) || (a == b);
-}
 
 int pluck(std::vector<int> arr) {
     if (arr.empty()) return -1;
@@ -21,11 +18,13 @@ int pluck(std::vector<int> arr) {
     return minIndex;
 }
 
+bool same(const std::vector<int>& a, const std::vector<int>& b) { 
+    if (a.empty() && b.empty()) return true;
+    return (a == b);
+}
+
 int main() {
-    std::vector<int> a({7, 9, 7, 1});
-    if(issame(a,{}) ) 
-        std::cout << "The vectors are the same." << std::endl; 
-    else
-        std::cout << "The vectors are not the same." << std::endl;
+    int index = pluck({7, 9, 7, 1});
+    assert(same({}, {(index == -1) ? -1 : (index % 2 == 0) ? 0 : 1})); 
     return 0;
 }
