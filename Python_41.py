@@ -1,5 +1,2 @@
-```
-def car_race_collision():
-    car = int(input("Enter number of cars: "))
-    speed = int(input("Enter speed of the car: "))
-    return car * (car - 1) // 2
+def car_race_collision(num_cars: int, speed: int):
+    return num_cars * (num_cars - 1) // 2
