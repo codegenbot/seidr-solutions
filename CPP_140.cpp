@@ -4,15 +4,14 @@ string result = "";
         if (c == ' ') {
             count++;
             if (count > 2) {
-                result.pop_back();
-                result.pop_back();
-                result += "-";
+                result += '-';
+                count = 0;
             } else {
                 result += '_';
             }
         } else {
-            count = 0;
             result += c;
+            count = 0;
         }
     }
     return result;
