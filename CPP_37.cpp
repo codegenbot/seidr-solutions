@@ -56,6 +56,6 @@ int main() {
     }
     std::sort(expected.begin(), expected.end());
     
-    bool same = isSame(result, expected);
+    bool isSame = isSame(result, expected);
     return 0;
 }
