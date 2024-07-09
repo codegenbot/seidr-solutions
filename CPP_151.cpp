@@ -6,15 +6,14 @@ long double_the_difference(const std::vector<int>& input) {
     for (int num : input) {
         average += num;
     }
-    return average * average;
+    return static_cast<long>(average * average);
 }
 
 int main() {
     std::vector<int> lst = {1,2,3};
-    int sum_of_odds = 0;
-    for (int num : lst) {
-        if(num % 2 != 0)
-            sum_of_odds += num;
+    int sum = 0; 
+    for(int i: lst){
+        if(i%2 != 0)sum+=i;
     }
-    assert(double_the_difference(lst) == sum_of_odds);
+    assert(double_the_difference(lst) == sum); 
 }
