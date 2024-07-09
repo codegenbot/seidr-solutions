@@ -1,10 +1,8 @@
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto isSame = [](const string& a, const string& b)
-                  { return (a.length() % 2 == 0 && b.length() % 2 == 0) || 
-                       (a.length() % 2 != 0 && b.length() % 2 != 0); };
-    auto it = unique(lst.begin(), lst.end(),
-                      [this,&isSame](const string& a, const string& b)
-                      { return !isSame(a,b); });
+    auto issame = [](const string& a, const string& b) {
+        return a.length() % 2 && !b.length() % 2 || (!a.length() % 2 && b.length() % 2);
+    };
+    auto it = unique(lst.begin(), lst.end(), issame);
     lst.erase(it, lst.end());
     sort(lst.begin(), lst.end(),
          [](const string& a, const string& b) {
