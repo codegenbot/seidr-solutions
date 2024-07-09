@@ -1,24 +1,22 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
-using namespace std;
-
-vector<string> split_words(string txt) {
-    vector<string> result;
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
     size_t pos = 0, prev = 0;
-    
-    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+
+    while ((pos = txt.find_first_of(" ,")) != std::string::npos) {
         if (pos == 0 || txt[pos - 1] != ' ') {
             prev = pos;
         }
-        
-        string word = txt.substr(prev, pos - prev);
+
+        std::string word = txt.substr(prev, pos - prev);
         result.push_back(word);
-        
+
         prev = pos + 1;
     }
-    
+
     if (prev < txt.size()) {
         result.push_back(txt.substr(prev));
     } else if (result.empty()) {
@@ -27,12 +25,12 @@ vector<string> split_words(string txt) {
             if (c >= 'a' && c <= 'z') {
                 count++;
                 if ((count - 1) % 2 == 0) {
-                    result.push_back(to_string(count));
+                    result.push_back(std::to_string(count));
                     break;
                 }
             }
         }
     }
-    
+
     return result;
 }
