@@ -1,15 +1,13 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> unique_digits(std::initializer_list<int> x) {
-    std::vector<int> result;
-    for (int num : x) {
+std::vector<int> unique_digits(std::vector<int> v) {
+    vector<int> result;
+    for (int num : v) {
         bool hasEvenDigit = false;
         int temp = num;
         while (temp > 0) {
@@ -29,6 +27,6 @@ std::vector<int> unique_digits(std::initializer_list<int> x) {
 }
 
 int main() {
-    assert(same(unique_digits({135, 103, 31}), {31, 135}));
+    assert(same(unique_digits({135, 103, 31}), std::vector<int>( {31, 135} )));
     return 0;
 }
