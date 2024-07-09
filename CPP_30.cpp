@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool same(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,7 +13,7 @@ bool same(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-std::vector<float> getPositive(const std::vector<float>& l) {
+std::vector<float> get_positive(const std::vector<float>& l) {
     std::vector<float> result;
     for (float num : l) {
         if (num > 0) {
