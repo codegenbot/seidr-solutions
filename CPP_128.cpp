@@ -1,7 +1,7 @@
-Here is the completed code:
+#include <vector>
+#include <cmath>
 
-```cpp
-int prod_signs(vector<int> arr){
+int prod_signs(std::vector<int> arr){
     int product = 1;
     long sum = 0;
     
@@ -9,7 +9,7 @@ int prod_signs(vector<int> arr){
         if(i == 0)product *= 1;
         else product *= (i > 0 ? 1 : -1);
         
-        sum += abs(i);
+        sum += std::abs(i);
     }
     
     return product * sum == 0 ? -32768 : product * sum;
