@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -11,6 +11,10 @@ std::vector<int> generate_integers(int start, int end) {
         result.push_back(i);
     }
     return result;
+}
+
+std::vector<int> describe(const std::vector<int>& numbers) {
+    return numbers;
 }
 
 int main() {
