@@ -3,9 +3,9 @@
 using namespace std;
 
 vector<float> derivative(vector<float> xs) {
-    vector<float> result;
+    vector<float> result(xs.size() - 1);
     for (int i = 1; i < xs.size(); ++i) {
-        result.push_back(xs[i] * i);
+        result[i-1] = xs[i] * static_cast<float>(i);
     }
     return result;
 }
