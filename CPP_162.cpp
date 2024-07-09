@@ -1,10 +1,12 @@
+```cpp
 #include <sstream>
 #include <iomanip>
 #include <string>
 
 std::string string_to_md5(std::string str) {
     // implement your md5 calculation logic here
-    return "your_md5_result";
+    std::string result = "your_md5_result";
+    return result;
 }
 
 int main() {
