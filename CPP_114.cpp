@@ -1,13 +1,16 @@
-int minSubArraySum(vector<long long> nums) {
+```cpp
+int minSubArraySum(vector<int> nums) {
+    int total = 0;
     int min_sum = INT_MAX;
-    int start = 0, end = 0, sum = 0;
 
-    for (end = 0; end < nums.size(); end++) {
-        sum += nums[end];
-
-        while (sum >= min_sum && start <= end) {
-            min_sum = min_sum > sum - nums[start] ? sum - nums[start] : min_sum;
-            sum -= nums[start++];
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = i; j < nums.size(); j++) {
+            total = 0;
+            for (int k = i; k <= j; k++) {
+                total += nums[k];
+            }
+            if (total < min_sum)
+                min_sum = total;
         }
     }
 
