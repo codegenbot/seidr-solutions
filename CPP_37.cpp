@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 vector<float> sort_even(vector<float> l) {
     vector<float> even_values;
     vector<float> result;
@@ -24,9 +31,14 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> l = {1.1, 2.2, 3.3, 4.4, 5.5};
-    vector<float> sorted_even = sort_even(l);
-    vector<float> expected_result = {1.1, 4.4, 3.3, 2.2, 5.5};
+    vector<float> input = {9.0, 5.2, 2.3, 7.8, 4.1};
+    vector<float> expected_result = {2.3, 5.2, 4.1, 7.8, 9.0};
 
-    assert(equal(sorted_even.begin(), sorted_even.end(), expected_result.begin()));
+    vector<float> result = sort_even(input);
+
+    assert(equal(result.begin(), result.end(), expected_result.begin()));
+
+    cout << "Test passed successfully!" << endl;
+
+    return 0;
 }
