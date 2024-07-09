@@ -1,8 +1,11 @@
 ```cpp
 #include <algorithm>
-#include <numeric>
+#include <limits>
+#include <vector>
 
-vector<float> find_closest_elements(vector<float> numbers) {
+bool issame(vector<float> a, vector<float>b) { return a == b; }
+
+vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numeric_limits<float>::max();
     pair<float, float> closest_pair;
@@ -15,7 +18,5 @@ vector<float> find_closest_elements(vector<float> numbers) {
         }
     }
 
-    return vector<float>{numbers[i], numbers[i + 1]};
+    return {{numbers[i], numbers[i + 1]}};
 }
-
-bool issame(vector<float> a, vector<float>b) { return a == b; }
