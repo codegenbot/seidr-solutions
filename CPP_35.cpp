@@ -15,17 +15,12 @@ int main() {
     int num = 0; 
     std::cout << "Enter numbers (separated by spaces): ";
     while(std::cin >> num) { 
-        while(std::cin.peek() == ' ') {
-            std::cin.ignore();
-        }
-        if (!std::cin.fail()) { // Check if input is valid integer
-            numbers.push_back(num);
-            while(std::cin.get() != '\n') { 
-                std::cin.ignore(); 
-            }
-        } else {
-            break; // Exit loop if input is not a valid integer
-        }
+        numbers.push_back(num);
+        char c;
+        do {
+            c = std::cin.get();
+        } while(c == ' ');
+        std::cin.ignore();
     }
     findMaximum(numbers);
     return 0;
