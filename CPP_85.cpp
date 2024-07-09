@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int add(std::vector<int> lst) {
@@ -11,5 +12,5 @@ int add(std::vector<int> lst) {
 
 int main() {
     int result = add({4, 4, 6, 8});
-    // ...
+    return 0;
 }
