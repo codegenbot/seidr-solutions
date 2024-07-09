@@ -19,7 +19,7 @@ int main() {
     float input; 
     int n = 0; 
     std::vector<float> lst;
-    
+
     while (1) {
         std::cout << "Enter a number (negative to stop): ";
         std::cin >> input;
@@ -30,6 +30,6 @@ int main() {
     }
     
     long long result = double_the_difference(lst);
-    std::cout << "The total is: " << result << std::endl;
+    std::cout << "Sum: " << result << std::endl;
     return 0;
 }
