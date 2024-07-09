@@ -1,8 +1,9 @@
 #include <vector>
+#include <numeric>
+#include <cmath>
 #include <limits>
 
 bool has_close_elements(const std::vector<float>& numbers, float threshold) {
-    if (numbers.empty()) return false;
     float min_diff = std::numeric_limits<float>::max();
     for (int i = 0; i < numbers.size(); i++) {
         for (int j = i + 1; j < numbers.size(); j++) {
@@ -13,4 +14,10 @@ bool has_close_elements(const std::vector<float>& numbers, float threshold) {
         }
     }
     return min_diff < threshold;
+}
+
+int main() {
+    std::vector<float> a={1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    assert(has_close_elements(a, 0.5) == false);
+    return 0;
 }
