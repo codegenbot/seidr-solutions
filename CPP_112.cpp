@@ -47,7 +47,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    std::vector<std::string> b = {"", "1"};
+    std::vector<std::string> b = {"", "0"};
     if(issame(reverse_delete("mamma", "mia"), b))
         std::cout << "Test case passed." << std::endl;
     else
