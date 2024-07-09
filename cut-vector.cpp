@@ -10,8 +10,8 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int cut_index = 0;
     
     for (int i = 1; i < n; i++) {
-        if (abs(v[i] - v[0]) <= min_diff) {
-            min_diff = abs(v[i] - v[0]);
+        if (v[i] - v[0] <= min_diff) {
+            min_diff = v[i] - v[0];
             cut_index = i;
         }
     }
