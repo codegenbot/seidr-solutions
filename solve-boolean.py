@@ -1,18 +1,19 @@
+```
 def solve_boolean(expression):
-    if expression.startswith("T"):
-        return True
-    elif expression == "F":
+    if expression == "F":
         return False
-    elif "&" in expression or "|" in expression:
-        for char in expression:
-            if char == "(":
-                return solve_boolean(char) 
-            elif char == ")":
-                return solve_boolean(0)
-    else:
-        left = evaluate(expression[:expression.index(char)])
-        right = evaluate(expression[expression.index(char)+1:])
-        if char == "&":
-            return left and right
-        elif char == "|":
-            return left or right
+    elif expression == "T":
+        return True
+
+    stack = []
+    for char in reversed(expression):
+        if char in ["&", "|"]:
+            right = stack.pop()
+            left = stack.pop()
+            if char == "&":
+                stack.append(left and right)
+            elif char == "|":
+                stack.append(left or right)
+        else:
+            stack.append(char == "T")
+    return stack[0]
