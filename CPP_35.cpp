@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <cmath>
 #include <initializer_list>
@@ -16,9 +17,4 @@ int getMax(int n) {
     }
 
     return *std::max_element(l.begin(), l.end());
-}
-
-int main() {
-    assert(std::abs(getMax(0) - 12) < 1e-4);
-    return 0; // <- comment out or remove this line
 }
