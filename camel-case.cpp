@@ -8,15 +8,15 @@ std::string camelCase(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            if (!result.empty()) {  // Check if we've already processed a word
-                result += toupper(c);  // Capitalize the first letter of the next word
+            if (!result.empty()) {  
+                result += toupper(c);  
             }
             capitalizeNext = true;
         } else if (capitalizeNext) {
-            if (result.empty() || c != '-') {  // Ignore the first character if it's '-'
+            if (result.empty() || c != '-') {  
                 result += toupper(c);
             } else {
-                result += tolower(c);  // Otherwise, lowercase the first letter
+                result += tolower(c);  
                 capitalizeNext = false;
             }
         } else {
