@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -13,7 +14,7 @@ bool same(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0;
     for (const string& s : lst1) {
         sum1 += s.length();
@@ -56,14 +57,14 @@ vector<string> totalMatch(vector<string> lst1, vector<string> lst2) {
     return {};
 }
 
-void solveProblem() {  
+int main() {  
     vector<string> lst1;
     lst1.push_back("apple");
     lst1.push_back("banana");
     vector<string> lst2;
     lst2.push_back("orange");
     lst2.push_back("grape");
-    vector<string> result = totalMatch(lst1, lst2);
+    vector<string> result = total_match(lst1, lst2);
     cout << "Result: ";
     for (const string& s : result) {
         cout << s << " ";
