@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <cmath>
 
 int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
@@ -15,7 +16,7 @@ int do_algebra(std::vector<std::string> operato, std::vector<int> operand) {
         } else if (operato[i] == "//") {
             result /= operand[i + 1];
         } else if (operato[i] == "**") {
-            result = static_cast<int>(pow(result, operand[i + 1]));
+            result = std::pow(result, operand[i + 1]);
         }
     }
     return result;
