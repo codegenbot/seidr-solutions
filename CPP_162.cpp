@@ -13,13 +13,12 @@ string string_to_md5(string text) {
     if (text.empty()) return "None";
 
     const EVP_MD_CTX *md;
-    md = EVP_MD_CTX_new();
+    EVP_MD_CTX_init(&md);
     unsigned char result[MD5_DIGEST_LENGTH];
 
-    EVP_DigestInit_ex(md, EVP_md5(), NULL);
-    EVP_DigestUpdate(md, (unsigned char*)text.c_str(), text.size());
+    EVP_DigestUpdate(&md, (unsigned char*)text.c_str(), text.size());
     unsigned char *digest = (unsigned char *)OPENSSL_malloc(MD5_DIGEST_LENGTH);
-    EVP_DigestFinal_ex(md, digest, NULL);
+    EVP_DigestFinal_ex(&md, digest, NULL);
 
     stringstream ss;
     for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
@@ -28,6 +27,5 @@ string string_to_md5(string text) {
 
     OPENSSL_free(digest); 
 
-    EVP_MD_CTX_free(md);
     return ss.str();
 }
