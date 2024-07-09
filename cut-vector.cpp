@@ -1,14 +1,28 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
-    int minDiff = INT_MAX;
-    int splitIndex = 0;
-    for (int i = 1; i < nums.size(); i++) {
-        int diff = abs(nums[i] - nums[i-1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            splitIndex = i;
+vector<int> cutVector(vector<int>& vec) {
+    int n = vec.size();
+    int min_diff = INT_MAX;
+    int cut_idx = -1;
+
+    for (int i = 0; i < n; ++i) {
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j < i; ++j)
+            left_sum += vec[j];
+        for (int j = i; j < n; ++j)
+            right_sum += vec[j];
+
+        if (left_sum == right_sum) {
+            return {vec.begin(), vec.begin() + i} , {vec.begin() + i, vec.end()};
+        }
+
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_idx = i;
         }
     }
-    return {{nums.begin(), nums.begin() + splitIndex}, {nums.begin() + splitIndex, nums.end()}};
+
+    return {vec.begin(), vec.begin() + cut_idx} , {vec.begin() + cut_idx, vec.end()};
+}
