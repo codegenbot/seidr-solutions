@@ -1,6 +1,8 @@
 bool check_if_last_char_is_a_letter(string txt) {
     if(txt.empty()) return false;
-    string lastChar = txt.substr(txt.length()-1);
-    return (lastChar.size() == 1 && isalpha((int)lastChar[0])) &&
-           (!isalpha((int)txt[0]) || !isalpha((int)txt[txt.length()-2]));
+    int i = txt.size() - 1;
+    while(i > 0 && isspace(txt[i])) i--;
+    char lastChar = txt[i];
+    bool isLetter = (lastChar >= 'a' && lastChar <= 'z') || (lastChar >= 'A' && lastChar <= 'Z');
+    return !isspace(lastChar) && isLetter;
 }
