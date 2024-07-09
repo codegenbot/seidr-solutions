@@ -1,6 +1,6 @@
 def coin_sums():
     amount = int(input())
-    coins = [25, 10, 5, 1]  # quarters, dimes, nickels, pennies
+    coins = [25, 10, 5, 1]  
     output = [0, 0, 0, 0]
 
     for i in range(len(coins)):
@@ -9,6 +9,5 @@ def coin_sums():
             amount -= coins[i]
 
     return output
-
 
 print(*coin_sums(), sep="\n")
