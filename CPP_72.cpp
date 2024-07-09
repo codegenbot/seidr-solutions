@@ -1,12 +1,10 @@
-```
 #include <vector>
 #include <string>
-#include <algorithm>
 
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
     if (str != std::string(str.rbegin(), str.rend())) {
         return false;
@@ -16,4 +14,9 @@ bool will_it_fly(vector<int> q, int w) {
         sum += i;
     }
     return sum <= w;
+}
+
+int main() {
+    // Your code here
+    return 0;
 }
