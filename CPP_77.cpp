@@ -1,10 +1,16 @@
-Here is the completed code:
+#include <iostream>
 
 bool iscuber(int a){
     int i = 1;
-    while (pow(i, 3) <= a) {
-        if (pow(i, 3) == a) return true;
+    while (i * i * i <= a) {
+        if (i * i * i == a)
+            return true;
         i++;
     }
     return false;
+}
+
+int main() {
+    std::cout << (iscuber(1729) ? "true" : "false");
+    return 0;
 }
