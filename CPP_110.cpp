@@ -1,7 +1,9 @@
 #include <string>
-int exchange(vector<int> lst1, vector<int> lst2) {
+#include <vector>
+
+int exchange(const std::vector<int>& lst1, const std::vector<int>& lst2) {
     int oddCount = 0;
-    for (int num : lst1) {
+    for (const auto& num : lst1) {
         if (num % 2 != 0) {
             oddCount++;
         }
