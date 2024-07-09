@@ -1,4 +1,4 @@
-odd_sum = 29  # Define the 'odd_sum' variable with the correct value
-result = double_the_difference([3, 5, 7, -1])  # Example input list
+odd_sum = sum(x for x in [2, 3, 5, -1] if x > 0 and x % 2 != 0)
+result = double_the_difference([2, 3, 5, -1])
 
-print(result)  # Output the result
+print(result)
