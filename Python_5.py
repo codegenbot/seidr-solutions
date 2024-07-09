@@ -1,6 +1,10 @@
-result = []
-for num in numbers[:-1]:
-    result.extend([num, delimeter])
-if numbers:
-    result.append(numbers[-1])
-return result
+def format_numbers(numbers, delimiter):
+    result = []
+    for num in numbers[:-1]:
+        result.extend([num, delimiter])
+    if numbers:
+        result.append(numbers[-1])
+    return result
+
+# Call the function with appropriate arguments
+result = format_numbers(numbers, delimiter)
