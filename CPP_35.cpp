@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -19,11 +18,9 @@ int main() {
             std::cin.ignore();
         }
         numbers.push_back(num);
-        char ch;
-        // ignore the rest of the line
-        do {
-            std::cin.get(ch);
-        } while (ch != '\n');
+        while(std::cin.get() != '\n') { 
+            std::cin.ignore(); 
+        }
     }
     findMax(numbers);
     return 0;
