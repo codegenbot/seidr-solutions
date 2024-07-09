@@ -1,15 +1,15 @@
-bool issame(vector<string> v1, vector<string> v2) {
-    if (v1.size() != v2.size()) {
-        return false;
+bool issame(const string& s1, const string& s2) {
+    int sum1 = 0, sum2 = 0;
+    
+    for (char c : s1) {
+        sum1 += c - '0';
     }
     
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
+    for (char c : s2) {
+        sum2 += c - '0';
     }
     
-    return true;
+    return sum1 == sum2;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
@@ -26,7 +26,11 @@ vector<string> sorted_list_sum(vector<string> lst) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
              } else {
-                 return a < b;
+                 for (size_t i = 0; i < a.size(); ++i) {
+                     if (!issame(a.substr(i, 1), b.substr(i, 1))) {
+                         return issame(a.substr(i, 1), b.substr(i, 1)) ? a.compare(b) > 0 : a.compare(b) < 0;
+                     }
+                 }
              }
          });
     
