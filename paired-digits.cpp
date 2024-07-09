@@ -3,15 +3,16 @@
 
 int pairedDigits(std::string s) {
     int sum = 0;
+    int prevDigit = s[0] - '0';
     for (int i = 1; i < s.length(); i++) {
         if (s[i] == s[i - 1]) {
-            int currentSum = (s[i] - '0') + (s[i-1] - '0');
-            while(currentSum > 9) {
-                currentSum = (currentSum / 10) + (currentSum % 10);
-            }
-            sum += currentSum;
+            sum += prevDigit + (s[i] - '0');
+            if(sum > 9) return -1;
+            prevDigit = (s[i] - '0');
         }
     }
+    // Add the first digit to the total sum
+    sum += prevDigit;
     return sum;
 
 }
