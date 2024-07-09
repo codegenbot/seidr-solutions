@@ -39,10 +39,10 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
 int main() {
     int n;
     std::cin >> n;
-    vector<int> vec(n);
+    std::vector<int> vec(n);
     for (auto& x : vec) std::cin >> x;
     pair<vector<int>, vector<int>> result = cutVector(vec);
-    cout << "[";
+    std::cout << "[";
     for (const auto& x : result.first) std::cout << x << " ";
     std::cout << "], [";
     for (const auto& x : result.second) std::cout << x << " ";
