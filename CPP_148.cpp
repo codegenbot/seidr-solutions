@@ -4,56 +4,62 @@ using namespace std;
 vector<string> bf(string planet1, string planet2) {
     vector<string> result;
     
-    int mercury = 57.9, venus = 67.2, earth = 0, mars = 225, 
-        jupiter = 778, saturn = 1433, uranus = 2870, neptune = 4495;
+    int distance1 = -1;
+    int distance2 = -1;
+    double mercuryDistance = 57.9, venusDistance = 67.2, earthDistance = 0, marsDistance = 225, jupiterDistance = 778, saturnDistance = 1433, uranusDistance = 2870, neptuneDistance = 4495;
 
-    if (planet1 == "Mercury" && planet2 != "Mercury") {
-        result.push_back(planet1);
+    if (planet1 == "Mercury") {
+        distance1 = mercuryDistance;
     }
-    else if (planet2 == "Mercury" && planet1 != "Mercury") {
-        result.push_back(planet2);
+    else if (planet1 == "Venus") {
+        distance1 = venusDistance;
     }
-    else if (planet1 == "Venus" && planet2 != "Venus") {
-        result.push_back(planet1);
+    else if (planet1 == "Earth") {
+        distance1 = earthDistance;
     }
-    else if (planet2 == "Venus" && planet1 != "Venus") {
-        result.push_back(planet2);
+    else if (planet1 == "Mars") {
+        distance1 = marsDistance;
     }
-    else if (planet1 == "Earth" && planet2 != "Earth") {
-        result.push_back(planet1);
+    else if (planet1 == "Jupiter") {
+        distance1 = jupiterDistance;
     }
-    else if (planet2 == "Earth" && planet1 != "Earth") {
-        result.push_back(planet2);
+    else if (planet1 == "Saturn") {
+        distance1 = saturnDistance;
     }
-    else if (planet1 == "Mars" && planet2 != "Mars") {
-        result.push_back(planet1);
+    else if (planet1 == "Uranus") {
+        distance1 = uranusDistance;
     }
-    else if (planet2 == "Mars" && planet1 != "Mars") {
-        result.push_back(planet2);
+    else if (planet1 == "Neptune") {
+        distance1 = neptuneDistance;
     }
-    else if (planet1 == "Jupiter" && planet2 != "Jupiter") {
-        result.push_back(planet1);
+
+    if (planet2 == "Mercury") {
+        distance2 = mercuryDistance;
     }
-    else if (planet2 == "Jupiter" && planet1 != "Jupiter") {
-        result.push_back(planet2);
+    else if (planet2 == "Venus") {
+        distance2 = venusDistance;
     }
-    else if (planet1 == "Saturn" && planet2 != "Saturn") {
-        result.push_back(planet1);
+    else if (planet2 == "Earth") {
+        distance2 = earthDistance;
     }
-    else if (planet2 == "Saturn" && planet1 != "Saturn") {
-        result.push_back(planet2);
+    else if (planet2 == "Mars") {
+        distance2 = marsDistance;
     }
-    else if (planet1 == "Uranus" && planet2 != "Uranus") {
-        result.push_back(planet1);
+    else if (planet2 == "Jupiter") {
+        distance2 = jupiterDistance;
     }
-    else if (planet2 == "Uranus" && planet1 != "Uranus") {
-        result.push_back(planet2);
+    else if (planet2 == "Saturn") {
+        distance2 = saturnDistance;
     }
-    else if (planet1 == "Neptune" && planet2 != "Neptune") {
-        result.push_back(planet1);
+    else if (planet2 == "Uranus") {
+        distance2 = uranusDistance;
     }
-    else if (planet2 == "Neptune" && planet1 != "Neptune") {
-        result.push_back(planet2);
+    else if (planet2 == "Neptune") {
+        distance2 = neptuneDistance;
+    }
+
+    if (distance1 != -1 && distance2 != -1) {
+        result.push_back((distance1 < distance2 ? planet1 : planet2));
     }
 
     return result;
