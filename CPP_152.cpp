@@ -1,4 +1,4 @@
-#include <vector>
+Here is the completed code:
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
