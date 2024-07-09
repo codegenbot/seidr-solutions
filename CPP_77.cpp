@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 bool isCube(int a) {
     int i = 1;
@@ -12,7 +12,7 @@ bool isCube(int a) {
     return false;
 }
 
-int main(){
+int originalFunction(){
     int n;
     std::cout << "Enter an integer: ";
     std::cin >> n;
@@ -20,8 +20,9 @@ int main(){
         std::cout << n << " is a perfect cube.\n";
     else
         std::cout << n << " is not a perfect cube.\n";
-    if(isCube(1728)) 
-        std::cout << 1728 << " is a perfect cube.\n";
-    else
-        std::cout << 1728 << " is not a perfect cube.\n";
+}
+
+int main(){
+    originalFunction();
+    assert (isCube(1729) == false);
 }
