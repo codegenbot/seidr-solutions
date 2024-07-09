@@ -1,2 +1,1 @@
-import sys
-operations = list(map(int, sys.stdin.readline().strip().split()))
+operations = list(map(int, input().split()))
