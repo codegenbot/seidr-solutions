@@ -17,8 +17,6 @@ int main() {
     std::cout << "Enter a cube number (like 1729): ";
     std::cin >> n;
 
-    assert(isCube(1729) == false);
-
     if (isCube(n))
         std::cout << "You entered: " << n << std::endl; 
     else
