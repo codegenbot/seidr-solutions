@@ -1,3 +1,4 @@
+
 from typing import List
 
 def below_zero(operations: List[int]) -> bool:
@@ -8,9 +9,13 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-# Input processing
-operations = list(map(int, input().split()))
+while True:
+    try:
+        user_input = input("Enter a list of integers separated by space: ")
+        operations = list(map(int, user_input.split()))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a list of integers separated by space.")
 
-# Call the function
 result = below_zero(operations)
 print(result)
