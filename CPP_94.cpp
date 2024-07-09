@@ -1,5 +1,7 @@
+#include <iostream>
 #include <vector>
-#include <iostream> 
+#include <initializer_list>
+
 using namespace std;
 
 bool isPrime(int n) {
@@ -27,8 +29,9 @@ int maxPrime(vector<int> lst){
     return sumOfDigits;
 }
 
-int main(){
+int main() {
     vector<int> lst = {127, 97, 8192};
     cout << maxPrime(lst) << endl;
+    
     return 0;
 }
