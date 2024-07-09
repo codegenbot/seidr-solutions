@@ -1,29 +1,26 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int even_count = 0;
+    int oddCount = 0;
     for (int num : lst1) {
-        if (num % 2 == 0) {
-            even_count++;
+        if (num % 2 != 0) {
+            oddCount++;
         }
     }
-    
-    for (int num : lst1) {
-        if (num % 2 != 0 && even_count > 0) {
-            return "YES";
-        } else if (num % 2 != 0 && even_count == 0) {
-            return "NO";
-        }
-        
-        while (even_count > 0 && !lst2.empty()) {
-            int num2 = lst2.back();
-            lst2.pop_back();
-            if (num2 % 2 == 0) {
-                even_count--;
+    if (oddCount == 0) {
+        return "YES";
+    } else {
+        for (int num : lst2) {
+            if (std::find(lst1.begin(), lst1.end(), num) != lst1.end()) {
+                continue;
+            }
+            if (num % 2 == 0) {
+                oddCount--;
+                if (oddCount == 0) {
+                    return "YES";
+                }
             } else {
-                lst1.push_back(num2);
-                break;
+                return "NO";
             }
         }
     }
-    
-    return "YES";
+    return "NO";
 }
