@@ -1,8 +1,9 @@
+```
 #include <vector>
 #include <string>
 #include <iostream>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades);
 
