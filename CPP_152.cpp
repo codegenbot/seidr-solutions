@@ -29,15 +29,20 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    game.resize(n);
-    guess.resize(n);
     for(int i = 0; i < n; i++){
-        std::cout << "Enter element " << i+1 << ": ";
+        std::cout << "Enter element " << i+1 << " for game: ";
         int temp;
         std::cin >> temp;
-        game[i] = temp;
-        guess[i] = temp; 
+        game.push_back(temp);
     }
+    
+    for(int i = 0; i < n; i++){
+        std::cout << "Enter element " << i+1 << " for guess: ";
+        int temp;
+        std::cin >> temp;
+        guess.push_back(temp);
+    }
+    
     if(issame(game, guess)){
         std::cout << "The two vectors are the same.\n";
     } else {
