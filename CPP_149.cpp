@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,7 +6,7 @@ using namespace std;
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> evenLengthStrings;
     for (const string& str : lst) {
-        if (str.length() % 2 == 0 && !str.empty()) { 
+        if (str.length() % 2 == 0) {
             evenLengthStrings.push_back(str);
         }
     }
@@ -31,6 +30,14 @@ int main() {
     if (sorted_list_sum(input) == expected) {
         cout << "The lists are the same." << endl;
     } else {
-        cout << "The lists are not the same: actual - " << sorted_list_sum(input) << ", expected - " << expected << endl;
+        cout << "The lists are not the same: actual - ";
+        for (const string& str : sorted_list_sum(input)) {
+            cout << str << " ";
+        }
+        cout << ", expected - ";
+        for (const string& str : expected) {
+            cout << str << " ";
+        }
+        cout << endl;
     }
 }
