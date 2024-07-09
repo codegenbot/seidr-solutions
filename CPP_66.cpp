@@ -1,6 +1,4 @@
-#include <iostream>
 #include <string>
-using namespace std;
 
 int digitSum(string s){
     int sum = 0;
@@ -10,10 +8,4 @@ int digitSum(string s){
         }
     }
     return sum;
-}
-
-int main() {
-    assert(digitSum("You arE Very Smart") == 327);
-    cout << "Program ended successfully" << endl;
-    return 0;
 }
