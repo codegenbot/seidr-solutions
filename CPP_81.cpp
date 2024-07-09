@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string> &a, const vector<string> &b){
-    return a == b;
+bool issame(const vector<string> &b, const vector<string> &c){
+    return b == c;
 }
 
 vector<string> numerical_letter_grade(vector<float> grades){
