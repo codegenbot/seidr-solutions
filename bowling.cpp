@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 int bowlingScore(std::string input) {
     int score = 0;
     int i = 0;
@@ -10,33 +7,28 @@ int bowlingScore(std::string input) {
             i++; 
         } else if(input[i] == '/') { 
             score += 10 - (input[i+1] - '0' + input[i+2] - '0');
-            i+=2; 
+            i+=3; 
         } else {
-            int roll = input[i] - '0';
-            if(i + 1 < input.length() && input[i+1] == '/') { 
-                score += roll;
-                i++; 
-            } else if (i + 1 < input.length()) {
-                if(input[i+1] == 'X') {
-                    score += roll + 10;
-                    i++; 
-                } else {
-                    score += roll + input[i+1] - '0';
-                    i++; 
-                }
-            } else {
+            int roll = 0;
+            while(i < input.length() && input[i] != '-' && input[i] != '/' ) {
+                roll = roll * 10 + (input[i] - '0');  
+                i++;  
+            }
+            if(input[i] == '/') {
                 score += roll;
                 i++;
+            } else if(input[i] == 'X') {
+                score += roll + 10;
+                i+=2; 
+            } else {
+                int nextRoll = 0;
+                while(i < input.length() && input[i] != '-' && input[i] != '/' ) {
+                    nextRoll = nextRoll * 10 + (input[i] - '0');  
+                    i++;  
+                }
+                score += roll + nextRoll;
             }
         }
     }
     return score;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;  
-    int score = bowlingScore(input);  
-    std::cout << "The score is: " << score << std::endl;  
-    return 0;
 }
