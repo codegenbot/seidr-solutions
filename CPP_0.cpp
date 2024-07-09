@@ -25,16 +25,13 @@ bool has_close_elements(std::vector<std::pair<float*, float*>> numbers, float to
 
 int main() {
     float arr1[2] = {1.0f, 2.0f};
-    float arr2[2] = {1.5f, 3.0f}; // Different elements
+    float arr2[2] = {1.5f, 3.0f}; 
     float* p1 = &arr1[0];
     float* p2 = &arr2[0];
 
-    std::vector<std::pair<float*, float*>> input = {{{arr1, arr1}, {arr2, arr2}}};
+    std::vector<std::pair<float*, float*>> input;
+    input.push_back({p1, p2});
     
-    if (!has_close_elements(input, 0.5)) {
-        std::cout << "No close elements found." << std::endl;
-    } else {
-        std::cout << "Close elements found." << std::endl;
-    }
+    assert(has_close_elements({{std::make_pair(p1, p1), std::make_pair(p2, p2)}}, 0.5) == false);
     return 0;
 }
