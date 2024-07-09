@@ -5,18 +5,22 @@ int maximum(int a, int b) {
     return a > b ? a : b;
 }
 
-bool issame(int a, int b) {
-    return a == b;
-}
-
-vector<int> contestProblem(vector<int> arr, int k) {
+vector<int> solve(vector<int> arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
     arr.resize(k);
     return arr;
 }
 
 int main() {
-    vector<int> arr = {3, 1, 7, 4, 5};
-    assert(maximum(5, 7) == 7);
+    vector<int> arr = {5, 3, 8, 2, 1};
+    int k = 3;
+    vector<int> result = solve(arr, k);
+
+    for (int num : result) {
+        cout << num << " ";
+    }
+    
+    assert(maximum(5, 8) == 8);
+    
     return 0;
 }
