@@ -1,32 +1,24 @@
-#include <vector>
 #include <iostream>
 #include <string>
+using namespace std;
 
-int mastermind(std::string code, std::string guess) {
+pair<int, int> mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
         }
     }
 
-    for (char c : guess) {
-        int count = 0;
-        for (char d : code) {
-            if (c == d && ++count > 1) break;
-            if (c == d) white++;
+    for (char c : code) {
+        if (count(guess.begin(), guess.end(), c) > 0) {
+            white++;
         }
     }
 
-    return black - white;
-}
+    white -= black;
 
-int main() {
-    std::string code = "ABCX";
-    std::string guess = "ABXX";
-    int result = mastermind(code, guess);
-    std::cout << "Number of black pegs: " << result << std::endl;
-    return 0;
+    return make_pair(white, black);
 }
