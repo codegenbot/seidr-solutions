@@ -3,6 +3,9 @@
 #include <string>
 
 bool issame(vector<std::string> a, vector<std::string> b) {
+    if (b.empty()) {
+        return a.empty();
+    }
     return a == b;
 }
 
