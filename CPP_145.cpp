@@ -10,7 +10,7 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
         if (b < 0) b *= -1;
         while (a) { sum_digits_a += a % 10; a /= 10; }
         while (b) { sum_digits_b += b % 10; b /= 10; }
-        if (sum_digits_a == sum_digits_b) return sum_digits_a < sum_digits_b;
+        if (sum_digits_a == sum_digits_b) return a < b;
         return sum_digits_a < sum_digits_b;
     });
     return nums_copy;
