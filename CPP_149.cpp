@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -35,10 +35,14 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    vector<string> lst;
+    for (string s : {"aaaa", "bbbb", "dd", "cc"}) {
+        lst.push_back(s);
+    }
     if (!issame(sorted_list_sum(lst), {"cc", "dd", "aaaa", "bbbb"})) {
-        cout << "Test failed" << endl;
+        std::cout << "Test failed" << std::endl;
     } else {
-        cout << "Test passed" << endl;
+        std::cout << "Test passed" << std::endl;
     }
     return 0;
+}
