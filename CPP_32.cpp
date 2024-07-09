@@ -1,7 +1,17 @@
 double find_zero(vector<double> xs){
-    double sum = 0;
-    for (int i = 2; i < xs.size(); i++)
-        if (xs[i] != 0)
-            return -1.0 * pow(-1, xs.size() / 2) * 1.0;
-    return -1.0 * xs[0];
+    double x = 1;
+    double tol = 1e-6; // tolerance for finding zero
+    int max_iter = 1000; // maximum number of iterations
+    
+    for(int i=0; i<max_iter; i++){
+        double f = poly(xs, x);
+        
+        if(abs(f) < tol){
+            return round(x, 2);
+        }
+        
+        x -= f / poly(vector<double>(xs.begin(), xs.end()), x); // Newton's method
+    }
+    
+    return -1.0; // not found
 }
