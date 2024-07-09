@@ -2,45 +2,21 @@
 using namespace std;
 
 string int_to_mini_roman(int n) {
-    if(n > 3999) {
-        return "This number is too large";
-    }
-    string roman = "";
-    int thousands = n / 1000;
-    for(int i = 0; i < thousands; i++) {
-        roman += "M";
-    }
-    n %= 1000;
-    int hundreds = n / 100;
-    if(hundreds > 3) {
-        roman += string(4-hundreds) + "CM"; 
-    } else {
-        for(int i = 0; i < hundreds; i++) {
-            roman += "C";
-        }
-    }
-    n %= 100;
-    int tens = n / 10;
-    if(tens == 9) {
-        roman += "XCIX";
-    } else {
-        if(tens > 3) {
-            roman += string(4-tens) + "XL"; 
-        } else {
-            for(int i = 0; i < tens; i++) {
-                roman += "X";
-            }
-        }
-    }
-    n %= 10;
-    int ones = n;
-    if(ones > 3) {
-        roman += string(4-ones) + "IX"; 
-    } else {
-        for(int i = 0; i < ones; i++) {
-            roman += "I";
-        }
-    }
+    string roman;
+    if(n >= 1000) roman += "M";
+    if(n >= 900) roman += "CM" - (n-900);
+    if(n >= 500) roman += "D";
+    if(n >= 400) roman += "CD" - (n-400);
+    if(n >= 100) roman += "C";
+    if(n >= 90) roman += "XC" - (n-90);
+    if(n >= 50) roman += "L";
+    if(n >= 40) roman += "XL" - (n-40);
+    if(n >= 10) roman += "X";
+    if(n >= 9) roman += "IX" - (n-9);
+    if(n >= 5) roman += "V";
+    if(n >= 4) roman += "IV" - (n-4);
+    if(n >= 1) roman += "I";
+    
     return roman;
 }
 
