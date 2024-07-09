@@ -1,10 +1,11 @@
+```
 #include <iostream>
 #include <vector>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> res(2);
+    vector<vector<int>> res;
     int minDiff = INT_MAX;
     for (int i = 0; i < n; i++) {
         int leftSum = 0, rightSum = 0;
@@ -16,11 +17,12 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
         if (leftSum == rightSum || abs(leftSum - rightSum) < minDiff) {
             minDiff = leftSum == rightSum ? 0 : abs(leftSum - rightSum);
-            res[0].clear();
+            res.clear();
+            res.push_back(vector<int>());
             for (int j = 0; j <= i; j++) {
                 res[0].push_back(v[j]);
             }
-            res[1].clear();
+            res.push_back(vector<int>());
             for (int j = i + 1; j < n; j++) {
                 res[1].push_back(v[j]);
             }
