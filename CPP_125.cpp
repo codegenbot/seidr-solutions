@@ -1,16 +1,26 @@
 #include <string>
 #include <vector>
 
-using namespace std;
+vector<string> split_words(string txt);
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
-vector<string> split_words(string txt){
+vector<string> split_words(string txt) {
     vector<string> result;
     string word = "";
-    for(char c : txt){
-        if(c == ' ' || c == ','){
-            if(!word.empty()){
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
                 result.push_back(word);
                 word = "";
             }
@@ -18,13 +28,13 @@ vector<string> split_words(string txt){
             word += c;
         }
     }
-    if(!word.empty()){
+    if (!word.empty()) {
         result.push_back(word);
     }
-    if(result.empty()){
+    if (result.empty()) {
         int oddCount = 0;
-        for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
+        for (char c : txt) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
                 oddCount++;
             }
         }
@@ -34,6 +44,11 @@ vector<string> split_words(string txt){
 }
 
 int main() {
-    // Put your main function code here
+    string input;
+    getline(cin, input);
+    vector<string> words = split_words(input);
+    for (string word : words) {
+        cout << word << endl;
+    }
     return 0;
 }
