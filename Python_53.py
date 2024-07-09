@@ -1,9 +1,9 @@
-def add(x, y):
+def add(x: int, y: int):
     return x + y
 
 
-x = int(input().strip())
-y = int(input().strip())
+x = int(input())
+y = int(input())
 
 result = add(x, y)
 print(result)
