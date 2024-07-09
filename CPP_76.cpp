@@ -21,9 +21,10 @@ int main() {
     if (!(std::cin >> num)) {
         std::cout << "Invalid input. Please enter a numeric value.\n";
     } else {
-        std::string str = std::to_string(num);
         bool isValidInput = true;
-        for (char c : str) {
+        std::string numStr = std::to_string(num);
+        
+        for (char c : numStr) { 
             if (!std::isdigit(c)) {
                 isValidInput = false;
                 break;
