@@ -1,28 +1,28 @@
-```cpp
+#include <boost/any.hpp>
 #include <vector>
 #include <list>
-#include <boost/any.hpp>
-#include <assert.h>
-#include <type_traits>
+#include <algorithm>
 
-using namespace std;
-using namespace boost;
-
-bool is_same(const vector<int>& v1, const vector<int>& v2) {
-    return v1.size() == v2.size() && equal(v1.begin(), v1.end(), v2.begin());
+namespace boost {
+template<typename T>
+bool any_cast(const boost::any& val) {
+    if (!val.type() || !std::is_same<T, typename boost::any::type>::type())
+        return false;
+    return static_cast<const T&>(*val.get()) == 0;
+}
 }
 
-vector<int> filter_integers(list<any> values) {
+vector<int> filter_integers(list<boost::any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value)) {
-            result.push_back(any_cast<int>(value));
+        if (boost::any_cast<int>(value)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
 }
 
 int main() {
-    assert(is_same(filter_integers({3, 'c', 3, 3, 'a', 'b'}), vector<int>{3, 3, 3}));
+    assert(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}) == vector<int>({3, 3, 3}));
     // ...
 }
