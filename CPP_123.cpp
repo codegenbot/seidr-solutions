@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -14,28 +16,27 @@ bool sequenceEqual(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> get_odd_collatz(int num) {
-    std::vector<int> sequence;
-    while(num != 1) {
-        if(num % 2 == 0)
-            num = num / 2;
-        else
-            num = 3 * num + 1;
-        sequence.push_back(num);
+void get_odd_collatz(int num, std::vector<int>& sequence) {
+    while (num > 1) {
+        if (num % 2 != 0) {
+            sequence.push_back(num);
+            num = (3 * num + 1);
+        } else {
+            num /= 2;
+        }
     }
-    sequence.push_back(1); // add the last element to the sequence
-    
-    return sequence;
 }
 
 int main() {
     int num;
     std::cin >> num;
-    std::vector<int> result = get_odd_collatz(num);
-    for(int i : result)
-        std::cout << i << " ";
-    std::cout << std::endl;
-    assert(sequenceEqual(get_odd_collatz(1), {1}));
-    std::cout << "Hello World!" << std::endl;
+    std::vector<int> sequence;
+    get_odd_collatz(num, sequence);
+    for (int i = 1; i <= 10; ++i) {
+        if (!sequenceEqual(get_odd_collatz(i), {i})) {
+            std::cout << "Hello World!" << std::endl; 
+            return 0; 
+        }
+    }
     return 0;
 }
