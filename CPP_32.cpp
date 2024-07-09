@@ -1,7 +1,7 @@
 #include <vector>
 #include <cmath>
 
-std::vector<double> coeffs;
+std::vector<double> coeffs = {};
 double coeff;
 int n;
 
