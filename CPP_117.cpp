@@ -1,10 +1,9 @@
 #include <vector>
 
-vector<string> select_words(string s, int n) {
+vector<string> select_words(string s, int n){
     vector<string> result;
     string word = "";
     int count = 0;
-    
     for (char c : s) {
         if (c == ' ') {
             if (count == n) {
@@ -19,11 +18,9 @@ vector<string> select_words(string s, int n) {
             word += c;
         }
     }
-    
     if (count == n) {
         result.push_back(word);
     }
-    
     return result;
 }
 
