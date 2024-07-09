@@ -1,5 +1,8 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
+
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
@@ -25,3 +28,4 @@ vector<int> order_by_points(vector<int> nums) {
     }
 
     return result;
+}
