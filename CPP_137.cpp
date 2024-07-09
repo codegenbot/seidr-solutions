@@ -1,38 +1,23 @@
-#include <boost/any.hpp>
-#include <string>
-#include <vector>
-
-using namespace boost;
-
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)boost::any_cast<float>(b);
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)boost::any_cast<int>(a);
-    }
-    else if (a.type() == typeid(double) && b.type() == typeid(float)) {
-        return boost::any_cast<float>(b);
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(double)) {
-        return boost::any_cast<double>(a);
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
-        if (str1 > str2)
-            return a;
-        else if (str1 < str2)
-            return b;
-        else
-            return "None";
-    }
-    else {
-        if(boost::any_cast<int>(a) > boost::any_cast<int>(b))
-            return a;
-        else if(boost::any_cast<int>(a) < boost::any_cast<int>(b))
-            return b;
-        else
-            return "None";
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int x = boost::get<int>(a);
+        int y = boost::get<int>(b);
+        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float x = boost::get<float>(a);
+        float y = boost::get<float>(b);
+        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string x = boost::get<string>(a);
+        string y = boost::get<string>(b);
+        return (stof(x) > stof(y)) ? a : ((stof(x) < stof(y)) ? b : boost::any("None"));
+    } else if (a.type() == typeid(string) && b.type() != typeid(string)) {
+        string x = boost::get<string>(a);
+        return (stof(x) > boost::get<float>(b)) ? a : ((stof(x) < boost::get<float>(b)) ? b : boost::any("None"));
+    } else if (b.type() == typeid(string) && a.type() != typeid(string)) {
+        string y = boost::get<string>(b);
+        return (stof(y) > boost::get<float>(a)) ? b : ((stof(y) < boost::get<float>(a)) ? a : boost::any("None"));
+    } else {
+        return boost::any("None");
     }
 }
