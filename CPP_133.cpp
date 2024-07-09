@@ -12,17 +12,20 @@ int sum_squares(std::vector<float> lst){
 }
 
 int main(){
-    assert (sum_squares({-1,1,0})==2);
     std::vector<float> numbers;
+    float n;
 
-    float num;
-    
-    while(std::cin >> num){
-        numbers.reserve(numbers.size() + 1);
-        numbers.push_back(num);
+    while(std::cin >> n && n != -1.0f){
+        numbers.push_back(n);
+    }
+
+    int result = sum_squares(numbers);
+
+    if (!std::cin.fail()) {
+        std::cout << "Sum of squares: " << result << std::endl;
+    } else {
+        std::cerr << "Invalid input." << std::endl;
     }
     
-    int result = sum_squares(numbers);
-    std::cout << "Sum of squares: " << result << "\n";
     return 0;
 }
