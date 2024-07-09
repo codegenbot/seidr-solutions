@@ -7,9 +7,22 @@ def is_prime(num):
     return True
 
 def prime_fib(n: int):
-    fib = [0, 1]
-    while len(fib) <= n:
-        fib.append(fib[-1] + fib[-2])
-    
-    prime_fib_numbers = [num for num in fib if is_prime(num)]
-    return prime_fib_numbers[n-1]
+    def fibonacci(num):
+        if num <= 1:
+            return num
+        else:
+            return fibonacci(num - 1) + fibonacci(num - 2)
+
+    count = 0
+    num = 1
+    while count < n:
+        num += 1
+        fib_num = fibonacci(num)
+        if is_prime(fib_num):
+            count += 1
+
+    return fib_num
+
+n = int(input("Enter the value of n: "))
+result = prime_fib(n)
+print(result)
