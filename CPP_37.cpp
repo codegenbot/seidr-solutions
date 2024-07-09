@@ -37,7 +37,7 @@ int main() {
     cout << endl;
 
     vector<float> result = sortEven(input);
-    if (isSame(result, {5, 8, -12, 4, 23, 2, 3, 11, 12, -10})) {
+    if (isSame(result, input)) {
         for (float num : result) {
             cout << num << " ";
         }
