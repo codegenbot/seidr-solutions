@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool isSame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -16,7 +15,7 @@ bool isSame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> reverseDelete(string s, string c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
     vector<string> result;
     string temp = "";
     for (int i = 0; i < s.length(); i++) {
@@ -36,10 +35,10 @@ vector<string> reverseDelete(string s, string c) {
     for(int i = temp.length()-1; i >= 0; i--) {
         rev += temp[i];
     }
+    std::vector<std::string> output;
     if (temp == rev) {
-        result.push_back("True");
+        output.push_back("True");
     } else {
-        result.push_back("False");
+        output.push_back("False");
     }
-    return result;
-}
+    return output;
