@@ -22,7 +22,10 @@ std::vector<int> filter_integers(std::list<std::any> values) {
 }
 
 int main() {
-    std::list<std::any> input = {{3}, {97}, {3}, {3}, {98}, {99}};
-    assert(issame(filter_integers(input), {3, 3, 3}));
+    std::list<std::any> values;
+    for (int i; std::cin >> i;) {
+        values.emplace_back(i);
+    }
+    assert(issame(filter_integers(values), {3, 3, 3}));
     return 0;
 }
