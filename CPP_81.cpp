@@ -12,34 +12,36 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> result;
-    for (const auto& grade : grades) {
-        if (grade >= 4.0)
+    for (int i = 0; i < grades.size(); i++) {
+        if (grades[i] >= 4.0)
             result.push_back("A+");
-        else if (grade > 3.7)
+        else if (grades[i] > 3.7)
             result.push_back("A");
-        else if (grade > 3.3)
+        else if (grades[i] > 3.3)
             result.push_back("A-");
-        else if (grade > 3.0)
+        else if (grades[i] > 3.0)
             result.push_back("B+");
-        else if (grade > 2.7)
+        else if (grades[i] > 2.7)
             result.push_back("B");
-        else if (grade > 2.3)
+        else if (grades[i] > 2.3)
             result.push_back("B-");
-        else if (grade > 2.0)
+        else if (grades[i] > 2.0)
             result.push_back("C+");
-        else if (grade > 1.7)
+        else if (grades[i] > 1.7)
             result.push_back("C");
-        else if (grade > 1.3)
+        else if (grades[i] > 1.3)
             result.push_back("C-");
-        else if (grade > 1.0)
+        else if (grades[i] > 1.0)
             result.push_back("D+");
-        else if (grade > 0.7)
+        else if (grades[i] > 0.7)
             result.push_back("D");
         else
             result.push_back("E");
     }
     return result;
 }
+
+using namespace std;
 
 int main() {
     assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
