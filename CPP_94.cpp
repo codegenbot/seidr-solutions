@@ -1,18 +1,22 @@
-Here is the completed code:
+```cpp
+bool isPrime(int n) {
+    if (n <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
 
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
-    for(int i : lst){
-        if(i > 1){
-            bool isPrime = true;
-            for(int j = 2; j * j <= i; j++){
-                if(i % j == 0){
-                    isPrime = false;
-                    break;
-                }
-            }
-            if(isPrime && i > maxPrime){
-                maxPrime = i;
+    for(int i = 0; i < lst.size(); i++){
+        if(isPrime(lst[i])){
+            if(maxPrime < lst[i]){
+                maxPrime = lst[i];
             }
         }
     }
@@ -22,4 +26,8 @@ int skjkasdkd(vector<int> lst){
         maxPrime /= 10;
     }
     return sumOfDigits;
+}
+
+int main() {
+    assert (skjkasdkd({127, 97, 8192}) == 10);
 }
