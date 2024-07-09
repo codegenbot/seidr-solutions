@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,8 +27,8 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    std::vector<std::string> lst1 = {"a", "b", "c"};
-    std::vector<std::string> lst2 = {"d", "e", "f"};
+    std::vector<std::string> lst1({"this", "is", "a", "test"});
+    std::vector<std::string> lst2({});
 
     assert(issame("this", "", ""));
     std::cout << "Test passed" << std::endl;
