@@ -22,6 +22,7 @@ int pluckSame(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(std::vector<int>({7, 9, 7, 1}), {})); 
+    assert(issame({7, 9, 7, 1}, {})); 
+    int result = pluckSame({7, 9, 7, 1}); // call the function
     return 0;
 }
