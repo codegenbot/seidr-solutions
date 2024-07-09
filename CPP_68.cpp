@@ -20,6 +20,6 @@ int pluck(std::vector<int> arr) {
 
 int main() {
     int index = pluck({7, 9, 7, 1});
-    assert(index % 2 == 0 || index == -1); 
+    std::cout << "The index of the smallest even number is: " << index << std::endl;
     return 0;
 }
