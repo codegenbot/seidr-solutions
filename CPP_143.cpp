@@ -1,42 +1,34 @@
-string words_in_sentence(string sentence){
+#include <string>
+
+string words_in_sentence(const string & sentence) {
     string result = "";
     string word = "";
+    int prime[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31}; // List of prime numbers up to 31
+    
     for (char c : sentence) {
-        if (c != ' ') {
-            word += c;
-        } else {
-            int word_length = word.length();
-            bool is_prime = true;
-            if (word_length <= 1) {
-                is_prime = false;
-            } else {
-                for (int i = 2; i * i <= word_length; ++i) {
-                    if (word_length % i == 0) {
-                        is_prime = false;
+        if (c == ' ') {
+            if (word.size() > 0) {
+                for (int p : prime) {
+                    if (word.size() == p) {
+                        result += word + " ";
                         break;
                     }
                 }
+                word = "";
             }
-            if (is_prime) {
-                result += word + " ";
-            }
-            word = "";
+        } else {
+            word += c;
         }
     }
-    int word_length = word.length();
-    bool is_prime = true;
-    if (word_length <= 1) {
-        is_prime = false;
-    } else {
-        for (int i = 2; i * i <= word_length; ++i) {
-            if (word_length % i == 0) {
-                is_prime = false;
+    
+    if (word.size() > 0) {
+        for (int p : prime) {
+            if (word.size() == p) {
+                result += word;
                 break;
             }
         }
     }
-    if (is_prime) {
-        result += word;
-    }
+    
     return result;
 }
