@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <iostream>
+#include <sstream>
 
 double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
     double total = 0;
@@ -11,15 +11,23 @@ double hoppingList(std::vector<double> prices, std::vector<double> discounts) {
 }
 
 int main() {
-    std::vector<double> prices(15);
-    std::vector<double> discounts(15);
+    std::string input;
+    std::getline(std::cin, input);
 
-    for (int i = 0; i < prices.size(); i++) {
-        std::cin >> prices[i];
+    std::istringstream iss(input);
+    std::vector<double> prices(15);
+    for (double &price : prices) {
+        iss >> price;
     }
 
-    for (int i = 0; i < discounts.size(); i++) {
-        std::cin >> discounts[i];
+    while (std::isspace(iss.peek())) iss.ignore(); // Consume leading whitespace
+    iss >> std::ws; // Discard leading whitespace
+    std::getline(std::cin, input);
+    iss.str(input);
+
+    std::vector<double> discounts(15);
+    for (double &discount : discounts) {
+        iss >> discount;
     }
 
     double result = hoppingList(prices, discounts);
