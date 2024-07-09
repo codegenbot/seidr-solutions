@@ -12,4 +12,4 @@ def search(lst):
         if key >= value and key > 0:
             max_num = key
             break
-    return max_num if max_num > 0 else 0
+    return max_num if max_num != -1 else 0
