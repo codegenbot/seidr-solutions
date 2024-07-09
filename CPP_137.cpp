@@ -1,28 +1,40 @@
-#include <boost/any_cast.hpp>
+Here is the completed code:
+
+```cpp
+#include <boost/any.hpp>
+#include <string>
+
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    float fa;
-    double da;
-    long la;
-    int ia;
-    bool fba = boost::any_cast<float>(&fa);
-    bool dba = boost::any_cast<double>(&da);
-    bool laba = boost::any_cast<long>(&la);
-    bool iaba = boost::any_cast<int>(&ia);
-
-    if (fba && dba) {
-        return (fa > da) ? a : b;
-    } else if (laba && iaba) {
-        return (la > ia) ? a : b;
-    } else if (fba || laba) {
-        return (fa > la) ? a : b;
-    } else if (dba) {
-        return (da > 0.0) ? a : b;
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return b;
     }
-
-    string sa, sb;
-    boost::any_cast<string>(&sa);
-    boost::any_cast<string>(&sb);
-
-    return (sa > sb) ? a : b;
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        if (str1 > str2)
+            return a;
+        else if (str1 < str2)
+            return b;
+        else
+            return any("None");
+    }
+    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
+        string str = boost::any_cast<string>(a);
+        int num = boost::any_cast<int>(b);
+        double dnum = boost::any_cast<double>(b);
+        if (str > std::to_string(num))
+            return a;
+        else if (str > std::to_string(dnum))
+            return a;
+        else
+            return any("None");
+    }
+    else {
+        return any("None");
+    }
 }
