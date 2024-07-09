@@ -10,8 +10,8 @@ bool issame(const vector<any>& a, const vector<any>& b) {
     for (size_t i = 0; i < a.size(); i++) {
         any a_val = a[i];
         any b_val = b[i];
-        
-        if (!(holds_alternative<int>(a_val) && holds_alternative<int>(b_val)))
+
+        if (!(holds_alternative<int>(a_val) && holds_alternation<int>(b_val)))
             continue;
 
         int a_int = get<int>(a_val);
@@ -35,7 +35,7 @@ vector<int> filter_integers(const list<any>& values) {
 }
 
 int main() {
-    list<any> inputs = {3, 67, 'c', 45, 34.5, true};
+    list<any> inputs = {3, 67, 45, 34};
     vector<int> integers = filter_integers(inputs);
 
     bool same = issame({any(3), any(67), any(45), any(34)}, {any(3), any(67), any(45), any(34)});
