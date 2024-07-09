@@ -1,13 +1,9 @@
 #include <algorithm>
 #include <limits>
+#include <utility>
 
-using namespace std;
-
-pair<bool, bool> issame(float a, float b) {
-    if (abs(a - b) < 1e-6)
-        return {true, true};
-    else
-        return {false, false};
+bool issame(float a, float b) {
+    return std::abs(a - b) < std::numeric_limits<float>::epsilon();
 }
 
 vector<float> find_closest_elements(vector<float> numbers) {
