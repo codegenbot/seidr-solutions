@@ -4,7 +4,6 @@
 int mastermind(const std::string& code, const std::string& guess) {
     int whitePegs = 0;
     int blackPegs = 0;
-    int j, k;
 
     for(int i=0; i<4; i++) {
         if(guess[i] == code[i]) { 
