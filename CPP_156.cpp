@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,22 +15,22 @@ romanMap.push_back({ 50, "L" });
 romanMap.push_back({ 40, "XL" });
 romanMap.emplace_back(1, "I");
 
-std::string int_to_mini_romank(int number) {
+std::string int_to_mini_roman(int number) {
+    std::string roman = "";
     for (const auto& pair : romanMap) {
         while (number >= pair.first) {
             number -= pair.first;
-            return pair.second;
+            roman += pair.second;
         }
     }
     if (number > 0) {
-        return "I";
+        roman += "I";
     } else if (number < 0) {
-        return "-";
-    } else {
-        return "";
+        roman = "-" + roman;
     }
+    return roman;
 }
 
 for(int i = 1; i <= 3999; i++) { 
-    std::cout << i << ": " << int_to_mini_romank(i) << std::endl;
+    std::cout << i << ": " << int_to_mini_roman(i) << std::endl;
 }
