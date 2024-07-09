@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
-#include <bits/stdc++.h>
-#include <bits/stl_pair.h>
+#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) return false;
