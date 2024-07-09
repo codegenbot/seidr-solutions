@@ -19,3 +19,4 @@ int main() {
     cout << fixed << setprecision(5) << showpoint << totalDistance << endl;
 
     return 0;
+}

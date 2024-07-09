@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -18,10 +17,19 @@ int main() {
     vector<float> prices(n);
     for (float &price : prices) {
         cin >> price;
+        if(cin.fail()){
+            cout << "Invalid input! Please enter a number." << endl;
+            exit(0);
+        }
     }
     vector<float> discounts(n);
     for (float &discount : discounts) {
         cin >> discount;
+        if(cin.fail()){
+            cout << "Invalid input! Please enter a number." << endl;
+            exit(0);
+        }
     }
     cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
+    return 0;
 }
