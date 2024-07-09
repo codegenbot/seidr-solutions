@@ -15,20 +15,28 @@ int search(std::vector<int> lst) {
 }
 
 int main() {
-    int n, num; 
+    int n;
     std::cout << "Enter the number of elements: ";
-    do {
-        if (!(std::cin >> n) || n <= 0) {
+    while (!(std::cin >> n) || n <= 0) {
+        if (!std::cin)
             std::cout << "Invalid input. Please enter a positive integer.\n";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        }
-    } while (!(std::cin >> n) || n <= 0);
+        else
+            std::cout << "Please enter a positive integer.\n";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
 
     std::vector<int> lst;
     for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num; 
+        int num; 
+        while (!(std::cout << "Enter element " << i + 1 << ": ") || !std::cin) {
+            if (!std::cin)
+                std::cout << "Invalid input. Please enter an integer.\n";
+            else
+                std::cout << "Please enter an integer.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
         lst.push_back(num); 
     }
 
