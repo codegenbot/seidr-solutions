@@ -30,3 +30,12 @@ string words_in_sentence(string sentence) {
     
     return result;
 }
+
+int main() {
+    string sentence;
+    getline(cin, sentence);
+    
+    cout << words_in_sentence(sentence);
+    
+    return 0;
+}
