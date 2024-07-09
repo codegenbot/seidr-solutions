@@ -1,18 +1,19 @@
 #include <vector>
 
 vector<int> even_odd_count(int num) {
-    vector<int> result(2, 0);
+    int even_count = 0;
+    int odd_count = 0;
     string num_str = to_string(abs(num));
 
     for (char c : num_str) {
         if ((c - '0') % 2 == 0) {
-            result[0]++;
+            even_count++;
         } else {
-            result[1]++;
+            odd_count++;
         }
     }
 
-    return result;
+    return {even_count, odd_count};
 }
 
 bool issame_vectors(vector<int> a, vector<int> b) {
