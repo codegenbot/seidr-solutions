@@ -18,37 +18,27 @@ bool issame(vector<string> vec1, vector<string> vec2) {
 void separate_paren_groups(vector<string>& result, int open_count) {
     string current_group = "";
     for (int i = 0; i < open_count; i++) {
-        current_group += "(";
+        current_group += '(';
     }
-    while (open_count > 0) {
-        current_group += ")";
-        open_count--;
+    for (char c : current_group) {
+        result.push_back(std::string(1, c));
     }
-    result.push_back(current_group);
-
-    if (open_count > 0) {
-        string last_group = "";
-        for (int i = 0; i < open_count; i++) {
-            last_group += "(";
-        }
-        while (open_count > 0) {
-            last_group += ")";
-            open_count--;
-        }
-        result.push_back(last_group);
-    }
-
 }
 
-int main() {
+void start() {
     int open_count;
     std::cin >> open_count;
 
     vector<string> result;
     separate_paren_groups(result, open_count);
 
-    // Add your unit tests here. For example:
-    assert(issame(result, {"()", "(())", "(()())"}));
+    assert(issame(result, {"(", "(()", "((()))"}));
+
+    return;
+}
+
+int main() {
+    start();
     
     return 0;
 }
