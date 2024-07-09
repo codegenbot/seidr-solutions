@@ -3,7 +3,7 @@
 
 int sum_squares(const std::vector<float>& inputVector) {
     int result = 0;
-    for (float val : inputVector) {
+    for (const auto& val : inputVector) {
         result += val * val;
     }
     return result;
@@ -15,11 +15,11 @@ int main() {
     int size;
     std::cout << "Enter the number of elements: ";
     std::cin >> size;
-    for(int i = 0; i < size; ++i) {
+    inputVector.resize(size);
+    for(int i = 0; i < size; ++i) { 
         float val;
         std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> val;
-        inputVector.push_back(val);
+        std::cin >> inputVector[i];
     }
 
     int result = sum_squares(inputVector);
