@@ -1,3 +1,2 @@
-```
 def count_nums(arr):
-    return sum(1 for num in arr if str(num).replace('-', '').isdigit() and int(str(num).replace('-', '')) > 0)
+    return sum(1 for num in arr if sum(int(digit) if int(digit) != 0 else -int(digit) for digit in str(abs(num))))
