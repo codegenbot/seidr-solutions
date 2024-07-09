@@ -25,9 +25,12 @@ int main() {
         int num; 
         std::cin >> num; 
 
-        if(num <= 0) {
-            std::cout << "Invalid input. Please enter a positive number.\n";
-            continue;
+        if (num == 0) {
+            while (num == 0) {
+                std::cout << "Invalid input. Please enter a non-zero number.\n";
+                std::cout << "Enter element " << i + 1 << ": ";
+                std::cin >> num;
+            }
         }
 
         lst.push_back(num); 
