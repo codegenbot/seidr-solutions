@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -26,4 +27,5 @@ int main() {
     }
     std::vector<int> unique(uniqueVec.begin(), it);
     assert(issame(unique, {0, 2, 3, 5, 9, 123}));
+    return 0;
 }
