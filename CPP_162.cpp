@@ -2,13 +2,10 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
-#include <openssl/objects.h>
-#include <openssl/modes.h>
+#include <openssl/ssl.h>
+#include <openssl/evp.h>
 
 using namespace std;
-
-#include <openssl/evp.h>
-#include <openssl/md5.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "None";
@@ -17,19 +14,15 @@ string string_to_md5(string text) {
     EVP_MD_CTX_init(&md);
     unsigned char result[MD5_DIGEST_LENGTH];
 
-    EVP_DigestUpdate(&md, (unsigned char*)text.c_str(), text.size());
-    EVP_DigestFinal_CTX(&md, result, NULL);
-
-    stringstream ss;
+    EVP_DigestInit_ex(EVP_get_defaultdigest(), NULL, NULL, &md);
+    EVP_DigestUpdate(&md, text.c_str(), text.size());
+    unsigned char mdValue[16];
+    EVP_DigestFinal_ex(&md, mdValue, NULL);
     for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << setfill('0') << setw(2) << hex << (int)result[i];
+        stringstream ss;
+        ss << setfill('0') << setw(2) << hex << (int)mdValue[i];
+        text += ss.str();
     }
 
-    return ss.str();
-}
-
-int main() {
-    string text = "Hello";
-    cout << "MD5 of '" << text << "' is: " << string_to_md5(text);
-    return 0;
+    return text;
 }
