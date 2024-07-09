@@ -9,9 +9,9 @@ bool correct_bracketing(const std::string& brackets) {
             count++;
         } else if (c == ')') {
             count--;
-        }
-        if (count < 0) {
-            return false;
+            if (count < 0) {
+                return false;
+            }
         }
     }
     return count == 0;
