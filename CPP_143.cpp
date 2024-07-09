@@ -1,43 +1,31 @@
 string words_in_sentence(string sentence){
-    vector<string> words = split(sentence, ' ');
     string result = "";
-    for(int i = 0; i < words.size(); i++){
-        if(is_prime(word_length(words[i]))){
-            result += words[i] + " ";
+    for(auto word : split(sentence, " ")){
+        if(is_prime(word.length())){
+            result += word + " ";
         }
     }
-    return result;
+    return result.substr(0, result.size() - 1);
 }
 
-int word_length(string s){
-    int len = 0;
-    for(char c : s){
-        len++;
-    }
-    return len;
-}
-
-bool is_prime(int n){
-    if(n <= 1) return false;
-    for(int i = 2; i*i <= n; i++){
-        if(n%i == 0) return false;
+bool is_prime(int num) {
+    if(num <= 1)
+        return false;
+    for(int i = 2; i*i <= num; i++) {
+        if(num % i == 0)
+            return false;
     }
     return true;
 }
 
-vector<string> split(string s, char c){
+vector<string> split(string sentence, string delimiter) {
     vector<string> result;
-    string temp = "";
-    for(char ch : s){
-        if(ch != c){
-            temp += ch;
-        }else{
-            if(!temp.empty()){
-                result.push_back(temp);
-                temp = "";
-            }
-        }
+    size_t pos = 0;
+    while((pos = sentence.find(delimiter)) != string::npos) {
+        result.push_back(sentence.substr(0, pos));
+        sentence.erase(0, pos + delimiter.length());
     }
-    if(!temp.empty()) result.push_back(temp);
+    if (!sentence.empty())
+        result.push_back(sentence);
     return result;
 }
