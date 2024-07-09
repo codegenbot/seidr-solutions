@@ -1,10 +1,9 @@
-Here is the modified code:
+Here is the modified code without the triple backticks at the beginning and end of the function definition:
 
 ```
 def bowling_score(frames):
     score = 0
-    frames = frames.split('/')
-    for frame in frames:
+    for frame in frames.split('/'):
         if len(frame) == 1:
             score += 10
         elif len(frame) == 2:
