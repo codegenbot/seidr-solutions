@@ -1,15 +1,14 @@
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
 int fuelCost(vector<int> v) {
     int sum = 0;
     for (int i : v) {
         int num = (i / 3);
-        if (num > 0) {
-            num--;
-            sum += num;
-        }
+        num = num > 0 ? num - 1 : 0;
+        sum += num;
     }
     return sum;
 }
