@@ -1,4 +1,5 @@
 #include <vector>
+#include <cstdio>
 
 int basement(std::vector<int> nums) {
     int sum = 0;
@@ -21,4 +22,3 @@ int main() {
         printf("No basement found.\n");
     }
     return 0;
-}
