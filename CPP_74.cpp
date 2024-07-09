@@ -2,10 +2,10 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b, std::vector<std::string> c) {
-    if (a.size() != b.size() || a.size() != c.size()) return false;
+bool same(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (!issame(a[i], b[i], c[i])) return false;
+        if (!same(a[i], b[i])) return false;
     }
     return true;
 }
@@ -29,11 +29,11 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     else return lst1;
 }
 
-int main() {
+int new_main() {
     std::vector<std::string> lst1 {"this", "is", "a"};
     std::vector<std::string> lst2 {"hello", "from", "c++"};
 
-    assert(issame({lst1}, {lst1}, {total_match(lst1, lst2)}));
-    std::cout << (issame({{lst1}}, {lst1}, {total_match(lst1, lst2)}) ? "Test passed" : "Test failed") << std::endl;
+    assert(same({lst1}, {lst1}, {total_match(lst1, lst2)}));
+    std::cout << (same({lst1}, {lst1}, {total_match(lst1, lst2)}) ? "Test passed" : "Test failed") << std::endl;
     return 0;
 }
