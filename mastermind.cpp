@@ -1,7 +1,3 @@
-#include <string>
-#include <unordered_map>
-#include <iostream>
-
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -12,11 +8,7 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
         codeCount[code[i]]++;
         guessCount[guess[i]]++;
     }
-    for (auto& pair : codeCount) {
-        if (pair.second > 0 && pair.second != guessCount[pair.first]) {
-            white += pair.second - guessCount[pair.first];
-        }
-    }
+    white = std::min(codeCount.begin()->second, guessCount.begin()->second);
 
     int codeIndex = 0;
     for (int i = 0; i < 4; ++i) {
@@ -26,15 +18,4 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
     }
 
     return std::make_pair(white, black);
-}
-
-int main() {
-    std::string code = "ABCD";
-    std::string guess1 = "ABAD";
-    std::cout << mastermind(code, guess1).first << " white pegs and " << mastermind(code, guess1).second << " black pegs." << std::endl;
-
-    std::string guess2 = "BCDF";
-    std::cout << mastermind(code, guess2).first << " white pegs and " << mastermind(code, guess2).second << " black pegs." << std::endl;
-    
-    return 0;
 }
