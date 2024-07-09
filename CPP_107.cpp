@@ -1,16 +1,5 @@
 #include <vector>
-#include <cmath>
-
-bool isPalindrome(int n) {
-    int reversed = 0;
-    int original = n;
-    while (n != 0) {
-        int remainder = n % 10;
-        reversed = reversed * 10 + remainder;
-        n /= 10;
-    }
-    return original == reversed;
-}
+#include <iostream>
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result(2);
@@ -31,4 +20,24 @@ std::vector<int> even_odd_palindrome(int n) {
     result[1] = odd;
 
     return result;
+}
+
+bool isPalindrome(int n) {
+    int reversed = 0;
+    int original = n;
+    while (n != 0) {
+        int remainder = n % 10;
+        reversed = reversed * 10 + remainder;
+        n /= 10;
+    }
+    return original == reversed;
+}
+
+int main() {
+    std::cout << "Even and odd palindromes for the first " << 10 << " numbers are: ";
+    std::vector<int> result = even_odd_palindrome(10);
+    for (auto i : result) {
+        std::cout << i << " ";
+    }
+    return 0;
 }
