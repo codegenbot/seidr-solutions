@@ -1,8 +1,7 @@
-```c++
+```
 #include <vector>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
@@ -26,7 +25,10 @@ int main() {
     int k;
     std::cout << "Enter the number of elements to sum: ";
     std::cin >> k;
-    int result = add_elements(arr, k);
-    std::cout << "Sum of elements: " << result << std::endl;
-    return 0;
+    if (k > n) {
+        std::cout << "Error: k is greater than the number of elements." << std::endl;
+    } else {
+        int result = add_elements(arr, k);
+        std::cout << "Sum of elements: " << result << std::endl;
+    }
 }
