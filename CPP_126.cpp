@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 bool is_sorted(vector<int> lst) {
     for(int i = 1; i < lst.size(); i++){
