@@ -1,3 +1,4 @@
+```cpp
 #include <sstream>
 #include <vector>
 #include <utility>
@@ -36,13 +37,6 @@ int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
 
 int main() {
     std::string str = "++7*3+4";
-    
-    // Add spaces around operators and at the beginning and end of the string
-    str = "(" + str + ")";
-    for (char op : "+-*/^") {
-        str = str.replace(str.find(op), 1, " " + op + " ");
-    }
-    
     std::istringstream iss(str);
     
     std::vector<std::pair<char, int>> operators_and_operands;
@@ -53,7 +47,7 @@ int main() {
         if (!token.empty()) {
             // if operator is not '+' then add previous operand and operator to vector
             if (op != '+') {
-                operators_and_operands.push_back({op, operand});
+                operators_and_operands.push_back(std::make_pair(op, operand));
                 op = '+';
                 operand = 0;
             }
@@ -76,10 +70,9 @@ int main() {
             }
         }
     }
-    
     // add the last operator and operand to vector
     if (op != '+') {
-        operators_and_operands.push_back({op, operand});
+        operators_and_operands.push_back(std::make_pair(op, operand));
     }
     
     int result = do_algebra(operators_and_operands);
