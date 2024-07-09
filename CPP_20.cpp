@@ -1,32 +1,50 @@
 #include <algorithm>
+#include <iostream>
 #include <vector>
 #include <numeric>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i)
-        if (std::abs(a[i] - b[i]) > std::numeric_limits<float>::epsilon())
+using namespace std;
+
+bool isSame(const vector<float>& nums) {
+    for (int i = 1; i < nums.size(); i++) {
+        if (nums[i] != nums[0])
             return false;
+    }
     return true;
 }
 
-std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    if (numbers.empty()) return {};
-    if (numbers.size() == 1) return {numbers[0], numbers[0]};
+vector<float> find_closest_elements(vector<float> numbers) {
+    sort(numbers.begin(), numbers.end());
+    
+    if (isSame(numbers)) {
+        return {numbers[0], numbers[0]};
+    }
 
-    float min_diff = std::numeric_limits<float>::max();
-    float closest_pair[2] = {-std::numeric_limits<float>::max(), -std::numeric_limits<float>::max()};
+    float min_diff = numeric_limits<float>::max();
+    pair<float, float> closest_pair;
 
-    for (int i = 0; i < numbers.size(); ++i) {
-        for (int j = i + 1; j < numbers.size(); ++j) {
-            float diff = std::abs(numbers[i] - numbers[j]);
-            if (diff < min_diff) {
-                min_diff = diff;
-                closest_pair[0] = numbers[i];
-                closest_pair[1] = numbers[j];
-            }
+    for (int i = 1; i < numbers.size(); ++i) {
+        if (numbers[i] - numbers[i-1] < min_diff) {
+            min_diff = numbers[i] - numbers[i-1];
+            closest_pair = {numbers[i-1], numbers[i]};
         }
     }
 
-    return {closest_pair[0], closest_pair[1]};
+    return {closest_pair.first, closest_pair.second};
+}
+
+int main() {
+    vector<float> numbers = {};
+    // Read input from user
+    // ...
+
+    vector<float> result = find_closest_elements(numbers);
+    
+    cout << "The closest pair of elements is: ";
+    for (float num : result) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
