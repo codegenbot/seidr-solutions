@@ -2,13 +2,14 @@
 #include <string>
 #include <algorithm>
 #include <boost/any.hpp>
+#include <boost/lexical_cast.hpp>
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max(a.convert_to<int>(), static_cast<float>(b.convert_to<int>()));
+        return max(a.convert_to<int>(), b.convert_to<float>());
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return max(static_cast<float>(a.convert_to<int>()), b.convert_to<float>());
+        return max(a.convert_to<float>(), b.convert_to<int>());
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str1 = a.convert_to<string>();
         string str2 = b.convert_to<string>();
@@ -31,12 +32,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
 
         if (isNum1Valid && isNum2Valid) {
-            num1 = stoi(str1);
-            num2 = stoi(str2);
+            num1 = boost::lexical_cast<int>(str1);
+            num2 = boost::lexical_cast<int>(str2);
 
             return (num1 > num2) ? str1 : ((num1 < num2) ? str2 : boost::any("None"));
         } else {
-            return max(a, b);
+            return a;
         }
     }
 
