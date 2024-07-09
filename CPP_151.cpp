@@ -19,7 +19,6 @@ int main() {
         lst[i] = static_cast<float>(i + 1) + i * 1.5;
     }
     long long odd_sum = double_the_difference(lst);
-    assert(double_the_difference(lst) == odd_sum); 
     std::cout << "The result is: " << odd_sum << std::endl;
     return 0;
 }
