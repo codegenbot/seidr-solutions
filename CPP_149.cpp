@@ -1,8 +1,17 @@
+```
 #include <algorithm>
 #include <vector>
 #include <string>
 #include <cassert>
+
 namespace std;
+
+int main() {
+    vector<string> a = {"aaaa", "bbbb", "dd", "cc"};
+    vector<string> b = {"cc", "dd", "aaaa", "bbbb"};
+    assert(issame(a, b));
+    return 0;
+}
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -35,12 +44,4 @@ vector<string> sorted_list_sum(vector<string> lst) {
          });
 
     return result;
-
-}
-
-int main() {
-    vector<string> a = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> b = {"cc", "dd", "aaaa", "bbbb"};
-    assert(issame(a, b));
-    return 0;
 }
