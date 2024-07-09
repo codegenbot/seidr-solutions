@@ -1,4 +1,6 @@
+``` 
 def encode(message):
+    """ A classic Caesar Cipher implementation! """
     result = ""
     for char in message:
         if char.isalpha():
@@ -9,5 +11,3 @@ def encode(message):
         else:
             result += char
     return result
-
-print(encode("Hello"))
