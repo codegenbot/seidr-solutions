@@ -1,9 +1,9 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> unique_digits(vector<int> x){
-    vector<int> result;
+std::vector<int> unique_digits(std::vector<int> x){
+    std::vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
