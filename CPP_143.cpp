@@ -1,5 +1,6 @@
+```cpp
 #include <iostream>
-#include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -17,17 +18,16 @@ int main() {
 }
 
 string words_in_sentence(string sentence) {
-    stringstream ss(sentence);
-    string word;
-    int count = 0;
-
-    while (getline(ss, word, ' ')) {
-        if (count > 0) {
-            cout << ", ";
+    string result = "";
+    size_t start = 0;
+    while (start < sentence.size()) {
+        size_t end = sentence.find(' ', start);
+        if (end == string::npos) {
+            result += sentence.substr(start);
+            break;
         }
-        cout << word;
-        count++;
+        result += sentence.substr(start, end - start) + " ";
+        start = end + 1;
     }
-
-    return "";
+    return result;
 }
