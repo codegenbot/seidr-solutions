@@ -1,12 +1,18 @@
-string solve(int N) {
+string solve(int N){
     int sum = 0;
-    string binary = "";
-    while (N > 0) {
+    while(N > 0) {
         int remainder = N % 2;
-        if (remainder == 1)
-            sum++;
-        binary = to_string(remainder) + binary;
+        sum += remainder;
         N /= 2;
     }
-    return binary;
+    string result = "";
+    while(sum > 0) {
+        int temp = sum % 2;
+        if(temp == 1)
+            result = "1" + result;
+        else
+            result = "0" + result;
+        sum /= 2;
+    }
+    return result;
 }
