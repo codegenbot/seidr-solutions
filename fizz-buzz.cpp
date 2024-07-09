@@ -1,6 +1,5 @@
-```cpp
-#include <string>
 #include <iostream>
+#include <iomanip>
 
 std::string fizzBuzz(int x) {
     std::string result;
@@ -11,12 +10,13 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         result = "Buzz";
     else
-        result = std::to_string(x);
+        result = std::to_string(x); // use fixed precision for large numbers
+
     return result;
 }
 
 int main() {
     for(int i = 1; i <= 30; i++) {
-        std::cout << fizzBuzz(i) << std::endl;
+        std::cout << std::setprecision(std::numeric_limits<int>::max_digits10) << fizzBuzz(i) << std::endl;
     }
 }
