@@ -1,4 +1,6 @@
-def decode_cyclic(s):
+def decode_cyclic():
+    s = input("Enter the string to decode (without spaces or special characters): ").strip()
+    s = ''.join(char for char in s if char.isalnum())
     groups = [s[(3 * i) : min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
     groups = [
         (group[-1] + group[:-1]) if len(group) == 3 else group for group in groups
@@ -6,6 +8,5 @@ def decode_cyclic(s):
     return "".join(groups)
 
 
-example_input = "defabcxyzhijklmnopqrstuvw"
-decoded_string = decode_cyclic(example_input)
+decoded_string = decode_cyclic()
 print(f"Decoded string: {decoded_string}")
