@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-bool compareVectors(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -24,4 +24,14 @@ std::vector<int> even_odd_count(int num) {
         num /= 10;
     }
     return result;
+}
+
+int main() {
+    std::vector<int> expectedCount = even_odd_count(0);
+    if (!isSame(expectedCount, std::vector<int>{1, 0})) {
+        std::cout << "Test failed. The count is not correct." << std::endl;
+    } else {
+        std::cout << "Test passed. The count is correct." << std::endl;
+    }
+    return 0;
 }
