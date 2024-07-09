@@ -1,20 +1,25 @@
 #include <algorithm>
+#include <vector>
+#include <string>
+using namespace std;
 
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
-    for (int i = 0; i < nums.size(); ++i) {
+    for (int num : nums) {
         int sum = 0;
-        int num = nums[i];
-        while (num) {
-            sum += num % 10;
-            num /= 10;
+        string strNum = to_string(num);
+        for (char c : strNum) {
+            sum += stoi(string(1, c));
         }
-        pairs.push_back({sum, i});
+        pairs.emplace_back(sum, num);
     }
+
     sort(pairs.begin(), pairs.end());
+
     vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(nums[pair.second]);
+        result.push_back(pair.second);
     }
+
     return result;
 }
