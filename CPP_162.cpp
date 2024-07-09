@@ -18,3 +18,8 @@ std::string my_string_to_md5(std::string text) {
     }
     return ss.str();
 }
+
+int main() {
+    std::cout << my_string_to_md5("password") << std::endl;
+    return 0;
+}
