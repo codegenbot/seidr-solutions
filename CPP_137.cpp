@@ -17,7 +17,7 @@
         if (stod(a.convert_to<string>()) > stod(b.convert_to<string>())) {
             return a;
         }
-        # else if (stod(a.convert_to<string>()) < stod(b.convert_to<string>())) {
+        # elif (stod(a.convert_to<string>()) < stod(b.convert_to<string>())) {
             return b;
         }
         # else {
@@ -30,7 +30,7 @@
         if (a_num > b_num) {
             return a;
         }
-        # else if (a_num < b_num) {
+        # elif (a_num < b_num) {
             return b;
         }
         # else {
@@ -43,7 +43,7 @@
         if (a_int > b_int) {
             return a;
         }
-        # else if (a_int < b_int) {
+        # elif (a_int < b_int) {
             return b;
         }
         # else {
@@ -56,7 +56,7 @@
         if (a_num > b_int) {
             return a;
         }
-        # else if (a_num < b_int) {
+        # elif (a_num < b_int) {
             return b;
         }
         # else {
@@ -69,7 +69,7 @@
         if (a_num > b_num) {
             return a;
         }
-        # else if (a_num < b_num) {
+        # elif (a_num < b_num) {
             return b;
         }
         # else {
@@ -79,3 +79,4 @@
     # else {
         return boost::any("None");
     }
+# }
