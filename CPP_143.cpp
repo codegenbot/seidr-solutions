@@ -1,32 +1,34 @@
-#include <cmath>
-using namespace std;
+#include <string>
+#include <vector>
 
-string words_in_sentence(string sentence) {
-    string result = "";
-    bool isPrime[100] = {false};
-    
-    for (int i = 2; i * i <= 100; i++) {
-        if (!isPrime[i]) {
-            for (int j = i; j * i < 100; j++) {
-                isPrime[j * i] = true;
-            }
-        }
-    }
-
-    int len = sentence.size();
-    int spaceIndex = 0;
-
-    while (spaceIndex < len) {
-        spaceIndex = sentence.find(' ', spaceIndex);
-        if (spaceIndex == -1)
-            break;
-        
-        string word = sentence.substr(0, spaceIndex);
-        if (!isPrime[word.size()]) 
-            continue;
-
-        result += word + " ";
+std::string words_in_sentence(std::string sentence) {
+    std::vector<int> primeLengths;
+    for (int i = 2; i <= sentence.size(); i++) {
+        bool isPrime = true;
+        for (int j = 2; j * j <= i; j++)
+            if (i % j == 0)
+                isPrime = false;
+        if (isPrime)
+            primeLengths.push_back(i);
     }
     
-    return result;
+    std::string result = "";
+    std::vector<std::string> words = split(sentence, ' ');
+    for (std::string word : words) {
+        if (find(primeLengths.begin(), primeLengths.end(), word.size()) != primeLengths.end())
+            result += word + " ";
+    }
+    
+    return result.substr(0, result.size() - 1);
+}
+
+std::vector<std::string> split(const std::string& str, char c) {
+    std::vector<std::string> tokens;
+    size_t pos = 0;
+    while ((pos = str.find(c)) != std::string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + 1);
+    }
+    tokens.push_back(str);
+    return tokens;
 }
