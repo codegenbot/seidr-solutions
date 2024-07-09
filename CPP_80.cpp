@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -12,5 +13,4 @@ int main() {
     } else {
         std::cout << num << " is not a happy number.\n";
     }
-    return 0;
 }
