@@ -1,11 +1,15 @@
+#include <set>
 #include <vector>
 #include <algorithm>
-#include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+bool issame(std::set<std::string> a, std::vector<std::string> b) {
+    std::set<std::string> setb;
+    for (const auto& s : b) {
+        setb.insert(s);
+    }
+    return a == setb;
 }
 
 int main() {
-    assert(std::equal({"grunt", "prune"}, {"grunt", "prune"}));
+    assert(issame({{"grunt", "trumpet", "prune", "gruesome"}}, {"run"}.second,{{"grunt", "prune"}}));
 }
