@@ -16,14 +16,15 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+
     input.resize(n);
-    
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> input[i];
     }
-    
+
     int result = solution(input);
-    std::cout << "Sum of odd elements: " << result << std::endl;
+    std::cout << "Sum of odd numbers: " << result << std::endl;
+
     return 0;
 }
