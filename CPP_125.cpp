@@ -1,32 +1,25 @@
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t start = 0;
-    while (start < txt.size()) {
-        if (!isalnum(txt[start])) {
-            if (txt[start] == ',') {
-                break;
-            }
-            start++;
-            continue;
-        }
-        size_t end = start + 1;
-        while (end <= txt.size() && isalnum(txt[end - 1])) {
-            end++;
-        }
-        result.push_back(txt.substr(start, end - start - 1));
-        start = end;
-    }
-    if (result.empty()) {
-        int count = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                if ((count & 1)) {
-                    result.push_back(to_string(count));
-                    break;
+
+    for (int i = 0; i < txt.length(); i++) {
+        if (!isalnum(txt[i]) && !ispunct(txt[i])) {
+            if (i > 0) {
+                string word = txt.substr(0, i);
+                if (word.length() == 1) {
+                    result.push_back(to_string(word[0]));
+                } else {
+                    result.push_back(word);
                 }
-                count++;
+                txt.erase(0, i);
+                i = -1;
             }
         }
     }
+
+    if (!txt.empty()) {
+        string word = txt;
+        result.push_back(word);
+    }
+
     return result;
 }
