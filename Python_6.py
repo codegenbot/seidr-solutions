@@ -1,8 +1,8 @@
 from typing import List
 def parse_nested_parens() -> List[int]:
-    paren_string = input("Enter the nested parentheses string: ")
-    if not all([all([c in "(){}[]" for c in paren]) for paren in paren_string.split()]):
-        raise ValueError("Input should only contain parentheses")
+    paren_string = input()
+    if not all([paren.count("(") == paren.count(")") for paren in paren_string.split()]):
+        return "Invalid input format. Each nested parentheses string should have equal number of opening and closing parentheses."
     return [
         max([paren.count("(" * i) for i in range(1, len(paren) // 2 + 1)])
         for paren in paren_string.split()
