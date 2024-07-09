@@ -2,10 +2,9 @@
 #include <initializer_list>
 #include <iostream>
 #include <vector>
-#include <string>
 
 int main() {
-    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
+    std::cout << Strongest_Extension("Sp", std::vector<std::string>{"671235", "Bb"}) << std::endl;
 }
 
 int Strongest_Extension(std::string className, const std::vector<std::string>& extensions) {
