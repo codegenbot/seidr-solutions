@@ -1,6 +1,5 @@
+```cpp
 #include <vector>
-#include <assert.h>
-#include <initializer_list>
 
 bool has_close_elements(std::vector<float> numbers, float threshold) {
     for (int i = 1; i < numbers.size(); i++) {
