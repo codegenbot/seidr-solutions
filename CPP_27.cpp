@@ -1,3 +1,4 @@
+```cpp
 using namespace std;
 
 string flip_case(string str){
