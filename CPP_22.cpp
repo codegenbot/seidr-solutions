@@ -25,6 +25,6 @@ vector<int> filter_integers(initializer_list<variant<int>> values) {
 
 int mainTest() {
     vector<variant<int>> values = {3, 3, 3};
-    assert(is_same(filter_integers(values), vector<int>({3, 3, 3})));
+    assert(is_same({int(i) for i : filter_integers(values)}, vector<int>({3, 3, 3})));
     return 0;
 }
