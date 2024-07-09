@@ -38,9 +38,10 @@ int main() {
     std::string str = "++7*3+4";
     std::istringstream iss(str);
     
-    std::vector<std::pair<char, int>> operators_and_operands;
+    std::vector<std::pair<char, int>> operators_and_operands(); // Initialize with empty vector
     char op = '+';
     int operand = 0; 
+    std::string token;
     while (iss >> token) {
         if (!token.empty()) {
             if (op != '+') {
@@ -66,7 +67,6 @@ int main() {
             }
         }
     }
-    
     // add the last operator and operand to vector
     if (op != '+') {
         operators_and_operands.push_back({op, operand});
