@@ -33,5 +33,6 @@ bool isSameVectors(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert (isSameVectors(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert(splitString("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
     return 0;
+}
