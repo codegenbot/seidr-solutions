@@ -1,5 +1,5 @@
-```
-using namespace std;
+#include <string>
+
 int bowlingScore(string s) {
     int score = 0;
     int currentRolls = 0;
@@ -8,7 +8,7 @@ int bowlingScore(string s) {
     for (char c : s) {
         if (c == '/') {
             if (currentRolls == 2) {
-                score += 10 + currentFrame;
+                score += 10 + currentFrame - 1;
                 currentFrame++;
                 currentRolls = 0;
             } else {
@@ -36,7 +36,7 @@ int bowlingScore(string s) {
     if (currentRolls == 2) {
         score += 10 * currentFrame;
     } else if (currentRolls == 1) {
-        score += 10 + currentFrame;
+        score += 10 + currentFrame - 1;
     }
 
     return score;
