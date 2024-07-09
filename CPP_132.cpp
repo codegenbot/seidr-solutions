@@ -17,16 +17,15 @@ bool is_nested(string str) {
     }
     return count != 0;
 
-main() {
+int main() { 
     string input;
     cout << "Enter a string: ";
     cin >> ws; 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     getline(cin, input); 
     if(is_nested(input)) {
         cout << "The string is nested." << endl;
     } else {
         cout << "The string is not nested." << endl;
     }
-    return 0;
+    return 0; 
 }
