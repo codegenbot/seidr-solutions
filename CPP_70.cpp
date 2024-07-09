@@ -1,6 +1,6 @@
-```
-#include <algorithm>
+```cpp
 #include <vector>
+#include <algorithm>
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
