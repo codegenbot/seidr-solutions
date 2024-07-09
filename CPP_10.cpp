@@ -8,10 +8,13 @@ bool is_palindrome(string str){
 }
 
 string make_palindrome(string str){
-    int i=str.length()-1;
-    while(i>=0 && str[i-1]==str[i])
+    if(is_palindrome(str)) return str;
+    int i=str.length()-1,j=0;
+    while(i>=0 && !is_palindrome(str.substr(0,i+1))){
         i--;
-    if(i<0)
-        return str+str;
-    return str.substr(0,i)+std::string(str.substr(i-1, 1)).reverse()+str.substr(i);
+    }
+    string prefix=str.substr(0,i+1);
+    std::string rev = str.substr(0, i + 1);
+    std::reverse(rev.begin(), rev.end());
+    return str.substr(i+1) + rev;
 }
