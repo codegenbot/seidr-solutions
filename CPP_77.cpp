@@ -12,7 +12,7 @@ bool isCube(int a) {
     return false;
 }
 
-int originalFunction(){
+int checkNumber(){
     int n;
     std::cout << "Enter an integer: ";
     std::cin >> n;
@@ -23,6 +23,6 @@ int originalFunction(){
 }
 
 int main(){
-    originalFunction();
+    checkNumber();
     assert (isCube(1729) == false);
 }
