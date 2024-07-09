@@ -1,13 +1,8 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <iomanip>
-#include <openssl/evp.h>
+```cpp
+#include <openssl/ssl.h>
 #include <openssl/md5.h>
 
 using namespace std;
-
-const int MD5_DIGEST_LENGTH = 16;
 
 string string_to_md5(string text) {
     if (text.empty()) return "None";
@@ -17,15 +12,12 @@ string string_to_md5(string text) {
     unsigned char result[MD5_DIGEST_LENGTH];
 
     EVP_DigestUpdate(&md, (unsigned char*)text.c_str(), text.size());
-    unsigned char *digest = (unsigned char *)OPENSSL_malloc(MD5_DIGEST_LENGTH);
-    EVP_DigestFinal_CTX(&md, digest, NULL);
+    EVP_DigestFinal_CTX(&md, result, NULL);
 
     stringstream ss;
     for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << setfill('0') << setw(2) << hex << (int)digest[i];
+        ss << setfill('0') << setw(2) << hex << (int)result[i];
     }
-
-    OPENSSL_free(digest); 
 
     return ss.str();
 }
