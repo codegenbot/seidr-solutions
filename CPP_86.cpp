@@ -3,24 +3,20 @@
 #include <string>
 
 std::string anti_shuffle(std::string s) {
-    int n = s.length();
-    char temp[n+1];
-    strcpy(temp, s.c_str());
-    for(int i=0; i<n; i++) {
-        for(int j=i; j<n; j++) {
-            if(temp[i] != temp[j]) {
-                std::swap(temp[i], temp[j]);
-                break;
-            }
+    std::string res;
+    for (int i = 0; i < s.length(); i++) {
+        if (i % 2 == 1) {
+            res.insert(0, 1, s[i]);
         }
     }
-    return temp;
+    return res;
 }
 
-int main {
+int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> str;
+    std::getline(std::cin, str);  
     std::string res = anti_shuffle(str);
     std::cout << "Anti-Shuffled String: " << res << std::endl;
-}.
+    return 0;
+}
