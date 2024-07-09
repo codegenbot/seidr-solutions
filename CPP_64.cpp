@@ -1,10 +1,13 @@
+Here is the solution:
+
 int vowels_count(string s){
     int count = 0;
-    for(char c : s){
-        if((c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') ||
-           (s.length() - 1 == find(s.rbegin(), s.rend(), c) && c == 'y')){
+    for(int i=0; i<s.length(); i++){
+        char ch = tolower(s[i]);
+        if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
             count++;
-        }
+        else if(i+1==s.length() && ch == 'y')
+            count++;
     }
     return count;
 }
