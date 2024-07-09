@@ -1,3 +1,4 @@
+```cpp
 double find_zero(vector<double> coeffs){
     double sum = 0;
     for (int i = 1; i < coeffs.size(); i++) {
