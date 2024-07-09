@@ -1,7 +1,6 @@
 #include <string>
 #include <sstream>
 #include <openssl/evp.h>
-
 using namespace std;
 
 string string_to_md5(string text) {
