@@ -5,7 +5,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if(arr.empty()) return result;
     
-    int minEven = INT_MIN;
+    int minEven = INT_MIN; // Changed from INT_MAX
     int minIndex = 0;
     
     for(int i=0; i<arr.size(); i++) {
