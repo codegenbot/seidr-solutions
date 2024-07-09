@@ -1,9 +1,7 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <set>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool same(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -21,24 +19,25 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     
-    std::vector<int> numbers(n);
+    using namespace std;
+    vector<int> numbers(n);
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> numbers[i];
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> numbers[i];
     }
     
-    std::vector<int> uniqueNumbers = removeDuplicates(numbers);
+    vector<int> uniqueNumbers = removeDuplicates(numbers);
     
-    if (!issame(numbers, uniqueNumbers)) {
-        std::cout << "Unique numbers: ";
+    if (!same(numbers, uniqueNumbers)) {
+        cout << "Unique numbers: ";
         for (int num : uniqueNumbers) {
-            std::cout << num << " ";
+            cout << num << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     } else {
-        std::cout << "All elements are duplicates." << std::endl;
+        cout << "All elements are duplicates." << endl;
     }
     
-    assert(issame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
+    assert(same(removeDuplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
     return 0;
 }
