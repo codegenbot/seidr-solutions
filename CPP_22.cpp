@@ -1,21 +1,27 @@
+```cpp
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
-#include <boost/type_traits.hpp>
 
-using namespace std;
-using namespace boost;
+namespace boost { namespace detail {
+template<typename T>
+struct is_same : std::false_type {};
+};
 
-bool is_same(const vector<int>& v1, const vector<int>& v2) {
-    return (v1.size() == v2.size()) && equal(v1.begin(), v1.end(), v2.begin());
-}
+template<>
+struct boost::detail::is_same<int> : std::true_type {};
 
-vector<int> filter_integers(list<any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value)) {
-            result.push_back(any_cast<int>(value));
+        if (boost::any_cast<int>(value)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
+}
+
+int main() {
+    assert(filter_integers({3, 3, 3}) == std::vector<int>({3, 3, 3}));
+    return 0;
 }
