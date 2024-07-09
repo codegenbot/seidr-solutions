@@ -15,7 +15,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
             right_sum += vec[k];
         }
         if (left_sum == right_sum) {
-            return {{}, vector<int>(vec.begin() + i, vec.end())};
+            return {{}, vec};
         }
         int diff = abs(left_sum - right_sum);
         if (diff < min_diff) {
