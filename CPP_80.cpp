@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <iostream>
 #include <fstream>
@@ -29,4 +28,3 @@ int main() {
         std::cout << "The string is happy." << std::endl;
     else
         std::cout << "The string is not happy." << std::endl;
-}
