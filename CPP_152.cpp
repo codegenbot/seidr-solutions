@@ -1,12 +1,13 @@
-#include <vector>
-
-using namespace std;
+Here is the completed code:
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
     for (int i = 0; i < game.size(); i++) {
-        int difference = abs(guess[i] - game[i]);
-        result.push_back(difference);
+        if (game[i] == guess[i]) {
+            result.push_back(0);
+        } else {
+            result.push_back(abs(game[i] - guess[i]));
+        }
     }
     return result;
 }
