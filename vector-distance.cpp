@@ -2,12 +2,11 @@
 #include <vector>
 #include <cmath>
 #include <iomanip>
-
 using namespace std;
 
 double vectorDistance(int n) {
-    vector<float> v1(n);
-    vector<float> v2(n);
+    float v1[n];
+    float v2[n];
 
     for (int i = 0; i < n; i++) {
         cin >> v1[i] >> v2[i];
@@ -27,3 +26,4 @@ int main() {
     cout << fixed << setprecision(10) << vectorDistance(n);
 
     return 0;
+}
