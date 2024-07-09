@@ -1,7 +1,9 @@
 def solve(a, b, c):
     return -c / b
 
+a = int(input())
+b = int(input())
+c = int(input())
 
-a, b, c = map(int, input().split())
 result = solve(a, b, c)
 print(result)
