@@ -1,6 +1,13 @@
-vector<int> result(2, 0);
-    string numStr = to_string(abs(num));
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+using namespace std;
 
+vector<int> even_odd_count(int num) {
+    vector<int> result(2, 0);
+    string numStr = to_string(abs(num));
+  
     for (char c : numStr) {
         if (c % 2 == 0) {
             result[0]++;
