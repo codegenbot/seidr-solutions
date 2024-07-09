@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
 
 long long minSubArraySum(vector<long long> nums) {
-    long long min_sum = INT_MAX;
+    long long min_sum = LLONG_MAX;
     for (int start = 0; start < nums.size(); start++) {
         long long sum = 0;
         for (int end = start; end < nums.size(); end++) {
@@ -19,15 +18,11 @@ long long minSubArraySum(vector<long long> nums) {
 
 int main() {
     int n;
-    cout << "Enter the number of elements in the array: ";
     cin >> n;
-    
     vector<long long> nums(n);
-    for(int i=0; i<n; i++) {
-        cout << "Enter element " << i+1 << ": ";
+    for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    
-    cout << "Minimum subarray sum is: " << minSubArraySum(nums) << endl;
+    cout << minSubArraySum(nums) << endl;
     return 0;
 }
