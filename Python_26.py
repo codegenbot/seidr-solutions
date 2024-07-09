@@ -1,2 +1,2 @@
 def process_input(arr: List[int]) -> List[int]:
-    return [element**2 for element in arr]
+    return [num * 2 for num in arr]
