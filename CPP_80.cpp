@@ -12,11 +12,17 @@ bool is_happy(const std::string& s) {
         char c1 = s[i];
         char c2 = s[i + 1];
         char c3 = s[i + 2];
-        char c = s[i];
-        while(c == c1 || c == c2 || c == c3) {
-            if (i+3 >= s.length())
+        std::string::const_iterator it = s.begin() + i;
+        for (; it != s.begin() + i + 3; ++it) {
+            bool found = false;
+            for (int j = 0; j < 3; j++) {
+                if (*it == s[i + j]) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
                 return false;
-            c = s[++i];
         }
     }
     return true;
