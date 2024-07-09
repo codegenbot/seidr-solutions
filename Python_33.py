@@ -4,9 +4,9 @@ def sort_third():
     l = []
     
     for i in range(n):
-        x = int(input(f"Enter element {i+1}: "))
+        x = float(input(f"Enter element {i+1}: "))  
         l.append(x)
         
-    return sorted(l, key=lambda x: (x % 3, x))
+    return sorted(l)
 
-print(sort_third())
+print(sorted([x for x in sort_third() if x % 3 == 0], reverse=True))
