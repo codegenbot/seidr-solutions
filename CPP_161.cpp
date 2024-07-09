@@ -1,7 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <cctype>
-#include <string>
 #include <cassert>
 
 std::string solve(std::string s) {
@@ -20,6 +18,6 @@ std::string solve(std::string s) {
 
 int main() {
     assert(solve("#ccc") == "#CCC");
-
+    
     return 0;
 }
