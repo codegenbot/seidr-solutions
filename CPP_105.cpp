@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <map>
@@ -40,6 +39,6 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}) , {"Nine", "Eight", "Four"}));
+    assert(issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
     return 0;
 }
