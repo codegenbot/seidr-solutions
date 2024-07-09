@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <initializer_list>
@@ -21,6 +20,6 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), std::vector<int>{0, 1}));
+    assert(issame(even_odd_count(0), std::vector<int>{1, 0}));
     return 0;
 }
