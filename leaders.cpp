@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -8,11 +7,8 @@ vector<int> leaders(vector<int>& arr) {
     int maxRight = arr.back();
     for (int i = n - 1; i >= 0; i--) {
         if (arr[i] >= maxRight) {
-            while (i < n - 1 && arr[i] >= arr[i + 1]) {
-                maxRight = arr[i];
-                i--;
-            }
             result.push_back(arr[i]);
+            maxRight = arr[i];
         }
     }
     return result;
