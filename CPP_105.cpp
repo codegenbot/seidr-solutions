@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -46,4 +47,13 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    std::vector<int> arr = {1, 2, 3, 4, 5};
+    std::vector<std::string> result = by_length(arr);
+    for (auto str : result) {
+        std::cout << str << " ";
+    }
+    return 0;
 }
