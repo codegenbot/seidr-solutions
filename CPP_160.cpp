@@ -1,38 +1,40 @@
-using namespace std;
+#include <string>
+#include <vector>
+#include <cmath>
 
-int do_algebra(vector<string> operator_, vector<int> operand) {
+int doAlgebra(vector<string> operators, vector<int> operands) {
     int result = 0;
-    for (int i = 0; i < operator_.size(); i++) {
-        if (operator_[i] == "+") {
-            result += operand[i];
-        } else if (operator_[i] == "-") {
-            result -= operand[i];
-        } else if (operator_[i] == "*") {
-            int temp = 0;
-            for (int j = i; j < operator_.size(); j++) {
-                if (operator_[j] == "*") {
-                    temp *= operand[j + 1];
-                } else if (operator_[j] == "+") {
-                    result += temp * operand[j + 1];
+    for (int i = 0; i < operators.size(); i++) {
+        if (operators[i] == "+") {
+            result += operands[i];
+        } else if (operators[i] == "-") {
+            result -= operands[i];
+        } else if (operators[i] == "*") {
+            int temp = operands[i];
+            for (int j = i + 1; j < operators.size(); j++) {
+                if (operators[j] == "*") {
+                    temp *= operands[j];
+                } else if (operators[j] == "+") {
+                    result += temp;
                     break;
                 }
             }
-        } else if (operator_[i] == "//") {
-            int temp = operand[i + 1];
-            for (int j = i + 1; j < operator_.size(); j++) {
-                if (operator_[j] == "//") {
-                    temp /= operand[j + 1];
-                } else if (operator_[j] == "+") {
-                    result += temp / operand[j + 1];
+        } else if (operators[i] == "//") {
+            int temp = operands[i];
+            for (int j = i + 1; j < operators.size(); j++) {
+                if (operators[j] == "//") {
+                    temp /= operands[j];
+                } else if (operators[j] == "+") {
+                    result += temp;
                     break;
                 }
             }
-        } else if (operator_[i] == "**") {
-            int temp = pow(operand[i + 1], 1);
-            for (int j = i + 1; j < operator_.size(); j++) {
-                if (operator_[j] == "**") {
-                    temp = pow(temp, operand[j + 1]);
-                } else if (operator_[j] == "+") {
+        } else if (operators[i] == "**") {
+            int temp = pow(operands[i], 1);
+            for (int j = i + 1; j < operators.size(); j++) {
+                if (operators[j] == "**") {
+                    temp = pow(temp, operands[j]);
+                } else if (operators[j] == "+") {
                     result += temp;
                     break;
                 }
@@ -40,3 +42,4 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
         }
     }
     return result;
+}
