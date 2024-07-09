@@ -1,6 +1,8 @@
+#include <algorithm>
 #include <string>
+#include <vector>
 
-string find_max(vector<string> words){
+int find_max(vector<string> words){
     string max_word = *max_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
             if (a.length() == b.length()) {
@@ -8,5 +10,10 @@ string find_max(vector<string> words){
             }
             return a.length() > b.length();
         });
-    return max_word;
+    return 0; 
+}
+
+int main(){
+    assert ((find_max({"play", "play", "play"}) == "play"));
+    return 0;
 }
