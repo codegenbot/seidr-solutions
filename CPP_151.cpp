@@ -1,31 +1,23 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <variant>
 
-long long double_the_difference(std::vector<std::variant<float, long long>> lst) {
+long long double_the_difference(std::vector<double> lst) {
     long long sum = 0;
-    for (auto &num : lst) {
-        if (std::holds_alternative<float>(num)) {
-            float f = std::get<float>(num);
-            if (f > 0 && std::floor(f) == f) { 
-                if (static_cast<long long>(f) % 2 != 0) { 
-                    sum += static_cast<long long>(std::pow(f, 2)); 
-                }
-            } else {
-                sum += static_cast<long long>(f);
+    for (double num : lst) {
+        if (num > 0 && std::floor(num) == num) { 
+            if (static_cast<long long>(num) % 2 != 0) { 
+                sum += static_cast<long long>(std::pow(num, 2)); 
             }
-        } else {
-            long long ll = std::get<long long>(num);
-            sum += ll;
         }
     }
-    return sum;
+    return static_cast<long long>(sum);
 }
 
 int main() {
-    float input; 
+    double input; 
     int n = 0;
-    std::vector<std::variant<float, long long>> lst;
+    std::vector<double> lst;
 
     while (1) {
         std::cout << "Enter a number (negative to stop): ";
