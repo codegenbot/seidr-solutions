@@ -1,13 +1,16 @@
-```cpp
 #include <vector>
+#include <algorithm>
 
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
-    for (float num : l) {
-        if (num > 0) {
-            result.push_back(num);
-        }
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
+int main() {
+    assert(get_positive({}) == {});
+    vector<float> l = {1, -2, 3, -4};
+    vector<float> result = get_positive(l);
+    for (float num : result) {
+        cout << num << " ";
     }
-    return result;
-
+    return 0;
 }
