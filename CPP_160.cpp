@@ -19,4 +19,6 @@ int do_algebra(vector<string> operato, vector<int> operand) {
     return result;
 }
 
-assert(do_algebra({"/", "*"}, {7, 3, 4}) == 8);
+int main() {
+    assert(do_algebra({"/", "*"}, {7, 3, 4}) == 8);
+}
