@@ -1,60 +1,22 @@
 #include <string>
 
 string int_to_mini_roman(int num) {
-    string roman[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
-                      "", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
-                      "", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX",
-                      "", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
-                      "", "L", "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX", "LX",
-                      "", "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX",
-                      "", "LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV", "LXXVI", "LXXVII", "LXXVIII", "LXXIX", "LXXX",
-                      "", "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC",
-                      "", "C", "CI", "CII", "CIII", "CIV", "CV", "CVI", "CVII", "CVIII", "CX", "CXI", "CXII", "CXIII", "CXIV", "CXV", "CXVI", "CXVII", "CXVIII", "CXIX", "CXX",
-                      "", "CXXI", "CXXII", "CXXIII", "CXXIV", "CXXV", "CXXVI", "CXXVII", "CXXVIII", "CXXIX", "CXXX",
-                      "", "CXXXI", "CXXXII", "CXXXIII", "CXXXIV", "CXXXV", "CXXXVI", "CXXXVII", "CXXXVIII", "CXXXIX", "CXL",
-                      "", "CXLI", "CXLII", "CXLIII", "CXLIV", "CXLV", "CXLVI", "CXLVII", "CXLVIII", "CXlix", "CL",
-                      "", "CLI", "CII", "CC", "CCI", "CCC", "CCCI", "CCCII", "CCCIII", "CCCIV", "CCCV", "CCCVI", "CCCvii", "CCcviii", "CCXCIX", "CCCC"};
-
-    string result = "";
-
-    while (num > 0) {
-        if (num >= 1000) {
-            num -= 1000;
-            result += "M";
-        } else if (num >= 900) {
-            num -= 900;
-            result += "CM";
-        } else if (num >= 500) {
-            num -= 500;
-            result += "D";
-        } else if (num >= 400) {
-            num -= 400;
-            result += "CD";
-        } else if (num >= 100) {
-            int count = num / 100;
-            for (int i = 0; i < count; i++) {
-                result += "C";
-            }
-            num %= 100;
-        } else if (num >= 90) {
-            num -= 90;
-            result += "XC";
-        } else if (num >= 50) {
-            int count = num / 50;
-            for (int i = 0; i < count; i++) {
-                result += "L";
-            }
-            num %= 50;
-        } else if (num >= 40) {
-            num -= 40;
-            result += "XL";
-        } else {
-            while (num > 0) {
-                num--;
-                result += "I";
-            }
-        }
+    if(num<1) return "Error: Input should be a positive integer";
+    string miniRoman;
+    while(num>0){
+        if(num>=1000) {miniRoman += "M"; num -= 1000;}
+        else if(num>=900) {miniRoman += "CM"; num -= 900;}
+        else if(num>=500) {miniRoman += "D"; num -= 500;}
+        else if(num>=400) {miniRoman += "CD"; num -= 400;}
+        else if(num>=100) {miniRoman += "C"; num -= 100;}
+        else if(num>=90) {miniRoman += "XC"; num -= 90;}
+        else if(num>=50) {miniRoman += "L"; num -= 50;}
+        else if(num>=40) {miniRoman += "XL"; num -= 40;}
+        else if(num>=10) {miniRoman += "X"; num -= 10;}
+        else if(num>=9) {miniRoman += "IX"; num -= 9;}
+        else if(num>=5) {miniRoman += "V"; num -= 5;}
+        else if(num>=4) {miniRoman += "IV"; num -= 4;}
+        else{ miniRoman += "I"; num--;}
     }
-
-    return result;
+    return miniRoman;
 }
