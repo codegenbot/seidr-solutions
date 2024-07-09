@@ -22,10 +22,10 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         pq.push(arr[i]);
     }
 
-    std::vector<int> result(k, 0);
+    std::vector<int> result;
 
     for(int i = 0; i < k && !pq.empty(); i++) {
-        result[i] = pq.top();
+        result.push_back(pq.top());
         pq.pop();
     }
 
@@ -40,7 +40,7 @@ int main() {
     std::cout << "Enter the value of k: ";
     std::cin >> k;
 
-    std::vector<int> arr(n); 
+    std::vector<int> arr(arr.size()); 
     std::cout << "Enter elements: ";
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element at index " << i << ": ";

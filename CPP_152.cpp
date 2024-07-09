@@ -1,4 +1,7 @@
-bool same(std::vector<int> a, std::vector<int> b) {
+#include <iostream>
+#include <vector>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++){
@@ -39,7 +42,7 @@ int main() {
             guess.push_back(temp);
         }
     }
-    if(same(game, guess)){
+    if(issame(game, guess)){
         std::cout << "The two vectors are the same.\n";
     } else {
         std::vector<int> result = compare(game, guess);

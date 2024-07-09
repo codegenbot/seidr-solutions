@@ -1,3 +1,26 @@
+#include <vector>
+#include <string>
+
+bool isPlanet(string planet) {
+    string planets[] = {"Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    for (const string& p : planets) {
+        if (p == planet)
+            return true;
+    }
+    return false;
+}
+
+vector<string> bf(string planet1, string planet2) {
+    vector<string> result;
+    if (isPlanet(planet1) && isPlanet(planet2)) {
+        if (planet1 < planet2)
+            result.push_back(planet1);
+        else
+            result.push_back(planet2);
+    }
+    return result;
+}
+
 int main() {
     cout << "Enter two planets separated by space: ";
     string planet1, planet2;
