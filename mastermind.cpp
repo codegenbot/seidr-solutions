@@ -5,18 +5,10 @@ int mastermind(string code, string guess) {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-        }
-    }
-
-    set<char> code_set(code.begin(), code.end());
-    set<char> guess_set(guess.begin(), guess.end());
-
-    for (char c : code_set) {
-        if (guess_set.count(c)) {
+        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
             white++;
-            guess_set.erase(c);
         }
     }
 
-    return make_pair(white, black).second;
+    return {black, white};
 }
