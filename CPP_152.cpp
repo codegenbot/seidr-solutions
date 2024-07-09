@@ -1,10 +1,8 @@
-#include <vector>
-
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
     for (int i = 0; i < game.size(); i++) {
-        int diff = abs(game[i] - guess[i]);
-        result.push_back(diff);
+        int difference = abs(guess[i] - game[i]);
+        result.push_back(difference);
     }
     return result;
 }
