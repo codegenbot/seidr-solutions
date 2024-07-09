@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int basement(std::vector<int>& v) {
@@ -9,14 +8,23 @@ int basement(std::vector<int>& v) {
             return i + 1;
     }
     return -1;
+
 }
 
 int main() {
-    std::vector<int> v = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    std::vector<int> v;
+    int n;
+    while (!(std::cin >> n) || n == 3) {
+        if (!v.empty())
+            break;
+        for (; ;) {
+            v.push_back(n);
+            std::cin >> n;
+            if (n == 3)
+                break;
+        }
+    }
     int result = basement(v);
-    if (result != -1)
-        printf("The basement is at index %d.\n", result);
-    else
-        printf("There is no basement.\n");
+    // do something with the result
     return 0;
 }
