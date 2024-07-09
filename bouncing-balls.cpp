@@ -16,7 +16,8 @@ int main() {
         totalDistance += pow(2, -bouncinessIndex) * startHeight;
     }
 
-    cout << fixed << setprecision(5) << totalDistance << endl;
+    cout.precision(5);
+    cout << fixed << totalDistance << endl;
 
     return 0;
 }
