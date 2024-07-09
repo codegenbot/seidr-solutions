@@ -12,14 +12,15 @@ string string_to_md5(string text) {
     unsigned char result[EVP_MAX_MD_SIZE];
     EVP_MD_CTX md_ctx;
     EVP_MD *md = EVP_get_digestbyname("MD5");
+    EVP_Memory_RWPtr mem_ctx, out_len;
     size_t len;
     
     EVP_DigestInit_ex(&md_ctx, md, 0);
     EVP_DigestUpdate(&md_ctx, text.c_str(), text.size());
-    EVP_DigestFinal_ex(&md_ctx, result, &len);
+    EVP_DigestFinal_ex(&md_ctx, result, &out_len);
     
     stringstream ss;
-    for(int i = 0; i < len; i++) {
+    for(int i = 0; i < out_len; i++) {
         ss << setfill('0') << setw(2) << hex << (int)result[i];
     }
     
