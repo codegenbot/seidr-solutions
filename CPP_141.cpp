@@ -10,7 +10,7 @@ std::string file_name_check(std::string file_name) {
         }else if(c == '.'){
             foundDot = true;
         }else if(foundDot){
-            std::string extension = file_name.substr(i);
+            string extension = file_name.substr(i);
             if(extension != "txt" && extension != "exe" && extension != "dll"){
                 return "No";
             }
