@@ -1,20 +1,22 @@
-```cpp
-#include <iostream>
+#include <cctype>
 #include <string>
+#include <iostream>
 
-std::string flip_case(const std::string& str) {
-    std::string result = str; 
+std::string filp_case(const std::string& str) {
+    std::string result = str;
     for (char &c : result) {
-        if ((c >= 'a' && c <= 'z')) {
-            c = c + ('A' - 'a');
-        } else if ((c >= 'A' && c <= 'Z')) {
-            c = c + ('a' - 'A');
+        if (std::islower(c)) {
+            c = std::toupper(c);
+        } else if (std::isupper(c)) {
+            c = std::tolower(c);
         }
     }
     return result;
 }
 
 int main() {
-    std::cout << flip_case("These violent delights have violent ends") << std::endl;
+    std::string input;
+    input = std::string(std::istreambuf_iterator<char>(std::cin), {});
+    std::cout << filp_case(input) << std::endl;
     return 0;
 }

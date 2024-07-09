@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() == 0 && b.size() == 0) return true;
@@ -41,7 +41,8 @@ int main() {
         numbers.push_back(num);
     }
     
-    std::vector<int> uniqueNumbers = removeDuplicates(numbers);
+    std::vector<int> uniqueNumbers = numbers;
+    std::sort(uniqueNumbers.begin(), uniqueNumbers.end());
     
     if (!issame(numbers, uniqueNumbers)) {
         std::cout << "Unique numbers: ";
