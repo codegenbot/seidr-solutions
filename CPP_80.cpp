@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cassert>
 #include <iostream>
@@ -9,11 +10,7 @@ bool is_happy(std::string s) {
         std::string sub = s.substr(i, 3);
         bool unique = true;
         for (char c : sub) {
-            int count = 0;
-            for (int j = i; j < i + 3; j++) {
-                if (s[j] == c)
-                    count++;
-            }
+            int count = std::count(s.begin(), s.end(), c);
             if (count > 1) {
                 unique = false;
                 break;
@@ -35,3 +32,4 @@ int main() {
     else
         std::cout << "The string is not happy." << std::endl;
     return 0;
+}
