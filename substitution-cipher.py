@@ -4,8 +4,7 @@ key2 = input("Enter the second key string: ")
 
 cipher_dict = {}
 for char1, char2 in zip(key1, key2):
-    if char1 != ' ' and char2 != ' ':  
-        cipher_dict[char1] = char2
+    cipher_dict[char1] = char2
 
 result = ""
 message = input("Enter the message to decipher: ")
