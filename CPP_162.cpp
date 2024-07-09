@@ -1,17 +1,30 @@
 #include <iostream>
 #include <string>
+#include <openssl/ssl.h>
 
-std::string string_to_md5(const std::string& text) {
-    const unsigned int md5Len = 16;
-    unsigned char result[md5Len];
-    for (int i = 0; i < md5Len; ++i)
-        result[i] = (text[i % text.length()] + i) % 256;
+std::string string_to_md5(std::string text) {
+    if (text.empty()) return "";
 
-    std::string md5Hash;
-    for (unsigned int i = 0; i < md5Len; ++i)
-        md5Hash += sprintf("%02x", &result[i]);
+    unsigned char md5[16];
+    EVP_MD_CTX mdctx;
+    EVP_PKEY *md5_sig = EVP_get_digestbyname("MD5");
+    EVP_DigestInit(&mdctx, md5_sig);
+    const char* p = text.c_str();
+    while (*p) {
+        EVP_DigestUpdate(&mdctx, p, 1);
+        p++;
+    }
+    unsigned int len;
+    EVP_DigestFinal(&mdctx, md5, &len);
 
-    return md5Hash;
+    std::string result;
+    for (int i = 0; i < 16; ++i) {
+        char buf[3];
+        sprintf(buf, "%02x", md5[i]);
+        result.append(2, buf);
+    }
+
+    return result;
 }
 
 int main() {
