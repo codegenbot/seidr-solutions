@@ -1,13 +1,11 @@
-Here is the solution:
-
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // or any other value that represents None
+    if (lst.size() < 2) return -1; // Return None is equivalent to -1 here
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    for (int i = 0; i < sorted.size() - 1; i++) {
-        if (sorted[i] != sorted[i + 1]) {
-            return sorted[i + 1];
+    for (auto it = sorted.begin(); it != prev(sorted.end()); ++it) {
+        if (*it != *(prev(it))) {
+            return *it;
         }
     }
-    return -1; // or any other value that represents None
+    return -1; // Return None is equivalent to -1 here
 }
