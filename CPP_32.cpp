@@ -1,9 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
+using namespace std;
 
-double find_zero(const std::vector<double> coeffs){
+double find_zero(vector<double> coeffs){
     double sum = 0;
     for (int i = 1; i < coeffs.size(); i++) {
         if (i % 2 == 0) {
@@ -13,7 +13,7 @@ double find_zero(const std::vector<double> coeffs){
     return -sum / coeffs[0];
 }
 
-double poly(const std::vector<double> coeffs, double x) {
+double poly(vector<double> coeffs, double x) {
     double result = 0;
     for(int i = 0; i < coeffs.size(); i++) {
         if(i % 2 == 1) {
@@ -23,14 +23,14 @@ double poly(const std::vector<double> coeffs, double x) {
     return result;
 }
 
-int main() {
-    std::vector<double> coeffs(4, 0);            
+int main(){
+    vector<double> coeffs(4);            
     coeffs[0] = 1.0; coeffs[1] = -7.0; coeffs[2] = 12.0; coeffs[3] = -6.0;
     double solution = find_zero(coeffs);
     if (abs(poly(coeffs, solution)) > 1e-3) {
-        std::cout << "Error: The zero of the polynomial is not accurate." << std::endl;
+        cout << "Error: The zero of the polynomial is not accurate." << endl;
     } else {
-        std::cout << "The zero of the polynomial is: " << solution << std::endl;
+        cout << "The zero of the polynomial is: " << solution << endl;
     }
     return 0;
 }
