@@ -2,25 +2,22 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string substitutionCipher(string cipher1, string cipher2, string message) {
-    string decipheredMessage;
-    for (int i = 0; i < message.length(); i++) {
-        int index = message[i];
-        if (index >= 97 && index <= 122) {
-            index -= 97;
-            decipheredMessage += cipher2[index];
+std::string decipher(std::string cipher_map, std::string text) {
+    std::string result = "";
+    for (int i = 0; i < text.length(); i++) {
+        if (cipher_map.find(text[i]) != std::string::npos) {
+            int index = cipher_map.find(text[i]);
+            result += cipher_map[index];
         } else {
-            decipheredMessage += message[i];
+            result += text[i];
         }
     }
-    return decipheredMessage;
+    return result;
 }
 
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    cout << substitutionCipher(cipher1, cipher2, message) << endl;
+    std::string cipher_map, text;
+    std::cin >> cipher_map >> text;
+    std::cout << decipher(cipher_map, text) << std::endl;
     return 0;
 }
