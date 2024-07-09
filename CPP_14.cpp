@@ -1,6 +1,6 @@
-```c++
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
