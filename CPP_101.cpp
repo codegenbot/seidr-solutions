@@ -1,18 +1,41 @@
-vector<string> words_string(string s) {
-    vector<string> result;
-    string word = "";
-    for (char c : s) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
+#include <algorithm>
+#include <cassert>
+#include <initializer_list>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<string> words_string(string str) {
+    vector<string> words;
+    string word;
+    for(int i = 0; i < str.length(); i++) {
+        if(str[i] == ' ') {
+            words.push_back(word);
+            word = "";
         } else {
-            word += c;
+            word += str[i];
         }
     }
-    if (!word.empty()) {
-        result.push_back(word);
+    words.push_back(word);
+    return words;
+}
+
+bool isSameVectors(vector<string> a, vector<string> b) { 
+    if(a.size() != b.size()) {
+        return false;
     }
-    return result;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int testMain() {
+    vector<string> v1 = words_string("ahmed     , gamal");
+    sort(v1.begin(), v1.end()); // Sort the vectors to compare correctly
+    assert(isSameVectors(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    return 0;
 }
