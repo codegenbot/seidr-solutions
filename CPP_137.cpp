@@ -1,4 +1,3 @@
-
 #include <variant>
 #include <string>
 #include <cassert>
@@ -19,15 +18,12 @@ auto compare_one(const variant<int, float, string>& a, const variant<int, float,
             return b;
     }
     else if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
-        if (stof(get<string>(a)) > stof(get<string>(b)))
+        float a_float = stof(get<string>(a));
+        float b_float = stof(get<string>(b));
+        if (a_float > b_float)
             return a;
-        else if (stof(get<string>(a)) < stof(get<string>(b)))
+        else if (a_float < b_float)
             return b;
     }
     return variant<int, float, string>(); // Return default-constructed std::variant
-}
-
-int main() {
-    assert (get<string>(compare_one(string("1"), string("2"))) == "None");
-    return 0;
 }
