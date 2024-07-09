@@ -1,6 +1,35 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
+
+bool isPlanet(string planet);
+bool issame(vector<string> a, vector<string> b);
+vector<string> mybf(string planet1, string planet2);
+
+bool main() {
+    cout << "Enter two planets separated by space: ";
+    string planet1, planet2;
+    cin >> planet1 >> planet2;
+    vector<string> result = mybf(planet1, planet2); 
+    if (result.empty()) {
+        cout << "Planets not found.\n";
+    } else {
+        cout << "Planets in order are: ";
+        for (const string& planet : result) {
+            cout << planet << " ";
+        }
+        cout << "\n";
+
+        vector<string> b = {planet1, planet2};
+        if(issame(result,b)){
+            cout << "The planets are the same.\n";
+        } else {
+            cout << "The planets are different.\n";
+        }
+    }
+
+    return !result.empty();
+}
 
 bool isPlanet(string planet) {
     string planets[] = {"Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -19,7 +48,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> result(string planet1, string planet2) { 
+vector<string> mybf(string planet1, string planet2) { 
     vector<string> result;
     if (isPlanet(planet1) && isPlanet(planet2)) {
         if (planet1 < planet2)
@@ -29,29 +58,4 @@ vector<string> result(string planet1, string planet2) {
     }
     return result;
 
-}
-
-int main() {
-    cout << "Enter two planets separated by space: ";
-    string planet1, planet2;
-    cin >> planet1 >> planet2;
-    vector<string> temp = {planet1, planet2};
-    vector<string> result = mybf(planet1, planet2); 
-    if (result.empty()) {
-        cout << "Planets not found.\n";
-    } else {
-        cout << "Planets in order are: ";
-        for (const string& planet : result) {
-            cout << planet << " ";
-        }
-        cout << "\n";
-
-        if(issame(result,temp)){
-            cout << "The planets are the same.\n";
-        } else {
-            cout << "The planets are different.\n";
-        }
-    }
-
-    return 0;
 }
