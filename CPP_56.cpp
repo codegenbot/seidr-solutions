@@ -1,12 +1,14 @@
-```cpp
-bool correct_bracketing(string brackets) {
-    int open = 0;
-    for (char c : brackets) {
-        if (c == '<') open++;
-        else if (c == '>') {
-            if (open == 0) return false;
-            open--;
+#include <string>
+
+bool correct_bracketing(string brackets){
+    int count = 0;
+    for(int i=0; i<brackets.size(); i++){
+        if(brackets[i] == '<'){
+            count++;
+        }
+        else if(brackets[i] == '>'){
+            if(count <= 0) return false;
+            count--;
         }
     }
-    return open == 0;
-}
+    return count == 0;
