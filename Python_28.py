@@ -1,14 +1,6 @@
-from typing import List
-
-
-def concatenate(strings: List[str]) -> str:
-    print(
-        "Enter the strings to be concatenated, each on a new line. Type 'done' when you're finished."
-    )
-    input_strings = []
-    while True:
-        user_input = input()
-        if user_input.lower() == "done":
-            break
-        input_strings.append(user_input)
-    return "".join(input_strings)
+```
+def count_vowels_and_consonants(input_string: str) -> (int, int):
+    vowels = 'aeiouAEIOU'
+    vowel_count = sum(1 for char in input_string if char in vowels)
+    consonant_count = len(input_string) - vowel_count
+    return vowel_count, consonant_count
