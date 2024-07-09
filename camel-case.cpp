@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -29,3 +29,4 @@ int main() {
     std::cout << kebabToCamel(input) << std::endl;
 
     return 0;
+}
