@@ -15,10 +15,5 @@ bool is_same(float a, float b){
 }
 
 int main() {
-    vector<float> numbers = {1.5, -2.3, 3.7, -4.1, 5.2};
-    vector<float> positive_numbers = get_positive(numbers);
-    for (float num : positive_numbers) {
-        cout << num << " ";
-    }
     return 0;
 }
