@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,24 +13,32 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
 
 std::vector<std::string> words_string(std::string s){
     std::vector<std::string> result;
+    int size = 2;
+    std::vector<std::string>().swap(result);
+    result.reserve(size);
+
     std::string word = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
-            if(word.size() <= 100){ // Limit string size
+            if(!word.empty()){
+                if(result.size() >= size) {
+                    result.resize(result.capacity()*2 + 1);
+                    size *= 2;
+                }
                 result.push_back(word);
                 word = "";
-            }else{
-                word.resize(100); // Resize the word to fit in vector
-                result.push_back(word);
-                word.resize(0); // Reset the word for next iteration
             }
         }else{
-            if(word.size() < 100) // Limit string size while adding characters
-                word += s[i];
+            word += s[i];
         }
     }
-    if(word.size() <= 100)
-        result.push_back(word);
+    if(!word.empty())
+        if(result.size() >= size) {
+            result.resize(result.capacity()*2 + 1);
+            size *= 2;
+        }
+        else result.push_back(word);
+
     return result;
 }
 
