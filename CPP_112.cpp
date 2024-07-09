@@ -1,3 +1,7 @@
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> reverse_delete(string s, string c) {
     string res = "";
     for (char ch : s) {
@@ -20,10 +24,6 @@ vector<string> reverse_delete(string s, string c) {
         result.push_back("True");
     else
         result.push_back("False");
-    
-    bool issame(string a, string b) {
-        return a == reverse(b);
-    }
     
     return result;
 }
