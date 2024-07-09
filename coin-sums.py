@@ -1,10 +1,10 @@
 def coin_sums(cents):
-    coins = [25, 10, 5, 1]
+    coins = [2500, 100, 50, 1]
     result = [0, 0, 0, 0]
 
-    for i, coin in enumerate(reversed(coins)):
-        count = int(cents // coin)
+    for coin in coins:
+        count = int(cents / coin)
         cents %= coin
-        result[i] += count
+        result[coins.index(coin)] += count
 
-    return tuple(result)
+    return str(count) + '\n' + ' '.join(map(str, result))
