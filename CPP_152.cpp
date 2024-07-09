@@ -37,15 +37,14 @@ int main() {
         game.push_back(temp);
     }
     
-    // Create a new vector and reserve space
-    std::vector<int> guess;
-    guess.resize(n);
+    // Create a new vector with desired size
+    std::vector<int> guess(n);
     
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
-        guess.push_back(temp);
+        guess[i] = temp;
     }
     
     if(issame(game, guess))
