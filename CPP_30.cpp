@@ -1,19 +1,9 @@
-#include<vector>
+#include <vector>
 
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
-    for (float num : l) {
-        if (num > 0) {
-            result.push_back(num);
-        }
-    }
-    return result;
-}
-
-bool is_same(float a, float b) {
+bool issame(const vector<float>& a, const vector<float>& b){
     return a == b;
 }
 
-int main() {
-    return 0;
+int main(){
+    assert(issame(get_positive({}), {}));
 }

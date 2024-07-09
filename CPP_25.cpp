@@ -1,11 +1,13 @@
 #include <vector>
 #include <cassert>
 
-vector<int> factors;
-for (int i = 2; i <= n; ++i) {
-    while (n % i == 0) {
-        factors.push_back(i);
-        n /= i;
+std::vector<int> findPrimeFactors(int n) {
+    std::vector<int> factors;
+    for (int i = 2; i <= n; ++i) {
+        while (n % i == 0) {
+            factors.push_back(i);
+            n /= i;
+        }
     }
+    return factors;
 }
-return factors;
