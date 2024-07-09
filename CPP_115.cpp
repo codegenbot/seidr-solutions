@@ -1,10 +1,11 @@
 #include <vector>
-#include <algorithm>
+#include <numeric>
 
-double max_fill(vector<vector<int>> grid, int capacity) {
-    double total_water = 0;
-    for (int i = 0; i < grid.size(); i++) {
+int max_fill(vector<vector<int>> grid, int capacity) {
+    int n = grid.size();
+    int total_water = 0;
+    for (int i = 0; i < n; i++) {
         total_water += std::accumulate(grid[i].begin(), grid[i].end(), 0);
     }
-    return ceil(total_water / capacity);
+    return static_cast<int>(std::ceil((double)total_water / capacity));
 }
