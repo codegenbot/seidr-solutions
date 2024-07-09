@@ -1,16 +1,10 @@
 ```
-#include <boost/any.hpp>
-#include <string>
-#include <algorithm>
-
-using namespace boost;
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)b > a.convert_to<int>() ? b : a;
+        return boost::any((int)b > a.convert_to<int>() ? b : a);
     }
     else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (double)b > a.convert_to<double>() ? b : a;
+        return boost::any((int)b > a.convert_to<int>() ? b : a);
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         return (float)a > b.convert_to<float>() ? a : boost::any("None");
