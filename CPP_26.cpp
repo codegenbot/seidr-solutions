@@ -1,4 +1,5 @@
-```cpp
+#define _SOFARuntimeChecks 0
+#include <memory>
 #include <iostream>
 #include <vector>
 #include <algorithm>
