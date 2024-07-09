@@ -1,3 +1,3 @@
-double num = stod(value);
-    return round(num);
+float num = stof(value);
+    return num >= 0 ? floor(num + 0.5) : ceil(num - 0.5);
 }
