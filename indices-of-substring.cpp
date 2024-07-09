@@ -1,7 +1,11 @@
-```c++
 #include <vector>
 #include <string>
 using namespace std;
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Werror"
+#include <initializer_list>
+#pragma GCC diagnostic pop
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
@@ -22,17 +26,15 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
 
     return result;
+
 }
 
 int main() {
-    string text, target;
-    cout << "Enter the text: ";
-    cin >> text;
-    cout << "Enter the target: ";
-    cin >> target;
+    string text = "hello world";
+    string target = "world";
     vector<int> result = indicesOfSubstring(text, target);
     for (int i : result) {
-        cout << i << " ";
+        cout << i << endl;
     }
     return 0;
 }
