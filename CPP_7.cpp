@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool same(vector<string> a, vector<string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -17,11 +17,12 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
         }
     }
     return result;
+
 }
 
-int main_test() {
+int main() {
     vector<string> expected = {"grunt", "prune"};
     vector<string> actual = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    assert(same(actual, expected));
+    assert(issame(actual, expected));
     return 0;
 }
