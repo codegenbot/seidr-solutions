@@ -1,4 +1,4 @@
-```cpp
+```
 #include <openssl/evp.h>
 #include <string>
 #include <cassert>
@@ -27,7 +27,6 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    string result = string_to_md5("password");
-    assert(result == "5f4dcc3b5aa765d61d8327deb882cf99");
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
