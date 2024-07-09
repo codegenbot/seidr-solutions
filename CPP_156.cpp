@@ -2,26 +2,23 @@
 #include <vector>
 #include <string>
 
-vector<pair<int, string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, 
-                                     {400, "CD"}, {100, "C"}, {90, "XC"},
-                                     {50, "L"}, {40, "XL"}, {10, "X"}, 
-                                     {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-
-string int_to_mini_roman(int number) {
-    string result;
-    for (const auto& pair : roman) {
-        while (number >= pair.first) {
-            result += pair.second;
-            number -= pair.first;
+std::string int_to_roman(int number) {
+    std::vector< std::pair<int, std::string> > romans = {{1000,"M"},{900,"CM"},{500,"D"},{400,"CD"},{100,"C"},{90,"XC"},
+                                                         {50,"L"},{40,"XL"},{10,"X"},{9,"IX"},{5,"V"},{4,"IV"},{1,"I"}};
+    std::string roman = "";
+    for (auto p : romans) {
+        while (number >= p.first) {
+            number -= p.first;
+            roman += p.second;
         }
     }
-    return result;
+    return roman;
 }
 
 int main() {
     int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    cout << "The Roman numeral for the number is: " << int_to_mini_roman(num) << endl;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::cout << "Roman numeral: " << int_to_roman(num) << std::endl;
     return 0;
 }
