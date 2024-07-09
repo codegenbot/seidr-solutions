@@ -15,6 +15,6 @@ vector<int> removeDuplicates(vector<int>& l) {
 }
 
 int main() {
-    assert(issame(removeDuplicates({5, 3, 5, 2, 3, 3, 9, 0, 123}), removeDuplicates({5, 3, 5, 2, 3, 3, 9, 0, 123}));
+    assert(issame(removeDuplicates({5, 3, 5, 2, 3, 3, 9, 0, 123}), removeDuplicates({0, 2, 3, 5, 9, 123})));
     return 0;
 }
