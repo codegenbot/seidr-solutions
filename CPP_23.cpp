@@ -1,6 +1,6 @@
-```
 #include <string>
 #include <cstring>
+#include <cassert>
 
 int myStringLen(const std::string& str) {
     int len = 0;
@@ -13,4 +13,3 @@ int myStringLen(const std::string& str) {
 int main() {
     assert(myStringLen("asdasnakj") == 11);
     return 0;
-}
