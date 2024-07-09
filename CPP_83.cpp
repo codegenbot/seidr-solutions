@@ -17,14 +17,21 @@ int main() {
 
 int starts_one_ends(int n) {
     int count = 0;
-    for (int i = 1; i <= 9; i++) {
+    for (int i = 1; i <= pow(10, n-1); i++) {
         if (i == 1 || i % 10 == 1) {
             count++;
         }
-        for (int j = 1; j < i; j++) {
-            if (j % 10 != 1 && j / 10 != 1) {
+        string str = to_string(i);
+        bool flag = true;
+        for (char c : str) {
+            if (c != '1') {
+                flag = false;
                 break;
             }
         }
+        if (!flag) {
+            continue;
+        }
+        count++;
     }
     return count;
