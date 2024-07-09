@@ -5,7 +5,8 @@ bool is_happy(int n);
 
 int main() {
     std::cout << "Enter a number: ";
-    int num = 19; 
+    int num;
+    std::cin >> num;
     if (is_happy(num)) {
         std::cout << num << " is a happy number.\n";
     } else {
