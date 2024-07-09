@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -15,11 +16,9 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst; 
-    int n = 0;
+    float input; int n = 0; std::vector<float> lst;
 
     while (1) {
-        float input; 
         std::cout << "Enter a number (negative to stop): ";
         std::cin >> input;
         
