@@ -16,17 +16,11 @@ std::vector<std::string> words_string(std::string s){
     std::string word = "";
     for(int i=0; i<s.length(); i++){
         if(s[i] == ' ' || s[i] == ','){
-            if(word.size() > 30) {
-                // Trim the word to fit in the 30 character limit
-                if(word.size()>30){
-                    result.push_back(word.substr(0,30));
-                    word = word.substr(30);
-                }else{
-                    result.push_back(word);
-                    word = "";
-                }
-            }else{
-                if(word.size() <= 30){ 
+            if(word.size() <= 30){ 
+                result.push_back(word);
+                word = "";
+            } else {
+                if (word.size() > 0) {
                     result.push_back(word);
                     word = "";
                 }
@@ -35,11 +29,14 @@ std::vector<std::string> words_string(std::string s){
             word += s[i];
         }
     }
-    if(word.size() <= 30) 
+    if(word.size() <= 30)  
+        result.push_back(word);
+    else if (word.size() > 0)
         result.push_back(word);
     return result;
 }
 
 int main(){
-    assert (issame(words_string("ahmed     , gamal") , std::vector<std::string> {"ahmed", "gamal"}));
+    assert(issame(words_string("ahmed     , gamal"), std::vector<std::string>{"ahmed", "gamal"}));
+    return 0;
 }
