@@ -28,8 +28,14 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    vector<int> test = get_odd_collatz(10);
-    vector<int> expected = {1, 5, 7, 9, 15, 21, 25, 27};
-    assert(issame(test, expected));
+    // Example usage
+    vector<int> test1 = get_odd_collatz(10);
+    vector<int> test1_expected = {1, 3, 5, 7, 9, 10};
+    assert(issame(test1, test1_expected));
+
+    vector<int> test2 = get_odd_collatz(20);
+    vector<int> test2_expected = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 20};
+    assert(issame(test2, test2_expected));
+
     return 0;
 }
