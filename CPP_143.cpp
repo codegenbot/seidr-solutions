@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 
-std::vector<std::string> words_in_sentence(std::string sentence) {
+std::vector<std::string> words_in_sentence(const std::string& sentence) {
     if (sentence.empty()) {
         return {};
     }
@@ -22,8 +22,6 @@ std::vector<std::string> words_in_sentence(std::string sentence) {
         }
 
         if (isPrime) {
-            wordLengths.push_back(std::to_string(length));
-        } else {
             wordLengths.push_back(std::to_string(length));
         }
     }
