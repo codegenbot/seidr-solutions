@@ -11,7 +11,7 @@ bool issame(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     }
     if (sum1 < sum2) return true;
     else if (sum1 > sum2) return false;
-    else return true;  // or you can return false here
+    else return true;  
 }
 
 int main() {
