@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-std::string longest(const std::vector<std::string>& strings) {
+std::string maxLengthString(const std::vector<std::string>& strings) {
     if(strings.empty()) return "";
     std::string result = strings[0];
     for(auto str : strings){
@@ -16,5 +16,5 @@ std::string longest(const std::vector<std::string>& strings) {
 }
 
 int main() {
-    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    assert(maxLengthString({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
 }
