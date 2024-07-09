@@ -1,24 +1,4 @@
 #include <string>
-#include <vector>
-#include <iostream>
-
-using namespace std;
-
-vector<string> split_words(string txt);
-
-int main(){
-    string input;
-    getline(cin, input);
-
-    vector<string> result = split_words(input);
-
-    for(const string& word : result){
-        cout << word << " ";
-    }
-
-    return 0;
-}
-
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
