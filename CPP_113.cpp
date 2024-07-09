@@ -1,21 +1,27 @@
+#include <iostream>
 #include <vector>
-#include <string>
 
-bool issame(char a, char b) {
-    return a == b;
-}
+using namespace std;
 
-vector<string> odd_count(vector<string> lst) {
-    vector<string> res;
-    for (string s : lst) {
-        int count = 0;
-        for (char c : s) {
+vector<string> countOddElements(vector<string> lst) {
+    vector<string> result;
+    for (string str : lst) {
+        int oddCount = 0;
+        for (char c : str) {
             if ((c - '0') % 2 != 0) {
-                count++;
+                oddCount++;
             }
         }
-        string output = "The number of odd elements " + to_string(count) + " in the string " + s + " of the input.";
-        res.push_back(output);
+        result.push_back("The number of odd elements " + to_string(oddCount) + " in the string \"" + str + "\" of the input.");
     }
-    return res;
+    return result;
+}
+
+int main() {
+    vector<string> input = {"271", "137", "314"};
+    vector<string> output = countOddElements(input);
+    for (string s : output) {
+        cout << s << endl;
+    }
+    return 0;
 }
