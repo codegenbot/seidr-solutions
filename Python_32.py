@@ -1,3 +1,4 @@
+
 def find_zero(xs: list):
     n = len(xs)
     if n < 2:
@@ -6,7 +7,9 @@ def find_zero(xs: list):
     b = xs[-2]
     return -b / a
 
+# Read input from user
+xs = list(map(float, input().strip().split()))
 
-xs = list(map(float, input().split()))
+# Call the function with user input
 result = find_zero(xs)
 print(result)
