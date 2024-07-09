@@ -1,4 +1,4 @@
-int main 
+int main
 {
     int n, m;
     std::cout << "Enter two numbers: ";
