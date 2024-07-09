@@ -6,25 +6,26 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 }
 
 int get_odd_collatz(int n) {
-    std::vector<int> sequence;
+    int sequence[50] = {0};
+    int i = 0;
     
-    while(n != 1) {
+    while(n != 1 && i < 49) {
         if(n % 2)
             n = 3*n + 1;
         else
             n /= 2;
         
-        sequence.push_back(n);
+        sequence[i++] = n;
     }
     
-    for(auto num : sequence) {
-        std::cout << num << " ";
+    for(int j = 0; j < i; j++) {
+        std::cout << sequence[j] << " ";
     }
     
     std::cout << std::endl;
 }
 
-int main() {
+int solver() {
     int num;
     std::cin >> num;
     get_odd_collatz(num);
