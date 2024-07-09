@@ -1,17 +1,15 @@
-#include <vector>
+vector<pair<float, float>> closest_pairs;
 
-using namespace std;
-
-pair<float, float> find_closest_elements(vector<float> numbers) {
-    pair<float, float> result = make_pair(numbers[0], numbers[0]);
-    
-    for (int i = 1; i < numbers.size(); ++i) {
-        for (int j = i + 1; j < numbers.size(); ++j) {
-            if (abs(numbers[i] - numbers[j]) < abs(result.first - result.second)) {
-                result = make_pair(min(numbers[i], numbers[j]), max(numbers[i], numbers[j]));
-            }
-        }
+for (int i = 0; i < numbers.size() - 1; ++i) {
+    for (int j = i + 1; j < numbers.size(); ++j) {
+        pair<float, float> pair {numbers[i], numbers[j]};
+        closest_pairs.push_back(pair);
     }
-    
-    return result;
 }
+
+pair<float, float> min_pair = *min_element(closest_pairs.begin(), closest_pairs.end(),
+    [](const auto& a, const auto& b) {
+        return abs(a.first - a.second) > abs(b.first - b.second);
+    });
+
+return vector<float> {min_pair.first, min_pair.second};
