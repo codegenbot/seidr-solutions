@@ -1,22 +1,41 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool issame(int a, int b) {
+    return abs(a - b) == 1;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k){
-    vector<int> result;
-    for(int i = 0; i < k; ++i){
-        result.push_back(grid[i % grid.size()][i / grid.size()]);
+int minPathHelper(vector<vector<int>>& grid, int row, int col, int k, vector<vector<int>>& memo) {
+    if (row >= grid.size() || col >= grid[0].size()) {
+        return INT_MAX;
     }
-    return result;
+    
+    if (row == grid.size() - 1 && col == grid[0].size() - 1) {
+        return grid[row][col];
+    }
+    
+    if (memo[row][col] != -1) {
+        return memo[row][col];
+    }
+    
+    int cost = grid[row][col];
+    
+    int right = minPathHelper(grid, row, col + 1, k, memo);
+    int down = minPathHelper(grid, row + 1, col, k, memo);
+    
+    if (issame(cost, right) && issame(cost, down)) {
+        return memo[row][col] = min(right, down);
+    }
+    
+    return memo[row][col] = cost + min(right, down);
 }
 
-int main(){
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+int minPath(vector<vector<int>> grid, int k) {
+    if (grid.empty()) {
+        return 0;
+    }
     
-    return 0;
+    vector<vector<int>> memo(grid.size(), vector<int>(grid[0].size(), -1));
+    
+    return minPathHelper(grid, 0, 0, k, memo);
 }
