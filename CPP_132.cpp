@@ -15,7 +15,7 @@ bool is_nested(string str) {
             }
         }
     }
-    return count > 0;
+    return count != 0;
 
 int main() {
     string input;
@@ -27,3 +27,4 @@ int main() {
         cout << "The string is not nested." << endl;
     }
     return 0;
+}
