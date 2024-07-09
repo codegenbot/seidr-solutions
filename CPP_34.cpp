@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -13,22 +15,23 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int findUnique(std::vector<int> vec) {
-    std::sort(vec.begin(), vec.end());
-    auto it = vec.begin();
-    while (it != vec.end()) {
+int solution() {
+    std::vector<int> uniqueVec = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    std::sort(uniqueVec.begin(), uniqueVec.end());
+    auto it = uniqueVec.begin();
+    while (it != uniqueVec.end()) {
         auto nextIt = it + 1;
-        while (nextIt != vec.end() && *it == *nextIt) {
+        while (nextIt != uniqueVec.end() && *it == *nextIt) {
             ++nextIt;
         }
         it = nextIt;
     }
-    std::vector<int> unique({*vec.begin(), *(vec.end()-1)});
-    return issame(unique, vec);
+    std::vector<int> result({*(uniqueVec.begin()), *(uniqueVec.end()-1)});
+    assert(issame(result, uniqueVec));
+    return 0;
 }
 
 int main() {
-    std::vector<int> uniqueVec = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    findUnique(uniqueVec);
+    solution();
     return 0;
 }
