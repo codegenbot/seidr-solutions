@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<vector<string>> a, vector<vector<string>> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,7 +16,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> by_length(vector<int> arr, vector<string> b) {
+vector<string> by_length(vector<int> arr) {
     vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
@@ -62,15 +63,25 @@ vector<string> by_length(vector<int> arr, vector<string> b) {
     return result;
 }
 
-int main_1() {
-    vector<int> input = {9, 4, 8};
-    vector<string> output = by_length(input, {""});
-    
-    if (issame({"Nine", "Four", "Eight"}, output)) {
-        for (string str : output) {
-            cout << str << endl;
+int main() {
+    vector<int> input;
+    cout << "Enter the numbers (1-9), each on a new line, and press Enter to stop: ";
+    int num;
+    while(true) {
+        cin >> num;
+        if(num < 0 || num > 9){
+            break;
         }
-    } else {
-        cout << "Output is incorrect." << endl;
+        input.push_back(num);
     }
+
+    vector<string> output = by_length(input);
+
+    cout << "The numbers in descending order with their English representations are: ";
+    for (string str : output) {
+        cout << str << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
