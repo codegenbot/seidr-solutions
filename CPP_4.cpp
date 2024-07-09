@@ -8,11 +8,12 @@ float mean(vector<float> numbers) {
 float mean_absolute_deviation(vector<float> numbers) {
     float sum = 0.0f;
     for (auto num : numbers) {
-        sum += std::abs(num - mean(numbers));
+        sum += abs(num - mean(numbers));
     }
     return sum / numbers.size();
 }
 
+#include <cmath>
 int main() {
     assert(std::abs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
 }
