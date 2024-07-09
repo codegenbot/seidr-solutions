@@ -10,8 +10,8 @@ bool check_dict_case(map<string, string>& dict) {
 
     for (auto it = dict.begin(); it != dict.end(); ++it) {
         if (!allUpper && !allLower) break;
-        if (allUpper) allUpper = tolower(it->first).find((char)0) == string::npos;
-        if (allLower) allLower = toupper(it->first).find((char)0) == string::npos;
+        if (allUpper) allUpper = tolower(it->first).find((char)0) == std::string::npos;
+        if (allLower) allLower = toupper(it->first).find((char)0) == std::string::npos;
     }
 
     return allUpper && allLower;
