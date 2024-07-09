@@ -1,5 +1,9 @@
 #include <vector>
-#include <algorithm>
+#include <limits>
+
+bool issame(vector<int> a, vector<int> b) {
+    return (a.size() == 0 && b.size() == 0);
+}
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
@@ -19,4 +23,8 @@ std::vector<int> pluck(std::vector<int> arr) {
     result.push_back(minIndex);
 
     return result;
+}
+
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}), {}));
 }
