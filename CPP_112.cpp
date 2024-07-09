@@ -1,25 +1,44 @@
-Here is the completed code:
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 vector<string> reverse_delete(string s, string c) {
-    string result = "";
-    for (char ch : s) {
+    vector<string> result;
+    string temp = "";
+    
+    for (int i = 0; i < s.length(); i++) {
         bool found = false;
-        for (char cc : c) {
-            if (ch == cc) {
+        for (int j = 0; j < c.length(); j++) {
+            if (s[i] == c[j]) {
                 found = true;
                 break;
             }
         }
+        
         if (!found) {
-            result += ch;
+            temp += s[i];
         }
     }
-    vector<string> output;
-    string reversed = "";
-    for (int i = result.length() - 1; i >= 0; i--) {
-        reversed += result[i];
+    
+    string strRev = "";
+    for(int i=temp.length()-1; i>=0; i--) {
+        strRev+=temp[i];
     }
-    output.push_back(result);
-    output.push_back((result == reversed) ? "True" : "False");
-    return output;
+
+    if (strRev == temp) {
+        result.push_back(temp);
+        result.push_back("True");
+    } else {
+        result.push_back(temp);
+        result.push_back("False");
+    }
+    
+    return result;
 }
