@@ -1,3 +1,5 @@
-```python
-def modp(n: int, p: int):
-    return pow(n, p - 1, p) % p
+def modinv(a: int, m: int):
+    if gcd(a, m) != 1:
+        return None
+    else:
+        return modp(a, m)
