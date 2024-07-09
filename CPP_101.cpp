@@ -1,20 +1,28 @@
-Here is the completed code:
+#include <vector>
+#include <string>
 
-vector<string> words_string(string s) {
-    vector<string> result;
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+std::vector<std::string> words_string(string s){
+    std::vector<std::string> result;
     string word = "";
-    for (char c : s) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' ' || s[i] == ','){
+            if(!word.empty()){
                 result.push_back(word);
                 word = "";
             }
-        } else {
-            word += c;
+        }else{
+            word += s[i];
         }
     }
-    if (!word.empty()) {
+    if(!word.empty())
         result.push_back(word);
-    }
     return result;
 }
