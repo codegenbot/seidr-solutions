@@ -1,13 +1,13 @@
+```cpp
 #include <string>
 #include <map>
-#include <utility>
 
 std::pair<int, int> mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
-    std::map<char, int> codeCount;
-    std::map<char, int> guessCount;
+    map<char, int> codeCount;
+    map<char, int> guessCount;
     for (int i = 0; i < 4; ++i) {
         codeCount[code[i]]++;
         guessCount[guess[i]]++;
@@ -22,7 +22,6 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
-            codeIndex = i + 1;
         }
     }
 
