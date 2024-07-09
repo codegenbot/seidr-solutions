@@ -1,13 +1,10 @@
 def solve(a, b, c):
-    try:
-        return -float(c) / float(b)
-    except ZeroDivisionError:
-        return "Error: Division by zero"
+    return -c / b if b != 0 else "Division by zero is not allowed!"
 
 
-a = int(input("Enter value for a: "))
-b = int(input("Enter value for b: "))
-c = int(input("Enter value for c: "))
-
-result = solve(a, b, c)
-print(result)
+try:
+    a, b, c = map(int, input().split())
+    result = solve(a, b, c)
+    print(result)
+except ValueError:
+    print("Invalid input. Please provide three integers separated by spaces.")
