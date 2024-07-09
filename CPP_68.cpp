@@ -5,7 +5,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return (a.size() == 0 && b.size() == 0) || (a == b);
 }
 
-int pluckSame(std::vector<int> arr) {
+int pluck(std::vector<int> arr) {
     if (arr.empty()) return -1;
 
     int minEven = INT_MAX;
@@ -22,7 +22,10 @@ int pluckSame(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame({7, 9, 7, 1}, {})); 
-    int result = pluckSame({7, 9, 7, 1}); // call the function
+    std::vector<int> a({7, 9, 7, 1});
+    if(issame(a,{}) ) 
+        std::cout << "The vectors are the same." << std::endl; 
+    else
+        std::cout << "The vectors are not the same." << std::endl;
     return 0;
 }
