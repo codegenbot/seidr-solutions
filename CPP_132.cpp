@@ -1,9 +1,18 @@
-int count = 0;
-for(int i = 0; i < str.length(); i++){
-    if(str[i] == '[') count++;
-    else if(str[i] == ']') {
-        if(count > 1) return true;
-        --count;
+Here is the completed code:
+
+```cpp
+bool is_nested(string str) {
+    int nesting = 0;
+    for (char c : str) {
+        if (c == '[') {
+            nesting++;
+        } else if (c == ']') {
+            if (nesting > 0) {
+                nesting--;
+            } else {
+                return false;
+            }
+        }
     }
+    return nesting > 0;
 }
-return false;
