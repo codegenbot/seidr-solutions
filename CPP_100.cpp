@@ -4,11 +4,11 @@
 
 using namespace std;
 
-bool operator==(const vector<int>& a, initializer_list<int> b) {
-    if (a.size() != distance(b.begin(), distance(b.end(), back_inserter(vector<int>(b))))) 
+bool operator==(const vector<int>& a, const initializer_list<int>& b) {
+    if (a.size() != distance(b.begin(), b.end()))
         return false;
     for (int i = 0; i < a.size(); ++i)
-        if (a[i] != *next(cbegin(b), i))
+        if (a[i] != *next(b.begin(), i))
             return false;
     return true;
 }
