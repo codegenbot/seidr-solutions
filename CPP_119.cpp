@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -29,11 +26,7 @@ int main() {
         std::getline(std::cin, s);
         if (!s.empty()) {
             bool isMatch = match_parens(s); 
-            if(isMatch) {
-                lst.push_back("Yes");
-            } else {
-                lst.push_back("No");
-            }
+            lst.push_back(isMatch ? "Yes" : "No");
         } else {
             lst.push_back("No");  
         }
