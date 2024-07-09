@@ -9,7 +9,7 @@ def match_parens(lst):
         elif s[0] == ')':
             close_count += 1
             
-        if len(s) != 2 or s[0] != s[1]:
+        if len(s) != 2 or (s[0] != '(' and s[0] != ')'):
             return 'No'
             
     if open_count == close_count:
