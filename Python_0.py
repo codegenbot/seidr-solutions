@@ -5,5 +5,4 @@ def check_numbers(numbers, threshold):
             return True
     return False
 
-# Fix the function call
 check_numbers(numbers, threshold)
