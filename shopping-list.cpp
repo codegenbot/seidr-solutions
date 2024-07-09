@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <iomanip>
 
 float shoppingList(const std::vector<float>& prices, const std::vector<float>& discounts) {
@@ -14,5 +13,7 @@ float shoppingList(const std::vector<float>& prices, const std::vector<float>& d
 int main() {
     std::vector<float> prices = {10.99, 5.99, 7.99};
     std::vector<float> discounts = {0, 20, 15};
-    std::cout << std::fixed << std::setprecision(2) << shoppingList(prices, discounts) << std::endl;
+
+    std::cout << std::fixed;
+    std::cout << std::setprecision(2) << shoppingList(prices, discounts) << std::endl;
 }
