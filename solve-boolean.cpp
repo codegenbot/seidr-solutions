@@ -1,4 +1,3 @@
-```cpp
 bool solveBoolean(std::string s) {
     int i = 0, n = s.length();
     bool res = true;
