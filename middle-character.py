@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 def middle_character(s):
     length = len(s)
     if length % 2 == 0:
