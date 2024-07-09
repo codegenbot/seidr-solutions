@@ -1,5 +1,6 @@
-#include <initializer_list>
+```cpp
 #include <vector>
+#include <initializer_list>
 
 int double_the_difference(std::vector<float> lst) {
     int odd_sum = 0;
