@@ -2,47 +2,52 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
+using namespace std;
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result = lst;
-    for (auto it = result.begin(); it != result.end();) {
-        if (it->length() % 2 == 1) {
-            it = result.erase(it);
-        } else {
-            ++it;
-        }
+bool issame(int x, int y) {
+    if (x > y) {
+        return false;
+    } else if (y > x) {
+        return true;
+    } else {
+        return false;
     }
-    sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             }
-             return a < b;
-         });
-    return result;
 }
 
 int main() {
-    vector<string> lst;
-    cout << "Enter the list of strings. Enter 'stop' to finish entering the list." << endl;
-    string s;
-    while (true) {
-        cin >> s;
-        if (s == "stop") break;
-        lst.push_back(s);
+    vector<string> lst = {"cat", "dog", "elephant", "a", "b"};
+    
+    // Sort the list by length and then alphabetically
+    sort(lst.begin(), lst.end(),
+        [](const string& a, const string& b) {
+            if (a.length() == b.length()) {
+                return a < b;
+            }
+            return a.length() < b.length();
+        });
+
+    for (auto i : lst)
+    {
+        cout << i << " ";
     }
-    vector<string> result = sorted_list_sum(lst);
-    cout << "The sum of strings is: ";
-    for (const auto& str : result) {
-        cout << str << " ";
-    }
-    cout << endl;
+
     return 0;
+}
+
+vector<string> sorted_list_sum(vector<string> lst) {
+    // Remove strings with odd lengths from the vector
+    lst.erase(remove_if(lst.begin(), lst.end(),
+        [](const string& s) { return s.length() % 2; }),
+        lst.end());
+
+    // Sort the remaining vector by length and then alphabetically
+    sort(lst.begin(), lst.end(),
+        [](const string& a, const string& b) {
+            if (a.length() == b.length()) {
+                return a < b;
+            }
+            return a.length() < b.length();
+        });
+
+    return lst;
 }
