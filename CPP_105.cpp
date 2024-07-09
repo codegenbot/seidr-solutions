@@ -62,13 +62,11 @@ vector<string> by_length(vector<int> arr) {
     return result;
 }
 
-int main 
-{
+int main() {
     vector<int> input = {9, 4, 8};
-    vector<string> output = by_length(input);
     
-    if (issame({"Nine", "Eight", "Four"}, output)) {
-        for (string str : output) {
+    if (issame({{"Nine", "Eight", "Four"}}, by_length(input))) {
+        for (string str : by_length(input)) {
             cout << str << endl;
         }
     }
