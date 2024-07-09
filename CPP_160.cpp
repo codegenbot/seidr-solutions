@@ -1,4 +1,39 @@
-```cpp
+#include <sstream>
+#include <vector>
+#include <utility>
+#include <cmath>
+
+struct pair {
+    char first;
+    int second;
+
+    pair(char x, int y) : first(x), second(y) {}
+};
+
+int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
+    if (operators_and_operands.size() == 0) {
+        return 0;
+    }
+    
+    int result = operators_and_operands[0].second;
+    for (const auto& pair : operators_and_operands) {
+        if (pair.first == '+') {
+            result += pair.second;
+        } else if (pair.first == '-') {
+            result -= pair.second;
+        } else if (pair.first == '*') {
+            result *= pair.second;
+        } else if (pair.first == '/') {
+            if (pair.second != 0) {
+                result /= pair.second;
+            }
+        } else if (pair.first == '^') { 
+            result = std::pow(result, pair.second);
+        }
+    }
+    return result;
+}
+
 int main() {
     std::string str = "++7*3+4";
     std::istringstream iss(str);
@@ -6,15 +41,16 @@ int main() {
     std::vector<std::pair<char, int>> operators_and_operands;
     std::string token;
     while (std::getline(iss, token, '+')) {
-        if (!token.empty()) {
-            char op;
-            int operand;
-            if (token[0] == '+' || token[0] == '-' || token[0] == '*' || token[0] == '/') {
-                op = token[0];
+        if (token != "") {
+            token[0] = '';  // consume the operator
+            char op = token[0];
+            int operand = 0; // default value in case of parsing error
+            try {
                 operand = std::stoi(token.substr(1));
-            } else {
-                op = '^';
-                operand = std::stoi(token);
+            } catch(const std::invalid_argument& e) {
+                // Handle invalid input string that cannot be parsed as an integer
+                std::cout << "Invalid input: " << token << "\n";
+                return 1; 
             }
             operators_and_operands.push_back({op, operand});
         }
