@@ -12,19 +12,10 @@ bool is_happy(const std::string& s) {
         char c1 = s[i];
         char c2 = s[i + 1];
         char c3 = s[i + 2];
-        std::string::const_iterator it = s.begin() + i;
-        for (; it != s.begin() + i + 3; ++it) {
-            if (*it == c1)
-                continue;
-            else if (*it == c2)
-                continue;
-            else if (*it == c3)
-                continue;
-            else
-                break;
+        for (char c = s[i]; c == c1 || c == c2 || c == c3; ++c) {
+            if (c != c1 && c != c2 && c != c3)
+                return false;
         }
-        if (it != s.begin() + i + 3)
-            return false;
     }
     return true;
 }
