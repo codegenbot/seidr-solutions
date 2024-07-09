@@ -1,6 +1,4 @@
 #include <vector>
-#include <iostream>
-
 int specialFilter(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -12,21 +10,17 @@ int specialFilter(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> test1 = {-11, -12, 13, 14};
+    std::vector<int> test1 = {-11, -20, 3, 4};
     int result1 = specialFilter(test1);
-    if (result1 == 2) {
-        std::cout << "Test case 1 passed." << std::endl;
-    } else {
-        std::cout << "Test case 1 failed. Expected: 2, Actual: " << result1 << "." << std::endl;
-    }
+    assert(result1 == 2);
 
-    std::vector<int> test2 = {15, -16};
+    std::vector<int> test2 = {10, 20, 30, 40};
     int result2 = specialFilter(test2);
-    if (result2 == 0) {
-        std::cout << "Test case 2 passed." << std::endl;
-    } else {
-        std::cout << "Test case 2 failed. Expected: 0, Actual: " << result2 << "." << std::endl;
-    }
+    assert(result2 == 0);
+
+    std::vector<int> test3 = {-11, -21, 31, 41};
+    int result3 = specialFilter(test3);
+    assert(result3 == 4);
 
     return 0;
 }
