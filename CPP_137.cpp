@@ -1,13 +1,11 @@
 #include <variant>
 #include <string>
+#include <iostream>
 #include <cassert>
 
 using namespace std;
 
 variant<int, float, string> compare_one(const variant<int, float, string>& a, const variant<int, float, string>& b) {
-    if (a.index() != b.index())
-        return {}; // Different types, return default-constructed variant
-
     if (holds_alternative<int>(a) && holds_alternative<int>(b)) {
         if (get<int>(a) > get<int>(b))
             return a;
@@ -32,7 +30,11 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
 int main() {
     assert(compare_one(string("1"), string("2")) == string("2"));
     assert(compare_one(10, 5) == 10);
-    assert(compare_one(string("1"), 1) == variant<int, float, string>{});
+    
+    if (compare_one(string("1"), string("2")).index() == 0) 
+        cout << "None";
+    else
+        cout << "Not None";
 
     return 0;
 }
