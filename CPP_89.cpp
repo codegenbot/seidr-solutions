@@ -2,13 +2,13 @@ string encrypt(string s) {
     string result = "";
     for (char c : s) {
         if (c >= 'a' && c <= 'z') {
-            int pos = (int)c - 97; // Convert to 0-based index
-            pos = (pos + 2 * 2) % 26; // Shift down by 4 places
-            result += ((char)(pos + 97)); // Convert back to character and add to result
+            int pos = c - 'a';
+            pos = (pos + 4 * 2) % 26; // shift down by two multiplied to two places
+            result += 'a' + pos;
         } else if (c >= 'A' && c <= 'Z') {
-            int pos = (int)c - 65; // Convert to 0-based index
-            pos = (pos + 2 * 2) % 26; // Shift down by 4 places
-            result += ((char)(pos + 65)); // Convert back to character and add to result
+            int pos = c - 'A';
+            pos = (pos + 4 * 2) % 26; // shift down by two multiplied to two places
+            result += 'A' + pos;
         } else {
             result += c;
         }
