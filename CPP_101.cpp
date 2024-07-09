@@ -11,7 +11,7 @@ vector<string> splitString(string str) {
     for(int i = 0; i < str.length(); i++) {
         if(str[i] == ' ') {
             words.push_back(word);
-            word = "";
+            word.clear();
         } else {
             word += str[i];
         }
@@ -33,10 +33,6 @@ bool isSameVectors(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    // Original code
-}
-
-int testMain() {
     assert(isSameVectors(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
