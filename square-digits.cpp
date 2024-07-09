@@ -1,21 +1,15 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
 int main() {
-    std::string input;
-    std::cin >> input;
-
-    std::string output = "";
-    for (char digit : input) {
-        int num = digit - '0';
-        int square = num * num;
-        if (square > 9) {
-            square -= 10; // Adjust square to be in range 0-9
-        }
-        output += '0' + square;
+    string num;
+    cin >> num;
+    string result = "";
+    for (char digit : num) {
+        int n = digit - '0';
+        result += to_string(n * n);
     }
-
-    std::cout << output << std::endl;
-
+    cout << result;
     return 0;
 }
