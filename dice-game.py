@@ -1,7 +1,6 @@
-```
-def roll_probability(n, m):
-    if n < m:
-        return 0
-    total_outcomes = n * m
-    outcomes_peter_higher = (n - m) * m + (m - 1) * (n - m)
-    return outcomes_peter_higher / total_outcomes
+def dice_game(n, m):
+    return (
+        1 - sum(1 / total for total in range(m + 1))
+        if n > m
+        else sum(1 / total for total in range(n + 1))
+    )
