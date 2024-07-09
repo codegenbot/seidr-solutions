@@ -1,4 +1,7 @@
 #include <iostream>
+#include <cmath>
+
+using namespace std;
 
 int gcd(int a, int b) {
     a = abs(a);
@@ -11,7 +14,7 @@ int gcd(int a, int b) {
 
 int main() {
     int a, b;
-    std::cin >> a >> b;
-    std::cout << gcd(a, b) << std::endl;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
     return 0;
 }
