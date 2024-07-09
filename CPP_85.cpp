@@ -1,7 +1,7 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
-int add(vector<int> lst) {
+int add(std::vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (i % 2 != 0) {
@@ -12,7 +12,7 @@ int add(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {4, 4, 6, 8};
+    std::vector<int> lst = {4, 4, 6, 8};
     std::cout << add(lst) << std::endl; // prints 12
     return 0;
 }
