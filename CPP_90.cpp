@@ -1,9 +1,17 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Return None (or in this case -1) if there are less than 2 elements.
-    vector<int> v(lst);
+    vector<int> v = lst;
     sort(v.begin(), v.end());
-    for (int i = 0; i < v.size() - 1; i++) {
-        if (v[i] != v[i + 1]) return v[i + 1];
+    for (int i = 1; i < v.size(); i++) {
+        if (v[i] > v[0]) return v[i];
     }
-    return -1;
+    return -1; 
+}
+
+int main() {
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    return 0;
 }
