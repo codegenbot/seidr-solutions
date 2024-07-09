@@ -1,19 +1,22 @@
-Here is the completed code:
-
-#include <bits/stdc++.h>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
-vector<int> sort_array(vector<int> arr) {
-    vector<int> res;
-    for (int num : arr) {
-        int ones = __builtin_popcount(num);
-        res.push_back({ones, num});
+vector<int> sort_vector(vector<int> arr) {
+    sort(arr.begin(), arr.end(), [](int a, int b) {
+        if (count(borrowed(a), '1') != count(borrowed(b), '1')) {
+            return count(borrowed(a), '1') < count(borrowed(b), '1');
+        }
+        return a < b;
+    });
+    return arr;
+}
+
+string borrowed(int n) {
+    string str = to_string(n);
+    for (int i = 0; i < str.length(); i++) {
+        str[i] = '0' + str[i];
     }
-    sort(res.begin(), res.end());
-    vector<int> result;
-    for (auto x : res) {
-        result.push_back(x.second);
-    }
-    return result;
+    return str;
 }
