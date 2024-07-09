@@ -1,6 +1,5 @@
-```
 #include <vector>
-#include <numeric>
+#include <float.h>
 
 vector<float> get_positive(vector<float> l){
     vector<float> result;
@@ -10,4 +9,3 @@ vector<float> get_positive(vector<float> l){
         }
     }
     return result;
-}
