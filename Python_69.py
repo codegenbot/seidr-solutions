@@ -8,8 +8,8 @@ def search():
             else:
                 freq_dict[num] = 1
     if not freq_dict:
-        return -1
-    max_num = max(freq_dict.keys())
-    return max_num if max_num > 0 else -1
+        print(-1)
+    else:
+        print(max(freq_dict.keys()))
 
-print(search())
+search()
