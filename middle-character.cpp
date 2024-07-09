@@ -23,7 +23,7 @@ std::string middleCharacter(std::string s) {
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    std::cin >> input;
 
     if(input.empty()) {
         std::cout << "";
