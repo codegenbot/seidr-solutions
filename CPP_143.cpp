@@ -1,28 +1,38 @@
-string words_in_sentence(string sentence){
+#include <vector>
+#include <algorithm>
+
+string words_in_sentence(string sentence) {
+    vector<int> lengths;
     string result = "";
-    int count = 0;
-    for(int i=0; i<sentence.length(); i++){
-        if(sentence[i] == ' '){
-            count++;
+    
+    for (int i = 0; i < sentence.size(); i++) {
+        if (sentence[i] == ' ') {
+            continue;
         }
-    }
-
-    for(int i=0; i<sentence.length(); i++){
-        if(sentence[i] == ' ' || i==sentence.length()-1){
-            string word = sentence.substr(count*1,i-count*1);
-            count++;
-            bool is_prime = true;
-            int num = 0;
-            for(int j=2;j*j<=stoi(word);j++){
-                if(stoi(word)%j==0) {
-                    is_prime = false;
-                    break;
-                }
+        
+        int j = i + 1;
+        while (j < sentence.size() && !isspace(sentence[j])) {
+            j++;
+        }
+        
+        string word = sentence.substr(i, j - i);
+        int length = word.size();
+        
+        bool isPrime = true;
+        for (int k = 2; k * k <= length; k++) {
+            if (length % k == 0) {
+                isPrime = false;
+                break;
             }
-            if(is_prime)
-                result += word + " ";
         }
+        
+        if (isPrime) {
+            result += word + " ";
+            lengths.push_back(length);
+        }
+        
+        i = j;
     }
-
-    return result.substr(0,result.length()-1);
+    
+    return result.substr(0, result.size() - 1);
 }
