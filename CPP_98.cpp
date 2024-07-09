@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 
@@ -14,8 +15,8 @@ int count_upper(std::string s){
 int main(){
     std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> str;
+    std::getline(std::cin, str);
     int result = count_upper(str);
-    std::cout << "Number of characters that meet the condition is: " << result << std::endl;
+    std::cout << "Number of characters at even positions in the range A-U is: " << result << std::endl;
     return 0;
 }
