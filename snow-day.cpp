@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     int hours;
-    cout << "Enter the number of hours: ";
+    cout << "Enter the number of hours: " << std::ws;
     cin >> hours;
     
     float initialSnow;
@@ -27,7 +27,8 @@ int main() {
         totalSnow -= initialSnow * proportionOfSnowMeltingPerHour;
     }
     
-    cout << fixed << setprecision(2) << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << " ft" << endl;
+    cout << "The amount of snow on the ground after " << hours << " hours is: ";
+    cout << std::fixed << std::setiosflags(std::ios_base::floatfield::fixed) << totalSnow << endl;
 
     return 0;
 }
