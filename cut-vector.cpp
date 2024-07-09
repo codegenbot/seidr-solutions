@@ -29,11 +29,13 @@ int main() {
         for (int i = 0; i < index; ++i) {
             cout << nums[i] << endl;
         }
+        cout << 0 << endl;
     } else {
         for (int i = 0; i < index; ++i) {
             cout << nums[i] << endl;
         }
+        cout << 0 << endl;
     }
-
+    
     return 0;
 }

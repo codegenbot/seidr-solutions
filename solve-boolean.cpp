@@ -1,37 +1,22 @@
 #include <iostream>
-#include <stack>
 #include <string>
 using namespace std;
 
-bool evaluateBooleanExpression(const string &input) {
-    stack<bool> s;
-    for (char c : input) {
-        if (c == 't' || c == 'T') {
-            s.push(true);
-        } else if (c == 'f' || c == 'F') {
-            s.push(false);
-        } else if (c == '&') {
-            bool operand2 = s.top(); s.pop();
-            bool operand1 = s.top(); s.pop();
-            s.push(operand1 && operand2);
-        } else if (c == '|') {
-            bool operand2 = s.top(); s.pop();
-            bool operand1 = s.top(); s.pop();
-            s.push(operand1 || operand2);
-        }
+bool evaluateBooleanExpression(string expression) {
+    if (expression.find('&') != string::npos) {
+        return expression.find('T') != string::npos && expression.find('F') != string::npos ? false : true;
+    } else if (expression.find('|') != string::npos) {
+        return expression.find('T') != string::npos || expression.find('F') != string::npos ? true : false;
+    } else {
+        return expression == "T" ? true : false;
     }
-    return s.top();
 }
 
 int main() {
     string input;
-    cin >> input;
+    getline(cin, input);
 
-    if (evaluateBooleanExpression(input)) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
+    cout << (evaluateBooleanExpression(input) ? "True" : "False") << endl;
 
     return 0;
 }
