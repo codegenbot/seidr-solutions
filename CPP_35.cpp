@@ -13,13 +13,17 @@ int findMaximum(std::vector<int> numbers) {
 int main() {
     std::vector<int> numbers;
     int num = 0; 
+    char c = ' ';
     std::cout << "Enter numbers (separated by spaces): ";
-    while(std::cin >> num) { 
-        numbers.push_back(num);
-        char c;
-        do {
-            c = std::cin.get();
-        } while(c == ' ');
+    while(true) { 
+        if(c != ' ') {
+            if(std::cin >> num) { 
+                numbers.push_back(num);
+            } else {
+                break;
+            }
+        } 
+        c = std::cin.get();
         std::cin.ignore();
     }
     findMaximum(numbers);
