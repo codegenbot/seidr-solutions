@@ -1,12 +1,12 @@
+```
 #include <iostream>
 using namespace std;
 
 int prime_fib(int n) {
     int a = 0, b = 1;
-    int count = 0;
-    while (true) {
+    for (int i = 2; ; i++) {
         int fib = a + b;
-        if (fib > n) break;
+        if (fib > n) return i;
         a = b;
         b = fib;
         bool isPrime = true;
@@ -16,8 +16,8 @@ int prime_fib(int n) {
                 break;
             }
         }
-        if (isPrime) count++;
-        if (count == n) return fib;
+        if (!isPrime) continue;
+        return i;
     }
 }
 
