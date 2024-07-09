@@ -1,14 +1,13 @@
-```cpp
 #include <string>
-#include <cassert> // Include assert header
 using namespace std;
 
 bool check_if_last_char_is_a_letter(const string& str) {
     if(str.empty()) return false;
-    return isalpha(str.back());
+    int c = static_cast<int>(str.back());  
+    return ::isalpha(c);  
 }
 
-int main() { 
+int main() {
     assert(check_if_last_char_is_a_letter("apple pi e ") == false);
     return 0;
 }
