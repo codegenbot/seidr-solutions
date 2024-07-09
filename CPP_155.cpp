@@ -14,6 +14,6 @@ vector<int> even_odd_count(int num) {
     return counts;
 }
 
-bool issame(vector<int> v1, vector<int> v2) {
-    return v1 == v2;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
