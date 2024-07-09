@@ -1,3 +1,7 @@
+bool issame(float a, float b) {
+    return abs(a - b) < 1e-9;
+}
+
 vector<float> sort_even(vector<float> l){
     vector<float> result(l.size());
     for(int i = 0; i < l.size(); i++){
