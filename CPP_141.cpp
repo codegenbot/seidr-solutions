@@ -1,32 +1,28 @@
-Here is the completed code:
-
 string file_name_check(string file_name){
-    int dot_count = 0;
-    int digit_count = 0;
-    bool valid = true;
-
+    int count = 0;
+    bool has_dot = false;
     for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] == '.'){
-            dot_count++;
-        } else if(isdigit(file_name[i])){
-            digit_count++;
+        if(file_name[i] >= '0' && file_name[i] <= '9'){
+            count++;
+        }
+        else if(file_name[i] == '.'){
+            has_dot = true;
+        }
+        else if(i > 0 && !has_dot){
+            return "No";
         }
     }
-
-    if(dot_count > 1 || digit_count > 3){
-        valid = false;
-    } else {
-        string pre_dot = file_name.substr(0, file_name.find('.'));
-        string post_dot = file_name.substr(file_name.find('.')+1);
-
-        if(pre_dot.empty() || !isalpha(pre_dot[0])){
-            valid = false;
-        }
-
-        if(post_dot != "txt" && post_dot != "exe" && post_dot != "dll"){
-            valid = false;
+    if(count > 3 || !has_dot) {
+        return "No";
+    }
+    string extension = file_name.substr(file_name.find('.')+1);
+    string valid_extensions[] = {"txt", "exe", "dll"};
+    bool is_valid_extension = false;
+    for(int i=0; i<3; i++){
+        if(extension == valid_extensions[i]){
+            is_valid_extension = true;
+            break;
         }
     }
-
-    return valid ? "Yes" : "No";
+    return is_valid_extension ? "Yes" : "No";
 }
