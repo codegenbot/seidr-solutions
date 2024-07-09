@@ -1,40 +1,44 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
-    // Create a set of characters in c for efficient lookup
-    set<char> c_set(c.begin(), c.end());
+    // Create a set from string c for efficient lookup
+    set<char> cSet(c.begin(), c.end());
     
     // Initialize an empty string to store the result
-    string res = "";
+    string temp = "";
     
-    // Iterate over each character in s
-    for (char ch : s) {
-        // If the character is not in c, add it to the result
-        if (c_set.find(ch) == c_set.end()) {
-            res += ch;
+    // Iterate over the input string s
+    for (char& ch : s) {
+        // If the character is not in the set, add it to the temporary string
+        if (cSet.find(ch) == cSet.end()) {
+            temp += ch;
         }
     }
     
-    // Check if the result string is palindrome
-    bool is_palindrome = isPalindrome(res);
+    // Check if the reversed string is equal to the original string
+    bool isPalindrome = temp == string(temp.rbegin(), temp.rend());
     
-    // Add the result and palindrome check to the vector
-    result.push_back(res);
-    result.push_back((is_palindrome ? "True" : "False"));
+    result.push_back(temp);
+    result.push_back(to_string(isPalindrome));
     
     return result;
 }
 
-bool isPalindrome(string s) {
-    int start = 0, end = s.length() - 1;
-    while (start < end) {
-        if (s[start] != s[end]) {
-            return false;
-        }
-        start++;
-        end--;
-    }
-    return true;
+int main() {
+    string s, c;
+    cout << "Enter a string: ";
+    cin >> s;
+    cout << "Enter another string: ";
+    cin >> c;
+    vector<string> result = reverse_delete(s, c);
+    cout << "Result: " << result[0] << ", " << (result[1] == "True" ? "True" : "False") << endl;
+    
+    return 0;
 }
