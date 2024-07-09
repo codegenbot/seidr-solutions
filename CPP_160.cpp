@@ -1,6 +1,10 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <string>
 #include <cmath>
+#include <string>
+
+using namespace std;
 
 int do_algebra(vector<string> ops, vector<int> nums) {
     int result = 0;
@@ -8,17 +12,44 @@ int do_algebra(vector<string> ops, vector<int> nums) {
 
     for (int i = 0; i < ops.size(); i++) {
         if (ops[i] == "+") {
-            result += temp * (long long)nums[i];
+            result += temp * nums[i];
         } else if (ops[i] == "-") {
-            result -= temp * (long long)nums[i];
+            result -= temp * nums[i];
         } else if (ops[i] == "*") {
-            temp *= (long long)nums[i];
+            temp *= nums[i];
         } else if (ops[i] == "/") {
-            temp /= (long long)nums[i];
+            temp /= stoi(to_string(nums[i]));
         } else if (ops[i] == "^") {
-            temp = pow(temp, nums[i]);
+            temp = pow(temp, stoi(to_string(nums[i])));
         }
     }
 
     return result;
+}
+
+int main() {
+    vector<string> ops;
+    vector<int> nums;
+
+    cout << "Enter number of operations: ";
+    int n;
+    cin >> n;
+    
+    for (int i = 0; i < n; i++) {
+        string op;
+        string strNum;
+
+        cout << "Enter operation (+, -, *, /, ^): ";
+        cin >> op;
+        cout << "Enter number: ";
+        cin >> strNum;
+        int num = stoi(strNum);
+        
+        ops.push_back(op);
+        nums.push_back(num);
+    }
+
+    cout << "Result: " << do_algebra(ops, nums) << endl;
+
+    return 0;
 }
