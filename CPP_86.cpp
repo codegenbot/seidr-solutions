@@ -1,7 +1,8 @@
+Here is the corrected code:
+
 #include <algorithm>
 #include <iostream>
 #include <string>
-#include <initializer_list>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ string anti_shuffle(string s) {
                 word += s[j];
                 j++;
             }
-            std::sort(word.begin(), word.end());
+            sort(word.begin(), word.end());
             result += word;
         }
     }
