@@ -13,10 +13,10 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
 }
 
 int main() {
-    std::vector<int> list1 = {1, 2, 3};
-    std::vector<int> list2 = {4, 5};
+    std::vector<int> lst1 = {1, 2, 3};
+    std::vector<int> lst2 = {4, 5};
 
-    std::cout << exchange(list1, list2) << std::endl;
+    std::cout << exchange(lst1, lst2) << std::endl;
 
     return 0;
 }
