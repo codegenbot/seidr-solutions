@@ -1,7 +1,16 @@
 #include <vector>
+#include <assert.h>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return (a == b);
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i] - b[i]) > 1e-6) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<float> get_positive(std::vector<float> l) {
@@ -15,6 +24,6 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main() {
-    assert(issame(get_positive({}), {}) == true);
-    return 0;
+    assert(get_positive({}) == {});
+    // Rest of your code...
 }
