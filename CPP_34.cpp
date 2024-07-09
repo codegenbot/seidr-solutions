@@ -1,16 +1,27 @@
-#include <iostream>
-#include <vector>
+```cpp
 #include <algorithm>
+#include <vector>
+#include <iostream>
 
-using namespace std;
+bool issame(vector<int> a, vector<int>b){
+    return (a == b);
+}
 
 int main() {
-    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> output;
-    auto end_unique = unique(input.begin(), input.end());
-    copy(end_unique, input.end(), back_inserter(output));
+    vector<int> input;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        input.push_back(x);
+    }
+    
+    auto unique_end = unique(input.begin(), input.end());
+    vector<int> output(input.begin(), unique_end);
     sort(output.begin(), output.end());
+    
     for (int i : output) {
         cout << i << " ";
     }
-    return 0;
+}
