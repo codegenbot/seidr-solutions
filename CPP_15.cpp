@@ -1,5 +1,5 @@
 #include <string>
-#include <fstream>
+#include <iostream>
 using namespace std;
 
 string string_sequence(int n) {
