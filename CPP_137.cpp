@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <algorithm>
 #include <boost/any.hpp>
@@ -35,7 +34,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         istringstream iss(static_cast<string>(a));
         float a_float;
         iss >> a_float;
-        return a_float > b ? a : b;
+        return a_float > boost::any(b) ? a : b;
     }
     else
         return boost::any("None");
