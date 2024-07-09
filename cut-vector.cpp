@@ -1,6 +1,7 @@
-```cpp
 #include <vector>
 #include <climits>
+#include <cmath>
+#include <initializer_list> // include this line
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
@@ -32,4 +33,18 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
         right.push_back(vec[i]);
     }
     return {left, right};
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for (auto& x : vec) cin >> x;
+    pair<vector<int>, vector<int>> result = cutVector(vec);
+    cout << "[";
+    for (const auto& x : result.first) cout << x << " ";
+    cout << "], [";
+    for (const auto& x : result.second) cout << x << " ";
+    cout << "]";
+    return 0;
 }
