@@ -1,4 +1,3 @@
-```cpp
 int main() {
     vector<float> lst;
     float odd_sum = 0.0f;
