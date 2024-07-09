@@ -1,4 +1,8 @@
-```cpp
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <initializer_list>
+
 int getMax(int n) {
     std::vector<int> l;
     std::cout << "Enter the number of elements: ";
