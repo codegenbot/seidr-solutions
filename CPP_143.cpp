@@ -1,22 +1,20 @@
-string words_in_sentence(string sentence){
+#include <string>
+using namespace std;
+
+string words_in_sentence(string sentence) {
     string result = "";
-    for(auto word : split(sentence, " ")){
-        if(isPrime(word.length())){
-            result += word + " ";
+    int len = 0;
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            if (isPrime(len)) {
+                result += sentence.substr(len - i, i - len + 1) + " ";
+            }
+            len = 0;
+        } else {
+            len++;
         }
     }
-    return result.substr(0, result.size() - 1);
-}
-
-vector<string> split(const string& s, const string& delimiter) {
-    vector<string> tokens;
-    size_t pos = 0;
-    while ((pos = s.find(delimiter)) != string::npos) {
-        tokens.push_back(s.substr(0, pos));
-        s.erase(0, pos + delimiter.length());
-    }
-    tokens.push_back(s);
-    return tokens;
+    return result.substr(0, result.length() - 1);
 }
 
 bool isPrime(int n) {
