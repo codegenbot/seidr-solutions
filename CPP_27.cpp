@@ -2,8 +2,8 @@
 #include <cctype>
 #include <cassert>
 
-std::string flip_case(stdstring str){
-    stdstring result = "";
+std::string flip_case(std::string str){
+    std::string result = "";
     for(char c : str){
         if(c >= 'a' && c <= 'z')
             result += toupper(c);
