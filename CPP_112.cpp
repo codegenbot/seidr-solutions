@@ -1,4 +1,4 @@
-#include <vector>
+```
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
@@ -47,7 +47,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    if (!issame(reverse_delete("mamma", "mia"), {"", "1"}))
-        return 1; 
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
     return 0;
 }
