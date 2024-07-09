@@ -1,4 +1,7 @@
 #include <vector>
+#include <climits>
+#include <cmath>
+#include <initializer_list>
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
@@ -30,19 +33,4 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
         right.push_back(vec[i]);
     }
     return {left, right};
-}
-
-int main() {
-    vector<int> vec = {1, 2, 3, 4};
-    pair<vector<int>, vector<int>> result = cutVector(vec);
-    // Print or process the result as needed
-    for (const auto &v : result.first) {
-        cout << v << " ";
-    }
-    cout << endl;
-    for (const auto &v : result.second) {
-        cout << v << " ";
-    }
-    cout << endl;
-    return 0;
 }
