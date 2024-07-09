@@ -28,23 +28,23 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    std::vector<int> game;
     
-    // Create a new vector and reserve space
-    std::vector<int> game(n);
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
-        game[i] = temp;
+        game.push_back(temp);
     }
     
     // Create a new vector and reserve space
-    std::vector<int> guess(n);
+    guess.resize((unsigned long int)n);  // Pass unsigned long int as size
+    
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
-        guess[i] = temp;
+        guess.push_back(temp);
     }
     
     if(issame(game, guess))

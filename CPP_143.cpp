@@ -35,9 +35,6 @@ int main() {
 
     std::vector<std::string> wordLengths = words_in_sentence(sentence);
     for (const auto& length : wordLengths) {
-        if(length == "2") {
-            break;
-        }
         std::cout << length << '\n';
     }
 }
