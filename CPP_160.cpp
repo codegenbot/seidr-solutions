@@ -1,7 +1,7 @@
 ```cpp
 #include <initializer_list>
 #include <cassert>
-#include <ostream>
+#include <iostream>
 
 class cpp_160 {
 public:
@@ -24,7 +24,6 @@ public:
 };
 
 int main() {
-    cpp_160 obj;
-    assert(obj.do_algebra({"//", "*"}, {7, 3, 4}) == 8);
-    std::cout << obj.do_algebra({"//", "*"}, {7, 3, 4}) << std::endl;
+    int output = cpp_160().do_algebra({"*", "//"}, {4, 7, 3});
+    std::cout << output << std::endl;
 }

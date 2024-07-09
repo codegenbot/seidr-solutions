@@ -29,15 +29,23 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     
-    // Create a new vector and reserve space
-    game = std::vector<int>(n, 0);
-    guess = std::vector<int>(n, -1);
-    
+    // Create a new vector and fill space
+    std::vector<int> game;
+    game.resize(n);
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
         game[i] = temp;
+    }
+    
+    // Create a new vector and fill space
+    std::vector<int> guess;
+    guess.resize(n);
+    for(int i = 0; i < n; i++){
+        std::cout << "Enter element " << i+1 << ": ";
+        int temp;
+        std::cin >> temp;
         guess[i] = temp;
     }
     
