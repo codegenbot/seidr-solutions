@@ -1,3 +1,4 @@
+```cpp
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
@@ -24,9 +25,6 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y,
     int n = grid.size();
     if (k == 0) {
         res.insert(res.end(), res.begin(), res.end());
-        if(issame(res, vector<int>(1, grid[x][y]))) {
-            return;
-        }
         return;
     }
     visited[x][y] = true;
