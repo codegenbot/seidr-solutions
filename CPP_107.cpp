@@ -14,7 +14,7 @@ std::vector<int> even_odd_palindrome(int n) {
 bool checkPalindrome(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[std::abs(i - (a.size() - 1))]) return false;
+        if (a[i] != b[std::abs(i - (b.size() - 1))]) return false;
     }
     return true;
 }
