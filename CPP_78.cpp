@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <iostream>
 
@@ -19,7 +18,6 @@ int main() {
     std::cin >> input;
 
     int output = hex_key(input);
-    std::cout << output << std::endl;
-
+    std::cout << output << "\n";
     return 0;
 }
