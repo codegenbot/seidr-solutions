@@ -28,23 +28,23 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         else if (grade > 0.7)
             letter_grades.push_back("D");
         else
-            letter_grades.push_back("F"); // changed from E to F as per standard grading scale
+            letter_grades.push_back("E");
     }
     return letter_grades;
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size())
+    if (a.size() != b.size()) {
         return false;
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
     }
-
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
     return true;
 }
 
 int main() {
-    assert(issame(numerical_letter_grade({0.0, 0.7}), {"F", "D-"}));
+    assert(issame(numerical_letter_grade({0.0, 0.7}), {"E", "D-"}));
 }
