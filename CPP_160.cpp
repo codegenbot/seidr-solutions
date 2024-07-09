@@ -33,7 +33,7 @@ int do_algebra(vector<pair<char, char>> operators_and_operands) {
 }
 
 int main() {
-    vector<pair<char, char>> operators_and_operands = { {'+', '7'}, {'*', '3'}, {'/', '4'} };
+    vector<pair<char, char>> operators_and_operands = {{'+', '7'}, {'*', '3'}, {'/', '4'} };
     cout << do_algebra(operators_and_operands) << endl;
     return 0;
 }
