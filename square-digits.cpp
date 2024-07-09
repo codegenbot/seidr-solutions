@@ -1,11 +1,10 @@
-```cpp
+```c++
 #include <string>
-#include <vector>
 
 using namespace std;
 
 std::string squareDigits(std::string input) {
-    std::string output = "";
+    string output = "";
     for (char c : input) {
         int digit = c - '0';
         int squared = digit * digit;
@@ -15,9 +14,6 @@ std::string squareDigits(std::string input) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a positive integer: ";
-    cin >> input;
-    cout << squareDigits(input) << endl;
+    cout << squareDigits("34") << endl;
     return 0;
 }
