@@ -29,7 +29,7 @@ std::vector<std::string> words_string(std::string s, std::vector<std::string> re
 }
 
 int main(){
-    std::vector<std::string> result;  // Initialize result here
+    std::vector<std::string> result;  
     assert(issame(words_string("ahmed     , gamal", result), std::vector<std::string>{"ahmed", "gamal"}));
     return 0;
 }
