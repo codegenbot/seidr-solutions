@@ -9,12 +9,16 @@ def solve_boolean(expression):
             elif char == ')':
                 end = i
                 break
-        result = eval(expression[start+1:end])
+        if expression[start+1:end].count('&') == 0: 
+            result = bool(eval(expression[start+1:end]))
+        else: 
+            temp = expression[start+1:end].split('&')
+            temp_result = True
+            for i in temp:
+                if eval(i):
+                    temp_result = False
+                    break
+            result = temp_result
+
         expression = expression[:start] + str(result) + expression[end+1:]
-    if '&' in expression and '|' in expression:
-        left, right = expression.split('&')
-        return bool(eval(left)) and solve_boolean(right)
-    elif '|' in expression:
-        return any(solve_boolean(arg) for arg in expression.split('|'))
-    else:
-        return eval(expression)
+    return eval(f"({'+'.join(str(solve_boolean(arg)) if '()' in arg else str(arg) for arg in expression.split('|'))})")
