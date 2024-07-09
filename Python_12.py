@@ -1,2 +1,2 @@
-result = max(input().split(), key=len)
+result = max(input().strip().split(), key=len)
 print(result)
