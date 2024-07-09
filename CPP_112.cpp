@@ -1,9 +1,9 @@
 #include <algorithm>
 #include <string>
-#include <utility>
+#include <vector>
 #include <cassert>
 
-bool issame(std::pair<std::string, std::string> a, std::pair<std::string, std::string> b) {
+bool issame(const std::pair<std::string, std::string>& a, const std::pair<std::string, std::string>& b) {
     return a.first == b.first && a.second == b.second;
 }
 
