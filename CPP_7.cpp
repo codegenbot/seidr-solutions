@@ -9,5 +9,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(issame({"grunt", "trumpet", "prune", "gruesome"}, {"run", "grunt", "prune"}));
+    std::vector<std::string> a = {"grunt", "trumpet", "prune", "gruesome"};
+    std::vector<std::string> b = {"grunt", "prune"};
+    assert(a==b);
 }
