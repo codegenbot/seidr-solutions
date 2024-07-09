@@ -1,17 +1,33 @@
+#include <algorithm>
+#include <sstream>
+
+using namespace std;
+
 string anti_shuffle(string s) {
-    string result = "";
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == ' ') {
-            result += ' ';
-            continue;
+    stringstream ss(s);
+    string word;
+    string result;
+
+    while (ss >> word) {
+        for (char c : word) {
+            result += c;
         }
-        string word = "";
-        for (int j = i; j < s.size() && s[j] != ' '; j++) {
-            word += s[j];
+        for (int i = 0; i < word.size(); ++i) {
+            char c = word[i];
+            bool found = false;
+            for (int j = i + 1; j < word.size(); ++j) {
+                if (c >= word[j]) {
+                    swap(word[i], word[j]);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                result += c;
+            }
         }
-        i = j;
-        sort(word.begin(), word.end());
-        result += word;
+        result += ' ';
     }
-    return result;
+
+    return result.substr(0, result.size() - 1);
 }
