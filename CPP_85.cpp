@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cassert>
 
@@ -14,5 +13,6 @@ int add(std::vector<int> lst){
 
 int main() {
     assert (add({4, 4, 6, 8}) == 12);
+    // Your main function logic here
     return 0;
 }
