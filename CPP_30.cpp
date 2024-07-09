@@ -10,11 +10,11 @@ std::vector<float> get_positive(std::vector<float> v) {
     return result;
 }
 
-bool isSame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
 int main() {
-    assert(isSame(get_positive({}), std::vector<float>()) == true); 
+    assert(issame(get_positive({}), std::vector<float>()) == true); 
     return 0;
 }
