@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <climits>
 #include <cassert>
@@ -18,6 +19,6 @@ long long minSubArray(std::vector<long long> nums) {
 }
 
 int testMain() {
-    assert(minSubArray({1, -1}) == 0);
+    assert(minSubArray({1, -1}) == -1);
     return 0;
 }
