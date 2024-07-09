@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -17,9 +18,13 @@ int main() {
     vector<float> prices(n);
     for (float &price : prices) {
         cin >> price;
+        if (cin.fail()) break;  // Break loop if non-numeric input
     }
     vector<float> discounts(n);
     for (float &discount : discounts) {
         cin >> discount;
+        if (cin.fail()) break;  // Break loop if non-numeric input
     }
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
+    return 0;
 }
