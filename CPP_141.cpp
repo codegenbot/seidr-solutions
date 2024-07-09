@@ -19,3 +19,6 @@ int file_name_check(std::string file_name) {
     if(!found_dot) return 0;
     if(digit_count > 3) return 0;
     return 1;
+}
+
+assert(file_name_check("s.") == 0);
