@@ -2,15 +2,15 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
+bool issame(std::vector<std::string> a, std::vector<std::string> b, std::vector<std::string> c) {
+    if (a.size() != b.size() || a.size() != c.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[i] && a[i] != c[i]) return false;
     }
     return true;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int sum1 = 0;
     for (const auto& s : lst1) {
         sum1 += std::stol(s); 
@@ -25,9 +25,9 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    vector<string> lst1 = {"this"};
-    vector<string> lst2 = {};
-    if (!issame(total_match(lst1, lst2), {})) {
+    std::vector<std::string> lst1 = {"this"};
+    std::vector<std::string> lst2 = {};
+    if (!issame(lst1, lst2, total_match(lst1, lst2))) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
