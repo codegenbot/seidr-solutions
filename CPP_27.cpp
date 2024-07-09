@@ -1,14 +1,14 @@
 #include <string>
 #include <cctype>
 
-std::string filp_case(std::string str){
+std::string flip_case(std::string str){
     std::string result = "";
     for(int i=0; i<str.length(); i++){
         char c = str[i];
         if(c >= 'a' && c <= 'z')
-            result += std::toupper(c);
+            result += toupper(c);
         else if(c >= 'A' && c <= 'Z')
-            result += std::tolower(c);
+            result += tolower(c);
         else
             result += c;
     }
@@ -16,6 +16,9 @@ std::string filp_case(std::string str){
 }
 
 int main() {
-    std::cout << filp_case("hello world") << std::endl;
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    std::cout << "The flipped case of the string is: " << flip_case(s) << std::endl;
     return 0;
 }
