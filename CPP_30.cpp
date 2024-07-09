@@ -1,20 +1,14 @@
-#include <vector>
-#include <cmath>
-
-bool std::issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-9) return false;
-    }
-    return true;
-}
-
-std::vector<float> std::get_positive(std::vector<float> l){
-    std::vector<float> result;
-    for (float num : l) {
-        if (num > 0) {
-            result.push_back(num);
+std::vector<std::vector<float>> get_positive(std::vector<std::vector<float>> l){
+    std::vector<std::vector<float>> result;
+    for (auto &num : l) {
+        std::vector<float> temp;
+        for (float n : num) {
+            if (n > 0) {
+                temp.push_back(n);
+            }
+        }
+        if (!temp.empty()) {
+            result.push_back(temp);
         }
     }
     return result;
-}
