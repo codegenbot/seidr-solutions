@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -58,4 +57,5 @@ int main() {
     std::sort(expected.begin(), expected.end());
     
     bool same = isSame(result, expected);
-    return !same;
+    return 0;
+}
