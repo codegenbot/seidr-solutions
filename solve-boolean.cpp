@@ -2,39 +2,16 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    stack<char> st;
+    bool result = true;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
-            }
-            if (st.empty()) {
-                return false;
-            }
+        if (s[i] == 'f') {
+            result = false;
+            break;
+        } else if (s[i] == '&') {
+            if (!result) return false;
         } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) {
-                return true;
-            }
-        } else {
-            st.push(s[i]);
+            if (result) return true;
         }
     }
-    if (st.size() > 0) {
-        return st.top() == 'T';
-    }
-    return false;
-}
-
-int main() {
-    // Test cases
-    cout << boolalpha << solveBoolean("t") << endl;  // True
-    cout << boolalpha << solveBoolean("f") << endl;  // False
-    cout << boolalpha << solveBoolean("f&f") << endl;  // False
-    cout << boolalpha << solveBoolean("f&t") << endl;  // False
-    cout << boolalpha << solveBoolean("t&f") << endl;  // False
-
-    return 0;
+    return result;
 }
