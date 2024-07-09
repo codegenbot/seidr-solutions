@@ -38,5 +38,8 @@ int main() {
     std::vector<std::string> wordLengths = words_in_sentence(sentence);
     for (const auto& length : wordLengths) {
         std::cout << length << '\n';
+        if (length == "2") {
+            // Do what you want when the length is 2
+        }
     }
 }
