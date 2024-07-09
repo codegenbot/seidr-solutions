@@ -1,17 +1,17 @@
 ```cpp
-using namespace std;
-
 #include <vector>
 #include <algorithm>
 #include <string>
 #include <initializer_list>
 
+using namespace std;
+
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return (a.size() == b.size());
+    return (a == b);
 }
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::string> result;
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
             result.push_back(str);

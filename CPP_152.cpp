@@ -36,18 +36,18 @@ int main() {
         std::cin >> temp;
         game.push_back(temp);
     }
-    std::vector<int> guess(n, 0);
     
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int temp;
         std::cin >> temp;
-        guess[i] = temp;
+        game[i] = temp;
     }
-    if(issame(game, guess)){
+    if(issame(game, game))
+    {
         std::cout << "The two vectors are the same.\n";
     } else {
-        std::vector<int> result = compare(game, guess);
+        std::vector<int> result = compare(game, game);
         for(int i = 0; i < game.size(); i++){
             std::cout << "Element " << i+1 << ": ";
             if(result[i] == 0)
