@@ -15,16 +15,13 @@ bool isSame(vector<int> a, vector<int> b) {
 
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    long long stones = n;
-    while (stones > 0 && n <= LLONG_MAX / 2) { 
-        if(n > LLONG_MAX/2 - n) return {}; // Check for integer overflow
+    int stones = 1;
+    while (stones <= n) { 
         pile.push_back(stones);
-        if (n % 2 == 1) {
-            n++;
-            stones = n;
+        if ((n - stones) % 2 == 0) {
+            stones += 1;
         } else {
-            n++;
-            stones = n;
+            stones += 2;
         }
     }
     return pile;
