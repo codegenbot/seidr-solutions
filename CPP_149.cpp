@@ -1,15 +1,16 @@
-vector<string> vector_sort(vector<string> lst){
-    auto it = unique(lst.begin(), lst.end(), 
-                    [](const string &s1, const string &s2) {
-                        return s1.length() % 2 == 0 && s2.length() != 0;
-                    });
-    lst.erase(it, lst.end());
-    
+vector<string> sorted_list_sum(vector<string> lst) {
+    // Remove strings with odd lengths from the vector
+    lst.erase(remove_if(lst.begin(), lst.end(),
+        [](const string& s){ return s.length() % 2 != 0; }),
+        lst.end());
+
+    // Sort the vector by length, then alphabetically if necessary
     sort(lst.begin(), lst.end(),
-        [](const string &s1, const string &s2) {
-            if (s1.length() != s2.length()) return s1.length() < s2.length();
-            return s1 < s2;
+        [](const string& a, const string& b) {
+            if (a.length() == b.length())
+                return a < b;
+            return a.length() < b.length();
         });
-    
+
     return lst;
 }
