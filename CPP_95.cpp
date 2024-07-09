@@ -2,7 +2,7 @@
 #include <string>
 #include <map>
 
-bool check_dict_case(map<std::string,std::string> dict){
+bool check_dict_case(std::map<std::string, std::string> dict) {
     if(dict.empty()) return false;
 
     bool allLower = true;
