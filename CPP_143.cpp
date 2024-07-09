@@ -1,21 +1,19 @@
 string words_in_sentence(string sentence){
     string result = "";
-    size_t pos = 0;
-    while((pos = sentence.find(" ")) != string::npos){
-        string word = sentence.substr(0, pos);
-        if(isPrime(word.length())){
-            result += word + " ";
+    int prime_count = 0;
+    for(int i=2; i<=sentence.size(); i++){
+        bool is_prime = true;
+        if(i==2 || i==3) is_prime=true;
+        else{
+            for(int j=2; j*j<=i; j++){
+                if(i%j == 0) {is_prime=false;break;}
+            }
         }
-        sentence.erase(0, pos+1);
+        if(is_prime){
+            result += sentence.substr(0, i+1) + " ";
+            prime_count++;
+            sentence = sentence.substr(i+1);
+        }
     }
     return result;
-}
-
-bool isPrime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; i++)
-        if (n % i == 0)
-            return false;
-    return true;
 }
