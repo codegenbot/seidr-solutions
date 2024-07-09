@@ -13,3 +13,7 @@ int encrypt(string s){
     }
     return int(result.length());
 }
+
+int main(){
+    assert (encrypt("a")=="e");
+}
