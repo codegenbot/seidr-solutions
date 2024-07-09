@@ -1,6 +1,5 @@
-```cpp
-#include <cmath>
 #include <vector>
+#include <cmath>
 
 double poly(vector<double> coeffs, double x) {
     double result = 0;
@@ -11,7 +10,7 @@ double poly(vector<double> coeffs, double x) {
 }
 
 double find_zero(vector<double> xs) {
-    vector<double> coeffs(xs.begin(), xs.end()); 
+    vector<double> coeffs(xs.begin(), xs.end());
     double x = -xs[1]/(2*abs(xs[1]));
     return poly(coeffs, x);
 }
