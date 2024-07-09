@@ -1,13 +1,14 @@
-for (int i = 0; i < l.size(); ++i) {
-        if (i % 3 == 0) {
-            vector<int> temp;
-            for (int j = i; j < l.size() && j % 3 == 0; ++j) {
-                temp.push_back(l[j]);
-            }
-            sort(temp.begin(), temp.end());
-            for (int j = i; j < l.size() && j % 3 == 0; ++j) {
-                l[j] = temp[j - i];
-            }
+vector<int> l_divisible_by_3;
+    for(int i=0; i<l.size(); i++){
+        if(i%3 == 0){
+            l_divisible_by_3.push_back(l[i]);
+        }
+    }
+    sort(l_divisible_by_3.begin(), l_divisible_by_3.end());
+    for(int i=0, j=0; i<l.size(); i++){
+        if(i%3 == 0){
+            l[i] = l_divisible_by_3[j];
+            j++;
         }
     }
     return l;
