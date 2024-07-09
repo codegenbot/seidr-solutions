@@ -1,6 +1,6 @@
 def rolling_max(numbers):
     result = []
-    for i in range(len(numbers) - 2):
+    for i in range(len(numbers) - 2 + 1):
         result.append(max(numbers[i], numbers[i + 1], numbers[i + 2]))
     return result
 
