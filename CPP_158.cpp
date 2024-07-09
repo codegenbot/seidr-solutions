@@ -1,11 +1,9 @@
-Here is the completed code:
-
 string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(),
-        [](const string& s1, const string& s2) {
-            if (s1.length() == s2.length()) return s1 < s2;
-            return s1.length() > s2.length();
-        }
-    );
-    return max_word;
+    string result = *minmax_element(words.begin(), words.end(),
+        [](const auto& a, const auto& b) {
+            auto count_a = a.size();
+            auto count_b = b.size();
+            return make_pair(count_b, a) < make_pair(count_a, b);
+        }) -> second;
+    return result;
 }
