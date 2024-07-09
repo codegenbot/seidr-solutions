@@ -1,15 +1,6 @@
 #include <string>
 using namespace std;
 
-int main() {
-    string input;
-    cout << "Enter a positive integer: ";
-    cin >> input;
-    string output = squareDigits(input);
-    cout << "Squared digits: " << output << endl;
-    return 0;
-}
-
 string squareDigits(string input) {
     string output = "";
     for (char c : input) {
@@ -18,3 +9,8 @@ string squareDigits(string input) {
     }
     return output;
 }
+
+int main() {
+    string result = squareDigits("17");
+    cout << result << endl;
+    return 0;
