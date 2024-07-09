@@ -7,16 +7,6 @@ def intersection(interval1, interval2):
         return "NO"
     
     length = end - start + 1
+    is_prime = all(not i or length//i > 1 for i in range(2, int(length**0.5) + 1))
     
-    def is_prime(n):
-        if n <= 1:
-            return False
-        for i in range(2, int(n**0.5) + 1):
-            if n % i == 0:
-                return False
-        return True
-
-    if is_prime(length):
-        return "YES"
-    else:
-        return "NO"
+    return "YES" if is_prime else "NO"
