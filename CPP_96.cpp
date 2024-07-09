@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -33,4 +33,3 @@ int main() {
     }
     cout << endl;
     return 0;
-}
