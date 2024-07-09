@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-bool iscuber(int a){
+bool isCube(int a) {
     int i = 1;
     while (pow(i, 3) <= a) {
         if (pow(i, 3) == a)
@@ -12,20 +12,18 @@ bool iscuber(int a){
     return false;
 }
 
-int main(){
+int originalMain(){
     int n;
     std::cout << "Enter an integer: ";
     std::cin >> n;
-    if(iscuber(n))
+    if(isCube(n))
         std::cout << n << " is a perfect cube.\n";
     else
         std::cout << n << " is not a perfect cube.\n";
-    if(iscuber(n)){
-        int i = 1;
-        while (pow(i, 3) <= n) {
-            if (pow(i, 3) == n)
-                std::cout << i << " * " << i << " * " << i << " = " << n << ".\n";
-            i++;
-        }
-    }
+}
+
+int main(){
+    originalMain();
+    // You can put your assertions here if needed
+    assert (isCube(1729) == false);
 }
