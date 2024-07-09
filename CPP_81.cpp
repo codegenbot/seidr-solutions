@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool same(vector<string> a, vector<string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -55,5 +55,11 @@ int main() {
         std::cout << grade << std::endl;
     }
 
+    if (!issame({4.0, 3.9}, {"A+", "A+"})) {
+        // test failed
+    } else {
+        // test passed
+    }
+    
     return 0;
 }
