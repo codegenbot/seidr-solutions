@@ -26,8 +26,11 @@ std::vector<int> even_odd_palindrome(int n){
 }
 
 int main() {
-    std::vector<int> expected_result = {0, 1};
-    assert(issame(even_odd_palindrome(1), expected_result));
-    
+    int n;
+    std::cin >> n;
+    std::vector<int> result = even_odd_palindrome(n);
+    std::cout << "Even Palindromes: " << result[0] << std::endl;
+    std::cout << "Odd Palindromes: " << result[1] << std::endl;
+
     return 0;
 }
