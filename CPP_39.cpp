@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 bool isPrime(int n) {
@@ -17,7 +17,7 @@ string primeFib(int num) {
         a = b;
         b = fibNum;
         if (isPrime(fibNum)) {
-            if (fibNum > num) return std::to_string(fibNum);
+            if (fibNum > num) return to_string(fibNum);
         }
     }
 }
