@@ -1,4 +1,6 @@
 #include <vector>
+#include <cmath>
+#include <climits>
 
 using namespace std;
 
@@ -8,15 +10,15 @@ int prod_signs(vector<int> arr) {
 
     for (int num : arr) {
         if (num == 0) {
-            return 0; // If the vector contains zero, product of signs will be zero
+            return 0; 
         }
         int sign = (num > 0) ? 1 : ((num < 0) ? -1 : 0);
-        sum_of_magnitudes += abs(num);
+        sum_of_magnitudes += abs(num); 
         sign_product *= sign;
     }
 
     if (arr.empty()) {
-        return INT_MIN; // Return -32768 for empty array
+        return INT_MIN; 
     }
 
     return sum_of_magnitudes * sign_product;
