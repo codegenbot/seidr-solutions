@@ -11,18 +11,10 @@ bool isSame(vector<string> a, vector<string> b) {
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            temp.push_back(i);
-        }
-    }
-    
-    sort(temp.begin(), temp.end());
-    
     vector<string> result;
-    for (int i : temp) {
-        string s = "";
+    
+    for (int i : arr) {
+        string s;
         switch (i) {
             case 1:
                 s = "One";
@@ -54,8 +46,6 @@ vector<string> by_length(vector<int> arr) {
         }
         result.push_back(s);
     }
-    
-    reverse(result.begin(), result.end());
     
     return result;
 }
