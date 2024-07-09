@@ -7,7 +7,7 @@ using namespace std;
 
 variant<int, float, string> compare_one(const variant<int, float, string>& a, const variant<int, float, string>& b) {
     if (a.index() != b.index())
-        return {}; // Different types, return default-constructed variant
+        return {};
 
     if (holds_alternative<int>(a) && holds_alternative<int>(b)) {
         if (get<int>(a) > get<int>(b))
