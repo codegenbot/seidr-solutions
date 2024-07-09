@@ -1,8 +1,14 @@
-```cpp
+#include <cassert>
+#include <vector>
+#include <algorithm>
+
 int next_smallest(vector<int> lst) {
-    sort(lst.begin(), lst.end());
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] != lst[0]) return lst[i];
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for (int i = sorted.size() - 2; i >= 0; i--) {
+        if (sorted[i] < sorted[i + 1]) {
+            return sorted[i];
+        }
     }
     return -1;
 }
