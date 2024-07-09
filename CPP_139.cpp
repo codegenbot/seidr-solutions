@@ -1,5 +1,4 @@
-Here is the corrected code:
-
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -15,9 +14,10 @@ long long special_factorial(int n) {
     return result;
 }
 
-int main() {
+int main
+{
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
     std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
-    return 0;
+}
