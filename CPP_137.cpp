@@ -1,72 +1,60 @@
-```cpp
+```
 #include <boost/any.hpp>
-#include <string>
+#include <boost/type_index.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any(b);
+        return b;
     } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any(b);
+        return b;
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         return a;
     } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
         return a;
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string strA = boost::any_cast<string>(a);
-        int numB = boost::any_cast<int>(b);
-        if (stod(strA.c_str()) > to_string(numB).c_str()) {
-            return a;
-        } else if (stod(strA.c_str()) < to_string(numB).c_str()) {
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        if (std::stod(b.convert_to<std::string>().c_str()) > a.convert_to<std::string>().c_str()) {
             return b;
-        } else {
-            return boost::any("None");
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        string strA = boost::any_cast<string>(a);
-        double numB = boost::any_cast<double>(b);
-        if (stod(strA.c_str()) > to_string(numB).c_str()) {
-            return a;
-        } else if (stod(strA.c_str()) < to_string(numB).c_str()) {
-            return b;
-        } else {
-            return boost::any("None");
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-        if (stod(strB.c_str()) > stod(strA.c_str())) {
-            return b;
-        } else if (stod(strB.c_str()) < stod(strA.c_str())) {
+        } else if (std::stod(b.convert_to<std::string>().c_str()) < std::stod(a.convert_to<std::string>().c_str())) {
             return a;
         } else {
             return boost::any("None");
         }
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int numA = boost::any_cast<int>(a);
-        string strB = boost::any_cast<string>(b);
-        if (numA > stoi(strB.c_str())) {
-            return a;
-        } else if (numA < stoi(strB.c_str())) {
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
+        if (std::stod(b.convert_to<std::string>().c_str()) > a.convert_to<std::string>().c_str()) {
             return b;
+        } else if (std::stod(b.convert_to<std::string>().c_str()) < std::stod(a.convert_to<std::string>().c_str())) {
+            return a;
         } else {
             return boost::any("None");
         }
-    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        double numA = boost::any_cast<double>(a);
-        string strB = boost::any_cast<string>(b);
-        if (numA > stod(strB.c_str())) {
-            return a;
-        } else if (numA < stod(strB.c_str())) {
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        if (std::stod(b.convert_to<std::string>().c_str()) > std::stod(a.convert_to<std::string>().c_str())) {
             return b;
+        } else if (std::stod(b.convert_to<std::string>().c_str()) < std::stod(a.convert_to<std::string>().c_str())) {
+            return a;
+        } else {
+            return boost::any("None");
+        }
+    } else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        if (std::stoi(b.convert_to<std::string>().c_str()) > a) {
+            return b;
+        } else if (std::stoi(b.convert_to<std::string>().c_str()) < a) {
+            return a;
+        } else {
+            return boost::any("None");
+        }
+    } else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
+        if (std::stod(b.convert_to<std::string>().c_str()) > a) {
+            return b;
+        } else if (std::stod(b.convert_to<std::string>().c_str()) < a) {
+            return a;
         } else {
             return boost::any("None");
         }
     } else {
-        int numA = boost::any_cast<int>(a);
-        int numB = boost::any_cast<int>(b);
-        if (numA > numB) {
+        if (a.convert_to<int>() > b.convert_to<int>()) {
             return a;
-        } else if (numA < numB) {
+        } else if (a.convert_to<int>() < b.convert_to<int>()) {
             return b;
         } else {
             return boost::any("None");
