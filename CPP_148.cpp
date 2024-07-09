@@ -11,8 +11,8 @@ std::vector<std::string> bf(const std::string& str1, const std::string& str2) {
 bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
     return vec1 == vec2;
 }
+
 if (!issame(bf("Jupiter", "Makemake"), {})) {
     return 1; 
-} else {
-    return 0;
 }
+return 0;
