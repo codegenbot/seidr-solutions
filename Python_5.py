@@ -1,10 +1,10 @@
-Here is the solution:
+from typing import List
 
-def intersperse(numbers: List[int], delimiter: int) -> str:
-    result = ''
-    for i, number in enumerate(numbers):
-        if i > 0:
-            result += f',{delimiter} {number}'
-        else:
-            result += str(number)
+
+def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+    if len(numbers) == 1:
+        return numbers
+    result = [numbers[0]]
+    for i in range(1, len(numbers)):
+        result.extend([delimiter] + [numbers[i]])
     return result
