@@ -1,6 +1,16 @@
 ```
 def minPath(grid, k):
     N = len(grid)
+    
+    if N == 0:
+        return []
+    
+    if not all(len(row) == N for row in grid):
+        return "Grid is not a square."
+        
+    if not all(isinstance(cell, int) for row in grid for cell in row):
+        return "Grid contains non-integer elements."
+        
     visited = [[False]*N for _ in range(N)]
     queue = [(0, 0, [grid[0][0]])]
     res = []
@@ -23,7 +33,17 @@ def minPath(grid, k):
     return res
 
 N = int(input("Enter number of rows (columns will be same): "))
-grid = [[int(input(f"Enter element for row {i}, column {j}: ")) for j in range(N)] for i in range(N)]
-k = int(input("Enter k value: "))
+while not isinstance(N, int):
+    print("Invalid input. Please enter an integer.")
+    N = int(input("Enter number of rows (columns will be same): "))
 
-print(minPath(grid, k))
+if len(grid := [[int(input(f"Enter element for row {i}, column {j}: ")) for j in range(N)] for i in range(N)]) != N:
+    print("Grid is not a square.")
+else:
+    k = int(input("Enter k value: "))
+    
+    while not isinstance(k, int):
+        print("Invalid input. Please enter an integer.")
+        k = int(input("Enter k value: "))
+
+    print(minPath(grid, k))
