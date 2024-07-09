@@ -1,16 +1,14 @@
 ```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    quarters = cents // 25
-    remaining_cents = cents % 25
+    result = [0, 0, 0, 0]
+    
+    for coin in coins:
+        while cents >= coin:
+            result[coins.index(coin)] += 1
+            cents -= coin
 
-    pennies = remaining_cents
-    nickles = remaining_cents // 5
-    remaining_cents %= 5
-    dimes = remaining_cents // 10
-    remaining_cents %= 10
-
-    return quarters, nickles, dimes, pennies
+    return result
 
 cents = int(input())
 quarters, nickles, dimes, pennies = coin_sums(cents)
