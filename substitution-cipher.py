@@ -1,4 +1,3 @@
-```
 def decipher_message(key1, key2, message):
     key1 = key1.lower()
     key2 = key2.lower()
