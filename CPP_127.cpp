@@ -5,15 +5,20 @@ string intersection(vector<int> interval1, vector<int> interval2) {
     if (start > end)
         return "NO";
 
-    int length = end - start + 1;
-
-    bool isPrime = true;
-    for (int i = 2; i * i <= length; i++) {
-        if (length % i == 0) {
-            isPrime = false;
-            break;
-        }
+    for (int i = 2; i * i <= end - start + 1; i++) {
+        if ((end - start + 1) % i == 0 && isPrime(i))
+            return "YES";
     }
 
-    return isPrime ? "YES" : "NO";
+    return "NO";
+}
+
+bool isPrime(int n) {
+    if (n <= 1)
+        return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
+            return false;
+    }
+    return true;
 }
