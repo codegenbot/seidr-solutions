@@ -10,11 +10,11 @@ int mastermind(std::string code, std::string guess) {
         if(code[i] == guess[i]) {
             blackPegs++;
         } else {
-            for(size_t j=0; j<4; j++) {
-                if(code[i] == guess[j]) {
-                    if(i==j) blackPegs++; 
-                    else whitePegs++;      
-                    break;
+            bool found = false;
+            for(int j=i+1; j<4; j++) {
+                if(guess[j] == code[i] && !found) {
+                    whitePegs++;
+                    found = true;
                 }
             }
         }
