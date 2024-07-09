@@ -16,10 +16,9 @@ int main() {
     vector<int> input;
     int num;
     cout << "Enter the numbers of the list (separated by space): ";
-    while (cin >> num) {
+    while(cin >> num) {
         input.push_back(num);
     }
-    cin.ignore();  
     cout << "The result is: " << solution(input) << endl;
     return 0;
 }
