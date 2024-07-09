@@ -1,13 +1,10 @@
 ```cpp
 #include <algorithm>
 #include <vector>
+#include <utility>
 
-bool issame(vector<int> a,vector<int>b){
-    return a == b;
-}
-
-vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> pairs;
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
         int num = abs(nums[i]);
@@ -18,27 +15,12 @@ vector<int> order_by_points(vector<int> nums) {
         pairs.push_back({sumOfDigits, i});
     }
 
-    sort(pairs.begin(), pairs.end());
+    std::sort(pairs.begin(), pairs.end());
 
-    vector<int> result;
+    std::vector<int> result;
     for (const auto& pair : pairs) {
         result.push_back(nums[pair.second]);
     }
 
     return result;
-}
-
-int main() {
-    int n; 
-    cin >> n;
-    vector<int> nums(n);
-    for(int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-    cout << "[";
-    for (int num : order_by_points(nums)) {
-        cout << num << " ";
-    }
-    cout << "]";
-    return 0;
 }
