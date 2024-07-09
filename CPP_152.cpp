@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-bool areSame(std::vector<int> a, std::vector<int> b){
+bool same(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++){
@@ -18,7 +14,7 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
         if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
-            result.push_back(std::abs(game[i] - guess[i]));
+            result.push_back(abs(game[i] - guess[i]));
         }
     }
     return result;
@@ -43,7 +39,7 @@ int main() {
             guess.push_back(temp);
         }
     }
-    if(areSame(game, guess)){
+    if(same(game, guess)){
         std::cout << "The two vectors are the same.\n";
     } else {
         std::vector<int> result = compare(game, guess);
