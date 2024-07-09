@@ -1,6 +1,7 @@
 #include <boost/any.hpp>
 #include <vector>
 #include <list>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -18,4 +19,9 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
         result.push_back(v);
     }
     return result;
+}
+
+int main() {
+    assert(issame(filter_integers({3, 97, 3, 3, 3}), {3, 3, 3}));
+    return 0;
 }
