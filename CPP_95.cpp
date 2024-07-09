@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool caseCheck(map<string,string> dict){
+bool keys_in_same_case(map<string,string> dict){
     if(dict.empty()) return false;
     
     string first_key = dict.begin()->first;
@@ -27,7 +27,7 @@ int main() {
         cin >> value;
         dictionary[input] = value;
     }
-    if(caseCheck(dictionary)) {
+    if(keys_in_same_case(dictionary)) {
         cout << "All keys in the same case.\n";
     } else {
         cout << "Keys have mixed case.\n";
