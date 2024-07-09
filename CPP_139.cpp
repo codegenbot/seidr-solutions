@@ -10,11 +10,11 @@ long long special_factorial(int n){
     return result;
 }
 
-int main(){
-    int n;
+int main() {
+    int num;
     std::cout << "Enter a number: ";
-    std::cin >> n;
-    long long result = special_factorial(n);
-    std::cout << "The factorial of " << n << " is " << result << std::endl;
+    std::cin >> num;
+    long long result = special_factorial(num);
+    std::cout << "The special factorial of " << num << " is " << result << std::endl;
     return 0;
 }
