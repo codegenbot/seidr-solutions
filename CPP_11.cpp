@@ -24,7 +24,7 @@ int main() {
     std::getline(std::cin, str1);
 
     std::cout << "Enter the second string: ";
-    std::cin.ignore(); // Ignore newline left over from previous line
+    std::cin.ignore(); // wait for the user to enter a newline character
     std::getline(std::cin, str2);
     
     try {
