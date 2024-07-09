@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,26 +21,29 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return {result, (reversed == result ? "True" : "False")};
 }
 
-bool is_same(std::vector<std::string> v) {
-    if(v.size() < 2)
-        return true;
-    for(int i=0; i<v.size()-1; i++) {
-        if(v[i] != v[i+1])
+bool is_same(std::vector<std::string> v1, std::vector<std::string> v2) {
+    if(v1.size() != v2.size()) {
+        return false;
+    }
+    for(int i = 0; i < v1.size(); i++) {
+        if(v1[i] != v2[i]) {
             return false;
+        }
     }
     return true;
 }
 
 int main() {
-    std::string str, ch;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << "Enter a character: ";
-    std::getline(std::cin, ch);
-    std::vector<std::string> result = reverse_delete(str, ch);
-    if(is_same({result[0], result[1]}))
-        std::cout << "The strings are the same.\n";
-    else
-        std::cout << "The strings are not the same.\n";
+    std::string s, c;
+    std::cout << "Enter the string: ";
+    std::cin >> s;
+    std::cout << "Enter the character: ";
+    std::cin >> c;
+    std::vector<std::string> result = reverse_delete(s, c);
+    if(is_same(result, {"Hello", "olleH"})) {
+        std::cout << "The output is correct." << std::endl;
+    } else {
+        std::cout << "The output is incorrect." << std::endl;
+    }
     return 0;
 }
