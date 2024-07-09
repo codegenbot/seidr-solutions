@@ -2,7 +2,7 @@
 #include <string>
 #include <openssl/evp.h>
 
-std::string_view string_to_md5(const std::string& text) {
+std::string string_to_md5(const std::string& text) {
     if (text.empty()) {
         return "None";
     }
@@ -21,10 +21,10 @@ std::string_view string_to_md5(const std::string& text) {
 
     EVP_MD_CTX_free(mdctx);
 
-    static char mdString[33];
+    char mdString[33] = {};
     for (unsigned int i = 0; i < md_len; i++) {
         sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
     }
 
     return mdString;
-}  
+}
