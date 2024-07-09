@@ -1,6 +1,8 @@
+Here is the modified code:
+
 ```cpp
-#include <iostream>
 #include <string>
+#include <iostream>
 
 bool solveBoolean(std::string s) {
     bool result = true;
@@ -32,13 +34,8 @@ bool solveBoolean(std::string s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a Boolean expression: ";
-    std::getline(std::cin, input);
+    std::cin >> input;
     bool result = solveBoolean(input);
-    if (result) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
-    }
+    std::cout << (result ? "True" : "False") << std::endl;
     return 0;
 }
