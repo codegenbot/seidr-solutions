@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,10 +13,9 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-int main() {
-    int test[] = {1, 2, 3, -23, 243, -400, 0};
-    std::vector<int> testVector(test, test + sizeof(test) / sizeof(test[0]));
-    for (int i : maximum(testVector, 3)) {
+int main2() {
+    std::vector<int> test = maximum({1, 2, 3, -23, 243, -400, 0}, 3);
+    for (int i : test) {
         std::cout << i << " ";
     }
     return 0;
