@@ -1,11 +1,19 @@
+#include<string>
+#include<vector>
+using namespace std;
+
 vector<int> even_odd_count(int num) {
-    int count_even = 0, count_odd = 0;
-    string str_num = to_string(abs(num));
-    for (char c : str_num) {
-        if (stoi(c) % 2 == 0)
-            count_even++;
-        else
-            count_odd++;
-    }
-    return {count_even, count_odd};
+    int countEven = 0;
+    int countOdd = 0;
+    
+    if(num < 0) num = -num; // convert to positive for simplicity
+    
+    do {
+        int digit = num % 10;
+        (digit % 2 == 0 ? ++countEven : ++countOdd);
+        num /= 10;
+    } while (num > 0);
+
+    vector<int> result({countEven, countOdd});
+    return result;
 }
