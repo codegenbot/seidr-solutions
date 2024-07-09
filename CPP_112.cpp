@@ -1,4 +1,3 @@
-
 #include <algorithm>
 #include <string>
 #include <vector>
@@ -22,4 +21,5 @@ std::pair<std::string, std::string> reverse_delete(const std::string& s, const s
 
 int main() {
     assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    return 0;
 }
