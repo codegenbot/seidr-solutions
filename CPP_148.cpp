@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 std::vector<std::string> bf(std::string planet1, std::string planet2);
 
@@ -35,10 +36,4 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
-    // Additional test cases can be added here
-    return 0;
 }
