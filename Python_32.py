@@ -11,7 +11,7 @@ def find_zero(xs: str):
 
 
 # Get user input
-user_input = input("Enter a list of integers separated by space where zero is the first element: ")
+user_input = input("Enter a list of integers separated by space: ")
 
 # Call the function with user input and print the result
 print(find_zero(user_input))
