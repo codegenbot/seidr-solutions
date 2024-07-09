@@ -1,13 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-double double_the_difference(std::vector<float> lst) {
-    double sum = 0;
+long long double_the_difference(std::vector<float> lst) {
+    long long sum = 0;
     for (float num : lst) {
         if (num > 0 && std::floor(num) == num) { 
-            if (std::fmod(num, 2.0) != 0) { 
-                sum += pow(num, 2); 
+            if (num % 1.0f != 0.0f) { 
+                sum += std::pow(num, 2); 
             }
         }
     }
