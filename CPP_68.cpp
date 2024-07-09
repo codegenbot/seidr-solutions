@@ -1,10 +1,12 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <cassert>
 #include <iostream>
+#include <limits>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -12,12 +14,12 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
 
     if (arr.empty()) return result;
 
-    int minEven = INT_MAX;
+    int minEven = numeric_limits<int>::max();
     int minIndex = -1;
 
     for (int i = 0; i < arr.size(); i++) {
@@ -35,13 +37,17 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int mainFunction() {
-    std::vector<int> input = {7, 9, 7, 1};
-    std::vector<int> output = pluck(input);
-    assert(issame(output, {}));
-    std::cout << "Output: ";
-    for (int i : output) {
-        std::cout << i << " ";
+    vector<int> input;
+    cout << "Enter numbers (space separated): ";
+    for (int i; cin >> i; ) {
+        input.push_back(i);
     }
-    std::cout << std::endl;
+    vector<int> output = pluck(input);
+    assert(issame({0}, output));
+    cout << "Output: ";
+    for (int i : output) {
+        cout << i << " ";
+    }
+    cout << endl;
     return 0;
 }
