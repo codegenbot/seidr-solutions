@@ -17,7 +17,7 @@ std::string int_to_mini_roman(int number){
             number -= roman_pair.first;
         }
     }
-    
+
     return result;
 }
 
