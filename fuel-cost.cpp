@@ -11,7 +11,7 @@ int calculateFuelCost(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers = {25, 45, 60};
+    vector<int> numbers = {25,30};
     cout << calculateFuelCost(numbers) << endl;
     return 0;
 }
