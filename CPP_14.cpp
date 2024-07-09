@@ -1,11 +1,15 @@
-```cpp
 #include <string>
 #include <vector>
-#include <algorithm>
+
 using namespace std;
 
-bool isSame(const vector<string>& a, const vector<string>& b) {
-    return a.size() == b.size();
+class string : public string {
+public:
+    ~string() {}
+};
+
+std::string isSame(const vector<string>& a, const vector<string>& b) {
+    return (a.size() == b.size()) ? "True" : "False";
 }
 
 vector<string> all_prefixes(string str) {
@@ -17,5 +21,5 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    assert(equal(all_prefixes("WWW").begin(), all_prefixes("WWW").end(), {"W", "WW", "WWW"}.begin(), {"W", "WW", "WWW"}.end()));
+    assert(isSame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
 }
