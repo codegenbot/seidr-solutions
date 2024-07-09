@@ -1,3 +1,4 @@
+from collections import OrderedDict
+
 def sort_even(l: list):
-    even = sorted([x for x in l[::2]])
-    return [y if i % 2 == 0 else x for i, (x, y) in enumerate(zip(reversed(l[1::2]), even))]
+    return list(OrderedDict((i//2,x) if x % 2 == 0 else (i,x) for i, x in enumerate(l)).values()) + [x for x in l if x % 2 != 0]
