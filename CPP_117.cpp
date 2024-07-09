@@ -30,9 +30,7 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    vector<string> expected = {"b", "c", "d", "f"};
-    vector<string> actual = select_words("a b c d e f", 1);
-    assert(actual == expected);
+    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
     
     cout << "All test cases passed successfully!";
     
