@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -33,9 +32,8 @@ vector<string> numerical_letter_grade(vector<string> grades) {
 
 int main() {
     vector<string> grades1 = {"0.0", "0.7"};
-    vector<string> result1 = numerical_letter_grade(grades1);
     
-    if (checkResults(vector<string>{result1[0], result1[1]}, vector<string>{"F", "D+"})) {
+    if (checkResults(vector<string>{numerical_letter_grade(grades1)[0], numerical_letter_grade(grades1)[1]}, vector<string>{"F", "D+"})) {
         cout << "The two vectors are the same." << endl;
     } else {
         cout << "The two vectors are not the same." << endl;
