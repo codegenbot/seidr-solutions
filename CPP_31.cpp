@@ -10,7 +10,7 @@ int cpp_main() {
     std::cin >> num;
 
     if(is_prime(num)) {
-        std::cout << std::to_string(num) << " is a prime number." << std::endl;
+        std::cout << num << " is a prime number." << std::endl;
         
         for(int i = 2; i <= num; i++) {
             if(is_prime(i))
