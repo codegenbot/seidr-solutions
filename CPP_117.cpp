@@ -2,13 +2,14 @@
 #include <algorithm>
 #include <string>
 #include <cctype>
+#include <initializer_list>
 
 using namespace std;
 
 bool issame(vector<pair<int, string>> a, vector<pair<int, string>> b) {
     if (a.size() != b.size()) return false;
     for(int i = 0; i<a.size(); i++){
-        if(a[i].first != b[i].first || a[i].second != b[i].second) return false;
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
@@ -44,6 +45,7 @@ vector<pair<int, string>> select_words(string s, int n) {
 
 int main() {
     vector<pair<int, string>> expected = {{1, "b"}, {1, "c"}, {1, "d"}, {1, "f"}};
-    assert(issame(select_words("a b c d e f", 1), expected));
+    vector<pair<int, string>> output = select_words("a b c d e f", 1);
+    assert(issame(output, expected));
     return 0;
 }
