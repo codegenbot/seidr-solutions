@@ -3,8 +3,7 @@ bool correct_bracketing(string brackets){
     for(char c : brackets){
         if(c == '<'){
             count++;
-        }
-        else if(c == '>'){
+        } else if(c == '>'){
             count--;
         }
         if(count < 0){
