@@ -21,15 +21,17 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     int n;
-    std::cout << "Enter a number: ";
+    std::cout << "Enter an integer: ";
     std::cin >> n;
-    std::vector<int> result = even_odd_palindrome(n);
-    if (isSame(even_odd_palindrome(n), result)) {
-        for(int i = 0; i < n; ++i) {
-            std::cout << result[i] << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "Not a palindrome." << std::endl;
+    std::vector<int> expected = even_odd_palindrome(n);
+    for(int i = 0; i < n; ++i) {
+        if(i % 2 == 0)
+            expected.push_back(0);
+        else
+            expected.push_back(1);
     }
+    if(isSame(even_odd_palindrome(n), expected)) 
+        std::cout << "The output is the same.\n";
+    else
+        std::cout << "The output is different.\n";
 }
