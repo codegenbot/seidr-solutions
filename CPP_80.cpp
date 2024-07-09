@@ -1,29 +1,29 @@
-```
+```cpp
+#include <iostream>
 #include <string>
-#include <algorithm>
 
-bool is_happy(std::string s) {
-    if(s.length() < 3) return false;
-    for(int i = 0; i <= s.length()-3; i++){
-        std::string substr = s.substr(i, 3);
-        bool unique = true;
-        for(char c : substr){
-            if(std::count(substr.begin(), substr.end(), c) > 1){
-                unique = false;
-                break;
-            }
-        }
-        if(!unique) return false;
-    }
-    return true;
-}
+bool is_happy(const std::string& s);
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    if(is_happy(input)) {
-        std::cout << "The string is happy." << std::endl;
-    } else {
-        std::cout << "The string is not happy." << std::endl;
+    assert(is_happy("iopaxioi") == false );
+    return 0;
+}
+
+bool is_happy(const std::string& s) {
+    bool visited[100] = {false};
+    int n = s.length();
+    int i = 0;
+    while (i < n) {
+        if (!visited[int(s[i]) - '0']) {
+            int temp = int(s[i]) - '0';
+            while (temp != 1 && !visited[temp]) {
+                visited[temp] = true;
+                temp = (temp % 10 + (temp / 10 * 10)) % 10;
+            }
+            if (temp == 1) return true;
+            else if (visited[int(s[i]) - '0']) return false;
+        }
+        i++;
     }
+    return true;
 }
