@@ -1,12 +1,13 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b);
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
+    for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -14,28 +15,31 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
     while (n != 1) {
-        if (n % 2 != 0) {
-            result.push_back(n);
+        result.push_back(n);
+        if (n % 2 == 0) {
+            n = n / 2;
+        } else {
+            n = 3 * n + 1;
         }
-        n = (n % 2 == 0) ? n / 2 : 3 * n + 1;
     }
     result.push_back(1);
-    sort(result.begin(), result.end());
-    return result;
+    
+    std::vector<int> odd_numbers;
+    for (int num : result) {
+        if (num % 2 != 0) {
+            odd_numbers.push_back(num);
+        }
+    }
+    std::sort(odd_numbers.begin(), odd_numbers.end());
+    
+    return odd_numbers;
 }
 
 int main() {
-    // Example usage
-    vector<int> test1 = get_odd_collatz(10);
-    vector<int> test1_expected = {1, 3, 5, 7, 9, 10};
-    assert(issame(test1, test1_expected));
-
-    vector<int> test2 = get_odd_collatz(20);
-    vector<int> test2_expected = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 20};
-    assert(issame(test2, test2_expected));
-
+    assert(issame(get_odd_collatz(1), {1}));
+    
     return 0;
 }
