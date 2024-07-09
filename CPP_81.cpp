@@ -1,4 +1,4 @@
-vector<string> gradeToLetter(vector<float> grades) {
+vector<string> convertGrades(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
         string letterGrade = "";
@@ -25,7 +25,7 @@ vector<string> gradeToLetter(vector<float> grades) {
         } else if (grade > 0.7) {
             letterGrade = "D";
         } else {
-            letterGrade = "F";
+            letterGrade = "E";
         }
         result.push_back(letterGrade);
     }
