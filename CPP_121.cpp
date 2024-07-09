@@ -1,6 +1,6 @@
-#include <vector> // Add necessary include
+#include <vector>
 
-int solution(std::vector<int> lst) { // Specify std:: for vector
+int solutions(std::vector<int> lst) {
     int sum = 0;
     for (int i = 0; i < lst.size(); i += 2) {
         if (lst[i] % 2 != 0) {
@@ -8,9 +8,4 @@ int solution(std::vector<int> lst) { // Specify std:: for vector
         }
     }
     return sum;
-}
-
-int main() {
-    assert (solution({3, 13, 2, 9}) == 3); // Use correct function name
-    return 0;
 }
