@@ -1,7 +1,9 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <initializer_list>
 #include <iostream>
+
 using namespace std;
 
 vector<string> sorted_list_sum(vector<string> lst) {
@@ -26,17 +28,13 @@ vector<string> sorted_list_sum(vector<string> lst) {
 
 int main() {
     vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
-    vector<string> output = sorted_list_sum(input);
-    
-    cout << "The lists are: ";
-    for (const string& str : output) {
-        cout << str << " ";
-    }
-    cout << endl;
-    
-    if (output == vector<string>({"cc", "dd", "aaaa", "bbbb"})) {
+    vector<string> expected = {"cc", "dd", "aaaa", "bbbb"};
+
+    if (input == expected) {
         cout << "The lists are the same." << endl;
     } else {
-        cout << "The lists are not the same: actual - " << output << ", expected - {" << "cc" << ", " << "dd" << ", " << "aaaa" << ", " << "bbbb" << "}" << endl;
+        cout << "Error: The lists are not the same." << endl;
     }
+
+    return 0;
 }
