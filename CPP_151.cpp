@@ -16,7 +16,7 @@ int main() {
     std::vector<float> lst;  
     float val;
     int size;
-
+    
     // Get the size of the vector from the user
     std::cout << "Enter the number of elements: ";
     std::cin >> size;
