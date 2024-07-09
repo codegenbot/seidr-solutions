@@ -18,12 +18,8 @@ std::vector<int> leaders(std::vector<int>& arr) {
 int main() {
     int n;
     std::vector<int> input;
-    while(std::cin >> n) {
-        if(n > 0) { 
-            input.push_back(n);
-        } else {
-            break; 
-        }
+    while(std::cin >> n && std::cin.peek() != '\n') {
+        input.push_back(n);
     }
     std::vector<int> result = leaders(input);
     for(int i: result)
