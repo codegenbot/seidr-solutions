@@ -1,6 +1,6 @@
+```c++
 #include <string>
-#include <algorithm>
-
+#include <algorithm> 
 using namespace std;
 
 string spinWords(string str) {
