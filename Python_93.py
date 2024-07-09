@@ -1,4 +1,5 @@
-#
+Here is the corrected code without comments or extra syntax:
+
 def encode(message):
     result = ""
     for char in message:
