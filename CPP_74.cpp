@@ -43,21 +43,27 @@ int main() {
     std::vector<std::string> lst4 = {"jackfruit", "kiwi", "lemon"};
 
     // User input
-    std::cout << "Enter 2 lists of fruits separated by spaces: ";
+    std::cout << "Enter 2 lists of fruits separated by commas: ";
     std::string user_input1, user_input2;
     std::getline(std::cin, user_input1);
     std::getline(std::cin, user_input2);
 
     std::istringstream iss(user_input1);
     std::vector<std::string> lst5;
-    while (std::getline(iss, user_input1, ' ')) {
-        lst5.push_back(user_input1);
+    for (std::string s; std::getline(iss, s, ',');) {
+        if (s.size() > 3) { // adjust this size as per your requirement
+            continue;
+        }
+        lst5.push_back(s);
     }
 
     std::istringstream iis(user_input2);
     std::vector<std::string> lst6;
-    while (std::getline(iis, user_input2, ' ')) {
-        lst6.push_back(user_input2);
+    for (std::string s; std::getline(iis, s, ',');) {
+        if (s.size() > 3) { // adjust this size as per your requirement
+            continue;
+        }
+        lst6.push_back(s);
     }
 
     if (!lst1.empty() && !lst2.empty()) {
