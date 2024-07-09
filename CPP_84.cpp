@@ -1,22 +1,19 @@
-```
 #include <iostream>
 using namespace std;
 
-string solve(int N) {
-    string binary = "";  
-    while (N > 0) {
-        if (N % 2 == 0)
+int solve(int n) {
+    string binary = "";
+    while(n > 0) {
+        if(n % 2 == 0)
             binary = "0" + binary;
         else
             binary = "1" + binary;
-        N /= 2;
+        n /= 2;
     }
-    return binary;
+    return stoi(binary);
 }
 
 int main() {
-    int N;
-    cout << "Enter a number: ";
-    cin >> N;
-    cout << "The binary representation of the number is: " << solve(N) << endl;
+    assert(solve(963) == 10010);
+    return 0;
 }
