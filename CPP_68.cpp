@@ -14,10 +14,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
-
     if (arr.empty()) return result;
 
-    int minEven = SIZE_MAX;
+    size_t minEven = SIZE_MAX;
     int minIndex = -1;
 
     for (int i = 0; i < arr.size(); i++) {
@@ -27,7 +26,7 @@ std::vector<int> pluck(std::vector<int> arr) {
         }
     }
 
-    result.push_back(minEven);
+    result.push_back((int)minEven);
     result.push_back(minIndex);
 
     return result;
