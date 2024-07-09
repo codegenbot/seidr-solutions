@@ -1,3 +1,5 @@
+#include <vector>
+
 int prod_signs(vector<int> inputArr) {
     int product = 1;
     long long sum = 0;
@@ -11,7 +13,7 @@ int prod_signs(vector<int> inputArr) {
     }
 
     if (inputArr.empty()) {
-        return -32768;
+        return 0; // Changed from -32768 to 0
     }
 
     return product * sum;
