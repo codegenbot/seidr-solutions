@@ -6,27 +6,43 @@ using namespace std;
 
 bool solveBoolean(string s) {
     stack<char> st;
-    bool result = false;
+    bool result = false, lastOp = true;
 
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
+        if (s[i] == 'T') {
+            while (!st.empty() && st.top() != '|') {
+                st.pop();
+            }
+            if (st.empty()) {
+                result = true;
+            } else {
+                lastOp = (st.top() == '|');
+            }
+        } else if (s[i] == 'F') {
+            while (!st.empty() && st.top() != '|') {
+                st.pop();
+            }
+            if (st.empty()) {
+                result = false;
+            } else {
+                lastOp = (st.top() == '|');
+            }
+        } else if (s[i] == '&') {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
             if (!st.empty() && st.top() == '|') {
                 st.pop();
-                result = true;
+                result = lastOp;
             } else {
                 result = false;
             }
-            st.push(s[i]);
         } else if (s[i] == '|') {
             while (!st.empty()) {
                 st.pop();
             }
             st.push(s[i]);
-        } else {
-            st.push(s[i]);
+            lastOp = true;
         }
     }
 
