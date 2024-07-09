@@ -1,3 +1,4 @@
+```
 def solve_task():
     while True:
         try:
@@ -7,15 +8,14 @@ def solve_task():
         except ValueError:
             print("Invalid input. Please enter numeric values.")
     result = num1 + num2
-    
+
     while True:
         response = input("Are you sure? (y/N): ").lower()
         if response == "y":
-            return f"Result: {result}"
+            print(f"Result: {result}")
+            return result
         elif response == "n":
-            print("Operation cancelled!")
-            return None
+            print(f"Result: {result}")
+            return result
         else:
             print("Invalid input. Please enter y or N.")
-    
-solve_task()
