@@ -19,5 +19,3 @@ def max_fill(grid: List[List[int]], capacity: int) -> int:
             capacity -= water_per_row if water_per_row > 0 else 0
         
         return math.ceil(total_water / max(1, capacity))
-    except ValueError as e:
-        print(f"Error: {e}")
