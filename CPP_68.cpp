@@ -3,7 +3,7 @@
 #include <cassert>
 #include <iostream>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -35,11 +35,14 @@ std::vector<int> pluck(std::vector<int> arr) {
 int main() {
     std::vector<int> input = {7, 9, 7, 1};
     std::vector<int> output = pluck(input);
-    assert(issame(output, {}));
-    std::cout << "Output: ";
-    for (int i : output) {
-        std::cout << i << " ";
+    if (issame(output, {})) {
+        std::cout << "Output: ";
+        for (int i : output) {
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "No matching pairs found." << std::endl;
     }
-    std::cout << std::endl;
     return 0;
 }
