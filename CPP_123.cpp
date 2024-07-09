@@ -1,39 +1,21 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
-bool issame(std::vector<int> a,std::vector<int> b){
-    return (a==b);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return (a == b);
+}
+
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> res;
+    while (n > 1) {
+        if (n % 2 != 0)
+            res.push_back(n);
+        n = n / 2;
+    }
+    return res;
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> first;
-    std::cout << "Enter elements for the first vector: ";
-    for(int i=0; i<n; i++){
-        int x;
-        std::cin >> x;
-        first.push_back(x);
-    }
-
-    std::vector<int> second;
-    std::cout << "Enter elements for the second vector: ";
-    for(int i=0; i<n; i++){
-        int x;
-        std::cin >> x;
-        second.push_back(x);
-    }
-
-    if(issame(first,second)){
-        std::cout << "Both vectors are same." << std::endl;
-    }
-    else{
-        std::cout << "Both vectors are not same." << std::endl;
-    }
-
+    assert(issame(get_odd_collatz(1), {1}));
     return 0;
 }
