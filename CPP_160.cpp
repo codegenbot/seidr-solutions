@@ -1,29 +1,49 @@
-int do_algebra(vector<string> operato, vector<int> operand){
+int do_algebra(vector<string> operato, vector<int> operand) {
     int result = 0;
-    int temp = operand[0];
+    string expression = "";
+    for (int i = 0; i < operato.size(); i++) {
+        if (i > 0) {
+            expression += " ";
+        }
+        expression += std::to_string(operand[i]);
+        expression += operato[i];
+    }
+    expression += std::to_string(operand.back());
     
-    for(int i = 0; i < operato.size(); i++){
-        if(operato[i] == "+"){
-            result += temp;
-            temp = operand[i+1];
+    int temp = eval(expression);
+    return temp;
+}
+
+int eval(const string &s) {
+    int x = 0, y = 0;
+    char op = '+';
+    for (char c : s) {
+        if (isdigit(c)) {
+            if (op == '+') {
+                x = 0;
+                y = 0;
+            }
+            else if (op == '-') {
+                x = y;
+                y = 0;
+            }
+            else if (op == '*') {
+                x *= y;
+                y = 0;
+            }
+            else if (op == '/') {
+                x /= y;
+                y = 0;
+            }
+            else if (op == '**') {
+                x = pow(x, y);
+                y = 0;
+            }
+            y = y * 10 + (c - '0');
         }
-        else if(operato[i] == "-"){
-            result -= temp;
-            temp = operand[i+1];
-        }
-        else if(operato[i] == "*"){
-            result *= temp;
-            temp = operand[i+1];
-        }
-        else if(operato[i] == "//" || operato[i] == "**"){
-            int t = temp;
-            temp = operand[i+1];
-            if(operato[i] == "//")
-                result /= t;
-            else
-                result = pow(result, t);
+        else {
+            op = c;
         }
     }
-    
-    return result;
+    return x;
 }
