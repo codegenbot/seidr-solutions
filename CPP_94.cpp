@@ -27,17 +27,18 @@ int find_max_prime_and_sum_digits(int n, int num, int maxPrimeAndSum){
 }
 
 int main() {
-    int n, num, maxPrimeAndSum = 0; 
+    int n, num, maxPrimeAndSum;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        if(maxPrimeAndSum == 10) {
-            std::cout << "The sum of digits is equal to 10." << std::endl;
+        if(i == n-1) {
+            std::cout << "The sum of digits is equal to " << find_max_prime_and_sum_digits(n, num, maxPrimeAndSum) << "." << std::endl;
         } else {
-            maxPrimeAndSum = find_max_prime_and_sum_digits(n, num, maxPrimeAndSum);
-            std::cout << "Maximum prime and sum of digits: " << maxPrimeAndSum << std::endl;
+            int temp = find_max_prime_and_sum_digits(n, num, maxPrimeAndSum);
+            std::cout << "Maximum prime and sum of digits: " << temp << std::endl;
+            maxPrimeAndSum = temp;
         }
     }
 }
