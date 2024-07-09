@@ -12,7 +12,7 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {100, -20, 15, -50};
-    cout << "Number of elements that satisfy the condition: " << specialFilter(nums) << endl;
+    vector<int> nums = {-1, -11, -121, 111, 211};
+    cout << "Count of filtered numbers is: " << specialFilter(nums);
     return 0;
 }
