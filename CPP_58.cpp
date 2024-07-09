@@ -19,26 +19,37 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 int main() {
     assert(common({4, 3, 2, 8}, {}) == {});
     // Ask the user for input
-    cout << "Enter first list of integers: ";
-    vector<int> l1;
-    int x;
-    while (cin >> x) {
-        l1.push_back(x);
+    int n1, m1, n2, m2;
+    
+    cout << "Enter size of list 1: ";
+    cin >> n1;
+    
+    vector<int> l1(n1);
+    
+    cout << "Enter elements of list 1: ";
+    for (int i = 0; i < n1; i++) {
+        cin >> l1[i];
     }
-    cin.clear();
-    cin.ignore(10000, '\n');
-    cout << "Enter second list of integers: ";
-    vector<int> l2;
-    while (cin >> x) {
-        l2.push_back(x);
+    
+    cout << "Enter size of list 2: ";
+    cin >> m2;
+    
+    vector<int> l2(m2);
+    
+    cout << "Enter elements of list 2: ";
+    for (int i = 0; i < m2; i++) {
+        cin >> l2[i];
     }
-    cin.clear();
-    cin.ignore(10000, '\n');
-    vector<int> output = common(l1, l2);
-    // Print the result
-    cout << "Common elements: ";
-    for (int i : output) {
-        cout << i << " ";
+    
+    // Get the common elements
+    vector<int> result = common(l1, l2);
+    
+    // Print the results
+    cout << "Common elements are: ";
+    for (int x : result) {
+        cout << x << " ";
     }
     cout << endl;
+    
+    return 0;
 }
