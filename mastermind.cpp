@@ -1,3 +1,5 @@
+Here is the modified code:
+
 #include <string>
 
 int mastermind(string code, string guess) {
