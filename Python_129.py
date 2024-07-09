@@ -1,31 +1,37 @@
-Here is the completed code:
+from collections import deque
 
-def minPath(grid, k):
+
+def minPath(grid):
     n = len(grid)
-    visited = [[False]*n for _ in range(n)]
-    path = []
-    
-    def dfs(i, j, path_len):
-        if path_len == k:
-            return path
-        
+    m = [[i * n + j for j in range(n)] for i in range(n)]
+
+    def dfs(i, j, path):
+        if grid[i][j] == "0":
+            return None
+
+        visited.add((i, j))
+
+        min_path = path[:]
         for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = i + di, j + dj
-            if 0 <= ni < n and 0 <= nj < n and not visited[ni][nj]:
-                visited[ni][nj] = True
-                path.append(grid[ni][nj])
-                res = dfs(ni, nj, path_len+1)
-                if res:
-                    return res
-                visited[ni][nj] = False
-        
-        return []
-    
+            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
+                new_path = dfs(ni, nj, path + [m[ni][nj]])
+                if new_path and (not min_path or new_path < min_path):
+                    min_path = new_path
+
+        return min_path
+
+    visited = set()
+
+    start = None
     for i in range(n):
         for j in range(n):
-            visited[i][j] = True
-            res = dfs(i, j, 0)
-            if res:
-                return res
-    
-    return []
+            if grid[i][j] == "1":
+                start = [i, j]
+                break
+        if start is not None:
+            break
+
+    path = dfs(*start, [])
+
+    return path
