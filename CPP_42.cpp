@@ -18,7 +18,7 @@ int main() {
 
     std::vector<int> incremented_vec = incr_list(vec1);
 
-    if (issame(vec1, incremented_vec)) {
+    if (issame(vec1, vec2)) {
         std::cout << "Vectors are the same" << std::endl;
     } else {
         std::cout << "Vectors are different" << std::endl;
