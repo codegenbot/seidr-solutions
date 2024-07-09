@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 int multiply(int a, int b) {
     return abs((a % 10) * (b % 10));
@@ -8,6 +8,6 @@ int multiply(int a, int b) {
 
 int main() {
     assert(multiply(0, 0) == 0);
-    // Add more test cases if needed
+
     return 0;
 }
