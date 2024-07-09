@@ -26,7 +26,6 @@ int main() {
     
     std::vector<int> lengthArr = by_length(intArray);
     // Test assertion
-    assert(issame(lengthArr, {to_string(9).size(), to_string(4).size(), to_string(8).size()}));
-
+    assert(issame(lengthArr, static_cast<std::initializer_list<int>>({to_string(9).size(), to_string(4).size(), to_string(8).size()})));
     return 0;
 }
