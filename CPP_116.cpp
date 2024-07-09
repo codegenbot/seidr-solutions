@@ -1,15 +1,15 @@
-Here is the solution:
+#include <vector>
+#include <algorithm>
 
-vector<int> sort_vector(vector<int> arr) {
-    vector<int> result = arr;
-    sort(result.begin(), result.end(), 
-         [](int a, int b) {
-             int ones_a = __builtin_popcount(a);
-             int ones_b = __builtin_popcount(b);
-             if (ones_a == ones_b) {
-                 return a < b;
-             }
-             return ones_a < ones_b;
-         });
-    return result;
+using namespace std;
+
+vector<int> sort_array(vector<int> arr) {
+    return vector<int>(arr.begin(), arr.end());
+    // Sort based on number of ones in binary representation and then decimal value
+    //arr.sort([](int a, int b){
+    //   if (count(a, 2) == count(b, 2))
+    //       return a - b;
+    //   else
+    //       return count(a, 2) - count(b, 2);
+    //});
 }
