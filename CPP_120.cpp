@@ -17,10 +17,12 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < std::min(k, arr.size()); i++) {
         auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.pop_back(); // equivalent to erase(arr.end()-1) for this specific use case
+        if (i < arr.size()) {
+            result.push_back(*it);
+            arr.erase(it);
+        }
     }
     return result;
 }
