@@ -1,23 +1,24 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(vector<std::string> vec_a, vector<std::string> vec_b) {
-    if(vec_a.size() != vec_b.size()) {
+bool issame(vector<std::string> a, vector<std::string> b) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < vec_a.size(); i++) {
-        if(vec_a[i] != vec_b[i]) {
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-vector<string> filter_by_prefix(vector<std::string> strings, string prefix){
-    vector<vector<string>> resultVector;
+vector<string> resultVector(vector<std::string> strings, string prefix){
+    vector<string> result;
     for(string s : strings){
         if(s.find(prefix) == 0)
-            resultVector.push_back({s});
+            result.push_back(s);
     }
-    return resultVector;
+    return result;
