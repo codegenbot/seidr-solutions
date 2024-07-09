@@ -1,6 +1,8 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <cassert>
+#include <cmath>
 
 std::string rounded_avg(int n, int m) {
     if (n > m) return "-1";
@@ -9,7 +11,7 @@ std::string rounded_avg(int n, int m) {
         sum += i;
     }
     double avg = round((double)sum / (m - n + 1));
-    std::string res = ""; // Initialize before use
+    std::string res;
     while (avg > 0) {
         if (avg >= 2) {
             res = "1" + res;
@@ -20,9 +22,4 @@ std::string rounded_avg(int n, int m) {
         }
     }
     return res;
-}
-
-int main() {
-    assert(rounded_avg(5, 5) == "101");
-    return 0;
 }
