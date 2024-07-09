@@ -6,5 +6,5 @@ std::string middleCharacter(std::string s) {
     int start = len / 2;
     std::string result = (len % 2 == 0) ? s.substr(start - 1, 2) : s.substr(start - 1, 1);
     
-    return result;
+    return result; 
 }
