@@ -1,3 +1,7 @@
+```
+#include<iostream>
+using namespace std;
+
 long long special_factorial(int n){
     long long result = 1;
     for (int i = 1; i <= n; ++i) {
@@ -10,11 +14,10 @@ long long special_factorial(int n){
     return result;
 }
 
-#include<iostream>
-using namespace std;
-
 int main(){
-    int num;
+    int n;
     cout << "Enter a number: ";
-    cin >> num;
-    assert(special_factorial(num) == 0);
+    cin >> n;
+    assert(special_factorial(n)>0);
+    return 0;
+}
