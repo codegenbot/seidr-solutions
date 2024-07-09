@@ -1,4 +1,6 @@
-```cpp
+#include <string>
+#include <cstdlib>
+
 long long solve(int n) {
     std::string binary;
     while(n > 0) {
@@ -8,5 +10,10 @@ long long solve(int n) {
             binary.insert(0, "1");
         n /= 2;
     }
-    return (binary.length() == 0 ? -1 : std::stollong(binary.c_str(), nullptr, 2));
+    return binary.length() == 0 ? -1 : stoll(binary, nullptr, 2);
+}
+
+int main() {
+    assert(solve(963) == 1107); 
+    return 0;
 }
