@@ -1,6 +1,18 @@
-def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
-    total_snow = 0
-    for _ in range(hours): 
-        initial_snow += rate_of_snowfall - melting_rate
-        total_snow += initial_snow
-    return total_snow
+```Python
+from decimal import Decimal, getcontext
+
+def snow_day():
+    getcontext().prec = 28 
+    hours = float(input("Enter number of hours: "))
+    initial_snow = Decimal(float(input("Enter initial amount of snow on the ground: ")))
+    rate_of_snowfall = Decimal(float(input("Enter rate of snow fall per hour: ")))
+    melting_rate = Decimal(float(input("Enter proportion of snow melting per hour: ")))
+
+    total_snow = Decimal(initial_snow)
+    for _ in range(int(hours)): 
+        total_snow += rate_of_snowfall
+        total_snow -= melting_rate * total_snow / (1 if total_snow > 0 else 1)
+
+    return float(total_snow)
+
+print(snow_day())
