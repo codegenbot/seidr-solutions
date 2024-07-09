@@ -15,17 +15,23 @@ bool match_parens(const std::string& s) {
         if (count < 0)
             return false;
     }
-    return !s.empty();
+    return count == 0;
 }
 
 int main() {
     int n;
     std::cin >> n;
-    lst = std::vector<std::string>();
+    lst.resize(n);
+    lst.clear();
     for(int i=0; i<n; ++i){
         std::string s;
         std::getline(std::cin, s);
-        lst.push_back(match_parens(s) ? "Yes" : "No");
+        if (!s.empty()) {
+            bool isMatch = match_parens(s); 
+            lst[i] = isMatch ? "Yes" : "No";
+        } else {
+            lst[i] = "No";  
+        }
     }
     for (const auto& str : lst) {
         std::cout << str << std::endl;
