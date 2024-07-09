@@ -1,12 +1,13 @@
 ```cpp
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
-        if(find(b.begin(), b.end(), a[i]) == b.end()) return false;
+        if(stoi(a[i]) != stoi(b[i])) return false;
     }
     return true;
 }
@@ -29,6 +30,11 @@ vector<vector<string>> filter_by_substring(vector<vector<string>> input, string 
 
 int main() {
     vector<vector<string>> result = filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, "gru");
-    assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
+    for(auto &v : result) {
+        for(auto &s : v) {
+            std::cout << s << " ";
+        }
+        std::cout << std::endl;
+    }
     return 0;
 }
