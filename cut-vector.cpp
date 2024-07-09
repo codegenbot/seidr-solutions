@@ -17,14 +17,10 @@ vector<vector<int>> cutVector(vector<int> v) {
         }
         if (leftSum == rightSum || abs(leftSum - rightSum) < minDiff) {
             minDiff = leftSum == rightSum ? 0 : abs(leftSum - rightSum);
-            res[0].clear();
-            for (int j = 0; j <= i; j++) {
-                res[0].push_back(v[j]);
-            }
-            res[1].clear();
-            for (int j = i + 1; j < n; j++) {
-                res[1].push_back(v[j]);
-            }
+            vector<int> temp1(v.begin(), v.begin() + i + 1);
+            vector<int> temp2(v.begin() + i, v.end());
+            res[0] = temp1;
+            res[1] = temp2;
         }
     }
     return res;
