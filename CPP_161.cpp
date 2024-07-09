@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cctype>
 
@@ -12,4 +11,9 @@ std::string solve(std::string s) {
         }
     }
     return result.empty() ? std::string(s).reverse() : result;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    return 0;
 }
