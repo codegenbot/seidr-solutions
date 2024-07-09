@@ -1,9 +1,3 @@
-#include <vector>
-#include <string>
-
-using std::vector;
-using std::string;
-
 vector<int> parse_music(string music_string) {
     vector<int> result;
     for (int i = 0; i < music_string.length(); i++) {
@@ -12,13 +6,12 @@ vector<int> parse_music(string music_string) {
         } else if (music_string[i] == '|') {
             if (i > 0 && music_string[i-1] == '.') {
                 result.push_back(1);
+            } else if (music_string[i] == '.') {
+                result.push_back(3);
             } else {
                 result.push_back(2);
             }
         }
     }
     return result;
-
-int main() {
-    // use the parse_music function
 }
