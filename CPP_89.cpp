@@ -1,20 +1,19 @@
-```cpp
-#include <string>
+#include<string>
+#include<cctype>
 
-int encrypt(string s){
+string encrypt(string s){
     string result = "";
     for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'm'){
-            c = (c - 'a' + 2) % 26 + 'a';
-        } else if(c >= 'n' && c <= 'z'){
-            c = (c - 'n' + 14) % 26 + 'n';
+        if(isalpha(s[i])){
+            char c = tolower(s[i]);
+            if(c >= 'a' && c <= 'm'){
+                result += (char)(c - 2);
+            } else if(c >= 'n' && c <= 'z'){
+                result += (char)((c - 2 + 26) % 26 + 'a' - 1);
+            }
+        } else {
+            result += s[i];
         }
-        result += c;
     }
-    return 0;
-}
-
-int main(){
-    assert (encrypt("a")=="e");
+    return result;
 }
