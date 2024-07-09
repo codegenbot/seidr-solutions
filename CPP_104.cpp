@@ -1,7 +1,6 @@
 #include <vector>
 
-vector<int> findNumbersWithoutEvenDigit(vector<int> x) {
-    vector<int> result;
+vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
@@ -18,4 +17,3 @@ vector<int> findNumbersWithoutEvenDigit(vector<int> x) {
     }
     sort(result.begin(), result.end());
     return result;
-}
