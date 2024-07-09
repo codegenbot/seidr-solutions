@@ -1,4 +1,3 @@
-```
 #include <cmath>
 #include <iostream>
 
@@ -19,7 +18,9 @@ int main() {
     std::string input;
     std::cout << "Enter a number: ";
     std::cin >> input;
-    if (isSimplePower(std::stoi(input))) {
+    int num = std::stoi(input);
+    assert(isSimplePower(num));
+    if (isSimplePower(num)) {
         std::cout << input << " is a simple power.\n";
     } else {
         std::cout << input << " is not a simple power.\n";

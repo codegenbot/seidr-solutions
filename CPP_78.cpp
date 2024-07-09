@@ -5,7 +5,7 @@
 int hex_key(std::string num) {
     int count = 0;
     for (char c : num) {
-        if ((int(c) >= 50 && int(c) <= 55) || int(c) == 66 || int(c) == 68 || int(c) == 70) { 
+        if ((c >= '2' && c <= '7') || (c == 'B' || c == 'D' || c == 'F')) { 
             count++;
         }
     }
