@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 
-bool issame(int a, int b) {
-    return (a == b);
+bool issame(std::pair<int, int> p1, std::pair<int, int> p2) {
+    return (p1.first == p2.first && p1.second == p2.second);
 }
 
 std::vector<std::pair<int, int>> pluck(std::vector<int> arr) {
