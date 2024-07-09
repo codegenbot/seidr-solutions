@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
 
 bool is_happy(int n);
 
