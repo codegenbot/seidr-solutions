@@ -1,4 +1,6 @@
+```cpp
 #include <initializer_list>
+#include <cassert>
 
 int solution(std::vector<int> lst) {
     int sum = 0;
