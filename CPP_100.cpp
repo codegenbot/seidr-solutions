@@ -4,12 +4,13 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
-bool issame(const vector<int>& a, const initializer_list<int>& b) {
-    return a == vector<int>(b);
+bool operator==(const vector<int>& a, const initializer_list<int>& b) {
+    if (a.size() != distance(b.begin(), b.end()))
+        return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != *next(b.begin(), i))
+            return false;
+    return true;
 }
 
 vector<int> make_a_pile(int n) {
@@ -17,4 +18,9 @@ vector<int> make_a_pile(int n) {
     for (int i = 2; i <= n; ++i)
         pile.insert(pile.begin(), i);
     return pile;
+}
+
+int main() {
+    assert(make_a_pile(8) == vector<int>({8, 10, 12, 14, 16, 18, 20, 22}));
+    return 0;
 }
