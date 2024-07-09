@@ -1,8 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-long long double_the_difference(std::vector<float> lst) {
+```cpp
+long long double_the_difference(vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && modf(num, &num) == 0) {
@@ -14,21 +11,8 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        float x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        lst.push_back(x);
-    }
-    
-    long long result = double_the_difference(lst);
-
-    std::cout << "The sum of the squares of the positive numbers is: " << result << std::endl;
-
+    vector<float> lst = {1.0f, 2.5f, 3.0f, 4.0f};
+    long long odd_sum = double_the_difference(lst);
+    assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
