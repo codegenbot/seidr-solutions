@@ -8,22 +8,42 @@ vector<float> get_positive(vector<float> l){
     return result;
 }
 
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
+bool issame(vector<float> l1, vector<float> l2) {
+    if(l1.size() != l2.size()) {
+        return false;
+    }
+    for(int i = 0; i < l1.size(); i++) {
+        if(abs(l1[i] - l2[i]) > 0.0001) {
+            return false;
+        }
     }
     return true;
 }
 
-int main(){
-    vector<float> l1 = {1.2, -3.4, 5.6};
-    vector<float> l2 = {-7.8, 9.10, 11.12};
+int main() {
+    vector<float> v1, v2;
+    int n1, n2;
     
-    vector<float> pos_l1 = get_positive(l1);
-    vector<float> pos_l2 = get_positive(l2);
+    cout << "Enter size of first list: ";
+    cin >> n1;
+    for(int i = 0; i < n1; i++) {
+        float x;
+        cin >> x;
+        v1.push_back(x);
+    }
     
-    if(issame(pos_l1, pos_l2)) {
+    cout << "Enter size of second list: ";
+    cin >> n2;
+    for(int i = 0; i < n2; i++) {
+        float y;
+        cin >> y;
+        v2.push_back(y);
+    }
+    
+    vector<float> pos_v1 = get_positive(v1);
+    vector<float> pos_v2 = get_positive(v2);
+    
+    if(issame(pos_v1, pos_v2)) {
         cout << "The two lists are the same." << endl;
     } else {
         cout << "The two lists are not the same." << endl;
