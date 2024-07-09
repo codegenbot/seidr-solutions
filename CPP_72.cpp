@@ -1,7 +1,19 @@
-bool will_it_fly(const vector<int>& q, int w) {
+#include <vector>
+#include <algorithm>
+
+bool will_it_fly(vector<int> q, int w) {
     int sum = 0;
-    for (int n : q) {
-        sum += n;
+    for (int i = 0; i < q.size(); i++) {
+        sum += q[i];
     }
-    return (q == vector<int>(q.rbegin(), q.rend())) && (sum <= w);
+
+    if (sum <= w) {
+        vector<int> reversed_q = q;
+        reverse(reversed_q.begin(), reversed_q.end());
+        if (q == reversed_q) {
+            return true;
+        }
+    }
+
+    return false;
 }
