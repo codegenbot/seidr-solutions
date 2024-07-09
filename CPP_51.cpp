@@ -1,7 +1,13 @@
-string remove_vowels(string text) {
+```cpp
+#include <string>
+
+using namespace std;
+
+string remove_vowels(string text){
     string result = "";
-    for (char c : text) {
-        if (text.find_first_not_of("aeiouAEIOU") != string::npos) {
+    for(char c : text){
+        if (!(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
+            || (c >= 'A' && c <= 'U'))){
             result += c;
         }
     }
