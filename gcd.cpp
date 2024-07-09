@@ -1,4 +1,11 @@
-#include <cmath>
+int main() {
+    int a, b;
+    std::cout << "Enter two integers: ";
+    std::cin >> a >> b;
+    int result = findGCD(a, b);
+    std::cout << "The GCD of the given numbers is: " << result << std::endl;
+    return 0;
+}
 
 int findGCD(int a, int b) {
     if (b == 0) return labs(a);
