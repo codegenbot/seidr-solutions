@@ -1,8 +1,16 @@
 #include <vector>
-#include <iostream>
+#include <algorithm>
 
-std::vector<float> get_positive(const std::vector<float>& l) {
-    std::vector<float> result;
+bool issame(vector<float> v1, vector<float> v2) {
+    if(v1.size() != v2.size()) return false;
+    for(int i = 0; i < v1.size(); i++) {
+        if(abs(v1[i] - v2[i]) > 0.00001) return false;
+    }
+    return true;
+}
+
+vector<float> get_positive(vector<float> l){
+    vector<float> result;
     for(float num : l){
         if(num > 0)
             result.push_back(num);
@@ -11,12 +19,15 @@ std::vector<float> get_positive(const std::vector<float>& l) {
 }
 
 int main() {
-    std::vector<float> input;
-    float num;
-    while(std::cin >> num) {
-        input.push_back(num);
+    vector<float> vec1 = {1, 2, 3};
+    vector<float> vec2 = {1, 2, 4}; 
+    vector<float> posVec1 = get_positive(vec1);
+    vector<float> posVec2 = get_positive(vec2);
+    
+    if(issame(posVec1, posVec2)) {
+        cout << "The two vectors are the same." << endl;
+    } else {
+        cout << "The two vectors are different." << endl;
     }
-    std::vector<float> result = get_positive(input);
-    //assert(issame(result, {0.5f, 1.0f, 2.0f}));
     return 0;
 }
