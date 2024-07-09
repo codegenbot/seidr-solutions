@@ -1,9 +1,9 @@
 string longest(vector<string> strings){
     if(strings.empty()) return "";
-    string longestSoFar = strings[0];
+    string result = strings[0];
     for(string s : strings){
-        if(s.length() > longestSoFar.length())
-            longestSoFar = s;
+        if(s.length() > result.length()) result = s;
+        else if(s.length() == result.length()) result = s;
     }
-    return longestSoFar;
+    return result;
 }
