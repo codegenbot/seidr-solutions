@@ -1,13 +1,13 @@
 import hashlib
 
 def string_to_md5(text):
-    if text:
+    if text.strip() != '':
         return hashlib.md5(text.encode()).hexdigest()
 
 while True:
     try:
         text = input("Enter a string: ")
-        if text:
+        if text.strip() != '':
             print(string_to_md5(text))
             break
         else:
