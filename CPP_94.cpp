@@ -1,10 +1,14 @@
 int main {
     vector<int> lst;
+    cout << "Enter numbers separated by space (or Enter to finish):" << endl;
+    string line;
+    getline(cin, line);
     int num;
-    cout << "Enter numbers separated by space: ";
-    while (cin >> num) {
-        lst.push_back(num);
+    while(getline(cin, line) && line.length() > 0) {
+        stringstream ss(line);
+        while(ss >> num) {
+            lst.push_back(num);
+        }
     }
-    cout << "Sum of digits in the max prime number is: " << maxPrime(lst) << endl;
+    cout << "Maximum prime number in the list: " << maxPrime(lst) << endl;
     return 0;
-}
