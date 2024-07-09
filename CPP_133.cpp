@@ -1,7 +1,6 @@
-int result = 0;
+int sum = 0;
     for (float num : lst) {
-        int rounded = ceil(num);
-        result += rounded * rounded;
+        sum += pow(ceil(num), 2);
     }
-    return result;
+    return sum;
 }
