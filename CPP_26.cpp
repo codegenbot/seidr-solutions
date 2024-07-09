@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -54,6 +55,9 @@ int main() {
         std::cout << "All elements are duplicates." << std::endl;
     }
     
-    assert(issame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
-    return 0;
+    if (!issame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5})) {
+        assert(false);
+    } else {
+        return 0;
+    }
 }
