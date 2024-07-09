@@ -1,8 +1,13 @@
 def mastermind(code, guess):
-    color_count = {c: 0 for c in set(code + guess)}
+    white_pegs = 0
+    black_pegs = 0
 
-    black_pegs = sum(1 for i in range(4) if guess[i] == code[i])
-    white_pegs = 4 - black_pegs
-    for c in set(guess):
-        white_pegs -= min(color_count[c], guess.count(c))
-    return black_pegs, white_pegs
+    for i in range(4):
+        if guess[i] == code[i]:
+            black_pegs += 1
+        else:
+            for c in code:
+                if c == guess[i]:
+                    black_pegs += 1
+                    break
+            white_pegs += sum(c1 != c2 for c1, c2 in zip(guess, code))
