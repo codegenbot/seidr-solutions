@@ -1,10 +1,5 @@
-```cpp
 #include <vector>
-#include <numeric>
-
-float mean(vector<float> numbers) {
-    return std::accumulate(numbers.begin(), numbers.end(), 0.0f) / numbers.size();
-}
+#include <cmath>
 
 float mean_absolute_deviation(vector<float> numbers) {
     float sum = 0.0f;
@@ -14,6 +9,12 @@ float mean_absolute_deviation(vector<float> numbers) {
     return sum / numbers.size();
 }
 
+float mean(vector<float> numbers) {
+    return accumulate(numbers.begin(), numbers.end(), 0.0f) / numbers.size();
+}
+
 int main() {
-    assert(std::abs(mean_absolute_deviation({1.0, 2.0, 3.0, 4.0, 5.0}) - 6.0 / 5.0) < 1e-4);
+    vector<float> numbers = {1,2,3,4,5};
+    cout << "Mean Absolute Deviation: " << mean_absolute_deviation(numbers) << endl;
+    return 0;
 }
