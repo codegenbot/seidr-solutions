@@ -28,17 +28,17 @@ int mainFunction() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> numbers; 
+    std::vector<int> numbers(std::allocator<int>());
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         int num;
         std::cin >> num;
-        result.push_back(num);
+        numbers.push_back(num);
     }
 
-    std::vector<int> result = remove_duplicates(result);
+    std::vector<int> uniqueNumbers = remove_duplicates(numbers);
 
-    if (areVectorsEqual(result, numbers)) {
+    if (areVectorsEqual(uniqueNumbers, numbers)) {
         std::cout << "The resulting vector is the same as the original." << std::endl;
     } else {
         std::cout << "The resulting vector is different from the original." << std::endl;
