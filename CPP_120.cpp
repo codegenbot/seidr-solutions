@@ -2,11 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(int x, int y) {
-    if(x == y)
-        return true;
-    else
-        return false;
+bool issame(int a, int b) {
+    return a == b;
 }
 
 vector<int> maximum(vector<int> arr,int k){
