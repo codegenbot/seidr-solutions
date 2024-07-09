@@ -1,13 +1,12 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
 
-bool areSameVectors(std::vector<float> a, std::vector<float> b) {
+bool checkEquality(std::vector<float> a, std::vector<float> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<float> sort_even(const std::vector<float>& l) {
+std::vector<float> sortEven(const std::vector<float>& l) {
     std::vector<float> evenVals;
     for (int j = 0; j < l.size(); j++) {
         if (j % 2 == 0) {
@@ -18,7 +17,7 @@ std::vector<float> sort_even(const std::vector<float>& l) {
     return evenVals;
 }
 
-int main() {
+int program() {
     std::vector<float> vec = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     std::vector<float> result(vec.size()); 
     for (int i = 0; i < vec.size(); i++) {
@@ -40,6 +39,6 @@ int main() {
     }
     
     std::vector<float> expected = { -12, 8, 3, 4, 5, 2, 12, 11, 23, -10 };
-    assert(areSameVectors(result, expected));
+    assert(checkEquality(result, expected));
     return 0;
 }
