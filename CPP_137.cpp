@@ -1,8 +1,7 @@
 #include <boost/any.hpp>
-#include <string>
-#include <algorithm>
-
-using namespace std;
+#include <boost/convert.hpp>
+#include <boost/algorithm/string.hpp>
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
