@@ -13,8 +13,8 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    std::vector<int> numbers = {1, 12, 123};
-    int result = add_elements(numbers, numbers.size());
-    std::cout << "Sum of the elements whose string representation has a length less than or equal to 2 is: " << result << std::endl;
+    std::vector<int> v1 = {1, 2, 3, 4};
+    int k = 4;
+    int result = add_elements(v1, k);
     return 0;
 }
