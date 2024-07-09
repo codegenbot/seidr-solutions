@@ -1,7 +1,8 @@
+```cpp
 #include <iostream>
 #include <map>
 #include <string>
-#include <algorithm>
+#include <cctype>
 
 using namespace std;
 
@@ -11,7 +12,7 @@ bool check_dict_case(map<string,string> dict){
     string first_key = *(dict.begin()->first);
     
     for(auto it = dict.begin(); it != dict.end(); ++it){
-        if(toupper(first_key) != boost::to_upper_copy(it->first)) return false;
+        if(toupper(first_key) != toupper(it->first.c_str())) return false;
     }
     
     return true;
@@ -19,23 +20,7 @@ bool check_dict_case(map<string,string> dict){
 
 int main() {
     map<string,string> my_dict;
-
-    cout << "Enter the dictionary elements in the format 'key:value' (enter 'stop' to finish):" << endl;
-
-    string input;
-
-    while(true){
-        cin >> input;
-        if(input == "stop") break;
-        size_t space_pos = input.find(' ');
-        string key = input.substr(0, space_pos);
-        string value = input.substr(space_pos+1);
-        my_dict[key] = value;
-    }
-
-    bool result = check_dict_case(my_dict);
-
-    cout << (result ? "The dictionary has consistent case." : "The dictionary does not have consistent case.") << endl;
-
+    // Add code here to test the function
+    cout << (check_dict_case(my_dict) ? "true" : "false");
     return 0;
 }
