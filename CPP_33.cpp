@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,30 +13,29 @@ vector<int> sort_third(vector<int> l) {
             multiplesOfThree.push_back(l[i]);
         else
             others.push_back(l[i]);
-
-        if ((l.size() / 3) * 3 <= i)
-            break;
     }
 
     sort(multiplesOfThree.begin(), multiplesOfThree.end());
 
     vector<int> result;
-    for (int i = 0; i < l.size(); i++) {
+    int j = 0;
+    for (int i = 0; i < l.size(); ) {
         if (i % 3 == 0 && !multiplesOfThree.empty()) {
-            int val = multiplesOfThree[0];
-            while (!multiplesOfThree.empty() && i / 3 * 3 <= i) {
+            int val = multiplesOfThree[j];
+            while (!multiplesOfThree.empty() && j < multiplesOfThree.size()) {
                 result.push_back(val);
-                for(int j = 0; j < 3; j++) {
+                for(int k = 0; k < 3; k++) {
                     if(i % 3 == 0)
-                        multiplesOfThree.erase(multiplesOfThree.begin());
+                        i++;
                     else
-                        others.erase(others.begin());
-                    i++;
+                        i++;
                 }
+                j++;
             }
-        } else
+        } else {
             result.push_back(others[(i % 3) % others.size()]);
-
+            i++;
+        }
     }
 
     return result;
