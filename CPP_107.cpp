@@ -1,35 +1,13 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-vector<int> even_odd_palindrome(int n) {
+vector<int> even_odd_palindrome(int n){
     vector<int> result(2);
-    for (int i = 1; i <= n; ++i) {
-        string str = to_string(i);
-        bool isPalindrome = true;
-        int left = 0, right = str.length() - 1;
-        while (left < right) {
-            if (str[left] != str[right]) {
-                isPalindrome = false;
-                break;
-            }
-            ++left;
-            --right;
+    for(int i = 1; i <= n; i++){
+        string s = to_string(i);
+        if(s == reverse(s).s){
+            if(stoi(s) % 2 == 0)
+                result[0]++;
+            else
+                result[1]++;
         }
-        if (isPalindrome && i % 2 == 0)
-            result[0]++;
-        else if (isPalindrome)
-            result[1]++;
     }
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> res = even_odd_palindrome(n);
-    cout << "Number of even palindrome: " << res[0] << endl;
-    cout << "Number of odd palindrome: " << res[1] << endl;
-    return 0;
 }
