@@ -1,13 +1,19 @@
+```cpp
+#include <string>
+
 int is_bored(string S){
-    int boredom_count = 0;
-    size_t start = 0;
-    while (start < S.size()) {
-        start = S.find(".", start);
-        if (start == string::npos) break;
-        start++;
-        size_t end = S.find_first_of(".!? ", start);
-        string sentence = S.substr(start, end - start);
-        if (sentence.substr(0, 2) == "I ") boredom_count++;
+    int count = 0;
+    string word;
+    for(int i=0; i<S.length(); i++){
+        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
+            if(word.length() > 0 && word[0] == 'I')
+                count++;
+            word.clear();
+        } else {
+            word += S[i];
+        }
     }
-    return boredom_count;
+    if(word.length() > 0 && word[0] == 'I')
+        count++;
+    return count;
 }
