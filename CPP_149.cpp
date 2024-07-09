@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -25,23 +24,25 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     return result;
 }
 
+using namespace std;
+
 int main() {
-    std::vector<std::string> inputStrings;
+    vector<string> inputStrings;
     int n;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> n;
+    cout << "Enter the number of strings: ";
+    cin >> n;
     
     for(int i = 0; i < n; i++) {
-        std::string str;
-        std::cout << "Enter string " << (i+1) << ": ";
-        std::getline(std::cin, str);
+        string str;
+        cout << "Enter string " << (i+1) << ": ";
+        getline(cin, str);
         inputStrings.push_back(str);
     }
     
-    std::vector<std::string> output = sorted_list_sum(inputStrings);
+    vector<string> output = sorted_list_sum(inputStrings);
     
     // Test assertion
-    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == std::vector<std::string>({"cc", "dd", "aaaa", "bbbb"}));
+    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == vector<string>({"cc", "dd", "aaaa", "bbbb"}));
     
     return 0;
 }
