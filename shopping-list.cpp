@@ -10,7 +10,7 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         cin >> prices[i] >> discounts[i];
-        prices[i] = prices[i] - prices[i] * discounts[i] / 100;
+        prices[i] -= prices[i] * discounts[i] / 100.0;
     }
 
     float total_price = 0.0;
