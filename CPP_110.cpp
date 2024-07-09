@@ -1,22 +1,19 @@
+Here is the completed code:
+
 string exchange(vector<int> lst1, vector<int> lst2) {
-    bool hasOdd = false;
     for (int num : lst1) {
-        if (num % 2 != 0) {
-            hasOdd = true;
-            break;
-        }
+        if (num % 2 != 0) return "NO";
     }
-    
-    if (!hasOdd) return "YES";
-    
-    for (int num : lst1) {
-        if (find(lst2.begin(), lst2.end(), num) != lst2.end()) {
-            lst2.erase(remove(lst2.begin(), lst2.end(), num), lst2.end());
-        } else {
-            hasOdd = false;
-            break;
+    for (int i = 0; i < lst1.size(); i++) {
+        bool found = false;
+        for (int j = 0; j < lst2.size(); j++) {
+            if (lst1[i] % 2 != 0 && lst2[j] % 2 == 0) {
+                swap(lst1[i], lst2[j]);
+                found = true;
+                break;
+            }
         }
+        if (!found) return "NO";
     }
-    
-    return hasOdd ? "NO" : "YES";
+    return "YES";
 }
