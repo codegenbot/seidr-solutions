@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <map>
@@ -17,7 +18,7 @@ int search(std::vector<int> lst) {
     return -1;
 }
 
-int main() {
+int userMain() {
     int n; 
     std::vector<int> lst;
     
