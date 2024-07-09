@@ -22,7 +22,7 @@ int main() {
     }
 
     std::vector<std::string> s2Vec(m2);
-    for(int i = 0; i < m2; i++) {
+    for(int i = 0; i < m1; i++) {
         std::string y;
         std::cin >> y;
         s2Vec[i] = y; 
@@ -38,9 +38,9 @@ int main() {
                         std::back_inserter(diff));
 
     auto intersection = s1;
-    intersection.clear();
+    s1.clear();
     std::vector<std::string> intersect;
-    std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
+    std::set_intersection(intersection.begin(), intersection.end(), s2.begin(), s2.end(),
                            std::back_inserter(intersect));
 
     std::cout << "Difference: ";
