@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 
 bool isCube(int n) {
@@ -11,10 +10,12 @@ bool isCube(int n) {
     return false;
 }
 
-void originalFunction() {}
+void originalFunction() {
+    // implement the function
+}
 
 int main(){
     originalFunction();
-    assert (isCube(1729) == false);
+    assert(isCube(1729) == false);
     return 0;
 }
