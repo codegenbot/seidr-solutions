@@ -18,9 +18,12 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
             result.push_back(s);
     }
     return result;
-
 }
+
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    vector<string> strings = {"grunt", "trumpet", "prune", "gruesome"};
+    string substring = "run";
+    vector<string> filteredStrings = filter_by_substring(strings, substring);
+    assert(issame(filteredStrings, {"grunt", "prune"}));
     return 0;
 }
