@@ -3,10 +3,10 @@
 #include <vector>
 
 bool isPlanet(std::string planet);
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+bool areSame(std::vector<std::string> a, std::vector<std::string> b);
 std::vector<std::string> bf(std::string planet1, std::string planet2);
 
-int main() {
+void solve() {
     std::vector<std::string> planets;
     std::cout << "Enter two planets separated by space: ";
     std::string planet1, planet2;
@@ -21,14 +21,14 @@ int main() {
         }
         std::cout << "\n";
 
-        if(issame({planet1,planet2},result)){
+        if(areSame({planet1,planet2},result)){
             std::cout << "The planets are the same.\n";
         } else {
             std::cout << "The planets are different.\n";
         }
     }
 
-    return 0;
+    return;
 }
 
 bool isPlanet(std::string planet) {
@@ -40,7 +40,7 @@ bool isPlanet(std::string planet) {
     return false;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) { 
+bool areSame(std::vector<std::string> a, std::vector<std::string> b) { 
     if (a.size() != b.size()) return false;
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -58,4 +58,9 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
     return result;
 
+}
+
+int main() {
+    solve();
+    return 0;
 }
