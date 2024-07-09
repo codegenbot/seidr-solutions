@@ -1,5 +1,5 @@
 text = input()
 target = input()
-indices = [i for i in range(len(text) - len(target) + 2) if text.find(target, i) == i or text.find(target, i + 1) == i + 1]
+indices = [i for i in range(len(text) - len(target) + 1) if text.find(target, i) >= 0]
 for index in indices:
     print(index, end=" ")
