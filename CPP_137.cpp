@@ -1,6 +1,7 @@
-```cpp
 #include <boost/any.hpp>
 using namespace boost;
+#include <iostream>
+#include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
