@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -17,15 +16,9 @@ int main() {
     std::vector<float> prices;
     std::vector<float> discounts;
 
-    std::stringstream ss;
-    while (true) {
-        ss.str("");
-        if (!(ss << "Enter price and discount (or 'q' to quit): ").get()) break; // Ask for input
-        float price, discount;
-        if ((ss >> price >> discount).fail()) { // Check for invalid input
-            std::cout << "Invalid input. Please enter a valid price and discount.\n";
-            continue;
-        }
+    float price, discount;
+    while (std::cin >> price >> discount) {
+        if (!(std::cin >>).good()) break; 
         prices.push_back(price);
         discounts.push_back(discount / 100.0); 
     }
