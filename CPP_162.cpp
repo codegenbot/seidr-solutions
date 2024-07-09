@@ -1,5 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
+#include <openssl/ssl.h>
+#include <openssl/crypto.h>
 
 std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
@@ -36,3 +39,4 @@ int main() {
     std::getline(std::cin, text);
     std::cout << "MD5: " << string_to_md5(text) << std::endl;
     return 0;
+}
