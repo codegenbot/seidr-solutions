@@ -1,27 +1,25 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
 
-bool compare(const std::string &a, const std::string &b) {
-    if (a.length() != b.length()) {
-        return a.length() < b.length();
-    } else {
-        return a < b;
-    }
-}
-
 int main() {
-    assert(issame(sortedListSum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    vector<string> input = {"aaaa", "bbbb", "dd", "cc"};
+    sort(input.begin(), input.end(),
+         [](const string& a, const string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
+         });
+    assert(issame(input));
     return 0;
 }
 
-bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (sortedListSum({a[i], b[i]})[0] != sortedListSum({b[i], a[i]})[0]) {
+bool issame(const vector<string>& lst) {
+    for (int i = 1; i < lst.size(); i++) {
+        if (sorted_sum({lst[i - 1], lst[i]})[0] != sorted_sum({lst[i], lst[i - 1]})[0]) {
             return false;
         }
     }
@@ -29,16 +27,19 @@ bool issame(const std::vector<std::string> &a, const std::vector<std::string> &b
     return true;
 }
 
-std::vector<std::string> sortedListSum(const std::vector<std::string> &lst) {
-    std::vector<std::string> result;
+vector<int> sorted_sum(const vector<string>& lst) {
+    vector<int> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
-            result.push_back(str);
+            int sum = 0;
+            for (char c : str) {
+                sum += static_cast<int>(c);
+            }
+            result.push_back(sum);
         }
     }
 
-    std::sort(result.begin(), result.end(), compare);
-
+    sort(result.begin(), result.end());
     return result;
 }
