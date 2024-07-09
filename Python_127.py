@@ -1,8 +1,3 @@
-Here is the modified code:
-
-interval1 = [int(i) for i in input("Enter interval 1: ").split()]
-interval2 = [int(i) for i in input("Enter interval 2: ").split()]
-
 def intersection(interval1, interval2):
     start = max(interval1[0], interval2[0])
     end = min(interval1[1], interval2[1])
@@ -24,3 +19,5 @@ def intersection(interval1, interval2):
         return "YES"
     else:
         return "NO"
+
+print(intersection((3,5), (4,7)))
