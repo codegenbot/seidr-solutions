@@ -12,4 +12,3 @@ int max_fill(vector<vector<int>> grid, int capacity) {
 
     int steps = -(-total_water / capacity);
     return steps;
-}
