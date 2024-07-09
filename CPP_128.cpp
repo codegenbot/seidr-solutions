@@ -13,10 +13,6 @@ int prod_signs(vector<int> arr) {
         sum += num;
     }
 
-    if (arr.empty()) {
-        return -32768; 
-    }
-
     return product * sign(sum);
 }
 
