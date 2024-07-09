@@ -1,16 +1,10 @@
 Here is the completed code:
 
-vector<int> maximum(vector<int> arr, int k) {
-    priority_queue<int> maxHeap;
-
-    for (int num : arr) {
-        maxHeap.push(num);
-    }
-
+vector<int> maximum(vector<int> arr, int k){
     vector<int> result;
-    for (int i = 0; i < k; i++) {
-        result.push_back(maxHeap.top());
-        maxHeap.pop();
+    sort(arr.begin(), arr.end());
+    for(int i = 0; i < k; i++){
+        result.push_back(arr[arr.size() - 1 - i]);
     }
     return result;
 }
