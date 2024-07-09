@@ -1,12 +1,13 @@
-Here is the solution:
+```cpp
+#include <string>
 
-string match_parens(vector<string> lst) {
+std::string match_parens(std::vector<std::string> lst){
     int open = 0, close = 0;
-    for (const auto& str : lst) {
-        for (char c : str) {
-            if (c == '(') open++;
+    for(int i=0; i<lst.size(); i++){
+        for(char c: lst[i]){
+            if(c == '(') open++;
             else close++;
         }
     }
-    return (open == close) ? "Yes" : "No";
+    return (open==close) ? "Yes" : "No";
 }
