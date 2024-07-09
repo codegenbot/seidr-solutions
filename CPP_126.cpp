@@ -1,6 +1,11 @@
-for(int i = 1; i < lst.size(); i++){
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool is_sorted(std::vector<int> lst){
+    for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
-            vector<int>::iterator it = unique(lst.begin(), lst.end());
+            std::vector<int>::iterator it = std::unique(lst.begin(), lst.end());
             lst.erase(it, lst.end());
             if(i != (lst.size() - 1) || (it == lst.end())){
                 return false;
@@ -9,21 +14,22 @@ for(int i = 1; i < lst.size(); i++){
     }
     return true;
 }
+
 int main() {
-    bool is_sorted(vector<int> lst);
-    int num, size;
-    cout << "Enter the size of the list: ";
-    cin >> size;
-    
-    vector<int> lst(size);
-    for(int i = 0; i < size; i++){
-        cin >> lst[i];
+    std::vector<int> lst;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i = 0; i < n; i++){
+        int temp;
+        std::cout << "Enter element "<<i+1<<": ";
+        std::cin >> temp;
+        lst.push_back(temp);
     }
-    
     if(is_sorted(lst)){
-        cout << "The list is sorted." << endl;
-    }else{
-        cout << "The list is not sorted." << endl;
+        std::cout << "The vector is sorted." << std::endl;
+    } else{
+        std::cout << "The vector is not sorted." << std::endl;
     }
     return 0;
 }
