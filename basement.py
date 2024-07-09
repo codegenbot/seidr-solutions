@@ -1,7 +1,8 @@
-def basement(input_vector):
+def basement(input):
     total = 0
-    for i in range(len(input_vector)):
-        total += input_vector[i]
+    min_index = float('inf')
+    for i in range(len(input)):
+        total += input[i]
         if total < 0:
-            return i + 1
-    return -1
+            min_index = i + 1
+    return -1 if min_index == float('inf') else min_index
