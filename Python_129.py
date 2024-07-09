@@ -1,6 +1,4 @@
-```
 from collections import deque
-
 
 def minPath(grid):
     if not isinstance(grid, list) or not all(isinstance(row, list) for row in grid):
