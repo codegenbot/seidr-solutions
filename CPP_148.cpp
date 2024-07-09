@@ -32,3 +32,8 @@ std::vector<std::string> findPlanets(std::string planet1, std::string planet2) {
 
     return result;
 }
+
+int main() {
+    assert(findPlanets("Jupiter", "Makemake") == {});
+    return 0;
+}
