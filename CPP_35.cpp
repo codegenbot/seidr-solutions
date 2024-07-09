@@ -14,7 +14,21 @@ float max_element(vector<float> l){
 }
 
 int main() {
-    vector<float> numbers = {4.2, -9.5, 7.8, 3.6};
-    cout << "The maximum element is: " << max_element(numbers) << endl;
+    vector<float> numbers;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    for(int i = 0; i < n; i++) {
+        float num;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> num;
+        numbers.push_back(num);
+    }
+
+    float max = max_element(numbers);
+
+    cout << "The maximum element is: " << abs(max) << endl;
+
     return 0;
 }
