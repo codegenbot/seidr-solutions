@@ -1,13 +1,13 @@
+```cpp
 #include <cassert>
 #include <vector>
 #include <set>
-#include <initializer_list>
 
 bool pairs_sum_to_zero(std::vector<std::pair<int, int>> l) {
     std::set<int> s;
     for (const auto& p : l) {
         if(p.second != -p.first)
-            throw std::runtime_error("Each pair must sum to zero.");
+            return false; // Each pair must sum to zero.
         s.insert(p.first);
     }
     for (auto it = s.begin(); it != s.end(); ++it) { 
@@ -16,7 +16,7 @@ bool pairs_sum_to_zero(std::vector<std::pair<int, int>> l) {
             return true;
         }
     }
-    throw std::runtime_error("No pairs sum to zero.");
+    return false; // No pairs sum to zero.
 }
 
 int main() {
