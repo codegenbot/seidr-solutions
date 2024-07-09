@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-
+```cpp
 int sumOdd(std::vector<int> lst) {
     int sum = 0;
     for (int i : lst) {
@@ -14,8 +12,10 @@ int sumOdd(std::vector<int> lst) {
 int solutions(std::vector<int> lst) { 
     int sum = sumOdd(lst);
     for (int i : lst) {
-        if (i % 2 == 0 && i > 0)
+        if (i % 2 == 0 && sum > 0)
             sum -= i; 
+        else
+            break;
     }
     return sum;
 }
@@ -25,17 +25,12 @@ int main() {
     std::vector<int> lst;
     std::cout << "Enter numbers (terminate with 0): ";
     while (std::cin >> num) {
-        if(num == 0)
+        if(num != 0)
+            lst.push_back(num);
+        else 
             break;
-        lst.push_back(num);
-        n++;
     }
-    
-    // Ensure all inputs are processed
-    if(lst.size() > 0) {
-        int result = solutions(lst);
-        std::cout << "Result: " << result << "\n";
-    } else {
-        std::cout << "No numbers entered.\n";
-    }
+    int result = solutions(lst);
+    assert(result == 25);
+    std::cout << "Test passed.\n";
 }
