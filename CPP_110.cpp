@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
+std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2) {
     int oddCount = 0;
     for (int num : lst1) {
         if (num % 2 != 0) {
@@ -13,5 +13,10 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
 }
 
 int main() {
-    std::cout << exchange({1, 2, 3}, {4, 5, 6}) << std::endl;
+    std::vector<int> list1 = {2,4};
+    std::vector<int> list2 = {1,3};
+
+    std::cout << exchange(list1, list2) << std::endl;
+    
+    return 0;
 }
