@@ -1,8 +1,14 @@
+Here is the solution:
+
 vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(k);
-    partial_sort(arr.begin(), arr.begin() + k, arr.end());
+    priority_queue<int> pq;
+    for (int i : arr) {
+        pq.push(i);
+    }
+    vector<int> result;
     for (int i = 0; i < k; i++) {
-        result[i] = arr[i];
+        result.push_back(pq.top());
+        pq.pop();
     }
     return result;
 }
