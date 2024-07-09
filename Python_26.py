@@ -1,5 +1,6 @@
 from typing import List
 
+
 def remove_duplicates(numbers: List[int]) -> str:
     if not isinstance(numbers, list):
         return "Invalid input. Please provide a list of integers."
