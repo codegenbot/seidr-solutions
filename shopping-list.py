@@ -1,6 +1,6 @@
 n = int(input())
-prices = list(map(float, input().split()))*n
-discounts = list(map(float, input().split()))*n
+prices = list(map(float, input().split() + ['0'])*(n//len(input().split())+1))[:n]
+discounts = list(map(float, input().split() + ['0'])*(n//len(input().split())+1))[:n]
 
 total_price = 0
 for i in range(n):
