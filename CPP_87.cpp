@@ -29,12 +29,11 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x) 
 }
 
 int main() {
-    std::vector<std::vector<int>> input = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    std::vector<std::vector<int>> result = get_row(input, 5);
-
-    assert(result.size() == 1);
-    assert(result[0][0] == 1);
-    assert(result[0][1] == 1);
-
+    std::vector<std::vector<int>> lst = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    
+    auto result = get_row(lst, 5);
+    
+    assert(result == std::vector<std::vector<int>>{{1, 1}});
+    
     return 0;
 }
