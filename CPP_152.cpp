@@ -35,7 +35,7 @@ int main() {
         int temp;
         std::cin >> temp;
         game[i] = temp;
-        guess[i] = temp; 
+        guess[i] = temp;
     }
     if(issame(game, guess)){
         std::cout << "The two vectors are the same.\n";
