@@ -1,24 +1,22 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
 std::vector<std::string> by_length(const std::vector<int>& input) {
     vector<string> output;
-
     for (int num : input) {
         if (num >= 1 && num <= 9) {
             string str = to_string(num);
-            int len = str.length();
-            while (output.size() <= len) {
-                output.resize(output.size() + 1);
+            while (str.size() < 2) {
+                str = "0" + str;
             }
-            output[len - 1] += str;
+            output.push_back(str);
         }
     }
-
     return output;
 }
 
@@ -35,7 +33,7 @@ int main() {
         }
     }
     vector<string> output = by_length(input);
-
+    
     if (issame({"Nine", "Eight", "Four"}, output)) {
         for (string str : output) {
             cout << str << endl;
