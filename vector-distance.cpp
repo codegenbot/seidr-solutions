@@ -1,24 +1,14 @@
-```c++
+#include <vector>
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
-double* createArray(int n) {
-    double* arr = new double[n];
-    return arr;
-}
-
-void deleteArray(double* arr, int n) {
-    delete[] arr;
-}
-
-double vectorDistance(int n) {
+double vectorDistance(const vector<double>& v1, const vector<double>& v2) {
     double sum = 0;
-    for (int i = 0; i < n; i++) {
-        double x1, x2;
-        cin >> x1 >> x2;
-        sum += pow(x2 - x1, 2);
+    for (int i = 0; i < v1.size(); i++) {
+        sum += pow(v2[i] - v1[i], 2);
     }
     return sqrt(sum);
 }
@@ -26,12 +16,9 @@ double vectorDistance(int n) {
 int main() {
     int n;
     cin >> n;
-    double* x1 = createArray(n);
-    double* x2 = createArray(n);
+    vector<double> x1(n), x2(n);
     for (int i = 0; i < n; i++) {
         cin >> x1[i] >> x2[i];
     }
-    deleteArray(x1, n);
-    deleteArray(x2, n);
-    cout << fixed << setprecision(10) << vectorDistance(n) << endl;
+    cout << fixed << setprecision(10) << vectorDistance(x1, x2) << endl;
 }
