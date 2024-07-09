@@ -1,11 +1,11 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <bitset>
 
 int main() {
     vector<int> arr = {2,4,8,16,32};
-    sort_array(arr);
-    
+    vector<int> sorted_arr = sort_array(arr);
     return 0;
 }
 
