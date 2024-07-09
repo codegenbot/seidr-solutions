@@ -1,14 +1,18 @@
+Here is the solution:
+
+```cpp
+#include<vector>
+#include<string>
+using namespace std;
+
 string int_to_mini_roman(int number) {
-    vector< pair<int,string> > roman = {{1000,"M"},{900,"CM"},{500,"D"},{400,"CD"},
-                                        {100,"C"},{90,"XC"},{50,"L"},{40,"XL"},
-                                        {10,"X"},{9,"IX"},{5,"V"},{4,"IV"},{1,"I"}};
-    string mini_roman = "";
-    
-    for (int i=0; i<roman.size(); ++i) {
-        while (number >= roman[i].first) {
-            number -= roman[i].first;
-            mini_roman += roman[i].second;
+    vector<pair<int, string>> romanMap = {{1000,"M"},{900,"CM"},{500,"D"},{400,"CD"},{100,"C"},{90,"XC"},{50,"L"},
+                                         {40,"XL"},{10,"X"},{9,"IX"},{5,"V"},{4,"IV"},{1,"I"}};
+    string romanNumeral = "";
+    for (const auto& pair : romanMap) {
+        while (number >= pair.first) {
+            number -= pair.first;
+            romanNumeral += pair.second;
         }
     }
-    return mini_roman;
-}
+    return romanNumeral;
