@@ -13,7 +13,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     
     std::vector<std::string> result;
     for (int i : temp) {
-        std::string s = "";
+        string s = "";
         switch (i) {
             case 1:
                 s = "One";
@@ -46,7 +46,15 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         result.push_back(s);
     }
     
-    std::reverse(result.begin(), result.end());
+    reverse(result.begin(), result.end());
     
     return result;
+}
+
+int main() {
+    std::vector<int> numbers = {9, 4, 8};
+    if (by_length(numbers) != {"Nine", "Eight", "Four"}) {
+        return 1;
+    }
+    return 0;
 }
