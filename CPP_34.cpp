@@ -28,11 +28,6 @@ int findUnique(std::vector<int> vec) {
 }
 
 int main(){
-    test();
-    return 0;
-}
-
-int test(){
-    assert(std::equal(std::unique({0, 2, 3, 5, 9, 123}), std::unique({0, 2, 3, 5, 9, 123}).base(), std::unique({0, 2, 3, 5, 9, 123}).end()));
+    assert(findUnique({0, 2, 3, 5, 9, 123}) == 1);
     return 0;
 }
