@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -52,8 +51,7 @@ int main() {
     }
 
     if (!isEqualVector({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
-        std::cout << "All elements are not duplicates." << std::endl;
-    } else {
-        std::cout << "All elements are duplicates." << std::endl;
+        assert(false);
     }
+    return 0;
 }
