@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     prev_frame_value = 0
@@ -13,10 +14,7 @@ def bowling_score(frames):
                 score += first_roll + second_roll
                 
         elif len(frame) == 1:
-            if prev_frame_value != 0:
-                score += 11 + prev_frame_value
-            else:
-                score += 10
+            score += 10
             
         prev_frame_value = first_roll + second_roll
         
