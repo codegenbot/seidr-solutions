@@ -1,3 +1,4 @@
+```cpp
 int do_algebra(vector<string> ops, vector<int> nums) {
     int result = 0;
     long long temp = 1;
@@ -10,7 +11,6 @@ int do_algebra(vector<string> ops, vector<int> nums) {
         } else if (ops[i] == "*") {
             temp *= nums[i];
         } else if (ops[i] == "/") {
-            if(nums[i] == 0) return -1;
             temp /= nums[i];
         } else if (ops[i] == "^") {
             temp = pow(temp, nums[i]);
