@@ -21,13 +21,9 @@ int main() {
     int n;
     cin >> n;
     for(int i = 0; i < n; i++) {
-        string s;
-        if(getline(cin, s)) { 
-            lst.push_back(s);
-        } else {
-            while (cin.peek() == '\n') cin.ignore();
-            break; 
-        }
+        string line;
+        getline(cin, line); 
+        lst.push_back(line);
     }
     if(match_parens(lst))
         cout << "Yes" << endl;
