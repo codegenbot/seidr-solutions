@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::vector<std::string> lst = std::vector<std::string>();
+std::vector<std::string> lst;
 
 bool match_parens(const std::string& s) {
     int count = 0;
@@ -20,6 +21,7 @@ bool match_parens(const std::string& s) {
 int main() {
     int n;
     std::cin >> n;
+    lst = std::vector<std::string>();
     for(int i=0; i<n; ++i){
         std::string s;
         std::getline(std::cin, s);
