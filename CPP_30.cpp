@@ -13,16 +13,29 @@ std::vector<float> get_positive(const std::vector<float>& l) {
 
 int main() {
     std::vector<float> input;
-    // Get the input from user
-    float num;
-    while(std::cin >> num){
+    // Read input from user
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        float num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
         input.push_back(num);
     }
-
-    std::vector<float> positive = get_positive(input);
-
-    for (float i : positive) {
-        std::cout << i << " ";
+    
+    std::vector<float> pos = get_positive(input);
+    
+    // Print the positive numbers
+    if (pos.empty()) {
+        std::cout << "No positive numbers found." << std::endl;
+    } else {
+        std::cout << "Positive numbers: ";
+        for (float i : pos) {
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
     }
+    
     return 0;
 }
