@@ -4,7 +4,7 @@ string toLower(string text) {
     string result = "";
     for (char c : text) {
         if (c >= 'A' && c <= 'Z') {
-            result += (char)(c - ('Z' - 'a'));
+            result += (char)(c - ('Z' - 'z'));
         } else {
             result += c;
         }
