@@ -1,8 +1,11 @@
 #include <vector>
-#include <cassert>
 
-std::vector<int> fixCode(int n) {
-    std::vector<int> result;
+bool issame(const vector<int>& a, const vector<int>& b) {
+
+}
+
+vector<int> f(int n) {
+    vector<int> result;
     int sum = 0;
     int factorial = 1;
     
@@ -17,8 +20,4 @@ std::vector<int> fixCode(int n) {
     }
     
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
