@@ -1,19 +1,24 @@
+``` 
+#include <stack>
 #include <string>
 
 bool solveBoolean(std::string s) {
-    int n = s.length();
-    for (int i = 0; i < n; i++) {
-        if (s[i] == 'F') return false;
-        if (s[i] == 'T') continue;
-        char op = s[i];
-        int j = i + 1;
-        while(j<n && (s[j] == 'T' || s[j] == 'F')) j++;
-        int k = j;
-        while(k > i && s[k] == op) k--;
-        std::string sub = s.substr(i, k - i + 1);
-        if ((op == '&') && (sub.find('T') == std::string::npos)) return false;
-        if ((op == '|') && (sub.find('F') == std::string::npos)) return true;
-        i = k;
+    int i = 0;
+    bool result = false;
+    while (i < s.length()) {
+        if (s[i] == 'T') result = true;
+        else if (s[i] == 'F') result = false;
+        else if (s[i] == '|') {
+            bool temp = result;
+            while (result && i + 1 < s.length() && s[i + 1] != '|') i++;
+            result = temp || (i < s.length());
+        }
+        else if (s[i] == '&') {
+            bool temp = result;
+            while (result && i + 1 < s.length() && s[i + 1] != '&') i++;
+            result = temp && (i < s.length());
+        }
+        i++;
     }
-    return s.length() > 0 ? false : true;
+    return result;
 }
