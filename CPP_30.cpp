@@ -11,11 +11,11 @@ std::vector<float> get_positive(std::vector<float> l){
     return result;
 }
 
-bool isEqual(std::vector<float> a, std::vector<float> b){
+bool isEqual(vector<float> a,vector<float>b){
     return std::equal(a.begin(),a.end(),b.begin());
 }
 
 int main() {
-    assert(isEqual(get_positive({}),{}));
+    assert(get_positive({}).empty());
     return 0;
 }
