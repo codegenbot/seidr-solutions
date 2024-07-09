@@ -1,58 +1,60 @@
-````
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string>b) {
-    return a == b;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
+    vector<string> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            temp.push_back(i);
+            temp.push_back(to_string(i));
         }
     }
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
     vector<string> result;
-    for (int i : temp) {
-        string s = "";
-        switch (i) {
+    for (string s : temp) {
+        string t = "";
+        switch (stoi(s)) {
             case 1:
-                s = "One";
+                t = "One";
                 break;
             case 2:
-                s = "Two";
+                t = "Two";
                 break;
             case 3:
-                s = "Three";
+                t = "Three";
                 break;
             case 4:
-                s = "Four";
+                t = "Four";
                 break;
             case 5:
-                s = "Five";
+                t = "Five";
                 break;
             case 6:
-                s = "Six";
+                t = "Six";
                 break;
             case 7:
-                s = "Seven";
+                t = "Seven";
                 break;
             case 8:
-                s = "Eight";
+                t = "Eight";
                 break;
             case 9:
-                s = "Nine";
+                t = "Nine";
                 break;
         }
-        result.push_back(s);
+        result.push_back(t);
     }
     return result;
-}
-
-int main() {
-    assert (issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
-    // ...
 }

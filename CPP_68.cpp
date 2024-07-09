@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -25,6 +24,6 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}) , {0, 1}));
+    assert(issame(pluck({7, 9, 7, 1}) , std::vector<int>({0, 1}));
     return 0;
 }
