@@ -1,26 +1,28 @@
-Here is the completed code:
+#include <string>
 
-string file_name_check(string file_name){
+using namespace std;
+
+string file_name_check(string file_name) {
     int digit_count = 0;
-    bool found_dot = false;
+    bool has_dot = false;
+    string before_dot, after_dot;
 
-    for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(isdigit(c))
+    for (char c : file_name) {
+        if (isdigit(c)) {
             digit_count++;
-        else if(c == '.')
-            found_dot = true;
-        else if(found_dot && (c != 't' || i+3 > file_name.length() || memcmp(&file_name[i], "txt", 3) != 0) &&
-                (c != 'e' || i+3 > file_name.length() || memcmp(&file_name[i], "exe", 3) != 0) &&
-                (c != 'd' || i+3 > file_name.length() || memcmp(&file_name[i], "dll", 3) != 0))
-            return "No";
+        } else if (c == '.') {
+            has_dot = true;
+        } else if (!has_dot) {
+            before_dot += c;
+        } else {
+            after_dot = c;
+        }
     }
 
-    if(digit_count > 3)
+    if (digit_count > 3 || !before_dot.size() || !isalpha(before_dot[0]) ||
+        !has_dot || after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
         return "No";
-
-    if(!found_dot)
-        return "No";
-
-    return digit_count <= 3 ? "Yes" : "No";
+    } else {
+        return "Yes";
+    }
 }
