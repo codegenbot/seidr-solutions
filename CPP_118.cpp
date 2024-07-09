@@ -1,10 +1,26 @@
-int n = word.size();
-    for (int i = n-2; i > 0; --i){
-        if ((word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u') &&
-            (word[i-1] != 'a' && word[i-1] != 'e' && word[i-1] != 'i' && word[i-1] != 'o' && word[i-1] != 'u') &&
-            (word[i+1] != 'a' && word[i+1] != 'e' && word[i+1] != 'i' && word[i+1] != 'o' && word[i+1] != 'u')){
-            return string(1, word[i]);
+#include <iostream>
+#include <string>
+using namespace std;
+
+string get_closest_vowel(string word) {
+    string vowels = "aeiouAEIOU";
+    string result = "";
+
+    for (int i = word.length() - 2; i > 0; i--) {
+        if (vowels.find(word[i]) != string::npos) {
+            for (int j = i - 1; j > 0; j--) {
+                if (vowels.find(word[j]) != string::npos) {
+                    result = word[j];
+                    return result;
+                }
+            }
         }
     }
-    return "";
+
+    return result;
+}
+
+int main() {
+    assert(get_closest_vowel("Above") == "o");
+    return 0;
 }
