@@ -1,9 +1,6 @@
-```cpp
-bool issame(float a, float b) {
-    if (abs(a - b) < 0.001)
-        return true;
-    else
-        return false;
+bool issame(float a, float b){
+    if(a - b < 0.0001 && a - b > -0.0001) return true;
+    else return false;
 }
 
 vector<float> sort_even(vector<float> l){
@@ -17,7 +14,16 @@ vector<float> sort_even(vector<float> l){
             sort(temp.begin(), temp.end());
             result[i] = temp[0];
         }else{
-            result[i] = l[i];
+            bool found = false;
+            float val = l[i];
+            for(int j = 0; j < l.size(); j++){
+                if(j % 2 == 0 && issame(val, l[j])){
+                    found = true;
+                    break;
+                }
+            }
+            if(found) result[i] = temp[0];
+            else result[i] = val;
         }
     }
     return result;
