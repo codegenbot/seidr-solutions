@@ -1,11 +1,7 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 using namespace std;
-
-bool issame(vector<int> a,vector<int>b){
-    return a==b;
-}
 
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
@@ -20,7 +16,18 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    assert(equal(compare({1,2,3,5},{-1,2,3,4}).begin(),compare({1,2,3,5},{-1,2,3,4}).end(),0) &&
-           equal((compare({1,2,3,5},{-1,2,3,4})).rbegin(),(compare({1,2,3,5},{-1,2,3,4})).rend(),0));
+    vector<int> game, guess;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        int temp;
+        cin >> temp;
+        game.push_back(temp);
+        temp = 0;
+        cin >> temp;
+        guess.push_back(temp);
+    }
+    vector<int> output = compare(game, guess);
+    for(auto x:output) cout << x << " ";
     return 0;
 }
