@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -59,4 +58,6 @@ int main() {
         cout << val << " ";
     }
     cout << endl;
+
+    return 0;
 }
