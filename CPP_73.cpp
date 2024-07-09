@@ -1,6 +1,4 @@
 #include <vector>
-#include <string>
-
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     string str = "";
