@@ -1,8 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
-using namespace std;
-
 int max_fill(vector<vector<int>> grid, int capacity) {
     int total_water = 0;
     for (vector<int> well : grid) {
@@ -28,8 +23,4 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     }
     
     return steps - 1;
-}
-int main() {
-    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
-    return 0;
 }
