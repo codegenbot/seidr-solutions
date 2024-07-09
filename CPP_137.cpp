@@ -1,35 +1,32 @@
-#include <boost/any.hpp>
-using namespace boost;
-
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return boost::any_cast<float>(b) > boost::any_cast<int>(a) ? b : a;
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return b;
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return boost::any_cast<float>(b) > boost::any_cast<float>(a) ? b : a;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return boost::get<int>(a) > boost::get<int>(b) ? a : b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        float b_float = boost::any_cast<float>(b);
+        string a_str = boost::any_cast<string>(a);
+        return stof(a_str) > b_float ? a : b;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        int b_int = boost::get<int>(b);
+        string a_str = boost::any_cast<string>(a);
+        return stof(a_str) > b_int ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = any_cast<string>(a);
-        string strB = any_cast<string>(b);
-
-        int i = strA.find('.');
-        if (i != -1)
-            strA.erase(i, 1);
-
-        i = strB.find(',');
-        if (i != -1)
-            strB[i] = '.';
-
-        return (stod(strA) > stod(strB)) ? a : b;
+        string a_str = boost::any_cast<string>(a);
+        string b_str = boost::any_cast<string>(b);
+        return stof(a_str) > stod(b_str) ? a : b;
     }
-    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
-        string strA = any_cast<string>(a);
-        int i = strA.find('.');
-        if (i != -1)
-            strA.erase(i, 1);
-
-        double numB = any_cast<double>(b);
-        return (stod(strA) > numB) ? a : b;
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        float a_float = boost::any_cast<float>(a);
+        int b_int = boost::get<int>(b);
+        return a_float > b_int ? a : b;
     }
     else {
         return "None";
