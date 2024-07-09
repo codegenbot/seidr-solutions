@@ -23,11 +23,10 @@ int main() {
     std::vector<std::string> a = {"grunt", "trumpet", "prune", "gruesome"};
     std::vector<std::string> output = filter_by_substring(a, b);
 
-    for (const auto& str : output) {
-        if (str == "grunt" || str == "prune") {
-            std::cout << str << std::endl;
-        }
-    }
+    if (issame(output, {"grunt", "prune"}))
+        std::cout << "The strings are same" << std::endl;
+    else
+        std::cout << "The strings are not same" << std::endl;
 
     return 0;
 }
