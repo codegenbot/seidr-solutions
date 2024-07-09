@@ -7,9 +7,9 @@ std::pair<int, int> eat(int number, int need, int remaining) {
 }
 
 int main() {
-    int number, need, remaining;
-    std::cin >> number >> need >> remaining;
-    auto result = eat(number, need, remaining);
-    std::cout << result.first << " " << result.second;
+    int num, n, r;
+    std::cin >> num >> n >> r;
+    auto result = eat(num, n, r);
+    std::cout << result.first << " " << result.second << std::endl;
     return 0;
 }
