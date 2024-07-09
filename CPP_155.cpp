@@ -1,13 +1,12 @@
-Here is the solution:
-
 vector<int> even_odd_count(int num) {
-    int evens = 0, odds = 0;
-    string str = to_string(abs(num));
-    for (char c : str) {
-        if (stoi(c) % 2 == 0)
-            evens++;
+    vector<int> result(2);
+    while (num != 0) {
+        int digit = num % 10;
+        if (digit % 2 == 0)
+            result[0]++;
         else
-            odds++;
+            result[1]++;
+        num /= 10;
     }
-    return {evens, odds};
+    return result;
 }
