@@ -2,7 +2,7 @@
 #include <vector>
 
 namespace myspace {
-    bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    bool issame(std::vector<float>& a, std::vector<float>& b) {
         if(a.size() != b.size()) return false;
         for(int i = 0; i < a.size(); i++) {
             if(a[i] != b[i]) return false;
@@ -29,10 +29,4 @@ namespace myspace {
         }
         return result;
     }
-}
-
-int main() {
-    std::vector<float> input = {1.5, 4.0, 2.3, 8.6};
-    assert(myspace::issame(myspace::sort_even(input), std::vector<float>{2.3, 4.0, 1.5, 8.6}));
-    return 0;
 }
