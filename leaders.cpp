@@ -9,15 +9,16 @@ vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
     int n = nums.size();
     
-    int maxRight = INT_MIN;
+    int maxRight = INT_MIN; // Initialize outside the loop
+    
     for (int i = n - 1; i >= 0; i--) {
-        if (nums[i] >= maxRight) {
+        if (nums[i] > maxRight) { // Use > for strict greater than
             leaders.push_back(nums[i]);
             maxRight = nums[i];
         }
     }
-
-    reverse(leaders.begin(), leaders.end());
+    
+    reverse(leaders.begin(), leaders.end()); // Reverse after finding leaders
     
     return leaders;
 }
