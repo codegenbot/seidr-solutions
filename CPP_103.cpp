@@ -1,19 +1,30 @@
-if (n > m) {
+#include <iostream>
+#include <string>
+#include <cmath>
+
+std::string calculateBinary(int n, int m) {
+    if (n > m) {
         return "-1";
     }
     
     int sum = 0;
+    int count = 0;
     for (int i = n; i <= m; i++) {
         sum += i;
+        count++;
     }
     
-    int avg = round((double)sum / (m - n + 1));
+    int avg = std::round((double)sum / count);
     
-    string binary_avg = "";
+    std::string binary = "";
     while (avg > 0) {
-        binary_avg = to_string(avg % 2) + binary_avg;
+        binary = std::to_string(avg % 2) + binary;
         avg /= 2;
     }
     
-    return binary_avg;
+    return binary;
+}
+
+int main() {
+    assert (calculateBinary(5, 5) == "101");
 }

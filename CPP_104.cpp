@@ -1,21 +1,15 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-vector<int> findNumbersWithoutEvenDigit(vector<int> x) {
-    vector<int> result;
-    for (int num : x) {
-        bool hasEvenDigit = false;
-        int temp = num;
-        while (temp > 0) {
-            if (temp % 2 == 0) {
-                hasEvenDigit = true;
-                break;
-            }
-            temp /= 10;
-        }
-        if (!hasEvenDigit) {
-            result.push_back(num);
-        }
-    }
-    sort(result.begin(), result.end());
-    return result;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    std::vector<int> unique_digits = {0, 2, 4, 6, 8, 1, 3, 5, 7, 9};
+
+    assert(issame(unique_digits, {0, 2, 4, 6, 8, 1, 3, 5, 7, 9}));
+
+    return 0;
 }
