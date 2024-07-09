@@ -1,4 +1,33 @@
+```cpp
 #include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Enter a number: ";
+    int n;
+    cin >> n;
+
+    if (!(n >= 1 && n <= 9)) { 
+        cout << "-1" << endl; 
+    } else {
+        int num = n; // store n as an integer
+        int result = prime_fib(num);
+        string suffix;
+        if (num == 1) {
+            suffix = "st";
+        } else if (num == 2) {
+            suffix = "nd";
+        } else if (num == 3) {
+            suffix = "rd";
+        } else {
+            suffix = "th";
+        }
+        cout << "The " << result << suffix << " prime Fibonacci number is: ";
+        cout << result << endl;
+    }
+
+    return 0;
+}
 
 bool isPrime(int num) {
     if (num <= 1)
@@ -22,27 +51,3 @@ int prime_fib(int n) {
         b = temp;
     }
 }
-
-int main() {
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-
-    if (!(n >= 1 && n <= 9)) { 
-        std::cout << "-1" << std::endl; 
-    } else {
-        int num = n; // store n as an integer
-        int result = prime_fib(num);
-        std::string suffix;
-        if (num == 1) {
-            suffix = "st";
-        } else if (num == 2) {
-            suffix = "nd";
-        } else if (num == 3) {
-            suffix = "rd";
-        } else {
-            suffix = "th";
-        }
-        std::cout << "The " << result << suffix << " prime Fibonacci number is: ";
-        std::cout << result << std::endl;
-    }
