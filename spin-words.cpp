@@ -1,9 +1,6 @@
-#include <algorithm>
-#include <string>
-#include <sstream>
 #include <iostream>
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wpedantic"
+#include <string>
+#include <vector>
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
     std::stringstream ss(str);
