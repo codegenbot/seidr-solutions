@@ -1,7 +1,22 @@
 ```
-#include <iostream>
 #include <vector>
 #include <string>
+#include <iostream>
+
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> numerical_letter_grade(vector<float> grades);
+
+int main() {
+    vector<float> grades = {3.9, 2.5, 4.0};
+    vector<string> letterGrades = numerical_letter_grade(grades);
+
+    for (const auto& grade : letterGrades) {
+        std::cout << grade << std::endl;
+    }
+
+    return 0;
+}
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -47,15 +62,4 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         letter_grades.push_back(letter_grade);
     }
     return letter_grades;
-}
-
-int main() {
-    vector<float> grades = {3.9, 2.5, 4.0};
-    vector<string> letterGrades = numerical_letter_grade(grades);
-
-    for (const auto& grade : letterGrades) {
-        std::cout << grade << std::endl;
-    }
-
-    return 0;
 }
