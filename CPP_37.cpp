@@ -1,11 +1,13 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
 int main() {
-    vector<float> numbers = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    vector<float> result = sort_even(numbers);
-    for(float num : result) cout << num << " ";
-    cout << endl;
+    vector<float> l = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    vector<float> result = sort_even(l);
+    for (float f : result) {
+        std::cout << f << " ";
+    }
     return 0;
 }
 
