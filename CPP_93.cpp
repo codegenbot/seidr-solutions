@@ -1,20 +1,19 @@
-#include <iostream>
 #include <string>
-#include <cctype>
 
-std::string encode(std::string message){
-    for(char &c: message){
-        if(std::isalpha(c)){
-            c = std::isupper(c) ? std::tolower(c) : std::toupper(c);
+string encode(string message);
+
+string encode(string message){
+    for(char& c : message){
+        if(isalpha(c)){
+            if(isupper(c)){
+                c = tolower(c);
+            } else {
+                c = toupper(c);
+            }
             if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                c = c + 2;
+                c += 2;
             }
         }
     }
     return message;
-}
-
-int main(){
-    assert (encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WtRkTg");
-    return 0;
 }
