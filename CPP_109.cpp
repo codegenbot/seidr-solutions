@@ -1,4 +1,8 @@
-bool move_one_ball(vector<int>& arr) {
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+bool move_one_ball(std::vector<int> arr) {
     int n = arr.size();
     int minIdx = -1;
     for (int i = 0; i < n; i++) {
@@ -16,4 +20,9 @@ bool move_one_ball(vector<int>& arr) {
         }
     }
     return true;
+}
+
+int main() {
+    assert(move_one_ball({}) == true);
+    return 0;
 }
