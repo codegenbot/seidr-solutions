@@ -13,7 +13,6 @@ int next_smallest(vector<int> lst) {
         }
     }
     return -1;
-
 }
 
 int main() {
