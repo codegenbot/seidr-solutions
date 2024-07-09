@@ -2,11 +2,10 @@
 #include <string>
 
 std::vector<std::string> bf(const std::string& a, const std::string& b) {
-    if(a==b) {
-        return {"same"};
-    } else {
+    if(a==b)
         return {};
-    }
+    else 
+        return {a,b};
 }
 
 bool issame(std::vector<std::string> vec1, std::vector<std::string> vec2) {
@@ -17,7 +16,7 @@ int main() {
     if (bf("Jupiter", "Makemake") == {}) {
         assert(true);
     } else {
-        assert(false);  // bf didn't return an empty vector as expected
+        assert(false);  
     }
     return 0;
 }
