@@ -40,9 +40,9 @@ int main() {
     std::cout << "Enter the value of k: ";
     std::cin >> k;
 
-    std::vector<int> arr(arr.size()); 
+    std::vector<int> arr(k); 
     std::cout << "Enter elements: ";
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < k; i++) {
         std::cout << "Enter element at index " << i << ": ";
         int val;
         std::cin >> val;
