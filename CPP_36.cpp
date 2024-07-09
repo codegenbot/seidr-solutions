@@ -1,12 +1,12 @@
 #include <iostream>
 using namespace std;
 
-void fizz_buzz(int n) {
+int fizz_buzz(int n) {
     for (int i = 1; i <= n; i++) {
-        if ((i % 11 == 0 || i % 13 == 0))
-            cout << to_string(i) << " ";
+        cout << (i % 11 == 0 || i % 13 == 0 ? "FizzBuzz" : "") << " ";
     }
     cout << endl;
+    return 0;
 }
 
 int main() {
