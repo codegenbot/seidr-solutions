@@ -1,5 +1,8 @@
-```c++
+Here is the modified code:
+
+```cpp
 #include <vector>
+#include <string>
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> result;
