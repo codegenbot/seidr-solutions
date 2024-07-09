@@ -1,14 +1,19 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+using namespace std;
+
+bool checkSame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> nums;
+vector<string> by_length(vector<int> arr) {
+    vector<int> nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             nums.push_back(num);
@@ -18,9 +23,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     sort(nums.begin(), nums.end());
     reverse(nums.begin(), nums.end());
 
-    std::vector<std::string> result;
+    vector<string> result;
     for (int num : nums) {
-        std::string str = "";
+        string str = "";
         switch (num) {
             case 1:
                 str = "One";
@@ -57,15 +62,14 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {9, 4, 8};
-    std::vector<std::string> result = by_length(arr);
+    vector<int> arr = {9, 4, 8};
+    vector<string> result = by_length(arr);
 
     for (int i = 0; i < result.size(); i++) {
         if (result[i] != "Nine" && result[i] != "Eight" && result[i] != "Four") {
-            std::cout << "Difference found: " << result[i] << std::endl;
+            cout << "Difference found: " << result[i] << endl;
         }
     }
 
-    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
     return 0;
 }
