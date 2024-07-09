@@ -1,23 +1,16 @@
-```
-#include <iostream>
 #include <sstream>
 #include <iomanip>
 #include <string>
 
-std::string stringToMd5(const std::string& str) {
-    // implement your md5 function here
+std::string string_to_md5(std::string str) {
+    // implement your md5 calculation logic here
+    return "your_md5_result";
 }
 
 int main() {
-    int i = 0;
-    std::vector<std::string> md5;
-
-    // add your code to populate the 'md5' vector
-
-    for (const auto& s : md5) {
-        std::stringstream ss;
-        ss << std::setfill(2) << std::setw(2) << std::hex << (int)s.size();
-        std::cout << ss.str() << "\n";
+    std::stringstream ss;
+    int md5[16] = {0}; 
+    for(int i = 0; i < 16; ++i) {
+        ss << std::setfill(2) << std::setw(2) << std::hex << (int)md5[i];
     }
-    return 0;
 }
