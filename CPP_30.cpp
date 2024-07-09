@@ -23,12 +23,12 @@ int main() {
     std::cin >> n;
 
     if(n > 0) {
-        std::vector<std::unique_ptr<float>> numbers;
+        std::vector<std::unique_ptr<float>> numbers(n);
         for(int i=0; i<n;i++){
             std::cout << "Enter element " << i+1 << ": ";
             float num;
             std::cin >> num;
-            numbers.push_back(std::make_unique<float>(num));
+            *numbers[i] = num;
         }
 
         std::vector<std::unique_ptr<float>> positive_numbers = get_positive(numbers);
@@ -36,7 +36,7 @@ int main() {
         if(issame(numbers, positive_numbers)) {
             std::cout << "The list of positive numbers is: ";
             for (auto& num : positive_numbers) {
-                std::cout << std::to_string(*num) << " ";
+                std::cout << (*num) << " ";
             }
             std::cout << std::endl;
         } else {
