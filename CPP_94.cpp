@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -32,8 +31,6 @@ int skjkasdkd(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> input = {127, 97, 8192};
-    int output = skjkasdkd(input);
-    std::cout << "The result is: " << output << std::endl;
+    assert(skkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
