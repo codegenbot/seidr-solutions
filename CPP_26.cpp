@@ -33,11 +33,10 @@ int main() {
     std::cin >> n;
     
     std::vector<int> numbers;
+    numbers.reserve(n); 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
-        int num;
-        std::cin >> num;
-        numbers.push_back(num);
+        std::cin >> numbers.push_back(i);
     }
     
     std::vector<int> uniqueNumbers = removeDuplicates(numbers);
