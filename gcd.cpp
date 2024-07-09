@@ -1,3 +1,5 @@
+```cpp
+#include <iostream>
 #include <cmath>
 
 int findGCD(int a, int b) {
@@ -12,14 +14,9 @@ int findGCD(int a, int b) {
 
 int main() {
     int a, b;
-    // Read input from user
-    std::cout << "Enter first integer: ";
-    std::cin >> a;
-    std::cout << "Enter second integer: ";
-    std::cin >> b;
-
+    std::cout << "Enter two numbers: ";
+    std::cin >> a >> b;
     int result = findGCD(a, b);
     std::cout << "The GCD is: " << result << std::endl;
-    
     return 0;
 }
