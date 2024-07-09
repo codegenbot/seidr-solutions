@@ -1,3 +1,5 @@
+Here is the modified code:
+
 #include <iostream>
 #include <cmath>
 
@@ -6,10 +8,7 @@ long long special_factorial(int n) {
         return 1;
     long long result = 1;
     for (int i = 2; i <= n; i++) {
-        long long fact = 1;
-        for (int j = 1; j <= i; j++)
-            fact *= j;
-        result += fact;
+        result *= i * (i - 1 + 1);
     }
     return result;
 }
@@ -20,4 +19,3 @@ int main() {
     std::cin >> n;
     std::cout << "Special factorial of " << n << " is " << special_factorial(n) << std::endl;
     return 0;
-}
