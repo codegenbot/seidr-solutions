@@ -1,9 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
 #include <initializer_list>
-#include <limits>
 
 using namespace std;
 
@@ -39,7 +37,7 @@ int main() {
     bool isValidInput = false;
     while (!isValidInput) {
         cin >> a >> b;
-        if (cin && a > 0 && b > 0) { 
+        if (cin && a > 0 && b > 0) { // Check for valid inputs
             isValidInput = true;
         } else {
             cout << "Invalid input. Please enter two positive integers: ";
@@ -54,7 +52,7 @@ int main() {
     bool isValidInput2 = false;
     while (!isValidInput2) {
         cin >> text >> target;
-        if (cin && !text.empty() && !target.empty()) { 
+        if (cin && !text.empty() && !target.empty()) { // Check for valid inputs
             isValidInput2 = true;
         } else {
             cout << "Invalid input. Please enter valid strings: ";
