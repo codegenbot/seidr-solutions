@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -18,5 +17,7 @@ int main() {
         input.push_back(num);
     }
     std::vector<float> result = get_positive(input);
+    std::vector<float> output = result;
+
     return 0;
 }
