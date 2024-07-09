@@ -1,9 +1,15 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<int> maximum(std::vector<int> arr, int k) {
+    if (k > arr.size()) {
+        return {};
+    }
     std::vector<int> result;
     for(int i = 0; i < k; i++) {
         auto it = std::max_element(arr.begin(), arr.end());
@@ -13,7 +19,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-int main2() {
+int main() {
     std::vector<int> test = maximum({1, 2, 3, -23, 243, -400, 0}, 3);
     for (int i : test) {
         std::cout << i << " ";
