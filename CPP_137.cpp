@@ -1,36 +1,35 @@
-#include <boost/any.hpp>
-#include <cassert>
+#include <variant>
 #include <string>
+#include <cassert> // Include the <cassert> header for using assert
+
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
+auto compare_one(const variant<int, float, string>& a, const variant<int, float, string>& b) {
+    if (holds_alternative<int>(a) && holds_alternative<int>(b)) {
+        if (get<int>(a) > get<int>(b))
             return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
+        else if (get<int>(a) < get<int>(b))
             return b;
-        } else {
-            return boost::any("None");
-        }
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
-            return a;
-        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
-            return b;
-        } else {
-            return boost::any("None");
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        float a_float = std::stof(boost::any_cast<string>(a).replace(boost::any_cast<string>(a).find(','), 1, "."), nullptr);
-        float b_float = std::stof(boost::any_cast<string>(b).replace(boost::any_cast<string>(b).find(','), 1, "."), nullptr);
-        if (a_float > b_float) {
-            return a;
-        } else if (a_float < b_float) {
-            return b;
-        } else {
-            return boost::any("None");
-        }
-    } else {
-        return boost::any("None");
     }
+    else if (holds_alternative<float>(a) && holds_alternative<float>(b)) {
+        if (get<float>(a) > get<float>(b))
+            return a;
+        else if (get<float>(a) < get<float>(b))
+            return b;
+    }
+    else if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
+        if (stof(get<string>(a)) > stof(get<string>(b)))
+            return a;
+        else if (stof(get<string>(a)) < stof(get<string>(b)))
+            return b;
+    }
+    return variant<int, float, string>(); // Return default-constructed std::variant
+}
+
+int main() {
+    assert(get<string>(compare_one(string("1"), string("2"))) == "2"); // Test case for comparing two strings
+    assert(get<int>(compare_one(10, 5)) == 10); // Test case for comparing two integers
+    assert(get<float>(compare_one(3.14f, 2.718f)) == 3.14f); // Test case for comparing two floats
+
+    return 0;
 }
