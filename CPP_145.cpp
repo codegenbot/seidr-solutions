@@ -1,8 +1,9 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool std::issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -33,5 +34,6 @@ std::vector<int> order_by_points(std::vector<int> nums) {
 }
 
 int main() {
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
