@@ -3,14 +3,18 @@
 #include <sstream>
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::stringstream iss(input);
+    std::string line;
+    std::getline(std::cin, line);
+    std::istringstream iss(line);
+
     int startHeight;
     double firstBounce;
     int numBounces;
 
-    iss >> startHeight >> firstBounce >> numBounces;
+    if (!(iss >> startHeight >> firstBounce >> numBounces)) {
+        // Handle invalid input (e.g., print error message and exit)
+        return 1;
+    }
 
     startHeight = static_cast<double>(startHeight);
     firstBounce = static_cast<double>(firstBounce);
