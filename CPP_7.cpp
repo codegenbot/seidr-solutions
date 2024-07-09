@@ -2,30 +2,28 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool compare(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-vector<string> filter_by_substring(vector<string> words, string sub) {
-    vector<string> result;
+std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& sub) {
+    std::vector<std::string> result;
     for (const auto& word : words) {
-        if(word.find(sub) != string::npos) {
+        if(word.find(sub) != std::string::npos) {
             result.push_back(word); 
         }
     }
     return result;
 }
 
-int main_function() {
-    vector<string> words = {"grunt", "trumpet", "prune", "gruesome"};
-    string sub = "run";
-    vector<string> result = filter_by_substring(words, sub);
-    assert(compare(result, {"grunt", "prune"}));
+int main() {
+    std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
+    std::string sub = "run";
+    std::vector<std::string> result = filter_by_substring(words, sub);
+    assert(issame(result, {"grunt", "prune"}));
     for (const auto& word : result) {
-        if(word.find("run") != string::npos) {
-            cout << word << endl;
+        if(word.find("run") != std::string::npos) {
+            std::cout << word << std::endl;
         }
     }
     return 0;
