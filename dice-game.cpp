@@ -1,4 +1,7 @@
 double probability(int n, int m) {
-    double total = (n + m - 1);
-    return (m < n ? m : n - 1) / (total == 0 ? 1 : total);
+    double total = 1.0; // Initialize total as 1.0
+    for (int i = 1; i <= m - 1; i++) {
+        total += (n - i) / (n * m);
+    }
+    return total;
 }
