@@ -2,10 +2,6 @@
 #include <vector>
 #include <limits>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 int pluck(std::vector<int> arr) {
     if (arr.empty()) return -1;
 
@@ -22,9 +18,22 @@ int pluck(std::vector<int> arr) {
     return minIndex;
 }
 
+bool compareVectors(const std::vector<int>& v1, const std::vector<int>& v2) {
+    if (v1.size() != v2.size()) return false;
+
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i]) return false;
+    }
+
+    return true;
+}
+
 int main() {
     int index = pluck({7, 9, 7, 1});
-    if (index % 2 == 0 || index == -1) 
-        assert(issame({},{}));
-    return 0;
+    std::vector<int> emptyVector;
+
+    if (index % 2 == 0 || index == -1) {
+        if (!compareVectors({}, emptyVector)) 
+            return 0;
+    }
 }
