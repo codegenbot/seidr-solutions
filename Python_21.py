@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -18,6 +17,5 @@ def rescale_to_unit() -> List[float]:
     return [(x - min_val) / (max_val - min_val) for x in numbers]
 
 
-print('''''')
-print("Enter a list of floating point numbers separated by space, and the function will rescale them to have values between 0 and 1.")
+print("Enter a list of floating point numbers separated by space, and the function will rescale them to have values between 0 and 1")
 print(rescale_to_unit())
