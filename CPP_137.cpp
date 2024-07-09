@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <boost/variant.hpp>
@@ -20,15 +21,18 @@ int main() {
         boost::variant<int, float, std::string> y = static_cast<boost::variant<int, float, std::string>>(b);
         x = compare_one(x, y);
     }
-    else if (choice == 2 || choice == 3) {
+    else if (choice == 2) {
         float c;
-        if (choice == 2) 
-            std::cout << "Enter your second value: ";
-        else
-            std::cout << "Enter your string value: ";
-        
+        std::cout << "Enter your second value: ";
         std::cin >> c;
         boost::variant<int, float, std::string> z = static_cast<boost::variant<int, float, std::string>>(c);
+        x = compare_one(x, z);
+    }
+    else {
+        std::string d;
+        std::cout << "Enter your string value: ";
+        std::cin >> d;
+        boost::variant<int, float, std::string> z = static_cast<boost::variant<int, float, std::string>>(d);
         x = compare_one(x, z);
     }
 
@@ -73,7 +77,7 @@ boost::variant<std::string, int> compare_one(boost::variant<int, float, std::str
         if (x < y)
             return "Integer 1 is less than Integer 2";
         else if (x > y)
-            return "Integer 1 is greater than or equal to Integer 2";
+            return "Integer 1 is greater than Integer 2";
         else
             return "Integers are equal";
     }
@@ -81,9 +85,9 @@ boost::variant<std::string, int> compare_one(boost::variant<int, float, std::str
         float x = boost::get<float>(a);
         int y = boost::get<int>(b);
         if (x < 0)
-            return "Negative float is less than integer";
+            return "Float is less than integer";
         else
-            return "Positive float is greater than or equal to integer";
+            return "Float is greater than or equal to integer";
     }
     else if (std::holds_alternative<float>(a) && std::holds_alternative<float>(b)) {
         float x = boost::get<float>(a);
@@ -91,7 +95,7 @@ boost::variant<std::string, int> compare_one(boost::variant<int, float, std::str
         if (x < y)
             return "Float 1 is less than Float 2";
         else if (x > y)
-            return "Float 1 is greater than or equal to Float 2";
+            return "Float 1 is greater than Float 2";
         else
             return "Floats are equal";
     }
