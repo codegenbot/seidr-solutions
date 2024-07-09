@@ -19,7 +19,7 @@ int main() {
 
     for(int i = 0; i < n; ++i) {
         int x;
-        while(!(std::cin >> std::ws >> x)) {
+        while(!(std::cin >> x)) {
             if (std::cin.fail()) {
                 std::cerr << "Invalid input. Please enter an integer." << std::endl;
                 std::cin.clear(); 
@@ -28,12 +28,13 @@ int main() {
                 break; 
             }
         }
+        a.reserve(a.size() + 1);
         a.push_back(x);
     }
 
     for(int i = 0; i < n; ++i) {
         int x;
-        while(!(std::cin >> std::ws >> x)) {
+        while(!(std::cin >> x)) {
             if (std::cin.fail()) {
                 std::cerr << "Invalid input. Please enter an integer." << std::endl;
                 std::cin.clear(); 
@@ -42,6 +43,7 @@ int main() {
                 break; 
             }
         }
+        b.reserve(b.size() + 1);
         b.push_back(x);
     }
 
