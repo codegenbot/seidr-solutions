@@ -12,13 +12,14 @@ float shoppingList(const std::vector<float>& prices, const std::vector<float>& d
 }
 
 int main() {
-    std::vector<float>(100); 
+    std::vector<float>(100); // arbitrary large initial capacity
     std::vector<float>(100);
 
     float price, discount;
     while (std::cin >> price >> discount) {
-        prices.push_back(price);
-        discounts.push_back(discount / 100.0); 
+        (*prices).push_back(price);
+        (*discounts).push_back(discount / 100.0); 
     }
 
-    std::cout << std::fixed << std::setprecision(2) << shoppingList(prices, discounts) << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << shoppingList(*prices, *discounts) << std::endl;
+}
