@@ -15,7 +15,7 @@ double find_zero(std::vector<double> coeffs) {
     if (n % 2 != 0)
         return -1;
 
-    double root = -coeffs[n/2-1]/(2*coeffs[0]); 
+    double root = -coeffs[1]/(2*coeffs[0]); 
     return std::round(root);
 }
 
