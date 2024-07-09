@@ -62,7 +62,7 @@ vector<string> by_length(vector<int> arr) {
     return result;
 }
 
-int main2() {
+vector<string> main() {
     vector<int> input = {9, 4, 8};
     vector<string> output = by_length(input);
     
@@ -73,5 +73,5 @@ int main2() {
     } else {
         cout << "The output is incorrect." << endl;
     }
-    return 0;
+    return output;
 }
