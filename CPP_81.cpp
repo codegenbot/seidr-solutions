@@ -1,4 +1,7 @@
-#include <string>
+#include<stdio.h>
+#include<vector>
+#include<string>
+using namespace std;
 
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
