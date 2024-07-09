@@ -1,16 +1,15 @@
-#include <vector>
-
-int luhnAlgo(const std::vector<int>& digits) {
+int luhn(vector<int> digits) {
     int sum = 0;
-    for (size_t i = 0; i < digits.size(); ++i) {
-        int digit = digits[i];
-        if ((digits.size() - 1 - i) % 2 == 1) { // double every other digit
-            digit *= 2;
-            if (digit > 9) { // subtract 9 from them if over 9
-                digit -= 9;
+    for (int i = 0; i < digits.size(); i++) {
+        if (i % 2 == 1) {
+            int doubleDigit = digits[i] * 2;
+            if (doubleDigit > 9) {
+                doubleDigit -= 9;
             }
+            sum += doubleDigit;
+        } else {
+            sum += digits[i];
         }
-        sum += digit;
     }
     return sum;
 }
