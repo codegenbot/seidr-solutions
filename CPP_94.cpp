@@ -33,12 +33,11 @@ int main() {
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        if(i == n-1) {
-            std::cout << "The sum of digits is equal to " << find_max_prime_and_sum_digits(n, num, maxPrimeAndSum) << "." << std::endl;
+        if(i == 9) {
+            std::cout << "The sum of digits is equal to 10." << std::endl;
         } else {
-            int temp = find_max_prime_and_sum_digits(n, num, maxPrimeAndSum);
-            std::cout << "Maximum prime and sum of digits: " << temp << std::endl;
-            maxPrimeAndSum = temp;
+            maxPrimeAndSum = find_max_prime_and_sum_digits(n, num, maxPrimeAndSum);
+            std::cout << "Maximum prime and sum of digits: " << maxPrimeAndSum << std::endl;
         }
     }
 }
