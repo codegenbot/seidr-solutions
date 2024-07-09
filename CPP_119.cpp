@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,7 +18,7 @@ bool match_parens(const std::string& s) {
     return count == 0;
 }
 
-int main() {
+int originalMain() { 
     int n;
     std::cin >> n;
     lst = std::vector<std::string>(); 
@@ -39,4 +39,8 @@ int main() {
     for (const auto& str : lst) {
         std::cout << str << std::endl;
     }
+}
+
+int main() {
+    originalMain(); 
 }
