@@ -4,11 +4,13 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size())
+    if (a.size() != b.size()) {
         return false;
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+        if (a[i] != b[i]) {
             return false;
+        }
     }
     return true;
 }
@@ -34,6 +36,6 @@ vector<int> parse_nested_parens(string paren_string) {
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())((()))"), vector<int> ({4})));
+    assert(issame(parse_nested_parens("(()(())((()))"), vector<int>({4})));
     return 0;
 }
