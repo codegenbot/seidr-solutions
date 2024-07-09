@@ -21,19 +21,16 @@ int main() {
 
     std::vector<int> lst;
     for (int i = 0; i < n; ++i) {
-        while(true) {
-            std::cout << "Enter element " << i + 1 << ": ";
-            int num; 
-            std::cin >> num; 
+        std::cout << "Enter element " << i + 1 << ": ";
+        int num; 
+        std::cin >> num; 
 
-            if (num == 0) {
-                // Ask user to enter a different value
-                std::cout << "Invalid input. Please enter a non-zero number.\n";
-            } else {
-                lst.push_back(num); 
-                break;
-            }
+        if(num <= 0) {
+            std::cout << "Invalid input. Please enter a positive number.\n";
+            continue;
         }
+
+        lst.push_back(num); 
     }
 
     int result = search(lst);
