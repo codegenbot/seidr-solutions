@@ -1,10 +1,11 @@
+```c++
 int fib(int n) {
-    if (n <= 1) return n;
-    int a = 0, b = 1;
+    if (n <= 1) return n == 0 ? 0 : 1;
+    int a = 0, b = 1, result = 1;
     for (int i = 2; i <= n; i++) {
-        int result = a + b;
+        result = a + b;
         a = b;
         b = result;
     }
-    return b;
+    return result;
 }
