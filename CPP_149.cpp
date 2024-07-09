@@ -1,16 +1,20 @@
-````
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+vector<string> sorted_list_sum(vector<string> lst) {
+    vector<string> result;
     
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
+    for (const auto& str : lst) {
+        if (str.length() % 2 == 0) {
+            result.push_back(str);
         }
     }
     
-    return true;
+    sort(result.begin(), result.end(), 
+         [](const string& a, const string& b) {
+             if (a.length() == b.length()) {
+                 return a < b;
+             } else {
+                 return a.length() < b.length();
+             }
+         });
+    
+    return result;
 }
-
-```
