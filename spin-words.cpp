@@ -33,7 +33,6 @@ string spinWords(string str) {
     }
 
     return result;
-
 }
 
 int main() {
