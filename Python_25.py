@@ -11,8 +11,7 @@ def factorize(n: int) -> List[int]:
     i = 3
     while i * i <= n:
         if n % i == 0:
-            for _ in range(int(math.log(n, i))):
-                factors.append(i)
+            factors.extend([i] * (n // i - 1))
             n //= i
         else:
             i += 2
