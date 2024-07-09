@@ -1,19 +1,19 @@
 #include <string>
-#include <algorithm> 
+#include <cctype>
+#include <cassert>
 
-std::string flip_case(std::string str){ 
-    std::transform(str.begin(), str.end(), str.begin(), [](char c) { 
+std::string flip_case(std::string str){
+    for(char &c : str){
         if(islower(c)){
-            return toupper(c);
+            c = toupper(c);
         } else if(isupper(c)){
-            return tolower(c);
+            c = tolower(c);
         }
-        return c;
-    });
+    }
     return str;
 }
 
 int main(){
-    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS"); 
+    assert (flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
 }
