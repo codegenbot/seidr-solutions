@@ -1,5 +1,6 @@
 ```cpp
 #include <algorithm>
+#include <numeric>
 #include <vector>
 #include <limits>
 #include <utility>
