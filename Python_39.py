@@ -1,6 +1,7 @@
 t = int(input("Enter the number of test cases: "))
 for _ in range(t):
     n = int(input("Enter the value of n: "))
+    
     def is_prime(num):
         if num < 2:
             return False
@@ -23,3 +24,4 @@ for _ in range(t):
                 n -= 1
                 if n == 0:
                     return fib_num
+            i += 1
