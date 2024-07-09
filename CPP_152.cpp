@@ -2,30 +2,19 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    std::vector<int> result;
-    for (int i = 0; i < game.size(); ++i) {
-        result.push_back(abs(game[i] - guess[i]));
+std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b) {
+    std::vector<int> result(a.size());
+    for (size_t i = 0; i < a.size(); ++i) {
+        result[i] = a[i] == b[i] ? 0 : a[i] < b[i] ? -1 : 1;
     }
     return result;
 }
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
 int main() {
-    std::vector<int> expected = {2, 0, 0, 1};
-    std::vector<int> result = compare({1, 2, 3, 5}, {-1, 2, 3, 4});
-    
-    if (issame(result, expected)) {
-        std::cout << "Test Passed" << std::endl;
-    } else {
-        std::cout << "Test Failed" << std::endl;
-    }
-    
+    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
     return 0;
 }
