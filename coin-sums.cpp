@@ -1,4 +1,3 @@
-```cpp
 int pennies = cents % 5;
 cents /= 5;
 
