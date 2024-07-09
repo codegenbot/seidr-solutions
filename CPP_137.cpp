@@ -6,13 +6,7 @@ using namespace std;
 bool compare(int a, int b) {
     if (a > b) return true;
     else if (b > a) return false;
-    else return false; // or return true, depending on your needs
-}
-
-bool compareString(string a, string b) {
-    if (stoi(a) > stoi(b)) return true;
-    else if (stoi(b) > stoi(a)) return false;
-    else return false; // or return true, depending on your needs
+    else return false; 
 }
 
 int main() {
