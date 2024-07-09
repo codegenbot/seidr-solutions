@@ -1,4 +1,9 @@
+```cpp
 long long minSubArraySum(vector<long long> nums) {
+    if (nums.empty()) {
+        throw invalid_argument("Input vector is empty");
+    }
+
     long long min_sum = LONG_LONG_MAX;
     long long current_sum = 0;
 
@@ -14,7 +19,5 @@ long long minSubArraySum(vector<long long> nums) {
         }
     }
 
-    if (min_sum == LONG_LONG_MAX)
-        throw runtime_error("Array does not contain a non-negative contiguous segment sum less than or equal to 0.");
     return min_sum;
 }
