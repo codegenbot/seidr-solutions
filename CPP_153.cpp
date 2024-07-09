@@ -1,9 +1,5 @@
-#include <iostream>
-#include <vector>
 #include <string>
-#include <cctype>
-
-using namespace std;
+#include <vector>
 
 int Strongest_Extension(string class_name, vector<string> extensions) {
     int strongest = 0;
