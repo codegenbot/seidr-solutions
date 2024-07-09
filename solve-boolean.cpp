@@ -1,16 +1,19 @@
-```
 using namespace std;
 
 string solveBoolean(string s) {
-    string result = "True";
-    for (char c : s) {
-        if (c == '|') {
-            if (result == "False") result = "True";
-        } else if (c == '&') {
-            if (result == "True") result = "False";
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if (st.empty()) return "False";
+            else st.pop();
+        } else if (s[i] == '|') {
+            while (!st.empty()) st.pop();
+            st.push(s[i]);
         } else {
-            result = c;
+            st.push(s[i]);
         }
     }
-    return result;
-}
+    return st.top() == 'T' ? "True" : "False";
