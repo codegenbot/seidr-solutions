@@ -5,7 +5,8 @@
 bool starts_one_ends(int n) {
     int count = 0;
     for (int i = 1; i <= n; ++i) {
-        if (std::to_string(i).find("1") != std::string::npos || std::to_string(n).find(std::to_string(i)) != std::string::npos)
+        std::string str = std::to_string(i);
+        if (str.find("1") != std::string::npos || str.back() == '1')
             ++count;
     }
     return count;
