@@ -15,9 +15,9 @@ vector<int> factorize(int n){
 }
 
 int main() {
-    vector<int> factors = factorize(100);
-    for(int factor : factors){
-        cout << factor << " ";
+    vector<int> result = factorize(60);
+    for(int num : result) {
+        cout << num << " ";
     }
     return 0;
 }
