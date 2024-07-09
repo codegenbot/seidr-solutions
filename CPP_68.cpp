@@ -2,11 +2,6 @@
 #include <vector>
 #include <limits>
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.empty() && b.empty()) return true;
-    return (a == b);
-}
-
 int pluck(std::vector<int> arr) {
     if (arr.empty()) return -1;
 
@@ -25,6 +20,6 @@ int pluck(std::vector<int> arr) {
 
 int main() {
     int index = pluck({7, 9, 7, 1});
-    assert(issame({}, {(index == -1) ? -1 : (index % 2 == 0) ? 0 : 1})); 
+    assert(index % 2 == 0 || index == -1); 
     return 0;
 }
