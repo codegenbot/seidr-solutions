@@ -1,20 +1,13 @@
 Here is the completed code:
 
-```cpp
 vector<int> make_a_pile(int n) {
     vector<int> result;
-    int stones = n;
-
-    while (stones > 0) {
-        if (n % 2 == 1) {
-            result.push_back(2 * stones + 1);
-            stones = 0;
+    for (int i = 1; i <= n; ++i) {
+        if (i % 2 == 0) {
+            result.push_back(i * 2 - 1);
         } else {
-            result.push_back(2 * stones);
-            stones /= 2;
+            result.push_back(i * 2);
         }
-        n -= 1;
     }
-
     return result;
 }
