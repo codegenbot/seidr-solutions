@@ -1,6 +1,4 @@
 #include <string>
-#include <vector>
-#include <algorithm>
 
 string find_max(vector<string> words){
     string max_word = *max_element(words.begin(), words.end(),
