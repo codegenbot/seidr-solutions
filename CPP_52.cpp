@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 
 bool below_threshold(std::vector l, int t) {
