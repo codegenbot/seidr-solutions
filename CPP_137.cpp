@@ -10,7 +10,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         string str1 = any_cast<string>(a);
         string str2 = any_cast<string>(b);
         return str1 > str2 ? a : b;
-    } else if ((is_same<string_any_tag, get_type(a)>() || is_same<string_any_tag, get_type(b)>())) {
+    } else if (is_same<string_any_tag, get_type(a)>() || is_same<string_any_tag, get_type(b)>()) {
         string str1 = any_cast<string>(a);
         string str2 = any_cast<string>(b);
         if (str1 == str2) {
