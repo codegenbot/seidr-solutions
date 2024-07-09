@@ -15,10 +15,9 @@ int main() {
 
     std::cout << std::fixed << std::setprecision(2) << bouncinessIndex << " ";
     for (int i = 1; i <= numBounces; ++i) {
-        std::cout << std::fixed;
+        std::cout << std::fixed << std::setprecision(2) << startHeight << " ";
         startHeight = static_cast<double>(firstBounce);
         firstBounce *= 0.5;
-        std::cout << std::setprecision(2) << startHeight << " ";
     }
     return 0;
 }
