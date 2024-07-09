@@ -3,20 +3,9 @@
 
 bool is_happy(int n);
 
-int main() {
-    std::cout << "Enter a number: ";
-    int num = stoi(std::cin.get());
-    if (is_happy(num)) {
-        std::cout << num << " is a happy number.\n";
-    } else {
-        std::cout << num << " is not a happy number.\n";
-    }
-    return 0;
-}
-
 bool is_happy(int n) {
     if(n < 10)
-        return n == 1;
+        return n % 10 == 1 && n != 1;
     int sum = 0, remainder;
     do{
         while (n != 0){
@@ -28,4 +17,32 @@ bool is_happy(int n) {
         sum = 0;
     }while(n > 9);
     return n == 1;
+}
+
+bool is_happy(int num) {
+    if(num < 10)
+        return num % 10 == 1 && num != 1;
+    int sum = 0, remainder;
+    do{
+        while (num != 0){
+            remainder = num % 10;
+            sum += remainder * remainder;
+            num /= 10;
+        }
+        num = sum;
+        sum = 0;
+    }while(num > 9);
+    return num == 1;
+}
+
+int main() {
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;  
+    if (is_happy(num)) {
+        std::cout << num << " is a happy number.\n";
+    } else {
+        std::cout << num << " is not a happy number.\n";
+    }
+    return 0;
 }
