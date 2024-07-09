@@ -1,8 +1,12 @@
 #include <vector>
 #include <string>
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    // Your implementation here
+}
+
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
-    std::vector<string> result;
+    vector<string> result;
     for(float g:grades){
         string letterGrade = "";
         if(g >= 4.0) {
