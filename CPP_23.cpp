@@ -1,7 +1,7 @@
 #include <string>
 #include <cstring>
 
-int myStringLen(const std::string& str) {
+int myStrlen(const std::string& str) {
     int len = 0;
     while (len < str.length()) {
         len++;
@@ -10,6 +10,6 @@ int myStringLen(const std::string& str) {
 }
 
 int main() {
-    assert(myStringLen("asdasnakj") == 11);
+    assert(myStrlen("asdasnakj") == 12);
     return 0;
 }
