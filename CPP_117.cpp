@@ -29,10 +29,11 @@ std::vector<std::string> select_words(std::string s, int n){
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return std::equal(a.begin(), a.end(), b.begin());
+    return std::vector<std::string>(a.begin(), a.end()) == std::vector<std::string>(b.begin(), b.end());
 }
 
 int main(){
-    // assert(issame(select_words("a b c d e f", 1), std::vector<std::string>{"b", "c", "d", "f"}));
+    assert(issame(select_words("a b c d e f", 1), std::vector<std::string>{"b", "c", "d", "f"}));
+    // Remove the duplicated definition of `issame` here
     return 0;
 }
