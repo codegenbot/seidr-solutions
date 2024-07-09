@@ -1,29 +1,28 @@
 ```cpp
 bool solveBoolean(std::string s) {
     bool result = true;
-    int i = 0;
-    while (i < s.size()) {
+    for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'F') {
             return false;
         } else if (s[i] == '|') {
-            if (i == s.size() - 1 || s[i + 1] == 'F') {
+            if (i == s.size() - 1 || s[i + 1] == '&') {
+                return true;
+            } else if (s[i + 1] == 'F' || s.find('T', i + 2) != std::string::npos) {
                 return true;
             }
             i++;
         } else if (s[i] == '&') {
             bool foundT = false;
-            while (i < s.size()) {
-                if (s[i] == 'T') {
+            for (int j = i; j < s.size(); j++) {
+                if (s[j] == 'T') {
                     foundT = true;
                     break;
-                } else if (s[i] == 'F') {
+                } else if (s[j] == 'F') {
                     return false;
                 }
-                i++;
             }
             result = foundT;
         }
-        i++;
     }
     return result;
 }
