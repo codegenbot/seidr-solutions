@@ -14,14 +14,7 @@ vector<string> reverse_delete(string s, string c) {
             result += ch;
         }
     }
-    string revResult = result;
-    reverse(revResult.begin(), revResult.end());
-    vector<string> output;
-    output.push_back(result);
-    if (result == revResult) {
-        output.push_back("True");
-    } else {
-        output.push_back("False");
-    }
-    return output;
+    string rev = result;
+    reverse(rev.begin(), rev.end());
+    return {result, (rev == result ? "True" : "False")};
 }
