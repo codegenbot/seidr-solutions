@@ -28,4 +28,3 @@ int main() {
     std::cout << "Special filter count: " << output << std::endl;
     
     return 0;
-}
