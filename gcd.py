@@ -25,4 +25,4 @@ while True:
         print(find_indices(text, target))
         break
     except ValueError:
-        print("Invalid input. Please try again.")
+        print("Invalid input. Please enter integers.")
