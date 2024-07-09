@@ -20,13 +20,11 @@ std::string rounded_avg(int n, int m) {
     if (binary.empty()) binary = "0";
     std::reverse(binary.begin(), binary.end());
     return binary;
-
 }
 
-int main() {
+void main() {
     int n, m;
     std::cout << "Enter two numbers: ";
     std::cin >> n >> m;
     std::cout << rounded_avg(n, m);
-    return 0;
 }
