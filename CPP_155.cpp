@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 bool issame(std::vector<int> a,std::vector<int>b){
@@ -9,12 +10,8 @@ bool issame(std::vector<int> a,std::vector<int>b){
     return true;
 }
 
-int main() {
-    assert(even_odd_count(0) == std::vector<int>({1, 0}));
-}
-
-vector<int> even_odd_count(int num) {
-    vector<int> result(2, 0);
+std::vector<int> even_odd_count(int num) {
+    std::vector<int> result(2, 0);
     while (num != 0) {
         int digit = num % 10;
         if (digit % 2 == 0)
@@ -24,4 +21,8 @@ vector<int> even_odd_count(int num) {
         num /= 10;
     }
     return result;
+}
+
+int main() {
+    assert(even_odd_count(0) == std::vector<int>({1, 0}));
 }
