@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```cpp
 #include <algorithm>
 #include <vector>
@@ -10,7 +12,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return true;
 }
 
-std::vector<float> sort_even(const std::vector<float>& l) {
+std::vector<std::float> sort_even(const std::vector<float>& l) {
     std::vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
