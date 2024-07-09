@@ -1,4 +1,6 @@
+```
 #include <initializer_list>
+
 #include <vector>
 #include <cassert>
 
@@ -10,14 +12,13 @@ bool compare_vectors(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> make_a_pile(int n, std::vector<int> pile) {
+std::vector<int> make_a_pile(int n, std::vector<int> pile = {}) {
     while (pile.back() <= n) {
         pile.push_back(pile.back() + 2);
     }
     return pile;
 }
 
-int verify_result() {
+int main_tester() {
     assert(compare_vectors(make_a_pile(8), {8,10,12,14,16,18,20,22}));
-    return 0;
 }
