@@ -1,7 +1,7 @@
 from typing import List
 
 
-def rescale_to_unit() -> List[float]:
+def rescale_to_unit():
     numbers = input("Enter the list of floating point numbers separated by space: ")
     numbers = list(map(float, numbers.split()))
 
