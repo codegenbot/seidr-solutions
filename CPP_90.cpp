@@ -1,11 +1,13 @@
+Here is the solution:
+
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // or any other value to indicate None
-    vector<int> sorted = lst;
-    std::sort(sorted.begin(), sorted.end());
-    for (int i = 1; i < sorted.size(); i++) {
-        if (sorted[i] != sorted[0]) {
-            return sorted[i];
+    if (lst.size() < 2) return -1; // None in C++ equivalent to Python's None
+    vector<int> copy = lst;
+    sort(copy.begin(), copy.end());
+    for (int i = 1; i < copy.size(); i++) {
+        if (copy[i] != copy[0]) {
+            return copy[i];
         }
     }
-    return -1; // or any other value to indicate None
+    return -1; // None in C++ equivalent to Python's None
 }
