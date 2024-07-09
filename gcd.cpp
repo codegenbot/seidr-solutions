@@ -34,10 +34,9 @@ int main() {
     std::getline(std::cin, text);
     std::cout << "Enter the target string: ";
     std::cin >> target;
-
+    std::cin.ignore(); // Add this line
     std::vector<int> indices = findIndices(text, target);
     for (int i : indices) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
-}
