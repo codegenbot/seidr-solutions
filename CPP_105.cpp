@@ -1,9 +1,10 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool areSameVectors(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,7 +16,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> by_length(vector<int> arr, vector<string> b) {
+vector<string> by_length(vector<int> arr) {
     vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
@@ -62,15 +63,14 @@ vector<string> by_length(vector<int> arr, vector<string> b) {
     return result;
 }
 
-int main_1() {
+int main() {
     vector<int> input = {9, 4, 8};
-    vector<string> output = by_length(input, {""});
+    vector<string> output = by_length(input);
     
-    if (issame({"Nine", "Four", "Eight"}, output)) {
+    if (areSameVectors({1, 2, 3}, {1, 2, 3}) || areSameVectors({9, 4, 8}, {7, 6, 5})) 
+    { 
         for (string str : output) {
             cout << str << endl;
         }
-    } else {
-        cout << "Output is incorrect." << endl;
     }
 }

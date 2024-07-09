@@ -1,13 +1,13 @@
+```cpp
 #include <iostream>
 #include <string>
 
 bool is_happy(int n);
 
 int main() {
-    std::string input;
     std::cout << "Enter a number: ";
-    std::cin >> input;  
-    int num = std::stoi(input);
+    int num;
+    std::cin >> num;
     if (is_happy(num)) {
         std::cout << num << " is a happy number.\n";
     } else {
