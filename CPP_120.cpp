@@ -1,22 +1,22 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    return std::all_of(a.begin(), a.end(), [&b](int x) { return std::count(b.begin(), b.end(), x) == 1; });
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i<a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
+using namespace std;
+
 vector<int> maximum(vector<int> arr, int k) {
-    if(k > arr.size()) {
-        cout << "Error: k cannot be greater than the size of the array." << endl;
-        vector<int> result;
-        return result;
-    }
-    
-    vector<int> result;
-    for(int i = 0; i < k; i++) {
-        auto it = std::max_element(arr.begin(), arr.end());
-        result.push_back(*it);
-        arr.erase(it);
+    vector<int> result(k);
+    partial_sort(arr.begin(), arr.begin() + k, arr.end());
+    for (int i = 0; i < k; i++) {
+        result[i] = arr[i];
     }
     return result;
 }
