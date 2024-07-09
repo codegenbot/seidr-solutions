@@ -1,4 +1,5 @@
 ```cpp
+#include <cassert>
 #include <vector>
 
 int solutions(std::vector<int> lst) {
