@@ -1,28 +1,24 @@
-```cpp
 #include <vector>
 #include <list>
+#include <any>
 #include <boost/any.hpp>
 
 using namespace std;
 
-boost::any list_any();
+bool areSame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
-vector<int> filter_integers(list_any values) {
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
-    for (const auto& value : boost::any_cast<vector< boost::any >>(values)) {
-        if (boost::any_cast<int>(value).type() == typeid(int) && 
-            !boost::any_cast<int>(value).bad()) {
-            result.push_back(boost::any_cast<int>(value));
+    for (const auto& value : values) {
+        if (boost::any_cast<optional<int>>(value).has_value()) {
+            result.push_back(*boost::any_cast<optional<int>>(value));
         }
     }
     return result;
 }
 
-bool areSame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && all_of(a.begin(), a.end(), 
-      [&](int i){return find(b.begin(), b.end(), i) != b.end();});
-}
-
 int main() {
-    assert(areSame(filter_integers(list_any()), {3, 3, 3}) );
+    assert(areSame(filter_integers({3, any('c'), 3, 3, any('a'), any('b')}), vector({3, 3, 3}) ));
 }
