@@ -2,7 +2,7 @@
 def fix_spaces(text):
     new_text = ""
     i = 0
-    while i < len(text): 
+    while i < len(text) + 1: 
         if text[i] == " ":
             if i + 1 < len(text) and text[i + 1] == " ":
                 new_text += "-"
