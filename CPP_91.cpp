@@ -1,23 +1,17 @@
 #include <string>
-
-int is_bored(std::string S){
+int is_bored(std::string S) {
     int count = 0;
     bool isI = false;
-    
-    for(int i=0; i<S.length(); i++){
-        if(S[i] == 'I' && (i == 0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')){
+
+    for (int i = 0; i < S.length(); i++) {
+        if (S[i] == 'I' && (i == 0 || S[i - 1] == '.' || S[i - 1] == '?' || S[i - 1] == '!')) {
             isI = true;
         }
-        else if((S[i] == '.' || S[i] == '?' || S[i] == '!') && isI){
+        else if ((S[i] == '.' || S[i] == '?' || S[i] == '!' || (S[i] == 'I' && isI))) {
             count++;
             isI = false;
         }
     }
-    
-    return count;
-}
 
-int main(){
-    assert(is_bored("You and I are going for a walk") == 0);
-    return 0;
+    return count;
 }
