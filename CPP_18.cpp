@@ -16,4 +16,3 @@ int how_many_times(const std::string& str, const std::string& substring) {
 int main() {
     assert(how_many_times(std::string("john doe"), std::string("john")) == 1);
     return 0;
-}
