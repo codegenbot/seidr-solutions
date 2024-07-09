@@ -2,19 +2,17 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool issame(const string& a, const vector<string>& b) {
+bool issame(std::string a, const std::vector<std::string>& b) {
     for (const auto& s : b) {
         if (!issame(a, s)) return false;
     }
     return true;
 }
 
-string separate_paren_groups(string s) {
+std::string separate_paren_groups(std::string s) {
     int count = 0;
-    string current_group = "";
-    string result = "";
+    std::string current_group = "";
+    std::string result = "";
 
     for (char c : s) {
         if (c == '(') {
@@ -40,17 +38,17 @@ string separate_paren_groups(string s) {
 }
 
 int main() {
-    string s;
+    std::string s;
 
     while (true) {
-        cout << "Enter a string: ";
-        if (!(cin >> s)) { 
-            cin.clear(); 
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+        std::cout << "Enter a string: ";
+        if (!(std::cin >> s)) { 
+            std::cin.clear(); 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
             break; 
         }
     }
     assert(issame(separate_paren_groups("( ) (( )) (( )( )") , {"", "(())", "(()())"}));
-    cout << "Result: " << separate_paren_groups(s) << endl;
+    std::cout << "Result: " << separate_paren_groups(s) << std::endl;
     return 0;
 }
