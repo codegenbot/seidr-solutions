@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b){
     if(a.size() != b.size()) return false;
@@ -18,6 +20,8 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx"), std::vector<std::string>({"xxx", "xxxAAA", "xxx"})));
+    std::vector<std::string> expected = {"xxx", "xxxAAA", "xxx"};
+    std::vector<std::string> result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"}, "xxx");
+    assert(std::equal(result.begin(), result.end(), expected.begin(), expected.end()));
     return 0;
 }
