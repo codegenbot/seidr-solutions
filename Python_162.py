@@ -7,9 +7,8 @@ def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
 if __name__ == "__main__":
-    print("Enter a string (or 'q' to quit): ")
     while True:
-        user_input = input()
+        user_input = input("Enter a string (or 'q' to quit): ")
         if user_input.lower() == 'q':
             break
         try:
