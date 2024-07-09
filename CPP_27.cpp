@@ -1,7 +1,3 @@
-#include <iostream>
-#include <string>
-#include <cctype>
-
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
@@ -18,5 +14,4 @@ int main() {
     }
     std::cout << "Output: " << output << std::endl;
     
-    return 0;
 }
