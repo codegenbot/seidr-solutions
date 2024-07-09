@@ -5,7 +5,7 @@ int how_many_times(std::string str, std::string substring) {
     size_t pos = 0;
     while ((pos = str.find(substring, pos)) != std::string::npos) {
         ++count;
-        pos += 1; // Skip the found substring for overlapping search
+        pos += substring.size(); // Skip the found substring for overlapping search
     }
     return count;
 }
