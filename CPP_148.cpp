@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <assert.h>
+#include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
