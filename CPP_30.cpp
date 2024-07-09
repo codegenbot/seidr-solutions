@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -19,17 +20,19 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         std::vector<float> vec;
-        std::cin >> vec.size();
-        for (int j = 0; j < vec.size(); j++) {
+        int m;
+        std::cin >> m;
+        for (int j = 0; j < m; j++) {
             float x;
             std::cin >> x;
             vec.push_back(x);
         }
+        input_.push_back(vec);
     }
 
     bool same = true;
 
-    for (const auto &vec : input) {
+    for (const auto &vec : input_) {
         if (!issame(get_positive(vec), {})) {
             same = false;
             break;
