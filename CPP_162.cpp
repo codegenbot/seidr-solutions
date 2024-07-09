@@ -18,6 +18,6 @@ int main
     {
         string md5_str = string_to_md5(str);
         stringstream ss;
-        ss << setprecision(10) << md5_str.size();
+        ss << setw(10) << md5_str.size();
         cout << ss.str() << endl;
     }
