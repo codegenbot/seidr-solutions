@@ -10,6 +10,3 @@ def encode(message):
             result += '*'
         else:
             result += '*'
-    return result
-
-print(encode("I DoNt KnOw WhAt tO WrItE"))
