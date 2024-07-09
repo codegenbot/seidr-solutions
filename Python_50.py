@@ -1,12 +1,6 @@
 def decode_shift(s: str):
     s = s.lower()
-    return "".join(
-        [
-            chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() else ch
-            for ch in s
-        ]
-    )
-
+    return "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() else ch for ch in s])
 
 input_str = input()
 print(decode_shift(input_str))
