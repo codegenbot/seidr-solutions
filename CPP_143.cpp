@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <sstream>
 
@@ -16,7 +17,7 @@ int main() {
 }
 
 void words_in_sentence(string sentence) {
-    stringstream ss(sentence); // Use stringstream instead of istringstream
+    stringstream ss(sentence);
     string word;
     int count = 0;
 
