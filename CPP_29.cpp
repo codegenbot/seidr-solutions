@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -14,24 +13,17 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
 
 bool issame(vector<string> a, vector<string> b){
     // your logic to check if two vectors are the same
-    return true; // or false, depending on your comparison criteria
+    return (a==b);
 }
 
 int main() {
-    vector<string> input_strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
+    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"};
     string prefix = "xxx";
-    try{
-        vector<string> output_strings = filter_by_prefix(input_strings, prefix);
-        if(output_strings.size() == 0)
-            throw runtime_error("No strings found with the given prefix");
-        else
-            cout << "Strings filtered by prefix: ";
-        for(string s : output_strings)
-            cout << s << " ";
-        cout << endl;
-    }
-    catch(exception& e) {
-        cerr << "Error: " << e.what() << endl;
+    vector<string> expected = {"xxx", "xxxAAA", "xxx"};
+    if(filter_by_prefix(strings, prefix) != expected) {
+        cout << "Test failed. Expected: " << expected[0] << ", " << expected[1] << ", " << expected[2] << endl;
+    } else {
+        cout << "Test passed." << endl;
     }
     return 0;
 }
