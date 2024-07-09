@@ -1,7 +1,3 @@
-#include <iostream>
-#include <iomanip>
-#include <cmath>
-
 int main() {
     int startHeight, firstBounce, numBounces;
 
