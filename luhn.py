@@ -4,9 +4,10 @@ def luhn():
     for i, num in enumerate(reversed(card_number)):
         if i % 2 == 1:
             doubled = (num * 2)
-            total += doubled // 10 + (doubled % 10) if doubled > 9 else doubled
+            if doubled > 9:
+                total += doubled // 10 + doubled % 10
+            else:
+                total += doubled
         else:
             total += num
-    return "Invalid" if sum(card_number) % 10 != total % 10 else "Valid"
-
-print(luhn())
+    return sum(card_number) % 10 != total % 10
