@@ -1,4 +1,3 @@
-```python
 def validate_tweet(tweet):
     if len(tweet.strip()) > 140:
         return "Too many characters"
