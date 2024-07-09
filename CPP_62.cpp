@@ -1,7 +1,11 @@
+#include <vector>
+
+using namespace std;
+
 vector<float> derivative(vector<float> xs) {
-    vector<float> result;
-    for (int i = 1; i < xs.size(); i++) {
-        result.push_back(i * xs[i]);
+    vector<float> res;
+    for (int i = 1; i <= xs.size() - 1; i++) {
+        res.push_back(i * xs[i]);
     }
-    return result;
+    return res;
 }
