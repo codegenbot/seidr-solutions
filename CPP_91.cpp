@@ -1,6 +1,8 @@
-int is_bored(string S){
+#include <string>
+
+int is_bored(std::string S){
     int count = 0;
-    string word;
+    std::string word;
     for(int i=0; i<S.length(); i++){
         if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
             if(word.find("I") == 0)
