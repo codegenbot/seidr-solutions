@@ -3,7 +3,7 @@
 #include <cstring>
 
 int my_strlen(std::string str){
-    return str.length();
+    return std::strlen(str.c_str());
 }
 
 int main(){
