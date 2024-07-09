@@ -16,5 +16,4 @@ def bouncing_balls():
 
     return round(total_distance_up + total_distance_down, 4)
 
-
 print(bouncing_balls())
