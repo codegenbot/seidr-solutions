@@ -3,27 +3,23 @@ def solve_boolean(expression):
         return True
     elif expression == "F":
         return False
-    else:
-        stack = []
-        for char in reversed(expression):
-            if char in ["&", "|"]:
-                right = stack.pop()
+
+    stack = []
+    current_value = None
+    operator = None
+
+    for char in reversed(expression):
+        if char in ["&", "|"]:
+            while not (current_value is not None and operator is not None):
+                right = current_value
                 left = stack.pop()
-                if char == "&":
-                    stack.append(left and right)
-                elif char == "|":
-                    stack.append(left or right)
-            else:
-                stack.append(char == "T")
-        return stack[0]
+                if operator == "&":
+                    current_value = left and right
+                elif operator == "|":
+                    current_value = left or right
+                operator = None
+            current_value, operator = None, char
+        else:
+            current_value = char == "T"
 
-
-def evaluate(expression):
-    while "&" in expression or "|" in expression:
-        expression = expression.replace(
-            "&(.*?)&", r"((\1==False) and (stack.pop()==True))"
-        )
-        expression = expression.replace(
-            "|(.*?)|", r"((\1==False) or (stack.pop()==True))"
-        )
-    return stack[0]
+    return current_value
