@@ -13,10 +13,10 @@ int bowlingScore(std::string s) {
         } else if (c == '/') {
             size_t pos = s.find('/');
             if (pos != std::string::npos) {
-                int nextOneRoll = stoi(s.substr(pos+1)); 
+                int nextOneRoll =stoi(s.substr(pos+1)); 
                 score += nextOneRoll;
             } else {
-                int nextTwoRolls = stoi(s); 
+                int nextTwoRolls =stoi(s); 
                 score += nextTwoRolls / 2;
             }
             lastRollWasStrike = false;
@@ -34,4 +34,3 @@ int bowlingScore(std::string s) {
     }
 
     return score;
-}
