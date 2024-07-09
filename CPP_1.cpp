@@ -14,15 +14,15 @@ vector<string> separate_paren_groups(string paren_string) {
             }
             open_count++;
         } else if (c == ')') {
-            if (open_count > 0) {
+            open_count--;
+            if (open_count >= 0) {
                 current_group += c;
-                open_count--;
             } else {
                 result.push_back(current_group);
                 current_group = "";
             }
         }
     }
-    
+
     return result;
 }
