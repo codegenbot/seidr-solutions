@@ -1,24 +1,10 @@
-```cpp
+```
 #include <iostream>
 #include <sstream>
 
 using namespace std;
 
-string words_in_sentence(string sentence) {
-    istringstream ss(sentence);
-    string word;
-    int count = 0;
-
-    while (ss >> word) {
-        if (count > 0) {
-            cout << ", ";
-        }
-        cout << word;
-        count++;
-    }
-
-    return "";
-}
+void words_in_sentence(string sentence);
 
 int main() {
     string sentence;
@@ -26,7 +12,19 @@ int main() {
     getline(cin, sentence);
     
     words_in_sentence(sentence);
-    cout << endl;
-
     return 0;
+}
+
+void words_in_sentence(string sentence) {
+    stringstream ss(sentence);
+    string word;
+    int count = 0;
+
+    while (getline(ss, word, ' ')) {
+        if (count > 0) {
+            cout << ", ";
+        }
+        cout << word;
+        count++;
+    }
 }

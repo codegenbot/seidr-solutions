@@ -1,13 +1,12 @@
+```cpp
 #include <string>
 #include <vector>
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a != b)
-        return false;
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-std::vector<int> sortArray(std::vector<int> arr) {
+std::vector<int> sort_array(std::vector<int> arr) {
     auto comp = [&] (int a, int b) -> bool {
         if (std::bitset<32>(a).count() != std::bitset<32>(b).count()) {
             return std::bitset<32>(a).count() < std::bitset<32>(b).count();
@@ -16,5 +15,5 @@ std::vector<int> sortArray(std::vector<int> arr) {
         }
     };
     std::sort(arr.begin(), arr.end(), comp);
-    return arr;
+    return arr;  // Return the sorted array instead of calling sort_array
 }
