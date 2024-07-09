@@ -2,11 +2,10 @@
 #include <sstream>
 #include <cctype>
 #include <string>
-#include <cstdlib>
 
-bool simplify(string x, string n) {
+bool simplifyFraction(string numerator, string denominator) {
     char arr1[6], arr2[4];
-    stringstream s1(x), s2(n);
+    stringstream s1(numerator), s2(denominator);
     s1 >> arr1;
     char slash;
     s2 >> arr2;
@@ -18,14 +17,14 @@ bool simplify(string x, string n) {
            atoi(std::string(1, arr2[0]).c_str()) * (slash - '0'));
 }
 
-int mainFunction() {
-    string x, n;
+int main() {
+    string numerator, denominator;
     cout << "Enter the numerator: ";
-    cin >> x;
+    cin >> numerator;
     cout << "Enter the denominator: ";
-    cin >> n;
+    cin >> denominator;
 
-    if(simplify(x, n))
+    if(simplifyFraction(numerator, denominator))
         cout << "The fraction is simplified." << endl;
     else
         cout << "The fraction cannot be simplified." << endl;
