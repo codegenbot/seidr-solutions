@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool areEqual(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,11 +14,15 @@ bool areEqual(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 std::vector<float> get_positive(const std::vector<float>& v) {
-    std::vector<float> result = std::vector<float>();
+    std::vector<float> result;
     for (float x : v) {
         if (x >= 0.0f) {
             result.push_back(x);
         }
     }
     return result;
+
+int main() {
+    assert(issame(get_positive({}), {}) == true);
+    return 0;
 }
