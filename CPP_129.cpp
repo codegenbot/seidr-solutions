@@ -1,20 +1,33 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k){
-    std::vector<int> path;
-    for (int i = 0; i < k; ++i) {
-        path.push_back(grid[i % grid.size()][i % grid[0].size()]);
+vector<int> minPath(vector<vector<int>> grid, int k){
+        int n = grid.size();
+        int m = grid[0].size();
+        vector<vector<vector<int>>> dp(n, vector<vector<int>>(m, vector<int>(k+1, INT_MAX)));
+        
+        dp[0][0][0] = 0;
+        
+        for(int steps=1; steps<=k; steps++){
+            for(int i=0; i<n; i++){
+                for(int j=0; j<m; j++){
+                    dp[i][j][steps] = min(dp[i][j][steps], dp[i][j][steps-1]+1);
+                    if(i > 0){
+                        dp[i][j][steps] = min(dp[i][j][steps], dp[i-1][j][steps-1]+issame(grid[i][j], grid[i-1][j]));
+                    }
+                    if(j > 0){
+                        dp[i][j][steps] = min(dp[i][j][steps], dp[i][j-1][steps-1]+issame(grid[i][j], grid[i][j-1]));
+                    }
+                }
+            }
+        }
+        
+        int ans = dp[n-1][m-1][k];
+        return ans == INT_MAX ? -1 : ans;
     }
-    return path;
-}
+    
+    int issame(int a, int b){
+        return a == b ? 0 : 1;
+    }
 
-int main() {
-    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    return 0;
-}
+    int main() {
+        // Your code here
+        return 0;
+    }
