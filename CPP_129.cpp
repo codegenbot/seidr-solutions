@@ -3,18 +3,6 @@
 
 using namespace std;
 
-vector<int> minPath(vector<vector<int>> grid, int k);
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-int main(){
-    assert(issame(minPath({{1, 2}, {3, 4}, {5, 6}}, 5), {1, 2}));
-    
-    return 0;
-}
-
 vector<int> minPath(vector<vector<int>> grid, int k){
     int n = grid.size();
     vector<int> result;
@@ -28,4 +16,19 @@ vector<int> minPath(vector<vector<int>> grid, int k){
         }
     }
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1, 2}, {3, 4}, {5, 6}};
+    vector<int> expected = {1, 3};
+
+    assert(issame(minPath(grid, 4), expected));
+
+    assert (issame(minPath({{1, 3}, {3, 2}}, 10) , {1, 3}));
+
+    return 0;
 }
