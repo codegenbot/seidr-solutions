@@ -1,4 +1,3 @@
-```Python
 def smallest_change(arr):
     arr.sort()
     rev_arr = sorted(arr, reverse=True)
