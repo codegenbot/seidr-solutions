@@ -1,5 +1,6 @@
 #include <cmath>
 #include <cassert>
+#include <limits>
 
 bool is_simple_power(int x, int n) {
     assert(n > 0);
@@ -7,7 +8,7 @@ bool is_simple_power(int x, int n) {
     if (x <= 0 || n <= 0) {
         return false;
     }
-    
+
     double result = pow(x, 1.0 / n);
-    return abs(result - round(result)) < 1e-9;
+    return std::abs(result - round(result)) < std::numeric_limits<double>::epsilon();
 }
