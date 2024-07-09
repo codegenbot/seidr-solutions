@@ -1,3 +1,4 @@
+```int
 #include <string>
 #include <unordered_map>
 
@@ -27,13 +28,4 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
     return std::make_pair(white, black);
 }
 
-int main() {
-    std::string code = "ABCD";
-    std::string guess1 = "ABAD";
-    std::cout << mastermind(code, guess1).first << " white pegs and " << mastermind(code, guess1).second << " black pegs." << std::endl;
-
-    std::string guess2 = "BCDF";
-    std::cout << mastermind(code, guess2).first << " white pegs and " << mastermind(code, guess2).second << " black pegs." << std::endl;
-    
-    return 0;
-}
+int main() { return mastermind("XXXX", "XXXX"); }
