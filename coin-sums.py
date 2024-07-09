@@ -6,11 +6,19 @@ def coin_sums(cents):
         quarters += 1
         remaining_cents -= 25
 
+    pennies = remaining_cents
     nickles = remaining_cents // 5
     remaining_cents %= 5
     dimes = remaining_cents // 10
     remaining_cents %= 10
-    pennies = remaining_cents
+    
+    while nickles > 0 and remaining_cents >= 5:
+        remaining_cents -= 5
+        nickles -= 1
+
+    while dimes > 0 and remaining_cents >= 10:
+        remaining_cents -= 10
+        dimes -= 1
 
     return quarters, nickles, dimes, pennies
 
