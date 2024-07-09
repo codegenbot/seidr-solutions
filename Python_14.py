@@ -1,17 +1,9 @@
-```
-from typing import List
-
-
-def all_prefixes_and_suffixes(string: str) -> List[str]:
+def all_prefixes_and_suffixes(string: str) -> list[str]:
     result = []
-    for i in range(len(string) + 1):
-        if i == 0:
-            prefix = ""
-        else:
-            prefix = string[:i]
-        if i == len(string):
-            suffix = ""
-        else:
+    for i in range(1, len(string) + 1):
+        prefix = string[:i]
+        result.append(prefix)
+        if i < len(string):
             suffix = string[i:]
-        result.append(prefix + suffix)
+            result.append(suffix)
     return result
