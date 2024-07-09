@@ -8,11 +8,9 @@ std::string middleCharacter(std::string s) {
     
     if (len % 2 == 0) { 
         int middleIndex = len / 2; 
-        char first = s[middleIndex - 1];
-        char second = s[middleIndex];
-        return std::to_string(first) + std::to_string(second); 
+        return s.substr(middleIndex - 1, 1) + s.substr(middleIndex, 1); 
     } else {
-        return std::to_string(s[len/2]);
+        return s.substr(len/2, 1);
     }
 }
 
