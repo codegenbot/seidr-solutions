@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 int next_smallest(const std::vector<int>& lst) {
     std::vector<int> sorted_lst = lst;
