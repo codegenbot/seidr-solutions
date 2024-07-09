@@ -9,6 +9,5 @@ def coin_sums(cents):
             result[3-i] += count
             cents %= coins[i]
 
-    return '{} quarters, {} dimes, {} nickels, {} pennies'.format(*result)
-
+    return f'{result[0]} quarters, {result[1]} dimes, {result[2]} nickels, {result[3]} pennies'
 print(coin_sums(int(input("Enter the amount in cents:"))))
