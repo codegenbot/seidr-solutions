@@ -1,35 +1,28 @@
 ```cpp
-#include <vector>
+#include <iostream>
 #include <string>
+using namespace std;
 
-bool isalpha(char c) {
-    if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-        return true;
-    else
-        return false;
-}
-
-std::string file_name_check(std::string file_name) {
+string file_name_check(string file_name) {
     int digit_count = 0;
-    bool found_dot = false;
+    bool has_dot = false;
     for (char c : file_name) {
         if (isdigit(c)) {
             digit_count++;
-            if (digit_count > 3)
-                return "No";
+            if (digit_count > 3) return "No";
         } else if (c == '.') {
-            found_dot = true;
-        }
+            has_dot = true;
+        } else if (!has_dot && !isalpha(c)) return "No";
     }
-    if (!found_dot || file_name.find('.') == std::string::npos)
-        return "No";
-    size_t pos = file_name.find('.');
-    std::string before_dot = file_name.substr(0, pos);
-    std::string after_dot = file_name.substr(pos + 1);
-    if (before_dot.empty() || !isalpha(before_dot[0]))
-        return "No";
-    std::vector<std::string> valid_extensions = {"txt", "exe", "dll"};
-    if (find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end())
-        return "No";
+    if (!has_dot || file_name.find('.') == string::npos) return "No";
+    size_t dot_pos = file_name.find('.');
+    string ext = file_name.substr(dot_pos + 1);
+    if (ext != "txt" && ext != "exe" && ext != "dll") return "No";
     return "Yes";
+}
+
+int main() {
+    cout << file_name_check("example.txt") << endl; // Yes
+    cout << file_name_check("1example.dll") << endl; // No
+    return 0;
 }
