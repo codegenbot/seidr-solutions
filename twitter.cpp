@@ -1,15 +1,18 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <sstream>
 
-std::string validateTweet(std::string tweet) {
+std::string validateTweet(const std::string& tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
-    if (tweet.size() > 140) {
+    if (tweet.length() > 140) {
         return "Too many characters";
     }
-    return "Your tweet has " + std::to_string(tweet.size()) + " characters";
+    std::ostringstream oss;
+    oss << "Your tweet has " << tweet.length() << " characters";
+    return oss.str();
 }
 
 int main() {
