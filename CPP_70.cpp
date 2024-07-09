@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -15,22 +16,23 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> list;
+    std::vector<int> lst;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
+    for (int i = 0; i < n; ++i) {
+        int val;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> num;
-        list.push_back(num);
+        std::cin >> val;
+        lst.push_back(val);
     }
     
-    std::vector<int> result = strange_sort_list(list);
-    if (issame(result, {1,2,3,4})) {
-        std::cout << "The output is correct." << std::endl;
+    std::vector<int> result = strange_sort_list(lst);
+    
+    if (issame(result, {1, 2, 3, 4, 5})) {
+        std::cout << "The list is in the desired order." << std::endl;
     } else {
-        std::cout << "The output is incorrect." << std::endl;
+        std::cout << "The list is not in the desired order." << std::endl;
     }
     
     return 0;
