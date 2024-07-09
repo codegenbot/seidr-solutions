@@ -14,7 +14,6 @@ int solve(int n) {
 }
 
 int main() {
-    int expected = std::stoi("10010", 0, 2);
-    assert(solve(963) == expected); 
+    cout << (solve(963) == std::stoi("10010", 0, 2) ? "True" : "False");
     return 0;
 }
