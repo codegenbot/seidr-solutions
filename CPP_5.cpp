@@ -1,18 +1,28 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
+using namespace std;
 
-std::vector<int> intersperse(const std::vector<int>& vec, int val){
-    std::vector<int> result;
+vector<int> intersperse(const vector<int>& vec, int value){
+    vector<int> result;
     for(const auto& num : vec){
         result.push_back(num);
-        result.push_back(val);
+        result.push_back(value);
     }
-    result.pop_back(); // remove extra val at the end
+    result.pop_back(); // remove the extra value added at the end
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a == b;
+bool issame(const vector<int>& a, const vector<int>& b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(size_t i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(){
