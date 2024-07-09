@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,8 +13,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> letter_grades;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<string> letter_grades;
     for (float grade : grades) {
         string letter_grade;
         if (grade >= 4.0) {
@@ -48,18 +48,13 @@ vector<string> numerical_letter_grade(vector<float> grades) {
 }
 
 int main() {
-    vector<float> grades = {3.9, 2.5, 4.0};
-    vector<string> letterGrades = numerical_letter_grade(grades);
+    std::vector<float> grades = {3.9, 2.5, 4.0};
+    std::vector<std::string> letterGrades = numerical_letter_grade(grades);
 
     for (const auto& grade : letterGrades) {
         std::cout << grade << std::endl;
     }
 
-    if (!issame(numerical_letter_grade({0, 0.7}), {"E", "D-"})) {
-        // test failed
-    } else {
-        // test passed
-    }
-
+    assert(same(numerical_letter_grade({0, 0.7}), {"E", "D-" }));
     return 0;
 }
