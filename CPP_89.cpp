@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int encrypt(string s){
@@ -12,7 +11,7 @@ int encrypt(string s){
         }
         result += c;
     }
-    return 0;
+    return int(result.length());
 }
 
 int main(){
