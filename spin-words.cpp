@@ -1,5 +1,7 @@
+```
 #include <string>
-#include <algorithm> 
+#include <algorithm>
+
 using namespace std;
 
 string spinWords(string str) {
@@ -31,12 +33,7 @@ string spinWords(string str) {
     }
 
     return result;
+
 }
 
-int main() {
-    string input;
-    cout << "Enter a sentence: ";
-    cin >> input;
-    cout << "Spin words: " << spinWords(input) << endl;
-    return 0;
-}
+int main() { return spinWords("input"); }
