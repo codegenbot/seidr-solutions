@@ -1,20 +1,20 @@
 ```cpp
-#include <vector>
-using namespace std;
-
-double poly(vector<double> xs, double x) {
-    double sum = 0;
-    for (int i = 1; i < xs.size(); i += 2) {
-        sum += coeffs[i / 2] * pow(x, i);
+double find_zero(vector<double> xs) {
+    double c, polyCoeffs;
+    vector<double> coefficients;
+    int n = xs.size();
+    c = xs[0];
+    for (int i = 1; i < n; i++) {
+        if ((i & 1) == 0) {
+            coefficients.insert(coefficients.begin(), -c*xs[i]);
+        } else {
+            c = xs[i];
+        }
     }
-    return sum;
-}
-
-double find_zero(vector<double> xs){
-    double coeffs[3];
-    for (int i = 1; i < xs.size(); i += 2) {
-        coeffs[i/2] = xs[i] / xs[0];
+    double poly(double s, double t) { return s + t; }
+    double solution = 1;
+    while (abs(poly(c, solution)) > 1e-3) {
+        solution = (-coefficients[0] + c*solution)/(c-polyCoeffs*solution);
     }
-    double x = (-coeffs[1] + pow(coeffs[2], 2)) / (4 * coeffs[0] - 2 * coeffs[1]);
-    return x;
+    return solution;
 }
