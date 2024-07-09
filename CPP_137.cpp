@@ -1,6 +1,5 @@
 #include <boost/any.hpp>
-#include <boost/convert.hpp>
-
+#include <boost/convert.hpp> // For std::stod() conversion
 using namespace boost;
 
 any compareOne(any a, any b) {
