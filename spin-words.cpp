@@ -35,9 +35,9 @@ string spinWords(string str) {
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    cin >> str;
-    cout << spinWords(str) << endl;
+    string input;
+    cout << "Enter a sentence: ";
+    cin >> input;
+    cout << "Spin words: " << spinWords(input) << endl;
     return 0;
 }

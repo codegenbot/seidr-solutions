@@ -1,18 +1,22 @@
-```cpp
 #include <string>
 #include <iostream>
 
-int main() {
-    std::string input;
-    std::cout << "Enter an integer: ";
-    std::cin >> input;
+using namespace std;
 
+std::string squareDigits(std::string input) {
     std::string output = "";
     for (char c : input) {
         int digit = c - '0';
         int squared = digit * digit;
         output += to_string(squared);
     }
-    std::cout << output << std::endl;
-    return 0; 
+    return output;
+}
+
+int main() {
+    string input;
+    cout << "Enter a positive integer: ";
+    cin >> input;
+    cout << squareDigits(input) << endl;
+    return 0;
 }
