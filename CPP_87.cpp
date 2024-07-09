@@ -1,6 +1,6 @@
 #include <vector>
 
-static bool issame(vector<vector<int>> lst, int x);
+static void issame();
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
