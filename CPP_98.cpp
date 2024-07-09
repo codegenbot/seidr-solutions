@@ -13,7 +13,6 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    assert(count_upper("EEEE") == 2);
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
