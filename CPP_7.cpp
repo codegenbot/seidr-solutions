@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 
@@ -17,7 +18,6 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
         }
     }
     return result;
-
 }
 
 int main() {
