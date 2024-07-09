@@ -1,4 +1,4 @@
-````
+```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -19,5 +19,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 groups.append(group)
                 group = ''
 
-    return [group] + groups if group else groups
-```
+    return [g for g in groups if g.count('(') == g.count(')')]
