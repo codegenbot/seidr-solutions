@@ -1,4 +1,3 @@
-```cpp
 string filp_case(string str){
     string result = "";
     for(int i=0; i<str.length(); i++){
@@ -13,5 +12,5 @@ string filp_case(string str){
 
 int main() {
     assert(filp_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    
+    return 0;
 }
