@@ -1,13 +1,12 @@
 ```cpp
-#include <initializer_list>
 #include <vector>
 #include <any>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a == b);
+bool isSame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-std::vector<int> filter_integers(std::vector<std::any> values) {
+std::vector<int> filterIntegers(std::vector<std::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
         if (value.type() == typeid(int)) {
@@ -26,16 +25,16 @@ int main() {
     std::vector<int> vector1 = {num1};
     std::vector<int> vector2 = {num2};
 
-    if(issame(vector1, vector2)) {
+    if(isSame(vector1, vector2)) {
         std::cout << "Vectors are same." << std::endl; 
     }
     else {
         std::cout << "Vectors are not same." << std::endl;
     }
 
-    // Use your filter_integers function here
+    // Use your filterIntegers function here
     std::vector<std::any> values = {1, 2.0, 3, 4.5};
-    std::vector<int> filtered = filter_integers(values);
+    std::vector<int> filtered = filterIntegers(values);
     for (const auto& value : filtered) {
         std::cout << value << " ";
     }
