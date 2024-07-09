@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -11,6 +12,6 @@ bool isPrime(int n) {
 }
 
 int main() {
-    assert(std::vector<int>({127, 97, 8192}) == 10);
+    assert(isPrime(127) && isPrime(97) && !isPrime(8192));
     return 0;
 }
