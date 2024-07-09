@@ -23,7 +23,7 @@ int pairedDigits(std::string s) {
 int main() {
     std::string input;
     std::cout << "Enter a string of digits: ";
-    std::cin >> input;
+    std::getline(std::cin, input);
     int result = pairedDigits(input);
     if (result == -1) {
         return 1;
