@@ -1,12 +1,18 @@
 string get_closest_vowel(string word) {
-    int left = 0;
-    for (int i = word.size() - 1; i >= 0; i--) {
-        if (!isalpha(word[i])) continue;
-        if (isvowel(word[i])) {
-            while (left < i && !isalpha(word[left])) left++;
-            return isupper(word[i]) ? "U" : "u";
-        }
-        left = i + 1;
+    int i = word.size() - 1; // start from the end of the word
+    while (i >= 0 && !isVowel(word[i])) { // move left until find a vowel or reach the beginning
+        i--;
     }
-    return "";
+    if (i < 0) return ""; // no vowel found
+    int j = i - 1; // start from the second last character
+    while (j >= 0 && !isVowel(word[j])) { // move left until find a vowel or reach the beginning
+        j--;
+    }
+    if (j < 0) return ""; // no vowel found between two consonants
+    return word.substr(j + 1, i - j); // return the closest vowel
+}
+
+bool isVowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
