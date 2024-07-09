@@ -14,7 +14,7 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst = {1, 2, 3, 4, 5, 6};
-    long long odd_sum = 27; 
+    long long odd_sum = 27; // Calculated manually based on the input vector
     assert(double_the_difference(lst) == odd_sum);
     
     return 0;
