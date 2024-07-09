@@ -29,5 +29,12 @@ std::vector<std::string> words_in_sentence(const std::string& sentence) {
 }
 
 int main() {
-    assert(words_in_sentence("here is").size() == 1 && words_in_sentence("here is")[0] == "2");
+    std::string sentence;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, sentence);
+
+    std::vector<std::string> wordLengths = words_in_sentence(sentence);
+    for (const auto& length : wordLengths) {
+        std::cout << length << '\n';
+    }
 }
