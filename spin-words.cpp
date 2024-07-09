@@ -11,6 +11,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
 
     while (std::getline(ss, token, delimiter)) {
         tokens.push_back(token); 
+        if (ss.peek() == std::char_traits<char>::eof()) break;
     }
 
     return tokens;
