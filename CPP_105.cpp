@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool compare(vector<string> a, vector<string> b) {
+bool issame(vector<std::string> a, vector<std::string> b) {
     return a == b;
 }
 
@@ -28,5 +27,5 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    assert(compare(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
 }
