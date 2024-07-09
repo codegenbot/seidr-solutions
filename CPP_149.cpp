@@ -1,6 +1,8 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
 
-bool issame(const vector<string>& a, const vector<string>& b);
+using namespace std;
 
 vector<string> sorted_list_sum(const vector<string>& lst);
 
@@ -18,4 +20,9 @@ vector<string> sorted_list_sum(const vector<string>& lst) {
         return a.length() < b.length();
     });
     return sorted_lst;
+}
+
+int main() {
+    // Main function code, if any
+    return 0;
 }
