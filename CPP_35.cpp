@@ -14,12 +14,17 @@ int main() {
     std::vector<int> numbers;
     int num = 0; 
     std::cout << "Enter numbers (separated by spaces): ";
-    while(std::cin >> num >> ws) { 
+    while(std::cin >> num) { 
         char c; // new variable to store the character read from cin
         if (!(std::cin >> c) || c == ' ') { // check for invalid input and space
             break;
         }
-        numbers.push_back(num);
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(); // discard invalid input
+        } else {
+            numbers.push_back(num);
+        }
     }
     findMax(numbers);
     return 0;
