@@ -1,5 +1,10 @@
 #include <string>
 
-int length(const std::string& str) {
+int myStrLen(std::string str){
     return str.length();
+}
+
+int main() {
+    assert(myStrLen("asdasnakj") == 11); 
+    return 0;
 }
