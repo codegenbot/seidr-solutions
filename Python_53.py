@@ -1,4 +1,6 @@
-def add(a=0, b=0): 
-    x = int(input(f"Enter the first number: {a} ") or str(a)) 
-    y = int(input(f"Enter the second number: {b} ") or str(b)) 
-    print(x + y)
+def add(): 
+    i = 0 
+    a = int(input(f"Enter the first number: ") or 0) 
+    i += 1 
+    b = int(input(f"Enter the second number: ") or 0) 
+    print(a + b)
