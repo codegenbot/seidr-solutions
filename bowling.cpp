@@ -1,4 +1,4 @@
-#include <iostream> 
+#include <iostream>
 
 int score(string s) {
     int total = 0;
