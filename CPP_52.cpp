@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ bool below_threshold(vector<int> l, int t) {
 }
 
 int main() {
-    vector<int> numbers(5); 
+    vector<int> numbers(5); // Initialize the vector with 5 elements
     int threshold;
 
     cout << "Enter the threshold: ";
