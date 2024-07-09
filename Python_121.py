@@ -3,3 +3,4 @@ def sum_odd(lst):
 
 
 solution = sum_odd([1, 2, 3, 4, 5])
+print(solution)
