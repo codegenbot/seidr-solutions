@@ -21,8 +21,8 @@ def factorize(n: int) -> List[int]:
 
 
 def main():
-    num = int(input("Enter a number: "))
-    print("Factorization of", num, "is:", factorize(num))
+    num = int(input("Enter a number to factorize: "))
+    print(f"The factors of {num} are {factorize(num)}")
 
 
 if __name__ == "__main__":
