@@ -1,19 +1,28 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
+
+using namespace std;
 
 int next_smallest(vector<int> lst) {
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    
-    if (sorted.size() < 2) return -1; // or any other value that indicates "None"
-    
-    for (int i = sorted.size() - 2; i >= 0; i--) {
-        if (sorted[i] > sorted[i+1]) return sorted[i+1];
+    vector<int> result;
+    if (lst.size() < 2) {
+        return -1;
     }
-    return -1;
+    sort(lst.begin(), lst.end());
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] != lst[0]) {
+            result.push_back(lst[i]);
+            break;
+        }
+    }
+    return result.empty() ? -1 : lst[0];
 }
 
 int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    vector<int> lst = {34, 12, -35, -45}; 
+    int result = (lst.size() > 1) ? next_smallest(lst) : -1; 
+    cout << "The next smallest number is: " << result << endl;
+    
     return 0;
 }
