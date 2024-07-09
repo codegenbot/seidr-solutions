@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <list>
 #include <any>
@@ -17,6 +18,6 @@ std::vector<int> filter_integers(std::list<any> values) {
 }
 
 int main() {
-    assert(std::issame(filter_integers({3, 97, 3, 3, 98, 65}), std::vector<int>({3, 3, 3})));
+    assert(std::issame(filter_integers({3, 97, 3, 3, 98, 65}), {3, 3, 3}));
     return 0;
 }
