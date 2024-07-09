@@ -7,15 +7,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> unique_digits(std::vector<int> digits) {
-    std::sort(digits.begin(), digits.end());
-    digits.erase(std::unique(digits.begin(), digits.end()), digits.end());
-    return digits;
-}
-
-int main() {
-    std::vector<int> digits = {135, 103, 31};
-
-    assert(issame(unique_digits(digits), {31, 103, 135}));
-
-    return 0;
+    std::vector<int> unique = digits;
+    std::sort(unique.begin(), unique.end());
+    unique.erase(std::unique(unique.begin(), unique.end()), unique.end());
+    return unique;
 }
