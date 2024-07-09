@@ -30,6 +30,5 @@ int main() {
     
     int result = search(lst);
     std::cout << "Result: " << result << std::endl;
-    
     return 0;
 }
