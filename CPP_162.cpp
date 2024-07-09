@@ -1,33 +1,31 @@
-#include <algorithm>
-#include <cmath>
-#include <functional>
-#include <iomanip>
 #include <iostream>
-#include <limits>
-#include <map>
-#include <memory>
-#include <numeric>
-#include <queue>
-#include <set>
-#include <sstream>
-#include <stack>
 #include <string>
-#include <tuple>
-#include <unordered>
-#include <vector>
 
 std::string string_to_md5(const std::string& str) {
-    std::string output = "";
-    for(int i = 0; i < str.length(); i++) {
-        char c = str[i];
-        int ascii_val = (int)c;
-        int val = ascii_val ^ (i % 255);
-        sprintf(&output[4*i], "%02x", val);
-    }
-    return output;
-}
+    // Include necessary library for MD5 calculation
+    #include <md5.h>
 
-int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-    return 0;
+    MD5_CTX ctx;
+    unsigned char hash[16];
+    int len = strlen(str.c_str());
+    
+    // Update the context based on input string
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, str.c_str(), len);
+
+    // Calculate and store MD5 hash in hash array
+    MD5_Final(hash,&ctx);
+
+    std::stringstream ss;
+    for(int i = 0; i < 16; i++){
+        char c = ((char*)&hash[i])[0];
+        if(c >= 'a' && c <= 'f')
+            ss << 'f';
+        else if (c >= '0' && c <= '9')
+            ss << c;
+        else
+            ss << '%', c;
+    }
+
+    return ss.str();
 }
