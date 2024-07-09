@@ -8,16 +8,16 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     std::string strongest_extension;
 
     for(auto extension : extensions){
-        int strength = 0;
-        bool is_upper = false;
+        std::string strong_ext;
         for(auto c : extension){
-            if(std::isupper(c)) {
-                is_upper = true;
-                strength++;
-            }
+            if(std::isupper(c)) strong_ext += std::to_string(c);
+            else if(std::islower(c)) strong_ext += std::to_string(c);
         }
-        if(strength > max_strength || (strength == max_strength && (!is_upper || extension.compare(0, extension.size(), strongest_extension) < 0))){
+        int strength = strong_ext.length() - (int)strong_ext.convert_to_lower().length();
+        if(strength > max_strength){
             max_strength = strength;
+            strongest_extension = extension;
+        }else if(strength == max_strength && std::strcmp(extension.c_str(), strongest_extension.c_str()) < 0){
             strongest_extension = extension;
         }
     }
@@ -26,6 +26,6 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
 }
 
 int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
+    assert (Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
     return 0;
 }
