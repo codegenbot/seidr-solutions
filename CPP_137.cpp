@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <algorithm>
 
@@ -48,7 +49,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         string x = boost::any_cast<string>(a);
         string y = boost::any_cast<string>(b);
         if (x.find_first_not_of("0123456789.") == string::npos && y.find_first_not_of("0123456789.") == string::npos) {
-            float z1 = stof(x), z2 = stof(y);
+            float z1 = stof(x);
+            float z2 = stof(y);
             return (z1 > z2) ? a : ((z2 > z1) ? b : boost::any("None"));
         } else {
             return boost::any("Invalid input");
