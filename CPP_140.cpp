@@ -1,18 +1,23 @@
-Here is the solution:
+#include <string>
 
-```cpp
-string fix_spaces(string text){
-    string result = "";
+std::string fix_spaces(std::string text){
+    std::string result = "";
+    bool previousSpaceWasConsecutive = false;
+
     for(int i=0; i<text.length(); i++){
         if(text[i] == ' '){
-            if(i+1 < text.length() && text[i+1] == ' ' && (i+2 >= text.length() || text[i+2] != ' ')){
-                result += '-';
+            if(previousSpaceWasConsecutive){
+                result += "-";
+                previousSpaceWasConsecutive = false;
             } else {
-                result += '_';
+                result += "_";
+                previousSpaceWasConsecutive = true;
             }
         } else {
             result += text[i];
+            previousSpaceWasConsecutive = false;
         }
     }
+
     return result;
 }
