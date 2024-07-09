@@ -6,7 +6,7 @@
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
     for (int i = 0; i < k; i++) {
-        if (std::to_string(arr[i]).size() <= 2) {
+        if (std::to_string({arr[i]}).size() <= 2) {
             sum += arr[i];
         }
     }
@@ -14,7 +14,7 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    int n;
+    int n, k;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     std::vector<int> arr(n);
@@ -22,13 +22,8 @@ int main() {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> arr[i];
     }
-    int k;
     std::cout << "Enter the number of elements to sum: ";
     std::cin >> k;
-    if (k > n) {
-        std::cout << "Error: k is greater than the number of elements." << std::endl;
-    } else {
-        int result = add_elements(arr, k);
-        std::cout << "Sum of elements: " << result << std::endl;
-    }
+    int result = add_elements(arr, k);
+    std::cout << "Sum of elements: " << result << std::endl;
 }
