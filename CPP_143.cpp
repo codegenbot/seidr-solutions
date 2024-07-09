@@ -1,32 +1,32 @@
-```c++
+```cpp
 #include <iostream>
 #include <sstream>
 
 using namespace std;
 
-string words_in_sentence(string sentence);
-
-int main() {
-    string sentence;
-    cout << "Enter a sentence: ";
-    getline(cin, sentence);
-    
-    string result = words_in_sentence(sentence);
-    cout << "The output is: " << result << endl;
-    return 0;
-}
-
 string words_in_sentence(string sentence) {
-    stringstream ss(sentence);
+    istringstream ss(sentence);
     string word;
     int count = 0;
 
-    while (getline(ss, word, ' ')) {
+    while (ss >> word) {
         if (count > 0) {
             cout << ", ";
         }
         cout << word;
         count++;
     }
+
     return "";
+}
+
+int main() {
+    string sentence;
+    cout << "Enter a sentence: ";
+    getline(cin, sentence);
+    
+    words_in_sentence(sentence);
+    cout << endl;
+
+    return 0;
 }
