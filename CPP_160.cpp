@@ -5,11 +5,9 @@
 struct pair {
     char first;
     int second;
-
-    pair(char x, int y) : first(x), second(y) {}
 };
 
-int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
+int do_algebra(std::vector<pair> operators_and_operands) {
     if (operators_and_operands.size() == 0) {
         return 0;
     }
