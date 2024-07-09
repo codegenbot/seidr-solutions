@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <cmath>
 
 std::string rounded_avg(int n, int m) {
     if (n > m) return "-1";
@@ -10,7 +9,7 @@ std::string rounded_avg(int n, int m) {
         sum += i;
     }
     double avg = static_cast<double>(sum) / (m - n + 1);
-    avg = std::nearbyint(avg + 0.5); 
+    avg = std::nearbyintf(avg); 
     int val = static_cast<int>(avg);
     std::string binary;
     while (val > 0) {
