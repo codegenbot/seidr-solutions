@@ -15,7 +15,7 @@ def minFallingRainWater(grid):
         for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = i + di, j + dj
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
-                new_path = dfs(ni, nj, path + [grid[ni][nj]], visited.copy())
+                new_path = dfs(ni, nj, path + [str(grid[ni][nj])], visited.copy())
                 if new_path and (not min_path or new_path < min_path):
                     min_path = new_path
 
