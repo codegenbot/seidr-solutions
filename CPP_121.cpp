@@ -15,19 +15,18 @@ int main() {
     std::vector<int> input;
     int num;
     
-    std::cout << "Enter the numbers (enter -1 to stop):" << std::endl;
-
-    while(true) {
+    // Read the numbers from the user
+    while (true) {
+        std::cout << "Enter a number (-1 to stop): ";
         std::cin >> num;
         
-        if(num == -1)
-            break;
-            
+        if (num == -1) break;
+        
         input.push_back(num);
     }
     
     int result = solution(input);
-    std::cout << "Sum of odd numbers: " << result << std::endl;
+    std::cout << "The sum of odd numbers is: " << result << std::endl;
     
     return 0;
 }
