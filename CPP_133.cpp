@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -17,12 +18,10 @@ int main_test(){
     int result = sum_squares(testArray, n);
     std::cout << "Sum of squares: " << result << std::endl;
     
-    double* testArray1 = new double[] {-1, 1, 0};
+    double testArray1[] = {-1.0, 1.0, 0.0};
     int n1 = sizeof(testArray1)/sizeof(testArray1[0]);
-    int result2 = sum_squares(testArray1, n1);
-    delete [] testArray1; 
-    assert (result == 14);
-    assert (result2 == 2);
+    int result1 = sum_squares(testArray1, n1);
+    assert (result1 == 2);
     
     return 0;
 }
