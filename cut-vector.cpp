@@ -1,8 +1,5 @@
 ```cpp
 #include <vector>
-#include <climits>
-#include <cmath>
-#include <initializer_list> 
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
@@ -17,7 +14,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
             right_sum += vec[k];
         }
         if (left_sum == right_sum) {
-            return {{}, vec};
+            return {{}, vector<int>(vec.begin() + i, vec.end())};
         }
         int diff = abs(left_sum - right_sum);
         if (diff < min_diff) {
@@ -29,9 +26,6 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     for (int i = 1; i < cut_index; i++) {
         left.push_back(vec[i]);
     }
-    vector<int> right = {};
-    for (int i = cut_index; i < vec.size(); i++) {
-        right.push_back(vec[i]);
-    }
+    vector<int> right = vector<int>(vec.begin() + cut_index, vec.end());
     return {left, right};
 }
