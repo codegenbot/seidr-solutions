@@ -1,22 +1,19 @@
-#include <vector>
-#include <cmath>
-#include <cassert>
-
-double my_abs(double num){
-    return num >= 0 ? num : -num;
+double absolute_value(double x){
+    return x < 0 ? -x : x;
 }
 
-double poly(std::vector<double> coeffs, double x){
-    double result = 0.0;
-    for(int i=0; i<coeffs.size(); i++){
-        result += coeffs[i] * std::pow(x, i);
+double poly_diff(vector<double> coeffs, double x){
+    double result = 0;
+    for(int i = 1; i < coeffs.size(); i++){
+        result += i * coeffs[i] * pow(x, i - 1);
     }
     return result;
 }
 
-double find_zero(std::vector<double> coeffs){
-    assert(coeffs.size() >= 2);
-    double a = coeffs[0];
-    double b = coeffs[1];
-    return -b/a;
+double find_zero(vector<double> coeffs){
+    double x = 0;
+    while(absolute_value(poly(coeffs, x)) > 1e-9){
+        x -= poly(coeffs, x) / poly_diff(coeffs, x);
+    }
+    return x;
 }
