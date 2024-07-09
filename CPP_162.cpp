@@ -1,15 +1,16 @@
-#include <iomanip>
+```cpp
 #include <iostream>
+#include <string>
 #include <sstream>
-#include <stdexcept>
+#include <iomanip>
 
 std::string string_to_md5(const std::string& text) {
     std::stringstream ss;
     for (int i = 0; i < text.length(); i++) {
         if ((i+1)%4==0)
-            ss << std::hex << std::setw(2) << std::setfill('0') << (unsigned)(text[i])<< std::endl;
+            ss << std::hex << std::setw(2) << std::setfill('0') << (unsigned int)(text[i]);
         else
-            ss <<"00";
+            ss <<"000";
     }
     return ss.str();
 }
