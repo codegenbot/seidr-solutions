@@ -1,8 +1,5 @@
+```
 def fruit_distribution(s, n):
     s = s.replace("apples and ", "")
-    if "oranges" in s:
-        number_of_apples = int(s.split()[0].replace("apples ", ""))
-        return n - number_of_apples - 1
-    else:
-        integers = [int(x) for x in s.split() if x.isdigit()]
-        return n - sum(integers)
+    total_fruit_count = int(s.split()[0].replace("apples ", "").replace("oranges", "")) if "oranges" in s else int(''.join(filter(str.isdigit, s)))
+    return n - total_fruit_count - 1

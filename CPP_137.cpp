@@ -1,7 +1,6 @@
-```cpp
+```
 #include <boost/any.hpp>
 #include <string>
-#include <boost/type_index.hpp>
 
 using namespace std;
 
@@ -27,18 +26,19 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     if ((a.type() == typeid(int) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(int))) {
-        string strA = boost::any_cast<string>(boost::any_cast<int>(a)).append(to_string(boost::any_cast<int>(b)));
-        return (strA > to_string(0)) ? a : b;
+        string strA = boost::any_cast<string>(boost::any(a));
+        int intB = boost::any_cast<int>(b);
+        return (strA > to_string(intB)) ? a : b;
     }
     if ((a.type() == typeid(float) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(float))) {
         string strB = boost::any_cast<string>(b);
         float fltA = boost::any_cast<float>(a);
-        return (strB > to_string(fltA)) ? b : a;
+        return (strB > to_string(fltA)) ? a : b;
     }
     if ((a.type() == typeid(double) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(double))) {
         string strB = boost::any_cast<string>(b);
         double dblA = boost::any_cast<double>(a);
-        return (strB > to_string(dblA)) ? b : a;
+        return (strB > to_string(dblA)) ? a : b;
     }
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int intA = boost::any_cast<int>(a);
