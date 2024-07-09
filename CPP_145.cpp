@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -31,13 +32,13 @@ int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    for(int i=0; i<n; i++) {
+    for(int i = 0; i < n; i++) {
         cin >> nums[i];
     }
+    
     vector<int> res = order_by_points(nums);
-    cout << "The numbers in the order of points are: ";
-    for(auto x : res) {
-        cout << x << " ";
+    for (int num : res) {
+        cout << num << " ";
     }
     return 0;
 }
