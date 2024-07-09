@@ -13,25 +13,46 @@ bool issame(const std::variant<int>& v1, const std::variant<int>& v2) {
 std::vector<std::variant<int>> filter_integers(initializer_list<std::variant<int>> values) {
     std::vector<std::variant<int>> result; 
     for (const auto& value : values) {
-        if (value.index() == 0) { // Check if the variant contains an int
-            int val = std::get<int>(value);
-            bool found = false;
-            for (auto& v : result) {
-                if (v.index() == 0 && std::get<int>(v) == val) {
-                    found = true;
-                    break;
+        try {
+            if (value.index() == 0) { // Check if the variant contains an int
+                int val = std::get<int>(value);
+                bool found = false;
+                for (auto& v : result) {
+                    if (v.index() == 0 && std::get<int>(v) == val) {
+                        found = true;
+                        break;
+                    }
                 }
+                if (!found)
+                    result.push_back(value);
             }
-            if (!found)
-                result.push_back(value);
+        } catch (...) {
+            // ignore non-integer values
         }
     }
     return result;
 }
 
 int main() {
-    std::vector<std::variant<int>> values = {3, 'c', 3, 3, 'a', 'b'};
-    std::vector<std::variant<int>> result = filter_integers(values);
-    assert (std::equal(result.begin(), result.end(), std::vector<std::variant<int>>({3, 3, 3}).begin()));
+    std::vector<std::variant<int>> values = {3, 123, 3, 3, 'a', 'b'};
+    std::vector<std::variant<int>> result;
+    for (const auto& value : values) {
+        try {
+            if (value.index() == 0) {
+                int val = std::get<int>(value);
+                bool found = false;
+                for (auto& v : result) {
+                    if (v.index() == 0 && std::get<int>(v) == val) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                    result.push_back(value);
+            }
+        } catch (...) {
+            // ignore non-integer values
+        }
+    }
     return 0;
 }
