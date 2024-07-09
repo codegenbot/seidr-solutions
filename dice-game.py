@@ -1,4 +1,4 @@
+```
 def roll_dice(n, m):
-    if n > m:
-        n, m = m, n
-    return sum(1 for _ in range(m - i) + range(i + 1, min(n, m) + 1)) / (n * m)
+    total = sum(min(i / n, m - i) for i in range(m))
+    return total / (n * m)
