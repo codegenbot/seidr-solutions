@@ -4,16 +4,18 @@
 using namespace std;
 
 bool triples_sum_to_zero(vector<int> l) {
-    for (int i = 0; i < l.size(); i++) {
-        int sum = 0;
-        for (int j = i + 1; j < l.size(); j++) {
-            set<int> s;
-            for (int k = j + 1; k < l.size(); k++) {
-                s.insert(l[k]);
-                if (s.size() == 3 && *s.rbegin() + *s.begin() + *s.count(-(*s.rbegin())) == 0) {
-                    return true;
-                }
-            }
+    sort(l.begin(), l.end());
+    for (int i = 0; i < l.size() - 2; i++) {
+        int left = i + 1;
+        int right = l.size() - 1;
+        while (left < right) {
+            int sum = l[i] + l[left] + l[right];
+            if (sum == 0)
+                return true;
+            else if (sum < 0)
+                left++;
+            else
+                right--;
         }
     }
     return false;
