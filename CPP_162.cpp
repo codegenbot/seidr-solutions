@@ -1,14 +1,17 @@
-#include <string>
 using namespace std;
-string string_to_md5(std::string text) {
-    if (text.empty()) return "";
+
+string string_to_md5(string text) {
+    if (text.empty()) return "None";
     
-    unsigned char md[16];
-    MD5((const unsigned char*)text.c_str(), text.size(), md);
+    unsigned char result[MD5_DIGEST_LENGTH];
+    MD5((const unsigned char*)text.c_str(), text.size(), result);
     
-    stringstream ss;
-    for (int i = 0; i < 16; ++i)
-        ss << hex << setfill('0') << fixed << setw(2) << (int)md[i];
+    string md5_hash;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
+        ostringstream oss;
+        oss << hex << setfill('0') << setw(2) << static_cast<unsigned int>(result[i]);
+        md5_hash += oss.str();
+    }
     
-    return ss.str();
+    return md5_hash;
 }
