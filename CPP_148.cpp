@@ -1,19 +1,14 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
-    if (v1.size() != v2.size())
-        return false;
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i])
-            return false;
-    }
-    return true;
+bool issame(vector<string> v1, vector<string> v2) {
+    return v1 == v2;
 }
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int idx1 = -1, idx2 = -1;
+    string str;
 
     for (int i = 0; i < 8; ++i) {
         if (planets[i] == planet1) {
@@ -26,7 +21,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     if (idx1 == -1 || idx2 == -1)
         return {};
 
-    std::vector<std::string> result;
+    vector<string> result;
 
     for (int i = 0; i < 8; ++i) {
         int pos = i;
