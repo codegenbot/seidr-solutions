@@ -1,6 +1,6 @@
 #include <string>
 #include <sstream>
-#include <md5.h>
+#include <digest.h>
 #include <iomanip>
 
 using namespace std;
@@ -21,7 +21,7 @@ string string_to_md5(string text) {
 
     stringstream ss;
     for (int i = 0; i < 16; i++) {
-        ss << setfill('0') << setw(2) << hex << (int)mdValue[i];
+        ss << setfill('0') << setw(2) << hex << (int)(mdValue[i] & 0xFF);
     }
 
     return ss.str();
