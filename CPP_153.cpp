@@ -2,12 +2,18 @@
 #include <vector>
 #include <string>
 
-int Strongest_Extension(string class_name, vector<string> extensions){
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
+
+int main() {
+    assert (Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
+}
+
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int max_strength = 0;
-    string strongest_extension;
+    std::string strongest_extension;
 
     for(auto extension : extensions){
-        string strong_ext;
+        std::string strong_ext;
         for(auto c : extension){
             if(isupper(c)) strong_ext += to_string(c);
             else if(islower(c)) strong_ext += to_string(c);
