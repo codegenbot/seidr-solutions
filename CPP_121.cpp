@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -24,10 +23,9 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    int sumOdd = 0;
     std::vector<int> lst;
     int num, n = 1;
-
+    int sumOdd = 0;
     while (true) {
         std::cout << "Enter numbers (terminate with 0): ";
         std::cin >> num;
@@ -37,10 +35,10 @@ int main() {
             break;
 
         if (num % 2 != 0) {
-            sumOdd += num;
+            sumOdd += num; // Calculate the sum of odd numbers while reading inputs
+            if(sumOdd > 25) // Check if the calculated sum is greater than 25 and break if true
+                break;
         }
-        if(sumOdd > 25)
-            break;
     }
     int result = solutions(lst);
     if(result == 25)
