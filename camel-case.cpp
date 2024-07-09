@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -20,7 +19,9 @@ std::string camelCase(const std::string& str) {
                 result += tolower(c);  
                 capitalizeNext = false;
             }
-        } 
+        } else {
+            result += tolower(c);
+        }
     }
 
     return result;
