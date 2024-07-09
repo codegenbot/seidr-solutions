@@ -22,12 +22,12 @@ int main() {
     std::string str1;
     std::string str2;
     std::cout << "Enter the first string: ";
-    std::cin >> str1;
+    std::getline(std::cin, str1);
     std::cout << "Enter the second string: ";
-    std::cin >> str2;
+    std::getline(std::cin, str2);
     try {
         std::string result = string_xor(str1, str2);
-        std::cout << "XOR of the two strings is: " << result << std::endl;
+        std::cout << "XOR of the two strings is: " << std::move(result) << std::endl;
     } catch (const std::invalid_argument& e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
