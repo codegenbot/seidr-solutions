@@ -1,12 +1,6 @@
-import sys
+def add(numbers: list):
+    return sum(numbers)
 
-def add(x: int, y: int):
-    return x + y
-
-if len(sys.argv) < 3:
-    print("Please provide two integers as command line arguments.")
-else:
-    x = int(sys.argv[1])
-    y = int(sys.argv[2])
-    result = add(x, y)
-    print(result)
+numbers = [int(num) for num in input().split()]
+result = add(numbers)
+print(result)
