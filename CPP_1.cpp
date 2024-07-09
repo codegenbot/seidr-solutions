@@ -54,7 +54,7 @@ int main() {
         }
     }
 
-    assert(issame("( ) (( ") || issame("(())"));
+    assert(issame("( ) (( ")); // or any other valid input for the issame function
 
     cout << "Result: " << separate_paren_groups(s) << endl;
     return 0;
