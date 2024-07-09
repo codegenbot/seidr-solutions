@@ -1,2 +1,11 @@
-def find_zero(a: float, b: float):
-    return -b / a
+def find_zero(xs: list):
+    assert len(xs) % 2 == 0
+    n = len(xs) - 1
+    a = xs[0]
+    b = xs[n]
+    return -a / b
+
+input_list = list(map(int, input().split()))
+
+result = find_zero(input_list)
+print(result)
