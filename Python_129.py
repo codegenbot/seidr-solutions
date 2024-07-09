@@ -23,4 +23,4 @@ def minPath(grid, k):
             dfs(i, j, [], 0)
 
     paths.sort()
-    return paths[0] if paths else None
+    return None if not paths else paths[0]
