@@ -14,10 +14,10 @@ vector<int> leaders(vector<int> v) {
 }
 
 int main() {
-    vector<int> input = {17, 11, 13, 7, 5, 2};
+    vector<int> input = {16,17,4,3,5,2};
     vector<int> result = leaders(input);
-    for (auto x : result) {
-        cout << x << " ";
+    for (int i: result) {
+        cout << i << " ";
     }
     return 0;
 }
