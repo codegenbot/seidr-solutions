@@ -6,9 +6,9 @@ using namespace std;
 
 bool pairs_sum_to_zero(vector<int> l) {
     set<int> s(l.begin(), l.end()); 
-    for (int i = 0; i < s.size(); i++) { 
-        int complement = -s[i];
-        if (find(s.begin() + i + 1, s.end(), complement) != s.end()) {
+    for (auto it = s.begin(); it != s.end(); ++it) {
+        int complement = -(*it);
+        if (find(s.begin(), s.end(), complement) != s.end()) {
             return true;
         }
     }
