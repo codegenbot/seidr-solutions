@@ -1,13 +1,8 @@
-vector<int> issame (vector<int> a, vector<int> b) {
-    vector<int> res(2);
+#include <iostream>
+#include <vector>
+#include <cassert>
 
-    if (a == b)
-        res[0] = 1;
-    else
-        res[1] = 1;
-
-    return res;
-}
+using namespace std;
 
 vector<int> count_up_to(int n) {
     vector<int> result;
@@ -18,28 +13,34 @@ vector<int> count_up_to(int n) {
     vector<bool> isPrime(n, true);
     isPrime[0] = isPrime[1] = false;
     
-    for (int i = 2; i * i < n; ++i) {
-        if (isPrime[i]) {
-            for (int j = i * i; j < n; j += i) {
-                isPrime[j] = false;
-            }
-        }
-    }
-    
     for (int i = 2; i < n; ++i) {
         if (isPrime[i]) {
             result.push_back(i);
+            for (int j = i * 2; j < n; j += i) {
+                isPrime[j] = false;
+            }
         }
     }
     
     return result;
 }
 
-int main() {
-    int n = 20;
-    vector<int> primes = count_up_to(n);
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
     
-    vector<int> result = issame(primes, primes);
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    assert(issame(count_up_to(101), {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
     
     return 0;
 }
