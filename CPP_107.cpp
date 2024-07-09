@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     return a[0] == b[0] && a[1] == b[1];
 }
 
@@ -20,4 +20,14 @@ vector<int> even_odd_palindrome(int n){
         }
     }
     return result;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> res = even_odd_palindrome(n);
+
+    cout << res[0] << " " << res[1] << endl;
+
+    return 0;
 }
