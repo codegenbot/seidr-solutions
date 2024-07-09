@@ -1,5 +1,4 @@
-```cpp
-int do_algebra(vector<string> operator_, vector<int> operand) {
+string do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
         expression += to_string(operand[i]);
@@ -12,29 +11,28 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
     return result;
 }
 
-int eval(const string& s) {
+string eval(const string& s) {
     int result = 0;
     if (s.empty()) {
-        return result;
+        return "0";
     }
     
     int start = 0, sign = 1;
     for (int i = 0; i < s.size(); i++) {
-        char c = s[i];
-        if (!isdigit(c)) {
-            if (c == '+') {
+        if (!isdigit(s[i])) {
+            if (s[i] == '+') {
                 sign = 1;
-            } else if (c == '-') {
+            } else if (s[i] == '-') {
                 sign = -1;
             }
             start = i + 1;
         } else if (i == s.size() - 1) {
-            result += sign * (c - '0');
+            result += sign * (s[i] - '0');
         } else if (!isdigit(s[i+1])) {
-            result += sign * (c - '0');
+            result += sign * (s[i] - '0');
             i++;
         }
     }
     
-    return result;
+    return to_string(result);
 }
