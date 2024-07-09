@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
 bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
@@ -5,13 +10,13 @@ bool issame(vector<string> a, vector<string> b){
 vector<string> filter_by_prefix(vector<string> strings, string prefix);
 
 int main() {
-    vector<string> test_strings = {"apple", "banana", "apricot", "cherry"};
-    string test_prefix = "ap";
-    vector<string> filtered_strings = filter_by_prefix(test_strings, test_prefix);
-
+    vector<string> test_strings = {"apple", "banana", "apricot", "kiwi"};
     vector<string> expected_result = {"apple", "apricot"};
-    assert(issame(filtered_strings, expected_result));
-
+    
+    vector<string> result = filter_by_prefix(test_strings, "a");
+    
+    assert(issame(result, expected_result));
+    
     return 0;
 }
 
