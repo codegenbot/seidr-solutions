@@ -1,9 +1,7 @@
-```cpp
-#include <cassert>
-#include <string>
-
-std::string flip_case(const std::string& input) {
-    std::string output = "";
+```c
+int main() {
+    std::string input = "These violent delights have violent ends";
+    std::string output;
     for (char c : input) {
         if (isupper(c)) {
             output += tolower(c);
@@ -13,10 +11,5 @@ std::string flip_case(const std::string& input) {
             output += c;
         }
     }
-    return output;
-}
-
-int main() {
-    assert(flip_case("These violent delights have violent ends") == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-    return 0;
+    assert(output == "THESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
 }
