@@ -1,4 +1,5 @@
 ```cpp
+#include <initializer_list>
 #include <vector>
 #include <cmath>
 
@@ -12,13 +13,7 @@ bool has_close_elements(const std::vector<float>& elements, float tolerance) {
 }
 
 int main() {
-    std::vector<float> a;
-    a.push_back(1.0f);
-    a.push_back(2.0f);
-    a.push_back(3.9f);
-    a.push_back(4.0f);
-    a.push_back(5.0f);
-    a.push_back(2.0f);
-    assert(has_close_elements(a, 0.0f) == false);
+    std::vector<float> a = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.0f};
+    assert(has_close_elements({1.0f, 2.0f, 3.9f, 4.0f, 5.0f}, 0.0f) == false);
     return 0;
 }
