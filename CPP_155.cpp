@@ -1,18 +1,17 @@
-```#include <vector>
 #include <string>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> even_odd_count(int num) {
+std::vector<int> even_odd_count(int num) {
     int evens = 0, odds = 0;
-    string str = to_string(abs(num));
+    std::string str = std::to_string(std::abs(num));
     for (char c : str) {
-        if (stoi(c) % 2 == 0)
+        if ((c - '0') % 2 == 0)
             evens++;
         else
             odds++;
     }
     return {evens, odds};
-}```
+}
