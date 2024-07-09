@@ -1,4 +1,10 @@
-string remove_vowels(string text){
+#include <string>
+using namespace std;
+
+int main() {
+    string text;
+    cout << "Enter a string: ";
+    cin >> text;
     string result = "";
     for(char c : text){
         if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && 
@@ -7,5 +13,6 @@ string remove_vowels(string text){
             result += c;
         }
     }
-    return result;
+    cout << "String after removing vowels: " << result << endl;
+    return 0;
 }
