@@ -7,9 +7,9 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    set<int> s1(a.begin(), a.end());
-    set<int> s2(b.begin(), b.end());
-    return s1 == s2;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return (a == b);
 }
 
 vector<int> compare(vector<int> game, vector<int> guess) {
