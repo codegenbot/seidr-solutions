@@ -8,9 +8,9 @@ def find_zero(xs: list):
     else:
         return 1.0
 
+# Input
+input_list = list(map(float, input("Enter a list of numbers separated by spaces: ").split())
 
-input_list = list(
-    map(float, input("Enter a list of numbers separated by spaces: ").split())
-)
+# Output
 result = find_zero(input_list)
 print(result)
