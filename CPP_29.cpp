@@ -1,10 +1,10 @@
-bool issame(vector<string> a, vector<string> b) {
-    // implement your logic here to check if a and b are same
-    // for now, just return true
-    return (a == b);
-}
+#include <vector>
+#include <string>
 
-int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
-    return 0;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
