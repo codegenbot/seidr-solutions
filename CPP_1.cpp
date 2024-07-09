@@ -2,9 +2,11 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> separate_paren_groups(const std::string& paren_string) {
-    std::vector<std::string> result;
-    std::string group;
+using namespace std;
+
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> result;
+    string group;
     int open_count = 0;
 
     for (char c : paren_string) {
@@ -28,12 +30,14 @@ std::vector<std::string> separate_paren_groups(const std::string& paren_string) 
 }
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    std::vector<std::string> result = separate_paren_groups(input);
+    string input;
+    cout << "Enter a string with parentheses: ";
+    cin >> input;
 
-    for (const auto& group : result) {
-        std::cout << group << std::endl;
+    vector<string> groups = separate_paren_groups(input);
+
+    for (const string& group : groups) {
+        cout << group << endl;
     }
 
     return 0;
