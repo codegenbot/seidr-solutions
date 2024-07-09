@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,6 +12,7 @@ vector<int> unique(vector<int> l) {
             result.push_back(i);
     }
     return result;
+
 }
 
 void printUniqueNumbers(vector<int> numbers) {
@@ -26,3 +28,4 @@ int main() {
     vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
     printUniqueNumbers(input);
     return 0;
+}
