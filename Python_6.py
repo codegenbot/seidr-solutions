@@ -1,7 +1,6 @@
-```from typing import List
+"""from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
-    """"""
     result = []
     for group in paren_string.split():
         depth = 0
@@ -13,4 +12,4 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             elif char == ')':
                 depth -= 1
         result.append(max_depth)
-    return result
+    return result"""
