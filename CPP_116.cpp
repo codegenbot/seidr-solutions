@@ -1,8 +1,11 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
-    return a == b;
+bool isSame(vector<int> a, vector<int> b) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 vector<int> sort_array(vector<int> arr) {
@@ -19,6 +22,6 @@ vector<int> sort_array(vector<int> arr) {
 }
 
 int main() {
-    assert(issame(sort_array({2,4,8,16,32}), {2, 4, 8, 16, 32}));
+    assert(isSame(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
     return 0;
 }
