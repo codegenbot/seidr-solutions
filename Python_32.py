@@ -1,1 +1,1 @@
-a, b, c = map(int, input().strip().split()) if b < c else (a + b, b - c, a + c)
+a, b, c = map(int, input().rstrip().split()[:3])
