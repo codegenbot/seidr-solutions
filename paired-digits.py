@@ -1,8 +1,8 @@
+```python
 def paired_digits(s):
+    s = str(int(s.lstrip('0'))).replace('00', '')  
     total = 0
-    prev_digit = None
-    for digit in s:
-        if digit == prev_digit:
-            total += int(digit)
-        prev_digit = digit
+    for i in range(len(s)-1):
+        if s[i] == s[i+1]:
+            total += int(s[i])
     return total
