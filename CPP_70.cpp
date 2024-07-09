@@ -1,13 +1,14 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -15,31 +16,20 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> lst;
-    while(n--) {
-        int x;
-        std::cin >> x;
-        lst.push_back(x);
-    }
+    std::vector<int> list1{4, 2, 9, 6, 5, 1, 3, 7, 8};
+    std::vector<int> list2{1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-    vector<int> result = strange_sort_list(lst);
-
-    if(result.size() < 2) {
-        std::cout << "No valid array" << std::endl;
+    if (issame(list1, list2)) {
+        std::cout << "Lists are same.\n";
     } else {
-        for(auto i : result) {
-            std::cout << i << " ";
-        }
-        std::cout << std::endl;
-        for(int i = 0; i < lst.size() -1; i++) {
-            if(lst[i] > lst[i+1]) {
-                std::cout << "Not valid array" << std::endl;
-                return 0;
-            }
-        }
+        std::cout << "Lists are different.\n";
     }
+
+    vector<int> result = strange_sort_list(list1);
+    for (int i : result) {
+        std::cout << i << " ";
+    }
+    std::cout << "\n";
 
     return 0;
 }
