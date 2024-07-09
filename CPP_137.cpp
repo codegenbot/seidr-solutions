@@ -18,7 +18,9 @@ boost::any compare_one(boost::any a, boost::any b) {
             if (str_b.find_first_of(".,") != std::string::npos) {
                 std::replace(str_b.begin(), str_b.end(), ',', '.');
             }
-            return std::stod(str_a) > std::stod(str_b) ? a : b;
+            double num_a = std::stod(str_a);
+            double num_b = std::stod(str_b);
+            return num_a > num_b ? a : b;
         }
     }
     return boost::any();
