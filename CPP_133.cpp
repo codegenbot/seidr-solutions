@@ -1,21 +1,24 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
-int sum_squares(std::vector<double> lst){
+int sum_squares(std::vector<float> lst){
     int sum = 0;
-    for(double num : lst){
+    for(float num : lst){
         sum += std::ceil(num) * std::ceil(num);
     }
     return sum;
 }
 
 int main(){
-    assert (sum_squares({-1.0,1.0,0.0})==2);
-    std::vector<double> numbers;
-    double num;
+    assert (sum_squares({-1,1,0})==2);
+    std::vector<float> numbers;
+    
+    float num;
     
     while(std::cin >> num){
+        numbers.reserve(numbers.size() + 1);
         numbers.push_back(num);
     }
     
