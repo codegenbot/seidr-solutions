@@ -1,14 +1,15 @@
+```cpp
 #include <iostream>
 #include <sstream>
 
 using namespace std;
 
 string words_in_sentence(string sentence) {
-    stringstream ss(sentence);
-    string word = ""; // Initialize word as an empty string
+    istringstream ss(sentence);
+    string word;
     int count = 0;
 
-    while (getline(ss, word, ' ')) {
+    while (ss >> word) {
         if (count > 0) {
             cout << ", ";
         }
