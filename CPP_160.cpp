@@ -1,6 +1,4 @@
-```
-#include <vector>
-#include <cmath>
+using namespace std;
 
 int do_algebra(vector<string> ops, vector<int> nums) {
     int result = 0;
@@ -14,9 +12,9 @@ int do_algebra(vector<string> ops, vector<int> nums) {
         } else if (ops[i] == "*") {
             temp *= nums[i];
         } else if (ops[i] == "//") {
-            temp = temp / static_cast<int>(nums[i]);
+            temp = temp / nums[i];
         } else if (ops[i] == "**") {
-            temp = pow(temp, static_cast<double>(nums[i]));
+            temp = pow(temp, nums[i]);
         }
     }
 
