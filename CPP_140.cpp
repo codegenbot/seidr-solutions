@@ -1,4 +1,10 @@
-string result = "";
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string fix_spaces(string text) {
+    string result = "";
     int count = 0;
     for (char c : text) {
         if (c == ' ') {
