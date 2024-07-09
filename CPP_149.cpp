@@ -10,7 +10,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
         }
     }
 
-    // Sort the resulted vector by length and then alphabetically
+    // Sort the result by length and then alphabetically
     std::sort(result.begin(), result.end(),
               [](const string& a, const string& b) {
                   if (a.length() != b.length()) {
