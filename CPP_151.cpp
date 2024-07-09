@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -6,8 +5,8 @@
 long long double_the_difference(const std::vector<long long>& lst) {
     long long sum = 0;
     for (const long long& x : lst) {
-        if (x > 0 && x == static_cast<int>(x)) {
-            sum += x * x;
+        if (x > 0 && x == static_cast<long long>(x)) {
+            sum += pow(x, 2);
         }
     }
     return sum;
