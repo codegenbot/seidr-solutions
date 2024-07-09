@@ -1,9 +1,15 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
 bool issame(vector<float> a, vector<float> b) {
-    // Your comparison logic here
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (abs(a[i] - b[i]) > 0.0001) { // considering floating-point precision
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 vector<float> rescale_to_unit(vector<float> numbers) {
