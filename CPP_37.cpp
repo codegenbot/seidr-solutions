@@ -1,20 +1,17 @@
-vector<float> l_parity = l;
-    vector<float> l_even;
-
+vector<float> even_indices;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l_even.push_back(l[i]);
+            even_indices.push_back(l[i]);
         }
     }
-
-    sort(l_even.begin(), l_even.end());
-
-    int evenIndex = 0;
-    for (int i = 0; i < l.size(); i++) {
+    sort(even_indices.begin(), even_indices.end());
+    
+    for (int i = 0, j = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l_parity[i] = l_even[evenIndex++];
+            l[i] = even_indices[j];
+            j++;
         }
     }
-
-    return l_parity;
+    
+    return l;
 }
