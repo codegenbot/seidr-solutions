@@ -9,23 +9,10 @@ bool isPrime(int n) {
     return true;
 }
 
-int prime_fib(int n) {
-    int a = 0, b = 1, fib = 0;
-    while (true) {
-        fib = a + b;
-        if (fib > n) break;
-        a = b;
-        b = fib;
-        if (isPrime(fib)) return fib; 
-    }
-    return -1; 
-}
-
 int main() {
-    string input;
+    int num;
     cout << "Enter a number: ";
-    cin >> input;
-    int num = stoi(input);
-    cout << "The first prime Fibonacci number greater than " << num << " is " << prime_fib(num) << endl;
+    cin >> num;
+    cout << "The first prime Fibonacci number greater than " << num << " is " << (num > 1 ? prime_fib(2) : -1) << std::endl;
     return 0;
 }
