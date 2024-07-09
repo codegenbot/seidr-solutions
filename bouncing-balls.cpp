@@ -1,19 +1,19 @@
 ```cpp
 #include <iostream>
-#include <cmath>
-#include <iomanip>
 #include <sstream>
 
 int main() {
-    double startHeight;
-    double firstBounce;
-    int numBounces;
+    std::string startHeightStr;
+    std::string firstBounceStr;
+    std::string numBouncesStr;
 
-    std::string input;
-    getline(std::cin, input);
-    std::istringstream iss(input);
-    iss >> ws; 
-    iss >> startHeight >> firstBounce >> numBounces;
+    std::getline(std::cin, startHeightStr);
+    std::getline(std::cin, firstBounceStr);
+    std::getline(std::cin, numBouncesStr);
+
+    double startHeight = stod(startHeightStr);
+    double firstBounce = stod(firstBounceStr);
+    int numBounces = stoi(numBouncesStr);
 
     double bouncinessIndex = firstBounce / startHeight;
 
