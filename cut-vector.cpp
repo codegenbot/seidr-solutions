@@ -1,24 +1,30 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
-    int minDiff = INT_MAX;
-    vector<int> left, right;
-    for (int i = 1; i <= nums.size(); i++) {
-        int sumLeft = 0, sumRight = 0;
-        for (int j = 0; j < i; j++) {
-            sumLeft += nums[j];
-        }
-        for (int j = i; j < nums.size(); j++) {
-            sumRight += nums[j];
-        }
-        if (sumLeft == sumRight) {
-            return {vector<int>(nums.begin(), nums.begin() + i), vector<int>(nums.begin() + i, nums.end())};
-        } else if (abs(sumLeft - sumRight) < minDiff) {
-            minDiff = abs(sumLeft - sumRight);
-            left = vector<int>(nums.begin(), nums.begin() + i);
-            right = vector<int>(nums.begin() + i, nums.end());
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    pair<vector<int>, vector<int>> result;
+
+    for (int i = 1; i < vec.size(); i++) {
+        int diff = abs((int)vec[0] - (int)vec[i]);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            result.first.clear();
+            result.second.clear();
+
+            if ((int)vec[0] == (int)vec[i]) {
+                result.first.push_back(vec[0]);
+                result.second.push_back(vec[i]);
+            } else {
+                for (int j = 0; j < i; j++) {
+                    result.first.push_back(vec[j]);
+                }
+                for (int j = i; j < vec.size(); j++) {
+                    result.second.push_back(vec[j]);
+                }
+            }
         }
     }
-    return {left, right};
+
+    return result;
 }
