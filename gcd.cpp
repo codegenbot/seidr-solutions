@@ -1,34 +1,44 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
-#include <cmath>
 
 using namespace std;
 
 int gcd(int a, int b) {
+    a = abs(a);
+    b = abs(b);
     if (b == 0) {
         return a;
     }
-    return gcd(abs(b), abs(a % b));
+    return gcd(b, a % b);
 }
 
 vector<int> findIndicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices;
-    int textLen = text.length();
-    int targetLen = target.length();
-    
-    for (int i = 0; i < textLen - targetLen + 1; ++i) {
-        bool found = true;
-        for (int j = 0; j < targetLen; ++j) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            indices.push_back(i);
-        }
+    vector<int> result;
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != string::npos) {
+        result.push_back(pos);
+        pos++;
     }
-    
-    return indices;
+    return result;
+}
+
+int main() {
+    int choice;
+    cin >> choice;
+    if (choice == 1) {
+        int a, b;
+        cin >> a >> b;
+        cout << gcd(a, b) << endl;
+    } else if (choice == 2) {
+        string text, target;
+        cin >> text >> target;
+        vector<int> result = findIndicesOfSubstring(text, target);
+        for (int index : result) {
+            cout << index << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
 }
