@@ -1,29 +1,25 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string camelCase(const std::string& str) {
-    std::vector<std::string> words;
-    std::string word = "";
-    for (char c : str) {
+string camelCase(string s) {
+    string result = "";
+    bool upperCaseNext = false;
+
+    for (char c : s) {
         if (c == '-') {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += c;
+            result += ' ';
+            continue;
         }
-    }
-    words.push_back(word);
 
-    std::string result;
-    for (int i = 0; i < words.size(); i++) {
-        result += tolower(words[i][0]);
-        if (i > 0) {
-            result += toupper(words[i].substr(1));
+        if (!upperCaseNext) {
+            result += tolower(c);
         } else {
-            result += words[i];
+            result += toupper(c);
+            upperCaseNext = false;
         }
-        if (i < words.size() - 1) {
-            result += " ";
+        
+        if (c != ' ') {
+            upperCaseNext = true;
         }
     }
 
@@ -31,9 +27,9 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    std::string str;
-    std::cin >> str;
-    std::cout << camelCase(str) << std::endl;
-
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    cout << camelCase(str) << endl;
     return 0;
 }
