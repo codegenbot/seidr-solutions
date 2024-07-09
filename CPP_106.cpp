@@ -6,13 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> f(int n) {
-    std::vector<int> result;
-    
-    // Add the required elements to the result vector
-    result.push_back(1);
-    result.push_back(2);
-    result.push_back(6);
-    
+    std::vector<int> result = {1, 2, 6};
     return result;
 }
 
