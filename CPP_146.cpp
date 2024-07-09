@@ -1,6 +1,5 @@
-```cpp
+```
 #include <vector>
-using namespace std;
 
 int specialFilter(vector<int> nums) {
     int count = 0;
@@ -10,10 +9,4 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
-}
-
-int main() {
-    vector<int> nums = {-101, -52, -31, 1, 21, 51, 100};
-    cout << "The number of special numbers is: " << specialFilter(nums) << endl;
-    return 0;
 }
