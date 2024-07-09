@@ -1,6 +1,7 @@
-```c++
+```
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 std::vector<std::string> all_prefixes(const std::string& str) {
     std::vector<std::string> prefixes;
@@ -20,6 +21,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    std::vector<std::string> b = {"W", "WW", "WWW"};
-    assert(issame(b, all_prefixes("WWW")));
+    std::vector<std::string> b = all_prefixes("WWW");
+    assert(issame(b, {"W", "WW", "WWW"}));
 }
