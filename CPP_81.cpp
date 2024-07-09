@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,8 +11,8 @@ bool checkResults(vector<string> a, vector<string> b){
     return true;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> result;
+vector<const char*> numerical_letter_grade(vector<float> grades) {
+    vector<const char*> result;
     for (float grade : grades) {
         if (grade < 0.9)
             result.push_back("F");
@@ -26,14 +25,14 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         else
             result.push_back("D+");
     }
-    return result;
+    return const_cast<vector<const char*>>(vector<string>(result));
 }
 
 int main() {
-    vector<float> grades1 = {0.0f, 0.7f};
-    vector<string> result1 = numerical_letter_grade(grades1);
+    vector<float> grades1 = {0, 0.7};
+    vector<const char*> result1 = numerical_letter_grade(grades1);
     
-    if (checkResults(result1, result1)) {
+    if (checkResults(vector<string>(result1), result1)) {
         cout << "The two vectors are the same." << endl;
     } else {
         cout << "The two vectors are not the same." << endl;
