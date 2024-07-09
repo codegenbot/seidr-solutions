@@ -5,6 +5,6 @@ bool isSame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(isSame(parse_nested_parens("(()(())((()))") ,{4}));
+    assert(isSame(parse_nested_parens("(()(())((()))"), {4}));
     return 0;
 }
