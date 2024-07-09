@@ -24,9 +24,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         std::string str = boost::any_cast<std::string>(a);
         double num = boost::any_cast<double>(b);
         return std::stod(str) > num ? a : b;
-    } else if (a.type() != b.type()) {
-        throw std::runtime_error("Types are different");
-    } else {
-        return "Equal";
     }
-}
+    return b;
