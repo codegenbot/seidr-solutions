@@ -1,14 +1,21 @@
 Here is the completed code:
 
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // None in python equivalent
-    vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
-    int count = 0;
-    for(int i = 1; i < sorted_lst.size(); i++) {
-        if(sorted_lst[i] != sorted_lst[0]) {
-            return sorted_lst[i];
-        }
+    vector<int> v(lst);
+    sort(v.begin(), v.end());
+    
+    if (v.size() < 2)
+        return -1;
+        
+    for(int i = 1; i < v.size(); i++) {
+        if(v[i] != v[0])
+            return v[i];
     }
-    return -1; // None in python equivalent
+    
+    return -1;
 }
