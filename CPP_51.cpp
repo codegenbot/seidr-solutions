@@ -1,6 +1,7 @@
+```cpp
 #include <string>
 #include <iostream>
-#include <cstring>
+#include <memory>
 
 int main() {
     std::string text;
@@ -14,7 +15,7 @@ int main() {
 std::string remove_vowels(std::string str) {
     std::string new_str;
     for(char c : str){
-        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' &&
+        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && 
            std::tolower(c) != 'a' && std::tolower(c) != 'e' && std::tolower(c) != 'i' && 
            std::tolower(c) != 'o' && std::tolower(c) != 'u'){
             new_str += c;
