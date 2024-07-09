@@ -1,24 +1,25 @@
-Here is the completed code:
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
+    int count = 0;
+    bool foundDot = false;
     for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-        } else if (file_name[i] == '.'){
-            found_dot = true;
-        } else if (!found_dot && !isalpha(file_name[i])){
+        if(file_name[i]>='0' && file_name[i]<='9')
+            count++;
+        else if(file_name[i]=='.'){
+            foundDot = true;
+        }
+        else if(i>0 && (file_name[i]<'a' || file_name[i]>'z' && file_name[i]<'A' || file_name[i]>'Z')){
             return "No";
         }
     }
-    if(digit_count > 3 || !found_dot) {
+    if(count > 3 || !foundDot)
         return "No";
-    }
-    size_t pos = file_name.find('.');
-    string extension = file_name.substr(pos+1);
-    if(extension != "txt" && extension != "exe" && extension != "dll"){
+    string ext = file_name.substr(file_name.find('.')+1);
+    if(ext!="txt" && ext!="exe" && ext!="dll")
         return "No";
-    }
     return "Yes";
 }
