@@ -13,7 +13,19 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> input; // declare the vector
-    // process the input and calculate odd_sum
-    assert(double_the_difference(input) == 0); // replace with your calculation..
+    float number;
+    int count = 0;
+    
+    while (true) {
+        std::cout << "Enter a number (0 to stop): ";
+        std::cin >> number;
+        
+        if (number == 0)
+            break;
+        
+        input.push_back(number);
+    }
+    
+    assert(double_the_difference(input) >= 0); // uncomment when 'odd_sum' is defined
     return 0;
 }
