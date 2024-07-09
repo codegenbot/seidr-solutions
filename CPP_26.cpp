@@ -1,6 +1,11 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <set>
+
+bool operator()(const int& a, const int& b) const {
+    return a > b;
+}
 
 bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() == 0 && b.size() == 0) return true;
@@ -14,19 +19,10 @@ bool isEqualVector(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
     if (numbers.empty()) return std::vector<int>();
 
-    std::vector<int> uniqueNumbers;
-    for (int num : numbers) {
-        bool found = false;
-        for (int i = 0; i < uniqueNumbers.size(); i++) {
-            if (uniqueNumbers[i] == num) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            uniqueNumbers.push_back(num);
-        }
-    }
+    std::set<int, decltype(*this)(int, int)> uniqueNumbersSet(numbers.begin(), numbers.end());
+    std::vector<int> uniqueNumbers(uniqueNumbersSet.begin(), uniqueNumbersSet.end());
+    std::sort(uniqueNumbers.begin(), uniqueNumbers.end());
+
     return uniqueNumbers;
 }
 
@@ -40,9 +36,6 @@ int main() {
         std::cout << "Enter element " << i + 1 << ": ";
         int num;
         std::cin >> num;
-        if (numbers.size() == numbers.capacity()) {
-            numbers.reserve(n); 
-        }
         numbers.push_back(num);
     }
 
@@ -56,7 +49,7 @@ int main() {
         std::cout << "All elements are duplicates." << std::endl;
     }
 
-    if (!isEqualVector({1, 2, 3, 2, 4, 3, 5}, {1, 2, 3, 4, 5})) {
+    if (!isEqualVector(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5})) {
         std::cout << "All elements are not duplicates." << std::endl;
     } else {
         std::cout << "All elements are duplicates." << std::endl;
