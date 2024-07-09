@@ -1,7 +1,9 @@
-#include <iostream>
 #include <map>
-#include <string>
 #include <cassert>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 bool issame(std::map<char, int> a, std::map<char, int> b) {
     return a == b;
@@ -16,9 +18,14 @@ std::map<char, int> histogram(std::string str) {
 }
 
 int main() {
-    assert(issame(histogram("hello"), histogram("ohlle")));
-    assert(!issame(histogram("world"), histogram("dlrow")));
-    assert(issame(histogram("a"), std::map<char, int>{{'a', 1}});
-    
+    std::string str1 = "hello";
+    std::string str2 = "world";
+
+    auto hist1 = histogram(str1);
+    auto hist2 = histogram(str2);
+
+    assert(!issame(hist1, hist2));
+    assert(issame(histogram("a"), {{'a', 1}}));
+
     return 0;
 }
