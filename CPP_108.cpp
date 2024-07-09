@@ -24,6 +24,10 @@ int count_nums(vector<int> nums) {
 
 int main() {
     assert(count_nums({1}) == 1);
-    cout << "Count: " << count_nums({-1234, 5678, -9012}) << endl;
+    try {
+        cout << "Count: " << count_nums({-1234, 5678, -9012}) << endl;
+    } catch (const exception& e) {
+        cerr << "Error: " << e.what() << endl;
+    }
     return 0;
 }
