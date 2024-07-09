@@ -1,15 +1,11 @@
-#include <stdio.h>
-
-using namespace std;
-
 int prime_fib(int n) {
-    int a = 0, b = 1;
-    for (int i = 2; ; i++) {
-        int fib = a + b;
-        if (fib >= n) break;
+    int a = 0, b = 1, fib = 0;
+    for (int i = 1; ; i++) {
+        if (i == n) return b;
+        fib = a + b;
         a = b;
         b = fib;
-        if (isPrime(fib)) return fib;
+        if (!isPrime(fib)) continue;
     }
 }
 
