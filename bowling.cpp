@@ -1,6 +1,5 @@
-```c++
+```
 #include <string>
-
 int bowlingScore(std::string input) {
     int score = 0;
     int i = 0;
@@ -38,8 +37,9 @@ int bowlingScore(std::string input) {
     return score;
 }
 
-int main() {
-    std::string input = "your-input-string"; // replace with user input or test data
-    int result = bowlingScore(input);
-    return 0;
+int main() { 
+    std::string input; 
+    std::cout << "Enter bowling input: "; 
+    std::cin >> input; 
+    return bowlingScore(input); 
 }
