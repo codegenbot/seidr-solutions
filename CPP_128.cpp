@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -9,13 +8,15 @@ int prod_signs(std::string str1, std::string str2, std::string str3) {
         
         if ((s[0] == '-' || s[0] == ' ') && s.length() > 1) {
             size_t i = 0;
-            while (i < s.size()) {
-                if (!((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))) {
-                    break;
+            if (s.length() > 1) {
+                while (i < s.size()) {
+                    if (!((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))) {
+                        break;
+                    }
+                    ++i;
                 }
-                ++i;
+                s.erase(0, i);
             }
-            s.erase(0, i);
         }
     }
     
