@@ -1,5 +1,4 @@
-using namespace std;
-
+```cpp
 string string_to_md5(string text) {
     if (text.empty()) return "None";
     
@@ -8,9 +7,9 @@ string string_to_md5(string text) {
     
     string md5_hash;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
-        ostringstream oss;
-        oss << hex << setfill('0') << setw(2) << static_cast<unsigned int>(result[i]);
-        md5_hash += oss.str();
+        ostringstream ss;
+        ss << hex << setfill('0') << setw(2) << (int)result[i];
+        md5_hash += ss.str();
     }
     
     return md5_hash;
