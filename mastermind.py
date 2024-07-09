@@ -1,23 +1,14 @@
-import random
-code_chars = [0] * 6
-guess_chars = [0] * 6
-
-code = ''.join([random.choice('RYGBC') for _ in range(4)])
-print(f"Enter the Mastermind code: {code}")
-
-guess = input("Enter your guess:")
-
+code_counts = [0] * 6
+color_map = {"R": 0, "O": 1, "Y": 2, "G": 3, "B": 4, "I": 5}
 for c in code:
-    code_chars[ord(c) - ord('R')] += 1
-
-for c in guess:
-    guess_chars[ord(c) - ord('R')] += 1
+    if c in color_map:
+        code_counts[color_map[c]] += 1
 
 black, white = 0, 0
 for i in range(4):
     if code[i] == guess[i]:
         black += 1
-    elif code_chars[ord(code[i]) - ord('R')] > 0:
+    elif code_counts[color_map[code[i]]] > 0:
         white += 1
 
 print(f"Black: {black}, White: {4 - black}")
