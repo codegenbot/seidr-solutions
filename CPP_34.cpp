@@ -5,9 +5,13 @@
 using namespace std;
 
 vector<int> unique(vector<int> l) {
-    vector<int> result(l.size()); 
-    auto it = unique_copy(l.begin(), l.end(), result.begin());
-    return vector<int>(it, result.end());
+    vector<int> result;
+    for (int i : l) {
+        if (find(result.begin(), result.end(), i) == result.end())
+            result.push_back(i);
+    }
+    return result;
+
 }
 
 int main() {
