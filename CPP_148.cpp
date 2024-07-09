@@ -1,6 +1,36 @@
+```
 #include <vector>
 #include <string>
 #include <initializer_list>
+
+bool isPlanet(string planet);
+bool issame(vector<string> a, vector<string> b);
+vector<string> mybf(string planet1, string planet2);
+
+int main() {
+    cout << "Enter two planets separated by space: ";
+    string planet1, planet2;
+    cin >> planet1 >> planet2;
+    vector<string> result = mybf(planet1, planet2); 
+    if (result.empty()) {
+        cout << "Planets not found.\n";
+    } else {
+        cout << "Planets in order are: ";
+        for (const string& planet : result) {
+            cout << planet << " ";
+        }
+        cout << "\n";
+
+        vector<string> temp = {planet1, planet2};
+        if(issame(result,temp)){
+            cout << "The planets are the same.\n";
+        } else {
+            cout << "The planets are different.\n";
+        }
+    }
+
+    return 0;
+}
 
 bool isPlanet(string planet) {
     string planets[] = {"Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -29,29 +59,4 @@ vector<string> mybf(string planet1, string planet2) {
     }
     return result;
 
-}
-
-int main() {
-    cout << "Enter two planets separated by space: ";
-    string planet1, planet2;
-    cin >> planet1 >> planet2;
-    vector<string> result = mybf(planet1, planet2); 
-    if (result.empty()) {
-        cout << "Planets not found.\n";
-    } else {
-        cout << "Planets in order are: ";
-        for (const string& planet : result) {
-            cout << planet << " ";
-        }
-        cout << "\n";
-
-        vector<string> temp = {planet1, planet2};
-        if(issame(result,temp)){
-            cout << "The planets are the same.\n";
-        } else {
-            cout << "The planets are different.\n";
-        }
-    }
-
-    return 0;
 }
