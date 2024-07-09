@@ -1,20 +1,17 @@
-Here is the completed code:
-
-string rounded_avg(int n, int m) {
-    if (n > m) return "-1";
+string rounded_avg(int n,int m){
+    if(n > m) return "-1";
     int sum = 0;
-    for (int i = n; i <= m; i++) {
+    for(int i=n; i<=m; i++) {
         sum += i;
     }
-    double avg = round((double)sum / (m - n + 1));
-    string binary = "";
-    while (avg > 0) {
-        if (avg >= 2) {
-            avg /= 2;
-            binary.push_back('1');
-        } else {
-            avg++;
-            binary.push_back('0');
-        }
+    double avg = (double)sum/(m-n+1);
+    int rounded = floor(avg + 0.5);
+    string bin = "";
+    while(rounded > 0) {
+        if(rounded & 1) bin.push_back('1');
+        else bin.push_back('0');
+        rounded >>= 1;
     }
-    return binary;
+    reverse(bin.begin(), bin.end());
+    return bin;
+}

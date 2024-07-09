@@ -1,25 +1,22 @@
-Here is the completed code:
-
 string exchange(vector<int> lst1, vector<int> lst2) {
-    bool foundOdd = false;
+    bool hasOdd = false;
     for (int num : lst1) {
         if (num % 2 != 0) {
-            foundOdd = true;
+            hasOdd = true;
             break;
         }
     }
-    if (!foundOdd) return "YES";
-    for (int num : lst2) {
-        if (num % 2 == 0) {
-            int foundOddInLst1 = 0;
-            for (int num2 : lst1) {
-                if (num2 % 2 != 0) {
-                    foundOddInLst1++;
-                    break;
-                }
-            }
-            if (foundOddInLst1 == 0) return "NO";
+    
+    if (!hasOdd) return "YES";
+    
+    for (int num : lst1) {
+        if (find(lst2.begin(), lst2.end(), num) != lst2.end()) {
+            lst2.erase(remove(lst2.begin(), lst2.end(), num), lst2.end());
+        } else {
+            hasOdd = false;
+            break;
         }
     }
-    return "YES";
+    
+    return hasOdd ? "NO" : "YES";
 }
