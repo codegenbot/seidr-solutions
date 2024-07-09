@@ -1,16 +1,18 @@
+#include <string>
+
 std::string spinWords(const std::string& str) {
     std::vector<std::string> words = split(str, ' ');
-    std::string reversed;
-    std::string unmodified;
+    std::string result;
 
     for (int i = 0; i < words.size(); i++) {
+        std::string temp = words[i];
         if (words[i].length() >= 5) {
-            std::reverse(words[i].begin(), words[i].end());
-            reversed += words[i] + " ";
+            std::reverse(temp.begin(), temp.end());
+            result += temp + " ";
         } else {
-            unmodified += words[i] + " ";
+            result += temp + " ";
         }
     }
 
-    return join({reversed.substr(0, reversed.size()-1), unmodified.substr(0, unmodified.size()-1)}, ' ');
+    return join(std::vector<std::string>{result}, ' ');
 }
