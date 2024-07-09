@@ -1,3 +1,4 @@
+```
 def encode(message):
     result = ""
     for char in message:
@@ -9,5 +10,3 @@ def encode(message):
         else:
             result += char
     return result
-
-print(encode("Hello"))
