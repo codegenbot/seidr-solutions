@@ -21,9 +21,9 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 }
 
 int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
-    
-    int n1, n2; 
+    assert(issame(common({4, 3, 2, 8}, {}), {});
+
+    int n1, n2; // Number of elements in the two vectors
     cin >> n1 >> n2;
 
     vector<int> l1(n1);
