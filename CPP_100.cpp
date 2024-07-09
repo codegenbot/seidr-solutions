@@ -16,7 +16,7 @@ bool isSame(vector<int> a, vector<int> b) {
 vector<int> make_a_pile(int n) {
     vector<int> pile;
     int stones = 1;
-    while ((stones * 3) <= INT_MAX) { 
+    while (stones <= INT_MAX - n) { 
         pile.push_back(stones);
         if ((n - stones) % 2 == 0) {
             stones += 1;
