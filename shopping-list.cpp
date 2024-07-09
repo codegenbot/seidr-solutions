@@ -1,2 +1,1 @@
-```
 std::cout << std::fixed << std::setprecision(2) << shoppingList(prices, discounts) << std::endl;
