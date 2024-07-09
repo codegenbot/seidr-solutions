@@ -1,15 +1,24 @@
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i)
-        if (!a[i].compare(0, a[i].size(), b[i], 0, a[i].size()))
-            return true;
-    return false;
+```c++
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size(); i++){
+        bool flag = true;
+        size_t pos = 0;
+        while(pos < a[i].size()){
+            if(pos < b[i].size() && a[i][pos] == b[i][pos])
+                pos++;
+            else{
+                flag = false;
+                break;
+            }
+        }
+        if(!flag)
+            return false;
+    }
+    return true;
 }
 
-int main() {
-    vector<string> strings = {"apple", "banana", "cherry"};
-    string prefix = "app";
-    vector<string> result = filter_by_prefix(strings, prefix);
-    bool sameStrings = issame({result[0], "application"}, {strings[0], strings[1]});
-    return 0;
+int main(){
+    // your code here
 }
