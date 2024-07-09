@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -15,15 +16,28 @@ bool isSimplePower(int num) {
 }
 
 int main() {
-    char input[256];
+    int num;
     std::cout << "Enter a number: ";
-    std::cin >> input; 
-
-    int num = std::stoi(input);  
-    if (isSimplePower(num)) {
-        std::cout << input << " is a simple power.\n";
+    if (!(std::cin >> num)) {
+        std::cout << "Invalid input. Please enter a numeric value.\n";
     } else {
-        std::cout << input << " is not a simple power.\n";
+        bool isValidInput = true;
+        for (char c : std::to_string(num)) {
+            if (!std::isdigit(c)) {
+                isValidInput = false;
+                break;
+            }
+        }
+
+        if (isValidInput) {
+            if (isSimplePower(num)) {
+                std::cout << num << " is a simple power.\n";
+            } else {
+                std::cout << num << " is not a simple power.\n";
+            }
+        } else {
+            std::cout << "Invalid input. Please enter a numeric value.\n";
+        }
     }
 
     return 0;
