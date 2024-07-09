@@ -1,4 +1,3 @@
-```cpp
 int match_parens(vector<string> lst) {
     int countOpen = 0;
     int countClose = 0;
@@ -14,6 +13,6 @@ int match_parens(vector<string> lst) {
 }
 
 int main() {
-    assert(match_parens({"()"})); // replace with your test cases
+    assert(match_parens({"()"})); 
     return 0;
 }
