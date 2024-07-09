@@ -8,22 +8,23 @@ std::string int_to_mini_roman(int n) {
             roman = int_to_mini_roman(n / 10);
             break;
         case 1:
-            if (n >= 4) roman += "IV";
-            else if (n >= 3) roman += "III";
-            else if (n >= 2) roman += "II";
-            else roman += "I";
+            roman += (n >= 4 ? "IV" : (n >= 3 ? "III" : (n >= 2 ? "II" : "I")));
             if (n > 3) roman += int_to_mini_roman((n - 3) / 10);
             break;
         case 2:
-            roman = "II";
+            roman += "II";
             if (n > 2) roman += int_to_mini_roman((n - 2) / 10);
             break;
         case 3:
-            roman = "III";
+            roman += "III";
             if (n > 3) roman += int_to_mini_roman((n - 3) / 10);
             break;
         default:
-            roman = "X" + int_to_mini_roman((n - 10) / 10);
+            roman = (n >= 40 ? "XL" : (n >= 30 ? "XXX" : (n >= 20 ? "XX" : "X"))) + int_to_mini_roman((n - 10) / 10);
     }
     return roman.empty() ? "" : roman;
+}
+
+int main() {
+    assert(int_to_mini_roman(1000) == "M");
 }
