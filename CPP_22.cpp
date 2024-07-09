@@ -1,12 +1,10 @@
 #include <boost/any.hpp>
 #include <vector>
 #include <list>
-#include <typeinfo>
+#include <typeindex>
 
-using namespace std;
-
-vector<int> filter_integers(list<boost::any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
         if (value.type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(value));
