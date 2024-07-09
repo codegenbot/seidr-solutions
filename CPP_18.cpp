@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int how_many_times(std::string str, std::string substring) {
@@ -9,15 +8,4 @@ int how_many_times(std::string str, std::string substring) {
         str.erase(0, pos + substring.length());
     }
     return count;
-}
-
-int main() {
-    std::string s1, s2;
-    std::cout << "Enter the string: ";
-    std::cin >> s1;
-    std::cout << "Enter the substring to search for: ";
-    std::cin >> s2;
-    int result = how_many_times(s1, s2);
-    std::cout << "The substring appears " << result << " time(s) in the string.\n";
-    return 0;
 }
