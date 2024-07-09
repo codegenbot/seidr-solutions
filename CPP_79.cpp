@@ -4,7 +4,8 @@ using namespace std;
 string decimal_to_binary(int decimal){
     string binary = "";
     while(decimal > 0) {
-        if (decimal % 2 == 0)
+        int remainder = decimal % 2;
+        if(remainder == 0)
             binary.insert(0,"0");
         else
             binary.insert(0,"1");
@@ -15,5 +16,5 @@ string decimal_to_binary(int decimal){
 
 int main() {
     assert (decimal_to_binary(15) == "db1111db");
-    return 0;
+    // Rest of your code goes here
 }
