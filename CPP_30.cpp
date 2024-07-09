@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,7 +11,7 @@ std::vector<float> get_positive(const std::vector<float>& numbers) {
     return positive_numbers;
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool same(const std::vector<float>& a, const std::vector<float>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -20,6 +19,11 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+
+    if(n > 10000) {
+        std::cout << "Too many elements. Please enter less than or equal to 10000." << std::endl;
+        return 0;
+    }
 
     std::vector<float> numbers;
     for(int i=0; i<n;i++){
@@ -31,7 +35,7 @@ int main() {
 
     std::vector<float> positive_numbers = get_positive(numbers);
 
-    if(issame(get_positive(numbers), positive_numbers)) {
+    if(same(get_positive(numbers), positive_numbers)) {
         std::cout << "The list of positive numbers is: ";
         for (float num : positive_numbers) {
             std::cout << num << " ";
