@@ -26,10 +26,10 @@ int main() {
     std::vector<int> lst;
     std::cout << "Enter numbers (terminate with 0): ";
     while (std::cin >> num) {
-        if(num == 0)
+        if(num != 0)
+            lst.push_back(num);
+        else 
             break;
-        lst.push_back(num);
-        n++;
     }
     int result = solutions(lst);
     assert(result == 25);
