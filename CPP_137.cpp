@@ -19,7 +19,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         string sb = get<string>(b);
         return stof(sa) > stof(sb) ? a : ((stof(sa) == stof(sb)) ? any("None") : b);
     } else if (!is_float(a) && !is_float(b)) {
-        return any("None");
+        return "None";
     }
 }
 
