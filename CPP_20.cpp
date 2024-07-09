@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <limits>
+#include <cassert>
 
 using namespace std;
 
@@ -21,9 +22,9 @@ vector<float> find_closest_elements(vector<float> numbers) {
         }
     }
     
-    return vector<float>(closest_pair.begin(), closest_pair.end());
+    return vector<float>({closest_pair.first, closest_pair.second});
 }
 
-int contestMain() {
-    assert(isSame({1.1, 2.2, 3.1, 4.1, 5.1}, {2.2, 3.1}));
+int main() {
+    assert(isSame({1.1, 2.2, 3.1, 4.1, 5.1}, vector<float>({2.2, 3.1})));
 }
