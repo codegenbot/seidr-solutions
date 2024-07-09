@@ -1,11 +1,15 @@
-if (text.empty())
+if(text.empty()){
     return "None";
-unsigned char result[MD5_DIGEST_LENGTH];
-MD5((unsigned char*)text.c_str(), text.length(), result);
-
-char md5_hash[MD5_DIGEST_LENGTH * 2 + 1];
-for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-    sprintf(&md5_hash[i * 2], "%02x", (unsigned int)result[i]);
 }
-return string(md5_hash);
+
+MD5_CTX mdContext;
+MD5_Init(&mdContext);
+MD5_Update(&mdContext, text.c_str(), text.length());
+unsigned char digest[16];
+MD5_Final(digest, &mdContext);
+char mdString[33];
+for (int i = 0; i < 16; i++)
+    sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
+mdString[32] = '\0';
+return string(mdString);
 }
