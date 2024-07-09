@@ -1,4 +1,4 @@
-std::string camelCase(const std::string& s) {
+```std::string camelCase(const std::string& s) {
     std::string result;
     bool first = true;
 
@@ -16,4 +16,4 @@ std::string camelCase(const std::string& s) {
     }
 
     return result;
-}
+}``
