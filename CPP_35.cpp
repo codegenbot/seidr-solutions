@@ -1,4 +1,3 @@
-```c++
 #include <algorithm>
 #include <cassert>
 #include <vector>
@@ -14,5 +13,5 @@ int findMax(vector<int> l) {
 
 int main() {
     vector<int> v = {1, 2, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    assert(abs(*std::max_element(v.begin(), v.end()))- 12)<1e-4);
+    assert(abs(*max_element({begin(v), end(v)}))- 12) < 1e-4);
 }
