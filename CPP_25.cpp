@@ -14,6 +14,11 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main() {
-    std::vector<int> result = factorize(100);
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+int main(){
+    vector<int> factors = factorize(30);
+    return 0;
 }
