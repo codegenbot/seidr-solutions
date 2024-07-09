@@ -1,6 +1,6 @@
-#include <iostream>
 #include <any>
 #include <string>
+#include <iostream>
 #include <cassert>
 
 std::any compare_one(std::any a, std::any b) {
