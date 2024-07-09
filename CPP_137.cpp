@@ -1,56 +1,31 @@
-Here is the completed code:
-
-#include <iostream>
-#include <string>
-#include <boost/any.hpp>
-
+#include<stdio.h>
+#include<string>
+#include<algorithm>
+#include<boost/any.hpp>
 using namespace std;
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any_cast<double>(b);
+        return (int)a > (double)b ? a : b;
     }
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return a;
+        return (double)a > (int)b ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (boost::any_cast<string>(a) >= boost::any_cast<string>(b)) {
-            return a;
-        } else {
-            return b;
-        }
-    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        double num = boost::any_cast<double>(a);
-        if (num >= stol(str)) {
-            return a;
-        } else {
-            return b;
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        string str = boost::any_cast<string>(a);
-        double num = boost::any_cast<double>(b);
-        if (stod(str) >= num) {
-            return a;
-        } else {
-            return b;
-        }
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        string str = boost::any_cast<string>(b);
-        int num = boost::any_cast<int>(a);
-        if (stoi(str) >= num) {
-            return b;
-        } else {
-            return a;
-        }
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string str = boost::any_cast<string>(a);
-        int num = boost::any_cast<int>(b);
-        if (stoi(str) >= num) {
-            return a;
-        } else {
-            return b;
-        }
+        string str1 = any_cast<string>(a);
+        string str2 = any_cast<string>(b);
+        str1.erase(remove(str1.begin(), str1.end(), ','), str1.end());
+        str2.erase(remove(str2.begin(), str2.end(), ','), str2.end());
+        return (stod(str1) > stod(str2)) ? a : b;
     }
-    return boost::any("None");
+    else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(double))) {
+        string str = any_cast<string>(a);
+        str.erase(remove(str.begin(), str.end(), ','), str.end());
+        return (stod(str) > any_cast<double>(b)) ? a : b;
+    }
+    else if ((a.type() == typeid(int) || a.type() == typeid(double)) && b.type() == typeid(string)) {
+        boost::any temp = a;
+        a = b;
+        b = temp;
+    }
+    return "None";
 }
