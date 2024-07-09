@@ -8,9 +8,3 @@ int how_many_times(std::string str, std::string substring) {
         str.erase(pos, substring.length());
     }
     return count;
-}
-
-int main() {
-    assert (how_many_times("john doe", "john") == 1);
-    return 0;
-}
