@@ -2,6 +2,14 @@ double absolute_value(double x){
     return x < 0 ? -x : x;
 }
 
+double poly(vector<double> coeffs, double x){
+    double result = 0;
+    for(int i = 0; i < coeffs.size(); i++){
+        result += coeffs[i] * pow(x, i);
+    }
+    return result;
+}
+
 double poly_diff(vector<double> coeffs, double x){
     double result = 0;
     for(int i = 1; i < coeffs.size(); i++){
@@ -17,3 +25,7 @@ double find_zero(vector<double> coeffs){
     }
     return x;
 }
+
+// Example Usage
+double zero = find_zero(coeffs);
+cout << "Zero found at: " << zero << endl;
