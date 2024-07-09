@@ -1,11 +1,5 @@
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
-    return (v1.size() == v2.size()) && (std::equal(v1.begin(), v1.end(), v2.begin()));
-}
-
-std::vector<std::string> bf(string planet1, string planet2) {
+```
+vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int idx1 = -1, idx2 = -1;
 
