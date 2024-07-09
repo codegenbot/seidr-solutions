@@ -1,15 +1,13 @@
-Here is the solution:
+#include <string>
 
 string solve(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            c = (islower(c))? toupper(c): tolower(c);
+            result += (c >= 'a' && c <= 'z') ? tolower(c) : toupper(c);
+        } else {
+            result += c;
         }
-        result += c;
     }
-    if (!any(isalpha, s)) {
-        reverse(result.begin(), result.end());
-    }
-    return result;
+    return result.empty() ? string(s).reverse() : result;
 }

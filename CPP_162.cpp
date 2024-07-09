@@ -1,9 +1,8 @@
-#include <openssl/ssl.h>
 #include <string>
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
-    
+
     unsigned char md[MD5_DIGEST_LENGTH];
     MD5_CTX ctx;
     MD5_Init(&ctx);
