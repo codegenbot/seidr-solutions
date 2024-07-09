@@ -1,4 +1,7 @@
 #include <vector>
+#include <string>
+#include <iostream>
+
 using namespace std;
 
 int add_elements(vector<int> arr, int k) {
