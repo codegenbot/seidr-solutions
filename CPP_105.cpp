@@ -1,19 +1,21 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> numbers;
+    vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            numbers.push_back(to_string(num));
+            numbers.push_back(num);
         }
     }
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
     vector<string> result;
-    for (string str : numbers) {
-        switch (stoi(str)) {
+    for (int num : numbers) {
+        string str = "";
+        switch (num) {
             case 1:
                 str = "One";
                 break;
@@ -48,6 +50,7 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    assert (by_length({9, 4, 8}) == vector<string>({"Nine", "Eight", "Four"}));
+    vector<string> result = by_length({9, 4, 8});
+    assert(result == vector<string>({"Nine", "Eight", "Four"}));
     return 0;
 }
