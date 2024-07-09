@@ -1,8 +1,8 @@
 ```cpp
-#include <cassert>
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 using namespace std;
 
 bool isSame(const vector<string>& a, const vector<string>& b) {
@@ -17,7 +17,7 @@ const vector<string> all_prefixes(const string& str) {
     return result;
 }
 
-int testMain() {
+int main() {
     assert(equal(all_prefixes("WWW").begin(), all_prefixes("WWW").end(), {"W", "WW", "WWW"}.begin(), {"W", "WW", "WWW"}.end()));
     return 0;
 }
