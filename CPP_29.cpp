@@ -15,7 +15,7 @@ bool issame(vector<std::string> a, vector<std::string> b) {
     return true;
 }
 
-vector<string> resultVector(vector<std::string> strings, string prefix) {
+vector<string> resultVector(vector<std::string> strings, string prefix){
     vector<string> result;
     for(string s : strings){
         if(s.find(prefix) == 0)
