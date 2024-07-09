@@ -13,9 +13,15 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> remove_duplicates(std::vector<int> v) {
     std::vector<int> result;
-    result.reserve(v.size()); // Reserve space for all elements upfront
     for(int i = 0; i < v.size(); i++) {
-        if(std::find(result.begin(), result.end(), v[i]) == result.end()) {
+        bool found = false;
+        for(int j = 0; j < result.size(); j++) {
+            if(result[j] == v[i]) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) {
             result.push_back(v[i]);
         }
     }
