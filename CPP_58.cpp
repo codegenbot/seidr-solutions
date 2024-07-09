@@ -3,8 +3,12 @@
 #include <vector>
 #include <algorithm>
 
-bool sameSets(const std::set<int>& s1, const std::set<int>& s2) {
+bool isSame(const std::set<int>& s1, const std::set<int>& s2) {
     return s1 == s2;
+}
+
+bool sameSets(const std::set<int>& a, const std::set<int>& b) {
+    return a.size() == b.size() && isSame(a, b);
 }
 
 void solveProblem() {
