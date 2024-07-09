@@ -1,26 +1,22 @@
-#include <vector>
-#include <algorithm>
+#include<vector>
+using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
+bool isSame(vector<int> v1, vector<int> v2) {
+    if(v1.size() != v2.size()) 
         return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < v1.size(); i++) {
+        if(v1[i] != v2[i]) 
             return false;
-        }
     }
     return true;
 }
 
-std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::sort(arr.begin(), arr.end());
-    for (int i = 0; i < k; i++) {
-        result.push_back(arr.back());
-        arr.pop_back();
-    }
-    if (!issame(arr, std::vector<int>(k, 0))) {
-        return {};
+vector<int> maximum(vector<int> arr, int k) {
+    vector<int> result;
+    while(k--) {
+        auto it = max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
     }
     return result;
 }
