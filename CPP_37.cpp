@@ -32,7 +32,8 @@ namespace myspace {
     }
 }
 
-int main() {
+int main()
+{
     std::vector<float> input(10);
     input.push_back(5.0f);
     input.push_back(8.0f);
@@ -57,4 +58,5 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
+    
 }
