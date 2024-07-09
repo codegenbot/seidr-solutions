@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <initializer_list>
 using namespace std;
 
 bool has_close_elements(vector<float> a, float tol) {
@@ -17,9 +16,21 @@ bool has_close_elements(vector<float> a, float tol) {
 }
 
 int main() {
-    vector<float> numbers = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f, 0.0f};
+    vector<float> numbers;
+    numbers.push_back(1.0f);
+    numbers.push_back(2.0f);
+    numbers.push_back(3.9f);
+    numbers.push_back(4.0f);
+    numbers.push_back(5.0f);
+    numbers.push_back(2.2f);
+    numbers.push_back(0.0f);
     assert(has_close_elements(numbers, 0.5) == false);
     
-    vector<float> numbers2 = {1.1f, 2.2f, 3.1f, 4.1f, 5.1f};
+    vector<float> numbers2;
+    numbers2.push_back(1.1f);
+    numbers2.push_back(2.2f);
+    numbers2.push_back(3.1f);
+    numbers2.push_back(4.1f);
+    numbers2.push_back(5.1f);
     assert(has_close_elements(numbers2, 0.5) == false);
 }
