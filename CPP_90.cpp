@@ -1,7 +1,15 @@
-Here is the completed code:
+```cpp
+#include <vector>
+#include <algorithm>
 
-vector<int> next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return vector<int>();
-    auto it = std::next(std::min_element(lst.begin(), lst.end()));
-    return (*it == *std::prev(it, 1)) ? vector<int>() : vector<int>({*it});
+int next_smallest(vector<int> lst) {
+    if (lst.size() < 2) return -1; 
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for (int i = 0; i < sorted.size() - 1; i++) {
+        if (sorted[i] != sorted[i+1]) {
+            return sorted[i+1];
+        }
+    }
+    return -1; 
 }
