@@ -16,7 +16,7 @@ string sort_numbers(string numbers){
         }
     }
     nums.push_back(temp);
-    
+
     std::sort(nums.begin(),nums.end());
     
     string result;
