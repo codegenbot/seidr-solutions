@@ -25,11 +25,9 @@ int main() {
     if(n > 0) {
         std::vector<std::unique_ptr<float>> numbers;
         for(int i=0; i<n;i++){
-            std::cout << "Enter element " << i+1 << ": ";
             float num;
-            std::string str;
-            std::getline(std::cin, str);
-            num = std::stof(str);
+            std::cout << "Enter element " << i+1 << ": ";
+            std::cin >> num;
             numbers.push_back(std::make_unique<float>(num));
         }
 
@@ -38,7 +36,7 @@ int main() {
         if(positive_numbers == numbers) {
             std::cout << "The list of positive numbers is: ";
             for (auto& num : positive_numbers) {
-                std::cout << *num << " "; 
+                std::cout << std::to_string(*num) << " "; 
             }
             std::cout << std::endl;
         } else {
