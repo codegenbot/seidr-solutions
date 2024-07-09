@@ -1,23 +1,18 @@
-#include <vector>
-using namespace std;
-
 int search(vector<int> lst) {
-    map<int, int> freqMap;
+    unordered_map<int, int> freqMap;
     for (int num : lst) {
-        if (freqMap.find(num) == freqMap.end()) {
+        if (!freqMap.count(num)) {
             freqMap[num] = 1;
         } else {
             freqMap[num]++;
         }
     }
-
-    int maxFreq = -1;
+    int maxFreqNum = -1;
     for (auto& pair : freqMap) {
         if (pair.second >= pair.first && pair.first > 0) {
-            maxFreq = pair.first;
+            maxFreqNum = pair.first;
             break;
         }
     }
-
-    return maxFreq;
+    return maxFreqNum;
 }
