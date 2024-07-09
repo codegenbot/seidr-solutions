@@ -1,13 +1,21 @@
+```cpp
 #include <cassert>
 #include <iostream>
 
-bool is_palindrome(const std::string& str) {
+bool is_palindrome(const std::string& s) {
     int left = 0;
-    int right = str.length() - 1;
+    int right = s.length() - 1;
 
     while (left < right) {
-        if (str[left] != str[right])
-            return false;
+        if (!std::isspace(s[left]) && !std::isspace(s[right])) { 
+            if (s[left] != s[right])
+                return false;
+        } else { 
+            if (std::isspace(s[left]))
+                left++;
+            if (std::isspace(s[right]))
+                right--;
+        }
         left++;
         right--;
     }
