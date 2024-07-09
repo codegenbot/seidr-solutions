@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 
 bool same(std::vector<int> a, std::vector<int> b);
