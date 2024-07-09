@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
@@ -20,7 +20,7 @@ double find_zero(vector<double> xs){
     for (int i = 1; i < xs.size(); i++) {
         if (i % 2 == 0) {
             sum += xs[i] / coeff;
-            temp.push_back(vector<double>{coeff});
+            temp.push_back({coeff});
         }
         else{
             coeff = xs[i];
