@@ -1,8 +1,5 @@
+Here is the completed code:
+
 bool iscuber(int a){
-    int i = 0;
-    while (1) {
-        if (pow(i, 3) == a) return true;
-        if (i * i > a) return false;
-        i++;
-    }
+    return cbrt(a) == static_cast<int>(cbrt(a));
 }
