@@ -3,17 +3,17 @@
 
 using namespace boost;
 
-any compare_one(any a, any b) {
-    if (is_any_of<a>(int.class)) {
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int)) {
         int ai = any_cast<int>(a);
         int bi = any_cast<int>(b);
         return std::to_string(ai) - std::to_string(bi);
-    }
-    else if (is_any_of<a>(double.class)) {
+    } 
+    else if (a.type() == typeid(double)) {
         double ad = any_cast<double>(a);
         double bd = any_cast<double>(b);
         return std::to_string(ad) + "_" - std::to_string(bd) + "_";
-    }
+    } 
     else {
         std::string as = any_cast<std::string>(a);
         std::string bs = any_cast<std::string>(b);
