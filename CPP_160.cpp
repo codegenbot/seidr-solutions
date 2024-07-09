@@ -1,7 +1,7 @@
 #include <vector>
 #include <utility>
 
-int do_algebra(vector<pair<char, int>> operators_and_operands) {
+int do_algebra(std::vector<std::pair<char, int>> operators_and_operands) {
     if (operators_and_operands.size() == 0) {
         return 0;
     }
@@ -18,8 +18,12 @@ int do_algebra(vector<pair<char, int>> operators_and_operands) {
             if (pair.second != 0) {
                 result /= pair.second;
             }
-        } else if (pair.first == '^') { // Changed '**' to '^'
-            result = pow(result, pair.second);
+        } else if (pair.first == '**') {
+            long long temp = 1; 
+            for(int i=0;i<pair.second;i++){
+                temp*=result;
+            }
+            result = temp;
         }
     }
     return result;
