@@ -1,4 +1,3 @@
-```cpp
 double find_zero(vector<double> xs) {
     double coeffs;
     vector<double> polyCoeffs;
