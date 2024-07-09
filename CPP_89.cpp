@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int encrypt(string s){
