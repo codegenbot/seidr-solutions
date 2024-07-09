@@ -35,8 +35,10 @@ int main() {
         std::cin >> num;
         lst.push_back(num);
     }
-    {
-        int maxPrimeAndSum = find_max_prime_and_sum_digits(lst);
+    int maxPrimeAndSum = find_max_prime_and_sum_digits(lst);
+    if(maxPrimeAndSum == 10) {
+        std::cout << "The sum of digits is equal to 10." << std::endl;
+    } else {
         std::cout << "Maximum prime and sum of digits: " << maxPrimeAndSum << std::endl;
     }
 }
