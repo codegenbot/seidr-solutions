@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <limits>
 
 int search(std::vector<int> lst) {
     int result = -1;
@@ -22,7 +23,7 @@ int main() {
         else
             std::cout << "Please enter a positive integer greater than zero.\n";
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), std::char_traits<std::streamsize>::eof());
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     std::vector<int> lst;
