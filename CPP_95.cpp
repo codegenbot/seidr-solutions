@@ -11,23 +11,21 @@ bool check_dict_case(map<string,string> dict) {
 }
 
 int main() {
+    map<string, string> dict;
     string key;
 
-    map<string, string> dict;
-    
     cout << "Enter a dictionary of word-meanings (format: word meaning, each pair on a new line). Type 'stop' to finish input." << endl;
-    
+
     while(true){
         cin >> key >> string();
         if(key == "stop") break;
-        dict.insert({key,""});
+        dict.insert({key, ""});
     }
-    
+
     if(check_dict_case(dict)){
         cout << "The case is consistent!" << endl;
     }else{
         cout << "The case is not consistent!" << endl;
     }
-    
+
     return 0;
-}
