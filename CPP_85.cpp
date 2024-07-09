@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <vector>
 
 int add(vector<int> lst){
