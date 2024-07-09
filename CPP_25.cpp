@@ -14,12 +14,6 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main(){
-    int num;
-    cin >> num;
-    vector<int> result = factorize(num);
-    for(int val : result){
-        cout << val << " ";
-    }
-    return 0;
+int main() {
+    std::vector<int> result = factorize(100);
 }
