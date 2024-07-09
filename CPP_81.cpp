@@ -3,13 +3,18 @@
 #include <cassert>
 
 std::vector<std::string> numerical_letter_grade(const std::vector<float>& grades) {
-    // Function implementation remains unchanged
+    std::vector<std::string> letter_grades;
+    for (float grade : grades) {
+        // Convert grade to letter grade and add to letter_grades vector
+    }
+    return letter_grades;
 }
 
-bool are_equal(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool is_same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
 int main() {
-    assert(are_equal(numerical_letter_grade(std::vector<float>{0.0f, 0.7f}), {"E", "D-"}));
+    assert(is_same(numerical_letter_grade({0.0f, 0.7f}), std::vector<std::string>{"E", "D-"}));
+    return 0;
 }
