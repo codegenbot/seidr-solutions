@@ -1,7 +1,8 @@
+#include <iostream>
 #include <vector>
 
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
     int stones = n;
     while (stones > 0) {
         pile.push_back(stones);
@@ -14,3 +15,15 @@ vector<int> make_a_pile(int n) {
         }
     }
     return pile;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of stones: ";
+    std::cin >> n;
+    std::vector<int> pile = make_a_pile(n);
+    for (int i : pile) {
+        std::cout << i << " ";
+    }
+    return 0;
+}
