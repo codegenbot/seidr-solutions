@@ -1,3 +1,7 @@
+```
+#include <iostream>
+#include <string>
+
 using namespace std;
 
 string solve(int N) {
@@ -7,4 +11,12 @@ string solve(int N) {
         N /= 2;
     }
     return to_string(sum);
+}
+
+int main() {
+    int N;
+    cout << "Enter a number: ";
+    cin >> N;
+    cout << "The binary representation of the number is: " << solve(N) << endl;
+    return 0;
 }
