@@ -1,7 +1,7 @@
-using namespace std;
+#include <string>
 
-string fix_spaces(string text){
-    string result = "";
+std::string fix_spaces(std::string text) {
+    std::string result = "";
     for(int i = 0; i < text.length(); i++){
         if(text[i] == ' ' && (i == 0 || text[i-1] != ' ') && (i == text.length() - 1 || text[i+1] != ' ')){
             result += '_';
@@ -24,3 +24,4 @@ string fix_spaces(string text){
         }
     }
     return result;
+}
