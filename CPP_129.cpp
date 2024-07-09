@@ -12,14 +12,6 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     return res;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>& res) {
     int n = grid.size();
     if (k == 0) {
@@ -37,5 +29,9 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y,
             }
         }
     }
-    return;
+    visited[x][y] = false;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
