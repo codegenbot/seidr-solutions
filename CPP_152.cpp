@@ -1,11 +1,12 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-bool sameVectors(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size())
+bool isSame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
         return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
             return false;
     }
     return true;
@@ -23,14 +24,14 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     return result;
 }
 
-int gameMain() {
+int main() {
     std::vector<int> game, guess;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    for(int i = 0; i < n; i++){
-        std::cout << "Enter element " << i+1 << ": ";
-        if(i == 0) {
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        if (i == 0) {
             int temp;
             std::cin >> temp;
             game.push_back(temp);
@@ -44,13 +45,13 @@ int gameMain() {
             guess.push_back(temp);
         }
     }
-    if(sameVectors(game, guess)){
+    if (isSame(game, guess)) {
         std::cout << "The two vectors are the same.\n";
     } else {
         std::vector<int> result = compare(game, guess);
-        for(int i = 0; i < game.size(); i++){
-            std::cout << "Element " << i+1 << ": ";
-            if(result[i] == 0)
+        for (int i = 0; i < game.size(); i++) {
+            std::cout << "Element " << i + 1 << ": ";
+            if (result[i] == 0)
                 std::cout << "Matched\n";
             else
                 std::cout << "Missed by " << result[i] << "\n";
