@@ -41,6 +41,10 @@ int main() {
         int num;
         std::cin >> num;
         numbers.push_back(num);
+
+        if (numbers.size() == numbers.capacity()) {
+            numbers.reserve(numbers.capacity() * 2); 
+        }
     }
 
     if (!isEqualVector(numbers, removeDuplicates(numbers))) {
