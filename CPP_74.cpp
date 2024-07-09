@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -46,17 +45,17 @@ int main() {
     std::cout << "Enter 2 lists of fruits separated by spaces: ";
     std::string user_input1, user_input2;
     std::getline(std::cin, user_input1);
-    std::getline(std::cin, user_input2);
+    std::getline(std::cin, user_input2;
 
-    std::istringstream iss(user_input1);
-    std::string str;
-    while (std::getline(iss >> std::skipws >> str >> std::ws >> std::skipws)) {
-        lst1.push_back(str);
+    std::stringstream ss1(user_input1);
+    std::string temp;
+    while (ss1 >> temp) {
+        lst1.push_back(temp);
     }
 
-    std::istringstream iis(user_input2);
-    while (std::getline(iis >> std::skipws >> str >> std::ws >> std::skipws)) {
-        lst2.push_back(str);
+    std::stringstream ss2(user_input2);
+    while (ss2 >> temp) {
+        lst2.push_back(temp);
     }
 
     if (!lst1.empty() && !lst2.empty()) {
