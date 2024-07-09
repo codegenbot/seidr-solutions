@@ -1,7 +1,5 @@
-```
 #include <iostream>
 #include <string>
-#include <limits>
 
 using namespace std;
 
@@ -21,4 +19,3 @@ int main() {
     getline(cin, tweet);
     cout << validateTweet(tweet) << endl;
     return 0;
-}
