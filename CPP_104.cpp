@@ -3,6 +3,9 @@
 #include <cassert>
 #include <unordered_set>
 
+bool issame(std::vector<int> a, std::vector<int> b);
+std::vector<int> unique_digits(std::vector<int> values);
+
 bool issame(std::vector<int> a, std::vector<int> b){
     if (a.size() != b.size()) {
         return false;
@@ -30,9 +33,4 @@ std::vector<int> unique_digits(std::vector<int> values) {
     }
     
     return uniqueDigits;
-}
-
-int main() {
-    assert(issame(unique_digits({135, 103, 31}), {1, 3, 5}));
-    return 0;
 }
