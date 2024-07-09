@@ -9,6 +9,7 @@ bool is_prime(long long n) {
         if (n % i == 0) return false;
     }
     return true;
+
 }
 
 int main() {
@@ -21,4 +22,3 @@ int main() {
         cout << num << " is not a prime number.\n";
     }
     return 0;
-}
