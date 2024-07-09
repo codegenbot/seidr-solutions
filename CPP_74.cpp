@@ -37,9 +37,15 @@ int main() {
 
     std::vector<std::string> lst2 = {"date", "elderberry", "fig"};
 
-    std::vector<std::string> lst3 = {"grape", "honeydew", "ice cream"};
+    std::vector<std::string> lst3;
+    lst3.push_back("grape");
+    lst3.push_back("honeydew");
+    lst3.push_back("ice cream");
 
-    std::vector<std::string> lst4 = {"jackfruit", "kiwi", "lemon"};
+    std::vector<std::string> lst4;
+    lst4.push_back("jackfruit");
+    lst4.push_back("kiwi");
+    lst4.push_back("lemon");
 
     assert(issame({"this"}, {"this", "", ""}));
     std::cout << "Test passed" << std::endl;
