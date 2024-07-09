@@ -1,12 +1,10 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 std::vector<int> sort_array(std::vector<int> arr) {
     std::sort(arr.begin(), arr.end(), [](int a, int b) {
-        int ones_a = __builtin_popcount(a);
-        int ones_b = __builtin_popcount(b);
+        int ones_a = std::bitset<32>(a).count();
+        int ones_b = std::bitset<32>(b).count();
 
         if (ones_a == ones_b)
             return a < b;
