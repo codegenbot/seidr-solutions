@@ -5,14 +5,14 @@ int main() {
     boost::any a = "hello";
     boost::any b = "hi";
 
-    boost::any result = compare_one(a, b);
+    boost::any result = compare(a, b);
 
     std::cout << boost::any_cast<std::string>(result) << std::endl;
 
     return 0;
 }
 
-boost::any compare_one(boost::any a, boost::any b) {
+boost::any compare(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return a;
     }
