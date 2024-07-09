@@ -1,8 +1,7 @@
 #include <vector>
 using namespace std;
 
-// Problem description: Write a function that filters a list of strings based on a given prefix.
-// The function should return all the strings from the input list that start with the given prefix.
+// Problem description: Write a function that filters a given vector of strings to include only those that start with the provided prefix.
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
