@@ -24,5 +24,5 @@ public:
 int main() {
     cpp_160 obj; 
     int output = obj.do_algebra({"//", "*"}, {7, 3, 4});
-    std::cout << output << std::endl; // print the result instead of asserting it
+    assert(output == 8); 
 }
