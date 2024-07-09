@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -24,8 +23,8 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> num;
-        input.push_back(num);
-    }
+        input.push_back(std::stof(std::to_string(num)));
+   
     
     long long result = double_the_difference(input);
     std::cout << "The total sum of squares is: " << result << std::endl;
