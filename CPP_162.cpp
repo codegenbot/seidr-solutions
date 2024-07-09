@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-string string_to_md5(string text) {
+std::string string_to_md5(std::string text) {
     if (text.empty()) return "";
     
     unsigned char result[16];
@@ -15,7 +15,7 @@ string string_to_md5(string text) {
     MD5_Update(&md5Context, buffer, text.length());
     MD5_Final(result, &md5Context);
 
-    string md5String;
+    std::string md5String;
     for (int i = 0; i < 16; i++) {
         char temp[3];
         sprintf(temp, "%02x", result[i]);
@@ -26,7 +26,7 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    cout << string_to_md5("password") << endl;
-    assert(string_to_md5("password") == "5d4140c4b2a6b49e";
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    std::cout << string_to_md5("your_input") << std::endl; // change to your input
     return 0;
 }
