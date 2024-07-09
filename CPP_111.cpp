@@ -1,17 +1,8 @@
-#include <map>
+#include <iostream>
 #include <vector>
-#include <string>
+#include <map>
 #include <sstream>
-
 using namespace std;
-
-bool issame(map<char,int> a,map<char,int> b) {
-    if(a.size() != b.size()) return false;
-    for(auto it = a.begin();it!=a.end();++it){
-        if(b.find(it->first)==b.end() || b[it->first] != it->second) return false;
-    }
-    return true;
-}
 
 map<char,int> histogram(string test){
     map<char,int> result;
@@ -47,7 +38,14 @@ vector<string> split(string str, char delimiter) {
         tokens.push_back(token);
     }
     return tokens;
+}
 
+bool issame(map<char,int> a,map<char,int> b) {
+    if(a.size() != b.size()) return false;
+    for(auto it = a.begin();it!=a.end();++it){
+        if(b.find(it->first)==b.end() || b[it->first] != it->second) return false;
+    }
+    return true;
 }
 
 int main() {
