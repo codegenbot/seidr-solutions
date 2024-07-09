@@ -42,3 +42,5 @@ int main() {
     }
     return 0;
 }
+
+assert(issame(separate_paren_groups("((group1)(group2)(group3))"), {"()", "(())", "(()())"}));
