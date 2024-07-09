@@ -1,3 +1,7 @@
-def substitution_cipher(*args):
-    cipher = {k: v for k, v in zip(args[0], args[1])}
-    return "".join([cipher.get(char, char) for char in args[2]])
+def substitution_cipher(cipher_key1, cipher_key2, message):
+    return "".join(
+        [
+            cipher_key2[i] if i < len(cipher_key1) and cipher_key1[i] == char else "X"
+            for i, char in enumerate(message)
+        ]
+    )
