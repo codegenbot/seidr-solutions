@@ -1,6 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <cmath> 
 
 std::string rounded_avg(int n, int m) {
     if (n > m) return "-1";
@@ -29,4 +30,3 @@ int main() {
     std::cin >> n >> m;
     std::cout << rounded_avg(n, m);
     return 0;
-}
