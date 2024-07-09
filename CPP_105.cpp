@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -66,5 +66,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 int main() {
     std::vector<int> arr = {9, 4, 8};
-    assert(issame(by_length(arr), {"Nine", "Four", "Eight"}));
+    std::vector<std::string> result = by_length(arr);
+    assert(issame(result, {"Nine", "Four", "Eight"}));
 }
