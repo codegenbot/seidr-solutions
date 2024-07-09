@@ -1,3 +1,7 @@
+```cpp
+#include <vector>
+#include <iostream>
+
 int add(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
@@ -6,4 +10,10 @@ int add(vector<int> lst) {
         }
     }
     return sum;
+}
+
+int main() {
+    vector<int> lst = {4, 4, 6, 8};
+    cout << add(lst) << endl; // prints 12
+    return 0;
 }
