@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -7,7 +6,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> letter_grades;  // Initialize it here
+    std::vector<std::string> letter_grades;
 
     for (float grade : grades) {
         std::string letter_grade;
