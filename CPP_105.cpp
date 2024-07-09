@@ -1,20 +1,7 @@
-#include <vector>
-#include <algorithm>
-
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+vector<string> by_length(vector<int> arr) {
+    vector<string> result;
     for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            numbers.push_back(num);
-        }
-    }
-
-    std::sort(numbers.begin(), numbers.end());
-    std::reverse(numbers.begin(), numbers.end());
-
-    std::vector<std::string> result;
-    for (int num : numbers) {
-        switch (num) {
+        switch (num % 10) {
             case 1:
                 result.push_back("One");
                 break;
