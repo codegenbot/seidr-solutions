@@ -14,15 +14,14 @@ bool operator==(const std::vector<std::string>& a, const std::vector<std::string
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
     std::vector<std::string> result;
     for(auto it = strings.begin(); it != strings.end(); ++it){
-        if(it->find(prefix) == 0)
+        if(it->find(prefix) == std::string::npos)
             result.push_back(*it);
     }
     return result;
 }
 
 int main() {
-    std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"};
-    std::vector<std::string> a = filter_by_prefix(strings, "xxx");
+    std::vector<std::string> a = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAs", "xxx"}, "xxx");
     std::vector<std::string> b = {"xxx", "xxxAAA", "xxx"};
     assert(operator==(a, b));
     return 0;
