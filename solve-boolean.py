@@ -1,19 +1,30 @@
 ```
 def solve_boolean(expression):
-    if not expression.strip():
-        return False
-    elif expression == "T":
+    if expression == "T":
         return True
     elif expression == "F":
         return False
     elif "&" in expression:
-        left, right = expression.split("&")
-        return solve_boolean(left) and solve_boolean(right)
+        expression = expression.replace("|", "|").replace("&", "&&")
+        expressions = expression.split("|")
+        result = True
+        for expr in expressions:
+            if "&" in expr:
+                result &= solve_boolean(expr)
+            else:
+                result |= solve_boolean(expr)
+        return result
     elif "|" in expression:
-        left, right = expression.split("|")
-        if (left == "T" and right != "F") or (right == "T" and left != "F"):
-            return True
-        elif (left == "F" and right != "T") or (right == "F" and left != "T"):
+        expression = expression.replace("&", "&&").replace("|", "|")
+        expressions = expression.split("|")
+        result = False
+        for expr in expressions:
+            if "&" in expr:
+                result &= solve_boolean(expr)
+            else:
+                result |= solve_boolean(expr)
+        return result
+    else:
+        if not expression.strip():
             return False
-        else:
-            return solve_boolean(left) or solve_boolean(right)
+        raise ValueError("Invalid input")
