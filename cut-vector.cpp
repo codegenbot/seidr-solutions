@@ -1,8 +1,6 @@
-```cpp
 #include <vector>
 #include <climits>
-#include <cmath>
-#include <initializer_list>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
@@ -17,7 +15,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
             right_sum += vec[k];
         }
         if (left_sum == right_sum) {
-            return {{}, vector<int>(vec.begin(), vec.end())};
+            return {{}, vec};
         }
         int diff = abs(left_sum - right_sum);
         if (diff < min_diff) {
@@ -33,7 +31,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
     for (int i = cut_index; i < vec.size(); i++) {
         right.push_back(vec[i]);
     }
-    return {left, right};
+    return {vector<int>(left.begin(), left.end()), vector<int>(right.begin(), right.end())};
 }
 
 int main() {
