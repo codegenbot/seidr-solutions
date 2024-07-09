@@ -1,20 +1,8 @@
-string words_in_sentence(string sentence){
-    string result = "";
-    int len = 0;
-    for (int i = 0; i < sentence.size(); i++) {
-        if (sentence[i] == ' ') {
-            len = 0;
-        } else {
-            len++;
-        }
-        if (is_prime(len)) {
-            result += sentence.substr(i - len + 1, len) + " ";
-        }
-    }
-    return result;
-}
+#include <string>
 
-bool is_prime(int n){
+using namespace std;
+
+bool isPrime(int n) {
     if (n <= 1) {
         return false;
     }
@@ -24,4 +12,23 @@ bool is_prime(int n){
         }
     }
     return true;
+}
+
+string words_in_sentence(string sentence) {
+    string result = "";
+    int len = 0;
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            if (!isPrime(len)) {
+                continue;
+            }
+            result += " ";
+        } else {
+            len++;
+        }
+    }
+    if (isPrime(len)) {
+        result += sentence;
+    }
+    return result;
 }
