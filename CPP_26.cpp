@@ -15,7 +15,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
-    sortedNumbers = numbers; 
+    std::vector<int> sortedNumbers = numbers; 
     std::sort(sortedNumbers.begin(), sortedNumbers.end()); 
 
     for (auto it = sortedNumbers.begin(); it != sortedNumbers.end() - 1; ++it) {
