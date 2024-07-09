@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -27,6 +26,11 @@ int main() {
         float num;
         std::cin >> num;
         numbers.push_back(num);
+    }
+
+    if(n > 10000) {
+        std::cout << "Too many elements. Please enter less than or equal to 10000." << std::endl;
+        return 0;
     }
 
     std::vector<float> positive_numbers = get_positive(numbers);
