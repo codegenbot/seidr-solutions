@@ -13,22 +13,23 @@ int main() {
 }
 
 string spinWords(string str) {
-    string word = "";
     string result = "";
+    string word = "";
 
-    for (char c : str) {
-        if (c == ' ') {
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
             if (word.length() >= 5) {
                 result += word;
                 word = std::string(word.rbegin(), word.rend());
                 result += " ";
                 word = "";
             } else {
-                result += word + " ";
+                result += word;
+                result += " ";
                 word = "";
             }
         } else {
-            word += c;
+            word += str[i];
         }
     }
 
