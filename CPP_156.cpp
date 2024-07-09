@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <vector>
 #include <ostream>
@@ -21,7 +22,7 @@ std::string toMiniRoman(int number) {
     return result;
 }
 
-int miniroman() {
+int main() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
