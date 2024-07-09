@@ -28,7 +28,6 @@ int main() {
                 break; 
             }
         }
-        a.reserve(a.size() + 1);
         a.push_back(x);
     }
 
@@ -43,9 +42,11 @@ int main() {
                 break; 
             }
         }
-        b.reserve(b.size() + 1);
         b.push_back(x);
     }
+
+    a.reserve(n); 
+    b.reserve(n);
 
     if (filter_integers(a, b))
         std::cout << "The two vectors are the same." << std::endl;
