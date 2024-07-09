@@ -1,17 +1,18 @@
-#include <iostream>
+#include <vector>
 #include <string>
-using namespace std;
 
-string match_parens(vector<string> lst) {
+std::vector<std::string> lst = {"(abc)", "(def)"};
+
+int match_parens(const std::vector<std::string>& v) {
     int totalOpen = 0, totalClose = 0;
-    
-    for(auto str : lst) {
+
+    for(auto str : v) {
         for(char c : str) {
             if(c == '(') totalOpen++;
             else if(c == ')') totalClose++;
         }
     }
-    
+
     if(totalOpen == totalClose)
         return "Yes";
     else
@@ -19,17 +20,5 @@ string match_parens(vector<string> lst) {
 }
 
 int main() {
-    vector<string> input;
-    string temp;
-
-    while (true) {
-        cin >> temp;
-        if (temp == "0")
-            break;
-        input.push_back(temp);
-    }
-
-    cout << match_parens(input);
-
-    return 0;
+    std::cout << match_parens(lst);
 }
