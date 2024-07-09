@@ -1,21 +1,20 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 bool move_one_ball(std::vector<int> arr) {
-    int n = arr.size();
-    if (n == 0)
-        return true;
-
-    for (int i = 1; i < n; i++) {
-        if (arr[i] <= arr[0]) {
+    int i = 0;
+    while (i < arr.size() - 1) {
+        if (arr[i] > arr[i + 1]) {
             return false;
         }
+        i++;
     }
-
     return true;
 }
 
 int main() {
-    assert(move_one_ball({})==true);
+    assert(move_one_ball({}) == true);
     return 0;
 }
