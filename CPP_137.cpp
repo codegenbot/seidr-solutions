@@ -1,3 +1,4 @@
+#include <iostream>
 #include <any>
 #include <string>
 #include <cassert>
@@ -26,6 +27,6 @@ std::any compare_one(std::any a, std::any b) {
 }
 
 int main() {
-    assert (std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
+    assert(std::any_cast<std::string>(std::any_cast<std::any>(compare_one(1, 2))) == "None");
     return 0;
 }
