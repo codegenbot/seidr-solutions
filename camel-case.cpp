@@ -9,7 +9,11 @@ std::string camelCase(const std::string& str) {
         if (c == '-' || c == ' ') { 
             capitalize = true; 
         } else if (capitalize) {
-            result += toupper(c);
+            if (!result.empty()) {
+                result += toupper(c);
+            } else {
+                result += tolower(c); // Make sure the first char is lowercase
+            }
             capitalize = false; 
         } else {
             result += tolower(c);
@@ -21,7 +25,7 @@ std::string camelCase(const std::string& str) {
 
 int main() {
     std::string input;
-    std::getline(std::cin, input);
+    std::cin >> input;
     std::cout << camelCase(input) << std::endl;
     return 0;
 }

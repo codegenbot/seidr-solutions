@@ -14,13 +14,6 @@ int main() {
 
     double bouncinessIndex = firstBounce / startHeight;
 
-    std::stringstream ss;
-    ss << std::to_string(startHeight);
-    ss << " ";
-    ss << std::to_string(firstBounce);
-    ss << "\n";
-    ss << std::to_string(numBounces);
-
-    std::cout << ss.str();
+    std::cout << startHeight << " " << firstBounce << "\n" << numBounces;
     return 0;
 }
