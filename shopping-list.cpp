@@ -8,3 +8,4 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
             total += price;
     }
     return total;
+}
