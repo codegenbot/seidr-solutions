@@ -1,18 +1,23 @@
 double find_zero(vector<double> xs) {
-    vector<double> coeffs;
+    double coeffs = xs[0];
+    vector<double> polyCoeffs;
     int n = xs.size();
-    if (n > 0)
-        coeffs.push_back(1);
     for (int i = 1; i < n; i++) {
         if ((i & 1) == 0) {
-            coeffs.push_back(-xs[0]*xs[i]);
+            polyCoeffs.insert(polyCoeffs.begin(), -coeffs * xs[i]);
         } else {
-            xs[0] = xs[i];
+            coeffs = xs[i];
         }
     }
-    double solution = 0;
-    int degree = coeffs.size() - 1;
-    for (int i = degree; i >= 0; --i)
-        solution += coeffs[i] * pow(xs[0], i);
+    double solution;
+    if (polyCoeffs.size() > 1) {
+        double sum = 0.0;
+        for (int i = 0; i < polyCoeffs.size(); i++) {
+            sum += pow(xs[0],i)*polyCoeffs[i];
+        }
+        solution = -sum / xs[0];
+    } else {
+        solution = 0.0;
+    }
     return solution;
 }
