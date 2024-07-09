@@ -17,13 +17,13 @@ string make_palindrome(string str){
     int len = str.length();
     if(len % 2 == 1) {
         return str.substr(0, (len / 2) + 1) + 
-               string(str.substr(len / 2, 1).rbegin(), str.substr(len / 2, 1).rbegin() + 1) +
-               string(str.substr(len / 2, 1).rbegin(), str.substr(len / 2, 1).rbegin() + 1) + 
+               std::string(str.substr(len / 2, 1).rbegin(), str.substr(len / 2, 1).rbegin() + 1) +
+               std::string(str.substr(len / 2, 1).rbegin(), str.substr(len / 2, 1).rbegin() + 1) + 
                str.substr((len / 2) + 1);
     } else {
         return str.substr(0, len / 2) + 
-               string(str.substr(len / 2, 1).rbegin(), str.substr(len / 2, 1).rbegin() + 1) +
-               string(str.substr(len / 2, 1).rbegin(), str.substr(len / 2, 1).rbegin() + 1) + 
+               std::string(str.substr(len / 2, 1).rbegin(), str.substr(len / 2, 1).rbegin() + 1) +
+               std::string(str.substr(len / 2, 1).rbegin(), str.substr(len / 2, 1).rbegin() + 1) + 
                str.substr(len / 2);
     }
 }
