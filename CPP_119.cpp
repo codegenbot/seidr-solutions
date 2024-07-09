@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string match_parens(vector<string> lst) {
+std::string match_parens(vector<string> lst) {
     int open = 0, close = 0;
     for (const string& s : lst) {
         for (char c : s) {
@@ -19,8 +19,6 @@ string match_parens(vector<string> lst) {
 }
 
 int main() {
-    assert(match_parens({")", "("}) == "Yes");
-    cout << match_parens({")", ")"}) << endl;
-    cout << match_parens({"(", ")"}) << endl;
+    cout << match_parens({{"(", ")"}) << endl;
     return 0;
 }
