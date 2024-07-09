@@ -1,41 +1,6 @@
-#include <cassert>
-#include <string>
-#include <vector>
-
-using namespace std;
-
-vector<string> splitString(string str) {
-    vector<string> words;
-    string word;
-    for(int i = 0; i < str.length(); i++) {
-        if(str[i] == ' ') {
-            words.push_back(word);
-            word = "";
-        } else {
-            word += str[i];
-        }
-    }
-    words.push_back(word);
-    return words;
-}
-
-bool isSameVectors(vector<string> a, vector<string> b) { 
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    // Original code
-}
-
+```cpp
 int testMain() {
-    assert(isSameVectors(splitString("ahmed     , gamal"), {"ahmed", "gamal"}));
+    vector<string> actual = splitString("ahmed     , gamal");
+    assert(isSameVectors(actual, {"ahmed", "gamal"}));
     return 0;
 }
