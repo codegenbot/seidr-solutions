@@ -2,7 +2,11 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
@@ -30,7 +34,7 @@ int main() {
     
     std::vector<int> output = strange_sort_list(input);
     
-    if (issame(output, {1,2,3,4,5,6})) {
+    if (issame(output, {111111})) {
         std::cout << "True" << std::endl;
     } else {
         std::cout << "False" << std::endl;
