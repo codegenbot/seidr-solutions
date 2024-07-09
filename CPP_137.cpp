@@ -2,7 +2,6 @@
 #include <string>
 #include <iostream>
 #include <cassert>
-#include <boost/assert.hpp>
 
 using namespace std;
 
@@ -32,9 +31,9 @@ variant<int, float, string> compare_one(const variant<int, float, string>& a, co
 }
 
 int main() {
-    BOOST_ASSERT(boost::any_cast<int>(compare_one(10, 5)) == 10);
-    BOOST_ASSERT_MSG(boost::any_cast<string>(compare_one(string("one"), string("two"))) == "two", "String comparison failed");
-    BOOST_ASSERT_MSG(boost::any_cast<string>(compare_one(string("None"), string("None"))) == "None", "String comparison failed");
+    assert(get<int>(compare_one(10, 5)) == 10);
+    assert(get<string>(compare_one(string("one"), string("two"))) == "two");
+    assert(get<string>(compare_one(string("None"), string("None"))) == "None");
 
     return 0;
 }
