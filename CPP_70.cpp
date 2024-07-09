@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-bool same(vector<vector<int>>& a, vector<vector<int>>& b) {
+bool issame(vector<vector<int>>& a, vector<vector<int>>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -34,6 +36,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    assert(same({{111111}}, {{111111}}));
-    return 0;
+    assert(issame({{1, 2}, {3, 4}}, {{2, 1}, {4, 3}}));
+    vector<int> result = strange_sort_vector({111111});
 }
