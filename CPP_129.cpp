@@ -1,33 +1,49 @@
-vector<int> minPath(vector<vector<int>> grid, int k){
-        int n = grid.size();
-        int m = grid[0].size();
-        vector<vector<vector<int>>> dp(n, vector<vector<int>>(m, vector<int>(k+1, INT_MAX)));
-        
-        dp[0][0][0] = 0;
-        
-        for(int steps=1; steps<=k; steps++){
-            for(int i=0; i<n; i++){
-                for(int j=0; j<m; j++){
-                    dp[i][j][steps] = min(dp[i][j][steps], dp[i][j][steps-1]+1);
-                    if(i > 0){
-                        dp[i][j][steps] = min(dp[i][j][steps], dp[i-1][j][steps-1]+issame(grid[i][j], grid[i-1][j]));
-                    }
-                    if(j > 0){
-                        dp[i][j][steps] = min(dp[i][j][steps], dp[i][j-1][steps-1]+issame(grid[i][j], grid[i][j-1]));
-                    }
-                }
-            }
-        }
-        
-        int ans = dp[n-1][m-1][k];
-        return ans == INT_MAX ? -1 : ans;
+int n = grid.size();
+    int m = grid[0].size();
+    
+    vector<vector<int>> dp(n, vector<int>(m, INT_MAX));
+    dp[0][0] = grid[0][0];
+    
+    for(int i = 1; i < n; ++i){
+        dp[i][0] = dp[i - 1][0] + grid[i][0];
     }
     
-    int issame(int a, int b){
-        return a == b ? 0 : 1;
+    for(int j = 1; j < m; ++j){
+        dp[0][j] = dp[0][j - 1] + grid[0][j];
     }
-
-    int main() {
-        // Your code here
-        return 0;
+    
+    for(int i = 1; i < n; ++i){
+        for(int j = 1; j < m; ++j){
+            dp[i][j] = grid[i][j] + min(dp[i - 1][j], dp[i][j - 1]);
+        }
     }
+    
+    vector<int> path;
+    int i = n - 1, j = m - 1;
+    path.push_back(grid[i][j]);
+    
+    while(i > 0 || j > 0){
+        if(i == 0){
+            path.push_back(grid[i][j - 1]);
+            j--;
+        }
+        else if(j == 0){
+            path.push_back(grid[i - 1][j]);
+            i--;
+        }
+        else{
+            if(dp[i - 1][j] < dp[i][j - 1]){
+                path.push_back(grid[i - 1][j]);
+                i--;
+            }
+            else{
+                path.push_back(grid[i][j - 1]);
+                j--;
+            }
+        }
+    }
+    
+    reverse(path.begin(), path.end());
+    
+    int sum = accumulate(path.begin(), path.end(), 0);
+    return sum <= k;
