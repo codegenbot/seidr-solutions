@@ -2,25 +2,35 @@
 #include <iostream>
 #include <string>
 
-std::string decipher(std::string cipher_map1, std::string cipher_map2, std::string message) {
-    std::string decrypted_message;
-    for (int i = 0; i < message.length(); i++) {
-        if (cipher_map1[i] == cipher_map2[i]) {
-            decrypted_message += cipher_map1[i];
+std::string decipher(const std::string& cipherText, const std::string& mapping) {
+    std::string deciphered = "";
+    for (char c : cipherText) {
+        int idx = mapping.find(c);
+        if (idx != std::string::npos) {
+            deciphered += mapping[idx];
         } else {
-            int j = 0;
-            while (j < cipher_map1.length() && cipher_map1[j] != cipher_map2[i]) {
-                j++;
-            }
-            decrypted_message += cipher_map1[j];
+            deciphered += c; // If the character is not found in the mapping, leave it as it is
         }
     }
-    return decrypted_message;
+    return deciphered;
 }
 
 int main() {
-    std::string cipher_map1, cipher_map2, message;
-    std::cin >> cipher_map1 >> cipher_map2 >> message;
-    std::cout << decipher(cipher_map1, cipher_map2, message) << std::endl;
+    std::string cipherText1, cipherText2, deciphered;
+    std::cout << "Enter the first two strings (cipher): ";
+    std::cin >> cipherText1 >> cipherText2;
+    std::cout << "Enter the string to be deciphered: ";
+    std::cin >> deciphered;
+
+    std::string mapping = "";
+    for (char c : cipherText1) {
+        if (!mapping.empty() && mapping[mapping.size()-1] == c) {
+            break; // We have reached the end of the mapping
+        }
+        mapping += c;
+    }
+
+    std::cout << "Deciphered message: " << decipher(deciphered, mapping) << std::endl;
+
     return 0;
 }
