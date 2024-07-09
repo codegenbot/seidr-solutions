@@ -1,16 +1,5 @@
-def below_zero(operations: List[int]) -> bool:
-    balance = 0
-    for operation in operations:
-        balance += operation
-        if balance < 0:
-            return True
-    return False
+`operations = list(map(int, input().split()))`
 
-# Read input from the user
-input_list = list(map(int, input().split()))
+`result = below_zero(operations)`
 
-# Call the function with the input
-result = below_zero(input_list)
-
-# Output the result
-print(result)
+`print(result)`
