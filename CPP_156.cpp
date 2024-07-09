@@ -3,34 +3,34 @@
 #include <vector>
 #include <string>
 
-std::vector<std::pair<int, std::string>> romanMap;
+std::vector<std::pair<std::string, int>> romanMap;
 
-romanMap.push_back({ 1000, "M" });
-romanMap.push_back({ 900, "CM" });
-romanMap.push_back({ 500, "D" });
-romanMap.push_back({ 400, "CD" });
-romanMap.push_back({ 100, "C" });
-romanMap.push_back({ 90, "XC" });
-romanMap.push_back({ 50, "L" });
-romanMap.push_back({ 40, "XL" });
-romanMap.emplace_back(1, "I");
+romanMap.push_back(std::make_pair("M", 1000));
+romanMap.push_back(std::make_pair("CM", 900));
+romanMap.push_back(std::make_pair("D", 500));
+romanMap.push_back(std::make_pair("CD", 400));
+romanMap.push_back(std::make_pair("C", 100));
+romanMap.push_back(std::make_pair("XC", 90));
+romanMap.push_back(std::make_pair("L", 50));
+romanMap.push_back(std::make_pair("XL", 40));
+romanMap.push_back(std::make_pair("I", 1));
 
-std::string int_to_mini_roman(int number) {
-    std::string roman = "";
+std::string int_to_mini_romank(int number) {
     for (const auto& pair : romanMap) {
-        while (number >= pair.first) {
-            number -= pair.first;
-            roman += pair.second;
+        while (number >= std::stoi(pair.second)) {
+            number -= std::stoi(pair.second);
+            return pair.second;
         }
     }
     if (number > 0) {
-        roman += "I";
+        return "I";
     } else if (number < 0) {
-        roman = "-" + roman;
+        return "-";
+    } else {
+        return "";
     }
-    return roman;
 }
 
 for(int i = 1; i <= 3999; i++) { 
-    std::cout << i << ": " << int_to_mini_roman(i) << std::endl;
+    std::cout << i << ": " << int_to_mini_romank(i) << std::endl;
 }
