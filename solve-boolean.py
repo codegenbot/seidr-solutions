@@ -1,7 +1,7 @@
 def solve_boolean(expression):
     if "&" in expression:
-        return eval(f"{expression.replace('&', 'and').replace('|', 'or')}")
+        return eval(f"({expression.replace('&', 'and').replace('|', 'or')})")
     elif "|" in expression:
         parts = expression.split("|")
-        result = (solve_boolean(parts[0]) or solve_boolean(parts[1]))
+        result = all(solve_boolean(part) for part in parts)
         return f"({result})"
