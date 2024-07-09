@@ -1,12 +1,11 @@
 ```
 #include <algorithm>
 #include <vector>
+#include <string>
 
 bool issame(const std::string& a, const std::string& b) {
-    if (a.length() % 2 && b.length() % 2)
-        return true;
-    else
-        return false;
+    if (a.length() % 2 && b.length() % 2) return true;
+    return false;
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
