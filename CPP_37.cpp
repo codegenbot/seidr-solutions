@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 
 bool issame(vector<float> a,vector<float>b){
     if(a.size() != b.size()) return false;
