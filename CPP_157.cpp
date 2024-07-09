@@ -1,4 +1,3 @@
-return (pow(a, 2) + pow(b, 2) == pow(c, 2) || 
-            pow(b, 2) + pow(c, 2) == pow(a, 2) || 
-            pow(c, 2) + pow(a, 2) == pow(b, 2));
+bool right_angle_triangle(int a, int b, int c) {
+    return (a * a + b * b == c * c || a * a + c * c == b * b || b * b + c * c == a * a);
 }
