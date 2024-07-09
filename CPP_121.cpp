@@ -1,6 +1,6 @@
-#include <vector>
-using namespace std;
+Here is the completed code:
 
+```cpp
 int solution(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
