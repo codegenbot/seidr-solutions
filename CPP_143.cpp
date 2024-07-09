@@ -18,7 +18,7 @@ std::vector<std::string> split(const std::string& str, char delimiter) {
 }
 
 std::vector<int> words_in_sentence(std::string sentence) {
-    std::vector<int> wordLengths(0); // Initialize here
+    std::vector<int> wordLengths{}; 
     std::string result = "";
 
     for (const auto& word : split(sentence, ' ')) {
@@ -35,12 +35,12 @@ std::vector<int> words_in_sentence(std::string sentence) {
 
             if (isPrime) {
                 result += word + " ";
-                wordLengths.push_back(length);
+                wordLengths.push_back(1); 
             }
         }
     }
 
-    return wordLengths; // Return the actual vector
+    return wordLengths; 
 }
 
 int main() {
