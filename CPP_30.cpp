@@ -1,15 +1,25 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-using namespace std;
+bool issame(vector<float> a, vector<float> b);
+vector<float> get_positive(vector<float> l);
 
-bool issame(const vector<float>& l) {
+void main() {
+    vector<float> pos_nums = get_positive({-1, 0, 2, -3, 4});
+    assert(issame(get_positive({}), {}) && "Test Failed");
+    return;
+}
+
+bool issame(vector<float> a, vector<float> b) {
     bool same = true;
-    if (!l.empty()) {
-        auto first = l[0];
-        for (float num : l) {
-            if (num != first)
+    if (!a.empty() && !b.empty()) {
+        auto first_a = a[0];
+        for (float num : a) {
+            if (num != first_a)
+                return false;
+        }
+        for (float num : b) {
+            if (num != first_a)
                 return false;
         }
         return true;
@@ -24,10 +34,4 @@ vector<float> get_positive(vector<float> l) {
             result.push_back(num);
     }
     return result;
-
-}
-
-int main() {
-    assert(issame(get_positive({}), {}));
-    return 0;
 }
