@@ -37,9 +37,9 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         rev += temp[i];
     }
     if (temp == rev) {
-        result.push_back("True");
+        result.push_back(std::to_string(true));
     } else {
-        result.push_back("False");
+        result.push_back(std::to_string(false));
     }
     return result;
 }
