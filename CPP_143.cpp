@@ -10,13 +10,13 @@ int main() {
     cout << "Enter a sentence: ";
     getline(cin, sentence);
     
-    words_in_sentence(sentence);
+    istringstream ss(sentence);
+    words_in_sentence(ss);
     cout << endl;
     return 0;
 }
 
-void words_in_sentence(string sentence) {
-    stringstream ss(sentence); // Use stringstream instead of istringstream
+void words_in_sentence(istringstream ss) {
     string word;
     int count = 0;
 
