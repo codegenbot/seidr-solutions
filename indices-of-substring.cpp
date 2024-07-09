@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -19,9 +18,10 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text;
-    getline(cin, text);
+    cin >> text;
+    cin.ignore();
     string target;
-    getline(cin, target);
+    cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
 
