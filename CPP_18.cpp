@@ -1,12 +1,10 @@
-int how_many_times(const string& str, const string& substring) {
+int how_many_times(const std::string& str, const std::string& substring) {
     int count = 0;
     size_t pos = 0;
-    
-    string local_str = str; // create a local copy of the string
-    
-    while ((pos = local_str.find(substring)) != string::npos) {
+
+    while ((pos = str.find(substring)) != std::string::npos) {
         count++;
-        local_str.erase(0, pos + substring.length()); // modify the local copy
+        str.erase(0, pos + substring.length());
     }
     return count;
 
