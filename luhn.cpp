@@ -1,10 +1,7 @@
-```cpp
-#include <vector>
-
-int luhn(std::vector<int> ccNum) {
+int luhn(int numbers[]) {
     long long sum = 0;
     for (int i = 0; i < 16; i++) {
-        int digit = ccNum[i];
+        int digit = numbers[i];
         if ((i % 2 == 1)) {
             digit *= 2;
             if (digit > 9)
@@ -23,9 +20,8 @@ int luhn(std::vector<int> ccNum) {
         sum /= 10;
     }
     return static_cast<int>(result);
-
 }
 
 int main() {
-    return luhn(std::vector<int>{}); 
+    return luhn({4,2,8,6,2,1,1,7,9,3,5,1,4,3,9,0});
 }
