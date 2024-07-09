@@ -1,3 +1,4 @@
+```
 def basement(v):
     total = sum(v[:1])  
     if total < 0:
