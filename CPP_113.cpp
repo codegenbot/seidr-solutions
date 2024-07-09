@@ -28,7 +28,7 @@ vector<string> odd_count(vector<string> lst) {
     return result;
 }
 
-int main() {
+int solution() {
     int n;
     cin >> n;
 
@@ -43,5 +43,10 @@ int main() {
     vector<string> output = odd_count(lst);
     displayOutput(output);
 
+    return 0;
+}
+
+int main() {
+    solution();
     return 0;
 }
