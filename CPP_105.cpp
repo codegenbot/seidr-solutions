@@ -1,59 +1,45 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+bool issame(vector<string> a,vector<string>b){
+    if(a.size()!=b.size()) return false;
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=b[i]) return false;
     }
     return true;
 }
 
 vector<string> by_length(vector<int> arr) {
-    vector<string> numbers;
+    vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            switch (num) {
-                case 1:
-                    numbers.push_back("One");
-                    break;
-                case 2:
-                    numbers.push_back("Two");
-                    break;
-                case 3:
-                    numbers.push_back("Three");
-                    break;
-                case 4:
-                    numbers.push_back("Four");
-                    break;
-                case 5:
-                    numbers.push_back("Five");
-                    break;
-                case 6:
-                    numbers.push_back("Six");
-                    break;
-                case 7:
-                    numbers.push_back("Seven");
-                    break;
-                case 8:
-                    numbers.push_back("Eight");
-                    break;
-                case 9:
-                    numbers.push_back("Nine");
-                    break;
-            }
+            numbers.push_back(num);
         }
     }
-
     sort(numbers.begin(), numbers.end());
     reverse(numbers.begin(), numbers.end());
-
-    return numbers;
+    vector<string> result;
+    for (int num : numbers) {
+        string str = "";
+        switch (num) {
+            case 1: str = "One"; break;
+            case 2: str = "Two"; break;
+            case 3: str = "Three"; break;
+            case 4: str = "Four"; break;
+            case 5: str = "Five"; break;
+            case 6: str = "Six"; break;
+            case 7: str = "Seven"; break;
+            case 8: str = "Eight"; break;
+            case 9: str = "Nine"; break;
+        }
+        result.push_back(str);
+    }
+    return result;
 }
 
 int main() {
-    assert(issame(by_length({9, 4, 8}), vector<string>({"Nine", "Eight", "Four"})));
-    // ...
+    vector<int> arr = {9, 4, 8};
+    assert(issame(by_length(arr), {"Nine", "Eight", "Four"}));
+    return 0;
 }
