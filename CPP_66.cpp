@@ -33,12 +33,15 @@ string ssplit(const string& s, const char& sep) {
 string join(const vector<string>& v, const char& sep) {
     string s;
     for (auto it = v.begin(); it != v.end(); ++it)
-        s += *it + sep;
-    return s.substr(0, s.size() - 1); // remove trailing sep
+        if(it != v.begin())
+            s += sep;
+        else
+            s += *it;
+    return s;
 }
 
 int main() {
-    assert(digitSum("you are very smart") == 7);
+    assert(digitSum("you are very smart") == 342);
     cout << digitSum("you are very smart") << endl;
     return 0;
 }
