@@ -1,9 +1,3 @@
-#include <boost/any.hpp>
-#include <string>
-#include <cmath>
-
-using namespace std;
-
 any compareOne(any a, any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         int x = boost::any_cast<int>(a);
