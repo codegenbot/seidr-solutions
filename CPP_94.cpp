@@ -1,12 +1,10 @@
-#include <iostream>
+```cpp
 #include <vector>
-
-using namespace std;
+#include <cassert>
 
 int main() {
-    vector<int> numbers = {127, 97, 8192};
-    int sumOfDigits = skjkasdkd(numbers);
-    cout << "Sum of digits: " << sumOfDigits;
+    assert(skkkasdkd({127, 97, 8192}) == 10);
+    return 0;
 }
 
 int skjkasdkd(vector<int> lst){
