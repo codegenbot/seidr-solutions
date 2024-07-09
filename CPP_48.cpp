@@ -10,3 +10,8 @@ bool is_palindrome(const string& text) {
     }
     return true;
 }
+
+int main() {
+    assert (is_palindrome("xywzx") == false);
+    return 0;
+}
