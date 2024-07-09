@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <cmath>
 
 int do_algebra(vector<string> operators, vector<int> operands) {
     int result = operands[0];
@@ -13,8 +13,8 @@ int do_algebra(vector<string> operators, vector<int> operands) {
             result *= operands[i + 1];
         } else if (operators[i] == "/") {
             result /= operands[i + 1];
-        } else if (operators[i] == "**" || operators[i] == "^") {
-            result = pow(result, operands[i + 1]);
+        } else if (operators[i] == "**") {
+            result = pow(operands[0], operands[1]);
         }
     }
     return result;
