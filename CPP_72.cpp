@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 using namespace std;
@@ -17,14 +16,27 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    vector<int> quadcopter_weights = {10, 20, 30, 40, 50};
-    int weight_limit = 100;
+    vector<int> q;
+    int w;
 
-    if(will_it_fly(quadcopter_weights, weight_limit)) {
-        cout << "The quadcopter will fly." << endl;
-    } else {
-        cout << "The quadcopter won't fly." << endl;
+    cout << "Enter the number of queries: ";
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        cout << "Enter query " << i + 1 << ": ";
+        int num;
+        cin >> num;
+        q.push_back(num);
     }
+
+    cout << "Enter the weight: ";
+    cin >> w;
+
+    if(will_it_fly(q, w))
+        cout << "It will fly.\n";
+    else
+        cout << "It won't fly.\n";
 
     return 0;
 }
