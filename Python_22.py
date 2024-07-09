@@ -1,4 +1,3 @@
-```
 def filter_integers(values):
     integer_values = [value for value in values if value.isdigit()]
     return ' '.join(integer_values)
