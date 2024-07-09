@@ -1,25 +1,20 @@
-#include <map>
+#include <string>
+#include <vector>
 #include <algorithm>
 
-string find_max(vector<string> words) {
-    map<string, int> uniqueCount;
-    
-    for (const string& word : words) {
-        set<char> s(word.begin(), word.end());
-        uniqueCount[word] = s.size();
-    }
-    
-    string maxUniqueWord = *uniqueCount.begin()->first;
-    int maxUnique = uniqueCount[maxUniqueWord];
-    
-    for (const auto& pair : uniqueCount) {
-        if (pair.second > maxUnique) {
-            maxUnique = pair.second;
-            maxUniqueWord = pair.first;
-        } else if (pair.second == maxUnique && pair.first < maxUniqueWord) {
-            maxUniqueWord = pair.first;
-        }
-    }
-    
-    return maxUniqueWord;
+int find_max(std::vector<std::string> words){
+    int max_length = 0;
+    std::string max_word = *std::max_element(words.begin(), words.end(),
+        [&max_length](const std::string& a, const std::string& b) {
+            if(a.length() > b.length()) return false;
+            else if(a.length() < b.length()) return true;
+            else {
+                for(size_t i = 0; i < a.length(); ++i) {
+                    if(unique(a.begin(), a.end())[i] != unique(b.begin(), b.end())[i]) 
+                        return a[i] < b[i];
+                    }
+                return false;
+            }
+        });
+    return max_word.length();
 }
