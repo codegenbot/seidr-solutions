@@ -1,11 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-std::vector<float> sort_even(const std::vector<float>& l) {
-    std::vector<float> even_values;
-    std::vector<float> result;
+vector<float> sort_even(vector<float> l) {
+    vector<float> even_values;
+    vector<float> result;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
@@ -13,7 +8,7 @@ std::vector<float> sort_even(const std::vector<float>& l) {
         }
     }
 
-    std::sort(even_values.begin(), even_values.end());
+    sort(even_values.begin(), even_values.end());
 
     int even_index = 0;
     for (int i = 0; i < l.size(); i++) {
@@ -28,12 +23,12 @@ std::vector<float> sort_even(const std::vector<float>& l) {
     return result;
 }
 
-void test_sort_even() {
-    assert((sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) == std::vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
-}
-
 int main() {
-    test_sort_even();
-    std::cout << "All test cases pass.";
+    vector<float> input = {3.5, 2.1, 4.7, 1.2, 5.6};
+    vector<float> expected_output = {1.2, 2.1, 4.7, 3.5, 5.6};
+    vector<float> output = sort_even(input);
+
+    assert(equal(output.begin(), output.end(), expected_output.begin()));
+    
     return 0;
 }
