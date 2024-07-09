@@ -17,7 +17,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
             result.push_back(str);
         }
     }
-    std::sort(result.begin(), result.end(),
+    sort(result.begin(), result.end(),
          [](const std::string& a, const std::string& b) {
              if (a.length() != b.length()) {
                  return a.length() < b.length();
