@@ -17,10 +17,12 @@ int main() {
     std::vector<float> lst;  
     float val;
     int size;
-    
+
+    // Get the size of the vector from the user
     std::cout << "Enter the number of elements: ";
     std::cin >> size;
 
+    // Add elements to the vector from the user
     for(int i = 0; i < size; i++) {
         std::cout << "Enter element " << (i+1) << ": ";
         std::cin >> val;
@@ -29,7 +31,8 @@ int main() {
 
     long long odd_sum = double_the_difference(lst);
 
-    assert(double_the_difference(lst) == odd_sum);  // Check the sum
+    // Check the sum
+    assert(double_the_difference(lst) == odd_sum );
 
     return 0;
 }
