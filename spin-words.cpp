@@ -35,6 +35,5 @@ string spinWords(string str) {
 }
 
 int main() {
-    cout << spinWords("Hello world this is a test string") << endl;
-    return 0;
+    return spinWords("This is a test string");
 }
