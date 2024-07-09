@@ -1,20 +1,26 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <cmath>
+
+const float EPS = 1e-6;
 
 void rescale_to_unit(std::vector<float>& numbers) {
     float min_num = *std::min_element(numbers.begin(), numbers.end());
     float max_num = *std::max_element(numbers.begin(), numbers.end());
     
     for (float &num : numbers) {
-        num = (num - min_num) / (max_num - min_num);
+        num = (num - min_num) / (max_num - min_num + EPS);
     }
 }
 
-int main() {
-    std::vector<float> input = {12.0, 11.0, 15.0, 13.0, 14.0};
-    rescale_to_unit(input);
-    assert(std::equal(input.begin(), input.end(), {0.25, 0.0, 1.0, 0.5, 0.75}));
+bool issame(const std::vector<float>& vec1, const std::vector<float>& vec2) {
+    if(vec1.size() != vec2.size())
+        return false;
     
-    return 0;
+    for(size_t i = 0; i < vec1.size(); ++i) {
+        if(std::abs(vec1[i] - vec2[i]) > EPS)
+            return false;
+    }
+    
+    return true;
 }
