@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -8,6 +8,9 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>>(n, vector<bool>(n, false)) visited;
     priority_queue<pair<int, pair<int, int>>> pq;
+
+    pq = vector<pair<int, pair<int, int>>>();
+    vector<vector<bool>>(n, vector<bool>(n, false)) visited;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
