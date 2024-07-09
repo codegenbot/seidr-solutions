@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -12,10 +11,12 @@ std::vector<std::string> all_prefixes(const std::string& str) {
 
 bool issame(const std::vector<std::string>& vec) {  
     const std::vector<std::string> expected = {"W", "WW", "WWW"};
-    return vec.size() == expected.size() && std::equal(vec.begin(), vec.end(), expected.begin());
+    return vec == expected;
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW")));
+    std::vector<std::string> result;
+    result = all_prefixes("WWW");
+    assert(issame(result));
     return 0;
 }
