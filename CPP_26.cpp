@@ -11,7 +11,7 @@ std::vector<int> remove_duplicates(std::vector<int> numbers){
     return result;
 }
 
-bool same(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size() != b.size()) return false;
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
@@ -22,6 +22,8 @@ bool same(std::vector<int> a, std::vector<int> b){
 }
 
 int main() {
-    assert(same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
+    int nums[] = {1, 2, 3, 2, 4, 3, 5};
+    std::vector<int> numbers(nums, nums + sizeof(nums)/sizeof(nums[0]));
+    assert(issame(remove_duplicates(numbers), std::vector<int>{1, 4, 5}));
     return 0;
 }

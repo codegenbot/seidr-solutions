@@ -1,37 +1,25 @@
 #include <vector>
 #include <string>
-using namespace std;
 
-bool same(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        size_t found = b[i].find(a[i]);
-        if (found == string::npos) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring) {
-    vector<vector<string>> result;
-    for (vector<string> s : strings) {
-        bool same = true;
-        for (string str : s) {
-            size_t found = str.find(substring);
-            if (found == string::npos) {
-                same = false;
-                break;
-            }
-        }
-        if (same) {
-            result.push_back({{substring}});
-        } else {
-            result.push_back(s);
+std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std::string>& input, const std::string& sub) {
+    std::vector<std::vector<std::string>> result;
+    
+    for (const auto& str : input) {
+        if (str.find(sub) != std::string::npos) {
+            result.push_back({{str}});
         }
     }
-    assert(same(filter_by_substring(vector<vector<string>>({{"grunt", "trumpet", "prune", "gruesome"}}, "run") ) , vector<vector<string>>({{"grunt", "prune"}})));
+    
     return result;
+}
+
+int main() {
+    vector<vector<string>> result = filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, "gru");
+    // Call the functions
+    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
+    return 0;
 }

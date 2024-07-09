@@ -1,18 +1,8 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
-#include <cmath>
 
 int main() {
-    int n;
-    std::vector<int> l;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        int x;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x;
-        l.push_back(x);
-    }
-    
+    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
     return *std::max_element(l.begin(), l.end());
 }
