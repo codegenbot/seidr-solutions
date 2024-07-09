@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -31,24 +30,10 @@ vector<string> numerical_letter_grade(vector<string> grades) {
 }
 
 int main() {
-    vector<string> grades1 = {"0.0", "0.7"};
-    vector<string> result1;
+    vector<string> grades1 = std::vector<string>({"0.0", "0.7"});
+    vector<string> result1 = numerical_letter_grade(grades1);
 
-    for (string grade : grades1) {
-        float f = stof(grade);
-        if (f < 0.9)
-            result1.push_back("F");
-        else if (f >= 0.9 && f < 1.0)
-            result1.push_back("A");
-        else if (f >= 0.8 && f < 0.9)
-            result1.push_back("B");
-        else if (f >= 0.7 && f < 0.8)
-            result1.push_back("C");
-        else
-            result1.push_back("D+");
-    }
-
-    if (checkResults(result1, numerical_letter_grade(vector<string> {{"0.0"}, {"0.7"}}))) {
+    if (checkResults(result1, grades1)) {
         cout << "The two vectors are the same." << endl;
     } else {
         cout << "The two vectors are not the same." << endl;
