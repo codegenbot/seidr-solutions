@@ -4,7 +4,6 @@
 #include <cctype>
 #include <cassert>
 #include <initializer_list>
-#include <iostream>
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -24,8 +23,4 @@ bool check_dict_case(map<string, string> dict) {
     return allLower || allUpper;
 }
 
-int main() {
-    assert(check_dict_case({}) == false);
-    cout << check_dict_case(map<string, string>{{"hello", "Hello"}}) << endl; 
-    return 0;
-}
+assert(check_dict_case({}) == false);
