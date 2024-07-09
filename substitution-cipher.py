@@ -2,11 +2,11 @@ def substitution_cipher(cipher1, cipher2, message):
     result = ""
     for char in message:
         if char.isalpha():
-            index = ord(char.upper()) - ord("A")
             if char.isupper():
-                result += cipher2[index].upper()
+                index = ord(char) - ord("A")
             else:
-                result += cipher2[index].lower()
+                index = ord(char) - ord("a")
+            result += cipher2[index].lower()  
         else:
-            result += char  # Leave non-alphabet characters unchanged
+            result += char
     return result
