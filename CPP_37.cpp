@@ -17,12 +17,7 @@ vector<float> sort_even(vector<float> l) {
                 }
             }
             sort(evenVals.begin(), evenVals.end());
-            while (!issame({evenVals[0]}, {result.back()})) {
-                result.push_back(evenVals[0]);
-                evenVals.erase(evenVals.begin());
-                if (evenVals.empty()) break;
-                sort(evenVals.begin(), evenVals.end());
-            }
+            result.push_back(evenVals[0]);
         } else {
             result.push_back(l[i]);
         }
