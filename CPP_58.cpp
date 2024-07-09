@@ -1,18 +1,28 @@
 #include <vector>
-#include <algorithm>
 #include <set>
 
-using namespace std;
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
-vector<int> common(vector<int> l1, vector<int> l2) {
-    set<int> s1(l1.begin(), l1.end());
-    set<int> s2(l2.begin(), l2.end());
+std::vector<int> common(const std::vector<int>& a, const std::vector<int>& b) {
+    std::set<int> setA(a.begin(), a.end());
+    std::set<int> setB(b.begin(), b.end());
+    std::vector<int> intersection;
+    std::set_difference(setA.begin(), setA.end(), setB.begin(), setB.end(),
+        inserter(intersection, intersection.begin()));
+    return intersection;
+}
 
-    set<int> intersection; 
-    intersection.insert(set_difference(s1.begin(), s1.end(), s2.end(),
-        inserter(intersection, intersection.begin())).end(), 
-        set_difference(s1.begin(), s1.end(), s2.end()).end());
-    
-    vector<int> result(intersection.begin(), intersection.end());
-    return result;
+int main() {
+    assert(isSame(common({4, 3, 2, 8}, {}), {}));
+    // ...
 }
