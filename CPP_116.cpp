@@ -1,8 +1,10 @@
+#include <string>
 #include <vector>
-#include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a != b)
+        return false;
+    return true;
 }
 
 std::vector<int> sortArray(std::vector<int> arr) {
