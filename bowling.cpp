@@ -1,32 +1,45 @@
 #include <iostream>
-#include <string>
 
-int score(std::string s);
-
-int main() {
-    std::string s;
-    std::cin >> s;
-    std::cout << score(s) << std::endl;
-    return 0;
-}
-
-int score(std::string s) {
+int score(string s) {
     int total = 0;
-    int frame = 0;
-    for (int i = 0; i < s.size(); ++i) {
-        if (s[i] == 'X') {
-            total += 10;
-            if (frame < 9) {
-                total += (s[i + 1] == 'X') ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10);
-                total += (s[i + 2] == 'X') ? 10 : (isdigit(s[i + 2]) ? s[i + 2] - '0' : 10);
-                ++frame;
-            }
-        } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0');
-            total += (s[i + 1] == 'X') ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10);
+    int frame = 1;
+    int ball = 0;
+    int rolls[21] = {0};
+    
+    for (char c : s) {
+        if (c == 'X') {
+            rolls[ball++] = 10;
+            if (frame < 10) frame++;
+        } else if (c == '/') {
+            rolls[ball++] = 10 - rolls[ball - 1];
+            if (frame < 10) frame++;
+        } else if (c == '-') {
+            rolls[ball++] = 0;
+            if (frame < 10) frame++;
         } else {
-            total += (s[i] == '-') ? 0 : s[i] - '0';
+            rolls[ball++] = c - '0';
+            if (ball % 2 == 0) {
+                if (frame < 10) frame++;
+            }
         }
     }
+    
+    for (int i = 0; i < 10; i++) {
+        if (rolls[i * 2] == 10) {
+            total += 10 + rolls[i * 2 + 1] + rolls[i * 2 + 2];
+        } else if (rolls[i * 2] + rolls[i * 2 + 1] == 10) {
+            total += 10 + rolls[i * 2 + 2];
+        } else {
+            total += rolls[i * 2] + rolls[i * 2 + 1];
+        }
+    }
+    
     return total;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
+    return 0;
 }
