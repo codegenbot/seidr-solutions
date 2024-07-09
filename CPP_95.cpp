@@ -1,17 +1,27 @@
-if (dict.empty()) {
-    return false;
-}
-bool all_lowercase = true;
-bool all_uppercase = true;
-for (auto const& entry : dict) {
-    if (!entry.first.empty() && !all_lowercase && !all_uppercase) {
+bool check_dict_case(map<string,string> dict){
+    if(dict.empty())
         return false;
+    
+    bool all_lower = true;
+    bool all_upper = true;
+    
+    for(auto const& [key, value] : dict){
+        if (!isalpha(key[0])){
+            return false;
+        }
+        
+        if (key != tolower(key)){
+            all_lower = false;
+        }
+        
+        if (key != toupper(key)){
+            all_upper = false;
+        }
+        
+        if (!all_lower && !all_upper){
+            return false;
+        }
     }
-    if (!islower(entry.first[0])) {
-        all_lowercase = false;
-    }
-    if (!isupper(entry.first[0])) {
-        all_uppercase = false;
-    }
+    
+    return true;
 }
-return all_lowercase || all_uppercase;
