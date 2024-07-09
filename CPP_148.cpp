@@ -1,12 +1,13 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
+std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1;
     int index2 = -1;
@@ -43,11 +44,9 @@ std::vector<std::string> bf(const std::string& planet1, const std::string& plane
 }
 
 int main() {
-    std::vector<std::string> result = bf("Jupiter", "Makemake");
-    if (issame(result, {})) {
-        std::cout << "True" << std::endl;
-    } else {
-        std::cout << "False" << std::endl;
+    std::vector<std::string> output = bf("Jupiter", "Makemake");
+    for (const auto& planet : output) {
+        std::cout << planet << std::endl;
     }
     return 0;
 }
