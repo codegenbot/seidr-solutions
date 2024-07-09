@@ -1,6 +1,7 @@
-#include <iostream>
+```c++
 #include <initializer_list>
 #include <vector>
+#include <iostream>
 
 std::vector<int> leaders(std::vector<int>& inputVector) {
     std::vector<int> result;
@@ -11,6 +12,20 @@ std::vector<int> leaders(std::vector<int>& inputVector) {
         }
     }
     return result;
+}
+
+std::vector<int> leaders(std::vector<int>& inputVector) {
+    int n = inputVector.size();
+    std::vector<int> leaders;
+    int rightMostLeader = inputVector[n - 1];
+    for (int i = n - 2; i >= 0; i--) {
+        if (inputVector[i] >= rightMostLeader) {
+            leaders.push_back(inputVector[i]);
+            rightMostLeader = inputVector[i];
+        }
+    }
+    leaders.push_back(rightMostLeader);
+    return leaders;
 }
 
 int main() {
