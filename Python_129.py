@@ -1,2 +1,1 @@
-# Backtrack before returning None in dfs function
-path.pop()
+path.pop()  # Backtrack before returning None in dfs function
