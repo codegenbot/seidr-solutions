@@ -1,10 +1,10 @@
 int main() {
-    std::vector<int> vec1 = {1, 2, 3, 4, 5};
-    std::vector<int> vec2 = {1, 2, 3, 4, 5};
-    std::vector<int> vec3 = {5, 4, 3, 2, 1};
+    std::vector<int> test1 = {1, 2, 3, 4, 5};
+    std::vector<int> test2 = {1, 2, 3, 4, 5};
+    std::vector<int> test3 = {5, 4, 3, 2, 1};
 
-    assert(issame(vec1, vec2) == true);
-    assert(issame(vec1, vec3) == false);
+    assert(issame(test1, test2));
+    assert(!issame(test1, test3));
 
     return 0;
 }
