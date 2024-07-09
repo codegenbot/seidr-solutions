@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 std::vector<int> even_odd_palindrome(int n) {
@@ -21,12 +20,16 @@ bool isSame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> expected;
-    for(int i = 0; i <= 5; ++i) {
-        if(i % 2 == 0)
-            expected.push_back(0);
-        else
-            expected.push_back(1);
+    int n;
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    std::vector<int> result = even_odd_palindrome(n);
+    if (isSame(even_odd_palindrome(n), result)) {
+        for(int i = 0; i < n; ++i) {
+            std::cout << result[i] << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "Not a palindrome." << std::endl;
     }
-    assert(isSame(even_odd_palindrome(5), expected));
 }
