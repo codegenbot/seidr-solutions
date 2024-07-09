@@ -1,7 +1,5 @@
-bool issame(string s1, string s2) {
-    sort(s1.begin(), s1.end());
-    sort(s2.begin(), s2.end());
-    return s1 == s2;
+bool issame(char a, char b) {
+    return a == b;
 }
 
 vector<string> separate_paren_groups(string paren_string);
@@ -9,13 +7,10 @@ vector<string> separate_paren_groups(string paren_string);
 int main() {
     string input;
     cin >> input;
-
     vector<string> groups = separate_paren_groups(input);
-
     for (const string& group : groups) {
         cout << group << endl;
     }
-
     return 0;
 }
 
