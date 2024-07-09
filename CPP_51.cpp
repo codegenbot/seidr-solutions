@@ -1,26 +1,15 @@
-```cpp
 #include <string>
-#include <iostream>
-#include <allocator>
+#include <cctype>
 
-int main() {
-    std::string text;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, text);
-    std::string new_result = remove_vowels(text);  
-    std::cout << "String after removing vowels: " << new_result << std::endl;
-    return 0;
-}
-
-std::string remove_vowels(std::string str) {
-    std::allocator<char> alloc;
-    std::string new_str(alloc);
-    for(char c : str){
-        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && 
-           std::tolower(c) != 'a' && std::tolower(c) != 'e' && std::tolower(c) != 'i' && 
-           std::tolower(c) != 'o' && std::tolower(c) != 'u'){
-            new_str += c;
+std::string remove_vowels(const std::string& text) {
+    std::string result;
+    for (char c : text) {
+        if (!std::isspace(c)) {  
+            c = std::tolower(c);  
+            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
+                result += c;  
+            }
         }
     }
-    return new_str;
+    return result;
 }
