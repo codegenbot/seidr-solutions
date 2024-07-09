@@ -1,6 +1,5 @@
-```cpp
 #include <set>
-// ...
+#include <algorithm>
 
 bool same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
