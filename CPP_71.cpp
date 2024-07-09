@@ -15,4 +15,3 @@ int main() {
     assert(abs(triangle_area(2, 2, 10) + 1) < 0.01);
     std::cout << "Triangle area: " << triangle_area(2, 2, 10) << std::endl;
     return 0;
-}
