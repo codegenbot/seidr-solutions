@@ -1,6 +1,3 @@
-size_t pos = 0;
-while (pos < txt.size()) {
-    if (txt[pos] == ' ') break;
-    pos++;
-}
-return pos == txt.size() || !isalpha(txt.back());
+size_t last_space = txt.find_last_of(" ");
+return (last_space == string::npos || txt[last_space] != ' ') && 
+       (!txt.empty() && isalpha(txt.back()));
