@@ -1,7 +1,9 @@
+```cpp
 #include <vector>
+#include <algorithm>
 
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
             n = n / 2;
@@ -12,6 +14,6 @@ vector<int> get_odd_collatz(int n) {
             result.push_back(n);
         }
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
 }
