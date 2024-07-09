@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <queue>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
@@ -16,15 +16,19 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
-    std::vector<int> temp = arr; // store array in a temporary vector
-    std::priority_queue<int, std::vector<int>::iterator> pq(temp.rbegin(), temp.rend());
+    std::priority_queue<int, std::vector<int>, std::greater<int>> pq;
+    
+    for(int i = 0; i < arr.size(); i++) {
+        pq.push(arr[i]);
+    }
+    
     std::vector<int> result;
-
+    
     for(int i = 0; i < k && !pq.empty(); i++) {
         result.push_back(pq.top());
         pq.pop();
     }
-
+    
     return result;
 }
 
