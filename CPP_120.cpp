@@ -1,18 +1,34 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
+int main() {
+    int n;
+    std::vector<int> arr;
 
-bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
+    // Read the number of elements in the array
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    // Read the elements of the array
+    for (int i = 0; i < n; i++) {
+        int num;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> num;
+        arr.push_back(num);
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+
+    int k;
+    // Read the number of elements to be removed
+    std::cout << "Enter the number of elements to remove: ";
+    std::cin >> k;
+
+    std::vector<int> result = maximum(arr, k);
+
+    // Print the resulting array
+    std::cout << "The resulting array is: ";
+    for (int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
     }
-    return true;
+    std::cout << std::endl;
+
+    return 0;
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
@@ -23,27 +39,4 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         arr.erase(it);
     }
     return result;
-}
-
-int main() {
-    int n, k;
-    std::cout << "Enter the size of array: ";
-    std::cin >> n;
-    std::cout << "Enter the value of k: ";
-    std::cin >> k;
-
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element at index " << i << ": ";
-        std::cin >> arr[i];
-    }
-
-    std::vector<int> result = maximum(arr, k);
-    std::cout << "Maximum elements: ";
-    for (int i : result) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-
-    return 0;
 }
