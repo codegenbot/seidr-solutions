@@ -1,52 +1,26 @@
+#include <string>
 #include <vector>
 #include <algorithm>
 
+using namespace std;
+
 string sort_numbers(string numbers) {
-    vector<string> numVec;
-    string numStr;
-
-    for (char c : numbers) {
-        switch (c) {
-            case '0':
-                numStr = "zero";
-                break;
-            case '1':
-                numStr = "one";
-                break;
-            case '2':
-                numStr = "two";
-                break;
-            case '3':
-                numStr = "three";
-                break;
-            case '4':
-                numStr = "four";
-                break;
-            case '5':
-                numStr = "five";
-                break;
-            case '6':
-                numStr = "six";
-                break;
-            case '7':
-                numStr = "seven";
-                break;
-            case '8':
-                numStr = "eight";
-                break;
-            case '9':
-                numStr = "nine";
-                break;
+    vector<string> numVector;
+    string num = "";
+    for (int i = 0; i < numbers.length(); i++) {
+        if (numbers[i] == ' ') {
+            numVector.push_back(num);
+            num = "";
+        } else {
+            num += numbers[i];
         }
-        numVec.push_back(numStr);
     }
+    numVector.push_back(num);
 
-    sort(numVec.begin(), numVec.end());
-
+    sort(numVector.begin(), numVector.end());
     string result = "";
-    for (string s : numVec) {
-        result += s + " ";
+    for (int i = 0; i < numVector.size(); i++) {
+        result += numVector[i] + " ";
     }
-
     return result;
 }
