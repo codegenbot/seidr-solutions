@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -14,24 +15,5 @@ float max_element(vector<float> l){
 }
 
 int main() {
-    vector<float> numbers;
-    int n;
-    
-    cout << "Enter the number of elements: ";
-    cin >> n;
-
-    for(int i=0; i<n; i++) {
-        float num;
-        cout << "Enter element "<<i+1<<":";
-        cin >> num;
-        numbers.push_back(num);
-    }
-    
-    if(!numbers.empty()) {
-        cout << "The maximum element is: " << max_element(numbers) << endl;
-    } else {
-        cout << "No elements entered." << endl;
-    }
-
-    return 0;
+    // Your test code here
 }
