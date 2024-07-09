@@ -1,27 +1,16 @@
 #include <iostream>
 #include <vector>
-#include <queue>
 using namespace std;
-
-struct Node {
-    int val;
-    pair<int,int> pos;
-
-    bool operator<(const Node& other) const {
-        return val > other.val;
-    }
-};
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<bool>>(n, vector<bool>(n, false)) visited;
-    priority_queue<Node> pq;
+    priority_queue<pair<int, pair<int,int>>, vector<pair<int, pair<int,int>>>, greater<pair<int, pair<int,int>>>> pq;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
-                Node node = {grid[i][j], {i, j}};
-                pq.push(node);
+                pq.push(make_pair(grid[i][j], make_pair(i, j)));
                 visited[i][j] = true;
             }
         }
@@ -30,9 +19,9 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> res;
 
     while (!pq.empty()) {
-        int val = pq.top().val;
-        int x = pq.top().pos.first;
-        int y = pq.top().pos.second;
+        int val = pq.top().first;
+        int x = pq.top().second.first;
+        int y = pq.top().second.second;
         res.push_back(val);
         pq.pop();
 
@@ -46,8 +35,7 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
 
                     if(nx>=0&&nx<n&&ny>=0&&ny<n&&!visited[nx][ny]){
                         visited[nx][ny] = true;
-                        Node node = {grid[nx][ny], {nx, ny}};
-                        pq.push(node);
+                        pq.push(make_pair(grid[nx][ny], make_pair(nx, ny)));
                     }
                 }
             }
