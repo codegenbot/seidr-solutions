@@ -30,5 +30,5 @@ int main() {
     long long odd_sum = double_the_difference(lst);
     
     // Check the sum
-    return 0;
+    assert(double_the_difference(lst) == odd_sum );
 }
