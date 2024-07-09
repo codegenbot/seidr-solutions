@@ -36,7 +36,7 @@ boost::any compare_one(boost::any a, boost::any b) {
 
             return (num1 > num2) ? str1 : ((num1 < num2) ? str2 : boost::any("None"));
         } else {
-            return max(a, b);
+            return a;
         }
     }
 
