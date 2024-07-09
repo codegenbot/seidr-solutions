@@ -1,7 +1,8 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
-bool isCube(int a) {
+bool iscuber(int a){
     int i = 1;
     while (pow(i, 3) <= a) {
         if (pow(i, 3) == a)
@@ -15,7 +16,7 @@ int main(){
     int n;
     std::cout << "Enter an integer: ";
     std::cin >> n;
-    if(isCube(n))
+    if(iscuber(n))
         std::cout << n << " is a perfect cube.\n";
     else
         std::cout << n << " is not a perfect cube.\n";
