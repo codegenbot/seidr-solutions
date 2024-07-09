@@ -1,3 +1,4 @@
+```cpp
 string int_to_mini_roman(int num) {
     string roman[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",
                       "", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
@@ -10,7 +11,7 @@ string int_to_mini_roman(int num) {
                       "", "C", "CI", "CII", "CIII", "CIV", "CV", "CVI", "CVII", "CVIII", "CX", "CXI", "CXII", "CXIII", "CXIV", "CXV", "CXVI", "CXVII", "CXVIII", "CXIX", "CXX",
                       "", "CXXI", "CXXII", "CXXIII", "CXXIV", "CXXV", "CXXVI", "CXXVII", "CXXVIII", "CXXIX", "CXXX",
                       "", "CXXXI", "CXXXII", "CXXXIII", "CXXXIV", "CXXXV", "CXXXVI", "CXXXVII", "CXXXVIII", "CXXXIX", "CXL",
-                      "", "CXLI", "CXLII", "CXLIII", "CXLIV", "CXLV", "CXLVI", "CXLVII", "CXLVIII", "CXlix", "CL",
+                      "", "CXLI", "CXLII", "CXLIII", "CXLIV", "CXLV", "CXLVI", "CXLVII", "CXLVIII", "Clix", "CL",
                       "", "CLI", "CII", "CC", "CCI", "CCC", "CCCI", "CCCII", "CCCIII", "CCCIV", "CCCV", "CCCVI", "CCCvii", "CCcviii", "CCXC"};
 
     string result = "";
@@ -32,10 +33,7 @@ string int_to_mini_roman(int num) {
             for(int i = 0; ; ++i) {
                 if((i * 10) > num) break;
                 num -= i * 10;
-                result += "X";
-                for(int j = 0; j < i - 1; ++j) {
-                    result += "I";
-                }
+                result += 'C' + i;
             }
         } else if (num >= 40) {
             num -= 40;
@@ -44,10 +42,7 @@ string int_to_mini_roman(int num) {
             for(int i = 0; ; ++i) {
                 if((i * 10) > num) break;
                 num -= i * 10;
-                result += "X";
-                for(int j = 0; j < i - 1; ++j) {
-                    result += "I";
-                }
+                result += 'X' + i;
             }
         } else {
             while(num > 0) {
