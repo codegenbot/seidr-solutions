@@ -1,4 +1,3 @@
-```c++
 #include <cassert>
 #include <iostream>
 
@@ -13,11 +12,11 @@ bool isCube(int n) {
 
 }
 
-int main() { 
-    std::string strNum;
+int main() {
+    int num;
     std::cout << "Enter a number: ";
-    std::cin >> strNum;
+    std::cin >> num;
 
-    assert(isCube(std::stoi(strNum)) == isCube(1729)); 
+    assert(isCube(num) == isCube(1729)); 
     return 0;
 }
