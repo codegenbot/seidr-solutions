@@ -1,4 +1,7 @@
-int get_matrix_triples(int n){
+#include <vector>
+
+int get_matrix_triples(int n) {
+    using namespace std;
     vector<int> a(n);
     int count = 0;
     for (int i = 0; i < n; i++) {
