@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <cassert>
 
 std::string circular_shift(int x, int shift) {
     std::string num = std::to_string(x);
