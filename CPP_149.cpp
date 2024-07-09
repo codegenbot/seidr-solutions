@@ -1,32 +1,27 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-
-    for (int i = 0; i < a.size(); i++) {
-        string sum1 = sorted_list_sum({a[i], b[i]});
-        string sum2 = sorted_list_sum({b[i], a[i]});
-
-        if (sum1[0] != sum2[0]) {
-            return false;
+int main() {
+    std::vector<std::string> list = {"aaaa", "bbbb", "dd", "cc"};
+    std::sort(list.begin(), list.end(),
+        [](const std::string& a, const std::string& b) {
+            if (a.length() != b.length()) {
+                return a.length() < b.length();
+            } else {
+                return a < b;
+            }
+        });
+    for (auto it = list.begin(); it != list.end();) {
+        if (it->length() % 2 == 1) {
+            it = list.erase(it);
+        } else {
+            ++it;
         }
     }
-
-    return true;
-}
-
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
+    for (const auto& str : list) {
+        std::cout << str << " ";
     }
-
-    sort(result.begin(), result.end());
-
-    return result;
+    return 0;
 }
