@@ -9,23 +9,19 @@ int do_algebra(vector<string> ops, vector<int> nums) {
 
     for (int i = 0; i < ops.size(); i++) {
         if (ops[i] == "+") {
-            result += (int)(temp * nums[i]);
+            result += temp * nums[i];
         } else if (ops[i] == "-") {
-            result -= (int)(temp * nums[i]);
+            result -= temp * nums[i];
         } else if (ops[i] == "*") {
             temp *= nums[i];
         } else if (ops[i] == "/") {
+            if(nums[i] == 0) return -1; 
             temp /= nums[i];
         } else if (ops[i] == "^") {
-            temp = pow(temp, (double)nums[i]);
+            double x = static_cast<double>(temp);
+            temp = pow(x, static_cast<double>(nums[i])); 
         }
     }
 
     return result;
-}
-
-int main() {
-    int res = do_algebra({"+", 7, "*"}, {3}, {"*", 4});
-    cout << "Result is: " << res << endl;
-    return 0;
 }
