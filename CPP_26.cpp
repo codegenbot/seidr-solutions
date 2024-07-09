@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool sameSet(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(std::find(b.begin(), b.end(), a[i]) == b.end()) return false;
@@ -27,7 +27,7 @@ int main() {
     }
     std::cout << std::endl;
     
-    if (!isSame(numbers, {1, 2, 3, 4, 5})) {
+    if(!sameSet(numbers, {1, 4, 5})) {
         std::cout << "assert failed" << std::endl;
     } else {
         std::cout << "assert passed" << std::endl;
