@@ -1,15 +1,20 @@
 ```
 def evaluate_expression(expression):
+    if "T" in expression:
+        expression = expression.replace("T", "True")
+    if "F" in expression:
+        expression = expression.replace("F", "False")
+
     if "&" in expression:
-        while "&" in expression:
-            left, right = expression.split("&", 1)
-            expression = str(evaluate_expression(left)) + " & "
-        return eval("(" + expression.replace("&", ") and (") + "))")
+        return ((evaluate_expression(expression.split("&")[0]) and 
+                evaluate_expression(expression.split("&")[1])) == True)
     elif "|" in expression:
-        while "|" in expression:
-            left, right = expression.split("|", 1)
-            expression = left + " | " + str(evaluate_expression(right))
-        if expression == "False":
+        return ((evaluate_expression(expression.split("|")[0]) or 
+                evaluate_expression(expression.split("|")[1])) == True)
+    else:
+        if expression.lower() == "t":
+            return True
+        elif expression.lower() == "f":
             return False
         else:
-            return True
+            raise Exception("Invalid Boolean expression")

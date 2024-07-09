@@ -9,4 +9,4 @@ int pairedDigits(std::string s) {
             sum += currentSum;
         }
     }
-    return sum; }
+    return sum;
