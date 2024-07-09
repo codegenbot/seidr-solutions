@@ -1,8 +1,10 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <cmath>
 #include <initializer_list>
 #include <cassert>
+
 using namespace std;
 
 double poly(vector<double> coeffs, double solution) {
