@@ -1,6 +1,12 @@
-```
 def choose_num(x, y):
-    for i in range(max(x, y), min(x, y)-1, -1):
+    if x > y:
+        bigger = x
+        smaller = y
+    else:
+        bigger = y
+        smaller = x
+    
+    for i in range(bigger, smaller-1, -1):
         if i % 2 == 0:
             return i
     return -1
