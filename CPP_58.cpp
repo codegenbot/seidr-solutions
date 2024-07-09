@@ -1,54 +1,42 @@
-```
 #include <iostream>
 #include <vector>
 #include <set>
 
-bool issame(int a, int b) {
-    if (a == b)
-        return true;
-    else
+bool issame(vector<int> l1, vector<int> l2) {
+    if (l1.size() != l2.size()) 
         return false;
+    for(int i = 0; i < l1.size(); i++) {
+        if(l1[i] != l2[i])
+            return false;
+    }
+    return true;
 }
 
-std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
-    std::set<int> s1(l1.begin(), l1.end());
-    std::set<int> s2(l2.begin(), l2.end());
-    
-    std::set<int> intersection;
-    std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-                      std::inserter(intersection, intersection.begin()));
-    
-    std::vector<int> result(intersection.begin(), intersection.end());
-    std::sort(result.begin(), result.end());
+vector<int> common(vector<int> l1, vector<int> l2) {
+    set<int> s1(l1.begin(), l1.end());
+    set<int> s2(l2.begin(), l2.end());
+
+    set<int> intersection;
+    set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
+                      inserter(intersection, intersection.begin()));
+
+    vector<int> result(intersection.begin(), intersection.end());
+    sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    int n, m;
-    std::cout << "Enter number of elements for first list: ";
-    std::cin >> n;
-    
-    std::vector<int> l1(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> l1[i];
+    vector<int> l1 = {1, 2, 3};
+    vector<int> l2 = {2, 4, 5};
+    if (issame(l1, l2)) {
+        cout << "Vectors are same.\n";
+    } else {
+        cout << "Vectors are not same.\n";
     }
     
-    std::cout << "Enter number of elements for second list: ";
-    std::cin >> m;
-    
-    std::vector<int> l2(m);
-    for (int i = 0; i < m; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> l2[i];
+    vector<int> result = common(l1, l2);
+    for(int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
     }
-    
-    std::vector<int> res = common(l1, l2);
-    
-    std::cout << "Common elements: ";
-    for (int x : res)
-        std::cout << x << " ";
-    std::cout << std::endl;
-    
     return 0;
 }
