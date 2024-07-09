@@ -1,5 +1,7 @@
 ```cpp
 #include <iostream>
+#include <cmath>
+#include <iomanip>
 #include <sstream>
 
 int main() {
@@ -10,6 +12,7 @@ int main() {
     std::string input;
     getline(std::cin, input);
     std::istringstream iss(input);
+    iss >> ws; 
     iss >> startHeight >> firstBounce >> numBounces;
 
     double bouncinessIndex = firstBounce / startHeight;
