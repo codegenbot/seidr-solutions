@@ -1,6 +1,7 @@
 ```cpp
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -13,13 +14,13 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? string(s.rbegin(), s.rend()) : result;
+    return result.empty() ? string(s.rbegin(),s.end()) : result;
 }
 
 int main() {
-    std::cout << "Enter a string: ";
+    cout << "Enter a string: ";
     std::string s;
-    std::cin >> s;  
-    std::cout << solve(s) << std::endl;  
+    cin >> s;  
+    cout << solve(s) << endl;  
     return 0;
 }
