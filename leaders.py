@@ -1,6 +1,4 @@
+Here is the Python solution for the problem:
+
 def leaders(input):
-    leaders = [input[-1]]
-    for i in range(len(input) - 2, -1, -1):
-        if input[i] >= input[i + 1]:
-            leaders.append(input[i])
-    return reversed(leaders)
+    return [i for i in reversed(input) if all(j <= i for j in input[input.index(i)+1:])]
