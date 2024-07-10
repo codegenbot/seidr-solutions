@@ -1,31 +1,45 @@
-#include <boost/variant.hpp>
+#include <variant>
+#include <string>
+#include <iostream>
 
-boost::variant<int, double, std::string> compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::get<int>(a) > boost::get<double>(b) ? boost::get<int>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+std::variant<int, double, std::string> compare_one(std::variant<int, double, std::string> a, std::variant<int, double, std::string> b) {
+    if (a.index() == 0 && b.index() == 1) {
+        return (int)a > (double)b ? a : b;
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return boost::get<double>(a) > boost::get<int>(b) ? boost::get<boost::variant<int, double, std::string>>(a) : boost::get<int>(b);
+    else if (a.index() == 1 && b.index() == 0) {
+        return (double)a > (int)b ? a : b;
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
-        return boost::any_cast<std::string>(a) > std::to_string(boost::any_cast<double>(b)) ? boost::get<boost::variant<int, double, std::string>>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+    else if (a.index() == 2 && b.index() == 1) {
+        std::string str = std::get<std::string>(a);
+        double num = std::get<double>(b);
+        return str > std::to_string(num) ? a : b;
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
-        return std::to_string(boost::any_cast<double>(a)) > boost::any_cast<std::string>(b) ? boost::get<boost::variant<int, double, std::string>>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+    else if (a.index() == 1 && b.index() == 2) {
+        std::string str = std::get<std::string>(b);
+        double num = std::get<double>(a);
+        return std::to_string(num) > str ? a : b;
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        return boost::any_cast<std::string>(a) > boost::any_cast<std::string>(b) ? boost::get<boost::variant<int, double, std::string>>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+    else if (a.index() == 2 && b.index() == 0) {
+        std::string str = std::get<std::string>(a);
+        int num = std::get<int>(b);
+        return str > std::to_string(num) ? a : b;
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
-        return boost::any_cast<int>(a) > boost::any_cast<std::string>(b) ? boost::get<boost::variant<int, double, std::string>>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+    else if (a.index() == 0 && b.index() == 2) {
+        int num = std::get<int>(a);
+        std::string str = std::get<std::string>(b);
+        return std::to_string(num) > str ? a : b;
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
-        return boost::any_cast<std::string>(a) > std::to_string(boost::any_cast<int>(b)) ? boost::get<boost::variant<int, double, std::string>>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+    else if (a.index() == 2 && b.index() == 1) {
+        std::string str1 = std::get<std::string>(a);
+        double num = std::get<double>(b);
+        return str1 > std::to_string(num) ? a : b;
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        return boost::any_cast<double>(a) > boost::any_cast<double>(b) ? boost::get<boost::variant<int, double, std::string>>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+    else if (a.index() == 1 && b.index() == 2) {
+        double num = std::get<double>(a);
+        std::string str = std::get<std::string>(b);
+        return std::to_string(num) > str ? a : b;
     }
     else {
-        return boost::variant<int, double, std::string>();
+        return a;
     }
 }
