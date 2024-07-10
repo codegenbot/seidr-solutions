@@ -1,34 +1,7 @@
-map<string, int> number_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
+map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
 
-string sort_numbers(string numbers){
-    map<int, string> reverse_map;
-    string result;
-    
-    string temp;
-    for(char c : numbers){
-        if(c == ' '){
-            reverse_map[number_map[temp]] = temp;
-            temp = "";
-        } else {
-            temp += c;
-        }
-    }
-    reverse_map[number_map[temp]] = temp;
-    
-    for(auto it = reverse_map.begin(); it != reverse_map.end(); ++it){
-        result += it->second + " ";
-    }
-    
-    return result;
-}
+sort(numbers.begin(), numbers.end(), [&](const string& a, const string& b) {
+    return num_map[a] < num_map[b];
+});
+
+return numbers;
