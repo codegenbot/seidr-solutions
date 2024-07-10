@@ -1,8 +1,7 @@
-std:
-#include <string>
-
+```cpp
 std::string fizzBuzz(int x) {
-    if (x % 15 == 0)
+    std::string result;
+    if (x % 3 == 0 && x % 5 == 0)
         return "FizzBuzz";
     else if (x % 3 == 0)
         return "Fizz";
