@@ -1,3 +1,6 @@
 def solve(N):
-    result = str(bin(sum(int(i) for i in str.join('', (str((i%2))for i in range(N+1))))))[2:]
-    return result
+    total = 0
+    for i in range(1, N+1):
+        if i % 2:  
+            total += 1
+    return bin(total)[2:]
