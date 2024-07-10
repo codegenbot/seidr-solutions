@@ -2,23 +2,15 @@
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
+bool issame(int i) {
+    int rev = 0;
+    int temp = i;
+    while(temp != 0) {
+        int digit = temp % 10;
+        rev = (rev * 10) + digit;
+        temp /= 10;
     }
-    return true;
-}
-
-int even_odd_palindrome(int n) {
-    int count_even = 0, count_odd = 0;
-    for(int i = 1; i <= n; i++) {
-        if(isPalindrome(i)) {
-            if(i % 2 == 0) count_even++;
-            else count_odd++;
-        }
-    }
-    return {count_even, count_odd};
+    return i == rev;
 }
 
 int main() {
@@ -26,19 +18,20 @@ int main() {
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
 
-    std::vector<int> result(2);
-    result = even_odd_palindrome(n);
-
-    std::cout << "Number of even palindromes: " << result[0] << std::endl;
-    std::cout << "Number of odd palindromes: " << result[1] << std::endl;
-}
-
-bool isPalindrome(int n) {
-    int rev = 0, rem, orig = n;
-    while(n > 0) {
-        rem = n % 10;
-        rev = rev * 10 + rem;
-        n /= 10;
+    int even_count = 0, odd_count = 0;
+    for(int i = 1; i <= n; i++) {
+        if(i % 2 == 0) { // check if the number is even
+            if(issame(i)) {
+                even_count++;
+            }
+        } else { // check if the number is odd
+            if(issame(i)) {
+                odd_count++;
+            }
+        }
     }
-    return (rev == orig);
+
+    std::cout << "Number of even palindromes: " << even_count << endl;
+    std::cout << "Number of odd palindromes: " << odd_count << endl;
+
 }
