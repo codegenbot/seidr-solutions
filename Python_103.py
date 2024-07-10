@@ -1,6 +1,5 @@
-```python
+```
 import math
-
 
 def rounded_avg(n, m):
     if n > m:
@@ -13,6 +12,5 @@ def rounded_avg(n, m):
         avg //= 2
     bin_str = "0b" + ("10" * math.ceil(math.log2(avg)))[::-1].ljust(8, "0")
     return bin_str
-
 
 print(rounded_avg(5, 3))
