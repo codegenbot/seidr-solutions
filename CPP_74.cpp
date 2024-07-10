@@ -1,5 +1,18 @@
+```cpp
 #include <vector>
 #include <string>
+
+bool issame(const vector<vector<string>>& a, const vector<vector<string>>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (!issame(a[i], b[i])) {
+            return false;
+        }
+    }
+    return true;
+}
 
 bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
@@ -13,35 +26,43 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-int total_match(const vector<string>& input, const vector<string>& matches) {
+int total_match(const vector<string>& input, const vector<vector<string>>& matches) {
     int count = 0;
     for (const string& str : input) {
-        if (find(matches.begin(), matches.end(), str) != matches.end()) {
+        bool found = false;
+        for (const vector<string>& match : matches) {
+            if (issame({{str}} , match)) {
+                found = true;
+                break;
+            }
+        }
+        if (found) {
             count++;
         }
     }
     return count;
 }
 
-void get_user_input(vector<string>& user_input) {
+void get_user_input(vector<vector<string>>& user_input) {
     string temp;
     cout << "Enter strings (enter 'stop' when done): ";
     while (true) {
         cin >> temp;
         if (temp == "stop") break;
-        user_input.push_back(temp);
+        vector<string> str;
+        str.push_back(temp);
+        user_input.push_back(str);
     }
-    return; // Add this line
 }
 
 int main() {
-    vector<string> user_input;
+    vector<vector<string>> user_input;
     get_user_input(user_input);
-    int total_match_count = total_match(user_input, {"some"});
-    if (issame(vector<string>({"some"}), user_input)) {  
+    if (issame({{{""}}}, {{}})) {  
         cout << "The two lists are the same." << endl;
     } else {
-        cout << "Error: The two lists are not the same. Count of matches is: " << total_match_count << endl;
+        int count = total_match(user_input, {{{"some"}}});
+        cout << "Error: The two lists are not the same. Count of matches is: " << count << endl;
     }
     return 0;
 }
