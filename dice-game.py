@@ -1,2 +1,2 @@
-def dice_game(n, m):
-    return 1 - n / (n + m)
+def solution(n, m):
+    return (n - m) / (n + m) if n != m else 0.5
