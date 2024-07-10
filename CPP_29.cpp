@@ -12,28 +12,33 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
-    int num_strings;
+    int n;
     std::cout << "Enter the number of strings: ";
-    std::cin >> num_strings;
+    std::cin >> n;
 
-    std::vector<std::string> strings(num_strings);
-
-    for (int i = 0; i < num_strings; ++i) {
-        std::cout << "Enter string " << i + 1 << ": ";
-        std::cin >> strings[i];
+    std::vector<std::string> strings;
+    for(int i = 0; i < n; i++) {
+        std::string str;
+        std::cout << "Enter string " << (i+1) << ": ";
+        std::cin >> str;
+        strings.push_back(str);
     }
 
     std::string prefix;
     std::cout << "Enter the prefix: ";
     std::cin >> prefix;
 
-    auto filtered_strings = filter_by_prefix(strings, prefix);
+    std::vector<std::string> filtered_strings = filter_by_prefix(strings, prefix);
 
-    std::cout << "Filtered strings: ";
-    for (const auto& str : filtered_strings) {
-        std::cout << str << " ";
+    if(filtered_strings.size() == 0) {
+        std::cout << "No strings found with the given prefix." << std::endl;
+    } else {
+        std::cout << "Strings found with the given prefix: ";
+        for(const auto& str : filtered_strings) {
+            std::cout << str << " ";
+        }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
 
     return 0;
 }
