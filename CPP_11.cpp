@@ -1,7 +1,7 @@
 #include <string>
 
-string compareStrings(const string& a, const string& b) {
-    string result = "";
+std::string compareStrings(std::string a, std::string b) {
+    std::string result = "";
     for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             result += "1";
