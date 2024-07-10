@@ -23,3 +23,13 @@ vector<string> reverse_delete(string s, string c) {
     string palindromeCheck = result == reversed ? "True" : "False";
     return {result, palindromeCheck};
 }
+
+int main() {
+    string s = "hello";
+    string c = "world";
+    vector<string> output = reverse_delete(s, c);
+    for (const string& str : output) {
+        cout << str << " ";
+    }
+    return 0;
+}
