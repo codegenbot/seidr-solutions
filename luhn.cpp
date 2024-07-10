@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <vector>
 #include <cstdint>
 
@@ -22,7 +22,8 @@ int luhn(std::vector<int16_t> cc) {
 }
 
 int main() {
-    std::vector<int16_t> cc = {4, 5, 3};
+    std::vector<int16_t> cc = {3,4,5,6,7,8,9,1,2,3,4};
     int result = luhn(cc);
+    printf("Result: %d\n", result);
     return 0;
 }
