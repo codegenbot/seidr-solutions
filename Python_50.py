@@ -4,5 +4,3 @@ def decode_shift():
     return "".join([chr(((ord(ch) - 97 - d) % 26) + 97) if ch.isalpha() and ch.islower() else 
                     chr(((ord(ch) - 65 - d) % 26) + 65) if ch.isalpha() and ch.isupper() else 
                     ch for ch in s])
-
-print(decode_shift())
