@@ -1,6 +1,6 @@
 try:
-    a = int(input("Enter the first integer:"))
-    b = int(input("Enter the second integer:"))
-    print(a + b)
-except ValueError:
-    print("Invalid input. Please enter integers only.")
+    while True:
+        a, b = map(int, input().split())
+        print(a + b)
+except:
+    pass
