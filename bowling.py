@@ -24,11 +24,6 @@ def bowling_score(game):
                 roll += 2
         elif len(frame) == 2:
             first_two_rolls = list(map(int, frame.split()))
-            if first_two_rolls[0] + first_two_rolls[1] < 10:
-                score += sum(first_two_rolls)
-                roll += 2
-            else:
-                bonus_roll = int(frames[frames.index(frame)-1].split()[1])
-                score += 10 + bonus_roll
-                roll += 3
+            score += sum(first_two_rolls)
+            roll += 2
     return score
