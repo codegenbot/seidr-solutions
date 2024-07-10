@@ -1,4 +1,5 @@
-for(int i = 0; i < l.size(); i++){
-    l[i]++;
+for(int &x : l){
+        x++;
+    }
+    return l;
 }
-return l;
