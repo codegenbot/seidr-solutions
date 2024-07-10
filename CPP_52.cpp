@@ -1,4 +1,4 @@
-int main() -> int {
+int main() {
     int num;
     vector<int> numbers;
 
@@ -11,6 +11,7 @@ int main() -> int {
         cin >> num;
     }
 
+    // Initialize the vector with the correct size
     numbers.resize(num); 
 
     for (int i = 0; i < num; i++) {
