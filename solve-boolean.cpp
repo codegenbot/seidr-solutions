@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
 int main() {
-    std::string s;
-    std::cin >> s;
+    string s;
+    cin >> s;
     if (s == "t") {
-        std::cout << "True";
+        cout << "True";
     } else {
-        std::cout << "False";
+        cout << "False";
     }
     return 0;
 }
