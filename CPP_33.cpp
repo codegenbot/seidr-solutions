@@ -1,8 +1,19 @@
-vector<int> result = l;
+vector<int> indices;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
-            sort(result.begin() + i, result.begin() + i + 3);
+            indices.push_back(i);
         }
     }
-    return result;
+
+    vector<int> sorted_indices = indices;
+    sort(sorted_indices.begin(), sorted_indices.end(), [&l](int i, int j) {
+        return l[i] < l[j];
+    });
+
+    vector<int> l_prime = l;
+    for (int i = 0; i < indices.size(); ++i) {
+        l_prime[indices[i]] = l[sorted_indices[i]];
+    }
+
+    return l_prime;
 }
