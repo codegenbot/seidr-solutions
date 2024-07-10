@@ -21,7 +21,7 @@ int contest_main() {
     std::cout << "Enter a date in the format MM-DD-YYYY: ";
     std::cin >> date;
 
-    if(date.size() != 10 || date[2] != '-' || date[5] != '-') {
+    if(date.length() != 10 || date[2] != '-' || date[5] != '-') {
         std::cout << "Invalid date format. Please enter date in the format MM-DD-YYYY." << std::endl;
         return 1;
     }
