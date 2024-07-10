@@ -9,4 +9,4 @@ def indices_of_substring(text):
                     break
                 result.append(i + pos)
                 i += pos + 1
-    return result
+    return sorted(result)
