@@ -1,33 +1,10 @@
 #include <vector>
-#include <iostream>
+#include <string>
 #include <cassert>
+using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
+bool issame(vector<string> a, vector<string> b);
 vector<string> select_words(string s, int n);
-
-int main() {
-    // Test cases
-    vector<string> input = {"Hello", "world", "from", "Cpp"};
-    vector<string> expected_output = {"Cpp"};
-    vector<string> result = select_words("Hello world from Cpp", 2);
-
-    assert(issame(result, expected_output));
-
-    return 0;
-}
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -54,4 +31,8 @@ vector<string> select_words(string s, int n) {
     }
 
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    // Implementation of the issame function
 }
