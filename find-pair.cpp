@@ -1,12 +1,16 @@
-using namespace std;
-std::pair<int, int> findPair(std::vector<int>& nums, int target) {
-    unordered_map<int, int> numMap;
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (numMap.count(complement)) {
-            return make_pair(complement, nums[i]);
+#include <unordered_map>
+#include <vector>
+
+namespace myns {
+    std::pair<int, int> findPair(std::vector<int>& nums, int target) {
+        unordered_map<int, int> numMap;
+        for (int i = 0; i < nums.size(); i++) {
+            int complement = target - nums[i];
+            if (numMap.count(complement)) {
+                return make_pair(complement, nums[i]);
+            }
+            numMap[nums[i]] = i;
         }
-        numMap[nums[i]] = i;
+        return make_pair(-1, -1);
     }
-    return make_pair(-1, -1);
 }
