@@ -4,15 +4,12 @@
 
 using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> incr_list(std::vector<int> l) {
-    for (auto& num : l) {
+std::vector<int> incr_list(const std::vector<int>& l) {
+    std::vector<int> result = l;
+    for (auto& num : result) {
         num++;
     }
-    return l;
+    return result;
 }
 
 int main() {
@@ -20,7 +17,7 @@ int main() {
     std::vector<int> expected_output = {6, 3, 6, 3, 4, 4, 10, 1, 124};
     
     std::vector<int> result = incr_list(input);
-    assert(issame(result, expected_output));
+    assert(result == expected_output);
     
     return 0;
 }
