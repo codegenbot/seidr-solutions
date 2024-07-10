@@ -13,19 +13,20 @@ vector<string> sorted_list_sum(vector<string> lst) {
     }
 
     // Sort the resulting vector by length and then alphabetically
-    sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
-             }
-         });
+    std::sort(result.begin(), result.end(),
+              [](const string& a, const string& b) {
+                  if (a.length() != b.length()) {
+                      return a.length() < b.length();
+                  } else {
+                      return a < b;
+                  }
+              });
 
     return result;
 }
 
 int main() {
-    assert(isame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    // Call the function sorted_list_sum before using its result in issame.
+    assert(issame(sorted({{"aaaa", "bbbb", "dd", "cc"}}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
