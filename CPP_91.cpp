@@ -1,1 +1,19 @@
-int main();
+```cpp
+int is_bored(const std::string& str) {
+    int count = 0;
+    for (char c : str) {
+        if (std::tolower(c) == 'i') {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    getline(std::cin, input);
+    int result = is_bored(input);
+    std::cout << "Count of 'I' at the beginning: " << result << std::endl;
+    return 0;
+}
