@@ -1,58 +1,22 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <boost/any.hpp>
-
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max(a.convert_to<int>(), b.convert_to<float>());
+    if (is_any_of<string>(a)) {
+        string str1 = any_cast<string>(a);
+        if (is_any_of<string>(b)) {
+            string str2 = any_cast<string>(b);
+            return (stod(str1) > stod(str2)) ? a : ((stod(str1) < stod(str2)) ? b : boost::any("None"));
+        } else {
+            double num2 = any_cast<double>(b);
+            return (stod(str1) > num2) ? a : ((stod(str1) < num2) ? b : boost::any("None"));
+        }
+    } else if (is_any_of<string>(b)) {
+        string str2 = any_cast<string>(b);
+        double num1 = any_cast<double>(a);
+        return (num1 > stod(str2)) ? a : ((num1 < stod(str2)) ? b : boost::any("None"));
+    } else {
+        double num1 = any_cast<double>(a);
+        double num2 = any_cast<double>(b);
+        return (num1 > num2) ? a : ((num1 < num2) ? b : boost::any("None"));
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int x = a.convert_to<int>();
-        string y = b.convert_to<string>();
-        if (x > stoi(y))
-            return a;
-        else
-            return b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float x = a.convert_to<float>();
-        int y = b.convert_to<int>();
-        if (x > y)
-            return a;
-        else
-            return b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string x = a.convert_to<string>();
-        float y = b.convert_to<float>();
-        if (stof(x) > y)
-            return a;
-        else
-            return b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string x = a.convert_to<string>();
-        string y = b.convert_to<string>();
-        if (stof(x) > stof(y))
-            return a;
-        else if (stof(x) < stof(y))
-            return b;
-        else
-            return boost::any("None");
-    }
-    else {
-        // If all values are equal, return "None"
-        return boost::any("None");
-    }
-}
-
-int main() {
-    cout << compare_one(1, 2.5) << endl;  // Output: 2.5
-    cout << compare_one(1, "2,3") << endl;  // Output: 2,3
-    cout << compare_one("5,1", "6") << endl;  // Output: 6
-    cout << compare_one("1", 1) << endl;  // Output: None
-    return 0;
 }
