@@ -6,7 +6,7 @@
 bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin(),
                                                   [](const auto& v1, const auto& v2) {
-                                                      return issame(v1, v2);
+                                                      return v1 == v2;
                                                   });
 }
 
