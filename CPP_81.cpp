@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -30,6 +31,6 @@ int main() {
     }
     
     std::string grade = numerical_letter_grade(credits, gpa);
-    assert (issame({grade}, {"A", "B+"})); 
+    assert(std::set<std::string>({grade}) == std::set<std::string>({"A", "B+"}));
     return 0;
 }
