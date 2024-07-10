@@ -1,37 +1,43 @@
-```
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <iostream>
 
-bool issame(int a[], int b[]) {
-    for (int i = 0; i < 3; i++) {
-        if (a[i] != b[i]) return false;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
-int even_odd_palindrome(int n) {
-    vector<int> result(2, 0);
-    for (int i = 1; i <= n; i++) {
-        int num = i;
-        string str = to_string(num);
-        if (issame(&num, &stoi(str + stoi(string(reverse(str))))) 
-            && (num % 2 == 0))
-            result[0]++;
-        else if (issame(&num, &stoi(str + stoi(string(reverse(str))))) 
-                 && (num % 2 != 0))
-            result[1]++;
+std::vector<int> even_odd_palindrome(int n) {
+    int count_even = 0, count_odd = 0;
+    for(int i = 1; i <= n; ++i){
+        if(i % 2 == 0 && isPalindrome(std::to_string(i))){
+            count_even++;
+        } else if(i % 2 != 0 && isPalindrome(std::to_string(i))){
+            count_odd++;
+        }
     }
-    return result[0] | (result[1] << 1);
+    return {count_even, count_odd};
 }
 
 int main() {
     int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> n;
 
-    vector<int> result = even_odd_palindrome(n);
+    std::vector<int> result = even_odd_palindrome(n);
 
-    cout << "Number of even palindromes: " << result & 1 << endl;
-    cout << "Number of odd palindromes: " << (result >> 1) & ((1 << 1) - 1) << endl;
+    std::cout << "Number of even palindromes: " << result[0] << std::endl;
+    std::cout << "Number of odd palindromes: " << result[1] << std::endl;
+}
+
+bool isPalindrome(std::string s) {
+    int left = 0, right = s.size() - 1;
+    while(left < right){
+        if(s[left] != s[right]) return false;
+        left++;
+        right--;
+    }
+    return true;
 }
