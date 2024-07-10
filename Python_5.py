@@ -1,15 +1,19 @@
 ```
 def intersperse(a, b):
     result = []
-    for item in a:
-        result.append(item)
-        if isinstance(b, int):
-            result.extend([b] * len([b]))
-        else:
-            result.append(b)
+    if hasattr(a, '__iter__'):
+        for item in a:
+            result.append(item)
+            if isinstance(b, int):
+                result.extend([b] * len(list([b])))
+            else:
+                result.append(b)
+    elif isinstance(b, int):
+        for _ in range(len([b])):
+            result.extend([a])
     return result
 
-list1 = [2, 2, 2]
+list1 = [2]
 list2 = 2
 result = intersperse(list1, list2)
 print(result)
