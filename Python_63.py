@@ -1,11 +1,14 @@
-```python
-def fib(n: int):
+```
+def fibfib(n: int):
     if n <= 1:
-        return n
-    a, b = 0, 1
-    for _ in range(2, n+1):
-        a, b = b, a+b
-    return b
+        return "Fibonacci sequence for even numbers only"
+    else:
+        a, b = 0, 1
+        result = [a]
+        while b < n:
+            a, b = b, a+b
+            result.append(a)
+        return str(result)
 
 n = int(input("Enter an integer: "))
-print(fib(n))
+print(fibfib(n))
