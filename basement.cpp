@@ -21,6 +21,6 @@ int main() {
     }
     int result = basement(nums);
     std::cout << result << std::endl;
-
+    
     return 0;
 }
