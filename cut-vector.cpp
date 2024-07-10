@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <utility>
-#include <limits> // for INT_MAX
-#include <cmath>  // for abs
+#include <limits>
+#include <cmath>
 
 using namespace std;
 
@@ -11,7 +12,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     
     pair<long long, long long> prefix_sum({0LL}, accumulate(v.begin(), v.end(), 0LL));
     
-    int min_diff = INT_MAX;
+    int min_diff = numeric_limits<int>::max();
     vector<int> left, right;
     
     for (int i = 0; i < n; ++i) {
@@ -23,3 +24,4 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     }
     
     return make_pair(left, right);
+}
