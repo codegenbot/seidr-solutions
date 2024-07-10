@@ -3,9 +3,6 @@ def decode_shift():
         result = ""
         while True:
             s = input("Enter a string to shift (or 'q' to quit): ")
-            if not s.strip():  
-                print("Please enter a valid input.")
-                continue
             if s.lower() == "q":
                 break
             n = ""
@@ -14,13 +11,10 @@ def decode_shift():
                     n = int(input("Enter the number of positions to shift: "))
                 except ValueError:
                     print("Invalid input. Please enter an integer.")
+            ascii_offset = 65 if s.isupper() else 97
             for char in s:
-                if ord(char) > 127:
-                    result += char
+                if char.isalpha():
+                    result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset)
                 else:
-                    ascii_offset = 65 if char.isupper() else 97
-                    if char.isupper():
-                        result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset).upper()
-                    else:
-                        result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset).lower()
+                    result += char
             print(result)
