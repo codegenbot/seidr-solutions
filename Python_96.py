@@ -8,7 +8,7 @@ def count_up_to(n):
         return True
 
     result = []
-    for i in range(2, n+1):  
-        if is_prime(i) and i == n:
-            result.append(i)
-    return result
+    for i in range(2, n + 1):
+        if is_prime(i):
+            result.append(str(i))
+    return "[{}>".format(", ".join(result))[:-2] + "]"
