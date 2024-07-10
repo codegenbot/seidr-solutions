@@ -1,20 +1,14 @@
-int gcd(int a, int b) {
-        if (b == 0) {
-            return a;
-        }
-        return gcd(b, a % b);
-    }
+#include <stdio.h>
+#include <string>
+#include <cmath>
+using namespace std;
 
-    bool simplify(string x, string n) {
-        int num1 = stoi(x.substr(0, x.find('/')));
-        int den1 = stoi(x.substr(x.find('/') + 1));
-        int num2 = stoi(n.substr(0, n.find('/')));
-        int den2 = stoi(n.substr(n.find('/') + 1));
+bool simplify(string x, string n) {
+    int x_numerator, x_denominator, n_numerator, n_denominator;
+    sscanf(x.c_str(), "%d/%d", &x_numerator, &x_denominator);
+    sscanf(n.c_str(), "%d/%d", &n_numerator, &n_denominator);
 
-        int numer = num1 * num2;
-        int denom = den1 * den2;
+    double result = (double)x_numerator / x_denominator * n_numerator / n_denominator;
 
-        int common = gcd(numer, denom);
-
-        return denom / common == 1;
-    }
+    return (fabs(result - round(result)) < 1e-9);
+}
