@@ -1,16 +1,16 @@
 #include <string>
+#include <iostream>
 
 struct PegCounts { int white; int black; };
 
-PegCounts mastermind(std::string code, std::string guess) {
+PegCounts mastermind(std::string& code, std::string& guess) {
     PegCounts result = {0, 0};
-    std::string remainingGuess = guess;
 
     // Count black pegs
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             result.black++;
-            remainingGuess[i] = ' ';
+            guess[i] = ' ';  // replace character in guess string with space
         }
     }
 
@@ -28,19 +28,23 @@ PegCounts mastermind(std::string code, std::string guess) {
         }
     }
     for (int i = 0; i < 4; ++i) {
-        if (remainingGuess[i] != ' ') {
-            while(codeCount[code[i]] <= 0 && code[i] != remainingGuess[i]) {
-                code[i] = guess[i];
-                break;
-            }
-            if (code[i] == guess[i]) {
-                result.black++;
-            } else {
+        if (guess[i] != ' ') {
+            if (codeCount[code[i]] > 0) {
                 result.white++;
                 codeCount[code[i]]--;
+            } else if (codeCount[guess[i]] == -1) {
+                result.black++;
             }
         }
     }
 
     return result;
+}
+
+int main() {
+    std::string code = "ABCD";
+    std::string guess = "BCDE";
+    PegCounts result = mastermind(code, guess);
+    std::cout << "White pegs: " << result.white << ", Black pegs: " << result.black << std::endl;
+    return 0;
 }
