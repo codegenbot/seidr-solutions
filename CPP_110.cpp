@@ -1,4 +1,4 @@
-Here's the solution:
+#include <algorithm>
 
 string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
