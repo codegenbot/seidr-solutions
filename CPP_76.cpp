@@ -2,24 +2,19 @@
 #include <cmath>
 #include <cassert>
 
-bool is_simple_power(int x, int n) {
-    if (x <= 0 || n <= 0) {
-        return false;
-    }
-    
-    double result = log(x) / log(n);
-    
-    return (result == (int)result);
+bool is_simple_power(int base, int num) {
+    if (base < 2 || num < 2) return false;
+    double root = std::pow(num, 1.0 / base);
+    return std::abs(std::round(root) - root) < 1e-9;
 }
 
-// Testing the function
 int main() {
     assert(is_simple_power(1, 12) == true);
     assert(is_simple_power(16, 2) == true);
     assert(is_simple_power(27, 3) == true);
     assert(is_simple_power(10, 2) == false);
-    
+
     std::cout << "All tests passed successfully." << std::endl;
-    
+
     return 0;
 }
