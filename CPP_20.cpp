@@ -3,7 +3,7 @@
 #include <utility>
 #include <vector>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(std::pair<float, float> a, std::pair<float, float> b) {
     return a == b;
 }
 
