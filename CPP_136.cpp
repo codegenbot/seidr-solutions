@@ -10,7 +10,7 @@ std::vector<int> largest_smallest_integers(const std::vector<int>& numbers) {
 }
 
 bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 int main() {
