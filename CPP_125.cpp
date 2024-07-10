@@ -23,5 +23,8 @@ vector<string> split_words(string input){
     if(words.empty()){
         words.push_back("0");
     }
+    if(!word.empty()){
+        words.push_back(word);
+    }
     return words;
 }
