@@ -14,10 +14,3 @@ int main() {
     int total = sum_squares(lst);
     cout << "Sum of squares: " << total << endl;
 }
-
-int sum_squares(const vector<float>& lst){
-    int total = 0;
-    for(float x : lst){
-        total += ceil(x) * ceil(x);
-    }
-    return total;

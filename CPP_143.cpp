@@ -1,5 +1,4 @@
-#include <vector>
-#include <algorithm>
+using namespace std;
 
 string words_in_sentence(string sentence) {
     vector<int> wordLengths;
@@ -39,4 +38,3 @@ vector<string> split(const string& str, char delimiter) {
     
     tokens.push_back(str.substr(prev));
     return tokens;
-}
