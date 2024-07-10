@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <algorithm> // for reverse
+#include <algorithm>
 using namespace std;
 
 int main() {
