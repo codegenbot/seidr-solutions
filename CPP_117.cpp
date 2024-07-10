@@ -7,29 +7,40 @@ using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word = "";
+    string word;
+    int consonants = 0;
+
     for (char c : s) {
         if (c == ' ') {
-            if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
+            if (consonants == n) {
                 result.push_back(word);
             }
-            word = "";
+            word.clear();
+            consonants = 0;
         } else {
+            if (!isalpha(c)) continue; // ignore non-alphabets
+            char lowerCase = tolower(c);
+            if (lowerCase != 'a' && lowerCase != 'e' && lowerCase != 'i' && lowerCase != 'o' && lowerCase != 'u') {
+                consonants++;
+            }
             word += c;
         }
     }
-    if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
+
+    // check the last word
+    if (consonants == n) {
         result.push_back(word);
     }
+
     return result;
 }
 
 int main() {
     string s = "Mary had a little lamb";
     int n = 4;
-    vector<string> res = select_words(s, n);
-    for (string str : res) {
+    vector<string> result = select_words(s, n);
+
+    for (string str : result) {
         cout << str << endl;
     }
-    return 0;
 }
