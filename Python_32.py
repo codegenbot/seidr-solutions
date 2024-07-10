@@ -1,8 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 def find_zero(xs: list):
-    n = len(xs)
-    if n % 2 == 1:
-        raise ValueError("xs must have even number of coefficients")
-    highest_coefficient_index = n // 2
-    return -xs[highest_coefficient_index] / xs[0]
+    return -xs[0] / xs[-1]
