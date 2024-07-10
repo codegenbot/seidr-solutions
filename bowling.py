@@ -1,4 +1,6 @@
+```
 def bowling_score(frames):
+    frames = frames.replace('/', '10')
     score = 0
     i = 0
     while i < len(frames):
@@ -9,11 +11,7 @@ def bowling_score(frames):
             else:
                 score += int(frames[i]) * 10
         elif frames[i] == 'X':
-            if i+1 < len(frames) and frames[i+1] in ['X', '/']:
-                score += 30
-            else:
-                score += 10 + int(frames[i+2:i+4])
-        elif frames[i] == '/':
-            score += 10 + int(frames[i+1])
+            score += 10 + 10 + int(frames[i+1:i+3])
+            i += 2
         i += 1
     return score
