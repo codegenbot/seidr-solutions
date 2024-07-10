@@ -8,11 +8,15 @@ int main() {
     int quarters = cents / 25;
     cents %= 25;
 
-    int dimes = cents / 10;
-    cents %= 10;
+    while (cents >= 10) {
+        int dimes = cents / 10;
+        cents %= 10;
+    }
 
-    int nickles = cents / 5;
-    cents %= 5;
+    while (cents >= 5) {
+        int nickles = cents / 5;
+        cents %= 5;
+    }
 
     int pennies = cents;
 
