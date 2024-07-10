@@ -1,12 +1,16 @@
+#include <string>
+
 vector<string> by_length(vector<int> arr) {
     vector<int> nums;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            nums.push_back(i);
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            nums.push_back(num);
         }
     }
+
     sort(nums.begin(), nums.end());
     reverse(nums.begin(), nums.end());
+
     vector<string> result;
     for (int num : nums) {
         switch (num) {
@@ -39,5 +43,6 @@ vector<string> by_length(vector<int> arr) {
                 break;
         }
     }
+
     return result;
 }
