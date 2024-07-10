@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <iostream>
 
 long long double_the_difference(std::vector<long long> lst) {
     long long sum = 0;
@@ -16,6 +17,6 @@ long long double_the_difference(std::vector<long long> lst) {
 int main() {
     std::vector<long long> lst = {1, 3, 5};
     long long odd_sum = double_the_difference(lst);
-    assert(double_the_difference(lst) == odd_sum );
+    std::cout << "The sum of squares of odd numbers is: " << odd_sum << std::endl;
     return 0;
 }
