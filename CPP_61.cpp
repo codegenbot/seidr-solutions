@@ -1,10 +1,7 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
 
-bool correct_bracketing(const std::string& brackets) {
+bool correct_bracketing(const string& brackets) {
     int count = 0;
-    std::for_each(brackets.begin(), brackets.end(), [&count](char c) {
+    for (char c : brackets) {
         if (c == '(') {
             count++;
         } else if (c == ')') {
@@ -13,6 +10,6 @@ bool correct_bracketing(const std::string& brackets) {
             }
             count--;
         }
-    });
+    }
     return count == 0;
 }
