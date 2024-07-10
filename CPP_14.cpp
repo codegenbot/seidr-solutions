@@ -1,5 +1,4 @@
-using namespace std;
-
+```cpp
 #include <vector>
 #include <string>
 
