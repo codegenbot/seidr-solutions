@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -15,5 +14,4 @@ int main() {
     std::string s;
     std::getline(std::cin, s);
     std::cout << solve(s) << std::endl;
-    assert (solve("#ccc") == 4);
 }
