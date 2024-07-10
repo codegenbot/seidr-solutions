@@ -1,33 +1,29 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = -1;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> result;
     
-    for (int i = 0; i < v.size() - 1; i++) {
-        int left_sum = 0, right_sum = 0;
-        
+    for (int i = 0; i < n; i++) {
+        vector<int> left, right;
         for (int j = 0; j <= i; j++) {
-            left_sum += v[j];
+            left.push_back(v[j]);
+        }
+        for (int j = i + 1; j < n; j++) {
+            right.push_back(v[j]);
         }
         
-        for (int j = i + 1; j < v.size(); j++) {
-            right_sum += v[j];
-        }
+        int diff = abs((accumulate(left.begin(), left.end(), 0) - accumulate(right.begin(), right.end(), 0)) / (left.size() + right.size()));
         
-        int diff = abs(left_sum - right_sum);
-        
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        if ((accumulate(left.begin(), left.end(), 0) == accumulate(right.begin(), right.end(), 0)) || (diff == 0)) {
+            result.push_back(left);
+            result.push_back(right);
+            return result;
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + cut_index + 1);
-    vector<int> right(v.begin() + cut_index, v.end());
-    
-    return {left, right};
+    return {{}, {}};
 }
 
 int main() {
@@ -38,19 +34,16 @@ int main() {
         cin >> v[i];
     }
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    
-    cout << "[";
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i] << " ";
+    vector<vector<int>> result = cutVector(v);
+    cout << "( ";
+    for (auto x : result[0]) {
+        cout << x << " ";
     }
-    cout << "]" << endl;
-    
-    cout << "[";
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i] << " ";
+    cout << ") (" << " ";
+    for (auto x : result[1]) {
+        cout << x << " ";
     }
-    cout << "]0" << endl;
+    cout << ")" << endl;
     
     return 0;
 }
