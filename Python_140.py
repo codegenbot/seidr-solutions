@@ -1,2 +1,2 @@
 def fix_spaces(text):
-    return ''.join(['_' if c == ' ' else c if c != '-' else '-' for c in text]).replace('   ', '-').replace('  ', '_')
+    return text.replace('   ', '-').replace('  ', '_').replace(' ', '_')
