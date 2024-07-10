@@ -14,7 +14,7 @@ string string_to_md5(string text) {
     size_t len = text.size();
 
     EVP_DigestUpdate(ctx, input, len);
-    EVP_DigestFinal_ex(ctx, md5, &len);
+    EVP_DigestFinal_ex(ctx, md5, (unsigned int*)&len);
 
     string result;
     for (int i = 0; i < 16; ++i) {
