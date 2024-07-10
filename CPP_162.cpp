@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <sstream>
 #include <openssl/md5.h>
