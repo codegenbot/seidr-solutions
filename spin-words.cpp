@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 std::string spinWords(const std::string& input) {
     std::vector<std::string> words = split(input, " ");
@@ -33,9 +32,4 @@ std::string join(const std::vector<std::string>& words, const std::string& delim
         }
     }
     return output;
-}
-
-int main() {
-    std::cout << spinWords("This is a test string") << std::endl; // hi
-    return 0;
 }
