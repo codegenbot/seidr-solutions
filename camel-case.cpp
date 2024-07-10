@@ -1,29 +1,16 @@
-#include <vector>
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string camelCase(std::string str) {
-    std::string result = "";
-    bool capitalizeNext = true;
-
-    for (char c : str) {
-        if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
+string camelCase(string s) {
+    string res = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            res += toupper(s[++i]);
+        } else if (s[i] == ' ') {
+            res += " ";
         } else {
-            result += tolower(c);
+            if (res.length() > 0) res[0] = tolower(res[0]);
+            res += s[i];
         }
     }
-
-    return result;
-}
-
-int main() {
-    std::string str;
-    while(std::cin >> str) {
-        std::cout << camelCase(str) << '\n';
-    }
-    return 0;
+    return res;
 }
