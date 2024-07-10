@@ -1,21 +1,21 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <string>
 
 int main() {
-    string text, target;
-    cin >> target >> text;
-
-    vector<int> indices;
-    int pos = text.find(target, 0);
-    while (pos != string::npos) {
-        indices.push_back(pos);
-        pos = text.find(target, pos + 1);
+    std::string text, target;
+    std::cin >> text >> target;
+    
+    std::vector<int> indices;
+    for (int i = 0; i <= text.size() - target.size(); ++i) {
+        if (text.substr(i, target.size()) == target) {
+            indices.push_back(i);
+        }
     }
-
-    for (int i = 0; i < indices.size(); i++) {
-        cout << indices[i] << " ";
+    
+    for (int idx : indices) {
+        std::cout << idx << " ";
     }
-
+    
     return 0;
 }
