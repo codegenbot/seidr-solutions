@@ -27,4 +27,6 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     return nums;
 }
 
-// Removed duplicate int main() function.
+/*Code modified as requested*/
+
+```
