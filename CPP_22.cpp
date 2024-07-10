@@ -1,14 +1,14 @@
-#include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
+#include <vector>
+#include <list>
+#include <iostream>
 
-vector<int> filter_integers(list<any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<bool> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if(boost::any_cast<bool>(value)) {
-            try {
-                int val = boost::lexical_cast<int>(value);
-                result.push_back(val);
-            } catch (boost::bad_lexical_cast&) {}
+        if (value) {
+            int val = 0;
+            std::cin >> val;
+            result.push_back(val);
         }
     }
     return result;
