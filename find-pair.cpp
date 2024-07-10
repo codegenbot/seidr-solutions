@@ -2,31 +2,13 @@
 using namespace std;
 
 pair<int, int> findPair(vector<int>& nums, int target) {
-    unordered_map<int, int> numMap;
-    for (int num : nums) {
-        int complement = target - num;
-        if (numMap.find(complement) != numMap.end()) {
-            return {complement, num};
+    unordered_map<int, int> numIndex;
+    for (int i = 0; i < nums.size(); i++) {
+        int complement = target - nums[i];
+        if (numIndex.count(complement)) {
+            return {complement, nums[i]};
         }
-        numMap[num] = 1;
+        numIndex[nums[i]] = i;
     }
-    return {-1, -1}; // return empty pair
-}
-
-int main() {
-    int n;
-    cin >> n;
-    
-    for(int i=0; i<n; ++i){
-        int a, b;
-        cin >> a >> b;
-        vector<int> nums = {a,b};
-        
-        if(findPair(nums,a+b).first != -1)
-            cout << findPair(nums,a+b).first << " " << findPair(nums,a+b).second << endl;
-        else
-            cout << "No solution exists." << endl;
-    }
-    
-    return 0;
+    return {}; // or throw an exception
 }
