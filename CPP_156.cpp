@@ -1,10 +1,13 @@
+```cpp
 #include <iostream>
 #include <sstream>
 #include <unordered_map>
-#include <map>
+#include <vector>
+#include <algorithm>
 
 std::string int_to_mini_romank(int num) {
-    std::unordered_map<int, std::string> romanMap = {{1000, "M"},
+    std::unordered_map<int, std::string> romanMap;
+    romanMap = {{1000, "M"},
                  {900, "CM"},
                  {500, "D"},
                  {400, "CD"},
@@ -17,12 +20,16 @@ std::string int_to_mini_romank(int num) {
                  {5, "V"},
                  {4, "IV"},
                  {1, "I"}};
+    
+    std::vector<std::pair<int, std::string>> romanVector(romanMap.begin(), romanMap.end());
+    std::sort(romanVector.begin(), romanVector.end());
+    
     std::string result;
     
-    for (const auto& pair : romanMap | std::views::keys) {
-        while (num >= pair) {
-            num -= pair;
-            result.push_back(romanMap.at(pair)[0]);
+    for (const auto& pair : romanVector) {
+        while (num >= pair.first) {
+            num -= pair.first;
+            result.push_back(pair.second[0]);
         }
     }
     
