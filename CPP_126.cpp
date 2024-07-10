@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -16,6 +15,6 @@ bool is_sorted(vector<int> lst){
     return true;
 
 int main() {
-    vector<int> lst(4); // initialize with a size
+    vector<int> lst(4); 
     cout << (is_sorted(lst) ? "True" : "False") << endl; 
 }
