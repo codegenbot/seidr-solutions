@@ -1,40 +1,38 @@
 def solve_boolean(expression):
-    def evaluate(expression):
-        if '&&' in expression or '||' in expression:
-            left = expression.split('&&')[0].split('||')[0]
-            right = expression.split('&&')[1].split('||')[1]
-            return (evaluate(left) and evaluate(right)) if '&&' in expression else (evaluate(left) or evaluate(right))
-        for char in expression:
-            if char.upper() == '(':
-                i = 1
-                for c in expression[expression.index(char)+1:]:
-                    if c == '(':
-                        i += 1
-                    elif c == ')':
-                        i -= 1
-                    if i == 0:
-                        return evaluate(''.join(expression[:expression.index(char)] + expression[expression.index(char)+1:expression.index(char)+expression.index(char)+i+1]))
-        for char in expression:
-            if char.upper() == 'T':
-                return True
-            elif char.upper() == 'F':
-                return False
-        operator = None
-        operand2 = None
-        for char in expression:
-            if char.upper() == '|':
-                operator = '|'
-            elif char.upper() == '&':
-                operator = '&'
-            elif char.upper() == 'T' or char.upper() == 'F':
-                operand2 = char.upper() == 'T'
-                break
-        if operator is None:
-            return True  # default to True for an empty expression
+    if not expression:
+        return False
 
-        if operator == '|':
-            return evaluate(''.join(expression[:expression.index(char)]) + str(operand2)) or evaluate(''.join(expression[expression.index(char)+1:]))
+    stack = []
+    operators = []
+    temp = ''
+
+    for char in expression:
+        if char.upper() in ['T', 'F']:
+            if temp: 
+                stack.append(eval(temp))
+                temp = ''
+            else:
+                stack.append(char == 'T')
+        elif char.upper() in ['|', '&']:
+            while temp and temp[-1].isalpha():
+                temp += char
+            if temp:
+                stack.append(eval(temp))
+                temp = ''
+            operators.append(char)
         else:
-            return not (evaluate(''.join(expression[:expression.index(char)])) or evaluate(''.join(expression[expression.index(char)+1:]))) if operator == '&' else False
+            temp += char
 
-    return evaluate(expression)
+    if temp: 
+        stack.append(eval(temp))
+
+    result = stack[0]
+    for operator in operators:
+        operand2 = stack.pop()
+        operand1 = stack.pop()
+        if operator == '|':
+            result = operand1 or operand2
+        elif operator == '&':
+            result = operand1 and operand2
+
+    return result
