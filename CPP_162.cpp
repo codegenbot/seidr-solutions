@@ -1,1 +1,3 @@
+#include <string>
+
 std::string cppString_to_md5(std::string text) {
