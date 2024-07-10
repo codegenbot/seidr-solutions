@@ -1,41 +1,16 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int split_index = -1;
-
-    for (int i = 0; i < vec.size() - 1; ++i) {
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            split_index = i;
+    int index = 0;
+    for (int i = 1; i < v.size(); i++) {
+        if (abs(v[i] - v[0]) <= min_diff) {
+            min_diff = abs(v[i] - v[0]);
+            index = i;
         }
     }
-
-    return {{vec.begin(), vec.begin() + split_index}, {vec.begin() + split_index, vec.end()}};
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<int> vec(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> vec[i];
-    }
-
-    auto result = cutVector(vec);
-
-    for (const auto& num : result.first) {
-        std::cout << num << " ";
-    }
-    std::cout << "\n";
-
-    for (const auto& num : result.second) {
-        std::cout << num << " ";
-    }
-    std::cout << "\n";
-
-    return 0;
+    vector<int> left(v.begin(), v.begin() + index);
+    vector<int> right(v.begin() + index, v.end());
+    return make_pair(left, right);
 }
