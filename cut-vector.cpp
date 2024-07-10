@@ -2,67 +2,53 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    int min_diff = INT_MAX;
-    int cut_index = -1;
+    int minDiff = INT_MAX;
+    pair<vector<int>, vector<int>> result;
     
-    for (int i = 0; i < n; ++i) {
-        int left_sum = 0, right_sum = 0;
+    for (int i = 0; i < v.size() - 1; i++) {
+        int leftSum = 0, rightSum = 0;
         
-        for (int j = 0; j < i; ++j)
-            left_sum += v[j];
-        for (int j = i; j < n; ++j)
-            right_sum += v[j];
-        
-        if (left_sum == right_sum) {
-            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
+        for (int j = 0; j <= i; j++) {
+            leftSum += v[j];
         }
         
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        for (int j = i + 1; j < v.size(); j++) {
+            rightSum += v[j];
         }
-    }
-    
-    for (int i = 0; i < n; ++i) {
-        int left_sum = 0, right_sum = 0;
         
-        for (int j = 0; j <= i; ++j)
-            left_sum += v[j];
-        for (int j = i + 1; j < n; ++j)
-            right_sum += v[j];
+        int diff = abs(leftSum - rightSum);
         
-        if (left_sum == right_sum) {
-            return {{v.begin(), v.begin() + cut_index}, {v.begin() + cut_index, v.end()}};
+        if (diff == 0 || diff < minDiff) {
+            minDiff = diff;
+            result.first = vector<int>(v.begin(), v.begin() + i + 1);
+            result.second = vector<int>(v.begin() + i, v.end());
         }
     }
     
-    return {{v.begin(), v.begin()}, {v.begin(), v.end()}};
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> v(n);
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; i < n; i++) {
         cin >> v[i];
+    }
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
+    pair<vector<int>, vector<int>> res = cutVector(v);
     
     cout << "[";
-    for (int x : result.first) {
-        cout << x;
-        if (&x != &result.first.back())
-            cout << " ";
-    }
-    cout << "] [";
-    for (int x : result.second) {
-        cout << x;
-        if (&x != &result.second.back())
-            cout << " ";
+    for (int i = 0; i < res.first.size(); i++) {
+        cout << res.first[i] << " ";
     }
     cout << "]" << endl;
+    
+    cout << "[";
+    for (int i = 0; i < res.second.size(); i++) {
+        cout << res.second[i] << " ";
+    }
+    cout << "0]" << endl;
     
     return 0;
 }
