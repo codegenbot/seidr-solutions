@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 bool triples_sum_to_zero(std::vector<int>& l) {
     int n = l.size();
     for (int i = 0; i < n - 2; i++) {
