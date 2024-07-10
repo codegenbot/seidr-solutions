@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+using namespace std;
+
 int main() {
     vector<int> input;
     int num;
