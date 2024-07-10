@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -16,11 +17,10 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for (int i = 0; i < n; i++) {
-        int val;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> val;
-        nums.emplace_back(val);
+        int temp;
+        std::cin >> temp;
+        nums.push_back(temp);
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
-    return 0;
 }
