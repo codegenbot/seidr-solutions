@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cassert>
 
-std::vector<float> lst;
+std::vector<float> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
 float odd_sum = 0.0;
 
 float double_the_difference(std::vector<float>& lst) {
@@ -23,13 +23,6 @@ float double_the_difference(std::vector<float>& lst) {
 }
 
 int main() {
-    for (int i = 0; i < 5; ++i) {
-        float num;
-        std::cout << "Enter a number: ";
-        std::cin >> num;
-        lst.push_back(num);
-    }
-    
     float result = double_the_difference(lst);
     std::cout << "Result: " << result << std::endl;
     
