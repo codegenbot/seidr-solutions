@@ -1,16 +1,16 @@
 import re
 
-def fix_spaces(text):
+def fix_spaces(text): 
     return re.sub(r'\s+', '_', text)
 
 combined_text = ''
-while True:
+while True: 
     try:
         line = input()
-        if not line:
+        if line == '':
             break
-        combined_text += line + '\n'
-    except EOFError:
+        combined_text += line
+    except (EOFError, KeyboardInterrupt):
         break
 
 print(fix_spaces(combined_text))
