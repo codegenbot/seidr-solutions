@@ -1,7 +1,8 @@
 ```cpp
 #include <algorithm>
 #include <vector>
-#include <utility> 
+#include <utility>
+#include <initializer_list> 
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
@@ -32,10 +33,6 @@ vector<int> orderPoints(vector<int> nums) {
 }
 
 int main() {
-#ifdef __GXX_EXPERIMENTAL__
-#define _GLIBCXX_ASSERTIONS 1
-#endif
-
     vector<int> nums = {0,6,6,-76,-21,23,4};
     cout << "[";
     for(int i=0; i<nums.size();i++) {
