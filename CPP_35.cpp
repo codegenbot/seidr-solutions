@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <algorithm>
 #include <cmath>
@@ -20,7 +19,7 @@ int main() {
         std::cin >> arr[i];
     }
 
-    int max_value = maxElementFinder(n, arr);
+    int max_value = *std::max_element(arr, arr+n);
 
     std::cout << "Maximum element: " << max_value << std::endl;
 
