@@ -1,4 +1,4 @@
-```cpp
+```
 #include <string>
 #include <vector>
 
@@ -34,9 +34,22 @@ std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v)
 
 }
 
-{ 
-int main() { 
-    assert(issame({{"aaaa", "bbbb"}, {"cccc", "ddd"}}, {{"cccc", "ddd"}, {"aaaa", "bbbb"}})); 
-    assert(issame(std::vector<std::string>{{"aaaa", "bbbb"}, {"dd", "cc"}},
-                  std::vector<std::string>{{"cc", "dd"}, {"aaaa", "bbbb"}})); 
+int main() {
+    { 
+        std::vector<std::pair<std::string, std::string>> v1 = {{"aaaa", "bbbb"}, {"cccc", "ddd"}};
+        std::vector<std::pair<std::string, std::string>> v2 = {{"cccc", "ddd"}, {"aaaa", "bbbb"}};
+        if (!issame({v1[0][0], v1[0][1]}, {v2[0][0], v2[0][1]}) || !issame({v1[1][0], v1[1][1]}, {v2[1][0], v2[1][1]})) {
+            std::cout << "Test failed" << std::endl;
+        } else {
+            std::cout << "Test passed" << std::endl;
+        }
+        
+        std::vector<std::pair<std::string, std::string>> v3 = {{"aaaa", "bbbb"}, {"dd", "cc"}};
+        std::vector<std::pair<std::string, std::string>> v4 = {{"cc", "dd"}, {"aaaa", "bbbb"}};
+        if (!issame({v3[0][0], v3[0][1]}, {v4[0][0], v4[0][1]}) || !issame({v3[1][0], v3[1][1]}, {v4[1][0], v4[1][1]})) {
+            std::cout << "Test failed" << std::endl;
+        } else {
+            std::cout << "Test passed" << std::endl;
+        }
+    }
 }
