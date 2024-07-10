@@ -1,55 +1,28 @@
-#include <iostream>
-#include <string>
-#include <vector>
-
-std::vector<std::string> split(const std::string& str, char c) {
-    std::vector<std::string> words;
-    std::string word;
-
-    for (char cstr : str) {
-        if (cstr == c) {
-            words.push_back(word);
-            word.clear();
-        } else {
-            word += cstr;
-        }
-    }
-
-    words.push_back(word);
-
-    return words;
-}
-
-std::string capitalizeFirst(const std::string& str) {
-    std::string result = tolower(str);
-    if (!result.empty()) {
-        result[0] = toupper(result[0]);
-    }
-    return result;
-}
-
-std::string kebabToCamel(const std::string& str) {
-    std::string result;
-    bool capitalize = true;
-
-    std::vector<std::string> words = split(str, ' ');
-    for (const auto& word : words) {
-        if (!result.empty()) {
-            result += capitalizeFirst(word);
-        } else {
-            result = capitalizeFirst(word);
-        }
-    }
-
-    return result;
-}
-
+```
 int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input;
+    string camelCase(string s) {
+        string result = "";
+        for (int i = 0; i < s.length(); i++) {
+            if (s[i] == '-') {
+                i++; // skip the dash
+                while (i < s.length() && isspace(s[i])) i++; // skip spaces
+                char firstChar = toupper(s[i]);
+                result += firstChar;
+                i--; // go back to the previous character
+            } else if (!isspace(s[i])) {
+                if (result != "") {
+                    result[0] = tolower(result[0]); // make it lowercase
+                }
+                result += s[i];
+            }
+        }
+        return result;
+    }
 
-    std::cout << "CamelCase conversion: " << kebabToCamel(input) << std::endl;
+    string input;
+    cout << "Enter a string in kebab-case: ";
+    getline(cin, input);
+    cout << "CamelCase: " << camelCase(input) << endl;
 
     return 0;
 }
