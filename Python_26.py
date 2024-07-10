@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -9,16 +10,17 @@ if __name__ == "__main__":
     while True:
         print("Enter comma-separated integers: ")
         numbers = input()
-        if not numbers:
+        if not numbers: 
             print("No input entered.")
-        else:
-            try:
-                numbers = [int(num) for num in numbers.split(",")]
-                print(remove_duplicates(numbers))
-                cont = input("Do you want to continue? (y/n): ")
-                if cont.lower() != "y":
-                    break
-                else:
-                    continue
-            except ValueError:
-                print("Invalid input. Please enter comma-separated integers.")
+        else: 
+            while True:
+                try:
+                    numbers = [int(num) for num in numbers.split(",") if num]
+                    print(remove_duplicates(numbers))
+                    cont = input("Do you want to continue? (y/n): ")
+                    if cont.lower() != 'y':
+                        break
+                    else:
+                        continue
+                except ValueError as e:
+                    print(f"Invalid input. {str(e)}. Please enter comma-separated integers.")
