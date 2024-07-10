@@ -4,21 +4,12 @@ bool check_dict_case(map<string, string> dict) {
     bool allLower = true;
     bool allUpper = true;
 
-    for (auto& pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            allLower = false;
-            allUpper = false;
-            break;
-        } else if (!allLower && !allUpper) {
-            continue;
-        }
-
-        if (!allLower) {
-            allUpper &= isupper(pair.first[0]);
-        } else {
-            allLower &= islower(pair.first[0]);
-        }
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        string key = it->first;
+        if (!allLower && !allUpper) break;
+        if (!allLower) allLower = islower(it->first[0]);
+        if (!allUpper) allUpper = isupper(it->first[0]);
     }
 
-    return allLower || allUpper;
+    return (allLower || allUpper);
 }
