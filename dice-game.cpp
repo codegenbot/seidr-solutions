@@ -1,4 +1,3 @@
-```cpp
 double getProbability(int n, int m) {
     double total = (n + m - 1);
     if(n > m)
