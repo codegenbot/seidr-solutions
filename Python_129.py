@@ -1,26 +1,30 @@
 def minPath(grid, k):
     n = len(grid)
-    m = [[i * j for j in range(1, n + 1)] for i in range(1, n + 1)]
+    m = [[i * n + j for j in range(n)] for i in range(n)]
 
-    visited = set()
-    path = []
-    dfs(m, 0, 0, k, visited, path)
+    def dfs(i, j, path, visited):
+        if len(path) == k:
+            return path
+        if (i, j) in visited or not 0 <= i < n or not 0 <= j < n:
+            return None
 
-    return path
+        min_val = float("inf")
+        min_path = None
 
+        for x, y in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+            ni, nj = i + x, j + y
+            if 0 <= ni < n and 0 <= nj < n:
+                val = m[ni][nj]
+                path_val = path + [val] if len(path) > 0 else [val]
+                p = dfs(ni, nj, path_val, visited | {(i, j)})
+                if p is not None and len(p) == k:
+                    return p
 
-def dfs(m, x, y, k, visited, path):
-    if k == 0:
-        return
-    if (x, y) in visited:
-        return
+        return min_path
 
-    visited.add((x, y))
-    path.append(m[x][y])
+    for i in range(n):
+        for j in range(n):
+            m[i][j] = (m[i][j], 0)
 
-    for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-        nx, ny = x + dx, y + dy
-        if 0 <= nx < len(m) and 0 <= ny < len(m[0]):
-            dfs(m, nx, ny, k - 1, visited, path)
-
-    visited.remove((x, y))
+    res = dfs(0, 0, [], set())
+    return [val[0] for val in res]
