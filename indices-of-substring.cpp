@@ -1,30 +1,14 @@
-Here is the completed code:
-
 #include <vector>
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.length();
-    int m = target.length();
+    int lastPos = -1; // The index of the last occurrence of the target in the text.
 
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
-            result.push_back(i);
-        }
+    while ((lastPos = text.find(target, lastPos + 1)) != string::npos) {
+        result.push_back(lastPos);
+        lastPos++;
     }
 
     return result;
-}
-
-int main() {
-    string text, target;
-    cin >> text >> target;
-    vector<int> indices = indicesOfSubstring(text, target);
-
-    for (int i : indices) {
-        cout << i << endl;
-    }
-
-    return 0;
 }
