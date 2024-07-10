@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<string> bf(const string& planet1, const string& planet2) {
+vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
     
@@ -24,6 +24,8 @@ vector<string> bf(const string& planet1, const string& planet2) {
     for (int i = start + 1; i < end; ++i) {
         result.push_back(planets[i]);
     }
+    
+    assert(result == vector<string>{"Mars"}); // Test case moved here
     
     return result;
 }
