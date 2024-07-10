@@ -1,10 +1,18 @@
-int sum = 0;
-    int product = 1;
+#include<vector>
+#include<iostream>
+#include<assert.h>
+using namespace std;
+
+pair<int, int> sum_product(int num){
+    return make_pair(num, num);
+}
+
+int main2(){
+    pair<int, int> result = sum_product(10);
     
-    for (int num : numbers) {
-        sum += num;
-        product *= num;
-    }
+    cout << "(" << result.first << ", " << result.second << ")" << endl;
     
-    return {sum, product};
+    assert(result == make_pair(10, 10));
+    
+    return 0;
 }
