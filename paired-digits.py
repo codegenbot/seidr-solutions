@@ -1,2 +1,6 @@
 def paired_digits(digits):
-    return sum(int(digit) for pair in zip([0]+digits.split(), digits) for digit in pair if digit == pair[1])
+    total = 0
+    for i in range(len(digits) - 1):
+        if digits[i] == digits[i + 1]:
+            total += int(digits[i])
+    return str(total)
