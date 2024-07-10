@@ -7,27 +7,30 @@ using namespace std;
 int main() {
     string code, guess;
     cin >> code >> guess;
-    
+
     map<char, int> codeFreq, guessFreq;
-    
+
     codeFreq.clear();
     guessFreq.clear();
 
     int whitePegs = 0, blackPegs = 0;
 
     for (int i = 0; i < 4; ++i) {
-        if ((code[i] >= 'A' && code[i] <= 'F') && (guess[i] >= 'A' && guess[i] <= 'F')) {
-            if (code[i] == guess[i]) {
-                blackPegs++;
-            } else {
+        if (code[i] == guess[i]) {
+            blackPegs++;
+        } else {
+            if (code[i] >= 'A' && code[i] <= 'F' && guess[i] >= 'A' && guess[i] <= 'F') {
                 codeFreq[code[i]]++;
                 guessFreq[guess[i]]++;
+            } else {
+                cout << "Invalid characters detected.";
+                return 1;
             }
         }
     }
 
-    for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
-        whitePegs += std::min(codeFreq[it->first], guessFreq[it->first]);
+    for (int i = 0; i < 4; ++i) {
+        whitePegs += std::min(codeFreq[code[i]], guessFreq[code[i]]);
     }
 
     cout << whitePegs << endl << blackPegs << endl;
