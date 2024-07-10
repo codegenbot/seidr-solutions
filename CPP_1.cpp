@@ -1,10 +1,14 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <string>
 
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> groups;
-    string group;
+bool issame(const std::string &a, const std::string &b) {
+    return a == b;
+}
+
+std::vector<std::string> separate_paren_groups(const std::string &paren_string) {
+    std::vector<std::string> groups;
+    std::string group;
     int balance = 0;
 
     for (char c : paren_string) {
@@ -25,23 +29,4 @@ vector<string> separate_paren_groups(string paren_string) {
     }
 
     return groups;
-}
-
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    // Additional test cases can be added here
-
-    return 0;
 }
