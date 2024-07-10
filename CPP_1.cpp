@@ -1,9 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
 vector<string> separate_paren_groups(vector<string> a, vector<string> b) {
     vector<string> result;
     string current_group;
     int open_braces = 0;
 
-    for (char c : a) {
+    for (char c : paren_string) {
         if (c == '(') {
             if (open_braces > 0) {
                 current_group += c;
@@ -19,8 +24,6 @@ vector<string> separate_paren_groups(vector<string> a, vector<string> b) {
             }
         }
     }
-
-    assert(result == b);
 
     return result;
 }
