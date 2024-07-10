@@ -5,6 +5,8 @@
 
 using namespace std;
 
+vector<string> odd_count(vector<string> lst);
+
 bool issame_strings(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -16,8 +18,6 @@ bool issame_strings(vector<string> a, vector<string> b) {
     }
     return true;
 }
-
-vector<string> odd_count(vector<string> lst);
 
 int main() {
     assert(issame_strings(odd_count({"271", "137", "314"}), {
