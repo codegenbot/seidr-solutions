@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -10,7 +11,7 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return !result.empty() ? result : std::string(s).substr(0, s.size()).append(s.substr(s.rbegin(), s.rend()));
+    return !result.empty() ? result : s;
 }
 
 int main() {
