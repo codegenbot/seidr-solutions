@@ -1,4 +1,4 @@
-```python
+```
 def get_snow_day_parameters():
     while True:
         print("Please enter snow day parameters...")
