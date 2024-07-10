@@ -32,7 +32,7 @@ void tests() {
     assert(compareVectors(pluck({7, 9, 7, 1}), std::vector<int>{});
 }
 
-void main() {
+int main() {
     tests();
     return 0;
 }
