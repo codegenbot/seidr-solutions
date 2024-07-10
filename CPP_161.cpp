@@ -11,7 +11,7 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return s; // Fix: Always return the original input string
+    return !result.empty() ? result : s;
 }
 
 int main() {
@@ -23,6 +23,8 @@ int main() {
             break;
         s += c;
     }
-    std::cout << "Result: " << solve(s) << std::endl;
+    s.erase(s.size()-1); // remove newline character
+    std::string result = solve(s);
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
