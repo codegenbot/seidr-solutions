@@ -1,21 +1,30 @@
 #include <string>
-#include <vector>
-#include <algorithm>
 
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(strtok((x.substr(1)).c_str(), "/"));
-    int b = stoi(x.substr(0, 1));
-    int c = stoi(strtok((n.substr(1)).c_str(), "/"));
-    int d = stoi(n.substr(0, 1));
+    int a = 1, b = 1, c = 1, d = 1;
+    
+    // Convert string fractions to integers.
+    size_t pos = x.find('/');
+    a = stoi(x.substr(0, pos));
+    b = stoi(x.substr(pos + 1));
 
-    long long numerator = (long long)a * d;
-    long long denominator = (long long)b * c;
+    pos = n.find('/');
+    c = stoi(n.substr(0, pos));
+    d = stoi(n.substr(pos + 1));
 
-    if (numerator % denominator != 0) {
-        return false;
-    }
+    // Check if the product is an integer.
+    long long gcd = __gcd(a * c, b * d);
+    
+    return (a * c) / gcd == (b * d) / gcd;
+}
 
-    return true;
+// Function to calculate GCD of two numbers
+long long __gcd(long long a,long long b)
+{
+    if(b==0)
+        return a;
+    else
+        return __gcd(b,a%b);
 }
