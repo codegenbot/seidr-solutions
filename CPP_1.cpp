@@ -5,15 +5,11 @@ bool issame(const string& str) {
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    assert(issame("aaa"));
-    assert(!issame("abc"));
-    assert(issame("zzzz"));
-
-    vector<string> groups = separate_paren_groups("((aa)(bbb)(cc))(ddd)");
-    for (const string& group : groups) {
-        cout << group << endl;
-    }
-
+    assert(issame("aaa") == true);
+    assert(issame("abc") == false);
+    assert(issame("1111") == true);
+    assert(issame("") == true);
+    assert(issame("a") == true);
     return 0;
 }
 
