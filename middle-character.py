@@ -1,7 +1,10 @@
 def middle_character(s):
-    length = len(s)
-    mid = (length + 1) // 2
-    if length % 2 == 0:
-        return s[mid-1:mid]
-    else:
-        return s[mid]
+    s = s.split()
+    result = []
+    for word in s:
+        length = len(word)
+        if length % 2 == 0:
+            result.append(word[length//2-1:length//2+1])
+        else:
+            result.append(word[length//2])
+    return ' '.join(result)
