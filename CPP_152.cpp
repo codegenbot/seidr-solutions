@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(std::vector<int> game, std::vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
