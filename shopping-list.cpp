@@ -1,33 +1,27 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-double calculateTotalPrice(const std::vector<double>& prices, const std::vector<double>& discounts) {
-    double totalPrice = 0.0;
-    for (int i = 0; i < prices.size(); ++i) {
-        double price = prices[i];
-        double discount = price * (discounts[i] / 100.0);
-        totalPrice += (price - discount);
+double shoppingList(vector<double> prices, vector<double> discounts) {
+    double total = 0;
+    for(int i = 0; i < prices.size(); i++) {
+        double priceWithDiscount = prices[i] * (1 - discounts[i]);
+        total += priceWithDiscount;
     }
-    return totalPrice;
+    return total;
 }
 
 int main() {
     int n;
-    std::cin >> n;
-
-    std::vector<double> prices(n);
-    for (auto& price : prices) {
-        std::cin >> price;
+    cin >> n;
+    vector<double> prices(n);
+    for(int i = 0; i < n; i++) {
+        cin >> prices[i];
     }
-
-    std::vector<double> discounts(n);
-    for (auto& discount : discounts) {
-        std::cin >> discount;
+    cin >> n;
+    vector<double> discounts(n);
+    for(int i = 0; i < n; i++) {
+        cin >> discounts[i];
     }
-
-    double totalPrice = calculateTotalPrice(prices, discounts);
-
-    std::cout << std::fixed << std::setprecision(1) << totalPrice << std::endl;
-
+    cout << fixed << setprecision(1) << shoppingList(prices, discounts) << endl;
     return 0;
 }
