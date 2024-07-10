@@ -20,11 +20,10 @@ bool issame(const vector<float>& a, const vector<float>& b) {
 void sort_even(vector<float>& l);
 
 int main() {
-    vector<float> l = {3, 5, 1, 4, 2, 6};
-    vector<float> sorted_l = {1, 4, 2, 5, 3, 6};
-    sort_even(l);
-    assert(issame(l, sorted_l));
-    cout << "Sorted even indices match the expected result." << endl;
+    vector<float> input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    sort_even(input);
+    assert(issame(input, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    cout << "Sorted even indices match expected result." << endl;
     return 0;
 }
 
