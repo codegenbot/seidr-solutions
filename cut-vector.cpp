@@ -1,15 +1,60 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<vector<int>> res(2);
-    for (int i = 1; i <= n; ++i) {
-        if (i == n || abs(nums[i] - nums[0]) > abs(nums[i-1] - nums[0])) {
-            res[0].insert(res[0].end(), nums.begin(), nums.begin() + i);
-            res[1].insert(res[1].begin(), nums.begin() + i, nums.end());
-            break;
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int minDiff = INT_MAX;
+    pair<int, int> splitIndex;
+    
+    for (int i = 0; i < vec.size() - 1; i++) {
+        int leftSum = 0, rightSum = 0;
+        
+        for (int j = 0; j <= i; j++) {
+            leftSum += vec[j];
+        }
+        
+        for (int k = i + 1; k < vec.size(); k++) {
+            rightSum += vec[k];
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = make_pair(i, i);
         }
     }
-    return res;
+    
+    vector<int> leftVec(splitIndex.first + 1);
+    for (int i = 0; i <= splitIndex.first; i++) {
+        leftVec[i] = vec[i];
+    }
+    
+    vector<int> rightVec;
+    for (int i = splitIndex.second + 1; i < vec.size(); i++) {
+        rightVec.push_back(vec[i]);
+    }
+    
+    return make_pair(leftVec, rightVec);
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
+    }
+    
+    pair<vector<int>, vector<int>> result = cutVector(vec);
+    cout << "[";
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i] << " ";
+    }
+    cout << "] [";
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i] << " ";
+    }
+    cout << "]" << endl;
+    
+    return 0;
 }
