@@ -4,3 +4,5 @@ def check_numbers(numbers, threshold):
         if num > threshold:
             count += 1
     return count
+
+result = check_numbers(numbers, threshold)
