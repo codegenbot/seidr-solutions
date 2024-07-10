@@ -1,5 +1,4 @@
 #include <vector>
-
 using namespace std;
 
 int can_arrange(vector<int> arr){
@@ -13,15 +12,17 @@ int can_arrange(vector<int> arr){
 
 int main(){
     vector<int> arr;
-    int n, temp;
+    int n;
     cout << "Enter the number of elements: ";
     cin >> n;
     
     for(int i = 0; i < n; i++){
-        cin >> temp;
-        arr.push_back(temp);
+        int x;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> x;
+        arr.push_back(x);
     }
     
-    cout << "The smallest index 'i' such that arr[0..i] is in ascending order, or -1 if the array cannot be arranged:" << can_arrange(arr) << endl;
+    cout << "First index at which array cannot be arranged in increasing order: " << can_arrange(arr) << endl;
     return 0;
 }
