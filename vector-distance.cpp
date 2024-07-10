@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <cmath>
 #include <vector>
 
@@ -12,22 +12,9 @@ double calculateDistance(const std::vector<float>& vector1, const std::vector<fl
 }
 
 int main() {
-    int dimension;
-    std::cout << "Enter the dimension: ";
-    std::cin >> dimension;
-
-    std::vector<float> vector1(dimension);
-    std::vector<float> vector2(dimension);
-
-    for (int i = 0; i < dimension; ++i) {
-        std::cout << "Enter element " << i + 1 << " of the first vector: ";
-        std::cin >> vector1[i];
-        std::cout << "Enter element " << i + 1 << " of the second vector: ";
-        std::cin >> vector2[i];
-    }
-
-    double result = calculateDistance(vector1, vector2);
-    std::cout << "Euclidean distance between two vectors is: " << result << std::endl;
-
+    std::vector<float> v1({1.0, 2.0, 3.0});
+    std::vector<float> v2({4.0, 5.0, 6.0});
+    double result = calculateDistance(v1, v2);
+    std::cout << "The distance between the two vectors is: " << result << std::endl;
     return 0;
 }
