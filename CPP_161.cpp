@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -13,6 +14,6 @@ int main() {
     std::cout << "Enter a string: ";
     std::string s;
     std::getline(std::cin, s);
-    int result = solve(s);
-    std::cout << "Length of the converted string is: " << result << std::endl;
+    std::cout << solve(s) << std::endl;
+    assert (solve("#ccc") == 4);
 }
