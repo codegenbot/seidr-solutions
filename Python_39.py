@@ -10,13 +10,15 @@ def prime_fib(n: int):
     def fib(n):
         if n <= 1:
             return n
-        return fib(n-1) + fib(n-2)
-    
+        a, b = 0, 1
+        for _ in range(2, n + 1):
+            a, b = b, a + b
+        return b
+
     count = 0
     num = 1
     while count < n:
         num += 1
-        if is_prime(num):
-            if num == fib(count):
-                count += 1
+        if is_prime(num) and num == fib(num):
+            count += 1
     return num
