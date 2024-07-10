@@ -3,8 +3,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <sstream>
-
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -52,7 +50,7 @@ int main() {
     else
         cout << "Second number is greater." << endl;
 
-    assert(issame(vector<char>(reverse_delete("mamma", "mia").begin(), reverse_delete("mamma", "mia").end()),
-              vector<char>("mmmaaiiiaa".begin(), "mmmaaiiiaa".end())));
+    assert(issame(vector<char>(reverse_delete("mama", "ma").begin(), reverse_delete("mama", "ma").end()),
+              vector<char>(to_string(reverse_delete("mama", "ma")).c_str(), to_string(reverse_delete("mama", "ma")).c_str() + to_string(reverse_delete("mama", "ma")).size())));
     return 0;
 }
