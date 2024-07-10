@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 double calculateSnow(int hours, float initialSnow, float snowFallRate, float meltingRate) {
