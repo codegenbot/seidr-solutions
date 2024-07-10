@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -16,7 +17,13 @@ std::string solve(std::string s) {
 int main() {
     std::cout << "Enter a string: ";
     std::string s;
-    std::getline(std::cin, s); 
+    while (true) {
+        char c = std::cin.get();
+        if (c == '\n')
+            break;
+        s += c;
+    }
+    s.erase(s.size()-1); // remove newline character
     std::cout << "Result: " << solve(s) << std::endl;
     return 0;
 }

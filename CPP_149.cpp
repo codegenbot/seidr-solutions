@@ -1,8 +1,11 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,8 +17,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
-    std::sort(input.begin(), input.end());
+vector<string> sorted_list_sum(vector<string> input) {
+    sort(input.begin(), input.end());
     for (int i = 0; i < input.size(); i++) {
         if (input[i].size() > 1) {
             char firstChar = input[i][0];
@@ -30,7 +33,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
     return input;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b, std::vector<std::string> c) {
+bool issame(vector<string> a, vector<string> b, vector<string> c) {
     if (a.size() != b.size() || a.size() != c.size()) {
         return false;
     }
