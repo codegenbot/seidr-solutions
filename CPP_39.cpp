@@ -23,7 +23,7 @@ int prime_fib(int n) {
     }
 
     int prev = 1, curr = 1, next;
-    for (int i = 3; i <= n; ++i) {
+    for (int i = 3; i < n; ++i) {
         next = prev + curr;
         prev = curr;
         curr = next;
