@@ -28,10 +28,15 @@ int main() {
     std::vector<int> nums;
     while (n--) {
         int num; 
-        if (!(std::cin >> num)) {  // Check for input failure
-            break; 
-        } else {
+        while (!(std::cin >> num) || num < 0) {
+            std::cout << "Invalid input. Please enter a non-negative integer: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        if (num >= 0) {
             nums.push_back(num);
+        } else {
+            break; 
         }
     }
     if (nums.empty()) {  // If no numbers were read, there's nothing to count
