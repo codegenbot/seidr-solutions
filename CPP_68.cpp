@@ -12,14 +12,12 @@ bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
 }
 
 std::vector<int> pluck(int n) {
-    std::vector<int> result;
-    
     if(n == 7 || n == 9)
-        for(int i : {1,3}) 
-            result.push_back(i); 
+        return {1,3}; 
     else if(n == 1)
-        result.push_back(0); 
-    return result; 
+        return {0}; 
+    else 
+        return std::vector<int>(); 
 
 }
 
