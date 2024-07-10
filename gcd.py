@@ -1,4 +1,16 @@
 ```
+import sys
+
+if len(sys.argv) != 3:
+    print("Usage: python program_name.py <num1> <num2>")
+else:
+    a, b = int(sys.argv[1]), int(sys.argv[2])
+    print(gcd(a, b))
+    text, target = sys.argv[1], sys.argv[2]
+    print(indices_of_substring(text, target))
+
+
+
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -6,17 +18,12 @@ def gcd(a, b):
 
 def indices_of_substring(text, target):
     result = []
-    for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            j = i
-            while j < len(text) and text[j:j+len(target)] == target:
-                result.append(j)
-                j += 1
+    start = 0
+    while start < len(text):
+        pos = text.find(target, start)
+        if pos != -1:
+            result.append(pos)
+            start = pos + 1
+        else:
+            break
     return result
-
-def main():
-    print(gcd(int(input()), int(input())))
-    print(indices_of_substring(input(), input()))
-
-if __name__ == "__main__":
-    main()
