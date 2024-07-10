@@ -36,3 +36,10 @@ int calculateBowlingScore(string input) {
 
     return score;
 }
+
+int main() {
+    string input;
+    std::cin >> input;
+    std::cout << calculateBowlingScore(input) << std::endl;
+    return 0;
+}
