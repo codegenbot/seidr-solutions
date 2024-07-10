@@ -5,9 +5,8 @@ def encode_cyclic(s: str):
 
 
 def decode_cyclic(s: str):
-    result = ""
-    while s:
-        group = s[:3]
-        result += group[-1] + (group[:-1] or "")
-        s = s[3:]
-    return result
+    decoded_groups = [
+        s[i : i + 3][::-1] if len(s) % 3 != i % 3 else s[i : i + 3]
+        for i in range(len(s))
+    ]
+    return "".join(decoded_groups)
