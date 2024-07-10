@@ -1,20 +1,37 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <assert.h>
+#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issam(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert(issame({4, 3, 2}, {4, 3, 2}) || "Test failed");
-    return 0;
+    int n1, n2;
+    std::vector<int> v1, v2;
+
+    std::cout << "Enter number of elements in the first vector: ";
+    std::cin >> n1;
+    for (int i = 0; i < n1; i++) {
+        int x;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> x;
+        v1.push_back(x);
+    }
+
+    std::cout << "\nEnter number of elements in the second vector: ";
+    std::cin >> n2;
+    for (int i = 0; i < n2; i++) {
+        int x;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> x;
+        v2.push_back(x);
+    }
+
+    if(issam(v1, v2)) {
+        std::cout << "The vectors are the same.";
+    } else {
+        std::cout << "The vectors are not the same.";
+    }
+    
 }
