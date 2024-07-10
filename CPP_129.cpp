@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -28,7 +29,7 @@ vector<int> minPath(vector<vector<int>> input, int target) {
     return path;
 }
 
-int main() {
+void minPathTest() {
     vector<vector<int>> input;
     input.push_back({1, 3});
     input.push_back({3, 2});
@@ -55,16 +56,15 @@ int main() {
                 break;
             }
         }
-        bool same = issame(output, {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
-        if(same) {
-            cout << "The minimum path is: ";
-            for (int i : output) {
-                string str = to_string(i); // convert int to string
-                cout << str << " "; // print the string
-            }
-            cout << endl;
-        } else {
-            cout << "No paths found with length " << target << "." << endl;
+        string tempStr = "";
+        for (int i : output) {
+            if (!tempStr.empty()) tempStr += " "; 
+            tempStr += std::to_string(i); 
         }
+        cout << tempStr << endl;
     }
+}
+
+int main() {
+    minPathTest();
 }
