@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 using namespace std;
 
@@ -7,7 +7,7 @@ bool is_sorted(vector<int> lst){
         if(lst[i-1] > lst[i]){
             return false;
         }
-        else if(count(lst.begin(), lst.end(), lst[i]) > 1){
+        else if(find(lst.begin(), lst.end(), lst[i]) != lst.end()){
             return false;
         }
     }
@@ -16,5 +16,5 @@ bool is_sorted(vector<int> lst){
 int main 
 {
     vector<int> lst = {1, 2, 3, 4};
-    assert(is_sorted(lst) == true);
+    cout << (is_sorted(lst) ? "The list is sorted" : "The list is not sorted") << endl;
 }
