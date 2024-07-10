@@ -7,5 +7,6 @@ def make_palindrome(s: str) -> str:
             return s[:i-1][::-1] + s
     return s + s[::-1]
 
-result = make_palindrome(input("Enter a string: "))
+input_str = input("Enter a string: ")
+result = make_palindrome(input_str)
 print(result)
