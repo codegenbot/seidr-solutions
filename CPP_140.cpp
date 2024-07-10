@@ -1,19 +1,24 @@
 string result = "";
-    int count = 0;
+    bool found_space = false;
+    int space_count = 0;
+    
     for (char c : text) {
         if (c == ' ') {
-            count++;
-            if (count > 2) {
-                result.pop_back();
-                result.pop_back();
-                result += "-";
+            space_count++;
+            if (space_count > 2) {
+                if (!found_space) {
+                    result += "-";
+                    found_space = true;
+                }
             } else {
-                result += '_';
+                result += "_";
             }
         } else {
             result += c;
-            count = 0;
+            found_space = false;
+            space_count = 0;
         }
     }
+    
     return result;
 }
