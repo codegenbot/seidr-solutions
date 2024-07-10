@@ -6,4 +6,4 @@ def max_fill(grid, capacity):
     if total_water == 0:
         return 0
     
-    return max(math.ceil(total_water / capacity), total_water // capacity)
+    return math.ceil(total_water / capacity)
