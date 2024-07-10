@@ -1,10 +1,6 @@
 #include <map>
 #include <string>
 
-bool issame(map<char,int> a,map<char,int> b) {
-    return a == b;
-}
-
 map<char, int> histogram(string test) {
     map<char, int> result;
     string str = test;
@@ -22,7 +18,8 @@ map<char, int> histogram(string test) {
     for (auto it = result.begin(); it != result.end(); ++it) {
         if (it->second > maxCount) {
             maxCount = it->second;
-            maxMap = {{it->first, it->second}};
+            maxMap.clear();
+            maxMap[it->first] = it->second;
         } else if (it->second == maxCount) {
             maxMap[make_pair(it->first, it->second)] = it->second;
         }
@@ -30,7 +27,6 @@ map<char, int> histogram(string test) {
     return maxMap;
 }
 
-int main() {
-    assert (issame(histogram("a") , {{'a', 1}}));
-    return 0;
+bool issame(map<char,int> a,map<char,int> b) {
+    return a == b;
 }
