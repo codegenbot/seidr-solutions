@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <memory>
 
 long long double_the_difference(std::vector<long> lst) {
     long long sum = 0;
@@ -16,8 +15,7 @@ long long double_the_difference(std::vector<long> lst) {
 }
 
 int main() {
-    std::allocator<long> alloc;
-    std::vector<long, std::allocator<long>> lst(alloc);
+    std::vector<long> lst;
     long long num;
     while(std::cin >> num) {
         lst.push_back(num);
