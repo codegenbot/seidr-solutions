@@ -1,15 +1,19 @@
+#include <string>
 using namespace std;
 
-string find_max(vector<string> words){
-    string max_word = *max_element(words.begin(), words.end(),
-        [](const string& a, const string& b) {
-            return count(a.begin(), a.end(), unique_copy(a.begin(), a.end())) <
-                   count(b.begin(), b.end(), unique_copy(b.begin(), b.end()));
-        });
-    return max_word;
-}
+int find_max(vector<string> words){
+    int result = -1;
+    int max_length = 0;
 
-int main(){
-    assert ((find_max({"play", "play", "play"}) == "play"));
-    return 0;
+    for (const auto& word : words) {
+        set<char> unique_chars(word.begin(), word.end());
+        if (unique_chars.size() > max_length) {
+            max_length = unique_chars.size();
+            result = 0; // Assuming the function should return an index
+        } else if (unique_chars.size() == max_length && word < result) {
+            result = 1; // Assuming the function should return an index
+        }
+    }
+
+    return result;
 }
