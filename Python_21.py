@@ -1,4 +1,4 @@
-def solve_task(numbers):
+def average(numbers):
     min_val = min(numbers)
     max_val = max(numbers)
     if (max_val - min_val) == 0:
