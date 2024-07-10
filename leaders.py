@@ -1,4 +1,5 @@
-Here is the solution:
+Here is the Python solution for the problem:
 
-def leaders(input):
-    return [x for x in reversed(input) if all(x >= y for y in input[input.index(x)+1:])]
+def leaders(input_list):
+    leaders = [i for i in reversed(input_list) if all(i >= j for j in input_list[input_list.index(i)+1:])]
+    return list(reversed(leaders))
