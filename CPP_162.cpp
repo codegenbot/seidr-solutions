@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <openssl/evp.h>
-#include <cassert>
 
 using namespace std;
 
@@ -33,8 +32,8 @@ string string_to_md5(const string &text) {
 }
 
 int main() {
-    string input_text;
-    cin >> input_text;
-    cout << string_to_md5(input_text) << endl;
+    string input;
+    getline(cin, input);
+    cout << string_to_md5(input) << endl;
     return 0;
 }
