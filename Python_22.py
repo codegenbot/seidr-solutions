@@ -1,3 +1,4 @@
+````
 from typing import List
 
 def filter_integers() -> List[int]:
@@ -6,10 +7,8 @@ def filter_integers() -> List[int]:
         value = input("Enter an integer (or 'stop' to finish): ")
         if value.lower() == 'stop':
             break
-        if not value.strip():
-            print("Invalid input. Please enter a valid integer.")
-            continue
         try:
             values.append(int(value))
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
+        except ValueError as e:
+            print(f"Invalid input. Please enter a valid integer: {str(e)}")
+    return values
