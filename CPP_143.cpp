@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -38,4 +37,3 @@ std::vector<std::string> split(const std::string& str, char ch) {
     }
     tokens.push_back(str);
     return tokens;
-}
