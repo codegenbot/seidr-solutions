@@ -1,72 +1,31 @@
-#include <boost/any.hpp>
 #include <string>
+#include <boost/any.hpp>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
+        return boost::any_cast<double>(b);
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return boost::any_cast<double>(a);
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+        if (strA > strB) return a;
+        else if (strA < strB) return b;
+        else return boost::any("None");
+    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        string strA = boost::any_cast<string>(a);
+        double dblB = boost::any_cast<double>(b);
+        if (stod(strA) > dblB) return a;
+        else if (stod(strA) < dblB) return b;
+        else return boost::any("None");
+    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        double dblA = boost::any_cast<double>(a);
+        string strB = boost::any_cast<string>(b);
+        if (dblA > stod(strB)) return a;
+        else if (dblA < stod(strB)) return b;
+        else return boost::any("None");
     }
-    if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return a;
-    }
-    if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = any_cast<string>(a);
-        string strB = any_cast<string>(b);
-
-        int i = 0, j = 0;
-
-        while (i < strA.length()) {
-            while (j < strB.length() && strA[i] != strB[j]) {
-                j++;
-            }
-            if (j == strB.length()) {
-                return a;
-            }
-            i++;
-            j++;
-        }
-
-        return b;
-    }
-    if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int numA = any_cast<int>(a);
-        string strB = any_cast<string>(b);
-
-        int i = 0, j = 0;
-
-        while (i < strB.length()) {
-            while (j < strB.length() && strB[i] != std::to_string(numA)[j]) {
-                j++;
-            }
-            if (j == std::to_string(numA).length()) {
-                return a;
-            }
-            i++;
-            j++;
-        }
-
-        return b;
-    }
-    if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        int numB = any_cast<int>(b);
-        string strA = any_cast<string>(a);
-
-        int i = 0, j = 0;
-
-        while (i < strA.length()) {
-            while (j < strA.length() && strA[i] != std::to_string(numB)[j]) {
-                j++;
-            }
-            if (j == std::to_string(numB).length()) {
-                return a;
-            }
-            i++;
-            j++;
-        }
-
-        return b;
-    }
-
-    return boost::any("None");
+    return a;
 }
