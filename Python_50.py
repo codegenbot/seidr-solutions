@@ -1,4 +1,3 @@
-```Python
 def decode_shift():
     s = input("Enter a string: ")
     return "".join([chr(((ord(ch) - 97 - 5) % 26) + 97) if ch.isalpha() and ch.islower() else 
