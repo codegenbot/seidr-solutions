@@ -1,4 +1,3 @@
-```cpp
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
