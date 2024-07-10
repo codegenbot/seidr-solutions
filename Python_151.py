@@ -1,1 +1,2 @@
-def check(double_the_difference, lst):
+def check(func, lst):
+    print(func(lst))
