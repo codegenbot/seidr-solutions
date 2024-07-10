@@ -1,10 +1,15 @@
-double probability(int n, int m) {
-    double total = (double)(n*m);
-    double peterWins = 0.0;
-    
-    for(int i=1; i<=m-1; i++) {
-        peterWins += (double)n / (n+m-1);
-    }
-    
-    return peterWins;
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+double getProbability(int n, int m) {
+    double total = (double)n * m;
+    return 1.0 - ((double)m / total);
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(2) << getProbability(n, m) << endl;
+    return 0;
 }
