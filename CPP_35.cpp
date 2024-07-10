@@ -1,19 +1,14 @@
 #include <algorithm>
+#include <cmath>
 #include <vector>
 
-int main() {
-    std::vector<int> arr;
-    int n;
+using namespace std;
 
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    arr.resize(n);
-
-    std::cout << "Enter the elements: ";
-    for (int i = 0; i < n; ++i) {
-        std::cin >> arr[i];
+int findMax(vector<int> arr) {
+    int maxVal = *max_element(arr.begin(), arr.end());
+    if (maxVal < 0) {
+        return -1;
+    } else {
+        return maxVal;
     }
-
-    return *std::max_element(arr.begin(), arr.end());
 }
