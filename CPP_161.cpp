@@ -1,6 +1,5 @@
 #include <cassert>
 #include <string>
-#include <cctype>
 
 int solve(std::string s) {
     for (int i = 0; i < s.length(); i++) {
@@ -11,7 +10,7 @@ int solve(std::string s) {
     return s.length();
 }
 
-int testMain() {
-    assert(solve("#ccc") == 3);
+int main() {
+    assert(solve("#ccc") == 3); 
     return 0;
 }
