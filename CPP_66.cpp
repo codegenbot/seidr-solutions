@@ -9,7 +9,11 @@ int digitSum(std::string s) {
         if (isupper(c)) {
             sum += c - 'A' + 1; 
         } else if (islower(c)) {
-            sum += std::toupper(c) - 'A' + 1; 
+            char temp = std::toupper(c);
+            while(temp != 'Z') {
+                sum += (temp - 'A' + 1); 
+                temp = std::nextperm(temp, 'Z'-'A'+1);
+            }
         }
     }
     return sum;
