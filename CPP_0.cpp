@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 #include <assert.h>
@@ -6,10 +5,11 @@
 
 using namespace std;
 
-bool has_close_elements(vector<float> numbers, float threshold){
-    for(int i = 0; i < numbers.size(); i++){
-        for(int j = i + 1; j < numbers.size(); j++){
-            if(abs(numbers[i] - numbers[j]) <= threshold)
+bool has_close_elements(initializer_list<float> numbers, float threshold){
+    vector<float> vec(numbers);
+    for(int i = 0; i < vec.size(); i++){
+        for(int j = i + 1; j < vec.size(); j++){
+            if(abs(vec[i] - vec[j]) <= threshold)
                 return true;
         }
     }
