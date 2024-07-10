@@ -1,6 +1,4 @@
-#include <vector>
-#include <string>
-
+```cpp
 int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
@@ -25,19 +23,3 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     }
 
     return result;
-}
-
-int main() {
-    int a = 12;
-    int b = 15;
-    std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
-
-    std::string text = "banana";
-    std::string target = "an";
-    std::vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result) {
-        std::cout << "Target appears at index " << i << std::endl;
-    }
-
-    return 0;
-}
