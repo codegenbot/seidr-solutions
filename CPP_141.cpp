@@ -1,32 +1,33 @@
-Here is the completed code:
+string file_name_check(string file_name){
+    int dot_count = 0, digit_count = 0;
+    bool valid = true;
 
-```cpp
-bool has_digits = false;
-int dot_count = 0;
-
-for (char c : file_name) {
-    if (isdigit(c)) {
-        if (!has_digits) {
-            has_digits = true;
-        }
-        if (has_digits && has_digits++ > 3) {
-            return "No";
-        }
-    } else if (c == '.') {
-        dot_count++;
-        if (dot_count > 1) {
-            return "No";
+    for(int i=0; i<file_name.size(); i++){
+        char c = file_name[i];
+        if(c == '.'){
+            dot_count++;
+            if(dot_count > 1) {
+                valid = false;
+                break;
+            }
+        } else if(isdigit(c)){
+            digit_count++;
+            if(digit_count > 3) {
+                valid = false;
+                break;
+            }
+        } else if(!isalpha(c) && c != '.'){
+            valid = false;
+            break;
         }
     }
-}
 
-if (file_name.find('.') == string::npos || file_name.find(' ') != string::npos || !isalpha(file_name[0])) {
-    return "No";
+    if(valid){
+        string ext = file_name.substr(file_name.find('.')+1);
+        if(ext == "txt" || ext == "exe" || ext == "dll")
+            return "Yes";
+        else
+            return "No";
+    } else
+        return "No";
 }
-
-string extension = file_name.substr(file_name.find('.') + 1);
-if (!(extension == "txt" || extension == "exe" || extension == "dll")) {
-    return "No";
-}
-
-return "Yes";
