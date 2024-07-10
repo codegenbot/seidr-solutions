@@ -5,8 +5,7 @@ using namespace std;
 
 string sort_numbers(string numbers) {
     vector<string> numVec;
-    string temp = "";
-    
+    string temp;
     for (int i = 0; i < numbers.length(); i++) {
         if (numbers[i] == ' ') {
             numVec.push_back(temp);
@@ -18,10 +17,15 @@ string sort_numbers(string numbers) {
     numVec.push_back(temp);
 
     sort(numVec.begin(), numVec.end());
-    
-    string result = "";
+
+    string result;
     for (int i = 0; i < numVec.size(); i++) {
-        result += numVec[i] + " ";
+        if (i == 0) {
+            result = numVec[0];
+        } else {
+            result += " ";
+            result += numVec[i];
+        }
     }
 
     return result;
