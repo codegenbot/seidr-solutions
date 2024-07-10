@@ -9,7 +9,7 @@ def count_up_to(n):
         return True
 
     result = []
-    for i in range(2, n): 
-        if is_prime(i):
-            result.append(i)
+    for num in range(2, n+1): 
+        if is_prime(num):
+            result.append(num)
     return result
