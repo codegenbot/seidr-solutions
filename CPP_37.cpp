@@ -1,18 +1,20 @@
-vector<float> sort_even(vector<float> l){
-    vector<float> l_new;
-    for(int i = 0; i < l.size(); i++){
-        if(i % 2 == 0){
-            vector<float> temp;
-            for(int j = 0; j < l.size(); j++){
-                if(j % 2 == 0){
-                    temp.push_back(l[j]);
+Here is the completed code:
+
+vector<float> sort_even(vector<float> l) {
+    vector<float> result;
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            vector<float> evenIndices = {};
+            for (int j = 0; j < l.size(); j++) {
+                if (j % 2 == 0) {
+                    evenIndices.push_back(l[j]);
                 }
             }
-            sort(temp.begin(), temp.end());
-            l_new.insert(l_new.end(), temp.begin(), temp.end());
+            sort(evenIndices.begin(), evenIndices.end());
+            result.push_back(evenIndices[0]);
         } else {
-            l_new.push_back(l[i]);
+            result.push_back(l[i]);
         }
     }
-    return l_new;
+    return result;
 }
