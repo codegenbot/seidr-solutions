@@ -1,2 +1,2 @@
-values = [int(input()) for _ in range(3)]
+values = list(map(int, input().strip().split()))
 print(sum(values))
