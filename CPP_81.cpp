@@ -8,8 +8,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         bool found = false;
-        for (auto& str : b) {
-            if (b.find(std::to_string(a[i]).c_str()) != b.end()) {
+        for (const auto& str : b) {
+            if (str == a[i]) {
                 found = true;
                 break;
             }

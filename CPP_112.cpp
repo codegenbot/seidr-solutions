@@ -1,6 +1,5 @@
+```cpp
 #include <iostream>
-#include <vector>
-#include <algorithm>
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -14,15 +13,20 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 string reverse_delete(string s1, string s2) {
-    int len1 = s1.length();
-    int len2 = s2.length();
-    for(int i = 0; i < len2; i++) {
-        auto pos = s1.find(tolower(s2.substr(i, 1)));
-        if(pos != string::npos) {
-            s1.erase(pos, 1);
+    string result;
+    for(int i = 0; i < s1.length(); i++) {
+        bool found = false;
+        for(int j = 0; j < s2.length(); j++) {
+            if(s1[i] == s2[j]) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) {
+            result += s1[i];
         }
     }
-    return s1;
+    return result;
 }
 
 int main() {
@@ -35,12 +39,6 @@ int main() {
         cout << "First number is greater." << endl;
     else
         cout << "Second number is greater." << endl;
-
-    string output = reverse_delete("mamma", "mia");
-    vector<string> result = {"", to_string(issame({output}, {"", output}) ? 1 : 0)};
-    for(string s: result) {
-        cout << s << endl;
-    }
 
     assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
 }
