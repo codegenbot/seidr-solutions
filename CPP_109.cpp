@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -13,9 +14,11 @@ bool move_one_ball(std::vector<int> arr) {
 
 int main() {
     assert(move_one_ball({}) == true);
-    std::vector<int> test1 = {1, 2, 3};
-    assert(move_one_ball(test1) == false);
-    std::vector<int> test2 = {0, 1, 2};
-    assert(move_one_ball(test2) == true);
+    std::vector<int> test1 = {10, 9, 8, 7, 6};
+    assert(move_one_ball(test1) == true);
+
+    std::vector<int> test2 = {10, 11, 12, 13, 14};
+    assert(move_one_ball(test2) == false);
+
     return 0;
 }
