@@ -20,3 +20,8 @@ vector<int> count_upto(int n) {
     }
     return primes;
 }
+
+int main() {
+    assert(count_upto(101).size() == 25);
+    return 0;
+}
