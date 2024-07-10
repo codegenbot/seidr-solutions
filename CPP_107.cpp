@@ -1,24 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<std::int32_t> even_odd_palindrome(int n) {
-    int even = 0, odd = 0;
-    for (int i = 1; i <= n; i++) {
-        if (i == reverse(i)) {
-            if (i % 2 == 0)
-                even++;
-            else
-                odd++;
-        }
-    }
-    return {even, odd};
-}
-
-std::int32_t std::userInput() {
+int std::userInput() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
