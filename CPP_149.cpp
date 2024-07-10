@@ -13,9 +13,5 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 
 std::vector<std::string> sortListSum(std::vector<std::pair<std::string, std::string>> v) {
     std::sort(v.begin(), v.end());
-    std::vector<std::string> result;
-    for (const auto& pair : v) {
-        result.push_back(pair.first + pair.second);
-    }
-    return result;
+    return {v[0].first + v[0].second};
 }
