@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <iomanip>
 
 float shoppingList(std::vector<float> prices, std::vector<float> discounts) {
