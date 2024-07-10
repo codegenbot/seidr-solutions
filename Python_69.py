@@ -1,5 +1,4 @@
-```
-def search(lst):
+def search(lst): 
     frequency_dict = {}
     for num in lst:
         if num > 0:
