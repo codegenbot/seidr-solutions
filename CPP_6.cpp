@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool same(const std::vector<int>& a, const std::vector<int>& b) {
+bool compare_vectors(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -9,6 +10,7 @@ bool same(const std::vector<int>& a, const std::vector<int>& b) {
             return false;
     }
     return true;
+}
 
 std::vector<int> parse_nested_parens(const std::string& s) {
     int depth = 0, last_opened = -1, count = 0;
@@ -29,8 +31,9 @@ std::vector<int> parse_nested_parens(const std::string& s) {
     }
     
     return result;
+}
 
 int main() {
-    assert(same(parse_nested_parens("(()(())((()))"), {4, 3, 2, 1, 0, -1, -2, -3, -4}));
+    assert(compare_vectors(parse_nested_parens("(()(())((()))"), {4, 3, 2, 1, 0, -1, -2, -3, -4}));
     return 0;
 }
