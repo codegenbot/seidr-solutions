@@ -1,7 +1,7 @@
 #include <string>
 #include <cmath>
 
-std::string solve(int n, int m) {
+std::string calculateBinaryAverage(int n, int m) {
     if(n > m) {
         return "-1";
     }
@@ -15,7 +15,7 @@ std::string solve(int n, int m) {
     
     std::string binary = "";
     while(avg > 0) {
-        binary = to_string(avg % 2) + binary;
+        binary = std::to_string(avg % 2) + binary;
         avg /= 2;
     }
     
