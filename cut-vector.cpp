@@ -1,48 +1,56 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int cut_index = 0;
+    int cut_index = -1;
     
-    for (int i = 1; i <= vec.size(); i++) {
+    for (int i = 0; i < v.size() - 1; i++) {
         int left_sum = 0, right_sum = 0;
         
-        for (int j = 0; j < i; j++) {
-            left_sum += vec[j];
+        for (int j = 0; j <= i; j++) {
+            left_sum += v[j];
         }
         
-        for (int j = i; j < vec.size(); j++) {
-            right_sum += vec[j];
+        for (int j = i + 1; j < v.size(); j++) {
+            right_sum += v[j];
         }
         
         int diff = abs(left_sum - right_sum);
         
-        if (diff <= min_diff) {
+        if (diff < min_diff) {
             min_diff = diff;
             cut_index = i;
         }
     }
     
-    vector<int> left_vec(vec.begin(), vec.begin() + cut_index);
-    vector<int> right_vec(vec.begin() + cut_index, vec.end());
+    vector<int> left(v.begin(), v.begin() + cut_index + 1);
+    vector<int> right(v.begin() + cut_index, v.end());
     
-    return {left_vec, right_vec};
+    return {left, right};
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n);
-    for (auto &x : vec) cin >> x;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
     
-    pair<vector<int>, vector<int>> result = cutVector(vec);
+    pair<vector<int>, vector<int>> result = cutVector(v);
     
     cout << "[";
-    for (const auto &x : result.first) cout << x << " ";
-    cout << "] [";
-    for (const auto &x : result.second) cout << x << " ";
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i] << " ";
+    }
     cout << "]" << endl;
+    
+    cout << "[";
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i] << " ";
+    }
+    cout << "]0" << endl;
     
     return 0;
 }
