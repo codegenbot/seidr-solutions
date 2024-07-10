@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <limits>
 
@@ -16,8 +15,8 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    if(n < 0){
-        cout << "Invalid input. Please enter a non-negative integer." << endl;
+    if(n<0){
+        cout<<"Error! Factorial of a negative number doesn't exist."<<endl;
     }else{
         cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
     }
