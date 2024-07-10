@@ -1,4 +1,3 @@
-```
 def solve_boolean(input_str):
     if input_str == "T":
         return True
@@ -10,9 +9,3 @@ def solve_boolean(input_str):
             i += 1
         left, right = input_str[:i], input_str[i+1:]
         return (solve_boolean(left)) and ((right[0] == "&" and solve_boolean(right[1:])) or (right[0] == "|" and solve_boolean(right[1:])))
-    elif "&" in input_str:
-        a, b = input_str.split("&")
-        return bool(a) and bool(b)
-    elif "|" in input_str:
-        a, b = input_str.split("|")
-        return bool(a) or bool(b)
