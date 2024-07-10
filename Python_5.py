@@ -1,4 +1,3 @@
-```
 def intersperse(a, b):
     result = [b]
     for x in a:
