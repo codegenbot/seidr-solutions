@@ -9,6 +9,7 @@ int main() {
     int n1, n2;
     std::vector<int> v1, v2;
 
+    // Read first set of integers
     std::cout << "Enter number of elements in the first vector: ";
     std::cin >> n1;
     for (int i = 0; i < n1; i++) {
@@ -18,6 +19,7 @@ int main() {
         v1.push_back(x);
     }
 
+    // Read second set of integers
     std::cout << "\nEnter number of elements in the second vector: ";
     std::cin >> n2;
     for (int i = 0; i < n2; i++) {
@@ -27,11 +29,8 @@ int main() {
         v2.push_back(x);
     }
 
-    if(issame(v1, v2)) {
-        std::cout << "The vectors are the same.";
-    } else {
-        std::cout << "The vectors are not the same.";
-    }
+    // Compare the vectors
+    assert(issame(v1, v2));
 
     return 0;
 }
