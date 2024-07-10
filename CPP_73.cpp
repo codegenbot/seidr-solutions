@@ -4,7 +4,7 @@ int smallest_change(vector<int> arr) {
     for (int i : arr) {
         str += to_string(i);
     }
-    int left = 0, right = n - 1;
+    int left = 0, right = str.length() - 1;
     int changes = 0;
     while (left < right) {
         if (str[left] != str[right]) {
@@ -14,12 +14,12 @@ int smallest_change(vector<int> arr) {
             } else if (str[right] == str[left + 1]) {
                 left++;
             } else {
-                left++, right--;
                 changes += 2;
+                break;
             }
-        } else {
-            left++, right--;
         }
+        left++;
+        right--;
     }
     return changes;
 }
