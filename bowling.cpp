@@ -17,7 +17,12 @@ int score(string s) {
                 total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 2] - '0'));
             }
 
+            if (i + 2 >= s.size()) {
+                break;
+            }
+
             isStrike = true;
+            frame++;
         } else if (s[i] == '/') {
             total += 10 - (s[i - 1] - '0');
 
@@ -25,23 +30,32 @@ int score(string s) {
                 total += (s[i + 1] == 'X' ? 10 : s[i + 1] - '0');
             }
 
+            if (i + 1 >= s.size()) {
+                break;
+            }
+
             isSpare = true;
+            frame++;
         } else {
             total += s[i] - '0';
 
-            if (isStrike) {
-                total += (s[i] - '0');
-            }
-
-            if (isSpare) {
+            if (isSpare || isStrike) {
                 total += s[i] - '0';
             }
 
-            isStrike = false;
             isSpare = false;
-        }
+            isStrike = false;
 
-        frame++;
+            if (frame < 10) {
+                if (isSpare) {
+                    total += s[i + 1] - '0';
+                } else if (isStrike) {
+                    total += (s[i + 1] == 'X' ? 10 : s[i + 1] - '0');
+                }
+            }
+
+            frame++;
+        }
     }
 
     return total;
