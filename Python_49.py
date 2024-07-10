@@ -11,7 +11,7 @@ def modp(num, p):
     if num < p:
         return num
     res = 1
-    while num > 0:
+    while num > 1:
         if num & 1:
             res = (res * num) % p
         num //= 2
