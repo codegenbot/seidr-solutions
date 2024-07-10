@@ -1,8 +1,9 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool same(int a, int b) {
     if (a == b)
         return true;
     else
