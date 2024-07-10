@@ -3,10 +3,8 @@
 #include <string>
 
 bool issame(const std::vector<std::string>& vec) {
-    if (vec.empty()) return true;
-    size_t len = vec[0].size();
     for (const auto& s : vec) {
-        if (s.size() != len) return false;
+        if (s.size() != vec[0].size()) return false;
     }
     return true;
 }
@@ -19,27 +17,16 @@ std::vector<std::string> all_prefixes(const std::string& str) {
     return result;
 }
 
-std::vector<std::string>& prefixes(std::string s) {
-    std::vector<string> result = all_prefixes(s);
-    if (issame(result)) {
-        for (int i = 1; i <= s.length(); ++i) {
-            if (s.size() != i) return s;
-        }
-        return s;
-    } else {
-        return s;
-    }
-}
-
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
 
-    prefixes(input);
-    if (issame(all_prefixes(input))) {
+    std::vector<std::string> result = all_prefixes(input);
+    if (issame(result)) {
         std::cout << "The prefixes are the same." << std::endl;
     } else {
         std::cout << "The prefixes are not the same." << std::endl;
     }
-}
+
+    return 0;
