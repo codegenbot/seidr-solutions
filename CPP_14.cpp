@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -39,8 +38,7 @@ int main() {
         }
     }
 
-    std::vector<std::string> www_result = all_prefixes("WWW");
-    if (!issame(www_result)) {
+    if (!issame(all_prefixes("WWW"))) {
         std::cout << "The prefixes are different." << std::endl;
     }
 
