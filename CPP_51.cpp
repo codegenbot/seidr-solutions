@@ -1,9 +1,11 @@
-string remove_vowels(string text) {
+#include <string>
+#include <cctype>
+
+string remove_vowels(string text){
     string result = "";
-    for (char c : text) {
-        if (!isalpha(c)) {
-            result += c;
-        } else if (!ispunct(c) && !strchr("aeiouAEIOU", tolower(c))) {
+    for(int i=0; i<text.length();i++){
+        char c = tolower(text[i]);
+        if(c!='a' && c!='e' && c != 'i' && c != 'o' && c != 'u'){
             result += c;
         }
     }
