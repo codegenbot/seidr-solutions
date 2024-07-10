@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -15,7 +16,7 @@ std::vector<int> even_odd_palindrome(int n) {
                 odd++;
         }
     }
-    return {even, odd};
+    return std::vector<int>(1, even) + std::vector<int>(1, odd);
 }
 
 int main() {
@@ -37,3 +38,4 @@ int reverse(int n) {
         n /= 10;
     }
     return rev;
+}
