@@ -15,3 +15,4 @@ int main() {
     assert(add_elements({1}, 1) == 1);
     // Add more test cases here as needed
     return 0;
+}
