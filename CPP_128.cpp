@@ -1,14 +1,27 @@
-#include <initializer_list>
+#include <iostream>
+#include <vector>
 
-int prod_signs(const vector<int>& arr) {
-    if (arr.empty()) return -32768;
-    int sign_product = 1;
-    long long sum_of_magnitudes = 0;
-    for (const auto& num : arr) {
-        if (num == 0) continue;
-        int sign = num / abs(num);
-        sign_product *= sign;
-        sum_of_magnitudes += abs(num);
+int prod_signs(int* arr, int n) {
+    if (n == 0) return -32768;
+    int sign = 1;
+    long long sum = 0;
+    for (int i = 0; i < n; ++i) {
+        sign *= (arr[i] > 0 ? 1 : (arr[i] < 0 ? -1 : 0));
+        sum += std::abs(arr[i]);
     }
-    return sign_product * sum_of_magnitudes;
+    return (sign > 0) ? sum : -sum;
+}
+
+int main() {
+    int n; // number of elements in the array
+    std::cin >> n;
+    int* arr = new int[n];
+    for (int i = 0; i < n; ++i)
+        std::cin >> arr[i];
+
+    int result = prod_signs(arr, n);
+    delete[] arr;
+
+    std::cout << "The product of signs is: " << result << '\n';
+    return 0;
 }
