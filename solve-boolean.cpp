@@ -1,57 +1,20 @@
-#include <iostream>
-#include <string>
-
-bool solveBoolean(std::string s) {
-    bool result = true;
-    int i = 0;
-    while (i < s.size()) {
-        switch (s[i]) {
-            case 'T':
-                i++;
-                break;
-            case 'F':
-                if (result)
-                    result = false;
-                else
-                    return false;
-                i++;
-                break;
-            case '|': {
-                bool subResult = true;
-                while (i < s.size() && s[i] == '|') {
-                    i++;
-                }
-                for (; i < s.size() && s[i] != '&'; i++) {
-                    if (s[i] == 'F')
-                        subResult = false;
-                }
-                i++; // added this line
-                result = subResult;
-                break; }
-            case '&': {
-                bool subResult = true;
-                int j = 0; 
-                while (i < s.size() && s[i] == '&') {
-                    i++;
-                    j++;
-                }
-                for (; i < s.size(); i++) {
-                    if (s[i] != 'T' && s[i] != 'F')
-                        return false;
-                    if ((j % 2) != 0)
-                        subResult = false; 
-                    j++;
-                }
-                i++; // added this line
-                result = subResult;
-                break; }
-        }
+```cpp
+case '&': {
+    bool subResult = true;
+    int j = 0; 
+    while (i < s.size() && s[i] == '&') {
+        i++;
+        j++;
     }
-    return result;
-}
-
-int main() {
-    std::cout << solveBoolean("T|F&F") << std::endl;
-    std::cout << solveBoolean("f&f|f&f|f|f&f&f&f|t|f|t|f&f&f&f&f|f&t");
-    return 0;
-}
+    for (; i < s.size(); i++) {
+        if (s[i] != 'T' && s[i] != 'F')
+            return false;
+        if ((j % 2) != 0)
+            subResult = false; 
+        j++;
+    }
+    result = subResult;
+    while(i < s.size() && (s[i] == 'T' || s[i] == 'F')) {
+        i++; // process remaining operands
+    }
+    break; }
