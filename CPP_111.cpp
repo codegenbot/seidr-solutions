@@ -1,11 +1,10 @@
-#include <iostream>
-#include <cassert>
 #include <map>
+#include <unordered_map>
 
-using namespace std;
+unordered_map<char, int> histogram(string test);
 
-map<char, int> histogram(string test) {
-    map<char, int> freq;
+unordered_map<char, int> histogram(string test) {
+    unordered_map<char, int> freq;
     for (char c : test) {
         if (isalpha(c)) {
             freq[c]++;
@@ -17,7 +16,7 @@ map<char, int> histogram(string test) {
         maxFreq = max(maxFreq, pair.second);
     }
 
-    map<char, int> result;
+    unordered_map<char, int> result;
     for (const auto& pair : freq) {
         if (pair.second == maxFreq) {
             result[pair.first] = pair.second;
@@ -25,14 +24,4 @@ map<char, int> histogram(string test) {
     }
 
     return result;
-}
-
-bool issame(const map<char, int>& a, const map<char, int>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
-    
-    return 0;
 }
