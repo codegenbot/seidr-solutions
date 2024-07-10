@@ -25,7 +25,14 @@ int main(){
     float result = double_the_difference(lst);
     std::cout << "Result: " << result << std::endl;
     
-    assert(double_the_difference(lst) == (2 * result));
+    float odd_sum = 0.0;
+    for (float num : lst) {
+        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
+            odd_sum += num;
+        }
+    }
+
+    assert(double_the_difference(lst) == 2 * odd_sum);
 
     return 0;
 }
