@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -19,5 +18,5 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
         }
     }
 
-    return {std::max({max_negative, -min_positive}, 0)};
+    return {std::max({(max_negative > 0 ? std::INT_MAX : max_negative), (min_positive < 1 ? std::INT_MIN : min_positive)}, 0)};
 }
