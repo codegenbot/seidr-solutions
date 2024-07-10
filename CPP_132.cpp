@@ -18,7 +18,7 @@ bool is_nested(std::string str) {
 
 }
 
-int mainHelper() 
+int main() 
 {
     std::string str;
     std::cout << "Enter a string: ";
@@ -31,11 +31,5 @@ int mainHelper()
     } else {
         std::cout << "The string is not nested." << std::endl;
     }
-    return 0;
-}
-
-int main() 
-{
-    mainHelper();
     return 0;
 }
