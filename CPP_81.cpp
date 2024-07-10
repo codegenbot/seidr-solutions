@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <iostream>
 #include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
@@ -13,6 +14,6 @@ std::vector<std::string> numerical_letter_grade(const std::vector<double>& grade
 }
 
 int main(){
-    std::vector<std::string> expected_result = {"E", "D-"};
-    assert(issame(numerical_letter_grade({0, 0.7}), expected_result));
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+    return 0;
 }
