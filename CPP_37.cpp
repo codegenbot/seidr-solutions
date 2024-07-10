@@ -14,10 +14,6 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    std::vector<float> numbers = {3.0, 2.0, 4.0, 1.0, 6.0, 5.0};
-    sort_even(numbers);
-    for (const auto& num : numbers) {
-        std::cout << num << " ";
-    }
+    sort_even({4.0, 2.0, 6.0, 1.0, 3.0, 5.0});
     return 0;
 }
