@@ -2,6 +2,13 @@
 #include <vector>
 #include <iostream>
 
+bool issame(int a, int b) {
+    if (a == b)
+        return true;
+    else
+        return false;
+}
+
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
     while (k--) {
