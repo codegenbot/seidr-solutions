@@ -1,3 +1,4 @@
+```
 def leaders(arr):
     max_seen = arr[-1]
     return [max_seen] + [x for x in reversed(arr) if x >= max_seen]
