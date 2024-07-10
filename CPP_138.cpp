@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 
 bool is_equal_to_sum_even(int n) {
-    bool result = false;
     for (int i = 2; i <= n; i += 2) {
         int sum = 0;
         for (int j = 2; j <= n; j += 2) {
@@ -9,19 +9,19 @@ bool is_equal_to_sum_even(int n) {
                 break;
             sum += j;
             if (sum == n)
-                result = true;
+                return true;
         }
     }
-    return result;
+    return false;
 }
 
 int main() {
-    int num;
+    int choice;
     std::cout << "Enter a number: ";
-    std::cin >> num;
-
-    std::cout << "Is the sum of even numbers equal to the entered number? "
-              << is_equal_to_sum_even(num) << std::endl;
-    
+    std::cin >> choice;
+    if (is_equal_to_sum_even(choice))
+        std::cout << "The given number is equal to the sum of even numbers up to that number." << std::endl;
+    else
+        std::cout << "The given number is not equal to the sum of even numbers up to that number." << std::endl;
     return 0;
 }
