@@ -1,17 +1,18 @@
 def find_closest_elements(arr):
+    n = len(arr)
     arr.sort()
-    closest_pair = (abs(arr[0] - arr[1]), (arr[0], arr[1]))
-    for i in range(1, len(arr) - 1):
-        if abs(arr[i] - arr[i+1]) < closest_pair[0]:
-            closest_pair = (abs(arr[i] - arr[i+1]), (arr[i], arr[i+1]))
-    return closest_pair[1]
+    if n % 2 == 0:
+        mid1 = arr[n//2 - 1]
+        mid2 = arr[n//2]
+    else:
+        mid1 = mid2 = arr[n//2]
+    closest_elements = [mid1, mid2]
+    return closest_elements
 
-def check(lst):
-    result = []
-    for i in range(len(lst) - 1):
-        closest_pair = (abs(lst[i] - lst[i+1]), (lst[i], lst[i+1]))
-        result.append(closest_pair)
-    return min(result)
+def check():
+    input_str = input("Enter a number: ")
+    arr = list(map(int, input_str.split()))
+    closest_elements = find_closest_elements(arr)
+    print(closest_elements)
 
-arr = list(map(int, input().split()))
-print(check(find_closest_elements(arr)))
+check()
