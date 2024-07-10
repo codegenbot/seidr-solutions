@@ -1,20 +1,18 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
-auto compare_one(int a, double b) {
-    if (b > a) {
-        return b;
-    } else if (a == b) {
-        return 0;
-    } else {
-        return a;
+auto CompareOne(int a, double b) {
+    if (cin.fail()) {  
+        string str;
+        cin >> str;      
+        return str;
     }
+    return (b > a) ? b : a;
 }
 
-int main_func() {
+int main() {
     int a;
     cout << "Enter an integer: ";
     cin >> a;
@@ -30,7 +28,7 @@ int main_func() {
     } else {
         // Process double value (b)
         // or handle string input as needed
-        cout << "The result is: " << compare_one(a, b) << endl;
+        cout << "The result is: " << CompareOne(a, b) << endl;
     }
 
     return 0;
