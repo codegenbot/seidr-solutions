@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -36,3 +37,4 @@ int main() {
         cout << i << endl;
     }
     return 0;
+}
