@@ -1,4 +1,4 @@
-def find_negative_sum(vector):
+def basement(vector):
     index = -1
     total = 0
     for i, num in enumerate(vector):
