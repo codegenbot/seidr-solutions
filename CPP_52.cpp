@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -28,6 +29,16 @@ int main() {
         int temp; 
         cin >> temp; 
         numbers.push_back(temp);
+    }
+    
+    int threshold;
+    cout << "Enter a threshold value: ";
+    cin >> threshold;
+
+    if(below_threshold(numbers, threshold)) {
+        cout << "At least one number is below the threshold." << endl;
+    } else {
+        cout << "No number is below the threshold." << endl;
     }
     
     return 0;
