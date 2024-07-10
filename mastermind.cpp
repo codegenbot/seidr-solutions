@@ -18,7 +18,7 @@ int mastermind(std::string code, std::string guess) {
                 count++;
             }
         }
-        white += std::min(count, black - count);
+        white += min(count, black - count);
     }
 
     return std::make_pair(white, black);
