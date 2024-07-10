@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -17,8 +18,8 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& a, con
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
-    assert(issame(filter_by_prefix({"xxx", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), std::vector<std::string>{"xxx", "xxxAAA", "xxx"}));
+    assert(issame(filter_by_prefix({"xxx", "xxxAAA", "xxx"}, "xxx"), std::vector<std::string>{"xxx", "xxxAAA", "xxx"}));
 
     return 0;
 }
