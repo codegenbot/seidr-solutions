@@ -1,6 +1,2 @@
-vector<int> result = l;
-    for (int i = 2; i < l.size(); i += 3) {
-        sort(result.begin() + i - 2, result.begin() + i + 1);
-    }
-    return result;
-}
+sort(l.begin(), l.end(), [](int a, int b) { return a % 3 == 0 || b % 3 == 0 ? a < b : false; });
+return l;
