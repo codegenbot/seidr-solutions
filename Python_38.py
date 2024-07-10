@@ -1,3 +1,4 @@
+```Python
 def decode_cyclic():
     while True:
         s = input("Enter a string: ")
@@ -15,4 +16,5 @@ def decode_cyclic():
             return result
         else:
             print("Invalid input. Please try again.")
+
 print(decode_cyclic())
