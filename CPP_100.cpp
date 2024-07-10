@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <random>
 
-bool std::issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size()!=b.size()) return false;
     for(int i=0;i<a.size();i++){
         if(a[i]!=b[i])return false;
@@ -11,7 +11,7 @@ bool std::issame(std::vector<int> a, std::vector<int> b){
 
 }
 
-int std::make_a_pile(int n) {
+int make_a_pile(int n) {
     std::random_device rd;
     std::mt19937 mt(rd());
     std::vector<int> pile;
@@ -26,10 +26,8 @@ int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-
-    int pile = make_a_pile(n);
-
-    if(std::issame({1}, {pile})){
+    
+    if(issame({1}, {make_a_pile(n)}) ){
         std::cout << "The piles are the same." << std::endl;
     } else {
         std::cout << "The piles are not the same." << std::endl;
