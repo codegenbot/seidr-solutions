@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
@@ -8,6 +8,18 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     }
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b, std::vector<std::string> c) {
+    if (a.size() != b.size() || a.size() != c.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (!issame(a[i], b[i], c[i])) {
             return false;
         }
     }
@@ -28,16 +40,4 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
         }
     }
     return input;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b, std::vector<std::string> c) {
-    if (a.size() != b.size() || a.size() != c.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (!issame(a[i], b[i], c[i])) {
-            return false;
-        }
-    }
-    return true;
 }
