@@ -20,7 +20,7 @@ def bowling_score(bowls):
             pass
         else:
             score += int(rolls[i])
-            if frame < 10 and i + 1 < len(rolls) and rolls[i + 1] == "/":
+            if frame < 10 and i < len(rolls) - 2 and rolls[i + 2] == "/":
                 score += 10 - int(rolls[i])
             frame += 1
 
