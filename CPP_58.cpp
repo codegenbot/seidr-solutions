@@ -27,6 +27,7 @@ vector<int> common(vector<int> a, vector<int> b) {
         }
     }
     return result;
+
 }
 
 int main() {
