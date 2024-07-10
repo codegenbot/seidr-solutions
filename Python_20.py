@@ -24,6 +24,7 @@ def find_closest_elements() -> Tuple[float, float]:
 
         except ValueError:
             print("Invalid input. Please enter valid decimal or integer values.")
+            continue
 
 
 print(find_closest_elements())
