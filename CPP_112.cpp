@@ -1,15 +1,15 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
-    std::string temp = "";
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
+    string temp = "";
     for (int i = 0; i < s.length(); i++) {
         bool found = false;
         for (int j = 0; j < c.length(); j++) {
@@ -23,8 +23,8 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         }
     }
     result.push_back(temp);
-    std::string rev = temp;
-    std::reverse(rev.begin(), rev.end());
+    string rev = temp;
+    reverse(rev.begin(), rev.end());
     if (temp == rev) {
         result.push_back("True");
     } else {
