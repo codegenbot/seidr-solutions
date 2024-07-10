@@ -4,20 +4,18 @@ using namespace std;
 vector<int> leaders(vector<int>& vec) {
     vector<int> res;
     int n = vec.size();
-    int maxRight = vec.back();
+    int max_right = vec.back();
     for(int i=n-1; i>=0; i--){
-        if(vec[i] >= maxRight){
-            maxRight = vec[i];
-            res.push_back(maxRight);
+        if(vec[i] >= max_right){
+            res.push_back(vec[i]);
+            max_right = vec[i];
         }
     }
-    reverse(res.begin(), res.end());
     return res;
 }
 
 int main() {
     vector<int> vec = {16, 17, 4, 3, 5, 2};
-    vector<int> leadersVec = leaders(vec);
-    for(int i:leadersVec) cout << i << " ";
+    for(int i: leaders(vec)) cout << i << " ";
     return 0;
 }
