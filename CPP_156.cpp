@@ -8,7 +8,7 @@ string int_to_mini_roman(int number) {
     for (const auto& pair : roman) {
         while (number >= pair.first) {
             number -= pair.first;
-            result += std::tolower(pair.second[0]) + pair.second.substr(1);
+            result += pair.second;
         }
     }
 
