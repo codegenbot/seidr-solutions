@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a == b)
         return true;
     else
