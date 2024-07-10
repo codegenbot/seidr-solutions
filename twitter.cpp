@@ -16,7 +16,7 @@ string validateTweet(string tweet) {
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    getline(cin, tweet) >> ws; // Remove the leading whitespace
+    getline(cin, tweet) >> ws; // Remove newline character
     cout << validateTweet(tweet) << endl;
     return 0;
 }
