@@ -1,21 +1,20 @@
-vector<float> l_copy = l;
-    vector<float> even_values;
-    
-    for(int i = 0; i < l.size(); i++){
-        if(i % 2 == 0){
-            even_values.push_back(l[i]);
+vector<float> even_elements;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 2 == 0) {
+            even_elements.push_back(l[i]);
         }
     }
-    
-    sort(even_values.begin(), even_values.end());
-    
+    sort(even_elements.begin(), even_elements.end());
+
+    vector<float> l_prime;
     int even_index = 0;
-    for(int i = 0; i < l.size(); i++){
-        if(i % 2 == 0){
-            l_copy[i] = even_values[even_index];
-            even_index++;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 2 == 0) {
+            l_prime.push_back(even_elements[even_index++]);
+        } else {
+            l_prime.push_back(l[i]);
         }
     }
-    
-    return l_copy;
+
+    return l_prime;
 }
