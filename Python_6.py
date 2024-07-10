@@ -1,6 +1,5 @@
-Here is the modified code:
-
 ```
+print("Hello")
 def parse_nested_parens(paren_string: str) -> list:
     if not paren_string:
         return []
@@ -30,4 +29,4 @@ def parse_nested_parens(paren_string: str) -> list:
 
     groups.append(int(temp_group)) if temp_group.isdigit() else []
     
-    return groups if len(groups) > 1 or (len(groups) == 1 and not temp_group) else [groups[0]]
+    return [] if len(groups) <= 1 else groups
