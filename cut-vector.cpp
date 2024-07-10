@@ -1,5 +1,4 @@
-using namespace std;
-pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
+auto cutVector(vector<int>& v) -> pair<vector<int>, vector<int>> {
     int n = v.size();
     long long total_sum = accumulate(v.begin(), v.end(), 0LL);
     
