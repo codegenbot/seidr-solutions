@@ -4,7 +4,9 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::cout << "Output corresponding to the task description" << std::endl;
+    int result = n * n;
+
+    std::cout << "The square of " << n << " is: " << result << std::endl;
 
     return 0;
 }
