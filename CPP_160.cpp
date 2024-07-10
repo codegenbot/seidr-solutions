@@ -5,48 +5,33 @@
 
 int do_algebra(vector<string> operators, vector<int> operands) {
     int result = 0;
+    int sign = 1;
     for (int i = 0; i < operators.size(); i++) {
         if (operators[i] == "+") {
-            result += operands[i];
+            result += sign * operands[i];
         } else if (operators[i] == "-") {
-            result -= operands[i];
+            result -= sign * operands[i];
+            sign = -1;
         } else if (operators[i] == "*") {
-            int temp = 1;
+            int temp = 0;
             for (int j = i; j < operators.size(); j++) {
-                if (operators[j] == "*") {
+                if (j < operators.size() - 1 && operators[j + 1] == "*") {
                     temp *= operands[j + 1];
-                } else if (operators[j] == "/") {
+                } else if (j < operators.size() - 1 && operators[j + 1] == "/") {
                     temp /= operands[j + 1];
-                } else if (operators[j] == "**") {
-                    temp = pow(temp, operands[j + 1]);
                 }
             }
-            result += temp;
-            i = j; // skip the rest of the loop
+            result += sign * temp;
         } else if (operators[i] == "/") {
             int temp = operands[i];
             for (int j = i + 1; j < operators.size(); j++) {
-                if (operators[j] == "*") {
+                if (j < operators.size() - 1 && operators[j + 1] == "*") {
                     temp *= operands[j + 1];
-                } else if (operators[j] == "/") {
+                } else if (j < operators.size() - 1 && operators[j + 1] == "/") {
                     temp /= operands[j + 1];
-                } else if (operators[j] == "**") {
-                    temp = pow(temp, operands[j + 1]);
                 }
             }
-            result += temp;
-        } else if (operators[i] == "**") {
-            int temp = 1;
-            for (int j = i; j < operators.size(); j++) {
-                if (operators[j] == "*") {
-                    temp *= operands[j + 1];
-                } else if (operators[j] == "/") {
-                    temp /= operands[j + 1];
-                } else if (operators[j] == "**") {
-                    temp = pow(temp, operands[j + 1]);
-                }
-            }
-            result += pow(operands[0], temp);
+            result += sign / temp;
         }
     }
     return result;
