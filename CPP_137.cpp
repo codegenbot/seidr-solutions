@@ -2,18 +2,24 @@
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == b.type()) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
+        int x = boost::any_cast<int>(a);
+        int y = boost::any_cast<int>(b);
+        if (x > y) {
             return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
+        } else if (x < y) {
             return b;
+        } else {
+            return boost::any(0);
         }
     }
 
-    if (boost::any_cast<double>(a) > boost::any_cast<double>(b)) {
+    double x = boost::any_cast<double>(a);
+    double y = boost::any_cast<double>(b);
+    if (x > y) {
         return a;
-    } else if (boost::any_cast<double>(a) < boost::any_cast<double>(b)) {
+    } else if (x < y) {
         return b;
+    } else {
+        return boost::any(0.0);
     }
-
-    return b;
 }
