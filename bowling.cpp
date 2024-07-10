@@ -1,35 +1,21 @@
-int bowlingScore(string s) {
+int bowlingScore(const string& input) {
     int score = 0;
-    int currentRolls = 0;
-    int currentFrame = 1;
+    bool lastRollStrike = false;
 
-    for(int i = 0; i < s.length(); i++) {
-        if(s[i] == 'X') {
-            score += 10 + (currentFrame == 10 ? 10 : 20);
-            currentRolls++;
-            currentFrame++;
-        } else if(s[i] == '/') {
-            int thisRoll = 10 - currentRolls;
-            score += thisRoll + (currentFrame == 10 ? thisRoll : 2 * thisRoll);
-            currentRolls = 0;
-            currentFrame++;
+    vector<int> frames;
+    for (char c : input) {
+        if (c == 'X') {
+            frames.push_back(10);
+            lastRollStrike = true;
+        } else if (c == '/') {
+            frames.push_back(10 - (frames.back() + 1));
+            lastRollStrike = false;
         } else {
-            int thisRoll = s[i] - '0';
-            if(thisRoll == 10) {
-                score += 10;
-                currentRolls++;
-                currentFrame++;
+            int frameScore = c - '0';
+            if (!lastRollStrike) {
+                frames.push_back(frameScore);
             } else {
-                score += thisRoll;
-                currentRolls++;
-                if(currentRolls < 2) {
-                    continue;
-                }
-                int nextRoll = s[i+1] - '0';
-                i++; // skip the '/'
-                score += nextRoll;
-                currentRolls++;
-                currentFrame++;
+                frames.back() += frameScore;
             }
         }
     }
