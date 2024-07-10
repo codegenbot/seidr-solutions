@@ -1,7 +1,3 @@
-#include <algorithm>
-#include <vector>
-#include <iostream>
-
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return (a == b);
 }
@@ -27,13 +23,13 @@ It distinct(It first, It last) {
     return result.begin();
 }
 
-void solveProblem() {
+int main() {
     std::vector<int> input;
     int n;
-    cin >> n;
+    std::cin >> n;
     for(int i = 0; i < n; i++) {
         int x;
-        cin >> x;
+        std::cin >> x;
         input.push_back(x);
     }
     
@@ -42,11 +38,6 @@ void solveProblem() {
     std::sort(output.begin(), output.end());
     
     for (int i : output) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-}
-
-int main() {
-    solveProblem();
-    return 0;
 }
