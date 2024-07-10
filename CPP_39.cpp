@@ -19,3 +19,4 @@ int prime_fib(int n) {
         b = a - b;
     }
     return b;
+}
