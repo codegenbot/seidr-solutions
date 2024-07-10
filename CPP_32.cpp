@@ -1,10 +1,16 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <cmath> 
+#include <cmath>
+
 using namespace std;
 
-double poly(vector<double> coeffs, double x); 
+double poly(vector<double> coeffs, double x) {
+    double result = 0.0;
+    for (int i = 0; i < coeffs.size(); i++) {
+        result += coeffs[i] * pow(x, i);
+    }
+    return result;
+}
 
 double find_zero(vector<double> coeffs) {
     double x = 2.0;
@@ -15,14 +21,6 @@ double find_zero(vector<double> coeffs) {
         x -= fx / poly(coeffs, x);
     }
     return -1.0;
-}
-
-double poly(vector<double> coeffs, double x) {
-    double result = 0.0;
-    for (int i = 0; i < coeffs.size(); i++) {
-        result += coeffs[i] * pow(x, i);
-    }
-    return result;
 }
 
 int main() {
