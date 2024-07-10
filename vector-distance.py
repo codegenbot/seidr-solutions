@@ -1,6 +1,7 @@
+import math
+
 n = int(input())
 vector1 = list(map(float, input().split()))
-
 n = int(input())
 vector2 = list(map(float, input().split()))
 
