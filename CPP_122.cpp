@@ -1,4 +1,3 @@
-```c++
 int add_elements(std::vector<int> arr, int k) {
     if (k > arr.size()) k = arr.size();
     int sum = 0;
@@ -8,4 +7,3 @@ int add_elements(std::vector<int> arr, int k) {
         }
     }
     return sum;
-}
