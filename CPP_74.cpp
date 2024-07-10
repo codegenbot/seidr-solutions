@@ -64,4 +64,3 @@ int main() {
     vector<vector<string>> matches = {};
     cout << "Count of matches is: " << total_match(input, matches) << endl;
     return 0;
-}
