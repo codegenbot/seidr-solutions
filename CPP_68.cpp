@@ -1,20 +1,19 @@
-Here is the solution:
+vector<pair<int, int>> pluck(vector<int> arr) {
+    if (arr.empty()) return {};
 
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
-    if (arr.empty()) return result;
-
-    int smallestEvenValue = INT_MAX;
-    int index = -1;
+    vector<pair<int, int>> result;
+    int minEvenValue = INT_MAX;
+    int minIndex = -1;
 
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallestEvenValue) {
-            smallestEvenValue = arr[i];
-            index = i;
+        if (arr[i] % 2 == 0 && arr[i] < minEvenValue) {
+            minEvenValue = arr[i];
+            minIndex = i;
         }
     }
 
-    result.push_back(smallestEvenValue);
-    result.push_back(index);
+    if (minIndex != -1) result.push_back({minEvenValue, minIndex});
+    else result.push_back({});
 
     return result;
+}
