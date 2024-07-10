@@ -1,22 +1,19 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include <cassert>
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
-
-std::vector<std::string> filter_by_prefix(const std::vector<std::string>& a, const std::string& prefix) {
-    std::vector<std::string> filtered_strings;
-    for (const std::string& str : a) {
-        if (str.find(prefix) == 0) {
-            filtered_strings.push_back(str);
-        }
-    }
-    return filtered_strings;
-}
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
+}
+
+std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix) {
+    std::vector<std::string> result;
+    for (const auto& str : vec) {
+        if (str.find(prefix) == 0) {
+            result.push_back(str);
+        }
+    }
+    return result;
 }
 
 int main() {
