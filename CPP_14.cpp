@@ -2,12 +2,12 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& vec) {
-    if (vec.size() != 1 || vec[0].empty()) {
+bool issame(const std::vector<std::string>&) {
+    if (size() != 1 || front().empty()) {
         return false;
     }
-    for (const auto& s : vec) {
-        if (s != vec[0]) {
+    for (const auto& s : *this) {
+        if (s != front()) {
             return false;
         }
     }
@@ -36,10 +36,6 @@ int main() {
         } else {
             std::cout << "The prefixes are not the same." << std::endl;
         }
-    }
-
-    if (!issame(all_prefixes("WWW"))) {
-        std::cout << "The prefixes are different." << std::endl;
     }
 
     return 0;
