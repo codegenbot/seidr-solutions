@@ -1,7 +1,8 @@
-#include <iostream>
+```cpp
 #include <vector>
+using namespace std;
 
-int count_nums(std::vector<int> nums) {
+int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num > 0) {
@@ -9,7 +10,7 @@ int count_nums(std::vector<int> nums) {
             bool has_negative_digit = false;
             while (num != 0) {
                 int digit = abs(num % 10);
-                if ((digit >= 5 && digit <= 9) || digit == 8 || digit == 9) {
+                if ((digit >= 5 && digit <= 8) || digit == 9) {
                     sum_of_digits += digit - 5;
                 } else if (digit > 4) {
                     sum_of_digits += digit - 5;
@@ -18,7 +19,7 @@ int count_nums(std::vector<int> nums) {
                 }
                 num /= 10;
             }
-            if (!has_negative_digit || sum_of_digits > 0) {
+            if (!has_negative_digit || sum_of_digits >= 1) {
                 count++;
             }
         } else if (num < 0) {
@@ -26,7 +27,7 @@ int count_nums(std::vector<int> nums) {
             bool has_negative_digit = false;
             while (num != 0) {
                 int digit = abs(num % 10);
-                if ((digit >= 5 && digit <= 9) || digit == 8 || digit == 9) {
+                if ((digit >= 5 && digit <= 8) || digit == 9) {
                     sum_of_digits += digit - 5;
                 } else if (digit > 4) {
                     sum_of_digits += digit - 5;
@@ -36,7 +37,7 @@ int count_nums(std::vector<int> nums) {
                 num /= 10;
                 has_negative_digit = true;
             }
-            if (!has_negative_digit || sum_of_digits > 0) {
+            if (!has_negative_digit || sum_of_digits >= 1) {
                 count++;
             }
         }
@@ -45,8 +46,6 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {1, -2, 3};
-    int result = count_nums(nums);
-    std::cout << "Result: " << result << std::endl;
+    assert(count_nums({1}) == 1);
     return 0;
 }
