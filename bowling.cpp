@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <iostream>
 #include <string>
 
@@ -12,10 +9,10 @@ int bowlingScore(std::string s) {
             score += 30;
             roll++;
         } else if (c == '/') {
-            score += (10 - (s[roll] - '0') + (s[roll+1] - '0')) * 2;
+            score += (10 - (s[roll] - '0')) * 2;
             roll+=2;
         } else {
-            score += (c - '0');
+            score += (s[roll] - '0');
             roll++;
         }
     }
