@@ -1,4 +1,4 @@
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
 bool is_prime(int n) {
