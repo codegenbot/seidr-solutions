@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <algorithm>
 #include <random>
@@ -11,7 +12,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 }
 
-std::vector<int> make_a_pile(int n) {
+std::vector make_a_pile(int n) {
     std::random_device rd;
     std::mt19937 mt(rd());
     std::vector<int> pile;
@@ -23,18 +24,13 @@ std::vector<int> make_a_pile(int n) {
 }
 
 void problem100(int n) {
-    int num;
+    int input;
     std::cout << "Enter a number: ";
-    std::cin >> num;
+    std::cin >> input;
 
-    if(issame({1}, make_a_pile(num))){
+    if(issame({1}, make_a_pile(input))){
         std::cout << "The piles are the same." << std::endl;
     } else {
         std::cout << "The piles are not the same." << std::endl;
     }
-}
-
-int main() {
-    problem100(8);
-    return 0;
 }
