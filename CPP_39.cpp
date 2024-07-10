@@ -12,18 +12,19 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
-    int a = 0, b = 1, fib = 0;
-    int count = 0;
-
+    int a = 0, b = 1, fib = 1;
     while (true) {
-        fib = a + b;
-        a = b;
-        b = fib;
         if (isPrime(fib)) {
-            count++;
-            if (count == n)
+            if (++n == 1)
+                return a + 1;
+            else if (--n == 1)
                 return fib;
+            a = b;
+            b = fib;
+            fib = a + b;
         }
+        else
+            fib = a + b;
     }
 }
 
