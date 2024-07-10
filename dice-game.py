@@ -1,8 +1,7 @@
-Here is the completed code:
-
-n = int(input())
-m = int(input())
-
-peter_wins = sum(1 for i in range(m+1) for j in range(i+1, n+1)) / (n*m)
-
-print(f"{peter_wins:.4f}")
+def dice_game(n, m):
+    if n < 1 or m < 1:
+        return "Error: Input should be positive integers."
+    total_outcomes = n * m
+    peters_wins = sum(1 for i in range(m + 1, n * m) if (i // n) + 1 > (i % n) + 1)
+    probability = peters_wins / total_outcomes
+    return str(probability).rstrip("0").lstrip("0")[0] if probability < 1 else "1.0"
