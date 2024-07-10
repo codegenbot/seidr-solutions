@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-#include <cassert> // Include cassert for the assert() function
-
+#include <cassert>
 using namespace std;
 
 string encrypt(string s) {
@@ -28,6 +27,6 @@ string encrypt(string s) {
 }
 
 int main() {
-    assert(encrypt("a") == "e"); // Add assert() function to check the result
+    assert(encrypt("a") == "e");
     return 0;
 }
