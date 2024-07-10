@@ -1,8 +1,7 @@
-```
+```cpp
 #include <algorithm>
 #include <vector>
-#include <cassert>
-#include <string> 
+#include <cassert> 
 using namespace std;
 
 string anti_shuffle(string sStr) {
