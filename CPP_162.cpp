@@ -1,7 +1,4 @@
-#include <string>
-#include <openssl/ssl.h>
-#include <openssl/x509v3.h>
-#include <openssl/md5.h>
+#include <openssl/evp.h>
 
 using namespace std;
 
