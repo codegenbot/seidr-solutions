@@ -9,7 +9,7 @@ namespace contest {
     std::vector<int> even_odd_palindrome(int n) {
         std::vector<int> result;
         
-        for (int i = n; i >= 1; --i) {
+        for (int i = 1; i <= n; ++i) {
             result.push_back(i);
         }
         
