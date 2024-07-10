@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```
 def solve_task():
     while True:
         try:
