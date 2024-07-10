@@ -1,16 +1,27 @@
 Here is the solution:
 
 string camelCase(string s) {
-    string res = "";
+    string result = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == '-') {
-            res += toupper(s[++i]);
+            i++;
+            while (i < s.length() && s[i] == ' ') {
+                i++;
+            }
+            if (result != "") {
+                result += char(toupper(s[i]));
+            } else {
+                result = toupper(s[i]);
+            }
         } else if (s[i] == ' ') {
-            res += " ";
+            continue;
         } else {
-            if (res.length() > 0) res[0] = tolower(res[0]);
-            res += s[i];
+            if (result != "") {
+                result += char(tolower(s[i]));
+            } else {
+                result = tolower(s[i]);
+            }
         }
     }
-    return res;
+    return result;
 }
