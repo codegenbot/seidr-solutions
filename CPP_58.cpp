@@ -1,5 +1,8 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
+
+using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
     sort(l1.begin(), l1.end());
