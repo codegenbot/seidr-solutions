@@ -1,1 +1,1 @@
-if (extensions.empty()) return "";
+assert(!extensions.empty());

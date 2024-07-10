@@ -12,8 +12,12 @@ bool areSame(vector<string> a, vector<string> b){
 
 vector<string> bf(const string& s1, const string& s2) {
     vector<string> common_chars;
-    sort(s1.begin(), s1.end());
-    sort(s2.begin(), s2.end());
-    set_intersection(s1.cbegin(), s1.cend(), s2.cbegin(), s2.cend(), back_inserter(common_chars));
+    string sorted_s1 = s1;
+    string sorted_s2 = s2;
+    sort(sorted_s1.begin(), sorted_s1.end());
+    sort(sorted_s2.begin(), sorted_s2.end());
+    
+    std::set_intersection(sorted_s1.begin(), sorted_s1.end(), sorted_s2.begin(), sorted_s2.end(), back_inserter(common_chars));
+    
     return common_chars;
 }

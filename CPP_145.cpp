@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <numeric>
 #include <cassert>
+#include <cmath>
 
 using namespace std;
 
