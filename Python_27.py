@@ -1,4 +1,4 @@
-def convert_case(text):
-    return text.swapcase()
+def convert_case(s):
+    return s.lower()
 
-print(convert_case(input()))
+print(convert_case(input("Enter a string: ")))
