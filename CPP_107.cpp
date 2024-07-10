@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+
 using namespace std;
 
 vector<int> even_odd_palindrome(int n){
