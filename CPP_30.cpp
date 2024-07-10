@@ -3,7 +3,7 @@
 
 bool issame(std::vector<float> a, std::vector<float> b);
 
-std::vector<float> get_positive(std::vector<float> l) {
+std::vector<float> get_positive(const std::vector<float>& l) {
     std::vector<float> positive_numbers;
     for (float num : l) {
         if (num > 0) {
