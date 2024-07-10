@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -13,7 +14,7 @@ std::vector<int> leaders(std::vector<int>& arr) {
         res.push_back(arr[i]);
     }
     
-    res.push_back(arr[0]);
+    res.push_back(arr[n-1]); 
     return res;
 }
 
