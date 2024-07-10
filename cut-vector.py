@@ -5,7 +5,7 @@ def cut_vector(lst):
     for i in range(1, len(lst)):
         diff = abs(sum(lst[:i]) - sum(lst[i:]))
 
-        if diff == 0 or (diff < min_diff):
+        if diff < min_diff and diff > 0:
             min_diff = diff
             split_idx = i
 
