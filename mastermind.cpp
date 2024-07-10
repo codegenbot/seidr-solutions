@@ -14,13 +14,11 @@ int main() {
     do {
         cout << "Enter the code (4 characters from A to F): ";
         cin >> code;
-        cin.ignore();
     } while (!isValidInput(code));
 
     do {
         cout << "Enter your guess (4 characters from A to F): ";
         cin >> guess;
-        cin.ignore();
     } while (!isValidInput(guess));
 
     map<char, int> codeFreq, guessFreq;
