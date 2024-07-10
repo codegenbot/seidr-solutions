@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <cassert>
 
 namespace cpp9 {
     bool issame(const std::vector<int>& a, const std::vector<int>& b) {
@@ -17,10 +18,10 @@ namespace cpp9 {
 }
 
 int main() {
-    std::vector<int> input = {1, 3, 5, 2, 4, 6};
-    std::vector<int> result = cpp9::rolling_max(input);
-    for (int num : result) {
-        std::cout << num << " ";
-    }
+    std::vector<int> nums = {1, 3, 5, 2, 7, 4, 8};
+    std::vector<int> max_values = cpp9::rolling_max(nums);
+
+    assert(cpp9::issame(cpp9::rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+
     return 0;
 }
