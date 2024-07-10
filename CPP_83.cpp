@@ -4,24 +4,9 @@ using namespace std;
 
 int starts_one_ends(int n) {
     int count = 0;
-    for (int i = 1; i <= 9; ++i) {
-        if (i == 1 || i == n) {
+    for (long long i = 1; i <= n && i >= 10; i++) {
+        if (i % 10 == 1 || i / pow(10, (log10(i))) % 10 == 1)
             count++;
-        }
-    }
-    for (int i = 10; i <= pow(10, n - 1); ++i) {
-        int num = i;
-        bool start_with_one = false, end_with_one = false;
-        while (num > 0) {
-            int digit = num % 10;
-            if (digit == 1) {
-                start_with_one = true;
-            }
-            num /= 10;
-        }
-        if (start_with_one || i % 10 == 1) {
-            count++;
-        }
     }
     return count;
 }
