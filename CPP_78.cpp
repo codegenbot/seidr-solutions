@@ -1,9 +1,11 @@
+```cpp
 #include <iostream>
 #include <string>
 
 int hex_key(const std::string& num) {
     int count = 0;
-    for (char c : num) {
+    for (std::size_t i = 0; i < num.size(); ++i) {
+        char c = num[i];
         if ((c >= '2' && c <= '7') || (c == 'B' || c == 'D' || c == 'F' || c == 'b' || c == 'd' || c == 'f')) {
             count++;
         }
