@@ -1,12 +1,8 @@
-```c++
-bool isPrime(int n){
-    if(n <= 1) return false;
-    for(int i=2; i*i<=n; i++){
-        if(n%i == 0) return false;
-    }
-    return true;
+```c
+#include <iostream>
+using namespace std;
 
-int skjkasdkd(std::vector<int> lst){
+int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
     for(int i: lst){
         if(isPrime(i) && i > maxPrime)
@@ -18,9 +14,17 @@ int skjkasdkd(std::vector<int> lst){
         maxPrime /= 10;
     }
     return sum;
+}
+
+bool isPrime(int n){
+    if(n <= 1) return false;
+    for(int i=2; i*i<=n; i++){
+        if(n%i == 0) return false;
+    }
+    return true;
 
 int main() {
-    std::vector<int> lst = {127, 97, 8192};
-    assert (skjkasdkd(lst) == 10);
-    std::cout << "The sum is: " << skjkasdkd(lst) << std::endl;
+    vector<int> lst = {127, 97, 8192};
+    cout << "The sum is: " << skjkasdkd(lst) << endl;
     return 0;
+}
