@@ -1,3 +1,3 @@
-```
-def car_race_collision(num_tracks):
-    return num_tracks * (num_tracks - 1) // 2
+def car_race_collision(n):
+    tracks = int(input("Enter the number of tracks: "))
+    return tracks * (tracks - 1) // 2
