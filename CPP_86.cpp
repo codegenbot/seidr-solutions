@@ -1,17 +1,25 @@
 string anti_shuffle(string s){
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == ' '){
-            result += " ";
-            continue;
+    for (const auto& word : split(s, ' ')) {
+        string temp = "";
+        for (char c : word) {
+            temp += c;
         }
-        string word = "";
-        for(int j=i; j<=s.find(' ',i); j++){
-            word += s[j];
-        }
-        sort(word.begin(),word.end());
-        result += word;
-        i = s.find(' ',i);
+        sort(temp.begin(), temp.end());
+        result += temp + " ";
     }
-    return result;
+    return result.substr(0, result.size() - 1);
+}
+
+string split(const string& str, char ch) {
+    string s;
+    for (auto i = str.begin(); i != str.end(); ++i) {
+        if (*i == ch && !s.empty()) {
+            yield_return!(s);
+            s.clear();
+        } else {
+            s += *i;
+        }
+    }
+    yield_return!(s);
 }
