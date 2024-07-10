@@ -1,6 +1,6 @@
-```cpp
 #include <algorithm>
 #include <cassert>
+#include <iterator>
 using namespace std;
 
 string anti_shuffle(string sStr) {
@@ -15,9 +15,8 @@ string anti_shuffle(string sStr) {
                 word += sStr[j];
                 j++;
             }
-            vector<char> temp(word.begin(), word.end());
-            sort(temp.begin(), temp.end());
-            for (char c : temp) {
+            sort(word.begin(), word.end());
+            for (char c : word) {
                 result += c;
             }
             i = j - 1;
