@@ -2,15 +2,16 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool res = true;
+    bool result = true;
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'T') continue;
-        if (s[i] == 'F') return false;
-        if (s[i] == '|') {
-            res = false;
+        if (s[i] == 'f') {
+            result = false;
+            break;
         } else if (s[i] == '&') {
-            res = true;
+            result &= true;
+        } else if (s[i] == '|') {
+            result |= true;
         }
     }
-    return res;
+    return result;
 }
