@@ -24,3 +24,7 @@ std::vector<int> common(std::vector<int> v1, std::vector<int> v2) {
     }
     return result;
 }
+
+static_assert(issame(common({4, 3, 2, 8}, {2, 3, 5}), {2, 3}));
+static_assert(issame(common({1, 2, 3}, {4, 5, 6}), {}));
+static_assert(issame(common({1, 2, 3}, {1, 2, 3}), {1, 2, 3}));
